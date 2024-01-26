@@ -3755,8 +3755,6 @@ _ZNSt8functionIFvPN4node11EnvironmentENS0_8ExitCodeEEEC2EOS5_.exit.i.i: ; preds 
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %process_exit_handler_.i, i64 16, i1 false)
   store ptr %call.i.i.i, ptr %process_exit_handler_.i, align 8
-  %ref.tmp.sroa.2.0.process_exit_handler_.i.sroa_idx = getelementptr inbounds i8, ptr %env, i64 2704
-  store i64 0, ptr %ref.tmp.sroa.2.0.process_exit_handler_.i.sroa_idx, align 8
   %_M_manager.i.i.i8 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   %_M_manager3.i.i.i = getelementptr inbounds i8, ptr %env, i64 2712
   %6 = load ptr, ptr %_M_manager3.i.i.i, align 8
