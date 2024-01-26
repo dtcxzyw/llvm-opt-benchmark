@@ -2890,6 +2890,8 @@ _ZNSt8functionIFivEED2Ev.exit.i:                  ; preds = %invoke.cont.i
   store ptr @"_ZNSt17_Function_handlerIFivESt5_BindIFZN4pbrt3GUI14RefreshDisplayEvE3$_0NS2_5ImageEiEEE9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i, align 8
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %call.i31, i64 56
   store ptr %call.i.i2.i4.i, ptr %func.i.i, align 8
+  %agg.tmp.i.sroa.4.0.func.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i31, i64 48
+  store i64 0, ptr %agg.tmp.i.sroa.4.0.func.i.i.sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFivESt5_BindIFZN4pbrt3GUI14RefreshDisplayEvE3$_0NS2_5ImageEiEEE10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i.i.i, align 8
   %started.i.i = getelementptr inbounds i8, ptr %call.i31, i64 72
   store i8 0, ptr %started.i.i, align 8
