@@ -5907,7 +5907,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add169 = add nuw nsw i32 %l.0377, 2
   %shr170 = ashr i32 %n, %add169
   %add172 = add nuw nsw i32 %l.0377, 1
-  %shl = shl i32 2, %l.0377
+  %shl = shl nuw i32 2, %l.0377
   %cmp174374 = icmp sgt i32 %shl, 0
   br i1 %cmp174374, label %for.body176.lr.ph, label %for.cond.loopexit
 
@@ -5917,7 +5917,7 @@ for.body176.lr.ph:                                ; preds = %for.body
   %shr178 = ashr i32 %n, %add177
   %shr.i327 = ashr i32 %shr178, 2
   %cmp79.i = icmp sgt i32 %shr.i327, 0
-  %shl184 = shl i32 8, %l.0377
+  %shl184 = shl nuw i32 8, %l.0377
   %sub182 = sub nsw i32 0, %shr171
   %idx.ext1.i = sext i32 %sub182 to i64
   %idx.ext20.i = sext i32 %shl184 to i64
@@ -6071,7 +6071,7 @@ for.body192:                                      ; preds = %for.body192.prehead
   %add200 = add nuw nsw i32 %l.1384, 6
   %shr201 = ashr i32 %n, %add200
   %add203 = add nuw nsw i32 %l.1384, 1
-  %shl204 = shl i32 2, %l.1384
+  %shl204 = shl nuw i32 2, %l.1384
   %cmp207379 = icmp sgt i32 %shr201, 0
   br i1 %cmp207379, label %for.body209.lr.ph, label %for.cond188.loopexit
 
@@ -6079,13 +6079,13 @@ for.body209.lr.ph:                                ; preds = %for.body192
   %add194 = add nuw nsw i32 %l.1384, 2
   %shr195 = ashr i32 %n, %add194
   %shr199 = ashr i32 %shr195, 1
-  %shl197 = shl i32 8, %l.1384
+  %shl197 = shl nuw i32 8, %l.1384
   %idxprom.i335 = sext i32 %shl197 to i64
   %mul.i = shl i32 16, %l.1384
   %idxprom9.i = sext i32 %mul.i to i64
   %add13.i = or disjoint i32 %mul.i, 1
   %idxprom14.i336 = sext i32 %add13.i to i64
-  %mul16.i = mul nsw i32 %shl197, 3
+  %mul16.i = shl i32 24, %l.1384
   %idxprom19.i = sext i32 %mul16.i to i64
   %cmp86.i = icmp sgt i32 %shl204, 0
   %sub210 = sub nsw i32 0, %shr199
