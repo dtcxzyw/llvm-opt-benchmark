@@ -3205,11 +3205,10 @@ if.else.i:                                        ; preds = %if.end.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %conv.i = zext nneg i8 %11 to i64
-  %shl.i22 = shl i64 4096, %conv.i
+  %shl.i22 = shl nuw i64 4096, %conv.i
   %shl5.i = shl i64 %i.015.i, 12
-  %12 = add nuw nsw i64 %conv.i, 12
-  %div12.i = lshr i64 %shl5.i, %12
-  %mul.i = mul i64 %div12.i, %shl.i22
+  %12 = shl i64 -4096, %conv.i
+  %mul.i = and i64 %12, %shl5.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %13 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i.i = icmp ne i32 %13, 0
@@ -4857,11 +4856,10 @@ if.else.i84:                                      ; preds = %if.end.i82
 
 if.end3.i85:                                      ; preds = %if.end.i82
   %conv.i = zext nneg i8 %38 to i64
-  %shl.i = shl i64 4096, %conv.i
+  %shl.i = shl nuw i64 4096, %conv.i
   %shl5.i = shl i64 %add, 12
-  %39 = add nuw nsw i64 %conv.i, 12
-  %div12.i = lshr i64 %shl5.i, %39
-  %mul.i = mul i64 %div12.i, %shl.i
+  %39 = shl i64 -4096, %conv.i
+  %mul.i = and i64 %39, %shl5.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %40 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i.i = icmp ne i32 %40, 0
@@ -5464,11 +5462,10 @@ if.else:                                          ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %conv = zext nneg i8 %2 to i64
-  %shl = shl i64 4096, %conv
+  %shl = shl nuw i64 4096, %conv
   %shl5 = shl i64 %page, 12
-  %3 = add nuw nsw i64 %conv, 12
-  %div12 = lshr i64 %shl5, %3
-  %mul = mul i64 %div12, %shl
+  %3 = shl i64 -4096, %conv
+  %mul = and i64 %3, %shl5
   %idstr = getelementptr inbounds i8, ptr %rb, i64 76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4

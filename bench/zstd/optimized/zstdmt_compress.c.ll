@@ -2799,23 +2799,24 @@ return:                                           ; preds = %ZSTDMT_flushProduce
 declare ptr @POOL_create_advanced(i64 noundef, i64 noundef, ptr noundef byval(%struct.ZSTD_customMem) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ZSTDMT_createJobsTable(ptr nocapture noundef %nbJobsPtr, ptr nocapture noundef readonly byval(%struct.ZSTD_customMem) align 8 %cMem) unnamed_addr #0 {
+define internal fastcc noundef ptr @ZSTDMT_createJobsTable(ptr nocapture noundef %nbJobsPtr, ptr nocapture noundef readonly byval(%struct.ZSTD_customMem) align 8 %cMem) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %nbJobsPtr, align 4
   %1 = tail call i32 @llvm.ctlz.i32(i32 %0, i1 true), !range !14
   %sub.i = xor i32 %1, 31
-  %shl = shl i32 2, %sub.i
-  %conv = zext i32 %shl to i64
-  %mul = mul nuw nsw i64 %conv, 448
+  %shl = shl nuw i32 2, %sub.i
+  %2 = sub nuw nsw i32 32, %1
+  %3 = zext nneg i32 %2 to i64
+  %mul = shl nuw nsw i64 448, %3
   %cMem.val = load ptr, ptr %cMem, align 8
-  %2 = getelementptr inbounds i8, ptr %cMem, i64 16
+  %4 = getelementptr inbounds i8, ptr %cMem, i64 16
   %tobool.not.i = icmp eq ptr %cMem.val, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %cMem.val14 = load ptr, ptr %2, align 8
+  %cMem.val14 = load ptr, ptr %4, align 8
   %call.i = tail call ptr %cMem.val(ptr noundef %cMem.val14, i64 noundef %mul) #14
-  tail call void @llvm.memset.p0.i64(ptr align 1 %call.i, i8 0, i64 %mul, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i, i8 0, i64 %mul, i1 false)
   br label %ZSTD_customCalloc.exit
 
 if.end.i:                                         ; preds = %entry
@@ -2829,50 +2830,45 @@ ZSTD_customCalloc.exit:                           ; preds = %if.then.i, %if.end.
 
 if.end:                                           ; preds = %ZSTD_customCalloc.exit
   store i32 %shl, ptr %nbJobsPtr, align 4
-  %cmp318.not = icmp eq i32 %1, 0
-  br i1 %cmp318.not, label %return, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %if.end
-  %umax = tail call i32 @llvm.umax.i32(i32 %shl, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %shl to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %initError.020 = phi i32 [ 0, %for.body.preheader ], [ %or9, %for.body ]
+for.body:                                         ; preds = %if.end, %for.body
+  %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.body ]
+  %initError.019 = phi i32 [ 0, %if.end ], [ %or9, %for.body ]
   %arrayidx = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %retval.0.i, i64 %indvars.iv
   %job_mutex = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %call5 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %job_mutex, ptr noundef null) #14
   %job_cond = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %call8 = tail call i32 @pthread_cond_init(ptr noundef nonnull %job_cond, ptr noundef null) #14
-  %3 = or i32 %call5, %initError.020
-  %or9 = or i32 %3, %call8
+  %5 = or i32 %call5, %initError.019
+  %or9 = or i32 %5, %call8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body
-  %4 = icmp eq i32 %or9, 0
-  br i1 %4, label %return, label %for.cond.preheader.i
+  %cmp10.not = icmp eq i32 %or9, 0
+  br i1 %cmp10.not, label %return, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %for.end
-  %5 = getelementptr inbounds i8, ptr %cMem, i64 8
-  %cMem.val15 = load ptr, ptr %5, align 8
-  %cMem.val16 = load ptr, ptr %2, align 8
-  br i1 %cmp318.not, label %if.then.i.i, label %for.body.i
+  %6 = getelementptr inbounds i8, ptr %cMem, i64 8
+  %cMem.val15 = load ptr, ptr %6, align 8
+  %cMem.val16 = load ptr, ptr %4, align 8
+  br label %for.body.i
 
-for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
+for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %struct.ZSTDMT_jobDescription, ptr %retval.0.i, i64 %indvars.iv.i
   %job_mutex.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %call.i17 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %job_mutex.i) #14
   %job_cond.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
   %call4.i = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %job_cond.i) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %conv
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
   br i1 %exitcond.not.i, label %if.then.i.i, label %for.body.i, !llvm.loop !4
 
-if.then.i.i:                                      ; preds = %for.body.i, %for.cond.preheader.i
+if.then.i.i:                                      ; preds = %for.body.i
   %tobool.not.i.i = icmp eq ptr %cMem.val15, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then1.i.i
 
@@ -2884,8 +2880,8 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   tail call void @free(ptr noundef nonnull %retval.0.i) #14
   br label %return
 
-return:                                           ; preds = %if.end, %if.else.i.i, %if.then1.i.i, %for.end, %ZSTD_customCalloc.exit
-  %retval.0 = phi ptr [ null, %ZSTD_customCalloc.exit ], [ %retval.0.i, %for.end ], [ null, %if.then1.i.i ], [ null, %if.else.i.i ], [ %retval.0.i, %if.end ]
+return:                                           ; preds = %if.else.i.i, %if.then1.i.i, %for.end, %ZSTD_customCalloc.exit
+  %retval.0 = phi ptr [ null, %ZSTD_customCalloc.exit ], [ %retval.0.i, %for.end ], [ null, %if.then1.i.i ], [ null, %if.else.i.i ]
   ret ptr %retval.0
 }
 
@@ -3845,9 +3841,6 @@ declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
