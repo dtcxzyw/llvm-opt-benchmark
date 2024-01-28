@@ -11740,12 +11740,11 @@ if.end37:                                         ; preds = %qemu_spin_lock.exit
   %index.0 = phi i64 [ %and.i80, %tlb_fill.exit ], [ %and.i64, %qemu_spin_lock.exit.i ]
   %arrayidx.i.i88 = getelementptr i8, ptr %tlbe.0, i64 8
   %18 = load atomic i64, ptr %arrayidx.i.i88 monotonic, align 8
-  %and39 = and i64 %18, -2049
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end37, %if.end25
   %tlbe.1 = phi ptr [ %arrayidx1.i, %if.end25 ], [ %tlbe.0, %if.end37 ]
-  %tlb_addr.0 = phi i64 [ %5, %if.end25 ], [ %and39, %if.end37 ]
+  %tlb_addr.0 = phi i64 [ %5, %if.end25 ], [ %18, %if.end37 ]
   %index.1 = phi i64 [ %and.i64, %if.end25 ], [ %index.0, %if.end37 ]
   %19 = load i64, ptr %tlbe.1, align 8
   %cmp41 = icmp eq i64 %19, -1

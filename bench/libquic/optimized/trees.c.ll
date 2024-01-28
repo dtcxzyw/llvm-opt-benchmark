@@ -203,8 +203,7 @@ bi_windup.exit.i:                                 ; preds = %if.end21.sink.split
   %idxprom9.i = zext i32 %21 to i64
   %arrayidx10.i = getelementptr inbounds i8, ptr %20, i64 %idxprom9.i
   store i8 %conv5.i, ptr %arrayidx10.i, align 1
-  %conv11.i = and i32 %conv37, 65535
-  %conv12.i = xor i32 %conv11.i, 65535
+  %conv12.i = xor i32 %conv37, 65535
   %conv14.i = trunc i32 %conv12.i to i8
   %22 = load ptr, ptr %pending_buf.i, align 16
   %23 = load i32, ptr %pending.i, align 8

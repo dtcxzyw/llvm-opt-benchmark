@@ -10304,7 +10304,6 @@ invoke.cont203:                                   ; preds = %for.body.i313
   %142 = load i32, ptr %flags.i, align 4
   %143 = trunc i32 %142 to i8
   %144 = lshr i8 %143, 4
-  %frombool = and i8 %144, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !194)
   %agg.tmp2.sroa.0.0.copyload.i.i = load <2 x float>, ptr %n3.i, align 8, !noalias !194
   %agg.tmp2.sroa.2.0.copyload.i.i = load float, ptr %agg.tmp2.sroa.2.0.n.sroa_idx.i.i, align 8, !noalias !194
@@ -10696,7 +10695,7 @@ invoke.cont318:                                   ; preds = %_ZN4pbrt15SampledSp
   br label %do.body
 
 do.body:                                          ; preds = %invoke.cont318, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit340
-  %specularBounce.2 = phi i8 [ 0, %invoke.cont318 ], [ %frombool, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit340 ]
+  %specularBounce.2 = phi i8 [ 0, %invoke.cont318 ], [ %144, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit340 ]
   %call323 = call noundef float @_ZNK4pbrt15SampledSpectrum1yERKNS_18SampledWavelengthsE(ptr noundef nonnull align 4 dereferenceable(16) %beta, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
   store float %call323, ptr %va, align 4
   store float 0.000000e+00, ptr %vb, align 4
@@ -10710,7 +10709,7 @@ if.then325:                                       ; preds = %do.body
 cleanup331:                                       ; preds = %_ZN4pbrt15SampledSpectrumpLERKS0_.exit, %invoke.cont56, %if.then155, %if.then4, %do.body, %if.end45, %if.then, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit340
   %switch = phi i1 [ true, %if.end45 ], [ false, %do.body ], [ false, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit340 ], [ false, %invoke.cont56 ], [ true, %if.then ], [ true, %if.then4 ], [ true, %if.then155 ], [ true, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit ]
   %depth.1 = phi i32 [ %inc, %if.end45 ], [ %inc, %do.body ], [ %inc, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit340 ], [ %inc, %invoke.cont56 ], [ %depth.0, %if.then ], [ %depth.0, %if.then4 ], [ %inc, %if.then155 ], [ %depth.0, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit ]
-  %specularBounce.3 = phi i8 [ %specularBounce.0, %if.end45 ], [ %specularBounce.2, %do.body ], [ %frombool, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit340 ], [ 1, %invoke.cont56 ], [ %specularBounce.0, %if.then ], [ %specularBounce.0, %if.then4 ], [ %specularBounce.0, %if.then155 ], [ %specularBounce.0, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit ]
+  %specularBounce.3 = phi i8 [ %specularBounce.0, %if.end45 ], [ %specularBounce.2, %do.body ], [ %144, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit340 ], [ 1, %invoke.cont56 ], [ %specularBounce.0, %if.then ], [ %specularBounce.0, %if.then4 ], [ %specularBounce.0, %if.then155 ], [ %specularBounce.0, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit ]
   %229 = load i8, ptr %set.i, align 8
   %230 = and i8 %229, 1
   %tobool.not.i.i588 = icmp eq i8 %230, 0
@@ -92972,11 +92971,11 @@ for.body.i398.i.i.i:                              ; preds = %for.body.i398.i.i.i
   br i1 %exitcond.not.i403.i.i.i, label %invoke.cont257.i.i.i, label %for.body.i398.i.i.i, !llvm.loop !153
 
 invoke.cont257.i.i.i:                             ; preds = %for.body.i398.i.i.i
-  %and.i.i.i377.i.i.i = and i32 %304, 2
+  %313 = trunc i32 %304 to i8
   %.fca.0.load.i404.i.i.i = load <2 x float>, ptr %retval.i397.i.i.i, align 8
   %.fca.1.load.i407.i.i.i = load <2 x float>, ptr %.fca.1.gep.i406.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i397.i.i.i)
-  %313 = load float, ptr %pdf.i.i.i, align 4
+  %314 = load float, ptr %pdf.i.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ret.i415.i.i.i)
   store <2 x float> %.fca.0.load.i404.i.i.i, ptr %ret.i415.i.i.i, align 8
   store <2 x float> %.fca.1.load.i407.i.i.i, ptr %ref.tmp245.sroa.2.0.ret.i415.sroa_idx.i.i.i, align 8
@@ -92985,16 +92984,15 @@ invoke.cont257.i.i.i:                             ; preds = %for.body.i398.i.i.i
 for.body.i.i416.i.i.i:                            ; preds = %for.body.i.i416.i.i.i, %invoke.cont257.i.i.i
   %indvars.iv.i.i417.i.i.i = phi i64 [ 0, %invoke.cont257.i.i.i ], [ %indvars.iv.next.i.i419.i.i.i, %for.body.i.i416.i.i.i ]
   %arrayidx.i.i.i418.i.i.i = getelementptr inbounds [4 x float], ptr %ret.i415.i.i.i, i64 0, i64 %indvars.iv.i.i417.i.i.i
-  %314 = load float, ptr %arrayidx.i.i.i418.i.i.i, align 4
-  %div.i.i.i.i.i = fdiv float %314, %313
+  %315 = load float, ptr %arrayidx.i.i.i418.i.i.i, align 4
+  %div.i.i.i.i.i = fdiv float %315, %314
   store float %div.i.i.i.i.i, ptr %arrayidx.i.i.i418.i.i.i, align 4
   %indvars.iv.next.i.i419.i.i.i = add nuw nsw i64 %indvars.iv.i.i417.i.i.i, 1
   %exitcond.not.i.i420.i.i.i = icmp eq i64 %indvars.iv.next.i.i419.i.i.i, 4
   br i1 %exitcond.not.i.i420.i.i.i, label %invoke.cont259.i.i.i, label %for.body.i.i416.i.i.i, !llvm.loop !169
 
 invoke.cont259.i.i.i:                             ; preds = %for.body.i.i416.i.i.i
-  %315 = trunc i32 %304 to i8
-  %mul.i384.i.i.i = fmul float %305, %305
+  %and.i.i.i377.i.i.i = and i32 %304, 2
   %retval.sroa.0.0.copyload.i421.i.i.i = load <2 x float>, ptr %ret.i415.i.i.i, align 8
   %retval.sroa.2.0.copyload.i423.i.i.i = load <2 x float>, ptr %ref.tmp245.sroa.2.0.ret.i415.sroa_idx.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ret.i415.i.i.i)
@@ -93015,10 +93013,10 @@ for.body.i426.i.i.i:                              ; preds = %for.body.i426.i.i.i
   br i1 %exitcond.not.i432.i.i.i, label %invoke.cont264.i.i.i, label %for.body.i426.i.i.i, !llvm.loop !112
 
 invoke.cont264.i.i.i:                             ; preds = %for.body.i426.i.i.i
+  %mul.i384.i.i.i = fmul float %305, %305
   %tobool.i.i378.not.i.i.i = icmp eq i32 %and.i.i.i377.i.i.i, 0
+  %318 = lshr i8 %313, 4
   %mul242.i.i.i = select i1 %tobool.i.i378.not.i.i.i, float 1.000000e+00, float %mul.i384.i.i.i
-  %318 = lshr i8 %315, 4
-  %frombool.i.i.i = and i8 %318, 1
   %etaScale.1.i.i.i = fmul float %etaScale.0.i.i.i, %mul242.i.i.i
   %319 = load i8, ptr %pdfIsProportional.i.i.i, align 4
   %320 = and i8 %319, 1
@@ -93107,7 +93105,7 @@ if.end.i444.i.i.i:                                ; preds = %invoke.cont269.i.i.
   br label %cond.end.i.i.i
 
 cond.end.i.i.i:                                   ; preds = %if.end.i444.i.i.i, %invoke.cont269.i.i.i, %invoke.cont264.i.i.i
-  %cond.i.i.i = phi float [ %call3.i.i.i451453.i.i.i, %if.end.i444.i.i.i ], [ 0.000000e+00, %invoke.cont269.i.i.i ], [ %313, %invoke.cont264.i.i.i ]
+  %cond.i.i.i = phi float [ %call3.i.i.i451453.i.i.i, %if.end.i444.i.i.i ], [ 0.000000e+00, %invoke.cont269.i.i.i ], [ %314, %invoke.cont264.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i459.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.i459.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %beta.i.i.i, i64 16, i1 false)
   br label %for.body.i460.i.i.i
@@ -93208,7 +93206,7 @@ invoke.cont303.i.i.i:                             ; preds = %if.end294.i.i.i
   br label %cleanup.i.i.i
 
 cleanup.i.i.i:                                    ; preds = %invoke.cont303.i.i.i, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit486.i.i.i, %if.end217.i.i.i
-  %specularBounce.1.i.i.i = phi i8 [ %frombool.i.i.i, %invoke.cont303.i.i.i ], [ %specularBounce.0.i.i.i, %if.end217.i.i.i ], [ %frombool.i.i.i, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit486.i.i.i ]
+  %specularBounce.1.i.i.i = phi i8 [ %318, %invoke.cont303.i.i.i ], [ %specularBounce.0.i.i.i, %if.end217.i.i.i ], [ %318, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit486.i.i.i ]
   %p_b.2.i.i.i = phi float [ %cond.i.i.i, %invoke.cont303.i.i.i ], [ %p_b.1.i.i.i, %if.end217.i.i.i ], [ %cond.i.i.i, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit486.i.i.i ]
   %etaScale.2.i.i.i = phi float [ %etaScale.1.i.i.i, %invoke.cont303.i.i.i ], [ %etaScale.0.i.i.i, %if.end217.i.i.i ], [ %etaScale.1.i.i.i, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit486.i.i.i ]
   %cleanup.dest.slot.0.i.i.i = phi i32 [ 0, %invoke.cont303.i.i.i ], [ 5, %if.end217.i.i.i ], [ 5, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit486.i.i.i ]

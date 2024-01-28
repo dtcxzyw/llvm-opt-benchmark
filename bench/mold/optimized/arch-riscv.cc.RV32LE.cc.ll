@@ -30413,9 +30413,8 @@ _ZNSt6vectorINSt7__cxx119sub_matchIPKcEESaIS4_EEaSEOS6_.exit: ; preds = %for.bod
 
 for.end:                                          ; preds = %_ZNSt6vectorINSt7__cxx119sub_matchIPKcEESaIS4_EEaSEOS6_.exit, %_ZSt6fill_nIPbmbET_S1_T0_RKT1_.exit
   %22 = load i8, ptr %_M_has_sol, align 4
-  %23 = or i8 %22, %__ret.0
-  %or6 = and i8 %23, 1
-  %__ret.1 = select i1 %cmp, i8 %or6, i8 %__ret.0
+  %23 = select i1 %cmp, i8 %22, i8 0
+  %__ret.1 = or i8 %__ret.0, %23
   %24 = load ptr, ptr %_M_current, align 8
   %25 = load ptr, ptr %_M_end, align 8
   %cmp22.not = icmp eq ptr %24, %25

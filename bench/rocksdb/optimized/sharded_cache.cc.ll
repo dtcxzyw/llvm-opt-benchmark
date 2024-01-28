@@ -209,8 +209,7 @@ if.else18.i:                                      ; preds = %init.end.i
   %conv.i.i = trunc i64 %18 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ignore.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val.i.i)
-  %and20.i = and i32 %conv.i.i, 2147483647
-  %mul.i = mul i32 %and20.i, 1150630961
+  %mul.i = mul i32 %conv.i.i, 1150630961
   %and21.i = lshr i32 %mul.i, 17
   %shr.i = and i32 %and21.i, 16383
   %xor.i = xor i32 %shr.i, %mul.i

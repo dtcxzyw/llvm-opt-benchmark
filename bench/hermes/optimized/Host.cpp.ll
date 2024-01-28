@@ -1546,94 +1546,54 @@ land.lhs.true100.i:                               ; preds = %land.end.thread.i
   %17 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #21, !srcloc !19
   %asmresult1.i94.i = extractvalue { i32, i32, i32, i32 } %17, 1
   %asmresult2.i.i = extractvalue { i32, i32, i32, i32 } %17, 2
-  %asmresult3.i.i = extractvalue { i32, i32, i32, i32 } %17, 3
+  %18 = and i32 %asmresult1.i94.i, 32
+  %tobool103.not.i = icmp eq i32 %18, 0
   %or107.i = or i32 %16, 1024
   %spec.select72.i = select i1 %15, i32 %or107.i, i32 %16
-  %18 = lshr i32 %asmresult1.i94.i, 18
-  %19 = and i32 %18, 2
-  %20 = lshr i32 %asmresult1.i94.i, 20
-  %21 = and i32 %20, 8
-  %22 = lshr i32 %asmresult1.i94.i, 25
-  %23 = and i32 %22, 16
-  %24 = or disjoint i32 %19, %21
-  %25 = or disjoint i32 %24, %23
-  %spec.select82.i = or disjoint i32 %25, %.lobit361.i
-  %26 = insertelement <8 x i32> poison, i32 %asmresult1.i94.i, i64 0
-  %27 = shufflevector <8 x i32> %26, <8 x i32> poison, <8 x i32> zeroinitializer
-  %28 = and <8 x i32> %27, <i32 1073741824, i32 268435456, i32 134217728, i32 67108864, i32 2097152, i32 131072, i32 65536, i32 32>
-  %29 = icmp eq <8 x i32> %28, zeroinitializer
-  %30 = extractelement <8 x i1> %29, i64 7
-  %Features.14.ph.i = select i1 %30, i32 %16, i32 %spec.select72.i
-  %or125.i = or i32 %Features.14.ph.i, 32768
-  %spec.select74.i = select i1 %14, i32 %or125.i, i32 %Features.14.ph.i
-  %31 = extractelement <8 x i1> %29, i64 6
-  %Features.16.ph.i = select i1 %31, i32 %Features.14.ph.i, i32 %spec.select74.i
-  %or135.i = or i32 %Features.16.ph.i, 4194304
-  %spec.select75.i = select i1 %14, i32 %or135.i, i32 %Features.14.ph.i
-  %32 = extractelement <8 x i1> %29, i64 5
-  %Features.17.ph.i = select i1 %32, i32 %Features.16.ph.i, i32 %spec.select75.i
-  %or153.i = or i32 %Features.17.ph.i, 134217728
-  %spec.select77.i = select i1 %14, i32 %or153.i, i32 %Features.14.ph.i
-  %33 = extractelement <8 x i1> %29, i64 4
-  %Features.18.ph.i = select i1 %33, i32 %Features.17.ph.i, i32 %spec.select77.i
-  %or171.i = or i32 %Features.18.ph.i, 33554432
-  %spec.select79.i = select i1 %14, i32 %or171.i, i32 %Features.18.ph.i
-  %34 = extractelement <8 x i1> %29, i64 3
-  %Features.19.ph.i = select i1 %34, i32 %Features.18.ph.i, i32 %spec.select79.i
-  %or181.i = or i32 %Features.19.ph.i, 16777216
-  %spec.select80.i = select i1 %14, i32 %or181.i, i32 %Features.18.ph.i
-  %35 = extractelement <8 x i1> %29, i64 2
-  %Features.20.ph.i = select i1 %35, i32 %Features.19.ph.i, i32 %spec.select80.i
-  %or191.i = or i32 %Features.20.ph.i, 8388608
-  %spec.select81.i = select i1 %14, i32 %or191.i, i32 %Features.18.ph.i
-  %36 = extractelement <8 x i1> %29, i64 1
-  %Features.21.ph.i = select i1 %36, i32 %Features.20.ph.i, i32 %spec.select81.i
-  %or209.i = or i32 %Features.21.ph.i, 2097152
-  %spec.select83.i = select i1 %14, i32 %or209.i, i32 %Features.21.ph.i
-  %37 = extractelement <8 x i1> %29, i64 0
-  %Features.22.ph.i = select i1 %37, i32 %Features.21.ph.i, i32 %spec.select83.i
-  %or219305.i = or i32 %Features.22.ph.i, 1048576
-  %spec.select84306.i = select i1 %14, i32 %or219305.i, i32 %Features.21.ph.i
+  %Features.14.ph.i = select i1 %tobool103.not.i, i32 %16, i32 %spec.select72.i
+  %19 = lshr i32 %asmresult1.i94.i, 18
+  %20 = and i32 %19, 2
+  %21 = lshr i32 %asmresult1.i94.i, 20
+  %22 = and i32 %21, 8
+  %23 = and i32 %asmresult1.i94.i, 134217728
+  %tobool177.not.i = icmp eq i32 %23, 0
+  %or181.i = or i32 %Features.14.ph.i, 16777216
+  %spec.select80.i = select i1 %14, i32 %or181.i, i32 %Features.14.ph.i
+  %Features.20.ph.i = select i1 %tobool177.not.i, i32 %Features.14.ph.i, i32 %spec.select80.i
+  %24 = and i32 %asmresult1.i94.i, 268435456
+  %tobool187.not.i = icmp eq i32 %24, 0
+  %25 = or i1 %tobool187.not.i, %14
+  %Features.21.ph.i = select i1 %25, i32 %Features.20.ph.i, i32 %Features.14.ph.i
+  %26 = lshr i32 %asmresult1.i94.i, 25
+  %27 = and i32 %26, 16
+  %28 = or disjoint i32 %20, %22
+  %29 = or disjoint i32 %28, %27
+  %spec.select82.i = or disjoint i32 %29, %.lobit361.i
+  %or219305.i = or i32 %Features.21.ph.i, 1048576
+  %spec.select84306.i = select i1 %14, i32 %or219305.i, i32 %Features.14.ph.i
   %tobool215.not303362.i = icmp slt i32 %asmresult1.i94.i, 0
-  %Features.23307.i = select i1 %tobool215.not303362.i, i32 %spec.select84306.i, i32 %Features.22.ph.i
-  %38 = and i32 %asmresult2.i.i, 2
-  %tobool225.not.i = icmp eq i32 %38, 0
+  %Features.23307.i = select i1 %tobool215.not303362.i, i32 %spec.select84306.i, i32 %Features.21.ph.i
+  %30 = and i32 %asmresult2.i.i, 2
+  %tobool225.not.i = icmp eq i32 %30, 0
   %or229.i = or i32 %Features.23307.i, 67108864
-  %spec.select85.i = select i1 %14, i32 %or229.i, i32 %Features.21.ph.i
+  %spec.select85.i = select i1 %14, i32 %or229.i, i32 %Features.14.ph.i
   %Features.24.ph.i = select i1 %tobool225.not.i, i32 %Features.23307.i, i32 %spec.select85.i
-  %39 = and i32 %asmresult2.i.i, 16384
-  %tobool235.not.i = icmp eq i32 %39, 0
-  %or239.i = or i32 %Features.24.ph.i, 1073741824
-  %spec.select86.i = select i1 %14, i32 %or239.i, i32 %Features.24.ph.i
-  %Features.25.ph.i = select i1 %tobool235.not.i, i32 %Features.24.ph.i, i32 %spec.select86.i
-  %40 = and i32 %asmresult3.i.i, 4
-  %tobool245.not.i = icmp eq i32 %40, 0
-  %or249.i = or i32 %Features.25.ph.i, 268435456
-  %spec.select87.i = select i1 %14, i32 %or249.i, i32 %Features.24.ph.i
-  %Features.26.ph.i = select i1 %tobool245.not.i, i32 %Features.25.ph.i, i32 %spec.select87.i
-  %41 = and i32 %asmresult3.i.i, 8
-  %tobool255.not.i = icmp eq i32 %41, 0
-  br i1 %tobool255.not.i, label %if.end260.i, label %land.lhs.true256.i
-
-land.lhs.true256.i:                               ; preds = %land.lhs.true100.i
-  %or259.i = or i32 %Features.26.ph.i, 536870912
-  %spec.select88.i = select i1 %14, i32 %or259.i, i32 %Features.24.ph.i
   br label %if.end260.i
 
-if.end260.i:                                      ; preds = %land.lhs.true256.i, %land.lhs.true100.i, %land.end.thread.i
-  %Features2.3295308322328337.i = phi i32 [ %spec.select82.i, %land.lhs.true100.i ], [ %spec.select82.i, %land.lhs.true256.i ], [ %.lobit361.i, %land.end.thread.i ]
-  %Features.27.i = phi i32 [ %Features.26.ph.i, %land.lhs.true100.i ], [ %spec.select88.i, %land.lhs.true256.i ], [ %16, %land.end.thread.i ]
-  %42 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648) #21, !srcloc !17
-  %asmresult.i95.i = extractvalue { i32, i32, i32, i32 } %42, 0
+if.end260.i:                                      ; preds = %land.lhs.true100.i, %land.end.thread.i
+  %Features2.3295308322328337.i = phi i32 [ %.lobit361.i, %land.end.thread.i ], [ %spec.select82.i, %land.lhs.true100.i ]
+  %Features.27.i = phi i32 [ %16, %land.end.thread.i ], [ %Features.24.ph.i, %land.lhs.true100.i ]
+  %31 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648) #21, !srcloc !17
+  %asmresult.i95.i = extractvalue { i32, i32, i32, i32 } %31, 0
   %cmp262.i = icmp ugt i32 %asmresult.i95.i, -2147483648
   br i1 %cmp262.i, label %land.lhs.true293.i, label %_ZL20getAvailableFeaturesjjjPjS_.exit
 
 land.lhs.true293.i:                               ; preds = %if.end260.i
-  %43 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483647) #21, !srcloc !17
-  %asmresult3.i102.i = extractvalue { i32, i32, i32, i32 } %43, 3
-  %44 = lshr i32 %asmresult3.i102.i, 27
-  %45 = and i32 %44, 4
-  %spec.select92.i = or i32 %45, %Features2.3295308322328337.i
+  %32 = tail call { i32, i32, i32, i32 } asm "movq\09%rbx, %rsi\0A\09cpuid\0A\09xchgq\09%rbx, %rsi\0A\09", "={ax},={si},={cx},={dx},{ax},~{dirflag},~{fpsr},~{flags}"(i32 -2147483647) #21, !srcloc !17
+  %asmresult3.i102.i = extractvalue { i32, i32, i32, i32 } %32, 3
+  %33 = lshr i32 %asmresult3.i102.i, 27
+  %34 = and i32 %33, 4
+  %spec.select92.i = or i32 %34, %Features2.3295308322328337.i
   br label %_ZL20getAvailableFeaturesjjjPjS_.exit
 
 _ZL20getAvailableFeaturesjjjPjS_.exit:            ; preds = %if.end260.i, %land.lhs.true293.i
@@ -1888,8 +1848,8 @@ if.then8:                                         ; preds = %_ZL20getAvailableFe
 
 sw.bb1.i138:                                      ; preds = %if.then8
   %switch.tableidx = add nsw i32 %Model.0, -6
-  %46 = icmp ult i32 %switch.tableidx, 8
-  br i1 %46, label %switch.lookup, label %return
+  %35 = icmp ult i32 %switch.tableidx, 8
+  br i1 %35, label %switch.lookup, label %return
 
 sw.bb6.i134:                                      ; preds = %if.then8
   %and.i135 = and i32 %Features.27.i, 8
@@ -1909,17 +1869,17 @@ sw.bb12.i129:                                     ; preds = %if.then8
   br label %return
 
 sw.bb18.i126:                                     ; preds = %if.then8
-  %47 = and i32 %Model.0, -32
-  %or.cond.i = icmp eq i32 %47, 96
+  %36 = and i32 %Model.0, -32
+  %or.cond.i = icmp eq i32 %36, 96
   br i1 %or.cond.i, label %return, label %if.end21.i
 
 if.end21.i:                                       ; preds = %sw.bb18.i126
-  %48 = and i32 %Model.0, -16
-  %or.cond1.i = icmp eq i32 %48, 48
+  %37 = and i32 %Model.0, -16
+  %or.cond1.i = icmp eq i32 %37, 48
   br i1 %or.cond1.i, label %return, label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.end21.i
-  %or.cond2.i = icmp eq i32 %48, 16
+  %or.cond2.i = icmp eq i32 %37, 16
   %cmp30.i = icmp eq i32 %Model.0, 2
   %or.cond3.i = or i1 %cmp30.i, %or.cond2.i
   %spec.select298 = select i1 %or.cond3.i, ptr @.str.114, ptr @.str.113
@@ -1959,11 +1919,11 @@ _ZN4llvh9StringRefC2EPKc.exit745:                 ; preds = %if.then8, %if.then6
   br label %return
 
 switch.lookup:                                    ; preds = %sw.bb1.i138
-  %49 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv, i64 0, i64 %49
+  %38 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv, i64 0, i64 %38
   %switch.load = load i64, ptr %switch.gep, align 8
-  %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep299 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv.1, i64 0, i64 %50
+  %39 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep299 = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN4llvh3sys14getHostCPUNameEv.1, i64 0, i64 %39
   %switch.load300 = load ptr, ptr %switch.gep299, align 8
   br label %return
 

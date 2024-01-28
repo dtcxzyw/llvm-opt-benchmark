@@ -1390,33 +1390,32 @@ sw.bb5.i:                                         ; preds = %sw.bb.i
   br label %for.inc.i
 
 sw.bb9.i:                                         ; preds = %sw.bb.i
-  %5 = and i8 %quote.025.i, 1
-  %frombool.i = xor i8 %5, 1
+  %frombool.i = xor i8 %quote.025.i, 1
   br label %for.inc.i
 
 sw.default.i:                                     ; preds = %sw.bb.i
   %cmp13.i = icmp ult i8 %3, 32
   %cmp15.not.i = icmp ne i8 %3, 9
   %or.cond18.not20.i = and i1 %cmp13.i, %cmp15.not.i
-  %6 = icmp ugt i8 %3, 126
-  %or.cond75.i = or i1 %6, %or.cond18.not20.i
+  %5 = icmp ugt i8 %3, 126
+  %or.cond75.i = or i1 %5, %or.cond18.not20.i
   br i1 %or.cond75.i, label %if.then4, label %for.inc.i
 
 sw.bb25.i:                                        ; preds = %for.body.i
-  %7 = load i8, ptr %p.027.i, align 1
-  %cmp27.not.i = icmp eq i8 %7, 10
+  %6 = load i8, ptr %p.027.i, align 1
+  %cmp27.not.i = icmp eq i8 %6, 10
   br i1 %cmp27.not.i, label %for.inc.i, label %if.then4
 
 sw.bb30.i:                                        ; preds = %for.body.i
-  %8 = load i8, ptr %p.027.i, align 1
-  switch i8 %8, label %if.then4 [
+  %7 = load i8, ptr %p.027.i, align 1
+  switch i8 %7, label %if.then4 [
     i8 32, label %for.inc.i
     i8 9, label %for.inc.i
   ]
 
 sw.bb38.i:                                        ; preds = %for.body.i
-  %9 = load i8, ptr %p.027.i, align 1
-  switch i8 %9, label %if.then44.i [
+  %8 = load i8, ptr %p.027.i, align 1
+  switch i8 %8, label %if.then44.i [
     i8 32, label %for.inc.i
     i8 9, label %for.inc.i
   ]
@@ -1435,8 +1434,8 @@ for.inc.i:                                        ; preds = %if.then44.i, %sw.bb
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !47
 
 for.end.i:                                        ; preds = %for.inc.i
-  %10 = and i8 %escape.2.i, 1
-  %tobool48.not.i = icmp eq i8 %10, 0
+  %9 = and i8 %escape.2.i, 1
+  %tobool48.not.i = icmp eq i8 %9, 0
   br i1 %tobool48.not.i, label %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit, label %if.then4
 
 _ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit: ; preds = %for.end.i
@@ -1462,8 +1461,8 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %size.06.i.i.i.i = phi i64 [ 0, %if.then4 ], [ %add.i.i.i.i, %for.body.i.i.i.i ]
   %__begin0.0.idx5.i.i.i.i = phi i64 [ 0, %if.then4 ], [ %__begin0.0.add.i.i.i.i, %for.body.i.i.i.i ]
   %__begin0.0.ptr.i.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i.i, i64 %__begin0.0.idx5.i.i.i.i
-  %11 = load i64, ptr %__begin0.0.ptr.i.i.i.i, align 8, !noalias !48
-  %add.i.i.i.i = add i64 %11, %size.06.i.i.i.i
+  %10 = load i64, ptr %__begin0.0.ptr.i.i.i.i, align 8, !noalias !48
+  %add.i.i.i.i = add i64 %10, %size.06.i.i.i.i
   %__begin0.0.add.i.i.i.i = add nuw nsw i64 %__begin0.0.idx5.i.i.i.i, 8
   %cmp.not.i.i.i.i = icmp eq i64 %__begin0.0.add.i.i.i.i, 24
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly6detail15reserveInTargetIA19_cNS_5RangeIPKcEEJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit.i.i, label %for.body.i.i.i.i
@@ -1483,12 +1482,12 @@ call.i.i.i.i.noexc.i:                             ; preds = %.noexc.i
 
 common.resume:                                    ; preds = %lpad, %lpad.i1, %lpad.i
   %agg.tmp8.sink = phi ptr [ %agg.tmp8, %lpad ], [ %result.i, %lpad.i1 ], [ %ref.tmp, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %16, %lpad ], [ %14, %lpad.i1 ], [ %12, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %15, %lpad ], [ %13, %lpad.i1 ], [ %11, %lpad.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8.sink) #18
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %call.i.i.i.i.noexc.i, %.noexc.i, %_ZN5folly6detail15reserveInTargetIA19_cNS_5RangeIPKcEEJPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit.i.i
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -1500,7 +1499,7 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA19_cNS_5Range
 if.end7:                                          ; preds = %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit, %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit, %if.end
   store i8 1, ptr %hasUpgradeProtocol_, align 4
   %msg_ = getelementptr inbounds i8, ptr %this, i64 32
-  %13 = load ptr, ptr %msg_, align 8
+  %12 = load ptr, ptr %msg_, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %result.i) #18, !noalias !51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %result.i) #18, !noalias !54
@@ -1511,7 +1510,7 @@ if.end7:                                          ; preds = %_ZN8proxygen9CodecU
           to label %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESC_E4typeESB_.exit unwind label %lpad.i1, !noalias !51
 
 lpad.i1:                                          ; preds = %if.end7
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -1524,15 +1523,15 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_if
 
 call.i.i.noexc:                                   ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESC_E4typeESB_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i2, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #18, !noalias !61
-  %upgradeProtocol_.i = getelementptr inbounds i8, ptr %13, i64 568
-  %15 = load ptr, ptr %upgradeProtocol_.i, align 8
+  %upgradeProtocol_.i = getelementptr inbounds i8, ptr %12, i64 568
+  %14 = load ptr, ptr %upgradeProtocol_.i, align 8
   store ptr %call.i.i2, ptr %upgradeProtocol_.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %15, null
+  %tobool.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i: ; preds = %call.i.i.noexc
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #18
-  call void @_ZdlPv(ptr noundef nonnull %15) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #18
+  call void @_ZdlPv(ptr noundef nonnull %14) #21
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i, %call.i.i.noexc
@@ -1540,7 +1539,7 @@ invoke.cont:                                      ; preds = %_ZNKSt14default_del
   br label %return
 
 lpad:                                             ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESC_E4typeESB_.exit
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -1917,13 +1916,12 @@ sw.bb.us.us:                                      ; preds = %if.end4.us.us
   ]
 
 sw.bb9.us.us:                                     ; preds = %sw.bb.us.us
-  %5 = and i8 %quote.025.us.us, 1
-  %frombool.us.us = xor i8 %5, 1
+  %frombool.us.us = xor i8 %quote.025.us.us, 1
   br label %for.inc.us.us
 
 sw.bb5.us.us:                                     ; preds = %sw.bb.us.us
-  %6 = and i8 %quote.025.us.us, 1
-  %tobool6.not.us.us = icmp eq i8 %6, 0
+  %5 = and i8 %quote.025.us.us, 1
+  %tobool6.not.us.us = icmp eq i8 %5, 0
   %spec.select.us.us = select i1 %tobool6.not.us.us, i8 %escape.024.us.us, i8 1
   br label %for.inc.us.us
 
@@ -1949,8 +1947,8 @@ for.body.us30:                                    ; preds = %for.body.lr.ph, %fo
   %state.026.us32 = phi i32 [ %state.1.us63, %for.inc.us60 ], [ 0, %for.body.lr.ph ]
   %quote.025.us33 = phi i8 [ %quote.1.us62, %for.inc.us60 ], [ 0, %for.body.lr.ph ]
   %escape.024.us34 = phi i8 [ %escape.2.us61, %for.inc.us60 ], [ 0, %for.body.lr.ph ]
-  %7 = and i8 %escape.024.us34, 1
-  %tobool.not.us35 = icmp eq i8 %7, 0
+  %6 = and i8 %escape.024.us34, 1
+  %tobool.not.us35 = icmp eq i8 %6, 0
   %spec.select73 = select i1 %tobool.not.us35, i8 %escape.024.us34, i8 0
   switch i32 %state.026.us32, label %for.inc.us60 [
     i32 0, label %sw.bb.us45
@@ -1960,8 +1958,8 @@ for.body.us30:                                    ; preds = %for.body.lr.ph, %fo
   ]
 
 sw.bb38.us39:                                     ; preds = %for.body.us30
-  %8 = load i8, ptr %p.027.us31, align 1
-  switch i8 %8, label %if.then44.us40 [
+  %7 = load i8, ptr %p.027.us31, align 1
+  switch i8 %7, label %if.then44.us40 [
     i8 32, label %for.inc.us60
     i8 9, label %for.inc.us60
   ]
@@ -1971,41 +1969,40 @@ if.then44.us40:                                   ; preds = %sw.bb38.us39
   br label %for.inc.us60
 
 sw.bb30.us42:                                     ; preds = %for.body.us30
-  %9 = load i8, ptr %p.027.us31, align 1
-  switch i8 %9, label %return [
+  %8 = load i8, ptr %p.027.us31, align 1
+  switch i8 %8, label %return [
     i8 32, label %for.inc.us60
     i8 9, label %for.inc.us60
   ]
 
 sw.bb25.us43:                                     ; preds = %for.body.us30
-  %10 = load i8, ptr %p.027.us31, align 1
-  %cmp27.not.us44 = icmp eq i8 %10, 10
+  %9 = load i8, ptr %p.027.us31, align 1
+  %cmp27.not.us44 = icmp eq i8 %9, 10
   br i1 %cmp27.not.us44, label %for.inc.us60, label %return
 
 sw.bb.us45:                                       ; preds = %for.body.us30
-  %11 = load i8, ptr %p.027.us31, align 1
-  switch i8 %11, label %sw.default.us51 [
+  %10 = load i8, ptr %p.027.us31, align 1
+  switch i8 %10, label %sw.default.us51 [
     i8 92, label %sw.bb5.us48
     i8 34, label %sw.bb9.us46
     i8 13, label %for.inc.us60
   ]
 
 sw.bb9.us46:                                      ; preds = %sw.bb.us45
-  %12 = and i8 %quote.025.us33, 1
-  %frombool.us47 = xor i8 %12, 1
+  %frombool.us47 = xor i8 %quote.025.us33, 1
   br label %for.inc.us60
 
 sw.bb5.us48:                                      ; preds = %sw.bb.us45
-  %13 = and i8 %quote.025.us33, 1
-  %tobool6.not.us49 = icmp eq i8 %13, 0
+  %11 = and i8 %quote.025.us33, 1
+  %tobool6.not.us49 = icmp eq i8 %11, 0
   %spec.select.us50 = select i1 %tobool6.not.us49, i8 %spec.select73, i8 1
   br label %for.inc.us60
 
 sw.default.us51:                                  ; preds = %sw.bb.us45
-  %cmp13.us52 = icmp ult i8 %11, 32
-  %cmp15.not.us53 = icmp ne i8 %11, 9
+  %cmp13.us52 = icmp ult i8 %10, 32
+  %cmp15.not.us53 = icmp ne i8 %10, 9
   %or.cond18.not20.us54 = and i1 %cmp13.us52, %cmp15.not.us53
-  %cmp17.us55 = icmp eq i8 %11, 127
+  %cmp17.us55 = icmp eq i8 %10, 127
   %or.cond19.us56 = or i1 %cmp17.us55, %or.cond18.not20.us54
   br i1 %or.cond19.us56, label %return, label %for.inc.us60
 
@@ -2023,8 +2020,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %state.026 = phi i32 [ %state.1, %for.inc ], [ 0, %for.body.lr.ph ]
   %quote.025 = phi i8 [ %quote.1, %for.inc ], [ 0, %for.body.lr.ph ]
   %escape.024 = phi i8 [ %escape.2, %for.inc ], [ 0, %for.body.lr.ph ]
-  %14 = and i8 %escape.024, 1
-  %tobool.not = icmp eq i8 %14, 0
+  %12 = and i8 %escape.024, 1
+  %tobool.not = icmp eq i8 %12, 0
   %spec.select74 = select i1 %tobool.not, i8 %escape.024, i8 0
   switch i32 %state.026, label %for.inc [
     i32 0, label %sw.bb
@@ -2034,47 +2031,46 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   ]
 
 sw.bb:                                            ; preds = %for.body
-  %15 = load i8, ptr %p.027, align 1
-  switch i8 %15, label %sw.default [
+  %13 = load i8, ptr %p.027, align 1
+  switch i8 %13, label %sw.default [
     i8 92, label %sw.bb5
     i8 34, label %sw.bb9
     i8 13, label %for.inc
   ]
 
 sw.bb5:                                           ; preds = %sw.bb
-  %16 = and i8 %quote.025, 1
-  %tobool6.not = icmp eq i8 %16, 0
+  %14 = and i8 %quote.025, 1
+  %tobool6.not = icmp eq i8 %14, 0
   %spec.select = select i1 %tobool6.not, i8 %spec.select74, i8 1
   br label %for.inc
 
 sw.bb9:                                           ; preds = %sw.bb
-  %17 = and i8 %quote.025, 1
-  %frombool = xor i8 %17, 1
+  %frombool = xor i8 %quote.025, 1
   br label %for.inc
 
 sw.default:                                       ; preds = %sw.bb
-  %cmp13 = icmp ult i8 %15, 32
-  %cmp15.not = icmp ne i8 %15, 9
+  %cmp13 = icmp ult i8 %13, 32
+  %cmp15.not = icmp ne i8 %13, 9
   %or.cond18.not20 = and i1 %cmp13, %cmp15.not
-  %18 = icmp ugt i8 %15, 126
-  %or.cond75 = or i1 %18, %or.cond18.not20
+  %15 = icmp ugt i8 %13, 126
+  %or.cond75 = or i1 %15, %or.cond18.not20
   br i1 %or.cond75, label %return, label %for.inc
 
 sw.bb25:                                          ; preds = %for.body
-  %19 = load i8, ptr %p.027, align 1
-  %cmp27.not = icmp eq i8 %19, 10
+  %16 = load i8, ptr %p.027, align 1
+  %cmp27.not = icmp eq i8 %16, 10
   br i1 %cmp27.not, label %for.inc, label %return
 
 sw.bb30:                                          ; preds = %for.body
-  %20 = load i8, ptr %p.027, align 1
-  switch i8 %20, label %return [
+  %17 = load i8, ptr %p.027, align 1
+  switch i8 %17, label %return [
     i8 32, label %for.inc
     i8 9, label %for.inc
   ]
 
 sw.bb38:                                          ; preds = %for.body
-  %21 = load i8, ptr %p.027, align 1
-  switch i8 %21, label %if.then44 [
+  %18 = load i8, ptr %p.027, align 1
+  switch i8 %18, label %if.then44 [
     i8 32, label %for.inc
     i8 9, label %for.inc
   ]
@@ -2095,19 +2091,19 @@ for.inc:                                          ; preds = %sw.default, %sw.bb5
 for.end:                                          ; preds = %for.inc, %for.inc.us.us, %for.inc.us60
   %escape.0.lcssa = phi i8 [ %escape.2.us61, %for.inc.us60 ], [ %escape.2.us.us, %for.inc.us.us ], [ %escape.2, %for.inc ]
   %state.0.lcssa = phi i32 [ %state.1.us63, %for.inc.us60 ], [ %state.1.us.us, %for.inc.us.us ], [ %state.1, %for.inc ]
-  %22 = and i8 %escape.0.lcssa, 1
-  %tobool48.not = icmp eq i8 %22, 0
+  %19 = and i8 %escape.0.lcssa, 1
+  %tobool48.not = icmp eq i8 %19, 0
   br i1 %tobool48.not, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %entry, %for.end
   %state.0.lcssa83 = phi i32 [ %state.0.lcssa, %for.end ], [ 0, %entry ]
   %cmp49 = icmp eq i32 %state.0.lcssa83, 0
   %cmp50 = icmp eq i32 %state.0.lcssa83, 3
-  %23 = or i1 %cmp49, %cmp50
+  %20 = or i1 %cmp49, %cmp50
   br label %return
 
 return:                                           ; preds = %sw.bb30, %sw.bb25, %sw.default, %sw.bb30.us.us, %sw.bb25.us.us, %sw.default.us.us, %sw.bb30.us42, %sw.bb25.us43, %sw.default.us51, %for.end, %land.rhs
-  %retval.0 = phi i1 [ false, %for.end ], [ %23, %land.rhs ], [ false, %sw.default.us51 ], [ false, %sw.bb25.us43 ], [ false, %sw.bb30.us42 ], [ false, %sw.default.us.us ], [ false, %sw.bb25.us.us ], [ false, %sw.bb30.us.us ], [ false, %sw.default ], [ false, %sw.bb25 ], [ false, %sw.bb30 ]
+  %retval.0 = phi i1 [ false, %for.end ], [ %20, %land.rhs ], [ false, %sw.default.us51 ], [ false, %sw.bb25.us43 ], [ false, %sw.bb30.us42 ], [ false, %sw.default.us.us ], [ false, %sw.bb25.us.us ], [ false, %sw.bb30.us.us ], [ false, %sw.default ], [ false, %sw.bb25 ], [ false, %sw.bb30 ]
   ret i1 %retval.0
 }
 

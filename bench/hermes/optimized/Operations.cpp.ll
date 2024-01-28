@@ -6596,11 +6596,10 @@ if.then24:                                        ; preds = %if.end, %_ZN6hermes
 if.else:                                          ; preds = %_ZN6hermes2vm13MutableHandleINS0_8CallableEEC2ERNS0_15HandleRootOwnerEPS2_.exit
   %13 = inttoptr i64 %methodOpt.coerce0 to ptr
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %13, align 8
-  %and.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i, 281474976710655
   br label %if.end38
 
 if.end38:                                         ; preds = %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit, %if.else
-  %storemerge.in = phi i64 [ %and.i.i.i.i.i, %if.else ], [ %8, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit ]
+  %storemerge.in = phi i64 [ %retval.sroa.0.0.copyload.i.i.i, %if.else ], [ %8, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit ]
   %storemerge = or i64 %storemerge.in, -281474976710656
   store i64 %storemerge, ptr %retval.0.i.i.i.i.i.i, align 8
   %call45 = tail call { i32, i64 } @_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb(ptr nonnull %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %obj.coerce, i1 noundef zeroext false) #17

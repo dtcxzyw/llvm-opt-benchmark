@@ -1123,28 +1123,28 @@ lor.end:                                          ; preds = %invoke.cont285
   %arrayidx.i245 = getelementptr inbounds %"struct.nlsat::interval", ptr %70, i64 %idxprom.i244
   %bf.load295 = load i8, ptr %arrayidx.i245, align 8
   %72 = lshr i8 %bf.load295, 3
-  %.lobit = and i8 %72, 1
-  %73 = xor i8 %.lobit, 1
+  %73 = xor i8 %72, 1
   %cmp304341 = icmp ne i32 %j.0.lcssa, 0
-  %tobool305.not342 = icmp eq i8 %73, 0
-  %74 = select i1 %cmp304341, i1 %tobool305.not342, i1 false
-  br i1 %74, label %for.body307.preheader, label %for.end319
+  %74 = and i8 %bf.load295, 8
+  %tobool305.not342 = icmp ne i8 %74, 0
+  %75 = select i1 %cmp304341, i1 %tobool305.not342, i1 false
+  br i1 %75, label %for.body307.preheader, label %for.end319
 
 for.body307.preheader:                            ; preds = %lor.end
-  %75 = zext i32 %j.0.lcssa to i64
+  %76 = zext i32 %j.0.lcssa to i64
   br label %for.body307
 
 for.body307:                                      ; preds = %for.body307.preheader, %invoke.cont313.thread
   %indvars.iv364 = phi i64 [ 0, %for.body307.preheader ], [ %indvars.iv.next365, %invoke.cont313.thread ]
   %found_slack.0343 = phi i8 [ %73, %for.body307.preheader ], [ %spec.select, %invoke.cont313.thread ]
-  %76 = load ptr, ptr %this, align 8
-  %77 = load ptr, ptr %result, align 8
-  %arrayidx.i247 = getelementptr inbounds %"struct.nlsat::interval", ptr %77, i64 %indvars.iv364
+  %77 = load ptr, ptr %this, align 8
+  %78 = load ptr, ptr %result, align 8
+  %arrayidx.i247 = getelementptr inbounds %"struct.nlsat::interval", ptr %78, i64 %indvars.iv364
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
-  %arrayidx.i249 = getelementptr inbounds %"struct.nlsat::interval", ptr %77, i64 %indvars.iv.next365
+  %arrayidx.i249 = getelementptr inbounds %"struct.nlsat::interval", ptr %78, i64 %indvars.iv.next365
   %m_upper.i250 = getelementptr inbounds i8, ptr %arrayidx.i247, i64 24
   %m_lower.i251 = getelementptr inbounds i8, ptr %arrayidx.i249, i64 16
-  %call.i261 = invoke noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %76, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i250, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i251)
+  %call.i261 = invoke noundef i32 @_ZN17algebraic_numbers7manager7compareERKNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(17) %77, ptr noundef nonnull align 8 dereferenceable(8) %m_upper.i250, ptr noundef nonnull align 8 dereferenceable(8) %m_lower.i251)
           to label %call.i.noexc260 unwind label %lpad.loopexit
 
 call.i.noexc260:                                  ; preds = %for.body307
@@ -1153,62 +1153,62 @@ call.i.noexc260:                                  ; preds = %for.body307
 
 invoke.cont313.thread:                            ; preds = %call.i.noexc260
   %bf.load.i255 = load i8, ptr %arrayidx.i247, align 8
-  %78 = and i8 %bf.load.i255, 2
-  %tobool.not.i256 = icmp eq i8 %78, 0
+  %79 = and i8 %bf.load.i255, 2
+  %tobool.not.i256 = icmp eq i8 %79, 0
   %bf.load2.i257 = load i8, ptr %arrayidx.i249, align 8
   %bf.clear3.i258 = and i8 %bf.load2.i257, 1
   %tobool5.not.i259 = icmp eq i8 %bf.clear3.i258, 0
-  %79 = select i1 %tobool.not.i256, i1 true, i1 %tobool5.not.i259
-  %cond.fr = freeze i1 %79
+  %80 = select i1 %tobool.not.i256, i1 true, i1 %tobool5.not.i259
+  %cond.fr = freeze i1 %80
   %spec.select = select i1 %cond.fr, i8 %found_slack.0343, i8 1
-  %cmp304 = icmp ult i64 %indvars.iv.next365, %75
-  %80 = and i8 %spec.select, 1
-  %tobool305.not = icmp eq i8 %80, 0
-  %81 = select i1 %cmp304, i1 %tobool305.not, i1 false
-  br i1 %81, label %for.body307, label %for.end319.loopexit, !llvm.loop !11
+  %cmp304 = icmp ult i64 %indvars.iv.next365, %76
+  %81 = and i8 %spec.select, 1
+  %tobool305.not = icmp eq i8 %81, 0
+  %82 = select i1 %cmp304, i1 %tobool305.not, i1 false
+  br i1 %82, label %for.body307, label %for.end319.loopexit, !llvm.loop !11
 
 for.end319.loopexit:                              ; preds = %call.i.noexc260, %invoke.cont313.thread
-  %82 = phi i8 [ %spec.select, %invoke.cont313.thread ], [ 1, %call.i.noexc260 ]
+  %83 = phi i8 [ %spec.select, %invoke.cont313.thread ], [ 1, %call.i.noexc260 ]
   %.pre375 = load i32, ptr %m_pos.i.i, align 8
   br label %for.end319
 
 for.end319:                                       ; preds = %invoke.cont285, %for.end319.loopexit, %lor.end
-  %83 = phi i32 [ %69, %lor.end ], [ %.pre375, %for.end319.loopexit ], [ %69, %invoke.cont285 ]
-  %found_slack.0.lcssa = phi i8 [ %73, %lor.end ], [ %82, %for.end319.loopexit ], [ 1, %invoke.cont285 ]
+  %84 = phi i32 [ %69, %lor.end ], [ %.pre375, %for.end319.loopexit ], [ %69, %invoke.cont285 ]
+  %found_slack.0.lcssa = phi i8 [ %73, %lor.end ], [ %83, %for.end319.loopexit ], [ 1, %invoke.cont285 ]
   %m_allocator = getelementptr inbounds i8, ptr %this, i64 8
-  %84 = load ptr, ptr %m_allocator, align 8
-  %mul.i.i = shl i32 %83, 5
+  %85 = load ptr, ptr %m_allocator, align 8
+  %mul.i.i = shl i32 %84, 5
   %add.i.i = or disjoint i32 %mul.i.i, 8
   %conv.i = zext i32 %add.i.i to i64
-  %call2.i264 = invoke noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %84, i64 noundef %conv.i)
+  %call2.i264 = invoke noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(520) %85, i64 noundef %conv.i)
           to label %invoke.cont322 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont322:                                   ; preds = %for.end319
   %m_full.i = getelementptr inbounds i8, ptr %call2.i264, i64 4
-  %85 = zext nneg i8 %found_slack.0.lcssa to i32
-  %86 = xor i32 %85, -1
-  %bf.shl.i = shl i32 %86, 31
+  %86 = zext i8 %found_slack.0.lcssa to i32
+  %87 = xor i32 %86, -1
+  %bf.shl.i = shl i32 %87, 31
   store i32 %bf.shl.i, ptr %m_full.i, align 4
-  store i32 %83, ptr %call2.i264, align 8
+  store i32 %84, ptr %call2.i264, align 8
   %m_intervals.i = getelementptr inbounds i8, ptr %call2.i264, i64 8
-  %87 = load ptr, ptr %result, align 8
-  %conv8.i = zext i32 %83 to i64
+  %88 = load ptr, ptr %result, align 8
+  %conv8.i = zext i32 %84 to i64
   %mul.i = shl nuw nsw i64 %conv8.i, 5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %m_intervals.i, ptr align 8 %87, i64 %mul.i, i1 false)
-  %cmp.not.i.i.i.i = icmp eq ptr %87, %0
-  %cmp.i.i.i.i.i = icmp eq ptr %87, null
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %m_intervals.i, ptr align 8 %88, i64 %mul.i, i1 false)
+  %cmp.not.i.i.i.i = icmp eq ptr %88, %0
+  %cmp.i.i.i.i.i = icmp eq ptr %88, null
   %or.cond.i.i.i.i = or i1 %cmp.not.i.i.i.i, %cmp.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %return, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %invoke.cont322
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %87)
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %88)
           to label %return unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %88 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           catch ptr null
-  %89 = extractvalue { ptr, i32 } %88, 0
-  call void @__clang_call_terminate(ptr %89) #17
+  %90 = extractvalue { ptr, i32 } %89, 0
+  call void @__clang_call_terminate(ptr %90) #17
   unreachable
 
 return:                                           ; preds = %if.end.i.i.i.i.i, %invoke.cont322, %if.end7, %if.end5, %if.end, %entry

@@ -198,8 +198,7 @@ bi_windup.exit:                                   ; preds = %if.then.i, %if.else
   %arrayidx51 = getelementptr inbounds i8, ptr %23, i64 %24
   store i8 %conv47, ptr %arrayidx51, align 1
   %25 = trunc i64 %stored_len to i32
-  %conv52 = and i32 %25, 65535
-  %conv53 = xor i32 %conv52, 65535
+  %conv53 = xor i32 %25, 65535
   %conv55 = trunc i32 %conv53 to i8
   %26 = load ptr, ptr %pending_buf40, align 8
   %27 = load i64, ptr %pending41, align 8

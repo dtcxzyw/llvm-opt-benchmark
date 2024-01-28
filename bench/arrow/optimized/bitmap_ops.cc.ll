@@ -502,7 +502,6 @@ if.then.i:                                        ; preds = %_ZN5arrow8internal1
 if.then7.i:                                       ; preds = %if.then.i
   %ret.0.copyload.i.i.i36 = load i64, ptr %add.ptr.i24, align 1
   %writer.sroa.20.32.extract.trunc = trunc i64 %ret.0.copyload.i.i.i36 to i8
-  %writer.sroa.26.32.extract.shift = and i64 %ret.0.copyload.i.i.i36, -256
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
 
 if.else.i35:                                      ; preds = %if.then.i
@@ -514,7 +513,7 @@ if.then12.i:                                      ; preds = %if.else.i35
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit: ; preds = %if.then7.i, %if.else.i35, %if.then12.i
-  %writer.sroa.26.sroa.0.0 = phi i64 [ %writer.sroa.26.32.extract.shift, %if.then7.i ], [ 0, %if.then12.i ], [ 0, %if.else.i35 ]
+  %writer.sroa.26.sroa.0.0 = phi i64 [ %ret.0.copyload.i.i.i36, %if.then7.i ], [ 0, %if.then12.i ], [ 0, %if.else.i35 ]
   %writer.sroa.20.0 = phi i8 [ %writer.sroa.20.32.extract.trunc, %if.then7.i ], [ %ret.0.copyload.i.i4.i, %if.then12.i ], [ undef, %if.else.i35 ]
   %tobool3.not151 = icmp eq i64 %spec.select.i, 0
   br i1 %tobool3.not151, label %while.cond6.preheader, label %while.body.lr.ph
@@ -575,7 +574,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %writer.sroa.4.0156 = phi ptr [ %add.ptr.i45, %while.body ], [ %add.ptr.i24, %while.body.lr.ph ]
   %reader.sroa.21.1155 = phi i8 [ %reader.sroa.21.40.extract.trunc122, %while.body ], [ %reader.sroa.21.0, %while.body.lr.ph ]
   %writer.sroa.20.1154 = phi i8 [ %writer.sroa.20.32.extract.trunc113, %while.body ], [ %writer.sroa.20.0, %while.body.lr.ph ]
-  %writer.sroa.26.sroa.0.1153 = phi i64 [ %writer.sroa.26.32.extract.shift114, %while.body ], [ %writer.sroa.26.sroa.0.0, %while.body.lr.ph ]
+  %writer.sroa.26.sroa.0.1153 = phi i64 [ %or13.i, %while.body ], [ %writer.sroa.26.sroa.0.0, %while.body.lr.ph ]
   %reader.sroa.4.0152 = phi ptr [ %add.ptr.i39, %while.body ], [ %add.ptr.i, %while.body.lr.ph ]
   %dec = add nsw i64 %nwords.0158, -1
   %add.ptr.i39 = getelementptr inbounds i8, ptr %reader.sroa.4.0152, i64 8
@@ -603,7 +602,6 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i64 %or6.i, ptr %writer.sroa.4.0156, align 1
   store i64 %or13.i, ptr %add.ptr.i45, align 1
   %writer.sroa.20.32.extract.trunc113 = trunc i64 %or13.i to i8
-  %writer.sroa.26.32.extract.shift114 = and i64 %or13.i, -256
   %tobool3.not = icmp eq i64 %dec, 0
   br i1 %tobool3.not, label %while.cond6.preheader, label %while.body, !llvm.loop !15
 
@@ -700,8 +698,7 @@ if.then2.i:                                       ; preds = %if.then.i80
   %ret.0.copyload.i.i.i88 = load i8, ptr %add.ptr.i87, align 1
   %conv8.i = zext i8 %writer.sroa.20.3168 to i64
   %and.i91 = and i64 %conv8.i, %conv.i33
-  %shl.masked.i = and i32 %shl.i84, 255
-  %9 = or i32 %shl.masked.i, %shr.i85
+  %9 = or i32 %shl.i84, %shr.i85
   %conv9.i = zext nneg i32 %9 to i64
   %and11.i = and i64 %conv9.i, %not.i92
   %or12.i = or disjoint i64 %and11.i, %and.i91
@@ -888,7 +885,6 @@ if.then.i:                                        ; preds = %_ZN5arrow8internal1
 if.then7.i:                                       ; preds = %if.then.i
   %ret.0.copyload.i.i.i39 = load i64, ptr %add.ptr.i27, align 1
   %writer.sroa.20.32.extract.trunc = trunc i64 %ret.0.copyload.i.i.i39 to i8
-  %writer.sroa.26.32.extract.shift = and i64 %ret.0.copyload.i.i.i39, -256
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
 
 if.else.i38:                                      ; preds = %if.then.i
@@ -900,7 +896,7 @@ if.then12.i:                                      ; preds = %if.else.i38
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit: ; preds = %if.then7.i, %if.else.i38, %if.then12.i
-  %writer.sroa.26.sroa.0.0 = phi i64 [ %writer.sroa.26.32.extract.shift, %if.then7.i ], [ 0, %if.then12.i ], [ 0, %if.else.i38 ]
+  %writer.sroa.26.sroa.0.0 = phi i64 [ %ret.0.copyload.i.i.i39, %if.then7.i ], [ 0, %if.then12.i ], [ 0, %if.else.i38 ]
   %writer.sroa.20.0 = phi i8 [ %writer.sroa.20.32.extract.trunc, %if.then7.i ], [ %ret.0.copyload.i.i4.i, %if.then12.i ], [ undef, %if.else.i38 ]
   %tobool3.not156 = icmp eq i64 %spec.select.i, 0
   br i1 %tobool3.not156, label %while.cond6.preheader, label %while.body.lr.ph
@@ -962,7 +958,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %writer.sroa.4.0161 = phi ptr [ %add.ptr.i48, %while.body ], [ %add.ptr.i27, %while.body.lr.ph ]
   %reader.sroa.21.1160 = phi i8 [ %reader.sroa.21.40.extract.trunc125, %while.body ], [ %reader.sroa.21.0, %while.body.lr.ph ]
   %writer.sroa.20.1159 = phi i8 [ %writer.sroa.20.32.extract.trunc116, %while.body ], [ %writer.sroa.20.0, %while.body.lr.ph ]
-  %writer.sroa.26.sroa.0.1158 = phi i64 [ %writer.sroa.26.32.extract.shift117, %while.body ], [ %writer.sroa.26.sroa.0.0, %while.body.lr.ph ]
+  %writer.sroa.26.sroa.0.1158 = phi i64 [ %or13.i, %while.body ], [ %writer.sroa.26.sroa.0.0, %while.body.lr.ph ]
   %reader.sroa.4.0157 = phi ptr [ %add.ptr.i42, %while.body ], [ %add.ptr.i, %while.body.lr.ph ]
   %dec = add nsw i64 %nwords.0163, -1
   %add.ptr.i42 = getelementptr inbounds i8, ptr %reader.sroa.4.0157, i64 8
@@ -991,7 +987,6 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i64 %or6.i, ptr %writer.sroa.4.0161, align 1
   store i64 %or13.i, ptr %add.ptr.i48, align 1
   %writer.sroa.20.32.extract.trunc116 = trunc i64 %or13.i to i8
-  %writer.sroa.26.32.extract.shift117 = and i64 %or13.i, -256
   %tobool3.not = icmp eq i64 %dec, 0
   br i1 %tobool3.not, label %while.cond6.preheader, label %while.body, !llvm.loop !19
 
@@ -1090,8 +1085,7 @@ if.then2.i:                                       ; preds = %if.then.i83
   %ret.0.copyload.i.i.i91 = load i8, ptr %add.ptr.i90, align 1
   %conv8.i = zext i8 %writer.sroa.20.3173 to i64
   %and.i94 = and i64 %conv8.i, %conv.i36
-  %shl.masked.i = and i32 %shl.i87, 255
-  %9 = or i32 %shl.masked.i, %shr.i88
+  %9 = or i32 %shl.i87, %shr.i88
   %conv9.i = zext nneg i32 %9 to i64
   %and11.i = and i64 %conv9.i, %not.i95
   %or12.i = or disjoint i64 %and11.i, %and.i94
@@ -2596,12 +2590,10 @@ if.else.i.i:                                      ; preds = %if.else
 if.then18.i37.i:                                  ; preds = %if.else
   %ret.0.copyload.i.i.i.i = load i64, ptr %add.ptr.i.i, align 1
   %left_reader.sroa.21.40.extract.trunc.i = trunc i64 %ret.0.copyload.i.i.i.i to i8
-  %left_reader.sroa.27.40.extract.shift.i = and i64 %ret.0.copyload.i.i.i.i, -256
   %div.i5.i = sdiv i64 %right_offset, 8
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %right, i64 %div.i5.i
   %ret.0.copyload.i.i.i38.i = load i64, ptr %add.ptr.i6.i, align 1
   %right_reader.sroa.19.40.extract.trunc.i = trunc i64 %ret.0.copyload.i.i.i38.i to i8
-  %right_reader.sroa.25.40.extract.shift.i = and i64 %ret.0.copyload.i.i.i38.i, -256
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit40.i
 
 if.else.i32.i:                                    ; preds = %if.else.i.i
@@ -2617,10 +2609,10 @@ if.then23.i34.i:                                  ; preds = %if.else.i.i
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit40.i: ; preds = %if.then23.i34.i, %if.else.i32.i, %if.then18.i37.i
   %add.ptr.i6262.i = phi ptr [ %add.ptr.i6.i, %if.then18.i37.i ], [ %add.ptr.i6254266.i, %if.then23.i34.i ], [ %add.ptr.i6254.i, %if.else.i32.i ]
-  %left_reader.sroa.27.sroa.0.0257.i = phi i64 [ %left_reader.sroa.27.40.extract.shift.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
+  %left_reader.sroa.27.sroa.0.0257.i = phi i64 [ %ret.0.copyload.i.i.i.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
   %left_reader.sroa.21.0255.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc.i, %if.then18.i37.i ], [ %ret.0.copyload.i.i11.i.i, %if.then23.i34.i ], [ undef, %if.else.i32.i ]
   %right_reader.sroa.19.0.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc.i, %if.then18.i37.i ], [ %ret.0.copyload.i.i11.i35.i, %if.then23.i34.i ], [ undef, %if.else.i32.i ]
-  %right_reader.sroa.25.sroa.0.0.i = phi i64 [ %right_reader.sroa.25.40.extract.shift.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
+  %right_reader.sroa.25.sroa.0.0.i = phi i64 [ %ret.0.copyload.i.i.i38.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
   %add.ptr.i44.i = getelementptr inbounds i8, ptr %dest, i64 %div.i43.i
   %sh_prom.i.i = trunc i64 %rem to i32
   %notmask.i.i = shl nsw i32 -1, %sh_prom.i.i
@@ -2636,7 +2628,6 @@ if.then.i.i:                                      ; preds = %_ZN5arrow8internal1
 if.then7.i.i:                                     ; preds = %if.then.i.i
   %ret.0.copyload.i.i.i56.i = load i64, ptr %add.ptr.i44.i, align 1
   %writer.sroa.20.32.extract.trunc.i = trunc i64 %ret.0.copyload.i.i.i56.i to i8
-  %writer.sroa.26.32.extract.shift.i = and i64 %ret.0.copyload.i.i.i56.i, -256
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
 
 if.else.i55.i:                                    ; preds = %if.then.i.i
@@ -2648,7 +2639,7 @@ if.then12.i.i:                                    ; preds = %if.else.i55.i
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i: ; preds = %if.then12.i.i, %if.else.i55.i, %if.then7.i.i
-  %writer.sroa.26.sroa.0.0.i = phi i64 [ %writer.sroa.26.32.extract.shift.i, %if.then7.i.i ], [ 0, %if.then12.i.i ], [ 0, %if.else.i55.i ]
+  %writer.sroa.26.sroa.0.0.i = phi i64 [ %ret.0.copyload.i.i.i56.i, %if.then7.i.i ], [ 0, %if.then12.i.i ], [ 0, %if.else.i55.i ]
   %writer.sroa.20.0.i = phi i8 [ %writer.sroa.20.32.extract.trunc.i, %if.then7.i.i ], [ %ret.0.copyload.i.i4.i.i, %if.then12.i.i ], [ undef, %if.else.i55.i ]
   %tobool.not216.i = icmp eq i64 %spec.select.i.i, 0
   br i1 %tobool.not216.i, label %while.cond6.preheader.i, label %while.body.lr.ph.i
@@ -2664,28 +2655,28 @@ while.body.lr.ph.i:                               ; preds = %_ZN5arrow8internal1
 
 while.body.us.i:                                  ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %while.body.us.i
   %nwords.0226.us.i = phi i64 [ %dec.us.i, %while.body.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %left_reader.sroa.27.sroa.0.1225.us.i.in = phi i64 [ %2, %while.body.us.i ], [ %left_reader.sroa.27.sroa.0.0257.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %left_reader.sroa.27.sroa.0.1225.us.i = phi i64 [ %2, %while.body.us.i ], [ %left_reader.sroa.27.sroa.0.0257.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %left_reader.sroa.21.1224.us.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc213.us.i, %while.body.us.i ], [ %left_reader.sroa.21.0255.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %left_reader.sroa.4.0223.us.i = phi ptr [ %add.ptr.i59.us.i, %while.body.us.i ], [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %writer.sroa.4.0222.us.i = phi ptr [ %add.ptr21.i.us.i, %while.body.us.i ], [ %add.ptr.i44.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %right_reader.sroa.25.sroa.0.1221.us.i.in = phi i64 [ %3, %while.body.us.i ], [ %right_reader.sroa.25.sroa.0.0.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %right_reader.sroa.25.sroa.0.1221.us.i = phi i64 [ %3, %while.body.us.i ], [ %right_reader.sroa.25.sroa.0.0.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %right_reader.sroa.19.1220.us.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc204.us.i, %while.body.us.i ], [ %right_reader.sroa.19.0.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %right_reader.sroa.4.0217.us.i = phi ptr [ %add.ptr.i62.us.i, %while.body.us.i ], [ %add.ptr.i6262.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %right_reader.sroa.25.sroa.0.1221.us.i = and i64 %right_reader.sroa.25.sroa.0.1221.us.i.in, -256
-  %left_reader.sroa.27.sroa.0.1225.us.i = and i64 %left_reader.sroa.27.sroa.0.1225.us.i.in, -256
   %dec.us.i = add nsw i64 %nwords.0226.us.i, -1
   %add.ptr.i59.us.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0223.us.i, i64 8
   %ret.0.copyload.i.i.i60.us.i = load i64, ptr %add.ptr.i59.us.i, align 1
   %2 = freeze i64 %ret.0.copyload.i.i.i60.us.i
+  %left_reader.sroa.27.40.insert.ext.us.i = and i64 %left_reader.sroa.27.sroa.0.1225.us.i, -256
   %left_reader.sroa.21.40.insert.ext.us.i = zext i8 %left_reader.sroa.21.1224.us.i to i64
-  %left_reader.sroa.21.40.insert.insert.us.i = or disjoint i64 %left_reader.sroa.27.sroa.0.1225.us.i, %left_reader.sroa.21.40.insert.ext.us.i
+  %left_reader.sroa.21.40.insert.insert.us.i = or disjoint i64 %left_reader.sroa.27.40.insert.ext.us.i, %left_reader.sroa.21.40.insert.ext.us.i
   %word.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %2, i64 %left_reader.sroa.21.40.insert.insert.us.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc213.us.i = trunc i64 %2 to i8
   %add.ptr.i62.us.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0217.us.i, i64 8
   %ret.0.copyload.i.i.i63.us.i = load i64, ptr %add.ptr.i62.us.i, align 1
   %3 = freeze i64 %ret.0.copyload.i.i.i63.us.i
+  %right_reader.sroa.25.40.insert.ext.us.i = and i64 %right_reader.sroa.25.sroa.0.1221.us.i, -256
   %right_reader.sroa.19.40.insert.ext.us.i = zext i8 %right_reader.sroa.19.1220.us.i to i64
-  %right_reader.sroa.19.40.insert.insert.us.i = or disjoint i64 %right_reader.sroa.25.sroa.0.1221.us.i, %right_reader.sroa.19.40.insert.ext.us.i
+  %right_reader.sroa.19.40.insert.insert.us.i = or disjoint i64 %right_reader.sroa.25.40.insert.ext.us.i, %right_reader.sroa.19.40.insert.ext.us.i
   %word.0.i65.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %3, i64 %right_reader.sroa.19.40.insert.insert.us.i, i64 %rem3)
   %right_reader.sroa.19.40.extract.trunc204.us.i = trunc i64 %3 to i8
   %and.i.us.i = and i64 %word.0.i65.us.i, %word.0.i.us.i
@@ -2718,30 +2709,30 @@ while.body9.lr.ph.i:                              ; preds = %while.cond6.prehead
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i
   %nwords.0226.i = phi i64 [ %dec.i, %while.body.i ], [ %spec.select.i.i, %while.body.lr.ph.i ]
-  %left_reader.sroa.27.sroa.0.1225.i.in = phi i64 [ %4, %while.body.i ], [ %left_reader.sroa.27.sroa.0.0257.i, %while.body.lr.ph.i ]
+  %left_reader.sroa.27.sroa.0.1225.i = phi i64 [ %4, %while.body.i ], [ %left_reader.sroa.27.sroa.0.0257.i, %while.body.lr.ph.i ]
   %left_reader.sroa.21.1224.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc213.i, %while.body.i ], [ %left_reader.sroa.21.0255.i, %while.body.lr.ph.i ]
   %left_reader.sroa.4.0223.i = phi ptr [ %add.ptr.i59.i, %while.body.i ], [ %add.ptr.i.i, %while.body.lr.ph.i ]
   %writer.sroa.4.0222.i = phi ptr [ %add.ptr.i70.i, %while.body.i ], [ %add.ptr.i44.i, %while.body.lr.ph.i ]
-  %right_reader.sroa.25.sroa.0.1221.i.in = phi i64 [ %5, %while.body.i ], [ %right_reader.sroa.25.sroa.0.0.i, %while.body.lr.ph.i ]
+  %right_reader.sroa.25.sroa.0.1221.i = phi i64 [ %5, %while.body.i ], [ %right_reader.sroa.25.sroa.0.0.i, %while.body.lr.ph.i ]
   %right_reader.sroa.19.1220.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc204.i, %while.body.i ], [ %right_reader.sroa.19.0.i, %while.body.lr.ph.i ]
   %writer.sroa.20.1219.i = phi i8 [ %writer.sroa.20.32.extract.trunc196.i, %while.body.i ], [ %writer.sroa.20.0.i, %while.body.lr.ph.i ]
-  %writer.sroa.26.sroa.0.1218.i = phi i64 [ %writer.sroa.26.32.extract.shift197.i, %while.body.i ], [ %writer.sroa.26.sroa.0.0.i, %while.body.lr.ph.i ]
+  %writer.sroa.26.sroa.0.1218.i = phi i64 [ %or13.i.i, %while.body.i ], [ %writer.sroa.26.sroa.0.0.i, %while.body.lr.ph.i ]
   %right_reader.sroa.4.0217.i = phi ptr [ %add.ptr.i62.i, %while.body.i ], [ %add.ptr.i6262.i, %while.body.lr.ph.i ]
-  %right_reader.sroa.25.sroa.0.1221.i = and i64 %right_reader.sroa.25.sroa.0.1221.i.in, -256
-  %left_reader.sroa.27.sroa.0.1225.i = and i64 %left_reader.sroa.27.sroa.0.1225.i.in, -256
   %dec.i = add nsw i64 %nwords.0226.i, -1
   %add.ptr.i59.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0223.i, i64 8
   %ret.0.copyload.i.i.i60.i = load i64, ptr %add.ptr.i59.i, align 1
   %4 = freeze i64 %ret.0.copyload.i.i.i60.i
+  %left_reader.sroa.27.40.insert.ext.i = and i64 %left_reader.sroa.27.sroa.0.1225.i, -256
   %left_reader.sroa.21.40.insert.ext.i = zext i8 %left_reader.sroa.21.1224.i to i64
-  %left_reader.sroa.21.40.insert.insert.i = or disjoint i64 %left_reader.sroa.27.sroa.0.1225.i, %left_reader.sroa.21.40.insert.ext.i
+  %left_reader.sroa.21.40.insert.insert.i = or disjoint i64 %left_reader.sroa.27.40.insert.ext.i, %left_reader.sroa.21.40.insert.ext.i
   %word.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %4, i64 %left_reader.sroa.21.40.insert.insert.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc213.i = trunc i64 %4 to i8
   %add.ptr.i62.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0217.i, i64 8
   %ret.0.copyload.i.i.i63.i = load i64, ptr %add.ptr.i62.i, align 1
   %5 = freeze i64 %ret.0.copyload.i.i.i63.i
+  %right_reader.sroa.25.40.insert.ext.i = and i64 %right_reader.sroa.25.sroa.0.1221.i, -256
   %right_reader.sroa.19.40.insert.ext.i = zext i8 %right_reader.sroa.19.1220.i to i64
-  %right_reader.sroa.19.40.insert.insert.i = or disjoint i64 %right_reader.sroa.25.sroa.0.1221.i, %right_reader.sroa.19.40.insert.ext.i
+  %right_reader.sroa.19.40.insert.insert.i = or disjoint i64 %right_reader.sroa.25.40.insert.ext.i, %right_reader.sroa.19.40.insert.ext.i
   %word.0.i65.i = tail call noundef i64 @llvm.fshr.i64(i64 %5, i64 %right_reader.sroa.19.40.insert.insert.i, i64 %rem3)
   %right_reader.sroa.19.40.extract.trunc204.i = trunc i64 %5 to i8
   %and.i.i14 = and i64 %word.0.i65.i, %word.0.i.i
@@ -2762,7 +2753,6 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   store i64 %or6.i.i, ptr %writer.sroa.4.0222.i, align 1
   store i64 %or13.i.i, ptr %add.ptr.i70.i, align 1
   %writer.sroa.20.32.extract.trunc196.i = trunc i64 %or13.i.i to i8
-  %writer.sroa.26.32.extract.shift197.i = and i64 %or13.i.i, -256
   %tobool.not.i = icmp eq i64 %dec.i, 0
   br i1 %tobool.not.i, label %while.cond6.preheader.i, label %while.body.i, !llvm.loop !58
 
@@ -2949,8 +2939,7 @@ if.then2.i.i:                                     ; preds = %if.then.i168.i
   %ret.0.copyload.i.i.i176.i = load i8, ptr %add.ptr.i175.i, align 1
   %conv8.i.i = zext i8 %writer.sroa.20.3241.i to i64
   %and.i179.i = and i64 %conv8.i.i, %conv.i53.i
-  %shl.masked.i.i = and i32 %shl.i172.i, 255
-  %16 = or i32 %shl.masked.i.i, %shr.i173.i
+  %16 = or i32 %shl.i172.i, %shr.i173.i
   %conv9.i.i = zext nneg i32 %16 to i64
   %and11.i.i = and i64 %conv9.i.i, %not.i180.i
   %or12.i.i = or disjoint i64 %and11.i.i, %and.i179.i
@@ -3158,12 +3147,10 @@ if.else.i.i:                                      ; preds = %if.else
 if.then18.i37.i:                                  ; preds = %if.else
   %ret.0.copyload.i.i.i.i = load i64, ptr %add.ptr.i.i, align 1
   %left_reader.sroa.21.40.extract.trunc.i = trunc i64 %ret.0.copyload.i.i.i.i to i8
-  %left_reader.sroa.27.40.extract.shift.i = and i64 %ret.0.copyload.i.i.i.i, -256
   %div.i5.i = sdiv i64 %right_offset, 8
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %right, i64 %div.i5.i
   %ret.0.copyload.i.i.i38.i = load i64, ptr %add.ptr.i6.i, align 1
   %right_reader.sroa.19.40.extract.trunc.i = trunc i64 %ret.0.copyload.i.i.i38.i to i8
-  %right_reader.sroa.25.40.extract.shift.i = and i64 %ret.0.copyload.i.i.i38.i, -256
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit40.i
 
 if.else.i32.i:                                    ; preds = %if.else.i.i
@@ -3179,10 +3166,10 @@ if.then23.i34.i:                                  ; preds = %if.else.i.i
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit40.i: ; preds = %if.then23.i34.i, %if.else.i32.i, %if.then18.i37.i
   %add.ptr.i6262.i = phi ptr [ %add.ptr.i6.i, %if.then18.i37.i ], [ %add.ptr.i6254266.i, %if.then23.i34.i ], [ %add.ptr.i6254.i, %if.else.i32.i ]
-  %left_reader.sroa.27.sroa.0.0257.i = phi i64 [ %left_reader.sroa.27.40.extract.shift.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
+  %left_reader.sroa.27.sroa.0.0257.i = phi i64 [ %ret.0.copyload.i.i.i.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
   %left_reader.sroa.21.0255.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc.i, %if.then18.i37.i ], [ %ret.0.copyload.i.i11.i.i, %if.then23.i34.i ], [ undef, %if.else.i32.i ]
   %right_reader.sroa.19.0.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc.i, %if.then18.i37.i ], [ %ret.0.copyload.i.i11.i35.i, %if.then23.i34.i ], [ undef, %if.else.i32.i ]
-  %right_reader.sroa.25.sroa.0.0.i = phi i64 [ %right_reader.sroa.25.40.extract.shift.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
+  %right_reader.sroa.25.sroa.0.0.i = phi i64 [ %ret.0.copyload.i.i.i38.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
   %add.ptr.i44.i = getelementptr inbounds i8, ptr %dest, i64 %div.i43.i
   %sh_prom.i.i = trunc i64 %rem to i32
   %notmask.i.i = shl nsw i32 -1, %sh_prom.i.i
@@ -3198,7 +3185,6 @@ if.then.i.i:                                      ; preds = %_ZN5arrow8internal1
 if.then7.i.i:                                     ; preds = %if.then.i.i
   %ret.0.copyload.i.i.i56.i = load i64, ptr %add.ptr.i44.i, align 1
   %writer.sroa.20.32.extract.trunc.i = trunc i64 %ret.0.copyload.i.i.i56.i to i8
-  %writer.sroa.26.32.extract.shift.i = and i64 %ret.0.copyload.i.i.i56.i, -256
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
 
 if.else.i55.i:                                    ; preds = %if.then.i.i
@@ -3210,7 +3196,7 @@ if.then12.i.i:                                    ; preds = %if.else.i55.i
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i: ; preds = %if.then12.i.i, %if.else.i55.i, %if.then7.i.i
-  %writer.sroa.26.sroa.0.0.i = phi i64 [ %writer.sroa.26.32.extract.shift.i, %if.then7.i.i ], [ 0, %if.then12.i.i ], [ 0, %if.else.i55.i ]
+  %writer.sroa.26.sroa.0.0.i = phi i64 [ %ret.0.copyload.i.i.i56.i, %if.then7.i.i ], [ 0, %if.then12.i.i ], [ 0, %if.else.i55.i ]
   %writer.sroa.20.0.i = phi i8 [ %writer.sroa.20.32.extract.trunc.i, %if.then7.i.i ], [ %ret.0.copyload.i.i4.i.i, %if.then12.i.i ], [ undef, %if.else.i55.i ]
   %tobool.not216.i = icmp eq i64 %spec.select.i.i, 0
   br i1 %tobool.not216.i, label %while.cond6.preheader.i, label %while.body.lr.ph.i
@@ -3226,28 +3212,28 @@ while.body.lr.ph.i:                               ; preds = %_ZN5arrow8internal1
 
 while.body.us.i:                                  ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %while.body.us.i
   %nwords.0226.us.i = phi i64 [ %dec.us.i, %while.body.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %left_reader.sroa.27.sroa.0.1225.us.i.in = phi i64 [ %2, %while.body.us.i ], [ %left_reader.sroa.27.sroa.0.0257.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %left_reader.sroa.27.sroa.0.1225.us.i = phi i64 [ %2, %while.body.us.i ], [ %left_reader.sroa.27.sroa.0.0257.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %left_reader.sroa.21.1224.us.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc213.us.i, %while.body.us.i ], [ %left_reader.sroa.21.0255.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %left_reader.sroa.4.0223.us.i = phi ptr [ %add.ptr.i59.us.i, %while.body.us.i ], [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %writer.sroa.4.0222.us.i = phi ptr [ %add.ptr21.i.us.i, %while.body.us.i ], [ %add.ptr.i44.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %right_reader.sroa.25.sroa.0.1221.us.i.in = phi i64 [ %3, %while.body.us.i ], [ %right_reader.sroa.25.sroa.0.0.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %right_reader.sroa.25.sroa.0.1221.us.i = phi i64 [ %3, %while.body.us.i ], [ %right_reader.sroa.25.sroa.0.0.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %right_reader.sroa.19.1220.us.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc204.us.i, %while.body.us.i ], [ %right_reader.sroa.19.0.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %right_reader.sroa.4.0217.us.i = phi ptr [ %add.ptr.i62.us.i, %while.body.us.i ], [ %add.ptr.i6262.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %right_reader.sroa.25.sroa.0.1221.us.i = and i64 %right_reader.sroa.25.sroa.0.1221.us.i.in, -256
-  %left_reader.sroa.27.sroa.0.1225.us.i = and i64 %left_reader.sroa.27.sroa.0.1225.us.i.in, -256
   %dec.us.i = add nsw i64 %nwords.0226.us.i, -1
   %add.ptr.i59.us.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0223.us.i, i64 8
   %ret.0.copyload.i.i.i60.us.i = load i64, ptr %add.ptr.i59.us.i, align 1
   %2 = freeze i64 %ret.0.copyload.i.i.i60.us.i
+  %left_reader.sroa.27.40.insert.ext.us.i = and i64 %left_reader.sroa.27.sroa.0.1225.us.i, -256
   %left_reader.sroa.21.40.insert.ext.us.i = zext i8 %left_reader.sroa.21.1224.us.i to i64
-  %left_reader.sroa.21.40.insert.insert.us.i = or disjoint i64 %left_reader.sroa.27.sroa.0.1225.us.i, %left_reader.sroa.21.40.insert.ext.us.i
+  %left_reader.sroa.21.40.insert.insert.us.i = or disjoint i64 %left_reader.sroa.27.40.insert.ext.us.i, %left_reader.sroa.21.40.insert.ext.us.i
   %word.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %2, i64 %left_reader.sroa.21.40.insert.insert.us.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc213.us.i = trunc i64 %2 to i8
   %add.ptr.i62.us.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0217.us.i, i64 8
   %ret.0.copyload.i.i.i63.us.i = load i64, ptr %add.ptr.i62.us.i, align 1
   %3 = freeze i64 %ret.0.copyload.i.i.i63.us.i
+  %right_reader.sroa.25.40.insert.ext.us.i = and i64 %right_reader.sroa.25.sroa.0.1221.us.i, -256
   %right_reader.sroa.19.40.insert.ext.us.i = zext i8 %right_reader.sroa.19.1220.us.i to i64
-  %right_reader.sroa.19.40.insert.insert.us.i = or disjoint i64 %right_reader.sroa.25.sroa.0.1221.us.i, %right_reader.sroa.19.40.insert.ext.us.i
+  %right_reader.sroa.19.40.insert.insert.us.i = or disjoint i64 %right_reader.sroa.25.40.insert.ext.us.i, %right_reader.sroa.19.40.insert.ext.us.i
   %word.0.i65.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %3, i64 %right_reader.sroa.19.40.insert.insert.us.i, i64 %rem3)
   %right_reader.sroa.19.40.extract.trunc204.us.i = trunc i64 %3 to i8
   %or.i.us.i = or i64 %word.0.i65.us.i, %word.0.i.us.i
@@ -3280,30 +3266,30 @@ while.body9.lr.ph.i:                              ; preds = %while.cond6.prehead
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i
   %nwords.0226.i = phi i64 [ %dec.i, %while.body.i ], [ %spec.select.i.i, %while.body.lr.ph.i ]
-  %left_reader.sroa.27.sroa.0.1225.i.in = phi i64 [ %4, %while.body.i ], [ %left_reader.sroa.27.sroa.0.0257.i, %while.body.lr.ph.i ]
+  %left_reader.sroa.27.sroa.0.1225.i = phi i64 [ %4, %while.body.i ], [ %left_reader.sroa.27.sroa.0.0257.i, %while.body.lr.ph.i ]
   %left_reader.sroa.21.1224.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc213.i, %while.body.i ], [ %left_reader.sroa.21.0255.i, %while.body.lr.ph.i ]
   %left_reader.sroa.4.0223.i = phi ptr [ %add.ptr.i59.i, %while.body.i ], [ %add.ptr.i.i, %while.body.lr.ph.i ]
   %writer.sroa.4.0222.i = phi ptr [ %add.ptr.i71.i, %while.body.i ], [ %add.ptr.i44.i, %while.body.lr.ph.i ]
-  %right_reader.sroa.25.sroa.0.1221.i.in = phi i64 [ %5, %while.body.i ], [ %right_reader.sroa.25.sroa.0.0.i, %while.body.lr.ph.i ]
+  %right_reader.sroa.25.sroa.0.1221.i = phi i64 [ %5, %while.body.i ], [ %right_reader.sroa.25.sroa.0.0.i, %while.body.lr.ph.i ]
   %right_reader.sroa.19.1220.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc204.i, %while.body.i ], [ %right_reader.sroa.19.0.i, %while.body.lr.ph.i ]
   %writer.sroa.20.1219.i = phi i8 [ %writer.sroa.20.32.extract.trunc196.i, %while.body.i ], [ %writer.sroa.20.0.i, %while.body.lr.ph.i ]
-  %writer.sroa.26.sroa.0.1218.i = phi i64 [ %writer.sroa.26.32.extract.shift197.i, %while.body.i ], [ %writer.sroa.26.sroa.0.0.i, %while.body.lr.ph.i ]
+  %writer.sroa.26.sroa.0.1218.i = phi i64 [ %or13.i.i, %while.body.i ], [ %writer.sroa.26.sroa.0.0.i, %while.body.lr.ph.i ]
   %right_reader.sroa.4.0217.i = phi ptr [ %add.ptr.i62.i, %while.body.i ], [ %add.ptr.i6262.i, %while.body.lr.ph.i ]
-  %right_reader.sroa.25.sroa.0.1221.i = and i64 %right_reader.sroa.25.sroa.0.1221.i.in, -256
-  %left_reader.sroa.27.sroa.0.1225.i = and i64 %left_reader.sroa.27.sroa.0.1225.i.in, -256
   %dec.i = add nsw i64 %nwords.0226.i, -1
   %add.ptr.i59.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0223.i, i64 8
   %ret.0.copyload.i.i.i60.i = load i64, ptr %add.ptr.i59.i, align 1
   %4 = freeze i64 %ret.0.copyload.i.i.i60.i
+  %left_reader.sroa.27.40.insert.ext.i = and i64 %left_reader.sroa.27.sroa.0.1225.i, -256
   %left_reader.sroa.21.40.insert.ext.i = zext i8 %left_reader.sroa.21.1224.i to i64
-  %left_reader.sroa.21.40.insert.insert.i = or disjoint i64 %left_reader.sroa.27.sroa.0.1225.i, %left_reader.sroa.21.40.insert.ext.i
+  %left_reader.sroa.21.40.insert.insert.i = or disjoint i64 %left_reader.sroa.27.40.insert.ext.i, %left_reader.sroa.21.40.insert.ext.i
   %word.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %4, i64 %left_reader.sroa.21.40.insert.insert.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc213.i = trunc i64 %4 to i8
   %add.ptr.i62.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0217.i, i64 8
   %ret.0.copyload.i.i.i63.i = load i64, ptr %add.ptr.i62.i, align 1
   %5 = freeze i64 %ret.0.copyload.i.i.i63.i
+  %right_reader.sroa.25.40.insert.ext.i = and i64 %right_reader.sroa.25.sroa.0.1221.i, -256
   %right_reader.sroa.19.40.insert.ext.i = zext i8 %right_reader.sroa.19.1220.i to i64
-  %right_reader.sroa.19.40.insert.insert.i = or disjoint i64 %right_reader.sroa.25.sroa.0.1221.i, %right_reader.sroa.19.40.insert.ext.i
+  %right_reader.sroa.19.40.insert.insert.i = or disjoint i64 %right_reader.sroa.25.40.insert.ext.i, %right_reader.sroa.19.40.insert.ext.i
   %word.0.i65.i = tail call noundef i64 @llvm.fshr.i64(i64 %5, i64 %right_reader.sroa.19.40.insert.insert.i, i64 %rem3)
   %right_reader.sroa.19.40.extract.trunc204.i = trunc i64 %5 to i8
   %or.i.i = or i64 %word.0.i65.i, %word.0.i.i
@@ -3324,7 +3310,6 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   store i64 %or6.i.i, ptr %writer.sroa.4.0222.i, align 1
   store i64 %or13.i.i, ptr %add.ptr.i71.i, align 1
   %writer.sroa.20.32.extract.trunc196.i = trunc i64 %or13.i.i to i8
-  %writer.sroa.26.32.extract.shift197.i = and i64 %or13.i.i, -256
   %tobool.not.i = icmp eq i64 %dec.i, 0
   br i1 %tobool.not.i, label %while.cond6.preheader.i, label %while.body.i, !llvm.loop !69
 
@@ -3511,8 +3496,7 @@ if.then2.i.i:                                     ; preds = %if.then.i168.i
   %ret.0.copyload.i.i.i176.i = load i8, ptr %add.ptr.i175.i, align 1
   %conv8.i.i = zext i8 %writer.sroa.20.3241.i to i64
   %and.i179.i = and i64 %conv8.i.i, %conv.i53.i
-  %shl.masked.i.i = and i32 %shl.i172.i, 255
-  %16 = or i32 %shl.masked.i.i, %shr.i173.i
+  %16 = or i32 %shl.i172.i, %shr.i173.i
   %conv9.i.i = zext nneg i32 %16 to i64
   %and11.i.i = and i64 %conv9.i.i, %not.i180.i
   %or12.i.i = or disjoint i64 %and11.i.i, %and.i179.i
@@ -3720,12 +3704,10 @@ if.else.i.i:                                      ; preds = %if.else
 if.then18.i37.i:                                  ; preds = %if.else
   %ret.0.copyload.i.i.i.i = load i64, ptr %add.ptr.i.i, align 1
   %left_reader.sroa.21.40.extract.trunc.i = trunc i64 %ret.0.copyload.i.i.i.i to i8
-  %left_reader.sroa.27.40.extract.shift.i = and i64 %ret.0.copyload.i.i.i.i, -256
   %div.i5.i = sdiv i64 %right_offset, 8
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %right, i64 %div.i5.i
   %ret.0.copyload.i.i.i38.i = load i64, ptr %add.ptr.i6.i, align 1
   %right_reader.sroa.19.40.extract.trunc.i = trunc i64 %ret.0.copyload.i.i.i38.i to i8
-  %right_reader.sroa.25.40.extract.shift.i = and i64 %ret.0.copyload.i.i.i38.i, -256
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit40.i
 
 if.else.i32.i:                                    ; preds = %if.else.i.i
@@ -3741,10 +3723,10 @@ if.then23.i34.i:                                  ; preds = %if.else.i.i
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit40.i: ; preds = %if.then23.i34.i, %if.else.i32.i, %if.then18.i37.i
   %add.ptr.i6261.i = phi ptr [ %add.ptr.i6.i, %if.then18.i37.i ], [ %add.ptr.i6253265.i, %if.then23.i34.i ], [ %add.ptr.i6253.i, %if.else.i32.i ]
-  %left_reader.sroa.27.sroa.0.0256.i = phi i64 [ %left_reader.sroa.27.40.extract.shift.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
+  %left_reader.sroa.27.sroa.0.0256.i = phi i64 [ %ret.0.copyload.i.i.i.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
   %left_reader.sroa.21.0254.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc.i, %if.then18.i37.i ], [ %ret.0.copyload.i.i11.i.i, %if.then23.i34.i ], [ undef, %if.else.i32.i ]
   %right_reader.sroa.19.0.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc.i, %if.then18.i37.i ], [ %ret.0.copyload.i.i11.i35.i, %if.then23.i34.i ], [ undef, %if.else.i32.i ]
-  %right_reader.sroa.25.sroa.0.0.i = phi i64 [ %right_reader.sroa.25.40.extract.shift.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
+  %right_reader.sroa.25.sroa.0.0.i = phi i64 [ %ret.0.copyload.i.i.i38.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
   %add.ptr.i44.i = getelementptr inbounds i8, ptr %dest, i64 %div.i43.i
   %sh_prom.i.i = trunc i64 %rem to i32
   %notmask.i.i = shl nsw i32 -1, %sh_prom.i.i
@@ -3760,7 +3742,6 @@ if.then.i.i:                                      ; preds = %_ZN5arrow8internal1
 if.then7.i.i:                                     ; preds = %if.then.i.i
   %ret.0.copyload.i.i.i56.i = load i64, ptr %add.ptr.i44.i, align 1
   %writer.sroa.20.32.extract.trunc.i = trunc i64 %ret.0.copyload.i.i.i56.i to i8
-  %writer.sroa.26.32.extract.shift.i = and i64 %ret.0.copyload.i.i.i56.i, -256
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
 
 if.else.i55.i:                                    ; preds = %if.then.i.i
@@ -3772,7 +3753,7 @@ if.then12.i.i:                                    ; preds = %if.else.i55.i
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i: ; preds = %if.then12.i.i, %if.else.i55.i, %if.then7.i.i
-  %writer.sroa.26.sroa.0.0.i = phi i64 [ %writer.sroa.26.32.extract.shift.i, %if.then7.i.i ], [ 0, %if.then12.i.i ], [ 0, %if.else.i55.i ]
+  %writer.sroa.26.sroa.0.0.i = phi i64 [ %ret.0.copyload.i.i.i56.i, %if.then7.i.i ], [ 0, %if.then12.i.i ], [ 0, %if.else.i55.i ]
   %writer.sroa.20.0.i = phi i8 [ %writer.sroa.20.32.extract.trunc.i, %if.then7.i.i ], [ %ret.0.copyload.i.i4.i.i, %if.then12.i.i ], [ undef, %if.else.i55.i ]
   %tobool.not215.i = icmp eq i64 %spec.select.i.i, 0
   br i1 %tobool.not215.i, label %while.cond6.preheader.i, label %while.body.lr.ph.i
@@ -3788,28 +3769,28 @@ while.body.lr.ph.i:                               ; preds = %_ZN5arrow8internal1
 
 while.body.us.i:                                  ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %while.body.us.i
   %nwords.0225.us.i = phi i64 [ %dec.us.i, %while.body.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %left_reader.sroa.27.sroa.0.1224.us.i.in = phi i64 [ %2, %while.body.us.i ], [ %left_reader.sroa.27.sroa.0.0256.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %left_reader.sroa.27.sroa.0.1224.us.i = phi i64 [ %2, %while.body.us.i ], [ %left_reader.sroa.27.sroa.0.0256.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %left_reader.sroa.21.1223.us.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc212.us.i, %while.body.us.i ], [ %left_reader.sroa.21.0254.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %left_reader.sroa.4.0222.us.i = phi ptr [ %add.ptr.i59.us.i, %while.body.us.i ], [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %writer.sroa.4.0221.us.i = phi ptr [ %add.ptr21.i.us.i, %while.body.us.i ], [ %add.ptr.i44.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %right_reader.sroa.25.sroa.0.1220.us.i.in = phi i64 [ %3, %while.body.us.i ], [ %right_reader.sroa.25.sroa.0.0.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %right_reader.sroa.25.sroa.0.1220.us.i = phi i64 [ %3, %while.body.us.i ], [ %right_reader.sroa.25.sroa.0.0.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %right_reader.sroa.19.1219.us.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc203.us.i, %while.body.us.i ], [ %right_reader.sroa.19.0.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %right_reader.sroa.4.0216.us.i = phi ptr [ %add.ptr.i62.us.i, %while.body.us.i ], [ %add.ptr.i6261.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %right_reader.sroa.25.sroa.0.1220.us.i = and i64 %right_reader.sroa.25.sroa.0.1220.us.i.in, -256
-  %left_reader.sroa.27.sroa.0.1224.us.i = and i64 %left_reader.sroa.27.sroa.0.1224.us.i.in, -256
   %dec.us.i = add nsw i64 %nwords.0225.us.i, -1
   %add.ptr.i59.us.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0222.us.i, i64 8
   %ret.0.copyload.i.i.i60.us.i = load i64, ptr %add.ptr.i59.us.i, align 1
   %2 = freeze i64 %ret.0.copyload.i.i.i60.us.i
+  %left_reader.sroa.27.40.insert.ext.us.i = and i64 %left_reader.sroa.27.sroa.0.1224.us.i, -256
   %left_reader.sroa.21.40.insert.ext.us.i = zext i8 %left_reader.sroa.21.1223.us.i to i64
-  %left_reader.sroa.21.40.insert.insert.us.i = or disjoint i64 %left_reader.sroa.27.sroa.0.1224.us.i, %left_reader.sroa.21.40.insert.ext.us.i
+  %left_reader.sroa.21.40.insert.insert.us.i = or disjoint i64 %left_reader.sroa.27.40.insert.ext.us.i, %left_reader.sroa.21.40.insert.ext.us.i
   %word.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %2, i64 %left_reader.sroa.21.40.insert.insert.us.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc212.us.i = trunc i64 %2 to i8
   %add.ptr.i62.us.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0216.us.i, i64 8
   %ret.0.copyload.i.i.i63.us.i = load i64, ptr %add.ptr.i62.us.i, align 1
   %3 = freeze i64 %ret.0.copyload.i.i.i63.us.i
+  %right_reader.sroa.25.40.insert.ext.us.i = and i64 %right_reader.sroa.25.sroa.0.1220.us.i, -256
   %right_reader.sroa.19.40.insert.ext.us.i = zext i8 %right_reader.sroa.19.1219.us.i to i64
-  %right_reader.sroa.19.40.insert.insert.us.i = or disjoint i64 %right_reader.sroa.25.sroa.0.1220.us.i, %right_reader.sroa.19.40.insert.ext.us.i
+  %right_reader.sroa.19.40.insert.insert.us.i = or disjoint i64 %right_reader.sroa.25.40.insert.ext.us.i, %right_reader.sroa.19.40.insert.ext.us.i
   %word.0.i65.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %3, i64 %right_reader.sroa.19.40.insert.insert.us.i, i64 %rem3)
   %right_reader.sroa.19.40.extract.trunc203.us.i = trunc i64 %3 to i8
   %xor.i.us.i = xor i64 %word.0.i65.us.i, %word.0.i.us.i
@@ -3842,30 +3823,30 @@ while.body9.lr.ph.i:                              ; preds = %while.cond6.prehead
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i
   %nwords.0225.i = phi i64 [ %dec.i, %while.body.i ], [ %spec.select.i.i, %while.body.lr.ph.i ]
-  %left_reader.sroa.27.sroa.0.1224.i.in = phi i64 [ %4, %while.body.i ], [ %left_reader.sroa.27.sroa.0.0256.i, %while.body.lr.ph.i ]
+  %left_reader.sroa.27.sroa.0.1224.i = phi i64 [ %4, %while.body.i ], [ %left_reader.sroa.27.sroa.0.0256.i, %while.body.lr.ph.i ]
   %left_reader.sroa.21.1223.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc212.i, %while.body.i ], [ %left_reader.sroa.21.0254.i, %while.body.lr.ph.i ]
   %left_reader.sroa.4.0222.i = phi ptr [ %add.ptr.i59.i, %while.body.i ], [ %add.ptr.i.i, %while.body.lr.ph.i ]
   %writer.sroa.4.0221.i = phi ptr [ %add.ptr.i70.i, %while.body.i ], [ %add.ptr.i44.i, %while.body.lr.ph.i ]
-  %right_reader.sroa.25.sroa.0.1220.i.in = phi i64 [ %5, %while.body.i ], [ %right_reader.sroa.25.sroa.0.0.i, %while.body.lr.ph.i ]
+  %right_reader.sroa.25.sroa.0.1220.i = phi i64 [ %5, %while.body.i ], [ %right_reader.sroa.25.sroa.0.0.i, %while.body.lr.ph.i ]
   %right_reader.sroa.19.1219.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc203.i, %while.body.i ], [ %right_reader.sroa.19.0.i, %while.body.lr.ph.i ]
   %writer.sroa.20.1218.i = phi i8 [ %writer.sroa.20.32.extract.trunc195.i, %while.body.i ], [ %writer.sroa.20.0.i, %while.body.lr.ph.i ]
-  %writer.sroa.26.sroa.0.1217.i = phi i64 [ %writer.sroa.26.32.extract.shift196.i, %while.body.i ], [ %writer.sroa.26.sroa.0.0.i, %while.body.lr.ph.i ]
+  %writer.sroa.26.sroa.0.1217.i = phi i64 [ %or13.i.i, %while.body.i ], [ %writer.sroa.26.sroa.0.0.i, %while.body.lr.ph.i ]
   %right_reader.sroa.4.0216.i = phi ptr [ %add.ptr.i62.i, %while.body.i ], [ %add.ptr.i6261.i, %while.body.lr.ph.i ]
-  %right_reader.sroa.25.sroa.0.1220.i = and i64 %right_reader.sroa.25.sroa.0.1220.i.in, -256
-  %left_reader.sroa.27.sroa.0.1224.i = and i64 %left_reader.sroa.27.sroa.0.1224.i.in, -256
   %dec.i = add nsw i64 %nwords.0225.i, -1
   %add.ptr.i59.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0222.i, i64 8
   %ret.0.copyload.i.i.i60.i = load i64, ptr %add.ptr.i59.i, align 1
   %4 = freeze i64 %ret.0.copyload.i.i.i60.i
+  %left_reader.sroa.27.40.insert.ext.i = and i64 %left_reader.sroa.27.sroa.0.1224.i, -256
   %left_reader.sroa.21.40.insert.ext.i = zext i8 %left_reader.sroa.21.1223.i to i64
-  %left_reader.sroa.21.40.insert.insert.i = or disjoint i64 %left_reader.sroa.27.sroa.0.1224.i, %left_reader.sroa.21.40.insert.ext.i
+  %left_reader.sroa.21.40.insert.insert.i = or disjoint i64 %left_reader.sroa.27.40.insert.ext.i, %left_reader.sroa.21.40.insert.ext.i
   %word.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %4, i64 %left_reader.sroa.21.40.insert.insert.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc212.i = trunc i64 %4 to i8
   %add.ptr.i62.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0216.i, i64 8
   %ret.0.copyload.i.i.i63.i = load i64, ptr %add.ptr.i62.i, align 1
   %5 = freeze i64 %ret.0.copyload.i.i.i63.i
+  %right_reader.sroa.25.40.insert.ext.i = and i64 %right_reader.sroa.25.sroa.0.1220.i, -256
   %right_reader.sroa.19.40.insert.ext.i = zext i8 %right_reader.sroa.19.1219.i to i64
-  %right_reader.sroa.19.40.insert.insert.i = or disjoint i64 %right_reader.sroa.25.sroa.0.1220.i, %right_reader.sroa.19.40.insert.ext.i
+  %right_reader.sroa.19.40.insert.insert.i = or disjoint i64 %right_reader.sroa.25.40.insert.ext.i, %right_reader.sroa.19.40.insert.ext.i
   %word.0.i65.i = tail call noundef i64 @llvm.fshr.i64(i64 %5, i64 %right_reader.sroa.19.40.insert.insert.i, i64 %rem3)
   %right_reader.sroa.19.40.extract.trunc203.i = trunc i64 %5 to i8
   %xor.i.i = xor i64 %word.0.i65.i, %word.0.i.i
@@ -3886,7 +3867,6 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   store i64 %or6.i.i, ptr %writer.sroa.4.0221.i, align 1
   store i64 %or13.i.i, ptr %add.ptr.i70.i, align 1
   %writer.sroa.20.32.extract.trunc195.i = trunc i64 %or13.i.i to i8
-  %writer.sroa.26.32.extract.shift196.i = and i64 %or13.i.i, -256
   %tobool.not.i = icmp eq i64 %dec.i, 0
   br i1 %tobool.not.i, label %while.cond6.preheader.i, label %while.body.i, !llvm.loop !80
 
@@ -4073,8 +4053,7 @@ if.then2.i.i:                                     ; preds = %if.then.i167.i
   %ret.0.copyload.i.i.i175.i = load i8, ptr %add.ptr.i174.i, align 1
   %conv8.i.i = zext i8 %writer.sroa.20.3240.i to i64
   %and.i178.i = and i64 %conv8.i.i, %conv.i53.i
-  %shl.masked.i.i = and i32 %shl.i171.i, 255
-  %16 = or i32 %shl.masked.i.i, %shr.i172.i
+  %16 = or i32 %shl.i171.i, %shr.i172.i
   %conv9.i.i = zext nneg i32 %16 to i64
   %and11.i.i = and i64 %conv9.i.i, %not.i179.i
   %or12.i.i = or disjoint i64 %and11.i.i, %and.i178.i
@@ -4283,12 +4262,10 @@ if.else.i.i:                                      ; preds = %if.else
 if.then18.i37.i:                                  ; preds = %if.else
   %ret.0.copyload.i.i.i.i = load i64, ptr %add.ptr.i.i, align 1
   %left_reader.sroa.21.40.extract.trunc.i = trunc i64 %ret.0.copyload.i.i.i.i to i8
-  %left_reader.sroa.27.40.extract.shift.i = and i64 %ret.0.copyload.i.i.i.i, -256
   %div.i5.i = sdiv i64 %right_offset, 8
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %right, i64 %div.i5.i
   %ret.0.copyload.i.i.i38.i = load i64, ptr %add.ptr.i6.i, align 1
   %right_reader.sroa.19.40.extract.trunc.i = trunc i64 %ret.0.copyload.i.i.i38.i to i8
-  %right_reader.sroa.25.40.extract.shift.i = and i64 %ret.0.copyload.i.i.i38.i, -256
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit40.i
 
 if.else.i32.i:                                    ; preds = %if.else.i.i
@@ -4304,10 +4281,10 @@ if.then23.i34.i:                                  ; preds = %if.else.i.i
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit40.i: ; preds = %if.then23.i34.i, %if.else.i32.i, %if.then18.i37.i
   %add.ptr.i6265.i = phi ptr [ %add.ptr.i6.i, %if.then18.i37.i ], [ %add.ptr.i6257269.i, %if.then23.i34.i ], [ %add.ptr.i6257.i, %if.else.i32.i ]
-  %left_reader.sroa.27.sroa.0.0260.i = phi i64 [ %left_reader.sroa.27.40.extract.shift.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
+  %left_reader.sroa.27.sroa.0.0260.i = phi i64 [ %ret.0.copyload.i.i.i.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
   %left_reader.sroa.21.0258.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc.i, %if.then18.i37.i ], [ %ret.0.copyload.i.i11.i.i, %if.then23.i34.i ], [ undef, %if.else.i32.i ]
   %right_reader.sroa.19.0.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc.i, %if.then18.i37.i ], [ %ret.0.copyload.i.i11.i35.i, %if.then23.i34.i ], [ undef, %if.else.i32.i ]
-  %right_reader.sroa.25.sroa.0.0.i = phi i64 [ %right_reader.sroa.25.40.extract.shift.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
+  %right_reader.sroa.25.sroa.0.0.i = phi i64 [ %ret.0.copyload.i.i.i38.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
   %add.ptr.i44.i = getelementptr inbounds i8, ptr %dest, i64 %div.i43.i
   %sh_prom.i.i = trunc i64 %rem to i32
   %notmask.i.i = shl nsw i32 -1, %sh_prom.i.i
@@ -4323,7 +4300,6 @@ if.then.i.i:                                      ; preds = %_ZN5arrow8internal1
 if.then7.i.i:                                     ; preds = %if.then.i.i
   %ret.0.copyload.i.i.i56.i = load i64, ptr %add.ptr.i44.i, align 1
   %writer.sroa.20.32.extract.trunc.i = trunc i64 %ret.0.copyload.i.i.i56.i to i8
-  %writer.sroa.26.32.extract.shift.i = and i64 %ret.0.copyload.i.i.i56.i, -256
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
 
 if.else.i55.i:                                    ; preds = %if.then.i.i
@@ -4335,7 +4311,7 @@ if.then12.i.i:                                    ; preds = %if.else.i55.i
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i: ; preds = %if.then12.i.i, %if.else.i55.i, %if.then7.i.i
-  %writer.sroa.26.sroa.0.0.i = phi i64 [ %writer.sroa.26.32.extract.shift.i, %if.then7.i.i ], [ 0, %if.then12.i.i ], [ 0, %if.else.i55.i ]
+  %writer.sroa.26.sroa.0.0.i = phi i64 [ %ret.0.copyload.i.i.i56.i, %if.then7.i.i ], [ 0, %if.then12.i.i ], [ 0, %if.else.i55.i ]
   %writer.sroa.20.0.i = phi i8 [ %writer.sroa.20.32.extract.trunc.i, %if.then7.i.i ], [ %ret.0.copyload.i.i4.i.i, %if.then12.i.i ], [ undef, %if.else.i55.i ]
   %tobool.not219.i = icmp eq i64 %spec.select.i.i, 0
   br i1 %tobool.not219.i, label %while.cond6.preheader.i, label %while.body.lr.ph.i
@@ -4351,28 +4327,28 @@ while.body.lr.ph.i:                               ; preds = %_ZN5arrow8internal1
 
 while.body.us.i:                                  ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %while.body.us.i
   %nwords.0229.us.i = phi i64 [ %dec.us.i, %while.body.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %left_reader.sroa.27.sroa.0.1228.us.i.in = phi i64 [ %2, %while.body.us.i ], [ %left_reader.sroa.27.sroa.0.0260.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %left_reader.sroa.27.sroa.0.1228.us.i = phi i64 [ %2, %while.body.us.i ], [ %left_reader.sroa.27.sroa.0.0260.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %left_reader.sroa.21.1227.us.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc216.us.i, %while.body.us.i ], [ %left_reader.sroa.21.0258.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %left_reader.sroa.4.0226.us.i = phi ptr [ %add.ptr.i59.us.i, %while.body.us.i ], [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %writer.sroa.4.0225.us.i = phi ptr [ %add.ptr21.i.us.i, %while.body.us.i ], [ %add.ptr.i44.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %right_reader.sroa.25.sroa.0.1224.us.i.in = phi i64 [ %3, %while.body.us.i ], [ %right_reader.sroa.25.sroa.0.0.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %right_reader.sroa.25.sroa.0.1224.us.i = phi i64 [ %3, %while.body.us.i ], [ %right_reader.sroa.25.sroa.0.0.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %right_reader.sroa.19.1223.us.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc207.us.i, %while.body.us.i ], [ %right_reader.sroa.19.0.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %right_reader.sroa.4.0220.us.i = phi ptr [ %add.ptr.i62.us.i, %while.body.us.i ], [ %add.ptr.i6265.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %right_reader.sroa.25.sroa.0.1224.us.i = and i64 %right_reader.sroa.25.sroa.0.1224.us.i.in, -256
-  %left_reader.sroa.27.sroa.0.1228.us.i = and i64 %left_reader.sroa.27.sroa.0.1228.us.i.in, -256
   %dec.us.i = add nsw i64 %nwords.0229.us.i, -1
   %add.ptr.i59.us.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0226.us.i, i64 8
   %ret.0.copyload.i.i.i60.us.i = load i64, ptr %add.ptr.i59.us.i, align 1
   %2 = freeze i64 %ret.0.copyload.i.i.i60.us.i
+  %left_reader.sroa.27.40.insert.ext.us.i = and i64 %left_reader.sroa.27.sroa.0.1228.us.i, -256
   %left_reader.sroa.21.40.insert.ext.us.i = zext i8 %left_reader.sroa.21.1227.us.i to i64
-  %left_reader.sroa.21.40.insert.insert.us.i = or disjoint i64 %left_reader.sroa.27.sroa.0.1228.us.i, %left_reader.sroa.21.40.insert.ext.us.i
+  %left_reader.sroa.21.40.insert.insert.us.i = or disjoint i64 %left_reader.sroa.27.40.insert.ext.us.i, %left_reader.sroa.21.40.insert.ext.us.i
   %word.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %2, i64 %left_reader.sroa.21.40.insert.insert.us.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc216.us.i = trunc i64 %2 to i8
   %add.ptr.i62.us.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0220.us.i, i64 8
   %ret.0.copyload.i.i.i63.us.i = load i64, ptr %add.ptr.i62.us.i, align 1
   %3 = freeze i64 %ret.0.copyload.i.i.i63.us.i
+  %right_reader.sroa.25.40.insert.ext.us.i = and i64 %right_reader.sroa.25.sroa.0.1224.us.i, -256
   %right_reader.sroa.19.40.insert.ext.us.i = zext i8 %right_reader.sroa.19.1223.us.i to i64
-  %right_reader.sroa.19.40.insert.insert.us.i = or disjoint i64 %right_reader.sroa.25.sroa.0.1224.us.i, %right_reader.sroa.19.40.insert.ext.us.i
+  %right_reader.sroa.19.40.insert.insert.us.i = or disjoint i64 %right_reader.sroa.25.40.insert.ext.us.i, %right_reader.sroa.19.40.insert.ext.us.i
   %word.0.i65.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %3, i64 %right_reader.sroa.19.40.insert.insert.us.i, i64 %rem3)
   %right_reader.sroa.19.40.extract.trunc207.us.i = trunc i64 %3 to i8
   %not.i.us.i = xor i64 %word.0.i65.us.i, -1
@@ -4406,30 +4382,30 @@ while.body9.lr.ph.i:                              ; preds = %while.cond6.prehead
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i
   %nwords.0229.i = phi i64 [ %dec.i, %while.body.i ], [ %spec.select.i.i, %while.body.lr.ph.i ]
-  %left_reader.sroa.27.sroa.0.1228.i.in = phi i64 [ %4, %while.body.i ], [ %left_reader.sroa.27.sroa.0.0260.i, %while.body.lr.ph.i ]
+  %left_reader.sroa.27.sroa.0.1228.i = phi i64 [ %4, %while.body.i ], [ %left_reader.sroa.27.sroa.0.0260.i, %while.body.lr.ph.i ]
   %left_reader.sroa.21.1227.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc216.i, %while.body.i ], [ %left_reader.sroa.21.0258.i, %while.body.lr.ph.i ]
   %left_reader.sroa.4.0226.i = phi ptr [ %add.ptr.i59.i, %while.body.i ], [ %add.ptr.i.i, %while.body.lr.ph.i ]
   %writer.sroa.4.0225.i = phi ptr [ %add.ptr.i70.i, %while.body.i ], [ %add.ptr.i44.i, %while.body.lr.ph.i ]
-  %right_reader.sroa.25.sroa.0.1224.i.in = phi i64 [ %5, %while.body.i ], [ %right_reader.sroa.25.sroa.0.0.i, %while.body.lr.ph.i ]
+  %right_reader.sroa.25.sroa.0.1224.i = phi i64 [ %5, %while.body.i ], [ %right_reader.sroa.25.sroa.0.0.i, %while.body.lr.ph.i ]
   %right_reader.sroa.19.1223.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc207.i, %while.body.i ], [ %right_reader.sroa.19.0.i, %while.body.lr.ph.i ]
   %writer.sroa.20.1222.i = phi i8 [ %writer.sroa.20.32.extract.trunc199.i, %while.body.i ], [ %writer.sroa.20.0.i, %while.body.lr.ph.i ]
-  %writer.sroa.26.sroa.0.1221.i = phi i64 [ %writer.sroa.26.32.extract.shift200.i, %while.body.i ], [ %writer.sroa.26.sroa.0.0.i, %while.body.lr.ph.i ]
+  %writer.sroa.26.sroa.0.1221.i = phi i64 [ %or13.i.i, %while.body.i ], [ %writer.sroa.26.sroa.0.0.i, %while.body.lr.ph.i ]
   %right_reader.sroa.4.0220.i = phi ptr [ %add.ptr.i62.i, %while.body.i ], [ %add.ptr.i6265.i, %while.body.lr.ph.i ]
-  %right_reader.sroa.25.sroa.0.1224.i = and i64 %right_reader.sroa.25.sroa.0.1224.i.in, -256
-  %left_reader.sroa.27.sroa.0.1228.i = and i64 %left_reader.sroa.27.sroa.0.1228.i.in, -256
   %dec.i = add nsw i64 %nwords.0229.i, -1
   %add.ptr.i59.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0226.i, i64 8
   %ret.0.copyload.i.i.i60.i = load i64, ptr %add.ptr.i59.i, align 1
   %4 = freeze i64 %ret.0.copyload.i.i.i60.i
+  %left_reader.sroa.27.40.insert.ext.i = and i64 %left_reader.sroa.27.sroa.0.1228.i, -256
   %left_reader.sroa.21.40.insert.ext.i = zext i8 %left_reader.sroa.21.1227.i to i64
-  %left_reader.sroa.21.40.insert.insert.i = or disjoint i64 %left_reader.sroa.27.sroa.0.1228.i, %left_reader.sroa.21.40.insert.ext.i
+  %left_reader.sroa.21.40.insert.insert.i = or disjoint i64 %left_reader.sroa.27.40.insert.ext.i, %left_reader.sroa.21.40.insert.ext.i
   %word.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %4, i64 %left_reader.sroa.21.40.insert.insert.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc216.i = trunc i64 %4 to i8
   %add.ptr.i62.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0220.i, i64 8
   %ret.0.copyload.i.i.i63.i = load i64, ptr %add.ptr.i62.i, align 1
   %5 = freeze i64 %ret.0.copyload.i.i.i63.i
+  %right_reader.sroa.25.40.insert.ext.i = and i64 %right_reader.sroa.25.sroa.0.1224.i, -256
   %right_reader.sroa.19.40.insert.ext.i = zext i8 %right_reader.sroa.19.1223.i to i64
-  %right_reader.sroa.19.40.insert.insert.i = or disjoint i64 %right_reader.sroa.25.sroa.0.1224.i, %right_reader.sroa.19.40.insert.ext.i
+  %right_reader.sroa.19.40.insert.insert.i = or disjoint i64 %right_reader.sroa.25.40.insert.ext.i, %right_reader.sroa.19.40.insert.ext.i
   %word.0.i65.i = tail call noundef i64 @llvm.fshr.i64(i64 %5, i64 %right_reader.sroa.19.40.insert.insert.i, i64 %rem3)
   %right_reader.sroa.19.40.extract.trunc207.i = trunc i64 %5 to i8
   %not.i.i14 = xor i64 %word.0.i65.i, -1
@@ -4451,7 +4427,6 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   store i64 %or6.i.i, ptr %writer.sroa.4.0225.i, align 1
   store i64 %or13.i.i, ptr %add.ptr.i70.i, align 1
   %writer.sroa.20.32.extract.trunc199.i = trunc i64 %or13.i.i to i8
-  %writer.sroa.26.32.extract.shift200.i = and i64 %or13.i.i, -256
   %tobool.not.i = icmp eq i64 %dec.i, 0
   br i1 %tobool.not.i, label %while.cond6.preheader.i, label %while.body.i, !llvm.loop !91
 
@@ -4639,8 +4614,7 @@ if.then2.i.i:                                     ; preds = %if.then.i171.i
   %ret.0.copyload.i.i.i179.i = load i8, ptr %add.ptr.i178.i, align 1
   %conv8.i.i = zext i8 %writer.sroa.20.3244.i to i64
   %and.i182.i = and i64 %conv8.i.i, %conv.i53.i
-  %shl.masked.i.i = and i32 %shl.i175.i, 255
-  %16 = or i32 %shl.masked.i.i, %shr.i176.i
+  %16 = or i32 %shl.i175.i, %shr.i176.i
   %conv9.i.i = zext nneg i32 %16 to i64
   %and11.i.i = and i64 %conv9.i.i, %not.i183.i
   %or12.i.i = or disjoint i64 %and11.i.i, %and.i182.i
@@ -4849,12 +4823,10 @@ if.else.i.i:                                      ; preds = %if.else
 if.then18.i37.i:                                  ; preds = %if.else
   %ret.0.copyload.i.i.i.i = load i64, ptr %add.ptr.i.i, align 1
   %left_reader.sroa.21.40.extract.trunc.i = trunc i64 %ret.0.copyload.i.i.i.i to i8
-  %left_reader.sroa.27.40.extract.shift.i = and i64 %ret.0.copyload.i.i.i.i, -256
   %div.i5.i = sdiv i64 %right_offset, 8
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %right, i64 %div.i5.i
   %ret.0.copyload.i.i.i38.i = load i64, ptr %add.ptr.i6.i, align 1
   %right_reader.sroa.19.40.extract.trunc.i = trunc i64 %ret.0.copyload.i.i.i38.i to i8
-  %right_reader.sroa.25.40.extract.shift.i = and i64 %ret.0.copyload.i.i.i38.i, -256
   br label %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit40.i
 
 if.else.i32.i:                                    ; preds = %if.else.i.i
@@ -4870,10 +4842,10 @@ if.then23.i34.i:                                  ; preds = %if.else.i.i
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit40.i: ; preds = %if.then23.i34.i, %if.else.i32.i, %if.then18.i37.i
   %add.ptr.i6265.i = phi ptr [ %add.ptr.i6.i, %if.then18.i37.i ], [ %add.ptr.i6257269.i, %if.then23.i34.i ], [ %add.ptr.i6257.i, %if.else.i32.i ]
-  %left_reader.sroa.27.sroa.0.0260.i = phi i64 [ %left_reader.sroa.27.40.extract.shift.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
+  %left_reader.sroa.27.sroa.0.0260.i = phi i64 [ %ret.0.copyload.i.i.i.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
   %left_reader.sroa.21.0258.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc.i, %if.then18.i37.i ], [ %ret.0.copyload.i.i11.i.i, %if.then23.i34.i ], [ undef, %if.else.i32.i ]
   %right_reader.sroa.19.0.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc.i, %if.then18.i37.i ], [ %ret.0.copyload.i.i11.i35.i, %if.then23.i34.i ], [ undef, %if.else.i32.i ]
-  %right_reader.sroa.25.sroa.0.0.i = phi i64 [ %right_reader.sroa.25.40.extract.shift.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
+  %right_reader.sroa.25.sroa.0.0.i = phi i64 [ %ret.0.copyload.i.i.i38.i, %if.then18.i37.i ], [ 0, %if.then23.i34.i ], [ 0, %if.else.i32.i ]
   %add.ptr.i44.i = getelementptr inbounds i8, ptr %dest, i64 %div.i43.i
   %sh_prom.i.i = trunc i64 %rem to i32
   %notmask.i.i = shl nsw i32 -1, %sh_prom.i.i
@@ -4889,7 +4861,6 @@ if.then.i.i:                                      ; preds = %_ZN5arrow8internal1
 if.then7.i.i:                                     ; preds = %if.then.i.i
   %ret.0.copyload.i.i.i56.i = load i64, ptr %add.ptr.i44.i, align 1
   %writer.sroa.20.32.extract.trunc.i = trunc i64 %ret.0.copyload.i.i.i56.i to i8
-  %writer.sroa.26.32.extract.shift.i = and i64 %ret.0.copyload.i.i.i56.i, -256
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
 
 if.else.i55.i:                                    ; preds = %if.then.i.i
@@ -4901,7 +4872,7 @@ if.then12.i.i:                                    ; preds = %if.else.i55.i
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i: ; preds = %if.then12.i.i, %if.else.i55.i, %if.then7.i.i
-  %writer.sroa.26.sroa.0.0.i = phi i64 [ %writer.sroa.26.32.extract.shift.i, %if.then7.i.i ], [ 0, %if.then12.i.i ], [ 0, %if.else.i55.i ]
+  %writer.sroa.26.sroa.0.0.i = phi i64 [ %ret.0.copyload.i.i.i56.i, %if.then7.i.i ], [ 0, %if.then12.i.i ], [ 0, %if.else.i55.i ]
   %writer.sroa.20.0.i = phi i8 [ %writer.sroa.20.32.extract.trunc.i, %if.then7.i.i ], [ %ret.0.copyload.i.i4.i.i, %if.then12.i.i ], [ undef, %if.else.i55.i ]
   %tobool.not219.i = icmp eq i64 %spec.select.i.i, 0
   br i1 %tobool.not219.i, label %while.cond6.preheader.i, label %while.body.lr.ph.i
@@ -4917,28 +4888,28 @@ while.body.lr.ph.i:                               ; preds = %_ZN5arrow8internal1
 
 while.body.us.i:                                  ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %while.body.us.i
   %nwords.0229.us.i = phi i64 [ %dec.us.i, %while.body.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %left_reader.sroa.27.sroa.0.1228.us.i.in = phi i64 [ %2, %while.body.us.i ], [ %left_reader.sroa.27.sroa.0.0260.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %left_reader.sroa.27.sroa.0.1228.us.i = phi i64 [ %2, %while.body.us.i ], [ %left_reader.sroa.27.sroa.0.0260.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %left_reader.sroa.21.1227.us.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc216.us.i, %while.body.us.i ], [ %left_reader.sroa.21.0258.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %left_reader.sroa.4.0226.us.i = phi ptr [ %add.ptr.i59.us.i, %while.body.us.i ], [ %add.ptr.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %writer.sroa.4.0225.us.i = phi ptr [ %add.ptr21.i.us.i, %while.body.us.i ], [ %add.ptr.i44.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %right_reader.sroa.25.sroa.0.1224.us.i.in = phi i64 [ %3, %while.body.us.i ], [ %right_reader.sroa.25.sroa.0.0.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %right_reader.sroa.25.sroa.0.1224.us.i = phi i64 [ %3, %while.body.us.i ], [ %right_reader.sroa.25.sroa.0.0.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %right_reader.sroa.19.1223.us.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc207.us.i, %while.body.us.i ], [ %right_reader.sroa.19.0.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %right_reader.sroa.4.0220.us.i = phi ptr [ %add.ptr.i62.us.i, %while.body.us.i ], [ %add.ptr.i6265.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %right_reader.sroa.25.sroa.0.1224.us.i = and i64 %right_reader.sroa.25.sroa.0.1224.us.i.in, -256
-  %left_reader.sroa.27.sroa.0.1228.us.i = and i64 %left_reader.sroa.27.sroa.0.1228.us.i.in, -256
   %dec.us.i = add nsw i64 %nwords.0229.us.i, -1
   %add.ptr.i59.us.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0226.us.i, i64 8
   %ret.0.copyload.i.i.i60.us.i = load i64, ptr %add.ptr.i59.us.i, align 1
   %2 = freeze i64 %ret.0.copyload.i.i.i60.us.i
+  %left_reader.sroa.27.40.insert.ext.us.i = and i64 %left_reader.sroa.27.sroa.0.1228.us.i, -256
   %left_reader.sroa.21.40.insert.ext.us.i = zext i8 %left_reader.sroa.21.1227.us.i to i64
-  %left_reader.sroa.21.40.insert.insert.us.i = or disjoint i64 %left_reader.sroa.27.sroa.0.1228.us.i, %left_reader.sroa.21.40.insert.ext.us.i
+  %left_reader.sroa.21.40.insert.insert.us.i = or disjoint i64 %left_reader.sroa.27.40.insert.ext.us.i, %left_reader.sroa.21.40.insert.ext.us.i
   %word.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %2, i64 %left_reader.sroa.21.40.insert.insert.us.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc216.us.i = trunc i64 %2 to i8
   %add.ptr.i62.us.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0220.us.i, i64 8
   %ret.0.copyload.i.i.i63.us.i = load i64, ptr %add.ptr.i62.us.i, align 1
   %3 = freeze i64 %ret.0.copyload.i.i.i63.us.i
+  %right_reader.sroa.25.40.insert.ext.us.i = and i64 %right_reader.sroa.25.sroa.0.1224.us.i, -256
   %right_reader.sroa.19.40.insert.ext.us.i = zext i8 %right_reader.sroa.19.1223.us.i to i64
-  %right_reader.sroa.19.40.insert.insert.us.i = or disjoint i64 %right_reader.sroa.25.sroa.0.1224.us.i, %right_reader.sroa.19.40.insert.ext.us.i
+  %right_reader.sroa.19.40.insert.insert.us.i = or disjoint i64 %right_reader.sroa.25.40.insert.ext.us.i, %right_reader.sroa.19.40.insert.ext.us.i
   %word.0.i65.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %3, i64 %right_reader.sroa.19.40.insert.insert.us.i, i64 %rem3)
   %right_reader.sroa.19.40.extract.trunc207.us.i = trunc i64 %3 to i8
   %not.i.us.i = xor i64 %word.0.i65.us.i, -1
@@ -4972,30 +4943,30 @@ while.body9.lr.ph.i:                              ; preds = %while.cond6.prehead
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i
   %nwords.0229.i = phi i64 [ %dec.i, %while.body.i ], [ %spec.select.i.i, %while.body.lr.ph.i ]
-  %left_reader.sroa.27.sroa.0.1228.i.in = phi i64 [ %4, %while.body.i ], [ %left_reader.sroa.27.sroa.0.0260.i, %while.body.lr.ph.i ]
+  %left_reader.sroa.27.sroa.0.1228.i = phi i64 [ %4, %while.body.i ], [ %left_reader.sroa.27.sroa.0.0260.i, %while.body.lr.ph.i ]
   %left_reader.sroa.21.1227.i = phi i8 [ %left_reader.sroa.21.40.extract.trunc216.i, %while.body.i ], [ %left_reader.sroa.21.0258.i, %while.body.lr.ph.i ]
   %left_reader.sroa.4.0226.i = phi ptr [ %add.ptr.i59.i, %while.body.i ], [ %add.ptr.i.i, %while.body.lr.ph.i ]
   %writer.sroa.4.0225.i = phi ptr [ %add.ptr.i71.i, %while.body.i ], [ %add.ptr.i44.i, %while.body.lr.ph.i ]
-  %right_reader.sroa.25.sroa.0.1224.i.in = phi i64 [ %5, %while.body.i ], [ %right_reader.sroa.25.sroa.0.0.i, %while.body.lr.ph.i ]
+  %right_reader.sroa.25.sroa.0.1224.i = phi i64 [ %5, %while.body.i ], [ %right_reader.sroa.25.sroa.0.0.i, %while.body.lr.ph.i ]
   %right_reader.sroa.19.1223.i = phi i8 [ %right_reader.sroa.19.40.extract.trunc207.i, %while.body.i ], [ %right_reader.sroa.19.0.i, %while.body.lr.ph.i ]
   %writer.sroa.20.1222.i = phi i8 [ %writer.sroa.20.32.extract.trunc199.i, %while.body.i ], [ %writer.sroa.20.0.i, %while.body.lr.ph.i ]
-  %writer.sroa.26.sroa.0.1221.i = phi i64 [ %writer.sroa.26.32.extract.shift200.i, %while.body.i ], [ %writer.sroa.26.sroa.0.0.i, %while.body.lr.ph.i ]
+  %writer.sroa.26.sroa.0.1221.i = phi i64 [ %or13.i.i, %while.body.i ], [ %writer.sroa.26.sroa.0.0.i, %while.body.lr.ph.i ]
   %right_reader.sroa.4.0220.i = phi ptr [ %add.ptr.i62.i, %while.body.i ], [ %add.ptr.i6265.i, %while.body.lr.ph.i ]
-  %right_reader.sroa.25.sroa.0.1224.i = and i64 %right_reader.sroa.25.sroa.0.1224.i.in, -256
-  %left_reader.sroa.27.sroa.0.1228.i = and i64 %left_reader.sroa.27.sroa.0.1228.i.in, -256
   %dec.i = add nsw i64 %nwords.0229.i, -1
   %add.ptr.i59.i = getelementptr inbounds i8, ptr %left_reader.sroa.4.0226.i, i64 8
   %ret.0.copyload.i.i.i60.i = load i64, ptr %add.ptr.i59.i, align 1
   %4 = freeze i64 %ret.0.copyload.i.i.i60.i
+  %left_reader.sroa.27.40.insert.ext.i = and i64 %left_reader.sroa.27.sroa.0.1228.i, -256
   %left_reader.sroa.21.40.insert.ext.i = zext i8 %left_reader.sroa.21.1227.i to i64
-  %left_reader.sroa.21.40.insert.insert.i = or disjoint i64 %left_reader.sroa.27.sroa.0.1228.i, %left_reader.sroa.21.40.insert.ext.i
+  %left_reader.sroa.21.40.insert.insert.i = or disjoint i64 %left_reader.sroa.27.40.insert.ext.i, %left_reader.sroa.21.40.insert.ext.i
   %word.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %4, i64 %left_reader.sroa.21.40.insert.insert.i, i64 %rem1)
   %left_reader.sroa.21.40.extract.trunc216.i = trunc i64 %4 to i8
   %add.ptr.i62.i = getelementptr inbounds i8, ptr %right_reader.sroa.4.0220.i, i64 8
   %ret.0.copyload.i.i.i63.i = load i64, ptr %add.ptr.i62.i, align 1
   %5 = freeze i64 %ret.0.copyload.i.i.i63.i
+  %right_reader.sroa.25.40.insert.ext.i = and i64 %right_reader.sroa.25.sroa.0.1224.i, -256
   %right_reader.sroa.19.40.insert.ext.i = zext i8 %right_reader.sroa.19.1223.i to i64
-  %right_reader.sroa.19.40.insert.insert.i = or disjoint i64 %right_reader.sroa.25.sroa.0.1224.i, %right_reader.sroa.19.40.insert.ext.i
+  %right_reader.sroa.19.40.insert.insert.i = or disjoint i64 %right_reader.sroa.25.40.insert.ext.i, %right_reader.sroa.19.40.insert.ext.i
   %word.0.i65.i = tail call noundef i64 @llvm.fshr.i64(i64 %5, i64 %right_reader.sroa.19.40.insert.insert.i, i64 %rem3)
   %right_reader.sroa.19.40.extract.trunc207.i = trunc i64 %5 to i8
   %not.i.i14 = xor i64 %word.0.i65.i, -1
@@ -5017,7 +4988,6 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   store i64 %or6.i.i, ptr %writer.sroa.4.0225.i, align 1
   store i64 %or13.i.i, ptr %add.ptr.i71.i, align 1
   %writer.sroa.20.32.extract.trunc199.i = trunc i64 %or13.i.i to i8
-  %writer.sroa.26.32.extract.shift200.i = and i64 %or13.i.i, -256
   %tobool.not.i = icmp eq i64 %dec.i, 0
   br i1 %tobool.not.i, label %while.cond6.preheader.i, label %while.body.i, !llvm.loop !102
 
@@ -5205,8 +5175,7 @@ if.then2.i.i:                                     ; preds = %if.then.i171.i
   %ret.0.copyload.i.i.i179.i = load i8, ptr %add.ptr.i178.i, align 1
   %conv8.i.i = zext i8 %writer.sroa.20.3244.i to i64
   %and.i182.i = and i64 %conv8.i.i, %conv.i53.i
-  %shl.masked.i.i = and i32 %shl.i175.i, 255
-  %16 = or i32 %shl.masked.i.i, %shr.i176.i
+  %16 = or i32 %shl.i175.i, %shr.i176.i
   %conv9.i.i = zext nneg i32 %16 to i64
   %and11.i.i = and i64 %conv9.i.i, %not.i183.i
   %or12.i.i = or disjoint i64 %and11.i.i, %and.i182.i

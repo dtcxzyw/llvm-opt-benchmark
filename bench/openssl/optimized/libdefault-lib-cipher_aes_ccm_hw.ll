@@ -74,36 +74,29 @@ entry:
   %keylen.tr = trunc i64 %keylen to i32
   %conv9 = shl i32 %keylen.tr, 3
   %ks11 = getelementptr inbounds i8, ptr %ctx, i64 168
-  %ccm_ctx13 = getelementptr inbounds i8, ptr %ctx, i64 80
-  %m14 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %l16 = getelementptr inbounds i8, ptr %ctx, i64 8
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 @vpaes_set_encrypt_key(ptr noundef %key, i32 noundef %conv9, ptr noundef nonnull %ks11) #3
-  %1 = load i64, ptr %m14, align 8
-  %conv1 = trunc i64 %1 to i32
-  %2 = load i64, ptr %l16, align 8
-  %conv2 = trunc i64 %2 to i32
-  tail call void @CRYPTO_ccm128_init(ptr noundef nonnull %ccm_ctx13, i32 noundef %conv1, i32 noundef %conv2, ptr noundef nonnull %ks11, ptr noundef nonnull @vpaes_encrypt) #3
-  %bf.load6 = load i8, ptr %ctx, align 8
-  %bf.clear7 = and i8 %bf.load6, -3
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %call12 = tail call i32 @AES_set_encrypt_key(ptr noundef %key, i32 noundef %conv9, ptr noundef nonnull %ks11) #3
-  %3 = load i64, ptr %m14, align 8
-  %conv15 = trunc i64 %3 to i32
-  %4 = load i64, ptr %l16, align 8
-  %conv17 = trunc i64 %4 to i32
-  tail call void @CRYPTO_ccm128_init(ptr noundef nonnull %ccm_ctx13, i32 noundef %conv15, i32 noundef %conv17, ptr noundef nonnull %ks11, ptr noundef nonnull @AES_encrypt) #3
-  %bf.load26 = load i8, ptr %ctx, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %storemerge.in = phi i8 [ %bf.load26, %if.else ], [ %bf.clear7, %if.then ]
-  %5 = getelementptr inbounds i8, ptr %ctx, i64 136
-  store ptr null, ptr %5, align 8
+  %AES_encrypt.sink = phi ptr [ @AES_encrypt, %if.else ], [ @vpaes_encrypt, %if.then ]
+  %l16 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %m14 = getelementptr inbounds i8, ptr %ctx, i64 16
+  %ccm_ctx13 = getelementptr inbounds i8, ptr %ctx, i64 80
+  %1 = load i64, ptr %m14, align 8
+  %conv15 = trunc i64 %1 to i32
+  %2 = load i64, ptr %l16, align 8
+  %conv17 = trunc i64 %2 to i32
+  tail call void @CRYPTO_ccm128_init(ptr noundef nonnull %ccm_ctx13, i32 noundef %conv15, i32 noundef %conv17, ptr noundef nonnull %ks11, ptr noundef nonnull %AES_encrypt.sink) #3
+  %storemerge.in = load i8, ptr %ctx, align 8
+  %3 = getelementptr inbounds i8, ptr %ctx, i64 136
+  store ptr null, ptr %3, align 8
   %storemerge = or i8 %storemerge.in, 2
   store i8 %storemerge, ptr %ctx, align 8
   ret i32 1

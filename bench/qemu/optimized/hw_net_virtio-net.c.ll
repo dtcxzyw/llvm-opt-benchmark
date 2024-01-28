@@ -5649,8 +5649,7 @@ if.then8.i.i:                                     ; preds = %if.then41.i.i.i, %i
   br label %virtio_net_rsc_receive4.exit.i
 
 if.end10.i.i:                                     ; preds = %lor.lhs.false.i.i.i
-  %33 = and i16 %call.i.i.i, 63
-  %conv5.i28.i.i = zext nneg i16 %33 to i32
+  %conv5.i28.i.i = zext i16 %call.i.i.i to i32
   %and6.i.i.i = and i32 %conv5.i28.i.i, 2
   %tobool.not.i29.i.i = icmp eq i32 %and6.i.i.i, 0
   br i1 %tobool.not.i29.i.i, label %if.end.i33.i.i, label %if.then14.i.i
@@ -5662,35 +5661,35 @@ if.end.i33.i.i:                                   ; preds = %if.end10.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.end.i33.i.i
   %tcp_ctrl_drain.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 92
-  %34 = load i32, ptr %tcp_ctrl_drain.i.i.i, align 4
-  %inc12.i.i.i = add i32 %34, 1
+  %33 = load i32, ptr %tcp_ctrl_drain.i.i.i, align 4
+  %inc12.i.i.i = add i32 %33, 1
   store i32 %inc12.i.i.i, ptr %tcp_ctrl_drain.i.i.i, align 4
   br label %if.then18.i.i
 
 if.end13.i.i.i:                                   ; preds = %if.end.i33.i.i
-  %35 = and i16 %call.i.i.i, -4096
-  %cmp.i.i.i = icmp ugt i16 %35, 20480
+  %34 = and i16 %call.i.i.i, -4096
+  %cmp.i.i.i = icmp ugt i16 %34, 20480
   br i1 %cmp.i.i.i, label %if.then16.i.i.i, label %if.end29.i.i
 
 if.then16.i.i.i:                                  ; preds = %if.end13.i.i.i
   %tcp_all_opt.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 136
-  %36 = load i32, ptr %tcp_all_opt.i.i.i, align 8
-  %inc18.i.i.i = add i32 %36, 1
+  %35 = load i32, ptr %tcp_all_opt.i.i.i, align 8
+  %inc18.i.i.i = add i32 %35, 1
   store i32 %inc18.i.i.i, ptr %tcp_all_opt.i.i.i, align 8
   br label %if.then18.i.i
 
 if.then14.i.i:                                    ; preds = %if.end10.i.i
   %tcp_syn.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 88
-  %37 = load i32, ptr %tcp_syn.i.i.i, align 8
-  %inc.i31.i.i = add i32 %37, 1
+  %36 = load i32, ptr %tcp_syn.i.i.i, align 8
+  %inc.i31.i.i = add i32 %36, 1
   store i32 %inc.i31.i.i, ptr %tcp_syn.i.i.i, align 8
   %call15.i.i = tail call fastcc i64 @virtio_net_do_receive(ptr noundef %nc, ptr noundef nonnull %buf, i64 noundef %size)
   br label %virtio_net_rsc_receive4.exit.i
 
 if.then18.i.i:                                    ; preds = %if.then16.i.i.i, %if.then10.i.i.i
-  %38 = trunc i64 %12 to i16
-  %conv22.i.i = add i16 %38, 26
-  %conv26.i.i = add i16 %38, 34
+  %37 = trunc i64 %12 to i16
+  %conv22.i.i = add i16 %37, 26
+  %conv26.i.i = add i16 %37, 34
   %call27.i.i = tail call fastcc i64 @virtio_net_rsc_drain_flow(ptr noundef nonnull %retval.0.i.ph.i, ptr noundef %nc, ptr noundef nonnull %buf, i64 noundef %size, i16 noundef zeroext %conv22.i.i, i16 noundef zeroext 8, i16 noundef zeroext %conv26.i.i)
   br label %virtio_net_rsc_receive4.exit.i
 
@@ -5705,17 +5704,17 @@ virtio_net_rsc_receive4.exit.i:                   ; preds = %if.end29.i.i, %if.t
 
 land.lhs.true14.i:                                ; preds = %if.then4.i
   %rsc6_enabled.i = getelementptr inbounds i8, ptr %call.i, i64 613
-  %39 = load i8, ptr %rsc6_enabled.i, align 1
-  %tobool16.not.i = icmp eq i8 %39, 0
+  %38 = load i8, ptr %rsc6_enabled.i, align 1
+  %tobool16.not.i = icmp eq i8 %38, 0
   br i1 %tobool16.not.i, label %if.end21.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %land.lhs.true14.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %unit.i26.i)
   %n.i27.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 16
-  %40 = load ptr, ptr %n.i27.i, align 8
-  %guest_hdr_len.i28.i = getelementptr inbounds i8, ptr %40, i64 592
-  %41 = load i64, ptr %guest_hdr_len.i28.i, align 8
-  %conv1.i29.i = and i64 %41, 65535
+  %39 = load ptr, ptr %n.i27.i, align 8
+  %guest_hdr_len.i28.i = getelementptr inbounds i8, ptr %39, i64 592
+  %40 = load i64, ptr %guest_hdr_len.i28.i, align 8
+  %conv1.i29.i = and i64 %40, 65535
   %add3.i30.i = add nuw nsw i64 %conv1.i29.i, 74
   %cmp.i31.i = icmp ugt i64 %add3.i30.i, %size
   br i1 %cmp.i31.i, label %if.then.i79.i, label %if.end.i32.i
@@ -5725,7 +5724,7 @@ if.then.i79.i:                                    ; preds = %if.then17.i
   br label %virtio_net_rsc_receive6.exit.i
 
 if.end.i32.i:                                     ; preds = %if.then17.i
-  %add.ptr.i.i33.i = getelementptr i8, ptr %buf, i64 %41
+  %add.ptr.i.i33.i = getelementptr i8, ptr %buf, i64 %40
   %add.ptr1.i.i34.i = getelementptr i8, ptr %add.ptr.i.i33.i, i64 14
   store ptr %add.ptr1.i.i34.i, ptr %unit.i26.i, align 8
   %ip6_un1_plen.i.i.i = getelementptr i8, ptr %add.ptr.i.i33.i, i64 18
@@ -5735,32 +5734,32 @@ if.end.i32.i:                                     ; preds = %if.then17.i
   %tcp.i.i36.i = getelementptr inbounds i8, ptr %unit.i26.i, i64 16
   store ptr %add.ptr3.i.i.i, ptr %tcp.i.i36.i, align 8
   %th_offset_flags.i.i37.i = getelementptr i8, ptr %add.ptr.i.i33.i, i64 66
-  %42 = load i16, ptr %th_offset_flags.i.i37.i, align 4
-  %call.i.i38.i = tail call zeroext i16 @htons(i16 noundef zeroext %42) #25
-  %43 = lshr i16 %call.i.i38.i, 10
-  %44 = and i16 %43, 60
+  %41 = load i16, ptr %th_offset_flags.i.i37.i, align 4
+  %call.i.i38.i = tail call zeroext i16 @htons(i16 noundef zeroext %41) #25
+  %42 = lshr i16 %call.i.i38.i, 10
+  %43 = and i16 %42, 60
   %tcp_hdrlen.i.i39.i = getelementptr inbounds i8, ptr %unit.i26.i, i64 24
-  store i16 %44, ptr %tcp_hdrlen.i.i39.i, align 8
-  %45 = load i16, ptr %ip6_un1_plen.i.i.i, align 2
-  %call7.i.i.i = tail call zeroext i16 @htons(i16 noundef zeroext %45) #25
-  %sub.i.i40.i = sub i16 %call7.i.i.i, %44
+  store i16 %43, ptr %tcp_hdrlen.i.i39.i, align 8
+  %44 = load i16, ptr %ip6_un1_plen.i.i.i, align 2
+  %call7.i.i.i = tail call zeroext i16 @htons(i16 noundef zeroext %44) #25
+  %sub.i.i40.i = sub i16 %call7.i.i.i, %43
   %payload.i.i41.i = getelementptr inbounds i8, ptr %unit.i26.i, i64 26
   store i16 %sub.i.i40.i, ptr %payload.i.i41.i, align 2
-  %46 = load i32, ptr %add.ptr1.i.i34.i, align 4
-  %47 = and i32 %46, 240
-  %cmp.not.i.i42.i = icmp eq i32 %47, 96
+  %45 = load i32, ptr %add.ptr1.i.i34.i, align 4
+  %46 = and i32 %45, 240
+  %cmp.not.i.i42.i = icmp eq i32 %46, 96
   br i1 %cmp.not.i.i42.i, label %if.end.i.i46.i, label %if.then8.i43.i
 
 if.end.i.i46.i:                                   ; preds = %if.end.i32.i
   %ip6_un1_nxt.i.i.i = getelementptr i8, ptr %add.ptr.i.i33.i, i64 20
-  %48 = load i8, ptr %ip6_un1_nxt.i.i.i, align 2
-  %cmp2.not.i.i.i = icmp eq i8 %48, 6
+  %47 = load i8, ptr %ip6_un1_nxt.i.i.i, align 2
+  %cmp2.not.i.i.i = icmp eq i8 %47, 6
   br i1 %cmp2.not.i.i.i, label %if.end5.i.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end.i.i46.i
   %bypass_not_tcp.i.i47.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 128
-  %49 = load i32, ptr %bypass_not_tcp.i.i47.i, align 8
-  %inc.i.i48.i = add i32 %49, 1
+  %48 = load i32, ptr %bypass_not_tcp.i.i47.i, align 8
+  %inc.i.i48.i = add i32 %48, 1
   store i32 %inc.i.i48.i, ptr %bypass_not_tcp.i.i47.i, align 8
   br label %if.then8.i43.i
 
@@ -5771,26 +5770,26 @@ if.end5.i.i.i:                                    ; preds = %if.end.i.i46.i
 lor.lhs.false.i.i49.i:                            ; preds = %if.end5.i.i.i
   %conv7.i.i.i = zext i16 %call7.i.i.i to i64
   %sub.i27.i.i = add i64 %size, -54
-  %sub12.i.i.i = sub i64 %sub.i27.i.i, %41
+  %sub12.i.i.i = sub i64 %sub.i27.i.i, %40
   %cmp13.i.i.i = icmp ult i64 %sub12.i.i.i, %conv7.i.i.i
   br i1 %cmp13.i.i.i, label %if.then15.i.i76.i, label %if.end18.i.i50.i
 
 if.then15.i.i76.i:                                ; preds = %lor.lhs.false.i.i49.i, %if.end5.i.i.i
   %ip_hacked.i.i77.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 148
-  %50 = load i32, ptr %ip_hacked.i.i77.i, align 4
-  %inc17.i.i78.i = add i32 %50, 1
+  %49 = load i32, ptr %ip_hacked.i.i77.i, align 4
+  %inc17.i.i78.i = add i32 %49, 1
   store i32 %inc17.i.i78.i, ptr %ip_hacked.i.i77.i, align 4
   br label %if.then8.i43.i
 
 if.end18.i.i50.i:                                 ; preds = %lor.lhs.false.i.i49.i
-  %51 = and i32 %46, 49152
-  %tobool.not.i.i51.i = icmp eq i32 %51, 0
+  %50 = and i32 %45, 49152
+  %tobool.not.i.i51.i = icmp eq i32 %50, 0
   br i1 %tobool.not.i.i51.i, label %if.end10.i53.i, label %if.then22.i.i.i
 
 if.then22.i.i.i:                                  ; preds = %if.end18.i.i50.i
   %ip_ecn.i.i52.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 144
-  %52 = load i32, ptr %ip_ecn.i.i52.i, align 8
-  %inc24.i.i.i = add i32 %52, 1
+  %51 = load i32, ptr %ip_ecn.i.i52.i, align 8
+  %inc24.i.i.i = add i32 %51, 1
   store i32 %inc24.i.i.i, ptr %ip_ecn.i.i52.i, align 8
   br label %if.then8.i43.i
 
@@ -5799,8 +5798,7 @@ if.then8.i43.i:                                   ; preds = %if.then22.i.i.i, %i
   br label %virtio_net_rsc_receive6.exit.i
 
 if.end10.i53.i:                                   ; preds = %if.end18.i.i50.i
-  %53 = and i16 %call.i.i38.i, 63
-  %conv5.i.i54.i = zext nneg i16 %53 to i32
+  %conv5.i.i54.i = zext i16 %call.i.i38.i to i32
   %and6.i.i55.i = and i32 %conv5.i.i54.i, 2
   %tobool.not.i29.i56.i = icmp eq i32 %and6.i.i55.i, 0
   br i1 %tobool.not.i29.i56.i, label %if.end.i32.i.i, label %if.then14.i57.i
@@ -5812,35 +5810,35 @@ if.end.i32.i.i:                                   ; preds = %if.end10.i53.i
 
 if.then10.i.i62.i:                                ; preds = %if.end.i32.i.i
   %tcp_ctrl_drain.i.i63.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 92
-  %54 = load i32, ptr %tcp_ctrl_drain.i.i63.i, align 4
-  %inc12.i.i64.i = add i32 %54, 1
+  %52 = load i32, ptr %tcp_ctrl_drain.i.i63.i, align 4
+  %inc12.i.i64.i = add i32 %52, 1
   store i32 %inc12.i.i64.i, ptr %tcp_ctrl_drain.i.i63.i, align 4
   br label %if.then18.i65.i
 
 if.end13.i.i69.i:                                 ; preds = %if.end.i32.i.i
-  %55 = and i16 %call.i.i38.i, -4096
-  %cmp.i.i70.i = icmp ugt i16 %55, 20480
+  %53 = and i16 %call.i.i38.i, -4096
+  %cmp.i.i70.i = icmp ugt i16 %53, 20480
   br i1 %cmp.i.i70.i, label %if.then16.i.i73.i, label %if.end29.i71.i
 
 if.then16.i.i73.i:                                ; preds = %if.end13.i.i69.i
   %tcp_all_opt.i.i74.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 136
-  %56 = load i32, ptr %tcp_all_opt.i.i74.i, align 8
-  %inc18.i.i75.i = add i32 %56, 1
+  %54 = load i32, ptr %tcp_all_opt.i.i74.i, align 8
+  %inc18.i.i75.i = add i32 %54, 1
   store i32 %inc18.i.i75.i, ptr %tcp_all_opt.i.i74.i, align 8
   br label %if.then18.i65.i
 
 if.then14.i57.i:                                  ; preds = %if.end10.i53.i
   %tcp_syn.i.i58.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 88
-  %57 = load i32, ptr %tcp_syn.i.i58.i, align 8
-  %inc.i30.i.i = add i32 %57, 1
+  %55 = load i32, ptr %tcp_syn.i.i58.i, align 8
+  %inc.i30.i.i = add i32 %55, 1
   store i32 %inc.i30.i.i, ptr %tcp_syn.i.i58.i, align 8
   %call15.i59.i = tail call fastcc i64 @virtio_net_do_receive(ptr noundef %nc, ptr noundef nonnull %buf, i64 noundef %size)
   br label %virtio_net_rsc_receive6.exit.i
 
 if.then18.i65.i:                                  ; preds = %if.then16.i.i73.i, %if.then10.i.i62.i
-  %58 = trunc i64 %41 to i16
-  %conv22.i66.i = add i16 %58, 22
-  %conv26.i67.i = add i16 %58, 54
+  %56 = trunc i64 %40 to i16
+  %conv22.i66.i = add i16 %56, 22
+  %conv26.i67.i = add i16 %56, 54
   %call27.i68.i = tail call fastcc i64 @virtio_net_rsc_drain_flow(ptr noundef nonnull %retval.0.i.ph.i, ptr noundef %nc, ptr noundef nonnull %buf, i64 noundef %size, i16 noundef zeroext %conv22.i66.i, i16 noundef zeroext 32, i16 noundef zeroext %conv26.i67.i)
   br label %virtio_net_rsc_receive6.exit.i
 

@@ -1098,11 +1098,7 @@ if.end28.i:                                       ; preds = %if.end21.i
   %and31.i = and i32 %conv23.i, 63
   %or32.i = or disjoint i32 %and31.i, %shl29.i
   %cmp34.i = icmp ult i8 %0, -16
-  br i1 %cmp34.i, label %if.then36.i, label %if.end38.i
-
-if.then36.i:                                      ; preds = %if.end28.i
-  %and37.i = and i32 %or32.i, 65535
-  br label %if.else
+  br i1 %cmp34.i, label %if.else, label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.end28.i
   %incdec.ptr39.i = getelementptr inbounds i8, ptr %source_ptr.addr.0, i64 3
@@ -1140,9 +1136,9 @@ if.then:                                          ; preds = %uv__wtf8_decode1.ex
   store i16 %conv3, ptr %incdec.ptr, align 2
   br label %do.cond
 
-if.else:                                          ; preds = %if.then53.i, %if.end38.i, %if.end21.i, %if.end7.i, %if.end.i, %do.body, %if.then36.i, %if.then19.i, %uv__wtf8_decode1.exit
-  %retval.0.i13 = phi i32 [ %and54.i, %uv__wtf8_decode1.exit ], [ -1, %if.end38.i ], [ -1, %if.end21.i ], [ -1, %if.end7.i ], [ -1, %if.end.i ], [ %conv.i, %do.body ], [ %and37.i, %if.then36.i ], [ %and20.i, %if.then19.i ], [ -1, %if.then53.i ]
-  %source_ptr.addr.112 = phi ptr [ %incdec.ptr39.i, %uv__wtf8_decode1.exit ], [ %incdec.ptr39.i, %if.end38.i ], [ %incdec.ptr22.i, %if.end21.i ], [ %incdec.ptr.i, %if.end7.i ], [ %source_ptr.addr.0, %if.end.i ], [ %source_ptr.addr.0, %do.body ], [ %incdec.ptr22.i, %if.then36.i ], [ %incdec.ptr.i, %if.then19.i ], [ %incdec.ptr39.i, %if.then53.i ]
+if.else:                                          ; preds = %if.end28.i, %if.then53.i, %if.end38.i, %if.end21.i, %if.end7.i, %if.end.i, %do.body, %if.then19.i, %uv__wtf8_decode1.exit
+  %retval.0.i13 = phi i32 [ %and54.i, %uv__wtf8_decode1.exit ], [ -1, %if.end38.i ], [ -1, %if.end21.i ], [ -1, %if.end7.i ], [ -1, %if.end.i ], [ %conv.i, %do.body ], [ %and20.i, %if.then19.i ], [ -1, %if.then53.i ], [ %or32.i, %if.end28.i ]
+  %source_ptr.addr.112 = phi ptr [ %incdec.ptr39.i, %uv__wtf8_decode1.exit ], [ %incdec.ptr39.i, %if.end38.i ], [ %incdec.ptr22.i, %if.end21.i ], [ %incdec.ptr.i, %if.end7.i ], [ %source_ptr.addr.0, %if.end.i ], [ %source_ptr.addr.0, %do.body ], [ %incdec.ptr.i, %if.then19.i ], [ %incdec.ptr39.i, %if.then53.i ], [ %incdec.ptr22.i, %if.end28.i ]
   %conv6 = trunc i32 %retval.0.i13 to i16
   %incdec.ptr7 = getelementptr inbounds i8, ptr %w_target.addr.0, i64 2
   store i16 %conv6, ptr %w_target.addr.0, align 2

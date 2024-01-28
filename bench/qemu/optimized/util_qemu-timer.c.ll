@@ -1461,7 +1461,7 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %0 = phi i32 [ %.pre7, %entry ], [ %5, %for.inc ]
+  %0 = phi i32 [ %.pre7, %entry ], [ %4, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %progress.05 = phi i8 [ 0, %entry ], [ %progress.1, %for.inc ]
   %tobool.i = icmp eq i32 %0, 0
@@ -1473,22 +1473,21 @@ if.then:                                          ; preds = %for.body
   %arrayidx.i = getelementptr [4 x ptr], ptr @main_loop_tlg, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call noundef zeroext i1 @timerlist_run_timers(ptr noundef %1)
-  %2 = and i8 %progress.05, 1
-  %3 = zext i1 %call.i to i8
-  %4 = or i8 %2, %3
+  %2 = zext i1 %call.i to i8
+  %3 = or i8 %progress.05, %2
   %.pre = load i32, ptr @use_icount, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %5 = phi i32 [ %.pre, %if.then ], [ %0, %for.body ]
-  %progress.1 = phi i8 [ %4, %if.then ], [ %progress.05, %for.body ]
+  %4 = phi i32 [ %.pre, %if.then ], [ %0, %for.body ]
+  %progress.1 = phi i8 [ %3, %if.then ], [ %progress.05, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc
-  %6 = and i8 %progress.1, 1
-  %tobool4 = icmp ne i8 %6, 0
+  %5 = and i8 %progress.1, 1
+  %tobool4 = icmp ne i8 %5, 0
   ret i1 %tobool4
 }
 

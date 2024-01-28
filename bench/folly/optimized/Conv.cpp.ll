@@ -3986,11 +3986,10 @@ if.then.i.i:                                      ; preds = %_ZN5folly6detail12_
   unreachable
 
 invoke.cont64:                                    ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
-  %tmp.sroa.7.0.extract.shift = and i32 %call54, -256
   %9 = and i32 %call54, 65280
   %cmp66 = icmp eq i32 %9, 1792
   %cond.i = select i1 %sgn.sroa.0.1.ph, i32 1792, i32 2048
-  %spec.select = select i1 %cmp66, i32 %cond.i, i32 %tmp.sroa.7.0.extract.shift
+  %spec.select = select i1 %cmp66, i32 %cond.i, i32 %call54
   br label %cleanup88
 
 invoke.cont75:                                    ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
@@ -4272,11 +4271,10 @@ if.then.i.i:                                      ; preds = %_ZN5folly6detail12_
   unreachable
 
 invoke.cont64:                                    ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
-  %tmp.sroa.7.0.extract.shift = and i64 %call54, -256
   %9 = and i64 %call54, 65280
   %cmp66 = icmp eq i64 %9, 1792
   %cond.i = select i1 %sgn.sroa.0.1.ph, i64 1792, i64 2048
-  %spec.select = select i1 %cmp66, i64 %cond.i, i64 %tmp.sroa.7.0.extract.shift
+  %spec.select = select i1 %cmp66, i64 %cond.i, i64 %call54
   br label %cleanup88
 
 invoke.cont75:                                    ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit

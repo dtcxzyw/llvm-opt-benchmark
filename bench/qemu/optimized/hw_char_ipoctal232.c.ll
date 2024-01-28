@@ -344,8 +344,7 @@ sw.bb:                                            ; preds = %entry, %entry
 
 sw.bb17:                                          ; preds = %entry, %entry
   %conv18 = trunc i16 %val to i8
-  %conv18.mask = and i16 %val, 255
-  %conv.i = zext nneg i16 %conv18.mask to i64
+  %conv.i = zext i16 %val to i64
   %and.i = and i64 %conv.i, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %do.end6.i

@@ -2755,9 +2755,8 @@ _ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner15validate_stringE
   %scanner.sroa.44.10 = phi i32 [ %scanner.sroa.44.0, %sw.bb.i ], [ %scanner.sroa.44.1, %land.rhs.i.i ], [ %scanner.sroa.44.1, %if.then163.i.i.i ], [ %scanner.sroa.44.1, %land.lhs.true85.i.i.i ], [ %scanner.sroa.44.9, %if.end31.i.i ]
   %.lcssa1.i.i = phi i32 [ %inc.i.i, %sw.bb.i ], [ %add223.sink.i25.i.i, %land.rhs.i.i ], [ %conv.i, %if.then163.i.i.i ], [ %conv.i, %land.lhs.true85.i.i.i ], [ %add223.sink.i.sink.i.i, %if.end31.i.i ]
   %cmp34.not.i.i = icmp uge i32 %.lcssa1.i.i, %conv.i
-  %17 = and i8 %unclosed_string.034.i, 1
-  %18 = zext i1 %cmp34.not.i.i to i8
-  %19 = or i8 %17, %18
+  %17 = zext i1 %cmp34.not.i.i to i8
+  %18 = or i8 %unclosed_string.034.i, %17
   br label %for.inc.i
 
 sw.bb6.i:                                         ; preds = %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i
@@ -2773,15 +2772,15 @@ sw.default.i:                                     ; preds = %for.body.i
   br i1 %cmp1021.i, label %land.rhs.lr.ph.i, label %for.inc.i
 
 land.rhs.lr.ph.i:                                 ; preds = %sw.default.i
-  %20 = zext i32 %add20.i to i64
+  %19 = zext i32 %add20.i to i64
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
-  %21 = phi i32 [ %scanner.sroa.35.0, %land.rhs.lr.ph.i ], [ %23, %while.body.i ]
-  %indvars.iv.i = phi i64 [ %20, %land.rhs.lr.ph.i ], [ %indvars.iv.next.i, %while.body.i ]
+  %20 = phi i32 [ %scanner.sroa.35.0, %land.rhs.lr.ph.i ], [ %22, %while.body.i ]
+  %indvars.iv.i = phi i64 [ %19, %land.rhs.lr.ph.i ], [ %indvars.iv.next.i, %while.body.i ]
   %arrayidx15.i = getelementptr inbounds i8, ptr %_buf, i64 %indvars.iv.i
-  %22 = load i8, ptr %arrayidx15.i, align 1
-  switch i8 %22, label %while.body.i [
+  %21 = load i8, ptr %arrayidx15.i, align 1
+  switch i8 %21, label %while.body.i [
     i8 123, label %for.inc.i
     i8 125, label %for.inc.i
     i8 91, label %for.inc.i
@@ -2795,7 +2794,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   ]
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %23 = trunc i64 %indvars.iv.i to i32
+  %22 = trunc i64 %indvars.iv.i to i32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %conv.i, %lftr.wideiv.i
@@ -2804,29 +2803,29 @@ while.body.i:                                     ; preds = %land.rhs.i
 for.inc.i:                                        ; preds = %while.body.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %sw.default.i, %sw.bb6.i, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner15validate_stringEv.exit.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i
   %scanner.sroa.4.1 = phi ptr [ %incdec.ptr.i13.i, %sw.default.i ], [ %scanner.sroa.4.0, %for.body.i ], [ %scanner.sroa.4.0, %for.body.i ], [ %scanner.sroa.4.0, %for.body.i ], [ %scanner.sroa.4.0, %for.body.i ], [ %incdec.ptr.i10.i, %sw.bb6.i ], [ %incdec.ptr.i.i, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner15validate_stringEv.exit.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %land.rhs.i ], [ %incdec.ptr.i13.i, %while.body.i ]
   %scanner.sroa.44.11 = phi i32 [ %scanner.sroa.44.0, %sw.default.i ], [ %scanner.sroa.44.0, %for.body.i ], [ %scanner.sroa.44.0, %for.body.i ], [ %scanner.sroa.44.0, %for.body.i ], [ %scanner.sroa.44.0, %for.body.i ], [ %scanner.sroa.44.0, %sw.bb6.i ], [ %scanner.sroa.44.10, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner15validate_stringEv.exit.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %land.rhs.i ], [ %scanner.sroa.44.0, %while.body.i ]
-  %24 = phi i32 [ %scanner.sroa.35.0, %sw.default.i ], [ %scanner.sroa.35.0, %for.body.i ], [ %scanner.sroa.35.0, %for.body.i ], [ %scanner.sroa.35.0, %for.body.i ], [ %scanner.sroa.35.0, %for.body.i ], [ %scanner.sroa.35.0, %sw.bb6.i ], [ %.lcssa1.i.i, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner15validate_stringEv.exit.i ], [ %1, %while.body.i ], [ %21, %land.rhs.i ], [ %21, %land.rhs.i ], [ %21, %land.rhs.i ], [ %21, %land.rhs.i ], [ %21, %land.rhs.i ], [ %21, %land.rhs.i ], [ %21, %land.rhs.i ], [ %21, %land.rhs.i ], [ %21, %land.rhs.i ], [ %21, %land.rhs.i ]
-  %unclosed_string.1.i = phi i8 [ %unclosed_string.034.i, %sw.default.i ], [ %unclosed_string.034.i, %for.body.i ], [ %unclosed_string.034.i, %for.body.i ], [ %unclosed_string.034.i, %for.body.i ], [ %unclosed_string.034.i, %for.body.i ], [ %unclosed_string.034.i, %sw.bb6.i ], [ %19, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner15validate_stringEv.exit.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %while.body.i ]
-  %inc19.i = add i32 %24, 1
+  %23 = phi i32 [ %scanner.sroa.35.0, %sw.default.i ], [ %scanner.sroa.35.0, %for.body.i ], [ %scanner.sroa.35.0, %for.body.i ], [ %scanner.sroa.35.0, %for.body.i ], [ %scanner.sroa.35.0, %for.body.i ], [ %scanner.sroa.35.0, %sw.bb6.i ], [ %.lcssa1.i.i, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner15validate_stringEv.exit.i ], [ %1, %while.body.i ], [ %20, %land.rhs.i ], [ %20, %land.rhs.i ], [ %20, %land.rhs.i ], [ %20, %land.rhs.i ], [ %20, %land.rhs.i ], [ %20, %land.rhs.i ], [ %20, %land.rhs.i ], [ %20, %land.rhs.i ], [ %20, %land.rhs.i ], [ %20, %land.rhs.i ]
+  %unclosed_string.1.i = phi i8 [ %unclosed_string.034.i, %sw.default.i ], [ %unclosed_string.034.i, %for.body.i ], [ %unclosed_string.034.i, %for.body.i ], [ %unclosed_string.034.i, %for.body.i ], [ %unclosed_string.034.i, %for.body.i ], [ %unclosed_string.034.i, %sw.bb6.i ], [ %18, %_ZN8simdjson8fallback12_GLOBAL__N_16stage118structural_scanner15validate_stringEv.exit.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %land.rhs.i ], [ %unclosed_string.034.i, %while.body.i ]
+  %inc19.i = add i32 %23, 1
   %cmp.i = icmp ult i32 %inc19.i, %conv.i
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !33
 
 for.end.loopexit.i:                               ; preds = %for.inc.i
-  %25 = and i8 %unclosed_string.1.i, 1
-  %26 = icmp eq i8 %25, 0
+  %24 = and i8 %unclosed_string.1.i, 1
+  %25 = icmp eq i8 %24, 0
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %entry
   %scanner.sroa.4.2 = phi ptr [ %scanner.sroa.4.1, %for.end.loopexit.i ], [ %0, %entry ]
   %scanner.sroa.44.12 = phi i32 [ %scanner.sroa.44.11, %for.end.loopexit.i ], [ 0, %entry ]
-  %unclosed_string.0.lcssa.i = phi i1 [ %26, %for.end.loopexit.i ], [ true, %entry ]
+  %unclosed_string.0.lcssa.i = phi i1 [ %25, %for.end.loopexit.i ], [ true, %entry ]
   store i32 %conv.i, ptr %scanner.sroa.4.2, align 4
   %arrayidx23.i = getelementptr inbounds i8, ptr %scanner.sroa.4.2, i64 4
   store i32 %conv.i, ptr %arrayidx23.i, align 4
   %arrayidx25.i = getelementptr inbounds i8, ptr %scanner.sroa.4.2, i64 8
   store i32 0, ptr %arrayidx25.i, align 4
-  %27 = load ptr, ptr %structural_indexes.i, align 8
+  %26 = load ptr, ptr %structural_indexes.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %scanner.sroa.4.2 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %27 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 2
   %conv28.i = trunc i64 %sub.ptr.div.i to i32
@@ -2858,8 +2857,8 @@ if.end52.i:                                       ; preds = %if.then41.i, %if.th
   br i1 %cmp55.i.not, label %if.then59.i, label %if.end67.i
 
 if.then59.i:                                      ; preds = %if.end52.i
-  %28 = load i32, ptr %27, align 4
-  %cmp63.i = icmp eq i32 %28, 0
+  %27 = load i32, ptr %26, align 4
+  %cmp63.i = icmp eq i32 %27, 0
   br i1 %cmp63.i, label %invoke.cont2, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then59.i
@@ -2882,19 +2881,19 @@ if.end79.i:                                       ; preds = %if.then75.i, %if.th
   %call81.i = tail call fastcc noundef i32 @_ZN8simdjson8fallback12_GLOBAL__N_16stage124find_next_document_indexERNS0_25dom_parser_implementationE(ptr noundef nonnull align 8 dereferenceable(88) %this)
   store i32 %call81.i, ptr %n_structural_indexes.i, align 8
   %conv88.i = zext i32 %call81.i to i64
-  %arrayidx.i14.i = getelementptr inbounds i32, ptr %27, i64 %conv88.i
-  %29 = load i32, ptr %arrayidx.i14.i, align 4
+  %arrayidx.i14.i = getelementptr inbounds i32, ptr %26, i64 %conv88.i
+  %28 = load i32, ptr %arrayidx.i14.i, align 4
   %add94.i = add i32 %call81.i, 1
   %conv95.i = zext i32 %add94.i to i64
-  %arrayidx.i15.i = getelementptr inbounds i32, ptr %27, i64 %conv95.i
-  store i32 %29, ptr %arrayidx.i15.i, align 4
-  %30 = load i32, ptr %n_structural_indexes.i, align 8
-  %conv102.i = zext i32 %30 to i64
-  %31 = load ptr, ptr %structural_indexes.i, align 8
-  %arrayidx.i16.i = getelementptr inbounds i32, ptr %31, i64 %conv102.i
+  %arrayidx.i15.i = getelementptr inbounds i32, ptr %26, i64 %conv95.i
+  store i32 %28, ptr %arrayidx.i15.i, align 4
+  %29 = load i32, ptr %n_structural_indexes.i, align 8
+  %conv102.i = zext i32 %29 to i64
+  %30 = load ptr, ptr %structural_indexes.i, align 8
+  %arrayidx.i16.i = getelementptr inbounds i32, ptr %30, i64 %conv102.i
   store i32 %conv.i, ptr %arrayidx.i16.i, align 4
-  %32 = load i32, ptr %n_structural_indexes.i, align 8
-  %cmp106.i = icmp eq i32 %32, 0
+  %31 = load i32, ptr %n_structural_indexes.i, align 8
+  %cmp106.i = icmp eq i32 %31, 0
   %spec.select44 = select i1 %cmp106.i, i32 12, i32 %scanner.sroa.44.12
   br label %invoke.cont2
 

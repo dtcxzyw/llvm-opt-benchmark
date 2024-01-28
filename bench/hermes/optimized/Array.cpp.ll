@@ -3527,21 +3527,16 @@ _ZN6hermes2vm13MutableHandleINS0_7JSArrayEEC2ERNS0_15HandleRootOwnerEPS2_.exit: 
 
 if.then:                                          ; preds = %_ZN6hermes2vm13MutableHandleINS0_7JSArrayEEC2ERNS0_15HandleRootOwnerEPS2_.exit
   %6 = load ptr, ptr %args, align 8, !noalias !53
-  %agg.tmp.sroa.0.0.copyload = load i64, ptr %6, align 8
-  %and.i.i = and i64 %agg.tmp.sroa.0.0.copyload, 281474976710655
   br label %if.end14
 
 if.else:                                          ; preds = %_ZN6hermes2vm13MutableHandleINS0_7JSArrayEEC2ERNS0_15HandleRootOwnerEPS2_.exit
   %call5 = tail call ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef 0, i32 noundef 0) #8
   %cmp.i.i.not = icmp eq ptr %call5, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.i.not, label %return, label %if.end
+  br i1 %cmp.i.i.not, label %return, label %if.end14
 
-if.end:                                           ; preds = %if.else
-  %retval.sroa.0.0.copyload.i.i = load i64, ptr %call5, align 8
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.end, %if.then
-  %storemerge.in = phi i64 [ %retval.sroa.0.0.copyload.i.i, %if.end ], [ %and.i.i, %if.then ]
+if.end14:                                         ; preds = %if.else, %if.then
+  %storemerge.in.in = phi ptr [ %6, %if.then ], [ %call5, %if.else ]
+  %storemerge.in = load i64, ptr %storemerge.in.in, align 8
   %storemerge = or i64 %storemerge.in, -281474976710656
   store i64 %storemerge, ptr %retval.0.i.i.i.i.i.i, align 8
   %argCount_.i = getelementptr inbounds i8, ptr %args, i64 8
@@ -7916,7 +7911,6 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit: ; preds = %i
 
 if.end30:                                         ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
   %10 = extractvalue { i32, i64 } %call27, 1
-  %and.i.i.i = and i64 %10, 281474976710655
   br label %if.end50
 
 if.else:                                          ; preds = %if.end
@@ -7929,7 +7923,7 @@ if.end42:                                         ; preds = %if.else
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end42, %if.end30
-  %storemerge.in = phi i64 [ %retval.sroa.0.0.copyload.i, %if.end42 ], [ %and.i.i.i, %if.end30 ]
+  %storemerge.in = phi i64 [ %retval.sroa.0.0.copyload.i, %if.end42 ], [ %10, %if.end30 ]
   %storemerge = or i64 %storemerge.in, -281474976710656
   store i64 %storemerge, ptr %inlineStorage_.i, align 8
   %11 = load ptr, ptr %topGCScope_.i, align 8
@@ -8596,7 +8590,6 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit269: ; preds =
 
 if.end319:                                        ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit269
   %87 = extractvalue { i32, i64 } %call316, 1
-  %and.i.i.i273 = and i64 %87, 281474976710655
   br label %if.end347
 
 if.else325:                                       ; preds = %if.end297
@@ -8627,7 +8620,7 @@ if.end343:                                        ; preds = %if.end332
   br label %if.end347
 
 if.end347:                                        ; preds = %if.end343, %if.end319
-  %storemerge418.in = phi i64 [ %retval.sroa.0.0.copyload.i.i286, %if.end343 ], [ %and.i.i.i273, %if.end319 ]
+  %storemerge418.in = phi i64 [ %retval.sroa.0.0.copyload.i.i286, %if.end343 ], [ %87, %if.end319 ]
   %storemerge418 = or i64 %storemerge418.in, -281474976710656
   store i64 %storemerge418, ptr %retval.0.i.i.i.i.i.i108, align 8
   %89 = load ptr, ptr %topGCScope_.i, align 8

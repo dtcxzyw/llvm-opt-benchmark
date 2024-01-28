@@ -2959,22 +2959,22 @@ _ZN7rocksdb8IOStatusD2Ev.exit49:                  ; preds = %nrvo.unused64, %_ZN
 
 if.end68:                                         ; preds = %invoke.cont29, %_ZN7rocksdb8IOStatusD2Ev.exit49, %invoke.cont51
   %io_s.sroa.19.1 = phi i8 [ %29, %_ZN7rocksdb8IOStatusD2Ev.exit49 ], [ %29, %invoke.cont51 ], [ %18, %invoke.cont29 ]
-  %io_s.sroa.16.1.in = phi i8 [ %28, %_ZN7rocksdb8IOStatusD2Ev.exit49 ], [ %28, %invoke.cont51 ], [ %17, %invoke.cont29 ]
-  %io_s.sroa.13.1.in = phi i8 [ %27, %_ZN7rocksdb8IOStatusD2Ev.exit49 ], [ %27, %invoke.cont51 ], [ %16, %invoke.cont29 ]
+  %io_s.sroa.16.1 = phi i8 [ %28, %_ZN7rocksdb8IOStatusD2Ev.exit49 ], [ %28, %invoke.cont51 ], [ %17, %invoke.cont29 ]
+  %io_s.sroa.13.1 = phi i8 [ %27, %_ZN7rocksdb8IOStatusD2Ev.exit49 ], [ %27, %invoke.cont51 ], [ %16, %invoke.cont29 ]
   %io_s.sroa.23.2 = phi ptr [ %30, %_ZN7rocksdb8IOStatusD2Ev.exit49 ], [ %30, %invoke.cont51 ], [ %19, %invoke.cont29 ]
   %io_s.sroa.7.1 = phi i8 [ %26, %_ZN7rocksdb8IOStatusD2Ev.exit49 ], [ %26, %invoke.cont51 ], [ %15, %invoke.cont29 ]
   %io_s.sroa.0.1 = phi i8 [ 0, %_ZN7rocksdb8IOStatusD2Ev.exit49 ], [ %25, %invoke.cont51 ], [ %14, %invoke.cont29 ]
-  %io_s.sroa.13.1 = and i8 %io_s.sroa.13.1.in, 1
-  %io_s.sroa.16.1 = and i8 %io_s.sroa.16.1.in, 1
   %subcode_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   %sev_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i32 0, ptr %sev_.i.i.i.i, align 2
   store i8 %io_s.sroa.0.1, ptr %agg.result, align 8
   store i8 %io_s.sroa.7.1, ptr %subcode_.i.i.i.i, align 1
+  %34 = and i8 %io_s.sroa.13.1, 1
   %retryable_6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 3
-  store i8 %io_s.sroa.13.1, ptr %retryable_6.i.i, align 1
+  store i8 %34, ptr %retryable_6.i.i, align 1
+  %35 = and i8 %io_s.sroa.16.1, 1
   %data_loss_8.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
-  store i8 %io_s.sroa.16.1, ptr %data_loss_8.i.i, align 4
+  store i8 %35, ptr %data_loss_8.i.i, align 4
   %scope_10.i.i = getelementptr inbounds i8, ptr %agg.result, i64 5
   store i8 %io_s.sroa.19.1, ptr %scope_10.i.i, align 1
   store ptr %io_s.sroa.23.2, ptr %state_.i.i10, align 8
@@ -2997,10 +2997,10 @@ cleanup70:                                        ; preds = %_ZNKSt14default_del
           to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup70
-  %34 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #23
+  %37 = extractvalue { ptr, i32 } %36, 0
+  call void @__clang_call_terminate(ptr %37) #23
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %cleanup70
@@ -3012,10 +3012,10 @@ ehcleanup71:                                      ; preds = %_ZNKSt14default_del
           to label %_ZN7rocksdb9MutexLockD2Ev.exit60 unwind label %terminate.lpad.i59
 
 terminate.lpad.i59:                               ; preds = %ehcleanup71
-  %36 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #23
+  %39 = extractvalue { ptr, i32 } %38, 0
+  call void @__clang_call_terminate(ptr %39) #23
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit60:                 ; preds = %ehcleanup71
@@ -7145,22 +7145,22 @@ _ZN7rocksdb8IOStatusD2Ev.exit60:                  ; preds = %nrvo.unused86, %_ZN
 
 if.end91:                                         ; preds = %invoke.cont29, %_ZN7rocksdb8IOStatusD2Ev.exit60, %invoke.cont40
   %io_s.sroa.19.1 = phi i8 [ %30, %_ZN7rocksdb8IOStatusD2Ev.exit60 ], [ %30, %invoke.cont40 ], [ %21, %invoke.cont29 ]
-  %io_s.sroa.16.1.in = phi i8 [ %29, %_ZN7rocksdb8IOStatusD2Ev.exit60 ], [ %29, %invoke.cont40 ], [ %20, %invoke.cont29 ]
-  %io_s.sroa.13.1.in = phi i8 [ %28, %_ZN7rocksdb8IOStatusD2Ev.exit60 ], [ %28, %invoke.cont40 ], [ %19, %invoke.cont29 ]
+  %io_s.sroa.16.1 = phi i8 [ %29, %_ZN7rocksdb8IOStatusD2Ev.exit60 ], [ %29, %invoke.cont40 ], [ %20, %invoke.cont29 ]
+  %io_s.sroa.13.1 = phi i8 [ %28, %_ZN7rocksdb8IOStatusD2Ev.exit60 ], [ %28, %invoke.cont40 ], [ %19, %invoke.cont29 ]
   %io_s.sroa.23.2 = phi ptr [ %31, %_ZN7rocksdb8IOStatusD2Ev.exit60 ], [ %31, %invoke.cont40 ], [ %23, %invoke.cont29 ]
   %io_s.sroa.7.1 = phi i8 [ %27, %_ZN7rocksdb8IOStatusD2Ev.exit60 ], [ %27, %invoke.cont40 ], [ %18, %invoke.cont29 ]
   %io_s.sroa.0.1 = phi i8 [ 0, %_ZN7rocksdb8IOStatusD2Ev.exit60 ], [ %26, %invoke.cont40 ], [ %15, %invoke.cont29 ]
-  %io_s.sroa.13.1 = and i8 %io_s.sroa.13.1.in, 1
-  %io_s.sroa.16.1 = and i8 %io_s.sroa.16.1.in, 1
   %subcode_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   %sev_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i32 0, ptr %sev_.i.i.i.i, align 2
   store i8 %io_s.sroa.0.1, ptr %agg.result, align 8
   store i8 %io_s.sroa.7.1, ptr %subcode_.i.i.i.i, align 1
+  %50 = and i8 %io_s.sroa.13.1, 1
   %retryable_6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 3
-  store i8 %io_s.sroa.13.1, ptr %retryable_6.i.i, align 1
+  store i8 %50, ptr %retryable_6.i.i, align 1
+  %51 = and i8 %io_s.sroa.16.1, 1
   %data_loss_8.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
-  store i8 %io_s.sroa.16.1, ptr %data_loss_8.i.i, align 4
+  store i8 %51, ptr %data_loss_8.i.i, align 4
   %scope_10.i.i = getelementptr inbounds i8, ptr %agg.result, i64 5
   store i8 %io_s.sroa.19.1, ptr %scope_10.i.i, align 1
   store ptr %io_s.sroa.23.2, ptr %state_.i.i20, align 8
@@ -7169,12 +7169,12 @@ if.end91:                                         ; preds = %invoke.cont29, %_ZN
 cleanup92:                                        ; preds = %if.end91, %cleanup84
   %io_s.sroa.23.3 = phi ptr [ null, %if.end91 ], [ %31, %cleanup84 ]
   %state_.i.i63 = getelementptr inbounds i8, ptr %exists_s, i64 8
-  %50 = load ptr, ptr %state_.i.i63, align 8
-  %cmp.not.i.i.i64 = icmp eq ptr %50, null
+  %52 = load ptr, ptr %state_.i.i63, align 8
+  %cmp.not.i.i.i64 = icmp eq ptr %52, null
   br i1 %cmp.not.i.i.i64, label %_ZN7rocksdb8IOStatusD2Ev.exit66, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i65
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i65: ; preds = %cleanup92
-  call void @_ZdaPv(ptr noundef nonnull %50) #24
+  call void @_ZdaPv(ptr noundef nonnull %52) #24
   br label %_ZN7rocksdb8IOStatusD2Ev.exit66
 
 _ZN7rocksdb8IOStatusD2Ev.exit66:                  ; preds = %cleanup92, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i65
@@ -7190,12 +7190,12 @@ ehcleanup93:                                      ; preds = %ehcleanup, %lpad73,
   %io_s.sroa.23.4 = phi ptr [ %io_s.sroa.23.0, %lpad17 ], [ %31, %lpad73 ], [ %31, %ehcleanup ]
   %.pn16 = phi { ptr, i32 } [ %17, %lpad17 ], [ %47, %lpad73 ], [ %.pn, %ehcleanup ]
   %state_.i.i71 = getelementptr inbounds i8, ptr %exists_s, i64 8
-  %51 = load ptr, ptr %state_.i.i71, align 8
-  %cmp.not.i.i.i72 = icmp eq ptr %51, null
+  %53 = load ptr, ptr %state_.i.i71, align 8
+  %cmp.not.i.i.i72 = icmp eq ptr %53, null
   br i1 %cmp.not.i.i.i72, label %ehcleanup95, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i73
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i73: ; preds = %ehcleanup93
-  call void @_ZdaPv(ptr noundef nonnull %51) #24
+  call void @_ZdaPv(ptr noundef nonnull %53) #24
   br label %ehcleanup95
 
 ehcleanup95:                                      ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i73, %ehcleanup93

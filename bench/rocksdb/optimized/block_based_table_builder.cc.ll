@@ -13134,19 +13134,17 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i:      ; preds = %if.else.i
   %25 = load i8, ptr %subcode_.i53, align 1
   %retryable_.i55 = getelementptr inbounds i8, ptr %0, i64 2867
   %26 = load i8, ptr %retryable_.i55, align 1
-  %27 = and i8 %26, 1
   %data_loss_.i56 = getelementptr inbounds i8, ptr %0, i64 2868
-  %28 = load i8, ptr %data_loss_.i56, align 4
-  %29 = and i8 %28, 1
+  %27 = load i8, ptr %data_loss_.i56, align 4
   %scope_.i57 = getelementptr inbounds i8, ptr %0, i64 2869
-  %30 = load i8, ptr %scope_.i57, align 1
+  %28 = load i8, ptr %scope_.i57, align 1
   %state_.i58 = getelementptr inbounds i8, ptr %0, i64 2872
-  %31 = load ptr, ptr %state_.i58, align 8
-  %cmp.i.not.i.i59 = icmp eq ptr %31, null
+  %29 = load ptr, ptr %state_.i58, align 8
+  %cmp.i.not.i.i59 = icmp eq ptr %29, null
   br i1 %cmp.i.not.i.i59, label %invoke.cont33, label %cond.false.i60
 
 cond.false.i60:                                   ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i
-  invoke void @_ZN7rocksdb6Status9CopyStateEPKc(ptr nonnull sret(%"class.std::unique_ptr.165") align 8 %ref.tmp.i52, ptr noundef nonnull %31)
+  invoke void @_ZN7rocksdb6Status9CopyStateEPKc(ptr nonnull sret(%"class.std::unique_ptr.165") align 8 %ref.tmp.i52, ptr noundef nonnull %29)
           to label %cond.end.i64 unwind label %_ZN7rocksdb6StatusD2Ev.exit.i
 
 cond.end.i64:                                     ; preds = %cond.false.i60
@@ -13154,7 +13152,7 @@ cond.end.i64:                                     ; preds = %cond.false.i60
   br label %invoke.cont33
 
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %cond.false.i60
-  %32 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i2.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %io_status_mutex.i.i) #24
   br label %ehcleanup
@@ -13164,12 +13162,14 @@ invoke.cont33:                                    ; preds = %cond.end.i64, %_ZNS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i52)
   %call1.i.i.i1.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %io_status_mutex.i.i) #24
   %cmp.i37 = icmp ne i8 %24, 0
-  %33 = load i8, ptr %agg.result, align 8
-  %cmp.i38 = icmp eq i8 %33, 0
+  %31 = load i8, ptr %agg.result, align 8
+  %cmp.i38 = icmp eq i8 %31, 0
   %or.cond = select i1 %cmp.i37, i1 %cmp.i38, i1 false
   br i1 %or.cond, label %if.then40, label %if.end43
 
 if.then40:                                        ; preds = %invoke.cont33
+  %32 = and i8 %27, 1
+  %33 = and i8 %26, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i39)
   store i8 %24, ptr %agg.result, align 8
   %subcode_3.i = getelementptr inbounds i8, ptr %agg.result, i64 1
@@ -13177,11 +13177,11 @@ if.then40:                                        ; preds = %invoke.cont33
   %sev_4.i = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i8 0, ptr %sev_4.i, align 2
   %retryable_5.i = getelementptr inbounds i8, ptr %agg.result, i64 3
-  store i8 %27, ptr %retryable_5.i, align 1
+  store i8 %33, ptr %retryable_5.i, align 1
   %data_loss_7.i = getelementptr inbounds i8, ptr %agg.result, i64 4
-  store i8 %29, ptr %data_loss_7.i, align 4
+  store i8 %32, ptr %data_loss_7.i, align 4
   %scope_9.i = getelementptr inbounds i8, ptr %agg.result, i64 5
-  store i8 %30, ptr %scope_9.i, align 1
+  store i8 %28, ptr %scope_9.i, align 1
   %cmp.i.not.i.i = icmp eq ptr %ios.sroa.15.0, null
   br i1 %cmp.i.not.i.i, label %cond.end.i, label %cond.false.i
 
@@ -13240,7 +13240,7 @@ _ZN7rocksdb8IOStatusD2Ev.exit48:                  ; preds = %invoke.cont31, %if.
   ret void
 
 ehcleanup:                                        ; preds = %lpad32, %_ZN7rocksdb6StatusD2Ev.exit.i, %_ZN7rocksdb8IOStatusD2Ev.exit
-  %.pn = phi { ptr, i32 } [ %37, %_ZN7rocksdb8IOStatusD2Ev.exit ], [ %36, %lpad32 ], [ %32, %_ZN7rocksdb6StatusD2Ev.exit.i ]
+  %.pn = phi { ptr, i32 } [ %37, %_ZN7rocksdb8IOStatusD2Ev.exit ], [ %36, %lpad32 ], [ %30, %_ZN7rocksdb6StatusD2Ev.exit.i ]
   %state_.i49 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %38 = load ptr, ptr %state_.i49, align 8
   %cmp.not.i.i50 = icmp eq ptr %38, null

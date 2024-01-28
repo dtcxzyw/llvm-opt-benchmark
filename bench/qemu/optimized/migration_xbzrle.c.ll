@@ -76,7 +76,6 @@ if.end14.lr.ph:                                   ; preds = %while.body10.lr.ph
   %3 = icmp eq <64 x i8> %1, %2
   %4 = bitcast <64 x i1> %3 to i64
   %5 = trunc i64 %4 to i8
-  %frombool = and i8 %5, 1
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end14.lr.ph, %if.end108
@@ -87,8 +86,9 @@ if.end14:                                         ; preds = %if.end14.lr.ph, %if
   %nzrun_len.1136201 = phi i32 [ %nzrun_len.0.ph210, %if.end14.lr.ph ], [ 0, %if.end108 ]
   %zrun_len.1137200 = phi i32 [ %zrun_len.0.ph211, %if.end14.lr.ph ], [ 0, %if.end108 ]
   %comp.0138199 = phi i64 [ %4, %if.end14.lr.ph ], [ %shr86, %if.end108 ]
-  %is_same.0139198 = phi i8 [ %frombool, %if.end14.lr.ph ], [ 1, %if.end108 ]
-  %tobool15.not = icmp eq i8 %is_same.0139198, 0
+  %is_same.0139198 = phi i8 [ %5, %if.end14.lr.ph ], [ 1, %if.end108 ]
+  %6 = and i8 %is_same.0139198, 1
+  %tobool15.not = icmp eq i8 %6, 0
   br i1 %tobool15.not, label %if.end57, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
@@ -136,8 +136,8 @@ while.cond.outer.backedge:                        ; preds = %if.end41, %if.end75
 
 if.end41:                                         ; preds = %if.end34
   %not = xor i64 %comp.0138199, -1
-  %6 = tail call i64 @llvm.cttz.i64(i64 %not, i1 false), !range !7
-  %cast.i = trunc i64 %6 to i32
+  %7 = tail call i64 @llvm.cttz.i64(i64 %not, i1 false), !range !7
+  %cast.i = trunc i64 %7 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %cast.i, i32 %bytes_to_check.1134203)
   %add45 = add i32 %cond, %zrun_len.1137200
   %sub46 = sub i32 %bytes_to_check.1134203, %cond
@@ -162,8 +162,8 @@ if.end57:                                         ; preds = %if.then51, %if.end1
   %nzrun_len.3 = phi i32 [ 0, %if.then51 ], [ %nzrun_len.1136201, %if.end14 ]
   %zrun_len.2 = phi i32 [ 0, %if.then51 ], [ %zrun_len.1137200, %if.end14 ]
   %comp.1 = phi i64 [ %shr48, %if.then51 ], [ %comp.0138199, %if.end14 ]
-  %7 = and i8 %never_same.2, 1
-  %tobool58 = icmp ne i8 %7, 0
+  %8 = and i8 %never_same.2, 1
+  %tobool58 = icmp ne i8 %8, 0
   %tobool60 = icmp ne i32 %zrun_len.2, 0
   %or.cond1 = select i1 %tobool58, i1 true, i1 %tobool60
   br i1 %or.cond1, label %if.then61, label %if.end66
@@ -189,8 +189,8 @@ if.then72:                                        ; preds = %if.end66
   br label %while.cond.outer.backedge
 
 if.end75:                                         ; preds = %if.end66
-  %8 = tail call i64 @llvm.cttz.i64(i64 %comp.1, i1 false), !range !7
-  %cast.i118 = trunc i64 %8 to i32
+  %9 = tail call i64 @llvm.cttz.i64(i64 %comp.1, i1 false), !range !7
+  %cast.i118 = trunc i64 %9 to i32
   %cond82 = tail call i32 @llvm.smin.i32(i32 %cast.i118, i32 %bytes_to_check.2)
   %add83 = add i32 %cond82, %nzrun_len.3
   %sub84 = sub i32 %bytes_to_check.2, %cond82

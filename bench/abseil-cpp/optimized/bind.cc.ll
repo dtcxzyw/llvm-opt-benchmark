@@ -771,8 +771,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 
 if.then.i.i:                                      ; preds = %for.body.i.i
   %conv.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.014.i.i, i64 16
-  %bound.i.i.sroa.0.0.insert.mask.i = and i64 %bound.i.i.sroa.0.0.i, -16711936
-  %bound.i.i.sroa.0.2.insert.insert.i = or disjoint i64 %bound.i.i.sroa.0.0.insert.mask.i, 589843
+  %bound.i.i.sroa.0.2.insert.insert.i = or i64 %bound.i.i.sroa.0.0.i, 589843
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %width.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %precision.i.i)
   %6 = load i32, ptr %conv.i.i, align 4
@@ -1116,8 +1115,7 @@ call40.i.i.noexc:                                 ; preds = %if.then37.i.i
   br i1 %cmp41.i.i, label %_ZN4absl19str_format_internal17ParseFormatStringINS0_12_GLOBAL__N_117ConverterConsumerINS2_16DefaultConverterEEEEEbSt17basic_string_viewIcSt11char_traitsIcEET_.exit.i, label %if.end44.i.i
 
 if.end44.i.i:                                     ; preds = %call40.i.i.noexc
-  %bound.i53.sroa.0.0.insert.mask.i.i = and i64 %bound.i53.sroa.0.0.ph231.i.i, -16711936
-  %bound.i53.sroa.0.2.insert.insert.i.i = or disjoint i64 %bound.i53.sroa.0.0.insert.mask.i.i, 589843
+  %bound.i53.sroa.0.2.insert.insert.i.i = or i64 %bound.i53.sroa.0.0.ph231.i.i, 589843
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %width.i98.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %precision.i99.i.i)
   %44 = load i32, ptr %conv38.i.i, align 4

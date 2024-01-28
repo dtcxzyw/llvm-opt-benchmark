@@ -1942,24 +1942,23 @@ if.end5:                                          ; preds = %_ZNSt10lock_guardIS
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr i64 %sub.ptr.sub.i.i, 3
-  %7 = and i64 %sub.ptr.div.i.i, 4294967295
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %call7.i.noexc, %if.end5
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %call7.i.noexc ], [ %7, %if.end5 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %call7.i.noexc ], [ %sub.ptr.div.i.i, %if.end5 ]
   %numAway.0.i = phi i64 [ %add.i, %call7.i.noexc ], [ 0, %if.end5 ]
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %8 = and i64 %indvars.iv.next.i, 2147483648
-  %cmp.i = icmp eq i64 %8, 0
+  %indvars.iv.next.i = add i64 %indvars.iv.i, -1
+  %7 = and i64 %indvars.iv.next.i, 2147483648
+  %cmp.i = icmp eq i64 %7, 0
   br i1 %cmp.i, label %for.body.i, label %invoke.cont
 
 for.body.i:                                       ; preds = %for.cond.i
   %conv3.i = and i64 %indvars.iv.next.i, 2147483647
-  %9 = load ptr, ptr %sizeClasses_.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.9", ptr %9, i64 %conv3.i
-  %10 = load ptr, ptr %add.ptr.i.i, align 8
+  %8 = load ptr, ptr %sizeClasses_.i, align 8
+  %add.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.9", ptr %8, i64 %conv3.i
+  %9 = load ptr, ptr %add.ptr.i.i, align 8
   %sub6.i = sub i64 %sub, %numAway.0.i
-  %call7.i19 = invoke noundef i64 @_ZN8facebook5velox6memory13MmapAllocator9SizeClass10adviseAwayEm(ptr noundef nonnull align 8 dereferenceable(192) %10, i64 noundef %sub6.i)
+  %call7.i19 = invoke noundef i64 @_ZN8facebook5velox6memory13MmapAllocator9SizeClass10adviseAwayEm(ptr noundef nonnull align 8 dereferenceable(192) %9, i64 noundef %sub6.i)
           to label %call7.i.noexc unwind label %lpad
 
 call7.i.noexc:                                    ; preds = %for.body.i
@@ -1970,18 +1969,18 @@ call7.i.noexc:                                    ; preds = %for.body.i
 invoke.cont:                                      ; preds = %call7.i.noexc, %for.cond.i
   %numAway.1.i = phi i64 [ %add.i, %call7.i.noexc ], [ %numAway.0.i, %for.cond.i ]
   %numAdvisedPages_.i = getelementptr inbounds i8, ptr %this, i64 1000
-  %11 = atomicrmw add ptr %numAdvisedPages_.i, i64 %numAway.1.i seq_cst, align 8
+  %10 = atomicrmw add ptr %numAdvisedPages_.i, i64 %numAway.1.i seq_cst, align 8
   %cmp8.not = icmp uge i64 %numAway.1.i, %sub
   %add15 = select i1 %cmp8.not, i64 0, i64 %conv
   %add15.sink = add i64 %numAway.1.i, %add15
-  %12 = atomicrmw sub ptr %numMapped_, i64 %add15.sink seq_cst, align 8
+  %11 = atomicrmw sub ptr %numMapped_, i64 %add15.sink seq_cst, align 8
   br label %cleanup
 
 lpad:                                             ; preds = %for.body.i
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %sizeClassBalanceMutex_) #24
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %12
 
 cleanup:                                          ; preds = %invoke.cont, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %retval.0 = phi i1 [ true, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ %cmp8.not, %invoke.cont ]
@@ -2086,24 +2085,23 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr i64 %sub.ptr.sub.i.i, 3
-  %2 = and i64 %sub.ptr.div.i.i, 4294967295
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %call7.i.noexc, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %call7.i.noexc ], [ %2, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %call7.i.noexc ], [ %sub.ptr.div.i.i, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %numAway.0.i = phi i64 [ %add.i, %call7.i.noexc ], [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %3 = and i64 %indvars.iv.next.i, 2147483648
-  %cmp.i = icmp eq i64 %3, 0
+  %indvars.iv.next.i = add i64 %indvars.iv.i, -1
+  %2 = and i64 %indvars.iv.next.i, 2147483648
+  %cmp.i = icmp eq i64 %2, 0
   br i1 %cmp.i, label %for.body.i, label %seqcst.i
 
 for.body.i:                                       ; preds = %for.cond.i
   %conv3.i = and i64 %indvars.iv.next.i, 2147483647
-  %4 = load ptr, ptr %sizeClasses_.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.9", ptr %4, i64 %conv3.i
-  %5 = load ptr, ptr %add.ptr.i.i, align 8
+  %3 = load ptr, ptr %sizeClasses_.i, align 8
+  %add.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.9", ptr %3, i64 %conv3.i
+  %4 = load ptr, ptr %add.ptr.i.i, align 8
   %sub6.i = sub i64 %targetPages, %numAway.0.i
-  %call7.i6 = invoke noundef i64 @_ZN8facebook5velox6memory13MmapAllocator9SizeClass10adviseAwayEm(ptr noundef nonnull align 8 dereferenceable(192) %5, i64 noundef %sub6.i)
+  %call7.i6 = invoke noundef i64 @_ZN8facebook5velox6memory13MmapAllocator9SizeClass10adviseAwayEm(ptr noundef nonnull align 8 dereferenceable(192) %4, i64 noundef %sub6.i)
           to label %call7.i.noexc unwind label %lpad
 
 call7.i.noexc:                                    ; preds = %for.body.i
@@ -2114,17 +2112,17 @@ call7.i.noexc:                                    ; preds = %for.body.i
 seqcst.i:                                         ; preds = %call7.i.noexc, %for.cond.i
   %numAway.1.i = phi i64 [ %add.i, %call7.i.noexc ], [ %numAway.0.i, %for.cond.i ]
   %numAdvisedPages_.i = getelementptr inbounds i8, ptr %this, i64 1000
-  %6 = atomicrmw add ptr %numAdvisedPages_.i, i64 %numAway.1.i seq_cst, align 8
+  %5 = atomicrmw add ptr %numAdvisedPages_.i, i64 %numAway.1.i seq_cst, align 8
   %numMapped_ = getelementptr inbounds i8, ptr %this, i64 56
-  %7 = atomicrmw sub ptr %numMapped_, i64 %numAway.1.i seq_cst, align 8
+  %6 = atomicrmw sub ptr %numMapped_, i64 %numAway.1.i seq_cst, align 8
   %call1.i.i.i7 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %sizeClassBalanceMutex_) #24
   ret i64 %numAway.1.i
 
 lpad:                                             ; preds = %for.body.i
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   %call1.i.i.i8 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %sizeClassBalanceMutex_) #24
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: mustprogress uwtable

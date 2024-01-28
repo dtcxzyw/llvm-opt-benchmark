@@ -870,33 +870,29 @@ if.end64:                                         ; preds = %invoke.cont25, %if.
   %s.sroa.9.0 = phi i8 [ %16, %if.end49 ], [ %16, %if.end60 ], [ %16, %invoke.cont33 ], [ %11, %invoke.cont25 ], [ %6, %invoke.cont18 ]
   %s.sroa.34.1 = phi ptr [ %18, %if.end49 ], [ %18, %if.end60 ], [ %18, %invoke.cont33 ], [ %13, %invoke.cont25 ], [ %8, %invoke.cont18 ]
   %23 = phi <4 x i8> [ %17, %if.end49 ], [ %17, %if.end60 ], [ %17, %invoke.cont33 ], [ %12, %invoke.cont25 ], [ %7, %invoke.cont18 ]
-  %24 = extractelement <4 x i8> %23, i64 2
-  %s.sroa.24.0 = and i8 %24, 1
-  %25 = extractelement <4 x i8> %23, i64 1
-  %s.sroa.19.0 = and i8 %25, 1
-  %26 = load ptr, ptr %this, align 8
+  %24 = load ptr, ptr %this, align 8
   store ptr null, ptr %this, align 8
-  %tobool.not.i.i = icmp eq ptr %26, null
+  %tobool.not.i.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EE5resetEPS1_.exit, label %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i: ; preds = %if.end64
-  call void @_ZN7rocksdb18WritableFileWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(218) %26) #15
-  call void @_ZdlPv(ptr noundef nonnull %26) #14
+  call void @_ZN7rocksdb18WritableFileWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(218) %24) #15
+  call void @_ZdlPv(ptr noundef nonnull %24) #14
   br label %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %if.end64, %_ZNKSt14default_deleteIN7rocksdb18WritableFileWriterEEclEPS1_.exit.i.i
   %last_elem_type_ = getelementptr inbounds i8, ptr %this, i64 44
   store i32 3, ptr %last_elem_type_, align 4
   %statistics_ = getelementptr inbounds i8, ptr %this, i64 16
-  %27 = load ptr, ptr %statistics_, align 8
-  %tobool.not.i = icmp eq ptr %27, null
+  %25 = load ptr, ptr %statistics_, align 8
+  %tobool.not.i = icmp eq ptr %25, null
   br i1 %tobool.not.i, label %invoke.cont67, label %if.then.i52
 
 if.then.i52:                                      ; preds = %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EE5resetEPS1_.exit
-  %vtable.i = load ptr, ptr %27, align 8
+  %vtable.i = load ptr, ptr %25, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 176
-  %28 = load ptr, ptr %vfn.i, align 8
-  invoke void %28(ptr noundef nonnull align 8 dereferenceable(33) %27, i32 noundef 107, i64 noundef 32)
+  %26 = load ptr, ptr %vfn.i, align 8
+  invoke void %26(ptr noundef nonnull align 8 dereferenceable(33) %25, i32 noundef 107, i64 noundef 32)
           to label %invoke.cont67 unwind label %lpad3
 
 invoke.cont67:                                    ; preds = %_ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EE5resetEPS1_.exit, %if.then.i52
@@ -905,15 +901,19 @@ invoke.cont67:                                    ; preds = %_ZNSt10unique_ptrIN
   %subcode_4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %s.sroa.9.0, ptr %subcode_4.i.i, align 1
   %sev_6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 2
-  %29 = extractelement <4 x i8> %23, i64 0
-  store i8 %29, ptr %sev_6.i.i, align 2
+  %27 = extractelement <4 x i8> %23, i64 0
+  store i8 %27, ptr %sev_6.i.i, align 2
+  %28 = extractelement <4 x i8> %23, i64 1
+  %29 = and i8 %28, 1
   %retryable_8.i.i = getelementptr inbounds i8, ptr %agg.result, i64 3
-  store i8 %s.sroa.19.0, ptr %retryable_8.i.i, align 1
+  store i8 %29, ptr %retryable_8.i.i, align 1
+  %30 = extractelement <4 x i8> %23, i64 2
+  %31 = and i8 %30, 1
   %data_loss_11.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
-  store i8 %s.sroa.24.0, ptr %data_loss_11.i.i, align 4
+  store i8 %31, ptr %data_loss_11.i.i, align 4
   %scope_14.i.i = getelementptr inbounds i8, ptr %agg.result, i64 5
-  %30 = extractelement <4 x i8> %23, i64 3
-  store i8 %30, ptr %scope_14.i.i, align 1
+  %32 = extractelement <4 x i8> %23, i64 3
+  store i8 %32, ptr %scope_14.i.i, align 1
   store ptr %s.sroa.34.1, ptr %state_.i.i55, align 8
   br label %_ZN7rocksdb6StatusD2Ev.exit60
 

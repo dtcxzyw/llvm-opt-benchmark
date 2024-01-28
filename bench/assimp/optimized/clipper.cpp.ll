@@ -10705,54 +10705,51 @@ while.body31:                                     ; preds = %while.cond29.prehea
 land.lhs.true35:                                  ; preds = %while.body31
   %WindDelta36 = getelementptr inbounds i8, ptr %e2.094, i64 64
   %10 = load i32, ptr %WindDelta36, align 8
-  %cmp37.not = icmp eq i32 %10, 0
-  br i1 %cmp37.not, label %if.end40, label %if.then38
-
-if.then38:                                        ; preds = %land.lhs.true35
-  %11 = and i8 %Inside.093, 1
-  %frombool = xor i8 %11, 1
+  %cmp37.not = icmp ne i32 %10, 0
+  %frombool = zext i1 %cmp37.not to i8
+  %spec.select107 = xor i8 %Inside.093, %frombool
   br label %if.end40
 
-if.end40:                                         ; preds = %if.then38, %land.lhs.true35, %while.body31
-  %Inside.1 = phi i8 [ %frombool, %if.then38 ], [ %Inside.093, %land.lhs.true35 ], [ %Inside.093, %while.body31 ]
+if.end40:                                         ; preds = %land.lhs.true35, %while.body31
+  %Inside.1 = phi i8 [ %Inside.093, %while.body31 ], [ %spec.select107, %land.lhs.true35 ]
   %e2.0.in = getelementptr inbounds i8, ptr %e2.094, i64 112
   %e2.0 = load ptr, ptr %e2.0.in, align 8
   %tobool30.not = icmp eq ptr %e2.0, null
   br i1 %tobool30.not, label %while.end42.loopexit, label %while.body31, !llvm.loop !106
 
 while.end42.loopexit:                             ; preds = %if.end40
-  %12 = and i8 %Inside.1, 1
-  %13 = xor i8 %12, 1
-  %14 = zext nneg i8 %13 to i32
+  %11 = and i8 %Inside.1, 1
+  %12 = xor i8 %11, 1
+  %13 = zext nneg i8 %12 to i32
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then24, %while.cond29.preheader, %while.end42.loopexit
-  %.sink107 = phi i32 [ 0, %while.cond29.preheader ], [ %14, %while.end42.loopexit ], [ %6, %if.then24 ]
+  %.sink108 = phi i32 [ 0, %while.cond29.preheader ], [ %13, %while.end42.loopexit ], [ %6, %if.then24 ]
   %WindCnt48 = getelementptr inbounds i8, ptr %edge, i64 68
-  store i32 %.sink107, ptr %WindCnt48, align 4
+  store i32 %.sink108, ptr %WindCnt48, align 4
   %WindCnt250 = getelementptr inbounds i8, ptr %e.089, i64 72
-  %15 = load i32, ptr %WindCnt250, align 8
+  %14 = load i32, ptr %WindCnt250, align 8
   %WindCnt251 = getelementptr inbounds i8, ptr %edge, i64 72
-  store i32 %15, ptr %WindCnt251, align 8
+  store i32 %14, ptr %WindCnt251, align 8
   br label %if.end119
 
 if.else53:                                        ; preds = %if.else23
   %WindCnt54 = getelementptr inbounds i8, ptr %e.089, i64 68
-  %16 = load i32, ptr %WindCnt54, align 4
-  %mul = mul nsw i32 %16, %2
+  %15 = load i32, ptr %WindCnt54, align 4
+  %mul = mul nsw i32 %15, %2
   %cmp56 = icmp slt i32 %mul, 0
   br i1 %cmp56, label %if.then57, label %if.else84
 
 if.then57:                                        ; preds = %if.else53
-  %17 = tail call i32 @llvm.abs.i32(i32 %16, i1 false)
-  %cmp60 = icmp ugt i32 %17, 1
+  %16 = tail call i32 @llvm.abs.i32(i32 %15, i1 false)
+  %cmp60 = icmp ugt i32 %16, 1
   br i1 %cmp60, label %if.then61, label %if.else74
 
 if.then61:                                        ; preds = %if.then57
   %mul64 = mul nsw i32 %6, %2
   %cmp65 = icmp slt i32 %mul64, 0
   %add = select i1 %cmp65, i32 0, i32 %6
-  %spec.select108 = add nsw i32 %16, %add
+  %spec.select109 = add nsw i32 %15, %add
   br label %if.end113
 
 if.else74:                                        ; preds = %if.then57
@@ -10764,35 +10761,35 @@ if.else84:                                        ; preds = %if.else53
   br i1 %cmp86, label %if.then87, label %if.else98
 
 if.then87:                                        ; preds = %if.else84
-  %cmp89.inv = icmp sgt i32 %16, -1
+  %cmp89.inv = icmp sgt i32 %15, -1
   %cond96.v = select i1 %cmp89.inv, i32 1, i32 -1
-  %cond96 = add nsw i32 %cond96.v, %16
+  %cond96 = add nsw i32 %cond96.v, %15
   br label %if.end113
 
 if.else98:                                        ; preds = %if.else84
   %mul101 = mul nsw i32 %6, %2
   %cmp102 = icmp slt i32 %mul101, 0
   %add109 = select i1 %cmp102, i32 0, i32 %6
-  %spec.select109 = add nsw i32 %16, %add109
+  %spec.select110 = add nsw i32 %15, %add109
   br label %if.end113
 
 if.end113:                                        ; preds = %if.else98, %if.then61, %if.then87, %if.else74
-  %cond96.sink = phi i32 [ %cond96, %if.then87 ], [ %spec.select, %if.else74 ], [ %spec.select108, %if.then61 ], [ %spec.select109, %if.else98 ]
+  %cond96.sink = phi i32 [ %cond96, %if.then87 ], [ %spec.select, %if.else74 ], [ %spec.select109, %if.then61 ], [ %spec.select110, %if.else98 ]
   %WindCnt97 = getelementptr inbounds i8, ptr %edge, i64 68
   store i32 %cond96.sink, ptr %WindCnt97, align 4
   %WindCnt2114 = getelementptr inbounds i8, ptr %e.089, i64 72
-  %18 = load i32, ptr %WindCnt2114, align 8
+  %17 = load i32, ptr %WindCnt2114, align 8
   %WindCnt2115 = getelementptr inbounds i8, ptr %edge, i64 72
-  store i32 %18, ptr %WindCnt2115, align 8
+  store i32 %17, ptr %WindCnt2115, align 8
   br label %if.end119
 
 if.end119:                                        ; preds = %if.then19, %if.end113, %if.end49, %if.end
-  %WindCnt2128.promoted = phi i32 [ %8, %if.then19 ], [ %15, %if.end49 ], [ %18, %if.end113 ], [ 0, %if.end ]
-  %19 = phi i32 [ %0, %if.then19 ], [ %0, %if.end49 ], [ %0, %if.end113 ], [ %4, %if.end ]
+  %WindCnt2128.promoted = phi i32 [ %8, %if.then19 ], [ %14, %if.end49 ], [ %17, %if.end113 ], [ 0, %if.end ]
+  %18 = phi i32 [ %0, %if.then19 ], [ %0, %if.end49 ], [ %0, %if.end113 ], [ %4, %if.end ]
   %e.0.pn75 = phi ptr [ %e.089, %if.then19 ], [ %e.089, %if.end49 ], [ %e.089, %if.end113 ], [ %add.ptr, %if.end ]
   %e.1.in = getelementptr inbounds i8, ptr %e.0.pn75, i64 104
   %e.1 = load ptr, ptr %e.1.in, align 8
-  %cmp.i77 = icmp eq i32 %19, 0
+  %cmp.i77 = icmp eq i32 %18, 0
   %retval.0.in.in.v.i78 = select i1 %cmp.i77, i64 124, i64 128
   %retval.0.in.in.i79 = getelementptr inbounds i8, ptr %this, i64 %retval.0.in.in.v.i78
   %retval.0.in.i80 = load i32, ptr %retval.0.in.in.i79, align 4
@@ -10815,36 +10812,36 @@ while.body124.lr.ph:                              ; preds = %while.cond122.prehe
   br label %while.body124
 
 while.body124:                                    ; preds = %while.body124.lr.ph, %if.end132
-  %20 = phi i32 [ %WindCnt2128.promoted, %while.body124.lr.ph ], [ %22, %if.end132 ]
-  %e.298 = phi ptr [ %e.1, %while.body124.lr.ph ], [ %23, %if.end132 ]
+  %19 = phi i32 [ %WindCnt2128.promoted, %while.body124.lr.ph ], [ %21, %if.end132 ]
+  %e.298 = phi ptr [ %e.1, %while.body124.lr.ph ], [ %22, %if.end132 ]
   %WindDelta125 = getelementptr inbounds i8, ptr %e.298, i64 64
-  %21 = load i32, ptr %WindDelta125, align 8
-  %cmp126.not = icmp eq i32 %21, 0
+  %20 = load i32, ptr %WindDelta125, align 8
+  %cmp126.not = icmp eq i32 %20, 0
   br i1 %cmp126.not, label %if.end132, label %if.then127
 
 if.then127:                                       ; preds = %while.body124
-  %cmp129 = icmp eq i32 %20, 0
+  %cmp129 = icmp eq i32 %19, 0
   %cond130 = zext i1 %cmp129 to i32
   store i32 %cond130, ptr %WindCnt2128, align 8
   br label %if.end132
 
 if.end132:                                        ; preds = %if.then127, %while.body124
-  %22 = phi i32 [ %cond130, %if.then127 ], [ %20, %while.body124 ]
+  %21 = phi i32 [ %cond130, %if.then127 ], [ %19, %while.body124 ]
   %NextInAEL133 = getelementptr inbounds i8, ptr %e.298, i64 104
-  %23 = load ptr, ptr %NextInAEL133, align 8
-  %cmp123.not = icmp eq ptr %23, %edge
+  %22 = load ptr, ptr %NextInAEL133, align 8
+  %cmp123.not = icmp eq ptr %22, %edge
   br i1 %cmp123.not, label %if.end144, label %while.body124, !llvm.loop !107
 
 while.body138:                                    ; preds = %while.body138.lr.ph, %while.body138
-  %24 = phi i32 [ %WindCnt2128.promoted, %while.body138.lr.ph ], [ %add141, %while.body138 ]
-  %e.396 = phi ptr [ %e.1, %while.body138.lr.ph ], [ %26, %while.body138 ]
+  %23 = phi i32 [ %WindCnt2128.promoted, %while.body138.lr.ph ], [ %add141, %while.body138 ]
+  %e.396 = phi ptr [ %e.1, %while.body138.lr.ph ], [ %25, %while.body138 ]
   %WindDelta139 = getelementptr inbounds i8, ptr %e.396, i64 64
-  %25 = load i32, ptr %WindDelta139, align 8
-  %add141 = add nsw i32 %24, %25
+  %24 = load i32, ptr %WindDelta139, align 8
+  %add141 = add nsw i32 %23, %24
   store i32 %add141, ptr %WindCnt2140, align 8
   %NextInAEL142 = getelementptr inbounds i8, ptr %e.396, i64 104
-  %26 = load ptr, ptr %NextInAEL142, align 8
-  %cmp137.not = icmp eq ptr %26, %edge
+  %25 = load ptr, ptr %NextInAEL142, align 8
+  %cmp137.not = icmp eq ptr %25, %edge
   br i1 %cmp137.not, label %if.end144, label %while.body138, !llvm.loop !108
 
 if.end144:                                        ; preds = %while.body138, %if.end132, %while.cond136.preheader, %while.cond122.preheader

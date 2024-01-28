@@ -129,10 +129,9 @@ if.then.i:                                        ; preds = %entry
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then.i
   %i.08.i.i = phi i32 [ 0, %if.then.i ], [ %inc.i.i, %for.body.i.i ]
-  %r.07.i.i = phi i64 [ %add.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
+  %r.07.i.i = phi i64 [ %add.i.i, %if.then.i ], [ %add.i.i.i, %for.body.i.i ]
   %mul.i.i.i = mul i64 %r.07.i.i, 25214903917
   %add.i.i.i = add i64 %mul.i.i.i, 11
-  %and.i.i.i = and i64 %add.i.i.i, 281474976710655
   %inc.i.i = add nuw nsw i32 %i.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, 20
   br i1 %exitcond.not.i.i, label %_ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit.i, label %for.body.i.i, !llvm.loop !5
@@ -142,7 +141,7 @@ _ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit.i: ; preds = 
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit.i, %entry.if.end_crit_edge.i
-  %4 = phi i64 [ %.pre.i, %entry.if.end_crit_edge.i ], [ %and.i.i.i, %_ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit.i ]
+  %4 = phi i64 [ %.pre.i, %entry.if.end_crit_edge.i ], [ %add.i.i.i, %_ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit.i ]
   %mul.i.i = mul i64 %4, 25214903917
   %add.i5.i = add i64 %mul.i.i, 11
   %and.i.i = and i64 %add.i5.i, 281474976710655

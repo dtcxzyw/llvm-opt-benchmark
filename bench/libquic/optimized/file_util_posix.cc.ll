@@ -1493,8 +1493,7 @@ invoke.cont38:                                    ; preds = %invoke.cont37
   %call.i.i = call noundef i32 @stat64(ptr noundef %call1.i, ptr noundef nonnull %file_info.i) #19
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   %17 = load i32, ptr %st_mode.i, align 8
-  %and.i = and i32 %17, 511
-  %permissions.1 = select i1 %cmp.not.i, i32 %and.i, i32 %permissions.017
+  %permissions.1 = select i1 %cmp.not.i, i32 %17, i32 %permissions.017
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %file_info.i)
   %and = and i32 %permissions.1, 64
   %tobool = icmp ne i32 %and, 0

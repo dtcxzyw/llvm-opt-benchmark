@@ -1134,11 +1134,10 @@ cond.true:                                        ; preds = %if.end
 
 cond.false:                                       ; preds = %if.end
   %conv20 = trunc i64 %call.i to i32
-  %conv21 = and i32 %conv20, 255
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %or, %cond.true ], [ %conv21, %cond.false ]
+  %cond = phi i32 [ %or, %cond.true ], [ %conv20, %cond.false ]
   %conv22 = trunc i32 %cond to i8
   store i8 %conv22, ptr %ptr, align 1
   br label %return
@@ -1627,11 +1626,10 @@ cond.true:                                        ; preds = %if.end
 
 cond.false:                                       ; preds = %if.end
   %conv20 = trunc i64 %call.i to i32
-  %conv21 = and i32 %conv20, 65535
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %or, %cond.true ], [ %conv21, %cond.false ]
+  %cond = phi i32 [ %or, %cond.true ], [ %conv20, %cond.false ]
   %conv22 = trunc i32 %cond to i16
   store i16 %conv22, ptr %ptr, align 1
   br label %return
@@ -1711,11 +1709,10 @@ cond.true:                                        ; preds = %if.end
 
 cond.false:                                       ; preds = %if.end
   %conv21 = trunc i64 %call.i to i32
-  %conv22 = and i32 %conv21, 65535
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %or, %cond.true ], [ %conv22, %cond.false ]
+  %cond = phi i32 [ %or, %cond.true ], [ %conv21, %cond.false ]
   %conv23 = trunc i32 %cond to i16
   %3 = tail call noundef i16 @llvm.bswap.i16(i16 %conv23)
   store i16 %3, ptr %ptr, align 1

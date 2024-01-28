@@ -84,8 +84,7 @@ gettoalign.exit:                                  ; preds = %while.body
   %sub8.i = sub i64 %spec.select.i, %and.i
   %and10.i = and i64 %sub8.i, %sub.i
   %conv11.i = trunc i64 %and10.i to i32
-  %conv7138 = and i64 %and10.i, 4294967295
-  %add = add i64 %conv7138, %totalsize.0133
+  %add = add i64 %and10.i, %totalsize.0133
   %cmp9130 = icmp sgt i32 %conv11.i, 0
   br i1 %cmp9130, label %while.body11, label %while.end
 

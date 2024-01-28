@@ -1426,7 +1426,7 @@ land.lhs.true471.i:                               ; preds = %for.body465.i
   br i1 %tobool477.not.i, label %for.inc492.i, label %if.then478.i
 
 if.then478.i:                                     ; preds = %land.lhs.true471.i
-  %shl481.i = shl i64 256, %indvars.iv283.i
+  %shl481.i = shl nuw nsw i64 256, %indvars.iv283.i
   %122 = trunc i64 %shl481.i to i16
   %conv484.i = or i16 %queues.12254.i, %122
   %123 = trunc i64 %shl468.i to i16
@@ -5862,13 +5862,12 @@ if.else.i.i26:                                    ; preds = %if.then.i.i24
 
 trace_igb_rx_metadata_rss.exit:                   ; preds = %if.then9, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %123 = and i32 %115, 65535
   br label %if.end24
 
 if.else:                                          ; preds = %if.end
-  %124 = load i8, ptr %hasip4, align 1
-  %125 = and i8 %124, 1
-  %tobool14.not = icmp eq i8 %125, 0
+  %123 = load i8, ptr %hasip4, align 1
+  %124 = and i8 %123, 1
+  %tobool14.not = icmp eq i8 %124, 0
   br i1 %tobool14.not, label %if.end24, label %if.then15
 
 if.then15:                                        ; preds = %if.else
@@ -5876,33 +5875,33 @@ if.then15:                                        ; preds = %if.else
   %hi_dword19 = getelementptr inbounds i8, ptr %desc, i64 4
   store i16 %call16, ptr %hi_dword19, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i27)
-  %126 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i28 = icmp ne i32 %126, 0
-  %127 = load i16, ptr @_TRACE_E1000E_RX_METADATA_IP_ID_DSTATE, align 2
-  %tobool4.i.i29 = icmp ne i16 %127, 0
+  %125 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i28 = icmp ne i32 %125, 0
+  %126 = load i16, ptr @_TRACE_E1000E_RX_METADATA_IP_ID_DSTATE, align 2
+  %tobool4.i.i29 = icmp ne i16 %126, 0
   %or.cond.i.i30 = select i1 %tobool.i.i28, i1 %tobool4.i.i29, i1 false
   br i1 %or.cond.i.i30, label %land.lhs.true5.i.i31, label %trace_e1000e_rx_metadata_ip_id.exit
 
 land.lhs.true5.i.i31:                             ; preds = %if.then15
-  %128 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i32 = and i32 %128, 32768
+  %127 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i32 = and i32 %127, 32768
   %cmp.i.not.i.i33 = icmp eq i32 %and.i.i.i32, 0
   br i1 %cmp.i.not.i.i33, label %trace_e1000e_rx_metadata_ip_id.exit, label %if.then.i.i34
 
 if.then.i.i34:                                    ; preds = %land.lhs.true5.i.i31
-  %129 = load i8, ptr @message_with_timestamp, align 1
-  %130 = and i8 %129, 1
-  %tobool7.not.i.i35 = icmp eq i8 %130, 0
+  %128 = load i8, ptr @message_with_timestamp, align 1
+  %129 = and i8 %128, 1
+  %tobool7.not.i.i35 = icmp eq i8 %129, 0
   br i1 %tobool7.not.i.i35, label %if.else.i.i41, label %if.then8.i.i36
 
 if.then8.i.i36:                                   ; preds = %if.then.i.i34
   %call9.i.i37 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i27, ptr noundef null) #15
   %call10.i.i38 = call i32 @qemu_get_thread_id() #15
-  %131 = load i64, ptr %_now.i.i27, align 8
+  %130 = load i64, ptr %_now.i.i27, align 8
   %tv_usec.i.i39 = getelementptr inbounds i8, ptr %_now.i.i27, i64 8
-  %132 = load i64, ptr %tv_usec.i.i39, align 8
+  %131 = load i64, ptr %tv_usec.i.i39, align 8
   %conv11.i.i40 = zext i16 %call16 to i32
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %call10.i.i38, i64 noundef %131, i64 noundef %132, i32 noundef %conv11.i.i40) #15
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %call10.i.i38, i64 noundef %130, i64 noundef %131, i32 noundef %conv11.i.i40) #15
   br label %trace_e1000e_rx_metadata_ip_id.exit
 
 if.else.i.i41:                                    ; preds = %if.then.i.i34
@@ -5915,10 +5914,10 @@ trace_e1000e_rx_metadata_ip_id.exit:              ; preds = %if.then15, %land.lh
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else, %trace_e1000e_rx_metadata_ip_id.exit, %if.then7, %trace_igb_rx_metadata_rss.exit
-  %rss_type.0 = phi i32 [ %123, %trace_igb_rx_metadata_rss.exit ], [ 0, %if.then7 ], [ 0, %trace_e1000e_rx_metadata_ip_id.exit ], [ 0, %if.else ]
+  %rss_type.0 = phi i32 [ %115, %trace_igb_rx_metadata_rss.exit ], [ 0, %if.then7 ], [ 0, %trace_e1000e_rx_metadata_ip_id.exit ], [ 0, %if.else ]
   %adv_desc_status_error.0 = phi i32 [ 0, %trace_igb_rx_metadata_rss.exit ], [ 0, %if.then7 ], [ 512, %trace_e1000e_rx_metadata_ip_id.exit ], [ 0, %if.else ]
-  %133 = or disjoint i32 %adv_desc_status_error.0, 65536
-  %spec.select = select i1 %ts, i32 %133, i32 %adv_desc_status_error.0
+  %132 = or disjoint i32 %adv_desc_status_error.0, 65536
+  %spec.select = select i1 %ts, i32 %132, i32 %adv_desc_status_error.0
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %hasip4.i43)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %hasip6.i44)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %l4hdr_proto.i45)
@@ -5926,92 +5925,92 @@ if.end24:                                         ; preds = %if.else, %trace_e10
   br i1 %cmp.i, label %if.then.i, label %if.end.i46
 
 if.then.i:                                        ; preds = %if.end24
-  %134 = or disjoint i16 %etqf, 2048
+  %133 = or disjoint i16 %etqf, 2048
   br label %igb_rx_desc_get_packet_type.exit
 
 if.end.i46:                                       ; preds = %if.end24
   call void @net_rx_pkt_get_protocols(ptr noundef nonnull %pkt, ptr noundef nonnull %hasip4.i43, ptr noundef nonnull %hasip6.i44, ptr noundef nonnull %l4hdr_proto.i45) #15
-  %135 = load i8, ptr %hasip6.i44, align 1
-  %136 = and i8 %135, 1
-  %tobool.not.i = icmp eq i8 %136, 0
+  %134 = load i8, ptr %hasip6.i44, align 1
+  %135 = and i8 %134, 1
+  %tobool.not.i = icmp eq i8 %135, 0
   br i1 %tobool.not.i, label %if.else.i50, label %land.lhs.true.i47
 
 land.lhs.true.i47:                                ; preds = %if.end.i46
   %arrayidx.i48 = getelementptr i8, ptr %core, i64 20488
-  %137 = load i32, ptr %arrayidx.i48, align 8
-  %and.i49 = and i32 %137, 1024
+  %136 = load i32, ptr %arrayidx.i48, align 8
+  %and.i49 = and i32 %136, 1024
   %tobool5.not.i = icmp eq i32 %and.i49, 0
   br i1 %tobool5.not.i, label %if.then6.i, label %if.else.i50
 
 if.then6.i:                                       ; preds = %land.lhs.true.i47
   %call.i52 = call ptr @net_rx_pkt_get_ip6_info(ptr noundef nonnull %pkt) #15
   %has_ext_hdrs.i = getelementptr inbounds i8, ptr %call.i52, i64 56
-  %138 = load i8, ptr %has_ext_hdrs.i, align 8
-  %139 = and i8 %138, 1
-  %tobool7.not.i = icmp eq i8 %139, 0
+  %137 = load i8, ptr %has_ext_hdrs.i, align 8
+  %138 = and i8 %137, 1
+  %tobool7.not.i = icmp eq i8 %138, 0
   %conv9.i = select i1 %tobool7.not.i, i16 4, i16 8
   br label %if.end14.i
 
 if.else.i50:                                      ; preds = %land.lhs.true.i47, %if.end.i46
-  %140 = load i8, ptr %hasip4.i43, align 1
-  %141 = and i8 %140, 1
-  %..i = zext nneg i8 %141 to i16
+  %139 = load i8, ptr %hasip4.i43, align 1
+  %140 = and i8 %139, 1
+  %..i = zext nneg i8 %140 to i16
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.else.i50, %if.then6.i
   %pkt_type.0.i = phi i16 [ %conv9.i, %if.then6.i ], [ %..i, %if.else.i50 ]
-  %142 = load i32, ptr %l4hdr_proto.i45, align 4
-  switch i32 %142, label %igb_rx_desc_get_packet_type.exit [
+  %141 = load i32, ptr %l4hdr_proto.i45, align 4
+  switch i32 %141, label %igb_rx_desc_get_packet_type.exit [
     i32 1, label %sw.bb.i51
     i32 2, label %sw.bb18.i
     i32 3, label %sw.bb22.i
   ]
 
 sw.bb.i51:                                        ; preds = %if.end14.i
-  %143 = or disjoint i16 %pkt_type.0.i, 16
+  %142 = or disjoint i16 %pkt_type.0.i, 16
   br label %igb_rx_desc_get_packet_type.exit
 
 sw.bb18.i:                                        ; preds = %if.end14.i
-  %144 = or disjoint i16 %pkt_type.0.i, 32
+  %143 = or disjoint i16 %pkt_type.0.i, 32
   br label %igb_rx_desc_get_packet_type.exit
 
 sw.bb22.i:                                        ; preds = %if.end14.i
-  %145 = or disjoint i16 %pkt_type.0.i, 64
+  %144 = or disjoint i16 %pkt_type.0.i, 64
   br label %igb_rx_desc_get_packet_type.exit
 
 igb_rx_desc_get_packet_type.exit:                 ; preds = %if.then.i, %if.end14.i, %sw.bb.i51, %sw.bb18.i, %sw.bb22.i
-  %retval.0.i = phi i16 [ %134, %if.then.i ], [ %pkt_type.0.i, %if.end14.i ], [ %145, %sw.bb22.i ], [ %144, %sw.bb18.i ], [ %143, %sw.bb.i51 ]
+  %retval.0.i = phi i16 [ %133, %if.then.i ], [ %pkt_type.0.i, %if.end14.i ], [ %144, %sw.bb22.i ], [ %143, %sw.bb18.i ], [ %142, %sw.bb.i51 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip4.i43)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasip6.i44)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %l4hdr_proto.i45)
   %conv32 = zext nneg i16 %retval.0.i to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i53)
-  %146 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i54 = icmp ne i32 %146, 0
-  %147 = load i16, ptr @_TRACE_E1000E_RX_METADATA_PKT_TYPE_DSTATE, align 2
-  %tobool4.i.i55 = icmp ne i16 %147, 0
+  %145 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i54 = icmp ne i32 %145, 0
+  %146 = load i16, ptr @_TRACE_E1000E_RX_METADATA_PKT_TYPE_DSTATE, align 2
+  %tobool4.i.i55 = icmp ne i16 %146, 0
   %or.cond.i.i56 = select i1 %tobool.i.i54, i1 %tobool4.i.i55, i1 false
   br i1 %or.cond.i.i56, label %land.lhs.true5.i.i57, label %trace_e1000e_rx_metadata_pkt_type.exit
 
 land.lhs.true5.i.i57:                             ; preds = %igb_rx_desc_get_packet_type.exit
-  %148 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i58 = and i32 %148, 32768
+  %147 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i58 = and i32 %147, 32768
   %cmp.i.not.i.i59 = icmp eq i32 %and.i.i.i58, 0
   br i1 %cmp.i.not.i.i59, label %trace_e1000e_rx_metadata_pkt_type.exit, label %if.then.i.i60
 
 if.then.i.i60:                                    ; preds = %land.lhs.true5.i.i57
-  %149 = load i8, ptr @message_with_timestamp, align 1
-  %150 = and i8 %149, 1
-  %tobool7.not.i.i61 = icmp eq i8 %150, 0
+  %148 = load i8, ptr @message_with_timestamp, align 1
+  %149 = and i8 %148, 1
+  %tobool7.not.i.i61 = icmp eq i8 %149, 0
   br i1 %tobool7.not.i.i61, label %if.else.i.i66, label %if.then8.i.i62
 
 if.then8.i.i62:                                   ; preds = %if.then.i.i60
   %call9.i.i63 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i53, ptr noundef null) #15
   %call10.i.i64 = call i32 @qemu_get_thread_id() #15
-  %151 = load i64, ptr %_now.i.i53, align 8
+  %150 = load i64, ptr %_now.i.i53, align 8
   %tv_usec.i.i65 = getelementptr inbounds i8, ptr %_now.i.i53, i64 8
-  %152 = load i64, ptr %tv_usec.i.i65, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, i32 noundef %call10.i.i64, i64 noundef %151, i64 noundef %152, i32 noundef %conv32) #15
+  %151 = load i64, ptr %tv_usec.i.i65, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, i32 noundef %call10.i.i64, i64 noundef %150, i64 noundef %151, i32 noundef %conv32) #15
   br label %trace_e1000e_rx_metadata_pkt_type.exit
 
 if.else.i.i66:                                    ; preds = %if.then.i.i60
@@ -6024,8 +6023,8 @@ trace_e1000e_rx_metadata_pkt_type.exit:           ; preds = %igb_rx_desc_get_pac
   %or35 = or i32 %shl, %rss_type.0
   %conv36 = trunc i32 %or35 to i16
   store i16 %conv36, ptr %desc, align 8
-  %153 = load i32, ptr %upper, align 8
-  %or42 = or i32 %153, %spec.select
+  %152 = load i32, ptr %upper, align 8
+  %or42 = or i32 %152, %spec.select
   store i32 %or42, ptr %upper, align 8
   br label %return
 

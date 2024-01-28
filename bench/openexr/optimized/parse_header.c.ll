@@ -976,7 +976,6 @@ if.then27.i:                                      ; preds = %if.end22.i
   br label %read_magic_and_flags.exit
 
 read_magic_and_flags.exit.thread:                 ; preds = %if.end22.i
-  %and23.i = and i32 %6, 7680
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %magic_and_version.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %fileoff.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nread.i)
@@ -996,7 +995,7 @@ if.then1:                                         ; preds = %read_magic_and_flag
   br label %return
 
 if.end3:                                          ; preds = %read_magic_and_flags.exit.thread, %read_magic_and_flags.exit
-  %flags.0120 = phi i32 [ %and23.i, %read_magic_and_flags.exit.thread ], [ undef, %read_magic_and_flags.exit ]
+  %flags.0120 = phi i32 [ %6, %read_magic_and_flags.exit.thread ], [ undef, %read_magic_and_flags.exit ]
   %curpos.i = getelementptr inbounds i8, ptr %scratch, i64 8
   %fileoff.i72 = getelementptr inbounds i8, ptr %scratch, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %curpos.i, i8 0, i64 16, i1 false)
