@@ -35661,9 +35661,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %cmp8.i.not = icmp eq i64 %and.i35, 0
   %2 = trunc i64 %and.i35 to i32
   %notmask17.i = shl nsw i32 -1, %2
-  %3 = and i32 %notmask17.i, 127
-  %4 = xor i32 %3, 127
-  %conv18.i = zext nneg i32 %4 to i64
+  %3 = xor i32 %notmask17.i, 255
+  %conv18.i = zext i32 %3 to i64
   %not19.i = xor i64 %conv18.i, -1
   %sub23.i = sub nuw nsw i64 64, %and.i35
   br i1 %cmp8.i.not, label %for.body.lr.ph.split.us, label %for.body.lr.ph.split
@@ -35677,13 +35676,13 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   %add1.us.us = add i64 %i.0152.us.us, %sourceOffset
   %div9.i.us.us = lshr exact i64 %add1.us.us, 3
   %add.i.us.us = add i64 %div9.i.us.us, %0
-  %5 = inttoptr i64 %add.i.us.us to ptr
-  %6 = load i64, ptr %5, align 8
+  %4 = inttoptr i64 %add.i.us.us to ptr
+  %5 = load i64, ptr %4, align 8
   %add2.us.us = add i64 %i.0152.us.us, %targetOffset
   %div15.i.us.us = lshr exact i64 %add2.us.us, 3
   %add.i34.us.us = add i64 %div15.i.us.us, %1
-  %7 = inttoptr i64 %add.i34.us.us to ptr
-  store i64 %6, ptr %7, align 8
+  %6 = inttoptr i64 %add.i34.us.us to ptr
+  store i64 %5, ptr %6, align 8
   %add.us.us = add nuw i64 %add153.us.us, 64
   %cmp.not.us.us = icmp ugt i64 %add.us.us, %numBits
   br i1 %cmp.not.us.us, label %for.end, label %for.body.us.us, !llvm.loop !316
@@ -35694,17 +35693,17 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %add1.us = add i64 %i.0152.us, %sourceOffset
   %div9.i.us = lshr i64 %add1.us, 3
   %add.i.us = add i64 %div9.i.us, %0
-  %8 = inttoptr i64 %add.i.us to ptr
-  %9 = load i64, ptr %8, align 8
-  %arrayidx.i.us = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = load i8, ptr %arrayidx.i.us, align 1
-  %conv4.i.us = zext i8 %10 to i64
-  %or.i.us = tail call i64 @llvm.fshr.i64(i64 %conv4.i.us, i64 %9, i64 %and.i)
+  %7 = inttoptr i64 %add.i.us to ptr
+  %8 = load i64, ptr %7, align 8
+  %arrayidx.i.us = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = load i8, ptr %arrayidx.i.us, align 1
+  %conv4.i.us = zext i8 %9 to i64
+  %or.i.us = tail call i64 @llvm.fshr.i64(i64 %conv4.i.us, i64 %8, i64 %and.i)
   %add2.us = add i64 %i.0152.us, %targetOffset
   %div15.i.us = lshr exact i64 %add2.us, 3
   %add.i34.us = add i64 %div15.i.us, %1
-  %11 = inttoptr i64 %add.i34.us to ptr
-  store i64 %or.i.us, ptr %11, align 8
+  %10 = inttoptr i64 %add.i34.us to ptr
+  store i64 %or.i.us, ptr %10, align 8
   %add.us = add nuw i64 %add153.us, 64
   %cmp.not.us = icmp ugt i64 %add.us, %numBits
   br i1 %cmp.not.us, label %for.end, label %for.body.us, !llvm.loop !316
@@ -35718,24 +35717,24 @@ for.body.us154:                                   ; preds = %for.body.lr.ph.spli
   %add1.us157 = add i64 %i.0152.us156, %sourceOffset
   %div9.i.us158 = lshr exact i64 %add1.us157, 3
   %add.i.us159 = add i64 %div9.i.us158, %0
-  %12 = inttoptr i64 %add.i.us159 to ptr
-  %13 = load i64, ptr %12, align 8
+  %11 = inttoptr i64 %add.i.us159 to ptr
+  %12 = load i64, ptr %11, align 8
   %add2.us162 = add i64 %i.0152.us156, %targetOffset
   %div15.i.us163 = lshr i64 %add2.us162, 3
   %add.i34.us164 = add i64 %div15.i.us163, %1
-  %14 = inttoptr i64 %add.i34.us164 to ptr
-  %15 = load i64, ptr %14, align 8
-  %and3.i.us165 = and i64 %15, %not.i
-  %and5.i.us166 = shl i64 %13, %and.i35
+  %13 = inttoptr i64 %add.i34.us164 to ptr
+  %14 = load i64, ptr %13, align 8
+  %and3.i.us165 = and i64 %14, %not.i
+  %and5.i.us166 = shl i64 %12, %and.i35
   %or.i36.us167 = or i64 %and3.i.us165, %and5.i.us166
-  store i64 %or.i36.us167, ptr %14, align 8
-  %add.ptr.i.us = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = load i8, ptr %add.ptr.i.us, align 1
-  %conv17.i.us = zext i8 %16 to i64
+  store i64 %or.i36.us167, ptr %13, align 8
+  %add.ptr.i.us = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = load i8, ptr %add.ptr.i.us, align 1
+  %conv17.i.us = zext i8 %15 to i64
   %and20.i.us = and i64 %conv17.i.us, %not19.i
-  %shr.i38.us = lshr i64 %13, %sub23.i
+  %shr.i38.us = lshr i64 %12, %sub23.i
   %and24.i.us = and i64 %shr.i38.us, %conv18.i
-  %or25.i.us = or i64 %and20.i.us, %and24.i.us
+  %or25.i.us = or disjoint i64 %and20.i.us, %and24.i.us
   %conv26.i.us = trunc i64 %or25.i.us to i8
   store i8 %conv26.i.us, ptr %add.ptr.i.us, align 1
   %add.us168 = add nuw i64 %add153.us155, 64
@@ -35748,28 +35747,28 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %add1 = add i64 %i.0152, %sourceOffset
   %div9.i = lshr i64 %add1, 3
   %add.i = add i64 %div9.i, %0
-  %17 = inttoptr i64 %add.i to ptr
-  %18 = load i64, ptr %17, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = load i8, ptr %arrayidx.i, align 1
-  %conv4.i = zext i8 %19 to i64
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %conv4.i, i64 %18, i64 %and.i)
+  %16 = inttoptr i64 %add.i to ptr
+  %17 = load i64, ptr %16, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = load i8, ptr %arrayidx.i, align 1
+  %conv4.i = zext i8 %18 to i64
+  %or.i = tail call i64 @llvm.fshr.i64(i64 %conv4.i, i64 %17, i64 %and.i)
   %add2 = add i64 %i.0152, %targetOffset
   %div15.i = lshr i64 %add2, 3
   %add.i34 = add i64 %div15.i, %1
-  %20 = inttoptr i64 %add.i34 to ptr
-  %21 = load i64, ptr %20, align 8
-  %and3.i = and i64 %21, %not.i
+  %19 = inttoptr i64 %add.i34 to ptr
+  %20 = load i64, ptr %19, align 8
+  %and3.i = and i64 %20, %not.i
   %and5.i = shl i64 %or.i, %and.i35
   %or.i36 = or i64 %and3.i, %and5.i
-  store i64 %or.i36, ptr %20, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %20, i64 8
-  %22 = load i8, ptr %add.ptr.i, align 1
-  %conv17.i = zext i8 %22 to i64
+  store i64 %or.i36, ptr %19, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = load i8, ptr %add.ptr.i, align 1
+  %conv17.i = zext i8 %21 to i64
   %and20.i = and i64 %conv17.i, %not19.i
   %shr.i38 = lshr i64 %or.i, %sub23.i
   %and24.i = and i64 %shr.i38, %conv18.i
-  %or25.i = or i64 %and20.i, %and24.i
+  %or25.i = or disjoint i64 %and20.i, %and24.i
   %conv26.i = trunc i64 %or25.i to i8
   store i8 %conv26.i, ptr %add.ptr.i, align 1
   %add = add nuw i64 %add153, 64
@@ -35784,59 +35783,58 @@ for.end:                                          ; preds = %for.body, %for.body
 
 if.then:                                          ; preds = %for.end
   %add6 = add i64 %i.0.lcssa, %sourceOffset
-  %23 = ptrtoint ptr %source to i64
+  %22 = ptrtoint ptr %source to i64
   %div9.i39 = lshr i64 %add6, 3
-  %add.i40 = add i64 %div9.i39, %23
-  %24 = inttoptr i64 %add.i40 to ptr
-  %25 = load i32, ptr %24, align 4
+  %add.i40 = add i64 %div9.i39, %22
+  %23 = inttoptr i64 %add.i40 to ptr
+  %24 = load i32, ptr %23, align 4
   %and.i41 = and i64 %sourceOffset, 7
   %tobool.not.i42 = icmp eq i64 %and.i41, 0
   br i1 %tobool.not.i42, label %_ZN8facebook5velox4bits6detail8loadBitsIjEET_PKmmh.exit, label %if.end3.i46
 
 if.end3.i46:                                      ; preds = %if.then
-  %arrayidx.i47 = getelementptr inbounds i8, ptr %24, i64 4
-  %26 = load i8, ptr %arrayidx.i47, align 1
-  %conv4.i48 = zext i8 %26 to i32
-  %27 = trunc i64 %and.i41 to i32
-  %or10.i = tail call i32 @llvm.fshr.i32(i32 %conv4.i48, i32 %25, i32 %27)
+  %arrayidx.i47 = getelementptr inbounds i8, ptr %23, i64 4
+  %25 = load i8, ptr %arrayidx.i47, align 1
+  %conv4.i48 = zext i8 %25 to i32
+  %26 = trunc i64 %and.i41 to i32
+  %or10.i = tail call i32 @llvm.fshr.i32(i32 %conv4.i48, i32 %24, i32 %26)
   br label %_ZN8facebook5velox4bits6detail8loadBitsIjEET_PKmmh.exit
 
 _ZN8facebook5velox4bits6detail8loadBitsIjEET_PKmmh.exit: ; preds = %if.then, %if.end3.i46
-  %retval.0.i49 = phi i32 [ %or10.i, %if.end3.i46 ], [ %25, %if.then ]
+  %retval.0.i49 = phi i32 [ %or10.i, %if.end3.i46 ], [ %24, %if.then ]
   %add8 = add i64 %i.0.lcssa, %targetOffset
   %conv = zext i32 %retval.0.i49 to i64
-  %28 = ptrtoint ptr %target to i64
+  %27 = ptrtoint ptr %target to i64
   %div15.i52 = lshr i64 %add8, 3
-  %add.i53 = add i64 %div15.i52, %28
-  %29 = inttoptr i64 %add.i53 to ptr
+  %add.i53 = add i64 %div15.i52, %27
+  %28 = inttoptr i64 %add.i53 to ptr
   %and.i54 = and i64 %targetOffset, 7
   %shl2.i55 = shl nuw nsw i64 4294967295, %and.i54
-  %30 = load i32, ptr %29, align 4
-  %conv3.i = zext i32 %30 to i64
+  %29 = load i32, ptr %28, align 4
+  %conv3.i = zext i32 %29 to i64
   %not.i56 = xor i64 %shl2.i55, -1
   %and4.i = and i64 %conv3.i, %not.i56
   %and6.i = shl nuw nsw i64 %conv, %and.i54
   %or.i57 = or i64 %and4.i, %and6.i
   %conv7.i = trunc i64 %or.i57 to i32
-  store i32 %conv7.i, ptr %29, align 4
+  store i32 %conv7.i, ptr %28, align 4
   %cmp10.i.not = icmp eq i64 %and.i54, 0
   br i1 %cmp10.i.not, label %if.end, label %if.then.i59
 
 if.then.i59:                                      ; preds = %_ZN8facebook5velox4bits6detail8loadBitsIjEET_PKmmh.exit
-  %add.ptr.i60 = getelementptr inbounds i8, ptr %29, i64 4
-  %31 = trunc i64 %and.i54 to i32
-  %notmask17.i61 = shl nsw i32 -1, %31
-  %32 = load i8, ptr %add.ptr.i60, align 1
-  %conv19.i = zext i8 %32 to i64
-  %33 = and i32 %notmask17.i61, 127
-  %34 = xor i32 %33, 127
-  %conv20.i = zext nneg i32 %34 to i64
+  %add.ptr.i60 = getelementptr inbounds i8, ptr %28, i64 4
+  %30 = trunc i64 %and.i54 to i32
+  %notmask17.i61 = shl nsw i32 -1, %30
+  %31 = load i8, ptr %add.ptr.i60, align 1
+  %conv19.i = zext i8 %31 to i64
+  %32 = xor i32 %notmask17.i61, 255
+  %conv20.i = zext i32 %32 to i64
   %not21.i = xor i64 %conv20.i, -1
   %and22.i = and i64 %conv19.i, %not21.i
   %sub25.i = sub nuw nsw i64 32, %and.i54
   %shr.i62 = lshr i64 %conv, %sub25.i
   %and26.i = and i64 %shr.i62, %conv20.i
-  %or27.i = or i64 %and22.i, %and26.i
+  %or27.i = or disjoint i64 %and22.i, %and26.i
   %conv28.i = trunc i64 %or27.i to i8
   store i8 %conv28.i, ptr %add.ptr.i60, align 1
   br label %if.end
@@ -35849,53 +35847,52 @@ if.end:                                           ; preds = %if.then.i59, %_ZN8f
 
 if.then12:                                        ; preds = %if.end
   %add14 = add i64 %i.1, %sourceOffset
-  %35 = ptrtoint ptr %source to i64
+  %33 = ptrtoint ptr %source to i64
   %div9.i63 = lshr i64 %add14, 3
-  %add.i64 = add i64 %div9.i63, %35
-  %36 = inttoptr i64 %add.i64 to ptr
-  %37 = load i16, ptr %36, align 2
+  %add.i64 = add i64 %div9.i63, %33
+  %34 = inttoptr i64 %add.i64 to ptr
+  %35 = load i16, ptr %34, align 2
   %and.i65 = and i64 %add14, 7
   %tobool.not.i66 = icmp eq i64 %and.i65, 0
   br i1 %tobool.not.i66, label %_ZN8facebook5velox4bits6detail8loadBitsItEET_PKmmh.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then12
-  %arrayidx.i70 = getelementptr inbounds i8, ptr %36, i64 2
-  %38 = load i8, ptr %arrayidx.i70, align 1
-  %39 = trunc i64 %and.i65 to i16
-  %40 = zext i8 %38 to i16
-  %conv14.i71 = tail call i16 @llvm.fshr.i16(i16 %40, i16 %37, i16 %39)
+  %arrayidx.i70 = getelementptr inbounds i8, ptr %34, i64 2
+  %36 = load i8, ptr %arrayidx.i70, align 1
+  %37 = trunc i64 %and.i65 to i16
+  %38 = zext i8 %36 to i16
+  %conv14.i71 = tail call i16 @llvm.fshr.i16(i16 %38, i16 %35, i16 %37)
   br label %_ZN8facebook5velox4bits6detail8loadBitsItEET_PKmmh.exit
 
 _ZN8facebook5velox4bits6detail8loadBitsItEET_PKmmh.exit: ; preds = %if.then12, %if.end5.i
-  %retval.0.i72 = phi i16 [ %conv14.i71, %if.end5.i ], [ %37, %if.then12 ]
+  %retval.0.i72 = phi i16 [ %conv14.i71, %if.end5.i ], [ %35, %if.then12 ]
   %add16 = add i64 %i.1, %targetOffset
   %conv17 = zext i16 %retval.0.i72 to i64
-  %41 = ptrtoint ptr %target to i64
+  %39 = ptrtoint ptr %target to i64
   %div15.i76 = lshr i64 %add16, 3
-  %add.i77 = add i64 %div15.i76, %41
-  %42 = inttoptr i64 %add.i77 to ptr
+  %add.i77 = add i64 %div15.i76, %39
+  %40 = inttoptr i64 %add.i77 to ptr
   %and.i78 = and i64 %add16, 7
   %shl2.i79 = shl nuw nsw i64 65535, %and.i78
-  %43 = load i16, ptr %42, align 2
-  %conv3.i80 = zext i16 %43 to i64
+  %41 = load i16, ptr %40, align 2
+  %conv3.i80 = zext i16 %41 to i64
   %not.i81 = xor i64 %shl2.i79, -1
   %and4.i82 = and i64 %conv3.i80, %not.i81
   %and6.i84 = shl nuw nsw i64 %conv17, %and.i78
   %or.i85 = or i64 %and4.i82, %and6.i84
   %conv7.i86 = trunc i64 %or.i85 to i16
-  store i16 %conv7.i86, ptr %42, align 2
+  store i16 %conv7.i86, ptr %40, align 2
   %cmp10.i88.not = icmp eq i64 %and.i78, 0
   br i1 %cmp10.i88.not, label %if.end19, label %if.then.i90
 
 if.then.i90:                                      ; preds = %_ZN8facebook5velox4bits6detail8loadBitsItEET_PKmmh.exit
-  %add.ptr.i91 = getelementptr inbounds i8, ptr %42, i64 2
-  %44 = trunc i64 %and.i78 to i32
-  %notmask17.i94 = shl nsw i32 -1, %44
-  %45 = load i8, ptr %add.ptr.i91, align 1
-  %conv19.i95 = zext i8 %45 to i64
-  %46 = and i32 %notmask17.i94, 127
-  %47 = xor i32 %46, 127
-  %conv20.i96 = zext nneg i32 %47 to i64
+  %add.ptr.i91 = getelementptr inbounds i8, ptr %40, i64 2
+  %42 = trunc i64 %and.i78 to i32
+  %notmask17.i94 = shl nsw i32 -1, %42
+  %43 = load i8, ptr %add.ptr.i91, align 1
+  %conv19.i95 = zext i8 %43 to i64
+  %44 = xor i32 %notmask17.i94, 255
+  %conv20.i96 = zext i32 %44 to i64
   %not21.i97 = xor i64 %conv20.i96, -1
   %and22.i98 = and i64 %conv19.i95, %not21.i97
   %sub25.i99 = sub nuw nsw i64 16, %and.i78
@@ -35912,15 +35909,15 @@ if.end19:                                         ; preds = %if.then.i90, %_ZN8f
   br i1 %cmp21173, label %for.body22.lr.ph, label %for.end34
 
 for.body22.lr.ph:                                 ; preds = %if.end19
-  %48 = ptrtoint ptr %source to i64
-  %49 = ptrtoint ptr %target to i64
-  %50 = add i64 %i.2, %sourceOffset
-  %51 = and i64 %50, 7
-  %52 = add i64 %i.2, %targetOffset
-  %53 = and i64 %52, 7
-  %tobool.not.i108 = icmp eq i64 %51, 0
-  %sh_prom.i117 = trunc i64 %51 to i8
-  %sub25.i144 = sub nuw nsw i64 8, %53
+  %45 = ptrtoint ptr %source to i64
+  %46 = ptrtoint ptr %target to i64
+  %47 = add i64 %i.2, %sourceOffset
+  %48 = and i64 %47, 7
+  %49 = add i64 %i.2, %targetOffset
+  %50 = and i64 %49, 7
+  %tobool.not.i108 = icmp eq i64 %48, 0
+  %sh_prom.i117 = trunc i64 %48 to i8
+  %sub25.i144 = sub nuw nsw i64 8, %50
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit
@@ -35929,61 +35926,60 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %sub, i64 8)
   %add26 = add i64 %i.3174, %sourceOffset
   %div9.i105 = lshr i64 %add26, 3
-  %add.i106 = add i64 %div9.i105, %48
-  %54 = inttoptr i64 %add.i106 to ptr
-  %55 = load i8, ptr %54, align 1
+  %add.i106 = add i64 %div9.i105, %45
+  %51 = inttoptr i64 %add.i106 to ptr
+  %52 = load i8, ptr %51, align 1
   br i1 %tobool.not.i108, label %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit, label %if.end.i109
 
 if.end.i109:                                      ; preds = %for.body22
-  %add1.i110 = add nuw nsw i64 %51, %.sroa.speculated
+  %add1.i110 = add nuw nsw i64 %48, %.sroa.speculated
   %cmp.i111 = icmp ult i64 %add1.i110, 9
   br i1 %cmp.i111, label %if.then2.i116, label %if.end5.i112
 
 if.then2.i116:                                    ; preds = %if.end.i109
-  %shr.i118 = lshr i8 %55, %sh_prom.i117
+  %shr.i118 = lshr i8 %52, %sh_prom.i117
   br label %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit
 
 if.end5.i112:                                     ; preds = %if.end.i109
-  %arrayidx.i113 = getelementptr inbounds i8, ptr %54, i64 1
-  %56 = load i8, ptr %arrayidx.i113, align 1
-  %57 = trunc i64 %add26 to i8
-  %conv13.i114 = tail call i8 @llvm.fshr.i8(i8 %56, i8 %55, i8 %57)
+  %arrayidx.i113 = getelementptr inbounds i8, ptr %51, i64 1
+  %53 = load i8, ptr %arrayidx.i113, align 1
+  %54 = trunc i64 %add26 to i8
+  %conv13.i114 = tail call i8 @llvm.fshr.i8(i8 %53, i8 %52, i8 %54)
   br label %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit
 
 _ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit: ; preds = %for.body22, %if.then2.i116, %if.end5.i112
-  %retval.0.i115 = phi i8 [ %shr.i118, %if.then2.i116 ], [ %conv13.i114, %if.end5.i112 ], [ %55, %for.body22 ]
+  %retval.0.i115 = phi i8 [ %shr.i118, %if.then2.i116 ], [ %conv13.i114, %if.end5.i112 ], [ %52, %for.body22 ]
   %add29 = add i64 %i.3174, %targetOffset
   %conv30 = zext i8 %retval.0.i115 to i64
   %div15.i119 = lshr i64 %add29, 3
-  %add.i120 = add i64 %div15.i119, %49
-  %58 = inttoptr i64 %add.i120 to ptr
+  %add.i120 = add i64 %div15.i119, %46
+  %55 = inttoptr i64 %add.i120 to ptr
   %notmask.i = shl nsw i64 -1, %.sroa.speculated
   %sub.i = xor i64 %notmask.i, -1
-  %shl2.i124 = shl nuw nsw i64 %sub.i, %53
-  %59 = load i8, ptr %58, align 1
-  %conv3.i125 = zext i8 %59 to i64
+  %shl2.i124 = shl nuw nsw i64 %sub.i, %50
+  %56 = load i8, ptr %55, align 1
+  %conv3.i125 = zext i8 %56 to i64
   %not.i126 = xor i64 %shl2.i124, -1
   %and4.i127 = and i64 %conv3.i125, %not.i126
   %shl216.i128 = and i64 %conv30, %sub.i
-  %and6.i129 = shl nuw nsw i64 %shl216.i128, %53
+  %and6.i129 = shl nuw nsw i64 %shl216.i128, %50
   %or.i130 = or i64 %and4.i127, %and6.i129
   %conv7.i131 = trunc i64 %or.i130 to i8
-  store i8 %conv7.i131, ptr %58, align 1
-  %add9.i132 = add nuw nsw i64 %53, %.sroa.speculated
+  store i8 %conv7.i131, ptr %55, align 1
+  %add9.i132 = add nuw nsw i64 %50, %.sroa.speculated
   %cmp10.i133 = icmp ugt i64 %add9.i132, 8
   br i1 %cmp10.i133, label %if.then.i135, label %_ZN8facebook5velox4bits6detail9storeBitsIhEEvPmmmh.exit
 
 if.then.i135:                                     ; preds = %_ZN8facebook5velox4bits6detail8loadBitsIhEET_PKmmh.exit
-  %add.ptr.i136 = getelementptr inbounds i8, ptr %58, i64 1
-  %60 = trunc i64 %add9.i132 to i32
-  %conv14.i137 = add nuw nsw i32 %60, 248
+  %add.ptr.i136 = getelementptr inbounds i8, ptr %55, i64 1
+  %57 = trunc i64 %add9.i132 to i32
+  %conv14.i137 = add nuw nsw i32 %57, 248
   %conv15.i138 = and i32 %conv14.i137, 255
   %notmask17.i139 = shl nsw i32 -1, %conv15.i138
-  %61 = load i8, ptr %add.ptr.i136, align 1
-  %conv19.i140 = zext i8 %61 to i64
-  %62 = and i32 %notmask17.i139, 255
-  %63 = xor i32 %62, 255
-  %conv20.i141 = zext nneg i32 %63 to i64
+  %58 = load i8, ptr %add.ptr.i136, align 1
+  %conv19.i140 = zext i8 %58 to i64
+  %59 = xor i32 %notmask17.i139, 255
+  %conv20.i141 = zext i32 %59 to i64
   %not21.i142 = xor i64 %conv20.i141, -1
   %and22.i143 = and i64 %conv19.i140, %not21.i142
   %shr.i145 = lshr i64 %conv30, %sub25.i144

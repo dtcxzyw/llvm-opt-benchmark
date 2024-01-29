@@ -488,27 +488,25 @@ if.end71:                                         ; preds = %if.end
   br i1 %or.cond, label %if.then84, label %if.end92
 
 if.then84:                                        ; preds = %if.end71
-  %6 = or disjoint i16 %0, 2
   %numInsertedEvents_ = getelementptr inbounds i8, ptr %this, i64 24
-  %7 = load i64, ptr %numInsertedEvents_, align 8, !tbaa !47
-  %inc = add i64 %7, 1
+  %6 = load i64, ptr %numInsertedEvents_, align 8, !tbaa !47
+  %inc = add i64 %6, 1
   store i64 %inc, ptr %numInsertedEvents_, align 8, !tbaa !47
   br label %if.end92
 
 if.end92:                                         ; preds = %if.then84, %if.end71
-  %8 = phi i16 [ %0, %if.end71 ], [ %6, %if.then84 ]
-  %9 = and i16 %8, 16
-  %tobool99.not = icmp eq i16 %9, 0
+  %7 = and i16 %0, 16
+  %tobool99.not = icmp eq i16 %7, 0
   %numEvents_.sink145.v = select i1 %tobool99.not, i64 32, i64 40
   %numEvents_.sink145 = getelementptr inbounds i8, ptr %this, i64 %numEvents_.sink145.v
-  %10 = load i64, ptr %numEvents_.sink145, align 8, !tbaa !48
-  %inc102 = add i64 %10, 1
+  %8 = load i64, ptr %numEvents_.sink145, align 8, !tbaa !48
+  %inc102 = add i64 %8, 1
   store i64 %inc102, ptr %numEvents_.sink145, align 8, !tbaa !48
-  %11 = or i16 %8, 2
-  store i16 %11, ptr %evcb_flags.i, align 8, !tbaa !53
+  %9 = or i16 %0, 2
+  store i16 %9, ptr %evcb_flags.i, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %epev) #21
-  %12 = and i16 %3, 6
-  %conv.i = zext nneg i16 %12 to i32
+  %10 = and i16 %3, 6
+  %conv.i = zext nneg i16 %10 to i32
   %and.i = lshr exact i32 %conv.i, 1
   %and.lobit.i = and i32 %and.i, 1
   %and2.i = and i32 %conv.i, 4
@@ -517,10 +515,10 @@ if.end92:                                         ; preds = %if.then84, %if.end7
   %data = getelementptr inbounds i8, ptr %epev, i64 4
   store ptr %event, ptr %data, align 4, !tbaa !51
   %epollFd_ = getelementptr inbounds i8, ptr %this, i64 16
-  %13 = load i32, ptr %epollFd_, align 8, !tbaa !7
+  %11 = load i32, ptr %epollFd_, align 8, !tbaa !7
   %ev_fd = getelementptr inbounds i8, ptr %event, i64 56
-  %14 = load i32, ptr %ev_fd, align 8, !tbaa !56
-  %call116 = call i32 @epoll_ctl(i32 noundef %13, i32 noundef 1, i32 noundef %14, ptr noundef nonnull %epev) #21
+  %12 = load i32, ptr %ev_fd, align 8, !tbaa !56
+  %call116 = call i32 @epoll_ctl(i32 noundef %11, i32 noundef 1, i32 noundef %12, ptr noundef nonnull %epev) #21
   %cmp = icmp eq i32 %call116, 0
   %conv117 = zext i1 %cmp to i32
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %epev) #21

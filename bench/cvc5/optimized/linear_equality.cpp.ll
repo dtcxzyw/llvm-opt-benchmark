@@ -6783,7 +6783,6 @@ _ZNK4cvc58internal6theory5arith6linear10UpdateInfo14getCoefficientEv.exit: ; pre
   %3 = load ptr, ptr %d_tableauCoefficient.i, align 8
   %_mp_size.i = getelementptr inbounds i8, ptr %3, i64 4
   %4 = load i32, ptr %_mp_size.i, align 4
-  %cmp6.i.not = icmp eq i32 %4, 0
   %d_nonbasicDirection.i = getelementptr inbounds i8, ptr %u, i64 4
   %5 = load i32, ptr %d_nonbasicDirection.i, align 4
   %d_limiting.i = getelementptr inbounds i8, ptr %u, i64 192
@@ -6808,6 +6807,7 @@ lor.rhs12:                                        ; preds = %_ZNK4cvc58internal6
 lor.end15:                                        ; preds = %lor.rhs12, %lor.end
   %cond149 = phi i32 [ %8, %lor.end ], [ %cond148, %lor.rhs12 ]
   %cond16 = phi i32 [ 1, %lor.end ], [ %9, %lor.rhs12 ]
+  %cmp6.i.not = icmp eq i32 %4, 0
   %d_tableau = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load ptr, ptr %d_tableau, align 8
   %d_image.i.i = getelementptr inbounds i8, ptr %10, i64 400
@@ -6829,64 +6829,54 @@ lor.end15:                                        ; preds = %lor.rhs12, %lor.end
   %add.ptr.i.i.i17 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %16, i64 %conv.i.i16
   %call2.i = tail call i64 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables7VarInfo13atBoundCountsEv(ptr noundef nonnull align 8 dereferenceable(113) %add.ptr.i.i.i17)
   %cmp.i = icmp sgt i32 %4, 0
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %lor.end15
   %retval.sroa.4.0.extract.shift.i = lshr i64 %call2.i, 32
   %retval.sroa.4.0.extract.trunc.i = trunc i64 %retval.sroa.4.0.extract.shift.i to i32
-  %17 = and i64 %call2.i, 4294967295
-  br label %_ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit
-
-if.else.i:                                        ; preds = %lor.end15
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %call2.i to i32
   %ref.tmp.sroa.3.0.extract.shift = lshr i64 %call2.i, 32
   %spec.select = select i1 %cmp6.i.not, i32 0, i32 %ref.tmp.sroa.0.0.extract.trunc
   %spec.select150 = select i1 %cmp6.i.not, i64 0, i64 %ref.tmp.sroa.3.0.extract.shift
-  br label %_ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit
-
-_ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit: ; preds = %if.else.i, %if.then.i
-  %retval.sroa.4.0.i = phi i32 [ %retval.sroa.4.0.extract.trunc.i, %if.then.i ], [ %spec.select, %if.else.i ]
-  %retval.sroa.0.0.i = phi i64 [ %17, %if.then.i ], [ %spec.select150, %if.else.i ]
+  %retval.sroa.4.0.i = select i1 %cmp.i, i32 %retval.sroa.4.0.extract.trunc.i, i32 %spec.select
+  %retval.sroa.0.0.i = select i1 %cmp.i, i64 %call2.i, i64 %spec.select150
   %cmp.inv.i = icmp slt i32 %4, 0
   %bcs.sroa.2.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
   %bcs.sroa.2.0.extract.trunc = trunc i64 %bcs.sroa.2.0.extract.shift to i32
   %sub.i = sub i64 %retval.sroa.0.0.copyload.i, %retval.sroa.0.0.i
   %sub4.i = sub i32 %bcs.sroa.2.0.extract.trunc, %retval.sroa.4.0.i
   %nonb.sroa.0.0.extract.trunc = trunc i64 %sub.i to i32
-  %18 = load ptr, ptr %this, align 8
-  %d_image.i.i21 = getelementptr inbounds i8, ptr %18, i64 48
-  %19 = load ptr, ptr %d_image.i.i21, align 8
-  %add.ptr.i.i.i23 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %19, i64 %conv.i.i
+  %17 = load ptr, ptr %this, align 8
+  %d_image.i.i21 = getelementptr inbounds i8, ptr %17, i64 48
+  %18 = load ptr, ptr %d_image.i.i21, align 8
+  %add.ptr.i.i.i23 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %18, i64 %conv.i.i
   %call2.i24 = tail call i64 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables7VarInfo13atBoundCountsEv(ptr noundef nonnull align 8 dereferenceable(113) %add.ptr.i.i.i23)
   %agg.tmp26.sroa.2.0.insert.ext = zext nneg i32 %cond149 to i64
   %before.sroa.0.0.extract.trunc.i = trunc i64 %call2.i24 to i32
   %before.sroa.4.0.extract.shift.i = lshr i64 %call2.i24, 32
   %cmp.i.i = icmp eq i32 %cond16, %before.sroa.0.0.extract.trunc.i
   %cmp4.i.i = icmp eq i64 %before.sroa.4.0.extract.shift.i, %agg.tmp26.sroa.2.0.insert.ext
-  %20 = and i1 %cmp.i.i, %cmp4.i.i
+  %19 = and i1 %cmp.i.i, %cmp4.i.i
   %before.sroa.4.0.extract.trunc.i = trunc i64 %before.sroa.4.0.extract.shift.i to i32
   %sub.i27 = sub i32 %cond16, %before.sroa.0.0.extract.trunc.i
   %sub6.i = sub i32 %cond149, %before.sroa.4.0.extract.trunc.i
   %nonb.sroa.7.0 = add i32 %sub4.i, %sub.i27
-  %add8.i = select i1 %20, i32 0, i32 %sub6.i
+  %add8.i = select i1 %19, i32 0, i32 %sub6.i
   %nonb.sroa.0.0 = add i32 %add8.i, %nonb.sroa.0.0.extract.trunc
   %spec.select159 = select i1 %cmp6.i.not, i32 0, i32 %nonb.sroa.0.0
   %spec.select160 = select i1 %cmp6.i.not, i32 0, i32 %nonb.sroa.7.0
   %retval.sroa.4.0.i34 = select i1 %cmp.inv.i, i32 %nonb.sroa.7.0, i32 %spec.select159
   %retval.sroa.0.0.i35 = select i1 %cmp.inv.i, i32 %nonb.sroa.0.0, i32 %spec.select160
-  %21 = load ptr, ptr %d_tableau, align 8
-  %d_image.i.i.i = getelementptr inbounds i8, ptr %21, i64 400
-  %22 = load ptr, ptr %d_image.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %22, i64 %conv.i.i
-  %23 = load i32, ptr %add.ptr.i.i.i.i, align 4
-  %conv.i.i1.i = zext i32 %23 to i64
-  %24 = load ptr, ptr %21, align 8
-  %d_size.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::RowVector", ptr %24, i64 %conv.i.i1.i, i32 0, i32 1
-  %25 = load i32, ptr %d_size.i.i.i, align 4
+  %20 = load ptr, ptr %d_tableau, align 8
+  %d_image.i.i.i = getelementptr inbounds i8, ptr %20, i64 400
+  %21 = load ptr, ptr %d_image.i.i.i, align 8
+  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %21, i64 %conv.i.i
+  %22 = load i32, ptr %add.ptr.i.i.i.i, align 4
+  %conv.i.i1.i = zext i32 %22 to i64
+  %23 = load ptr, ptr %20, align 8
+  %d_size.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::RowVector", ptr %23, i64 %conv.i.i1.i, i32 0, i32 1
+  %24 = load i32, ptr %d_size.i.i.i, align 4
   %cmp41 = icmp slt i32 %5, 0
   %add.pn.in = select i1 %cmp41, i32 %retval.sroa.0.0.i35, i32 %retval.sroa.4.0.i34
   %add.pn = add i32 %add.pn.in, 1
-  %retval.0 = icmp eq i32 %add.pn, %25
+  %retval.0 = icmp eq i32 %add.pn, %24
   ret i1 %retval.0
 }
 
@@ -7670,7 +7660,6 @@ if.end15:                                         ; preds = %lor.rhs.i.i, %lor.r
 if.then.i21:                                      ; preds = %if.end15
   %retval.sroa.4.0.extract.shift.i = lshr i64 %call2.i, 32
   %retval.sroa.4.0.extract.trunc.i = trunc i64 %retval.sroa.4.0.extract.shift.i to i32
-  %16 = and i64 %call2.i, 4294967295
   br label %_ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit
 
 if.else.i:                                        ; preds = %if.end15
@@ -7683,22 +7672,22 @@ if.else.i:                                        ; preds = %if.end15
 
 _ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit: ; preds = %if.else.i, %if.then.i21
   %retval.sroa.4.0.i = phi i32 [ %retval.sroa.4.0.extract.trunc.i, %if.then.i21 ], [ %spec.select, %if.else.i ]
-  %retval.sroa.0.0.i = phi i64 [ %16, %if.then.i21 ], [ %spec.select65, %if.else.i ]
+  %retval.sroa.0.0.i = phi i64 [ %call2.i, %if.then.i21 ], [ %spec.select65, %if.else.i ]
   %sub.i = sub i64 %retval.sroa.0.0.copyload.i, %retval.sroa.0.0.i
   %sub4.i = sub i32 %bc.sroa.2.0.extract.trunc, %retval.sroa.4.0.i
   %sumOnly.sroa.0.0.extract.trunc = trunc i64 %sub.i to i32
-  %17 = load ptr, ptr %this, align 8
-  %call31 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables14boundsAreEqualEj(ptr noundef nonnull align 8 dereferenceable(568) %17, i32 noundef %10)
+  %16 = load ptr, ptr %this, align 8
+  %call31 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables14boundsAreEqualEj(ptr noundef nonnull align 8 dereferenceable(568) %16, i32 noundef %10)
   %narrow = or i1 %call31, %bToUB
   %cond63 = zext i1 %narrow to i64
   %not.bToUB = xor i1 %bToUB, true
   %narrow68 = or i1 %call31, %not.bToUB
   %cond33 = zext i1 %narrow68 to i32
-  %18 = load ptr, ptr %this, align 8
-  %d_image.i.i26 = getelementptr inbounds i8, ptr %18, i64 48
+  %17 = load ptr, ptr %this, align 8
+  %d_image.i.i26 = getelementptr inbounds i8, ptr %17, i64 48
   %conv.i.i27 = zext i32 %10 to i64
-  %19 = load ptr, ptr %d_image.i.i26, align 8
-  %add.ptr.i.i.i28 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %19, i64 %conv.i.i27
+  %18 = load ptr, ptr %d_image.i.i26, align 8
+  %add.ptr.i.i.i28 = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::ArithVariables::VarInfo", ptr %18, i64 %conv.i.i27
   %call2.i29 = tail call i64 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables7VarInfo13atBoundCountsEv(ptr noundef nonnull align 8 dereferenceable(113) %add.ptr.i.i.i28)
   %before.sroa.0.0.extract.trunc.i = trunc i64 %call2.i29 to i32
   %before.sroa.4.0.extract.shift.i = lshr i64 %call2.i29, 32
@@ -7706,36 +7695,36 @@ _ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit: ; pre
   %after.sroa.4.0.extract.trunc.i = zext i1 %narrow to i32
   %cmp.i.i = icmp eq i32 %cond33, %before.sroa.0.0.extract.trunc.i
   %cmp4.i.i30 = icmp eq i64 %before.sroa.4.0.extract.shift.i, %cond63
-  %20 = and i1 %cmp.i.i, %cmp4.i.i30
+  %19 = and i1 %cmp.i.i, %cmp4.i.i30
   %sub.i32 = sub i32 %cond33, %before.sroa.0.0.extract.trunc.i
   %sub6.i = sub i32 %after.sroa.4.0.extract.trunc.i, %before.sroa.4.0.extract.trunc.i
-  %add8.i = select i1 %20, i32 0, i32 %sub6.i
+  %add8.i = select i1 %19, i32 0, i32 %sub6.i
   %sumOnly.sroa.0.0 = add i32 %add8.i, %sumOnly.sroa.0.0.extract.trunc
   %sumOnly.sroa.5.0 = add i32 %sub.i32, %sub4.i
   %cmp2.i36 = icmp eq i32 %cond.i, 0
-  %21 = load ptr, ptr %d_tableau, align 8
-  %d_image.i.i.i = getelementptr inbounds i8, ptr %21, i64 400
-  %22 = load ptr, ptr %d_image.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %22, i64 %conv.i.i27
-  %23 = load i32, ptr %add.ptr.i.i.i.i, align 4
-  %conv.i.i1.i = zext i32 %23 to i64
-  %24 = load ptr, ptr %21, align 8
-  %d_size.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::RowVector", ptr %24, i64 %conv.i.i1.i, i32 0, i32 1
-  %25 = load i32, ptr %d_size.i.i.i, align 4
+  %20 = load ptr, ptr %d_tableau, align 8
+  %d_image.i.i.i = getelementptr inbounds i8, ptr %20, i64 400
+  %21 = load ptr, ptr %d_image.i.i.i, align 8
+  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %21, i64 %conv.i.i27
+  %22 = load i32, ptr %add.ptr.i.i.i.i, align 4
+  %conv.i.i1.i = zext i32 %22 to i64
+  %23 = load ptr, ptr %20, align 8
+  %d_size.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::RowVector", ptr %23, i64 %conv.i.i1.i, i32 0, i32 1
+  %24 = load i32, ptr %d_size.i.i.i, align 4
   br i1 %cmp58, label %if.then42, label %if.else45
 
 if.then42:                                        ; preds = %_ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit
   %spec.select67 = select i1 %cmp2.i36, i32 0, i32 %sumOnly.sroa.5.0
   %retval.sroa.0.0.i40 = select i1 %cmp.inv.i, i32 %sumOnly.sroa.0.0, i32 %spec.select67
   %add = add i32 %retval.sroa.0.0.i40, 1
-  %cmp44 = icmp eq i32 %add, %25
+  %cmp44 = icmp eq i32 %add, %24
   br label %return
 
 if.else45:                                        ; preds = %_ZNK4cvc58internal6theory5arith6linear11BoundCounts13multiplyBySgnEi.exit
   %spec.select66 = select i1 %cmp2.i36, i32 0, i32 %sumOnly.sroa.0.0
   %retval.sroa.4.0.i39 = select i1 %cmp.inv.i, i32 %sumOnly.sroa.5.0, i32 %spec.select66
   %add47 = add i32 %retval.sroa.4.0.i39, 1
-  %cmp48 = icmp eq i32 %add47, %25
+  %cmp48 = icmp eq i32 %add47, %24
   br label %return
 
 return:                                           ; preds = %lor.lhs.false9, %lor.lhs.false, %if.else, %_ZNK4cvc58internal13DeltaRationalgeERKS1_.exit, %if.then, %_ZNK4cvc58internal13DeltaRationalleERKS1_.exit, %if.else45, %if.then42

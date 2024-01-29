@@ -21238,7 +21238,6 @@ sw.bb3:                                           ; preds = %sw.bb2, %entry
   br i1 %tobool4.not, label %do_ltu.thread, label %sw.epilog
 
 do_ltu.thread:                                    ; preds = %sw.bb3
-  %conv6 = and i64 %arg1, 4294967295
   %conv7.i380 = trunc i64 %arg2 to i32
   br label %if.else5.i
 
@@ -21281,7 +21280,7 @@ if.else.i:                                        ; preds = %if.then.i.thread, %
 if.else5.i:                                       ; preds = %do_ltu.thread, %do_ltu
   %conv7.i384 = phi i32 [ %conv7.i380, %do_ltu.thread ], [ %conv7.i, %do_ltu ]
   %inv.2383 = phi i1 [ %inv.1, %do_ltu.thread ], [ %inv.2, %do_ltu ]
-  %arg2.addr.0381 = phi i64 [ %conv6, %do_ltu.thread ], [ %arg2, %do_ltu ]
+  %arg2.addr.0381 = phi i64 [ %arg1, %do_ltu.thread ], [ %arg2, %do_ltu ]
   %add6.i = add nuw nsw i32 %rexw, 7
   %conv8.i = trunc i64 %arg2.addr.0381 to i32
   %and.i10.i = and i32 %add6.i, -8

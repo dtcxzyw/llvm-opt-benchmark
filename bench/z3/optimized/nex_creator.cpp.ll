@@ -5175,38 +5175,37 @@ invoke.cont:                                      ; preds = %if.else
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %invoke.cont
-  %15 = and i8 %simplified.018, 1
-  %16 = zext i1 %call15 to i8
-  %17 = or i8 %15, %16
+  %15 = zext i1 %call15 to i8
+  %16 = or i8 %simplified.018, %15
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i)
           to label %for.inc unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.cont
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #20
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #20
   unreachable
 
 lpad:                                             ; preds = %if.else
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
-  resume { ptr, i32 } %20
+  resume { ptr, i32 } %19
 
 for.inc:                                          ; preds = %.noexc.i, %if.then9, %if.then
-  %simplified.1 = phi i8 [ 1, %if.then ], [ %12, %if.then9 ], [ %17, %.noexc.i ]
+  %simplified.1 = phi i8 [ 1, %if.then ], [ %12, %if.then9 ], [ %16, %.noexc.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.017, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %21 = and i8 %simplified.1, 1
-  %22 = icmp ne i8 %21, 0
+  %20 = and i8 %simplified.1, 1
+  %21 = icmp ne i8 %20, 0
   br label %for.end
 
 for.end:                                          ; preds = %entry, %for.end.loopexit, %_ZNK3nla7nex_sum3endEv.exit
-  %simplified.0.lcssa = phi i1 [ false, %_ZNK3nla7nex_sum3endEv.exit ], [ %22, %for.end.loopexit ], [ false, %entry ]
+  %simplified.0.lcssa = phi i1 [ false, %_ZNK3nla7nex_sum3endEv.exit ], [ %21, %for.end.loopexit ], [ false, %entry ]
   ret i1 %simplified.0.lcssa
 }
 

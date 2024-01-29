@@ -739,9 +739,9 @@ for.cond:                                         ; preds = %for.cond.outer, %fo
   %or68 = or disjoint i32 %shl65, %shr67
   %not73 = xor i32 %or68, -1
   %and74 = and i32 %or, %not73
-  %add75 = add nuw nsw i32 %and74, %x3.0
+  %add75 = add nsw i32 %and74, %x3.0
   %and78 = and i32 %or68, %or47
-  %add79 = add nuw nsw i32 %add75, %and78
+  %add79 = add nsw i32 %add75, %and78
   %incdec.ptr80 = getelementptr inbounds i8, ptr %p0.0, i64 8
   %5 = load i16, ptr %incdec.ptr59, align 2
   %add79.tr = trunc i32 %add79 to i16
@@ -765,7 +765,6 @@ if.then:                                          ; preds = %for.cond
 if.end:                                           ; preds = %if.then
   %cmp96 = icmp eq i32 %dec92, 2
   %cond = select i1 %cmp96, i32 6, i32 5
-  %conv98 = and i32 %or89, 65535
   %and99 = and i32 %or89, 63
   %idxprom = zext nneg i32 %and99 to i64
   %arrayidx100 = getelementptr inbounds i16, ptr %key, i64 %idxprom
@@ -789,7 +788,7 @@ if.end:                                           ; preds = %if.then
   %arrayidx124 = getelementptr inbounds i16, ptr %key, i64 %idxprom123
   %9 = load i16, ptr %arrayidx124, align 2
   %conv125 = zext i16 %9 to i32
-  %add127 = add nuw nsw i32 %conv98, %conv125
+  %add127 = add nuw nsw i32 %or89, %conv125
   br label %for.cond.outer
 
 for.end:                                          ; preds = %if.then
@@ -811,16 +810,25 @@ entry:
   %1 = load i32, ptr %arrayidx4, align 4
   %shr9 = lshr i32 %1, 16
   %arrayidx11 = getelementptr inbounds i8, ptr %key, i64 126
+  br label %for.cond.outer
+
+for.cond.outer:                                   ; preds = %if.end, %entry
+  %p0.0.ph = phi ptr [ %incdec.ptr92, %if.end ], [ %arrayidx11, %entry ]
+  %x0.0.ph = phi i32 [ %sub136, %if.end ], [ %0, %entry ]
+  %x1.0.ph = phi i32 [ %.pre, %if.end ], [ %shr, %entry ]
+  %x2.0.ph = phi i32 [ %sub118, %if.end ], [ %1, %entry ]
+  %x3.0.ph = phi i32 [ %and110, %if.end ], [ %shr9, %entry ]
+  %n.0.ph = phi i32 [ %dec98, %if.end ], [ 3, %entry ]
+  %i.0.ph = phi i32 [ %cond, %if.end ], [ 5, %entry ]
   br label %for.cond
 
-for.cond:                                         ; preds = %if.end139, %entry
-  %p0.0 = phi ptr [ %arrayidx11, %entry ], [ %incdec.ptr92, %if.end139 ]
-  %x0.0 = phi i32 [ %0, %entry ], [ %x0.1, %if.end139 ]
-  %x1.0 = phi i32 [ %shr, %entry ], [ %x1.1.pre-phi, %if.end139 ]
-  %x2.0 = phi i32 [ %1, %entry ], [ %x2.1.pre-phi, %if.end139 ]
-  %x3.0 = phi i32 [ %shr9, %entry ], [ %x3.1, %if.end139 ]
-  %n.0 = phi i32 [ 3, %entry ], [ %n.1, %if.end139 ]
-  %i.0 = phi i32 [ 5, %entry ], [ %i.1, %if.end139 ]
+for.cond:                                         ; preds = %for.cond.outer, %for.cond
+  %p0.0 = phi ptr [ %incdec.ptr92, %for.cond ], [ %p0.0.ph, %for.cond.outer ]
+  %x0.0 = phi i32 [ %sub94, %for.cond ], [ %x0.0.ph, %for.cond.outer ]
+  %x1.0 = phi i32 [ %conv83, %for.cond ], [ %x1.0.ph, %for.cond.outer ]
+  %x2.0 = phi i32 [ %conv61, %for.cond ], [ %x2.0.ph, %for.cond.outer ]
+  %x3.0 = phi i32 [ %and29, %for.cond ], [ %x3.0.ph, %for.cond.outer ]
+  %i.0 = phi i32 [ %dec, %for.cond ], [ %i.0.ph, %for.cond.outer ]
   %shl = shl nuw nsw i32 %x3.0, 11
   %shr16 = lshr i32 %x3.0, 5
   %conv20 = and i32 %x0.0, 65535
@@ -831,7 +839,7 @@ for.cond:                                         ; preds = %if.end139, %entry
   %incdec.ptr = getelementptr inbounds i8, ptr %p0.0, i64 -2
   %2 = load i16, ptr %p0.0, align 2
   %conv27 = zext i16 %2 to i32
-  %3 = add nuw nsw i32 %shr16, %shl
+  %3 = or disjoint i32 %shr16, %shl
   %4 = add i32 %and25, %and22
   %5 = add i32 %4, %conv27
   %sub28 = sub i32 %3, %5
@@ -876,10 +884,10 @@ for.cond:                                         ; preds = %if.end139, %entry
   %sub94 = sub i32 %.neg55, %15
   %dec = add nsw i32 %i.0, -1
   %cmp = icmp eq i32 %dec, 0
-  br i1 %cmp, label %if.then, label %if.end139
+  br i1 %cmp, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.cond
-  %dec98 = add nsw i32 %n.0, -1
+  %dec98 = add nsw i32 %n.0.ph, -1
   %cmp99 = icmp eq i32 %dec98, 0
   br i1 %cmp99, label %for.end, label %if.end
 
@@ -897,7 +905,8 @@ if.end:                                           ; preds = %if.then
   %idxprom115 = zext nneg i32 %and114 to i64
   %arrayidx116 = getelementptr inbounds i16, ptr %key, i64 %idxprom115
   %17 = load i16, ptr %arrayidx116, align 2
-  %conv122 = and i32 %sub94, 65535
+  %conv117 = zext i16 %17 to i32
+  %sub118 = sub nsw i32 %conv61, %conv117
   %and123 = and i32 %sub94, 63
   %idxprom124 = zext nneg i32 %and123 to i64
   %arrayidx125 = getelementptr inbounds i16, ptr %key, i64 %idxprom124
@@ -907,24 +916,11 @@ if.end:                                           ; preds = %if.then
   %arrayidx134 = getelementptr inbounds i16, ptr %key, i64 %idxprom133
   %20 = load i16, ptr %arrayidx134, align 2
   %conv135 = zext i16 %20 to i32
-  %sub136 = sub nsw i32 %conv122, %conv135
+  %sub136 = sub i32 %sub94, %conv135
   %sub72.tr = trunc i32 %sub72 to i16
   %sub127.narrow = sub i16 %sub72.tr, %18
   %.pre = zext i16 %sub127.narrow to i32
-  %sub50.tr = trunc i32 %sub50 to i16
-  %sub118.narrow = sub i16 %sub50.tr, %17
-  %.pre57 = zext i16 %sub118.narrow to i32
-  br label %if.end139
-
-if.end139:                                        ; preds = %if.end, %for.cond
-  %x2.1.pre-phi = phi i32 [ %.pre57, %if.end ], [ %conv61, %for.cond ]
-  %x1.1.pre-phi = phi i32 [ %.pre, %if.end ], [ %conv83, %for.cond ]
-  %x0.1.in = phi i32 [ %sub136, %if.end ], [ %sub94, %for.cond ]
-  %x3.1 = phi i32 [ %and110, %if.end ], [ %and29, %for.cond ]
-  %n.1 = phi i32 [ %dec98, %if.end ], [ %n.0, %for.cond ]
-  %i.1 = phi i32 [ %cond, %if.end ], [ %dec, %for.cond ]
-  %x0.1 = and i32 %x0.1.in, 65535
-  br label %for.cond
+  br label %for.cond.outer
 
 for.end:                                          ; preds = %if.then
   %conv140 = and i32 %sub94, 65535

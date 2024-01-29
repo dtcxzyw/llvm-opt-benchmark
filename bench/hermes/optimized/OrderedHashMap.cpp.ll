@@ -467,7 +467,6 @@ _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exi
   %bf.set7.i.i.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i.i.i, 251658240
   store i32 %bf.set7.i.i.i.i.i.i.i.i, ptr %cond.i.i.i.i.i.i.i, align 4
   %5 = ptrtoint ptr %cond.i.i.i.i.i.i.i to i64
-  %or.i.i.i.i.i = or i64 %5, -281474976710656
   br label %if.end37
 
 _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.i: ; preds = %if.end31
@@ -476,7 +475,7 @@ _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exi
   br i1 %cmp.i2.i, label %return, label %if.end37
 
 if.end37:                                         ; preds = %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.i, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.thread.i
-  %retval.sroa.3.0.i10.i = phi i64 [ %or.i.i.i.i.i, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.thread.i ], [ undef, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.i ]
+  %retval.sroa.3.0.i10.i = phi i64 [ %5, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.thread.i ], [ undef, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.i ]
   %and.i.i.i = and i64 %retval.sroa.3.0.i10.i, 281474976710655
   %6 = inttoptr i64 %and.i.i.i to ptr
   %heapStorage_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 840

@@ -15993,10 +15993,10 @@ _ZNK3app13get_family_idEv.exit:                   ; preds = %entry
 _ZNK3app13get_family_idEv.exit.thread:            ; preds = %entry
   %4 = load i32, ptr %1, align 8
   %5 = load ptr, ptr %this, align 8
-  %m_fid.i703 = getelementptr inbounds i8, ptr %5, i64 24
-  %6 = load i32, ptr %m_fid.i703, align 8
-  %cmp704 = icmp eq i32 %4, %6
-  br i1 %cmp704, label %_ZNK4decl13get_decl_kindEv.exit, label %if.end107.thread
+  %m_fid.i702 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = load i32, ptr %m_fid.i702, align 8
+  %cmp703 = icmp eq i32 %4, %6
+  br i1 %cmp703, label %_ZNK4decl13get_decl_kindEv.exit, label %if.end107.thread
 
 _ZNK4decl13get_decl_kindEv.exit:                  ; preds = %_ZNK3app13get_family_idEv.exit.thread
   %m_kind.i.i = getelementptr inbounds i8, ptr %1, i64 4
@@ -16050,7 +16050,7 @@ sw.bb18:                                          ; preds = %_ZNK4decl13get_decl
   %call21 = tail call { i64, i64 } @_ZNK8seq_util3rex12get_info_recEP4expr(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %14)
   %15 = extractvalue { i64, i64 } %call21, 0
   %16 = extractvalue { i64, i64 } %call21, 1
-  %ref.tmp19.sroa.3386.8.extract.trunc = trunc i64 %16 to i32
+  %ref.tmp19.sroa.3385.8.extract.trunc = trunc i64 %16 to i32
   %ref.tmp19.sroa.5.8.extract.shift = lshr i64 %16, 32
   %ref.tmp19.sroa.5.8.extract.trunc = trunc i64 %ref.tmp19.sroa.5.8.extract.shift to i32
   %arrayidx.i = getelementptr inbounds i8, ptr %e, i64 40
@@ -16058,7 +16058,7 @@ sw.bb18:                                          ; preds = %_ZNK4decl13get_decl
   %call25 = tail call { i64, i64 } @_ZNK8seq_util3rex12get_info_recEP4expr(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %17)
   %18 = extractvalue { i64, i64 } %call25, 0
   %19 = extractvalue { i64, i64 } %call25, 1
-  %ref.tmp23.sroa.3385.8.extract.trunc = trunc i64 %19 to i32
+  %ref.tmp23.sroa.3384.8.extract.trunc = trunc i64 %19 to i32
   %ref.tmp23.sroa.5.8.extract.shift = lshr i64 %19, 32
   %ref.tmp23.sroa.5.8.extract.trunc = trunc i64 %ref.tmp23.sroa.5.8.extract.shift to i32
   %20 = and i64 %15, 4294967295
@@ -16077,14 +16077,14 @@ if.then3.i:                                       ; preds = %if.then.i
   %23 = and i64 %18, 4294967296
   %tobool10.i = icmp ne i64 %23, 0
   %24 = select i1 %tobool.not.i, i1 %tobool10.i, i1 false
-  %cmp11.i = icmp eq i32 %ref.tmp19.sroa.3386.8.extract.trunc, -1
-  %cmp14.i = icmp eq i32 %ref.tmp23.sroa.3385.8.extract.trunc, -1
-  %or.cond716 = select i1 %cmp11.i, i1 true, i1 %cmp14.i
-  %cmp16.i = icmp eq i32 %ref.tmp19.sroa.3386.8.extract.trunc, 1
-  %cmp19.i = icmp eq i32 %ref.tmp23.sroa.3385.8.extract.trunc, 1
+  %cmp11.i = icmp eq i32 %ref.tmp19.sroa.3385.8.extract.trunc, -1
+  %cmp14.i = icmp eq i32 %ref.tmp23.sroa.3384.8.extract.trunc, -1
+  %or.cond715 = select i1 %cmp11.i, i1 true, i1 %cmp14.i
+  %cmp16.i = icmp eq i32 %ref.tmp19.sroa.3385.8.extract.trunc, 1
+  %cmp19.i = icmp eq i32 %ref.tmp23.sroa.3384.8.extract.trunc, 1
   %narrow.i = and i1 %cmp16.i, %cmp19.i
   %25 = zext i1 %narrow.i to i64
-  %cond21.i = select i1 %or.cond716, i64 4294967295, i64 %25
+  %cond21.i = select i1 %or.cond715, i64 4294967295, i64 %25
   %frombool.i.i = zext i1 %24 to i64
   %retval.sroa.5.12.insert.ext.i = zext i32 %.add.i to i64
   %retval.sroa.5.12.insert.shift.i = shl nuw i64 %retval.sroa.5.12.insert.ext.i, 32
@@ -16119,25 +16119,25 @@ sw.bb31:                                          ; preds = %_ZNK4decl13get_decl
   br i1 %or.cond.i, label %if.then.i101, label %if.else.i96
 
 if.then.i101:                                     ; preds = %sw.bb31
-  %ref.tmp36.sroa.3383.8.extract.trunc = trunc i64 %30 to i32
+  %ref.tmp36.sroa.3382.8.extract.trunc = trunc i64 %30 to i32
   %ref.tmp36.sroa.5.8.extract.shift = lshr i64 %30, 32
   %ref.tmp36.sroa.5.8.extract.trunc = trunc i64 %ref.tmp36.sroa.5.8.extract.shift to i32
   %33 = extractvalue { i64, i64 } %call34, 1
   %ref.tmp32.sroa.5.8.extract.shift = lshr i64 %33, 32
   %ref.tmp32.sroa.5.8.extract.trunc = trunc i64 %ref.tmp32.sroa.5.8.extract.shift to i32
-  %ref.tmp32.sroa.3384.8.extract.trunc = trunc i64 %33 to i32
+  %ref.tmp32.sroa.3383.8.extract.trunc = trunc i64 %33 to i32
   %34 = and i64 %27, 4294967296
   %tobool.not.i103 = icmp ne i64 %34, 0
   %35 = and i64 %29, 4294967296
   %tobool4.i = icmp ne i64 %35, 0
   %36 = select i1 %tobool.not.i103, i1 %tobool4.i, i1 false
-  %cmp.i106 = icmp eq i32 %ref.tmp32.sroa.3384.8.extract.trunc, 1
-  %cmp7.i = icmp eq i32 %ref.tmp36.sroa.3383.8.extract.trunc, 1
-  %or.cond717 = select i1 %cmp.i106, i1 true, i1 %cmp7.i
-  %37 = and i32 %ref.tmp36.sroa.3383.8.extract.trunc, %ref.tmp32.sroa.3384.8.extract.trunc
+  %cmp.i106 = icmp eq i32 %ref.tmp32.sroa.3383.8.extract.trunc, 1
+  %cmp7.i = icmp eq i32 %ref.tmp36.sroa.3382.8.extract.trunc, 1
+  %or.cond716 = select i1 %cmp.i106, i1 true, i1 %cmp7.i
+  %37 = and i32 %ref.tmp36.sroa.3382.8.extract.trunc, %ref.tmp32.sroa.3383.8.extract.trunc
   %narrow.i108 = icmp eq i32 %37, -1
   %38 = select i1 %narrow.i108, i64 4294967295, i64 0
-  %cond14.i = select i1 %or.cond717, i64 1, i64 %38
+  %cond14.i = select i1 %or.cond716, i64 1, i64 %38
   %39 = tail call i32 @llvm.umin.i32(i32 %ref.tmp36.sroa.5.8.extract.trunc, i32 %ref.tmp32.sroa.5.8.extract.trunc)
   %frombool.i.i111 = zext i1 %36 to i64
   %retval.sroa.4.12.insert.ext.i = zext i32 %39 to i64
@@ -16146,8 +16146,8 @@ if.then.i101:                                     ; preds = %sw.bb31
   br label %return
 
 if.else.i96:                                      ; preds = %sw.bb31
-  %i2.sroa.0.0.insert.insert395 = lshr i64 %29, 32
-  %retval.sroa.0.sroa.3.0.extract.shift.i = and i64 %i2.sroa.0.0.insert.insert395, 1
+  %i2.sroa.0.0.insert.insert394 = lshr i64 %29, 32
+  %retval.sroa.0.sroa.3.0.extract.shift.i = and i64 %i2.sroa.0.0.insert.insert394, 1
   br label %return
 
 sw.bb41:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -16156,7 +16156,7 @@ sw.bb41:                                          ; preds = %_ZNK4decl13get_decl
   %call44 = tail call { i64, i64 } @_ZNK8seq_util3rex12get_info_recEP4expr(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %40)
   %41 = extractvalue { i64, i64 } %call44, 0
   %42 = extractvalue { i64, i64 } %call44, 1
-  %ref.tmp42.sroa.3382.8.extract.trunc = trunc i64 %42 to i32
+  %ref.tmp42.sroa.3381.8.extract.trunc = trunc i64 %42 to i32
   %ref.tmp42.sroa.5.8.extract.shift = lshr i64 %42, 32
   %ref.tmp42.sroa.5.8.extract.trunc = trunc i64 %ref.tmp42.sroa.5.8.extract.shift to i32
   %arrayidx.i120 = getelementptr inbounds i8, ptr %e, i64 40
@@ -16164,7 +16164,7 @@ sw.bb41:                                          ; preds = %_ZNK4decl13get_decl
   %call48 = tail call { i64, i64 } @_ZNK8seq_util3rex12get_info_recEP4expr(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %43)
   %44 = extractvalue { i64, i64 } %call48, 0
   %45 = extractvalue { i64, i64 } %call48, 1
-  %ref.tmp46.sroa.3381.8.extract.trunc = trunc i64 %45 to i32
+  %ref.tmp46.sroa.3380.8.extract.trunc = trunc i64 %45 to i32
   %ref.tmp46.sroa.5.8.extract.shift = lshr i64 %45, 32
   %ref.tmp46.sroa.5.8.extract.trunc = trunc i64 %ref.tmp46.sroa.5.8.extract.shift to i32
   %46 = and i64 %41, 4294967295
@@ -16182,11 +16182,11 @@ if.then3.i147:                                    ; preds = %if.then.i140
   %49 = and i64 %44, 4294967296
   %tobool5.i = icmp ne i64 %49, 0
   %50 = select i1 %tobool.not.i149, i1 %tobool5.i, i1 false
-  %cmp.i151 = icmp eq i32 %ref.tmp42.sroa.3382.8.extract.trunc, 1
-  %cmp7.i153 = icmp eq i32 %ref.tmp46.sroa.3381.8.extract.trunc, 1
+  %cmp.i151 = icmp eq i32 %ref.tmp42.sroa.3381.8.extract.trunc, 1
+  %cmp7.i153 = icmp eq i32 %ref.tmp46.sroa.3380.8.extract.trunc, 1
   %or.cond.i154 = select i1 %cmp.i151, i1 %cmp7.i153, i1 false
-  %cmp9.i = icmp eq i32 %ref.tmp42.sroa.3382.8.extract.trunc, -1
-  %cmp11.i155 = icmp eq i32 %ref.tmp46.sroa.3381.8.extract.trunc, -1
+  %cmp9.i = icmp eq i32 %ref.tmp42.sroa.3381.8.extract.trunc, -1
+  %cmp11.i155 = icmp eq i32 %ref.tmp46.sroa.3380.8.extract.trunc, -1
   %narrow.i156 = select i1 %cmp9.i, i1 true, i1 %cmp11.i155
   %51 = select i1 %narrow.i156, i64 4294967295, i64 0
   %52 = tail call i32 @llvm.umax.i32(i32 %ref.tmp42.sroa.5.8.extract.trunc, i32 %ref.tmp46.sroa.5.8.extract.trunc)
@@ -16198,13 +16198,13 @@ if.then3.i147:                                    ; preds = %if.then.i140
   br label %return
 
 if.else.i141:                                     ; preds = %if.then.i140
-  %i2.sroa.0.0.insert.insert398 = and i64 %44, 8589934591
-  %retval.sroa.0.sroa.4.0.extract.shift.i143 = lshr i64 %i2.sroa.0.0.insert.insert398, 32
+  %i2.sroa.0.0.insert.insert397 = and i64 %44, 8589934591
+  %retval.sroa.0.sroa.4.0.extract.shift.i143 = lshr i64 %i2.sroa.0.0.insert.insert397, 32
   br label %return
 
 if.else15.i:                                      ; preds = %sw.bb41
-  %i1.sroa.0.0.insert.insert490 = and i64 %41, 8589934591
-  %retval.sroa.0.sroa.4.0.extract.shift11.i = lshr i64 %i1.sroa.0.0.insert.insert490, 32
+  %i1.sroa.0.0.insert.insert489 = and i64 %41, 8589934591
+  %retval.sroa.0.sroa.4.0.extract.shift11.i = lshr i64 %i1.sroa.0.0.insert.insert489, 32
   br label %return
 
 sw.bb51:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -16222,7 +16222,7 @@ sw.bb51:                                          ; preds = %_ZNK4decl13get_decl
   %retval.sroa.22.8.insert.ext = select i1 %cmp57, i64 %56, i64 4294967295
   %retval.sroa.22.12.insert.ext = zext i32 %call54 to i64
   %retval.sroa.22.12.insert.shift = shl nuw i64 %retval.sroa.22.12.insert.ext, 32
-  %retval.sroa.22.12.insert.insert641 = or disjoint i64 %retval.sroa.22.8.insert.ext, %retval.sroa.22.12.insert.shift
+  %retval.sroa.22.12.insert.insert640 = or disjoint i64 %retval.sroa.22.8.insert.ext, %retval.sroa.22.12.insert.shift
   br label %return
 
 sw.bb61:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -16230,8 +16230,8 @@ sw.bb61:                                          ; preds = %_ZNK4decl13get_decl
   %57 = load ptr, ptr %m_args.i167, align 8
   %call63 = tail call { i64, i64 } @_ZNK8seq_util3rex12get_info_recEP4expr(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %57)
   %58 = extractvalue { i64, i64 } %call63, 0
-  %retval.sroa.0.sroa.18.0.extract.shift662 = lshr i64 %58, 32
-  %retval.sroa.0.sroa.22.0.extract.shift686 = and i64 %58, -1099511627776
+  %retval.sroa.0.sroa.18.0.extract.shift661 = lshr i64 %58, 32
+  %retval.sroa.0.sroa.22.0.extract.shift685 = and i64 %58, -1099511627776
   %59 = extractvalue { i64, i64 } %call63, 1
   br label %return
 
@@ -16245,7 +16245,7 @@ sw.bb64:                                          ; preds = %_ZNK4decl13get_decl
   %cmp.i.i175 = icmp eq i64 %63, 1
   %spec.select = select i1 %cmp.i.i175, i64 1, i64 %61
   %retval.sroa.0.sroa.3.0.i180 = lshr i64 %61, 32
-  %retval.sroa.0.sroa.18.0.extract.trunc665 = and i64 %retval.sroa.0.sroa.3.0.i180, 1
+  %retval.sroa.0.sroa.18.0.extract.trunc664 = and i64 %retval.sroa.0.sroa.3.0.i180, 1
   br label %return
 
 sw.bb70:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -16256,15 +16256,15 @@ sw.bb70:                                          ; preds = %_ZNK4decl13get_decl
   %66 = extractvalue { i64, i64 } %call73, 1
   %67 = and i64 %65, 4294967295
   %cmp.i.i198 = icmp eq i64 %67, 1
-  %ref.tmp71.sroa.3379.8.extract.trunc = trunc i64 %66 to i32
-  %cmp.i217 = icmp eq i32 %ref.tmp71.sroa.3379.8.extract.trunc, 1
-  %cmp3.i = icmp eq i32 %ref.tmp71.sroa.3379.8.extract.trunc, -1
+  %ref.tmp71.sroa.3378.8.extract.trunc = trunc i64 %66 to i32
+  %cmp.i217 = icmp eq i32 %ref.tmp71.sroa.3378.8.extract.trunc, 1
+  %cmp3.i = icmp eq i32 %ref.tmp71.sroa.3378.8.extract.trunc, -1
   %cond.i218 = zext i1 %cmp3.i to i64
   %retval.sroa.4.12.insert.insert.i220 = select i1 %cmp.i217, i64 8589934591, i64 %cond.i218
   %retval.sroa.0.sroa.0.0.i207 = select i1 %cmp.i.i198, i64 1, i64 %65
   %retval.sroa.4.0.i208 = select i1 %cmp.i.i198, i64 %retval.sroa.4.12.insert.insert.i220, i64 %66
   %retval.sroa.0.sroa.3.0.i206 = lshr i64 %65, 32
-  %retval.sroa.0.sroa.18.0.extract.trunc667 = and i64 %retval.sroa.0.sroa.3.0.i206, 1
+  %retval.sroa.0.sroa.18.0.extract.trunc666 = and i64 %retval.sroa.0.sroa.3.0.i206, 1
   br label %return
 
 sw.bb76:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -16297,13 +16297,13 @@ if.end:                                           ; preds = %_ZNK4decl18get_num_
   %call87 = tail call noundef i32 @_ZNK9parameter7get_intEv(ptr noundef nonnull align 8 dereferenceable(16) %73)
   %.pre = load ptr, ptr %m_decl.i.i, align 8
   %m_info.i238.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 24
-  %.pre718 = load ptr, ptr %m_info.i238.phi.trans.insert, align 8
-  %cmp.i239 = icmp eq ptr %.pre718, null
+  %.pre717 = load ptr, ptr %m_info.i238.phi.trans.insert, align 8
+  %cmp.i239 = icmp eq ptr %.pre717, null
   br i1 %cmp.i239, label %if.end95, label %cond.false.i240
 
 cond.false.i240:                                  ; preds = %cond.false.i231, %_ZNK4decl18get_num_parametersEv.exit, %if.end
-  %lower_bound.0721 = phi i32 [ %call87, %if.end ], [ 0, %_ZNK4decl18get_num_parametersEv.exit ], [ 0, %cond.false.i231 ]
-  %75 = phi ptr [ %.pre718, %if.end ], [ %72, %_ZNK4decl18get_num_parametersEv.exit ], [ %72, %cond.false.i231 ]
+  %lower_bound.0720 = phi i32 [ %call87, %if.end ], [ 0, %_ZNK4decl18get_num_parametersEv.exit ], [ 0, %cond.false.i231 ]
+  %75 = phi ptr [ %.pre717, %if.end ], [ %72, %_ZNK4decl18get_num_parametersEv.exit ], [ %72, %cond.false.i231 ]
   %m_parameters.i.i241 = getelementptr inbounds i8, ptr %75, i64 8
   %76 = load ptr, ptr %m_parameters.i.i241, align 8
   %cmp.i.i.i242 = icmp eq ptr %76, null
@@ -16321,20 +16321,20 @@ if.then91:                                        ; preds = %_ZNK4decl18get_num_
   br label %if.end95
 
 if.end95:                                         ; preds = %sw.bb76, %cond.false.i240, %if.end, %if.then91, %_ZNK4decl18get_num_parametersEv.exit247
-  %lower_bound.0722 = phi i32 [ %lower_bound.0721, %cond.false.i240 ], [ %call87, %if.end ], [ %lower_bound.0721, %if.then91 ], [ %lower_bound.0721, %_ZNK4decl18get_num_parametersEv.exit247 ], [ 0, %sw.bb76 ]
+  %lower_bound.0721 = phi i32 [ %lower_bound.0720, %cond.false.i240 ], [ %call87, %if.end ], [ %lower_bound.0720, %if.then91 ], [ %lower_bound.0720, %_ZNK4decl18get_num_parametersEv.exit247 ], [ 0, %sw.bb76 ]
   %78 = and i64 %69, 4294967295
   %cmp.i.i252 = icmp eq i64 %78, 1
   br i1 %cmp.i.i252, label %if.then.i270, label %_ZNK8seq_util3rex4info4loopEjj.exit
 
 if.then.i270:                                     ; preds = %if.end95
-  %mul.i = mul i32 %lower_bound.0722, %ref.tmp77.sroa.5.8.extract.trunc
+  %mul.i = mul i32 %lower_bound.0721, %ref.tmp77.sroa.5.8.extract.trunc
   %cmp.not.i = icmp eq i32 %mul.i, 0
   %cmp3.i272 = icmp ult i32 %mul.i, %ref.tmp77.sroa.5.8.extract.trunc
-  %cmp4.i = icmp ult i32 %mul.i, %lower_bound.0722
+  %cmp4.i = icmp ult i32 %mul.i, %lower_bound.0721
   %or.cond6.i = or i1 %cmp3.i272, %cmp4.i
   %spec.select7.i = select i1 %or.cond6.i, i32 -1, i32 %mul.i
   %m.0.i = select i1 %cmp.not.i, i32 0, i32 %spec.select7.i
-  %cmp8.i = icmp eq i32 %lower_bound.0722, 0
+  %cmp8.i = icmp eq i32 %lower_bound.0721, 0
   %79 = and i64 %70, 4294967295
   %retval.sroa.4.8.insert.ext.i = select i1 %cmp8.i, i64 1, i64 %79
   %retval.sroa.4.12.insert.ext.i275 = zext i32 %m.0.i to i64
@@ -16346,7 +16346,7 @@ _ZNK8seq_util3rex4info4loopEjj.exit:              ; preds = %if.end95, %if.then.
   %retval.sroa.0.sroa.0.0.i262 = phi i64 [ 1, %if.then.i270 ], [ %69, %if.end95 ]
   %retval.sroa.4.0.i263 = phi i64 [ %retval.sroa.4.12.insert.insert.i277, %if.then.i270 ], [ %70, %if.end95 ]
   %retval.sroa.0.sroa.3.0.i261 = lshr i64 %69, 32
-  %retval.sroa.0.sroa.18.0.extract.trunc669 = and i64 %retval.sroa.0.sroa.3.0.i261, 1
+  %retval.sroa.0.sroa.18.0.extract.trunc668 = and i64 %retval.sroa.0.sroa.3.0.i261, 1
   br label %return
 
 sw.bb97:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -16355,7 +16355,7 @@ sw.bb97:                                          ; preds = %_ZNK4decl13get_decl
   %call100 = tail call { i64, i64 } @_ZNK8seq_util3rex12get_info_recEP4expr(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %80)
   %81 = extractvalue { i64, i64 } %call100, 0
   %82 = extractvalue { i64, i64 } %call100, 1
-  %ref.tmp98.sroa.3377.8.extract.trunc = trunc i64 %82 to i32
+  %ref.tmp98.sroa.3376.8.extract.trunc = trunc i64 %82 to i32
   %ref.tmp98.sroa.5.8.extract.shift = lshr i64 %82, 32
   %ref.tmp98.sroa.5.8.extract.trunc = trunc i64 %ref.tmp98.sroa.5.8.extract.shift to i32
   %arrayidx.i286 = getelementptr inbounds i8, ptr %e, i64 40
@@ -16367,20 +16367,20 @@ sw.bb97:                                          ; preds = %_ZNK4decl13get_decl
   %ref.tmp102.sroa.5.8.extract.trunc = trunc i64 %ref.tmp102.sroa.5.8.extract.shift to i32
   %86 = and i64 %81, 4294967295
   %cmp.i.i293 = icmp eq i64 %86, 1
-  br i1 %cmp.i.i293, label %if.then.i306, label %if.else17.i
+  br i1 %cmp.i.i293, label %if.then.i306, label %_ZNK8seq_util3rex4info4diffERKS1_.exit
 
 if.then.i306:                                     ; preds = %sw.bb97
   %87 = and i64 %84, 4294967295
   %cmp.i7.i307 = icmp eq i64 %87, 1
-  br i1 %cmp.i7.i307, label %if.then3.i314, label %if.else.i308
+  br i1 %cmp.i7.i307, label %if.then3.i314, label %_ZNK8seq_util3rex4info4diffERKS1_.exit
 
 if.then3.i314:                                    ; preds = %if.then.i306
   %88 = and i64 %84, %81
-  %cmp.i318 = icmp eq i32 %ref.tmp98.sroa.3377.8.extract.trunc, 1
+  %cmp.i318 = icmp eq i32 %ref.tmp98.sroa.3376.8.extract.trunc, 1
   %89 = and i64 %85, 4294967295
   %cmp9.i319 = icmp eq i64 %89, 4294967295
   %or.cond.i320 = select i1 %cmp.i318, i1 %cmp9.i319, i1 false
-  %cmp11.i321 = icmp eq i32 %ref.tmp98.sroa.3377.8.extract.trunc, -1
+  %cmp11.i321 = icmp eq i32 %ref.tmp98.sroa.3376.8.extract.trunc, -1
   %narrow.i322 = select i1 %cmp11.i321, i1 true, i1 %cmp9.i319
   %90 = select i1 %narrow.i322, i64 4294967295, i64 0
   %91 = tail call i32 @llvm.umax.i32(i32 %ref.tmp98.sroa.5.8.extract.trunc, i32 %ref.tmp102.sroa.5.8.extract.trunc)
@@ -16390,37 +16390,29 @@ if.then3.i314:                                    ; preds = %if.then.i306
   %retval.sroa.5.12.insert.insert.i328 = or disjoint i64 %retval.sroa.5.12.insert.shift.i327, %retval.sroa.5.8.insert.ext.i325
   br label %_ZNK8seq_util3rex4info4diffERKS1_.exit
 
-if.else.i308:                                     ; preds = %if.then.i306
-  %i2.sroa.0.0.insert.insert401 = and i64 %84, 8589934591
-  br label %_ZNK8seq_util3rex4info4diffERKS1_.exit
-
-if.else17.i:                                      ; preds = %sw.bb97
-  %i1.sroa.0.0.insert.insert502 = and i64 %81, 8589934591
-  br label %_ZNK8seq_util3rex4info4diffERKS1_.exit
-
-_ZNK8seq_util3rex4info4diffERKS1_.exit:           ; preds = %if.then3.i314, %if.else.i308, %if.else17.i
-  %retval.sroa.0.sroa.4.0.i296.in = phi i64 [ %88, %if.then3.i314 ], [ %84, %if.else.i308 ], [ %81, %if.else17.i ]
-  %retval.sroa.0.sroa.0.0.i297 = phi i64 [ 1, %if.then3.i314 ], [ %i2.sroa.0.0.insert.insert401, %if.else.i308 ], [ %i1.sroa.0.0.insert.insert502, %if.else17.i ]
-  %retval.sroa.5.0.i298 = phi i64 [ %retval.sroa.5.12.insert.insert.i328, %if.then3.i314 ], [ %85, %if.else.i308 ], [ %82, %if.else17.i ]
+_ZNK8seq_util3rex4info4diffERKS1_.exit:           ; preds = %sw.bb97, %if.then.i306, %if.then3.i314
+  %retval.sroa.0.sroa.4.0.i296.in = phi i64 [ %88, %if.then3.i314 ], [ %84, %if.then.i306 ], [ %81, %sw.bb97 ]
+  %retval.sroa.0.sroa.0.0.i297 = phi i64 [ 1, %if.then3.i314 ], [ %84, %if.then.i306 ], [ %81, %sw.bb97 ]
+  %retval.sroa.5.0.i298 = phi i64 [ %retval.sroa.5.12.insert.insert.i328, %if.then3.i314 ], [ %85, %if.then.i306 ], [ %82, %sw.bb97 ]
   %retval.sroa.0.sroa.4.0.i296 = lshr i64 %retval.sroa.0.sroa.4.0.i296.in, 32
-  %retval.sroa.0.sroa.18.0.extract.trunc671 = and i64 %retval.sroa.0.sroa.4.0.i296, 1
+  %retval.sroa.0.sroa.18.0.extract.trunc670 = and i64 %retval.sroa.0.sroa.4.0.i296, 1
   br label %return
 
 sw.epilog:                                        ; preds = %_ZNK3app13get_family_idEv.exit, %_ZNK4decl13get_decl_kindEv.exit
   %unknown_info = getelementptr inbounds i8, ptr %this, i64 64
   %retval.sroa.0.0.copyload = load i64, ptr %unknown_info, align 8
-  %retval.sroa.0.sroa.18.0.extract.shift674 = lshr i64 %retval.sroa.0.0.copyload, 32
-  %retval.sroa.0.sroa.22.0.extract.shift698 = and i64 %retval.sroa.0.0.copyload, -1099511627776
+  %retval.sroa.0.sroa.18.0.extract.shift673 = lshr i64 %retval.sroa.0.0.copyload, 32
+  %retval.sroa.0.sroa.22.0.extract.shift697 = and i64 %retval.sroa.0.0.copyload, -1099511627776
   %retval.sroa.22.0.unknown_info.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
   %retval.sroa.22.0.copyload = load i64, ptr %retval.sroa.22.0.unknown_info.sroa_idx, align 8
   br label %return
 
 if.end107.thread:                                 ; preds = %_ZNK3app13get_family_idEv.exit.thread
-  %m_kind.i.i.i.i710 = getelementptr inbounds i8, ptr %e, i64 4
-  %bf.load.i.i.i.i711 = load i32, ptr %m_kind.i.i.i.i710, align 4
-  %bf.clear.i.i.i.i712 = and i32 %bf.load.i.i.i.i711, 65535
-  %cmp.i.i.i329713 = icmp eq i32 %bf.clear.i.i.i.i712, 0
-  br i1 %cmp.i.i.i329713, label %_ZNK11ast_manager6is_iteEPK4expr.exit.i, label %if.end119
+  %m_kind.i.i.i.i709 = getelementptr inbounds i8, ptr %e, i64 4
+  %bf.load.i.i.i.i710 = load i32, ptr %m_kind.i.i.i.i709, align 4
+  %bf.clear.i.i.i.i711 = and i32 %bf.load.i.i.i.i710, 65535
+  %cmp.i.i.i329712 = icmp eq i32 %bf.clear.i.i.i.i711, 0
+  br i1 %cmp.i.i.i329712, label %_ZNK11ast_manager6is_iteEPK4expr.exit.i, label %if.end119
 
 _ZNK11ast_manager6is_iteEPK4expr.exit.i:          ; preds = %if.end107.thread
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, 0
@@ -16438,13 +16430,13 @@ if.then111:                                       ; preds = %_ZNK11ast_manager6i
   %call113 = tail call { i64, i64 } @_ZNK8seq_util3rex12get_info_recEP4expr(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %94)
   %96 = extractvalue { i64, i64 } %call113, 0
   %97 = extractvalue { i64, i64 } %call113, 1
-  %ref.tmp112.sroa.3375.8.extract.trunc = trunc i64 %97 to i32
+  %ref.tmp112.sroa.3374.8.extract.trunc = trunc i64 %97 to i32
   %ref.tmp112.sroa.5.8.extract.shift = lshr i64 %97, 32
   %ref.tmp112.sroa.5.8.extract.trunc = trunc i64 %ref.tmp112.sroa.5.8.extract.shift to i32
   %call116 = tail call { i64, i64 } @_ZNK8seq_util3rex12get_info_recEP4expr(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %95)
   %98 = extractvalue { i64, i64 } %call116, 0
   %99 = extractvalue { i64, i64 } %call116, 1
-  %ref.tmp115.sroa.3374.8.extract.trunc = trunc i64 %99 to i32
+  %ref.tmp115.sroa.3373.8.extract.trunc = trunc i64 %99 to i32
   %ref.tmp115.sroa.5.8.extract.shift = lshr i64 %99, 32
   %ref.tmp115.sroa.5.8.extract.trunc = trunc i64 %ref.tmp115.sroa.5.8.extract.shift to i32
   %100 = and i64 %96, 4294967295
@@ -16454,54 +16446,52 @@ if.then111:                                       ; preds = %_ZNK11ast_manager6i
 if.then.i355:                                     ; preds = %if.then111
   %101 = and i64 %98, 4294967295
   %cmp.i5.i = icmp eq i64 %101, 1
-  br i1 %cmp.i5.i, label %if.then3.i362, label %if.else.i357
+  br i1 %cmp.i5.i, label %if.then3.i360, label %if.else.i356
 
-if.then3.i362:                                    ; preds = %if.then.i355
-  %cmp.i364 = icmp eq i32 %ref.tmp112.sroa.3375.8.extract.trunc, 1
-  %cmp5.i = icmp eq i32 %ref.tmp115.sroa.3374.8.extract.trunc, 1
-  %or.cond.i365 = select i1 %cmp.i364, i1 %cmp5.i, i1 false
-  %cmp7.i366 = icmp eq i32 %ref.tmp112.sroa.3375.8.extract.trunc, -1
-  %cmp9.i367 = icmp eq i32 %ref.tmp115.sroa.3374.8.extract.trunc, -1
-  %narrow.i368 = select i1 %cmp7.i366, i1 %cmp9.i367, i1 false
-  %102 = select i1 %narrow.i368, i64 4294967295, i64 0
+if.then3.i360:                                    ; preds = %if.then.i355
+  %cmp.i362 = icmp eq i32 %ref.tmp112.sroa.3374.8.extract.trunc, 1
+  %cmp5.i = icmp eq i32 %ref.tmp115.sroa.3373.8.extract.trunc, 1
+  %or.cond.i364 = select i1 %cmp.i362, i1 %cmp5.i, i1 false
+  %cmp7.i365 = icmp eq i32 %ref.tmp112.sroa.3374.8.extract.trunc, -1
+  %cmp9.i366 = icmp eq i32 %ref.tmp115.sroa.3373.8.extract.trunc, -1
+  %narrow.i367 = select i1 %cmp7.i365, i1 %cmp9.i366, i1 false
+  %102 = select i1 %narrow.i367, i64 4294967295, i64 0
   %103 = tail call i32 @llvm.umin.i32(i32 %ref.tmp115.sroa.5.8.extract.trunc, i32 %ref.tmp112.sroa.5.8.extract.trunc)
-  %retval.sroa.5.8.insert.ext.i370 = select i1 %or.cond.i365, i64 1, i64 %102
-  %retval.sroa.5.12.insert.ext.i371 = zext i32 %103 to i64
-  %retval.sroa.5.12.insert.shift.i372 = shl nuw i64 %retval.sroa.5.12.insert.ext.i371, 32
-  %retval.sroa.5.12.insert.insert.i373 = or disjoint i64 %retval.sroa.5.12.insert.shift.i372, %retval.sroa.5.8.insert.ext.i370
+  %retval.sroa.5.8.insert.ext.i369 = select i1 %or.cond.i364, i64 1, i64 %102
+  %retval.sroa.5.12.insert.ext.i370 = zext i32 %103 to i64
+  %retval.sroa.5.12.insert.shift.i371 = shl nuw i64 %retval.sroa.5.12.insert.ext.i370, 32
+  %retval.sroa.5.12.insert.insert.i372 = or disjoint i64 %retval.sroa.5.12.insert.shift.i371, %retval.sroa.5.8.insert.ext.i369
   br label %_ZNK8seq_util3rex4info6orelseERKS1_.exit
 
-if.else.i357:                                     ; preds = %if.then.i355
-  %i2.sroa.0.0.insert.insert404 = and i64 %98, 8589934591
-  %retval.sroa.0.sroa.4.0.extract.shift.i359 = and i64 %98, 4294967296
+if.else.i356:                                     ; preds = %if.then.i355
+  %i2.sroa.0.0.insert.insert403 = and i64 %98, 8589934591
   br label %_ZNK8seq_util3rex4info6orelseERKS1_.exit
 
 if.else13.i:                                      ; preds = %if.then111
-  %i1.sroa.0.0.insert.insert505 = and i64 %96, 8589934591
-  %retval.sroa.0.sroa.4.0.extract.shift10.i = and i64 %96, 4294967296
+  %i1.sroa.0.0.insert.insert504 = and i64 %96, 8589934591
   br label %_ZNK8seq_util3rex4info6orelseERKS1_.exit
 
-_ZNK8seq_util3rex4info6orelseERKS1_.exit:         ; preds = %if.then3.i362, %if.else.i357, %if.else13.i
-  %retval.sroa.0.sroa.4.0.i346 = phi i64 [ 0, %if.then3.i362 ], [ %retval.sroa.0.sroa.4.0.extract.shift.i359, %if.else.i357 ], [ %retval.sroa.0.sroa.4.0.extract.shift10.i, %if.else13.i ]
-  %retval.sroa.0.sroa.0.0.i347 = phi i64 [ 1, %if.then3.i362 ], [ %i2.sroa.0.0.insert.insert404, %if.else.i357 ], [ %i1.sroa.0.0.insert.insert505, %if.else13.i ]
-  %retval.sroa.5.0.i348 = phi i64 [ %retval.sroa.5.12.insert.insert.i373, %if.then3.i362 ], [ %99, %if.else.i357 ], [ %97, %if.else13.i ]
-  %retval.sroa.0.sroa.18.0.extract.shift672 = lshr exact i64 %retval.sroa.0.sroa.4.0.i346, 32
+_ZNK8seq_util3rex4info6orelseERKS1_.exit:         ; preds = %if.then3.i360, %if.else.i356, %if.else13.i
+  %retval.sroa.0.sroa.4.0.i346 = phi i64 [ 0, %if.then3.i360 ], [ %i2.sroa.0.0.insert.insert403, %if.else.i356 ], [ %i1.sroa.0.0.insert.insert504, %if.else13.i ]
+  %retval.sroa.0.sroa.0.0.i347 = phi i64 [ 1, %if.then3.i360 ], [ %i2.sroa.0.0.insert.insert403, %if.else.i356 ], [ %i1.sroa.0.0.insert.insert504, %if.else13.i ]
+  %retval.sroa.5.0.i348 = phi i64 [ %retval.sroa.5.12.insert.insert.i372, %if.then3.i360 ], [ %99, %if.else.i356 ], [ %97, %if.else13.i ]
+  %retval.sroa.0.sroa.18.0.extract.shift671 = lshr i64 %retval.sroa.0.sroa.4.0.i346, 32
   br label %return
 
 if.end119:                                        ; preds = %_ZNK3app13get_family_idEv.exit, %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %if.end107.thread
   %unknown_info120 = getelementptr inbounds i8, ptr %this, i64 64
-  %retval.sroa.0.0.copyload622 = load i64, ptr %unknown_info120, align 8
-  %retval.sroa.0.sroa.18.0.extract.shift676 = lshr i64 %retval.sroa.0.0.copyload622, 32
-  %retval.sroa.0.sroa.22.0.extract.shift700 = and i64 %retval.sroa.0.0.copyload622, -1099511627776
+  %retval.sroa.0.0.copyload621 = load i64, ptr %unknown_info120, align 8
+  %retval.sroa.0.sroa.18.0.extract.shift675 = lshr i64 %retval.sroa.0.0.copyload621, 32
+  %retval.sroa.0.sroa.22.0.extract.shift699 = and i64 %retval.sroa.0.0.copyload621, -1099511627776
   %retval.sroa.22.0.unknown_info120.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
-  %retval.sroa.22.0.copyload623 = load i64, ptr %retval.sroa.22.0.unknown_info120.sroa_idx, align 8
+  %retval.sroa.22.0.copyload622 = load i64, ptr %retval.sroa.22.0.unknown_info120.sroa_idx, align 8
   br label %return
 
 return:                                           ; preds = %if.else15.i, %if.else.i141, %if.then3.i147, %if.else.i96, %if.then.i101, %if.else22.i, %if.else.i, %if.then3.i, %_ZNK4decl13get_decl_kindEv.exit, %if.end119, %_ZNK8seq_util3rex4info6orelseERKS1_.exit, %sw.epilog, %_ZNK8seq_util3rex4info4diffERKS1_.exit, %_ZNK8seq_util3rex4info4loopEjj.exit, %sw.bb70, %sw.bb64, %sw.bb61, %sw.bb51, %sw.bb17, %sw.bb11, %sw.bb6, %sw.bb5
-  %retval.sroa.22.0 = phi i64 [ %retval.sroa.22.0.copyload, %sw.epilog ], [ %retval.sroa.5.0.i298, %_ZNK8seq_util3rex4info4diffERKS1_.exit ], [ %retval.sroa.4.0.i263, %_ZNK8seq_util3rex4info4loopEjj.exit ], [ %retval.sroa.4.0.i208, %sw.bb70 ], [ %62, %sw.bb64 ], [ %59, %sw.bb61 ], [ %retval.sroa.22.12.insert.insert641, %sw.bb51 ], [ 8589934591, %sw.bb17 ], [ 1, %sw.bb11 ], [ 1, %sw.bb6 ], [ 1, %sw.bb5 ], [ %retval.sroa.5.0.i348, %_ZNK8seq_util3rex4info6orelseERKS1_.exit ], [ %retval.sroa.22.0.copyload623, %if.end119 ], [ -1, %_ZNK4decl13get_decl_kindEv.exit ], [ %retval.sroa.5.12.insert.insert.i, %if.then3.i ], [ %19, %if.else.i ], [ %16, %if.else22.i ], [ %retval.sroa.4.12.insert.insert.i, %if.then.i101 ], [ %30, %if.else.i96 ], [ %retval.sroa.5.12.insert.insert.i161, %if.then3.i147 ], [ %45, %if.else.i141 ], [ %42, %if.else15.i ]
-  %retval.sroa.0.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload, %sw.epilog ], [ %retval.sroa.0.sroa.0.0.i297, %_ZNK8seq_util3rex4info4diffERKS1_.exit ], [ %retval.sroa.0.sroa.0.0.i262, %_ZNK8seq_util3rex4info4loopEjj.exit ], [ %retval.sroa.0.sroa.0.0.i207, %sw.bb70 ], [ %spec.select, %sw.bb64 ], [ %58, %sw.bb61 ], [ 1, %sw.bb51 ], [ 1, %sw.bb17 ], [ 1, %sw.bb11 ], [ 1, %sw.bb6 ], [ 1, %sw.bb5 ], [ %retval.sroa.0.sroa.0.0.i347, %_ZNK8seq_util3rex4info6orelseERKS1_.exit ], [ %retval.sroa.0.0.copyload622, %if.end119 ], [ 1, %_ZNK4decl13get_decl_kindEv.exit ], [ 1, %if.then3.i ], [ %i2.sroa.0.0.insert.insert, %if.else.i ], [ %i1.sroa.0.0.insert.insert, %if.else22.i ], [ 1, %if.then.i101 ], [ %29, %if.else.i96 ], [ 1, %if.then3.i147 ], [ %i2.sroa.0.0.insert.insert398, %if.else.i141 ], [ %i1.sroa.0.0.insert.insert490, %if.else15.i ]
-  %retval.sroa.0.sroa.18.0 = phi i64 [ %retval.sroa.0.sroa.18.0.extract.shift674, %sw.epilog ], [ %retval.sroa.0.sroa.18.0.extract.trunc671, %_ZNK8seq_util3rex4info4diffERKS1_.exit ], [ %retval.sroa.0.sroa.18.0.extract.trunc669, %_ZNK8seq_util3rex4info4loopEjj.exit ], [ %retval.sroa.0.sroa.18.0.extract.trunc667, %sw.bb70 ], [ %retval.sroa.0.sroa.18.0.extract.trunc665, %sw.bb64 ], [ %retval.sroa.0.sroa.18.0.extract.shift662, %sw.bb61 ], [ %frombool.i, %sw.bb51 ], [ 1, %sw.bb17 ], [ %13, %sw.bb11 ], [ %10, %sw.bb6 ], [ 1, %sw.bb5 ], [ %retval.sroa.0.sroa.18.0.extract.shift672, %_ZNK8seq_util3rex4info6orelseERKS1_.exit ], [ %retval.sroa.0.sroa.18.0.extract.shift676, %if.end119 ], [ 1, %_ZNK4decl13get_decl_kindEv.exit ], [ %frombool.i.i, %if.then3.i ], [ %retval.sroa.0.sroa.4.0.extract.shift.i, %if.else.i ], [ %retval.sroa.0.sroa.4.0.extract.shift14.i, %if.else22.i ], [ %frombool.i.i111, %if.then.i101 ], [ %retval.sroa.0.sroa.3.0.extract.shift.i, %if.else.i96 ], [ %frombool.i.i158, %if.then3.i147 ], [ %retval.sroa.0.sroa.4.0.extract.shift.i143, %if.else.i141 ], [ %retval.sroa.0.sroa.4.0.extract.shift11.i, %if.else15.i ]
-  %retval.sroa.0.sroa.22.sroa.0.0 = phi i64 [ %retval.sroa.0.sroa.22.0.extract.shift698, %sw.epilog ], [ 0, %_ZNK8seq_util3rex4info4diffERKS1_.exit ], [ 0, %_ZNK8seq_util3rex4info4loopEjj.exit ], [ 0, %sw.bb70 ], [ 0, %sw.bb64 ], [ %retval.sroa.0.sroa.22.0.extract.shift686, %sw.bb61 ], [ 0, %sw.bb51 ], [ 0, %sw.bb17 ], [ 0, %sw.bb11 ], [ 0, %sw.bb6 ], [ 0, %sw.bb5 ], [ 0, %_ZNK8seq_util3rex4info6orelseERKS1_.exit ], [ %retval.sroa.0.sroa.22.0.extract.shift700, %if.end119 ], [ 0, %_ZNK4decl13get_decl_kindEv.exit ], [ 0, %if.then3.i ], [ 0, %if.else.i ], [ 0, %if.else22.i ], [ 0, %if.then.i101 ], [ 0, %if.else.i96 ], [ 0, %if.then3.i147 ], [ 0, %if.else.i141 ], [ 0, %if.else15.i ]
+  %retval.sroa.22.0 = phi i64 [ %retval.sroa.22.0.copyload, %sw.epilog ], [ %retval.sroa.5.0.i298, %_ZNK8seq_util3rex4info4diffERKS1_.exit ], [ %retval.sroa.4.0.i263, %_ZNK8seq_util3rex4info4loopEjj.exit ], [ %retval.sroa.4.0.i208, %sw.bb70 ], [ %62, %sw.bb64 ], [ %59, %sw.bb61 ], [ %retval.sroa.22.12.insert.insert640, %sw.bb51 ], [ 8589934591, %sw.bb17 ], [ 1, %sw.bb11 ], [ 1, %sw.bb6 ], [ 1, %sw.bb5 ], [ %retval.sroa.5.0.i348, %_ZNK8seq_util3rex4info6orelseERKS1_.exit ], [ %retval.sroa.22.0.copyload622, %if.end119 ], [ -1, %_ZNK4decl13get_decl_kindEv.exit ], [ %retval.sroa.5.12.insert.insert.i, %if.then3.i ], [ %19, %if.else.i ], [ %16, %if.else22.i ], [ %retval.sroa.4.12.insert.insert.i, %if.then.i101 ], [ %30, %if.else.i96 ], [ %retval.sroa.5.12.insert.insert.i161, %if.then3.i147 ], [ %45, %if.else.i141 ], [ %42, %if.else15.i ]
+  %retval.sroa.0.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload, %sw.epilog ], [ %retval.sroa.0.sroa.0.0.i297, %_ZNK8seq_util3rex4info4diffERKS1_.exit ], [ %retval.sroa.0.sroa.0.0.i262, %_ZNK8seq_util3rex4info4loopEjj.exit ], [ %retval.sroa.0.sroa.0.0.i207, %sw.bb70 ], [ %spec.select, %sw.bb64 ], [ %58, %sw.bb61 ], [ 1, %sw.bb51 ], [ 1, %sw.bb17 ], [ 1, %sw.bb11 ], [ 1, %sw.bb6 ], [ 1, %sw.bb5 ], [ %retval.sroa.0.sroa.0.0.i347, %_ZNK8seq_util3rex4info6orelseERKS1_.exit ], [ %retval.sroa.0.0.copyload621, %if.end119 ], [ 1, %_ZNK4decl13get_decl_kindEv.exit ], [ 1, %if.then3.i ], [ %i2.sroa.0.0.insert.insert, %if.else.i ], [ %i1.sroa.0.0.insert.insert, %if.else22.i ], [ 1, %if.then.i101 ], [ %29, %if.else.i96 ], [ 1, %if.then3.i147 ], [ %i2.sroa.0.0.insert.insert397, %if.else.i141 ], [ %i1.sroa.0.0.insert.insert489, %if.else15.i ]
+  %retval.sroa.0.sroa.18.0 = phi i64 [ %retval.sroa.0.sroa.18.0.extract.shift673, %sw.epilog ], [ %retval.sroa.0.sroa.18.0.extract.trunc670, %_ZNK8seq_util3rex4info4diffERKS1_.exit ], [ %retval.sroa.0.sroa.18.0.extract.trunc668, %_ZNK8seq_util3rex4info4loopEjj.exit ], [ %retval.sroa.0.sroa.18.0.extract.trunc666, %sw.bb70 ], [ %retval.sroa.0.sroa.18.0.extract.trunc664, %sw.bb64 ], [ %retval.sroa.0.sroa.18.0.extract.shift661, %sw.bb61 ], [ %frombool.i, %sw.bb51 ], [ 1, %sw.bb17 ], [ %13, %sw.bb11 ], [ %10, %sw.bb6 ], [ 1, %sw.bb5 ], [ %retval.sroa.0.sroa.18.0.extract.shift671, %_ZNK8seq_util3rex4info6orelseERKS1_.exit ], [ %retval.sroa.0.sroa.18.0.extract.shift675, %if.end119 ], [ 1, %_ZNK4decl13get_decl_kindEv.exit ], [ %frombool.i.i, %if.then3.i ], [ %retval.sroa.0.sroa.4.0.extract.shift.i, %if.else.i ], [ %retval.sroa.0.sroa.4.0.extract.shift14.i, %if.else22.i ], [ %frombool.i.i111, %if.then.i101 ], [ %retval.sroa.0.sroa.3.0.extract.shift.i, %if.else.i96 ], [ %frombool.i.i158, %if.then3.i147 ], [ %retval.sroa.0.sroa.4.0.extract.shift.i143, %if.else.i141 ], [ %retval.sroa.0.sroa.4.0.extract.shift11.i, %if.else15.i ]
+  %retval.sroa.0.sroa.22.sroa.0.0 = phi i64 [ %retval.sroa.0.sroa.22.0.extract.shift697, %sw.epilog ], [ 0, %_ZNK8seq_util3rex4info4diffERKS1_.exit ], [ 0, %_ZNK8seq_util3rex4info4loopEjj.exit ], [ 0, %sw.bb70 ], [ 0, %sw.bb64 ], [ %retval.sroa.0.sroa.22.0.extract.shift685, %sw.bb61 ], [ 0, %sw.bb51 ], [ 0, %sw.bb17 ], [ 0, %sw.bb11 ], [ 0, %sw.bb6 ], [ 0, %sw.bb5 ], [ 0, %_ZNK8seq_util3rex4info6orelseERKS1_.exit ], [ %retval.sroa.0.sroa.22.0.extract.shift699, %if.end119 ], [ 0, %_ZNK4decl13get_decl_kindEv.exit ], [ 0, %if.then3.i ], [ 0, %if.else.i ], [ 0, %if.else22.i ], [ 0, %if.then.i101 ], [ 0, %if.else.i96 ], [ 0, %if.then3.i147 ], [ 0, %if.else.i141 ], [ 0, %if.else15.i ]
   %retval.sroa.0.sroa.18.0.insert.ext = shl nuw i64 %retval.sroa.0.sroa.18.0, 32
   %retval.sroa.0.sroa.18.0.insert.shift = and i64 %retval.sroa.0.sroa.18.0.insert.ext, 1095216660480
   %retval.sroa.0.sroa.0.0.insert.ext = and i64 %retval.sroa.0.sroa.0.0, 4294967295
@@ -16986,13 +16976,13 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load i32, ptr %i, align 4
   %cmp.i5 = icmp eq i32 %1, 1
-  %nullable4 = getelementptr inbounds i8, ptr %i, i64 8
   br i1 %cmp.i5, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
   %nullable = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %nullable, align 4
   %cmp = icmp eq i32 %2, 1
+  %nullable4 = getelementptr inbounds i8, ptr %i, i64 8
   %3 = load i32, ptr %nullable4, align 4
   %cmp5 = icmp eq i32 %3, 1
   %or.cond = select i1 %cmp, i1 %cmp5, i1 false
@@ -17013,14 +17003,13 @@ if.then3:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %retval.sroa.0.0.copyload = load i64, ptr %i, align 4
-  %retval.sroa.0.sroa.4.0.extract.shift = and i64 %retval.sroa.0.0.copyload, -4294967296
   %retval.sroa.0.sroa.5.0.extract.shift = and i64 %retval.sroa.0.0.copyload, -1099511627776
-  %retval.sroa.5.0.copyload = load i64, ptr %nullable4, align 4
+  %retval.sroa.5.0.i.sroa_idx = getelementptr inbounds i8, ptr %i, i64 8
+  %retval.sroa.5.0.copyload = load i64, ptr %retval.sroa.5.0.i.sroa_idx, align 4
   br label %return
 
 if.else13:                                        ; preds = %entry
   %retval.sroa.0.0.copyload7 = load i64, ptr %this, align 4
-  %retval.sroa.0.sroa.4.0.extract.shift10 = and i64 %retval.sroa.0.0.copyload7, -4294967296
   %retval.sroa.0.sroa.5.0.extract.shift12 = and i64 %retval.sroa.0.0.copyload7, -1099511627776
   %retval.sroa.5.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
   %retval.sroa.5.0.copyload8 = load i64, ptr %retval.sroa.5.0.this.sroa_idx, align 4
@@ -17028,7 +17017,7 @@ if.else13:                                        ; preds = %entry
 
 return:                                           ; preds = %if.else13, %if.else, %if.then3
   %retval.sroa.0.sroa.5.sroa.0.0 = phi i64 [ 0, %if.then3 ], [ %retval.sroa.0.sroa.5.0.extract.shift, %if.else ], [ %retval.sroa.0.sroa.5.0.extract.shift12, %if.else13 ]
-  %retval.sroa.0.sroa.4.0 = phi i64 [ 0, %if.then3 ], [ %retval.sroa.0.sroa.4.0.extract.shift, %if.else ], [ %retval.sroa.0.sroa.4.0.extract.shift10, %if.else13 ]
+  %retval.sroa.0.sroa.4.0 = phi i64 [ 0, %if.then3 ], [ %retval.sroa.0.0.copyload, %if.else ], [ %retval.sroa.0.0.copyload7, %if.else13 ]
   %retval.sroa.0.sroa.0.0 = phi i64 [ 1, %if.then3 ], [ %retval.sroa.0.0.copyload, %if.else ], [ %retval.sroa.0.0.copyload7, %if.else13 ]
   %retval.sroa.5.0 = phi i64 [ %retval.sroa.5.12.insert.insert, %if.then3 ], [ %retval.sroa.5.0.copyload, %if.else ], [ %retval.sroa.5.0.copyload8, %if.else13 ]
   %retval.sroa.0.sroa.4.0.insert.ext = and i64 %retval.sroa.0.sroa.4.0, 1095216660480

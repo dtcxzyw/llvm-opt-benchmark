@@ -1405,7 +1405,6 @@ _ZN6hermes2vm13MutableHandleINS0_7JSErrorEEC2ERNS0_15HandleRootOwnerEPS2_.exit: 
 if.then:                                          ; preds = %_ZN6hermes2vm13MutableHandleINS0_7JSErrorEEC2ERNS0_15HandleRootOwnerEPS2_.exit
   %5 = load ptr, ptr %args, align 8, !noalias !5
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %5, align 8
-  %and.i.i = and i64 %agg.tmp.sroa.0.0.copyload, 281474976710655
   br label %if.end
 
 if.else:                                          ; preds = %_ZN6hermes2vm13MutableHandleINS0_7JSErrorEEC2ERNS0_15HandleRootOwnerEPS2_.exit
@@ -1414,7 +1413,7 @@ if.else:                                          ; preds = %_ZN6hermes2vm13Muta
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %storemerge.in = phi i64 [ %6, %if.else ], [ %and.i.i, %if.then ]
+  %storemerge.in = phi i64 [ %6, %if.else ], [ %agg.tmp.sroa.0.0.copyload, %if.then ]
   %storemerge = or i64 %storemerge.in, -281474976710656
   store i64 %storemerge, ptr %retval.0.i.i.i.i.i.i, align 8
   %call21 = tail call noundef i32 @_ZN6hermes2vm7JSError16recordStackTraceENS0_6HandleIS1_EERNS0_7RuntimeEbPNS0_9CodeBlockEPKNS_4inst4InstE(ptr nonnull %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i1 noundef zeroext true, ptr noundef null, ptr noundef null) #6

@@ -2744,11 +2744,10 @@ if.then.i34:                                      ; preds = %sigpipe_restore.exi
   %bf.load23.pre = load i64, ptr %no_signal12, align 2
   %.pre49 = lshr i64 %bf.load23.pre, 33
   %.pre51 = trunc i64 %.pre49 to i8
-  %.pre53 = and i8 %.pre51, 1
   br label %sigpipe_ignore.exit37
 
 sigpipe_ignore.exit37:                            ; preds = %sigpipe_restore.exit, %if.then.i34
-  %frombool28.pre-phi = phi i8 [ %frombool.i31, %sigpipe_restore.exit ], [ %.pre53, %if.then.i34 ]
+  %frombool28.pre-phi = phi i8 [ %frombool.i31, %sigpipe_restore.exit ], [ %.pre51, %if.then.i34 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %action.i27)
   br label %if.end29
 
@@ -5895,11 +5894,10 @@ if.then.i50:                                      ; preds = %sigpipe_restore.exi
   %bf.load48.pre = load i64, ptr %no_signal, align 2
   %.pre72 = lshr i64 %bf.load48.pre, 33
   %.pre74 = trunc i64 %.pre72 to i8
-  %.pre76 = and i8 %.pre74, 1
   br label %sigpipe_ignore.exit53
 
 sigpipe_ignore.exit53:                            ; preds = %sigpipe_restore.exit, %if.then.i50
-  %frombool53.pre-phi = phi i8 [ %frombool.i47, %sigpipe_restore.exit ], [ %.pre76, %if.then.i50 ]
+  %frombool53.pre-phi = phi i8 [ %frombool.i47, %sigpipe_restore.exit ], [ %.pre74, %if.then.i50 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %action.i43)
   br label %if.end55
 

@@ -1172,13 +1172,12 @@ sw.bb12.i:                                        ; preds = %if.end.i8
 sw.bb13.i9:                                       ; preds = %if.end.i8
   %eeprom.i10 = getelementptr inbounds i8, ptr %opaque, i64 11736
   %29 = load ptr, ptr %eeprom.i10, align 8
-  %30 = and i16 %conv4, 255
-  %conv.i.i11 = zext nneg i16 %30 to i32
-  %and.i23.i = lshr i32 %conv.i.i11, 1
+  %30 = trunc i64 %data to i32
+  %and.i23.i = lshr i32 %30, 1
   %and.lobit.i.i12 = and i32 %and.i23.i, 1
-  %and3.i.i13 = and i32 %conv.i.i11, 1
-  %and7.i.i14 = lshr i32 %conv.i.i11, 2
-  %and7.lobit.i.i15 = and i32 %and7.i.i14, 1
+  %and3.i.i13 = and i32 %30, 1
+  %conv.i.i11 = lshr i32 %30, 2
+  %and7.lobit.i.i15 = and i32 %conv.i.i11, 1
   tail call void @eeprom93xx_write(ptr noundef %29, i32 noundef %and.lobit.i.i12, i32 noundef %and3.i.i13, i32 noundef %and7.lobit.i.i15) #11
   br label %sw.epilog
 

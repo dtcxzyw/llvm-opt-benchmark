@@ -5354,21 +5354,20 @@ if.then.i:                                        ; preds = %if.then3
 
 prepare_mmio_access.exit:                         ; preds = %if.then3, %if.then.i
   %release_lock.0.i = xor i1 %call.i, true
-  %8 = and i8 %release_lock.0, 1
-  %9 = zext i1 %release_lock.0.i to i8
-  %10 = or i8 %8, %9
-  %11 = load i64, ptr %l.addr, align 8
-  %conv8 = trunc i64 %11 to i32
+  %8 = zext i1 %release_lock.0.i to i8
+  %9 = or i8 %release_lock.0, %8
+  %10 = load i64, ptr %l.addr, align 8
+  %conv8 = trunc i64 %10 to i32
   %ops.i = getelementptr inbounds i8, ptr %mr.addr.0, i64 80
-  %12 = load ptr, ptr %ops.i, align 16
-  %max_access_size.i = getelementptr inbounds i8, ptr %12, i64 44
-  %13 = load i32, ptr %max_access_size.i, align 4
-  %cmp.i = icmp eq i32 %13, 0
-  %spec.store.select.i = select i1 %cmp.i, i32 4, i32 %13
-  %unaligned.i = getelementptr inbounds i8, ptr %12, i64 72
-  %14 = load i8, ptr %unaligned.i, align 8
-  %15 = and i8 %14, 1
-  %tobool.not.i22 = icmp eq i8 %15, 0
+  %11 = load ptr, ptr %ops.i, align 16
+  %max_access_size.i = getelementptr inbounds i8, ptr %11, i64 44
+  %12 = load i32, ptr %max_access_size.i, align 4
+  %cmp.i = icmp eq i32 %12, 0
+  %spec.store.select.i = select i1 %cmp.i, i32 4, i32 %12
+  %unaligned.i = getelementptr inbounds i8, ptr %11, i64 72
+  %13 = load i8, ptr %unaligned.i, align 8
+  %14 = and i8 %13, 1
+  %tobool.not.i22 = icmp eq i8 %14, 0
   br i1 %tobool.not.i22, label %if.then2.i, label %memory_access_size.exit
 
 if.then2.i:                                       ; preds = %prepare_mmio_access.exit
@@ -5376,8 +5375,8 @@ if.then2.i:                                       ; preds = %prepare_mmio_access
   %and.i = and i64 %2, %sub.i
   %conv.i = trunc i64 %and.i to i32
   %cmp3.not.not.i = icmp eq i32 %conv.i, 0
-  %16 = call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 %conv.i)
-  %spec.select10.i = select i1 %cmp3.not.not.i, i32 %spec.store.select.i, i32 %16
+  %15 = call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 %conv.i)
+  %spec.select10.i = select i1 %cmp3.not.not.i, i32 %spec.store.select.i, i32 %15
   br label %memory_access_size.exit
 
 memory_access_size.exit:                          ; preds = %prepare_mmio_access.exit, %if.then2.i
@@ -5385,18 +5384,18 @@ memory_access_size.exit:                          ; preds = %prepare_mmio_access
   %spec.select.i = call i32 @llvm.umin.i32(i32 %access_size_max.0.i, i32 %conv8)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i23 = icmp eq i32 %spec.select.i, 0
-  %17 = call i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true), !range !51
-  %shr.i.i = lshr exact i64 -9223372036854775808, %17
-  %18 = trunc i64 %shr.i.i to i32
-  %conv15.i = select i1 %tobool.not.i.i23, i32 0, i32 %18
+  %16 = call i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true), !range !51
+  %shr.i.i = lshr exact i64 -9223372036854775808, %16
+  %17 = trunc i64 %shr.i.i to i32
+  %conv15.i = select i1 %tobool.not.i.i23, i32 0, i32 %17
   %conv10 = sext i32 %conv15.i to i64
   store i64 %conv10, ptr %l.addr, align 8
-  %19 = call i32 @llvm.cttz.i32(i32 %conv15.i, i1 false), !range !81
-  %call14 = call i32 @memory_region_dispatch_read(ptr noundef nonnull %mr.addr.0, i64 noundef %2, ptr noundef nonnull %val, i32 noundef %19, i32 %attrs.coerce) #25
+  %18 = call i32 @llvm.cttz.i32(i32 %conv15.i, i1 false), !range !81
+  %call14 = call i32 @memory_region_dispatch_read(ptr noundef nonnull %mr.addr.0, i64 noundef %2, ptr noundef nonnull %val, i32 noundef %18, i32 %attrs.coerce) #25
   %or15 = or i32 %call14, %result.0
-  %20 = load i64, ptr %l.addr, align 8
-  %conv16 = trunc i64 %20 to i32
-  %21 = load i64, ptr %val, align 8
+  %19 = load i64, ptr %l.addr, align 8
+  %conv16 = trunc i64 %19 to i32
+  %20 = load i64, ptr %val, align 8
   switch i32 %conv16, label %do.body.i25 [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb1.i
@@ -5405,22 +5404,22 @@ memory_access_size.exit:                          ; preds = %prepare_mmio_access
   ]
 
 sw.bb.i:                                          ; preds = %memory_access_size.exit
-  %conv.i24 = trunc i64 %21 to i8
+  %conv.i24 = trunc i64 %20 to i8
   store i8 %conv.i24, ptr %buf.0, align 1
   br label %if.end19
 
 sw.bb1.i:                                         ; preds = %memory_access_size.exit
-  %conv2.i = trunc i64 %21 to i16
+  %conv2.i = trunc i64 %20 to i16
   store i16 %conv2.i, ptr %buf.0, align 1
   br label %if.end19
 
 sw.bb3.i:                                         ; preds = %memory_access_size.exit
-  %conv4.i = trunc i64 %21 to i32
+  %conv4.i = trunc i64 %20 to i32
   store i32 %conv4.i, ptr %buf.0, align 1
   br label %if.end19
 
 sw.bb5.i:                                         ; preds = %memory_access_size.exit
-  store i64 %21, ptr %buf.0, align 1
+  store i64 %20, ptr %buf.0, align 1
   br label %if.end19
 
 do.body.i25:                                      ; preds = %memory_access_size.exit
@@ -5429,17 +5428,17 @@ do.body.i25:                                      ; preds = %memory_access_size.
 
 if.else17:                                        ; preds = %land.lhs.true6.i, %memory_access_is_direct.exit
   %ram_block = getelementptr inbounds i8, ptr %mr.addr.0, i64 56
-  %22 = load ptr, ptr %ram_block, align 8
-  %call18 = call fastcc ptr @qemu_ram_ptr_length(ptr noundef %22, i64 noundef %2, ptr noundef nonnull %l.addr)
-  %23 = load i64, ptr %l.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.0, ptr align 1 %call18, i64 %23, i1 false)
+  %21 = load ptr, ptr %ram_block, align 8
+  %call18 = call fastcc ptr @qemu_ram_ptr_length(ptr noundef %21, i64 noundef %2, ptr noundef nonnull %l.addr)
+  %22 = load i64, ptr %l.addr, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.0, ptr align 1 %call18, i64 %22, i1 false)
   br label %if.end19
 
 if.end19:                                         ; preds = %sw.bb5.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i, %if.else17, %if.then
   %result.1 = phi i32 [ %result.0, %if.else17 ], [ %or, %if.then ], [ %or15, %sw.bb.i ], [ %or15, %sw.bb1.i ], [ %or15, %sw.bb3.i ], [ %or15, %sw.bb5.i ]
-  %release_lock.1 = phi i8 [ %release_lock.0, %if.else17 ], [ %release_lock.0, %if.then ], [ %10, %sw.bb.i ], [ %10, %sw.bb1.i ], [ %10, %sw.bb3.i ], [ %10, %sw.bb5.i ]
-  %24 = and i8 %release_lock.1, 1
-  %tobool20.not = icmp eq i8 %24, 0
+  %release_lock.1 = phi i8 [ %release_lock.0, %if.else17 ], [ %release_lock.0, %if.then ], [ %9, %sw.bb.i ], [ %9, %sw.bb1.i ], [ %9, %sw.bb3.i ], [ %9, %sw.bb5.i ]
+  %23 = and i8 %release_lock.1, 1
+  %tobool20.not = icmp eq i8 %23, 0
   br i1 %tobool20.not, label %if.end22, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
@@ -5448,14 +5447,14 @@ if.then21:                                        ; preds = %if.end19
 
 if.end22:                                         ; preds = %if.then21, %if.end19
   %release_lock.2 = phi i8 [ 0, %if.then21 ], [ %release_lock.1, %if.end19 ]
-  %25 = load i64, ptr %l.addr, align 8
-  %sub = sub i64 %len.addr.0, %25
+  %24 = load i64, ptr %l.addr, align 8
+  %sub = sub i64 %len.addr.0, %24
   %tobool23.not = icmp eq i64 %sub, 0
   br i1 %tobool23.not, label %for.end, label %if.end25
 
 if.end25:                                         ; preds = %if.end22
-  %add = add i64 %25, %addr.addr.0
-  %add.ptr = getelementptr i8, ptr %buf.0, i64 %25
+  %add = add i64 %24, %addr.addr.0
+  %add.ptr = getelementptr i8, ptr %buf.0, i64 %24
   store i64 %sub, ptr %l.addr, align 8
   %call27 = call ptr @flatview_translate(ptr noundef %fv, i64 noundef %add, ptr noundef nonnull %addr1.addr, ptr noundef nonnull %l.addr, i1 noundef zeroext false, i32 %attrs.coerce)
   %.pre = load i64, ptr %addr1.addr, align 8
@@ -8478,21 +8477,20 @@ if.then.i:                                        ; preds = %if.then3
 
 prepare_mmio_access.exit:                         ; preds = %if.then3, %if.then.i
   %release_lock.0.i = xor i1 %call.i, true
-  %8 = and i8 %release_lock.0, 1
-  %9 = zext i1 %release_lock.0.i to i8
-  %10 = or i8 %8, %9
-  %11 = load i64, ptr %l.addr, align 8
-  %conv8 = trunc i64 %11 to i32
+  %8 = zext i1 %release_lock.0.i to i8
+  %9 = or i8 %release_lock.0, %8
+  %10 = load i64, ptr %l.addr, align 8
+  %conv8 = trunc i64 %10 to i32
   %ops.i = getelementptr inbounds i8, ptr %mr.addr.0, i64 80
-  %12 = load ptr, ptr %ops.i, align 16
-  %max_access_size.i = getelementptr inbounds i8, ptr %12, i64 44
-  %13 = load i32, ptr %max_access_size.i, align 4
-  %cmp.i = icmp eq i32 %13, 0
-  %spec.store.select.i = select i1 %cmp.i, i32 4, i32 %13
-  %unaligned.i = getelementptr inbounds i8, ptr %12, i64 72
-  %14 = load i8, ptr %unaligned.i, align 8
-  %15 = and i8 %14, 1
-  %tobool.not.i20 = icmp eq i8 %15, 0
+  %11 = load ptr, ptr %ops.i, align 16
+  %max_access_size.i = getelementptr inbounds i8, ptr %11, i64 44
+  %12 = load i32, ptr %max_access_size.i, align 4
+  %cmp.i = icmp eq i32 %12, 0
+  %spec.store.select.i = select i1 %cmp.i, i32 4, i32 %12
+  %unaligned.i = getelementptr inbounds i8, ptr %11, i64 72
+  %13 = load i8, ptr %unaligned.i, align 8
+  %14 = and i8 %13, 1
+  %tobool.not.i20 = icmp eq i8 %14, 0
   br i1 %tobool.not.i20, label %if.then2.i, label %memory_access_size.exit
 
 if.then2.i:                                       ; preds = %prepare_mmio_access.exit
@@ -8500,8 +8498,8 @@ if.then2.i:                                       ; preds = %prepare_mmio_access
   %and.i = and i64 %2, %sub.i
   %conv.i = trunc i64 %and.i to i32
   %cmp3.not.not.i = icmp eq i32 %conv.i, 0
-  %16 = call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 %conv.i)
-  %spec.select10.i = select i1 %cmp3.not.not.i, i32 %spec.store.select.i, i32 %16
+  %15 = call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 %conv.i)
+  %spec.select10.i = select i1 %cmp3.not.not.i, i32 %spec.store.select.i, i32 %15
   br label %memory_access_size.exit
 
 memory_access_size.exit:                          ; preds = %prepare_mmio_access.exit, %if.then2.i
@@ -8509,10 +8507,10 @@ memory_access_size.exit:                          ; preds = %prepare_mmio_access
   %spec.select.i = call i32 @llvm.umin.i32(i32 %access_size_max.0.i, i32 %conv8)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
-  %17 = call i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true), !range !51
-  %shr.i.i = lshr exact i64 -9223372036854775808, %17
-  %18 = trunc i64 %shr.i.i to i32
-  %conv15.i = select i1 %tobool.not.i.i, i32 0, i32 %18
+  %16 = call i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true), !range !51
+  %shr.i.i = lshr exact i64 -9223372036854775808, %16
+  %17 = trunc i64 %shr.i.i to i32
+  %conv15.i = select i1 %tobool.not.i.i, i32 0, i32 %17
   %conv10 = sext i32 %conv15.i to i64
   store i64 %conv10, ptr %l.addr, align 8
   switch i32 %conv15.i, label %do.body.i23 [
@@ -8547,26 +8545,26 @@ do.body.i23:                                      ; preds = %memory_access_size.
 
 ldn_he_p.exit:                                    ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb4.i, %sw.bb7.i
   %retval.0.i21 = phi i64 [ %ptr.val6.i, %sw.bb7.i ], [ %conv6.i, %sw.bb4.i ], [ %conv3.i, %sw.bb1.i ], [ %conv.i22, %sw.bb.i ]
-  %19 = call i32 @llvm.cttz.i32(i32 %conv15.i, i1 false), !range !81
-  %call16 = call i32 @memory_region_dispatch_write(ptr noundef nonnull %mr.addr.0, i64 noundef %2, i64 noundef %retval.0.i21, i32 noundef %19, i32 %attrs.coerce) #25
+  %18 = call i32 @llvm.cttz.i32(i32 %conv15.i, i1 false), !range !81
+  %call16 = call i32 @memory_region_dispatch_write(ptr noundef nonnull %mr.addr.0, i64 noundef %2, i64 noundef %retval.0.i21, i32 noundef %18, i32 %attrs.coerce) #25
   %or17 = or i32 %call16, %result.0
   br label %if.end20
 
 if.else18:                                        ; preds = %memory_access_is_direct.exit
   %ram_block = getelementptr inbounds i8, ptr %mr.addr.0, i64 56
-  %20 = load ptr, ptr %ram_block, align 8
-  %call19 = call fastcc ptr @qemu_ram_ptr_length(ptr noundef %20, i64 noundef %2, ptr noundef nonnull %l.addr)
+  %19 = load ptr, ptr %ram_block, align 8
+  %call19 = call fastcc ptr @qemu_ram_ptr_length(ptr noundef %19, i64 noundef %2, ptr noundef nonnull %l.addr)
+  %20 = load i64, ptr %l.addr, align 8
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %call19, ptr align 1 %buf.0, i64 %20, i1 false)
   %21 = load i64, ptr %l.addr, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %call19, ptr align 1 %buf.0, i64 %21, i1 false)
-  %22 = load i64, ptr %l.addr, align 8
-  call fastcc void @invalidate_and_set_dirty(ptr noundef nonnull %mr.addr.0, i64 noundef %2, i64 noundef %22)
+  call fastcc void @invalidate_and_set_dirty(ptr noundef nonnull %mr.addr.0, i64 noundef %2, i64 noundef %21)
   br label %if.end20
 
 if.end20:                                         ; preds = %ldn_he_p.exit, %if.else18, %if.then
   %result.1 = phi i32 [ %result.0, %if.else18 ], [ %or17, %ldn_he_p.exit ], [ %or, %if.then ]
-  %release_lock.1 = phi i8 [ %release_lock.0, %if.else18 ], [ %10, %ldn_he_p.exit ], [ %release_lock.0, %if.then ]
-  %23 = and i8 %release_lock.1, 1
-  %tobool21.not = icmp eq i8 %23, 0
+  %release_lock.1 = phi i8 [ %release_lock.0, %if.else18 ], [ %9, %ldn_he_p.exit ], [ %release_lock.0, %if.then ]
+  %22 = and i8 %release_lock.1, 1
+  %tobool21.not = icmp eq i8 %22, 0
   br i1 %tobool21.not, label %if.end23, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
@@ -8575,14 +8573,14 @@ if.then22:                                        ; preds = %if.end20
 
 if.end23:                                         ; preds = %if.then22, %if.end20
   %release_lock.2 = phi i8 [ 0, %if.then22 ], [ %release_lock.1, %if.end20 ]
-  %24 = load i64, ptr %l.addr, align 8
-  %sub = sub i64 %len.addr.0, %24
+  %23 = load i64, ptr %l.addr, align 8
+  %sub = sub i64 %len.addr.0, %23
   %tobool24.not = icmp eq i64 %sub, 0
   br i1 %tobool24.not, label %for.end, label %if.end26
 
 if.end26:                                         ; preds = %if.end23
-  %add = add i64 %24, %addr.addr.0
-  %add.ptr = getelementptr i8, ptr %buf.0, i64 %24
+  %add = add i64 %23, %addr.addr.0
+  %add.ptr = getelementptr i8, ptr %buf.0, i64 %23
   store i64 %sub, ptr %l.addr, align 8
   %call28 = call ptr @flatview_translate(ptr noundef %fv, i64 noundef %add, ptr noundef nonnull %addr1.addr, ptr noundef nonnull %l.addr, i1 noundef zeroext true, i32 %attrs.coerce)
   %.pre = load i64, ptr %addr1.addr, align 8

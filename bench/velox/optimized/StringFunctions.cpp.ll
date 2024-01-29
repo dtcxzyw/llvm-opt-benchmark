@@ -11429,7 +11429,6 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i: ; pr
   %idxprom.i.i.i = sext i32 %retval.0.i.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %72, i64 %idxprom.i.i.i
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %arrayidx.i.i.i, align 8
-  %conv.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i, 4294967295
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
@@ -11437,7 +11436,7 @@ if.else.i.i:                                      ; preds = %for.body.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i
-  %conv.i.sink.i.i = phi i64 [ %conv.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i ], [ %conv.i7.i.i, %if.else.i.i ]
+  %conv.i.sink.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i ], [ %conv.i7.i.i, %if.else.i.i ]
   %add.i.i = add i64 %conv.i.sink.i.i, %totalResultBytes.1
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i4.i, %.lcssa
@@ -11553,7 +11552,6 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i103.i.
   %idxprom.i.i.i105.i.i.i = sext i32 %retval.0.i.i.i.i104.i.i.i to i64
   %arrayidx.i.i.i106.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %94, i64 %idxprom.i.i.i105.i.i.i
   %retval.sroa.0.0.copyload.i.i.i107.i.i.i = load i64, ptr %arrayidx.i.i.i106.i.i.i, align 8
-  %conv.i.i.i108.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i107.i.i.i, 4294967295
   br label %for.inc.i.i89.i.i.i
 
 if.else.i.i87.i.i.i:                              ; preds = %for.body.i.i83.i.i.i
@@ -11561,7 +11559,7 @@ if.else.i.i87.i.i.i:                              ; preds = %for.body.i.i83.i.i.
   br label %for.inc.i.i89.i.i.i
 
 for.inc.i.i89.i.i.i:                              ; preds = %if.else.i.i87.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i103.i.i.i
-  %conv.i.sink.i.i90.i.i.i = phi i64 [ %conv.i.i.i108.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i103.i.i.i ], [ %conv.i7.i.i88.i.i.i, %if.else.i.i87.i.i.i ]
+  %conv.i.sink.i.i90.i.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i.i107.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i103.i.i.i ], [ %conv.i7.i.i88.i.i.i, %if.else.i.i87.i.i.i ]
   %add.i.i91.i.i.i = add i64 %conv.i.sink.i.i90.i.i.i, %totalResultBytes.4
   %indvars.iv.next.i.i92.i.i.i = add nuw nsw i64 %indvars.iv.i.i84.i.i.i, 1
   %exitcond267.not = icmp eq i64 %indvars.iv.next.i.i92.i.i.i, %.lcssa
@@ -11663,7 +11661,6 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i51.i.i
   %idxprom.i.i.i53.i.i.i = sext i32 %retval.0.i.i.i.i52.i.i.i to i64
   %arrayidx.i.i.i54.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %111, i64 %idxprom.i.i.i53.i.i.i
   %retval.sroa.0.0.copyload.i.i.i55.i.i.i = load i64, ptr %arrayidx.i.i.i54.i.i.i, align 8
-  %conv.i.i.i56.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i55.i.i.i, 4294967295
   br label %for.inc.i.i37.i.i.i
 
 if.else.i.i35.i.i.i:                              ; preds = %for.body.i.i31.i.i.i
@@ -11671,7 +11668,7 @@ if.else.i.i35.i.i.i:                              ; preds = %for.body.i.i31.i.i.
   br label %for.inc.i.i37.i.i.i
 
 for.inc.i.i37.i.i.i:                              ; preds = %if.else.i.i35.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i51.i.i.i
-  %conv.i.sink.i.i38.i.i.i = phi i64 [ %conv.i.i.i56.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i51.i.i.i ], [ %conv.i7.i.i36.i.i.i, %if.else.i.i35.i.i.i ]
+  %conv.i.sink.i.i38.i.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i.i55.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i51.i.i.i ], [ %conv.i7.i.i36.i.i.i, %if.else.i.i35.i.i.i ]
   %add.i.i39.i.i.i = add i64 %conv.i.sink.i.i38.i.i.i, %totalResultBytes.7
   %indvars.iv.next.i.i40.i.i.i = add nuw nsw i64 %indvars.iv.i.i32.i.i.i, 1
   %exitcond263.not = icmp eq i64 %indvars.iv.next.i.i40.i.i.i, %.lcssa
@@ -11784,7 +11781,6 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i
   %idxprom.i.i.i.i.i.i.i = sext i32 %retval.0.i.i.i.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %127, i64 %idxprom.i.i.i.i.i.i.i
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %conv.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i, 4294967295
   br label %for.inc.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i
@@ -11792,7 +11788,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.
   br label %for.inc.i.i.i.i.i.i
 
 for.inc.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i.i
-  %conv.i.sink.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i.i ], [ %conv.i7.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
+  %conv.i.sink.i.i.i.i.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i.i ], [ %conv.i7.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
   %add.i.i.i.i.i.i = add i64 %conv.i.sink.i.i.i.i.i.i, %totalResultBytes.12
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond264.not = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %.lcssa
@@ -11862,7 +11858,6 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i31.i.i.i
   %idxprom.i.i33.i.i.i.i.i = sext i32 %retval.0.i.i.i32.i.i.i.i.i to i64
   %arrayidx.i.i34.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %140, i64 %idxprom.i.i33.i.i.i.i.i
   %retval.sroa.0.0.copyload.i.i35.i.i.i.i.i = load i64, ptr %arrayidx.i.i34.i.i.i.i.i, align 8
-  %conv.i.i36.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i35.i.i.i.i.i, 4294967295
   br label %for.inc.i21.i.i.i.i.i
 
 if.else.i19.i.i.i.i.i:                            ; preds = %for.body.i15.i.i.i.i.i
@@ -11870,7 +11865,7 @@ if.else.i19.i.i.i.i.i:                            ; preds = %for.body.i15.i.i.i.
   br label %for.inc.i21.i.i.i.i.i
 
 for.inc.i21.i.i.i.i.i:                            ; preds = %if.else.i19.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i31.i.i.i.i.i
-  %conv.i.sink.i22.i.i.i.i.i = phi i64 [ %conv.i.i36.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i31.i.i.i.i.i ], [ %conv.i7.i20.i.i.i.i.i, %if.else.i19.i.i.i.i.i ]
+  %conv.i.sink.i22.i.i.i.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i35.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i31.i.i.i.i.i ], [ %conv.i7.i20.i.i.i.i.i, %if.else.i19.i.i.i.i.i ]
   %add.i23.i.i.i.i.i = add i64 %conv.i.sink.i22.i.i.i.i.i, %totalResultBytes.15
   %indvars.iv.next.i24.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i16.i.i.i.i.i, 1
   %exitcond265.not = icmp eq i64 %indvars.iv.next.i24.i.i.i.i.i, %.lcssa
@@ -11973,7 +11968,6 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i
   %idxprom.i.i.i.i.i.i = sext i32 %retval.0.i.i.i.i.i.i.i to i64
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %157, i64 %idxprom.i.i.i.i.i.i
   %retval.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %conv.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i, 4294967295
   br label %for.inc.i.i.i.i.i
 
 if.else.i.i.i.i.i74:                              ; preds = %for.body.i.i8.i.i.i
@@ -11981,7 +11975,7 @@ if.else.i.i.i.i.i74:                              ; preds = %for.body.i.i8.i.i.i
   br label %for.inc.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %if.else.i.i.i.i.i74, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i
-  %conv.i.sink.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i ], [ %conv.i7.i.i.i.i.i, %if.else.i.i.i.i.i74 ]
+  %conv.i.sink.i.i.i.i.i = phi i64 [ %retval.sroa.0.0.copyload.i.i.i.i.i.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i ], [ %conv.i7.i.i.i.i.i, %if.else.i.i.i.i.i74 ]
   %add.i.i10.i.i.i = add i64 %conv.i.sink.i.i.i.i.i, %totalResultBytes.20
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond266.not = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %.lcssa

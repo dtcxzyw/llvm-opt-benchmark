@@ -9180,13 +9180,12 @@ if.then.us:                                       ; preds = %for.body.us
 invoke.cont10.us:                                 ; preds = %if.then.us
   %5 = load i64, ptr %arrayidx.i.us, align 8
   %cmp14.us = icmp ne i64 %5, -1
-  %6 = and i8 %remaining_work.023.us, 1
-  %7 = zext i1 %cmp14.us to i8
-  %8 = or i8 %6, %7
+  %6 = zext i1 %cmp14.us to i8
+  %7 = or i8 %remaining_work.023.us, %6
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %invoke.cont10.us, %for.body.us
-  %remaining_work.1.us = phi i8 [ %8, %invoke.cont10.us ], [ %remaining_work.023.us, %for.body.us ]
+  %remaining_work.1.us = phi i8 [ %7, %invoke.cont10.us ], [ %remaining_work.023.us, %for.body.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.cond.do.cond_crit_edge.us, label %for.body.us.backedge
@@ -9197,15 +9196,15 @@ for.body.us.backedge:                             ; preds = %for.inc.us, %for.co
   br label %for.body.us, !llvm.loop !113
 
 for.cond.do.cond_crit_edge.us:                    ; preds = %for.inc.us
-  %9 = and i8 %remaining_work.1.us, 1
-  %tobool18.not.us = icmp eq i8 %9, 0
+  %8 = and i8 %remaining_work.1.us, 1
+  %tobool18.not.us = icmp eq i8 %8, 0
   br i1 %tobool18.not.us, label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit12, label %for.body.us.backedge
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.split.us: ; preds = %if.then.us
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %call2) #24
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %9
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit12: ; preds = %for.cond.do.cond_crit_edge.us, %entry
   tail call void @_ZdaPv(ptr noundef nonnull %call2) #24
@@ -9923,13 +9922,12 @@ if.then.us:                                       ; preds = %for.body.us
 invoke.cont.us:                                   ; preds = %if.then.us
   %5 = load i64, ptr %arrayidx.i.us, align 8
   %cmp11.us = icmp ne i64 %5, -1
-  %6 = and i8 %remaining_work.023.us, 1
-  %7 = zext i1 %cmp11.us to i8
-  %8 = or i8 %6, %7
+  %6 = zext i1 %cmp11.us to i8
+  %7 = or i8 %remaining_work.023.us, %6
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %invoke.cont.us, %for.body.us
-  %remaining_work.1.us = phi i8 [ %8, %invoke.cont.us ], [ %remaining_work.023.us, %for.body.us ]
+  %remaining_work.1.us = phi i8 [ %7, %invoke.cont.us ], [ %remaining_work.023.us, %for.body.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.cond.do.cond_crit_edge.us, label %for.body.us.backedge
@@ -9940,15 +9938,15 @@ for.body.us.backedge:                             ; preds = %for.inc.us, %for.co
   br label %for.body.us, !llvm.loop !115
 
 for.cond.do.cond_crit_edge.us:                    ; preds = %for.inc.us
-  %9 = and i8 %remaining_work.1.us, 1
-  %tobool15.not.us = icmp eq i8 %9, 0
+  %8 = and i8 %remaining_work.1.us, 1
+  %tobool15.not.us = icmp eq i8 %8, 0
   br i1 %tobool15.not.us, label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit12, label %for.body.us.backedge
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.split.us: ; preds = %if.then.us
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %call2) #24
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %9
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit12: ; preds = %for.cond.do.cond_crit_edge.us, %entry
   tail call void @_ZdaPv(ptr noundef nonnull %call2) #24

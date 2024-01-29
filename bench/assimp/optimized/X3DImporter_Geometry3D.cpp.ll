@@ -5182,8 +5182,7 @@ for.inc38.i653:                                   ; preds = %_ZNK10aiVector3tIfE
 if.then139:                                       ; preds = %if.then16.i661, %invoke.cont.i.i.i.i663
   %.pre2212.pre-phi = phi i64 [ %sub.ptr.div.i.i646, %if.then16.i661 ], [ %s.036.i, %invoke.cont.i.i.i.i663 ]
   %123 = phi ptr [ %109, %if.then16.i661 ], [ %add.ptr.i.i651, %invoke.cont.i.i.i.i663 ]
-  %beginCap.0202520352051.masked = and i8 %beginCap.0202520352051, 1
-  %or142 = or i8 %endCap.0, %beginCap.0202520352051.masked
+  %or142 = or i8 %endCap.0, %beginCap.0202520352051
   br label %if.end145
 
 lpad135.loopexit:                                 ; preds = %for.body506

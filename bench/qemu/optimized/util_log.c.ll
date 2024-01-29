@@ -389,7 +389,6 @@ if.end4:                                          ; preds = %entry
   br i1 %changed_name, label %if.then11, label %if.else21.thread
 
 if.else21.thread:                                 ; preds = %if.end4
-  %or = or i32 %log_flags, 1048576
   %3 = load ptr, ptr @global_filename, align 8
   br label %land.lhs.true
 
@@ -455,7 +454,7 @@ if.else21:                                        ; preds = %if.end4.thread
 
 land.lhs.true:                                    ; preds = %if.else21.thread, %if.else21
   %6 = phi ptr [ %3, %if.else21.thread ], [ %4, %if.else21 ]
-  %log_flags.addr.07897 = phi i32 [ %or, %if.else21.thread ], [ %spec.select, %if.else21 ]
+  %log_flags.addr.07897 = phi i32 [ %log_flags, %if.else21.thread ], [ %spec.select, %if.else21 ]
   %tobool.not.i53 = icmp eq ptr %6, null
   br i1 %tobool.not.i53, label %if.end10.i67, label %if.then.i54
 

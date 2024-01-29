@@ -971,11 +971,10 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 _ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i: ; preds = %if.then.i.i.i, %if.then.i.i
   %bf.load4.i.i = phi i8 [ %bf.load.i, %if.then.i.i ], [ %bf.load4.pre.i.i, %if.then.i.i.i ]
   store ptr null, ptr %m_ptr.i, align 8
-  %bf.clear5.i.i = and i8 %bf.load4.i.i, -2
   br label %_ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i
 
 _ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i:  ; preds = %if.then6, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i
-  %bf.load.i37 = phi i8 [ %bf.clear5.i.i, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i ], [ %bf.load.i, %if.then6 ]
+  %bf.load.i37 = phi i8 [ %bf.load4.i.i, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i ], [ %bf.load.i, %if.then6 ]
   store i32 1, ptr %a, align 8
   %bf.set.i = and i8 %bf.load.i37, -4
   %bf.clear7.i = or disjoint i8 %bf.set.i, 1
@@ -2210,11 +2209,10 @@ if.then.i.i.i94:                                  ; preds = %if.then.i.i79
 _ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i81: ; preds = %if.then.i.i.i94, %if.then.i.i79
   %bf.load4.i.i82 = phi i8 [ %bf.load.i.i76, %if.then.i.i79 ], [ %bf.load4.pre.i.i95, %if.then.i.i.i94 ]
   store ptr null, ptr %m_ptr.i.i42, align 8
-  %bf.clear5.i.i83 = and i8 %bf.load4.i.i82, -2
   br label %_ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i84
 
 _ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i84: ; preds = %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i81, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i96
-  %bf.load.i85 = phi i8 [ %bf.load.pre.i98, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i96 ], [ %bf.clear5.i.i83, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i81 ]
+  %bf.load.i85 = phi i8 [ %bf.load.pre.i98, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i96 ], [ %bf.load4.i.i82, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i81 ]
   store i32 1, ptr %tmp, align 8
   %bf.set.i87 = and i8 %bf.load.i85, -4
   %bf.clear7.i88 = or disjoint i8 %bf.set.i87, 1
@@ -2323,11 +2321,10 @@ if.then.i.i.i162:                                 ; preds = %if.then.i.i147
 _ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i149: ; preds = %if.then.i.i.i162, %if.then.i.i147
   %bf.load4.i.i150 = phi i8 [ %bf.load.i.i144, %if.then.i.i147 ], [ %bf.load4.pre.i.i163, %if.then.i.i.i162 ]
   store ptr null, ptr %m_ptr.i.i42, align 8
-  %bf.clear5.i.i151 = and i8 %bf.load4.i.i150, -2
   br label %_ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i152
 
 _ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i152: ; preds = %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i149, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i164
-  %bf.load.i153 = phi i8 [ %bf.load.pre.i166, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i164 ], [ %bf.clear5.i.i151, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i149 ]
+  %bf.load.i153 = phi i8 [ %bf.load.pre.i166, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i164 ], [ %bf.load4.i.i150, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i149 ]
   store i32 1, ptr %tmp, align 8
   %bf.set.i155 = and i8 %bf.load.i153, -4
   %bf.clear7.i156 = or disjoint i8 %bf.set.i155, 1
@@ -2719,11 +2716,10 @@ if.then.i.i.i94:                                  ; preds = %if.then.i.i79
 _ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i81: ; preds = %if.then.i.i.i94, %if.then.i.i79
   %bf.load4.i.i82 = phi i8 [ %bf.load.i.i76, %if.then.i.i79 ], [ %bf.load4.pre.i.i95, %if.then.i.i.i94 ]
   store ptr null, ptr %m_ptr.i.i43, align 8
-  %bf.clear5.i.i83 = and i8 %bf.load4.i.i82, -2
   br label %_ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i84
 
 _ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i84: ; preds = %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i81, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i96
-  %bf.load.i85 = phi i8 [ %bf.load.pre.i98, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i96 ], [ %bf.clear5.i.i83, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i81 ]
+  %bf.load.i85 = phi i8 [ %bf.load.pre.i98, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i96 ], [ %bf.load4.i.i82, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i81 ]
   store i32 1, ptr %tmp, align 8
   %bf.set.i87 = and i8 %bf.load.i85, -4
   %bf.clear7.i88 = or disjoint i8 %bf.set.i87, 1
@@ -2832,11 +2828,10 @@ if.then.i.i.i155:                                 ; preds = %if.then.i.i140
 _ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i142: ; preds = %if.then.i.i.i155, %if.then.i.i140
   %bf.load4.i.i143 = phi i8 [ %bf.load.i.i137, %if.then.i.i140 ], [ %bf.load4.pre.i.i156, %if.then.i.i.i155 ]
   store ptr null, ptr %m_ptr.i.i43, align 8
-  %bf.clear5.i.i144 = and i8 %bf.load4.i.i143, -2
   br label %_ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i145
 
 _ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i145: ; preds = %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i142, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i157
-  %bf.load.i146 = phi i8 [ %bf.load.pre.i159, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i157 ], [ %bf.clear5.i.i144, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i142 ]
+  %bf.load.i146 = phi i8 [ %bf.load.pre.i159, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i157 ], [ %bf.load4.i.i143, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i142 ]
   store i32 1, ptr %tmp, align 8
   %bf.set.i148 = and i8 %bf.load.i146, -4
   %bf.clear7.i149 = or disjoint i8 %bf.set.i148, 1
@@ -3566,12 +3561,11 @@ if.then.i.i.i90:                                  ; preds = %if.then.i.i75
 _ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i77: ; preds = %if.then.i.i.i90, %if.then.i.i75
   %bf.load4.i.i78 = phi i8 [ %bf.load.i.i72, %if.then.i.i75 ], [ %bf.load4.pre.i.i91, %if.then.i.i.i90 ]
   store ptr null, ptr %m_ptr.i.i11, align 8
-  %bf.clear5.i.i79 = and i8 %bf.load4.i.i78, -2
   br label %_ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i80
 
 _ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i80: ; preds = %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i77, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i92
   %spec.select.i65163 = phi i32 [ %spec.select.i65, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i92 ], [ %spec.select.i65162, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i77 ]
-  %bf.load.i81 = phi i8 [ %bf.load.pre.i94, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i92 ], [ %bf.clear5.i.i79, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i77 ]
+  %bf.load.i81 = phi i8 [ %bf.load.pre.i94, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i92 ], [ %bf.load4.i.i78, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i77 ]
   store i32 1, ptr %r1, align 8
   %bf.set.i83 = and i8 %bf.load.i81, -4
   %bf.clear7.i84 = or disjoint i8 %bf.set.i83, 1
@@ -3988,12 +3982,11 @@ if.then.i.i.i80:                                  ; preds = %if.then.i.i65
 _ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i67: ; preds = %if.then.i.i.i80, %if.then.i.i65
   %bf.load4.i.i68 = phi i8 [ %bf.load.i.i62, %if.then.i.i65 ], [ %bf.load4.pre.i.i81, %if.then.i.i.i80 ]
   store ptr null, ptr %m_ptr.i.i8, align 8
-  %bf.clear5.i.i69 = and i8 %bf.load4.i.i68, -2
   br label %_ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i70
 
 _ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i70: ; preds = %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i67, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i82
   %spec.select.i55124 = phi i32 [ %spec.select.i55, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i82 ], [ %spec.select.i55123, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i67 ]
-  %bf.load.i71 = phi i8 [ %bf.load.pre.i84, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i82 ], [ %bf.clear5.i.i69, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i67 ]
+  %bf.load.i71 = phi i8 [ %bf.load.pre.i84, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i82 ], [ %bf.load4.i.i68, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i67 ]
   store i32 1, ptr %r1, align 8
   %bf.set.i73 = and i8 %bf.load.i71, -4
   %bf.clear7.i74 = or disjoint i8 %bf.set.i73, 1
@@ -4367,12 +4360,11 @@ if.then.i.i.i85:                                  ; preds = %if.then.i.i70
 _ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i72: ; preds = %if.then.i.i.i85, %if.then.i.i70
   %bf.load4.i.i73 = phi i8 [ %bf.load.i.i67, %if.then.i.i70 ], [ %bf.load4.pre.i.i86, %if.then.i.i.i85 ]
   store ptr null, ptr %m_ptr.i.i9, align 8
-  %bf.clear5.i.i74 = and i8 %bf.load4.i.i73, -2
   br label %_ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i75
 
 _ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i75: ; preds = %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i72, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i87
   %spec.select.i60129 = phi i32 [ %spec.select.i60, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i87 ], [ %spec.select.i60128, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i72 ]
-  %bf.load.i76 = phi i8 [ %bf.load.pre.i89, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i87 ], [ %bf.clear5.i.i74, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i72 ]
+  %bf.load.i76 = phi i8 [ %bf.load.pre.i89, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i87 ], [ %bf.load4.i.i73, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i72 ]
   store i32 1, ptr %r1, align 8
   %bf.set.i78 = and i8 %bf.load.i76, -4
   %bf.clear7.i79 = or disjoint i8 %bf.set.i78, 1
@@ -12296,11 +12288,10 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 _ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i: ; preds = %if.then.i.i.i, %if.then.i.i
   %bf.load4.i.i = phi i8 [ %bf.load.i.i, %if.then.i.i ], [ %bf.load4.pre.i.i, %if.then.i.i.i ]
   store ptr null, ptr %m_ptr.i, align 8
-  %bf.clear5.i.i = and i8 %bf.load4.i.i, -2
   br label %_ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i
 
 _ZN11mpz_managerILb1EE10deallocateER3mpz.exit.i:  ; preds = %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i
-  %bf.load.i30 = phi i8 [ %bf.load.pre.i, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i ], [ %bf.clear5.i.i, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i ]
+  %bf.load.i30 = phi i8 [ %bf.load.pre.i, %entry._ZN11mpz_managerILb1EE10deallocateER3mpz.exit_crit_edge.i ], [ %bf.load4.i.i, %_ZN11mpz_managerILb1EE10deallocateEbP8mpz_cell.exit.i.i ]
   store i32 1, ptr %b, align 8
   %m_kind.i31 = getelementptr inbounds i8, ptr %b, i64 4
   %bf.set.i = and i8 %bf.load.i30, -4
@@ -14974,11 +14965,10 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 _ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i: ; preds = %if.then.i.i.i, %if.then.i.i
   %bf.load4.i.i = phi i8 [ %bf.load.i, %if.then.i.i ], [ %bf.load4.pre.i.i, %if.then.i.i.i ]
   store ptr null, ptr %m_ptr.i, align 8
-  %bf.clear5.i.i = and i8 %bf.load4.i.i, -2
   br label %_ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i
 
 _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i:  ; preds = %if.then6, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i
-  %bf.load.i37 = phi i8 [ %bf.clear5.i.i, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i ], [ %bf.load.i, %if.then6 ]
+  %bf.load.i37 = phi i8 [ %bf.load4.i.i, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i ], [ %bf.load.i, %if.then6 ]
   store i32 1, ptr %a, align 8
   %bf.set.i = and i8 %bf.load.i37, -4
   %bf.clear7.i = or disjoint i8 %bf.set.i, 1
@@ -16252,11 +16242,10 @@ if.then.i.i.i94:                                  ; preds = %if.then.i.i79
 _ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i81: ; preds = %if.then.i.i.i94, %if.then.i.i79
   %bf.load4.i.i82 = phi i8 [ %bf.load.i.i76, %if.then.i.i79 ], [ %bf.load4.pre.i.i98, %if.then.i.i.i94 ]
   store ptr null, ptr %m_ptr.i.i42, align 8
-  %bf.clear5.i.i83 = and i8 %bf.load4.i.i82, -2
   br label %_ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i84
 
 _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i84: ; preds = %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i81, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i99
-  %bf.load.i85 = phi i8 [ %bf.load.pre.i101, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i99 ], [ %bf.clear5.i.i83, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i81 ]
+  %bf.load.i85 = phi i8 [ %bf.load.pre.i101, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i99 ], [ %bf.load4.i.i82, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i81 ]
   store i32 1, ptr %tmp, align 8
   %bf.set.i87 = and i8 %bf.load.i85, -4
   %bf.clear7.i88 = or disjoint i8 %bf.set.i87, 1
@@ -16368,11 +16357,10 @@ if.then.i.i.i165:                                 ; preds = %if.then.i.i150
 _ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i152: ; preds = %if.then.i.i.i165, %if.then.i.i150
   %bf.load4.i.i153 = phi i8 [ %bf.load.i.i147, %if.then.i.i150 ], [ %bf.load4.pre.i.i169, %if.then.i.i.i165 ]
   store ptr null, ptr %m_ptr.i.i42, align 8
-  %bf.clear5.i.i154 = and i8 %bf.load4.i.i153, -2
   br label %_ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i155
 
 _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i155: ; preds = %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i152, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i170
-  %bf.load.i156 = phi i8 [ %bf.load.pre.i172, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i170 ], [ %bf.clear5.i.i154, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i152 ]
+  %bf.load.i156 = phi i8 [ %bf.load.pre.i172, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i170 ], [ %bf.load4.i.i153, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i152 ]
   store i32 1, ptr %tmp, align 8
   %bf.set.i158 = and i8 %bf.load.i156, -4
   %bf.clear7.i159 = or disjoint i8 %bf.set.i158, 1
@@ -16772,11 +16760,10 @@ if.then.i.i.i94:                                  ; preds = %if.then.i.i79
 _ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i81: ; preds = %if.then.i.i.i94, %if.then.i.i79
   %bf.load4.i.i82 = phi i8 [ %bf.load.i.i76, %if.then.i.i79 ], [ %bf.load4.pre.i.i98, %if.then.i.i.i94 ]
   store ptr null, ptr %m_ptr.i.i43, align 8
-  %bf.clear5.i.i83 = and i8 %bf.load4.i.i82, -2
   br label %_ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i84
 
 _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i84: ; preds = %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i81, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i99
-  %bf.load.i85 = phi i8 [ %bf.load.pre.i101, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i99 ], [ %bf.clear5.i.i83, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i81 ]
+  %bf.load.i85 = phi i8 [ %bf.load.pre.i101, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i99 ], [ %bf.load4.i.i82, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i81 ]
   store i32 1, ptr %tmp, align 8
   %bf.set.i87 = and i8 %bf.load.i85, -4
   %bf.clear7.i88 = or disjoint i8 %bf.set.i87, 1
@@ -16888,11 +16875,10 @@ if.then.i.i.i158:                                 ; preds = %if.then.i.i143
 _ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i145: ; preds = %if.then.i.i.i158, %if.then.i.i143
   %bf.load4.i.i146 = phi i8 [ %bf.load.i.i140, %if.then.i.i143 ], [ %bf.load4.pre.i.i162, %if.then.i.i.i158 ]
   store ptr null, ptr %m_ptr.i.i43, align 8
-  %bf.clear5.i.i147 = and i8 %bf.load4.i.i146, -2
   br label %_ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i148
 
 _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i148: ; preds = %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i145, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i163
-  %bf.load.i149 = phi i8 [ %bf.load.pre.i165, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i163 ], [ %bf.clear5.i.i147, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i145 ]
+  %bf.load.i149 = phi i8 [ %bf.load.pre.i165, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i163 ], [ %bf.load4.i.i146, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i145 ]
   store i32 1, ptr %tmp, align 8
   %bf.set.i151 = and i8 %bf.load.i149, -4
   %bf.clear7.i152 = or disjoint i8 %bf.set.i151, 1
@@ -17646,12 +17632,11 @@ if.then.i.i.i90:                                  ; preds = %if.then.i.i75
 _ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i77: ; preds = %if.then.i.i.i90, %if.then.i.i75
   %bf.load4.i.i78 = phi i8 [ %bf.load.i.i72, %if.then.i.i75 ], [ %bf.load4.pre.i.i94, %if.then.i.i.i90 ]
   store ptr null, ptr %m_ptr.i.i11, align 8
-  %bf.clear5.i.i79 = and i8 %bf.load4.i.i78, -2
   br label %_ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i80
 
 _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i80: ; preds = %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i77, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i95
   %spec.select.i65173 = phi i32 [ %spec.select.i65, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i95 ], [ %spec.select.i65172, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i77 ]
-  %bf.load.i81 = phi i8 [ %bf.load.pre.i97, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i95 ], [ %bf.clear5.i.i79, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i77 ]
+  %bf.load.i81 = phi i8 [ %bf.load.pre.i97, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i95 ], [ %bf.load4.i.i78, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i77 ]
   store i32 1, ptr %r1, align 8
   %bf.set.i83 = and i8 %bf.load.i81, -4
   %bf.clear7.i84 = or disjoint i8 %bf.set.i83, 1
@@ -18086,12 +18071,11 @@ if.then.i.i.i80:                                  ; preds = %if.then.i.i65
 _ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i67: ; preds = %if.then.i.i.i80, %if.then.i.i65
   %bf.load4.i.i68 = phi i8 [ %bf.load.i.i62, %if.then.i.i65 ], [ %bf.load4.pre.i.i84, %if.then.i.i.i80 ]
   store ptr null, ptr %m_ptr.i.i8, align 8
-  %bf.clear5.i.i69 = and i8 %bf.load4.i.i68, -2
   br label %_ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i70
 
 _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i70: ; preds = %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i67, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i85
   %spec.select.i55134 = phi i32 [ %spec.select.i55, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i85 ], [ %spec.select.i55133, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i67 ]
-  %bf.load.i71 = phi i8 [ %bf.load.pre.i87, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i85 ], [ %bf.clear5.i.i69, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i67 ]
+  %bf.load.i71 = phi i8 [ %bf.load.pre.i87, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i85 ], [ %bf.load4.i.i68, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i67 ]
   store i32 1, ptr %r1, align 8
   %bf.set.i73 = and i8 %bf.load.i71, -4
   %bf.clear7.i74 = or disjoint i8 %bf.set.i73, 1
@@ -18483,12 +18467,11 @@ if.then.i.i.i85:                                  ; preds = %if.then.i.i70
 _ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i72: ; preds = %if.then.i.i.i85, %if.then.i.i70
   %bf.load4.i.i73 = phi i8 [ %bf.load.i.i67, %if.then.i.i70 ], [ %bf.load4.pre.i.i89, %if.then.i.i.i85 ]
   store ptr null, ptr %m_ptr.i.i9, align 8
-  %bf.clear5.i.i74 = and i8 %bf.load4.i.i73, -2
   br label %_ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i75
 
 _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i75: ; preds = %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i72, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i90
   %spec.select.i60139 = phi i32 [ %spec.select.i60, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i90 ], [ %spec.select.i60138, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i72 ]
-  %bf.load.i76 = phi i8 [ %bf.load.pre.i92, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i90 ], [ %bf.clear5.i.i74, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i72 ]
+  %bf.load.i76 = phi i8 [ %bf.load.pre.i92, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i90 ], [ %bf.load4.i.i73, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i72 ]
   store i32 1, ptr %r1, align 8
   %bf.set.i78 = and i8 %bf.load.i76, -4
   %bf.clear7.i79 = or disjoint i8 %bf.set.i78, 1
@@ -26546,11 +26529,10 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 _ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i: ; preds = %if.then.i.i.i, %if.then.i.i
   %bf.load4.i.i = phi i8 [ %bf.load.i.i, %if.then.i.i ], [ %bf.load4.pre.i.i, %if.then.i.i.i ]
   store ptr null, ptr %m_ptr.i, align 8
-  %bf.clear5.i.i = and i8 %bf.load4.i.i, -2
   br label %_ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i
 
 _ZN11mpz_managerILb0EE10deallocateER3mpz.exit.i:  ; preds = %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i
-  %bf.load.i30 = phi i8 [ %bf.load.pre.i, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i ], [ %bf.clear5.i.i, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i ]
+  %bf.load.i30 = phi i8 [ %bf.load.pre.i, %entry._ZN11mpz_managerILb0EE10deallocateER3mpz.exit_crit_edge.i ], [ %bf.load4.i.i, %_ZN11mpz_managerILb0EE10deallocateEbP8mpz_cell.exit.i.i ]
   store i32 1, ptr %b, align 8
   %m_kind.i31 = getelementptr inbounds i8, ptr %b, i64 4
   %bf.set.i = and i8 %bf.load.i30, -4

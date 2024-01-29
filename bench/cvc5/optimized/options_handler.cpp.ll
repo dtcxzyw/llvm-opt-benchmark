@@ -25938,9 +25938,8 @@ lpad:                                             ; preds = %_ZNSt6vectorINSt7__
 
 for.end:                                          ; preds = %for.inc, %_ZSt6fill_nIPbmbET_S1_T0_RKT1_.exit
   %23 = load i8, ptr %_M_has_sol, align 4
-  %24 = or i8 %23, %__ret.0
-  %or6 = and i8 %24, 1
-  %__ret.1 = select i1 %cmp, i8 %or6, i8 %__ret.0
+  %24 = select i1 %cmp, i8 %23, i8 0
+  %__ret.1 = or i8 %__ret.0, %24
   %25 = load ptr, ptr %_M_current, align 8
   %26 = load ptr, ptr %_M_end, align 8
   %cmp.i12.not = icmp eq ptr %25, %26

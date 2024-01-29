@@ -17267,7 +17267,6 @@ if.end:                                           ; preds = %entry
   %2 = load i64, ptr %config_.i343, align 8
   %3 = trunc i64 %2 to i8
   %4 = lshr i8 %3, 5
-  %frombool11 = and i8 %4, 1
   %add.ptr.i = getelementptr inbounds i8, ptr %str.coerce1, i64 %str.coerce0
   %sub.i = and i64 %str.coerce0, -16
   %tobool.not.i = icmp eq i64 %sub.i, 0
@@ -17496,13 +17495,13 @@ if.then83:                                        ; preds = %for.end81
 
 if.end85:                                         ; preds = %for.cond, %for.end81.thread, %for.end81, %for.end81, %if.then83
   %traits.8 = phi i32 [ %or.i.i.i81, %if.then83 ], [ %traits.6, %for.end81 ], [ %traits.6, %for.end81 ], [ %or.i.i.i, %for.end81.thread ], [ %traits.3, %for.cond ]
-  %unicode_allowed.1 = phi i8 [ 0, %if.then83 ], [ %frombool11, %for.end81 ], [ %frombool11, %for.end81 ], [ 0, %for.end81.thread ], [ %frombool11, %for.cond ]
+  %unicode_allowed.1 = phi i8 [ 0, %if.then83 ], [ %4, %for.end81 ], [ %4, %for.end81 ], [ 0, %for.end81.thread ], [ %4, %for.cond ]
   %and.i420 = and i32 %traits.8, 11
   %tobool.i392.not = icmp eq i32 %and.i420, 0
   br i1 %tobool.i392.not, label %if.end92, label %if.then90
 
 if.then90:                                        ; preds = %sw.epilog, %if.end85
-  %unicode_allowed.1292 = phi i8 [ %unicode_allowed.1, %if.end85 ], [ %frombool11, %sw.epilog ]
+  %unicode_allowed.1292 = phi i8 [ %unicode_allowed.1, %if.end85 ], [ %4, %sw.epilog ]
   %traits.8291 = phi i32 [ %traits.8, %if.end85 ], [ 31, %sw.epilog ]
   %or.i.i82 = or i32 %traits.8291, 16
   br label %if.end92

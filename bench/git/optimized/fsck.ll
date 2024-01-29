@@ -2450,7 +2450,7 @@ if.then.i:                                        ; preds = %if.then2
 
 while.body.i:                                     ; preds = %if.end138.i, %while.body.lr.ph.i
   %o_name.0161.i = phi ptr [ null, %while.body.lr.ph.i ], [ %2, %if.end138.i ]
-  %o_mode.0160.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %conv139.i, %if.end138.i ]
+  %o_mode.0160.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %3, %if.end138.i ]
   %has_large_name.0159.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %or38.i, %if.end138.i ]
   %not_properly_sorted.0157.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %not_properly_sorted.1.i, %if.end138.i ]
   %has_dup_entries.0156.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %has_dup_entries.1.i, %if.end138.i ]
@@ -2871,7 +2871,6 @@ if.end138.loopexit.i:                             ; preds = %if.end49.i.i
 if.end138.i:                                      ; preds = %if.end138.loopexit.i, %sw.bb134.i, %verify_ordered.exit.i, %if.end12.i.i, %if.then131.i, %sw.epilog.i
   %has_dup_entries.1.i = phi i32 [ %has_dup_entries.0156.i, %verify_ordered.exit.i ], [ %has_dup_entries.0156.i, %sw.bb134.i ], [ %has_dup_entries.0156.i, %sw.epilog.i ], [ %has_dup_entries.0156.i, %if.then131.i ], [ 1, %if.end12.i.i ], [ 1, %if.end138.loopexit.i ]
   %not_properly_sorted.1.i = phi i32 [ %not_properly_sorted.0157.i, %verify_ordered.exit.i ], [ 1, %sw.bb134.i ], [ %not_properly_sorted.0157.i, %sw.epilog.i ], [ %not_properly_sorted.0157.i, %if.then131.i ], [ %not_properly_sorted.0157.i, %if.end12.i.i ], [ %not_properly_sorted.0157.i, %if.end138.loopexit.i ]
-  %conv139.i = and i32 %3, 65535
   %32 = load i32, ptr %size3.i, align 8
   %tobool4.not.i = icmp eq i32 %32, 0
   br i1 %tobool4.not.i, label %while.end140.i, label %while.body.i, !llvm.loop !24

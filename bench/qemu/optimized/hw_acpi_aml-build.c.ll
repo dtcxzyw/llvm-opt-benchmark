@@ -6762,24 +6762,22 @@ sw.bb14:                                          ; preds = %if.else4
   store i8 %conv15, ptr %val.addr.i22, align 1
   %call.i23 = call ptr @g_array_prepend_vals(ptr noundef %package, ptr noundef nonnull %val.addr.i22, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i22)
-  %and = and i32 %spec.select37, 1048575
   br label %sw.bb16
 
 sw.bb16:                                          ; preds = %if.end10.thread42, %sw.bb14
   %length_bytes.039 = phi i32 [ 448, %sw.bb14 ], [ 384, %if.end10.thread42 ]
-  %length.addr.1 = phi i32 [ %and, %sw.bb14 ], [ %spec.select45, %if.end10.thread42 ]
+  %length.addr.1 = phi i32 [ %spec.select37, %sw.bb14 ], [ %spec.select45, %if.end10.thread42 ]
   %shr17 = lshr i32 %length.addr.1, 12
   %conv18 = trunc i32 %shr17 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i24)
   store i8 %conv18, ptr %val.addr.i24, align 1
   %call.i25 = call ptr @g_array_prepend_vals(ptr noundef %package, ptr noundef nonnull %val.addr.i24, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i24)
-  %and19 = and i32 %length.addr.1, 4095
   br label %sw.bb20
 
 sw.bb20:                                          ; preds = %if.end10, %sw.bb16
   %length_bytes.038 = phi i32 [ 320, %if.end10 ], [ %length_bytes.039, %sw.bb16 ]
-  %length.addr.2 = phi i32 [ %spec.select, %if.end10 ], [ %and19, %sw.bb16 ]
+  %length.addr.2 = phi i32 [ %spec.select, %if.end10 ], [ %length.addr.1, %sw.bb16 ]
   %shr21 = lshr i32 %length.addr.2, 4
   %conv22 = trunc i32 %shr21 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i26)
@@ -6787,7 +6785,7 @@ sw.bb20:                                          ; preds = %if.end10, %sw.bb16
   %call.i27 = call ptr @g_array_prepend_vals(ptr noundef %package, ptr noundef nonnull %val.addr.i26, i32 noundef 1) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %val.addr.i26)
   %and23 = and i32 %length.addr.2, 15
-  %or = or disjoint i32 %and23, %length_bytes.038
+  %or = or i32 %and23, %length_bytes.038
   %conv24 = trunc i32 %or to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.addr.i28)
   store i8 %conv24, ptr %val.addr.i28, align 1

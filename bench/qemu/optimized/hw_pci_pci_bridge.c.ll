@@ -174,11 +174,10 @@ if.then:                                          ; preds = %entry
   %bridge.val = load ptr, ptr %0, align 8
   %arrayidx.i = getelementptr i8, ptr %bridge.val, i64 29
   %1 = load i8, ptr %arrayidx.i, align 1
-  %2 = and i8 %1, -16
-  %and.i = zext i8 %2 to i32
+  %and.i = zext i8 %1 to i32
   %shl.i = shl nuw nsw i32 %and.i, 8
-  %3 = and i8 %1, 1
-  %tobool.not.i = icmp eq i8 %3, 0
+  %2 = and i8 %1, 1
+  %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %pci_config_get_io_base.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
@@ -191,15 +190,15 @@ if.then.i:                                        ; preds = %if.then
 
 pci_config_get_io_base.exit:                      ; preds = %if.then, %if.then.i
   %val.0.i = phi i32 [ %or.i, %if.then.i ], [ %shl.i, %if.then ]
-  %4 = or i32 %val.0.i, 4095
-  %or = zext i32 %4 to i64
+  %3 = or i32 %val.0.i, 4095
+  %or = zext i32 %3 to i64
   br label %if.end10
 
 if.else:                                          ; preds = %entry
   %and3 = and i32 %conv, 8
   %tobool4.not = icmp eq i32 %and3, 0
-  %5 = getelementptr i8, ptr %bridge, i64 168
-  %bridge.val7 = load ptr, ptr %5, align 8
+  %4 = getelementptr i8, ptr %bridge, i64 168
+  %bridge.val7 = load ptr, ptr %4, align 8
   br i1 %tobool4.not, label %if.else7, label %if.then5
 
 if.then5:                                         ; preds = %if.else
@@ -223,8 +222,7 @@ if.then.i13:                                      ; preds = %if.then5
 if.else7:                                         ; preds = %if.else
   %add.ptr.i16 = getelementptr i8, ptr %bridge.val7, i64 34
   %add.ptr.val.i17 = load i16, ptr %add.ptr.i16, align 1
-  %6 = and i16 %add.ptr.val.i17, -16
-  %and.i18 = zext i16 %6 to i64
+  %and.i18 = zext i16 %add.ptr.val.i17 to i64
   %shl.i19 = shl nuw nsw i64 %and.i18, 16
   br label %if.end
 
@@ -394,11 +392,10 @@ if.then.i12.i:                                    ; preds = %if.then.i.i.i, %pci
   %conv1.i.i = zext i32 %val.0.i.i.i to i64
   %arrayidx.i.i14.i = getelementptr i8, ptr %bridge.val.i.i, i64 29
   %11 = load i8, ptr %arrayidx.i.i14.i, align 1
-  %12 = and i8 %11, -16
-  %and.i.i15.i = zext i8 %12 to i32
+  %and.i.i15.i = zext i8 %11 to i32
   %shl.i.i16.i = shl nuw nsw i32 %and.i.i15.i, 8
-  %13 = and i8 %11, 1
-  %tobool.not.i.i17.i = icmp eq i8 %13, 0
+  %12 = and i8 %11, 1
+  %tobool.not.i.i17.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i17.i, label %pci_bridge_init_alias.exit34, label %if.then.i.i18.i
 
 if.then.i.i18.i:                                  ; preds = %if.then.i12.i
@@ -411,9 +408,9 @@ if.then.i.i18.i:                                  ; preds = %if.then.i12.i
 
 pci_bridge_init_alias.exit34:                     ; preds = %if.then.i12.i, %if.then.i.i18.i
   %val.0.i.i25.i = phi i32 [ %or.i.i23.i, %if.then.i.i18.i ], [ %shl.i.i16.i, %if.then.i12.i ]
-  %14 = or i32 %val.0.i.i25.i, 4095
-  %or.i.i = zext i32 %14 to i64
-  %cmp.not.i29 = icmp uge i32 %14, %val.0.i.i.i
+  %13 = or i32 %val.0.i.i25.i, 4095
+  %or.i.i = zext i32 %13 to i64
+  %cmp.not.i29 = icmp uge i32 %13, %val.0.i.i.i
   %or.cond.not.i30 = select i1 %tobool12, i1 %cmp.not.i29, i1 false
   %reass.sub37 = sub nsw i64 %or.i.i, %conv1.i.i
   %sub.i32 = add nsw i64 %reass.sub37, 1
@@ -423,16 +420,16 @@ pci_bridge_init_alias.exit34:                     ; preds = %if.then.i12.i, %if.
   %alias_vga = getelementptr inbounds i8, ptr %br, i64 6288
   %call.i.i35 = tail call ptr @object_dynamic_cast_assert(ptr noundef %br, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #9
   %config.i = getelementptr inbounds i8, ptr %call.i.i35, i64 168
-  %15 = load ptr, ptr %config.i, align 8
-  %add.ptr.i = getelementptr i8, ptr %15, i64 62
+  %14 = load ptr, ptr %config.i, align 8
+  %add.ptr.i = getelementptr i8, ptr %14, i64 62
   %add.ptr.val.i = load i16, ptr %add.ptr.i, align 1
   %arrayidx.i = getelementptr i8, ptr %br, i64 6560
   tail call void @memory_region_init_alias(ptr noundef %arrayidx.i, ptr noundef %br, ptr noundef nonnull @.str.9, ptr noundef nonnull %address_space_io, i64 noundef 944, i64 noundef 12) #9
   %arrayidx2.i = getelementptr i8, ptr %br, i64 6832
   tail call void @memory_region_init_alias(ptr noundef %arrayidx2.i, ptr noundef %br, ptr noundef nonnull @.str.10, ptr noundef nonnull %address_space_io, i64 noundef 960, i64 noundef 32) #9
   tail call void @memory_region_init_alias(ptr noundef nonnull %alias_vga, ptr noundef %br, ptr noundef nonnull @.str.11, ptr noundef nonnull %address_space_mem, i64 noundef 655360, i64 noundef 131072) #9
-  %16 = and i16 %add.ptr.val.i, 8
-  %tobool.not.i = icmp eq i16 %16, 0
+  %15 = and i16 %add.ptr.val.i, 8
+  %tobool.not.i = icmp eq i16 %15, 0
   br i1 %tobool.not.i, label %pci_bridge_init_vga_aliases.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %pci_bridge_init_alias.exit34

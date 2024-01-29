@@ -8935,8 +8935,7 @@ cond.true:                                        ; preds = %while.body
 
 cond.end:                                         ; preds = %while.body, %cond.true
   %cond = phi i64 [ %4, %cond.true ], [ 0, %while.body ]
-  %conv = and i64 %cur_pos.011, 4294967295
-  %add = add i64 %cond, %conv
+  %add = add i64 %cond, %cur_pos.011
   %5 = load ptr, ptr %progress, align 8
   %6 = load i64, ptr %progress_cnt, align 8
   %inc = add i64 %6, 1

@@ -2953,11 +2953,10 @@ if.end215.i:                                      ; preds = %if.else213.i, %if.t
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i181.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add226.i, i32 1, ptr noundef nonnull %val.i, i64 noundef 4, i1 noundef zeroext true) #12
-  %and228.i = and i32 %31, 1342177279
   %and231.i = and i32 %packet_header.0.i, 8192
   %tobool232.not.i = icmp eq i32 %and231.i, 0
   %spec.select.v.i = select i1 %tobool232.not.i, i32 805306368, i32 822083584
-  %spec.select.i = or i32 %and228.i, %spec.select.v.i
+  %spec.select.i = or i32 %31, %spec.select.v.i
   %or239.i = or i32 %spec.select.i, 67108864
   %rxdw0.1.i = select i1 %tobool237.not.i, i32 %spec.select.i, i32 %or239.i
   %and241.i = shl nuw nsw i32 %packet_header.0.i, 11

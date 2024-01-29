@@ -471,22 +471,20 @@ define void @RC2_encrypt(ptr nocapture noundef %d, ptr nocapture noundef readonl
 entry:
   %0 = load i64, ptr %d, align 8
   %conv = trunc i64 %0 to i32
-  %and = and i32 %conv, 65535
   %shr = lshr i64 %0, 16
   %conv1 = trunc i64 %shr to i32
   %arrayidx2 = getelementptr inbounds i8, ptr %d, i64 8
   %1 = load i64, ptr %arrayidx2, align 8
   %conv3 = trunc i64 %1 to i32
-  %and4 = and i32 %conv3, 65535
   %shr5 = lshr i64 %1, 16
   %conv6 = trunc i64 %shr5 to i32
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %if.end, %entry
   %p0.0.ph = phi ptr [ %incdec.ptr41, %if.end ], [ %key, %entry ]
-  %x0.0.ph = phi i32 [ %add56, %if.end ], [ %and, %entry ]
+  %x0.0.ph = phi i32 [ %add56, %if.end ], [ %conv, %entry ]
   %x1.0.ph = phi i32 [ %add60, %if.end ], [ %conv1, %entry ]
-  %x2.0.ph = phi i32 [ %add64, %if.end ], [ %and4, %entry ]
+  %x2.0.ph = phi i32 [ %add64, %if.end ], [ %conv3, %entry ]
   %x3.0.ph = phi i32 [ %add68, %if.end ], [ %conv6, %entry ]
   %n.0.ph = phi i32 [ %dec48, %if.end ], [ 3, %entry ]
   %i.0.ph = phi i32 [ %cond, %if.end ], [ 5, %entry ]

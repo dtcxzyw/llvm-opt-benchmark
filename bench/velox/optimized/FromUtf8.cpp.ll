@@ -5291,8 +5291,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116FromUtf8Function5applyERKNS0_17Sel
   %idxprom.i.i.i = sext i32 %retval.0.i.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %177, i64 %idxprom.i.i.i
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %arrayidx.i.i.i, align 8
-  %conv.i.i.i92 = and i64 %retval.sroa.0.0.copyload.i.i.i, 4294967295
-  %add.i.i = add i64 %conv.i.i.i92, %totalInputSize.0
+  %add.i.i = add i64 %retval.sroa.0.0.copyload.i.i.i, %totalInputSize.0
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %180
   br i1 %exitcond.not, label %invoke.cont63, label %for.body.i, !llvm.loop !27
@@ -5377,8 +5376,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116FromUtf8Function5applyERKNS0_17Sel
   %idxprom.i.i.i.i.i.i.i116 = sext i32 %retval.0.i.i.i.i.i.i.i.i115 to i64
   %arrayidx.i.i.i.i.i.i.i117 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %193, i64 %idxprom.i.i.i.i.i.i.i116
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i118 = load i64, ptr %arrayidx.i.i.i.i.i.i.i117, align 8
-  %conv.i.i.i.i.i.i.i119 = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i118, 4294967295
-  %add.i.i.i.i.i.i120 = add i64 %conv.i.i.i.i.i.i.i119, %totalInputSize.1
+  %add.i.i.i.i.i.i120 = add i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i.i118, %totalInputSize.1
   %sub.i27.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i, -1
   %and6.i.i.i.i.i = and i64 %sub.i27.i.i.i.i, %word.0.i.i.i.i.i
   %tobool5.old.not.i.i.i.i.i = icmp eq i64 %and6.i.i.i.i.i, 0
@@ -5447,8 +5445,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116FromUtf8Function5applyERKNS0_17Sel
   %idxprom.i.i.i54.i.i.i.i = sext i32 %retval.0.i.i.i.i53.i.i.i.i to i64
   %arrayidx.i.i.i55.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %203, i64 %idxprom.i.i.i54.i.i.i.i
   %retval.sroa.0.0.copyload.i.i.i56.i.i.i.i = load i64, ptr %arrayidx.i.i.i55.i.i.i.i, align 8
-  %conv.i.i.i57.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i56.i.i.i.i, 4294967295
-  %add.i.i58.i.i.i.i = add i64 %conv.i.i.i57.i.i.i.i, %totalInputSize.2
+  %add.i.i58.i.i.i.i = add i64 %retval.sroa.0.0.copyload.i.i.i56.i.i.i.i, %totalInputSize.2
   %sub.i59.i.i.i.i = add i64 %word.0.i44.i.i.i.i, -1
   %and6.i60.i.i.i.i = and i64 %sub.i59.i.i.i.i, %word.0.i44.i.i.i.i
   %tobool5.old.not.i61.i.i.i.i = icmp eq i64 %and6.i60.i.i.i.i, 0
@@ -5515,8 +5512,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116FromUtf8Function5applyERKNS0_17Sel
   %idxprom.i.i18.i.i.i.i.i.us = sext i32 %retval.0.i.i.i17.i.i.i.i.i.us to i64
   %arrayidx.i.i19.i.i.i.i.i.us = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %213, i64 %idxprom.i.i18.i.i.i.i.i.us
   %retval.sroa.0.0.copyload.i.i20.i.i.i.i.i.us = load i64, ptr %arrayidx.i.i19.i.i.i.i.i.us, align 8
-  %conv.i.i21.i.i.i.i.i.us = and i64 %retval.sroa.0.0.copyload.i.i20.i.i.i.i.i.us, 4294967295
-  %add.i22.i.i.i.i.i.us = add i64 %conv.i.i21.i.i.i.i.i.us, %totalInputSize.6.us
+  %add.i22.i.i.i.i.i.us = add i64 %retval.sroa.0.0.copyload.i.i20.i.i.i.i.i.us, %totalInputSize.6.us
   %sub.i100.i.i.i.i.us = add i64 %word.034.i.i.i.i.i.us, -1
   %and.i101.i.i.i.i.us = and i64 %sub.i100.i.i.i.i.us, %word.034.i.i.i.i.i.us
   %tobool7.not.i.i.i.i.i.us = icmp eq i64 %and.i101.i.i.i.i.us, 0
@@ -5558,8 +5554,7 @@ for.body.i.i.i.i.i98.us.us:                       ; preds = %for.body.i.i.i.i.i9
   %idxprom.i.i.i82.i.i.i.i.us.us = sext i32 %226 to i64
   %arrayidx.i.i.i83.i.i.i.i.us.us = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %220, i64 %idxprom.i.i.i82.i.i.i.i.us.us
   %retval.sroa.0.0.copyload.i.i.i84.i.i.i.i.us.us = load i64, ptr %arrayidx.i.i.i83.i.i.i.i.us.us, align 8
-  %conv.i.i.i85.i.i.i.i.us.us = and i64 %retval.sroa.0.0.copyload.i.i.i84.i.i.i.i.us.us, 4294967295
-  %add.i.i86.i.i.i.i.us.us = add i64 %conv.i.i.i85.i.i.i.i.us.us, %totalInputSize.5.us.us
+  %add.i.i86.i.i.i.i.us.us = add i64 %retval.sroa.0.0.copyload.i.i.i84.i.i.i.i.us.us, %totalInputSize.5.us.us
   %inc.i.i.i.i.i.us.us = add nuw i64 %row.036.i.i.i.i.i.us.us, 1
   %cmp6.i.i.i.i.i.us.us = icmp ult i64 %inc.i.i.i.i.i.us.us, %conv5.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i.us.us, label %for.body.i.i.i.i.i98.us.us, label %_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_116FromUtf8Function5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUliE_clEi.exit.i.i.i.i, !llvm.loop !29
@@ -5569,11 +5564,10 @@ for.body.lr.ph.i.i.i.i.i97.split.us.split:        ; preds = %for.body.lr.ph.i.i.
   %idxprom.i.i.i82.i.i.i.i.us = sext i32 %227 to i64
   %arrayidx.i.i.i83.i.i.i.i.us = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %220, i64 %idxprom.i.i.i82.i.i.i.i.us
   %retval.sroa.0.0.copyload.i.i.i84.i.i.i.i.us = load i64, ptr %arrayidx.i.i.i83.i.i.i.i.us, align 8
-  %conv.i.i.i85.i.i.i.i.us = and i64 %retval.sroa.0.0.copyload.i.i.i84.i.i.i.i.us, 4294967295
   %228 = or disjoint i64 %conv.i.i.i.i.i, 1
   %umax = call i64 @llvm.umax.i64(i64 %228, i64 %conv5.i.i.i.i.i)
   %229 = sub nsw i64 %umax, %conv.i.i.i.i.i
-  %230 = mul i64 %229, %conv.i.i.i85.i.i.i.i.us
+  %230 = mul i64 %229, %retval.sroa.0.0.copyload.i.i.i84.i.i.i.i.us
   %231 = add i64 %totalInputSize.4, %230
   br label %_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_116FromUtf8Function5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUliE_clEi.exit.i.i.i.i
 
@@ -5584,8 +5578,7 @@ for.body.i.i.i.i.i98:                             ; preds = %for.body.lr.ph.i.i.
   %idxprom.i.i.i82.i.i.i.i = ashr exact i64 %sext, 32
   %arrayidx.i.i.i83.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %220, i64 %idxprom.i.i.i82.i.i.i.i
   %retval.sroa.0.0.copyload.i.i.i84.i.i.i.i = load i64, ptr %arrayidx.i.i.i83.i.i.i.i, align 8
-  %conv.i.i.i85.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i84.i.i.i.i, 4294967295
-  %add.i.i86.i.i.i.i = add i64 %conv.i.i.i85.i.i.i.i, %totalInputSize.5
+  %add.i.i86.i.i.i.i = add i64 %retval.sroa.0.0.copyload.i.i.i84.i.i.i.i, %totalInputSize.5
   %inc.i.i.i.i.i = add nuw i64 %row.036.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i, %conv5.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i, label %for.body.i.i.i.i.i98, label %_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_116FromUtf8Function5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUliE_clEi.exit.i.i.i.i, !llvm.loop !29
@@ -5599,8 +5592,7 @@ while.body.i96.i.i.i.i:                           ; preds = %while.body.lr.ph.i.
   %idxprom.i.i18.i.i.i.i.i = sext i32 %add9.i.i.i.i.i to i64
   %arrayidx.i.i19.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %213, i64 %idxprom.i.i18.i.i.i.i.i
   %retval.sroa.0.0.copyload.i.i20.i.i.i.i.i = load i64, ptr %arrayidx.i.i19.i.i.i.i.i, align 8
-  %conv.i.i21.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i20.i.i.i.i.i, 4294967295
-  %add.i22.i.i.i.i.i = add i64 %conv.i.i21.i.i.i.i.i, %totalInputSize.6
+  %add.i22.i.i.i.i.i = add i64 %retval.sroa.0.0.copyload.i.i20.i.i.i.i.i, %totalInputSize.6
   %sub.i100.i.i.i.i = add i64 %word.034.i.i.i.i.i, -1
   %and.i101.i.i.i.i = and i64 %sub.i100.i.i.i.i, %word.034.i.i.i.i.i
   %tobool7.not.i.i.i.i.i = icmp eq i64 %and.i101.i.i.i.i, 0
@@ -5672,8 +5664,7 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_116FromUtf8Function5applyERKNS0_17Sel
   %idxprom.i.i.i125.i.i.i.i = sext i32 %retval.0.i.i.i.i124.i.i.i.i to i64
   %arrayidx.i.i.i126.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %234, i64 %idxprom.i.i.i125.i.i.i.i
   %retval.sroa.0.0.copyload.i.i.i127.i.i.i.i = load i64, ptr %arrayidx.i.i.i126.i.i.i.i, align 8
-  %conv.i.i.i128.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i127.i.i.i.i, 4294967295
-  %add.i.i129.i.i.i.i = add i64 %conv.i.i.i128.i.i.i.i, %totalInputSize.9
+  %add.i.i129.i.i.i.i = add i64 %retval.sroa.0.0.copyload.i.i.i127.i.i.i.i, %totalInputSize.9
   %sub.i130.i.i.i.i = add nsw i64 %word.0.i115.i.i.i.i, -1
   %and6.i131.i.i.i.i = and i64 %sub.i130.i.i.i.i, %word.0.i115.i.i.i.i
   %tobool5.old.not.i132.i.i.i.i = icmp eq i64 %and6.i131.i.i.i.i, 0

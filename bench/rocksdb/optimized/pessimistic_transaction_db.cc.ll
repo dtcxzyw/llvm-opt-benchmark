@@ -4257,47 +4257,47 @@ if.end63:                                         ; preds = %_ZN7rocksdb6StatusD
   %s.sroa.6.0 = phi i8 [ %27, %_ZN7rocksdb6StatusD2Ev.exit49 ], [ %19, %invoke.cont50 ]
   %s.sroa.26.1 = phi ptr [ %29, %_ZN7rocksdb6StatusD2Ev.exit49 ], [ %21, %invoke.cont50 ]
   %33 = phi <4 x i8> [ %28, %_ZN7rocksdb6StatusD2Ev.exit49 ], [ %20, %invoke.cont50 ]
-  %34 = extractelement <4 x i8> %33, i64 2
-  %s.sroa.18.0 = and i8 %34, 1
-  %35 = extractelement <4 x i8> %33, i64 1
-  %s.sroa.14.0 = and i8 %35, 1
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %s.sroa.0.0, ptr %agg.result, align 8
   %subcode_4.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %s.sroa.6.0, ptr %subcode_4.i.i, align 1
   %sev_6.i.i = getelementptr inbounds i8, ptr %agg.result, i64 2
-  %36 = extractelement <4 x i8> %33, i64 0
-  store i8 %36, ptr %sev_6.i.i, align 2
+  %34 = extractelement <4 x i8> %33, i64 0
+  store i8 %34, ptr %sev_6.i.i, align 2
+  %35 = extractelement <4 x i8> %33, i64 1
+  %36 = and i8 %35, 1
   %retryable_8.i.i = getelementptr inbounds i8, ptr %agg.result, i64 3
-  store i8 %s.sroa.14.0, ptr %retryable_8.i.i, align 1
+  store i8 %36, ptr %retryable_8.i.i, align 1
+  %37 = extractelement <4 x i8> %33, i64 2
+  %38 = and i8 %37, 1
   %data_loss_11.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
-  store i8 %s.sroa.18.0, ptr %data_loss_11.i.i, align 4
+  store i8 %38, ptr %data_loss_11.i.i, align 4
   %scope_14.i.i = getelementptr inbounds i8, ptr %agg.result, i64 5
-  %37 = extractelement <4 x i8> %33, i64 3
-  store i8 %37, ptr %scope_14.i.i, align 1
+  %39 = extractelement <4 x i8> %33, i64 3
+  store i8 %39, ptr %scope_14.i.i, align 1
   store ptr %s.sroa.26.1, ptr %state_.i.i, align 8
   call void @_ZN7rocksdb9DBOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(688) %db_options_2pc) #22
-  %38 = load ptr, ptr %compaction_enabled_cf_indices, align 8
-  %tobool.not.i.i.i52 = icmp eq ptr %38, null
+  %40 = load ptr, ptr %compaction_enabled_cf_indices, align 8
+  %tobool.not.i.i.i52 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i52, label %_ZNSt6vectorImSaImEED2Ev.exit, label %if.then.i.i.i53
 
 if.then.i.i.i53:                                  ; preds = %if.end63
-  call void @_ZdlPv(ptr noundef nonnull %38) #21
+  call void @_ZdlPv(ptr noundef nonnull %40) #21
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %if.end63, %if.then.i.i.i53
-  %39 = load ptr, ptr %column_families_copy, align 8
-  %40 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %39, %40
+  %41 = load ptr, ptr %column_families_copy, align 8
+  %42 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %41, %42
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i55, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt6vectorImSaImEED2Ev.exit, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %39, %_ZNSt6vectorImSaImEED2Ev.exit ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %41, %_ZNSt6vectorImSaImEED2Ev.exit ]
   %options.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   call void @_ZN7rocksdb19ColumnFamilyOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(820) %options.i.i.i.i.i.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #22
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 856
-  %cmp.not.i.i.i.i54 = icmp eq ptr %incdec.ptr.i.i.i.i, %40
+  %cmp.not.i.i.i.i54 = icmp eq ptr %incdec.ptr.i.i.i.i, %42
   br i1 %cmp.not.i.i.i.i54, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !23
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
@@ -4305,12 +4305,12 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i55
 
 invoke.cont.i55:                                  ; preds = %invoke.contthread-pre-split.i, %_ZNSt6vectorImSaImEED2Ev.exit
-  %41 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %39, %_ZNSt6vectorImSaImEED2Ev.exit ]
-  %tobool.not.i.i.i56 = icmp eq ptr %41, null
+  %43 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %41, %_ZNSt6vectorImSaImEED2Ev.exit ]
+  %tobool.not.i.i.i56 = icmp eq ptr %43, null
   br i1 %tobool.not.i.i.i56, label %_ZN7rocksdb6StatusD2Ev.exit65, label %if.then.i.i.i57
 
 if.then.i.i.i57:                                  ; preds = %invoke.cont.i55
-  call void @_ZdlPv(ptr noundef nonnull %41) #21
+  call void @_ZdlPv(ptr noundef nonnull %43) #21
   br label %_ZN7rocksdb6StatusD2Ev.exit65
 
 ehcleanup64:                                      ; preds = %lpad33, %lpad55

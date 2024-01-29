@@ -614,12 +614,11 @@ if.else41:                                        ; preds = %if.end32
           to label %invoke.cont46 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont46:                                    ; preds = %if.else41
-  %and48 = and i32 %call47, 256
   %and49 = and i32 %call47, -257
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then34, %invoke.cont46
-  %flags.1 = phi i32 [ %and48, %invoke.cont46 ], [ %flags.0, %if.then34 ]
+  %flags.1 = phi i32 [ %call47, %invoke.cont46 ], [ %flags.0, %if.then34 ]
   %scriptDistance.0 = phi i32 [ %and49, %invoke.cont46 ], [ %spec.select187, %if.then34 ]
   %add51 = add nsw i32 %scriptDistance.0, %spec.select
   %cmp52 = icmp sgt i32 %add51, %shr

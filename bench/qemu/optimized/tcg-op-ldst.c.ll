@@ -431,23 +431,19 @@ check_max_alignment.exit.i:                       ; preds = %do.body.i.i, %get_a
   switch i32 %and3.i, label %do.body.i [
     i32 0, label %sw.bb.i
     i32 1, label %tcg_canonicalize_memop.exit
-    i32 2, label %sw.bb6.i
+    i32 2, label %tcg_canonicalize_memop.exit
   ]
 
 sw.bb.i:                                          ; preds = %check_max_alignment.exit.i
   %and4.i = and i32 %spec.select.i, -17
   br label %tcg_canonicalize_memop.exit
 
-sw.bb6.i:                                         ; preds = %check_max_alignment.exit.i
-  %and8.i = and i32 %spec.select.i, -9
-  br label %tcg_canonicalize_memop.exit
-
 do.body.i:                                        ; preds = %check_max_alignment.exit.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 75, ptr noundef nonnull @__func__.tcg_canonicalize_memop, ptr noundef null) #6
   unreachable
 
-tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %sw.bb.i, %sw.bb6.i
-  %op.addr.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %and8.i, %sw.bb6.i ]
+tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %check_max_alignment.exit.i, %sw.bb.i
+  %op.addr.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %spec.select.i, %check_max_alignment.exit.i ]
   %and17.i = and i32 %op.addr.1.i, -9
   %gen_tb.i = getelementptr inbounds i8, ptr %1, i64 112
   %5 = load ptr, ptr %gen_tb.i, align 8
@@ -817,23 +813,19 @@ check_max_alignment.exit.i:                       ; preds = %do.body.i.i, %get_a
     i32 0, label %sw.bb.i
     i32 1, label %tcg_canonicalize_memop.exit
     i32 2, label %tcg_canonicalize_memop.exit
-    i32 3, label %sw.bb10.i
+    i32 3, label %tcg_canonicalize_memop.exit
   ]
 
 sw.bb.i:                                          ; preds = %check_max_alignment.exit.i
   %and4.i = and i32 %spec.select.i, -17
   br label %tcg_canonicalize_memop.exit
 
-sw.bb10.i:                                        ; preds = %check_max_alignment.exit.i
-  %and13.i = and i32 %spec.select.i, -9
-  br label %tcg_canonicalize_memop.exit
-
 do.body.i:                                        ; preds = %check_max_alignment.exit.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 75, ptr noundef nonnull @__func__.tcg_canonicalize_memop, ptr noundef null) #6
   unreachable
 
-tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %check_max_alignment.exit.i, %sw.bb.i, %sw.bb10.i
-  %op.addr.1.i = phi i32 [ %and13.i, %sw.bb10.i ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %spec.select.i, %check_max_alignment.exit.i ]
+tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment.exit.i, %check_max_alignment.exit.i, %check_max_alignment.exit.i, %sw.bb.i
+  %op.addr.1.i = phi i32 [ %spec.select.i, %check_max_alignment.exit.i ], [ %and4.i, %sw.bb.i ], [ %spec.select.i, %check_max_alignment.exit.i ], [ %spec.select.i, %check_max_alignment.exit.i ]
   %and17.i = and i32 %op.addr.1.i, -9
   %gen_tb.i = getelementptr inbounds i8, ptr %1, i64 112
   %5 = load ptr, ptr %gen_tb.i, align 8

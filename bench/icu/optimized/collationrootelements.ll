@@ -731,8 +731,7 @@ _ZNK6icu_7521CollationRootElements11findPrimaryEj.exit: ; preds = %for.cond20.pr
   %14 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %14, 128
   %cmp.i = icmp eq i32 %and.i, 0
-  %and2.i = and i32 %14, -129
-  %.and2.i = tail call i32 @llvm.umin.i32(i32 %and2.i, i32 83887360)
+  %.and2.i = tail call i32 @llvm.umin.i32(i32 %14, i32 83887360)
   %retval.0.i = select i1 %cmp.i, i32 83887360, i32 %.and2.i
   br label %if.end
 
@@ -1007,8 +1006,7 @@ if.else:                                          ; preds = %entry
   %5 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %5, 128
   %cmp.i = icmp eq i32 %and.i, 0
-  %and2.i = and i32 %5, -129
-  %.and2.i = tail call i32 @llvm.umin.i32(i32 %and2.i, i32 83887360)
+  %.and2.i = tail call i32 @llvm.umin.i32(i32 %5, i32 83887360)
   %retval.0.i = select i1 %cmp.i, i32 83887360, i32 %.and2.i
   %arrayidx.i6 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %arrayidx.i6, align 4

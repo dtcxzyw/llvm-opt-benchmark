@@ -1213,8 +1213,7 @@ if.then84:                                        ; preds = %lor.lhs.false73, %l
   %avail1.i57 = getelementptr inbounds i8, ptr %data, i64 3608
   %15 = load i64, ptr %avail1.i57, align 8
   %16 = load i64, ptr %authproxy, align 8
-  %and.i58 = and i64 %15, -65
-  %and2.i59 = and i64 %and.i58, %16
+  %and2.i59 = and i64 %15, %16
   %and3.i60 = and i64 %and2.i59, 4
   %tobool.not.i61 = icmp eq i64 %and3.i60, 0
   br i1 %tobool.not.i61, label %if.else.i65, label %if.then.i62

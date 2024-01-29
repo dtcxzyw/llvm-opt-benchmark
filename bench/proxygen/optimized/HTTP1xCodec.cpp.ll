@@ -7592,33 +7592,32 @@ sw.bb5.i:                                         ; preds = %sw.bb.i
   br label %for.inc.i
 
 sw.bb9.i:                                         ; preds = %sw.bb.i
-  %4 = and i8 %quote.025.i, 1
-  %frombool.i = xor i8 %4, 1
+  %frombool.i = xor i8 %quote.025.i, 1
   br label %for.inc.i
 
 sw.default.i:                                     ; preds = %sw.bb.i
   %cmp13.i = icmp ult i8 %2, 32
   %cmp15.not.i = icmp ne i8 %2, 9
   %or.cond18.not20.i = and i1 %cmp13.i, %cmp15.not.i
-  %5 = icmp ugt i8 %2, 126
-  %or.cond75.i = or i1 %5, %or.cond18.not20.i
+  %4 = icmp ugt i8 %2, 126
+  %or.cond75.i = or i1 %4, %or.cond18.not20.i
   br i1 %or.cond75.i, label %if.then4, label %for.inc.i
 
 sw.bb25.i:                                        ; preds = %for.body.i
-  %6 = load i8, ptr %p.027.i, align 1
-  %cmp27.not.i = icmp eq i8 %6, 10
+  %5 = load i8, ptr %p.027.i, align 1
+  %cmp27.not.i = icmp eq i8 %5, 10
   br i1 %cmp27.not.i, label %for.inc.i, label %if.then4
 
 sw.bb30.i:                                        ; preds = %for.body.i
-  %7 = load i8, ptr %p.027.i, align 1
-  switch i8 %7, label %if.then4 [
+  %6 = load i8, ptr %p.027.i, align 1
+  switch i8 %6, label %if.then4 [
     i8 32, label %for.inc.i
     i8 9, label %for.inc.i
   ]
 
 sw.bb38.i:                                        ; preds = %for.body.i
-  %8 = load i8, ptr %p.027.i, align 1
-  switch i8 %8, label %if.then44.i [
+  %7 = load i8, ptr %p.027.i, align 1
+  switch i8 %7, label %if.then44.i [
     i8 32, label %for.inc.i
     i8 9, label %for.inc.i
   ]
@@ -7637,8 +7636,8 @@ for.inc.i:                                        ; preds = %if.then44.i, %sw.bb
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !63
 
 for.end.i:                                        ; preds = %for.inc.i
-  %9 = and i8 %escape.2.i, 1
-  %tobool48.not.i = icmp eq i8 %9, 0
+  %8 = and i8 %escape.2.i, 1
+  %tobool48.not.i = icmp eq i8 %8, 0
   br i1 %tobool48.not.i, label %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit, label %if.then4
 
 _ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit: ; preds = %for.end.i
@@ -7671,10 +7670,10 @@ invoke.cont10:                                    ; preds = %invoke.cont7
   br label %return
 
 lpad:                                             ; preds = %invoke.cont7, %invoke.cont, %if.then4
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp5) #25
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %9
 
 if.end16:                                         ; preds = %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit, %_ZN8proxygen9CodecUtil19validateHeaderValueEN5folly5RangeIPKhEENS0_13CtlEscapeModeE.exit, %cond.end, %entry
   %currentHeaderName_17 = getelementptr inbounds i8, ptr %this, i64 128
@@ -7683,14 +7682,14 @@ if.end16:                                         ; preds = %_ZN8proxygen9CodecU
 
 if.then19:                                        ; preds = %if.end16
   %currentHeaderNameStringPiece_20 = getelementptr inbounds i8, ptr %this, i64 160
-  %11 = load ptr, ptr %currentHeaderNameStringPiece_20, align 8
+  %10 = load ptr, ptr %currentHeaderNameStringPiece_20, align 8
   %e_.i8 = getelementptr inbounds i8, ptr %this, i64 168
-  %12 = load ptr, ptr %e_.i8, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %11 to i64
+  %11 = load ptr, ptr %e_.i8, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %currentHeaderValue_24 = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @_ZN8proxygen11HTTPHeaders12addFromCodecEPKcmONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %hdrs, ptr noundef %11, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull align 8 dereferenceable(32) %currentHeaderValue_24)
+  tail call void @_ZN8proxygen11HTTPHeaders12addFromCodecEPKcmONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %hdrs, ptr noundef %10, i64 noundef %sub.ptr.sub.i, ptr noundef nonnull align 8 dereferenceable(32) %currentHeaderValue_24)
   br label %if.end29
 
 if.else:                                          ; preds = %if.end16

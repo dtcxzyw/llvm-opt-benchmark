@@ -7210,63 +7210,62 @@ if.then15:                                        ; preds = %for.body
 
 if.end20:                                         ; preds = %if.then15, %for.body
   %xInside.1 = phi i8 [ %frombool19, %if.then15 ], [ %xInside.053, %for.body ]
-  %11 = and i8 %xInside.1, 1
   br label %for.body25
 
 for.body25:                                       ; preds = %if.end20, %for.inc50
   %indvars.iv59 = phi i64 [ 0, %if.end20 ], [ %indvars.iv.next60, %for.inc50 ]
-  %yInside.051 = phi i8 [ %11, %if.end20 ], [ %yInside.1, %for.inc50 ]
-  %12 = shl i64 %indvars.iv59, 3
-  %13 = add nuw nsw i64 %12, %8
-  %shr.i27 = lshr i64 %13, 6
+  %yInside.051 = phi i8 [ %xInside.1, %if.end20 ], [ %yInside.1, %for.inc50 ]
+  %11 = shl i64 %indvars.iv59, 3
+  %12 = add nuw nsw i64 %11, %8
+  %shr.i27 = lshr i64 %12, 6
   %idxprom.i28 = and i64 %shr.i27, 67108863
   %arrayidx.i29 = getelementptr inbounds [8 x i64], ptr %mValueMask.i, i64 0, i64 %idxprom.i28
-  %14 = load i64, ptr %arrayidx.i29, align 8
-  %shl.i32 = shl nuw nsw i64 1, %12
-  %and2.i33 = and i64 %14, %shl.i32
+  %13 = load i64, ptr %arrayidx.i29, align 8
+  %shl.i32 = shl nuw nsw i64 1, %11
+  %and2.i33 = and i64 %13, %shl.i32
   %cmp.i34.not = icmp eq i64 %and2.i33, 0
   br i1 %cmp.i34.not, label %if.end33, label %if.then28
 
 if.then28:                                        ; preds = %for.body25
-  %arrayidx30 = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %13
-  %15 = load float, ptr %arrayidx30, align 4
-  %cmp31 = fcmp olt float %15, 0.000000e+00
+  %arrayidx30 = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %12
+  %14 = load float, ptr %arrayidx30, align 4
+  %cmp31 = fcmp olt float %14, 0.000000e+00
   %frombool32 = zext i1 %cmp31 to i8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then28, %for.body25
   %yInside.1 = phi i8 [ %frombool32, %if.then28 ], [ %yInside.051, %for.body25 ]
-  %16 = and i8 %yInside.1, 1
+  %15 = and i8 %yInside.1, 1
   br label %for.body38
 
 for.body38:                                       ; preds = %if.end33, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end33 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.048 = phi i8 [ %16, %if.end33 ], [ %zInside.1, %for.inc ]
-  %17 = add nuw nsw i64 %indvars.iv, %13
-  %shr.i35 = lshr i64 %17, 6
+  %zInside.048 = phi i8 [ %15, %if.end33 ], [ %zInside.1, %for.inc ]
+  %16 = add nuw nsw i64 %indvars.iv, %12
+  %shr.i35 = lshr i64 %16, 6
   %idxprom.i36 = and i64 %shr.i35, 67108863
   %arrayidx.i37 = getelementptr inbounds [8 x i64], ptr %mValueMask.i, i64 0, i64 %idxprom.i36
-  %18 = load i64, ptr %arrayidx.i37, align 8
-  %19 = and i64 %17, 63
-  %shl.i40 = shl nuw i64 1, %19
-  %and2.i41 = and i64 %18, %shl.i40
+  %17 = load i64, ptr %arrayidx.i37, align 8
+  %18 = and i64 %16, 63
+  %shl.i40 = shl nuw i64 1, %18
+  %and2.i41 = and i64 %17, %shl.i40
   %cmp.i42.not = icmp eq i64 %and2.i41, 0
   br i1 %cmp.i42.not, label %if.else, label %if.then41
 
 if.then41:                                        ; preds = %for.body38
-  %arrayidx43 = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %17
-  %20 = load float, ptr %arrayidx43, align 4
-  %cmp44 = fcmp olt float %20, 0.000000e+00
+  %arrayidx43 = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %16
+  %19 = load float, ptr %arrayidx43, align 4
+  %cmp44 = fcmp olt float %19, 0.000000e+00
   %frombool45 = zext i1 %cmp44 to i8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body38
-  %21 = shl nuw nsw i8 %zInside.048, 2
-  %22 = and i8 %21, 4
-  %cond.in.idx = zext nneg i8 %22 to i64
+  %20 = shl i8 %zInside.048, 2
+  %21 = and i8 %20, 4
+  %cond.in.idx = zext nneg i8 %21 to i64
   %cond.in = getelementptr inbounds i8, ptr %this, i64 %cond.in.idx
   %cond = load float, ptr %cond.in, align 4
-  %arrayidx48 = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %17
+  %arrayidx48 = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %16
   store float %cond, ptr %arrayidx48, align 4
   br label %for.inc
 
@@ -7287,12 +7286,12 @@ for.inc53:                                        ; preds = %for.inc50
   br i1 %cmp13.not, label %if.end64, label %for.body, !llvm.loop !70
 
 if.else56:                                        ; preds = %for.inc.i, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE11findFirstOnEv.exit
-  %23 = load float, ptr %retval.0.i.i.i, align 4
-  %cmp58 = fcmp olt float %23, 0.000000e+00
+  %22 = load float, ptr %retval.0.i.i.i, align 4
+  %cmp58 = fcmp olt float %22, 0.000000e+00
   %cond-lvalue.idx = select i1 %cmp58, i64 4, i64 0
   %cond-lvalue = getelementptr inbounds i8, ptr %this, i64 %cond-lvalue.idx
-  %24 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i seq_cst, align 8
-  %tobool.i.i.not.i.i = icmp eq i32 %24, 0
+  %23 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i seq_cst, align 8
+  %tobool.i.i.not.i.i = icmp eq i32 %23, 0
   %.pre.i.i = load ptr, ptr %leaf, align 8
   %cmp.not.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %tobool.i.i.not.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EE14detachFromFileEv.exit.i.i, label %if.then.i.i.i
@@ -9735,94 +9734,93 @@ _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit: ; preds = %if.then
 
 if.end21:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit, %for.body
   %xInside.1 = phi i8 [ %frombool20, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit ], [ %xInside.073, %for.body ]
-  %15 = and i8 %xInside.1, 1
   br label %for.body26
 
 for.body26:                                       ; preds = %if.end21, %for.inc55
   %indvars.iv80 = phi i64 [ 0, %if.end21 ], [ %indvars.iv.next81, %for.inc55 ]
-  %yInside.071 = phi i8 [ %15, %if.end21 ], [ %yInside.1, %for.inc55 ]
-  %16 = shl i64 %indvars.iv80, 4
-  %17 = add nuw nsw i64 %16, %8
-  %shr.i33 = lshr i64 %17, 6
+  %yInside.071 = phi i8 [ %xInside.1, %if.end21 ], [ %yInside.1, %for.inc55 ]
+  %15 = shl i64 %indvars.iv80, 4
+  %16 = add nuw nsw i64 %15, %8
+  %shr.i33 = lshr i64 %16, 6
   %idxprom.i34 = and i64 %shr.i33, 67108863
   %arrayidx.i35 = getelementptr inbounds [64 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i34
-  %18 = load i64, ptr %arrayidx.i35, align 8
-  %and.i36 = and i64 %16, 48
+  %17 = load i64, ptr %arrayidx.i35, align 8
+  %and.i36 = and i64 %15, 48
   %shl.i38 = shl nuw nsw i64 1, %and.i36
-  %and2.i39 = and i64 %18, %shl.i38
+  %and2.i39 = and i64 %17, %shl.i38
   %cmp.i40.not = icmp eq i64 %and2.i39, 0
   br i1 %cmp.i40.not, label %if.end36, label %if.then29
 
 if.then29:                                        ; preds = %for.body26
-  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.125", ptr %node, i64 %17
-  %19 = load ptr, ptr %arrayidx31, align 8
-  %mOutOfCore.i.i.i.i.i41 = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i41 seq_cst, align 4
-  %tobool.i.not.i.i.i.i42 = icmp eq i32 %20, 0
+  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.125", ptr %node, i64 %16
+  %18 = load ptr, ptr %arrayidx31, align 8
+  %mOutOfCore.i.i.i.i.i41 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i41 seq_cst, align 4
+  %tobool.i.not.i.i.i.i42 = icmp eq i32 %19, 0
   br i1 %tobool.i.not.i.i.i.i42, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit47, label %if.then.i.i.i.i43
 
 if.then.i.i.i.i43:                                ; preds = %if.then29
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %18)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit47
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit47: ; preds = %if.then29, %if.then.i.i.i.i43
-  %21 = load ptr, ptr %19, align 8
-  %tobool.not.i.i.i44 = icmp eq ptr %21, null
-  %arrayidx.i.i.i45 = getelementptr inbounds i8, ptr %21, i64 2044
+  %20 = load ptr, ptr %18, align 8
+  %tobool.not.i.i.i44 = icmp eq ptr %20, null
+  %arrayidx.i.i.i45 = getelementptr inbounds i8, ptr %20, i64 2044
   %retval.0.i.i.i46 = select i1 %tobool.not.i.i.i44, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIfLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i45
-  %22 = load float, ptr %retval.0.i.i.i46, align 4
-  %cmp34 = fcmp olt float %22, 0.000000e+00
+  %21 = load float, ptr %retval.0.i.i.i46, align 4
+  %cmp34 = fcmp olt float %21, 0.000000e+00
   %frombool35 = zext i1 %cmp34 to i8
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit47, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit47 ], [ %yInside.071, %for.body26 ]
-  %23 = and i8 %yInside.1, 1
+  %22 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.068 = phi i8 [ %23, %if.end36 ], [ %zInside.1, %for.inc ]
-  %24 = add nuw nsw i64 %indvars.iv, %17
-  %shr.i48 = lshr i64 %24, 6
+  %zInside.068 = phi i8 [ %22, %if.end36 ], [ %zInside.1, %for.inc ]
+  %23 = add nuw nsw i64 %indvars.iv, %16
+  %shr.i48 = lshr i64 %23, 6
   %idxprom.i49 = and i64 %shr.i48, 67108863
   %arrayidx.i50 = getelementptr inbounds [64 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i49
-  %25 = load i64, ptr %arrayidx.i50, align 8
-  %26 = and i64 %24, 63
-  %shl.i53 = shl nuw i64 1, %26
-  %and2.i54 = and i64 %25, %shl.i53
+  %24 = load i64, ptr %arrayidx.i50, align 8
+  %25 = and i64 %23, 63
+  %shl.i53 = shl nuw i64 1, %25
+  %and2.i54 = and i64 %24, %shl.i53
   %cmp.i55.not = icmp eq i64 %and2.i54, 0
-  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.125", ptr %node, i64 %24
+  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.125", ptr %node, i64 %23
   br i1 %cmp.i55.not, label %if.else, label %if.then44
 
 if.then44:                                        ; preds = %for.body41
-  %27 = load ptr, ptr %arrayidx52, align 8
-  %mOutOfCore.i.i.i.i.i56 = getelementptr inbounds i8, ptr %27, i64 8
-  %28 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i56 seq_cst, align 4
-  %tobool.i.not.i.i.i.i57 = icmp eq i32 %28, 0
+  %26 = load ptr, ptr %arrayidx52, align 8
+  %mOutOfCore.i.i.i.i.i56 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i56 seq_cst, align 4
+  %tobool.i.not.i.i.i.i57 = icmp eq i32 %27, 0
   br i1 %tobool.i.not.i.i.i.i57, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit62, label %if.then.i.i.i.i58
 
 if.then.i.i.i.i58:                                ; preds = %if.then44
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %27)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %26)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit62
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit62: ; preds = %if.then44, %if.then.i.i.i.i58
-  %29 = load ptr, ptr %27, align 8
-  %tobool.not.i.i.i59 = icmp eq ptr %29, null
-  %arrayidx.i.i.i60 = getelementptr inbounds i8, ptr %29, i64 2044
+  %28 = load ptr, ptr %26, align 8
+  %tobool.not.i.i.i59 = icmp eq ptr %28, null
+  %arrayidx.i.i.i60 = getelementptr inbounds i8, ptr %28, i64 2044
   %retval.0.i.i.i61 = select i1 %tobool.not.i.i.i59, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIfLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i60
-  %30 = load float, ptr %retval.0.i.i.i61, align 4
-  %cmp49 = fcmp olt float %30, 0.000000e+00
+  %29 = load float, ptr %retval.0.i.i.i61, align 4
+  %cmp49 = fcmp olt float %29, 0.000000e+00
   %frombool50 = zext i1 %cmp49 to i8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body41
-  %31 = shl nuw nsw i8 %zInside.068, 2
-  %32 = and i8 %31, 4
-  %cond-lvalue.idx = zext nneg i8 %32 to i64
+  %30 = shl i8 %zInside.068, 2
+  %31 = and i8 %30, 4
+  %cond-lvalue.idx = zext nneg i8 %31 to i64
   %cond-lvalue = getelementptr inbounds i8, ptr %this, i64 %cond-lvalue.idx
-  %33 = load float, ptr %cond-lvalue, align 4
-  store float %33, ptr %arrayidx52, align 8
+  %32 = load float, ptr %cond-lvalue, align 4
+  store float %32, ptr %arrayidx52, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit62, %if.else
@@ -9842,8 +9840,8 @@ for.inc58:                                        ; preds = %for.inc55
   br i1 %cmp12.not, label %if.end78, label %for.body, !llvm.loop !91
 
 if.else61:                                        ; preds = %for.inc.i, %_ZNK7openvdb5v11_04util8NodeMaskILj4EE11findFirstOnEv.exit
-  %34 = load float, ptr %node, align 8
-  %cmp64 = fcmp olt float %34, 0.000000e+00
+  %33 = load float, ptr %node, align 8
+  %cmp64 = fcmp olt float %33, 0.000000e+00
   %cond.in.idx = select i1 %cmp64, i64 4, i64 0
   %cond.in = getelementptr inbounds i8, ptr %this, i64 %cond.in.idx
   %cond = load float, ptr %cond.in, align 4
@@ -10647,118 +10645,117 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv
 
 if.end21:                                         ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit, %for.body
   %xInside.1 = phi i8 [ %frombool20, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit ], [ %xInside.088, %for.body ]
-  %19 = and i8 %xInside.1, 1
   br label %for.body26
 
 for.body26:                                       ; preds = %if.end21, %for.inc55
   %indvars.iv95 = phi i64 [ 0, %if.end21 ], [ %indvars.iv.next96, %for.inc55 ]
-  %yInside.086 = phi i8 [ %19, %if.end21 ], [ %yInside.1, %for.inc55 ]
-  %20 = shl i64 %indvars.iv95, 5
-  %21 = add nuw nsw i64 %20, %10
-  %shr.i36 = lshr i64 %21, 6
+  %yInside.086 = phi i8 [ %xInside.1, %if.end21 ], [ %yInside.1, %for.inc55 ]
+  %19 = shl i64 %indvars.iv95, 5
+  %20 = add nuw nsw i64 %19, %10
+  %shr.i36 = lshr i64 %20, 6
   %idxprom.i37 = and i64 %shr.i36, 67108863
   %arrayidx.i38 = getelementptr inbounds [512 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i37
-  %22 = load i64, ptr %arrayidx.i38, align 8
-  %and.i39 = and i64 %20, 32
+  %21 = load i64, ptr %arrayidx.i38, align 8
+  %and.i39 = and i64 %19, 32
   %shl.i41 = shl nuw nsw i64 1, %and.i39
-  %and2.i42 = and i64 %22, %shl.i41
+  %and2.i42 = and i64 %21, %shl.i41
   %cmp.i43.not = icmp eq i64 %and2.i42, 0
   br i1 %cmp.i43.not, label %if.end36, label %if.then29
 
 if.then29:                                        ; preds = %for.body26
-  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion", ptr %node, i64 %21
-  %23 = load ptr, ptr %arrayidx31, align 8
-  %arrayidx.i.i.i44 = getelementptr inbounds i8, ptr %23, i64 33272
-  %24 = load i64, ptr %arrayidx.i.i.i44, align 8
-  %cmp.i.i.not.i45 = icmp sgt i64 %24, -1
-  %arrayidx5.i46 = getelementptr inbounds i8, ptr %23, i64 32760
+  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion", ptr %node, i64 %20
+  %22 = load ptr, ptr %arrayidx31, align 8
+  %arrayidx.i.i.i44 = getelementptr inbounds i8, ptr %22, i64 33272
+  %23 = load i64, ptr %arrayidx.i.i.i44, align 8
+  %cmp.i.i.not.i45 = icmp sgt i64 %23, -1
+  %arrayidx5.i46 = getelementptr inbounds i8, ptr %22, i64 32760
   br i1 %cmp.i.i.not.i45, label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit56, label %cond.true.i47
 
 cond.true.i47:                                    ; preds = %if.then29
-  %25 = load ptr, ptr %arrayidx5.i46, align 8
-  %mOutOfCore.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i48 seq_cst, align 4
-  %tobool.i.not.i.i.i.i.i49 = icmp eq i32 %26, 0
+  %24 = load ptr, ptr %arrayidx5.i46, align 8
+  %mOutOfCore.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i48 seq_cst, align 4
+  %tobool.i.not.i.i.i.i.i49 = icmp eq i32 %25, 0
   br i1 %tobool.i.not.i.i.i.i.i49, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i51, label %if.then.i.i.i.i.i50
 
 if.then.i.i.i.i.i50:                              ; preds = %cond.true.i47
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %25)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %24)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i51
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i51: ; preds = %if.then.i.i.i.i.i50, %cond.true.i47
-  %27 = load ptr, ptr %25, align 8
-  %tobool.not.i.i.i.i52 = icmp eq ptr %27, null
-  %arrayidx.i.i.i.i53 = getelementptr inbounds i8, ptr %27, i64 2044
+  %26 = load ptr, ptr %24, align 8
+  %tobool.not.i.i.i.i52 = icmp eq ptr %26, null
+  %arrayidx.i.i.i.i53 = getelementptr inbounds i8, ptr %26, i64 2044
   %retval.0.i.i.i.i54 = select i1 %tobool.not.i.i.i.i52, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIfLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i53
   br label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit56
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit56: ; preds = %if.then29, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i51
   %cond-lvalue.i55 = phi ptr [ %retval.0.i.i.i.i54, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i51 ], [ %arrayidx5.i46, %if.then29 ]
-  %28 = load float, ptr %cond-lvalue.i55, align 4
-  %cmp34 = fcmp olt float %28, 0.000000e+00
+  %27 = load float, ptr %cond-lvalue.i55, align 4
+  %cmp34 = fcmp olt float %27, 0.000000e+00
   %frombool35 = zext i1 %cmp34 to i8
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit56, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit56 ], [ %yInside.086, %for.body26 ]
-  %29 = and i8 %yInside.1, 1
+  %28 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.083 = phi i8 [ %29, %if.end36 ], [ %zInside.1, %for.inc ]
-  %30 = add nuw nsw i64 %indvars.iv, %21
-  %shr.i57 = lshr i64 %30, 6
+  %zInside.083 = phi i8 [ %28, %if.end36 ], [ %zInside.1, %for.inc ]
+  %29 = add nuw nsw i64 %indvars.iv, %20
+  %shr.i57 = lshr i64 %29, 6
   %idxprom.i58 = and i64 %shr.i57, 67108863
   %arrayidx.i59 = getelementptr inbounds [512 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i58
-  %31 = load i64, ptr %arrayidx.i59, align 8
-  %32 = and i64 %30, 63
-  %shl.i62 = shl nuw i64 1, %32
-  %and2.i63 = and i64 %31, %shl.i62
+  %30 = load i64, ptr %arrayidx.i59, align 8
+  %31 = and i64 %29, 63
+  %shl.i62 = shl nuw i64 1, %31
+  %and2.i63 = and i64 %30, %shl.i62
   %cmp.i64.not = icmp eq i64 %and2.i63, 0
-  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion", ptr %node, i64 %30
+  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion", ptr %node, i64 %29
   br i1 %cmp.i64.not, label %if.else, label %if.then44
 
 if.then44:                                        ; preds = %for.body41
-  %33 = load ptr, ptr %arrayidx52, align 8
-  %arrayidx.i.i.i65 = getelementptr inbounds i8, ptr %33, i64 33272
-  %34 = load i64, ptr %arrayidx.i.i.i65, align 8
-  %cmp.i.i.not.i66 = icmp sgt i64 %34, -1
-  %arrayidx5.i67 = getelementptr inbounds i8, ptr %33, i64 32760
+  %32 = load ptr, ptr %arrayidx52, align 8
+  %arrayidx.i.i.i65 = getelementptr inbounds i8, ptr %32, i64 33272
+  %33 = load i64, ptr %arrayidx.i.i.i65, align 8
+  %cmp.i.i.not.i66 = icmp sgt i64 %33, -1
+  %arrayidx5.i67 = getelementptr inbounds i8, ptr %32, i64 32760
   br i1 %cmp.i.i.not.i66, label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit77, label %cond.true.i68
 
 cond.true.i68:                                    ; preds = %if.then44
-  %35 = load ptr, ptr %arrayidx5.i67, align 8
-  %mOutOfCore.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %35, i64 8
-  %36 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i69 seq_cst, align 4
-  %tobool.i.not.i.i.i.i.i70 = icmp eq i32 %36, 0
+  %34 = load ptr, ptr %arrayidx5.i67, align 8
+  %mOutOfCore.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i69 seq_cst, align 4
+  %tobool.i.not.i.i.i.i.i70 = icmp eq i32 %35, 0
   br i1 %tobool.i.not.i.i.i.i.i70, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i72, label %if.then.i.i.i.i.i71
 
 if.then.i.i.i.i.i71:                              ; preds = %cond.true.i68
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %35)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %34)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i72
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i72: ; preds = %if.then.i.i.i.i.i71, %cond.true.i68
-  %37 = load ptr, ptr %35, align 8
-  %tobool.not.i.i.i.i73 = icmp eq ptr %37, null
-  %arrayidx.i.i.i.i74 = getelementptr inbounds i8, ptr %37, i64 2044
+  %36 = load ptr, ptr %34, align 8
+  %tobool.not.i.i.i.i73 = icmp eq ptr %36, null
+  %arrayidx.i.i.i.i74 = getelementptr inbounds i8, ptr %36, i64 2044
   %retval.0.i.i.i.i75 = select i1 %tobool.not.i.i.i.i73, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIfLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i74
   br label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit77
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit77: ; preds = %if.then44, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i72
   %cond-lvalue.i76 = phi ptr [ %retval.0.i.i.i.i75, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i72 ], [ %arrayidx5.i67, %if.then44 ]
-  %38 = load float, ptr %cond-lvalue.i76, align 4
-  %cmp49 = fcmp olt float %38, 0.000000e+00
+  %37 = load float, ptr %cond-lvalue.i76, align 4
+  %cmp49 = fcmp olt float %37, 0.000000e+00
   %frombool50 = zext i1 %cmp49 to i8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body41
-  %39 = shl nuw nsw i8 %zInside.083, 2
-  %40 = and i8 %39, 4
-  %cond-lvalue.idx = zext nneg i8 %40 to i64
+  %38 = shl i8 %zInside.083, 2
+  %39 = and i8 %38, 4
+  %cond-lvalue.idx = zext nneg i8 %39 to i64
   %cond-lvalue = getelementptr inbounds i8, ptr %this, i64 %cond-lvalue.idx
-  %41 = load float, ptr %cond-lvalue, align 4
-  store float %41, ptr %arrayidx52, align 8
+  %40 = load float, ptr %cond-lvalue, align 4
+  store float %40, ptr %arrayidx52, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit77, %if.else
@@ -10778,8 +10775,8 @@ for.inc58:                                        ; preds = %for.inc55
   br i1 %cmp12.not, label %if.end78, label %for.body, !llvm.loop !98
 
 if.else61:                                        ; preds = %for.inc.i, %_ZNK7openvdb5v11_04util8NodeMaskILj5EE11findFirstOnEv.exit
-  %42 = load float, ptr %node, align 8
-  %cmp64 = fcmp olt float %42, 0.000000e+00
+  %41 = load float, ptr %node, align 8
+  %cmp64 = fcmp olt float %41, 0.000000e+00
   %cond.in.idx = select i1 %cmp64, i64 4, i64 0
   %cond.in = getelementptr inbounds i8, ptr %this, i64 %cond.in.idx
   %cond = load float, ptr %cond.in, align 4
@@ -18070,63 +18067,62 @@ if.then15:                                        ; preds = %for.body
 
 if.end20:                                         ; preds = %if.then15, %for.body
   %xInside.1 = phi i8 [ %frombool19, %if.then15 ], [ %xInside.053, %for.body ]
-  %11 = and i8 %xInside.1, 1
   br label %for.body25
 
 for.body25:                                       ; preds = %if.end20, %for.inc50
   %indvars.iv59 = phi i64 [ 0, %if.end20 ], [ %indvars.iv.next60, %for.inc50 ]
-  %yInside.051 = phi i8 [ %11, %if.end20 ], [ %yInside.1, %for.inc50 ]
-  %12 = shl i64 %indvars.iv59, 3
-  %13 = add nuw nsw i64 %12, %8
-  %shr.i27 = lshr i64 %13, 6
+  %yInside.051 = phi i8 [ %xInside.1, %if.end20 ], [ %yInside.1, %for.inc50 ]
+  %11 = shl i64 %indvars.iv59, 3
+  %12 = add nuw nsw i64 %11, %8
+  %shr.i27 = lshr i64 %12, 6
   %idxprom.i28 = and i64 %shr.i27, 67108863
   %arrayidx.i29 = getelementptr inbounds [8 x i64], ptr %mValueMask.i, i64 0, i64 %idxprom.i28
-  %14 = load i64, ptr %arrayidx.i29, align 8
-  %shl.i32 = shl nuw nsw i64 1, %12
-  %and2.i33 = and i64 %14, %shl.i32
+  %13 = load i64, ptr %arrayidx.i29, align 8
+  %shl.i32 = shl nuw nsw i64 1, %11
+  %and2.i33 = and i64 %13, %shl.i32
   %cmp.i34.not = icmp eq i64 %and2.i33, 0
   br i1 %cmp.i34.not, label %if.end33, label %if.then28
 
 if.then28:                                        ; preds = %for.body25
-  %arrayidx30 = getelementptr inbounds double, ptr %retval.0.i.i.i, i64 %13
-  %15 = load double, ptr %arrayidx30, align 8
-  %cmp31 = fcmp olt double %15, 0.000000e+00
+  %arrayidx30 = getelementptr inbounds double, ptr %retval.0.i.i.i, i64 %12
+  %14 = load double, ptr %arrayidx30, align 8
+  %cmp31 = fcmp olt double %14, 0.000000e+00
   %frombool32 = zext i1 %cmp31 to i8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then28, %for.body25
   %yInside.1 = phi i8 [ %frombool32, %if.then28 ], [ %yInside.051, %for.body25 ]
-  %16 = and i8 %yInside.1, 1
+  %15 = and i8 %yInside.1, 1
   br label %for.body38
 
 for.body38:                                       ; preds = %if.end33, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end33 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.048 = phi i8 [ %16, %if.end33 ], [ %zInside.1, %for.inc ]
-  %17 = add nuw nsw i64 %indvars.iv, %13
-  %shr.i35 = lshr i64 %17, 6
+  %zInside.048 = phi i8 [ %15, %if.end33 ], [ %zInside.1, %for.inc ]
+  %16 = add nuw nsw i64 %indvars.iv, %12
+  %shr.i35 = lshr i64 %16, 6
   %idxprom.i36 = and i64 %shr.i35, 67108863
   %arrayidx.i37 = getelementptr inbounds [8 x i64], ptr %mValueMask.i, i64 0, i64 %idxprom.i36
-  %18 = load i64, ptr %arrayidx.i37, align 8
-  %19 = and i64 %17, 63
-  %shl.i40 = shl nuw i64 1, %19
-  %and2.i41 = and i64 %18, %shl.i40
+  %17 = load i64, ptr %arrayidx.i37, align 8
+  %18 = and i64 %16, 63
+  %shl.i40 = shl nuw i64 1, %18
+  %and2.i41 = and i64 %17, %shl.i40
   %cmp.i42.not = icmp eq i64 %and2.i41, 0
   br i1 %cmp.i42.not, label %if.else, label %if.then41
 
 if.then41:                                        ; preds = %for.body38
-  %arrayidx43 = getelementptr inbounds double, ptr %retval.0.i.i.i, i64 %17
-  %20 = load double, ptr %arrayidx43, align 8
-  %cmp44 = fcmp olt double %20, 0.000000e+00
+  %arrayidx43 = getelementptr inbounds double, ptr %retval.0.i.i.i, i64 %16
+  %19 = load double, ptr %arrayidx43, align 8
+  %cmp44 = fcmp olt double %19, 0.000000e+00
   %frombool45 = zext i1 %cmp44 to i8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body38
-  %21 = shl nuw nsw i8 %zInside.048, 3
-  %22 = and i8 %21, 8
-  %cond.in.idx = zext nneg i8 %22 to i64
+  %20 = shl i8 %zInside.048, 3
+  %21 = and i8 %20, 8
+  %cond.in.idx = zext nneg i8 %21 to i64
   %cond.in = getelementptr inbounds i8, ptr %this, i64 %cond.in.idx
   %cond = load double, ptr %cond.in, align 8
-  %arrayidx48 = getelementptr inbounds double, ptr %retval.0.i.i.i, i64 %17
+  %arrayidx48 = getelementptr inbounds double, ptr %retval.0.i.i.i, i64 %16
   store double %cond, ptr %arrayidx48, align 8
   br label %for.inc
 
@@ -18147,12 +18143,12 @@ for.inc53:                                        ; preds = %for.inc50
   br i1 %cmp13.not, label %if.end64, label %for.body, !llvm.loop !168
 
 if.else56:                                        ; preds = %for.inc.i, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE11findFirstOnEv.exit
-  %23 = load double, ptr %retval.0.i.i.i, align 8
-  %cmp58 = fcmp olt double %23, 0.000000e+00
+  %22 = load double, ptr %retval.0.i.i.i, align 8
+  %cmp58 = fcmp olt double %22, 0.000000e+00
   %cond-lvalue.idx = select i1 %cmp58, i64 8, i64 0
   %cond-lvalue = getelementptr inbounds i8, ptr %this, i64 %cond-lvalue.idx
-  %24 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i seq_cst, align 8
-  %tobool.i.i.not.i.i = icmp eq i32 %24, 0
+  %23 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i seq_cst, align 8
+  %tobool.i.i.not.i.i = icmp eq i32 %23, 0
   %.pre.i.i = load ptr, ptr %leaf, align 8
   %cmp.not.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %tobool.i.i.not.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EE14detachFromFileEv.exit.i.i, label %if.then.i.i.i
@@ -20132,94 +20128,93 @@ _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit: ; preds = %if.then
 
 if.end21:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit, %for.body
   %xInside.1 = phi i8 [ %frombool20, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit ], [ %xInside.073, %for.body ]
-  %15 = and i8 %xInside.1, 1
   br label %for.body26
 
 for.body26:                                       ; preds = %if.end21, %for.inc55
   %indvars.iv80 = phi i64 [ 0, %if.end21 ], [ %indvars.iv.next81, %for.inc55 ]
-  %yInside.071 = phi i8 [ %15, %if.end21 ], [ %yInside.1, %for.inc55 ]
-  %16 = shl i64 %indvars.iv80, 4
-  %17 = add nuw nsw i64 %16, %8
-  %shr.i33 = lshr i64 %17, 6
+  %yInside.071 = phi i8 [ %xInside.1, %if.end21 ], [ %yInside.1, %for.inc55 ]
+  %15 = shl i64 %indvars.iv80, 4
+  %16 = add nuw nsw i64 %15, %8
+  %shr.i33 = lshr i64 %16, 6
   %idxprom.i34 = and i64 %shr.i33, 67108863
   %arrayidx.i35 = getelementptr inbounds [64 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i34
-  %18 = load i64, ptr %arrayidx.i35, align 8
-  %and.i36 = and i64 %16, 48
+  %17 = load i64, ptr %arrayidx.i35, align 8
+  %and.i36 = and i64 %15, 48
   %shl.i38 = shl nuw nsw i64 1, %and.i36
-  %and2.i39 = and i64 %18, %shl.i38
+  %and2.i39 = and i64 %17, %shl.i38
   %cmp.i40.not = icmp eq i64 %and2.i39, 0
   br i1 %cmp.i40.not, label %if.end36, label %if.then29
 
 if.then29:                                        ; preds = %for.body26
-  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.314", ptr %node, i64 %17
-  %19 = load ptr, ptr %arrayidx31, align 8
-  %mOutOfCore.i.i.i.i.i41 = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i41 seq_cst, align 4
-  %tobool.i.not.i.i.i.i42 = icmp eq i32 %20, 0
+  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.314", ptr %node, i64 %16
+  %18 = load ptr, ptr %arrayidx31, align 8
+  %mOutOfCore.i.i.i.i.i41 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i41 seq_cst, align 4
+  %tobool.i.not.i.i.i.i42 = icmp eq i32 %19, 0
   br i1 %tobool.i.not.i.i.i.i42, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit47, label %if.then.i.i.i.i43
 
 if.then.i.i.i.i43:                                ; preds = %if.then29
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %18)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit47
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit47: ; preds = %if.then29, %if.then.i.i.i.i43
-  %21 = load ptr, ptr %19, align 8
-  %tobool.not.i.i.i44 = icmp eq ptr %21, null
-  %arrayidx.i.i.i45 = getelementptr inbounds i8, ptr %21, i64 4088
+  %20 = load ptr, ptr %18, align 8
+  %tobool.not.i.i.i44 = icmp eq ptr %20, null
+  %arrayidx.i.i.i45 = getelementptr inbounds i8, ptr %20, i64 4088
   %retval.0.i.i.i46 = select i1 %tobool.not.i.i.i44, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIdLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i45
-  %22 = load double, ptr %retval.0.i.i.i46, align 8
-  %cmp34 = fcmp olt double %22, 0.000000e+00
+  %21 = load double, ptr %retval.0.i.i.i46, align 8
+  %cmp34 = fcmp olt double %21, 0.000000e+00
   %frombool35 = zext i1 %cmp34 to i8
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit47, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit47 ], [ %yInside.071, %for.body26 ]
-  %23 = and i8 %yInside.1, 1
+  %22 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.068 = phi i8 [ %23, %if.end36 ], [ %zInside.1, %for.inc ]
-  %24 = add nuw nsw i64 %indvars.iv, %17
-  %shr.i48 = lshr i64 %24, 6
+  %zInside.068 = phi i8 [ %22, %if.end36 ], [ %zInside.1, %for.inc ]
+  %23 = add nuw nsw i64 %indvars.iv, %16
+  %shr.i48 = lshr i64 %23, 6
   %idxprom.i49 = and i64 %shr.i48, 67108863
   %arrayidx.i50 = getelementptr inbounds [64 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i49
-  %25 = load i64, ptr %arrayidx.i50, align 8
-  %26 = and i64 %24, 63
-  %shl.i53 = shl nuw i64 1, %26
-  %and2.i54 = and i64 %25, %shl.i53
+  %24 = load i64, ptr %arrayidx.i50, align 8
+  %25 = and i64 %23, 63
+  %shl.i53 = shl nuw i64 1, %25
+  %and2.i54 = and i64 %24, %shl.i53
   %cmp.i55.not = icmp eq i64 %and2.i54, 0
-  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.314", ptr %node, i64 %24
+  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.314", ptr %node, i64 %23
   br i1 %cmp.i55.not, label %if.else, label %if.then44
 
 if.then44:                                        ; preds = %for.body41
-  %27 = load ptr, ptr %arrayidx52, align 8
-  %mOutOfCore.i.i.i.i.i56 = getelementptr inbounds i8, ptr %27, i64 8
-  %28 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i56 seq_cst, align 4
-  %tobool.i.not.i.i.i.i57 = icmp eq i32 %28, 0
+  %26 = load ptr, ptr %arrayidx52, align 8
+  %mOutOfCore.i.i.i.i.i56 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i56 seq_cst, align 4
+  %tobool.i.not.i.i.i.i57 = icmp eq i32 %27, 0
   br i1 %tobool.i.not.i.i.i.i57, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit62, label %if.then.i.i.i.i58
 
 if.then.i.i.i.i58:                                ; preds = %if.then44
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %27)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %26)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit62
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit62: ; preds = %if.then44, %if.then.i.i.i.i58
-  %29 = load ptr, ptr %27, align 8
-  %tobool.not.i.i.i59 = icmp eq ptr %29, null
-  %arrayidx.i.i.i60 = getelementptr inbounds i8, ptr %29, i64 4088
+  %28 = load ptr, ptr %26, align 8
+  %tobool.not.i.i.i59 = icmp eq ptr %28, null
+  %arrayidx.i.i.i60 = getelementptr inbounds i8, ptr %28, i64 4088
   %retval.0.i.i.i61 = select i1 %tobool.not.i.i.i59, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIdLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i60
-  %30 = load double, ptr %retval.0.i.i.i61, align 8
-  %cmp49 = fcmp olt double %30, 0.000000e+00
+  %29 = load double, ptr %retval.0.i.i.i61, align 8
+  %cmp49 = fcmp olt double %29, 0.000000e+00
   %frombool50 = zext i1 %cmp49 to i8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body41
-  %31 = shl nuw nsw i8 %zInside.068, 3
-  %32 = and i8 %31, 8
-  %cond-lvalue.idx = zext nneg i8 %32 to i64
+  %30 = shl i8 %zInside.068, 3
+  %31 = and i8 %30, 8
+  %cond-lvalue.idx = zext nneg i8 %31 to i64
   %cond-lvalue = getelementptr inbounds i8, ptr %this, i64 %cond-lvalue.idx
-  %33 = load double, ptr %cond-lvalue, align 8
-  store double %33, ptr %arrayidx52, align 8
+  %32 = load double, ptr %cond-lvalue, align 8
+  store double %32, ptr %arrayidx52, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit62, %if.else
@@ -20239,8 +20234,8 @@ for.inc58:                                        ; preds = %for.inc55
   br i1 %cmp12.not, label %if.end78, label %for.body, !llvm.loop !177
 
 if.else61:                                        ; preds = %for.inc.i, %_ZNK7openvdb5v11_04util8NodeMaskILj4EE11findFirstOnEv.exit
-  %34 = load double, ptr %node, align 8
-  %cmp64 = fcmp olt double %34, 0.000000e+00
+  %33 = load double, ptr %node, align 8
+  %cmp64 = fcmp olt double %33, 0.000000e+00
   %cond.in.idx = select i1 %cmp64, i64 8, i64 0
   %cond.in = getelementptr inbounds i8, ptr %this, i64 %cond.in.idx
   %cond = load double, ptr %cond.in, align 8
@@ -21044,118 +21039,117 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv
 
 if.end21:                                         ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit, %for.body
   %xInside.1 = phi i8 [ %frombool20, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit ], [ %xInside.088, %for.body ]
-  %19 = and i8 %xInside.1, 1
   br label %for.body26
 
 for.body26:                                       ; preds = %if.end21, %for.inc55
   %indvars.iv95 = phi i64 [ 0, %if.end21 ], [ %indvars.iv.next96, %for.inc55 ]
-  %yInside.086 = phi i8 [ %19, %if.end21 ], [ %yInside.1, %for.inc55 ]
-  %20 = shl i64 %indvars.iv95, 5
-  %21 = add nuw nsw i64 %20, %10
-  %shr.i36 = lshr i64 %21, 6
+  %yInside.086 = phi i8 [ %xInside.1, %if.end21 ], [ %yInside.1, %for.inc55 ]
+  %19 = shl i64 %indvars.iv95, 5
+  %20 = add nuw nsw i64 %19, %10
+  %shr.i36 = lshr i64 %20, 6
   %idxprom.i37 = and i64 %shr.i36, 67108863
   %arrayidx.i38 = getelementptr inbounds [512 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i37
-  %22 = load i64, ptr %arrayidx.i38, align 8
-  %and.i39 = and i64 %20, 32
+  %21 = load i64, ptr %arrayidx.i38, align 8
+  %and.i39 = and i64 %19, 32
   %shl.i41 = shl nuw nsw i64 1, %and.i39
-  %and2.i42 = and i64 %22, %shl.i41
+  %and2.i42 = and i64 %21, %shl.i41
   %cmp.i43.not = icmp eq i64 %and2.i42, 0
   br i1 %cmp.i43.not, label %if.end36, label %if.then29
 
 if.then29:                                        ; preds = %for.body26
-  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.303", ptr %node, i64 %21
-  %23 = load ptr, ptr %arrayidx31, align 8
-  %arrayidx.i.i.i44 = getelementptr inbounds i8, ptr %23, i64 33272
-  %24 = load i64, ptr %arrayidx.i.i.i44, align 8
-  %cmp.i.i.not.i45 = icmp sgt i64 %24, -1
-  %arrayidx5.i46 = getelementptr inbounds i8, ptr %23, i64 32760
+  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.303", ptr %node, i64 %20
+  %22 = load ptr, ptr %arrayidx31, align 8
+  %arrayidx.i.i.i44 = getelementptr inbounds i8, ptr %22, i64 33272
+  %23 = load i64, ptr %arrayidx.i.i.i44, align 8
+  %cmp.i.i.not.i45 = icmp sgt i64 %23, -1
+  %arrayidx5.i46 = getelementptr inbounds i8, ptr %22, i64 32760
   br i1 %cmp.i.i.not.i45, label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit56, label %cond.true.i47
 
 cond.true.i47:                                    ; preds = %if.then29
-  %25 = load ptr, ptr %arrayidx5.i46, align 8
-  %mOutOfCore.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i48 seq_cst, align 4
-  %tobool.i.not.i.i.i.i.i49 = icmp eq i32 %26, 0
+  %24 = load ptr, ptr %arrayidx5.i46, align 8
+  %mOutOfCore.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i48 seq_cst, align 4
+  %tobool.i.not.i.i.i.i.i49 = icmp eq i32 %25, 0
   br i1 %tobool.i.not.i.i.i.i.i49, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i51, label %if.then.i.i.i.i.i50
 
 if.then.i.i.i.i.i50:                              ; preds = %cond.true.i47
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %25)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %24)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i51
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i51: ; preds = %if.then.i.i.i.i.i50, %cond.true.i47
-  %27 = load ptr, ptr %25, align 8
-  %tobool.not.i.i.i.i52 = icmp eq ptr %27, null
-  %arrayidx.i.i.i.i53 = getelementptr inbounds i8, ptr %27, i64 4088
+  %26 = load ptr, ptr %24, align 8
+  %tobool.not.i.i.i.i52 = icmp eq ptr %26, null
+  %arrayidx.i.i.i.i53 = getelementptr inbounds i8, ptr %26, i64 4088
   %retval.0.i.i.i.i54 = select i1 %tobool.not.i.i.i.i52, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIdLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i53
   br label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit56
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit56: ; preds = %if.then29, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i51
   %cond-lvalue.i55 = phi ptr [ %retval.0.i.i.i.i54, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i51 ], [ %arrayidx5.i46, %if.then29 ]
-  %28 = load double, ptr %cond-lvalue.i55, align 8
-  %cmp34 = fcmp olt double %28, 0.000000e+00
+  %27 = load double, ptr %cond-lvalue.i55, align 8
+  %cmp34 = fcmp olt double %27, 0.000000e+00
   %frombool35 = zext i1 %cmp34 to i8
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit56, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit56 ], [ %yInside.086, %for.body26 ]
-  %29 = and i8 %yInside.1, 1
+  %28 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.083 = phi i8 [ %29, %if.end36 ], [ %zInside.1, %for.inc ]
-  %30 = add nuw nsw i64 %indvars.iv, %21
-  %shr.i57 = lshr i64 %30, 6
+  %zInside.083 = phi i8 [ %28, %if.end36 ], [ %zInside.1, %for.inc ]
+  %29 = add nuw nsw i64 %indvars.iv, %20
+  %shr.i57 = lshr i64 %29, 6
   %idxprom.i58 = and i64 %shr.i57, 67108863
   %arrayidx.i59 = getelementptr inbounds [512 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i58
-  %31 = load i64, ptr %arrayidx.i59, align 8
-  %32 = and i64 %30, 63
-  %shl.i62 = shl nuw i64 1, %32
-  %and2.i63 = and i64 %31, %shl.i62
+  %30 = load i64, ptr %arrayidx.i59, align 8
+  %31 = and i64 %29, 63
+  %shl.i62 = shl nuw i64 1, %31
+  %and2.i63 = and i64 %30, %shl.i62
   %cmp.i64.not = icmp eq i64 %and2.i63, 0
-  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.303", ptr %node, i64 %30
+  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.303", ptr %node, i64 %29
   br i1 %cmp.i64.not, label %if.else, label %if.then44
 
 if.then44:                                        ; preds = %for.body41
-  %33 = load ptr, ptr %arrayidx52, align 8
-  %arrayidx.i.i.i65 = getelementptr inbounds i8, ptr %33, i64 33272
-  %34 = load i64, ptr %arrayidx.i.i.i65, align 8
-  %cmp.i.i.not.i66 = icmp sgt i64 %34, -1
-  %arrayidx5.i67 = getelementptr inbounds i8, ptr %33, i64 32760
+  %32 = load ptr, ptr %arrayidx52, align 8
+  %arrayidx.i.i.i65 = getelementptr inbounds i8, ptr %32, i64 33272
+  %33 = load i64, ptr %arrayidx.i.i.i65, align 8
+  %cmp.i.i.not.i66 = icmp sgt i64 %33, -1
+  %arrayidx5.i67 = getelementptr inbounds i8, ptr %32, i64 32760
   br i1 %cmp.i.i.not.i66, label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit77, label %cond.true.i68
 
 cond.true.i68:                                    ; preds = %if.then44
-  %35 = load ptr, ptr %arrayidx5.i67, align 8
-  %mOutOfCore.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %35, i64 8
-  %36 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i69 seq_cst, align 4
-  %tobool.i.not.i.i.i.i.i70 = icmp eq i32 %36, 0
+  %34 = load ptr, ptr %arrayidx5.i67, align 8
+  %mOutOfCore.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i69 seq_cst, align 4
+  %tobool.i.not.i.i.i.i.i70 = icmp eq i32 %35, 0
   br i1 %tobool.i.not.i.i.i.i.i70, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i72, label %if.then.i.i.i.i.i71
 
 if.then.i.i.i.i.i71:                              ; preds = %cond.true.i68
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %35)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %34)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i72
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i72: ; preds = %if.then.i.i.i.i.i71, %cond.true.i68
-  %37 = load ptr, ptr %35, align 8
-  %tobool.not.i.i.i.i73 = icmp eq ptr %37, null
-  %arrayidx.i.i.i.i74 = getelementptr inbounds i8, ptr %37, i64 4088
+  %36 = load ptr, ptr %34, align 8
+  %tobool.not.i.i.i.i73 = icmp eq ptr %36, null
+  %arrayidx.i.i.i.i74 = getelementptr inbounds i8, ptr %36, i64 4088
   %retval.0.i.i.i.i75 = select i1 %tobool.not.i.i.i.i73, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIdLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i74
   br label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit77
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit77: ; preds = %if.then44, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i72
   %cond-lvalue.i76 = phi ptr [ %retval.0.i.i.i.i75, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i72 ], [ %arrayidx5.i67, %if.then44 ]
-  %38 = load double, ptr %cond-lvalue.i76, align 8
-  %cmp49 = fcmp olt double %38, 0.000000e+00
+  %37 = load double, ptr %cond-lvalue.i76, align 8
+  %cmp49 = fcmp olt double %37, 0.000000e+00
   %frombool50 = zext i1 %cmp49 to i8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body41
-  %39 = shl nuw nsw i8 %zInside.083, 3
-  %40 = and i8 %39, 8
-  %cond-lvalue.idx = zext nneg i8 %40 to i64
+  %38 = shl i8 %zInside.083, 3
+  %39 = and i8 %38, 8
+  %cond-lvalue.idx = zext nneg i8 %39 to i64
   %cond-lvalue = getelementptr inbounds i8, ptr %this, i64 %cond-lvalue.idx
-  %41 = load double, ptr %cond-lvalue, align 8
-  store double %41, ptr %arrayidx52, align 8
+  %40 = load double, ptr %cond-lvalue, align 8
+  store double %40, ptr %arrayidx52, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit77, %if.else
@@ -21175,8 +21169,8 @@ for.inc58:                                        ; preds = %for.inc55
   br i1 %cmp12.not, label %if.end78, label %for.body, !llvm.loop !184
 
 if.else61:                                        ; preds = %for.inc.i, %_ZNK7openvdb5v11_04util8NodeMaskILj5EE11findFirstOnEv.exit
-  %42 = load double, ptr %node, align 8
-  %cmp64 = fcmp olt double %42, 0.000000e+00
+  %41 = load double, ptr %node, align 8
+  %cmp64 = fcmp olt double %41, 0.000000e+00
   %cond.in.idx = select i1 %cmp64, i64 8, i64 0
   %cond.in = getelementptr inbounds i8, ptr %this, i64 %cond.in.idx
   %cond = load double, ptr %cond.in, align 8
@@ -24253,63 +24247,62 @@ if.then15:                                        ; preds = %for.body
 
 if.end20:                                         ; preds = %if.then15, %for.body
   %xInside.1 = phi i8 [ %frombool19, %if.then15 ], [ %xInside.053, %for.body ]
-  %11 = and i8 %xInside.1, 1
   br label %for.body25
 
 for.body25:                                       ; preds = %if.end20, %for.inc50
   %indvars.iv59 = phi i64 [ 0, %if.end20 ], [ %indvars.iv.next60, %for.inc50 ]
-  %yInside.051 = phi i8 [ %11, %if.end20 ], [ %yInside.1, %for.inc50 ]
-  %12 = shl i64 %indvars.iv59, 3
-  %13 = add nuw nsw i64 %12, %8
-  %shr.i27 = lshr i64 %13, 6
+  %yInside.051 = phi i8 [ %xInside.1, %if.end20 ], [ %yInside.1, %for.inc50 ]
+  %11 = shl i64 %indvars.iv59, 3
+  %12 = add nuw nsw i64 %11, %8
+  %shr.i27 = lshr i64 %12, 6
   %idxprom.i28 = and i64 %shr.i27, 67108863
   %arrayidx.i29 = getelementptr inbounds [8 x i64], ptr %mValueMask.i, i64 0, i64 %idxprom.i28
-  %14 = load i64, ptr %arrayidx.i29, align 8
-  %shl.i32 = shl nuw nsw i64 1, %12
-  %and2.i33 = and i64 %14, %shl.i32
+  %13 = load i64, ptr %arrayidx.i29, align 8
+  %shl.i32 = shl nuw nsw i64 1, %11
+  %and2.i33 = and i64 %13, %shl.i32
   %cmp.i34.not = icmp eq i64 %and2.i33, 0
   br i1 %cmp.i34.not, label %if.end33, label %if.then28
 
 if.then28:                                        ; preds = %for.body25
-  %arrayidx30 = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %13
-  %15 = load float, ptr %arrayidx30, align 4
-  %cmp31 = fcmp olt float %15, 0.000000e+00
+  %arrayidx30 = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %12
+  %14 = load float, ptr %arrayidx30, align 4
+  %cmp31 = fcmp olt float %14, 0.000000e+00
   %frombool32 = zext i1 %cmp31 to i8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then28, %for.body25
   %yInside.1 = phi i8 [ %frombool32, %if.then28 ], [ %yInside.051, %for.body25 ]
-  %16 = and i8 %yInside.1, 1
+  %15 = and i8 %yInside.1, 1
   br label %for.body38
 
 for.body38:                                       ; preds = %if.end33, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end33 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.048 = phi i8 [ %16, %if.end33 ], [ %zInside.1, %for.inc ]
-  %17 = add nuw nsw i64 %indvars.iv, %13
-  %shr.i35 = lshr i64 %17, 6
+  %zInside.048 = phi i8 [ %15, %if.end33 ], [ %zInside.1, %for.inc ]
+  %16 = add nuw nsw i64 %indvars.iv, %12
+  %shr.i35 = lshr i64 %16, 6
   %idxprom.i36 = and i64 %shr.i35, 67108863
   %arrayidx.i37 = getelementptr inbounds [8 x i64], ptr %mValueMask.i, i64 0, i64 %idxprom.i36
-  %18 = load i64, ptr %arrayidx.i37, align 8
-  %19 = and i64 %17, 63
-  %shl.i40 = shl nuw i64 1, %19
-  %and2.i41 = and i64 %18, %shl.i40
+  %17 = load i64, ptr %arrayidx.i37, align 8
+  %18 = and i64 %16, 63
+  %shl.i40 = shl nuw i64 1, %18
+  %and2.i41 = and i64 %17, %shl.i40
   %cmp.i42.not = icmp eq i64 %and2.i41, 0
   br i1 %cmp.i42.not, label %if.else, label %if.then41
 
 if.then41:                                        ; preds = %for.body38
-  %arrayidx43 = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %17
-  %20 = load float, ptr %arrayidx43, align 4
-  %cmp44 = fcmp olt float %20, 0.000000e+00
+  %arrayidx43 = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %16
+  %19 = load float, ptr %arrayidx43, align 4
+  %cmp44 = fcmp olt float %19, 0.000000e+00
   %frombool45 = zext i1 %cmp44 to i8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body38
-  %21 = shl nuw nsw i8 %zInside.048, 2
-  %22 = and i8 %21, 4
-  %cond.in.idx = zext nneg i8 %22 to i64
+  %20 = shl i8 %zInside.048, 2
+  %21 = and i8 %20, 4
+  %cond.in.idx = zext nneg i8 %21 to i64
   %cond.in = getelementptr inbounds i8, ptr %this, i64 %cond.in.idx
   %cond = load float, ptr %cond.in, align 4
-  %arrayidx48 = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %17
+  %arrayidx48 = getelementptr inbounds float, ptr %retval.0.i.i.i, i64 %16
   store float %cond, ptr %arrayidx48, align 4
   br label %for.inc
 
@@ -24330,12 +24323,12 @@ for.inc53:                                        ; preds = %for.inc50
   br i1 %cmp13.not, label %if.end64, label %for.body, !llvm.loop !217
 
 if.else56:                                        ; preds = %for.inc.i, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE11findFirstOnEv.exit
-  %23 = load float, ptr %retval.0.i.i.i, align 4
-  %cmp58 = fcmp olt float %23, 0.000000e+00
+  %22 = load float, ptr %retval.0.i.i.i, align 4
+  %cmp58 = fcmp olt float %22, 0.000000e+00
   %cond-lvalue.idx = select i1 %cmp58, i64 4, i64 0
   %cond-lvalue = getelementptr inbounds i8, ptr %this, i64 %cond-lvalue.idx
-  %24 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i seq_cst, align 8
-  %tobool.i.i.not.i.i = icmp eq i32 %24, 0
+  %23 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i seq_cst, align 8
+  %tobool.i.i.not.i.i = icmp eq i32 %23, 0
   %.pre.i.i = load ptr, ptr %leaf, align 8
   %cmp.not.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %tobool.i.i.not.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIfLj3EE14detachFromFileEv.exit.i.i, label %if.then.i.i.i
@@ -25135,94 +25128,93 @@ _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit: ; preds = %if.then
 
 if.end21:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit, %for.body
   %xInside.1 = phi i8 [ %frombool20, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit ], [ %xInside.073, %for.body ]
-  %15 = and i8 %xInside.1, 1
   br label %for.body26
 
 for.body26:                                       ; preds = %if.end21, %for.inc55
   %indvars.iv80 = phi i64 [ 0, %if.end21 ], [ %indvars.iv.next81, %for.inc55 ]
-  %yInside.071 = phi i8 [ %15, %if.end21 ], [ %yInside.1, %for.inc55 ]
-  %16 = shl i64 %indvars.iv80, 4
-  %17 = add nuw nsw i64 %16, %8
-  %shr.i33 = lshr i64 %17, 6
+  %yInside.071 = phi i8 [ %xInside.1, %if.end21 ], [ %yInside.1, %for.inc55 ]
+  %15 = shl i64 %indvars.iv80, 4
+  %16 = add nuw nsw i64 %15, %8
+  %shr.i33 = lshr i64 %16, 6
   %idxprom.i34 = and i64 %shr.i33, 67108863
   %arrayidx.i35 = getelementptr inbounds [64 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i34
-  %18 = load i64, ptr %arrayidx.i35, align 8
-  %and.i36 = and i64 %16, 48
+  %17 = load i64, ptr %arrayidx.i35, align 8
+  %and.i36 = and i64 %15, 48
   %shl.i38 = shl nuw nsw i64 1, %and.i36
-  %and2.i39 = and i64 %18, %shl.i38
+  %and2.i39 = and i64 %17, %shl.i38
   %cmp.i40.not = icmp eq i64 %and2.i39, 0
   br i1 %cmp.i40.not, label %if.end36, label %if.then29
 
 if.then29:                                        ; preds = %for.body26
-  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.125", ptr %node, i64 %17
-  %19 = load ptr, ptr %arrayidx31, align 8
-  %mOutOfCore.i.i.i.i.i41 = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i41 seq_cst, align 4
-  %tobool.i.not.i.i.i.i42 = icmp eq i32 %20, 0
+  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.125", ptr %node, i64 %16
+  %18 = load ptr, ptr %arrayidx31, align 8
+  %mOutOfCore.i.i.i.i.i41 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i41 seq_cst, align 4
+  %tobool.i.not.i.i.i.i42 = icmp eq i32 %19, 0
   br i1 %tobool.i.not.i.i.i.i42, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit47, label %if.then.i.i.i.i43
 
 if.then.i.i.i.i43:                                ; preds = %if.then29
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %18)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit47
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit47: ; preds = %if.then29, %if.then.i.i.i.i43
-  %21 = load ptr, ptr %19, align 8
-  %tobool.not.i.i.i44 = icmp eq ptr %21, null
-  %arrayidx.i.i.i45 = getelementptr inbounds i8, ptr %21, i64 2044
+  %20 = load ptr, ptr %18, align 8
+  %tobool.not.i.i.i44 = icmp eq ptr %20, null
+  %arrayidx.i.i.i45 = getelementptr inbounds i8, ptr %20, i64 2044
   %retval.0.i.i.i46 = select i1 %tobool.not.i.i.i44, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIfLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i45
-  %22 = load float, ptr %retval.0.i.i.i46, align 4
-  %cmp34 = fcmp olt float %22, 0.000000e+00
+  %21 = load float, ptr %retval.0.i.i.i46, align 4
+  %cmp34 = fcmp olt float %21, 0.000000e+00
   %frombool35 = zext i1 %cmp34 to i8
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit47, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit47 ], [ %yInside.071, %for.body26 ]
-  %23 = and i8 %yInside.1, 1
+  %22 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.068 = phi i8 [ %23, %if.end36 ], [ %zInside.1, %for.inc ]
-  %24 = add nuw nsw i64 %indvars.iv, %17
-  %shr.i48 = lshr i64 %24, 6
+  %zInside.068 = phi i8 [ %22, %if.end36 ], [ %zInside.1, %for.inc ]
+  %23 = add nuw nsw i64 %indvars.iv, %16
+  %shr.i48 = lshr i64 %23, 6
   %idxprom.i49 = and i64 %shr.i48, 67108863
   %arrayidx.i50 = getelementptr inbounds [64 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i49
-  %25 = load i64, ptr %arrayidx.i50, align 8
-  %26 = and i64 %24, 63
-  %shl.i53 = shl nuw i64 1, %26
-  %and2.i54 = and i64 %25, %shl.i53
+  %24 = load i64, ptr %arrayidx.i50, align 8
+  %25 = and i64 %23, 63
+  %shl.i53 = shl nuw i64 1, %25
+  %and2.i54 = and i64 %24, %shl.i53
   %cmp.i55.not = icmp eq i64 %and2.i54, 0
-  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.125", ptr %node, i64 %24
+  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.125", ptr %node, i64 %23
   br i1 %cmp.i55.not, label %if.else, label %if.then44
 
 if.then44:                                        ; preds = %for.body41
-  %27 = load ptr, ptr %arrayidx52, align 8
-  %mOutOfCore.i.i.i.i.i56 = getelementptr inbounds i8, ptr %27, i64 8
-  %28 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i56 seq_cst, align 4
-  %tobool.i.not.i.i.i.i57 = icmp eq i32 %28, 0
+  %26 = load ptr, ptr %arrayidx52, align 8
+  %mOutOfCore.i.i.i.i.i56 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i56 seq_cst, align 4
+  %tobool.i.not.i.i.i.i57 = icmp eq i32 %27, 0
   br i1 %tobool.i.not.i.i.i.i57, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit62, label %if.then.i.i.i.i58
 
 if.then.i.i.i.i58:                                ; preds = %if.then44
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %27)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %26)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit62
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit62: ; preds = %if.then44, %if.then.i.i.i.i58
-  %29 = load ptr, ptr %27, align 8
-  %tobool.not.i.i.i59 = icmp eq ptr %29, null
-  %arrayidx.i.i.i60 = getelementptr inbounds i8, ptr %29, i64 2044
+  %28 = load ptr, ptr %26, align 8
+  %tobool.not.i.i.i59 = icmp eq ptr %28, null
+  %arrayidx.i.i.i60 = getelementptr inbounds i8, ptr %28, i64 2044
   %retval.0.i.i.i61 = select i1 %tobool.not.i.i.i59, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIfLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i60
-  %30 = load float, ptr %retval.0.i.i.i61, align 4
-  %cmp49 = fcmp olt float %30, 0.000000e+00
+  %29 = load float, ptr %retval.0.i.i.i61, align 4
+  %cmp49 = fcmp olt float %29, 0.000000e+00
   %frombool50 = zext i1 %cmp49 to i8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body41
-  %31 = shl nuw nsw i8 %zInside.068, 2
-  %32 = and i8 %31, 4
-  %cond-lvalue.idx = zext nneg i8 %32 to i64
+  %30 = shl i8 %zInside.068, 2
+  %31 = and i8 %30, 4
+  %cond-lvalue.idx = zext nneg i8 %31 to i64
   %cond-lvalue = getelementptr inbounds i8, ptr %this, i64 %cond-lvalue.idx
-  %33 = load float, ptr %cond-lvalue, align 4
-  store float %33, ptr %arrayidx52, align 8
+  %32 = load float, ptr %cond-lvalue, align 4
+  store float %32, ptr %arrayidx52, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit62, %if.else
@@ -25242,8 +25234,8 @@ for.inc58:                                        ; preds = %for.inc55
   br i1 %cmp12.not, label %if.end78, label %for.body, !llvm.loop !222
 
 if.else61:                                        ; preds = %for.inc.i, %_ZNK7openvdb5v11_04util8NodeMaskILj4EE11findFirstOnEv.exit
-  %34 = load float, ptr %node, align 8
-  %cmp64 = fcmp olt float %34, 0.000000e+00
+  %33 = load float, ptr %node, align 8
+  %cmp64 = fcmp olt float %33, 0.000000e+00
   %cond.in.idx = select i1 %cmp64, i64 4, i64 0
   %cond.in = getelementptr inbounds i8, ptr %this, i64 %cond.in.idx
   %cond = load float, ptr %cond.in, align 4
@@ -26047,118 +26039,117 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv
 
 if.end21:                                         ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit, %for.body
   %xInside.1 = phi i8 [ %frombool20, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit ], [ %xInside.088, %for.body ]
-  %19 = and i8 %xInside.1, 1
   br label %for.body26
 
 for.body26:                                       ; preds = %if.end21, %for.inc55
   %indvars.iv95 = phi i64 [ 0, %if.end21 ], [ %indvars.iv.next96, %for.inc55 ]
-  %yInside.086 = phi i8 [ %19, %if.end21 ], [ %yInside.1, %for.inc55 ]
-  %20 = shl i64 %indvars.iv95, 5
-  %21 = add nuw nsw i64 %20, %10
-  %shr.i36 = lshr i64 %21, 6
+  %yInside.086 = phi i8 [ %xInside.1, %if.end21 ], [ %yInside.1, %for.inc55 ]
+  %19 = shl i64 %indvars.iv95, 5
+  %20 = add nuw nsw i64 %19, %10
+  %shr.i36 = lshr i64 %20, 6
   %idxprom.i37 = and i64 %shr.i36, 67108863
   %arrayidx.i38 = getelementptr inbounds [512 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i37
-  %22 = load i64, ptr %arrayidx.i38, align 8
-  %and.i39 = and i64 %20, 32
+  %21 = load i64, ptr %arrayidx.i38, align 8
+  %and.i39 = and i64 %19, 32
   %shl.i41 = shl nuw nsw i64 1, %and.i39
-  %and2.i42 = and i64 %22, %shl.i41
+  %and2.i42 = and i64 %21, %shl.i41
   %cmp.i43.not = icmp eq i64 %and2.i42, 0
   br i1 %cmp.i43.not, label %if.end36, label %if.then29
 
 if.then29:                                        ; preds = %for.body26
-  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion", ptr %node, i64 %21
-  %23 = load ptr, ptr %arrayidx31, align 8
-  %arrayidx.i.i.i44 = getelementptr inbounds i8, ptr %23, i64 33272
-  %24 = load i64, ptr %arrayidx.i.i.i44, align 8
-  %cmp.i.i.not.i45 = icmp sgt i64 %24, -1
-  %arrayidx5.i46 = getelementptr inbounds i8, ptr %23, i64 32760
+  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion", ptr %node, i64 %20
+  %22 = load ptr, ptr %arrayidx31, align 8
+  %arrayidx.i.i.i44 = getelementptr inbounds i8, ptr %22, i64 33272
+  %23 = load i64, ptr %arrayidx.i.i.i44, align 8
+  %cmp.i.i.not.i45 = icmp sgt i64 %23, -1
+  %arrayidx5.i46 = getelementptr inbounds i8, ptr %22, i64 32760
   br i1 %cmp.i.i.not.i45, label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit56, label %cond.true.i47
 
 cond.true.i47:                                    ; preds = %if.then29
-  %25 = load ptr, ptr %arrayidx5.i46, align 8
-  %mOutOfCore.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i48 seq_cst, align 4
-  %tobool.i.not.i.i.i.i.i49 = icmp eq i32 %26, 0
+  %24 = load ptr, ptr %arrayidx5.i46, align 8
+  %mOutOfCore.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i48 seq_cst, align 4
+  %tobool.i.not.i.i.i.i.i49 = icmp eq i32 %25, 0
   br i1 %tobool.i.not.i.i.i.i.i49, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i51, label %if.then.i.i.i.i.i50
 
 if.then.i.i.i.i.i50:                              ; preds = %cond.true.i47
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %25)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %24)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i51
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i51: ; preds = %if.then.i.i.i.i.i50, %cond.true.i47
-  %27 = load ptr, ptr %25, align 8
-  %tobool.not.i.i.i.i52 = icmp eq ptr %27, null
-  %arrayidx.i.i.i.i53 = getelementptr inbounds i8, ptr %27, i64 2044
+  %26 = load ptr, ptr %24, align 8
+  %tobool.not.i.i.i.i52 = icmp eq ptr %26, null
+  %arrayidx.i.i.i.i53 = getelementptr inbounds i8, ptr %26, i64 2044
   %retval.0.i.i.i.i54 = select i1 %tobool.not.i.i.i.i52, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIfLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i53
   br label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit56
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit56: ; preds = %if.then29, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i51
   %cond-lvalue.i55 = phi ptr [ %retval.0.i.i.i.i54, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i51 ], [ %arrayidx5.i46, %if.then29 ]
-  %28 = load float, ptr %cond-lvalue.i55, align 4
-  %cmp34 = fcmp olt float %28, 0.000000e+00
+  %27 = load float, ptr %cond-lvalue.i55, align 4
+  %cmp34 = fcmp olt float %27, 0.000000e+00
   %frombool35 = zext i1 %cmp34 to i8
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit56, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit56 ], [ %yInside.086, %for.body26 ]
-  %29 = and i8 %yInside.1, 1
+  %28 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.083 = phi i8 [ %29, %if.end36 ], [ %zInside.1, %for.inc ]
-  %30 = add nuw nsw i64 %indvars.iv, %21
-  %shr.i57 = lshr i64 %30, 6
+  %zInside.083 = phi i8 [ %28, %if.end36 ], [ %zInside.1, %for.inc ]
+  %29 = add nuw nsw i64 %indvars.iv, %20
+  %shr.i57 = lshr i64 %29, 6
   %idxprom.i58 = and i64 %shr.i57, 67108863
   %arrayidx.i59 = getelementptr inbounds [512 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i58
-  %31 = load i64, ptr %arrayidx.i59, align 8
-  %32 = and i64 %30, 63
-  %shl.i62 = shl nuw i64 1, %32
-  %and2.i63 = and i64 %31, %shl.i62
+  %30 = load i64, ptr %arrayidx.i59, align 8
+  %31 = and i64 %29, 63
+  %shl.i62 = shl nuw i64 1, %31
+  %and2.i63 = and i64 %30, %shl.i62
   %cmp.i64.not = icmp eq i64 %and2.i63, 0
-  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion", ptr %node, i64 %30
+  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion", ptr %node, i64 %29
   br i1 %cmp.i64.not, label %if.else, label %if.then44
 
 if.then44:                                        ; preds = %for.body41
-  %33 = load ptr, ptr %arrayidx52, align 8
-  %arrayidx.i.i.i65 = getelementptr inbounds i8, ptr %33, i64 33272
-  %34 = load i64, ptr %arrayidx.i.i.i65, align 8
-  %cmp.i.i.not.i66 = icmp sgt i64 %34, -1
-  %arrayidx5.i67 = getelementptr inbounds i8, ptr %33, i64 32760
+  %32 = load ptr, ptr %arrayidx52, align 8
+  %arrayidx.i.i.i65 = getelementptr inbounds i8, ptr %32, i64 33272
+  %33 = load i64, ptr %arrayidx.i.i.i65, align 8
+  %cmp.i.i.not.i66 = icmp sgt i64 %33, -1
+  %arrayidx5.i67 = getelementptr inbounds i8, ptr %32, i64 32760
   br i1 %cmp.i.i.not.i66, label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit77, label %cond.true.i68
 
 cond.true.i68:                                    ; preds = %if.then44
-  %35 = load ptr, ptr %arrayidx5.i67, align 8
-  %mOutOfCore.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %35, i64 8
-  %36 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i69 seq_cst, align 4
-  %tobool.i.not.i.i.i.i.i70 = icmp eq i32 %36, 0
+  %34 = load ptr, ptr %arrayidx5.i67, align 8
+  %mOutOfCore.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i69 seq_cst, align 4
+  %tobool.i.not.i.i.i.i.i70 = icmp eq i32 %35, 0
   br i1 %tobool.i.not.i.i.i.i.i70, label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i72, label %if.then.i.i.i.i.i71
 
 if.then.i.i.i.i.i71:                              ; preds = %cond.true.i68
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %35)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIfLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %34)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i72
 
 _ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i72: ; preds = %if.then.i.i.i.i.i71, %cond.true.i68
-  %37 = load ptr, ptr %35, align 8
-  %tobool.not.i.i.i.i73 = icmp eq ptr %37, null
-  %arrayidx.i.i.i.i74 = getelementptr inbounds i8, ptr %37, i64 2044
+  %36 = load ptr, ptr %34, align 8
+  %tobool.not.i.i.i.i73 = icmp eq ptr %36, null
+  %arrayidx.i.i.i.i74 = getelementptr inbounds i8, ptr %36, i64 2044
   %retval.0.i.i.i.i75 = select i1 %tobool.not.i.i.i.i73, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIfLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i74
   br label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit77
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit77: ; preds = %if.then44, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i72
   %cond-lvalue.i76 = phi ptr [ %retval.0.i.i.i.i75, %_ZNK7openvdb5v11_04tree8LeafNodeIfLj3EE12getLastValueEv.exit.i72 ], [ %arrayidx5.i67, %if.then44 ]
-  %38 = load float, ptr %cond-lvalue.i76, align 4
-  %cmp49 = fcmp olt float %38, 0.000000e+00
+  %37 = load float, ptr %cond-lvalue.i76, align 4
+  %cmp49 = fcmp olt float %37, 0.000000e+00
   %frombool50 = zext i1 %cmp49 to i8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body41
-  %39 = shl nuw nsw i8 %zInside.083, 2
-  %40 = and i8 %39, 4
-  %cond-lvalue.idx = zext nneg i8 %40 to i64
+  %38 = shl i8 %zInside.083, 2
+  %39 = and i8 %38, 4
+  %cond-lvalue.idx = zext nneg i8 %39 to i64
   %cond-lvalue = getelementptr inbounds i8, ptr %this, i64 %cond-lvalue.idx
-  %41 = load float, ptr %cond-lvalue, align 4
-  store float %41, ptr %arrayidx52, align 8
+  %40 = load float, ptr %cond-lvalue, align 4
+  store float %40, ptr %arrayidx52, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12getLastValueEv.exit77, %if.else
@@ -26178,8 +26169,8 @@ for.inc58:                                        ; preds = %for.inc55
   br i1 %cmp12.not, label %if.end78, label %for.body, !llvm.loop !228
 
 if.else61:                                        ; preds = %for.inc.i, %_ZNK7openvdb5v11_04util8NodeMaskILj5EE11findFirstOnEv.exit
-  %42 = load float, ptr %node, align 8
-  %cmp64 = fcmp olt float %42, 0.000000e+00
+  %41 = load float, ptr %node, align 8
+  %cmp64 = fcmp olt float %41, 0.000000e+00
   %cond.in.idx = select i1 %cmp64, i64 4, i64 0
   %cond.in = getelementptr inbounds i8, ptr %this, i64 %cond.in.idx
   %cond = load float, ptr %cond.in, align 4
@@ -27562,63 +27553,62 @@ if.then15:                                        ; preds = %for.body
 
 if.end20:                                         ; preds = %if.then15, %for.body
   %xInside.1 = phi i8 [ %frombool19, %if.then15 ], [ %xInside.053, %for.body ]
-  %11 = and i8 %xInside.1, 1
   br label %for.body25
 
 for.body25:                                       ; preds = %if.end20, %for.inc50
   %indvars.iv59 = phi i64 [ 0, %if.end20 ], [ %indvars.iv.next60, %for.inc50 ]
-  %yInside.051 = phi i8 [ %11, %if.end20 ], [ %yInside.1, %for.inc50 ]
-  %12 = shl i64 %indvars.iv59, 3
-  %13 = add nuw nsw i64 %12, %8
-  %shr.i27 = lshr i64 %13, 6
+  %yInside.051 = phi i8 [ %xInside.1, %if.end20 ], [ %yInside.1, %for.inc50 ]
+  %11 = shl i64 %indvars.iv59, 3
+  %12 = add nuw nsw i64 %11, %8
+  %shr.i27 = lshr i64 %12, 6
   %idxprom.i28 = and i64 %shr.i27, 67108863
   %arrayidx.i29 = getelementptr inbounds [8 x i64], ptr %mValueMask.i, i64 0, i64 %idxprom.i28
-  %14 = load i64, ptr %arrayidx.i29, align 8
-  %shl.i32 = shl nuw nsw i64 1, %12
-  %and2.i33 = and i64 %14, %shl.i32
+  %13 = load i64, ptr %arrayidx.i29, align 8
+  %shl.i32 = shl nuw nsw i64 1, %11
+  %and2.i33 = and i64 %13, %shl.i32
   %cmp.i34.not = icmp eq i64 %and2.i33, 0
   br i1 %cmp.i34.not, label %if.end33, label %if.then28
 
 if.then28:                                        ; preds = %for.body25
-  %arrayidx30 = getelementptr inbounds double, ptr %retval.0.i.i.i, i64 %13
-  %15 = load double, ptr %arrayidx30, align 8
-  %cmp31 = fcmp olt double %15, 0.000000e+00
+  %arrayidx30 = getelementptr inbounds double, ptr %retval.0.i.i.i, i64 %12
+  %14 = load double, ptr %arrayidx30, align 8
+  %cmp31 = fcmp olt double %14, 0.000000e+00
   %frombool32 = zext i1 %cmp31 to i8
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then28, %for.body25
   %yInside.1 = phi i8 [ %frombool32, %if.then28 ], [ %yInside.051, %for.body25 ]
-  %16 = and i8 %yInside.1, 1
+  %15 = and i8 %yInside.1, 1
   br label %for.body38
 
 for.body38:                                       ; preds = %if.end33, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end33 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.048 = phi i8 [ %16, %if.end33 ], [ %zInside.1, %for.inc ]
-  %17 = add nuw nsw i64 %indvars.iv, %13
-  %shr.i35 = lshr i64 %17, 6
+  %zInside.048 = phi i8 [ %15, %if.end33 ], [ %zInside.1, %for.inc ]
+  %16 = add nuw nsw i64 %indvars.iv, %12
+  %shr.i35 = lshr i64 %16, 6
   %idxprom.i36 = and i64 %shr.i35, 67108863
   %arrayidx.i37 = getelementptr inbounds [8 x i64], ptr %mValueMask.i, i64 0, i64 %idxprom.i36
-  %18 = load i64, ptr %arrayidx.i37, align 8
-  %19 = and i64 %17, 63
-  %shl.i40 = shl nuw i64 1, %19
-  %and2.i41 = and i64 %18, %shl.i40
+  %17 = load i64, ptr %arrayidx.i37, align 8
+  %18 = and i64 %16, 63
+  %shl.i40 = shl nuw i64 1, %18
+  %and2.i41 = and i64 %17, %shl.i40
   %cmp.i42.not = icmp eq i64 %and2.i41, 0
   br i1 %cmp.i42.not, label %if.else, label %if.then41
 
 if.then41:                                        ; preds = %for.body38
-  %arrayidx43 = getelementptr inbounds double, ptr %retval.0.i.i.i, i64 %17
-  %20 = load double, ptr %arrayidx43, align 8
-  %cmp44 = fcmp olt double %20, 0.000000e+00
+  %arrayidx43 = getelementptr inbounds double, ptr %retval.0.i.i.i, i64 %16
+  %19 = load double, ptr %arrayidx43, align 8
+  %cmp44 = fcmp olt double %19, 0.000000e+00
   %frombool45 = zext i1 %cmp44 to i8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body38
-  %21 = shl nuw nsw i8 %zInside.048, 3
-  %22 = and i8 %21, 8
-  %cond.in.idx = zext nneg i8 %22 to i64
+  %20 = shl i8 %zInside.048, 3
+  %21 = and i8 %20, 8
+  %cond.in.idx = zext nneg i8 %21 to i64
   %cond.in = getelementptr inbounds i8, ptr %this, i64 %cond.in.idx
   %cond = load double, ptr %cond.in, align 8
-  %arrayidx48 = getelementptr inbounds double, ptr %retval.0.i.i.i, i64 %17
+  %arrayidx48 = getelementptr inbounds double, ptr %retval.0.i.i.i, i64 %16
   store double %cond, ptr %arrayidx48, align 8
   br label %for.inc
 
@@ -27639,12 +27629,12 @@ for.inc53:                                        ; preds = %for.inc50
   br i1 %cmp13.not, label %if.end64, label %for.body, !llvm.loop !248
 
 if.else56:                                        ; preds = %for.inc.i, %_ZNK7openvdb5v11_04util8NodeMaskILj3EE11findFirstOnEv.exit
-  %23 = load double, ptr %retval.0.i.i.i, align 8
-  %cmp58 = fcmp olt double %23, 0.000000e+00
+  %22 = load double, ptr %retval.0.i.i.i, align 8
+  %cmp58 = fcmp olt double %22, 0.000000e+00
   %cond-lvalue.idx = select i1 %cmp58, i64 8, i64 0
   %cond-lvalue = getelementptr inbounds i8, ptr %this, i64 %cond-lvalue.idx
-  %24 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i seq_cst, align 8
-  %tobool.i.i.not.i.i = icmp eq i32 %24, 0
+  %23 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i seq_cst, align 8
+  %tobool.i.i.not.i.i = icmp eq i32 %23, 0
   %.pre.i.i = load ptr, ptr %leaf, align 8
   %cmp.not.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %tobool.i.i.not.i.i, label %_ZN7openvdb5v11_04tree10LeafBufferIdLj3EE14detachFromFileEv.exit.i.i, label %if.then.i.i.i
@@ -28444,94 +28434,93 @@ _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit: ; preds = %if.then
 
 if.end21:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit, %for.body
   %xInside.1 = phi i8 [ %frombool20, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit ], [ %xInside.073, %for.body ]
-  %15 = and i8 %xInside.1, 1
   br label %for.body26
 
 for.body26:                                       ; preds = %if.end21, %for.inc55
   %indvars.iv80 = phi i64 [ 0, %if.end21 ], [ %indvars.iv.next81, %for.inc55 ]
-  %yInside.071 = phi i8 [ %15, %if.end21 ], [ %yInside.1, %for.inc55 ]
-  %16 = shl i64 %indvars.iv80, 4
-  %17 = add nuw nsw i64 %16, %8
-  %shr.i33 = lshr i64 %17, 6
+  %yInside.071 = phi i8 [ %xInside.1, %if.end21 ], [ %yInside.1, %for.inc55 ]
+  %15 = shl i64 %indvars.iv80, 4
+  %16 = add nuw nsw i64 %15, %8
+  %shr.i33 = lshr i64 %16, 6
   %idxprom.i34 = and i64 %shr.i33, 67108863
   %arrayidx.i35 = getelementptr inbounds [64 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i34
-  %18 = load i64, ptr %arrayidx.i35, align 8
-  %and.i36 = and i64 %16, 48
+  %17 = load i64, ptr %arrayidx.i35, align 8
+  %and.i36 = and i64 %15, 48
   %shl.i38 = shl nuw nsw i64 1, %and.i36
-  %and2.i39 = and i64 %18, %shl.i38
+  %and2.i39 = and i64 %17, %shl.i38
   %cmp.i40.not = icmp eq i64 %and2.i39, 0
   br i1 %cmp.i40.not, label %if.end36, label %if.then29
 
 if.then29:                                        ; preds = %for.body26
-  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.314", ptr %node, i64 %17
-  %19 = load ptr, ptr %arrayidx31, align 8
-  %mOutOfCore.i.i.i.i.i41 = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i41 seq_cst, align 4
-  %tobool.i.not.i.i.i.i42 = icmp eq i32 %20, 0
+  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.314", ptr %node, i64 %16
+  %18 = load ptr, ptr %arrayidx31, align 8
+  %mOutOfCore.i.i.i.i.i41 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i41 seq_cst, align 4
+  %tobool.i.not.i.i.i.i42 = icmp eq i32 %19, 0
   br i1 %tobool.i.not.i.i.i.i42, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit47, label %if.then.i.i.i.i43
 
 if.then.i.i.i.i43:                                ; preds = %if.then29
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %19)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %18)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit47
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit47: ; preds = %if.then29, %if.then.i.i.i.i43
-  %21 = load ptr, ptr %19, align 8
-  %tobool.not.i.i.i44 = icmp eq ptr %21, null
-  %arrayidx.i.i.i45 = getelementptr inbounds i8, ptr %21, i64 4088
+  %20 = load ptr, ptr %18, align 8
+  %tobool.not.i.i.i44 = icmp eq ptr %20, null
+  %arrayidx.i.i.i45 = getelementptr inbounds i8, ptr %20, i64 4088
   %retval.0.i.i.i46 = select i1 %tobool.not.i.i.i44, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIdLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i45
-  %22 = load double, ptr %retval.0.i.i.i46, align 8
-  %cmp34 = fcmp olt double %22, 0.000000e+00
+  %21 = load double, ptr %retval.0.i.i.i46, align 8
+  %cmp34 = fcmp olt double %21, 0.000000e+00
   %frombool35 = zext i1 %cmp34 to i8
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit47, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit47 ], [ %yInside.071, %for.body26 ]
-  %23 = and i8 %yInside.1, 1
+  %22 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.068 = phi i8 [ %23, %if.end36 ], [ %zInside.1, %for.inc ]
-  %24 = add nuw nsw i64 %indvars.iv, %17
-  %shr.i48 = lshr i64 %24, 6
+  %zInside.068 = phi i8 [ %22, %if.end36 ], [ %zInside.1, %for.inc ]
+  %23 = add nuw nsw i64 %indvars.iv, %16
+  %shr.i48 = lshr i64 %23, 6
   %idxprom.i49 = and i64 %shr.i48, 67108863
   %arrayidx.i50 = getelementptr inbounds [64 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i49
-  %25 = load i64, ptr %arrayidx.i50, align 8
-  %26 = and i64 %24, 63
-  %shl.i53 = shl nuw i64 1, %26
-  %and2.i54 = and i64 %25, %shl.i53
+  %24 = load i64, ptr %arrayidx.i50, align 8
+  %25 = and i64 %23, 63
+  %shl.i53 = shl nuw i64 1, %25
+  %and2.i54 = and i64 %24, %shl.i53
   %cmp.i55.not = icmp eq i64 %and2.i54, 0
-  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.314", ptr %node, i64 %24
+  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.314", ptr %node, i64 %23
   br i1 %cmp.i55.not, label %if.else, label %if.then44
 
 if.then44:                                        ; preds = %for.body41
-  %27 = load ptr, ptr %arrayidx52, align 8
-  %mOutOfCore.i.i.i.i.i56 = getelementptr inbounds i8, ptr %27, i64 8
-  %28 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i56 seq_cst, align 4
-  %tobool.i.not.i.i.i.i57 = icmp eq i32 %28, 0
+  %26 = load ptr, ptr %arrayidx52, align 8
+  %mOutOfCore.i.i.i.i.i56 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i56 seq_cst, align 4
+  %tobool.i.not.i.i.i.i57 = icmp eq i32 %27, 0
   br i1 %tobool.i.not.i.i.i.i57, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit62, label %if.then.i.i.i.i58
 
 if.then.i.i.i.i58:                                ; preds = %if.then44
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %27)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %26)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit62
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit62: ; preds = %if.then44, %if.then.i.i.i.i58
-  %29 = load ptr, ptr %27, align 8
-  %tobool.not.i.i.i59 = icmp eq ptr %29, null
-  %arrayidx.i.i.i60 = getelementptr inbounds i8, ptr %29, i64 4088
+  %28 = load ptr, ptr %26, align 8
+  %tobool.not.i.i.i59 = icmp eq ptr %28, null
+  %arrayidx.i.i.i60 = getelementptr inbounds i8, ptr %28, i64 4088
   %retval.0.i.i.i61 = select i1 %tobool.not.i.i.i59, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIdLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i60
-  %30 = load double, ptr %retval.0.i.i.i61, align 8
-  %cmp49 = fcmp olt double %30, 0.000000e+00
+  %29 = load double, ptr %retval.0.i.i.i61, align 8
+  %cmp49 = fcmp olt double %29, 0.000000e+00
   %frombool50 = zext i1 %cmp49 to i8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body41
-  %31 = shl nuw nsw i8 %zInside.068, 3
-  %32 = and i8 %31, 8
-  %cond-lvalue.idx = zext nneg i8 %32 to i64
+  %30 = shl i8 %zInside.068, 3
+  %31 = and i8 %30, 8
+  %cond-lvalue.idx = zext nneg i8 %31 to i64
   %cond-lvalue = getelementptr inbounds i8, ptr %this, i64 %cond-lvalue.idx
-  %33 = load double, ptr %cond-lvalue, align 8
-  store double %33, ptr %arrayidx52, align 8
+  %32 = load double, ptr %cond-lvalue, align 8
+  store double %32, ptr %arrayidx52, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit62, %if.else
@@ -28551,8 +28540,8 @@ for.inc58:                                        ; preds = %for.inc55
   br i1 %cmp12.not, label %if.end78, label %for.body, !llvm.loop !253
 
 if.else61:                                        ; preds = %for.inc.i, %_ZNK7openvdb5v11_04util8NodeMaskILj4EE11findFirstOnEv.exit
-  %34 = load double, ptr %node, align 8
-  %cmp64 = fcmp olt double %34, 0.000000e+00
+  %33 = load double, ptr %node, align 8
+  %cmp64 = fcmp olt double %33, 0.000000e+00
   %cond.in.idx = select i1 %cmp64, i64 8, i64 0
   %cond.in = getelementptr inbounds i8, ptr %this, i64 %cond.in.idx
   %cond = load double, ptr %cond.in, align 8
@@ -29356,118 +29345,117 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv
 
 if.end21:                                         ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit, %for.body
   %xInside.1 = phi i8 [ %frombool20, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit ], [ %xInside.088, %for.body ]
-  %19 = and i8 %xInside.1, 1
   br label %for.body26
 
 for.body26:                                       ; preds = %if.end21, %for.inc55
   %indvars.iv95 = phi i64 [ 0, %if.end21 ], [ %indvars.iv.next96, %for.inc55 ]
-  %yInside.086 = phi i8 [ %19, %if.end21 ], [ %yInside.1, %for.inc55 ]
-  %20 = shl i64 %indvars.iv95, 5
-  %21 = add nuw nsw i64 %20, %10
-  %shr.i36 = lshr i64 %21, 6
+  %yInside.086 = phi i8 [ %xInside.1, %if.end21 ], [ %yInside.1, %for.inc55 ]
+  %19 = shl i64 %indvars.iv95, 5
+  %20 = add nuw nsw i64 %19, %10
+  %shr.i36 = lshr i64 %20, 6
   %idxprom.i37 = and i64 %shr.i36, 67108863
   %arrayidx.i38 = getelementptr inbounds [512 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i37
-  %22 = load i64, ptr %arrayidx.i38, align 8
-  %and.i39 = and i64 %20, 32
+  %21 = load i64, ptr %arrayidx.i38, align 8
+  %and.i39 = and i64 %19, 32
   %shl.i41 = shl nuw nsw i64 1, %and.i39
-  %and2.i42 = and i64 %22, %shl.i41
+  %and2.i42 = and i64 %21, %shl.i41
   %cmp.i43.not = icmp eq i64 %and2.i42, 0
   br i1 %cmp.i43.not, label %if.end36, label %if.then29
 
 if.then29:                                        ; preds = %for.body26
-  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.303", ptr %node, i64 %21
-  %23 = load ptr, ptr %arrayidx31, align 8
-  %arrayidx.i.i.i44 = getelementptr inbounds i8, ptr %23, i64 33272
-  %24 = load i64, ptr %arrayidx.i.i.i44, align 8
-  %cmp.i.i.not.i45 = icmp sgt i64 %24, -1
-  %arrayidx5.i46 = getelementptr inbounds i8, ptr %23, i64 32760
+  %arrayidx31 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.303", ptr %node, i64 %20
+  %22 = load ptr, ptr %arrayidx31, align 8
+  %arrayidx.i.i.i44 = getelementptr inbounds i8, ptr %22, i64 33272
+  %23 = load i64, ptr %arrayidx.i.i.i44, align 8
+  %cmp.i.i.not.i45 = icmp sgt i64 %23, -1
+  %arrayidx5.i46 = getelementptr inbounds i8, ptr %22, i64 32760
   br i1 %cmp.i.i.not.i45, label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit56, label %cond.true.i47
 
 cond.true.i47:                                    ; preds = %if.then29
-  %25 = load ptr, ptr %arrayidx5.i46, align 8
-  %mOutOfCore.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i48 seq_cst, align 4
-  %tobool.i.not.i.i.i.i.i49 = icmp eq i32 %26, 0
+  %24 = load ptr, ptr %arrayidx5.i46, align 8
+  %mOutOfCore.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i48 seq_cst, align 4
+  %tobool.i.not.i.i.i.i.i49 = icmp eq i32 %25, 0
   br i1 %tobool.i.not.i.i.i.i.i49, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i51, label %if.then.i.i.i.i.i50
 
 if.then.i.i.i.i.i50:                              ; preds = %cond.true.i47
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %25)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %24)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i51
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i51: ; preds = %if.then.i.i.i.i.i50, %cond.true.i47
-  %27 = load ptr, ptr %25, align 8
-  %tobool.not.i.i.i.i52 = icmp eq ptr %27, null
-  %arrayidx.i.i.i.i53 = getelementptr inbounds i8, ptr %27, i64 4088
+  %26 = load ptr, ptr %24, align 8
+  %tobool.not.i.i.i.i52 = icmp eq ptr %26, null
+  %arrayidx.i.i.i.i53 = getelementptr inbounds i8, ptr %26, i64 4088
   %retval.0.i.i.i.i54 = select i1 %tobool.not.i.i.i.i52, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIdLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i53
   br label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit56
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit56: ; preds = %if.then29, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i51
   %cond-lvalue.i55 = phi ptr [ %retval.0.i.i.i.i54, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i51 ], [ %arrayidx5.i46, %if.then29 ]
-  %28 = load double, ptr %cond-lvalue.i55, align 8
-  %cmp34 = fcmp olt double %28, 0.000000e+00
+  %27 = load double, ptr %cond-lvalue.i55, align 8
+  %cmp34 = fcmp olt double %27, 0.000000e+00
   %frombool35 = zext i1 %cmp34 to i8
   br label %if.end36
 
 if.end36:                                         ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit56, %for.body26
   %yInside.1 = phi i8 [ %frombool35, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit56 ], [ %yInside.086, %for.body26 ]
-  %29 = and i8 %yInside.1, 1
+  %28 = and i8 %yInside.1, 1
   br label %for.body41
 
 for.body41:                                       ; preds = %if.end36, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end36 ], [ %indvars.iv.next, %for.inc ]
-  %zInside.083 = phi i8 [ %29, %if.end36 ], [ %zInside.1, %for.inc ]
-  %30 = add nuw nsw i64 %indvars.iv, %21
-  %shr.i57 = lshr i64 %30, 6
+  %zInside.083 = phi i8 [ %28, %if.end36 ], [ %zInside.1, %for.inc ]
+  %29 = add nuw nsw i64 %indvars.iv, %20
+  %shr.i57 = lshr i64 %29, 6
   %idxprom.i58 = and i64 %shr.i57, 67108863
   %arrayidx.i59 = getelementptr inbounds [512 x i64], ptr %mChildMask.i, i64 0, i64 %idxprom.i58
-  %31 = load i64, ptr %arrayidx.i59, align 8
-  %32 = and i64 %30, 63
-  %shl.i62 = shl nuw i64 1, %32
-  %and2.i63 = and i64 %31, %shl.i62
+  %30 = load i64, ptr %arrayidx.i59, align 8
+  %31 = and i64 %29, 63
+  %shl.i62 = shl nuw i64 1, %31
+  %and2.i63 = and i64 %30, %shl.i62
   %cmp.i64.not = icmp eq i64 %and2.i63, 0
-  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.303", ptr %node, i64 %30
+  %arrayidx52 = getelementptr inbounds %"class.openvdb::v11_0::tree::NodeUnion.303", ptr %node, i64 %29
   br i1 %cmp.i64.not, label %if.else, label %if.then44
 
 if.then44:                                        ; preds = %for.body41
-  %33 = load ptr, ptr %arrayidx52, align 8
-  %arrayidx.i.i.i65 = getelementptr inbounds i8, ptr %33, i64 33272
-  %34 = load i64, ptr %arrayidx.i.i.i65, align 8
-  %cmp.i.i.not.i66 = icmp sgt i64 %34, -1
-  %arrayidx5.i67 = getelementptr inbounds i8, ptr %33, i64 32760
+  %32 = load ptr, ptr %arrayidx52, align 8
+  %arrayidx.i.i.i65 = getelementptr inbounds i8, ptr %32, i64 33272
+  %33 = load i64, ptr %arrayidx.i.i.i65, align 8
+  %cmp.i.i.not.i66 = icmp sgt i64 %33, -1
+  %arrayidx5.i67 = getelementptr inbounds i8, ptr %32, i64 32760
   br i1 %cmp.i.i.not.i66, label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit77, label %cond.true.i68
 
 cond.true.i68:                                    ; preds = %if.then44
-  %35 = load ptr, ptr %arrayidx5.i67, align 8
-  %mOutOfCore.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %35, i64 8
-  %36 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i69 seq_cst, align 4
-  %tobool.i.not.i.i.i.i.i70 = icmp eq i32 %36, 0
+  %34 = load ptr, ptr %arrayidx5.i67, align 8
+  %mOutOfCore.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = load atomic i32, ptr %mOutOfCore.i.i.i.i.i.i69 seq_cst, align 4
+  %tobool.i.not.i.i.i.i.i70 = icmp eq i32 %35, 0
   br i1 %tobool.i.not.i.i.i.i.i70, label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i72, label %if.then.i.i.i.i.i71
 
 if.then.i.i.i.i.i71:                              ; preds = %cond.true.i68
-  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %35)
+  tail call void @_ZNK7openvdb5v11_04tree10LeafBufferIdLj3EE6doLoadEv(ptr noundef nonnull align 8 dereferenceable(13) %34)
   br label %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i72
 
 _ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i72: ; preds = %if.then.i.i.i.i.i71, %cond.true.i68
-  %37 = load ptr, ptr %35, align 8
-  %tobool.not.i.i.i.i73 = icmp eq ptr %37, null
-  %arrayidx.i.i.i.i74 = getelementptr inbounds i8, ptr %37, i64 4088
+  %36 = load ptr, ptr %34, align 8
+  %tobool.not.i.i.i.i73 = icmp eq ptr %36, null
+  %arrayidx.i.i.i.i74 = getelementptr inbounds i8, ptr %36, i64 4088
   %retval.0.i.i.i.i75 = select i1 %tobool.not.i.i.i.i73, ptr @_ZZNK7openvdb5v11_04tree10LeafBufferIdLj3EE2atEjE5sZero, ptr %arrayidx.i.i.i.i74
   br label %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit77
 
 _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit77: ; preds = %if.then44, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i72
   %cond-lvalue.i76 = phi ptr [ %retval.0.i.i.i.i75, %_ZNK7openvdb5v11_04tree8LeafNodeIdLj3EE12getLastValueEv.exit.i72 ], [ %arrayidx5.i67, %if.then44 ]
-  %38 = load double, ptr %cond-lvalue.i76, align 8
-  %cmp49 = fcmp olt double %38, 0.000000e+00
+  %37 = load double, ptr %cond-lvalue.i76, align 8
+  %cmp49 = fcmp olt double %37, 0.000000e+00
   %frombool50 = zext i1 %cmp49 to i8
   br label %for.inc
 
 if.else:                                          ; preds = %for.body41
-  %39 = shl nuw nsw i8 %zInside.083, 3
-  %40 = and i8 %39, 8
-  %cond-lvalue.idx = zext nneg i8 %40 to i64
+  %38 = shl i8 %zInside.083, 3
+  %39 = and i8 %38, 8
+  %cond-lvalue.idx = zext nneg i8 %39 to i64
   %cond-lvalue = getelementptr inbounds i8, ptr %this, i64 %cond-lvalue.idx
-  %41 = load double, ptr %cond-lvalue, align 8
-  store double %41, ptr %arrayidx52, align 8
+  %40 = load double, ptr %cond-lvalue, align 8
+  store double %40, ptr %arrayidx52, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12getLastValueEv.exit77, %if.else
@@ -29487,8 +29475,8 @@ for.inc58:                                        ; preds = %for.inc55
   br i1 %cmp12.not, label %if.end78, label %for.body, !llvm.loop !259
 
 if.else61:                                        ; preds = %for.inc.i, %_ZNK7openvdb5v11_04util8NodeMaskILj5EE11findFirstOnEv.exit
-  %42 = load double, ptr %node, align 8
-  %cmp64 = fcmp olt double %42, 0.000000e+00
+  %41 = load double, ptr %node, align 8
+  %cmp64 = fcmp olt double %41, 0.000000e+00
   %cond.in.idx = select i1 %cmp64, i64 8, i64 0
   %cond.in = getelementptr inbounds i8, ptr %this, i64 %cond.in.idx
   %cond = load double, ptr %cond.in, align 8

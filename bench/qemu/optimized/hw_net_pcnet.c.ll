@@ -2349,11 +2349,11 @@ sw.bb:                                            ; preds = %entry
   store i16 %conv11, ptr %csr, align 4
   %and23 = and i32 %new_value, 7
   %cmp = icmp eq i32 %and23, 7
-  %spec.select.v = select i1 %cmp, i16 124, i16 127
-  %spec.select = and i16 %spec.select.v, %conv
+  %and26 = and i16 %conv, 32636
+  %spec.select = select i1 %cmp, i16 %and26, i16 %conv
   %5 = and i16 %0, 4
   %tobool.not = icmp ne i16 %5, 0
-  %6 = and i16 %conv, 4
+  %6 = and i16 %spec.select, 4
   %tobool34.not = icmp eq i16 %6, 0
   %or.cond = or i1 %tobool.not, %tobool34.not
   br i1 %or.cond, label %if.end36, label %if.then35
@@ -2711,7 +2711,6 @@ sw.bb3:                                           ; preds = %if.then
 sw.bb6:                                           ; preds = %if.then
   %rap7 = getelementptr inbounds i8, ptr %opaque, i64 8232
   %3 = load i32, ptr %rap7, align 8
-  %and8 = and i32 %val, 65535
   %and.i = and i32 %3, 127
   switch i32 %and.i, label %if.end12 [
     i32 20, label %sw.bb.i
@@ -2760,7 +2759,7 @@ sw.bb10.i:                                        ; preds = %if.end.i
   br label %sw.bb20.i
 
 sw.bb12.i:                                        ; preds = %if.end.i, %if.end.i
-  %or13.i = or i32 %and8, 768
+  %or13.i = or i32 %val, 768
   br label %sw.bb20.i
 
 do.body.i:                                        ; preds = %if.end.i
@@ -2774,7 +2773,7 @@ if.then17.i:                                      ; preds = %do.body.i
   br label %sw.bb20.i
 
 sw.bb20.i:                                        ; preds = %if.then17.i, %do.body.i, %sw.bb12.i, %sw.bb10.i, %sw.bb9.i, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6
-  %val.addr.0.i = phi i32 [ %and8, %sw.bb6 ], [ %and8, %sw.bb6 ], [ %and8, %sw.bb6 ], [ %and8, %sw.bb6 ], [ %and8, %sw.bb6 ], [ %and8, %sw.bb6 ], [ %and8, %sw.bb6 ], [ %and8, %sw.bb6 ], [ %and8, %sw.bb6 ], [ %or13.i, %sw.bb12.i ], [ %or11.i, %sw.bb10.i ], [ %or.i, %sw.bb9.i ], [ 512, %do.body.i ], [ 512, %if.then17.i ]
+  %val.addr.0.i = phi i32 [ %val, %sw.bb6 ], [ %val, %sw.bb6 ], [ %val, %sw.bb6 ], [ %val, %sw.bb6 ], [ %val, %sw.bb6 ], [ %val, %sw.bb6 ], [ %val, %sw.bb6 ], [ %val, %sw.bb6 ], [ %val, %sw.bb6 ], [ %or13.i, %sw.bb12.i ], [ %or11.i, %sw.bb10.i ], [ %or.i, %sw.bb9.i ], [ 512, %do.body.i ], [ 512, %if.then17.i ]
   %conv21.i = trunc i32 %val.addr.0.i to i16
   %bcr.i = getelementptr inbounds i8, ptr %opaque, i64 8524
   %idxprom.i = zext nneg i32 %and.i to i64

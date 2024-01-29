@@ -2953,7 +2953,7 @@ if.else.i.i22.i:                                  ; preds = %if.end16.i
           to label %invoke.cont17.i unwind label %lpad1.i
 
 invoke.cont17.i:                                  ; preds = %if.else.i.i22.i, %if.end16.i
-  %retval.0.i.i21.i = phi i8 [ %call5.i.i41.i, %if.else.i.i22.i ], [ 1, %if.end16.i ]
+  %retval.0.i.i21.i = phi i8 [ %call5.i.i41.i, %if.else.i.i22.i ], [ 0, %if.end16.i ]
   %call18.lobit.i = lshr i8 %retval.0.i.i21.i, 7
   br label %invoke.cont85
 

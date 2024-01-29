@@ -362,7 +362,7 @@ for.body.i.i:                                     ; preds = %do.body4.i.i, %for.
 
 for.body16.i.i:                                   ; preds = %for.body.i.i, %_ZN12_GLOBAL__N_117TypeInferenceImpl9inferTypeEPN6hermes11InstructionE.exit.i.i
   %__begin3.sroa.0.0205.i.i = phi ptr [ %__begin3.sroa.0.0.i.i, %_ZN12_GLOBAL__N_117TypeInferenceImpl9inferTypeEPN6hermes11InstructionE.exit.i.i ], [ %__begin3.sroa.0.0202.i.i, %for.body.i.i ]
-  %localChanged.1204.i.i = phi i8 [ %155, %_ZN12_GLOBAL__N_117TypeInferenceImpl9inferTypeEPN6hermes11InstructionE.exit.i.i ], [ %localChanged.0212.i.i, %for.body.i.i ]
+  %localChanged.1204.i.i = phi i8 [ %154, %_ZN12_GLOBAL__N_117TypeInferenceImpl9inferTypeEPN6hermes11InstructionE.exit.i.i ], [ %localChanged.0212.i.i, %for.body.i.i ]
   %add.ptr.i19.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0205.i.i, i64 16
   %valueType.i.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0205.i.i, i64 18
   %retval.sroa.0.0.copyload.i.i.i.i = load i32, ptr %valueType.i.i.i.i, align 2
@@ -1546,16 +1546,15 @@ sw.bb91.i.i.i:                                    ; preds = %for.body16.i.i
 
 _ZN12_GLOBAL__N_117TypeInferenceImpl9inferTypeEPN6hermes11InstructionE.exit.i.i: ; preds = %sw.bb91.i.i.i, %_ZN12_GLOBAL__N_117TypeInferenceImpl21inferLoadPropertyInstEPN6hermes16LoadPropertyInstE.exit.i.i.i, %_ZL15inferReturnInstPN6hermes10ReturnInstE.exit.i.i.i, %_ZN12_GLOBAL__N_117TypeInferenceImpl13inferCallInstEPN6hermes8CallInstE.exit.i.i.i, %_ZL18inferLoadFrameInstPN6hermes13LoadFrameInstE.exit.i.i.i, %_ZL18inferLoadStackInstPN6hermes13LoadStackInstE.exit.i.i.i, %_ZL15inferMemoryTypePN6hermes5ValueE.exit150.i.i, %_ZL16inferPhiInstInstPN6hermes7PhiInstE.exit.i.i.i, %_ZL14inferUnaryInstPN6hermes17UnaryOperatorInstE.exit.i.i.i, %_ZL15inferBinaryInstPN6hermes18BinaryOperatorInstE.exit.i.i.i, %for.body16.i.i
   %retval.0.i20.i.i = phi i1 [ %cmp.i.i169.i.i.i, %sw.bb91.i.i.i ], [ %cmp.i.i162.i.i.i, %_ZN12_GLOBAL__N_117TypeInferenceImpl21inferLoadPropertyInstEPN6hermes16LoadPropertyInstE.exit.i.i.i ], [ %cmp.i.i101.i.i.i, %_ZL15inferReturnInstPN6hermes10ReturnInstE.exit.i.i.i ], [ %cmp.i.i87.i.i.i, %_ZN12_GLOBAL__N_117TypeInferenceImpl13inferCallInstEPN6hermes8CallInstE.exit.i.i.i ], [ %cmp.i.i77.i.i.i, %_ZL18inferLoadFrameInstPN6hermes13LoadFrameInstE.exit.i.i.i ], [ %cmp.i.i62.i.i.i, %_ZL18inferLoadStackInstPN6hermes13LoadStackInstE.exit.i.i.i ], [ %cmp.i.i51.i.i.i, %_ZL15inferMemoryTypePN6hermes5ValueE.exit150.i.i ], [ %cmp.i.i48.i.i.i, %_ZL16inferPhiInstInstPN6hermes7PhiInstE.exit.i.i.i ], [ %cmp.i.i43.i.i.i, %_ZL14inferUnaryInstPN6hermes17UnaryOperatorInstE.exit.i.i.i ], [ %cmp.i.i34.i.i.i, %_ZL15inferBinaryInstPN6hermes18BinaryOperatorInstE.exit.i.i.i ], [ false, %for.body16.i.i ]
-  %153 = and i8 %localChanged.1204.i.i, 1
-  %154 = zext i1 %retval.0.i20.i.i to i8
-  %155 = or i8 %153, %154
+  %153 = zext i1 %retval.0.i20.i.i to i8
+  %154 = or i8 %localChanged.1204.i.i, %153
   %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0205.i.i, i64 8
   %__begin3.sroa.0.0.i.i = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i18.not.i.i = icmp eq ptr %__begin3.sroa.0.0.i.i, %InstList.i.i.i
   br i1 %cmp.i18.not.i.i, label %for.inc26.i.i, label %for.body16.i.i
 
 for.inc26.i.i:                                    ; preds = %_ZN12_GLOBAL__N_117TypeInferenceImpl9inferTypeEPN6hermes11InstructionE.exit.i.i, %for.body.i.i
-  %localChanged.1.lcssa.i.i = phi i8 [ %localChanged.0212.i.i, %for.body.i.i ], [ %155, %_ZN12_GLOBAL__N_117TypeInferenceImpl9inferTypeEPN6hermes11InstructionE.exit.i.i ]
+  %localChanged.1.lcssa.i.i = phi i8 [ %localChanged.0212.i.i, %for.body.i.i ], [ %154, %_ZN12_GLOBAL__N_117TypeInferenceImpl9inferTypeEPN6hermes11InstructionE.exit.i.i ]
   %Next.i.i.i74.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0213.i.i, i64 8
   %__begin2.sroa.0.0.i.i = load ptr, ptr %Next.i.i.i74.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %__begin2.sroa.0.0.i.i, %BasicBlockList.i.i.i
@@ -1564,8 +1563,8 @@ for.inc26.i.i:                                    ; preds = %_ZN12_GLOBAL__N_117
 for.end28.i.i:                                    ; preds = %for.inc26.i.i, %do.body4.i.i
   %localChanged.0.lcssa.i.i = phi i8 [ 0, %do.body4.i.i ], [ %localChanged.1.lcssa.i.i, %for.inc26.i.i ]
   %retval.sroa.0.0.copyload.i.i77.i.i = load i32, ptr %valueType.i.i76.i.i, align 2
-  %156 = load i8, ptr %add.ptr.i75.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %156, -126
+  %155 = load i8, ptr %add.ptr.i75.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %155, -126
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZL23inferFunctionReturnTypePN6hermes8FunctionE.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.end28.i.i
@@ -1590,8 +1589,8 @@ for.body13.i.i.i:                                 ; preds = %for.body.i.i.i, %fo
   %returnTy.sroa.6.130.i.i.i = phi i16 [ %returnTy.sroa.6.2.i.i.i, %for.inc.i.i.i ], [ %returnTy.sroa.6.038.i.i.i, %for.body.i.i.i ]
   %returnTy.sroa.0.129.i.i.i = phi i16 [ %returnTy.sroa.0.2.i.i.i, %for.inc.i.i.i ], [ %returnTy.sroa.0.037.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i.i.i.i78.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.032.i.i.i, i64 16
-  %157 = load i8, ptr %add.ptr.i.i.i.i.i.i.i78.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i79.i.i = icmp ne i8 %157, 78
+  %156 = load i8, ptr %add.ptr.i.i.i.i.i.i.i78.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i.i79.i.i = icmp ne i8 %156, 78
   %tobool.not26.i.i.i = icmp eq ptr %__begin2.sroa.0.032.i.i.i, null
   %tobool.not.i.i.i = or i1 %tobool.not26.i.i.i, %cmp.i.i.i.i.i.i.i.i.i79.i.i
   br i1 %tobool.not.i.i.i, label %for.inc.i.i.i, label %if.then16.i.i.i
@@ -1599,8 +1598,8 @@ for.body13.i.i.i:                                 ; preds = %for.body.i.i.i, %fo
 if.then16.i.i.i:                                  ; preds = %for.body13.i.i.i
   %valueType.i6.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.032.i.i.i, i64 18
   %retval.sroa.0.0.copyload.i7.i.i.i = load i32, ptr %valueType.i6.i.i.i, align 2
-  %158 = and i8 %first.131.i.i.i, 1
-  %tobool19.not.i.i.i = icmp eq i8 %158, 0
+  %157 = and i8 %first.131.i.i.i, 1
+  %tobool19.not.i.i.i = icmp eq i8 %157, 0
   br i1 %tobool19.not.i.i.i, label %if.else.i.i.i, label %if.then20.i.i.i
 
 if.then20.i.i.i:                                  ; preds = %if.then16.i.i.i
@@ -1639,21 +1638,21 @@ for.inc26.i.i.i:                                  ; preds = %for.inc.i.i.i, %for
   br i1 %cmp.i.not.i.i.i, label %for.end28.loopexit.i.i.i, label %for.body.i.i.i
 
 for.end28.loopexit.i.i.i:                         ; preds = %for.inc26.i.i.i
-  %159 = zext i16 %returnTy.sroa.0.1.lcssa.i.i.i to i32
-  %160 = zext i16 %returnTy.sroa.6.1.lcssa.i.i.i to i32
-  %161 = shl nuw i32 %160, 16
+  %158 = zext i16 %returnTy.sroa.0.1.lcssa.i.i.i to i32
+  %159 = zext i16 %returnTy.sroa.6.1.lcssa.i.i.i to i32
+  %160 = shl nuw i32 %159, 16
   br label %for.end28.i.i.i
 
 for.end28.i.i.i:                                  ; preds = %for.end28.loopexit.i.i.i, %if.end.i.i.i
-  %returnTy.sroa.0.0.lcssa.i.i.i = phi i32 [ 1023, %if.end.i.i.i ], [ %159, %for.end28.loopexit.i.i.i ]
-  %returnTy.sroa.6.0.lcssa.i.i.i = phi i32 [ 458752, %if.end.i.i.i ], [ %161, %for.end28.loopexit.i.i.i ]
+  %returnTy.sroa.0.0.lcssa.i.i.i = phi i32 [ 1023, %if.end.i.i.i ], [ %158, %for.end28.loopexit.i.i.i ]
+  %returnTy.sroa.6.0.lcssa.i.i.i = phi i32 [ 458752, %if.end.i.i.i ], [ %160, %for.end28.loopexit.i.i.i ]
   %conv3.i.i.i.i = and i32 %retval.sroa.0.0.copyload.i.i77.i.i, 65535
   %cmp.not.i.i80.i.i = icmp ne i32 %conv3.i.i.i.i, %returnTy.sroa.0.0.lcssa.i.i.i
   %not.i.i.i.i = xor i32 %conv3.i.i.i.i, -1
   %and.i.i.i.i = and i32 %returnTy.sroa.0.0.lcssa.i.i.i, %not.i.i.i.i
   %tobool.not.i.i81.i.i = icmp eq i32 %and.i.i.i.i, 0
-  %162 = and i1 %cmp.not.i.i80.i.i, %tobool.not.i.i81.i.i
-  br i1 %162, label %if.then31.i.i.i, label %_ZL23inferFunctionReturnTypePN6hermes8FunctionE.exit.i.i
+  %161 = and i1 %cmp.not.i.i80.i.i, %tobool.not.i.i81.i.i
+  br i1 %161, label %if.then31.i.i.i, label %_ZL23inferFunctionReturnTypePN6hermes8FunctionE.exit.i.i
 
 if.then31.i.i.i:                                  ; preds = %for.end28.i.i.i
   %returnTy.sroa.0.0.insert.insert.i.i.i = or disjoint i32 %returnTy.sroa.6.0.lcssa.i.i.i, %returnTy.sroa.0.0.lcssa.i.i.i
@@ -1662,46 +1661,46 @@ if.then31.i.i.i:                                  ; preds = %for.end28.i.i.i
 
 _ZL23inferFunctionReturnTypePN6hermes8FunctionE.exit.i.i: ; preds = %if.then31.i.i.i, %for.end28.i.i.i, %for.end28.i.i
   %retval.0.i82.i.i = phi i8 [ 1, %if.then31.i.i.i ], [ 0, %for.end28.i.i ], [ 0, %for.end28.i.i.i ]
-  %163 = and i8 %localChanged.0.lcssa.i.i, 1
-  %164 = or i8 %retval.0.i82.i.i, %163
-  %165 = load i8, ptr %isGlobal_.i.i.i, align 8
-  %166 = and i8 %165, 1
-  %tobool.i.not.i.i = icmp eq i8 %166, 0
+  %162 = and i8 %localChanged.0.lcssa.i.i, 1
+  %163 = or i8 %retval.0.i82.i.i, %162
+  %164 = load i8, ptr %isGlobal_.i.i.i, align 8
+  %165 = and i8 %164, 1
+  %tobool.i.not.i.i = icmp eq i8 %165, 0
   br i1 %tobool.i.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %_ZL23inferFunctionReturnTypePN6hermes8FunctionE.exit.i.i
-  %167 = load ptr, ptr %scopeDesc_.i.i.i, align 8
-  %variables_.i.i.i = getelementptr inbounds i8, ptr %167, i64 152
-  %168 = load ptr, ptr %variables_.i.i.i, align 8
-  %Size.i.i.i = getelementptr inbounds i8, ptr %167, i64 160
-  %169 = load i32, ptr %Size.i.i.i, align 8
-  %conv.i.i.i = zext i32 %169 to i64
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %168, i64 %conv.i.i.i
-  %cmp.not215.i.i = icmp eq i32 %169, 0
+  %166 = load ptr, ptr %scopeDesc_.i.i.i, align 8
+  %variables_.i.i.i = getelementptr inbounds i8, ptr %166, i64 152
+  %167 = load ptr, ptr %variables_.i.i.i, align 8
+  %Size.i.i.i = getelementptr inbounds i8, ptr %166, i64 160
+  %168 = load i32, ptr %Size.i.i.i, align 8
+  %conv.i.i.i = zext i32 %168 to i64
+  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %167, i64 %conv.i.i.i
+  %cmp.not215.i.i = icmp eq i32 %168, 0
   br i1 %cmp.not215.i.i, label %if.end.i.i, label %for.body45.i.i
 
 for.body45.i.i:                                   ; preds = %if.then.i.i, %_ZL15inferMemoryTypePN6hermes5ValueE.exit.i.i
-  %localChanged.2217.i.i = phi i8 [ %182, %_ZL15inferMemoryTypePN6hermes5ValueE.exit.i.i ], [ %164, %if.then.i.i ]
-  %__begin340.0216.i.i = phi ptr [ %incdec.ptr.i.i, %_ZL15inferMemoryTypePN6hermes5ValueE.exit.i.i ], [ %168, %if.then.i.i ]
-  %170 = load ptr, ptr %__begin340.0216.i.i, align 8
-  %call.i.i83.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6hermes5Value8getUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %170) #7
-  %171 = load ptr, ptr %call.i.i83.i.i, align 8
+  %localChanged.2217.i.i = phi i8 [ %181, %_ZL15inferMemoryTypePN6hermes5ValueE.exit.i.i ], [ %163, %if.then.i.i ]
+  %__begin340.0216.i.i = phi ptr [ %incdec.ptr.i.i, %_ZL15inferMemoryTypePN6hermes5ValueE.exit.i.i ], [ %167, %if.then.i.i ]
+  %169 = load ptr, ptr %__begin340.0216.i.i, align 8
+  %call.i.i83.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6hermes5Value8getUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %169) #7
+  %170 = load ptr, ptr %call.i.i83.i.i, align 8
   %Size.i.i.i84.i.i = getelementptr inbounds i8, ptr %call.i.i83.i.i, i64 8
-  %172 = load i32, ptr %Size.i.i.i84.i.i, align 8
-  %conv.i.i.i85.i.i = zext i32 %172 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %171, i64 %conv.i.i.i85.i.i
-  %cmp.not20.i.i.i.i = icmp eq i32 %172, 0
+  %171 = load i32, ptr %Size.i.i.i84.i.i, align 8
+  %conv.i.i.i85.i.i = zext i32 %171 to i64
+  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %170, i64 %conv.i.i.i85.i.i
+  %cmp.not20.i.i.i.i = icmp eq i32 %171, 0
   br i1 %cmp.not20.i.i.i.i, label %_ZL23inferMemoryLocationTypePN6hermes5ValueE.exit.i.i.i, label %for.body.i.i86.i.i
 
 for.body.i.i86.i.i:                               ; preds = %for.body45.i.i, %for.inc.i.i87.i.i
   %first.024.i.i.i.i = phi i8 [ %first.1.i.i88.i.i, %for.inc.i.i87.i.i ], [ 1, %for.body45.i.i ]
-  %__begin1.023.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.i.i87.i.i ], [ %171, %for.body45.i.i ]
+  %__begin1.023.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.inc.i.i87.i.i ], [ %170, %for.body45.i.i ]
   %T.sroa.0.022.i.i.i.i = phi i16 [ %T.sroa.0.1.i.i.i.i, %for.inc.i.i87.i.i ], [ 1023, %for.body45.i.i ]
   %T.sroa.5.021.i.i.i.i = phi i16 [ %T.sroa.5.1.i.i.i.i, %for.inc.i.i87.i.i ], [ 7, %for.body45.i.i ]
-  %173 = load ptr, ptr %__begin1.023.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %173, i64 16
-  %174 = load i8, ptr %add.ptr.i.i.i.i, align 8
-  switch i8 %174, label %_ZL23inferMemoryLocationTypePN6hermes5ValueE.exit.i.i.i [
+  %172 = load ptr, ptr %__begin1.023.i.i.i.i, align 8
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %172, i64 16
+  %173 = load i8, ptr %add.ptr.i.i.i.i, align 8
+  switch i8 %173, label %_ZL23inferMemoryLocationTypePN6hermes5ValueE.exit.i.i.i [
     i8 51, label %sw.epilog.i.i.i.i
     i8 50, label %sw.epilog.i.i.i.i
     i8 49, label %for.inc.i.i87.i.i
@@ -1709,15 +1708,15 @@ for.body.i.i86.i.i:                               ; preds = %for.body45.i.i, %fo
   ]
 
 sw.epilog.i.i.i.i:                                ; preds = %for.body.i.i86.i.i, %for.body.i.i86.i.i
-  %call.i7.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %173, i32 noundef 0) #7
+  %call.i7.i.i.i.i = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %172, i32 noundef 0) #7
   %tobool.not.i.i96.i.i = icmp eq ptr %call.i7.i.i.i.i, null
   br i1 %tobool.not.i.i96.i.i, label %for.inc.i.i87.i.i, label %if.end.i.i97.i.i
 
 if.end.i.i97.i.i:                                 ; preds = %sw.epilog.i.i.i.i
   %valueType.i.i.i98.i.i = getelementptr inbounds i8, ptr %call.i7.i.i.i.i, i64 2
   %retval.sroa.0.0.copyload.i.i.i99.i.i = load i32, ptr %valueType.i.i.i98.i.i, align 2
-  %175 = and i8 %first.024.i.i.i.i, 1
-  %tobool12.not.i.i.i.i = icmp eq i8 %175, 0
+  %174 = and i8 %first.024.i.i.i.i, 1
+  %tobool12.not.i.i.i.i = icmp eq i8 %174, 0
   br i1 %tobool12.not.i.i.i.i, label %if.end14.i.i.i.i, label %if.then13.i.i.i.i
 
 if.then13.i.i.i.i:                                ; preds = %if.end.i.i97.i.i
@@ -1746,15 +1745,15 @@ for.inc.i.i87.i.i:                                ; preds = %if.end14.i.i.i.i, %
   br i1 %cmp.not.i.i89.i.i, label %for.end.loopexit.i.i90.i.i, label %for.body.i.i86.i.i
 
 for.end.loopexit.i.i90.i.i:                       ; preds = %for.inc.i.i87.i.i
-  %176 = zext i16 %T.sroa.5.1.i.i.i.i to i32
-  %177 = shl nuw i32 %176, 16
-  %178 = zext i16 %T.sroa.0.1.i.i.i.i to i32
-  %179 = or disjoint i32 %177, %178
+  %175 = zext i16 %T.sroa.5.1.i.i.i.i to i32
+  %176 = shl nuw i32 %175, 16
+  %177 = zext i16 %T.sroa.0.1.i.i.i.i to i32
+  %178 = or disjoint i32 %176, %177
   br label %_ZL23inferMemoryLocationTypePN6hermes5ValueE.exit.i.i.i
 
 _ZL23inferMemoryLocationTypePN6hermes5ValueE.exit.i.i.i: ; preds = %for.body.i.i86.i.i, %for.end.loopexit.i.i90.i.i, %for.body45.i.i
-  %retval.sroa.0.0.i.i.i.i = phi i32 [ 459775, %for.body45.i.i ], [ %179, %for.end.loopexit.i.i90.i.i ], [ 459775, %for.body.i.i86.i.i ]
-  %valueType.i.i91.i.i = getelementptr inbounds i8, ptr %170, i64 2
+  %retval.sroa.0.0.i.i.i.i = phi i32 [ 459775, %for.body45.i.i ], [ %178, %for.end.loopexit.i.i90.i.i ], [ 459775, %for.body.i.i86.i.i ]
+  %valueType.i.i91.i.i = getelementptr inbounds i8, ptr %169, i64 2
   %retval.sroa.0.0.copyload.i.i92.i.i = load i32, ptr %valueType.i.i91.i.i, align 2
   %conv.i.i.i.i = and i32 %retval.sroa.0.0.i.i.i.i, 65535
   %conv3.i.i93.i.i = and i32 %retval.sroa.0.0.copyload.i.i92.i.i, 65535
@@ -1762,26 +1761,26 @@ _ZL23inferMemoryLocationTypePN6hermes5ValueE.exit.i.i.i: ; preds = %for.body.i.i
   %not.i.i94.i.i = xor i32 %conv3.i.i93.i.i, -1
   %and.i.i95.i.i = and i32 %conv.i.i.i.i, %not.i.i94.i.i
   %tobool.not.i4.i.i.i = icmp eq i32 %and.i.i95.i.i, 0
-  %180 = and i1 %cmp.not.i3.i.i.i, %tobool.not.i4.i.i.i
-  br i1 %180, label %if.then.i.i.i, label %_ZL15inferMemoryTypePN6hermes5ValueE.exit.i.i
+  %179 = and i1 %cmp.not.i3.i.i.i, %tobool.not.i4.i.i.i
+  br i1 %179, label %if.then.i.i.i, label %_ZL15inferMemoryTypePN6hermes5ValueE.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZL23inferMemoryLocationTypePN6hermes5ValueE.exit.i.i.i
   store i32 %retval.sroa.0.0.i.i.i.i, ptr %valueType.i.i91.i.i, align 2
   br label %_ZL15inferMemoryTypePN6hermes5ValueE.exit.i.i
 
 _ZL15inferMemoryTypePN6hermes5ValueE.exit.i.i:    ; preds = %if.then.i.i.i, %_ZL23inferMemoryLocationTypePN6hermes5ValueE.exit.i.i.i
-  %181 = zext i1 %180 to i8
-  %182 = or i8 %localChanged.2217.i.i, %181
+  %180 = zext i1 %179 to i8
+  %181 = or i8 %localChanged.2217.i.i, %180
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin340.0216.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %for.body45.i.i
 
 if.end.i.i:                                       ; preds = %_ZL15inferMemoryTypePN6hermes5ValueE.exit.i.i, %if.then.i.i, %_ZL23inferFunctionReturnTypePN6hermes8FunctionE.exit.i.i
-  %localChanged.3.i.i = phi i8 [ %164, %_ZL23inferFunctionReturnTypePN6hermes8FunctionE.exit.i.i ], [ %164, %if.then.i.i ], [ %182, %_ZL15inferMemoryTypePN6hermes5ValueE.exit.i.i ]
+  %localChanged.3.i.i = phi i8 [ %163, %_ZL23inferFunctionReturnTypePN6hermes8FunctionE.exit.i.i ], [ %163, %if.then.i.i ], [ %181, %_ZL15inferMemoryTypePN6hermes5ValueE.exit.i.i ]
   %tobool55.not.i.i = icmp eq i8 %localChanged.3.i.i, 0
-  %183 = zext i1 %changed.0.in.i.i to i8
-  %184 = or i8 %localChanged.3.i.i, %183
-  %tobool60.i.i = icmp ne i8 %184, 0
+  %182 = zext i1 %changed.0.in.i.i to i8
+  %183 = or i8 %localChanged.3.i.i, %182
+  %tobool60.i.i = icmp ne i8 %183, 0
   br i1 %tobool55.not.i.i, label %_ZN12_GLOBAL__N_117TypeInferenceImpl13runOnFunctionEPN6hermes8FunctionE.exit.i, label %do.body4.i.i, !llvm.loop !15
 
 _ZN12_GLOBAL__N_117TypeInferenceImpl13runOnFunctionEPN6hermes8FunctionE.exit.i: ; preds = %if.end.i.i

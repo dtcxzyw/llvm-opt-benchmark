@@ -1633,16 +1633,14 @@ for.body.lr.ph.i55:                               ; preds = %if.else14
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i55, %for.body.us.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %for.body.us.i ], [ %26, %for.body.lr.ph.i55 ]
-  %w.025.us.i = phi i128 [ %sub7.us.i, %for.body.us.i ], [ 0, %for.body.lr.ph.i55 ]
+  %w.025.us.i = phi i128 [ %28, %for.body.us.i ], [ 0, %for.body.lr.ph.i55 ]
   %arrayidx.us.i = getelementptr inbounds [129 x i64], ptr %dp.i56, i64 0, i64 %indvars.iv30.i
   %27 = load i64, ptr %arrayidx.us.i, align 8
-  %conv.i.us.i = shl i128 %w.025.us.i, 64
-  %conv1.i.us.i = zext i64 %27 to i128
+  %conv.i.us.i = shl nuw i128 %w.025.us.i, 64
+  %.fr.i = freeze i64 %27
+  %conv1.i.us.i = zext i64 %.fr.i to i128
   %or.i.us.i = or disjoint i128 %conv.i.us.i, %conv1.i.us.i
-  %div.i.us.i = udiv i128 %or.i.us.i, %conv2.i.i
-  %conv5.us.i = and i128 %div.i.us.i, 18446744073709551615
-  %mul.us.i = mul nuw i128 %conv5.us.i, %conv2.i.i
-  %sub7.us.i = sub i128 %or.i.us.i, %mul.us.i
+  %28 = urem i128 %or.i.us.i, %conv2.i.i
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
   %cmp.us.not.i = icmp eq i64 %indvars.iv30.i, 0
   br i1 %cmp.us.not.i, label %for.end.loopexit.i, label %for.body.us.i, !llvm.loop !30
@@ -1651,13 +1649,12 @@ for.body.i57:                                     ; preds = %for.body.lr.ph.i55,
   %indvars.iv.i58 = phi i64 [ %indvars.iv.next.i62, %for.body.i57 ], [ %26, %for.body.lr.ph.i55 ]
   %w.025.i = phi i128 [ %sub7.i61, %for.body.i57 ], [ 0, %for.body.lr.ph.i55 ]
   %arrayidx.i59 = getelementptr inbounds [129 x i64], ptr %dp.i56, i64 0, i64 %indvars.iv.i58
-  %28 = load i64, ptr %arrayidx.i59, align 8
+  %29 = load i64, ptr %arrayidx.i59, align 8
   %conv.i.i = shl i128 %w.025.i, 64
-  %conv1.i.i = zext i64 %28 to i128
+  %conv1.i.i = zext i64 %29 to i128
   %or.i.i = or disjoint i128 %conv.i.i, %conv1.i.i
   %div.i.i = udiv i128 %or.i.i, %conv2.i.i
-  %conv5.i = and i128 %div.i.i, 18446744073709551615
-  %mul.i60 = mul nuw i128 %conv5.i, %conv2.i.i
+  %mul.i60 = mul i128 %div.i.i, %conv2.i.i
   %sub7.i61 = sub i128 %or.i.i, %mul.i60
   %conv3.i.i = trunc i128 %div.i.i to i64
   %arrayidx12.i = getelementptr inbounds [129 x i64], ptr %dp10.i, i64 0, i64 %indvars.iv.i58
@@ -1667,7 +1664,7 @@ for.body.i57:                                     ; preds = %for.body.lr.ph.i55,
   br i1 %cmp.not.i, label %for.end.thread.i, label %for.body.i57, !llvm.loop !30
 
 for.end.loopexit.i:                               ; preds = %for.body.us.i
-  %extract.t.i = trunc i128 %sub7.us.i to i64
+  %extract.t.i = trunc i128 %28 to i64
   br label %for.end.i
 
 for.end.thread.i:                                 ; preds = %for.body.i57
@@ -1681,29 +1678,29 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   br i1 %cmp13.not.i, label %if.end33.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %for.end.i, %for.end.thread.i
-  %29 = phi i32 [ %.pre, %for.end.thread.i ], [ %25, %for.end.i ]
+  %30 = phi i32 [ %.pre, %for.end.thread.i ], [ %25, %for.end.i ]
   %w.0.lcssa.off039.i = phi i64 [ %extract.t27.i, %for.end.thread.i ], [ %w.0.lcssa.off0.i, %for.end.i ]
-  store i32 %29, ptr %r, align 8
+  store i32 %30, ptr %r, align 8
   %dp23.i = getelementptr inbounds i8, ptr %r, i64 8
-  %30 = zext i32 %29 to i64
-  %smin.i52 = tail call i32 @llvm.smin.i32(i32 %29, i32 0)
+  %31 = zext i32 %30 to i64
+  %smin.i52 = tail call i32 @llvm.smin.i32(i32 %30, i32 0)
   br label %for.cond20.i
 
 for.cond20.i:                                     ; preds = %land.rhs.i54, %if.then15.i
-  %indvars.iv33.i = phi i64 [ %32, %land.rhs.i54 ], [ %30, %if.then15.i ]
-  %31 = trunc i64 %indvars.iv33.i to i32
-  %cmp21.i = icmp sgt i32 %31, 0
+  %indvars.iv33.i = phi i64 [ %33, %land.rhs.i54 ], [ %31, %if.then15.i ]
+  %32 = trunc i64 %indvars.iv33.i to i32
+  %cmp21.i = icmp sgt i32 %32, 0
   br i1 %cmp21.i, label %land.rhs.i54, label %for.end31.i
 
 land.rhs.i54:                                     ; preds = %for.cond20.i
-  %32 = add nsw i64 %indvars.iv33.i, -1
-  %arrayidx25.i = getelementptr inbounds [129 x i64], ptr %dp23.i, i64 0, i64 %32
-  %33 = load i64, ptr %arrayidx25.i, align 8
-  %cmp26.i = icmp eq i64 %33, 0
+  %33 = add nsw i64 %indvars.iv33.i, -1
+  %arrayidx25.i = getelementptr inbounds [129 x i64], ptr %dp23.i, i64 0, i64 %33
+  %34 = load i64, ptr %arrayidx25.i, align 8
+  %cmp26.i = icmp eq i64 %34, 0
   br i1 %cmp26.i, label %for.cond20.i, label %for.end31.i, !llvm.loop !31
 
 for.end31.i:                                      ; preds = %land.rhs.i54, %for.cond20.i
-  %ii.0.in.lcssa.i53 = phi i32 [ %smin.i52, %for.cond20.i ], [ %31, %land.rhs.i54 ]
+  %ii.0.in.lcssa.i53 = phi i32 [ %smin.i52, %for.cond20.i ], [ %32, %land.rhs.i54 ]
   store i32 %ii.0.in.lcssa.i53, ptr %r, align 8
   br label %if.end33.i
 
@@ -1830,22 +1827,20 @@ for.body.lr.ph.i33:                               ; preds = %if.else19
 
 for.body.i35:                                     ; preds = %for.body.i35, %for.body.lr.ph.i33
   %indvars.iv.i = phi i64 [ %11, %for.body.lr.ph.i33 ], [ %indvars.iv.next.i, %for.body.i35 ]
-  %w.012.i = phi i128 [ 0, %for.body.lr.ph.i33 ], [ %sub7.i38, %for.body.i35 ]
+  %w.012.i = phi i128 [ 0, %for.body.lr.ph.i33 ], [ %13, %for.body.i35 ]
   %arrayidx.i36 = getelementptr inbounds [129 x i64], ptr %dp.i34, i64 0, i64 %indvars.iv.i
   %12 = load i64, ptr %arrayidx.i36, align 8
-  %conv.i.i = shl i128 %w.012.i, 64
-  %conv1.i.i = zext i64 %12 to i128
+  %conv.i.i = shl nuw i128 %w.012.i, 64
+  %.fr.i = freeze i64 %12
+  %conv1.i.i = zext i64 %.fr.i to i128
   %or.i.i = or disjoint i128 %conv.i.i, %conv1.i.i
-  %div.i.i = udiv i128 %or.i.i, %conv2.i.i
-  %conv5.i = and i128 %div.i.i, 18446744073709551615
-  %mul.i37 = mul nuw i128 %conv5.i, %conv2.i.i
-  %sub7.i38 = sub i128 %or.i.i, %mul.i37
+  %13 = urem i128 %or.i.i, %conv2.i.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.not.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i35, !llvm.loop !33
 
 for.end.loopexit.i:                               ; preds = %for.body.i35
-  %extract.t.i = trunc i128 %sub7.i38 to i64
+  %extract.t.i = trunc i128 %13 to i64
   br label %if.end23.sink.split
 
 if.end23.sink.split:                              ; preds = %for.body.i23, %for.body.i, %for.end.loopexit.i, %if.else19, %if.then18, %if.then15, %if.then7, %if.else

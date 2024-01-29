@@ -616,58 +616,56 @@ if.then.i.us.i:                                   ; preds = %if.end.us.i
 
 bdrv_parent_drained_poll_single.exit.us.i:        ; preds = %if.then.i.us.i, %if.end.us.i
   %retval.0.i.us.i = phi i1 [ %call.i.us.i, %if.then.i.us.i ], [ false, %if.end.us.i ]
-  %6 = and i8 %busy.08.us.i, 1
-  %7 = zext i1 %retval.0.i.us.i to i8
-  %8 = or i8 %6, %7
+  %6 = zext i1 %retval.0.i.us.i to i8
+  %7 = or i8 %busy.08.us.i, %6
   br label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %bdrv_parent_drained_poll_single.exit.us.i, %lor.lhs.false.us.i, %land.rhs.us.i
-  %busy.1.us.i = phi i8 [ %busy.08.us.i, %land.rhs.us.i ], [ %busy.08.us.i, %lor.lhs.false.us.i ], [ %8, %bdrv_parent_drained_poll_single.exit.us.i ]
+  %busy.1.us.i = phi i8 [ %busy.08.us.i, %land.rhs.us.i ], [ %busy.08.us.i, %lor.lhs.false.us.i ], [ %7, %bdrv_parent_drained_poll_single.exit.us.i ]
   %tobool.not.us.i = icmp eq ptr %1, null
   br i1 %tobool.not.us.i, label %bdrv_parent_drained_poll.exit, label %land.rhs.us.i, !llvm.loop !7
 
 land.rhs.i:                                       ; preds = %land.rhs.lr.ph.i, %for.inc.i
   %busy.08.i = phi i8 [ %busy.1.i, %for.inc.i ], [ 0, %land.rhs.lr.ph.i ]
-  %c.07.i = phi ptr [ %9, %for.inc.i ], [ %0, %land.rhs.lr.ph.i ]
+  %c.07.i = phi ptr [ %8, %for.inc.i ], [ %0, %land.rhs.lr.ph.i ]
   %next_parent.i = getelementptr inbounds i8, ptr %c.07.i, i64 80
-  %9 = load ptr, ptr %next_parent.i, align 8
+  %8 = load ptr, ptr %next_parent.i, align 8
   %cmp.i = icmp eq ptr %c.07.i, %ignore_parent
   br i1 %cmp.i, label %for.inc.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i
   %klass.i.i = getelementptr inbounds i8, ptr %c.07.i, i64 16
-  %10 = load ptr, ptr %klass.i.i, align 8
-  %drained_poll.i.i = getelementptr inbounds i8, ptr %10, i64 80
-  %11 = load ptr, ptr %drained_poll.i.i, align 8
-  %tobool.not.i.i = icmp eq ptr %11, null
+  %9 = load ptr, ptr %klass.i.i, align 8
+  %drained_poll.i.i = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = load ptr, ptr %drained_poll.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i, label %bdrv_parent_drained_poll_single.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %lor.lhs.false.i
-  %call.i.i = tail call zeroext i1 %11(ptr noundef nonnull %c.07.i) #14
+  %call.i.i = tail call zeroext i1 %10(ptr noundef nonnull %c.07.i) #14
   br label %bdrv_parent_drained_poll_single.exit.i
 
 bdrv_parent_drained_poll_single.exit.i:           ; preds = %if.then.i.i, %lor.lhs.false.i
   %retval.0.i.i = phi i1 [ %call.i.i, %if.then.i.i ], [ false, %lor.lhs.false.i ]
-  %12 = and i8 %busy.08.i, 1
-  %13 = zext i1 %retval.0.i.i to i8
-  %14 = or i8 %12, %13
+  %11 = zext i1 %retval.0.i.i to i8
+  %12 = or i8 %busy.08.i, %11
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %bdrv_parent_drained_poll_single.exit.i, %land.rhs.i
-  %busy.1.i = phi i8 [ %busy.08.i, %land.rhs.i ], [ %14, %bdrv_parent_drained_poll_single.exit.i ]
-  %tobool.not.i = icmp eq ptr %9, null
+  %busy.1.i = phi i8 [ %busy.08.i, %land.rhs.i ], [ %12, %bdrv_parent_drained_poll_single.exit.i ]
+  %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %bdrv_parent_drained_poll.exit, label %land.rhs.i, !llvm.loop !7
 
 bdrv_parent_drained_poll.exit:                    ; preds = %for.inc.i, %for.inc.us.i
   %busy.0.lcssa.i = phi i8 [ %busy.1.us.i, %for.inc.us.i ], [ %busy.1.i, %for.inc.i ]
-  %15 = and i8 %busy.0.lcssa.i, 1
-  %tobool7.i.not = icmp eq i8 %15, 0
+  %13 = and i8 %busy.0.lcssa.i, 1
+  %tobool7.i.not = icmp eq i8 %13, 0
   br i1 %tobool7.i.not, label %while.end, label %return
 
 while.end:                                        ; preds = %do.end, %bdrv_parent_drained_poll.exit
   %in_flight = getelementptr inbounds i8, ptr %bs, i64 16972
-  %16 = load atomic i32, ptr %in_flight monotonic, align 4
-  %tobool6.not = icmp ne i32 %16, 0
+  %14 = load atomic i32, ptr %in_flight monotonic, align 4
+  %tobool6.not = icmp ne i32 %14, 0
   br label %return
 
 return:                                           ; preds = %while.end, %bdrv_parent_drained_poll.exit
@@ -1147,25 +1145,24 @@ if.then.i.us.i.i.i:                               ; preds = %if.end.us.i.i.i
 
 bdrv_parent_drained_poll_single.exit.us.i.i.i:    ; preds = %if.then.i.us.i.i.i, %if.end.us.i.i.i
   %retval.0.i.us.i.i.i = phi i1 [ %call.i.us.i.i.i, %if.then.i.us.i.i.i ], [ false, %if.end.us.i.i.i ]
-  %7 = and i8 %busy.08.us.i.i.i, 1
-  %8 = zext i1 %retval.0.i.us.i.i.i to i8
-  %9 = or i8 %7, %8
+  %7 = zext i1 %retval.0.i.us.i.i.i to i8
+  %8 = or i8 %busy.08.us.i.i.i, %7
   br label %for.inc.us.i.i.i
 
 for.inc.us.i.i.i:                                 ; preds = %bdrv_parent_drained_poll_single.exit.us.i.i.i, %lor.lhs.false.us.i.i.i
-  %busy.1.us.i.i.i = phi i8 [ %busy.08.us.i.i.i, %lor.lhs.false.us.i.i.i ], [ %9, %bdrv_parent_drained_poll_single.exit.us.i.i.i ]
+  %busy.1.us.i.i.i = phi i8 [ %busy.08.us.i.i.i, %lor.lhs.false.us.i.i.i ], [ %8, %bdrv_parent_drained_poll_single.exit.us.i.i.i ]
   %tobool.not.us.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.us.i.i.i, label %bdrv_parent_drained_poll.exit.i.i, label %lor.lhs.false.us.i.i.i, !llvm.loop !7
 
 bdrv_parent_drained_poll.exit.i.i:                ; preds = %for.inc.us.i.i.i
-  %10 = and i8 %busy.1.us.i.i.i, 1
-  %tobool7.i.not.i.i = icmp eq i8 %10, 0
+  %9 = and i8 %busy.1.us.i.i.i, 1
+  %tobool7.i.not.i.i = icmp eq i8 %9, 0
   br i1 %tobool7.i.not.i.i, label %while.end.i.i, label %bdrv_drain_poll.exit.i
 
 while.end.i.i:                                    ; preds = %bdrv_parent_drained_poll.exit.i.i, %do.end.i.i
   %in_flight.i.i = getelementptr inbounds i8, ptr %call210.i, i64 16972
-  %11 = load atomic i32, ptr %in_flight.i.i monotonic, align 4
-  %tobool6.not.i.i = icmp ne i32 %11, 0
+  %10 = load atomic i32, ptr %in_flight.i.i monotonic, align 4
+  %tobool6.not.i.i = icmp ne i32 %10, 0
   br label %bdrv_drain_poll.exit.i
 
 bdrv_drain_poll.exit.i:                           ; preds = %while.end.i.i, %bdrv_parent_drained_poll.exit.i.i
@@ -1187,7 +1184,7 @@ while.body15:                                     ; preds = %bdrv_drain_all_poll
   br i1 %call.i, label %do.end.i, label %if.else.i, !llvm.loop !14
 
 if.end19:                                         ; preds = %bdrv_drain_all_poll.exit, %bdrv_drain_all_poll.exit.thread
-  %12 = atomicrmw sub ptr @global_aio_wait, i32 1 seq_cst, align 4
+  %11 = atomicrmw sub ptr @global_aio_wait, i32 1 seq_cst, align 4
   %call267 = tail call ptr @bdrv_next_all_states(ptr noundef null) #14
   %tobool27.not8 = icmp eq ptr %call267, null
   br i1 %tobool27.not8, label %while.end29, label %while.body28
@@ -6745,25 +6742,24 @@ if.then.i.i.i:                                    ; preds = %lor.lhs.false.i.i
 
 bdrv_parent_drained_poll_single.exit.i.i:         ; preds = %if.then.i.i.i, %lor.lhs.false.i.i
   %retval.0.i.i.i = phi i1 [ %call.i.i.i, %if.then.i.i.i ], [ false, %lor.lhs.false.i.i ]
-  %4 = and i8 %busy.08.i.i, 1
-  %5 = zext i1 %retval.0.i.i.i to i8
-  %6 = or i8 %4, %5
+  %4 = zext i1 %retval.0.i.i.i to i8
+  %5 = or i8 %busy.08.i.i, %4
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %bdrv_parent_drained_poll_single.exit.i.i, %land.rhs.i.i
-  %busy.1.i.i = phi i8 [ %busy.08.i.i, %land.rhs.i.i ], [ %6, %bdrv_parent_drained_poll_single.exit.i.i ]
+  %busy.1.i.i = phi i8 [ %busy.08.i.i, %land.rhs.i.i ], [ %5, %bdrv_parent_drained_poll_single.exit.i.i ]
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %bdrv_parent_drained_poll.exit.i, label %land.rhs.i.i, !llvm.loop !7
 
 bdrv_parent_drained_poll.exit.i:                  ; preds = %for.inc.i.i
-  %7 = and i8 %busy.1.i.i, 1
-  %tobool7.i.not.i = icmp eq i8 %7, 0
+  %6 = and i8 %busy.1.i.i, 1
+  %tobool7.i.not.i = icmp eq i8 %6, 0
   br i1 %tobool7.i.not.i, label %while.end.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 while.end.i:                                      ; preds = %bdrv_parent_drained_poll.exit.i, %do.end.i
   %in_flight.i = getelementptr inbounds i8, ptr %bs, i64 16972
-  %8 = load atomic i32, ptr %in_flight.i monotonic, align 4
-  %tobool6.not.i = icmp ne i32 %8, 0
+  %7 = load atomic i32, ptr %in_flight.i monotonic, align 4
+  %tobool6.not.i = icmp ne i32 %7, 0
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %bdrv_parent_drained_poll.exit.i, %while.end.i

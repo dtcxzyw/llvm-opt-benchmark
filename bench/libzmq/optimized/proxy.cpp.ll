@@ -1296,25 +1296,21 @@ if.then838.us:                                    ; preds = %if.else833.us
   %events841.us = getelementptr inbounds i8, ptr %arrayidx818.us, i64 24
   %26 = load i16, ptr %events841.us, align 8
   %27 = trunc i16 %26 to i8
-  %frombool845.us = and i8 %27, 1
   %28 = lshr i8 %27, 1
-  %frombool852.us = and i8 %28, 1
   br label %for.inc.us
 
 if.then821.us:                                    ; preds = %for.body.us
   %events824.us = getelementptr inbounds i8, ptr %arrayidx818.us, i64 24
   %29 = load i16, ptr %events824.us, align 8
   %30 = trunc i16 %29 to i8
-  %frombool.us = and i8 %30, 1
   %31 = lshr i8 %30, 1
-  %frombool832.us = and i8 %31, 1
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then821.us, %if.then838.us, %if.else833.us
-  %backend_out.2.us = phi i8 [ %backend_out.1383.us, %if.then821.us ], [ %frombool852.us, %if.then838.us ], [ %backend_out.1383.us, %if.else833.us ]
-  %backend_in.2.us = phi i8 [ %backend_in.1384.us, %if.then821.us ], [ %frombool845.us, %if.then838.us ], [ %backend_in.1384.us, %if.else833.us ]
-  %frontend_out.2.us = phi i8 [ %frombool832.us, %if.then821.us ], [ %frontend_out.1385.us, %if.then838.us ], [ %frontend_out.1385.us, %if.else833.us ]
-  %frontend_in.2.us = phi i8 [ %frombool.us, %if.then821.us ], [ %frontend_in.1386.us, %if.then838.us ], [ %frontend_in.1386.us, %if.else833.us ]
+  %backend_out.2.us = phi i8 [ %backend_out.1383.us, %if.then821.us ], [ %28, %if.then838.us ], [ %backend_out.1383.us, %if.else833.us ]
+  %backend_in.2.us = phi i8 [ %backend_in.1384.us, %if.then821.us ], [ %27, %if.then838.us ], [ %backend_in.1384.us, %if.else833.us ]
+  %frontend_out.2.us = phi i8 [ %31, %if.then821.us ], [ %frontend_out.1385.us, %if.then838.us ], [ %frontend_out.1385.us, %if.else833.us ]
+  %frontend_in.2.us = phi i8 [ %30, %if.then821.us ], [ %frontend_in.1386.us, %if.then838.us ], [ %frontend_in.1386.us, %if.else833.us ]
   %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next406, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body.us, !llvm.loop !4
@@ -1527,9 +1523,7 @@ if.then821:                                       ; preds = %if.end816
   %events824 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %35 = load i16, ptr %events824, align 8
   %36 = trunc i16 %35 to i8
-  %frombool = and i8 %36, 1
   %37 = lshr i8 %36, 1
-  %frombool832 = and i8 %37, 1
   br label %for.inc
 
 if.else833:                                       ; preds = %if.end816
@@ -1540,17 +1534,15 @@ if.then838:                                       ; preds = %if.else833
   %events841 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %38 = load i16, ptr %events841, align 8
   %39 = trunc i16 %38 to i8
-  %frombool845 = and i8 %39, 1
   %40 = lshr i8 %39, 1
-  %frombool852 = and i8 %40, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit, %if.then821, %if.then838, %if.else833
   %state.4 = phi i32 [ %state.1382, %if.then821 ], [ %state.1382, %if.then838 ], [ %state.1382, %if.else833 ], [ %state.3, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %backend_out.2 = phi i8 [ %backend_out.1383, %if.then821 ], [ %frombool852, %if.then838 ], [ %backend_out.1383, %if.else833 ], [ %backend_out.1383, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %backend_in.2 = phi i8 [ %backend_in.1384, %if.then821 ], [ %frombool845, %if.then838 ], [ %backend_in.1384, %if.else833 ], [ %backend_in.1384, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %frontend_out.2 = phi i8 [ %frombool832, %if.then821 ], [ %frontend_out.1385, %if.then838 ], [ %frontend_out.1385, %if.else833 ], [ %frontend_out.1385, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
-  %frontend_in.2 = phi i8 [ %frombool, %if.then821 ], [ %frontend_in.1386, %if.then838 ], [ %frontend_in.1386, %if.else833 ], [ %frontend_in.1386, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
+  %backend_out.2 = phi i8 [ %backend_out.1383, %if.then821 ], [ %40, %if.then838 ], [ %backend_out.1383, %if.else833 ], [ %backend_out.1383, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
+  %backend_in.2 = phi i8 [ %backend_in.1384, %if.then821 ], [ %39, %if.then838 ], [ %backend_in.1384, %if.else833 ], [ %backend_in.1384, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
+  %frontend_out.2 = phi i8 [ %37, %if.then821 ], [ %frontend_out.1385, %if.then838 ], [ %frontend_out.1385, %if.else833 ], [ %frontend_out.1385, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
+  %frontend_in.2 = phi i8 [ %36, %if.then821 ], [ %frontend_in.1386, %if.then838 ], [ %frontend_in.1386, %if.else833 ], [ %frontend_in.1386, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
   %rc.3 = phi i32 [ %rc.2387, %if.then821 ], [ %rc.2387, %if.then838 ], [ %rc.2387, %if.else833 ], [ 0, %_ZL14handle_controlPN3zmq13socket_base_tER13proxy_state_tRK11stats_proxy.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = sext i32 %rc.3 to i64

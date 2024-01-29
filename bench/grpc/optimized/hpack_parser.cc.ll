@@ -9694,7 +9694,6 @@ if.end73:                                         ; preds = %if.end65
 if.then78:                                        ; preds = %if.end73
   %call80 = tail call i64 @_ZN9grpc_core11HPackParser5Input21ParseVarintOutOfRangeEjh(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %add59, i8 noundef zeroext %cur.sroa.0.0.extract.trunc87)
   %retval.sroa.0.0.extract.trunc = trunc i64 %call80 to i32
-  %retval.sroa.11.0.extract.shift = and i64 %call80, -4294967296
   %retval.sroa.23.0.extract.shift = and i64 %call80, -1099511627776
   br label %return
 
@@ -9708,7 +9707,6 @@ if.end83:                                         ; preds = %if.end73
 if.then87:                                        ; preds = %if.end83
   %call89 = tail call i64 @_ZN9grpc_core11HPackParser5Input21ParseVarintOutOfRangeEjh(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %add59, i8 noundef zeroext %cur.sroa.0.0.extract.trunc87)
   %retval.sroa.0.0.extract.trunc119 = trunc i64 %call89 to i32
-  %retval.sroa.11.0.extract.shift122 = and i64 %call89, -4294967296
   %retval.sroa.23.0.extract.shift128 = and i64 %call89, -1099511627776
   br label %return
 
@@ -9733,7 +9731,6 @@ if.end107:                                        ; preds = %do.body
 if.then109:                                       ; preds = %if.end107
   %call110 = tail call i64 @_ZN9grpc_core11HPackParser5Input28ParseVarintMaliciousEncodingEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
   %retval.sroa.0.0.extract.trunc120 = trunc i64 %call110 to i32
-  %retval.sroa.11.0.extract.shift124 = and i64 %call110, -4294967296
   %retval.sroa.23.0.extract.shift130 = and i64 %call110, -1099511627776
   br label %return
 
@@ -9746,13 +9743,12 @@ do.cond:                                          ; preds = %if.end107
 if.end121:                                        ; preds = %do.cond
   %call123 = tail call i64 @_ZN9grpc_core11HPackParser5Input21ParseVarintOutOfRangeEjh(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %add93, i8 noundef zeroext %cur.sroa.0.0.extract.trunc)
   %retval.sroa.0.0.extract.trunc121 = trunc i64 %call123 to i32
-  %retval.sroa.11.0.extract.shift126 = and i64 %call123, -4294967296
   %retval.sroa.23.0.extract.shift132 = and i64 %call123, -1099511627776
   br label %return
 
 return:                                           ; preds = %do.cond, %do.body, %if.end4.i.i50, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit.i.i47, %if.then.i41, %if.end4.i.i22, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit.i.i19, %if.then.i13, %if.end4.i.i, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit.i.i, %if.then.i, %if.end92, %if.end65, %if.end54, %if.end46, %if.end35, %if.end17, %if.end, %if.end121, %if.then109, %if.then87, %if.then78
   %retval.sroa.23.sroa.0.0 = phi i64 [ %retval.sroa.23.0.extract.shift, %if.then78 ], [ %retval.sroa.23.0.extract.shift128, %if.then87 ], [ %retval.sroa.23.0.extract.shift130, %if.then109 ], [ %retval.sroa.23.0.extract.shift132, %if.end121 ], [ 0, %if.end ], [ 0, %if.end17 ], [ 0, %if.end35 ], [ 0, %if.end46 ], [ 0, %if.end54 ], [ 0, %if.end65 ], [ 0, %if.end92 ], [ 0, %if.then.i ], [ 0, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit.i.i ], [ 0, %if.end4.i.i ], [ 0, %if.then.i13 ], [ 0, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit.i.i19 ], [ 0, %if.end4.i.i22 ], [ 0, %if.then.i41 ], [ 0, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit.i.i47 ], [ 0, %if.end4.i.i50 ], [ 0, %do.body ], [ 0, %do.cond ]
-  %retval.sroa.11.0 = phi i64 [ %retval.sroa.11.0.extract.shift, %if.then78 ], [ %retval.sroa.11.0.extract.shift122, %if.then87 ], [ %retval.sroa.11.0.extract.shift124, %if.then109 ], [ %retval.sroa.11.0.extract.shift126, %if.end121 ], [ 4294967296, %if.end ], [ 4294967296, %if.end17 ], [ 4294967296, %if.end35 ], [ 0, %if.end46 ], [ 4294967296, %if.end54 ], [ 0, %if.end65 ], [ 4294967296, %if.end92 ], [ 0, %if.then.i ], [ 0, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit.i.i ], [ 0, %if.end4.i.i ], [ 0, %if.then.i13 ], [ 0, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit.i.i19 ], [ 0, %if.end4.i.i22 ], [ 0, %if.then.i41 ], [ 0, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit.i.i47 ], [ 0, %if.end4.i.i50 ], [ 4294967296, %do.cond ], [ 0, %do.body ]
+  %retval.sroa.11.0 = phi i64 [ %call80, %if.then78 ], [ %call89, %if.then87 ], [ %call110, %if.then109 ], [ %call123, %if.end121 ], [ 4294967296, %if.end ], [ 4294967296, %if.end17 ], [ 4294967296, %if.end35 ], [ 0, %if.end46 ], [ 4294967296, %if.end54 ], [ 0, %if.end65 ], [ 4294967296, %if.end92 ], [ 0, %if.then.i ], [ 0, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit.i.i ], [ 0, %if.end4.i.i ], [ 0, %if.then.i13 ], [ 0, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit.i.i19 ], [ 0, %if.end4.i.i22 ], [ 0, %if.then.i41 ], [ 0, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit.i.i47 ], [ 0, %if.end4.i.i50 ], [ 4294967296, %do.cond ], [ 0, %do.body ]
   %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.0.extract.trunc, %if.then78 ], [ %retval.sroa.0.0.extract.trunc119, %if.then87 ], [ %retval.sroa.0.0.extract.trunc120, %if.then109 ], [ %retval.sroa.0.0.extract.trunc121, %if.end121 ], [ %add, %if.end ], [ %add21, %if.end17 ], [ %add40, %if.end35 ], [ undef, %if.end46 ], [ %add59, %if.end54 ], [ undef, %if.end65 ], [ %add93, %if.end92 ], [ undef, %if.then.i ], [ undef, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit.i.i ], [ undef, %if.end4.i.i ], [ undef, %if.then.i13 ], [ undef, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit.i.i19 ], [ undef, %if.end4.i.i22 ], [ undef, %if.then.i41 ], [ undef, %_ZNK9grpc_core16HpackParseResult16connection_errorEv.exit.i.i47 ], [ undef, %if.end4.i.i50 ], [ %add93, %do.body ], [ %add93, %do.cond ]
   %retval.sroa.11.0.insert.ext = and i64 %retval.sroa.11.0, 1095216660480
   %retval.sroa.11.0.insert.insert = or disjoint i64 %retval.sroa.11.0.insert.ext, %retval.sroa.23.sroa.0.0
