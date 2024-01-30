@@ -1596,7 +1596,7 @@ invoke.cont28:                                    ; preds = %if.then26
   store i32 0, ptr %len.i26, align 8
   %7 = load ptr, ptr %key, align 8
   store i8 0, ptr %7, align 1
-  switch i32 %nameStyle, label %cleanup [
+  switch i32 %nameStyle, label %default.unreachable [
     i32 2, label %sw.bb
     i32 3, label %sw.bb33
     i32 4, label %sw.bb38
@@ -1670,10 +1670,8 @@ if.then59:                                        ; preds = %invoke.cont56
   store i32 0, ptr %ec2, align 4
   br label %if.end61
 
-cleanup:                                          ; preds = %invoke.cont28
-  store i32 16, ptr %ec, align 4
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %key) #17
-  br label %cleanup103
+default.unreachable:                              ; preds = %invoke.cont28
+  unreachable
 
 if.end61:                                         ; preds = %if.then59, %invoke.cont56
   %choice.1.ph = phi i32 [ %nameStyle, %invoke.cont56 ], [ 0, %if.then59 ]
@@ -1735,8 +1733,8 @@ invoke.cont101:                                   ; preds = %if.end100
   store i32 -127, ptr %ec, align 4
   br label %cleanup103
 
-cleanup103:                                       ; preds = %cleanup, %if.end95, %invoke.cont101
-  %retval.1 = phi ptr [ %currency, %invoke.cont101 ], [ null, %cleanup ], [ %s.2, %if.end95 ]
+cleanup103:                                       ; preds = %if.end95, %invoke.cont101
+  %retval.1 = phi ptr [ %currency, %invoke.cont101 ], [ %s.2, %if.end95 ]
   %cmp.not.i = icmp eq ptr %call19, null
   br i1 %cmp.not.i, label %cleanup104, label %if.then.i
 

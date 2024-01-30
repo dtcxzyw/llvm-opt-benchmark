@@ -72,13 +72,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @chsessid = internal global [32 x i8] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #6
   %tobool.not = icmp eq i32 %call, 0
@@ -122,7 +122,7 @@ declare ptr @test_get_argument(i64 noundef) local_unnamed_addr #2
 declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @test_tls13ccs(i32 noundef %tst) #1 {
+define internal noundef i32 @test_tls13ccs(i32 noundef %tst) #1 {
 entry:
   %sctx = alloca ptr, align 8
   %cctx = alloca ptr, align 8
@@ -380,7 +380,9 @@ lor.lhs.false134:                                 ; preds = %lor.lhs.false129
   br i1 %tobool138.not, label %err, label %if.end140
 
 if.end140:                                        ; preds = %lor.lhs.false134
-  switch i32 %tst, label %sw.default381 [
+  %.b46 = load i1, ptr @sccsseen, align 4
+  %conv143 = zext i1 %.b46 to i32
+  switch i32 %tst, label %default.unreachable [
     i32 0, label %sw.bb141
     i32 1, label %sw.bb161
     i32 2, label %sw.bb181
@@ -396,8 +398,6 @@ if.end140:                                        ; preds = %lor.lhs.false134
   ]
 
 sw.bb141:                                         ; preds = %if.end140
-  %.b46 = load i1, ptr @sccsseen, align 4
-  %conv143 = zext i1 %.b46 to i32
   %call144 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 380, ptr noundef nonnull @.str.40, i32 noundef %conv143) #6
   %tobool145.not = icmp eq i32 %call144, 0
   br i1 %tobool145.not, label %err, label %lor.lhs.false146
@@ -423,9 +423,7 @@ lor.lhs.false156:                                 ; preds = %lor.lhs.false151
   br i1 %tobool158.not, label %err, label %sw.epilog382
 
 sw.bb161:                                         ; preds = %if.end140
-  %.b45 = load i1, ptr @sccsseen, align 4
-  %conv163 = zext i1 %.b45 to i32
-  %call164 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 388, ptr noundef nonnull @.str.40, i32 noundef %conv163) #6
+  %call164 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 388, ptr noundef nonnull @.str.40, i32 noundef %conv143) #6
   %tobool165.not = icmp eq i32 %call164, 0
   br i1 %tobool165.not, label %err, label %lor.lhs.false166
 
@@ -450,9 +448,7 @@ lor.lhs.false176:                                 ; preds = %lor.lhs.false171
   br i1 %tobool178.not, label %err, label %sw.epilog382
 
 sw.bb181:                                         ; preds = %if.end140
-  %.b44 = load i1, ptr @sccsseen, align 4
-  %conv183 = zext i1 %.b44 to i32
-  %call184 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 396, ptr noundef nonnull @.str.40, i32 noundef %conv183) #6
+  %call184 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 396, ptr noundef nonnull @.str.40, i32 noundef %conv143) #6
   %tobool185.not = icmp eq i32 %call184, 0
   br i1 %tobool185.not, label %err, label %lor.lhs.false186
 
@@ -477,9 +473,7 @@ lor.lhs.false196:                                 ; preds = %lor.lhs.false191
   br i1 %tobool198.not, label %err, label %sw.epilog382
 
 sw.bb201:                                         ; preds = %if.end140
-  %.b43 = load i1, ptr @sccsseen, align 4
-  %conv203 = zext i1 %.b43 to i32
-  %call204 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 404, ptr noundef nonnull @.str.40, i32 noundef %conv203) #6
+  %call204 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 404, ptr noundef nonnull @.str.40, i32 noundef %conv143) #6
   %tobool205.not = icmp eq i32 %call204, 0
   br i1 %tobool205.not, label %err, label %lor.lhs.false206
 
@@ -504,9 +498,7 @@ lor.lhs.false216:                                 ; preds = %lor.lhs.false211
   br i1 %tobool218.not, label %err, label %sw.epilog382
 
 sw.bb221:                                         ; preds = %if.end140
-  %.b42 = load i1, ptr @sccsseen, align 4
-  %conv223 = zext i1 %.b42 to i32
-  %call224 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 412, ptr noundef nonnull @.str.40, i32 noundef %conv223) #6
+  %call224 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 412, ptr noundef nonnull @.str.40, i32 noundef %conv143) #6
   %tobool225.not = icmp eq i32 %call224, 0
   br i1 %tobool225.not, label %err, label %lor.lhs.false226
 
@@ -531,9 +523,7 @@ lor.lhs.false236:                                 ; preds = %lor.lhs.false231
   br i1 %tobool238.not, label %err, label %sw.epilog382
 
 sw.bb241:                                         ; preds = %if.end140
-  %.b41 = load i1, ptr @sccsseen, align 4
-  %conv243 = zext i1 %.b41 to i32
-  %call244 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 420, ptr noundef nonnull @.str.40, i32 noundef %conv243) #6
+  %call244 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 420, ptr noundef nonnull @.str.40, i32 noundef %conv143) #6
   %tobool245.not = icmp eq i32 %call244, 0
   br i1 %tobool245.not, label %err, label %lor.lhs.false246
 
@@ -558,9 +548,7 @@ lor.lhs.false256:                                 ; preds = %lor.lhs.false251
   br i1 %tobool258.not, label %err, label %sw.epilog382
 
 sw.bb261:                                         ; preds = %if.end140
-  %.b40 = load i1, ptr @sccsseen, align 4
-  %conv263 = zext i1 %.b40 to i32
-  %call264 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 428, ptr noundef nonnull @.str.40, i32 noundef %conv263) #6
+  %call264 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 428, ptr noundef nonnull @.str.40, i32 noundef %conv143) #6
   %tobool265.not = icmp eq i32 %call264, 0
   br i1 %tobool265.not, label %err, label %lor.lhs.false266
 
@@ -585,9 +573,7 @@ lor.lhs.false276:                                 ; preds = %lor.lhs.false271
   br i1 %tobool278.not, label %err, label %sw.epilog382
 
 sw.bb281:                                         ; preds = %if.end140
-  %.b39 = load i1, ptr @sccsseen, align 4
-  %conv283 = zext i1 %.b39 to i32
-  %call284 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 436, ptr noundef nonnull @.str.40, i32 noundef %conv283) #6
+  %call284 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 436, ptr noundef nonnull @.str.40, i32 noundef %conv143) #6
   %tobool285.not = icmp eq i32 %call284, 0
   br i1 %tobool285.not, label %err, label %lor.lhs.false286
 
@@ -612,9 +598,7 @@ lor.lhs.false296:                                 ; preds = %lor.lhs.false291
   br i1 %tobool298.not, label %err, label %sw.epilog382
 
 sw.bb301:                                         ; preds = %if.end140
-  %.b38 = load i1, ptr @sccsseen, align 4
-  %conv303 = zext i1 %.b38 to i32
-  %call304 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 444, ptr noundef nonnull @.str.40, i32 noundef %conv303) #6
+  %call304 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 444, ptr noundef nonnull @.str.40, i32 noundef %conv143) #6
   %tobool305.not = icmp eq i32 %call304, 0
   br i1 %tobool305.not, label %err, label %lor.lhs.false306
 
@@ -639,9 +623,7 @@ lor.lhs.false316:                                 ; preds = %lor.lhs.false311
   br i1 %tobool318.not, label %err, label %sw.epilog382
 
 sw.bb321:                                         ; preds = %if.end140
-  %.b37 = load i1, ptr @sccsseen, align 4
-  %conv323 = zext i1 %.b37 to i32
-  %call324 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 452, ptr noundef nonnull @.str.40, i32 noundef %conv323) #6
+  %call324 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 452, ptr noundef nonnull @.str.40, i32 noundef %conv143) #6
   %tobool325.not = icmp eq i32 %call324, 0
   br i1 %tobool325.not, label %err, label %lor.lhs.false326
 
@@ -666,9 +648,7 @@ lor.lhs.false336:                                 ; preds = %lor.lhs.false331
   br i1 %tobool338.not, label %err, label %sw.epilog382
 
 sw.bb341:                                         ; preds = %if.end140
-  %.b36 = load i1, ptr @sccsseen, align 4
-  %conv343 = zext i1 %.b36 to i32
-  %call344 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 460, ptr noundef nonnull @.str.40, i32 noundef %conv343) #6
+  %call344 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 460, ptr noundef nonnull @.str.40, i32 noundef %conv143) #6
   %tobool345.not = icmp eq i32 %call344, 0
   br i1 %tobool345.not, label %err, label %lor.lhs.false346
 
@@ -693,9 +673,7 @@ lor.lhs.false356:                                 ; preds = %lor.lhs.false351
   br i1 %tobool358.not, label %err, label %sw.epilog382
 
 sw.bb361:                                         ; preds = %if.end140
-  %.b35 = load i1, ptr @sccsseen, align 4
-  %conv363 = zext i1 %.b35 to i32
-  %call364 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 468, ptr noundef nonnull @.str.40, i32 noundef %conv363) #6
+  %call364 = call i32 @test_false(ptr noundef nonnull @.str.14, i32 noundef 468, ptr noundef nonnull @.str.40, i32 noundef %conv143) #6
   %tobool365.not = icmp eq i32 %call364, 0
   br i1 %tobool365.not, label %err, label %lor.lhs.false366
 
@@ -719,16 +697,15 @@ lor.lhs.false376:                                 ; preds = %lor.lhs.false371
   %tobool378.not = icmp eq i32 %call377, 0
   br i1 %tobool378.not, label %err, label %sw.epilog382
 
-sw.default381:                                    ; preds = %if.end140
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.14, i32 noundef 476, ptr noundef nonnull @.str.21) #6
-  br label %err
+default.unreachable:                              ; preds = %if.end140
+  unreachable
 
 sw.epilog382:                                     ; preds = %lor.lhs.false376, %lor.lhs.false356, %lor.lhs.false336, %lor.lhs.false316, %lor.lhs.false296, %lor.lhs.false276, %lor.lhs.false256, %lor.lhs.false236, %lor.lhs.false216, %lor.lhs.false196, %lor.lhs.false176, %lor.lhs.false156
   br label %err
 
-err:                                              ; preds = %sw.bb361, %lor.lhs.false366, %lor.lhs.false371, %lor.lhs.false376, %sw.bb341, %lor.lhs.false346, %lor.lhs.false351, %lor.lhs.false356, %sw.bb321, %lor.lhs.false326, %lor.lhs.false331, %lor.lhs.false336, %sw.bb301, %lor.lhs.false306, %lor.lhs.false311, %lor.lhs.false316, %sw.bb281, %lor.lhs.false286, %lor.lhs.false291, %lor.lhs.false296, %sw.bb261, %lor.lhs.false266, %lor.lhs.false271, %lor.lhs.false276, %sw.bb241, %lor.lhs.false246, %lor.lhs.false251, %lor.lhs.false256, %sw.bb221, %lor.lhs.false226, %lor.lhs.false231, %lor.lhs.false236, %sw.bb201, %lor.lhs.false206, %lor.lhs.false211, %lor.lhs.false216, %sw.bb181, %lor.lhs.false186, %lor.lhs.false191, %lor.lhs.false196, %sw.bb161, %lor.lhs.false166, %lor.lhs.false171, %lor.lhs.false176, %sw.bb141, %lor.lhs.false146, %lor.lhs.false151, %lor.lhs.false156, %if.end124, %lor.lhs.false129, %lor.lhs.false134, %if.end117, %if.end110, %if.else, %if.then99, %if.then75, %lor.lhs.false81, %land.lhs.true90, %if.end65, %if.then44, %if.end28, %if.then15, %lor.lhs.false21, %entry, %lor.lhs.false, %sw.epilog382, %sw.default381, %if.then62, %sw.default
-  %ret.0 = phi i32 [ 0, %sw.default ], [ 0, %sw.default381 ], [ 1, %sw.epilog382 ], [ 0, %lor.lhs.false376 ], [ 0, %lor.lhs.false371 ], [ 0, %lor.lhs.false366 ], [ 0, %sw.bb361 ], [ 0, %lor.lhs.false356 ], [ 0, %lor.lhs.false351 ], [ 0, %lor.lhs.false346 ], [ 0, %sw.bb341 ], [ 0, %lor.lhs.false336 ], [ 0, %lor.lhs.false331 ], [ 0, %lor.lhs.false326 ], [ 0, %sw.bb321 ], [ 0, %lor.lhs.false316 ], [ 0, %lor.lhs.false311 ], [ 0, %lor.lhs.false306 ], [ 0, %sw.bb301 ], [ 0, %lor.lhs.false296 ], [ 0, %lor.lhs.false291 ], [ 0, %lor.lhs.false286 ], [ 0, %sw.bb281 ], [ 0, %lor.lhs.false276 ], [ 0, %lor.lhs.false271 ], [ 0, %lor.lhs.false266 ], [ 0, %sw.bb261 ], [ 0, %lor.lhs.false256 ], [ 0, %lor.lhs.false251 ], [ 0, %lor.lhs.false246 ], [ 0, %sw.bb241 ], [ 0, %lor.lhs.false236 ], [ 0, %lor.lhs.false231 ], [ 0, %lor.lhs.false226 ], [ 0, %sw.bb221 ], [ 0, %lor.lhs.false216 ], [ 0, %lor.lhs.false211 ], [ 0, %lor.lhs.false206 ], [ 0, %sw.bb201 ], [ 0, %lor.lhs.false196 ], [ 0, %lor.lhs.false191 ], [ 0, %lor.lhs.false186 ], [ 0, %sw.bb181 ], [ 0, %lor.lhs.false176 ], [ 0, %lor.lhs.false171 ], [ 0, %lor.lhs.false166 ], [ 0, %sw.bb161 ], [ 0, %lor.lhs.false156 ], [ 0, %lor.lhs.false151 ], [ 0, %lor.lhs.false146 ], [ 0, %sw.bb141 ], [ 0, %lor.lhs.false134 ], [ 0, %lor.lhs.false129 ], [ 0, %if.end124 ], [ 0, %if.end117 ], [ 0, %if.end110 ], [ 0, %if.then99 ], [ 0, %if.else ], [ 0, %land.lhs.true90 ], [ 0, %lor.lhs.false81 ], [ 0, %if.then75 ], [ 0, %if.end65 ], [ 0, %if.then62 ], [ 0, %if.then44 ], [ 0, %if.end28 ], [ 0, %lor.lhs.false21 ], [ 0, %if.then15 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
-  %sess.1 = phi ptr [ null, %sw.default ], [ %sess.0, %sw.default381 ], [ %sess.0, %sw.epilog382 ], [ %sess.0, %lor.lhs.false376 ], [ %sess.0, %lor.lhs.false371 ], [ %sess.0, %lor.lhs.false366 ], [ %sess.0, %sw.bb361 ], [ %sess.0, %lor.lhs.false356 ], [ %sess.0, %lor.lhs.false351 ], [ %sess.0, %lor.lhs.false346 ], [ %sess.0, %sw.bb341 ], [ %sess.0, %lor.lhs.false336 ], [ %sess.0, %lor.lhs.false331 ], [ %sess.0, %lor.lhs.false326 ], [ %sess.0, %sw.bb321 ], [ %sess.0, %lor.lhs.false316 ], [ %sess.0, %lor.lhs.false311 ], [ %sess.0, %lor.lhs.false306 ], [ %sess.0, %sw.bb301 ], [ %sess.0, %lor.lhs.false296 ], [ %sess.0, %lor.lhs.false291 ], [ %sess.0, %lor.lhs.false286 ], [ %sess.0, %sw.bb281 ], [ %sess.0, %lor.lhs.false276 ], [ %sess.0, %lor.lhs.false271 ], [ %sess.0, %lor.lhs.false266 ], [ %sess.0, %sw.bb261 ], [ %sess.0, %lor.lhs.false256 ], [ %sess.0, %lor.lhs.false251 ], [ %sess.0, %lor.lhs.false246 ], [ %sess.0, %sw.bb241 ], [ %sess.0, %lor.lhs.false236 ], [ %sess.0, %lor.lhs.false231 ], [ %sess.0, %lor.lhs.false226 ], [ %sess.0, %sw.bb221 ], [ %sess.0, %lor.lhs.false216 ], [ %sess.0, %lor.lhs.false211 ], [ %sess.0, %lor.lhs.false206 ], [ %sess.0, %sw.bb201 ], [ %sess.0, %lor.lhs.false196 ], [ %sess.0, %lor.lhs.false191 ], [ %sess.0, %lor.lhs.false186 ], [ %sess.0, %sw.bb181 ], [ %sess.0, %lor.lhs.false176 ], [ %sess.0, %lor.lhs.false171 ], [ %sess.0, %lor.lhs.false166 ], [ %sess.0, %sw.bb161 ], [ %sess.0, %lor.lhs.false156 ], [ %sess.0, %lor.lhs.false151 ], [ %sess.0, %lor.lhs.false146 ], [ %sess.0, %sw.bb141 ], [ %sess.0, %lor.lhs.false134 ], [ %sess.0, %lor.lhs.false129 ], [ %sess.0, %if.end124 ], [ %sess.0, %if.end117 ], [ %sess.0, %if.end110 ], [ %sess.0, %if.then99 ], [ %sess.0, %if.else ], [ %sess.0, %land.lhs.true90 ], [ %sess.0, %lor.lhs.false81 ], [ %sess.0, %if.then75 ], [ %sess.0, %if.end65 ], [ %sess.0, %if.then62 ], [ %sess.0, %if.then44 ], [ %call29, %if.end28 ], [ null, %lor.lhs.false21 ], [ null, %if.then15 ], [ null, %lor.lhs.false ], [ null, %entry ]
+err:                                              ; preds = %sw.bb361, %lor.lhs.false366, %lor.lhs.false371, %lor.lhs.false376, %sw.bb341, %lor.lhs.false346, %lor.lhs.false351, %lor.lhs.false356, %sw.bb321, %lor.lhs.false326, %lor.lhs.false331, %lor.lhs.false336, %sw.bb301, %lor.lhs.false306, %lor.lhs.false311, %lor.lhs.false316, %sw.bb281, %lor.lhs.false286, %lor.lhs.false291, %lor.lhs.false296, %sw.bb261, %lor.lhs.false266, %lor.lhs.false271, %lor.lhs.false276, %sw.bb241, %lor.lhs.false246, %lor.lhs.false251, %lor.lhs.false256, %sw.bb221, %lor.lhs.false226, %lor.lhs.false231, %lor.lhs.false236, %sw.bb201, %lor.lhs.false206, %lor.lhs.false211, %lor.lhs.false216, %sw.bb181, %lor.lhs.false186, %lor.lhs.false191, %lor.lhs.false196, %sw.bb161, %lor.lhs.false166, %lor.lhs.false171, %lor.lhs.false176, %sw.bb141, %lor.lhs.false146, %lor.lhs.false151, %lor.lhs.false156, %if.end124, %lor.lhs.false129, %lor.lhs.false134, %if.end117, %if.end110, %if.else, %if.then99, %if.then75, %lor.lhs.false81, %land.lhs.true90, %if.end65, %if.then44, %if.end28, %if.then15, %lor.lhs.false21, %entry, %lor.lhs.false, %sw.epilog382, %if.then62, %sw.default
+  %ret.0 = phi i32 [ 0, %sw.default ], [ 1, %sw.epilog382 ], [ 0, %lor.lhs.false376 ], [ 0, %lor.lhs.false371 ], [ 0, %lor.lhs.false366 ], [ 0, %sw.bb361 ], [ 0, %lor.lhs.false356 ], [ 0, %lor.lhs.false351 ], [ 0, %lor.lhs.false346 ], [ 0, %sw.bb341 ], [ 0, %lor.lhs.false336 ], [ 0, %lor.lhs.false331 ], [ 0, %lor.lhs.false326 ], [ 0, %sw.bb321 ], [ 0, %lor.lhs.false316 ], [ 0, %lor.lhs.false311 ], [ 0, %lor.lhs.false306 ], [ 0, %sw.bb301 ], [ 0, %lor.lhs.false296 ], [ 0, %lor.lhs.false291 ], [ 0, %lor.lhs.false286 ], [ 0, %sw.bb281 ], [ 0, %lor.lhs.false276 ], [ 0, %lor.lhs.false271 ], [ 0, %lor.lhs.false266 ], [ 0, %sw.bb261 ], [ 0, %lor.lhs.false256 ], [ 0, %lor.lhs.false251 ], [ 0, %lor.lhs.false246 ], [ 0, %sw.bb241 ], [ 0, %lor.lhs.false236 ], [ 0, %lor.lhs.false231 ], [ 0, %lor.lhs.false226 ], [ 0, %sw.bb221 ], [ 0, %lor.lhs.false216 ], [ 0, %lor.lhs.false211 ], [ 0, %lor.lhs.false206 ], [ 0, %sw.bb201 ], [ 0, %lor.lhs.false196 ], [ 0, %lor.lhs.false191 ], [ 0, %lor.lhs.false186 ], [ 0, %sw.bb181 ], [ 0, %lor.lhs.false176 ], [ 0, %lor.lhs.false171 ], [ 0, %lor.lhs.false166 ], [ 0, %sw.bb161 ], [ 0, %lor.lhs.false156 ], [ 0, %lor.lhs.false151 ], [ 0, %lor.lhs.false146 ], [ 0, %sw.bb141 ], [ 0, %lor.lhs.false134 ], [ 0, %lor.lhs.false129 ], [ 0, %if.end124 ], [ 0, %if.end117 ], [ 0, %if.end110 ], [ 0, %if.then99 ], [ 0, %if.else ], [ 0, %land.lhs.true90 ], [ 0, %lor.lhs.false81 ], [ 0, %if.then75 ], [ 0, %if.end65 ], [ 0, %if.then62 ], [ 0, %if.then44 ], [ 0, %if.end28 ], [ 0, %lor.lhs.false21 ], [ 0, %if.then15 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
+  %sess.1 = phi ptr [ null, %sw.default ], [ %sess.0, %sw.epilog382 ], [ %sess.0, %lor.lhs.false376 ], [ %sess.0, %lor.lhs.false371 ], [ %sess.0, %lor.lhs.false366 ], [ %sess.0, %sw.bb361 ], [ %sess.0, %lor.lhs.false356 ], [ %sess.0, %lor.lhs.false351 ], [ %sess.0, %lor.lhs.false346 ], [ %sess.0, %sw.bb341 ], [ %sess.0, %lor.lhs.false336 ], [ %sess.0, %lor.lhs.false331 ], [ %sess.0, %lor.lhs.false326 ], [ %sess.0, %sw.bb321 ], [ %sess.0, %lor.lhs.false316 ], [ %sess.0, %lor.lhs.false311 ], [ %sess.0, %lor.lhs.false306 ], [ %sess.0, %sw.bb301 ], [ %sess.0, %lor.lhs.false296 ], [ %sess.0, %lor.lhs.false291 ], [ %sess.0, %lor.lhs.false286 ], [ %sess.0, %sw.bb281 ], [ %sess.0, %lor.lhs.false276 ], [ %sess.0, %lor.lhs.false271 ], [ %sess.0, %lor.lhs.false266 ], [ %sess.0, %sw.bb261 ], [ %sess.0, %lor.lhs.false256 ], [ %sess.0, %lor.lhs.false251 ], [ %sess.0, %lor.lhs.false246 ], [ %sess.0, %sw.bb241 ], [ %sess.0, %lor.lhs.false236 ], [ %sess.0, %lor.lhs.false231 ], [ %sess.0, %lor.lhs.false226 ], [ %sess.0, %sw.bb221 ], [ %sess.0, %lor.lhs.false216 ], [ %sess.0, %lor.lhs.false211 ], [ %sess.0, %lor.lhs.false206 ], [ %sess.0, %sw.bb201 ], [ %sess.0, %lor.lhs.false196 ], [ %sess.0, %lor.lhs.false191 ], [ %sess.0, %lor.lhs.false186 ], [ %sess.0, %sw.bb181 ], [ %sess.0, %lor.lhs.false176 ], [ %sess.0, %lor.lhs.false171 ], [ %sess.0, %lor.lhs.false166 ], [ %sess.0, %sw.bb161 ], [ %sess.0, %lor.lhs.false156 ], [ %sess.0, %lor.lhs.false151 ], [ %sess.0, %lor.lhs.false146 ], [ %sess.0, %sw.bb141 ], [ %sess.0, %lor.lhs.false134 ], [ %sess.0, %lor.lhs.false129 ], [ %sess.0, %if.end124 ], [ %sess.0, %if.end117 ], [ %sess.0, %if.end110 ], [ %sess.0, %if.then99 ], [ %sess.0, %if.else ], [ %sess.0, %land.lhs.true90 ], [ %sess.0, %lor.lhs.false81 ], [ %sess.0, %if.then75 ], [ %sess.0, %if.end65 ], [ %sess.0, %if.then62 ], [ %sess.0, %if.then44 ], [ %call29, %if.end28 ], [ null, %lor.lhs.false21 ], [ null, %if.then15 ], [ null, %lor.lhs.false ], [ null, %entry ]
   call void @SSL_SESSION_free(ptr noundef %sess.1) #6
   %42 = load ptr, ptr %sssl, align 8
   call void @SSL_free(ptr noundef %42) #6
@@ -1196,7 +1173,7 @@ entry:
 declare i32 @BIO_meth_set_gets(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal i32 @watchccs_gets(ptr nocapture readnone %bio, ptr nocapture readnone %buf, i32 %size) #0 {
+define internal noundef i32 @watchccs_gets(ptr nocapture readnone %bio, ptr nocapture readnone %buf, i32 %size) #0 {
 entry:
   ret i32 -1
 }
@@ -1224,7 +1201,7 @@ return:                                           ; preds = %sw.default, %entry
 declare i32 @BIO_meth_set_create(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @watchccs_new(ptr noundef %bio) #1 {
+define internal noundef i32 @watchccs_new(ptr noundef %bio) #1 {
 entry:
   tail call void @BIO_set_init(ptr noundef %bio, i32 noundef 1) #6
   ret i32 1
@@ -1233,7 +1210,7 @@ entry:
 declare i32 @BIO_meth_set_destroy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @watchccs_free(ptr noundef %bio) #1 {
+define internal noundef i32 @watchccs_free(ptr noundef %bio) #1 {
 entry:
   tail call void @BIO_set_init(ptr noundef %bio, i32 noundef 0) #6
   ret i32 1

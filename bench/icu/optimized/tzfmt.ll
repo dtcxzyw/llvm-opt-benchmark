@@ -922,7 +922,7 @@ lpad14.loopexit:                                  ; preds = %for.body4.i.i
           cleanup
   br label %ehcleanup231
 
-lpad14.loopexit.split-lp.loopexit:                ; preds = %switch.lookup
+lpad14.loopexit.split-lp.loopexit:                ; preds = %for.body.i
   %lpad.loopexit73 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup231
@@ -1243,33 +1243,26 @@ lpad202:                                          ; preds = %invoke.cont195
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %44) #18, !srcloc !4
   br label %ehcleanup231
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %45 = trunc i64 %indvars.iv.i to i32
-  %46 = icmp ult i32 %45, 6
-  br i1 %46, label %switch.lookup, label %for.inc.i
-
-switch.lookup:                                    ; preds = %for.body.i
-  %47 = and i64 %indvars.iv.i, 4294967295
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %47
+for.body.i:                                       ; preds = %for.body.i.preheader, %call.i.noexc
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %call.i.noexc ], [ 0, %for.body.i.preheader ]
+  %sext = shl i64 %indvars.iv.i, 32
+  %45 = ashr exact i64 %sext, 32
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   %arrayidx.i = getelementptr inbounds [6 x %"class.icu_75::UnicodeString"], ptr %fGMTOffsetPatterns.ptr, i64 0, i64 %indvars.iv.i
   %call.i58 = invoke noundef ptr @_ZN6icu_7514TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call.i.noexc unwind label %lpad14.loopexit.split-lp.loopexit
 
-call.i.noexc:                                     ; preds = %switch.lookup
+call.i.noexc:                                     ; preds = %for.body.i
   %arrayidx3.i = getelementptr inbounds [6 x ptr], ptr %fGMTOffsetPatternItems, i64 0, i64 %indvars.iv.i
   store ptr %call.i58, ptr %arrayidx3.i, align 8
-  br label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.body.i, %call.i.noexc
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
-for.end.i:                                        ; preds = %for.inc.i
-  %48 = load i32, ptr %status, align 4
-  %cmp.i.i = icmp slt i32 %48, 1
+for.end.i:                                        ; preds = %call.i.noexc
+  %46 = load i32, ptr %status, align 4
+  %cmp.i.i = icmp slt i32 %46, 1
   br i1 %cmp.i.i, label %if.end.i, label %invoke.cont207
 
 if.end.i:                                         ; preds = %for.end.i
@@ -1285,22 +1278,22 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 for.body.i.i:                                     ; preds = %for.body.i.i.backedge, %if.end.i
   %indvars.iv.i.i = phi i64 [ 0, %if.end.i ], [ %indvars.iv.i.i.be, %for.body.i.i.backedge ]
   %arrayidx.i.i = getelementptr inbounds [6 x ptr], ptr %fGMTOffsetPatternItems, i64 0, i64 %indvars.iv.i.i
-  %49 = load ptr, ptr %arrayidx.i.i, align 8
-  %count.i.i.i = getelementptr inbounds i8, ptr %49, i64 8
-  %50 = load i32, ptr %count.i.i.i, align 8
-  %cmp39.i.i = icmp sgt i32 %50, 0
+  %47 = load ptr, ptr %arrayidx.i.i, align 8
+  %count.i.i.i = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = load i32, ptr %count.i.i.i, align 8
+  %cmp39.i.i = icmp sgt i32 %48, 0
   br i1 %cmp39.i.i, label %for.body4.i.i, label %for.cond.i.i
 
 for.body4.i.i:                                    ; preds = %for.body.i.i, %for.inc.i.i
   %afterH.011.i.i = phi i8 [ %afterH.1.i.i, %for.inc.i.i ], [ 0, %for.body.i.i ]
   %i.010.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %for.body.i.i ]
-  %call5.i.i59 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %49, i32 noundef %i.010.i.i)
+  %call5.i.i59 = invoke noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %47, i32 noundef %i.010.i.i)
           to label %call5.i.i.noexc unwind label %lpad14.loopexit
 
 call5.i.i.noexc:                                  ; preds = %for.body4.i.i
   %fType.i.i.i = getelementptr inbounds i8, ptr %call5.i.i59, i64 16
-  %51 = load i32, ptr %fType.i.i.i, align 8
-  %cmp7.not.i.i = icmp eq i32 %51, 0
+  %49 = load i32, ptr %fType.i.i.i, align 8
+  %cmp7.not.i.i = icmp eq i32 %49, 0
   %tobool14.not.i.i = icmp eq i8 %afterH.011.i.i, 0
   br i1 %cmp7.not.i.i, label %if.else13.i.i, label %if.then.i.i
 
@@ -1312,7 +1305,7 @@ for.end.thread.i.i:                               ; preds = %if.then.i.i
   br label %invoke.cont207
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %cmp10.i.i = icmp eq i32 %51, 1
+  %cmp10.i.i = icmp eq i32 %49, 1
   %spec.select.i.i = zext i1 %cmp10.i.i to i8
   br label %for.inc.i.i
 
@@ -1322,8 +1315,8 @@ if.else13.i.i:                                    ; preds = %call5.i.i.noexc
 for.inc.i.i:                                      ; preds = %if.else13.i.i, %if.else.i.i
   %afterH.1.i.i = phi i8 [ 0, %if.else13.i.i ], [ %spec.select.i.i, %if.else.i.i ]
   %inc.i.i = add nuw nsw i32 %i.010.i.i, 1
-  %52 = load i32, ptr %count.i.i.i, align 8
-  %cmp3.i.i = icmp slt i32 %inc.i.i, %52
+  %50 = load i32, ptr %count.i.i.i, align 8
+  %cmp3.i.i = icmp slt i32 %inc.i.i, %50
   br i1 %cmp3.i.i, label %for.body4.i.i, label %for.end.i.i, !llvm.loop !7
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %if.else13.i.i
@@ -1357,8 +1350,8 @@ invoke.cont211:                                   ; preds = %land.lhs.true
 if.then214:                                       ; preds = %invoke.cont211
   %vtable = load ptr, ptr %call209, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %53 = load ptr, ptr %vfn, align 8
-  invoke void %53(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %digits, ptr noundef nonnull align 8 dereferenceable(86) %call209)
+  %51 = load ptr, ptr %vfn, align 8
+  invoke void %51(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %digits, ptr noundef nonnull align 8 dereferenceable(86) %call209)
           to label %invoke.cont215 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont215:                                   ; preds = %if.then214
@@ -1421,8 +1414,8 @@ if.end228:                                        ; preds = %invoke.cont218.thre
 delete.notnull:                                   ; preds = %if.end228
   %vtable229 = load ptr, ptr %call209, align 8
   %vfn230 = getelementptr inbounds i8, ptr %vtable229, i64 8
-  %54 = load ptr, ptr %vfn230, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(86) %call209) #18
+  %52 = load ptr, ptr %vfn230, align 8
+  call void %52(ptr noundef nonnull align 8 dereferenceable(86) %call209) #18
   br label %delete.end
 
 delete.end:                                       ; preds = %invoke.cont49, %delete.notnull, %if.end228
@@ -1847,30 +1840,23 @@ entry:
   %fGMTOffsetPatternItems17 = getelementptr inbounds i8, ptr %this, i64 1264
   br label %for.body
 
-for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %0 = trunc i64 %indvars.iv to i32
-  %1 = icmp ult i32 %0, 6
-  br i1 %1, label %switch.lookup, label %for.inc
-
-switch.lookup:                                    ; preds = %for.body
-  %2 = and i64 %indvars.iv, 4294967295
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %2
+for.body:                                         ; preds = %entry, %for.body
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
+  %sext = shl i64 %indvars.iv, 32
+  %0 = ashr exact i64 %sext, 32
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %0
   %switch.load = load i32, ptr %switch.gep, align 4
   %arrayidx = getelementptr inbounds [6 x %"class.icu_75::UnicodeString"], ptr %fGMTOffsetPatterns13, i64 0, i64 %indvars.iv
   %call = tail call noundef ptr @_ZN6icu_7514TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, i32 noundef %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %arrayidx3 = getelementptr inbounds [6 x ptr], ptr %fGMTOffsetPatternItems17, i64 0, i64 %indvars.iv
   store ptr %call, ptr %arrayidx3, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body, %switch.lookup
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
-for.end:                                          ; preds = %for.inc
-  %3 = load i32, ptr %status, align 4
-  %cmp.i = icmp slt i32 %3, 1
+for.end:                                          ; preds = %for.body
+  %1 = load i32, ptr %status, align 4
+  %cmp.i = icmp slt i32 %1, 1
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %for.end
@@ -1890,19 +1876,19 @@ for.body.i.backedge:                              ; preds = %for.cond.i, %for.en
 for.body.i:                                       ; preds = %for.body.i.backedge, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.i.be, %for.body.i.backedge ]
   %arrayidx.i = getelementptr inbounds [6 x ptr], ptr %fGMTOffsetPatternItems17, i64 0, i64 %indvars.iv.i
-  %4 = load ptr, ptr %arrayidx.i, align 8
-  %count.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i32, ptr %count.i.i, align 8
-  %cmp39.i = icmp sgt i32 %5, 0
+  %2 = load ptr, ptr %arrayidx.i, align 8
+  %count.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = load i32, ptr %count.i.i, align 8
+  %cmp39.i = icmp sgt i32 %3, 0
   br i1 %cmp39.i, label %for.body4.i, label %for.cond.i
 
 for.body4.i:                                      ; preds = %for.body.i, %for.inc.i
   %afterH.011.i = phi i8 [ %afterH.1.i, %for.inc.i ], [ 0, %for.body.i ]
   %i.010.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.i ]
-  %call5.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef %i.010.i)
+  %call5.i = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %i.010.i)
   %fType.i.i = getelementptr inbounds i8, ptr %call5.i, i64 16
-  %6 = load i32, ptr %fType.i.i, align 8
-  %cmp7.not.i = icmp eq i32 %6, 0
+  %4 = load i32, ptr %fType.i.i, align 8
+  %cmp7.not.i = icmp eq i32 %4, 0
   %tobool14.not.i = icmp eq i8 %afterH.011.i, 0
   br i1 %cmp7.not.i, label %if.else13.i, label %if.then.i
 
@@ -1914,7 +1900,7 @@ for.end.thread.i:                                 ; preds = %if.then.i
   br label %return
 
 if.else.i:                                        ; preds = %if.then.i
-  %cmp10.i = icmp eq i32 %6, 1
+  %cmp10.i = icmp eq i32 %4, 1
   %spec.select.i = zext i1 %cmp10.i to i8
   br label %for.inc.i
 
@@ -1924,8 +1910,8 @@ if.else13.i:                                      ; preds = %for.body4.i
 for.inc.i:                                        ; preds = %if.else13.i, %if.else.i
   %afterH.1.i = phi i8 [ 0, %if.else13.i ], [ %spec.select.i, %if.else.i ]
   %inc.i = add nuw nsw i32 %i.010.i, 1
-  %7 = load i32, ptr %count.i.i, align 8
-  %cmp3.i = icmp slt i32 %inc.i, %7
+  %5 = load i32, ptr %count.i.i, align 8
+  %cmp3.i = icmp slt i32 %inc.i, %5
   br i1 %cmp3.i, label %for.body4.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.inc.i, %if.else13.i
@@ -2183,30 +2169,23 @@ delete.end47:                                     ; preds = %delete.notnull44, %
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %for.body.i, label %for.body, !llvm.loop !10
 
-for.body.i:                                       ; preds = %delete.end47, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %delete.end47 ]
-  %13 = trunc i64 %indvars.iv.i to i32
-  %14 = icmp ult i32 %13, 6
-  br i1 %14, label %switch.lookup, label %for.inc.i
-
-switch.lookup:                                    ; preds = %for.body.i
-  %15 = and i64 %indvars.iv.i, 4294967295
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %15
+for.body.i:                                       ; preds = %delete.end47, %for.body.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %delete.end47 ]
+  %sext = shl i64 %indvars.iv.i, 32
+  %13 = ashr exact i64 %sext, 32
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %arrayidx.i = getelementptr inbounds [6 x %"class.icu_75::UnicodeString"], ptr %fGMTOffsetPatterns37, i64 0, i64 %indvars.iv.i
   %call.i = call noundef ptr @_ZN6icu_7514TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %arrayidx3.i = getelementptr inbounds [6 x ptr], ptr %fGMTOffsetPatternItems, i64 0, i64 %indvars.iv.i
   store ptr %call.i, ptr %arrayidx3.i, align 8
-  br label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.body.i, %switch.lookup
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
-for.end.i:                                        ; preds = %for.inc.i
-  %16 = load i32, ptr %status, align 4
-  %cmp.i.i = icmp slt i32 %16, 1
+for.end.i:                                        ; preds = %for.body.i
+  %14 = load i32, ptr %status, align 4
+  %cmp.i.i = icmp slt i32 %14, 1
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7514TimeZoneFormat21initGMTOffsetPatternsER10UErrorCode.exit
 
 if.end.i:                                         ; preds = %for.end.i
@@ -2222,19 +2201,19 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 for.body.i.i:                                     ; preds = %for.body.i.i.backedge, %if.end.i
   %indvars.iv.i.i = phi i64 [ 0, %if.end.i ], [ %indvars.iv.i.i.be, %for.body.i.i.backedge ]
   %arrayidx.i.i = getelementptr inbounds [6 x ptr], ptr %fGMTOffsetPatternItems, i64 0, i64 %indvars.iv.i.i
-  %17 = load ptr, ptr %arrayidx.i.i, align 8
-  %count.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
-  %18 = load i32, ptr %count.i.i.i, align 8
-  %cmp39.i.i = icmp sgt i32 %18, 0
+  %15 = load ptr, ptr %arrayidx.i.i, align 8
+  %count.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load i32, ptr %count.i.i.i, align 8
+  %cmp39.i.i = icmp sgt i32 %16, 0
   br i1 %cmp39.i.i, label %for.body4.i.i, label %for.cond.i.i
 
 for.body4.i.i:                                    ; preds = %for.body.i.i, %for.inc.i.i
   %afterH.011.i.i = phi i8 [ %afterH.1.i.i, %for.inc.i.i ], [ 0, %for.body.i.i ]
   %i.010.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %for.body.i.i ]
-  %call5.i.i = call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %17, i32 noundef %i.010.i.i)
+  %call5.i.i = call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef %i.010.i.i)
   %fType.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 16
-  %19 = load i32, ptr %fType.i.i.i, align 8
-  %cmp7.not.i.i = icmp eq i32 %19, 0
+  %17 = load i32, ptr %fType.i.i.i, align 8
+  %cmp7.not.i.i = icmp eq i32 %17, 0
   %tobool14.not.i.i = icmp eq i8 %afterH.011.i.i, 0
   br i1 %cmp7.not.i.i, label %if.else13.i.i, label %if.then.i.i
 
@@ -2246,7 +2225,7 @@ for.end.thread.i.i:                               ; preds = %if.then.i.i
   br label %_ZN6icu_7514TimeZoneFormat21initGMTOffsetPatternsER10UErrorCode.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %cmp10.i.i = icmp eq i32 %19, 1
+  %cmp10.i.i = icmp eq i32 %17, 1
   %spec.select.i.i = zext i1 %cmp10.i.i to i8
   br label %for.inc.i.i
 
@@ -2256,8 +2235,8 @@ if.else13.i.i:                                    ; preds = %for.body4.i.i
 for.inc.i.i:                                      ; preds = %if.else13.i.i, %if.else.i.i
   %afterH.1.i.i = phi i8 [ 0, %if.else13.i.i ], [ %spec.select.i.i, %if.else.i.i ]
   %inc.i.i = add nuw nsw i32 %i.010.i.i, 1
-  %20 = load i32, ptr %count.i.i.i, align 8
-  %cmp3.i.i = icmp slt i32 %inc.i.i, %20
+  %18 = load i32, ptr %count.i.i.i, align 8
+  %cmp3.i.i = icmp slt i32 %inc.i.i, %18
   br i1 %cmp3.i.i, label %for.body4.i.i, label %for.end.i.i, !llvm.loop !7
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %if.else13.i.i
@@ -2280,9 +2259,9 @@ _ZN6icu_7514TimeZoneFormat21initGMTOffsetPatternsER10UErrorCode.exit: ; preds = 
   %fGMTOffsetDigits55 = getelementptr inbounds i8, ptr %other, i64 1024
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fGMTOffsetDigits, ptr noundef nonnull align 8 dereferenceable(40) %fGMTOffsetDigits55, i64 40, i1 false)
   %fDefParseOptionFlags = getelementptr inbounds i8, ptr %other, i64 1128
-  %21 = load i32, ptr %fDefParseOptionFlags, align 8
+  %19 = load i32, ptr %fDefParseOptionFlags, align 8
   %fDefParseOptionFlags58 = getelementptr inbounds i8, ptr %this, i64 1128
-  store i32 %21, ptr %fDefParseOptionFlags58, align 8
+  store i32 %19, ptr %fDefParseOptionFlags58, align 8
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6icu_7514TimeZoneFormat21initGMTOffsetPatternsER10UErrorCode.exit

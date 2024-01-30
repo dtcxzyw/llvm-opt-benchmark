@@ -143,10 +143,8 @@ cond.true50:                                      ; preds = %land.lhs.true38
 
 if.then54:                                        ; preds = %cond.true43, %cond.true50
   %n2.0 = phi double [ %10, %cond.true43 ], [ %conv52, %cond.true50 ]
-  switch i32 %op, label %numarith.exit [
-    i32 4, label %sw.bb4.i
-    i32 5, label %sw.bb3.i
-  ]
+  %switch = icmp eq i32 %op, 4
+  br i1 %switch, label %sw.bb4.i, label %sw.bb3.i
 
 sw.bb3.i:                                         ; preds = %if.then54
   %div.i = fdiv double %n1.0, %n2.0
@@ -164,8 +162,8 @@ cond.false.i:                                     ; preds = %sw.bb4.i
   %call.i = tail call double @pow(double noundef %n1.0, double noundef %n2.0) #18
   br label %numarith.exit
 
-numarith.exit:                                    ; preds = %if.then54, %sw.bb3.i, %cond.true.i, %cond.false.i
-  %retval.0.i = phi double [ %div.i, %sw.bb3.i ], [ %mul5.i, %cond.true.i ], [ %call.i, %cond.false.i ], [ 0.000000e+00, %if.then54 ]
+numarith.exit:                                    ; preds = %sw.bb3.i, %cond.true.i, %cond.false.i
+  %retval.0.i = phi double [ %div.i, %sw.bb3.i ], [ %mul5.i, %cond.true.i ], [ %call.i, %cond.false.i ]
   store double %retval.0.i, ptr %res, align 8
   br label %return.sink.split
 

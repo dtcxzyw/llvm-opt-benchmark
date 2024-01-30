@@ -4149,7 +4149,7 @@ for.body.i:                                       ; preds = %sw.epilog.i, %for.b
   %s.055.i = phi i32 [ %15, %for.body.lr.ph.i ], [ %retval.0.i35.i, %sw.epilog.i ]
   %p.054.i = phi ptr [ %add.ptr.i, %for.body.lr.ph.i ], [ %incdec.ptr.i, %sw.epilog.i ]
   %21 = load i8, ptr %p.054.i, align 1
-  switch i32 %s.055.i, label %return [
+  switch i32 %s.055.i, label %default.unreachable.i [
     i32 3, label %sw.bb.i.i
     i32 2, label %sw.bb.i.i
     i32 4, label %sw.bb68.i.i
@@ -4356,6 +4356,9 @@ for.end.i:                                        ; preds = %sw.epilog.i, %if.th
   %39 = icmp ult i32 %switch.tableidx, 8
   br i1 %39, label %switch.hole_check, label %if.end29
 
+default.unreachable.i:                            ; preds = %for.body.i
+  unreachable
+
 if.end29:                                         ; preds = %switch.hole_check, %for.end.i, %for.end
   %40 = phi i16 [ %38, %for.end.i ], [ %13, %for.end ], [ %38, %switch.hole_check ]
   br i1 %tobool.not, label %land.lhs.true, label %if.end35
@@ -4417,8 +4420,8 @@ switch.hole_check:                                ; preds = %for.end.i
   %switch.lobit.not = icmp eq i8 %46, 0
   br i1 %switch.lobit.not, label %if.end29, label %return
 
-return:                                           ; preds = %if.end214.i, %if.end12.i, %if.end19.i, %if.end44.i, %sw.bb49.i, %sw.bb54.i, %switch.early.test.i, %sw.bb59.i, %for.body, %for.body, %for.body, %for.body, %for.body, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit, %lor.lhs.false158.i.i, %for.body.i, %switch.early.test.i.i, %switch.early.test79.i.i, %switch.early.test81.i.i, %sw.bb130.i.i, %land.lhs.true152.i.i, %sw.bb166.i.i, %for.body59, %switch.hole_check, %if.end29.thread, %if.end35, %for.end67, %land.lhs.true
-  %retval.0 = phi i32 [ 1, %land.lhs.true ], [ 0, %for.end67 ], [ 0, %if.end35 ], [ %spec.select, %if.end29.thread ], [ 1, %switch.hole_check ], [ 1, %for.body59 ], [ 1, %sw.bb166.i.i ], [ 1, %land.lhs.true152.i.i ], [ 1, %sw.bb130.i.i ], [ 1, %switch.early.test81.i.i ], [ 1, %switch.early.test79.i.i ], [ 1, %switch.early.test.i.i ], [ 1, %for.body.i ], [ 1, %lor.lhs.false158.i.i ], [ 1, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit ], [ 1, %for.body ], [ 1, %for.body ], [ 1, %for.body ], [ 1, %for.body ], [ 1, %for.body ], [ 1, %sw.bb59.i ], [ 1, %switch.early.test.i ], [ 1, %sw.bb54.i ], [ 1, %sw.bb49.i ], [ 1, %if.end44.i ], [ 1, %if.end19.i ], [ 1, %if.end12.i ], [ 1, %if.end214.i ]
+return:                                           ; preds = %if.end214.i, %if.end12.i, %if.end19.i, %if.end44.i, %sw.bb49.i, %sw.bb54.i, %switch.early.test.i, %sw.bb59.i, %for.body, %for.body, %for.body, %for.body, %for.body, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit, %lor.lhs.false158.i.i, %switch.early.test.i.i, %switch.early.test79.i.i, %switch.early.test81.i.i, %sw.bb130.i.i, %land.lhs.true152.i.i, %sw.bb166.i.i, %for.body59, %switch.hole_check, %if.end29.thread, %if.end35, %for.end67, %land.lhs.true
+  %retval.0 = phi i32 [ 1, %land.lhs.true ], [ 0, %for.end67 ], [ 0, %if.end35 ], [ %spec.select, %if.end29.thread ], [ 1, %switch.hole_check ], [ 1, %for.body59 ], [ 1, %sw.bb166.i.i ], [ 1, %land.lhs.true152.i.i ], [ 1, %sw.bb130.i.i ], [ 1, %switch.early.test81.i.i ], [ 1, %switch.early.test79.i.i ], [ 1, %switch.early.test.i.i ], [ 1, %lor.lhs.false158.i.i ], [ 1, %_ZN8proxygenL14parse_url_charENS_5stateEci.exit ], [ 1, %for.body ], [ 1, %for.body ], [ 1, %for.body ], [ 1, %for.body ], [ 1, %for.body ], [ 1, %sw.bb59.i ], [ 1, %switch.early.test.i ], [ 1, %sw.bb54.i ], [ 1, %sw.bb49.i ], [ 1, %if.end44.i ], [ 1, %if.end19.i ], [ 1, %if.end12.i ], [ 1, %if.end214.i ]
   ret i32 %retval.0
 }
 

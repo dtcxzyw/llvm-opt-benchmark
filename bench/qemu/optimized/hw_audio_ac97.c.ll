@@ -1763,7 +1763,7 @@ if.else.i:                                        ; preds = %sw.bb15.i
   br i1 %tobool30.not.i, label %if.then31.i, label %if.else37.i
 
 if.then31.i:                                      ; preds = %if.else.i
-  switch i32 %shr17.i, label %sw.default.i.i [
+  switch i32 %shr17.i, label %default.unreachable.i [
     i32 0, label %sw.bb.i.i
     i32 1, label %sw.bb1.i.i
     i32 2, label %sw.bb2.i.i
@@ -1787,11 +1787,10 @@ sw.bb2.i.i:                                       ; preds = %if.then31.i
   tail call void @AUD_set_active_in(ptr noundef %14, i32 noundef 0) #7
   br label %voice_set_active.exit.i
 
-sw.default.i.i:                                   ; preds = %if.then31.i
-  tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef %shr17.i) #7
-  br label %voice_set_active.exit.i
+default.unreachable.i:                            ; preds = %if.then31.i
+  unreachable
 
-voice_set_active.exit.i:                          ; preds = %sw.default.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
+voice_set_active.exit.i:                          ; preds = %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
   %sr34.i = getelementptr inbounds i8, ptr %arrayidx20.i, i64 6
   %15 = load i16, ptr %sr34.i, align 2
   %16 = or i16 %15, 1
@@ -1834,7 +1833,7 @@ if.else37.i:                                      ; preds = %if.else.i
   %23 = load i16, ptr %sr46.i, align 2
   %24 = and i16 %23, -2
   store i16 %24, ptr %sr46.i, align 2
-  switch i32 %shr17.i, label %sw.default.i62.i [
+  switch i32 %shr17.i, label %default.unreachable65.i [
     i32 0, label %sw.bb.i60.i
     i32 1, label %sw.bb1.i58.i
     i32 2, label %sw.bb2.i56.i
@@ -1858,9 +1857,8 @@ sw.bb2.i56.i:                                     ; preds = %if.else37.i
   call void @AUD_set_active_in(ptr noundef %27, i32 noundef 1) #7
   br label %sw.epilog
 
-sw.default.i62.i:                                 ; preds = %if.else37.i
-  call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, i32 noundef %shr17.i) #7
-  br label %sw.epilog
+default.unreachable65.i:                          ; preds = %if.else37.i
+  unreachable
 
 sw.bb59.i:                                        ; preds = %sw.bb, %sw.bb, %sw.bb
   %bm_regs60.i = getelementptr inbounds i8, ptr %opaque, i64 2656
@@ -2087,7 +2085,7 @@ sw.bb5.i:                                         ; preds = %sw.bb7
   store i32 %or.i, ptr %glob_sta.i, align 4
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb5.i, %if.then.i53, %sw.bb2.i, %sw.bb.i54, %sw.bb7, %if.then27.i.i35, %if.end20.i.i39, %if.end25.thread.i.i41, %if.end20.thread.i.i47, %sw.bb4, %if.then27.i.i, %if.end20.i.i, %if.end25.thread.i.i, %if.end20.thread.i.i, %sw.default.i62.i, %sw.bb2.i56.i, %sw.bb1.i58.i, %sw.bb.i60.i, %voice_set_active.exit.i, %if.then23.i, %if.end.i, %sw.bb, %entry, %if.end
+sw.epilog:                                        ; preds = %sw.bb5.i, %if.then.i53, %sw.bb2.i, %sw.bb.i54, %sw.bb7, %if.then27.i.i35, %if.end20.i.i39, %if.end25.thread.i.i41, %if.end20.thread.i.i47, %sw.bb4, %if.then27.i.i, %if.end20.i.i, %if.end25.thread.i.i, %if.end20.thread.i.i, %sw.bb2.i56.i, %sw.bb1.i58.i, %sw.bb.i60.i, %voice_set_active.exit.i, %if.then23.i, %if.end.i, %sw.bb, %entry, %if.end
   ret void
 }
 

@@ -3483,10 +3483,8 @@ entry:
   br i1 %.not, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  switch i32 %1, label %return [
-    i32 12, label %if.then.i
-    i32 13, label %if.then4.i
-  ]
+  %switch = icmp eq i32 %1, 12
+  br i1 %switch, label %if.then.i, label %if.then4.i
 
 if.then.i:                                        ; preds = %if.then
   %value.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 10
@@ -3504,8 +3502,8 @@ if.then4.i:                                       ; preds = %if.then
   %6 = load double, ptr %arrayidx.i3, align 8
   br label %return
 
-return:                                           ; preds = %if.then4.i, %if.then.i, %if.then, %entry
-  %retval.0 = phi double [ 0.000000e+00, %entry ], [ %conv.i4, %if.then.i ], [ %6, %if.then4.i ], [ 0xC19D6F3454000000, %if.then ]
+return:                                           ; preds = %if.then4.i, %if.then.i, %entry
+  %retval.0 = phi double [ 0.000000e+00, %entry ], [ %conv.i4, %if.then.i ], [ %6, %if.then4.i ]
   ret double %retval.0
 }
 

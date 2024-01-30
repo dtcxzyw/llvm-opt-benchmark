@@ -669,68 +669,60 @@ if.end17:                                         ; preds = %if.end11
 
 land.lhs.true:                                    ; preds = %if.end17
   %info = getelementptr inbounds i8, ptr %sw, i64 16
-  %15 = icmp ult i32 %12, 7
-  br i1 %15, label %switch.lookup, label %sw.default.i
-
-sw.default.i:                                     ; preds = %land.lhs.true
-  tail call void @abort() #22
-  unreachable
-
-switch.lookup:                                    ; preds = %land.lhs.true
-  %16 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture, i64 0, i64 %16
+  %15 = sext i32 %12 to i64
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture, i64 0, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
-  %17 = zext nneg i32 %12 to i64
-  %switch.gep67 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.17, i64 0, i64 %17
+  %16 = sext i32 %12 to i64
+  %switch.gep67 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.17, i64 0, i64 %16
   %switch.load68 = load i32, ptr %switch.gep67, align 4
-  %18 = zext nneg i32 %12 to i64
-  %switch.gep69 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.18, i64 0, i64 %18
+  %17 = sext i32 %12 to i64
+  %switch.gep69 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.18, i64 0, i64 %17
   %switch.load70 = load i32, ptr %switch.gep69, align 4
   %freq.i = getelementptr inbounds i8, ptr %sw, i64 24
-  %19 = load i32, ptr %freq.i, align 4
-  %cmp.i57 = icmp eq i32 %19, %13
+  %18 = load i32, ptr %freq.i, align 4
+  %cmp.i57 = icmp eq i32 %18, %13
   br i1 %cmp.i57, label %land.lhs.true.i, label %if.end22
 
-land.lhs.true.i:                                  ; preds = %switch.lookup
+land.lhs.true.i:                                  ; preds = %land.lhs.true
   %nchannels.i58 = getelementptr inbounds i8, ptr %sw, i64 28
-  %20 = load i32, ptr %nchannels.i58, align 4
-  %cmp9.i = icmp eq i32 %20, %10
+  %19 = load i32, ptr %nchannels.i58, align 4
+  %cmp9.i = icmp eq i32 %19, %10
   br i1 %cmp9.i, label %land.lhs.true10.i, label %if.end22
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true.i
   %is_signed11.i = getelementptr inbounds i8, ptr %sw, i64 20
-  %21 = load i8, ptr %is_signed11.i, align 4
-  %22 = and i8 %21, 1
-  %conv.i = zext nneg i8 %22 to i32
+  %20 = load i8, ptr %is_signed11.i, align 4
+  %21 = and i8 %20, 1
+  %conv.i = zext nneg i8 %21 to i32
   %cmp14.i = icmp eq i32 %switch.load68, %conv.i
   br i1 %cmp14.i, label %land.lhs.true16.i, label %if.end22
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true10.i
   %is_float17.i = getelementptr inbounds i8, ptr %sw, i64 21
-  %23 = load i8, ptr %is_float17.i, align 1
-  %24 = and i8 %23, 1
-  %conv19.i = zext nneg i8 %24 to i32
+  %22 = load i8, ptr %is_float17.i, align 1
+  %23 = and i8 %22, 1
+  %conv19.i = zext nneg i8 %23 to i32
   %cmp22.i = icmp eq i32 %switch.load70, %conv19.i
   br i1 %cmp22.i, label %land.lhs.true24.i, label %if.end22
 
 land.lhs.true24.i:                                ; preds = %land.lhs.true16.i
-  %25 = load i32, ptr %info, align 4
-  %cmp26.i = icmp eq i32 %25, %switch.load
+  %24 = load i32, ptr %info, align 4
+  %cmp26.i = icmp eq i32 %24, %switch.load
   br i1 %cmp26.i, label %audio_pcm_info_eq.exit, label %if.end22
 
 audio_pcm_info_eq.exit:                           ; preds = %land.lhs.true24.i
   %swap_endianness.i = getelementptr inbounds i8, ptr %sw, i64 40
-  %26 = load i32, ptr %swap_endianness.i, align 4
+  %25 = load i32, ptr %swap_endianness.i, align 4
   %cmp28.i = icmp ne i32 %11, 0
   %conv29.i = zext i1 %cmp28.i to i32
-  %cmp30.i.not = icmp eq i32 %26, %conv29.i
+  %cmp30.i.not = icmp eq i32 %25, %conv29.i
   br i1 %cmp30.i.not, label %return, label %if.end22
 
-if.end22:                                         ; preds = %switch.lookup, %land.lhs.true.i, %land.lhs.true10.i, %land.lhs.true16.i, %land.lhs.true24.i, %audio_pcm_info_eq.exit
+if.end22:                                         ; preds = %land.lhs.true, %land.lhs.true.i, %land.lhs.true10.i, %land.lhs.true16.i, %land.lhs.true24.i, %audio_pcm_info_eq.exit
   %fixed_settings = getelementptr inbounds i8, ptr %retval.0.i, i64 3
-  %27 = load i8, ptr %fixed_settings, align 1
-  %28 = and i8 %27, 1
-  %tobool23.not41 = icmp eq i8 %28, 0
+  %26 = load i8, ptr %fixed_settings, align 1
+  %27 = and i8 %26, 1
+  %tobool23.not41 = icmp eq i8 %27, 0
   br i1 %tobool23.not41, label %if.then26, label %if.then29
 
 if.then26:                                        ; preds = %if.end22
@@ -739,21 +731,21 @@ if.then26:                                        ; preds = %if.end22
 
 if.then29:                                        ; preds = %if.end22
   %hw30 = getelementptr inbounds i8, ptr %sw, i64 104
-  %29 = load ptr, ptr %hw30, align 8
-  %tobool31.not = icmp eq ptr %29, null
+  %28 = load ptr, ptr %hw30, align 8
+  %tobool31.not = icmp eq ptr %28, null
   br i1 %tobool31.not, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %if.then29
   %name33 = getelementptr inbounds i8, ptr %sw, i64 112
-  %30 = load ptr, ptr %name33, align 8
-  %tobool34.not = icmp eq ptr %30, null
-  %spec.select = select i1 %tobool34.not, ptr @.str.14, ptr %30
+  %29 = load ptr, ptr %name33, align 8
+  %tobool34.not = icmp eq ptr %29, null
+  %spec.select = select i1 %tobool34.not, ptr @.str.14, ptr %29
   tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.13, ptr noundef nonnull %spec.select)
   br label %fail
 
 if.end36:                                         ; preds = %if.then29
   tail call fastcc void @audio_pcm_sw_fini_out(ptr noundef nonnull %sw)
-  %call37 = tail call fastcc i32 @audio_pcm_sw_init_out(ptr noundef nonnull %sw, ptr noundef nonnull %29, ptr noundef nonnull %name, ptr noundef nonnull %as), !range !8
+  %call37 = tail call fastcc i32 @audio_pcm_sw_init_out(ptr noundef nonnull %sw, ptr noundef nonnull %28, ptr noundef nonnull %name, ptr noundef nonnull %as), !range !8
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %if.end45, label %fail
 
@@ -1675,68 +1667,60 @@ if.end17:                                         ; preds = %if.end11
 
 land.lhs.true:                                    ; preds = %if.end17
   %info = getelementptr inbounds i8, ptr %sw, i64 20
-  %15 = icmp ult i32 %12, 7
-  br i1 %15, label %switch.lookup, label %sw.default.i
-
-sw.default.i:                                     ; preds = %land.lhs.true
-  tail call void @abort() #22
-  unreachable
-
-switch.lookup:                                    ; preds = %land.lhs.true
-  %16 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture, i64 0, i64 %16
+  %15 = sext i32 %12 to i64
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture, i64 0, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
-  %17 = zext nneg i32 %12 to i64
-  %switch.gep67 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.17, i64 0, i64 %17
+  %16 = sext i32 %12 to i64
+  %switch.gep67 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.17, i64 0, i64 %16
   %switch.load68 = load i32, ptr %switch.gep67, align 4
-  %18 = zext nneg i32 %12 to i64
-  %switch.gep69 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.18, i64 0, i64 %18
+  %17 = sext i32 %12 to i64
+  %switch.gep69 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.18, i64 0, i64 %17
   %switch.load70 = load i32, ptr %switch.gep69, align 4
   %freq.i = getelementptr inbounds i8, ptr %sw, i64 28
-  %19 = load i32, ptr %freq.i, align 4
-  %cmp.i57 = icmp eq i32 %19, %13
+  %18 = load i32, ptr %freq.i, align 4
+  %cmp.i57 = icmp eq i32 %18, %13
   br i1 %cmp.i57, label %land.lhs.true.i, label %if.end22
 
-land.lhs.true.i:                                  ; preds = %switch.lookup
+land.lhs.true.i:                                  ; preds = %land.lhs.true
   %nchannels.i58 = getelementptr inbounds i8, ptr %sw, i64 32
-  %20 = load i32, ptr %nchannels.i58, align 4
-  %cmp9.i = icmp eq i32 %20, %10
+  %19 = load i32, ptr %nchannels.i58, align 4
+  %cmp9.i = icmp eq i32 %19, %10
   br i1 %cmp9.i, label %land.lhs.true10.i, label %if.end22
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true.i
   %is_signed11.i = getelementptr inbounds i8, ptr %sw, i64 24
-  %21 = load i8, ptr %is_signed11.i, align 4
-  %22 = and i8 %21, 1
-  %conv.i = zext nneg i8 %22 to i32
+  %20 = load i8, ptr %is_signed11.i, align 4
+  %21 = and i8 %20, 1
+  %conv.i = zext nneg i8 %21 to i32
   %cmp14.i = icmp eq i32 %switch.load68, %conv.i
   br i1 %cmp14.i, label %land.lhs.true16.i, label %if.end22
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true10.i
   %is_float17.i = getelementptr inbounds i8, ptr %sw, i64 25
-  %23 = load i8, ptr %is_float17.i, align 1
-  %24 = and i8 %23, 1
-  %conv19.i = zext nneg i8 %24 to i32
+  %22 = load i8, ptr %is_float17.i, align 1
+  %23 = and i8 %22, 1
+  %conv19.i = zext nneg i8 %23 to i32
   %cmp22.i = icmp eq i32 %switch.load70, %conv19.i
   br i1 %cmp22.i, label %land.lhs.true24.i, label %if.end22
 
 land.lhs.true24.i:                                ; preds = %land.lhs.true16.i
-  %25 = load i32, ptr %info, align 4
-  %cmp26.i = icmp eq i32 %25, %switch.load
+  %24 = load i32, ptr %info, align 4
+  %cmp26.i = icmp eq i32 %24, %switch.load
   br i1 %cmp26.i, label %audio_pcm_info_eq.exit, label %if.end22
 
 audio_pcm_info_eq.exit:                           ; preds = %land.lhs.true24.i
   %swap_endianness.i = getelementptr inbounds i8, ptr %sw, i64 44
-  %26 = load i32, ptr %swap_endianness.i, align 4
+  %25 = load i32, ptr %swap_endianness.i, align 4
   %cmp28.i = icmp ne i32 %11, 0
   %conv29.i = zext i1 %cmp28.i to i32
-  %cmp30.i.not = icmp eq i32 %26, %conv29.i
+  %cmp30.i.not = icmp eq i32 %25, %conv29.i
   br i1 %cmp30.i.not, label %return, label %if.end22
 
-if.end22:                                         ; preds = %switch.lookup, %land.lhs.true.i, %land.lhs.true10.i, %land.lhs.true16.i, %land.lhs.true24.i, %audio_pcm_info_eq.exit
+if.end22:                                         ; preds = %land.lhs.true, %land.lhs.true.i, %land.lhs.true10.i, %land.lhs.true16.i, %land.lhs.true24.i, %audio_pcm_info_eq.exit
   %fixed_settings = getelementptr inbounds i8, ptr %retval.0.i, i64 3
-  %27 = load i8, ptr %fixed_settings, align 1
-  %28 = and i8 %27, 1
-  %tobool23.not41 = icmp eq i8 %28, 0
+  %26 = load i8, ptr %fixed_settings, align 1
+  %27 = and i8 %26, 1
+  %tobool23.not41 = icmp eq i8 %27, 0
   br i1 %tobool23.not41, label %if.then26, label %if.then29
 
 if.then26:                                        ; preds = %if.end22
@@ -1745,21 +1729,21 @@ if.then26:                                        ; preds = %if.end22
 
 if.then29:                                        ; preds = %if.end22
   %hw30 = getelementptr inbounds i8, ptr %sw, i64 96
-  %29 = load ptr, ptr %hw30, align 8
-  %tobool31.not = icmp eq ptr %29, null
+  %28 = load ptr, ptr %hw30, align 8
+  %tobool31.not = icmp eq ptr %28, null
   br i1 %tobool31.not, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %if.then29
   %name33 = getelementptr inbounds i8, ptr %sw, i64 104
-  %30 = load ptr, ptr %name33, align 8
-  %tobool34.not = icmp eq ptr %30, null
-  %spec.select = select i1 %tobool34.not, ptr @.str.14, ptr %30
+  %29 = load ptr, ptr %name33, align 8
+  %tobool34.not = icmp eq ptr %29, null
+  %spec.select = select i1 %tobool34.not, ptr @.str.14, ptr %29
   tail call void (ptr, ptr, ...) @AUD_log(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.13, ptr noundef nonnull %spec.select)
   br label %fail
 
 if.end36:                                         ; preds = %if.then29
   tail call fastcc void @audio_pcm_sw_fini_in(ptr noundef nonnull %sw)
-  %call37 = tail call fastcc i32 @audio_pcm_sw_init_in(ptr noundef nonnull %sw, ptr noundef nonnull %29, ptr noundef nonnull %name, ptr noundef nonnull %as), !range !8
+  %call37 = tail call fastcc i32 @audio_pcm_sw_init_in(ptr noundef nonnull %sw, ptr noundef nonnull %28, ptr noundef nonnull %name, ptr noundef nonnull %as), !range !8
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %if.end45, label %fail
 

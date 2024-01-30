@@ -72,7 +72,7 @@ for.body:                                         ; preds = %entry, %sw.epilog
   %length.026 = phi i32 [ %length.1, %sw.epilog ], [ 0, %entry ]
   %offset.025 = phi i32 [ %add, %sw.epilog ], [ 0, %entry ]
   %call1 = tail call noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %patternString, i32 noundef %offset.025)
-  switch i32 %state.027, label %sw.default [
+  switch i32 %state.027, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb3
     i32 2, label %sw.bb10
@@ -100,8 +100,7 @@ sw.bb16:                                          ; preds = %for.body
   %.32 = select i1 %cmp17, i32 2, i32 3
   br label %sw.epilog
 
-sw.default:                                       ; preds = %for.body
-  tail call void @abort() #10
+default.unreachable:                              ; preds = %for.body
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb16, %sw.bb3, %sw.bb10, %sw.bb

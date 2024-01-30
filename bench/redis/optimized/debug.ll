@@ -3719,7 +3719,7 @@ if.end1025.thread:                                ; preds = %for.body1016
   br label %if.else1030
 
 if.end1025:                                       ; preds = %for.body1016
-  %shl = shl i64 16384, %indvars.iv457
+  %shl = shl nuw nsw i64 16384, %indvars.iv457
   %call1024 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %bucket_info.0430, ptr noundef nonnull @.str.221, i64 noundef %shl) #22
   %cmp1026 = icmp eq i64 %indvars.iv457, 18
   br i1 %cmp1026, label %if.then1028, label %if.else1030
@@ -3730,7 +3730,7 @@ if.then1028:                                      ; preds = %if.end1025
 
 if.else1030:                                      ; preds = %if.end1025.thread, %if.end1025
   %bucket_info.1391 = phi ptr [ %call1020, %if.end1025.thread ], [ %call1024, %if.end1025 ]
-  %notmask = shl i64 -32768, %indvars.iv457
+  %notmask = shl nsw i64 -32768, %indvars.iv457
   %sub1034 = xor i64 %notmask, -1
   %call1035 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %bucket_info.1391, ptr noundef nonnull @.str.223, i64 noundef %sub1034) #22
   br label %if.end1036
@@ -5131,7 +5131,7 @@ sdslen.exit:                                      ; preds = %sw.bb3.i, %sw.bb5.i
   br i1 %cmp21, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %sdslen.exit
-  switch i32 %and.i, label %cond.end [
+  switch i32 %and.i, label %default.unreachable [
     i32 4, label %sw.bb13.i26
     i32 1, label %sw.bb3.i35
     i32 2, label %sw.bb5.i32
@@ -5166,8 +5166,11 @@ sw.bb13.i26:                                      ; preds = %cond.true
   %16 = load i64, ptr %add.ptr14.i27, align 1
   br label %cond.end
 
-cond.end:                                         ; preds = %for.body, %sw.bb13.i26, %sw.bb9.i29, %sw.bb5.i32, %sw.bb3.i35, %sw.bb.i38, %cond.true, %sdslen.exit
-  %cond = phi i64 [ 128, %sdslen.exit ], [ %16, %sw.bb13.i26 ], [ %conv12.i31, %sw.bb9.i29 ], [ %conv8.i34, %sw.bb5.i32 ], [ %conv4.i37, %sw.bb3.i35 ], [ %conv2.i40, %sw.bb.i38 ], [ 0, %cond.true ], [ 0, %for.body ]
+default.unreachable:                              ; preds = %cond.true
+  unreachable
+
+cond.end:                                         ; preds = %for.body, %sw.bb13.i26, %sw.bb9.i29, %sw.bb5.i32, %sw.bb3.i35, %sw.bb.i38, %sdslen.exit
+  %cond = phi i64 [ 128, %sdslen.exit ], [ %16, %sw.bb13.i26 ], [ %conv12.i31, %sw.bb9.i29 ], [ %conv8.i34, %sw.bb5.i32 ], [ %conv4.i37, %sw.bb3.i35 ], [ %conv2.i40, %sw.bb.i38 ], [ 0, %for.body ]
   %call24 = tail call ptr @sdscatrepr(ptr noundef %call18, ptr noundef nonnull %7, i64 noundef %cond) #22
   %17 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
   %cmp26 = icmp sgt i32 %17, 3
