@@ -53,7 +53,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.qcow2_get_subcluster_type = private unnamed_addr constant [26 x i8] c"qcow2_get_subcluster_type\00", align 1
 @.str.31 = private unnamed_addr constant [44 x i8] c"*l2_index + nb_clusters <= s->l2_slice_size\00", align 1
 @__PRETTY_FUNCTION__.count_contiguous_subclusters = private unnamed_addr constant [100 x i8] c"int count_contiguous_subclusters(BlockDriverState *, int, unsigned int, uint64_t *, unsigned int *)\00", align 1
-@__func__.qcow2_get_subcluster_range_type = private unnamed_addr constant [32 x i8] c"qcow2_get_subcluster_range_type\00", align 1
 @.str.32 = private unnamed_addr constant [22 x i8] c"l1_index < s->l1_size\00", align 1
 @__PRETTY_FUNCTION__.get_cluster_table = private unnamed_addr constant [72 x i8] c"int get_cluster_table(BlockDriverState *, uint64_t, uint64_t **, int *)\00", align 1
 @.str.33 = private unnamed_addr constant [39 x i8] c"offset_into_cluster(s, l2_offset) == 0\00", align 1
@@ -573,7 +572,6 @@ declare noalias ptr @g_try_malloc0_n(i64 noundef, i64 noundef) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qcow2_get_host_offset(ptr noundef %bs, i64 noundef %offset, ptr nocapture noundef %bytes, ptr nocapture noundef writeonly %host_offset, ptr nocapture noundef writeonly %subcluster_type) local_unnamed_addr #0 {
 entry:
-  %type.i = alloca i32, align 4
   %l2_slice = alloca ptr, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -732,7 +730,7 @@ if.then40:                                        ; preds = %if.end32
   br label %fail
 
 if.end41:                                         ; preds = %if.end32
-  switch i32 %call33, label %default.unreachable158 [
+  switch i32 %call33, label %default.unreachable162 [
     i32 6, label %sw.epilog
     i32 5, label %sw.bb42
     i32 2, label %sw.epilog
@@ -782,21 +780,20 @@ if.end54:                                         ; preds = %sw.bb47
   %bs.val91.val = load ptr, ptr %34, align 8
   %cmp.i122 = icmp eq ptr %bs.val91.val, %bs.val92
   %cmp58.not = icmp eq i64 %add50, %offset
-  %or.cond149 = select i1 %cmp.i122, i1 true, i1 %cmp58.not
-  br i1 %or.cond149, label %sw.epilog, label %if.then60
+  %or.cond153 = select i1 %cmp.i122, i1 true, i1 %cmp58.not
+  br i1 %or.cond153, label %sw.epilog, label %if.then60
 
 if.then60:                                        ; preds = %if.end54
   %sub62 = sub i64 %offset, %and.i
   call void (ptr, i1, i64, i64, ptr, ...) @qcow2_signal_corruption(ptr noundef nonnull %bs, i1 noundef zeroext true, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.6, i64 noundef %and48, i64 noundef %sub62, i32 noundef %conv1.i105) #13
   br label %fail
 
-default.unreachable158:                           ; preds = %if.end41
+default.unreachable162:                           ; preds = %if.end41
   unreachable
 
 sw.epilog:                                        ; preds = %if.end54, %if.end41, %if.end41, %if.end41, %if.end45
   %conv64 = trunc i64 %shr.i118 to i32
   %35 = load ptr, ptr %l2_slice, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %type.i)
   %36 = load ptr, ptr %opaque, align 8
   %add.i124 = add i32 %conv1.i105, %conv64
   %l2_slice_size.i = getelementptr inbounds i8, ptr %36, i64 8
@@ -805,8 +802,8 @@ sw.epilog:                                        ; preds = %if.end54, %if.end41
   br i1 %cmp.not.i, label %if.else.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %sw.epilog
-  %cmp129.i.not = icmp eq i32 %conv64, 0
-  br i1 %cmp129.i.not, label %count_contiguous_subclusters.exit.thread, label %for.body.lr.ph.i
+  %cmp136.i.not = icmp eq i32 %conv64, 0
+  br i1 %cmp136.i.not, label %if.end69, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %38 = getelementptr i8, ptr %36, i64 360
@@ -820,10 +817,10 @@ if.else.i:                                        ; preds = %sw.epilog
 
 for.body.i:                                       ; preds = %if.end32.i, %for.body.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end32.i ], [ 0, %for.body.lr.ph.i ]
-  %count.033.i = phi i32 [ %add33.i, %if.end32.i ], [ 0, %for.body.lr.ph.i ]
-  %check_offset.032.i = phi i8 [ %check_offset.1.i, %if.end32.i ], [ 0, %for.body.lr.ph.i ]
-  %expected_type.031.i = phi i32 [ %expected_type.1.i, %if.end32.i ], [ 4, %for.body.lr.ph.i ]
-  %expected_offset.030.i = phi i64 [ %expected_offset.1.i, %if.end32.i ], [ 0, %for.body.lr.ph.i ]
+  %count.040.i = phi i32 [ %add33.i, %if.end32.i ], [ 0, %for.body.lr.ph.i ]
+  %check_offset.039.i = phi i8 [ %check_offset.1.i, %if.end32.i ], [ 0, %for.body.lr.ph.i ]
+  %expected_type.038.i = phi i32 [ %expected_type.1.i, %if.end32.i ], [ 4, %for.body.lr.ph.i ]
+  %expected_offset.037.i = phi i64 [ %expected_offset.1.i, %if.end32.i ], [ 0, %for.body.lr.ph.i ]
   %cmp2.i = icmp eq i64 %indvars.iv, 0
   %cond.i = select i1 %cmp2.i, i32 %conv1.i109, i32 0
   %39 = trunc i64 %indvars.iv to i32
@@ -852,87 +849,139 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 get_l2_bitmap.exit.i:                             ; preds = %if.then.i.i, %for.body.i
   %retval.0.i.i = phi i64 [ %46, %if.then.i.i ], [ 0, %for.body.i ]
-  %call6.i = call fastcc i32 @qcow2_get_subcluster_range_type(ptr noundef %bs, i64 noundef %44, i64 noundef %retval.0.i.i, i32 noundef %cond.i, ptr noundef nonnull %type.i)
-  %cmp7.i = icmp slt i32 %call6.i, 0
-  br i1 %cmp7.i, label %count_contiguous_subclusters.exit.thread144, label %if.end10.i
+  %47 = load ptr, ptr %opaque, align 8
+  %call.i.i = call fastcc i32 @qcow2_get_subcluster_type(ptr noundef nonnull %bs, i64 noundef %44, i64 noundef %retval.0.i.i, i32 noundef %cond.i), !range !11
+  %cmp.i.i = icmp eq i32 %call.i.i, 6
+  br i1 %cmp.i.i, label %if.then68, label %if.else.i.i
 
-count_contiguous_subclusters.exit.thread144:      ; preds = %get_l2_bitmap.exit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %type.i)
-  br label %if.then68
+if.else.i.i:                                      ; preds = %get_l2_bitmap.exit.i
+  %48 = getelementptr i8, ptr %47, i64 360
+  %.val.i.i = load i64, ptr %48, align 8
+  %and.i.i28.i = and i64 %.val.i.i, 16
+  %tobool.i.not.i29.i = icmp eq i64 %and.i.i28.i, 0
+  br i1 %tobool.i.not.i29.i, label %if.then3.i.i, label %lor.lhs.false.i.i
 
-if.end10.i:                                       ; preds = %get_l2_bitmap.exit.i
-  %47 = load i32, ptr %type.i, align 4
+lor.lhs.false.i.i:                                ; preds = %if.else.i.i
+  switch i32 %call.i.i, label %default.unreachable.i.i [
+    i32 5, label %if.then3.i.i
+    i32 4, label %sw.bb.i.i
+    i32 2, label %sw.bb8.i.i
+    i32 3, label %sw.bb8.i.i
+    i32 0, label %sw.bb17.i.i
+    i32 1, label %sw.bb17.i.i
+  ]
+
+if.then3.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.else.i.i
+  %subclusters_per_cluster.i.i = getelementptr inbounds i8, ptr %47, i64 20
+  %49 = load i32, ptr %subclusters_per_cluster.i.i, align 4
+  br label %qcow2_get_subcluster_range_type.exit.i
+
+sw.bb.i.i:                                        ; preds = %lor.lhs.false.i.i
+  %sh_prom.i.i133 = zext nneg i32 %cond.i to i64
+  %notmask20.i.i = shl nsw i64 -1, %sh_prom.i.i133
+  %sub5.i.i = xor i64 %notmask20.i.i, -1
+  %or.i.i = or i64 %retval.0.i.i, %sub5.i.i
+  %conv.i.i = trunc i64 %or.i.i to i32
+  %not.i.i.i = xor i32 %conv.i.i, -1
+  %50 = call i32 @llvm.cttz.i32(i32 %not.i.i.i, i1 false), !range !12
+  br label %qcow2_get_subcluster_range_type.exit.i
+
+sw.bb8.i.i:                                       ; preds = %lor.lhs.false.i.i, %lor.lhs.false.i.i
+  %sh_prom9.i.i = zext nneg i32 %cond.i to i64
+  %notmask19.i.i = shl nsw i64 -1, %sh_prom9.i.i
+  %sub11.i.i = xor i64 %notmask19.i.i, -1
+  %shl12.i.i = shl i64 %sub11.i.i, 32
+  %or13.i.i = or i64 %retval.0.i.i, %shl12.i.i
+  %shr.i.i132 = lshr i64 %or13.i.i, 32
+  %conv14.i.i = trunc i64 %shr.i.i132 to i32
+  %not.i21.i.i = xor i32 %conv14.i.i, -1
+  %51 = call i32 @llvm.cttz.i32(i32 %not.i21.i.i, i1 false), !range !12
+  br label %qcow2_get_subcluster_range_type.exit.i
+
+sw.bb17.i.i:                                      ; preds = %lor.lhs.false.i.i, %lor.lhs.false.i.i
+  %shr18.i.i = lshr i64 %retval.0.i.i, 32
+  %or19.i.i = or i64 %shr18.i.i, %retval.0.i.i
+  %sh_prom20.i.i = zext nneg i32 %cond.i to i64
+  %notmask.i.i = shl nsw i64 -1, %sh_prom20.i.i
+  %and.i.i129 = and i64 %or19.i.i, %notmask.i.i
+  %conv23.i.i = trunc i64 %and.i.i129 to i32
+  %52 = call i32 @llvm.cttz.i32(i32 %conv23.i.i, i1 false), !range !12
+  br label %qcow2_get_subcluster_range_type.exit.i
+
+default.unreachable.i.i:                          ; preds = %lor.lhs.false.i.i
+  unreachable
+
+qcow2_get_subcluster_range_type.exit.i:           ; preds = %sw.bb17.i.i, %sw.bb8.i.i, %sw.bb.i.i, %if.then3.i.i
+  %.pn.i = phi i32 [ %49, %if.then3.i.i ], [ %52, %sw.bb17.i.i ], [ %51, %sw.bb8.i.i ], [ %50, %sw.bb.i.i ]
+  %retval.0.i30.i = sub i32 %.pn.i, %cond.i
+  %cmp7.i = icmp slt i32 %retval.0.i30.i, 0
+  br i1 %cmp7.i, label %if.then68, label %if.end10.i
+
+if.end10.i:                                       ; preds = %qcow2_get_subcluster_range_type.exit.i
   br i1 %cmp2.i, label %if.then12.i, label %if.else19.i
 
 if.then12.i:                                      ; preds = %if.end10.i
-  %cmp13.i = icmp eq i32 %47, 5
-  br i1 %cmp13.i, label %count_contiguous_subclusters.exit.thread, label %if.end15.i
+  %cmp13.i = icmp eq i32 %call.i.i, 5
+  br i1 %cmp13.i, label %if.end69, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then12.i
-  %and.i130 = and i64 %44, 72057594037927424
-  %48 = add i32 %47, -3
-  %or.cond.i = icmp ult i32 %48, 2
-  %cmp18.i = icmp eq i32 %47, 1
+  %and.i131 = and i64 %44, 72057594037927424
+  %53 = add nsw i32 %call.i.i, -3
+  %or.cond.i = icmp ult i32 %53, 2
+  %cmp18.i = icmp eq i32 %call.i.i, 1
   %spec.select.i = or i1 %cmp18.i, %or.cond.i
   %frombool.i = zext i1 %spec.select.i to i8
   br label %if.end32.i
 
 if.else19.i:                                      ; preds = %if.end10.i
-  %cmp20.not.i = icmp eq i32 %47, %expected_type.031.i
+  %cmp20.not.i = icmp eq i32 %call.i.i, %expected_type.038.i
   br i1 %cmp20.not.i, label %if.else22.i, label %count_contiguous_subclusters.exit
 
 if.else22.i:                                      ; preds = %if.else19.i
-  %49 = and i8 %check_offset.032.i, 1
-  %tobool.not.i = icmp eq i8 %49, 0
+  %54 = and i8 %check_offset.039.i, 1
+  %tobool.not.i = icmp eq i8 %54, 0
   br i1 %tobool.not.i, label %if.end32.i, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.else22.i
-  %50 = load i32, ptr %cluster_size.i, align 4
-  %conv.i129 = sext i32 %50 to i64
-  %add24.i = add nsw i64 %expected_offset.030.i, %conv.i129
+  %55 = load i32, ptr %cluster_size.i, align 4
+  %conv.i130 = sext i32 %55 to i64
+  %add24.i = add nsw i64 %expected_offset.037.i, %conv.i130
   %and25.i = and i64 %44, 72057594037927424
   %cmp26.not.i = icmp eq i64 %add24.i, %and25.i
   br i1 %cmp26.not.i, label %if.end32.i, label %count_contiguous_subclusters.exit
 
 if.end32.i:                                       ; preds = %if.then23.i, %if.else22.i, %if.end15.i
-  %expected_offset.1.i = phi i64 [ %and.i130, %if.end15.i ], [ %add24.i, %if.then23.i ], [ %expected_offset.030.i, %if.else22.i ]
-  %expected_type.1.i = phi i32 [ %47, %if.end15.i ], [ %expected_type.031.i, %if.then23.i ], [ %expected_type.031.i, %if.else22.i ]
-  %check_offset.1.i = phi i8 [ %frombool.i, %if.end15.i ], [ %check_offset.032.i, %if.then23.i ], [ %check_offset.032.i, %if.else22.i ]
-  %add33.i = add i32 %call6.i, %count.033.i
-  %add34.i = add i32 %call6.i, %cond.i
-  %51 = load i32, ptr %subclusters_per_cluster.i, align 4
-  %cmp35.i = icmp uge i32 %add34.i, %51
+  %expected_offset.1.i = phi i64 [ %and.i131, %if.end15.i ], [ %add24.i, %if.then23.i ], [ %expected_offset.037.i, %if.else22.i ]
+  %expected_type.1.i = phi i32 [ %call.i.i, %if.end15.i ], [ %expected_type.038.i, %if.then23.i ], [ %expected_type.038.i, %if.else22.i ]
+  %check_offset.1.i = phi i8 [ %frombool.i, %if.end15.i ], [ %check_offset.039.i, %if.then23.i ], [ %check_offset.039.i, %if.else22.i ]
+  %add33.i = add i32 %retval.0.i30.i, %count.040.i
+  %56 = load i32, ptr %subclusters_per_cluster.i, align 4
+  %cmp35.i = icmp uge i32 %.pn.i, %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp1.i = icmp slt i64 %indvars.iv.next, %shr.i118
-  %or.cond39.i = select i1 %cmp35.i, i1 %cmp1.i, i1 false
-  br i1 %or.cond39.i, label %for.body.i, label %count_contiguous_subclusters.exit, !llvm.loop !12
-
-count_contiguous_subclusters.exit.thread:         ; preds = %if.then12.i, %for.cond.preheader.i
-  %retval.0.i125.ph = phi i32 [ 0, %for.cond.preheader.i ], [ %call6.i, %if.then12.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %type.i)
-  br label %if.end69
+  %or.cond46.i = select i1 %cmp35.i, i1 %cmp1.i, i1 false
+  br i1 %or.cond46.i, label %for.body.i, label %count_contiguous_subclusters.exit, !llvm.loop !13
 
 count_contiguous_subclusters.exit:                ; preds = %if.else19.i, %if.then23.i, %if.end32.i
-  %retval.0.i125 = phi i32 [ %add33.i, %if.end32.i ], [ %count.033.i, %if.then23.i ], [ %count.033.i, %if.else19.i ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %type.i)
+  %retval.0.i125 = phi i32 [ %add33.i, %if.end32.i ], [ %count.040.i, %if.then23.i ], [ %count.040.i, %if.else19.i ]
   %cmp66 = icmp slt i32 %retval.0.i125, 0
   br i1 %cmp66, label %if.then68, label %if.end69
 
-if.then68:                                        ; preds = %count_contiguous_subclusters.exit.thread144, %count_contiguous_subclusters.exit
-  %l2_index.0148 = phi i32 [ %add3.i, %count_contiguous_subclusters.exit.thread144 ], [ %conv1.i105, %count_contiguous_subclusters.exit ]
-  call void (ptr, i1, i64, i64, ptr, ...) @qcow2_signal_corruption(ptr noundef %bs, i1 noundef zeroext true, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.7, i64 noundef %and, i32 noundef %l2_index.0148) #13
+if.then68:                                        ; preds = %get_l2_bitmap.exit.i, %qcow2_get_subcluster_range_type.exit.i, %count_contiguous_subclusters.exit
+  %l2_index.0146 = phi i32 [ %conv1.i105, %count_contiguous_subclusters.exit ], [ %add3.i, %qcow2_get_subcluster_range_type.exit.i ], [ %add3.i, %get_l2_bitmap.exit.i ]
+  call void (ptr, i1, i64, i64, ptr, ...) @qcow2_signal_corruption(ptr noundef %bs, i1 noundef zeroext true, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.7, i64 noundef %and, i32 noundef %l2_index.0146) #13
   br label %fail
 
-if.end69:                                         ; preds = %count_contiguous_subclusters.exit.thread, %count_contiguous_subclusters.exit
-  %retval.0.i125143 = phi i32 [ %retval.0.i125.ph, %count_contiguous_subclusters.exit.thread ], [ %retval.0.i125, %count_contiguous_subclusters.exit ]
+if.end69:                                         ; preds = %if.then12.i, %for.cond.preheader.i, %count_contiguous_subclusters.exit
+  %retval.0.i125152 = phi i32 [ %retval.0.i125, %count_contiguous_subclusters.exit ], [ 0, %for.cond.preheader.i ], [ %retval.0.i30.i, %if.then12.i ]
   %l2_table_cache = getelementptr inbounds i8, ptr %0, i64 80
-  %52 = load ptr, ptr %l2_table_cache, align 8
-  call void @qcow2_cache_put(ptr noundef %52, ptr noundef nonnull %l2_slice) #13
-  %conv70 = zext nneg i32 %retval.0.i125143 to i64
+  %57 = load ptr, ptr %l2_table_cache, align 8
+  call void @qcow2_cache_put(ptr noundef %57, ptr noundef nonnull %l2_slice) #13
+  %conv70 = zext nneg i32 %retval.0.i125152 to i64
   %conv71 = zext i32 %conv1.i109 to i64
   %add72 = add nuw nsw i64 %conv70, %conv71
-  %53 = load i32, ptr %17, align 4
-  %sh_prom73 = zext nneg i32 %53 to i64
+  %58 = load i32, ptr %17, align 4
+  %sh_prom73 = zext nneg i32 %58 to i64
   %shl74 = shl i64 %add72, %sh_prom73
   br label %out
 
@@ -956,8 +1005,8 @@ if.end85:                                         ; preds = %out
 
 fail:                                             ; preds = %if.then68, %if.then60, %if.then53, %if.then44, %if.then40
   %l2_table_cache89 = getelementptr inbounds i8, ptr %0, i64 80
-  %54 = load ptr, ptr %l2_table_cache89, align 8
-  call void @qcow2_cache_put(ptr noundef %54, ptr noundef nonnull %l2_slice) #13
+  %59 = load ptr, ptr %l2_table_cache89, align 8
+  call void @qcow2_cache_put(ptr noundef %59, ptr noundef nonnull %l2_slice) #13
   br label %return
 
 return:                                           ; preds = %if.end18, %fail, %if.end85, %if.then17
@@ -1103,7 +1152,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !13
+  %call1 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !14
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %if.end3
 
@@ -1537,7 +1586,7 @@ trace_qcow2_l2_allocate_write_l2.exit.i:          ; preds = %if.else.i.i101.i, %
   call void @qcow2_cache_put(ptr noundef %52, ptr noundef nonnull %l2_slice.i) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp21.i = icmp ult i64 %indvars.iv.next.i, %31
-  br i1 %cmp21.i, label %for.body.i, label %for.end.i, !llvm.loop !14
+  br i1 %cmp21.i, label %for.body.i, label %for.end.i, !llvm.loop !15
 
 for.end.i:                                        ; preds = %trace_qcow2_l2_allocate_write_l2.exit.i, %trace_qcow2_l2_allocate_get_empty.exit.i
   %l2_table_cache63.i = getelementptr inbounds i8, ptr %.pre60, i64 80
@@ -1586,7 +1635,7 @@ trace_qcow2_l2_allocate_write_l1.exit.i:          ; preds = %if.else.i.i115.i, %
   %61 = load ptr, ptr %l1_table.i, align 8
   %arrayidx71.i = getelementptr i64, ptr %61, i64 %conv
   store i64 %or.i, ptr %arrayidx71.i, align 8
-  %call72.i = call i32 @qcow2_write_l1_entry(ptr noundef nonnull %bs, i32 noundef %conv.i), !range !13
+  %call72.i = call i32 @qcow2_write_l1_entry(ptr noundef nonnull %bs, i32 noundef %conv.i), !range !14
   %cmp73.i = icmp slt i32 %call72.i, 0
   br i1 %cmp73.i, label %fail.i, label %if.end76.i
 
@@ -1854,7 +1903,7 @@ if.end:                                           ; preds = %trace_qcow2_cluster
   br i1 %cmp4, label %err, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %call8 = tail call i32 @perform_cow(ptr noundef nonnull %bs, ptr noundef nonnull %m), !range !13
+  %call8 = tail call i32 @perform_cow(ptr noundef nonnull %bs, ptr noundef nonnull %m), !range !14
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %err, label %if.end12
 
@@ -1886,7 +1935,7 @@ if.then17:                                        ; preds = %if.end15
 
 if.end19:                                         ; preds = %if.then17, %if.end15
   %16 = load i64, ptr %m, align 8
-  %call20 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %16, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !13
+  %call20 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %16, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !14
   %cmp21 = icmp slt i32 %call20, 0
   br i1 %cmp21, label %err, label %if.end24
 
@@ -2042,7 +2091,7 @@ for.inc:                                          ; preds = %if.end61, %land.lhs
   %inc115 = add nuw nsw i32 %i.0107, 1
   %46 = load i32, ptr %nb_clusters, align 8
   %cmp42 = icmp slt i32 %inc115, %46
-  br i1 %cmp42, label %for.body, label %for.end, !llvm.loop !15
+  br i1 %cmp42, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %j.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %j.1, %for.inc ]
@@ -2067,7 +2116,7 @@ for.body125:                                      ; preds = %for.body125.prehead
   call void @qcow2_free_any_cluster(ptr noundef %bs, i64 noundef %50, i32 noundef 0) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %err, label %for.body125, !llvm.loop !16
+  br i1 %exitcond.not, label %err, label %for.body125, !llvm.loop !17
 
 err:                                              ; preds = %for.body125, %for.end, %if.end, %if.end19, %if.end7
   %ret.0 = phi i32 [ %call8, %if.end7 ], [ %call20, %if.end19 ], [ -12, %if.end ], [ 0, %for.end ], [ 0, %for.body125 ]
@@ -2222,7 +2271,7 @@ if.else88:                                        ; preds = %cond.end
   call void @qemu_iovec_add(ptr noundef nonnull %qiov, ptr noundef nonnull %call69, i64 noundef %conv90) #13
   %19 = load i64, ptr %m, align 8
   %20 = load i32, ptr %cow_start, align 4
-  %call93 = call i32 @do_perform_cow_read(ptr noundef nonnull %bs, i64 noundef %19, i32 noundef %20, ptr noundef nonnull %qiov), !range !13
+  %call93 = call i32 @do_perform_cow_read(ptr noundef nonnull %bs, i64 noundef %19, i32 noundef %20, ptr noundef nonnull %qiov), !range !14
   %cmp94 = icmp slt i32 %call93, 0
   br i1 %cmp94, label %fail.thread, label %if.end97
 
@@ -2237,7 +2286,7 @@ if.end103:                                        ; preds = %if.end97, %if.then8
   %cow_end.sink = phi ptr [ %cow_end, %if.end97 ], [ %cow_start, %if.then83 ]
   %22 = load i64, ptr %m, align 8
   %23 = load i32, ptr %cow_end.sink, align 4
-  %call102 = call i32 @do_perform_cow_read(ptr noundef nonnull %bs, i64 noundef %22, i32 noundef %23, ptr noundef nonnull %qiov), !range !13
+  %call102 = call i32 @do_perform_cow_read(ptr noundef nonnull %bs, i64 noundef %22, i32 noundef %23, ptr noundef nonnull %qiov), !range !14
   %cmp104 = icmp slt i32 %call102, 0
   br i1 %cmp104, label %fail.thread, label %if.end107
 
@@ -2402,7 +2451,7 @@ if.end175:                                        ; preds = %if.else166, %do_per
   call void @qemu_iovec_add(ptr noundef nonnull %qiov, ptr noundef %add.ptr76, i64 noundef %conv177) #13
   %58 = load i64, ptr %alloc_offset169, align 8
   %59 = load i32, ptr %cow_end, align 4
-  %call180 = call i32 @do_perform_cow_write(ptr noundef nonnull %bs, i64 noundef %58, i32 noundef %59, ptr noundef nonnull %qiov), !range !13
+  %call180 = call i32 @do_perform_cow_write(ptr noundef nonnull %bs, i64 noundef %58, i32 noundef %59, ptr noundef nonnull %qiov), !range !14
   br label %fail
 
 fail.thread:                                      ; preds = %if.end103, %if.then109, %if.end123, %do_perform_cow_write.exit125, %if.else88, %if.end.i, %if.end.i111
@@ -2659,7 +2708,7 @@ for.inc.i:                                        ; preds = %if.end20.i, %land.l
   %next_in_flight.i = getelementptr inbounds i8, ptr %old_alloc.044.i, i64 88
   %old_alloc.0.i = load ptr, ptr %next_in_flight.i, align 8
   %tobool.not.i = icmp eq ptr %old_alloc.0.i, null
-  br i1 %tobool.not.i, label %if.else30, label %for.body.i, !llvm.loop !17
+  br i1 %tobool.not.i, label %if.else30, label %for.body.i, !llvm.loop !18
 
 if.then20:                                        ; preds = %land.lhs.true28.i
   %dependent_requests.i = getelementptr inbounds i8, ptr %old_alloc.044.i, i64 24
@@ -2684,7 +2733,7 @@ if.else30:                                        ; preds = %for.inc.i
   br i1 %cmp31, label %while.end, label %if.end37
 
 if.end37:                                         ; preds = %if.else30.thread47, %if.else30
-  %call38 = call i32 @handle_copied(ptr noundef %bs, i64 noundef %add, ptr noundef nonnull %cluster_offset, ptr noundef nonnull %cur_bytes, ptr noundef nonnull %m), !range !18
+  %call38 = call i32 @handle_copied(ptr noundef %bs, i64 noundef %add, ptr noundef nonnull %cluster_offset, ptr noundef nonnull %cur_bytes, ptr noundef nonnull %m), !range !19
   %cmp39 = icmp slt i32 %call38, 0
   br i1 %cmp39, label %return, label %if.else42
 
@@ -2698,7 +2747,7 @@ if.else44:                                        ; preds = %if.else42
   br i1 %cmp45, label %while.end, label %if.end50
 
 if.end50:                                         ; preds = %if.else44
-  %call51 = call i32 @handle_alloc(ptr noundef %bs, i64 noundef %add, ptr noundef nonnull %cluster_offset, ptr noundef nonnull %cur_bytes, ptr noundef nonnull %m), !range !18
+  %call51 = call i32 @handle_alloc(ptr noundef %bs, i64 noundef %add, ptr noundef nonnull %cluster_offset, ptr noundef nonnull %cur_bytes, ptr noundef nonnull %m), !range !19
   %cmp52 = icmp slt i32 %call51, 0
   br i1 %cmp52, label %return, label %if.else55
 
@@ -2847,7 +2896,7 @@ for.inc:                                          ; preds = %if.end20, %land.lhs
   %next_in_flight = getelementptr inbounds i8, ptr %old_alloc.044, i64 88
   %old_alloc.0 = load ptr, ptr %next_in_flight, align 8
   %tobool.not = icmp eq ptr %old_alloc.0, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !17
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %entry
   %bytes.0.lcssa = phi i64 [ %1, %entry ], [ %bytes.2, %for.inc ]
@@ -2944,7 +2993,7 @@ if.end:                                           ; preds = %trace_qcow2_handle_
   %cond = tail call i64 @llvm.umin.i64(i64 %shr.i, i64 %conv)
   %shr = lshr i64 2147483136, %sh_prom.i
   %cond15 = tail call i64 @llvm.umin.i64(i64 %cond, i64 %shr)
-  %call16 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %guest_offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !13
+  %call16 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %guest_offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !14
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %return, label %if.end20
 
@@ -3058,7 +3107,7 @@ if.else57:                                        ; preds = %if.end43
 
 if.end58:                                         ; preds = %if.end43
   %conv59 = trunc i64 %cond53 to i32
-  %call60 = tail call i32 @calculate_l2_meta(ptr noundef nonnull %bs, i64 noundef %and, i64 noundef %guest_offset, i32 noundef %conv59, ptr noundef nonnull %17, ptr noundef %m, i1 noundef zeroext true), !range !19
+  %call60 = tail call i32 @calculate_l2_meta(ptr noundef nonnull %bs, i64 noundef %and, i64 noundef %guest_offset, i32 noundef %conv59, ptr noundef nonnull %17, ptr noundef %m, i1 noundef zeroext true), !range !20
   %cmp61 = icmp slt i32 %call60, 0
   br i1 %cmp61, label %out.thread, label %if.then69
 
@@ -3154,7 +3203,7 @@ if.end:                                           ; preds = %trace_qcow2_handle_
   %13 = trunc i64 %shr.i58 to i32
   %conv1.i = and i32 %sub.i59, %13
   store i32 %conv1.i, ptr %l2_index, align 4
-  %call13 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %guest_offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !13
+  %call13 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %guest_offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !14
   %cmp14 = icmp slt i32 %call13, 0
   br i1 %cmp14, label %return, label %if.end17
 
@@ -3254,7 +3303,7 @@ if.else76:                                        ; preds = %if.end46
 
 if.end77:                                         ; preds = %if.end46
   %conv78 = trunc i64 %cond72 to i32
-  %call79 = tail call i32 @calculate_l2_meta(ptr noundef nonnull %bs, i64 noundef %18, i64 noundef %guest_offset, i32 noundef %conv78, ptr noundef %14, ptr noundef %m, i1 noundef zeroext false), !range !19
+  %call79 = tail call i32 @calculate_l2_meta(ptr noundef nonnull %bs, i64 noundef %18, i64 noundef %guest_offset, i32 noundef %conv78, ptr noundef %14, ptr noundef %m, i1 noundef zeroext false), !range !20
   %cmp80 = icmp slt i32 %call79, 0
   %spec.store.select = select i1 %cmp80, i32 %call79, i32 1
   br label %out
@@ -3331,7 +3380,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l2_slice.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %l2_index.i)
   %4 = load ptr, ptr %opaque, align 8
-  %call.i = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset.addr.034, ptr noundef nonnull %l2_slice.i, ptr noundef nonnull %l2_index.i), !range !13
+  %call.i = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset.addr.034, ptr noundef nonnull %l2_slice.i, ptr noundef nonnull %l2_index.i), !range !14
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %discard_in_l2_slice.exit.thread, label %if.end.i
 
@@ -3549,7 +3598,7 @@ for.inc.i:                                        ; preds = %if.then72.i, %if.el
   %inc.i = add i32 %i.078.i, 1
   %conv7.i = sext i32 %inc.i to i64
   %cmp8.i = icmp ugt i64 %cond.i, %conv7.i
-  br i1 %cmp8.i, label %for.body.i, label %discard_in_l2_slice.exit, !llvm.loop !20
+  br i1 %cmp8.i, label %for.body.i, label %discard_in_l2_slice.exit, !llvm.loop !21
 
 discard_in_l2_slice.exit:                         ; preds = %for.inc.i
   %39 = load ptr, ptr %l2_table_cache.i, align 8
@@ -3566,7 +3615,7 @@ if.end20:                                         ; preds = %discard_in_l2_slice
   %mul = mul nsw i64 %conv78.i30, %conv22
   %add23 = add i64 %mul, %offset.addr.034
   %cmp12.not = icmp eq i64 %sub, 0
-  br i1 %cmp12.not, label %fail, label %while.body, !llvm.loop !21
+  br i1 %cmp12.not, label %fail, label %while.body, !llvm.loop !22
 
 fail:                                             ; preds = %if.end20, %if.end11, %discard_in_l2_slice.exit.thread
   %ret.0 = phi i32 [ %call.i, %discard_in_l2_slice.exit.thread ], [ 0, %if.end11 ], [ 0, %if.end20 ]
@@ -3694,7 +3743,7 @@ if.then55:                                        ; preds = %cond.end49
   %sh_prom.i = zext nneg i32 %.val70 to i64
   %shr.i = lshr i64 %add.i, %sh_prom.i
   %conv60 = trunc i64 %shr.i to i32
-  %call61 = tail call i32 @zero_l2_subclusters(ptr noundef nonnull %bs, i64 noundef %offset, i32 noundef %conv60), !range !13
+  %call61 = tail call i32 @zero_l2_subclusters(ptr noundef nonnull %bs, i64 noundef %offset, i32 noundef %conv60), !range !14
   %cmp62 = icmp slt i32 %call61, 0
   br i1 %cmp62, label %fail, label %if.then55.if.end66_crit_edge
 
@@ -3729,7 +3778,7 @@ if.end77:                                         ; preds = %while.body
   %mul = mul nsw i64 %conv80, %conv72
   %add81 = add i64 %mul, %offset.addr.094
   %cmp69.not = icmp eq i64 %sub78, 0
-  br i1 %cmp69.not, label %while.end, label %while.body, !llvm.loop !22
+  br i1 %cmp69.not, label %while.end, label %while.body, !llvm.loop !23
 
 while.end:                                        ; preds = %if.end77, %if.end66
   %tobool82.not = icmp eq i32 %cond50, 0
@@ -3745,7 +3794,7 @@ if.then83:                                        ; preds = %while.end
   %sh_prom.i90 = zext nneg i32 %.val72 to i64
   %shr.i91 = lshr i64 %add.i89, %sh_prom.i90
   %conv86 = trunc i64 %shr.i91 to i32
-  %call87 = tail call i32 @zero_l2_subclusters(ptr noundef %bs, i64 noundef %sub53, i32 noundef %conv86), !range !13
+  %call87 = tail call i32 @zero_l2_subclusters(ptr noundef %bs, i64 noundef %sub53, i32 noundef %conv86), !range !14
   %cmp88 = icmp slt i32 %call87, 0
   br i1 %cmp88, label %fail, label %if.end92
 
@@ -3811,7 +3860,7 @@ if.else10:                                        ; preds = %if.end6
   unreachable
 
 if.end11:                                         ; preds = %if.end6
-  %call12 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !13
+  %call12 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !14
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %return, label %if.end15
 
@@ -3915,7 +3964,7 @@ entry:
   %l2_index = alloca i32, align 4
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %call = call fastcc i32 @get_cluster_table(ptr noundef %bs, i64 noundef %offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !13
+  %call = call fastcc i32 @get_cluster_table(ptr noundef %bs, i64 noundef %offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index), !range !14
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -4107,7 +4156,7 @@ for.inc:                                          ; preds = %lor.end.thread, %if
   %inc = add i32 %i.089, 1
   %conv7 = sext i32 %inc to i64
   %cmp8 = icmp ugt i64 %cond, %conv7
-  br i1 %cmp8, label %for.body, label %for.end, !llvm.loop !23
+  br i1 %cmp8, label %for.body, label %for.end, !llvm.loop !24
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %l2_table_cache65 = getelementptr inbounds i8, ptr %0, i64 80
@@ -4171,7 +4220,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = add i64 %l1_entries.055, %conv3
   %inc = add nuw i32 %i.054, 1
   %exitcond.not = icmp eq i32 %inc, %4
-  br i1 %exitcond.not, label %for.cond.split, label %for.body, !llvm.loop !24
+  br i1 %exitcond.not, label %for.cond.split, label %for.body, !llvm.loop !25
 
 if.end:                                           ; preds = %for.cond.split, %entry.split
   %phi.call = phi i32 [ %call48, %entry.split ], [ %call51, %for.cond.split ]
@@ -4201,7 +4250,7 @@ for.cond15:                                       ; preds = %for.end67
   %inc78 = add nuw i32 %i.161, 1
   %10 = load i32, ptr %nb_snapshots16, align 4
   %cmp17 = icmp ult i32 %inc78, %10
-  br i1 %cmp17, label %for.body19, label %fail, !llvm.loop !25
+  br i1 %cmp17, label %for.body19, label %fail, !llvm.loop !26
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.cond15
   %l1_table.062 = phi ptr [ null, %for.body19.lr.ph ], [ %call41, %for.cond15 ]
@@ -4261,7 +4310,7 @@ for.body62:                                       ; preds = %for.cond55.preheade
   %l1_size59 = getelementptr %struct.QCowSnapshot, ptr %24, i64 %idxprom22, i32 1
   %25 = load i32, ptr %l1_size59, align 8
   %cmp60 = icmp ult i32 %inc66, %25
-  br i1 %cmp60, label %for.body62, label %for.end67, !llvm.loop !26
+  br i1 %cmp60, label %for.body62, label %for.end67, !llvm.loop !27
 
 for.end67:                                        ; preds = %for.body62, %for.cond55.preheader
   %.lcssa = phi i32 [ 0, %for.cond55.preheader ], [ %25, %for.body62 ]
@@ -4424,7 +4473,7 @@ if.end149.us:                                     ; preds = %if.then146.us, %if.
 for.inc169.us:                                    ; preds = %if.end149.us, %if.end159.us, %if.else151.us
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %cmp31.us = icmp ult i64 %indvars.iv.next333, %7
-  br i1 %cmp31.us, label %for.body33.us, label %for.cond30.for.end171_crit_edge.us, !llvm.loop !27
+  br i1 %cmp31.us, label %for.body33.us, label %for.cond30.for.end171_crit_edge.us, !llvm.loop !28
 
 for.body52.us:                                    ; preds = %for.cond48.preheader.us, %for.inc.us
   %l2_dirty.0185.us = phi i8 [ %l2_dirty.1.us, %for.inc.us ], [ 0, %for.cond48.preheader.us ]
@@ -4582,7 +4631,7 @@ for.inc.us:                                       ; preds = %if.then66.us, %if.t
   %inc142.us = add nuw nsw i32 %j.0184.us, 1
   %48 = load i32, ptr %l2_slice_size, align 8
   %cmp50.us = icmp slt i32 %inc142.us, %48
-  br i1 %cmp50.us, label %for.body52.us, label %for.end.us, !llvm.loop !28
+  br i1 %cmp50.us, label %for.body52.us, label %for.end.us, !llvm.loop !29
 
 if.then16.us:                                     ; preds = %for.body.us
   %49 = load i64, ptr %visited_l1_entries, align 8
@@ -4598,7 +4647,7 @@ for.inc176.us.sink.split:                         ; preds = %if.then16.us, %for.
 for.inc176.us:                                    ; preds = %for.inc176.us.sink.split, %if.then16.us, %for.cond30.for.end171_crit_edge.us
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %exitcond339.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count338
-  br i1 %exitcond339.not, label %fail, label %for.body.us, !llvm.loop !29
+  br i1 %exitcond339.not, label %fail, label %for.body.us, !llvm.loop !30
 
 for.cond48.preheader.us:                          ; preds = %if.end43.us
   %50 = load i32, ptr %l2_slice_size, align 8
@@ -4645,7 +4694,7 @@ for.inc176.us230:                                 ; preds = %if.end24.us222, %fo
   store i64 %storemerge, ptr %visited_l1_entries, align 8
   %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
   %exitcond331.not = icmp eq i64 %indvars.iv.next328, %wide.trip.count330
-  br i1 %exitcond331.not, label %fail, label %for.body.us210, !llvm.loop !29
+  br i1 %exitcond331.not, label %fail, label %for.body.us210, !llvm.loop !30
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc176
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc176 ], [ 0, %for.body.lr.ph.split ]
@@ -4730,7 +4779,7 @@ for.inc176:                                       ; preds = %if.end24, %for.body
   call void %status_cb(ptr noundef %bs, i64 noundef %inc172, i64 noundef %l1_entries, ptr noundef %cb_opaque) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count330
-  br i1 %exitcond.not, label %fail, label %for.body, !llvm.loop !29
+  br i1 %exitcond.not, label %fail, label %for.body, !llvm.loop !30
 
 fail:                                             ; preds = %if.end24, %for.inc176, %if.end24.us222, %for.inc176.us230, %if.end24.us, %for.inc176.us, %if.end159.us, %if.then153.us, %if.end43.us, %if.end12, %if.then100, %if.then106, %if.then129, %if.then132, %if.then116, %if.then119, %if.then92, %if.then73, %if.then23
   %ret.1 = phi i32 [ -5, %if.then23 ], [ %conv74, %if.then73 ], [ %call89.us, %if.then92 ], [ %call113.us, %if.then119 ], [ %call113.us, %if.then116 ], [ %call126.us, %if.then132 ], [ %call126.us, %if.then129 ], [ -5, %if.then106 ], [ -5, %if.then100 ], [ 0, %if.end12 ], [ %call162.us, %if.end159.us ], [ %call155.us, %if.then153.us ], [ %ret.0.us, %if.end43.us ], [ %call25.us, %if.end24.us ], [ 0, %for.inc176.us ], [ %call25.us225, %if.end24.us222 ], [ 0, %for.inc176.us230 ], [ %call25, %if.end24 ], [ 0, %for.inc176 ]
@@ -4811,83 +4860,6 @@ declare i32 @qcow2_cache_get(ptr noundef, ptr noundef, i64 noundef, ptr noundef)
 
 ; Function Attrs: noreturn
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qcow2_get_subcluster_range_type(ptr nocapture noundef readonly %bs, i64 noundef %l2_entry, i64 noundef %l2_bitmap, i32 noundef %sc_from, ptr nocapture noundef writeonly %type) unnamed_addr #0 {
-entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
-  %0 = load ptr, ptr %opaque, align 8
-  %call = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %l2_entry, i64 noundef %l2_bitmap, i32 noundef %sc_from), !range !11
-  store i32 %call, ptr %type, align 4
-  %cmp = icmp eq i32 %call, 6
-  br i1 %cmp, label %sw.epilog, label %if.else
-
-if.else:                                          ; preds = %entry
-  %1 = getelementptr i8, ptr %0, i64 360
-  %.val = load i64, ptr %1, align 8
-  %and.i = and i64 %.val, 16
-  %tobool.i.not = icmp eq i64 %and.i, 0
-  br i1 %tobool.i.not, label %if.then3, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.else
-  switch i32 %call, label %do.body [
-    i32 5, label %if.then3
-    i32 4, label %sw.bb
-    i32 2, label %sw.bb8
-    i32 3, label %sw.bb8
-    i32 0, label %sw.bb17
-    i32 1, label %sw.bb17
-  ]
-
-if.then3:                                         ; preds = %lor.lhs.false, %if.else
-  %subclusters_per_cluster = getelementptr inbounds i8, ptr %0, i64 20
-  %2 = load i32, ptr %subclusters_per_cluster, align 4
-  %sub = sub i32 %2, %sc_from
-  br label %sw.epilog
-
-sw.bb:                                            ; preds = %lor.lhs.false
-  %sh_prom = zext nneg i32 %sc_from to i64
-  %notmask20 = shl nsw i64 -1, %sh_prom
-  %sub5 = xor i64 %notmask20, -1
-  %or = or i64 %sub5, %l2_bitmap
-  %conv = trunc i64 %or to i32
-  %not.i = xor i32 %conv, -1
-  %3 = tail call i32 @llvm.cttz.i32(i32 %not.i, i1 false), !range !30
-  %sub7 = sub i32 %3, %sc_from
-  br label %sw.epilog
-
-sw.bb8:                                           ; preds = %lor.lhs.false, %lor.lhs.false
-  %sh_prom9 = zext nneg i32 %sc_from to i64
-  %notmask19 = shl nsw i64 -1, %sh_prom9
-  %sub11 = xor i64 %notmask19, -1
-  %shl12 = shl i64 %sub11, 32
-  %or13 = or i64 %shl12, %l2_bitmap
-  %shr = lshr i64 %or13, 32
-  %conv14 = trunc i64 %shr to i32
-  %not.i21 = xor i32 %conv14, -1
-  %4 = tail call i32 @llvm.cttz.i32(i32 %not.i21, i1 false), !range !30
-  %sub16 = sub i32 %4, %sc_from
-  br label %sw.epilog
-
-sw.bb17:                                          ; preds = %lor.lhs.false, %lor.lhs.false
-  %shr18 = lshr i64 %l2_bitmap, 32
-  %or19 = or i64 %shr18, %l2_bitmap
-  %sh_prom20 = zext nneg i32 %sc_from to i64
-  %notmask = shl nsw i64 -1, %sh_prom20
-  %and = and i64 %notmask, %or19
-  %conv23 = trunc i64 %and to i32
-  %5 = tail call i32 @llvm.cttz.i32(i32 %conv23, i1 false), !range !30
-  %sub25 = sub i32 %5, %sc_from
-  br label %sw.epilog
-
-do.body:                                          ; preds = %lor.lhs.false
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 427, ptr noundef nonnull @__func__.qcow2_get_subcluster_range_type, ptr noundef null) #15
-  unreachable
-
-sw.epilog:                                        ; preds = %entry, %sw.bb17, %sw.bb8, %sw.bb, %if.then3
-  %retval.0 = phi i32 [ %sub, %if.then3 ], [ %sub25, %sw.bb17 ], [ %sub16, %sw.bb8 ], [ %sub7, %sw.bb ], [ -22, %entry ]
-  ret i32 %retval.0
-}
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
@@ -5262,7 +5234,6 @@ if.end19:                                         ; preds = %if.end12.us, %if.en
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @calculate_l2_meta(ptr noundef %bs, i64 noundef %host_cluster_offset, i64 noundef %guest_offset, i32 noundef %bytes, ptr nocapture noundef readonly %l2_slice, ptr nocapture noundef %m, i1 noundef zeroext %keep_old) #0 {
 entry:
-  %type = alloca i32, align 4
   %.compoundliteral.sroa.5 = alloca [19 x i8], align 1
   %frombool = zext i1 %keep_old to i8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -5292,8 +5263,8 @@ entry:
   br i1 %cmp.not, label %if.else, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %cmp7201.not = icmp eq i32 %conv4, 0
-  br i1 %cmp7201.not, label %for.end, label %for.body.lr.ph
+  %cmp7212.not = icmp eq i32 %conv4, 0
+  br i1 %cmp7212.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %6 = getelementptr i8, ptr %0, i64 360
@@ -5306,14 +5277,14 @@ if.else:                                          ; preds = %entry
   unreachable
 
 for.cond:                                         ; preds = %if.end42
-  %inc = add nuw i32 %i.0203, 1
+  %inc = add nuw i32 %i.0214, 1
   %exitcond.not = icmp eq i32 %inc, %conv4
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !32
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %i.0203 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
-  %skip_cow.0202 = phi i8 [ %frombool, %for.body.lr.ph ], [ %skip_cow.1, %for.cond ]
-  %add9 = add i32 %i.0203, %conv1.i
+  %i.0214 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
+  %skip_cow.0213 = phi i8 [ %frombool, %for.body.lr.ph ], [ %skip_cow.1, %for.cond ]
+  %add9 = add i32 %i.0214, %conv1.i
   %.val134 = load i64, ptr %6, align 8
   %9 = trunc i64 %.val134 to i32
   %10 = lshr i32 %9, 4
@@ -5338,15 +5309,15 @@ if.then.i:                                        ; preds = %for.body
 
 get_l2_bitmap.exit:                               ; preds = %for.body, %if.then.i
   %retval.0.i = phi i64 [ %15, %if.then.i ], [ 0, %for.body ]
-  %16 = and i8 %skip_cow.0202, 1
+  %16 = and i8 %skip_cow.0213, 1
   %tobool13.not = icmp eq i8 %16, 0
   br i1 %tobool13.not, label %if.else40, label %if.then14
 
 if.then14:                                        ; preds = %get_l2_bitmap.exit
   %17 = load i32, ptr %0, align 8
-  %shl = shl i32 %i.0203, %17
+  %shl = shl i32 %i.0214, %17
   %cond = tail call i32 @llvm.umax.i32(i32 %shl, i32 %conv)
-  %add17 = add nuw i32 %i.0203, 1
+  %add17 = add nuw i32 %i.0214, 1
   %shl19 = shl i32 %add17, %17
   %cond26 = tail call i32 @llvm.umin.i32(i32 %add, i32 %shl19)
   %conv27 = zext i32 %cond to i64
@@ -5362,88 +5333,153 @@ if.then14:                                        ; preds = %get_l2_bitmap.exit
   %shr.i155 = lshr i64 %conv30, %sh_prom.i150
   %19 = trunc i64 %shr.i155 to i32
   %conv1.i157 = and i32 %sub.i152, %19
-  %call32 = call fastcc i32 @qcow2_get_subcluster_range_type(ptr noundef %bs, i64 noundef %13, i64 noundef %retval.0.i, i32 noundef %conv1.i153, ptr noundef nonnull %type)
-  %20 = load i32, ptr %type, align 4
-  %cmp33.not = icmp eq i32 %20, 4
-  %add35 = add i32 %conv1.i153, %call32
+  %20 = load ptr, ptr %opaque, align 8
+  %call.i = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %13, i64 noundef %retval.0.i, i32 noundef %conv1.i153), !range !11
+  %cmp.i = icmp eq i32 %call.i, 6
+  br i1 %cmp.i, label %qcow2_get_subcluster_range_type.exit, label %if.else.i
+
+if.else.i:                                        ; preds = %if.then14
+  %21 = getelementptr i8, ptr %20, i64 360
+  %.val.i = load i64, ptr %21, align 8
+  %and.i.i158 = and i64 %.val.i, 16
+  %tobool.i.not.i159 = icmp eq i64 %and.i.i158, 0
+  br i1 %tobool.i.not.i159, label %if.then3.i, label %lor.lhs.false.i
+
+lor.lhs.false.i:                                  ; preds = %if.else.i
+  switch i32 %call.i, label %default.unreachable.i [
+    i32 5, label %if.then3.i
+    i32 4, label %sw.bb.i
+    i32 2, label %sw.bb8.i
+    i32 3, label %sw.bb8.i
+    i32 0, label %sw.bb17.i
+    i32 1, label %sw.bb17.i
+  ]
+
+if.then3.i:                                       ; preds = %lor.lhs.false.i, %if.else.i
+  %subclusters_per_cluster.i = getelementptr inbounds i8, ptr %20, i64 20
+  %22 = load i32, ptr %subclusters_per_cluster.i, align 4
+  %sub.i165 = sub i32 %22, %conv1.i153
+  br label %qcow2_get_subcluster_range_type.exit
+
+sw.bb.i:                                          ; preds = %lor.lhs.false.i
+  %sh_prom.i163 = zext nneg i32 %conv1.i153 to i64
+  %notmask20.i = shl nsw i64 -1, %sh_prom.i163
+  %sub5.i = xor i64 %notmask20.i, -1
+  %or.i = or i64 %retval.0.i, %sub5.i
+  %conv.i164 = trunc i64 %or.i to i32
+  %not.i.i = xor i32 %conv.i164, -1
+  %23 = tail call i32 @llvm.cttz.i32(i32 %not.i.i, i1 false), !range !12
+  %sub7.i = sub i32 %23, %conv1.i153
+  br label %qcow2_get_subcluster_range_type.exit
+
+sw.bb8.i:                                         ; preds = %lor.lhs.false.i, %lor.lhs.false.i
+  %sh_prom9.i = zext nneg i32 %conv1.i153 to i64
+  %notmask19.i = shl nsw i64 -1, %sh_prom9.i
+  %sub11.i = xor i64 %notmask19.i, -1
+  %shl12.i = shl i64 %sub11.i, 32
+  %or13.i = or i64 %shl12.i, %retval.0.i
+  %shr.i162 = lshr i64 %or13.i, 32
+  %conv14.i = trunc i64 %shr.i162 to i32
+  %not.i21.i = xor i32 %conv14.i, -1
+  %24 = tail call i32 @llvm.cttz.i32(i32 %not.i21.i, i1 false), !range !12
+  %sub16.i = sub i32 %24, %conv1.i153
+  br label %qcow2_get_subcluster_range_type.exit
+
+sw.bb17.i:                                        ; preds = %lor.lhs.false.i, %lor.lhs.false.i
+  %shr18.i = lshr i64 %retval.0.i, 32
+  %or19.i = or i64 %shr18.i, %retval.0.i
+  %sh_prom20.i = zext nneg i32 %conv1.i153 to i64
+  %notmask.i = shl nsw i64 -1, %sh_prom20.i
+  %and.i160 = and i64 %notmask.i, %or19.i
+  %conv23.i = trunc i64 %and.i160 to i32
+  %25 = tail call i32 @llvm.cttz.i32(i32 %conv23.i, i1 false), !range !12
+  %sub25.i = sub i32 %25, %conv1.i153
+  br label %qcow2_get_subcluster_range_type.exit
+
+default.unreachable.i:                            ; preds = %lor.lhs.false.i
+  unreachable
+
+qcow2_get_subcluster_range_type.exit:             ; preds = %if.then14, %if.then3.i, %sw.bb.i, %sw.bb8.i, %sw.bb17.i
+  %retval.0.i161 = phi i32 [ %sub.i165, %if.then3.i ], [ %sub25.i, %sw.bb17.i ], [ %sub16.i, %sw.bb8.i ], [ %sub7.i, %sw.bb.i ], [ -22, %if.then14 ]
+  %cmp33.not = icmp eq i32 %call.i, 4
+  %add35 = add i32 %retval.0.i161, %conv1.i153
   %cmp36.not = icmp sgt i32 %add35, %conv1.i157
   %or.cond = select i1 %cmp33.not, i1 %cmp36.not, i1 false
-  %spec.select = select i1 %or.cond, i8 %skip_cow.0202, i8 0
+  %spec.select = select i1 %or.cond, i8 %skip_cow.0213, i8 0
   br label %if.end42
 
 if.else40:                                        ; preds = %get_l2_bitmap.exit
   %call41 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %13, i64 noundef %retval.0.i, i32 noundef 0), !range !11
-  store i32 %call41, ptr %type, align 4
   br label %if.end42
 
-if.end42:                                         ; preds = %if.then14, %if.else40
-  %21 = phi i32 [ %20, %if.then14 ], [ %call41, %if.else40 ]
-  %skip_cow.1 = phi i8 [ %spec.select, %if.then14 ], [ %skip_cow.0202, %if.else40 ]
-  %cmp43 = icmp eq i32 %21, 6
+if.end42:                                         ; preds = %qcow2_get_subcluster_range_type.exit, %if.else40
+  %type.0 = phi i32 [ %call41, %if.else40 ], [ %call.i, %qcow2_get_subcluster_range_type.exit ]
+  %skip_cow.1 = phi i8 [ %skip_cow.0213, %if.else40 ], [ %spec.select, %qcow2_get_subcluster_range_type.exit ]
+  %cmp43 = icmp eq i32 %type.0, 6
   br i1 %cmp43, label %if.then45, label %for.cond
 
 if.then45:                                        ; preds = %if.end42
   %.val120 = load i32, ptr %0, align 8
-  %22 = getelementptr i8, ptr %0, i64 24
-  %.val121 = load i32, ptr %22, align 8
-  %add.i158 = add i32 %.val121, %.val120
-  %sh_prom.i159 = zext nneg i32 %add.i158 to i64
-  %shr.i160 = lshr i64 %guest_offset, %sh_prom.i159
+  %26 = getelementptr i8, ptr %0, i64 24
+  %.val121 = load i32, ptr %26, align 8
+  %add.i166 = add i32 %.val121, %.val120
+  %sh_prom.i167 = zext nneg i32 %add.i166 to i64
+  %shr.i168 = lshr i64 %guest_offset, %sh_prom.i167
   %l1_table = getelementptr inbounds i8, ptr %0, i64 72
-  %23 = load ptr, ptr %l1_table, align 8
-  %sext = shl i64 %shr.i160, 32
+  %27 = load ptr, ptr %l1_table, align 8
+  %sext = shl i64 %shr.i168, 32
   %idxprom = ashr exact i64 %sext, 32
-  %arrayidx = getelementptr i64, ptr %23, i64 %idxprom
-  %24 = load i64, ptr %arrayidx, align 8
-  %and = and i64 %24, 72057594037927424
+  %arrayidx = getelementptr i64, ptr %27, i64 %idxprom
+  %28 = load i64, ptr %arrayidx, align 8
+  %and = and i64 %28, 72057594037927424
   tail call void (ptr, i1, i64, i64, ptr, ...) @qcow2_signal_corruption(ptr noundef %bs, i1 noundef zeroext true, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.71, i64 noundef %and, i32 noundef %add9) #13
   br label %return
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader
   %skip_cow.0.lcssa = phi i8 [ %frombool, %for.cond.preheader ], [ %skip_cow.1, %for.cond ]
-  %25 = and i8 %skip_cow.0.lcssa, 1
-  %tobool49.not = icmp eq i8 %25, 0
+  %29 = and i8 %skip_cow.0.lcssa, 1
+  %tobool49.not = icmp eq i8 %29, 0
   br i1 %tobool49.not, label %if.end51, label %return
 
 if.end51:                                         ; preds = %for.end
-  %26 = getelementptr i8, ptr %0, i64 360
-  %.val133 = load i64, ptr %26, align 8
-  %27 = trunc i64 %.val133 to i32
-  %28 = lshr i32 %27, 4
-  %29 = and i32 %28, 1
-  %conv1.i162 = shl i32 %conv1.i, %29
-  %idxprom.i163 = sext i32 %conv1.i162 to i64
-  %arrayidx.i164 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i163
-  %30 = load i64, ptr %arrayidx.i164, align 8
-  %31 = tail call noundef i64 @llvm.bswap.i64(i64 %30)
-  %and.i.i165 = and i64 %.val133, 16
-  %tobool.i.not.i166 = icmp eq i64 %and.i.i165, 0
-  br i1 %tobool.i.not.i166, label %get_l2_bitmap.exit173, label %if.then.i167
+  %30 = getelementptr i8, ptr %0, i64 360
+  %.val133 = load i64, ptr %30, align 8
+  %31 = trunc i64 %.val133 to i32
+  %32 = lshr i32 %31, 4
+  %33 = and i32 %32, 1
+  %conv1.i170 = shl i32 %conv1.i, %33
+  %idxprom.i171 = sext i32 %conv1.i170 to i64
+  %arrayidx.i172 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i171
+  %34 = load i64, ptr %arrayidx.i172, align 8
+  %35 = tail call noundef i64 @llvm.bswap.i64(i64 %34)
+  %and.i.i173 = and i64 %.val133, 16
+  %tobool.i.not.i174 = icmp eq i64 %and.i.i173, 0
+  br i1 %tobool.i.not.i174, label %get_l2_bitmap.exit181, label %if.then.i175
 
-if.then.i167:                                     ; preds = %if.end51
-  %conv2.i168 = shl i32 %conv1.i, 1
-  %add.i169 = or disjoint i32 %conv2.i168, 1
-  %idxprom.i170 = sext i32 %add.i169 to i64
-  %arrayidx.i171 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i170
-  %32 = load i64, ptr %arrayidx.i171, align 8
-  %33 = tail call noundef i64 @llvm.bswap.i64(i64 %32)
-  br label %get_l2_bitmap.exit173
+if.then.i175:                                     ; preds = %if.end51
+  %conv2.i176 = shl i32 %conv1.i, 1
+  %add.i177 = or disjoint i32 %conv2.i176, 1
+  %idxprom.i178 = sext i32 %add.i177 to i64
+  %arrayidx.i179 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i178
+  %36 = load i64, ptr %arrayidx.i179, align 8
+  %37 = tail call noundef i64 @llvm.bswap.i64(i64 %36)
+  br label %get_l2_bitmap.exit181
 
-get_l2_bitmap.exit173:                            ; preds = %if.end51, %if.then.i167
-  %retval.0.i172 = phi i64 [ %33, %if.then.i167 ], [ 0, %if.end51 ]
-  %34 = getelementptr i8, ptr %0, i64 12
-  %.val126 = load i32, ptr %34, align 4
-  %35 = getelementptr i8, ptr %0, i64 20
-  %.val127 = load i32, ptr %35, align 4
-  %sh_prom.i174 = zext nneg i32 %.val126 to i64
-  %shr.i175 = ashr i64 %guest_offset, %sh_prom.i174
-  %sub.i176 = add i32 %.val127, -1
-  %36 = trunc i64 %shr.i175 to i32
-  %conv1.i177 = and i32 %sub.i176, %36
-  %call55 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %31, i64 noundef %retval.0.i172, i32 noundef %conv1.i177), !range !11
+get_l2_bitmap.exit181:                            ; preds = %if.end51, %if.then.i175
+  %retval.0.i180 = phi i64 [ %37, %if.then.i175 ], [ 0, %if.end51 ]
+  %38 = getelementptr i8, ptr %0, i64 12
+  %.val126 = load i32, ptr %38, align 4
+  %39 = getelementptr i8, ptr %0, i64 20
+  %.val127 = load i32, ptr %39, align 4
+  %sh_prom.i182 = zext nneg i32 %.val126 to i64
+  %shr.i183 = ashr i64 %guest_offset, %sh_prom.i182
+  %sub.i184 = add i32 %.val127, -1
+  %40 = trunc i64 %shr.i183 to i32
+  %conv1.i185 = and i32 %sub.i184, %40
+  %call55 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %35, i64 noundef %retval.0.i180, i32 noundef %conv1.i185), !range !11
   br i1 %keep_old, label %if.else77, label %if.then57
 
-if.then57:                                        ; preds = %get_l2_bitmap.exit173
+if.then57:                                        ; preds = %get_l2_bitmap.exit181
   switch i32 %call55, label %do.body [
     i32 5, label %if.end86
     i32 4, label %sw.bb58
@@ -5454,22 +5490,22 @@ if.then57:                                        ; preds = %get_l2_bitmap.exit1
   ]
 
 sw.bb58:                                          ; preds = %if.then57, %if.then57, %if.then57
-  %.val123 = load i64, ptr %26, align 8
-  %and.i178 = and i64 %.val123, 16
-  %tobool.i.not = icmp eq i64 %and.i178, 0
+  %.val123 = load i64, ptr %30, align 8
+  %and.i186 = and i64 %.val123, 16
+  %tobool.i.not = icmp eq i64 %and.i186, 0
   br i1 %tobool.i.not, label %if.end86, label %if.then60
 
 if.then60:                                        ; preds = %sw.bb58
-  %conv62 = trunc i64 %retval.0.i172 to i32
-  %37 = tail call i32 @llvm.cttz.i32(i32 %conv62, i1 false), !range !30
-  %cond70 = tail call i32 @llvm.smin.i32(i32 %conv1.i177, i32 %37)
+  %conv62 = trunc i64 %retval.0.i180 to i32
+  %41 = tail call i32 @llvm.cttz.i32(i32 %conv62, i1 false), !range !12
+  %cond70 = tail call i32 @llvm.smin.i32(i32 %conv1.i185, i32 %41)
   br label %if.end86.sink.split
 
 do.body:                                          ; preds = %if.then57
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1240, ptr noundef nonnull @__func__.calculate_l2_meta, ptr noundef null) #15
   unreachable
 
-if.else77:                                        ; preds = %get_l2_bitmap.exit173
+if.else77:                                        ; preds = %get_l2_bitmap.exit181
   switch i32 %call55, label %do.body83 [
     i32 4, label %if.end86
     i32 3, label %if.end86.sink.split
@@ -5481,53 +5517,53 @@ do.body83:                                        ; preds = %if.else77
   unreachable
 
 if.end86.sink.split:                              ; preds = %if.else77, %if.else77, %if.then57, %if.then57, %if.then60
-  %conv1.i177.sink = phi i32 [ %cond70, %if.then60 ], [ %conv1.i177, %if.then57 ], [ %conv1.i177, %if.then57 ], [ %conv1.i177, %if.else77 ], [ %conv1.i177, %if.else77 ]
-  %38 = load i32, ptr %34, align 4
-  %shl81 = shl i32 %conv1.i177.sink, %38
+  %conv1.i185.sink = phi i32 [ %cond70, %if.then60 ], [ %conv1.i185, %if.then57 ], [ %conv1.i185, %if.then57 ], [ %conv1.i185, %if.else77 ], [ %conv1.i185, %if.else77 ]
+  %42 = load i32, ptr %38, align 4
+  %shl81 = shl i32 %conv1.i185.sink, %42
   br label %if.end86
 
 if.end86:                                         ; preds = %if.end86.sink.split, %if.else77, %sw.bb58, %if.then57
   %cow_start_from.0 = phi i32 [ 0, %if.then57 ], [ 0, %sw.bb58 ], [ %conv, %if.else77 ], [ %shl81, %if.end86.sink.split ]
   %sub87 = add i32 %conv1.i, -1
   %add88 = add i32 %sub87, %conv4
-  %.val132 = load i64, ptr %26, align 8
-  %39 = trunc i64 %.val132 to i32
-  %40 = lshr i32 %39, 4
-  %41 = and i32 %40, 1
-  %conv1.i179 = shl i32 %add88, %41
-  %idxprom.i180 = sext i32 %conv1.i179 to i64
-  %arrayidx.i181 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i180
-  %42 = load i64, ptr %arrayidx.i181, align 8
-  %43 = tail call noundef i64 @llvm.bswap.i64(i64 %42)
-  %and.i.i182 = and i64 %.val132, 16
-  %tobool.i.not.i183 = icmp eq i64 %and.i.i182, 0
-  br i1 %tobool.i.not.i183, label %get_l2_bitmap.exit190, label %if.then.i184
+  %.val132 = load i64, ptr %30, align 8
+  %43 = trunc i64 %.val132 to i32
+  %44 = lshr i32 %43, 4
+  %45 = and i32 %44, 1
+  %conv1.i187 = shl i32 %add88, %45
+  %idxprom.i188 = sext i32 %conv1.i187 to i64
+  %arrayidx.i189 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i188
+  %46 = load i64, ptr %arrayidx.i189, align 8
+  %47 = tail call noundef i64 @llvm.bswap.i64(i64 %46)
+  %and.i.i190 = and i64 %.val132, 16
+  %tobool.i.not.i191 = icmp eq i64 %and.i.i190, 0
+  br i1 %tobool.i.not.i191, label %get_l2_bitmap.exit198, label %if.then.i192
 
-if.then.i184:                                     ; preds = %if.end86
-  %conv2.i185 = shl i32 %add88, 1
-  %add.i186 = or disjoint i32 %conv2.i185, 1
-  %idxprom.i187 = sext i32 %add.i186 to i64
-  %arrayidx.i188 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i187
-  %44 = load i64, ptr %arrayidx.i188, align 8
-  %45 = tail call noundef i64 @llvm.bswap.i64(i64 %44)
-  br label %get_l2_bitmap.exit190
+if.then.i192:                                     ; preds = %if.end86
+  %conv2.i193 = shl i32 %add88, 1
+  %add.i194 = or disjoint i32 %conv2.i193, 1
+  %idxprom.i195 = sext i32 %add.i194 to i64
+  %arrayidx.i196 = getelementptr i64, ptr %l2_slice, i64 %idxprom.i195
+  %48 = load i64, ptr %arrayidx.i196, align 8
+  %49 = tail call noundef i64 @llvm.bswap.i64(i64 %48)
+  br label %get_l2_bitmap.exit198
 
-get_l2_bitmap.exit190:                            ; preds = %if.end86, %if.then.i184
-  %retval.0.i189 = phi i64 [ %45, %if.then.i184 ], [ 0, %if.end86 ]
+get_l2_bitmap.exit198:                            ; preds = %if.end86, %if.then.i192
+  %retval.0.i197 = phi i64 [ %49, %if.then.i192 ], [ 0, %if.end86 ]
   %conv91 = zext i32 %bytes to i64
   %add92 = add i64 %guest_offset, -1
   %sub93 = add i64 %add92, %conv91
-  %.val124 = load i32, ptr %34, align 4
-  %.val125 = load i32, ptr %35, align 4
-  %sh_prom.i191 = zext nneg i32 %.val124 to i64
-  %shr.i192 = ashr i64 %sub93, %sh_prom.i191
-  %sub.i193 = add i32 %.val125, -1
-  %46 = trunc i64 %shr.i192 to i32
-  %conv1.i194 = and i32 %sub.i193, %46
-  %call95 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %43, i64 noundef %retval.0.i189, i32 noundef %conv1.i194), !range !11
+  %.val124 = load i32, ptr %38, align 4
+  %.val125 = load i32, ptr %39, align 4
+  %sh_prom.i199 = zext nneg i32 %.val124 to i64
+  %shr.i200 = ashr i64 %sub93, %sh_prom.i199
+  %sub.i201 = add i32 %.val125, -1
+  %50 = trunc i64 %shr.i200 to i32
+  %conv1.i202 = and i32 %sub.i201, %50
+  %call95 = tail call fastcc i32 @qcow2_get_subcluster_type(ptr noundef %bs, i64 noundef %47, i64 noundef %retval.0.i197, i32 noundef %conv1.i202), !range !11
   br i1 %keep_old, label %if.else140, label %if.then97
 
-if.then97:                                        ; preds = %get_l2_bitmap.exit190
+if.then97:                                        ; preds = %get_l2_bitmap.exit198
   switch i32 %call95, label %do.body137 [
     i32 5, label %sw.bb98
     i32 4, label %sw.bb104
@@ -5538,42 +5574,42 @@ if.then97:                                        ; preds = %get_l2_bitmap.exit1
   ]
 
 sw.bb98:                                          ; preds = %if.then97
-  %47 = load i32, ptr %3, align 4
+  %51 = load i32, ptr %3, align 4
   %add99 = add i32 %add, -1
-  %sub100 = add i32 %add99, %47
-  %sub102 = sub i32 0, %47
+  %sub100 = add i32 %add99, %51
+  %sub102 = sub i32 0, %51
   %and103 = and i32 %sub100, %sub102
   br label %if.end153
 
 sw.bb104:                                         ; preds = %if.then97, %if.then97, %if.then97
-  %48 = load i32, ptr %3, align 4
+  %52 = load i32, ptr %3, align 4
   %add106 = add i32 %add, -1
-  %sub107 = add i32 %add106, %48
-  %sub109 = sub i32 0, %48
+  %sub107 = add i32 %add106, %52
+  %sub109 = sub i32 0, %52
   %and110 = and i32 %sub107, %sub109
-  %.val122 = load i64, ptr %26, align 8
-  %and.i195 = and i64 %.val122, 16
-  %tobool.i196.not = icmp eq i64 %and.i195, 0
-  br i1 %tobool.i196.not, label %if.end153, label %if.then112
+  %.val122 = load i64, ptr %30, align 8
+  %and.i203 = and i64 %.val122, 16
+  %tobool.i204.not = icmp eq i64 %and.i203, 0
+  br i1 %tobool.i204.not, label %if.end153, label %if.then112
 
 if.then112:                                       ; preds = %sw.bb104
-  %conv115 = trunc i64 %retval.0.i189 to i32
-  %49 = load i32, ptr %35, align 4
-  %50 = xor i32 %conv1.i194, -1
-  %sub117 = add i32 %49, %50
-  %51 = tail call i32 @llvm.ctlz.i32(i32 %conv115, i1 false), !range !30
-  %cond125 = tail call i32 @llvm.smin.i32(i32 %sub117, i32 %51)
-  %52 = load i32, ptr %34, align 4
-  %shl127 = shl i32 %cond125, %52
+  %conv115 = trunc i64 %retval.0.i197 to i32
+  %53 = load i32, ptr %39, align 4
+  %54 = xor i32 %conv1.i202, -1
+  %sub117 = add i32 %53, %54
+  %55 = tail call i32 @llvm.ctlz.i32(i32 %conv115, i1 false), !range !12
+  %cond125 = tail call i32 @llvm.smin.i32(i32 %sub117, i32 %55)
+  %56 = load i32, ptr %38, align 4
+  %shl127 = shl i32 %cond125, %56
   %sub128 = sub i32 %and110, %shl127
   br label %if.end153
 
 sw.bb130:                                         ; preds = %if.then97, %if.then97
   %subcluster_size = getelementptr inbounds i8, ptr %0, i64 16
-  %53 = load i32, ptr %subcluster_size, align 8
+  %57 = load i32, ptr %subcluster_size, align 8
   %add131 = add i32 %add, -1
-  %sub132 = add i32 %add131, %53
-  %sub134 = sub i32 0, %53
+  %sub132 = add i32 %add131, %57
+  %sub134 = sub i32 0, %57
   %and135 = and i32 %sub132, %sub134
   br label %if.end153
 
@@ -5581,7 +5617,7 @@ do.body137:                                       ; preds = %if.then97
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 1285, ptr noundef nonnull @__func__.calculate_l2_meta, ptr noundef null) #15
   unreachable
 
-if.else140:                                       ; preds = %get_l2_bitmap.exit190
+if.else140:                                       ; preds = %get_l2_bitmap.exit198
   switch i32 %call95, label %do.body150 [
     i32 4, label %if.end153
     i32 3, label %sw.bb142
@@ -5590,10 +5626,10 @@ if.else140:                                       ; preds = %get_l2_bitmap.exit1
 
 sw.bb142:                                         ; preds = %if.else140, %if.else140
   %subcluster_size143 = getelementptr inbounds i8, ptr %0, i64 16
-  %54 = load i32, ptr %subcluster_size143, align 8
+  %58 = load i32, ptr %subcluster_size143, align 8
   %add144 = add i32 %add, -1
-  %sub145 = add i32 %add144, %54
-  %sub147 = sub i32 0, %54
+  %sub145 = add i32 %add144, %58
+  %sub147 = sub i32 0, %58
   %and148 = and i32 %sub145, %sub147
   br label %if.end153
 
@@ -5607,13 +5643,13 @@ if.end153:                                        ; preds = %if.else140, %sw.bb1
   store ptr %call154, ptr %m, align 8
   %.val140 = load i32, ptr %3, align 4
   %not.i = sub i32 0, %.val140
-  %conv.i197 = sext i32 %not.i to i64
-  %and.i198 = and i64 %conv.i197, %guest_offset
-  %.compoundliteral.sroa.5.3.dependent_requests.sroa_idx212 = getelementptr inbounds i8, ptr %.compoundliteral.sroa.5, i64 3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.compoundliteral.sroa.5.3.dependent_requests.sroa_idx212, i8 0, i64 16, i1 false)
+  %conv.i205 = sext i32 %not.i to i64
+  %and.i206 = and i64 %conv.i205, %guest_offset
+  %.compoundliteral.sroa.5.3.dependent_requests.sroa_idx227 = getelementptr inbounds i8, ptr %.compoundliteral.sroa.5, i64 3
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.compoundliteral.sroa.5.3.dependent_requests.sroa_idx227, i8 0, i64 16, i1 false)
   %sub160 = sub i32 %conv, %cow_start_from.0
   %sub163 = sub i32 %cow_end_to.0, %add
-  store i64 %and.i198, ptr %call154, align 8
+  store i64 %and.i206, ptr %call154, align 8
   %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call154, i64 8
   store i64 %host_cluster_offset, ptr %.compoundliteral.sroa.2.0..sroa_idx, align 8
   %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call154, i64 16
@@ -5643,24 +5679,24 @@ if.end153:                                        ; preds = %if.else140, %sw.bb1
   %dependent_requests165 = getelementptr inbounds i8, ptr %call154, i64 24
   tail call void @qemu_co_queue_init(ptr noundef nonnull %dependent_requests165) #13
   %cluster_allocs = getelementptr inbounds i8, ptr %0, i64 112
-  %55 = load ptr, ptr %cluster_allocs, align 8
-  %56 = load ptr, ptr %m, align 8
-  %next_in_flight167 = getelementptr inbounds i8, ptr %56, i64 88
-  store ptr %55, ptr %next_in_flight167, align 8
-  %cmp168.not = icmp eq ptr %55, null
+  %59 = load ptr, ptr %cluster_allocs, align 8
+  %60 = load ptr, ptr %m, align 8
+  %next_in_flight167 = getelementptr inbounds i8, ptr %60, i64 88
+  store ptr %59, ptr %next_in_flight167, align 8
+  %cmp168.not = icmp eq ptr %59, null
   br i1 %cmp168.not, label %if.end176, label %if.then170
 
 if.then170:                                       ; preds = %if.end153
-  %57 = load ptr, ptr %m, align 8
-  %next_in_flight171 = getelementptr inbounds i8, ptr %57, i64 88
-  %le_prev = getelementptr inbounds i8, ptr %55, i64 96
+  %61 = load ptr, ptr %m, align 8
+  %next_in_flight171 = getelementptr inbounds i8, ptr %61, i64 88
+  %le_prev = getelementptr inbounds i8, ptr %59, i64 96
   store ptr %next_in_flight171, ptr %le_prev, align 8
   br label %if.end176
 
 if.end176:                                        ; preds = %if.then170, %if.end153
-  %58 = load ptr, ptr %m, align 8
-  store ptr %58, ptr %cluster_allocs, align 8
-  %le_prev182 = getelementptr inbounds i8, ptr %58, i64 96
+  %62 = load ptr, ptr %m, align 8
+  store ptr %62, ptr %cluster_allocs, align 8
+  %le_prev182 = getelementptr inbounds i8, ptr %62, i64 96
   store ptr %cluster_allocs, ptr %le_prev182, align 8
   br label %return
 
@@ -5893,15 +5929,15 @@ attributes #16 = { nounwind allocsize(0) }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = !{i32 0, i32 7}
-!12 = distinct !{!12, !6}
-!13 = !{i32 -2147483648, i32 1}
-!14 = distinct !{!14, !6}
+!12 = !{i32 0, i32 33}
+!13 = distinct !{!13, !6}
+!14 = !{i32 -2147483648, i32 1}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = !{i32 -2147483648, i32 2}
-!19 = !{i32 -5, i32 1}
-!20 = distinct !{!20, !6}
+!18 = distinct !{!18, !6}
+!19 = !{i32 -2147483648, i32 2}
+!20 = !{i32 -5, i32 1}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
@@ -5911,6 +5947,6 @@ attributes #16 = { nounwind allocsize(0) }
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
-!30 = !{i32 0, i32 33}
+!30 = distinct !{!30, !6}
 !31 = distinct !{!31, !6}
 !32 = distinct !{!32, !6}

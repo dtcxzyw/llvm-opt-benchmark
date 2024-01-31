@@ -1062,7 +1062,9 @@ sw.bb:                                            ; preds = %rocker_tlv_parse_ne
 if.end.i:                                         ; preds = %sw.bb
   %4 = getelementptr i8, ptr %3, i64 8
   %.val.i = load i64, ptr %4, align 1
-  switch i16 %cmd, label %return [
+  %5 = getelementptr i8, ptr %call, i64 8
+  %of_dpa.val.i.i = load ptr, ptr %5, align 8
+  switch i16 %cmd, label %default.unreachable [
     i16 3, label %sw.bb.i
     i16 4, label %sw.bb3.i
     i16 5, label %sw.bb5.i
@@ -1070,8 +1072,6 @@ if.end.i:                                         ; preds = %sw.bb
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %5 = getelementptr i8, ptr %call, i64 8
-  %of_dpa.val.i.i = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cookie.addr.i.i.i)
   store i64 %.val.i, ptr %cookie.addr.i.i.i, align 8
   %call.i.i.i = call ptr @g_hash_table_lookup(ptr noundef %of_dpa.val.i.i, ptr noundef nonnull %cookie.addr.i.i.i) #18
@@ -1105,11 +1105,9 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
   br label %return
 
 sw.bb3.i:                                         ; preds = %if.end.i
-  %6 = getelementptr i8, ptr %call, i64 8
-  %of_dpa.val.i = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cookie.addr.i.i11.i)
   store i64 %.val.i, ptr %cookie.addr.i.i11.i, align 8
-  %call.i.i12.i = call ptr @g_hash_table_lookup(ptr noundef %of_dpa.val.i, ptr noundef nonnull %cookie.addr.i.i11.i) #18
+  %call.i.i12.i = call ptr @g_hash_table_lookup(ptr noundef %of_dpa.val.i.i, ptr noundef nonnull %cookie.addr.i.i11.i) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cookie.addr.i.i11.i)
   %tobool.not.i13.i = icmp eq ptr %call.i.i12.i, null
   br i1 %tobool.not.i13.i, label %return, label %if.end.i14.i
@@ -1119,27 +1117,23 @@ if.end.i14.i:                                     ; preds = %sw.bb3.i
   br label %return
 
 sw.bb5.i:                                         ; preds = %if.end.i
-  %7 = getelementptr i8, ptr %call, i64 8
-  %of_dpa.val.i17.i = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cookie.addr.i.i16.i)
   store i64 %.val.i, ptr %cookie.addr.i.i16.i, align 8
-  %call.i.i18.i = call ptr @g_hash_table_lookup(ptr noundef %of_dpa.val.i17.i, ptr noundef nonnull %cookie.addr.i.i16.i) #18
+  %call.i.i18.i = call ptr @g_hash_table_lookup(ptr noundef %of_dpa.val.i.i, ptr noundef nonnull %cookie.addr.i.i16.i) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cookie.addr.i.i16.i)
   %tobool.not.i19.i = icmp eq ptr %call.i.i18.i, null
   br i1 %tobool.not.i19.i, label %return, label %if.end.i20.i
 
 if.end.i20.i:                                     ; preds = %sw.bb5.i
-  %of_dpa.val3.i.i = load ptr, ptr %7, align 8
+  %of_dpa.val3.i.i = load ptr, ptr %5, align 8
   %cookie.i.i.i = getelementptr inbounds i8, ptr %call.i.i18.i, i64 16
   %call.i4.i.i = call i32 @g_hash_table_remove(ptr noundef %of_dpa.val3.i.i, ptr noundef nonnull %cookie.i.i.i) #18
   br label %return
 
 sw.bb7.i:                                         ; preds = %if.end.i
-  %8 = getelementptr i8, ptr %call, i64 8
-  %of_dpa.val10.i = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cookie.addr.i.i22.i)
   store i64 %.val.i, ptr %cookie.addr.i.i22.i, align 8
-  %call.i.i23.i = call ptr @g_hash_table_lookup(ptr noundef %of_dpa.val10.i, ptr noundef nonnull %cookie.addr.i.i22.i) #18
+  %call.i.i23.i = call ptr @g_hash_table_lookup(ptr noundef %of_dpa.val.i.i, ptr noundef nonnull %cookie.addr.i.i22.i) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cookie.addr.i.i22.i)
   %call.i8.i.i = call i64 @qemu_clock_get_ns(i32 noundef 1) #18
   %div.i.i = sdiv i64 %call.i8.i.i, 1000000000
@@ -1153,8 +1147,8 @@ if.end.i25.i:                                     ; preds = %sw.bb7.i
 
 if.end10.i.i:                                     ; preds = %if.end.i25.i
   %install_time.i.i = getelementptr inbounds i8, ptr %call.i.i23.i, i64 280
-  %9 = load i64, ptr %install_time.i.i, align 8
-  %sub.i.i6 = sub i64 %div.i.i, %9
+  %6 = load i64, ptr %install_time.i.i, align 8
+  %sub.i.i6 = sub i64 %div.i.i, %6
   %conv11.i.i = trunc i64 %sub.i.i6 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i.i.i)
   store i32 %conv11.i.i, ptr %value.addr.i.i.i, align 4
@@ -1167,8 +1161,8 @@ if.end10.i.i:                                     ; preds = %if.end.i25.i
   %sub.i.i.i.i.i.i = add i32 %conv.i.i.i.i.i, 15
   %and.i.i.i.i.i.i = and i32 %sub.i.i.i.i.i.i, -8
   store i32 1, ptr %buf, align 8
-  %10 = trunc i64 %call.i.i.i.i.i to i16
-  %conv7.i.i.i.i.i = add i16 %10, 8
+  %7 = trunc i64 %call.i.i.i.i.i to i16
+  %conv7.i.i.i.i.i = add i16 %7, 8
   %len9.i.i.i.i.i = getelementptr inbounds i8, ptr %buf, i64 4
   store i16 %conv7.i.i.i.i.i, ptr %len9.i.i.i.i.i, align 4
   %add.ptr.i11.i.i.i.i.i = getelementptr i8, ptr %buf, i64 8
@@ -1183,9 +1177,9 @@ if.end10.i.i:                                     ; preds = %if.end.i25.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i.i.i)
   %rx_pkts.i.i = getelementptr inbounds i8, ptr %call.i.i23.i, i64 296
-  %11 = load i64, ptr %rx_pkts.i.i, align 8
+  %8 = load i64, ptr %rx_pkts.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.addr.i10.i.i)
-  store i64 %11, ptr %value.addr.i10.i.i, align 8
+  store i64 %8, ptr %value.addr.i10.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %iov.i.i9.i.i)
   store ptr %value.addr.i10.i.i, ptr %iov.i.i9.i.i, align 8
   %iov_len.i.i11.i.i = getelementptr inbounds i8, ptr %iov.i.i9.i.i, i64 8
@@ -1198,8 +1192,8 @@ if.end10.i.i:                                     ; preds = %if.end.i25.i
   %add.ptr.i.i.i.i17.i.i = getelementptr i8, ptr %buf, i64 %idx.ext.i.i.i.i16.i.i
   %add.i.i.i18.i.i = add i32 %and.i.i.i.i15.i.i, %and.i.i.i.i.i.i
   store i32 2, ptr %add.ptr.i.i.i.i17.i.i, align 8
-  %12 = trunc i64 %call.i.i.i12.i.i to i16
-  %conv7.i.i.i19.i.i = add i16 %12, 8
+  %9 = trunc i64 %call.i.i.i12.i.i to i16
+  %conv7.i.i.i19.i.i = add i16 %9, 8
   %len9.i.i.i20.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i17.i.i, i64 4
   store i16 %conv7.i.i.i19.i.i, ptr %len9.i.i.i20.i.i, align 4
   %add.ptr.i11.i.i.i21.i.i = getelementptr i8, ptr %add.ptr.i.i.i.i17.i.i, i64 8
@@ -1214,9 +1208,9 @@ if.end10.i.i:                                     ; preds = %if.end.i25.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov.i.i9.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.addr.i10.i.i)
   %tx_pkts.i.i = getelementptr inbounds i8, ptr %call.i.i23.i, i64 304
-  %13 = load i64, ptr %tx_pkts.i.i, align 8
+  %10 = load i64, ptr %tx_pkts.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.addr.i34.i.i)
-  store i64 %13, ptr %value.addr.i34.i.i, align 8
+  store i64 %10, ptr %value.addr.i34.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %iov.i.i33.i.i)
   store ptr %value.addr.i34.i.i, ptr %iov.i.i33.i.i, align 8
   %iov_len.i.i35.i.i = getelementptr inbounds i8, ptr %iov.i.i33.i.i, i64 8
@@ -1227,8 +1221,8 @@ if.end10.i.i:                                     ; preds = %if.end.i25.i
   %idx.ext.i.i.i.i40.i.i = sext i32 %add.i.i.i18.i.i to i64
   %add.ptr.i.i.i.i41.i.i = getelementptr i8, ptr %buf, i64 %idx.ext.i.i.i.i40.i.i
   store i32 3, ptr %add.ptr.i.i.i.i41.i.i, align 8
-  %14 = trunc i64 %call.i.i.i36.i.i to i16
-  %conv7.i.i.i43.i.i = add i16 %14, 8
+  %11 = trunc i64 %call.i.i.i36.i.i to i16
+  %conv7.i.i.i43.i.i = add i16 %11, 8
   %len9.i.i.i44.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i41.i.i, i64 4
   store i16 %conv7.i.i.i43.i.i, ptr %len9.i.i.i44.i.i, align 4
   %add.ptr.i11.i.i.i45.i.i = getelementptr i8, ptr %add.ptr.i.i.i.i41.i.i, i64 8
@@ -1248,13 +1242,13 @@ if.end10.i.i:                                     ; preds = %if.end.i25.i
 
 sw.bb3:                                           ; preds = %rocker_tlv_parse_nested.exit, %rocker_tlv_parse_nested.exit, %rocker_tlv_parse_nested.exit, %rocker_tlv_parse_nested.exit
   %arrayidx.i7 = getelementptr inbounds i8, ptr %tlvs, i64 80
-  %15 = load ptr, ptr %arrayidx.i7, align 16
-  %tobool.not.i8 = icmp eq ptr %15, null
+  %12 = load ptr, ptr %arrayidx.i7, align 16
+  %tobool.not.i8 = icmp eq ptr %12, null
   br i1 %tobool.not.i8, label %return, label %if.end.i9
 
 if.end.i9:                                        ; preds = %sw.bb3
-  %16 = getelementptr i8, ptr %15, i64 8
-  %.val.i10 = load i32, ptr %16, align 1
+  %13 = getelementptr i8, ptr %12, i64 8
+  %.val.i10 = load i32, ptr %13, align 1
   switch i16 %cmd, label %return [
     i16 7, label %sw.bb.i24
     i16 8, label %sw.bb3.i19
@@ -1262,8 +1256,8 @@ if.end.i9:                                        ; preds = %sw.bb3
   ]
 
 sw.bb.i24:                                        ; preds = %if.end.i9
-  %17 = getelementptr i8, ptr %call, i64 16
-  %of_dpa.val.i.i25 = load ptr, ptr %17, align 8
+  %14 = getelementptr i8, ptr %call, i64 16
+  %of_dpa.val.i.i25 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %group_id.addr.i.i.i)
   store i32 %.val.i10, ptr %group_id.addr.i.i.i, align 4
   %call.i.i.i26 = call ptr @g_hash_table_lookup(ptr noundef %of_dpa.val.i.i25, ptr noundef nonnull %group_id.addr.i.i.i) #18
@@ -1279,7 +1273,7 @@ if.end.i.i28:                                     ; preds = %sw.bb.i24
   br i1 %tobool3.not.i.i30, label %if.end5.i.i31, label %err_cmd_add.i.i
 
 if.end5.i.i31:                                    ; preds = %if.end.i.i28
-  %of_dpa.val10.i.i = load ptr, ptr %17, align 8
+  %of_dpa.val10.i.i = load ptr, ptr %14, align 8
   %call.i12.i.i = call i32 @g_hash_table_insert(ptr noundef %of_dpa.val10.i.i, ptr noundef nonnull %call.i11.i.i, ptr noundef nonnull %call.i11.i.i) #18
   br label %return
 
@@ -1288,8 +1282,8 @@ err_cmd_add.i.i:                                  ; preds = %if.end.i.i28
   br label %return
 
 sw.bb3.i19:                                       ; preds = %if.end.i9
-  %18 = getelementptr i8, ptr %call, i64 16
-  %of_dpa.val.i11.i = load ptr, ptr %18, align 8
+  %15 = getelementptr i8, ptr %call, i64 16
+  %of_dpa.val.i11.i = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %group_id.addr.i.i10.i)
   store i32 %.val.i10, ptr %group_id.addr.i.i10.i, align 4
   %call.i.i12.i20 = call ptr @g_hash_table_lookup(ptr noundef %of_dpa.val.i11.i, ptr noundef nonnull %group_id.addr.i.i10.i) #18
@@ -1302,8 +1296,8 @@ if.end.i14.i22:                                   ; preds = %sw.bb3.i19
   br label %return
 
 sw.bb5.i11:                                       ; preds = %if.end.i9
-  %19 = getelementptr i8, ptr %call, i64 16
-  %of_dpa.val.i17.i12 = load ptr, ptr %19, align 8
+  %16 = getelementptr i8, ptr %call, i64 16
+  %of_dpa.val.i17.i12 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %group_id.addr.i.i16.i)
   store i32 %.val.i10, ptr %group_id.addr.i.i16.i, align 4
   %call.i.i18.i13 = call ptr @g_hash_table_lookup(ptr noundef %of_dpa.val.i17.i12, ptr noundef nonnull %group_id.addr.i.i16.i) #18
@@ -1312,12 +1306,15 @@ sw.bb5.i11:                                       ; preds = %if.end.i9
   br i1 %tobool.not.i19.i14, label %return, label %if.end.i20.i15
 
 if.end.i20.i15:                                   ; preds = %sw.bb5.i11
-  %of_dpa.val3.i.i16 = load ptr, ptr %19, align 8
+  %of_dpa.val3.i.i16 = load ptr, ptr %16, align 8
   %call.i4.i.i17 = call i32 @g_hash_table_remove(ptr noundef %of_dpa.val3.i.i16, ptr noundef nonnull %call.i.i18.i13) #18
   br label %return
 
-return:                                           ; preds = %if.end.i20.i15, %sw.bb5.i11, %if.end.i14.i22, %sw.bb3.i19, %err_cmd_add.i.i, %if.end5.i.i31, %sw.bb.i24, %if.end.i9, %sw.bb3, %if.end10.i.i, %if.end.i25.i, %sw.bb7.i, %if.end.i20.i, %sw.bb5.i, %if.end.i14.i, %sw.bb3.i, %if.end5.i.i, %if.then4.i.i, %sw.bb.i, %if.end.i, %sw.bb, %rocker_tlv_parse_nested.exit
-  %retval.0 = phi i32 [ -95, %rocker_tlv_parse_nested.exit ], [ -22, %sw.bb ], [ -95, %if.end.i ], [ %call2.i.i, %if.then4.i.i ], [ 0, %if.end5.i.i ], [ -17, %sw.bb.i ], [ %call1.i.i, %if.end.i14.i ], [ -2, %sw.bb3.i ], [ 0, %if.end.i20.i ], [ -2, %sw.bb5.i ], [ %call14.i.i, %if.end10.i.i ], [ -2, %sw.bb7.i ], [ -90, %if.end.i25.i ], [ -22, %sw.bb3 ], [ %call2.i.i29, %err_cmd_add.i.i ], [ 0, %if.end5.i.i31 ], [ -17, %sw.bb.i24 ], [ %call1.i.i23, %if.end.i14.i22 ], [ -2, %sw.bb3.i19 ], [ 0, %if.end.i20.i15 ], [ -2, %sw.bb5.i11 ], [ -95, %if.end.i9 ]
+default.unreachable:                              ; preds = %if.end.i
+  unreachable
+
+return:                                           ; preds = %if.end.i20.i15, %sw.bb5.i11, %if.end.i14.i22, %sw.bb3.i19, %err_cmd_add.i.i, %if.end5.i.i31, %sw.bb.i24, %if.end.i9, %sw.bb3, %if.end10.i.i, %if.end.i25.i, %sw.bb7.i, %if.end.i20.i, %sw.bb5.i, %if.end.i14.i, %sw.bb3.i, %if.end5.i.i, %if.then4.i.i, %sw.bb.i, %sw.bb, %rocker_tlv_parse_nested.exit
+  %retval.0 = phi i32 [ -95, %rocker_tlv_parse_nested.exit ], [ -22, %sw.bb ], [ %call2.i.i, %if.then4.i.i ], [ 0, %if.end5.i.i ], [ -17, %sw.bb.i ], [ %call1.i.i, %if.end.i14.i ], [ -2, %sw.bb3.i ], [ 0, %if.end.i20.i ], [ -2, %sw.bb5.i ], [ %call14.i.i, %if.end10.i.i ], [ -2, %sw.bb7.i ], [ -90, %if.end.i25.i ], [ -22, %sw.bb3 ], [ %call2.i.i29, %err_cmd_add.i.i ], [ 0, %if.end5.i.i31 ], [ -17, %sw.bb.i24 ], [ %call1.i.i23, %if.end.i14.i22 ], [ -2, %sw.bb3.i19 ], [ 0, %if.end.i20.i15 ], [ -2, %sw.bb5.i11 ], [ -95, %if.end.i9 ]
   ret i32 %retval.0
 }
 

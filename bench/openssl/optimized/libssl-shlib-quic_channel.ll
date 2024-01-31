@@ -5644,45 +5644,37 @@ if.end:                                           ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %deadline.sroa.0.133 = phi i64 [ %spec.select, %if.end ], [ %deadline.sroa.0.2, %for.inc ]
-  %i.032 = phi i32 [ 0, %if.end ], [ %inc, %for.inc ]
+  %deadline.sroa.0.134 = phi i64 [ %spec.select, %if.end ], [ %deadline.sroa.0.2, %for.inc ]
+  %i.033 = phi i32 [ 0, %if.end ], [ %inc, %for.inc ]
   %1 = load ptr, ptr %qtx, align 8
-  %call12 = tail call i32 @ossl_qtx_is_enc_level_provisioned(ptr noundef %1, i32 noundef %i.032) #14
+  %call12 = tail call i32 @ossl_qtx_is_enc_level_provisioned(ptr noundef %1, i32 noundef %i.033) #14
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %for.inc, label %if.then14
 
 if.then14:                                        ; preds = %for.body
   %2 = load ptr, ptr %ackm, align 8
-  %3 = icmp ult i32 %i.032, 4
-  br i1 %3, label %switch.lookup, label %ossl_quic_enc_level_to_pn_space.exit
-
-switch.lookup:                                    ; preds = %if.then14
-  %4 = zext nneg i32 %i.032 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.ch_determine_next_tick_deadline, i64 0, i64 %4
+  %3 = zext nneg i32 %i.033 to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.ch_determine_next_tick_deadline, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %ossl_quic_enc_level_to_pn_space.exit
-
-ossl_quic_enc_level_to_pn_space.exit:             ; preds = %if.then14, %switch.lookup
-  %retval.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 2, %if.then14 ]
-  %call18 = tail call i64 @ossl_ackm_get_ack_deadline(ptr noundef %2, i32 noundef %retval.0.i) #14
-  %a.coerce.b.coerce.i = tail call i64 @llvm.umin.i64(i64 %deadline.sroa.0.133, i64 %call18)
+  %call18 = tail call i64 @ossl_ackm_get_ack_deadline(ptr noundef %2, i32 noundef %switch.load) #14
+  %a.coerce.b.coerce.i = tail call i64 @llvm.umin.i64(i64 %deadline.sroa.0.134, i64 %call18)
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %ossl_quic_enc_level_to_pn_space.exit
-  %deadline.sroa.0.2 = phi i64 [ %a.coerce.b.coerce.i, %ossl_quic_enc_level_to_pn_space.exit ], [ %deadline.sroa.0.133, %for.body ]
-  %inc = add nuw nsw i32 %i.032, 1
+for.inc:                                          ; preds = %for.body, %if.then14
+  %deadline.sroa.0.2 = phi i64 [ %a.coerce.b.coerce.i, %if.then14 ], [ %deadline.sroa.0.134, %for.body ]
+  %inc = add nuw nsw i32 %i.033, 1
   %exitcond.not = icmp eq i32 %inc, 4
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %for.inc
   %ping_deadline = getelementptr inbounds i8, ptr %ch, i64 1576
-  %5 = load i64, ptr %ping_deadline, align 8
-  %cmp5.i.not.i.not = icmp eq i64 %5, -1
-  %a.coerce.b.coerce.i25 = tail call i64 @llvm.umin.i64(i64 %deadline.sroa.0.2, i64 %5)
+  %4 = load i64, ptr %ping_deadline, align 8
+  %cmp5.i.not.i.not = icmp eq i64 %4, -1
+  %a.coerce.b.coerce.i25 = tail call i64 @llvm.umin.i64(i64 %deadline.sroa.0.2, i64 %4)
   %deadline.sroa.0.3 = select i1 %cmp5.i.not.i.not, i64 %deadline.sroa.0.2, i64 %a.coerce.b.coerce.i25
   %txp = getelementptr inbounds i8, ptr %ch, i64 256
-  %6 = load ptr, ptr %txp, align 8
-  %call38 = tail call i64 @ossl_quic_tx_packetiser_get_deadline(ptr noundef %6) #14
+  %5 = load ptr, ptr %txp, align 8
+  %call38 = tail call i64 @ossl_quic_tx_packetiser_get_deadline(ptr noundef %5) #14
   %a.coerce.b.coerce.i26 = tail call i64 @llvm.umin.i64(i64 %deadline.sroa.0.3, i64 %call38)
   %ch.val = load i64, ptr %state.i, align 8
   %bf.cast1.i.i = and i64 %ch.val, 6
@@ -5691,30 +5683,30 @@ for.end:                                          ; preds = %for.inc
 
 if.then46:                                        ; preds = %for.end
   %terminate_deadline = getelementptr inbounds i8, ptr %ch, i64 1560
-  %7 = load i64, ptr %terminate_deadline, align 8
-  %a.coerce.b.coerce.i27 = tail call i64 @llvm.umin.i64(i64 %a.coerce.b.coerce.i26, i64 %7)
+  %6 = load i64, ptr %terminate_deadline, align 8
+  %a.coerce.b.coerce.i27 = tail call i64 @llvm.umin.i64(i64 %a.coerce.b.coerce.i26, i64 %6)
   br label %if.end63
 
 if.else:                                          ; preds = %for.end
   %idle_deadline = getelementptr inbounds i8, ptr %ch, i64 1568
-  %8 = load i64, ptr %idle_deadline, align 8
-  %cmp5.i.not.i28.not = icmp eq i64 %8, -1
+  %7 = load i64, ptr %idle_deadline, align 8
+  %cmp5.i.not.i28.not = icmp eq i64 %7, -1
   br i1 %cmp5.i.not.i28.not, label %if.end63, label %if.then55
 
 if.then55:                                        ; preds = %if.else
-  %a.coerce.b.coerce.i30 = tail call i64 @llvm.umin.i64(i64 %a.coerce.b.coerce.i26, i64 %8)
+  %a.coerce.b.coerce.i30 = tail call i64 @llvm.umin.i64(i64 %a.coerce.b.coerce.i26, i64 %7)
   br label %if.end63
 
 if.end63:                                         ; preds = %if.else, %if.then55, %if.then46
   %deadline.sroa.0.4 = phi i64 [ %a.coerce.b.coerce.i27, %if.then46 ], [ %a.coerce.b.coerce.i26, %if.else ], [ %a.coerce.b.coerce.i30, %if.then55 ]
-  %9 = and i64 %ch.val, 4294967296
-  %tobool64.not = icmp eq i64 %9, 0
+  %8 = and i64 %ch.val, 4294967296
+  %tobool64.not = icmp eq i64 %8, 0
   br i1 %tobool64.not, label %return, label %if.then65
 
 if.then65:                                        ; preds = %if.end63
   %rxku_update_end_deadline = getelementptr inbounds i8, ptr %ch, i64 1592
-  %10 = load i64, ptr %rxku_update_end_deadline, align 8
-  %a.coerce.b.coerce.i31 = tail call i64 @llvm.umin.i64(i64 %deadline.sroa.0.4, i64 %10)
+  %9 = load i64, ptr %rxku_update_end_deadline, align 8
+  %a.coerce.b.coerce.i31 = tail call i64 @llvm.umin.i64(i64 %deadline.sroa.0.4, i64 %9)
   br label %return
 
 return:                                           ; preds = %entry, %if.end63, %if.then65

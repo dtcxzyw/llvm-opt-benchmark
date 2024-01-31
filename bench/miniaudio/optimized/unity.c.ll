@@ -112390,8 +112390,8 @@ ma_device_get_log.exit353:                        ; preds = %ma_device_get_conte
   %call150 = call i32 @ma_log_post(ptr noundef %retval.0.i3.i352, i32 noundef 1, ptr noundef nonnull @.str.277), !range !44
   %cmp.i354 = icmp sge i32 %call145, 0
   %94 = icmp ult i32 %call145, 6
-  %or.cond714 = and i1 %cmp.i354, %94
-  br i1 %or.cond714, label %switch.lookup673, label %on_error1
+  %or.cond715 = and i1 %cmp.i354, %94
+  br i1 %or.cond715, label %switch.lookup674, label %on_error1
 
 if.end152:                                        ; preds = %if.end131
   %95 = load ptr, ptr %0, align 8
@@ -112424,16 +112424,16 @@ ma_device_get_log.exit366:                        ; preds = %ma_device_get_conte
   %retval.0.i3.i365 = phi ptr [ %101, %if.end.i2.i363 ], [ null, %ma_device_get_context.exit.i361 ]
   %102 = load i32, ptr %ss, align 4
   %103 = icmp ult i32 %102, 10
-  br i1 %103, label %switch.lookup676, label %ma_get_format_name.exit
+  br i1 %103, label %switch.lookup677, label %ma_get_format_name.exit
 
-switch.lookup676:                                 ; preds = %ma_device_get_log.exit366
+switch.lookup677:                                 ; preds = %ma_device_get_log.exit366
   %104 = zext nneg i32 %102 to i64
-  %switch.gep677 = getelementptr inbounds [10 x ptr], ptr @switch.table.ma_device_init__pulse.59, i64 0, i64 %104
-  %switch.load678 = load ptr, ptr %switch.gep677, align 8
+  %switch.gep678 = getelementptr inbounds [10 x ptr], ptr @switch.table.ma_device_init__pulse.59, i64 0, i64 %104
+  %switch.load679 = load ptr, ptr %switch.gep678, align 8
   br label %ma_get_format_name.exit
 
-ma_get_format_name.exit:                          ; preds = %ma_device_get_log.exit366, %switch.lookup676
-  %retval.0.i374 = phi ptr [ %switch.load678, %switch.lookup676 ], [ @.str.9, %ma_device_get_log.exit366 ]
+ma_get_format_name.exit:                          ; preds = %ma_device_get_log.exit366, %switch.lookup677
+  %retval.0.i374 = phi ptr [ %switch.load679, %switch.lookup677 ], [ @.str.9, %ma_device_get_log.exit366 ]
   %105 = load i8, ptr %channels74, align 4
   %conv172 = zext i8 %105 to i32
   %106 = load i32, ptr %rate96, align 4
@@ -112458,9 +112458,9 @@ ma_device_get_log.exit385:                        ; preds = %ma_device_get_conte
 if.end178:                                        ; preds = %ma_device_get_log.exit385, %ma_get_format_name.exit
   %109 = load i32, ptr %ss, align 4
   %110 = icmp ult i32 %109, 10
-  br i1 %110, label %switch.hole_check680, label %ma_format_from_pulse.exit392
+  br i1 %110, label %switch.hole_check681, label %ma_format_from_pulse.exit392
 
-ma_format_from_pulse.exit392:                     ; preds = %switch.hole_check680, %if.end178
+ma_format_from_pulse.exit392:                     ; preds = %switch.hole_check681, %if.end178
   %format181 = getelementptr inbounds i8, ptr %pDescriptorCapture, i64 12
   store i32 0, ptr %format181, align 4
   %111 = load i8, ptr %channels74, align 4
@@ -112470,19 +112470,19 @@ ma_format_from_pulse.exit392:                     ; preds = %switch.hole_check68
   store i32 %112, ptr %sampleRate77, align 4
   br label %ma_device_get_context.exit.i394
 
-switch.hole_check680:                             ; preds = %if.end178
-  %switch.maskindex682 = trunc i32 %109 to i16
-  %switch.shifted683 = lshr i16 681, %switch.maskindex682
-  %113 = and i16 %switch.shifted683, 1
-  %switch.lobit684.not = icmp eq i16 %113, 0
-  br i1 %switch.lobit684.not, label %ma_format_from_pulse.exit392, label %switch.lookup681
+switch.hole_check681:                             ; preds = %if.end178
+  %switch.maskindex683 = trunc i32 %109 to i16
+  %switch.shifted684 = lshr i16 681, %switch.maskindex683
+  %113 = and i16 %switch.shifted684, 1
+  %switch.lobit685.not = icmp eq i16 %113, 0
+  br i1 %switch.lobit685.not, label %ma_format_from_pulse.exit392, label %switch.lookup682
 
-switch.lookup681:                                 ; preds = %switch.hole_check680
+switch.lookup682:                                 ; preds = %switch.hole_check681
   %114 = zext nneg i32 %109 to i64
-  %switch.gep685 = getelementptr inbounds [10 x i32], ptr @switch.table.ma_device_init__pulse.60, i64 0, i64 %114
-  %switch.load686 = load i32, ptr %switch.gep685, align 4
+  %switch.gep686 = getelementptr inbounds [10 x i32], ptr @switch.table.ma_device_init__pulse.60, i64 0, i64 %114
+  %switch.load687 = load i32, ptr %switch.gep686, align 4
   %format181613 = getelementptr inbounds i8, ptr %pDescriptorCapture, i64 12
-  store i32 %switch.load686, ptr %format181613, align 4
+  store i32 %switch.load687, ptr %format181613, align 4
   %115 = load i8, ptr %channels74, align 4
   %conv183614 = zext i8 %115 to i32
   store i32 %conv183614, ptr %channels67, align 8
@@ -112493,36 +112493,28 @@ switch.lookup681:                                 ; preds = %switch.hole_check68
   %or.cond = select i1 %cmp192, i1 true, i1 %cmp196
   br i1 %or.cond, label %ma_device_get_context.exit.i394, label %if.end205
 
-ma_device_get_context.exit.i394:                  ; preds = %switch.lookup681, %ma_format_from_pulse.exit392
-  %117 = phi i32 [ %116, %switch.lookup681 ], [ %112, %ma_format_from_pulse.exit392 ]
-  %conv183620 = phi i32 [ %conv183614, %switch.lookup681 ], [ %conv183, %ma_format_from_pulse.exit392 ]
-  %retval.0.i387617 = phi i32 [ %switch.load686, %switch.lookup681 ], [ 0, %ma_format_from_pulse.exit392 ]
+ma_device_get_context.exit.i394:                  ; preds = %switch.lookup682, %ma_format_from_pulse.exit392
+  %117 = phi i32 [ %116, %switch.lookup682 ], [ %112, %ma_format_from_pulse.exit392 ]
+  %conv183620 = phi i32 [ %conv183614, %switch.lookup682 ], [ %conv183, %ma_format_from_pulse.exit392 ]
+  %retval.0.i387617 = phi i32 [ %switch.load687, %switch.lookup682 ], [ 0, %ma_format_from_pulse.exit392 ]
   %118 = load ptr, ptr %pDevice, align 8
   %cmp.i1.i395 = icmp eq ptr %118, null
-  br i1 %cmp.i1.i395, label %ma_device_get_log.exit399, label %if.end.i2.i396
+  br i1 %cmp.i1.i395, label %switch.lookup688, label %if.end.i2.i396
 
 if.end.i2.i396:                                   ; preds = %ma_device_get_context.exit.i394
   %pLog.i.i397 = getelementptr inbounds i8, ptr %118, i64 112
   %119 = load ptr, ptr %pLog.i.i397, align 8
-  br label %ma_device_get_log.exit399
+  br label %switch.lookup688
 
-ma_device_get_log.exit399:                        ; preds = %ma_device_get_context.exit.i394, %if.end.i2.i396
+switch.lookup688:                                 ; preds = %if.end.i2.i396, %ma_device_get_context.exit.i394
   %retval.0.i3.i398 = phi ptr [ %119, %if.end.i2.i396 ], [ null, %ma_device_get_context.exit.i394 ]
-  %120 = icmp ult i32 %retval.0.i387617, 6
-  br i1 %120, label %switch.lookup687, label %ma_get_format_name.exit407
-
-switch.lookup687:                                 ; preds = %ma_device_get_log.exit399
-  %121 = zext nneg i32 %retval.0.i387617 to i64
-  %switch.gep688 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.61, i64 0, i64 %121
-  %switch.load689 = load ptr, ptr %switch.gep688, align 8
-  br label %ma_get_format_name.exit407
-
-ma_get_format_name.exit407:                       ; preds = %ma_device_get_log.exit399, %switch.lookup687
-  %retval.0.i401 = phi ptr [ %switch.load689, %switch.lookup687 ], [ @.str.168, %ma_device_get_log.exit399 ]
-  %call204 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i398, i32 noundef 1, ptr noundef nonnull @.str.280, ptr noundef nonnull %retval.0.i401, i32 noundef %conv183620, i32 noundef %117), !range !17
+  %120 = sext i32 %retval.0.i387617 to i64
+  %switch.gep689 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.61, i64 0, i64 %120
+  %switch.load690 = load ptr, ptr %switch.gep689, align 8
+  %call204 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i398, i32 noundef 1, ptr noundef nonnull @.str.280, ptr noundef nonnull %switch.load690, i32 noundef %conv183620, i32 noundef %117), !range !17
   br label %on_error4
 
-if.end205:                                        ; preds = %switch.lookup681
+if.end205:                                        ; preds = %switch.lookup682
   %cmp207 = icmp ugt i8 %115, 2
   %channelMap = getelementptr inbounds i8, ptr %pDescriptorCapture, i64 24
   br i1 %cmp207, label %for.cond.preheader, label %if.else216
@@ -112535,8 +112527,8 @@ for.cond.preheader:                               ; preds = %if.end205
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr inbounds [32 x i32], ptr %map, i64 0, i64 %indvars.iv
-  %122 = load i32, ptr %arrayidx, align 4
-  %call213 = call fastcc zeroext i8 @ma_channel_position_from_pulse(i32 noundef %122), !range !909
+  %121 = load i32, ptr %arrayidx, align 4
+  %call213 = call fastcc zeroext i8 @ma_channel_position_from_pulse(i32 noundef %121), !range !909
   %arrayidx215 = getelementptr inbounds [254 x i8], ptr %channelMap, i64 0, i64 %indvars.iv
   store i8 %call213, ptr %arrayidx215, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -112558,11 +112550,11 @@ if.then227:                                       ; preds = %if.else216
   br label %if.end235
 
 if.end235:                                        ; preds = %for.body, %if.then220, %if.then227
-  %123 = load ptr, ptr %pDevice, align 8
-  %pa_stream_get_buffer_attr = getelementptr inbounds i8, ptr %123, i64 768
-  %124 = load ptr, ptr %pa_stream_get_buffer_attr, align 8
-  %125 = load ptr, ptr %pStreamCapture, align 8
-  %call238 = call ptr %124(ptr noundef %125) #65
+  %122 = load ptr, ptr %pDevice, align 8
+  %pa_stream_get_buffer_attr = getelementptr inbounds i8, ptr %122, i64 768
+  %123 = load ptr, ptr %pa_stream_get_buffer_attr, align 8
+  %124 = load ptr, ptr %pStreamCapture, align 8
+  %call238 = call ptr %123(ptr noundef %124) #65
   %cmp239.not = icmp eq ptr %call238, null
   br i1 %cmp239.not, label %if.end242, label %if.then241
 
@@ -112571,128 +112563,128 @@ if.then241:                                       ; preds = %if.end235
   br label %if.end242
 
 if.end242:                                        ; preds = %if.then241, %if.end235
-  %126 = load i32, ptr %tmp.sroa.5.0.attr.sroa_idx, align 4
-  %cmp244.not = icmp eq i32 %126, 0
-  %.pre666 = load i32, ptr %attr, align 4
+  %125 = load i32, ptr %tmp.sroa.5.0.attr.sroa_idx, align 4
+  %cmp244.not = icmp eq i32 %125, 0
+  %.pre667 = load i32, ptr %attr, align 4
   br i1 %cmp244.not, label %ma_device_get_context.exit.i410, label %if.then246
 
 if.then246:                                       ; preds = %if.end242
-  %div = udiv i32 %.pre666, %126
+  %div = udiv i32 %.pre667, %125
   %spec.select256 = call i32 @llvm.umax.i32(i32 %div, i32 1)
   br label %ma_device_get_context.exit.i410
 
 ma_device_get_context.exit.i410:                  ; preds = %if.then246, %if.end242
   %storemerge = phi i32 [ %spec.select256, %if.then246 ], [ 1, %if.end242 ]
   store i32 %storemerge, ptr %periodCount, align 8
-  %127 = load i32, ptr %format181613, align 4
-  %128 = load i32, ptr %channels67, align 8
-  %idxprom.i = zext i32 %127 to i64
+  %126 = load i32, ptr %format181613, align 4
+  %127 = load i32, ptr %channels67, align 8
+  %idxprom.i = zext i32 %126 to i64
   %arrayidx.i408 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %idxprom.i
-  %129 = load i32, ptr %arrayidx.i408, align 4
-  %mul.i624 = mul i32 %129, %128
-  %div262 = udiv i32 %.pre666, %mul.i624
+  %128 = load i32, ptr %arrayidx.i408, align 4
+  %mul.i624 = mul i32 %128, %127
+  %div262 = udiv i32 %.pre667, %mul.i624
   %div264 = udiv i32 %div262, %storemerge
   store i32 %div264, ptr %periodSizeInFrames.i, align 8
-  %130 = load ptr, ptr %pDevice, align 8
-  %cmp.i1.i411 = icmp eq ptr %130, null
+  %129 = load ptr, ptr %pDevice, align 8
+  %cmp.i1.i411 = icmp eq ptr %129, null
   br i1 %cmp.i1.i411, label %ma_device_get_log.exit415, label %if.end.i2.i412
 
 if.end.i2.i412:                                   ; preds = %ma_device_get_context.exit.i410
-  %pLog.i.i413 = getelementptr inbounds i8, ptr %130, i64 112
-  %131 = load ptr, ptr %pLog.i.i413, align 8
+  %pLog.i.i413 = getelementptr inbounds i8, ptr %129, i64 112
+  %130 = load ptr, ptr %pLog.i.i413, align 8
   br label %ma_device_get_log.exit415
 
 ma_device_get_log.exit415:                        ; preds = %ma_device_get_context.exit.i410, %if.end.i2.i412
-  %retval.0.i3.i414 = phi ptr [ %131, %if.end.i2.i412 ], [ null, %ma_device_get_context.exit.i410 ]
-  %132 = load i32, ptr %tmp.sroa.2.0.attr.sroa_idx, align 4
-  %133 = load i32, ptr %tmp.sroa.3.0.attr.sroa_idx, align 4
-  %134 = load i32, ptr %tmp.sroa.4.0.attr.sroa_idx, align 4
-  %call273 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i414, i32 noundef 3, ptr noundef nonnull @.str.281, i32 noundef %.pre666, i32 noundef %132, i32 noundef %133, i32 noundef %134, i32 noundef %126, i32 noundef %div264), !range !17
+  %retval.0.i3.i414 = phi ptr [ %130, %if.end.i2.i412 ], [ null, %ma_device_get_context.exit.i410 ]
+  %131 = load i32, ptr %tmp.sroa.2.0.attr.sroa_idx, align 4
+  %132 = load i32, ptr %tmp.sroa.3.0.attr.sroa_idx, align 4
+  %133 = load i32, ptr %tmp.sroa.4.0.attr.sroa_idx, align 4
+  %call273 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i414, i32 noundef 3, ptr noundef nonnull @.str.281, i32 noundef %.pre667, i32 noundef %131, i32 noundef %132, i32 noundef %133, i32 noundef %125, i32 noundef %div264), !range !17
   %.pr = load i32, ptr %pConfig, align 8
   br label %if.end274
 
 if.end274:                                        ; preds = %if.end53, %ma_device_get_log.exit415
-  %135 = phi i32 [ %24, %if.end53 ], [ %.pr, %ma_device_get_log.exit415 ]
-  switch i32 %135, label %return [
+  %134 = phi i32 [ %24, %if.end53 ], [ %.pr, %ma_device_get_log.exit415 ]
+  switch i32 %134, label %return [
     i32 1, label %if.then282
     i32 3, label %if.then282
   ]
 
 if.then282:                                       ; preds = %if.end274, %if.end274
-  %136 = load ptr, ptr %pDevice, align 8
-  %pa_context_get_sink_info_by_name.i = getelementptr inbounds i8, ptr %136, i64 648
-  %137 = load ptr, ptr %pa_context_get_sink_info_by_name.i, align 8
-  %pPulseContext.i416 = getelementptr inbounds i8, ptr %136, i64 928
-  %138 = load ptr, ptr %pPulseContext.i416, align 8
-  %call.i417 = call ptr %137(ptr noundef %138, ptr noundef %devPlayback.1, ptr noundef nonnull @ma_device_sink_info_callback, ptr noundef nonnull %sinkInfo) #65
+  %135 = load ptr, ptr %pDevice, align 8
+  %pa_context_get_sink_info_by_name.i = getelementptr inbounds i8, ptr %135, i64 648
+  %136 = load ptr, ptr %pa_context_get_sink_info_by_name.i, align 8
+  %pPulseContext.i416 = getelementptr inbounds i8, ptr %135, i64 928
+  %137 = load ptr, ptr %pPulseContext.i416, align 8
+  %call.i417 = call ptr %136(ptr noundef %137, ptr noundef %devPlayback.1, ptr noundef nonnull @ma_device_sink_info_callback, ptr noundef nonnull %sinkInfo) #65
   %cmp.i418 = icmp eq ptr %call.i417, null
   br i1 %cmp.i418, label %ma_device_get_context.exit.i434, label %if.end.i419
 
 if.end.i419:                                      ; preds = %if.then282
-  %pMainLoop.i420 = getelementptr inbounds i8, ptr %136, i64 920
-  %139 = load ptr, ptr %pMainLoop.i420, align 8
-  %pa_mainloop_iterate.i.i.i421 = getelementptr inbounds i8, ptr %136, i64 464
-  %pa_operation_get_state.i.i.i422 = getelementptr inbounds i8, ptr %136, i64 672
+  %pMainLoop.i420 = getelementptr inbounds i8, ptr %135, i64 920
+  %138 = load ptr, ptr %pMainLoop.i420, align 8
+  %pa_mainloop_iterate.i.i.i421 = getelementptr inbounds i8, ptr %135, i64 464
+  %pa_operation_get_state.i.i.i422 = getelementptr inbounds i8, ptr %135, i64 672
   br label %for.cond.i.i.i423
 
 for.cond.i.i.i423:                                ; preds = %if.end.i.i.i430, %if.end.i419
-  %140 = load ptr, ptr %pa_operation_get_state.i.i.i422, align 8
-  %call.i.i.i424 = call i32 %140(ptr noundef nonnull %call.i417) #65
+  %139 = load ptr, ptr %pa_operation_get_state.i.i.i422, align 8
+  %call.i.i.i424 = call i32 %139(ptr noundef nonnull %call.i417) #65
   %cmp.not.i.i.i425 = icmp eq i32 %call.i.i.i424, 0
   br i1 %cmp.not.i.i.i425, label %if.end.i.i.i430, label %if.end290
 
 if.end.i.i.i430:                                  ; preds = %for.cond.i.i.i423
-  %141 = load ptr, ptr %pa_mainloop_iterate.i.i.i421, align 8
-  %call1.i.i.i431 = call i32 %141(ptr noundef %139, i32 noundef 1, ptr noundef null) #65
+  %140 = load ptr, ptr %pa_mainloop_iterate.i.i.i421, align 8
+  %call1.i.i.i431 = call i32 %140(ptr noundef %138, i32 noundef 1, ptr noundef null) #65
   %cmp2.i.i.i432 = icmp slt i32 %call1.i.i.i431, 0
   br i1 %cmp2.i.i.i432, label %if.then287, label %for.cond.i.i.i423
 
 if.then287:                                       ; preds = %if.end.i.i.i430
-  %pa_operation_unref.i.i428 = getelementptr inbounds i8, ptr %136, i64 664
-  %142 = load ptr, ptr %pa_operation_unref.i.i428, align 8
-  call void %142(ptr noundef nonnull %call.i417) #65
+  %pa_operation_unref.i.i428 = getelementptr inbounds i8, ptr %135, i64 664
+  %141 = load ptr, ptr %pa_operation_unref.i.i428, align 8
+  call void %141(ptr noundef nonnull %call.i417) #65
   %cmp.i.i433 = icmp eq ptr %pDevice, null
   br i1 %cmp.i.i433, label %on_error2, label %ma_device_get_context.exit.i434
 
 ma_device_get_context.exit.i434:                  ; preds = %if.then282, %if.then287
-  %143 = load ptr, ptr %pDevice, align 8
-  %cmp.i1.i435 = icmp eq ptr %143, null
+  %142 = load ptr, ptr %pDevice, align 8
+  %cmp.i1.i435 = icmp eq ptr %142, null
   br i1 %cmp.i1.i435, label %on_error2, label %ma_device_get_log.exit439
 
 ma_device_get_log.exit439:                        ; preds = %ma_device_get_context.exit.i434
-  %pLog.i.i437 = getelementptr inbounds i8, ptr %143, i64 112
-  %144 = load ptr, ptr %pLog.i.i437, align 8
-  %cmp.i440 = icmp eq ptr %144, null
+  %pLog.i.i437 = getelementptr inbounds i8, ptr %142, i64 112
+  %143 = load ptr, ptr %pLog.i.i437, align 8
+  %cmp.i440 = icmp eq ptr %143, null
   br i1 %cmp.i440, label %on_error2, label %if.end.i441
 
 if.end.i441:                                      ; preds = %ma_device_get_log.exit439
-  %lock.i.i442 = getelementptr inbounds i8, ptr %144, i64 104
+  %lock.i.i442 = getelementptr inbounds i8, ptr %143, i64 104
   %call.i.i.i.i443 = call i32 @pthread_mutex_lock(ptr noundef nonnull %lock.i.i442) #65
-  %callbackCount.i444 = getelementptr inbounds i8, ptr %144, i64 64
-  %145 = load i32, ptr %callbackCount.i444, align 8
-  %cmp214.not.i445 = icmp eq i32 %145, 0
+  %callbackCount.i444 = getelementptr inbounds i8, ptr %143, i64 64
+  %144 = load i32, ptr %callbackCount.i444, align 8
+  %cmp214.not.i445 = icmp eq i32 %144, 0
   br i1 %cmp214.not.i445, label %for.end.i456, label %for.body.i446
 
 for.body.i446:                                    ; preds = %if.end.i441, %for.inc.i453
-  %146 = phi i32 [ %149, %for.inc.i453 ], [ %145, %if.end.i441 ]
+  %145 = phi i32 [ %148, %for.inc.i453 ], [ %144, %if.end.i441 ]
   %indvars.iv.i447 = phi i64 [ %indvars.iv.next.i454, %for.inc.i453 ], [ 0, %if.end.i441 ]
-  %arrayidx.i448 = getelementptr inbounds [4 x %struct.ma_log_callback], ptr %144, i64 0, i64 %indvars.iv.i447
-  %147 = load ptr, ptr %arrayidx.i448, align 8
-  %tobool.not.i449 = icmp eq ptr %147, null
+  %arrayidx.i448 = getelementptr inbounds [4 x %struct.ma_log_callback], ptr %143, i64 0, i64 %indvars.iv.i447
+  %146 = load ptr, ptr %arrayidx.i448, align 8
+  %tobool.not.i449 = icmp eq ptr %146, null
   br i1 %tobool.not.i449, label %for.inc.i453, label %if.then3.i450
 
 if.then3.i450:                                    ; preds = %for.body.i446
   %pUserData.i451 = getelementptr inbounds i8, ptr %arrayidx.i448, i64 8
-  %148 = load ptr, ptr %pUserData.i451, align 8
-  call void %147(ptr noundef %148, i32 noundef 1, ptr noundef nonnull @.str.282) #65
+  %147 = load ptr, ptr %pUserData.i451, align 8
+  call void %146(ptr noundef %147, i32 noundef 1, ptr noundef nonnull @.str.282) #65
   %.pre.i452 = load i32, ptr %callbackCount.i444, align 8
   br label %for.inc.i453
 
 for.inc.i453:                                     ; preds = %if.then3.i450, %for.body.i446
-  %149 = phi i32 [ %146, %for.body.i446 ], [ %.pre.i452, %if.then3.i450 ]
+  %148 = phi i32 [ %145, %for.body.i446 ], [ %.pre.i452, %if.then3.i450 ]
   %indvars.iv.next.i454 = add nuw nsw i64 %indvars.iv.i447, 1
-  %150 = zext i32 %149 to i64
-  %cmp2.i455 = icmp ult i64 %indvars.iv.next.i454, %150
+  %149 = zext i32 %148 to i64
+  %cmp2.i455 = icmp ult i64 %indvars.iv.next.i454, %149
   br i1 %cmp2.i455, label %for.body.i446, label %for.end.i456, !llvm.loop !16
 
 for.end.i456:                                     ; preds = %for.inc.i453, %if.end.i441
@@ -112700,375 +112692,367 @@ for.end.i456:                                     ; preds = %for.inc.i453, %if.e
   br label %on_error2
 
 if.end290:                                        ; preds = %for.cond.i.i.i423
-  %pa_operation_unref.i.i428626 = getelementptr inbounds i8, ptr %136, i64 664
-  %151 = load ptr, ptr %pa_operation_unref.i.i428626, align 8
-  call void %151(ptr noundef nonnull %call.i417) #65
+  %pa_operation_unref.i.i428626 = getelementptr inbounds i8, ptr %135, i64 664
+  %150 = load ptr, ptr %pa_operation_unref.i.i428626, align 8
+  call void %150(ptr noundef nonnull %call.i417) #65
   %sample_spec291 = getelementptr inbounds i8, ptr %sinkInfo, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %ss, ptr noundef nonnull align 8 dereferenceable(12) %sample_spec291, i64 12, i1 false)
   %channel_map292 = getelementptr inbounds i8, ptr %sinkInfo, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %cmap, ptr noundef nonnull align 4 dereferenceable(132) %channel_map292, i64 132, i1 false)
   %channels293 = getelementptr inbounds i8, ptr %pDescriptorPlayback, i64 16
-  %152 = load i32, ptr %channels293, align 8
-  %cmp294.not = icmp eq i32 %152, 0
+  %151 = load i32, ptr %channels293, align 8
+  %cmp294.not = icmp eq i32 %151, 0
   br i1 %cmp294.not, label %if.end290.if.end300_crit_edge, label %if.then296
 
 if.end290.if.end300_crit_edge:                    ; preds = %if.end290
   %channels303.phi.trans.insert = getelementptr inbounds i8, ptr %ss, i64 8
-  %.pre667 = load i8, ptr %channels303.phi.trans.insert, align 4
+  %.pre668 = load i8, ptr %channels303.phi.trans.insert, align 4
   br label %if.end300
 
 if.then296:                                       ; preds = %if.end290
-  %conv298 = trunc i32 %152 to i8
+  %conv298 = trunc i32 %151 to i8
   %channels299 = getelementptr inbounds i8, ptr %ss, i64 8
   store i8 %conv298, ptr %channels299, align 4
   br label %if.end300
 
 if.end300:                                        ; preds = %if.end290.if.end300_crit_edge, %if.then296
-  %153 = phi i8 [ %.pre667, %if.end290.if.end300_crit_edge ], [ %conv298, %if.then296 ]
-  %154 = load ptr, ptr %pDevice, align 8
-  %pa_channel_map_init_extend302 = getelementptr inbounds i8, ptr %154, i64 680
-  %155 = load ptr, ptr %pa_channel_map_init_extend302, align 8
+  %152 = phi i8 [ %.pre668, %if.end290.if.end300_crit_edge ], [ %conv298, %if.then296 ]
+  %153 = load ptr, ptr %pDevice, align 8
+  %pa_channel_map_init_extend302 = getelementptr inbounds i8, ptr %153, i64 680
+  %154 = load ptr, ptr %pa_channel_map_init_extend302, align 8
   %channels303 = getelementptr inbounds i8, ptr %ss, i64 8
-  %conv304 = zext i8 %153 to i32
-  %call305 = call ptr %155(ptr noundef nonnull %cmap, i32 noundef %conv304, i32 noundef 0) #65
+  %conv304 = zext i8 %152 to i32
+  %call305 = call ptr %154(ptr noundef nonnull %cmap, i32 noundef %conv304, i32 noundef 0) #65
   %sampleRate306 = getelementptr inbounds i8, ptr %pDescriptorPlayback, i64 20
-  %156 = load i32, ptr %sampleRate306, align 4
-  %cmp307.not = icmp eq i32 %156, 0
+  %155 = load i32, ptr %sampleRate306, align 4
+  %cmp307.not = icmp eq i32 %155, 0
   br i1 %cmp307.not, label %if.end312, label %if.then309
 
 if.then309:                                       ; preds = %if.end300
   %rate311 = getelementptr inbounds i8, ptr %ss, i64 4
-  store i32 %156, ptr %rate311, align 4
+  store i32 %155, ptr %rate311, align 4
   br label %if.end312
 
 if.end312:                                        ; preds = %if.then309, %if.end300
-  %157 = load i32, ptr %ss, align 4
-  %158 = icmp ult i32 %157, 10
-  br i1 %158, label %switch.hole_check691, label %ma_device_get_context.exit.i468
+  %156 = load i32, ptr %ss, align 4
+  %157 = icmp ult i32 %156, 10
+  br i1 %157, label %switch.hole_check692, label %ma_device_get_context.exit.i468
 
-ma_device_get_context.exit.i468:                  ; preds = %switch.hole_check691, %if.end312
+ma_device_get_context.exit.i468:                  ; preds = %switch.hole_check692, %if.end312
   store i32 5, ptr %ss, align 4
-  %159 = load ptr, ptr %pDevice, align 8
-  %cmp.i1.i469 = icmp eq ptr %159, null
+  %158 = load ptr, ptr %pDevice, align 8
+  %cmp.i1.i469 = icmp eq ptr %158, null
   br i1 %cmp.i1.i469, label %ma_device_get_log.exit473, label %if.end.i2.i470
 
 if.end.i2.i470:                                   ; preds = %ma_device_get_context.exit.i468
-  %pLog.i.i471 = getelementptr inbounds i8, ptr %159, i64 112
-  %160 = load ptr, ptr %pLog.i.i471, align 8
+  %pLog.i.i471 = getelementptr inbounds i8, ptr %158, i64 112
+  %159 = load ptr, ptr %pLog.i.i471, align 8
   br label %ma_device_get_log.exit473
 
 ma_device_get_log.exit473:                        ; preds = %ma_device_get_context.exit.i468, %if.end.i2.i470
-  %retval.0.i3.i472 = phi ptr [ %160, %if.end.i2.i470 ], [ null, %ma_device_get_context.exit.i468 ]
+  %retval.0.i3.i472 = phi ptr [ %159, %if.end.i2.i470 ], [ null, %ma_device_get_context.exit.i468 ]
   %call327 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i472, i32 noundef 3, ptr noundef nonnull @.str.272), !range !17
   br label %if.end328
 
-switch.hole_check691:                             ; preds = %if.end312
-  %switch.maskindex693 = trunc i32 %157 to i16
-  %switch.shifted694 = lshr i16 681, %switch.maskindex693
-  %161 = and i16 %switch.shifted694, 1
-  %switch.lobit695.not = icmp eq i16 %161, 0
-  br i1 %switch.lobit695.not, label %ma_device_get_context.exit.i468, label %if.end328
+switch.hole_check692:                             ; preds = %if.end312
+  %switch.maskindex694 = trunc i32 %156 to i16
+  %switch.shifted695 = lshr i16 681, %switch.maskindex694
+  %160 = and i16 %switch.shifted695, 1
+  %switch.lobit696.not = icmp eq i16 %160, 0
+  br i1 %switch.lobit696.not, label %ma_device_get_context.exit.i468, label %if.end328
 
-if.end328:                                        ; preds = %switch.hole_check691, %ma_device_get_log.exit473
-  %streamFlags.4 = phi i32 [ 8257, %ma_device_get_log.exit473 ], [ 8193, %switch.hole_check691 ]
+if.end328:                                        ; preds = %switch.hole_check692, %ma_device_get_log.exit473
+  %streamFlags.4 = phi i32 [ 8257, %ma_device_get_log.exit473 ], [ 8193, %switch.hole_check692 ]
   %rate329 = getelementptr inbounds i8, ptr %ss, i64 4
-  %162 = load i32, ptr %rate329, align 4
-  %cmp330 = icmp eq i32 %162, 0
+  %161 = load i32, ptr %rate329, align 4
+  %cmp330 = icmp eq i32 %161, 0
   br i1 %cmp330, label %ma_device_get_context.exit.i475, label %if.end338
 
 ma_device_get_context.exit.i475:                  ; preds = %if.end328
   store i32 48000, ptr %rate329, align 4
   %or334 = or disjoint i32 %streamFlags.4, 128
-  %163 = load ptr, ptr %pDevice, align 8
-  %cmp.i1.i476 = icmp eq ptr %163, null
+  %162 = load ptr, ptr %pDevice, align 8
+  %cmp.i1.i476 = icmp eq ptr %162, null
   br i1 %cmp.i1.i476, label %ma_device_get_log.exit480, label %if.end.i2.i477
 
 if.end.i2.i477:                                   ; preds = %ma_device_get_context.exit.i475
-  %pLog.i.i478 = getelementptr inbounds i8, ptr %163, i64 112
-  %164 = load ptr, ptr %pLog.i.i478, align 8
+  %pLog.i.i478 = getelementptr inbounds i8, ptr %162, i64 112
+  %163 = load ptr, ptr %pLog.i.i478, align 8
   br label %ma_device_get_log.exit480
 
 ma_device_get_log.exit480:                        ; preds = %ma_device_get_context.exit.i475, %if.end.i2.i477
-  %retval.0.i3.i479 = phi ptr [ %164, %if.end.i2.i477 ], [ null, %ma_device_get_context.exit.i475 ]
+  %retval.0.i3.i479 = phi ptr [ %163, %if.end.i2.i477 ], [ null, %ma_device_get_context.exit.i475 ]
   %call337 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i479, i32 noundef 3, ptr noundef nonnull @.str.273, i32 noundef 48000), !range !17
   br label %if.end338
 
 if.end338:                                        ; preds = %ma_device_get_log.exit480, %if.end328
   %streamFlags.5 = phi i32 [ %or334, %ma_device_get_log.exit480 ], [ %streamFlags.4, %if.end328 ]
-  %165 = load i8, ptr %channels303, align 4
-  %cmp341 = icmp eq i8 %165, 0
+  %164 = load i8, ptr %channels303, align 4
+  %cmp341 = icmp eq i8 %164, 0
   br i1 %cmp341, label %ma_device_get_context.exit.i482, label %ma_device_get_context.exit.i489
 
 ma_device_get_context.exit.i482:                  ; preds = %if.end338
   store i8 2, ptr %channels303, align 4
   %or345 = or i32 %streamFlags.5, 256
-  %166 = load ptr, ptr %pDevice, align 8
-  %cmp.i1.i483 = icmp eq ptr %166, null
+  %165 = load ptr, ptr %pDevice, align 8
+  %cmp.i1.i483 = icmp eq ptr %165, null
   br i1 %cmp.i1.i483, label %ma_device_get_log.exit487, label %if.end.i2.i484
 
 if.end.i2.i484:                                   ; preds = %ma_device_get_context.exit.i482
-  %pLog.i.i485 = getelementptr inbounds i8, ptr %166, i64 112
-  %167 = load ptr, ptr %pLog.i.i485, align 8
+  %pLog.i.i485 = getelementptr inbounds i8, ptr %165, i64 112
+  %166 = load ptr, ptr %pLog.i.i485, align 8
   br label %ma_device_get_log.exit487
 
 ma_device_get_log.exit487:                        ; preds = %ma_device_get_context.exit.i482, %if.end.i2.i484
-  %retval.0.i3.i486 = phi ptr [ %167, %if.end.i2.i484 ], [ null, %ma_device_get_context.exit.i482 ]
+  %retval.0.i3.i486 = phi ptr [ %166, %if.end.i2.i484 ], [ null, %ma_device_get_context.exit.i482 ]
   %call349 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i486, i32 noundef 3, ptr noundef nonnull @.str.274, i32 noundef 2), !range !17
   %ss.val270.pre = load i8, ptr %channels303, align 4
   br label %ma_device_get_context.exit.i489
 
 ma_device_get_context.exit.i489:                  ; preds = %if.end338, %ma_device_get_log.exit487
-  %ss.val270 = phi i8 [ %ss.val270.pre, %ma_device_get_log.exit487 ], [ %165, %if.end338 ]
+  %ss.val270 = phi i8 [ %ss.val270.pre, %ma_device_get_log.exit487 ], [ %164, %if.end338 ]
   %streamFlags.6 = phi i32 [ %or345, %ma_device_get_log.exit487 ], [ %streamFlags.5, %if.end338 ]
-  %168 = load i32, ptr %rate329, align 4
+  %167 = load i32, ptr %rate329, align 4
   %performanceProfile352 = getelementptr inbounds i8, ptr %pConfig, i64 20
-  %169 = load i32, ptr %performanceProfile352, align 4
-  %call353 = call fastcc i32 @ma_calculate_period_size_in_frames_from_descriptor__pulse(ptr noundef nonnull %pDescriptorPlayback, i32 noundef %168, i32 noundef %169)
+  %168 = load i32, ptr %performanceProfile352, align 4
+  %call353 = call fastcc i32 @ma_calculate_period_size_in_frames_from_descriptor__pulse(ptr noundef nonnull %pDescriptorPlayback, i32 noundef %167, i32 noundef %168)
   %periodSizeInFrames354 = getelementptr inbounds i8, ptr %pDescriptorPlayback, i64 280
   store i32 %call353, ptr %periodSizeInFrames354, align 8
   %periodCount357 = getelementptr inbounds i8, ptr %pDescriptorPlayback, i64 288
-  %170 = load i32, ptr %periodCount357, align 8
+  %169 = load i32, ptr %periodCount357, align 8
   %ss.val269 = load i32, ptr %ss, align 4
-  call fastcc void @ma_device__pa_buffer_attr_new(ptr noalias nonnull align 4 %attr, i32 noundef %call353, i32 noundef %170, i32 %ss.val269, i8 %ss.val270)
-  %171 = load ptr, ptr %pDevice, align 8
-  %cmp.i1.i490 = icmp eq ptr %171, null
+  call fastcc void @ma_device__pa_buffer_attr_new(ptr noalias nonnull align 4 %attr, i32 noundef %call353, i32 noundef %169, i32 %ss.val269, i8 %ss.val270)
+  %170 = load ptr, ptr %pDevice, align 8
+  %cmp.i1.i490 = icmp eq ptr %170, null
   br i1 %cmp.i1.i490, label %ma_device_get_log.exit494, label %if.end.i2.i491
 
 if.end.i2.i491:                                   ; preds = %ma_device_get_context.exit.i489
-  %pLog.i.i492 = getelementptr inbounds i8, ptr %171, i64 112
-  %172 = load ptr, ptr %pLog.i.i492, align 8
+  %pLog.i.i492 = getelementptr inbounds i8, ptr %170, i64 112
+  %171 = load ptr, ptr %pLog.i.i492, align 8
   br label %ma_device_get_log.exit494
 
 ma_device_get_log.exit494:                        ; preds = %ma_device_get_context.exit.i489, %if.end.i2.i491
-  %retval.0.i3.i493 = phi ptr [ %172, %if.end.i2.i491 ], [ null, %ma_device_get_context.exit.i489 ]
-  %173 = load i32, ptr %attr, align 4
+  %retval.0.i3.i493 = phi ptr [ %171, %if.end.i2.i491 ], [ null, %ma_device_get_context.exit.i489 ]
+  %172 = load i32, ptr %attr, align 4
   %tlength360 = getelementptr inbounds i8, ptr %attr, i64 4
-  %174 = load i32, ptr %tlength360, align 4
+  %173 = load i32, ptr %tlength360, align 4
   %prebuf361 = getelementptr inbounds i8, ptr %attr, i64 8
-  %175 = load i32, ptr %prebuf361, align 4
+  %174 = load i32, ptr %prebuf361, align 4
   %minreq362 = getelementptr inbounds i8, ptr %attr, i64 12
-  %176 = load i32, ptr %minreq362, align 4
+  %175 = load i32, ptr %minreq362, align 4
   %fragsize363 = getelementptr inbounds i8, ptr %attr, i64 16
-  %177 = load i32, ptr %fragsize363, align 4
-  %call365 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i493, i32 noundef 3, ptr noundef nonnull @.str.283, i32 noundef %173, i32 noundef %174, i32 noundef %175, i32 noundef %176, i32 noundef %177, i32 noundef %call353), !range !17
+  %176 = load i32, ptr %fragsize363, align 4
+  %call365 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i493, i32 noundef 3, ptr noundef nonnull @.str.283, i32 noundef %172, i32 noundef %173, i32 noundef %174, i32 noundef %175, i32 noundef %176, i32 noundef %call353), !range !17
   %pulse366 = getelementptr inbounds i8, ptr %pConfig, i64 224
-  %178 = load ptr, ptr %pulse366, align 8
-  %call367 = call fastcc ptr @ma_device__pa_stream_new__pulse(ptr noundef nonnull %pDevice, ptr noundef %178, ptr noundef nonnull %ss, ptr noundef nonnull %cmap)
+  %177 = load ptr, ptr %pulse366, align 8
+  %call367 = call fastcc ptr @ma_device__pa_stream_new__pulse(ptr noundef nonnull %pDevice, ptr noundef %177, ptr noundef nonnull %ss, ptr noundef nonnull %cmap)
   %pStreamPlayback = getelementptr inbounds i8, ptr %pDevice, i64 3440
   store ptr %call367, ptr %pStreamPlayback, align 8
   %cmp369 = icmp eq ptr %call367, null
-  %179 = load ptr, ptr %pDevice, align 8
+  %178 = load ptr, ptr %pDevice, align 8
   br i1 %cmp369, label %ma_device_get_context.exit.i496, label %if.end374
 
 ma_device_get_context.exit.i496:                  ; preds = %ma_device_get_log.exit494
-  %cmp.i1.i497 = icmp eq ptr %179, null
+  %cmp.i1.i497 = icmp eq ptr %178, null
   br i1 %cmp.i1.i497, label %ma_device_get_log.exit501, label %if.end.i2.i498
 
 if.end.i2.i498:                                   ; preds = %ma_device_get_context.exit.i496
-  %pLog.i.i499 = getelementptr inbounds i8, ptr %179, i64 112
-  %180 = load ptr, ptr %pLog.i.i499, align 8
+  %pLog.i.i499 = getelementptr inbounds i8, ptr %178, i64 112
+  %179 = load ptr, ptr %pLog.i.i499, align 8
   br label %ma_device_get_log.exit501
 
 ma_device_get_log.exit501:                        ; preds = %ma_device_get_context.exit.i496, %if.end.i2.i498
-  %retval.0.i3.i500 = phi ptr [ %180, %if.end.i2.i498 ], [ null, %ma_device_get_context.exit.i496 ]
+  %retval.0.i3.i500 = phi ptr [ %179, %if.end.i2.i498 ], [ null, %ma_device_get_context.exit.i496 ]
   %call373 = call i32 @ma_log_post(ptr noundef %retval.0.i3.i500, i32 noundef 1, ptr noundef nonnull @.str.284), !range !44
   br label %on_error2
 
 if.end374:                                        ; preds = %ma_device_get_log.exit494
-  %pa_stream_set_write_callback = getelementptr inbounds i8, ptr %179, i64 792
-  %181 = load ptr, ptr %pa_stream_set_write_callback, align 8
-  call void %181(ptr noundef nonnull %call367, ptr noundef nonnull @ma_device_on_write__pulse, ptr noundef nonnull %pDevice) #65
-  %182 = load ptr, ptr %pDevice, align 8
-  %pa_stream_set_suspended_callback378 = getelementptr inbounds i8, ptr %182, i64 808
-  %183 = load ptr, ptr %pa_stream_set_suspended_callback378, align 8
-  %184 = load ptr, ptr %pStreamPlayback, align 8
-  call void %183(ptr noundef %184, ptr noundef nonnull @ma_device_on_suspended__pulse, ptr noundef nonnull %pDevice) #65
-  %185 = load ptr, ptr %pDevice, align 8
-  %pa_stream_set_moved_callback381 = getelementptr inbounds i8, ptr %185, i64 816
-  %186 = load ptr, ptr %pa_stream_set_moved_callback381, align 8
-  %187 = load ptr, ptr %pStreamPlayback, align 8
-  call void %186(ptr noundef %187, ptr noundef nonnull @ma_device_on_rerouted__pulse, ptr noundef nonnull %pDevice) #65
+  %pa_stream_set_write_callback = getelementptr inbounds i8, ptr %178, i64 792
+  %180 = load ptr, ptr %pa_stream_set_write_callback, align 8
+  call void %180(ptr noundef nonnull %call367, ptr noundef nonnull @ma_device_on_write__pulse, ptr noundef nonnull %pDevice) #65
+  %181 = load ptr, ptr %pDevice, align 8
+  %pa_stream_set_suspended_callback378 = getelementptr inbounds i8, ptr %181, i64 808
+  %182 = load ptr, ptr %pa_stream_set_suspended_callback378, align 8
+  %183 = load ptr, ptr %pStreamPlayback, align 8
+  call void %182(ptr noundef %183, ptr noundef nonnull @ma_device_on_suspended__pulse, ptr noundef nonnull %pDevice) #65
+  %184 = load ptr, ptr %pDevice, align 8
+  %pa_stream_set_moved_callback381 = getelementptr inbounds i8, ptr %184, i64 816
+  %185 = load ptr, ptr %pa_stream_set_moved_callback381, align 8
+  %186 = load ptr, ptr %pStreamPlayback, align 8
+  call void %185(ptr noundef %186, ptr noundef nonnull @ma_device_on_rerouted__pulse, ptr noundef nonnull %pDevice) #65
   %cmp383.not = icmp eq ptr %devPlayback.1, null
   %or386 = or i32 %streamFlags.6, 512
   %spec.select257 = select i1 %cmp383.not, i32 %streamFlags.6, i32 %or386
-  %188 = load ptr, ptr %pDevice, align 8
-  %pa_stream_connect_playback = getelementptr inbounds i8, ptr %188, i64 720
-  %189 = load ptr, ptr %pa_stream_connect_playback, align 8
-  %190 = load ptr, ptr %pStreamPlayback, align 8
-  %call390 = call i32 %189(ptr noundef %190, ptr noundef %devPlayback.1, ptr noundef nonnull %attr, i32 noundef %spec.select257, ptr noundef null, ptr noundef null) #65
+  %187 = load ptr, ptr %pDevice, align 8
+  %pa_stream_connect_playback = getelementptr inbounds i8, ptr %187, i64 720
+  %188 = load ptr, ptr %pa_stream_connect_playback, align 8
+  %189 = load ptr, ptr %pStreamPlayback, align 8
+  %call390 = call i32 %188(ptr noundef %189, ptr noundef %devPlayback.1, ptr noundef nonnull %attr, i32 noundef %spec.select257, ptr noundef null, ptr noundef null) #65
   %cmp391.not = icmp eq i32 %call390, 0
-  %191 = load ptr, ptr %pDevice, align 8
+  %190 = load ptr, ptr %pDevice, align 8
   br i1 %cmp391.not, label %if.end397, label %ma_device_get_context.exit.i503
 
 ma_device_get_context.exit.i503:                  ; preds = %if.end374
-  %cmp.i1.i504 = icmp eq ptr %191, null
+  %cmp.i1.i504 = icmp eq ptr %190, null
   br i1 %cmp.i1.i504, label %ma_device_get_log.exit508, label %if.end.i2.i505
 
 if.end.i2.i505:                                   ; preds = %ma_device_get_context.exit.i503
-  %pLog.i.i506 = getelementptr inbounds i8, ptr %191, i64 112
-  %192 = load ptr, ptr %pLog.i.i506, align 8
+  %pLog.i.i506 = getelementptr inbounds i8, ptr %190, i64 112
+  %191 = load ptr, ptr %pLog.i.i506, align 8
   br label %ma_device_get_log.exit508
 
 ma_device_get_log.exit508:                        ; preds = %ma_device_get_context.exit.i503, %if.end.i2.i505
-  %retval.0.i3.i507 = phi ptr [ %192, %if.end.i2.i505 ], [ null, %ma_device_get_context.exit.i503 ]
+  %retval.0.i3.i507 = phi ptr [ %191, %if.end.i2.i505 ], [ null, %ma_device_get_context.exit.i503 ]
   %call395 = call i32 @ma_log_post(ptr noundef %retval.0.i3.i507, i32 noundef 1, ptr noundef nonnull @.str.285), !range !44
   %cmp.i509 = icmp sge i32 %call390, 0
-  %193 = icmp ult i32 %call390, 6
-  %or.cond715 = and i1 %cmp.i509, %193
-  br i1 %or.cond715, label %switch.lookup696, label %on_error3thread-pre-split
+  %192 = icmp ult i32 %call390, 6
+  %or.cond716 = and i1 %cmp.i509, %192
+  br i1 %or.cond716, label %switch.lookup697, label %on_error3thread-pre-split
 
 if.end397:                                        ; preds = %if.end374
-  %194 = load ptr, ptr %0, align 8
-  %195 = load ptr, ptr %pStreamPlayback, align 8
-  %call401 = call fastcc i32 @ma_wait_for_pa_stream_to_connect__pulse(ptr noundef %191, ptr noundef %194, ptr noundef %195), !range !908
+  %193 = load ptr, ptr %0, align 8
+  %194 = load ptr, ptr %pStreamPlayback, align 8
+  %call401 = call fastcc i32 @ma_wait_for_pa_stream_to_connect__pulse(ptr noundef %190, ptr noundef %193, ptr noundef %194), !range !908
   %cmp402.not = icmp eq i32 %call401, 0
   br i1 %cmp402.not, label %if.end405, label %on_error3thread-pre-split
 
 if.end405:                                        ; preds = %if.end397
-  %196 = load ptr, ptr %pDevice, align 8
-  %pa_stream_get_sample_spec407 = getelementptr inbounds i8, ptr %196, i64 752
-  %197 = load ptr, ptr %pa_stream_get_sample_spec407, align 8
-  %198 = load ptr, ptr %pStreamPlayback, align 8
-  %call409 = call ptr %197(ptr noundef %198) #65
+  %195 = load ptr, ptr %pDevice, align 8
+  %pa_stream_get_sample_spec407 = getelementptr inbounds i8, ptr %195, i64 752
+  %196 = load ptr, ptr %pa_stream_get_sample_spec407, align 8
+  %197 = load ptr, ptr %pStreamPlayback, align 8
+  %call409 = call ptr %196(ptr noundef %197) #65
   %cmp410.not = icmp eq ptr %call409, null
   br i1 %cmp410.not, label %ma_device_get_context.exit.i540, label %ma_device_get_context.exit.i518
 
 ma_device_get_context.exit.i518:                  ; preds = %if.end405
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %ss, ptr noundef nonnull align 4 dereferenceable(12) %call409, i64 12, i1 false)
-  %199 = load ptr, ptr %pDevice, align 8
-  %cmp.i1.i519 = icmp eq ptr %199, null
+  %198 = load ptr, ptr %pDevice, align 8
+  %cmp.i1.i519 = icmp eq ptr %198, null
   br i1 %cmp.i1.i519, label %ma_device_get_log.exit523, label %if.end.i2.i520
 
 if.end.i2.i520:                                   ; preds = %ma_device_get_context.exit.i518
-  %pLog.i.i521 = getelementptr inbounds i8, ptr %199, i64 112
-  %200 = load ptr, ptr %pLog.i.i521, align 8
+  %pLog.i.i521 = getelementptr inbounds i8, ptr %198, i64 112
+  %199 = load ptr, ptr %pLog.i.i521, align 8
   br label %ma_device_get_log.exit523
 
 ma_device_get_log.exit523:                        ; preds = %ma_device_get_context.exit.i518, %if.end.i2.i520
-  %retval.0.i3.i522 = phi ptr [ %200, %if.end.i2.i520 ], [ null, %ma_device_get_context.exit.i518 ]
-  %201 = load i32, ptr %ss, align 4
-  %202 = icmp ult i32 %201, 10
-  br i1 %202, label %switch.lookup700, label %ma_get_format_name.exit538
+  %retval.0.i3.i522 = phi ptr [ %199, %if.end.i2.i520 ], [ null, %ma_device_get_context.exit.i518 ]
+  %200 = load i32, ptr %ss, align 4
+  %201 = icmp ult i32 %200, 10
+  br i1 %201, label %switch.lookup701, label %ma_get_format_name.exit538
 
-switch.lookup700:                                 ; preds = %ma_device_get_log.exit523
-  %203 = zext nneg i32 %201 to i64
-  %switch.gep701 = getelementptr inbounds [10 x ptr], ptr @switch.table.ma_device_init__pulse.59, i64 0, i64 %203
-  %switch.load702 = load ptr, ptr %switch.gep701, align 8
+switch.lookup701:                                 ; preds = %ma_device_get_log.exit523
+  %202 = zext nneg i32 %200 to i64
+  %switch.gep702 = getelementptr inbounds [10 x ptr], ptr @switch.table.ma_device_init__pulse.59, i64 0, i64 %202
+  %switch.load703 = load ptr, ptr %switch.gep702, align 8
   br label %ma_get_format_name.exit538
 
-ma_get_format_name.exit538:                       ; preds = %ma_device_get_log.exit523, %switch.lookup700
-  %retval.0.i532 = phi ptr [ %switch.load702, %switch.lookup700 ], [ @.str.9, %ma_device_get_log.exit523 ]
-  %204 = load i8, ptr %channels303, align 4
-  %conv418 = zext i8 %204 to i32
-  %205 = load i32, ptr %rate329, align 4
-  %call420 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i522, i32 noundef 3, ptr noundef nonnull @.str.286, ptr noundef nonnull %retval.0.i532, i32 noundef %conv418, i32 noundef %205), !range !17
+ma_get_format_name.exit538:                       ; preds = %ma_device_get_log.exit523, %switch.lookup701
+  %retval.0.i532 = phi ptr [ %switch.load703, %switch.lookup701 ], [ @.str.9, %ma_device_get_log.exit523 ]
+  %203 = load i8, ptr %channels303, align 4
+  %conv418 = zext i8 %203 to i32
+  %204 = load i32, ptr %rate329, align 4
+  %call420 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i522, i32 noundef 3, ptr noundef nonnull @.str.286, ptr noundef nonnull %retval.0.i532, i32 noundef %conv418, i32 noundef %204), !range !17
   br label %if.end424
 
 ma_device_get_context.exit.i540:                  ; preds = %if.end405
-  %206 = load ptr, ptr %pDevice, align 8
-  %cmp.i1.i541 = icmp eq ptr %206, null
+  %205 = load ptr, ptr %pDevice, align 8
+  %cmp.i1.i541 = icmp eq ptr %205, null
   br i1 %cmp.i1.i541, label %ma_device_get_log.exit545, label %if.end.i2.i542
 
 if.end.i2.i542:                                   ; preds = %ma_device_get_context.exit.i540
-  %pLog.i.i543 = getelementptr inbounds i8, ptr %206, i64 112
-  %207 = load ptr, ptr %pLog.i.i543, align 8
+  %pLog.i.i543 = getelementptr inbounds i8, ptr %205, i64 112
+  %206 = load ptr, ptr %pLog.i.i543, align 8
   br label %ma_device_get_log.exit545
 
 ma_device_get_log.exit545:                        ; preds = %ma_device_get_context.exit.i540, %if.end.i2.i542
-  %retval.0.i3.i544 = phi ptr [ %207, %if.end.i2.i542 ], [ null, %ma_device_get_context.exit.i540 ]
+  %retval.0.i3.i544 = phi ptr [ %206, %if.end.i2.i542 ], [ null, %ma_device_get_context.exit.i540 ]
   %call423 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i544, i32 noundef 3, ptr noundef nonnull @.str.287), !range !17
   br label %if.end424
 
 if.end424:                                        ; preds = %ma_device_get_log.exit545, %ma_get_format_name.exit538
-  %208 = load i32, ptr %ss, align 4
-  %209 = icmp ult i32 %208, 10
-  br i1 %209, label %switch.hole_check704, label %ma_format_from_pulse.exit552
+  %207 = load i32, ptr %ss, align 4
+  %208 = icmp ult i32 %207, 10
+  br i1 %208, label %switch.hole_check705, label %ma_format_from_pulse.exit552
 
-ma_format_from_pulse.exit552:                     ; preds = %switch.hole_check704, %if.end424
+ma_format_from_pulse.exit552:                     ; preds = %switch.hole_check705, %if.end424
   %format427 = getelementptr inbounds i8, ptr %pDescriptorPlayback, i64 12
   store i32 0, ptr %format427, align 4
-  %210 = load i8, ptr %channels303, align 4
-  %conv429 = zext i8 %210 to i32
+  %209 = load i8, ptr %channels303, align 4
+  %conv429 = zext i8 %209 to i32
   store i32 %conv429, ptr %channels293, align 8
-  %211 = load i32, ptr %rate329, align 4
-  store i32 %211, ptr %sampleRate306, align 4
+  %210 = load i32, ptr %rate329, align 4
+  store i32 %210, ptr %sampleRate306, align 4
   br label %ma_device_get_context.exit.i554
 
-switch.hole_check704:                             ; preds = %if.end424
-  %switch.maskindex706 = trunc i32 %208 to i16
-  %switch.shifted707 = lshr i16 681, %switch.maskindex706
-  %212 = and i16 %switch.shifted707, 1
-  %switch.lobit708.not = icmp eq i16 %212, 0
-  br i1 %switch.lobit708.not, label %ma_format_from_pulse.exit552, label %switch.lookup705
+switch.hole_check705:                             ; preds = %if.end424
+  %switch.maskindex707 = trunc i32 %207 to i16
+  %switch.shifted708 = lshr i16 681, %switch.maskindex707
+  %211 = and i16 %switch.shifted708, 1
+  %switch.lobit709.not = icmp eq i16 %211, 0
+  br i1 %switch.lobit709.not, label %ma_format_from_pulse.exit552, label %switch.lookup706
 
-switch.lookup705:                                 ; preds = %switch.hole_check704
-  %213 = zext nneg i32 %208 to i64
-  %switch.gep709 = getelementptr inbounds [10 x i32], ptr @switch.table.ma_device_init__pulse.60, i64 0, i64 %213
-  %switch.load710 = load i32, ptr %switch.gep709, align 4
+switch.lookup706:                                 ; preds = %switch.hole_check705
+  %212 = zext nneg i32 %207 to i64
+  %switch.gep710 = getelementptr inbounds [10 x i32], ptr @switch.table.ma_device_init__pulse.60, i64 0, i64 %212
+  %switch.load711 = load i32, ptr %switch.gep710, align 4
   %format427648 = getelementptr inbounds i8, ptr %pDescriptorPlayback, i64 12
-  store i32 %switch.load710, ptr %format427648, align 4
-  %214 = load i8, ptr %channels303, align 4
-  %conv429649 = zext i8 %214 to i32
+  store i32 %switch.load711, ptr %format427648, align 4
+  %213 = load i8, ptr %channels303, align 4
+  %conv429649 = zext i8 %213 to i32
   store i32 %conv429649, ptr %channels293, align 8
-  %215 = load i32, ptr %rate329, align 4
-  store i32 %215, ptr %sampleRate306, align 4
-  %cmp438 = icmp eq i8 %214, 0
-  %cmp442 = icmp eq i32 %215, 0
+  %214 = load i32, ptr %rate329, align 4
+  store i32 %214, ptr %sampleRate306, align 4
+  %cmp438 = icmp eq i8 %213, 0
+  %cmp442 = icmp eq i32 %214, 0
   %or.cond258 = select i1 %cmp438, i1 true, i1 %cmp442
   br i1 %or.cond258, label %ma_device_get_context.exit.i554, label %if.end451
 
-ma_device_get_context.exit.i554:                  ; preds = %switch.lookup705, %ma_format_from_pulse.exit552
-  %216 = phi i32 [ %215, %switch.lookup705 ], [ %211, %ma_format_from_pulse.exit552 ]
-  %conv429655 = phi i32 [ %conv429649, %switch.lookup705 ], [ %conv429, %ma_format_from_pulse.exit552 ]
-  %retval.0.i547652 = phi i32 [ %switch.load710, %switch.lookup705 ], [ 0, %ma_format_from_pulse.exit552 ]
-  %217 = load ptr, ptr %pDevice, align 8
-  %cmp.i1.i555 = icmp eq ptr %217, null
-  br i1 %cmp.i1.i555, label %ma_device_get_log.exit559, label %if.end.i2.i556
+ma_device_get_context.exit.i554:                  ; preds = %switch.lookup706, %ma_format_from_pulse.exit552
+  %215 = phi i32 [ %214, %switch.lookup706 ], [ %210, %ma_format_from_pulse.exit552 ]
+  %conv429655 = phi i32 [ %conv429649, %switch.lookup706 ], [ %conv429, %ma_format_from_pulse.exit552 ]
+  %retval.0.i547652 = phi i32 [ %switch.load711, %switch.lookup706 ], [ 0, %ma_format_from_pulse.exit552 ]
+  %216 = load ptr, ptr %pDevice, align 8
+  %cmp.i1.i555 = icmp eq ptr %216, null
+  br i1 %cmp.i1.i555, label %switch.lookup712, label %if.end.i2.i556
 
 if.end.i2.i556:                                   ; preds = %ma_device_get_context.exit.i554
-  %pLog.i.i557 = getelementptr inbounds i8, ptr %217, i64 112
-  %218 = load ptr, ptr %pLog.i.i557, align 8
-  br label %ma_device_get_log.exit559
+  %pLog.i.i557 = getelementptr inbounds i8, ptr %216, i64 112
+  %217 = load ptr, ptr %pLog.i.i557, align 8
+  br label %switch.lookup712
 
-ma_device_get_log.exit559:                        ; preds = %ma_device_get_context.exit.i554, %if.end.i2.i556
-  %retval.0.i3.i558 = phi ptr [ %218, %if.end.i2.i556 ], [ null, %ma_device_get_context.exit.i554 ]
-  %219 = icmp ult i32 %retval.0.i547652, 6
-  br i1 %219, label %switch.lookup711, label %ma_get_format_name.exit567
-
-switch.lookup711:                                 ; preds = %ma_device_get_log.exit559
-  %220 = zext nneg i32 %retval.0.i547652 to i64
-  %switch.gep712 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.61, i64 0, i64 %220
-  %switch.load713 = load ptr, ptr %switch.gep712, align 8
-  br label %ma_get_format_name.exit567
-
-ma_get_format_name.exit567:                       ; preds = %ma_device_get_log.exit559, %switch.lookup711
-  %retval.0.i561 = phi ptr [ %switch.load713, %switch.lookup711 ], [ @.str.168, %ma_device_get_log.exit559 ]
-  %call450 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i558, i32 noundef 1, ptr noundef nonnull @.str.288, ptr noundef nonnull %retval.0.i561, i32 noundef %conv429655, i32 noundef %216), !range !17
+switch.lookup712:                                 ; preds = %if.end.i2.i556, %ma_device_get_context.exit.i554
+  %retval.0.i3.i558 = phi ptr [ %217, %if.end.i2.i556 ], [ null, %ma_device_get_context.exit.i554 ]
+  %218 = sext i32 %retval.0.i547652 to i64
+  %switch.gep713 = getelementptr inbounds [6 x ptr], ptr @switch.table.ma_device_init__pulse.61, i64 0, i64 %218
+  %switch.load714 = load ptr, ptr %switch.gep713, align 8
+  %call450 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i558, i32 noundef 1, ptr noundef nonnull @.str.288, ptr noundef nonnull %switch.load714, i32 noundef %conv429655, i32 noundef %215), !range !17
   br label %on_error4
 
-if.end451:                                        ; preds = %switch.lookup705
-  %cmp453 = icmp ugt i8 %214, 2
+if.end451:                                        ; preds = %switch.lookup706
+  %cmp453 = icmp ugt i8 %213, 2
   %channelMap465 = getelementptr inbounds i8, ptr %pDescriptorPlayback, i64 24
   br i1 %cmp453, label %for.cond456.preheader, label %if.else471
 
 for.cond456.preheader:                            ; preds = %if.end451
   %map461 = getelementptr inbounds i8, ptr %cmap, i64 4
-  %wide.trip.count664 = zext i8 %214 to i64
+  %wide.trip.count665 = zext i8 %213 to i64
   br label %for.body460
 
 for.body460:                                      ; preds = %for.cond456.preheader, %for.body460
-  %indvars.iv661 = phi i64 [ 0, %for.cond456.preheader ], [ %indvars.iv.next662, %for.body460 ]
-  %arrayidx463 = getelementptr inbounds [32 x i32], ptr %map461, i64 0, i64 %indvars.iv661
-  %221 = load i32, ptr %arrayidx463, align 4
-  %call464 = call fastcc zeroext i8 @ma_channel_position_from_pulse(i32 noundef %221), !range !909
-  %arrayidx467 = getelementptr inbounds [254 x i8], ptr %channelMap465, i64 0, i64 %indvars.iv661
+  %indvars.iv662 = phi i64 [ 0, %for.cond456.preheader ], [ %indvars.iv.next663, %for.body460 ]
+  %arrayidx463 = getelementptr inbounds [32 x i32], ptr %map461, i64 0, i64 %indvars.iv662
+  %219 = load i32, ptr %arrayidx463, align 4
+  %call464 = call fastcc zeroext i8 @ma_channel_position_from_pulse(i32 noundef %219), !range !909
+  %arrayidx467 = getelementptr inbounds [254 x i8], ptr %channelMap465, i64 0, i64 %indvars.iv662
   store i8 %call464, ptr %arrayidx467, align 1
-  %indvars.iv.next662 = add nuw nsw i64 %indvars.iv661, 1
-  %exitcond665.not = icmp eq i64 %indvars.iv.next662, %wide.trip.count664
-  br i1 %exitcond665.not, label %if.end490, label %for.body460, !llvm.loop !911
+  %indvars.iv.next663 = add nuw nsw i64 %indvars.iv662, 1
+  %exitcond666.not = icmp eq i64 %indvars.iv.next663, %wide.trip.count665
+  br i1 %exitcond666.not, label %if.end490, label %for.body460, !llvm.loop !911
 
 if.else471:                                       ; preds = %if.end451
-  %cmp473 = icmp eq i8 %214, 1
+  %cmp473 = icmp eq i8 %213, 1
   br i1 %cmp473, label %if.then475, label %if.then482
 
 if.then475:                                       ; preds = %if.else471
@@ -113082,11 +113066,11 @@ if.then482:                                       ; preds = %if.else471
   br label %if.end490
 
 if.end490:                                        ; preds = %for.body460, %if.then475, %if.then482
-  %222 = load ptr, ptr %pDevice, align 8
-  %pa_stream_get_buffer_attr492 = getelementptr inbounds i8, ptr %222, i64 768
-  %223 = load ptr, ptr %pa_stream_get_buffer_attr492, align 8
-  %224 = load ptr, ptr %pStreamPlayback, align 8
-  %call494 = call ptr %223(ptr noundef %224) #65
+  %220 = load ptr, ptr %pDevice, align 8
+  %pa_stream_get_buffer_attr492 = getelementptr inbounds i8, ptr %220, i64 768
+  %221 = load ptr, ptr %pa_stream_get_buffer_attr492, align 8
+  %222 = load ptr, ptr %pStreamPlayback, align 8
+  %call494 = call ptr %221(ptr noundef %222) #65
   %cmp495.not = icmp eq ptr %call494, null
   br i1 %cmp495.not, label %if.end498, label %if.then497
 
@@ -113095,45 +113079,45 @@ if.then497:                                       ; preds = %if.end490
   br label %if.end498
 
 if.end498:                                        ; preds = %if.then497, %if.end490
-  %225 = load i32, ptr %tlength360, align 4
-  %cmp500.not = icmp eq i32 %225, 0
-  %.pre669 = load i32, ptr %attr, align 4
+  %223 = load i32, ptr %tlength360, align 4
+  %cmp500.not = icmp eq i32 %223, 0
+  %.pre670 = load i32, ptr %attr, align 4
   br i1 %cmp500.not, label %ma_device_get_context.exit.i571, label %if.then502
 
 if.then502:                                       ; preds = %if.end498
-  %div505 = udiv i32 %.pre669, %225
+  %div505 = udiv i32 %.pre670, %223
   %spec.select259 = call i32 @llvm.umax.i32(i32 %div505, i32 1)
   br label %ma_device_get_context.exit.i571
 
 ma_device_get_context.exit.i571:                  ; preds = %if.then502, %if.end498
   %storemerge253 = phi i32 [ %spec.select259, %if.then502 ], [ 1, %if.end498 ]
   store i32 %storemerge253, ptr %periodCount357, align 8
-  %226 = load i32, ptr %format427648, align 4
-  %227 = load i32, ptr %channels293, align 8
-  %idxprom.i568 = zext i32 %226 to i64
+  %224 = load i32, ptr %format427648, align 4
+  %225 = load i32, ptr %channels293, align 8
+  %idxprom.i568 = zext i32 %224 to i64
   %arrayidx.i569 = getelementptr inbounds [6 x i32], ptr @__const.ma_get_bytes_per_sample.sizes, i64 0, i64 %idxprom.i568
-  %228 = load i32, ptr %arrayidx.i569, align 4
-  %mul.i = mul i32 %228, %227
-  %div523 = udiv i32 %.pre669, %mul.i
+  %226 = load i32, ptr %arrayidx.i569, align 4
+  %mul.i = mul i32 %226, %225
+  %div523 = udiv i32 %.pre670, %mul.i
   %div525 = udiv i32 %div523, %storemerge253
   store i32 %div525, ptr %periodSizeInFrames354, align 8
-  %229 = load ptr, ptr %pDevice, align 8
-  %cmp.i1.i572 = icmp eq ptr %229, null
+  %227 = load ptr, ptr %pDevice, align 8
+  %cmp.i1.i572 = icmp eq ptr %227, null
   br i1 %cmp.i1.i572, label %if.end535, label %if.end.i2.i573
 
 if.end.i2.i573:                                   ; preds = %ma_device_get_context.exit.i571
-  %pLog.i.i574 = getelementptr inbounds i8, ptr %229, i64 112
-  %230 = load ptr, ptr %pLog.i.i574, align 8
+  %pLog.i.i574 = getelementptr inbounds i8, ptr %227, i64 112
+  %228 = load ptr, ptr %pLog.i.i574, align 8
   br label %if.end535
 
 if.end535:                                        ; preds = %if.end.i2.i573, %ma_device_get_context.exit.i571
-  %retval.0.i3.i575 = phi ptr [ %230, %if.end.i2.i573 ], [ null, %ma_device_get_context.exit.i571 ]
-  %231 = load i32, ptr %prebuf361, align 4
-  %232 = load i32, ptr %minreq362, align 4
-  %233 = load i32, ptr %fragsize363, align 4
-  %call534 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i575, i32 noundef 3, ptr noundef nonnull @.str.289, i32 noundef %.pre669, i32 noundef %225, i32 noundef %231, i32 noundef %232, i32 noundef %233, i32 noundef %div525), !range !17
-  %.pre670 = load i32, ptr %pConfig, align 8
-  %cmp537 = icmp eq i32 %.pre670, 3
+  %retval.0.i3.i575 = phi ptr [ %228, %if.end.i2.i573 ], [ null, %ma_device_get_context.exit.i571 ]
+  %229 = load i32, ptr %prebuf361, align 4
+  %230 = load i32, ptr %minreq362, align 4
+  %231 = load i32, ptr %fragsize363, align 4
+  %call534 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i575, i32 noundef 3, ptr noundef nonnull @.str.289, i32 noundef %.pre670, i32 noundef %223, i32 noundef %229, i32 noundef %230, i32 noundef %231, i32 noundef %div525), !range !17
+  %.pre671 = load i32, ptr %pConfig, align 8
+  %cmp537 = icmp eq i32 %.pre671, 3
   br i1 %cmp537, label %if.then539, label %return
 
 if.then539:                                       ; preds = %if.end535
@@ -113142,133 +113126,133 @@ if.then539:                                       ; preds = %if.end535
 
 cond.false543:                                    ; preds = %if.then539
   %format544 = getelementptr inbounds i8, ptr %pDescriptorCapture, i64 12
-  %234 = load i32, ptr %format544, align 4
+  %232 = load i32, ptr %format544, align 4
   br label %cond.end545
 
 cond.end545:                                      ; preds = %if.then539, %cond.false543
-  %cond546 = phi i32 [ %234, %cond.false543 ], [ %format.1, %if.then539 ]
+  %cond546 = phi i32 [ %232, %cond.false543 ], [ %format.1, %if.then539 ]
   %cmp547.not = icmp eq i32 %channels.1, 0
   br i1 %cmp547.not, label %cond.false550, label %cond.end552
 
 cond.false550:                                    ; preds = %cond.end545
   %channels551 = getelementptr inbounds i8, ptr %pDescriptorCapture, i64 16
-  %235 = load i32, ptr %channels551, align 8
+  %233 = load i32, ptr %channels551, align 8
   br label %cond.end552
 
 cond.end552:                                      ; preds = %cond.end545, %cond.false550
-  %cond553 = phi i32 [ %235, %cond.false550 ], [ %channels.1, %cond.end545 ]
+  %cond553 = phi i32 [ %233, %cond.false550 ], [ %channels.1, %cond.end545 ]
   %cmp554.not = icmp eq i32 %sampleRate.1, 0
   %sampleRate558 = getelementptr inbounds i8, ptr %pDescriptorCapture, i64 20
-  %236 = load i32, ptr %sampleRate558, align 4
-  %.sampleRate.1 = select i1 %cmp554.not, i32 %236, i32 %sampleRate.1
+  %234 = load i32, ptr %sampleRate558, align 4
+  %.sampleRate.1 = select i1 %cmp554.not, i32 %234, i32 %sampleRate.1
   %periodSizeInFrames562 = getelementptr inbounds i8, ptr %pDescriptorCapture, i64 280
-  %237 = load i32, ptr %periodSizeInFrames562, align 8
-  %238 = load ptr, ptr %pDevice, align 8
-  %allocationCallbacks = getelementptr inbounds i8, ptr %238, i64 288
+  %235 = load i32, ptr %periodSizeInFrames562, align 8
+  %236 = load ptr, ptr %pDevice, align 8
+  %allocationCallbacks = getelementptr inbounds i8, ptr %236, i64 288
   %duplexRB = getelementptr inbounds i8, ptr %pDevice, i64 408
-  %call564 = call i32 @ma_duplex_rb_init(i32 noundef %cond546, i32 noundef %cond553, i32 noundef %.sampleRate.1, i32 noundef %236, i32 noundef %237, ptr noundef nonnull %allocationCallbacks, ptr noundef nonnull %duplexRB)
+  %call564 = call i32 @ma_duplex_rb_init(i32 noundef %cond546, i32 noundef %cond553, i32 noundef %.sampleRate.1, i32 noundef %234, i32 noundef %235, ptr noundef nonnull %allocationCallbacks, ptr noundef nonnull %duplexRB)
   %cmp565.not = icmp eq i32 %call564, 0
   br i1 %cmp565.not, label %return, label %ma_device_get_context.exit.i578
 
 ma_device_get_context.exit.i578:                  ; preds = %cond.end552
-  %239 = load ptr, ptr %pDevice, align 8
-  %cmp.i1.i579 = icmp eq ptr %239, null
+  %237 = load ptr, ptr %pDevice, align 8
+  %cmp.i1.i579 = icmp eq ptr %237, null
   br i1 %cmp.i1.i579, label %ma_device_get_log.exit583, label %if.end.i2.i580
 
 if.end.i2.i580:                                   ; preds = %ma_device_get_context.exit.i578
-  %pLog.i.i581 = getelementptr inbounds i8, ptr %239, i64 112
-  %240 = load ptr, ptr %pLog.i.i581, align 8
+  %pLog.i.i581 = getelementptr inbounds i8, ptr %237, i64 112
+  %238 = load ptr, ptr %pLog.i.i581, align 8
   br label %ma_device_get_log.exit583
 
 ma_device_get_log.exit583:                        ; preds = %ma_device_get_context.exit.i578, %if.end.i2.i580
-  %retval.0.i3.i582 = phi ptr [ %240, %if.end.i2.i580 ], [ null, %ma_device_get_context.exit.i578 ]
+  %retval.0.i3.i582 = phi ptr [ %238, %if.end.i2.i580 ], [ null, %ma_device_get_context.exit.i578 ]
   %call569 = call ptr @ma_result_description(i32 noundef %call564)
   %call570 = call i32 (ptr, i32, ptr, ...) @ma_log_postf(ptr noundef %retval.0.i3.i582, i32 noundef 1, ptr noundef nonnull @.str.290, ptr noundef nonnull %call569), !range !17
   br label %on_error4
 
-on_error4:                                        ; preds = %ma_device_get_log.exit583, %ma_get_format_name.exit567, %ma_get_format_name.exit407
-  %result.0 = phi i32 [ -1, %ma_get_format_name.exit407 ], [ -1, %ma_get_format_name.exit567 ], [ %call564, %ma_device_get_log.exit583 ]
-  %241 = load i32, ptr %pConfig, align 8
-  switch i32 %241, label %on_error3 [
+on_error4:                                        ; preds = %ma_device_get_log.exit583, %switch.lookup712, %switch.lookup688
+  %result.0 = phi i32 [ -1, %switch.lookup688 ], [ -1, %switch.lookup712 ], [ %call564, %ma_device_get_log.exit583 ]
+  %239 = load i32, ptr %pConfig, align 8
+  switch i32 %239, label %on_error3 [
     i32 1, label %if.then580
     i32 3, label %if.then580
   ]
 
 if.then580:                                       ; preds = %on_error4, %on_error4
-  %242 = load ptr, ptr %pDevice, align 8
-  %pa_stream_disconnect = getelementptr inbounds i8, ptr %242, i64 736
-  %243 = load ptr, ptr %pa_stream_disconnect, align 8
+  %240 = load ptr, ptr %pDevice, align 8
+  %pa_stream_disconnect = getelementptr inbounds i8, ptr %240, i64 736
+  %241 = load ptr, ptr %pa_stream_disconnect, align 8
   %pStreamPlayback582 = getelementptr inbounds i8, ptr %pDevice, i64 3440
-  %244 = load ptr, ptr %pStreamPlayback582, align 8
-  %call583 = call i32 %243(ptr noundef %244) #65
+  %242 = load ptr, ptr %pStreamPlayback582, align 8
+  %call583 = call i32 %241(ptr noundef %242) #65
   br label %on_error3thread-pre-split
 
-switch.lookup696:                                 ; preds = %ma_device_get_log.exit508
-  %switch.tableidx697 = add nsw i32 %call390, -1
-  %245 = sext i32 %switch.tableidx697 to i64
-  %switch.gep698 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.58, i64 0, i64 %245
-  %switch.load699 = load i32, ptr %switch.gep698, align 4
+switch.lookup697:                                 ; preds = %ma_device_get_log.exit508
+  %switch.tableidx698 = add nsw i32 %call390, -1
+  %243 = sext i32 %switch.tableidx698 to i64
+  %switch.gep699 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.58, i64 0, i64 %243
+  %switch.load700 = load i32, ptr %switch.gep699, align 4
   br label %on_error3thread-pre-split
 
-on_error3thread-pre-split:                        ; preds = %switch.lookup696, %if.end397, %if.then580, %ma_device_get_log.exit508
-  %result.1.ph = phi i32 [ -1, %ma_device_get_log.exit508 ], [ %call401, %if.end397 ], [ %result.0, %if.then580 ], [ %switch.load699, %switch.lookup696 ]
+on_error3thread-pre-split:                        ; preds = %switch.lookup697, %if.end397, %if.then580, %ma_device_get_log.exit508
+  %result.1.ph = phi i32 [ -1, %ma_device_get_log.exit508 ], [ %call401, %if.end397 ], [ %result.0, %if.then580 ], [ %switch.load700, %switch.lookup697 ]
   %.pr656 = load i32, ptr %pConfig, align 8
   br label %on_error3
 
 on_error3:                                        ; preds = %on_error3thread-pre-split, %on_error4
-  %246 = phi i32 [ %.pr656, %on_error3thread-pre-split ], [ %241, %on_error4 ]
+  %244 = phi i32 [ %.pr656, %on_error3thread-pre-split ], [ %239, %on_error4 ]
   %result.1 = phi i32 [ %result.1.ph, %on_error3thread-pre-split ], [ %result.0, %on_error4 ]
-  switch i32 %246, label %on_error2 [
+  switch i32 %244, label %on_error2 [
     i32 1, label %if.then592
     i32 3, label %if.then592
   ]
 
 if.then592:                                       ; preds = %on_error3, %on_error3
-  %247 = load ptr, ptr %pDevice, align 8
-  %pa_stream_unref = getelementptr inbounds i8, ptr %247, i64 712
-  %248 = load ptr, ptr %pa_stream_unref, align 8
+  %245 = load ptr, ptr %pDevice, align 8
+  %pa_stream_unref = getelementptr inbounds i8, ptr %245, i64 712
+  %246 = load ptr, ptr %pa_stream_unref, align 8
   %pStreamPlayback594 = getelementptr inbounds i8, ptr %pDevice, i64 3440
-  %249 = load ptr, ptr %pStreamPlayback594, align 8
-  call void %248(ptr noundef %249) #65
+  %247 = load ptr, ptr %pStreamPlayback594, align 8
+  call void %246(ptr noundef %247) #65
   br label %on_error2
 
 on_error2:                                        ; preds = %if.then287, %ma_device_get_context.exit.i434, %for.end.i456, %ma_device_get_log.exit439, %on_error3, %if.then592, %if.end152, %ma_device_get_log.exit501
   %result.2 = phi i32 [ %call156, %if.end152 ], [ %result.1, %if.then592 ], [ -1, %ma_device_get_log.exit501 ], [ %result.1, %on_error3 ], [ -1, %ma_device_get_log.exit439 ], [ -1, %for.end.i456 ], [ -1, %if.then287 ], [ -1, %ma_device_get_context.exit.i434 ]
-  %250 = load i32, ptr %pConfig, align 8
-  %251 = and i32 %250, -2
-  %switch265 = icmp eq i32 %251, 2
+  %248 = load i32, ptr %pConfig, align 8
+  %249 = and i32 %248, -2
+  %switch265 = icmp eq i32 %249, 2
   br i1 %switch265, label %if.then603, label %on_error1
 
 if.then603:                                       ; preds = %on_error2
-  %252 = load ptr, ptr %pDevice, align 8
-  %pa_stream_disconnect605 = getelementptr inbounds i8, ptr %252, i64 736
-  %253 = load ptr, ptr %pa_stream_disconnect605, align 8
+  %250 = load ptr, ptr %pDevice, align 8
+  %pa_stream_disconnect605 = getelementptr inbounds i8, ptr %250, i64 736
+  %251 = load ptr, ptr %pa_stream_disconnect605, align 8
   %pStreamCapture606 = getelementptr inbounds i8, ptr %pDevice, i64 3448
-  %254 = load ptr, ptr %pStreamCapture606, align 8
-  %call607 = call i32 %253(ptr noundef %254) #65
+  %252 = load ptr, ptr %pStreamCapture606, align 8
+  %call607 = call i32 %251(ptr noundef %252) #65
   br label %on_error1
 
-switch.lookup673:                                 ; preds = %ma_device_get_log.exit353
+switch.lookup674:                                 ; preds = %ma_device_get_log.exit353
   %switch.tableidx = add nsw i32 %call145, -1
-  %255 = sext i32 %switch.tableidx to i64
-  %switch.gep674 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.58, i64 0, i64 %255
-  %switch.load675 = load i32, ptr %switch.gep674, align 4
+  %253 = sext i32 %switch.tableidx to i64
+  %switch.gep675 = getelementptr inbounds [5 x i32], ptr @switch.table.ma_device_init__pulse.58, i64 0, i64 %253
+  %switch.load676 = load i32, ptr %switch.gep675, align 4
   br label %on_error1
 
-on_error1:                                        ; preds = %switch.lookup673, %ma_device_get_log.exit353, %on_error2, %if.then603
-  %result.3 = phi i32 [ %result.2, %if.then603 ], [ %result.2, %on_error2 ], [ -1, %ma_device_get_log.exit353 ], [ %switch.load675, %switch.lookup673 ]
-  %256 = load i32, ptr %pConfig, align 8
-  %257 = and i32 %256, -2
-  %switch267 = icmp eq i32 %257, 2
+on_error1:                                        ; preds = %switch.lookup674, %ma_device_get_log.exit353, %on_error2, %if.then603
+  %result.3 = phi i32 [ %result.2, %if.then603 ], [ %result.2, %on_error2 ], [ -1, %ma_device_get_log.exit353 ], [ %switch.load676, %switch.lookup674 ]
+  %254 = load i32, ptr %pConfig, align 8
+  %255 = and i32 %254, -2
+  %switch267 = icmp eq i32 %255, 2
   br i1 %switch267, label %if.then616, label %return
 
 if.then616:                                       ; preds = %on_error1
-  %258 = load ptr, ptr %pDevice, align 8
-  %pa_stream_unref618 = getelementptr inbounds i8, ptr %258, i64 712
-  %259 = load ptr, ptr %pa_stream_unref618, align 8
+  %256 = load ptr, ptr %pDevice, align 8
+  %pa_stream_unref618 = getelementptr inbounds i8, ptr %256, i64 712
+  %257 = load ptr, ptr %pa_stream_unref618, align 8
   %pStreamCapture619 = getelementptr inbounds i8, ptr %pDevice, i64 3448
-  %260 = load ptr, ptr %pStreamCapture619, align 8
-  call void %259(ptr noundef %260) #65
+  %258 = load ptr, ptr %pStreamCapture619, align 8
+  call void %257(ptr noundef %258) #65
   br label %return
 
 return:                                           ; preds = %if.end274, %if.then63, %ma_device_get_context.exit.i276, %ma_device_get_context.exit.i, %for.end.i298, %ma_device_get_log.exit281, %for.end.i, %ma_device_get_log.exit, %on_error1, %ma_device_get_log.exit346, %if.then616, %if.end535, %cond.end552, %land.lhs.true, %land.lhs.true12, %entry

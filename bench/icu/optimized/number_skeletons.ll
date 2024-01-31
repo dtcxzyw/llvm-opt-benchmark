@@ -3999,9 +3999,8 @@ if.then110:                                       ; preds = %do.body108
 
 if.end111:                                        ; preds = %do.body108
   store i8 1, ptr %grouper, align 1
-  %switch.tableidx = add i32 %cond.i, -25
-  %switch.tableidx. = tail call i32 @llvm.umin.i32(i32 %switch.tableidx, i32 5)
-  %call116 = tail call { i64, i32 } @_ZN6icu_756number4impl7Grouper11forStrategyE23UNumberGroupingStrategy(i32 noundef %switch.tableidx.)
+  %switch.tableidx = add nsw i32 %cond.i, -25
+  %call116 = tail call { i64, i32 } @_ZN6icu_756number4impl7Grouper11forStrategyE23UNumberGroupingStrategy(i32 noundef %switch.tableidx)
   %call116.fca.0.extract = extractvalue { i64, i32 } %call116, 0
   %call116.fca.1.extract = extractvalue { i64, i32 } %call116, 1
   %grouper118 = getelementptr inbounds i8, ptr %macros, i64 100
@@ -4041,10 +4040,9 @@ if.then131:                                       ; preds = %do.body129
 
 if.end132:                                        ; preds = %do.body129
   store i8 1, ptr %unitWidth, align 1
-  %switch.tableidx136 = add i32 %cond.i, -31
-  %switch.tableidx136. = tail call i32 @llvm.umin.i32(i32 %switch.tableidx136, i32 7)
+  %switch.tableidx138 = add nsw i32 %cond.i, -31
   %unitWidth136 = getelementptr inbounds i8, ptr %macros, i64 152
-  store i32 %switch.tableidx136., ptr %unitWidth136, align 8
+  store i32 %switch.tableidx138, ptr %unitWidth136, align 8
   br label %return
 
 do.body138:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit
@@ -4060,10 +4058,9 @@ if.then140:                                       ; preds = %do.body138
 
 if.end141:                                        ; preds = %do.body138
   store i8 1, ptr %sign, align 1
-  %switch.tableidx137 = add i32 %cond.i, -38
-  %switch.tableidx137. = tail call i32 @llvm.umin.i32(i32 %switch.tableidx137, i32 9)
+  %switch.tableidx139 = add nsw i32 %cond.i, -38
   %sign145 = getelementptr inbounds i8, ptr %macros, i64 156
-  store i32 %switch.tableidx137., ptr %sign145, align 4
+  store i32 %switch.tableidx139, ptr %sign145, align 4
   br label %return
 
 do.body147:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit

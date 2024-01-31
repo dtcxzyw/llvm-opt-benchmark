@@ -495,11 +495,7 @@ sw.bb37.i:                                        ; preds = %if.end.i66
 sw.bb43.i:                                        ; preds = %if.end.i66, %if.end.i66, %if.end.i66, %if.end.i66, %if.end.i66, %if.end.i66, %if.end.i66, %if.end.i66
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %frame_data.i.i)
   %call.i66.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.64) #3
-  %switch.tableidx88 = add i64 %15, -8
-  %35 = icmp ult i64 %switch.tableidx88, 8
-  br i1 %35, label %switch.lookup87, label %frame_stream.exit.thread.i
-
-switch.lookup87:                                  ; preds = %sw.bb43.i
+  %switch.tableidx88 = add nsw i64 %15, -8
   %switch.gep89 = getelementptr inbounds [8 x ptr], ptr @switch.table.ossl_quic_trace.2, i64 0, i64 %switch.tableidx88
   %switch.load90 = load ptr, ptr %switch.gep89, align 8
   %call15.i.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull %switch.load90) #3
@@ -507,12 +503,12 @@ switch.lookup87:                                  ; preds = %sw.bb43.i
   %tobool.not.i.i = icmp eq i32 %call16.i.i, 0
   br i1 %tobool.not.i.i, label %frame_stream.exit.thread.i, label %if.end.i67.i
 
-if.end.i67.i:                                     ; preds = %switch.lookup87
-  %36 = load i64, ptr %frame_data.i.i, align 8
-  %call17.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.58, i64 noundef %36) #3
+if.end.i67.i:                                     ; preds = %sw.bb43.i
+  %35 = load i64, ptr %frame_data.i.i, align 8
+  %call17.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.58, i64 noundef %35) #3
   %offset.i.i = getelementptr inbounds i8, ptr %frame_data.i.i, i64 8
-  %37 = load i64, ptr %offset.i.i, align 8
-  %call18.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.61, i64 noundef %37) #3
+  %36 = load i64, ptr %offset.i.i, align 8
+  %call18.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.61, i64 noundef %36) #3
   %has_explicit_len.i.i = getelementptr inbounds i8, ptr %frame_data.i.i, i64 32
   %bf.load.i.i = load i8, ptr %has_explicit_len.i.i, align 8
   %bf.clear.i.i = and i8 %bf.load.i.i, 1
@@ -521,15 +517,15 @@ if.end.i67.i:                                     ; preds = %switch.lookup87
 
 if.then20.i.i:                                    ; preds = %if.end.i67.i
   %len.i.i = getelementptr inbounds i8, ptr %frame_data.i.i, i64 16
-  %38 = load i64, ptr %len.i.i, align 8
-  %call21.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.62, i64 noundef %38) #3
+  %37 = load i64, ptr %len.i.i, align 8
+  %call21.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.62, i64 noundef %37) #3
   br label %frame_stream.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i67.i
   %call22.i.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.72) #3
   br label %frame_stream.exit.i
 
-frame_stream.exit.thread.i:                       ; preds = %sw.bb43.i, %switch.lookup87
+frame_stream.exit.thread.i:                       ; preds = %sw.bb43.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %frame_data.i.i)
   br label %if.then70
 
@@ -551,8 +547,8 @@ sw.bb54.i:                                        ; preds = %if.end.i66
 
 sw.bb60.i:                                        ; preds = %if.end.i66, %if.end.i66
   %call61.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.36) #3
-  %39 = load i64, ptr %frame_type.i, align 8
-  %cmp62.i = icmp eq i64 %39, 18
+  %38 = load i64, ptr %frame_type.i, align 8
+  %cmp62.i = icmp eq i64 %38, 18
   %.str.37..str.38.i = select i1 %cmp62.i, ptr @.str.37, ptr @.str.38
   %call66.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull %.str.37..str.38.i) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max_streams.i.i)
@@ -566,8 +562,8 @@ frame_max_streams.exit.thread.i:                  ; preds = %sw.bb60.i
   br label %if.then70
 
 frame_max_streams.exit.i:                         ; preds = %sw.bb60.i
-  %40 = load i64, ptr %max_streams.i.i, align 8
-  %call1.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.75, i64 noundef %40) #3
+  %39 = load i64, ptr %max_streams.i.i, align 8
+  %call1.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.75, i64 noundef %39) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %max_streams.i.i)
   br label %sw.epilog.i
 
@@ -585,8 +581,8 @@ sw.bb78.i:                                        ; preds = %if.end.i66
 
 sw.bb84.i:                                        ; preds = %if.end.i66, %if.end.i66
   %call85.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.41) #3
-  %41 = load i64, ptr %frame_type.i, align 8
-  %cmp86.i = icmp eq i64 %41, 22
+  %40 = load i64, ptr %frame_type.i, align 8
+  %cmp86.i = icmp eq i64 %40, 22
   %.str.37..str.3896.i = select i1 %cmp86.i, ptr @.str.37, ptr @.str.38
   %call90.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull %.str.37..str.3896.i) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %max_data.i.i)
@@ -600,8 +596,8 @@ frame_streams_blocked.exit.thread.i:              ; preds = %sw.bb84.i
   br label %if.then70
 
 frame_streams_blocked.exit.i:                     ; preds = %sw.bb84.i
-  %42 = load i64, ptr %max_data.i.i, align 8
-  %call1.i76.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.73, i64 noundef %42) #3
+  %41 = load i64, ptr %max_data.i.i, align 8
+  %call1.i76.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.73, i64 noundef %41) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %max_data.i.i)
   br label %sw.epilog.i
 
@@ -631,8 +627,8 @@ sw.bb114.i:                                       ; preds = %if.end.i66
 
 sw.bb120.i:                                       ; preds = %if.end.i66, %if.end.i66
   %call121.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.46) #3
-  %43 = load i64, ptr %frame_type.i, align 8
-  %cmp122.i = icmp eq i64 %43, 29
+  %42 = load i64, ptr %frame_type.i, align 8
+  %cmp122.i = icmp eq i64 %42, 29
   %.str.47..str.48.i = select i1 %cmp122.i, ptr @.str.47, ptr @.str.48
   %call126.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull %.str.47..str.48.i) #3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %frame_data.i78.i)
@@ -646,24 +642,24 @@ frame_conn_closed.exit.thread.i:                  ; preds = %sw.bb120.i
 
 if.end.i81.i:                                     ; preds = %sw.bb120.i
   %error_code.i.i = getelementptr inbounds i8, ptr %frame_data.i78.i, i64 8
-  %44 = load i64, ptr %error_code.i.i, align 8
-  %call1.i82.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.81, i64 noundef %44) #3
+  %43 = load i64, ptr %error_code.i.i, align 8
+  %call1.i82.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.81, i64 noundef %43) #3
   %call2.i83.i = call i32 @BIO_puts(ptr noundef %arg, ptr noundef nonnull @.str.82) #3
   %reason.i.i = getelementptr inbounds i8, ptr %frame_data.i78.i, i64 24
-  %45 = load ptr, ptr %reason.i.i, align 8
+  %44 = load ptr, ptr %reason.i.i, align 8
   %reason_len.i.i = getelementptr inbounds i8, ptr %frame_data.i78.i, i64 32
-  %46 = load i64, ptr %reason_len.i.i, align 8
-  %cmp3.not.i.i.i = icmp eq i64 %46, 0
+  %45 = load i64, ptr %reason_len.i.i, align 8
+  %cmp3.not.i.i.i = icmp eq i64 %45, 0
   br i1 %cmp3.not.i.i.i, label %frame_conn_closed.exit.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.end.i81.i, %for.body.i.i.i
   %i.04.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.end.i81.i ]
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %45, i64 %i.04.i.i.i
-  %47 = load i8, ptr %arrayidx.i.i.i, align 1
-  %conv.i.i.i = sext i8 %47 to i32
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %44, i64 %i.04.i.i.i
+  %46 = load i8, ptr %arrayidx.i.i.i, align 1
+  %conv.i.i.i = sext i8 %46 to i32
   %call.i.i.i = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.83, i32 noundef %conv.i.i.i) #3
   %inc.i.i.i = add nuw i64 %i.04.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %46
+  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %45
   br i1 %exitcond.not.i.i.i, label %frame_conn_closed.exit.i, label %for.body.i.i.i, !llvm.loop !9
 
 frame_conn_closed.exit.i:                         ; preds = %for.body.i.i.i, %if.end.i81.i

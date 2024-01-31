@@ -164,10 +164,8 @@ if.then51:                                        ; preds = %if.end48
   br label %return
 
 if.end52:                                         ; preds = %if.end48
-  switch i32 %19, label %sw.epilog [
-    i32 2, label %sw.bb
-    i32 1, label %sw.bb58
-  ]
+  %switch = icmp eq i32 %19, 2
+  br i1 %switch, label %sw.bb, label %sw.bb58
 
 sw.bb:                                            ; preds = %if.end52
   %21 = load ptr, ptr %mcast, align 8
@@ -180,7 +178,7 @@ sw.bb58:                                          ; preds = %if.end52
   %tobool60.not = icmp eq ptr %call59, null
   br i1 %tobool60.not, label %return, label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb58, %sw.bb, %if.end52
+sw.epilog:                                        ; preds = %sw.bb58, %sw.bb
   br label %return
 
 if.end63:                                         ; preds = %if.end35

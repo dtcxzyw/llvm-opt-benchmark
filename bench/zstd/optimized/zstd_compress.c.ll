@@ -1823,11 +1823,6 @@ ZSTD_CCtx_setParameter.exit58:                    ; preds = %do.body12
   store i32 %4, ptr %hashLog.i88, align 4
   %searchLog.i91 = getelementptr inbounds i8, ptr %cctx, i64 32
   store i32 %6, ptr %searchLog.i91, align 4
-  %.off = add i32 %8, -3
-  %switch = icmp ult i32 %.off, 5
-  br i1 %switch, label %ZSTD_CCtxParams_setParameter.exit102, label %return
-
-ZSTD_CCtxParams_setParameter.exit102:             ; preds = %ZSTD_CCtx_setParameter.exit58
   %minMatch.i94 = getelementptr inbounds i8, ptr %cctx, i64 36
   store i32 %8, ptr %minMatch.i94, align 4
   %targetLength.i97 = getelementptr inbounds i8, ptr %cctx, i64 40
@@ -1836,8 +1831,8 @@ ZSTD_CCtxParams_setParameter.exit102:             ; preds = %ZSTD_CCtx_setParame
   store i32 %11, ptr %strategy.i100, align 4
   br label %return
 
-return:                                           ; preds = %ZSTD_CCtx_setParameter.exit58, %do.body12, %do.body60.i, %do.body44.i, %do.body28.i, %do.body12.i, %entry, %ZSTD_CCtxParams_setParameter.exit102, %ZSTD_checkCParams.exit
-  %retval.0 = phi i64 [ -42, %ZSTD_checkCParams.exit ], [ 0, %ZSTD_CCtxParams_setParameter.exit102 ], [ -42, %entry ], [ -42, %do.body12.i ], [ -42, %do.body28.i ], [ -42, %do.body44.i ], [ -42, %do.body60.i ], [ -60, %do.body12 ], [ -42, %ZSTD_CCtx_setParameter.exit58 ]
+return:                                           ; preds = %do.body12, %do.body60.i, %do.body44.i, %do.body28.i, %do.body12.i, %entry, %ZSTD_CCtx_setParameter.exit58, %ZSTD_checkCParams.exit
+  %retval.0 = phi i64 [ -42, %ZSTD_checkCParams.exit ], [ 0, %ZSTD_CCtx_setParameter.exit58 ], [ -42, %entry ], [ -42, %do.body12.i ], [ -42, %do.body28.i ], [ -42, %do.body44.i ], [ -42, %do.body60.i ], [ -60, %do.body12 ]
   ret i64 %retval.0
 }
 

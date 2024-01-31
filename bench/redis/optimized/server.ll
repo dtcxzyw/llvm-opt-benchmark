@@ -9962,7 +9962,7 @@ sdslen.exit:                                      ; preds = %sw.bb3.i, %sw.bb5.i
   br i1 %cmp18, label %for.body, label %for.end
 
 for.body:                                         ; preds = %sdslen.exit
-  switch i32 %and.i, label %sdslen.exit40 [
+  switch i32 %and.i, label %default.unreachable [
     i32 4, label %sw.bb13.i25
     i32 1, label %sw.bb3.i34
     i32 2, label %sw.bb5.i31
@@ -9997,8 +9997,11 @@ sw.bb13.i25:                                      ; preds = %for.body
   %21 = load i64, ptr %add.ptr14.i26, align 1
   br label %sdslen.exit40
 
-sdslen.exit40:                                    ; preds = %land.rhs, %for.body, %sw.bb.i37, %sw.bb3.i34, %sw.bb5.i31, %sw.bb9.i28, %sw.bb13.i25
-  %retval.0.i27 = phi i64 [ %21, %sw.bb13.i25 ], [ %conv12.i30, %sw.bb9.i28 ], [ %conv8.i33, %sw.bb5.i31 ], [ %conv4.i36, %sw.bb3.i34 ], [ %conv2.i39, %sw.bb.i37 ], [ 0, %for.body ], [ 0, %land.rhs ]
+default.unreachable:                              ; preds = %for.body
+  unreachable
+
+sdslen.exit40:                                    ; preds = %land.rhs, %sw.bb.i37, %sw.bb3.i34, %sw.bb5.i31, %sw.bb9.i28, %sw.bb13.i25
+  %retval.0.i27 = phi i64 [ %21, %sw.bb13.i25 ], [ %conv12.i30, %sw.bb9.i28 ], [ %conv8.i33, %sw.bb5.i31 ], [ %conv4.i36, %sw.bb3.i34 ], [ %conv2.i39, %sw.bb.i37 ], [ 0, %land.rhs ]
   %conv = trunc i64 %retval.0.i27 to i32
   %sub = sub nsw i32 128, %conv
   %22 = load ptr, ptr %argv, align 8

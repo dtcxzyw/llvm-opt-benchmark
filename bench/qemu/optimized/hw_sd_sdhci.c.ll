@@ -168,7 +168,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.137 = private unnamed_addr constant [5 x i8] c"3.3v\00", align 1
 @.str.139 = private unnamed_addr constant [5 x i8] c"3.0v\00", align 1
 @.str.141 = private unnamed_addr constant [5 x i8] c"1.8v\00", align 1
-@.str.143 = private unnamed_addr constant [29 x i8] c"Unsupported spec version: %u\00", align 1
 @.str.144 = private unnamed_addr constant [37 x i8] c"SDHCI: unknown CAPAB mask: 0x%016lx\0A\00", align 1
 @_TRACE_SDHCI_CAPAREG_DSTATE = external local_unnamed_addr global i16, align 2
 @.str.145 = private unnamed_addr constant [35 x i8] c"%d@%zu.%06zu:sdhci_capareg %s: %u\0A\00", align 1
@@ -650,43 +649,41 @@ sw.epilog.i:                                      ; preds = %sw.epilog
   store i16 %or.i, ptr %version.i, align 8
   %capareg.i.i = getelementptr inbounds i8, ptr %s, i64 3224
   %4 = load i64, ptr %capareg.i.i, align 8
-  switch i8 %2, label %sw.default.i.i [
-    i8 2, label %sw.bb128.i.i
-    i8 3, label %sw.bb26.i.i
-  ]
+  %switch11.i = icmp eq i8 %2, 2
+  %.pre12.i = load i32, ptr @trace_events_enabled_count, align 4
+  %.pre14.i = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  br i1 %switch11.i, label %sw.bb128.i.i, label %sw.bb26.i.i
 
 sw.bb26.i.i:                                      ; preds = %sw.epilog.i
   %shr.i132.i.i = lshr i64 %4, 29
   %5 = trunc i64 %shr.i132.i.i to i16
   %conv30.i.i = and i16 %5, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i134.i.i)
-  %6 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i135.i.i = icmp ne i32 %6, 0
-  %7 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i136.i.i = icmp ne i16 %7, 0
+  %tobool.i.i135.i.i = icmp ne i32 %.pre12.i, 0
+  %tobool4.i.i136.i.i = icmp ne i16 %.pre14.i, 0
   %or.cond.i.i137.i.i = select i1 %tobool.i.i135.i.i, i1 %tobool4.i.i136.i.i, i1 false
   br i1 %or.cond.i.i137.i.i, label %land.lhs.true5.i.i138.i.i, label %trace_sdhci_capareg.exit150.i.i
 
 land.lhs.true5.i.i138.i.i:                        ; preds = %sw.bb26.i.i
-  %8 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i139.i.i = and i32 %8, 32768
+  %6 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i139.i.i = and i32 %6, 32768
   %cmp.i.not.i.i140.i.i = icmp eq i32 %and.i.i.i139.i.i, 0
   br i1 %cmp.i.not.i.i140.i.i, label %trace_sdhci_capareg.exit150.i.i, label %if.then.i.i141.i.i
 
 if.then.i.i141.i.i:                               ; preds = %land.lhs.true5.i.i138.i.i
-  %9 = load i8, ptr @message_with_timestamp, align 1
-  %10 = and i8 %9, 1
-  %tobool7.not.i.i142.i.i = icmp eq i8 %10, 0
+  %7 = load i8, ptr @message_with_timestamp, align 1
+  %8 = and i8 %7, 1
+  %tobool7.not.i.i142.i.i = icmp eq i8 %8, 0
   br i1 %tobool7.not.i.i142.i.i, label %if.else.i.i148.i.i, label %if.then8.i.i143.i.i
 
 if.then8.i.i143.i.i:                              ; preds = %if.then.i.i141.i.i
   %call9.i.i144.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i134.i.i, ptr noundef null) #11
   %call10.i.i145.i.i = tail call i32 @qemu_get_thread_id() #11
-  %11 = load i64, ptr %_now.i.i134.i.i, align 8
+  %9 = load i64, ptr %_now.i.i134.i.i, align 8
   %tv_usec.i.i146.i.i = getelementptr inbounds i8, ptr %_now.i.i134.i.i, i64 8
-  %12 = load i64, ptr %tv_usec.i.i146.i.i, align 8
+  %10 = load i64, ptr %tv_usec.i.i146.i.i, align 8
   %conv11.i.i147.i.i = zext nneg i16 %conv30.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i145.i.i, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.94, i32 noundef %conv11.i.i147.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i145.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull @.str.94, i32 noundef %conv11.i.i147.i.i) #11
   br label %trace_sdhci_capareg.exit150.i.i
 
 if.else.i.i148.i.i:                               ; preds = %if.then.i.i141.i.i
@@ -696,9 +693,9 @@ if.else.i.i148.i.i:                               ; preds = %if.then.i.i141.i.i
 
 trace_sdhci_capareg.exit150.i.i:                  ; preds = %if.else.i.i148.i.i, %if.then8.i.i143.i.i, %land.lhs.true5.i.i138.i.i, %sw.bb26.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i134.i.i)
-  %13 = load i64, ptr %capareg.i.i, align 8
-  %14 = and i64 %13, 3221225472
-  %tobool.not.i.i = icmp eq i64 %14, 0
+  %11 = load i64, ptr %capareg.i.i, align 8
+  %12 = and i64 %11, 3221225472
+  %tobool.not.i.i = icmp eq i64 %12, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %trace_sdhci_capareg.exit150.i.i
@@ -707,32 +704,32 @@ if.then.i.i:                                      ; preds = %trace_sdhci_capareg
 
 if.end.i.i:                                       ; preds = %trace_sdhci_capareg.exit150.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i154.i.i)
-  %15 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i155.i.i = icmp ne i32 %15, 0
-  %16 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i156.i.i = icmp ne i16 %16, 0
+  %13 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i155.i.i = icmp ne i32 %13, 0
+  %14 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i156.i.i = icmp ne i16 %14, 0
   %or.cond.i.i157.i.i = select i1 %tobool.i.i155.i.i, i1 %tobool4.i.i156.i.i, i1 false
   br i1 %or.cond.i.i157.i.i, label %land.lhs.true5.i.i158.i.i, label %trace_sdhci_capareg.exit168.i.i
 
 land.lhs.true5.i.i158.i.i:                        ; preds = %if.end.i.i
-  %17 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i159.i.i = and i32 %17, 32768
+  %15 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i159.i.i = and i32 %15, 32768
   %cmp.i.not.i.i160.i.i = icmp eq i32 %and.i.i.i159.i.i, 0
   br i1 %cmp.i.not.i.i160.i.i, label %trace_sdhci_capareg.exit168.i.i, label %if.then.i.i161.i.i
 
 if.then.i.i161.i.i:                               ; preds = %land.lhs.true5.i.i158.i.i
-  %18 = load i8, ptr @message_with_timestamp, align 1
-  %19 = and i8 %18, 1
-  %tobool7.not.i.i162.i.i = icmp eq i8 %19, 0
+  %16 = load i8, ptr @message_with_timestamp, align 1
+  %17 = and i8 %16, 1
+  %tobool7.not.i.i162.i.i = icmp eq i8 %17, 0
   br i1 %tobool7.not.i.i162.i.i, label %if.else.i.i167.i.i, label %if.then8.i.i163.i.i
 
 if.then8.i.i163.i.i:                              ; preds = %if.then.i.i161.i.i
   %call9.i.i164.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i154.i.i, ptr noundef null) #11
   %call10.i.i165.i.i = tail call i32 @qemu_get_thread_id() #11
-  %20 = load i64, ptr %_now.i.i154.i.i, align 8
+  %18 = load i64, ptr %_now.i.i154.i.i, align 8
   %tv_usec.i.i166.i.i = getelementptr inbounds i8, ptr %_now.i.i154.i.i, i64 8
-  %21 = load i64, ptr %tv_usec.i.i166.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i165.i.i, i64 noundef %20, i64 noundef %21, ptr noundef nonnull @.str.97, i32 noundef 0) #11
+  %19 = load i64, ptr %tv_usec.i.i166.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i165.i.i, i64 noundef %18, i64 noundef %19, ptr noundef nonnull @.str.97, i32 noundef 0) #11
   br label %trace_sdhci_capareg.exit168.i.i
 
 if.else.i.i167.i.i:                               ; preds = %if.then.i.i161.i.i
@@ -741,38 +738,38 @@ if.else.i.i167.i.i:                               ; preds = %if.then.i.i161.i.i
 
 trace_sdhci_capareg.exit168.i.i:                  ; preds = %if.else.i.i167.i.i, %if.then8.i.i163.i.i, %land.lhs.true5.i.i158.i.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i154.i.i)
-  %22 = load i64, ptr %capareg.i.i, align 8
-  %shr.i170.i.i = lshr i64 %22, 18
-  %23 = trunc i64 %shr.i170.i.i to i16
-  %conv54.i.i = and i16 %23, 1
+  %20 = load i64, ptr %capareg.i.i, align 8
+  %shr.i170.i.i = lshr i64 %20, 18
+  %21 = trunc i64 %shr.i170.i.i to i16
+  %conv54.i.i = and i16 %21, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i172.i.i)
-  %24 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i173.i.i = icmp ne i32 %24, 0
-  %25 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i174.i.i = icmp ne i16 %25, 0
+  %22 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i173.i.i = icmp ne i32 %22, 0
+  %23 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i174.i.i = icmp ne i16 %23, 0
   %or.cond.i.i175.i.i = select i1 %tobool.i.i173.i.i, i1 %tobool4.i.i174.i.i, i1 false
   br i1 %or.cond.i.i175.i.i, label %land.lhs.true5.i.i176.i.i, label %trace_sdhci_capareg.exit188.i.i
 
 land.lhs.true5.i.i176.i.i:                        ; preds = %trace_sdhci_capareg.exit168.i.i
-  %26 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i177.i.i = and i32 %26, 32768
+  %24 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i177.i.i = and i32 %24, 32768
   %cmp.i.not.i.i178.i.i = icmp eq i32 %and.i.i.i177.i.i, 0
   br i1 %cmp.i.not.i.i178.i.i, label %trace_sdhci_capareg.exit188.i.i, label %if.then.i.i179.i.i
 
 if.then.i.i179.i.i:                               ; preds = %land.lhs.true5.i.i176.i.i
-  %27 = load i8, ptr @message_with_timestamp, align 1
-  %28 = and i8 %27, 1
-  %tobool7.not.i.i180.i.i = icmp eq i8 %28, 0
+  %25 = load i8, ptr @message_with_timestamp, align 1
+  %26 = and i8 %25, 1
+  %tobool7.not.i.i180.i.i = icmp eq i8 %26, 0
   br i1 %tobool7.not.i.i180.i.i, label %if.else.i.i186.i.i, label %if.then8.i.i181.i.i
 
 if.then8.i.i181.i.i:                              ; preds = %if.then.i.i179.i.i
   %call9.i.i182.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i172.i.i, ptr noundef null) #11
   %call10.i.i183.i.i = tail call i32 @qemu_get_thread_id() #11
-  %29 = load i64, ptr %_now.i.i172.i.i, align 8
+  %27 = load i64, ptr %_now.i.i172.i.i, align 8
   %tv_usec.i.i184.i.i = getelementptr inbounds i8, ptr %_now.i.i172.i.i, i64 8
-  %30 = load i64, ptr %tv_usec.i.i184.i.i, align 8
+  %28 = load i64, ptr %tv_usec.i.i184.i.i, align 8
   %conv11.i.i185.i.i = zext nneg i16 %conv54.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i183.i.i, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.99, i32 noundef %conv11.i.i185.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i183.i.i, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.99, i32 noundef %conv11.i.i185.i.i) #11
   br label %trace_sdhci_capareg.exit188.i.i
 
 if.else.i.i186.i.i:                               ; preds = %if.then.i.i179.i.i
@@ -782,38 +779,38 @@ if.else.i.i186.i.i:                               ; preds = %if.then.i.i179.i.i
 
 trace_sdhci_capareg.exit188.i.i:                  ; preds = %if.else.i.i186.i.i, %if.then8.i.i181.i.i, %land.lhs.true5.i.i176.i.i, %trace_sdhci_capareg.exit168.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i172.i.i)
-  %31 = load i64, ptr %capareg.i.i, align 8
-  %shr.i190.i.i = lshr i64 %31, 32
-  %32 = trunc i64 %shr.i190.i.i to i16
-  %conv66.i.i = and i16 %32, 7
+  %29 = load i64, ptr %capareg.i.i, align 8
+  %shr.i190.i.i = lshr i64 %29, 32
+  %30 = trunc i64 %shr.i190.i.i to i16
+  %conv66.i.i = and i16 %30, 7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i192.i.i)
-  %33 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i193.i.i = icmp ne i32 %33, 0
-  %34 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i194.i.i = icmp ne i16 %34, 0
+  %31 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i193.i.i = icmp ne i32 %31, 0
+  %32 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i194.i.i = icmp ne i16 %32, 0
   %or.cond.i.i195.i.i = select i1 %tobool.i.i193.i.i, i1 %tobool4.i.i194.i.i, i1 false
   br i1 %or.cond.i.i195.i.i, label %land.lhs.true5.i.i196.i.i, label %trace_sdhci_capareg.exit208.i.i
 
 land.lhs.true5.i.i196.i.i:                        ; preds = %trace_sdhci_capareg.exit188.i.i
-  %35 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i197.i.i = and i32 %35, 32768
+  %33 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i197.i.i = and i32 %33, 32768
   %cmp.i.not.i.i198.i.i = icmp eq i32 %and.i.i.i197.i.i, 0
   br i1 %cmp.i.not.i.i198.i.i, label %trace_sdhci_capareg.exit208.i.i, label %if.then.i.i199.i.i
 
 if.then.i.i199.i.i:                               ; preds = %land.lhs.true5.i.i196.i.i
-  %36 = load i8, ptr @message_with_timestamp, align 1
-  %37 = and i8 %36, 1
-  %tobool7.not.i.i200.i.i = icmp eq i8 %37, 0
+  %34 = load i8, ptr @message_with_timestamp, align 1
+  %35 = and i8 %34, 1
+  %tobool7.not.i.i200.i.i = icmp eq i8 %35, 0
   br i1 %tobool7.not.i.i200.i.i, label %if.else.i.i206.i.i, label %if.then8.i.i201.i.i
 
 if.then8.i.i201.i.i:                              ; preds = %if.then.i.i199.i.i
   %call9.i.i202.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i192.i.i, ptr noundef null) #11
   %call10.i.i203.i.i = tail call i32 @qemu_get_thread_id() #11
-  %38 = load i64, ptr %_now.i.i192.i.i, align 8
+  %36 = load i64, ptr %_now.i.i192.i.i, align 8
   %tv_usec.i.i204.i.i = getelementptr inbounds i8, ptr %_now.i.i192.i.i, i64 8
-  %39 = load i64, ptr %tv_usec.i.i204.i.i, align 8
+  %37 = load i64, ptr %tv_usec.i.i204.i.i, align 8
   %conv11.i.i205.i.i = zext nneg i16 %conv66.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i203.i.i, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.101, i32 noundef %conv11.i.i205.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i203.i.i, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.101, i32 noundef %conv11.i.i205.i.i) #11
   br label %trace_sdhci_capareg.exit208.i.i
 
 if.else.i.i206.i.i:                               ; preds = %if.then.i.i199.i.i
@@ -823,38 +820,38 @@ if.else.i.i206.i.i:                               ; preds = %if.then.i.i199.i.i
 
 trace_sdhci_capareg.exit208.i.i:                  ; preds = %if.else.i.i206.i.i, %if.then8.i.i201.i.i, %land.lhs.true5.i.i196.i.i, %trace_sdhci_capareg.exit188.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i192.i.i)
-  %40 = load i64, ptr %capareg.i.i, align 8
-  %shr.i210.i.i = lshr i64 %40, 36
-  %41 = trunc i64 %shr.i210.i.i to i16
-  %conv77.i.i = and i16 %41, 7
+  %38 = load i64, ptr %capareg.i.i, align 8
+  %shr.i210.i.i = lshr i64 %38, 36
+  %39 = trunc i64 %shr.i210.i.i to i16
+  %conv77.i.i = and i16 %39, 7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i212.i.i)
-  %42 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i213.i.i = icmp ne i32 %42, 0
-  %43 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i214.i.i = icmp ne i16 %43, 0
+  %40 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i213.i.i = icmp ne i32 %40, 0
+  %41 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i214.i.i = icmp ne i16 %41, 0
   %or.cond.i.i215.i.i = select i1 %tobool.i.i213.i.i, i1 %tobool4.i.i214.i.i, i1 false
   br i1 %or.cond.i.i215.i.i, label %land.lhs.true5.i.i216.i.i, label %trace_sdhci_capareg.exit228.i.i
 
 land.lhs.true5.i.i216.i.i:                        ; preds = %trace_sdhci_capareg.exit208.i.i
-  %44 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i217.i.i = and i32 %44, 32768
+  %42 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i217.i.i = and i32 %42, 32768
   %cmp.i.not.i.i218.i.i = icmp eq i32 %and.i.i.i217.i.i, 0
   br i1 %cmp.i.not.i.i218.i.i, label %trace_sdhci_capareg.exit228.i.i, label %if.then.i.i219.i.i
 
 if.then.i.i219.i.i:                               ; preds = %land.lhs.true5.i.i216.i.i
-  %45 = load i8, ptr @message_with_timestamp, align 1
-  %46 = and i8 %45, 1
-  %tobool7.not.i.i220.i.i = icmp eq i8 %46, 0
+  %43 = load i8, ptr @message_with_timestamp, align 1
+  %44 = and i8 %43, 1
+  %tobool7.not.i.i220.i.i = icmp eq i8 %44, 0
   br i1 %tobool7.not.i.i220.i.i, label %if.else.i.i226.i.i, label %if.then8.i.i221.i.i
 
 if.then8.i.i221.i.i:                              ; preds = %if.then.i.i219.i.i
   %call9.i.i222.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i212.i.i, ptr noundef null) #11
   %call10.i.i223.i.i = tail call i32 @qemu_get_thread_id() #11
-  %47 = load i64, ptr %_now.i.i212.i.i, align 8
+  %45 = load i64, ptr %_now.i.i212.i.i, align 8
   %tv_usec.i.i224.i.i = getelementptr inbounds i8, ptr %_now.i.i212.i.i, i64 8
-  %48 = load i64, ptr %tv_usec.i.i224.i.i, align 8
+  %46 = load i64, ptr %tv_usec.i.i224.i.i, align 8
   %conv11.i.i225.i.i = zext nneg i16 %conv77.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i223.i.i, i64 noundef %47, i64 noundef %48, ptr noundef nonnull @.str.103, i32 noundef %conv11.i.i225.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i223.i.i, i64 noundef %45, i64 noundef %46, ptr noundef nonnull @.str.103, i32 noundef %conv11.i.i225.i.i) #11
   br label %trace_sdhci_capareg.exit228.i.i
 
 if.else.i.i226.i.i:                               ; preds = %if.then.i.i219.i.i
@@ -864,38 +861,38 @@ if.else.i.i226.i.i:                               ; preds = %if.then.i.i219.i.i
 
 trace_sdhci_capareg.exit228.i.i:                  ; preds = %if.else.i.i226.i.i, %if.then8.i.i221.i.i, %land.lhs.true5.i.i216.i.i, %trace_sdhci_capareg.exit208.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i212.i.i)
-  %49 = load i64, ptr %capareg.i.i, align 8
-  %shr.i230.i.i = lshr i64 %49, 40
-  %50 = trunc i64 %shr.i230.i.i to i16
-  %conv88.i.i = and i16 %50, 15
+  %47 = load i64, ptr %capareg.i.i, align 8
+  %shr.i230.i.i = lshr i64 %47, 40
+  %48 = trunc i64 %shr.i230.i.i to i16
+  %conv88.i.i = and i16 %48, 15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i232.i.i)
-  %51 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i233.i.i = icmp ne i32 %51, 0
-  %52 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i234.i.i = icmp ne i16 %52, 0
+  %49 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i233.i.i = icmp ne i32 %49, 0
+  %50 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i234.i.i = icmp ne i16 %50, 0
   %or.cond.i.i235.i.i = select i1 %tobool.i.i233.i.i, i1 %tobool4.i.i234.i.i, i1 false
   br i1 %or.cond.i.i235.i.i, label %land.lhs.true5.i.i236.i.i, label %trace_sdhci_capareg.exit248.i.i
 
 land.lhs.true5.i.i236.i.i:                        ; preds = %trace_sdhci_capareg.exit228.i.i
-  %53 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i237.i.i = and i32 %53, 32768
+  %51 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i237.i.i = and i32 %51, 32768
   %cmp.i.not.i.i238.i.i = icmp eq i32 %and.i.i.i237.i.i, 0
   br i1 %cmp.i.not.i.i238.i.i, label %trace_sdhci_capareg.exit248.i.i, label %if.then.i.i239.i.i
 
 if.then.i.i239.i.i:                               ; preds = %land.lhs.true5.i.i236.i.i
-  %54 = load i8, ptr @message_with_timestamp, align 1
-  %55 = and i8 %54, 1
-  %tobool7.not.i.i240.i.i = icmp eq i8 %55, 0
+  %52 = load i8, ptr @message_with_timestamp, align 1
+  %53 = and i8 %52, 1
+  %tobool7.not.i.i240.i.i = icmp eq i8 %53, 0
   br i1 %tobool7.not.i.i240.i.i, label %if.else.i.i246.i.i, label %if.then8.i.i241.i.i
 
 if.then8.i.i241.i.i:                              ; preds = %if.then.i.i239.i.i
   %call9.i.i242.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i232.i.i, ptr noundef null) #11
   %call10.i.i243.i.i = tail call i32 @qemu_get_thread_id() #11
-  %56 = load i64, ptr %_now.i.i232.i.i, align 8
+  %54 = load i64, ptr %_now.i.i232.i.i, align 8
   %tv_usec.i.i244.i.i = getelementptr inbounds i8, ptr %_now.i.i232.i.i, i64 8
-  %57 = load i64, ptr %tv_usec.i.i244.i.i, align 8
+  %55 = load i64, ptr %tv_usec.i.i244.i.i, align 8
   %conv11.i.i245.i.i = zext nneg i16 %conv88.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i243.i.i, i64 noundef %56, i64 noundef %57, ptr noundef nonnull @.str.105, i32 noundef %conv11.i.i245.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i243.i.i, i64 noundef %54, i64 noundef %55, ptr noundef nonnull @.str.105, i32 noundef %conv11.i.i245.i.i) #11
   br label %trace_sdhci_capareg.exit248.i.i
 
 if.else.i.i246.i.i:                               ; preds = %if.then.i.i239.i.i
@@ -905,38 +902,38 @@ if.else.i.i246.i.i:                               ; preds = %if.then.i.i239.i.i
 
 trace_sdhci_capareg.exit248.i.i:                  ; preds = %if.else.i.i246.i.i, %if.then8.i.i241.i.i, %land.lhs.true5.i.i236.i.i, %trace_sdhci_capareg.exit228.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i232.i.i)
-  %58 = load i64, ptr %capareg.i.i, align 8
-  %shr.i250.i.i = lshr i64 %58, 45
-  %59 = trunc i64 %shr.i250.i.i to i16
-  %conv99.i.i = and i16 %59, 1
+  %56 = load i64, ptr %capareg.i.i, align 8
+  %shr.i250.i.i = lshr i64 %56, 45
+  %57 = trunc i64 %shr.i250.i.i to i16
+  %conv99.i.i = and i16 %57, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i252.i.i)
-  %60 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i253.i.i = icmp ne i32 %60, 0
-  %61 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i254.i.i = icmp ne i16 %61, 0
+  %58 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i253.i.i = icmp ne i32 %58, 0
+  %59 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i254.i.i = icmp ne i16 %59, 0
   %or.cond.i.i255.i.i = select i1 %tobool.i.i253.i.i, i1 %tobool4.i.i254.i.i, i1 false
   br i1 %or.cond.i.i255.i.i, label %land.lhs.true5.i.i256.i.i, label %trace_sdhci_capareg.exit268.i.i
 
 land.lhs.true5.i.i256.i.i:                        ; preds = %trace_sdhci_capareg.exit248.i.i
-  %62 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i257.i.i = and i32 %62, 32768
+  %60 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i257.i.i = and i32 %60, 32768
   %cmp.i.not.i.i258.i.i = icmp eq i32 %and.i.i.i257.i.i, 0
   br i1 %cmp.i.not.i.i258.i.i, label %trace_sdhci_capareg.exit268.i.i, label %if.then.i.i259.i.i
 
 if.then.i.i259.i.i:                               ; preds = %land.lhs.true5.i.i256.i.i
-  %63 = load i8, ptr @message_with_timestamp, align 1
-  %64 = and i8 %63, 1
-  %tobool7.not.i.i260.i.i = icmp eq i8 %64, 0
+  %61 = load i8, ptr @message_with_timestamp, align 1
+  %62 = and i8 %61, 1
+  %tobool7.not.i.i260.i.i = icmp eq i8 %62, 0
   br i1 %tobool7.not.i.i260.i.i, label %if.else.i.i266.i.i, label %if.then8.i.i261.i.i
 
 if.then8.i.i261.i.i:                              ; preds = %if.then.i.i259.i.i
   %call9.i.i262.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i252.i.i, ptr noundef null) #11
   %call10.i.i263.i.i = tail call i32 @qemu_get_thread_id() #11
-  %65 = load i64, ptr %_now.i.i252.i.i, align 8
+  %63 = load i64, ptr %_now.i.i252.i.i, align 8
   %tv_usec.i.i264.i.i = getelementptr inbounds i8, ptr %_now.i.i252.i.i, i64 8
-  %66 = load i64, ptr %tv_usec.i.i264.i.i, align 8
+  %64 = load i64, ptr %tv_usec.i.i264.i.i, align 8
   %conv11.i.i265.i.i = zext nneg i16 %conv99.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i263.i.i, i64 noundef %65, i64 noundef %66, ptr noundef nonnull @.str.107, i32 noundef %conv11.i.i265.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i263.i.i, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.107, i32 noundef %conv11.i.i265.i.i) #11
   br label %trace_sdhci_capareg.exit268.i.i
 
 if.else.i.i266.i.i:                               ; preds = %if.then.i.i259.i.i
@@ -946,38 +943,38 @@ if.else.i.i266.i.i:                               ; preds = %if.then.i.i259.i.i
 
 trace_sdhci_capareg.exit268.i.i:                  ; preds = %if.else.i.i266.i.i, %if.then8.i.i261.i.i, %land.lhs.true5.i.i256.i.i, %trace_sdhci_capareg.exit248.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i252.i.i)
-  %67 = load i64, ptr %capareg.i.i, align 8
-  %shr.i270.i.i = lshr i64 %67, 46
-  %68 = trunc i64 %shr.i270.i.i to i16
-  %conv110.i.i = and i16 %68, 3
+  %65 = load i64, ptr %capareg.i.i, align 8
+  %shr.i270.i.i = lshr i64 %65, 46
+  %66 = trunc i64 %shr.i270.i.i to i16
+  %conv110.i.i = and i16 %66, 3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i272.i.i)
-  %69 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i273.i.i = icmp ne i32 %69, 0
-  %70 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i274.i.i = icmp ne i16 %70, 0
+  %67 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i273.i.i = icmp ne i32 %67, 0
+  %68 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i274.i.i = icmp ne i16 %68, 0
   %or.cond.i.i275.i.i = select i1 %tobool.i.i273.i.i, i1 %tobool4.i.i274.i.i, i1 false
   br i1 %or.cond.i.i275.i.i, label %land.lhs.true5.i.i276.i.i, label %trace_sdhci_capareg.exit288.i.i
 
 land.lhs.true5.i.i276.i.i:                        ; preds = %trace_sdhci_capareg.exit268.i.i
-  %71 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i277.i.i = and i32 %71, 32768
+  %69 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i277.i.i = and i32 %69, 32768
   %cmp.i.not.i.i278.i.i = icmp eq i32 %and.i.i.i277.i.i, 0
   br i1 %cmp.i.not.i.i278.i.i, label %trace_sdhci_capareg.exit288.i.i, label %if.then.i.i279.i.i
 
 if.then.i.i279.i.i:                               ; preds = %land.lhs.true5.i.i276.i.i
-  %72 = load i8, ptr @message_with_timestamp, align 1
-  %73 = and i8 %72, 1
-  %tobool7.not.i.i280.i.i = icmp eq i8 %73, 0
+  %70 = load i8, ptr @message_with_timestamp, align 1
+  %71 = and i8 %70, 1
+  %tobool7.not.i.i280.i.i = icmp eq i8 %71, 0
   br i1 %tobool7.not.i.i280.i.i, label %if.else.i.i286.i.i, label %if.then8.i.i281.i.i
 
 if.then8.i.i281.i.i:                              ; preds = %if.then.i.i279.i.i
   %call9.i.i282.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i272.i.i, ptr noundef null) #11
   %call10.i.i283.i.i = tail call i32 @qemu_get_thread_id() #11
-  %74 = load i64, ptr %_now.i.i272.i.i, align 8
+  %72 = load i64, ptr %_now.i.i272.i.i, align 8
   %tv_usec.i.i284.i.i = getelementptr inbounds i8, ptr %_now.i.i272.i.i, i64 8
-  %75 = load i64, ptr %tv_usec.i.i284.i.i, align 8
+  %73 = load i64, ptr %tv_usec.i.i284.i.i, align 8
   %conv11.i.i285.i.i = zext nneg i16 %conv110.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i283.i.i, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.109, i32 noundef %conv11.i.i285.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i283.i.i, i64 noundef %72, i64 noundef %73, ptr noundef nonnull @.str.109, i32 noundef %conv11.i.i285.i.i) #11
   br label %trace_sdhci_capareg.exit288.i.i
 
 if.else.i.i286.i.i:                               ; preds = %if.then.i.i279.i.i
@@ -987,38 +984,38 @@ if.else.i.i286.i.i:                               ; preds = %if.then.i.i279.i.i
 
 trace_sdhci_capareg.exit288.i.i:                  ; preds = %if.else.i.i286.i.i, %if.then8.i.i281.i.i, %land.lhs.true5.i.i276.i.i, %trace_sdhci_capareg.exit268.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i272.i.i)
-  %76 = load i64, ptr %capareg.i.i, align 8
-  %shr.i290.i.i = lshr i64 %76, 48
-  %77 = trunc i64 %shr.i290.i.i to i16
-  %conv121.i.i = and i16 %77, 255
+  %74 = load i64, ptr %capareg.i.i, align 8
+  %shr.i290.i.i = lshr i64 %74, 48
+  %75 = trunc i64 %shr.i290.i.i to i16
+  %conv121.i.i = and i16 %75, 255
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i292.i.i)
-  %78 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i293.i.i = icmp ne i32 %78, 0
-  %79 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i294.i.i = icmp ne i16 %79, 0
+  %76 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i293.i.i = icmp ne i32 %76, 0
+  %77 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i294.i.i = icmp ne i16 %77, 0
   %or.cond.i.i295.i.i = select i1 %tobool.i.i293.i.i, i1 %tobool4.i.i294.i.i, i1 false
   br i1 %or.cond.i.i295.i.i, label %land.lhs.true5.i.i296.i.i, label %trace_sdhci_capareg.exit308.i.i
 
 land.lhs.true5.i.i296.i.i:                        ; preds = %trace_sdhci_capareg.exit288.i.i
-  %80 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i297.i.i = and i32 %80, 32768
+  %78 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i297.i.i = and i32 %78, 32768
   %cmp.i.not.i.i298.i.i = icmp eq i32 %and.i.i.i297.i.i, 0
   br i1 %cmp.i.not.i.i298.i.i, label %trace_sdhci_capareg.exit308.i.i, label %if.then.i.i299.i.i
 
 if.then.i.i299.i.i:                               ; preds = %land.lhs.true5.i.i296.i.i
-  %81 = load i8, ptr @message_with_timestamp, align 1
-  %82 = and i8 %81, 1
-  %tobool7.not.i.i300.i.i = icmp eq i8 %82, 0
+  %79 = load i8, ptr @message_with_timestamp, align 1
+  %80 = and i8 %79, 1
+  %tobool7.not.i.i300.i.i = icmp eq i8 %80, 0
   br i1 %tobool7.not.i.i300.i.i, label %if.else.i.i306.i.i, label %if.then8.i.i301.i.i
 
 if.then8.i.i301.i.i:                              ; preds = %if.then.i.i299.i.i
   %call9.i.i302.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i292.i.i, ptr noundef null) #11
   %call10.i.i303.i.i = tail call i32 @qemu_get_thread_id() #11
-  %83 = load i64, ptr %_now.i.i292.i.i, align 8
+  %81 = load i64, ptr %_now.i.i292.i.i, align 8
   %tv_usec.i.i304.i.i = getelementptr inbounds i8, ptr %_now.i.i292.i.i, i64 8
-  %84 = load i64, ptr %tv_usec.i.i304.i.i, align 8
+  %82 = load i64, ptr %tv_usec.i.i304.i.i, align 8
   %conv11.i.i305.i.i = zext nneg i16 %conv121.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i303.i.i, i64 noundef %83, i64 noundef %84, ptr noundef nonnull @.str.111, i32 noundef %conv11.i.i305.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i303.i.i, i64 noundef %81, i64 noundef %82, ptr noundef nonnull @.str.111, i32 noundef %conv11.i.i305.i.i) #11
   br label %trace_sdhci_capareg.exit308.i.i
 
 if.else.i.i306.i.i:                               ; preds = %if.then.i.i299.i.i
@@ -1030,42 +1027,44 @@ trace_sdhci_capareg.exit308.i.i:                  ; preds = %if.else.i.i306.i.i,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i292.i.i)
   %and.i309.i.i = and i64 %4, -72039417199722497
   %.pre578.i.i = load i64, ptr %capareg.i.i, align 8
+  %.pre.i = load i32, ptr @trace_events_enabled_count, align 4
+  %.pre13.i = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
   br label %sw.bb128.i.i
 
 sw.bb128.i.i:                                     ; preds = %trace_sdhci_capareg.exit308.i.i, %sw.epilog.i
+  %83 = phi i16 [ %.pre14.i, %sw.epilog.i ], [ %.pre13.i, %trace_sdhci_capareg.exit308.i.i ]
+  %84 = phi i32 [ %.pre12.i, %sw.epilog.i ], [ %.pre.i, %trace_sdhci_capareg.exit308.i.i ]
   %85 = phi i64 [ %4, %sw.epilog.i ], [ %.pre578.i.i, %trace_sdhci_capareg.exit308.i.i ]
   %msk.1.i.i = phi i64 [ %4, %sw.epilog.i ], [ %and.i309.i.i, %trace_sdhci_capareg.exit308.i.i ]
   %shr.i310.i.i = lshr i64 %85, 19
   %86 = trunc i64 %shr.i310.i.i to i16
   %conv132.i.i = and i16 %86, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i312.i.i)
-  %87 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i313.i.i = icmp ne i32 %87, 0
-  %88 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i314.i.i = icmp ne i16 %88, 0
+  %tobool.i.i313.i.i = icmp ne i32 %84, 0
+  %tobool4.i.i314.i.i = icmp ne i16 %83, 0
   %or.cond.i.i315.i.i = select i1 %tobool.i.i313.i.i, i1 %tobool4.i.i314.i.i, i1 false
   br i1 %or.cond.i.i315.i.i, label %land.lhs.true5.i.i316.i.i, label %trace_sdhci_capareg.exit328.i.i
 
 land.lhs.true5.i.i316.i.i:                        ; preds = %sw.bb128.i.i
-  %89 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i317.i.i = and i32 %89, 32768
+  %87 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i317.i.i = and i32 %87, 32768
   %cmp.i.not.i.i318.i.i = icmp eq i32 %and.i.i.i317.i.i, 0
   br i1 %cmp.i.not.i.i318.i.i, label %trace_sdhci_capareg.exit328.i.i, label %if.then.i.i319.i.i
 
 if.then.i.i319.i.i:                               ; preds = %land.lhs.true5.i.i316.i.i
-  %90 = load i8, ptr @message_with_timestamp, align 1
-  %91 = and i8 %90, 1
-  %tobool7.not.i.i320.i.i = icmp eq i8 %91, 0
+  %88 = load i8, ptr @message_with_timestamp, align 1
+  %89 = and i8 %88, 1
+  %tobool7.not.i.i320.i.i = icmp eq i8 %89, 0
   br i1 %tobool7.not.i.i320.i.i, label %if.else.i.i326.i.i, label %if.then8.i.i321.i.i
 
 if.then8.i.i321.i.i:                              ; preds = %if.then.i.i319.i.i
   %call9.i.i322.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i312.i.i, ptr noundef null) #11
   %call10.i.i323.i.i = tail call i32 @qemu_get_thread_id() #11
-  %92 = load i64, ptr %_now.i.i312.i.i, align 8
+  %90 = load i64, ptr %_now.i.i312.i.i, align 8
   %tv_usec.i.i324.i.i = getelementptr inbounds i8, ptr %_now.i.i312.i.i, i64 8
-  %93 = load i64, ptr %tv_usec.i.i324.i.i, align 8
+  %91 = load i64, ptr %tv_usec.i.i324.i.i, align 8
   %conv11.i.i325.i.i = zext nneg i16 %conv132.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i323.i.i, i64 noundef %92, i64 noundef %93, ptr noundef nonnull @.str.113, i32 noundef %conv11.i.i325.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i323.i.i, i64 noundef %90, i64 noundef %91, ptr noundef nonnull @.str.113, i32 noundef %conv11.i.i325.i.i) #11
   br label %trace_sdhci_capareg.exit328.i.i
 
 if.else.i.i326.i.i:                               ; preds = %if.then.i.i319.i.i
@@ -1075,38 +1074,38 @@ if.else.i.i326.i.i:                               ; preds = %if.then.i.i319.i.i
 
 trace_sdhci_capareg.exit328.i.i:                  ; preds = %if.else.i.i326.i.i, %if.then8.i.i321.i.i, %land.lhs.true5.i.i316.i.i, %sw.bb128.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i312.i.i)
-  %94 = load i64, ptr %capareg.i.i, align 8
-  %shr.i330.i.i = lshr i64 %94, 20
-  %95 = trunc i64 %shr.i330.i.i to i16
-  %conv143.i.i = and i16 %95, 1
+  %92 = load i64, ptr %capareg.i.i, align 8
+  %shr.i330.i.i = lshr i64 %92, 20
+  %93 = trunc i64 %shr.i330.i.i to i16
+  %conv143.i.i = and i16 %93, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i332.i.i)
-  %96 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i333.i.i = icmp ne i32 %96, 0
-  %97 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i334.i.i = icmp ne i16 %97, 0
+  %94 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i333.i.i = icmp ne i32 %94, 0
+  %95 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i334.i.i = icmp ne i16 %95, 0
   %or.cond.i.i335.i.i = select i1 %tobool.i.i333.i.i, i1 %tobool4.i.i334.i.i, i1 false
   br i1 %or.cond.i.i335.i.i, label %land.lhs.true5.i.i336.i.i, label %trace_sdhci_capareg.exit348.i.i
 
 land.lhs.true5.i.i336.i.i:                        ; preds = %trace_sdhci_capareg.exit328.i.i
-  %98 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i337.i.i = and i32 %98, 32768
+  %96 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i337.i.i = and i32 %96, 32768
   %cmp.i.not.i.i338.i.i = icmp eq i32 %and.i.i.i337.i.i, 0
   br i1 %cmp.i.not.i.i338.i.i, label %trace_sdhci_capareg.exit348.i.i, label %if.then.i.i339.i.i
 
 if.then.i.i339.i.i:                               ; preds = %land.lhs.true5.i.i336.i.i
-  %99 = load i8, ptr @message_with_timestamp, align 1
-  %100 = and i8 %99, 1
-  %tobool7.not.i.i340.i.i = icmp eq i8 %100, 0
+  %97 = load i8, ptr @message_with_timestamp, align 1
+  %98 = and i8 %97, 1
+  %tobool7.not.i.i340.i.i = icmp eq i8 %98, 0
   br i1 %tobool7.not.i.i340.i.i, label %if.else.i.i346.i.i, label %if.then8.i.i341.i.i
 
 if.then8.i.i341.i.i:                              ; preds = %if.then.i.i339.i.i
   %call9.i.i342.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i332.i.i, ptr noundef null) #11
   %call10.i.i343.i.i = tail call i32 @qemu_get_thread_id() #11
-  %101 = load i64, ptr %_now.i.i332.i.i, align 8
+  %99 = load i64, ptr %_now.i.i332.i.i, align 8
   %tv_usec.i.i344.i.i = getelementptr inbounds i8, ptr %_now.i.i332.i.i, i64 8
-  %102 = load i64, ptr %tv_usec.i.i344.i.i, align 8
+  %100 = load i64, ptr %tv_usec.i.i344.i.i, align 8
   %conv11.i.i345.i.i = zext nneg i16 %conv143.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i343.i.i, i64 noundef %101, i64 noundef %102, ptr noundef nonnull @.str.115, i32 noundef %conv11.i.i345.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i343.i.i, i64 noundef %99, i64 noundef %100, ptr noundef nonnull @.str.115, i32 noundef %conv11.i.i345.i.i) #11
   br label %trace_sdhci_capareg.exit348.i.i
 
 if.else.i.i346.i.i:                               ; preds = %if.then.i.i339.i.i
@@ -1116,38 +1115,38 @@ if.else.i.i346.i.i:                               ; preds = %if.then.i.i339.i.i
 
 trace_sdhci_capareg.exit348.i.i:                  ; preds = %if.else.i.i346.i.i, %if.then8.i.i341.i.i, %land.lhs.true5.i.i336.i.i, %trace_sdhci_capareg.exit328.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i332.i.i)
-  %103 = load i64, ptr %capareg.i.i, align 8
-  %shr.i350.i.i = lshr i64 %103, 28
-  %104 = trunc i64 %shr.i350.i.i to i16
-  %conv154.i.i = and i16 %104, 1
+  %101 = load i64, ptr %capareg.i.i, align 8
+  %shr.i350.i.i = lshr i64 %101, 28
+  %102 = trunc i64 %shr.i350.i.i to i16
+  %conv154.i.i = and i16 %102, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i352.i.i)
-  %105 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i353.i.i = icmp ne i32 %105, 0
-  %106 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i354.i.i = icmp ne i16 %106, 0
+  %103 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i353.i.i = icmp ne i32 %103, 0
+  %104 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i354.i.i = icmp ne i16 %104, 0
   %or.cond.i.i355.i.i = select i1 %tobool.i.i353.i.i, i1 %tobool4.i.i354.i.i, i1 false
   br i1 %or.cond.i.i355.i.i, label %land.lhs.true5.i.i356.i.i, label %trace_sdhci_capareg.exit368.i.i
 
 land.lhs.true5.i.i356.i.i:                        ; preds = %trace_sdhci_capareg.exit348.i.i
-  %107 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i357.i.i = and i32 %107, 32768
+  %105 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i357.i.i = and i32 %105, 32768
   %cmp.i.not.i.i358.i.i = icmp eq i32 %and.i.i.i357.i.i, 0
   br i1 %cmp.i.not.i.i358.i.i, label %trace_sdhci_capareg.exit368.i.i, label %if.then.i.i359.i.i
 
 if.then.i.i359.i.i:                               ; preds = %land.lhs.true5.i.i356.i.i
-  %108 = load i8, ptr @message_with_timestamp, align 1
-  %109 = and i8 %108, 1
-  %tobool7.not.i.i360.i.i = icmp eq i8 %109, 0
+  %106 = load i8, ptr @message_with_timestamp, align 1
+  %107 = and i8 %106, 1
+  %tobool7.not.i.i360.i.i = icmp eq i8 %107, 0
   br i1 %tobool7.not.i.i360.i.i, label %if.else.i.i366.i.i, label %if.then8.i.i361.i.i
 
 if.then8.i.i361.i.i:                              ; preds = %if.then.i.i359.i.i
   %call9.i.i362.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i352.i.i, ptr noundef null) #11
   %call10.i.i363.i.i = tail call i32 @qemu_get_thread_id() #11
-  %110 = load i64, ptr %_now.i.i352.i.i, align 8
+  %108 = load i64, ptr %_now.i.i352.i.i, align 8
   %tv_usec.i.i364.i.i = getelementptr inbounds i8, ptr %_now.i.i352.i.i, i64 8
-  %111 = load i64, ptr %tv_usec.i.i364.i.i, align 8
+  %109 = load i64, ptr %tv_usec.i.i364.i.i, align 8
   %conv11.i.i365.i.i = zext nneg i16 %conv154.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i363.i.i, i64 noundef %110, i64 noundef %111, ptr noundef nonnull @.str.117, i32 noundef %conv11.i.i365.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i363.i.i, i64 noundef %108, i64 noundef %109, ptr noundef nonnull @.str.117, i32 noundef %conv11.i.i365.i.i) #11
   br label %trace_sdhci_capareg.exit368.i.i
 
 if.else.i.i366.i.i:                               ; preds = %if.then.i.i359.i.i
@@ -1158,38 +1157,38 @@ if.else.i.i366.i.i:                               ; preds = %if.then.i.i359.i.i
 trace_sdhci_capareg.exit368.i.i:                  ; preds = %if.else.i.i366.i.i, %if.then8.i.i361.i.i, %land.lhs.true5.i.i356.i.i, %trace_sdhci_capareg.exit348.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i352.i.i)
   %.pre579.i.i = load i64, ptr %capareg.i.i, align 8
-  %112 = and i64 %.pre579.i.i, 128
-  %tobool165.not.i.i = icmp eq i64 %112, 0
+  %110 = and i64 %.pre579.i.i, 128
+  %tobool165.not.i.i = icmp eq i64 %110, 0
   %and.i373.i.i = and i64 %.pre579.i.i, 63
   %cond.i.i = select i1 %tobool165.not.i.i, ptr @.str.121, ptr @.str.120
   %conv178.i.i = trunc i64 %and.i373.i.i to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i374.i.i)
-  %113 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i375.i.i = icmp ne i32 %113, 0
-  %114 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i376.i.i = icmp ne i16 %114, 0
+  %111 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i375.i.i = icmp ne i32 %111, 0
+  %112 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i376.i.i = icmp ne i16 %112, 0
   %or.cond.i.i377.i.i = select i1 %tobool.i.i375.i.i, i1 %tobool4.i.i376.i.i, i1 false
   br i1 %or.cond.i.i377.i.i, label %land.lhs.true5.i.i378.i.i, label %trace_sdhci_capareg.exit390.i.i
 
 land.lhs.true5.i.i378.i.i:                        ; preds = %trace_sdhci_capareg.exit368.i.i
-  %115 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i379.i.i = and i32 %115, 32768
+  %113 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i379.i.i = and i32 %113, 32768
   %cmp.i.not.i.i380.i.i = icmp eq i32 %and.i.i.i379.i.i, 0
   br i1 %cmp.i.not.i.i380.i.i, label %trace_sdhci_capareg.exit390.i.i, label %if.then.i.i381.i.i
 
 if.then.i.i381.i.i:                               ; preds = %land.lhs.true5.i.i378.i.i
-  %116 = load i8, ptr @message_with_timestamp, align 1
-  %117 = and i8 %116, 1
-  %tobool7.not.i.i382.i.i = icmp eq i8 %117, 0
+  %114 = load i8, ptr @message_with_timestamp, align 1
+  %115 = and i8 %114, 1
+  %tobool7.not.i.i382.i.i = icmp eq i8 %115, 0
   br i1 %tobool7.not.i.i382.i.i, label %if.else.i.i388.i.i, label %if.then8.i.i383.i.i
 
 if.then8.i.i383.i.i:                              ; preds = %if.then.i.i381.i.i
   %call9.i.i384.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i374.i.i, ptr noundef null) #11
   %call10.i.i385.i.i = tail call i32 @qemu_get_thread_id() #11
-  %118 = load i64, ptr %_now.i.i374.i.i, align 8
+  %116 = load i64, ptr %_now.i.i374.i.i, align 8
   %tv_usec.i.i386.i.i = getelementptr inbounds i8, ptr %_now.i.i374.i.i, i64 8
-  %119 = load i64, ptr %tv_usec.i.i386.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i385.i.i, i64 noundef %118, i64 noundef %119, ptr noundef nonnull %cond.i.i, i32 noundef %conv178.i.i) #11
+  %117 = load i64, ptr %tv_usec.i.i386.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i385.i.i, i64 noundef %116, i64 noundef %117, ptr noundef nonnull %cond.i.i, i32 noundef %conv178.i.i) #11
   br label %trace_sdhci_capareg.exit390.i.i
 
 if.else.i.i388.i.i:                               ; preds = %if.then.i.i381.i.i
@@ -1267,38 +1266,38 @@ sdhci_check_capab_freq_range.exit.i.i:            ; preds = %if.end.i.i.i
   br label %sdhci_init_readonly_registers.exit
 
 if.end182.i.i:                                    ; preds = %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %if.end.i.i.i, %trace_sdhci_capareg.exit390.i.i
-  %120 = load i64, ptr %capareg.i.i, align 8
-  %shr.i394.i.i = lshr i64 %120, 8
+  %118 = load i64, ptr %capareg.i.i, align 8
+  %shr.i394.i.i = lshr i64 %118, 8
   %cond195.i.i = select i1 %tobool165.not.i.i, ptr @.str.125, ptr @.str.124
-  %121 = trunc i64 %shr.i394.i.i to i32
-  %conv196.i.i = and i32 %121, 255
+  %119 = trunc i64 %shr.i394.i.i to i32
+  %conv196.i.i = and i32 %119, 255
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i396.i.i)
-  %122 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i397.i.i = icmp ne i32 %122, 0
-  %123 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i398.i.i = icmp ne i16 %123, 0
+  %120 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i397.i.i = icmp ne i32 %120, 0
+  %121 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i398.i.i = icmp ne i16 %121, 0
   %or.cond.i.i399.i.i = select i1 %tobool.i.i397.i.i, i1 %tobool4.i.i398.i.i, i1 false
   br i1 %or.cond.i.i399.i.i, label %land.lhs.true5.i.i400.i.i, label %trace_sdhci_capareg.exit412.i.i
 
 land.lhs.true5.i.i400.i.i:                        ; preds = %if.end182.i.i
-  %124 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i401.i.i = and i32 %124, 32768
+  %122 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i401.i.i = and i32 %122, 32768
   %cmp.i.not.i.i402.i.i = icmp eq i32 %and.i.i.i401.i.i, 0
   br i1 %cmp.i.not.i.i402.i.i, label %trace_sdhci_capareg.exit412.i.i, label %if.then.i.i403.i.i
 
 if.then.i.i403.i.i:                               ; preds = %land.lhs.true5.i.i400.i.i
-  %125 = load i8, ptr @message_with_timestamp, align 1
-  %126 = and i8 %125, 1
-  %tobool7.not.i.i404.i.i = icmp eq i8 %126, 0
+  %123 = load i8, ptr @message_with_timestamp, align 1
+  %124 = and i8 %123, 1
+  %tobool7.not.i.i404.i.i = icmp eq i8 %124, 0
   br i1 %tobool7.not.i.i404.i.i, label %if.else.i.i410.i.i, label %if.then8.i.i405.i.i
 
 if.then8.i.i405.i.i:                              ; preds = %if.then.i.i403.i.i
   %call9.i.i406.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i396.i.i, ptr noundef null) #11
   %call10.i.i407.i.i = tail call i32 @qemu_get_thread_id() #11
-  %127 = load i64, ptr %_now.i.i396.i.i, align 8
+  %125 = load i64, ptr %_now.i.i396.i.i, align 8
   %tv_usec.i.i408.i.i = getelementptr inbounds i8, ptr %_now.i.i396.i.i, i64 8
-  %128 = load i64, ptr %tv_usec.i.i408.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i407.i.i, i64 noundef %127, i64 noundef %128, ptr noundef nonnull %cond195.i.i, i32 noundef %conv196.i.i) #11
+  %126 = load i64, ptr %tv_usec.i.i408.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i407.i.i, i64 noundef %125, i64 noundef %126, ptr noundef nonnull %cond195.i.i, i32 noundef %conv196.i.i) #11
   br label %trace_sdhci_capareg.exit412.i.i
 
 if.else.i.i410.i.i:                               ; preds = %if.then.i.i403.i.i
@@ -1376,9 +1375,9 @@ sdhci_check_capab_freq_range.exit417.i.i:         ; preds = %if.end.i414.i.i
   br label %sdhci_init_readonly_registers.exit
 
 if.end200.i.i:                                    ; preds = %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %if.end.i414.i.i, %trace_sdhci_capareg.exit412.i.i
-  %129 = load i64, ptr %capareg.i.i, align 8
-  %130 = and i64 %129, 196608
-  %cmp210.i.i = icmp eq i64 %130, 196608
+  %127 = load i64, ptr %capareg.i.i, align 8
+  %128 = and i64 %127, 196608
+  %cmp210.i.i = icmp eq i64 %128, 196608
   br i1 %cmp210.i.i, label %if.then212.i.i, label %if.end213.i.i
 
 if.then212.i.i:                                   ; preds = %if.end200.i.i
@@ -1386,37 +1385,37 @@ if.then212.i.i:                                   ; preds = %if.end200.i.i
   br label %sdhci_init_readonly_registers.exit
 
 if.end213.i.i:                                    ; preds = %if.end200.i.i
-  %conv.i.i.i = trunc i64 %129 to i32
+  %conv.i.i.i = trunc i64 %127 to i32
   %shr.i.i.i.i = lshr i32 %conv.i.i.i, 16
   %and.i.i.i.i = and i32 %shr.i.i.i.i, 3
   %shl.i.i.i = shl nuw nsw i32 512, %and.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i423.i.i)
-  %131 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i424.i.i = icmp ne i32 %131, 0
-  %132 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i425.i.i = icmp ne i16 %132, 0
+  %129 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i424.i.i = icmp ne i32 %129, 0
+  %130 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i425.i.i = icmp ne i16 %130, 0
   %or.cond.i.i426.i.i = select i1 %tobool.i.i424.i.i, i1 %tobool4.i.i425.i.i, i1 false
   br i1 %or.cond.i.i426.i.i, label %land.lhs.true5.i.i427.i.i, label %trace_sdhci_capareg.exit439.i.i
 
 land.lhs.true5.i.i427.i.i:                        ; preds = %if.end213.i.i
-  %133 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i428.i.i = and i32 %133, 32768
+  %131 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i428.i.i = and i32 %131, 32768
   %cmp.i.not.i.i429.i.i = icmp eq i32 %and.i.i.i428.i.i, 0
   br i1 %cmp.i.not.i.i429.i.i, label %trace_sdhci_capareg.exit439.i.i, label %if.then.i.i430.i.i
 
 if.then.i.i430.i.i:                               ; preds = %land.lhs.true5.i.i427.i.i
-  %134 = load i8, ptr @message_with_timestamp, align 1
-  %135 = and i8 %134, 1
-  %tobool7.not.i.i431.i.i = icmp eq i8 %135, 0
+  %132 = load i8, ptr @message_with_timestamp, align 1
+  %133 = and i8 %132, 1
+  %tobool7.not.i.i431.i.i = icmp eq i8 %133, 0
   br i1 %tobool7.not.i.i431.i.i, label %if.else.i.i437.i.i, label %if.then8.i.i432.i.i
 
 if.then8.i.i432.i.i:                              ; preds = %if.then.i.i430.i.i
   %call9.i.i433.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i423.i.i, ptr noundef null) #11
   %call10.i.i434.i.i = tail call i32 @qemu_get_thread_id() #11
-  %136 = load i64, ptr %_now.i.i423.i.i, align 8
+  %134 = load i64, ptr %_now.i.i423.i.i, align 8
   %tv_usec.i.i435.i.i = getelementptr inbounds i8, ptr %_now.i.i423.i.i, i64 8
-  %137 = load i64, ptr %tv_usec.i.i435.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i434.i.i, i64 noundef %136, i64 noundef %137, ptr noundef nonnull @.str.129, i32 noundef %shl.i.i.i) #11
+  %135 = load i64, ptr %tv_usec.i.i435.i.i, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i434.i.i, i64 noundef %134, i64 noundef %135, ptr noundef nonnull @.str.129, i32 noundef %shl.i.i.i) #11
   br label %trace_sdhci_capareg.exit439.i.i
 
 if.else.i.i437.i.i:                               ; preds = %if.then.i.i430.i.i
@@ -1425,38 +1424,38 @@ if.else.i.i437.i.i:                               ; preds = %if.then.i.i430.i.i
 
 trace_sdhci_capareg.exit439.i.i:                  ; preds = %if.else.i.i437.i.i, %if.then8.i.i432.i.i, %land.lhs.true5.i.i427.i.i, %if.end213.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i423.i.i)
-  %138 = load i64, ptr %capareg.i.i, align 8
-  %shr.i443.i.i = lshr i64 %138, 21
-  %139 = trunc i64 %shr.i443.i.i to i16
-  %conv226.i.i = and i16 %139, 1
+  %136 = load i64, ptr %capareg.i.i, align 8
+  %shr.i443.i.i = lshr i64 %136, 21
+  %137 = trunc i64 %shr.i443.i.i to i16
+  %conv226.i.i = and i16 %137, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i445.i.i)
-  %140 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i446.i.i = icmp ne i32 %140, 0
-  %141 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i447.i.i = icmp ne i16 %141, 0
+  %138 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i446.i.i = icmp ne i32 %138, 0
+  %139 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i447.i.i = icmp ne i16 %139, 0
   %or.cond.i.i448.i.i = select i1 %tobool.i.i446.i.i, i1 %tobool4.i.i447.i.i, i1 false
   br i1 %or.cond.i.i448.i.i, label %land.lhs.true5.i.i449.i.i, label %trace_sdhci_capareg.exit461.i.i
 
 land.lhs.true5.i.i449.i.i:                        ; preds = %trace_sdhci_capareg.exit439.i.i
-  %142 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i450.i.i = and i32 %142, 32768
+  %140 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i450.i.i = and i32 %140, 32768
   %cmp.i.not.i.i451.i.i = icmp eq i32 %and.i.i.i450.i.i, 0
   br i1 %cmp.i.not.i.i451.i.i, label %trace_sdhci_capareg.exit461.i.i, label %if.then.i.i452.i.i
 
 if.then.i.i452.i.i:                               ; preds = %land.lhs.true5.i.i449.i.i
-  %143 = load i8, ptr @message_with_timestamp, align 1
-  %144 = and i8 %143, 1
-  %tobool7.not.i.i453.i.i = icmp eq i8 %144, 0
+  %141 = load i8, ptr @message_with_timestamp, align 1
+  %142 = and i8 %141, 1
+  %tobool7.not.i.i453.i.i = icmp eq i8 %142, 0
   br i1 %tobool7.not.i.i453.i.i, label %if.else.i.i459.i.i, label %if.then8.i.i454.i.i
 
 if.then8.i.i454.i.i:                              ; preds = %if.then.i.i452.i.i
   %call9.i.i455.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i445.i.i, ptr noundef null) #11
   %call10.i.i456.i.i = tail call i32 @qemu_get_thread_id() #11
-  %145 = load i64, ptr %_now.i.i445.i.i, align 8
+  %143 = load i64, ptr %_now.i.i445.i.i, align 8
   %tv_usec.i.i457.i.i = getelementptr inbounds i8, ptr %_now.i.i445.i.i, i64 8
-  %146 = load i64, ptr %tv_usec.i.i457.i.i, align 8
+  %144 = load i64, ptr %tv_usec.i.i457.i.i, align 8
   %conv11.i.i458.i.i = zext nneg i16 %conv226.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i456.i.i, i64 noundef %145, i64 noundef %146, ptr noundef nonnull @.str.131, i32 noundef %conv11.i.i458.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i456.i.i, i64 noundef %143, i64 noundef %144, ptr noundef nonnull @.str.131, i32 noundef %conv11.i.i458.i.i) #11
   br label %trace_sdhci_capareg.exit461.i.i
 
 if.else.i.i459.i.i:                               ; preds = %if.then.i.i452.i.i
@@ -1466,38 +1465,38 @@ if.else.i.i459.i.i:                               ; preds = %if.then.i.i452.i.i
 
 trace_sdhci_capareg.exit461.i.i:                  ; preds = %if.else.i.i459.i.i, %if.then8.i.i454.i.i, %land.lhs.true5.i.i449.i.i, %trace_sdhci_capareg.exit439.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i445.i.i)
-  %147 = load i64, ptr %capareg.i.i, align 8
-  %shr.i465.i.i = lshr i64 %147, 22
-  %148 = trunc i64 %shr.i465.i.i to i16
-  %conv237.i.i = and i16 %148, 1
+  %145 = load i64, ptr %capareg.i.i, align 8
+  %shr.i465.i.i = lshr i64 %145, 22
+  %146 = trunc i64 %shr.i465.i.i to i16
+  %conv237.i.i = and i16 %146, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i467.i.i)
-  %149 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i468.i.i = icmp ne i32 %149, 0
-  %150 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i469.i.i = icmp ne i16 %150, 0
+  %147 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i468.i.i = icmp ne i32 %147, 0
+  %148 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i469.i.i = icmp ne i16 %148, 0
   %or.cond.i.i470.i.i = select i1 %tobool.i.i468.i.i, i1 %tobool4.i.i469.i.i, i1 false
   br i1 %or.cond.i.i470.i.i, label %land.lhs.true5.i.i471.i.i, label %trace_sdhci_capareg.exit483.i.i
 
 land.lhs.true5.i.i471.i.i:                        ; preds = %trace_sdhci_capareg.exit461.i.i
-  %151 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i472.i.i = and i32 %151, 32768
+  %149 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i472.i.i = and i32 %149, 32768
   %cmp.i.not.i.i473.i.i = icmp eq i32 %and.i.i.i472.i.i, 0
   br i1 %cmp.i.not.i.i473.i.i, label %trace_sdhci_capareg.exit483.i.i, label %if.then.i.i474.i.i
 
 if.then.i.i474.i.i:                               ; preds = %land.lhs.true5.i.i471.i.i
-  %152 = load i8, ptr @message_with_timestamp, align 1
-  %153 = and i8 %152, 1
-  %tobool7.not.i.i475.i.i = icmp eq i8 %153, 0
+  %150 = load i8, ptr @message_with_timestamp, align 1
+  %151 = and i8 %150, 1
+  %tobool7.not.i.i475.i.i = icmp eq i8 %151, 0
   br i1 %tobool7.not.i.i475.i.i, label %if.else.i.i481.i.i, label %if.then8.i.i476.i.i
 
 if.then8.i.i476.i.i:                              ; preds = %if.then.i.i474.i.i
   %call9.i.i477.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i467.i.i, ptr noundef null) #11
   %call10.i.i478.i.i = tail call i32 @qemu_get_thread_id() #11
-  %154 = load i64, ptr %_now.i.i467.i.i, align 8
+  %152 = load i64, ptr %_now.i.i467.i.i, align 8
   %tv_usec.i.i479.i.i = getelementptr inbounds i8, ptr %_now.i.i467.i.i, i64 8
-  %155 = load i64, ptr %tv_usec.i.i479.i.i, align 8
+  %153 = load i64, ptr %tv_usec.i.i479.i.i, align 8
   %conv11.i.i480.i.i = zext nneg i16 %conv237.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i478.i.i, i64 noundef %154, i64 noundef %155, ptr noundef nonnull @.str.133, i32 noundef %conv11.i.i480.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i478.i.i, i64 noundef %152, i64 noundef %153, ptr noundef nonnull @.str.133, i32 noundef %conv11.i.i480.i.i) #11
   br label %trace_sdhci_capareg.exit483.i.i
 
 if.else.i.i481.i.i:                               ; preds = %if.then.i.i474.i.i
@@ -1507,38 +1506,38 @@ if.else.i.i481.i.i:                               ; preds = %if.then.i.i474.i.i
 
 trace_sdhci_capareg.exit483.i.i:                  ; preds = %if.else.i.i481.i.i, %if.then8.i.i476.i.i, %land.lhs.true5.i.i471.i.i, %trace_sdhci_capareg.exit461.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i467.i.i)
-  %156 = load i64, ptr %capareg.i.i, align 8
-  %shr.i487.i.i = lshr i64 %156, 23
-  %157 = trunc i64 %shr.i487.i.i to i16
-  %conv248.i.i = and i16 %157, 1
+  %154 = load i64, ptr %capareg.i.i, align 8
+  %shr.i487.i.i = lshr i64 %154, 23
+  %155 = trunc i64 %shr.i487.i.i to i16
+  %conv248.i.i = and i16 %155, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i489.i.i)
-  %158 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i490.i.i = icmp ne i32 %158, 0
-  %159 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i491.i.i = icmp ne i16 %159, 0
+  %156 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i490.i.i = icmp ne i32 %156, 0
+  %157 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i491.i.i = icmp ne i16 %157, 0
   %or.cond.i.i492.i.i = select i1 %tobool.i.i490.i.i, i1 %tobool4.i.i491.i.i, i1 false
   br i1 %or.cond.i.i492.i.i, label %land.lhs.true5.i.i493.i.i, label %trace_sdhci_capareg.exit505.i.i
 
 land.lhs.true5.i.i493.i.i:                        ; preds = %trace_sdhci_capareg.exit483.i.i
-  %160 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i494.i.i = and i32 %160, 32768
+  %158 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i494.i.i = and i32 %158, 32768
   %cmp.i.not.i.i495.i.i = icmp eq i32 %and.i.i.i494.i.i, 0
   br i1 %cmp.i.not.i.i495.i.i, label %trace_sdhci_capareg.exit505.i.i, label %if.then.i.i496.i.i
 
 if.then.i.i496.i.i:                               ; preds = %land.lhs.true5.i.i493.i.i
-  %161 = load i8, ptr @message_with_timestamp, align 1
-  %162 = and i8 %161, 1
-  %tobool7.not.i.i497.i.i = icmp eq i8 %162, 0
+  %159 = load i8, ptr @message_with_timestamp, align 1
+  %160 = and i8 %159, 1
+  %tobool7.not.i.i497.i.i = icmp eq i8 %160, 0
   br i1 %tobool7.not.i.i497.i.i, label %if.else.i.i503.i.i, label %if.then8.i.i498.i.i
 
 if.then8.i.i498.i.i:                              ; preds = %if.then.i.i496.i.i
   %call9.i.i499.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i489.i.i, ptr noundef null) #11
   %call10.i.i500.i.i = tail call i32 @qemu_get_thread_id() #11
-  %163 = load i64, ptr %_now.i.i489.i.i, align 8
+  %161 = load i64, ptr %_now.i.i489.i.i, align 8
   %tv_usec.i.i501.i.i = getelementptr inbounds i8, ptr %_now.i.i489.i.i, i64 8
-  %164 = load i64, ptr %tv_usec.i.i501.i.i, align 8
+  %162 = load i64, ptr %tv_usec.i.i501.i.i, align 8
   %conv11.i.i502.i.i = zext nneg i16 %conv248.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i500.i.i, i64 noundef %163, i64 noundef %164, ptr noundef nonnull @.str.135, i32 noundef %conv11.i.i502.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i500.i.i, i64 noundef %161, i64 noundef %162, ptr noundef nonnull @.str.135, i32 noundef %conv11.i.i502.i.i) #11
   br label %trace_sdhci_capareg.exit505.i.i
 
 if.else.i.i503.i.i:                               ; preds = %if.then.i.i496.i.i
@@ -1548,38 +1547,38 @@ if.else.i.i503.i.i:                               ; preds = %if.then.i.i496.i.i
 
 trace_sdhci_capareg.exit505.i.i:                  ; preds = %if.else.i.i503.i.i, %if.then8.i.i498.i.i, %land.lhs.true5.i.i493.i.i, %trace_sdhci_capareg.exit483.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i489.i.i)
-  %165 = load i64, ptr %capareg.i.i, align 8
-  %shr.i509.i.i = lshr i64 %165, 24
-  %166 = trunc i64 %shr.i509.i.i to i16
-  %conv259.i.i = and i16 %166, 1
+  %163 = load i64, ptr %capareg.i.i, align 8
+  %shr.i509.i.i = lshr i64 %163, 24
+  %164 = trunc i64 %shr.i509.i.i to i16
+  %conv259.i.i = and i16 %164, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i511.i.i)
-  %167 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i512.i.i = icmp ne i32 %167, 0
-  %168 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i513.i.i = icmp ne i16 %168, 0
+  %165 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i512.i.i = icmp ne i32 %165, 0
+  %166 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i513.i.i = icmp ne i16 %166, 0
   %or.cond.i.i514.i.i = select i1 %tobool.i.i512.i.i, i1 %tobool4.i.i513.i.i, i1 false
   br i1 %or.cond.i.i514.i.i, label %land.lhs.true5.i.i515.i.i, label %trace_sdhci_capareg.exit527.i.i
 
 land.lhs.true5.i.i515.i.i:                        ; preds = %trace_sdhci_capareg.exit505.i.i
-  %169 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i516.i.i = and i32 %169, 32768
+  %167 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i516.i.i = and i32 %167, 32768
   %cmp.i.not.i.i517.i.i = icmp eq i32 %and.i.i.i516.i.i, 0
   br i1 %cmp.i.not.i.i517.i.i, label %trace_sdhci_capareg.exit527.i.i, label %if.then.i.i518.i.i
 
 if.then.i.i518.i.i:                               ; preds = %land.lhs.true5.i.i515.i.i
-  %170 = load i8, ptr @message_with_timestamp, align 1
-  %171 = and i8 %170, 1
-  %tobool7.not.i.i519.i.i = icmp eq i8 %171, 0
+  %168 = load i8, ptr @message_with_timestamp, align 1
+  %169 = and i8 %168, 1
+  %tobool7.not.i.i519.i.i = icmp eq i8 %169, 0
   br i1 %tobool7.not.i.i519.i.i, label %if.else.i.i525.i.i, label %if.then8.i.i520.i.i
 
 if.then8.i.i520.i.i:                              ; preds = %if.then.i.i518.i.i
   %call9.i.i521.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i511.i.i, ptr noundef null) #11
   %call10.i.i522.i.i = tail call i32 @qemu_get_thread_id() #11
-  %172 = load i64, ptr %_now.i.i511.i.i, align 8
+  %170 = load i64, ptr %_now.i.i511.i.i, align 8
   %tv_usec.i.i523.i.i = getelementptr inbounds i8, ptr %_now.i.i511.i.i, i64 8
-  %173 = load i64, ptr %tv_usec.i.i523.i.i, align 8
+  %171 = load i64, ptr %tv_usec.i.i523.i.i, align 8
   %conv11.i.i524.i.i = zext nneg i16 %conv259.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i522.i.i, i64 noundef %172, i64 noundef %173, ptr noundef nonnull @.str.137, i32 noundef %conv11.i.i524.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i522.i.i, i64 noundef %170, i64 noundef %171, ptr noundef nonnull @.str.137, i32 noundef %conv11.i.i524.i.i) #11
   br label %trace_sdhci_capareg.exit527.i.i
 
 if.else.i.i525.i.i:                               ; preds = %if.then.i.i518.i.i
@@ -1589,38 +1588,38 @@ if.else.i.i525.i.i:                               ; preds = %if.then.i.i518.i.i
 
 trace_sdhci_capareg.exit527.i.i:                  ; preds = %if.else.i.i525.i.i, %if.then8.i.i520.i.i, %land.lhs.true5.i.i515.i.i, %trace_sdhci_capareg.exit505.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i511.i.i)
-  %174 = load i64, ptr %capareg.i.i, align 8
-  %shr.i531.i.i = lshr i64 %174, 25
-  %175 = trunc i64 %shr.i531.i.i to i16
-  %conv270.i.i = and i16 %175, 1
+  %172 = load i64, ptr %capareg.i.i, align 8
+  %shr.i531.i.i = lshr i64 %172, 25
+  %173 = trunc i64 %shr.i531.i.i to i16
+  %conv270.i.i = and i16 %173, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i533.i.i)
-  %176 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i534.i.i = icmp ne i32 %176, 0
-  %177 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i535.i.i = icmp ne i16 %177, 0
+  %174 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i534.i.i = icmp ne i32 %174, 0
+  %175 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i535.i.i = icmp ne i16 %175, 0
   %or.cond.i.i536.i.i = select i1 %tobool.i.i534.i.i, i1 %tobool4.i.i535.i.i, i1 false
   br i1 %or.cond.i.i536.i.i, label %land.lhs.true5.i.i537.i.i, label %trace_sdhci_capareg.exit549.i.i
 
 land.lhs.true5.i.i537.i.i:                        ; preds = %trace_sdhci_capareg.exit527.i.i
-  %178 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i538.i.i = and i32 %178, 32768
+  %176 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i538.i.i = and i32 %176, 32768
   %cmp.i.not.i.i539.i.i = icmp eq i32 %and.i.i.i538.i.i, 0
   br i1 %cmp.i.not.i.i539.i.i, label %trace_sdhci_capareg.exit549.i.i, label %if.then.i.i540.i.i
 
 if.then.i.i540.i.i:                               ; preds = %land.lhs.true5.i.i537.i.i
-  %179 = load i8, ptr @message_with_timestamp, align 1
-  %180 = and i8 %179, 1
-  %tobool7.not.i.i541.i.i = icmp eq i8 %180, 0
+  %177 = load i8, ptr @message_with_timestamp, align 1
+  %178 = and i8 %177, 1
+  %tobool7.not.i.i541.i.i = icmp eq i8 %178, 0
   br i1 %tobool7.not.i.i541.i.i, label %if.else.i.i547.i.i, label %if.then8.i.i542.i.i
 
 if.then8.i.i542.i.i:                              ; preds = %if.then.i.i540.i.i
   %call9.i.i543.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i533.i.i, ptr noundef null) #11
   %call10.i.i544.i.i = tail call i32 @qemu_get_thread_id() #11
-  %181 = load i64, ptr %_now.i.i533.i.i, align 8
+  %179 = load i64, ptr %_now.i.i533.i.i, align 8
   %tv_usec.i.i545.i.i = getelementptr inbounds i8, ptr %_now.i.i533.i.i, i64 8
-  %182 = load i64, ptr %tv_usec.i.i545.i.i, align 8
+  %180 = load i64, ptr %tv_usec.i.i545.i.i, align 8
   %conv11.i.i546.i.i = zext nneg i16 %conv270.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i544.i.i, i64 noundef %181, i64 noundef %182, ptr noundef nonnull @.str.139, i32 noundef %conv11.i.i546.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i544.i.i, i64 noundef %179, i64 noundef %180, ptr noundef nonnull @.str.139, i32 noundef %conv11.i.i546.i.i) #11
   br label %trace_sdhci_capareg.exit549.i.i
 
 if.else.i.i547.i.i:                               ; preds = %if.then.i.i540.i.i
@@ -1630,38 +1629,38 @@ if.else.i.i547.i.i:                               ; preds = %if.then.i.i540.i.i
 
 trace_sdhci_capareg.exit549.i.i:                  ; preds = %if.else.i.i547.i.i, %if.then8.i.i542.i.i, %land.lhs.true5.i.i537.i.i, %trace_sdhci_capareg.exit527.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i533.i.i)
-  %183 = load i64, ptr %capareg.i.i, align 8
-  %shr.i553.i.i = lshr i64 %183, 26
-  %184 = trunc i64 %shr.i553.i.i to i16
-  %conv281.i.i = and i16 %184, 1
+  %181 = load i64, ptr %capareg.i.i, align 8
+  %shr.i553.i.i = lshr i64 %181, 26
+  %182 = trunc i64 %shr.i553.i.i to i16
+  %conv281.i.i = and i16 %182, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i555.i.i)
-  %185 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i556.i.i = icmp ne i32 %185, 0
-  %186 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
-  %tobool4.i.i557.i.i = icmp ne i16 %186, 0
+  %183 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i556.i.i = icmp ne i32 %183, 0
+  %184 = load i16, ptr @_TRACE_SDHCI_CAPAREG_DSTATE, align 2
+  %tobool4.i.i557.i.i = icmp ne i16 %184, 0
   %or.cond.i.i558.i.i = select i1 %tobool.i.i556.i.i, i1 %tobool4.i.i557.i.i, i1 false
   br i1 %or.cond.i.i558.i.i, label %land.lhs.true5.i.i559.i.i, label %trace_sdhci_capareg.exit571.i.i
 
 land.lhs.true5.i.i559.i.i:                        ; preds = %trace_sdhci_capareg.exit549.i.i
-  %187 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i560.i.i = and i32 %187, 32768
+  %185 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i560.i.i = and i32 %185, 32768
   %cmp.i.not.i.i561.i.i = icmp eq i32 %and.i.i.i560.i.i, 0
   br i1 %cmp.i.not.i.i561.i.i, label %trace_sdhci_capareg.exit571.i.i, label %if.then.i.i562.i.i
 
 if.then.i.i562.i.i:                               ; preds = %land.lhs.true5.i.i559.i.i
-  %188 = load i8, ptr @message_with_timestamp, align 1
-  %189 = and i8 %188, 1
-  %tobool7.not.i.i563.i.i = icmp eq i8 %189, 0
+  %186 = load i8, ptr @message_with_timestamp, align 1
+  %187 = and i8 %186, 1
+  %tobool7.not.i.i563.i.i = icmp eq i8 %187, 0
   br i1 %tobool7.not.i.i563.i.i, label %if.else.i.i569.i.i, label %if.then8.i.i564.i.i
 
 if.then8.i.i564.i.i:                              ; preds = %if.then.i.i562.i.i
   %call9.i.i565.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i555.i.i, ptr noundef null) #11
   %call10.i.i566.i.i = tail call i32 @qemu_get_thread_id() #11
-  %190 = load i64, ptr %_now.i.i555.i.i, align 8
+  %188 = load i64, ptr %_now.i.i555.i.i, align 8
   %tv_usec.i.i567.i.i = getelementptr inbounds i8, ptr %_now.i.i555.i.i, i64 8
-  %191 = load i64, ptr %tv_usec.i.i567.i.i, align 8
+  %189 = load i64, ptr %tv_usec.i.i567.i.i, align 8
   %conv11.i.i568.i.i = zext nneg i16 %conv281.i.i to i32
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i566.i.i, i64 noundef %190, i64 noundef %191, ptr noundef nonnull @.str.141, i32 noundef %conv11.i.i568.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i566.i.i, i64 noundef %188, i64 noundef %189, ptr noundef nonnull @.str.141, i32 noundef %conv11.i.i568.i.i) #11
   br label %trace_sdhci_capareg.exit571.i.i
 
 if.else.i.i569.i.i:                               ; preds = %if.then.i.i562.i.i
@@ -1672,37 +1671,28 @@ if.else.i.i569.i.i:                               ; preds = %if.then.i.i562.i.i
 trace_sdhci_capareg.exit571.i.i:                  ; preds = %if.else.i.i569.i.i, %if.then8.i.i564.i.i, %land.lhs.true5.i.i559.i.i, %trace_sdhci_capareg.exit549.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i555.i.i)
   %and.i573.i.i = and i64 %msk.1.i.i, -402390976
-  br label %sw.epilog.i.i
-
-sw.default.i.i:                                   ; preds = %sw.epilog.i
-  %conv.i.i = zext nneg i8 %2 to i32
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.2, i32 noundef 206, ptr noundef nonnull @__func__.sdhci_check_capareg, ptr noundef nonnull @.str.143, i32 noundef %conv.i.i) #11
-  br label %sw.epilog.i.i
-
-sw.epilog.i.i:                                    ; preds = %sw.default.i.i, %trace_sdhci_capareg.exit571.i.i
-  %msk.3.i.i = phi i64 [ %4, %sw.default.i.i ], [ %and.i573.i.i, %trace_sdhci_capareg.exit571.i.i ]
-  %tobool291.not.i.i = icmp eq i64 %msk.3.i.i, 0
+  %tobool291.not.i.i = icmp eq i64 %and.i573.i.i, 0
   br i1 %tobool291.not.i.i, label %sdhci_init_readonly_registers.exit, label %do.body.i.i
 
-do.body.i.i:                                      ; preds = %sw.epilog.i.i
-  %192 = load i32, ptr @qemu_loglevel, align 4
-  %and.i574.i.i = and i32 %192, 1024
+do.body.i.i:                                      ; preds = %trace_sdhci_capareg.exit571.i.i
+  %190 = load i32, ptr @qemu_loglevel, align 4
+  %and.i574.i.i = and i32 %190, 1024
   %cmp.i575.not.i.i = icmp eq i32 %and.i574.i.i, 0
   br i1 %cmp.i575.not.i.i, label %sdhci_init_readonly_registers.exit, label %if.then297.i.i
 
 if.then297.i.i:                                   ; preds = %do.body.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.144, i64 noundef %msk.3.i.i) #11
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.144, i64 noundef %and.i573.i.i) #11
   br label %sdhci_init_readonly_registers.exit
 
-sdhci_init_readonly_registers.exit:               ; preds = %sw.default.i, %if.then.i.i, %sdhci_check_capab_freq_range.exit.i.i, %sdhci_check_capab_freq_range.exit417.i.i, %if.then212.i.i, %sw.epilog.i.i, %do.body.i.i, %if.then297.i.i
+sdhci_init_readonly_registers.exit:               ; preds = %sw.default.i, %if.then.i.i, %sdhci_check_capab_freq_range.exit.i.i, %sdhci_check_capab_freq_range.exit417.i.i, %if.then212.i.i, %trace_sdhci_capareg.exit571.i.i, %do.body.i.i, %if.then297.i.i
   call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef null) #11
-  %193 = load ptr, ptr %spec.select, align 8
-  %tobool9.not = icmp eq ptr %193, null
+  %191 = load ptr, ptr %spec.select, align 8
+  %tobool9.not = icmp eq ptr %191, null
   br i1 %tobool9.not, label %if.end11, label %cleanup
 
 if.end11:                                         ; preds = %sdhci_init_readonly_registers.exit
-  %194 = getelementptr i8, ptr %s, i64 3224
-  %s.val = load i64, ptr %194, align 8
+  %192 = getelementptr i8, ptr %s, i64 3224
+  %s.val = load i64, ptr %192, align 8
   %conv.i = trunc i64 %s.val to i32
   %shr.i.i = lshr i32 %conv.i, 16
   %and.i.i = and i32 %shr.i.i, 3
@@ -1715,8 +1705,8 @@ if.end11:                                         ; preds = %sdhci_init_readonly
   store ptr %call14, ptr %fifo_buffer, align 16
   %iomem = getelementptr inbounds i8, ptr %s, i64 2736
   %io_ops15 = getelementptr inbounds i8, ptr %s, i64 3112
-  %195 = load ptr, ptr %io_ops15, align 8
-  call void @memory_region_init_io(ptr noundef nonnull %iomem, ptr noundef nonnull %s, ptr noundef %195, ptr noundef nonnull %s, ptr noundef nonnull @.str.5, i64 noundef 256) #11
+  %193 = load ptr, ptr %io_ops15, align 8
+  call void @memory_region_init_io(ptr noundef nonnull %iomem, ptr noundef nonnull %s, ptr noundef %193, ptr noundef nonnull %s, ptr noundef nonnull @.str.5, i64 noundef 256) #11
   br label %cleanup
 
 cleanup:                                          ; preds = %sdhci_init_readonly_registers.exit, %if.end11, %sw.default, %if.then6

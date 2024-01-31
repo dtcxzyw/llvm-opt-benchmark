@@ -23726,11 +23726,8 @@ if.then42:                                        ; preds = %if.end40
   br i1 %cmp49, label %if.end103.sink.split, label %return
 
 if.else53:                                        ; preds = %if.end40
-  switch i32 %bf.clear, label %return [
-    i32 2, label %if.then57
-    i32 3, label %if.then72
-    i32 4, label %if.then72
-  ]
+  %switch = icmp eq i32 %bf.clear, 2
+  br i1 %switch, label %if.then57, label %if.then72
 
 if.then57:                                        ; preds = %if.else53
   %call58 = tail call ptr @setTypeInitIterator(ptr noundef nonnull %0) #32
@@ -23751,7 +23748,7 @@ while.end:                                        ; preds = %while.body, %if.the
   tail call void @setTypeReleaseIterator(ptr noundef %call58) #32
   br label %if.end103.sink.split.sink.split
 
-if.then72:                                        ; preds = %if.else53, %if.else53
+if.then72:                                        ; preds = %if.else53
   %ptr73 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %ptr73, align 8
   %call74 = tail call ptr @lpSeek(ptr noundef %8, i64 noundef 0) #32
@@ -23812,9 +23809,9 @@ if.end103.sink.split:                             ; preds = %if.end103.sink.spli
   store i32 1, ptr %done, align 8
   br label %return
 
-return:                                           ; preds = %if.then42, %if.else53, %if.end103.sink.split, %if.end37, %if.end, %entry, %lor.lhs.false
-  %.sink = phi i32 [ 22, %lor.lhs.false ], [ 22, %entry ], [ 22, %if.end ], [ 2, %if.end37 ], [ 0, %if.end103.sink.split ], [ 0, %if.else53 ], [ 0, %if.then42 ]
-  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end37 ], [ 0, %if.end103.sink.split ], [ 1, %if.else53 ], [ 1, %if.then42 ]
+return:                                           ; preds = %if.then42, %if.end103.sink.split, %if.end37, %if.end, %entry, %lor.lhs.false
+  %.sink = phi i32 [ 22, %lor.lhs.false ], [ 22, %entry ], [ 22, %if.end ], [ 2, %if.end37 ], [ 0, %if.end103.sink.split ], [ 0, %if.then42 ]
+  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end37 ], [ 0, %if.end103.sink.split ], [ 1, %if.then42 ]
   %call104 = tail call ptr @__errno_location() #37
   store i32 %.sink, ptr %call104, align 4
   ret i32 %retval.0

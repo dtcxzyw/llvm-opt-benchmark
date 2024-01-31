@@ -13418,10 +13418,8 @@ if.then:                                          ; preds = %float32_unpack_cano
   br i1 %cmp.i.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %if.then
-  switch i8 %6, label %do.body.i.i [
-    i8 5, label %sw.bb.i.i
-    i8 4, label %sw.bb1.i.i
-  ]
+  %switch = icmp eq i8 %6, 5
+  br i1 %switch, label %sw.bb.i.i, label %sw.bb1.i.i
 
 sw.bb.i.i:                                        ; preds = %if.then.i
   %7 = load i16, ptr %s, align 2
@@ -13459,10 +13457,6 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   store i32 2147483647, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   store i64 4611686018427387904, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   br label %if.end
-
-do.body.i.i:                                      ; preds = %if.then.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.parts64_return_nan, ptr noundef null) #16
-  unreachable
 
 if.else:                                          ; preds = %float32_unpack_canonical.exit
   switch i8 %6, label %default.unreachable [
@@ -13771,10 +13765,8 @@ if.then:                                          ; preds = %float64_unpack_cano
   br i1 %cmp.i.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %if.then
-  switch i8 %6, label %do.body.i.i [
-    i8 5, label %sw.bb.i.i
-    i8 4, label %sw.bb1.i.i
-  ]
+  %switch = icmp eq i8 %6, 5
+  br i1 %switch, label %sw.bb.i.i, label %sw.bb1.i.i
 
 sw.bb.i.i:                                        ; preds = %if.then.i
   %7 = load i16, ptr %s, align 2
@@ -13812,10 +13804,6 @@ if.then4.i.i:                                     ; preds = %sw.bb1.i.i
   store i32 2147483647, ptr %.compoundliteral.i.sroa.31.0..sroa_idx.i.i, align 4
   store i64 4611686018427387904, ptr %.compoundliteral.i.sroa.4.0..sroa_idx.i.i, align 8
   br label %if.end
-
-do.body.i.i:                                      ; preds = %if.then.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.parts64_return_nan, ptr noundef null) #16
-  unreachable
 
 if.else:                                          ; preds = %float64_unpack_canonical.exit
   switch i8 %6, label %default.unreachable [
@@ -31644,7 +31632,7 @@ if.then187:                                       ; preds = %if.end185.if.then18
   br label %if.end188
 
 if.end188:                                        ; preds = %if.then187, %if.end185
-  switch i8 %0, label %sw.default208 [
+  switch i8 %0, label %default.unreachable [
     i8 0, label %sw.epilog209
     i8 4, label %sw.epilog209
     i8 3, label %if.end225
@@ -31661,8 +31649,7 @@ sw.bb201:                                         ; preds = %if.end188
   %21 = select i1 %zSign, i1 %tobool183, i1 false
   br i1 %21, label %if.then211.thread, label %if.end225
 
-sw.default208:                                    ; preds = %if.end188
-  tail call void @abort() #16
+default.unreachable:                              ; preds = %if.end188
   unreachable
 
 sw.epilog209:                                     ; preds = %if.end188, %if.end188

@@ -1485,10 +1485,8 @@ _ZN13poly_rewriterI16bv_rewriter_coreE11mk_add_coreEjPKP4exprR7obj_refIS2_11ast_
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN13poly_rewriterI16bv_rewriter_coreE11mk_add_coreEjPKP4exprR7obj_refIS2_11ast_managerE.exit
-  switch i32 %retval.0.i, label %return [
-    i32 5, label %if.end18
-    i32 4, label %if.end.land.lhs.true6_crit_edge
-  ]
+  %switch = icmp eq i32 %retval.0.i, 5
+  br i1 %switch, label %if.end18, label %if.end.land.lhs.true6_crit_edge
 
 if.end.land.lhs.true6_crit_edge:                  ; preds = %if.end
   %.pre = load ptr, ptr %result, align 8
@@ -1528,7 +1526,7 @@ if.then9:                                         ; preds = %_ZNK13poly_rewriter
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end, %if.then9
-  %retval.0.i2528 = phi i32 [ 4, %if.then9 ], [ %retval.0.i, %if.end ]
+  %retval.0.i2528 = phi i32 [ 4, %if.then9 ], [ 5, %if.end ]
   %_num_args.0 = phi i32 [ %15, %if.then9 ], [ %num_args, %if.end ]
   %_args.0 = phi ptr [ %m_args.i, %if.then9 ], [ %args, %if.end ]
   %cmp19 = icmp ult i32 %_num_args.0, 2
@@ -1599,8 +1597,8 @@ for.end35:                                        ; preds = %for.inc33, %_ZNK11b
   %call38 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7obj_refI4expr11ast_managerEaSEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef %call37)
   br label %return
 
-return:                                           ; preds = %if.then29, %land.rhs.i.i, %land.lhs.true6, %if.end18, %_ZNK13poly_rewriterI16bv_rewriter_coreE6is_addEP4expr.exit, %if.end, %_ZN13poly_rewriterI16bv_rewriter_coreE11mk_add_coreEjPKP4exprR7obj_refIS2_11ast_managerE.exit, %for.end35
-  %retval.0 = phi i32 [ 0, %for.end35 ], [ %retval.0.i, %_ZN13poly_rewriterI16bv_rewriter_coreE11mk_add_coreEjPKP4exprR7obj_refIS2_11ast_managerE.exit ], [ %retval.0.i, %if.end ], [ 4, %_ZNK13poly_rewriterI16bv_rewriter_coreE6is_addEP4expr.exit ], [ %retval.0.i2528, %if.end18 ], [ 4, %land.lhs.true6 ], [ 4, %land.rhs.i.i ], [ %retval.0.i2528, %if.then29 ]
+return:                                           ; preds = %if.then29, %land.rhs.i.i, %land.lhs.true6, %if.end18, %_ZNK13poly_rewriterI16bv_rewriter_coreE6is_addEP4expr.exit, %_ZN13poly_rewriterI16bv_rewriter_coreE11mk_add_coreEjPKP4exprR7obj_refIS2_11ast_managerE.exit, %for.end35
+  %retval.0 = phi i32 [ 0, %for.end35 ], [ %retval.0.i, %_ZN13poly_rewriterI16bv_rewriter_coreE11mk_add_coreEjPKP4exprR7obj_refIS2_11ast_managerE.exit ], [ 4, %_ZNK13poly_rewriterI16bv_rewriter_coreE6is_addEP4expr.exit ], [ %retval.0.i2528, %if.end18 ], [ 4, %land.lhs.true6 ], [ 4, %land.rhs.i.i ], [ %retval.0.i2528, %if.then29 ]
   ret i32 %retval.0
 }
 

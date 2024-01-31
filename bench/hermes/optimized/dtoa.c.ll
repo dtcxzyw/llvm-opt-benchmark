@@ -1069,7 +1069,7 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   br label %Balloc.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %for.end.i.i
-  %shl.i.i.i = shl i32 2, %k.019.i.i
+  %shl.i.i.i = shl nuw i32 2, %k.019.i.i
   %sub.i.i.i = add nsw i32 %shl.i.i.i, -1
   %conv.i.i.i = sext i32 %sub.i.i.i to i64
   %mul.i.i.i = shl nsw i64 %conv.i.i.i, 2
@@ -3107,7 +3107,7 @@ if.end82:                                         ; preds = %if.else79, %if.then
   %cmp89 = icmp ult i32 %spec.store.select15, 6
   %sub92 = add nsw i32 %spec.store.select15, -4
   %spec.select = select i1 %cmp89, i32 %spec.store.select15, i32 %sub92
-  switch i32 %spec.select, label %sw.epilog [
+  switch i32 %spec.select, label %default.unreachable [
     i32 0, label %land.lhs.true.i.i
     i32 1, label %land.lhs.true.i.i
     i32 2, label %sw.bb94
@@ -3134,13 +3134,16 @@ sw.bb101:                                         ; preds = %sw.bb100, %if.end82
   %spec.store.select2 = tail call i32 @llvm.smax.i32(i32 %add103, i32 1)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb101, %sw.bb95, %if.end82
-  %ilim.0 = phi i32 [ -1, %if.end82 ], [ %add103, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
-  %i.1 = phi i32 [ %i.0, %if.end82 ], [ %spec.store.select2, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
-  %ilim1.0 = phi i32 [ -1, %if.end82 ], [ %add102, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
-  %leftright.2 = phi i32 [ 1, %if.end82 ], [ %leftright.1, %sw.bb101 ], [ %leftright.0, %sw.bb95 ]
-  %ndigits.addr.0 = phi i32 [ %ndigits, %if.end82 ], [ %ndigits, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
-  %conv1.i = sext i32 %i.1 to i64
+default.unreachable:                              ; preds = %if.end82
+  unreachable
+
+sw.epilog:                                        ; preds = %sw.bb101, %sw.bb95
+  %ilim.0 = phi i32 [ %add103, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
+  %i.1 = phi i32 [ %spec.store.select2, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
+  %ilim1.0 = phi i32 [ %add102, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
+  %leftright.2 = phi i32 [ %leftright.1, %sw.bb101 ], [ %leftright.0, %sw.bb95 ]
+  %ndigits.addr.0 = phi i32 [ %ndigits, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
+  %conv1.i = zext nneg i32 %i.1 to i64
   %cmp.not5.i = icmp ult i32 %i.1, 28
   br i1 %cmp.not5.i, label %land.lhs.true.i.i, label %for.body.i
 
@@ -3177,7 +3180,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br label %rv_alloc.exit
 
 if.else.i.i:                                      ; preds = %for.end.i
-  %shl.i.i = shl i32 2, %k.06.i
+  %shl.i.i = shl nuw i32 2, %k.06.i
   %sub.i.i = add nsw i32 %shl.i.i, -1
   %conv.i.i = sext i32 %sub.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 2
@@ -6429,7 +6432,7 @@ if.end82:                                         ; preds = %if.else79, %if.then
   %cmp89 = icmp ult i32 %spec.store.select14, 6
   %sub92 = add nsw i32 %spec.store.select14, -4
   %spec.select = select i1 %cmp89, i32 %spec.store.select14, i32 %sub92
-  switch i32 %spec.select, label %sw.epilog [
+  switch i32 %spec.select, label %default.unreachable [
     i32 0, label %land.lhs.true.i.i
     i32 1, label %land.lhs.true.i.i
     i32 2, label %sw.bb94
@@ -6456,13 +6459,16 @@ sw.bb101:                                         ; preds = %sw.bb100, %if.end82
   %spec.store.select2 = tail call i32 @llvm.smax.i32(i32 %add103, i32 1)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb101, %sw.bb95, %if.end82
-  %ilim.0 = phi i32 [ -1, %if.end82 ], [ %add103, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
-  %i.1 = phi i32 [ %i.0, %if.end82 ], [ %spec.store.select2, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
-  %ilim1.0 = phi i32 [ -1, %if.end82 ], [ %add102, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
-  %leftright.2 = phi i32 [ 1, %if.end82 ], [ %leftright.1, %sw.bb101 ], [ %leftright.0, %sw.bb95 ]
-  %ndigits.addr.0 = phi i32 [ %ndigits, %if.end82 ], [ %ndigits, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
-  %conv1.i = sext i32 %i.1 to i64
+default.unreachable:                              ; preds = %if.end82
+  unreachable
+
+sw.epilog:                                        ; preds = %sw.bb101, %sw.bb95
+  %ilim.0 = phi i32 [ %add103, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
+  %i.1 = phi i32 [ %spec.store.select2, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
+  %ilim1.0 = phi i32 [ %add102, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
+  %leftright.2 = phi i32 [ %leftright.1, %sw.bb101 ], [ %leftright.0, %sw.bb95 ]
+  %ndigits.addr.0 = phi i32 [ %ndigits, %sw.bb101 ], [ %spec.store.select, %sw.bb95 ]
+  %conv1.i = zext nneg i32 %i.1 to i64
   %cmp.not5.i = icmp ult i32 %i.1, 28
   br i1 %cmp.not5.i, label %land.lhs.true.i.i, label %for.body.i
 
@@ -6499,7 +6505,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br label %rv_alloc.exit
 
 if.else.i.i:                                      ; preds = %for.end.i
-  %shl.i.i = shl i32 2, %k.06.i
+  %shl.i.i = shl nuw i32 2, %k.06.i
   %sub.i.i = add nsw i32 %shl.i.i, -1
   %conv.i.i = sext i32 %sub.i.i to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 2

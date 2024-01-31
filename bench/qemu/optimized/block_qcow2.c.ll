@@ -5082,7 +5082,7 @@ if.end92:                                         ; preds = %if.else
   br i1 %or.cond3, label %sw.bb110, label %if.end100
 
 if.end100:                                        ; preds = %if.end92
-  switch i32 %prealloc, label %do.body [
+  switch i32 %prealloc, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb110
     i32 2, label %sw.bb116
@@ -5333,8 +5333,7 @@ if.end256:                                        ; preds = %while.body
   %tobool226.not = icmp eq i64 %sub265, 0
   br i1 %tobool226.not, label %sw.epilog, label %while.body, !llvm.loop !22
 
-do.body:                                          ; preds = %if.end100
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 4583, ptr noundef nonnull @__func__.qcow2_co_truncate, ptr noundef null) #21
+default.unreachable:                              ; preds = %if.end100
   unreachable
 
 sw.epilog:                                        ; preds = %if.end256, %while.cond.preheader, %if.then120, %sw.bb110, %sw.bb, %if.then102

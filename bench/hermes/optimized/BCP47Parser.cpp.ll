@@ -1581,10 +1581,8 @@ entry:
 
 land.rhs.i:                                       ; preds = %entry
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i16, ptr %subtag.0.val, i64 %subtag.8.val
-  switch i64 %subtag.8.val, label %lor.end [
-    i64 3, label %sw.bb.i.i.i.i.i.i
-    i64 2, label %sw.bb31.i.i.i.i.i.i
-  ]
+  %switch = icmp eq i64 %subtag.8.val, 3
+  br i1 %switch, label %sw.bb.i.i.i.i.i.i, label %sw.bb31.i.i.i.i.i.i
 
 sw.bb.i.i.i.i.i.i:                                ; preds = %land.rhs.i
   %1 = load i16, ptr %subtag.0.val, align 2
@@ -1597,7 +1595,7 @@ if.end29.i.i.i.i.i.i:                             ; preds = %sw.bb.i.i.i.i.i.i
   %incdec.ptr.i24.i.i.i.i.i.i = getelementptr inbounds i8, ptr %subtag.0.val, i64 2
   br label %sw.bb31.i.i.i.i.i.i
 
-sw.bb31.i.i.i.i.i.i:                              ; preds = %if.end29.i.i.i.i.i.i, %land.rhs.i
+sw.bb31.i.i.i.i.i.i:                              ; preds = %land.rhs.i, %if.end29.i.i.i.i.i.i
   %__first.sroa.0.1.i.i.i.i.i.i = phi ptr [ %subtag.0.val, %land.rhs.i ], [ %incdec.ptr.i24.i.i.i.i.i.i, %if.end29.i.i.i.i.i.i ]
   %5 = load i16, ptr %__first.sroa.0.1.i.i.i.i.i.i, align 2
   %6 = and i16 %5, -33
@@ -1728,8 +1726,8 @@ _ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEE
   %cmp.i.i.i.i22 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i.i21, %add.ptr.i.i.i.i.i.i9
   br label %lor.end
 
-lor.end:                                          ; preds = %_ZN6hermes13platform_intl12_GLOBAL__N_110isCharTypeIPFbDsEEEbRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEmmT_.exit, %land.rhs.i, %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i20, %lor.rhs
-  %43 = phi i1 [ false, %lor.rhs ], [ %cmp.i.i.i.i22, %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i20 ], [ true, %land.rhs.i ], [ %cmp.i.i.i.i, %_ZN6hermes13platform_intl12_GLOBAL__N_110isCharTypeIPFbDsEEEbRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEmmT_.exit ]
+lor.end:                                          ; preds = %_ZN6hermes13platform_intl12_GLOBAL__N_110isCharTypeIPFbDsEEEbRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEmmT_.exit, %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i20, %lor.rhs
+  %43 = phi i1 [ false, %lor.rhs ], [ %cmp.i.i.i.i22, %_ZN4llvh6all_ofIRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEPFbDsEEEbOT_T0_.exit.i20 ], [ %cmp.i.i.i.i, %_ZN6hermes13platform_intl12_GLOBAL__N_110isCharTypeIPFbDsEEEbRKNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEmmT_.exit ]
   ret i1 %43
 }
 

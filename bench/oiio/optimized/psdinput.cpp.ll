@@ -1143,10 +1143,8 @@ invoke.cont62:                                    ; preds = %.noexc79
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp2.i8.i59)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp57) #28
-  switch i16 %resinfo.sroa.6.0, label %return [
-    i16 1, label %sw.bb
-    i16 2, label %sw.bb75
-  ]
+  %switch = icmp eq i16 %resinfo.sroa.6.0, 1
+  br i1 %switch, label %sw.bb, label %sw.bb75
 
 lpad:                                             ; preds = %call.i44.noexc, %if.end51
   %11 = landingpad { ptr, i32 }
@@ -1304,8 +1302,8 @@ lpad80:                                           ; preds = %.noexc120, %invoke.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76) #28
   br label %eh.resume
 
-return:                                           ; preds = %_ZN18OpenImageIO_v2_6_08PSDInput9read_bigeIssEEbRT0_.exit43.thread, %invoke.cont62, %invoke.cont72, %invoke.cont81, %_ZN18OpenImageIO_v2_6_08PSDInput9read_bigeIssEEbRT0_.exit43, %if.then50, %if.then42
-  %retval.0 = phi i1 [ false, %if.then42 ], [ false, %if.then50 ], [ false, %_ZN18OpenImageIO_v2_6_08PSDInput9read_bigeIssEEbRT0_.exit43 ], [ true, %invoke.cont81 ], [ true, %invoke.cont72 ], [ true, %invoke.cont62 ], [ false, %_ZN18OpenImageIO_v2_6_08PSDInput9read_bigeIssEEbRT0_.exit43.thread ]
+return:                                           ; preds = %_ZN18OpenImageIO_v2_6_08PSDInput9read_bigeIssEEbRT0_.exit43.thread, %invoke.cont72, %invoke.cont81, %_ZN18OpenImageIO_v2_6_08PSDInput9read_bigeIssEEbRT0_.exit43, %if.then50, %if.then42
+  %retval.0 = phi i1 [ false, %if.then42 ], [ false, %if.then50 ], [ false, %_ZN18OpenImageIO_v2_6_08PSDInput9read_bigeIssEEbRT0_.exit43 ], [ true, %invoke.cont81 ], [ true, %invoke.cont72 ], [ false, %_ZN18OpenImageIO_v2_6_08PSDInput9read_bigeIssEEbRT0_.exit43.thread ]
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad80, %lpad.i99, %lpad78, %lpad71, %lpad.i85, %lpad69, %lpad61, %lpad.i52, %lpad58, %lpad54, %lpad.i, %lpad
@@ -7282,14 +7280,12 @@ if.then16:                                        ; preds = %if.end8
   br label %return
 
 if.end17:                                         ; preds = %if.end8
-  switch i16 %0, label %sw.epilog [
-    i16 1, label %sw.bb
-    i16 2, label %sw.bb37
-  ]
-
-sw.bb:                                            ; preds = %if.end17
+  %switch9 = icmp eq i16 %0, 1
   %height = getelementptr inbounds i8, ptr %this, i64 664
   %3 = load i32, ptr %height, align 8
+  br i1 %switch9, label %sw.bb, label %sw.bb37
+
+sw.bb:                                            ; preds = %if.end17
   %4 = add i32 %3, -30001
   %or.cond4 = icmp ult i32 %4, -30000
   br i1 %or.cond4, label %if.then27, label %if.end28
@@ -7310,31 +7306,29 @@ if.then35:                                        ; preds = %if.end28
   br label %return
 
 sw.bb37:                                          ; preds = %if.end17
-  %height39 = getelementptr inbounds i8, ptr %this, i64 664
-  %7 = load i32, ptr %height39, align 8
-  %8 = add i32 %7, -300001
-  %or.cond6 = icmp ult i32 %8, -300000
+  %7 = add i32 %3, -300001
+  %or.cond6 = icmp ult i32 %7, -300000
   br i1 %or.cond6, label %if.then45, label %if.end48
 
 if.then45:                                        ; preds = %sw.bb37
-  tail call void @_ZNK18OpenImageIO_v2_6_010ImageInput8errorfmtIJjEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull @.str.51, ptr noundef nonnull align 4 dereferenceable(4) %height39)
+  tail call void @_ZNK18OpenImageIO_v2_6_010ImageInput8errorfmtIJjEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull @.str.51, ptr noundef nonnull align 4 dereferenceable(4) %height)
   br label %return
 
 if.end48:                                         ; preds = %sw.bb37
   %width50 = getelementptr inbounds i8, ptr %this, i64 668
-  %9 = load i32, ptr %width50, align 4
-  %10 = add i32 %9, -300001
-  %or.cond7 = icmp ult i32 %10, -300000
+  %8 = load i32, ptr %width50, align 4
+  %9 = add i32 %8, -300001
+  %or.cond7 = icmp ult i32 %9, -300000
   br i1 %or.cond7, label %if.then56, label %sw.epilog
 
 if.then56:                                        ; preds = %if.end48
   tail call void @_ZNK18OpenImageIO_v2_6_010ImageInput8errorfmtIJjEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull @.str.52, ptr noundef nonnull align 4 dereferenceable(4) %width50)
   br label %return
 
-sw.epilog:                                        ; preds = %if.end48, %if.end28, %if.end17
+sw.epilog:                                        ; preds = %if.end48, %if.end28
   %depth = getelementptr inbounds i8, ptr %this, i64 672
-  %11 = load i16, ptr %depth, align 8
-  switch i16 %11, label %if.then78 [
+  %10 = load i16, ptr %depth, align 8
+  switch i16 %10, label %if.then78 [
     i16 1, label %if.end81
     i16 8, label %if.end81
     i16 16, label %if.end81
@@ -7347,15 +7341,15 @@ if.then78:                                        ; preds = %sw.epilog
 
 if.end81:                                         ; preds = %sw.epilog, %sw.epilog, %sw.epilog, %sw.epilog
   %m_WantRaw = getelementptr inbounds i8, ptr %this, i64 568
-  %12 = load i8, ptr %m_WantRaw, align 8
-  %13 = and i8 %12, 1
-  %tobool.not = icmp eq i8 %13, 0
+  %11 = load i8, ptr %m_WantRaw, align 8
+  %12 = and i8 %11, 1
+  %tobool.not = icmp eq i8 %12, 0
   br i1 %tobool.not, label %if.end83, label %return
 
 if.end83:                                         ; preds = %if.end81
   %color_mode = getelementptr inbounds i8, ptr %this, i64 674
-  %14 = load i16, ptr %color_mode, align 2
-  switch i16 %14, label %sw.default [
+  %13 = load i16, ptr %color_mode, align 2
+  switch i16 %13, label %sw.default [
     i16 0, label %return
     i16 2, label %return
     i16 3, label %return

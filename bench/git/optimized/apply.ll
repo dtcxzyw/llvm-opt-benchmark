@@ -10222,10 +10222,8 @@ if.else:                                          ; preds = %entry, %if.end.i, %
   br i1 %cmp, label %return, label %if.else9
 
 if.else9:                                         ; preds = %if.else
-  switch i32 %call7, label %if.then15 [
-    i32 1, label %if.then11
-    i32 0, label %if.end23
-  ]
+  %switch = icmp eq i32 %call7, 1
+  br i1 %switch, label %if.then11, label %if.end23
 
 if.then11:                                        ; preds = %if.else9
   %fragments = getelementptr inbounds i8, ptr %patch, i64 72
@@ -10258,37 +10256,22 @@ free_fragment_list.exit:                          ; preds = %if.end.i15, %if.the
   store ptr null, ptr %fragments, align 8
   br label %if.end23
 
-if.then15:                                        ; preds = %if.else9
-  %12 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i17 = icmp eq i32 %12, 0
-  br i1 %tobool1.not.i17, label %_.exit21, label %if.end3.i18
-
-if.end3.i18:                                      ; preds = %if.then15
-  %call.i19 = call ptr @gettext(ptr noundef nonnull @.str.179) #21
-  br label %_.exit21
-
-_.exit21:                                         ; preds = %if.then15, %if.end3.i18
-  %retval.0.i20 = phi ptr [ %call.i19, %if.end3.i18 ], [ @.str.179, %if.then15 ]
-  %13 = load ptr, ptr %old_name6, align 8
-  %call18 = call i32 (ptr, ...) @error(ptr noundef %retval.0.i20, ptr noundef %13) #21
-  br label %return
-
 if.end23:                                         ; preds = %if.else9, %free_fragment_list.exit, %if.then5
   %call24 = call ptr @strbuf_detach(ptr noundef nonnull %buf, ptr noundef nonnull %len) #21
-  %14 = load i64, ptr %len, align 8
+  %12 = load i64, ptr %len, align 8
   %bf.load = load i16, ptr %is_copy.i, align 8
-  %15 = and i16 %bf.load, 4
-  %tobool25.not.not = icmp eq i16 %15, 0
-  %16 = getelementptr inbounds i8, ptr %image, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 32, i1 false)
+  %13 = and i16 %bf.load, 4
+  %tobool25.not.not = icmp eq i16 %13, 0
+  %14 = getelementptr inbounds i8, ptr %image, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, i8 0, i64 32, i1 false)
   store ptr %call24, ptr %image, align 8
   %len2.i = getelementptr inbounds i8, ptr %image, i64 8
-  store i64 %14, ptr %len2.i, align 8
+  store i64 %12, ptr %len2.i, align 8
   br i1 %tobool25.not.not, label %if.end.i23, label %return
 
 if.end.i23:                                       ; preds = %if.end23
-  %add.ptr.i = getelementptr inbounds i8, ptr %call24, i64 %14
-  %cmp22.i = icmp sgt i64 %14, 0
+  %add.ptr.i = getelementptr inbounds i8, ptr %call24, i64 %12
+  %cmp22.i = icmp sgt i64 %12, 0
   br i1 %cmp22.i, label %for.cond.preheader.i, label %while.end.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i23, %for.end.i
@@ -10297,8 +10280,8 @@ for.cond.preheader.i:                             ; preds = %if.end.i23, %for.en
 
 land.rhs.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
   %next.020.i = phi ptr [ %cp.023.i, %for.cond.preheader.i ], [ %incdec.ptr.i, %for.inc.i ]
-  %17 = load i8, ptr %next.020.i, align 1
-  %cmp7.not.i = icmp eq i8 %17, 10
+  %15 = load i8, ptr %next.020.i, align 1
+  %cmp7.not.i = icmp eq i8 %15, 10
   br i1 %cmp7.not.i, label %for.end.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.rhs.i
@@ -10323,13 +10306,13 @@ while.end.loopexit.i:                             ; preds = %for.end.i
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %if.end.i23
-  %18 = phi ptr [ %.pre.i, %while.end.loopexit.i ], [ null, %if.end.i23 ]
+  %16 = phi ptr [ %.pre.i, %while.end.loopexit.i ], [ null, %if.end.i23 ]
   %line.i = getelementptr inbounds i8, ptr %image, i64 40
-  store ptr %18, ptr %line.i, align 8
+  store ptr %16, ptr %line.i, align 8
   br label %return
 
-return:                                           ; preds = %while.end.i, %if.end23, %if.else, %_.exit21, %_.exit
-  %retval.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit21 ], [ -1, %if.else ], [ 0, %if.end23 ], [ 0, %while.end.i ]
+return:                                           ; preds = %while.end.i, %if.end23, %if.else, %_.exit
+  %retval.0 = phi i32 [ -1, %_.exit ], [ -1, %if.else ], [ 0, %if.end23 ], [ 0, %while.end.i ]
   ret i32 %retval.0
 }
 

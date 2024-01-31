@@ -1747,10 +1747,8 @@ if.end5.sink.split.i.i:                           ; preds = %land.lhs.true.i.i
 _ZN11flatbuffers14StringToNumberIdEEbPKcPT_.exit: ; preds = %sw.bb, %land.end.i.i, %land.lhs.true.i.i, %if.end5.sink.split.i.i
   %d.0 = phi double [ %call1.i.i.i, %land.lhs.true.i.i ], [ 0.000000e+00, %sw.bb ], [ 0.000000e+00, %land.end.i.i ], [ 0x7FF8000000000000, %if.end5.sink.split.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i)
-  switch i32 %type, label %sw.default.i [
-    i32 11, label %sw.bb.i
-    i32 12, label %sw.bb1.i
-  ]
+  %switch12 = icmp eq i32 %type, 11
+  br i1 %switch12, label %sw.bb.i, label %sw.bb1.i
 
 sw.bb.i:                                          ; preds = %_ZN11flatbuffers14StringToNumberIdEEbPKcPT_.exit
   %conv.i = fptrunc double %d.0 to float
@@ -1759,59 +1757,6 @@ sw.bb.i:                                          ; preds = %_ZN11flatbuffers14S
 
 sw.bb1.i:                                         ; preds = %_ZN11flatbuffers14StringToNumberIdEEbPKcPT_.exit
   store double %d.0, ptr %data, align 8
-  br label %sw.epilog
-
-sw.default.i:                                     ; preds = %_ZN11flatbuffers14StringToNumberIdEEbPKcPT_.exit
-  %conv2.i = fptosi double %d.0 to i64
-  switch i32 %type, label %sw.epilog [
-    i32 1, label %sw.bb.i.i
-    i32 2, label %sw.bb.i.i
-    i32 4, label %sw.bb.i.i
-    i32 3, label %sw.bb1.i.i
-    i32 5, label %sw.bb3.i.i
-    i32 6, label %sw.bb5.i.i
-    i32 7, label %sw.bb7.i.i
-    i32 8, label %sw.bb9.i.i
-    i32 9, label %sw.bb11.i.i
-    i32 10, label %sw.bb12.i.i
-  ]
-
-sw.bb.i.i:                                        ; preds = %sw.default.i, %sw.default.i, %sw.default.i
-  %conv.i.i = trunc i64 %conv2.i to i8
-  store i8 %conv.i.i, ptr %data, align 1
-  br label %sw.epilog
-
-sw.bb1.i.i:                                       ; preds = %sw.default.i
-  %conv2.i.i = trunc i64 %conv2.i to i8
-  store i8 %conv2.i.i, ptr %data, align 1
-  br label %sw.epilog
-
-sw.bb3.i.i:                                       ; preds = %sw.default.i
-  %conv4.i.i = trunc i64 %conv2.i to i16
-  store i16 %conv4.i.i, ptr %data, align 2
-  br label %sw.epilog
-
-sw.bb5.i.i:                                       ; preds = %sw.default.i
-  %conv6.i.i = trunc i64 %conv2.i to i16
-  store i16 %conv6.i.i, ptr %data, align 2
-  br label %sw.epilog
-
-sw.bb7.i.i:                                       ; preds = %sw.default.i
-  %conv8.i.i = trunc i64 %conv2.i to i32
-  store i32 %conv8.i.i, ptr %data, align 4
-  br label %sw.epilog
-
-sw.bb9.i.i:                                       ; preds = %sw.default.i
-  %conv10.i.i = trunc i64 %conv2.i to i32
-  store i32 %conv10.i.i, ptr %data, align 4
-  br label %sw.epilog
-
-sw.bb11.i.i:                                      ; preds = %sw.default.i
-  store i64 %conv2.i, ptr %data, align 8
-  br label %sw.epilog
-
-sw.bb12.i.i:                                      ; preds = %sw.default.i
-  store i64 %conv2.i, ptr %data, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -1894,7 +1839,7 @@ sw.bb12.i:                                        ; preds = %9
   store i64 %10, ptr %data, align 8
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb12.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i5, %sw.bb.i7, %9, %sw.bb12.i.i, %sw.bb11.i.i, %sw.bb9.i.i, %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb1.i.i, %sw.bb.i.i, %sw.default.i, %sw.bb1.i, %sw.bb.i
+sw.epilog:                                        ; preds = %sw.bb12.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i5, %sw.bb.i7, %9, %sw.bb1.i, %sw.bb.i
   ret void
 }
 
