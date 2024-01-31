@@ -2633,63 +2633,60 @@ sw.bb36:                                          ; preds = %entry
   %18 = load ptr, ptr %node37, align 8
   %lsizenode38 = getelementptr inbounds i8, ptr %t, i64 11
   %19 = load i8, ptr %lsizenode38, align 1
-  %conv39 = zext nneg i8 %19 to i32
-  %notmask25 = shl nsw i32 -1, %conv39
-  %sub41 = and i32 %notmask25, 1
-  %and42 = xor i32 %sub41, 1
-  %idxprom43 = zext nneg i32 %and42 to i64
+  %20 = icmp ne i8 %19, 0
+  %idxprom43 = zext i1 %20 to i64
   %arrayidx44 = getelementptr inbounds %union.Node, ptr %18, i64 %idxprom43
   br label %return
 
 sw.bb45:                                          ; preds = %entry
-  %20 = load ptr, ptr %key, align 8
+  %21 = load ptr, ptr %key, align 8
   %node47 = getelementptr inbounds i8, ptr %t, i64 24
-  %21 = load ptr, ptr %node47, align 8
-  %22 = ptrtoint ptr %20 to i64
-  %conv49 = trunc i64 %22 to i32
+  %22 = load ptr, ptr %node47, align 8
+  %23 = ptrtoint ptr %21 to i64
+  %conv49 = trunc i64 %23 to i32
   %lsizenode50 = getelementptr inbounds i8, ptr %t, i64 11
-  %23 = load i8, ptr %lsizenode50, align 1
-  %conv51 = zext nneg i8 %23 to i32
+  %24 = load i8, ptr %lsizenode50, align 1
+  %conv51 = zext nneg i8 %24 to i32
   %notmask24 = shl nsw i32 -1, %conv51
   %sub53 = xor i32 %notmask24, -1
   %or54 = or i32 %sub53, 1
   %rem55 = urem i32 %conv49, %or54
   %idxprom56 = zext nneg i32 %rem55 to i64
-  %arrayidx57 = getelementptr inbounds %union.Node, ptr %21, i64 %idxprom56
+  %arrayidx57 = getelementptr inbounds %union.Node, ptr %22, i64 %idxprom56
   br label %return
 
 sw.bb58:                                          ; preds = %entry
-  %24 = load ptr, ptr %key, align 8
+  %25 = load ptr, ptr %key, align 8
   %node60 = getelementptr inbounds i8, ptr %t, i64 24
-  %25 = load ptr, ptr %node60, align 8
-  %26 = ptrtoint ptr %24 to i64
-  %conv62 = trunc i64 %26 to i32
+  %26 = load ptr, ptr %node60, align 8
+  %27 = ptrtoint ptr %25 to i64
+  %conv62 = trunc i64 %27 to i32
   %lsizenode63 = getelementptr inbounds i8, ptr %t, i64 11
-  %27 = load i8, ptr %lsizenode63, align 1
-  %conv64 = zext nneg i8 %27 to i32
+  %28 = load i8, ptr %lsizenode63, align 1
+  %conv64 = zext nneg i8 %28 to i32
   %notmask = shl nsw i32 -1, %conv64
   %sub66 = xor i32 %notmask, -1
   %or67 = or i32 %sub66, 1
   %rem68 = urem i32 %conv62, %or67
   %idxprom69 = zext nneg i32 %rem68 to i64
-  %arrayidx70 = getelementptr inbounds %union.Node, ptr %25, i64 %idxprom69
+  %arrayidx70 = getelementptr inbounds %union.Node, ptr %26, i64 %idxprom69
   br label %return
 
 sw.default:                                       ; preds = %entry
-  %28 = load ptr, ptr %key, align 8
+  %29 = load ptr, ptr %key, align 8
   %node72 = getelementptr inbounds i8, ptr %t, i64 24
-  %29 = load ptr, ptr %node72, align 8
-  %30 = ptrtoint ptr %28 to i64
-  %conv74 = trunc i64 %30 to i32
+  %30 = load ptr, ptr %node72, align 8
+  %31 = ptrtoint ptr %29 to i64
+  %conv74 = trunc i64 %31 to i32
   %lsizenode75 = getelementptr inbounds i8, ptr %t, i64 11
-  %31 = load i8, ptr %lsizenode75, align 1
-  %conv76 = zext nneg i8 %31 to i32
+  %32 = load i8, ptr %lsizenode75, align 1
+  %conv76 = zext nneg i8 %32 to i32
   %notmask29 = shl nsw i32 -1, %conv76
   %sub78 = xor i32 %notmask29, -1
   %or79 = or i32 %sub78, 1
   %rem80 = urem i32 %conv74, %or79
   %idxprom81 = zext nneg i32 %rem80 to i64
-  %arrayidx82 = getelementptr inbounds %union.Node, ptr %29, i64 %idxprom81
+  %arrayidx82 = getelementptr inbounds %union.Node, ptr %30, i64 %idxprom81
   br label %return
 
 return:                                           ; preds = %sw.default, %sw.bb58, %sw.bb45, %sw.bb36, %sw.bb27, %sw.bb15, %sw.bb5, %l_hashfloat.exit, %hashint.exit
