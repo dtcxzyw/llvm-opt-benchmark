@@ -20160,12 +20160,10 @@ invoke.cont2:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dec.i)
   %1 = bitcast double %0 to i64
-  %2 = icmp slt i64 %1, 0
-  %fneg.i = fneg double %0
-  %value.addr.0.i = select i1 %2, double %fneg.i, double %0
+  %value.addr.0.i = call double @llvm.fabs.f64(double %0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %specs.i, ptr noundef nonnull align 4 dereferenceable(16) @__const._ZN3fmt3v106detail5writeIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEfTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_SF_SC_.specs, i64 16, i1 false)
-  %3 = bitcast double %value.addr.0.i to i64
-  %and.i = and i64 %3, 9218868437227405312
+  %2 = bitcast double %value.addr.0.i to i64
+  %and.i = and i64 %2, 9218868437227405312
   %cmp.i = icmp eq i64 %and.i, 9218868437227405312
   br i1 %cmp.i, label %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i, label %if.end16.i
 
@@ -20173,17 +20171,17 @@ _ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   store i64 -4294967296, ptr %specs.i.i, align 8
-  %4 = getelementptr inbounds i8, ptr %specs.i.i, i64 8
-  store i64 72057594574798848, ptr %4, align 8
-  %5 = fcmp uno double %value.addr.0.i, 0.000000e+00
-  %cond-lvalue14.i.i = select i1 %5, ptr @.str.198, ptr @.str.200
+  %3 = getelementptr inbounds i8, ptr %specs.i.i, i64 8
+  store i64 72057594574798848, ptr %3, align 8
+  %4 = fcmp uno double %0, 0.000000e+00
+  %cond-lvalue14.i.i = select i1 %4, ptr @.str.198, ptr @.str.200
   %sum.shift.i = lshr i64 %1, 63
   %bf.cast19.i.i = trunc i64 %sum.shift.i to i8
   %tobool20.not.not.i.i = icmp sgt i64 %1, -1
   %add.i.i = select i1 %tobool20.not.not.i.i, i64 3, i64 4
   store i8 %bf.cast19.i.i, ptr %ref.tmp.i.i, align 8
-  %6 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %cond-lvalue14.i.i, ptr %6, align 8
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  store ptr %cond-lvalue14.i.i, ptr %5, align 8
   %call.i.i.i2 = invoke ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcRZNS1_15write_nonfiniteIcS5_EET0_S7_bNS0_12format_specsIT_EERKNS1_11float_specsEEUlS5_E_EES7_S7_RKNS8_IT1_EEmmOT2_(ptr nonnull %buffer, ptr noundef nonnull align 4 dereferenceable(16) %specs.i.i, i64 noundef %add.i.i, i64 noundef %add.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
           to label %call.i.i.i.noexc unwind label %lpad1
 
@@ -20194,34 +20192,34 @@ call.i.i.i.noexc:                                 ; preds = %_ZN3fmt3v106detail1
 
 if.end16.i:                                       ; preds = %invoke.cont2
   %call17.i = call { i64, i32 } @_ZN3fmt3v106detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %value.addr.0.i) #24
-  %7 = extractvalue { i64, i32 } %call17.i, 0
-  store i64 %7, ptr %dec.i, align 8
-  %8 = getelementptr inbounds i8, ptr %dec.i, i64 8
-  %9 = extractvalue { i64, i32 } %call17.i, 1
-  store i32 %9, ptr %8, align 8
-  %10 = lshr i64 %1, 23
-  %fspecs.sroa.2.0.insert.shift.i = and i64 %10, 1099511627776
+  %6 = extractvalue { i64, i32 } %call17.i, 0
+  store i64 %6, ptr %dec.i, align 8
+  %7 = getelementptr inbounds i8, ptr %dec.i, i64 8
+  %8 = extractvalue { i64, i32 } %call17.i, 1
+  store i32 %8, ptr %7, align 8
+  %9 = lshr i64 %1, 23
+  %fspecs.sroa.2.0.insert.shift.i = and i64 %9, 1099511627776
   %call.i.i3 = invoke ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_12format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr nonnull %buffer, ptr noundef nonnull align 8 dereferenceable(16) %dec.i, ptr noundef nonnull align 4 dereferenceable(16) %specs.i, i64 %fspecs.sroa.2.0.insert.shift.i, ptr null)
           to label %invoke.cont4 unwind label %lpad1
 
 invoke.cont4:                                     ; preds = %call.i.i.i.noexc, %if.end16.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %dec.i)
-  %11 = load ptr, ptr %ptr_.i.i, align 8
+  %10 = load ptr, ptr %ptr_.i.i, align 8
   %size_.i = getelementptr inbounds i8, ptr %buffer, i64 16
-  %12 = load i64, ptr %size_.i, align 8
+  %11 = load i64, ptr %size_.i, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #24
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %11, i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %10, i64 noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #24
-  %13 = load ptr, ptr %ptr_.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %13, %store_.i
+  %12 = load ptr, ptr %ptr_.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %12, %store_.i
   br i1 %cmp.not.i.i, label %_ZN3fmt3v1019basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont11
-  call void @_ZdlPv(ptr noundef %13) #25
+  call void @_ZdlPv(ptr noundef %12) #25
   br label %_ZN3fmt3v1019basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN3fmt3v1019basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %invoke.cont11, %if.then.i.i
@@ -20229,18 +20227,18 @@ _ZN3fmt3v1019basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %invoke.cont1
   ret void
 
 lpad1:                                            ; preds = %if.end16.i, %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad10:                                           ; preds = %invoke.cont4
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #24
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad10, %lpad1
-  %.pn = phi { ptr, i32 } [ %15, %lpad10 ], [ %14, %lpad1 ]
+  %.pn = phi { ptr, i32 } [ %14, %lpad10 ], [ %13, %lpad1 ]
   call void @_ZN3fmt3v1019basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %buffer) #24
   resume { ptr, i32 } %.pn
 }
@@ -51490,12 +51488,10 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dec.i.i)
   %1 = bitcast float %0 to i32
-  %2 = icmp slt i32 %1, 0
-  %fneg.i.i = fneg float %0
-  %value.addr.0.i.i = select i1 %2, float %fneg.i.i, float %0
+  %value.addr.0.i.i = tail call float @llvm.fabs.f32(float %0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %specs.i.i, ptr noundef nonnull align 4 dereferenceable(16) @__const._ZN3fmt3v106detail5writeIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEfTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_SF_SC_.specs, i64 16, i1 false)
-  %3 = bitcast float %value.addr.0.i.i to i32
-  %and.i.i = and i32 %3, 2139095040
+  %2 = bitcast float %value.addr.0.i.i to i32
+  %and.i.i = and i32 %2, 2139095040
   %cmp.i.i = icmp eq i32 %and.i.i, 2139095040
   br i1 %cmp.i.i, label %_ZN3fmt3v106detail15write_nonfiniteIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET0_SB_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i.i, label %if.end13.i.i
 
@@ -51503,25 +51499,25 @@ _ZN3fmt3v106detail15write_nonfiniteIcSt20back_insert_iteratorINSt7__cxx1112basic
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
   store i64 -4294967296, ptr %specs.i.i.i, align 8
-  %4 = getelementptr inbounds i8, ptr %specs.i.i.i, i64 8
-  store i64 72057594574798848, ptr %4, align 8
-  %5 = fcmp uno float %value.addr.0.i.i, 0.000000e+00
-  %cond-lvalue13.i.i.i = select i1 %5, ptr @.str.198, ptr @.str.200
+  %3 = getelementptr inbounds i8, ptr %specs.i.i.i, i64 8
+  store i64 72057594574798848, ptr %3, align 8
+  %4 = fcmp uno float %0, 0.000000e+00
+  %cond-lvalue13.i.i.i = select i1 %4, ptr @.str.198, ptr @.str.200
   %bf.lshr16.i.i.i = lshr i32 %1, 31
   %bf.cast18.i.i.i = trunc i32 %bf.lshr16.i.i.i to i8
   %tobool19.not.not.i.i.i = icmp sgt i32 %1, -1
   %add.i.i.i = select i1 %tobool19.not.not.i.i.i, i64 3, i64 4
   store i8 %bf.cast18.i.i.i, ptr %ref.tmp.i.i.i, align 8
-  %6 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
-  store ptr %cond-lvalue13.i.i.i, ptr %6, align 8
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
+  store ptr %cond-lvalue13.i.i.i, ptr %5, align 8
   %call.i.i.i.i = call ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE1ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_15write_nonfiniteIcSC_EET0_SE_bNS0_12format_specsIT_EERKNS1_11float_specsEEUlPcE_EESE_SE_RKNSF_IT1_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs.i.i.i, i64 noundef %add.i.i.i, i64 noundef %add.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %specs.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i)
   br label %_ZNK3fmt3v106detail5fieldIcfLi2EE6formatISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJbifA4_cPv16test_formattableEEET_SG_DpRKT0_.exit
 
 if.end13.i.i:                                     ; preds = %entry
-  %7 = lshr i32 %1, 23
-  %fspecs.sroa.2.0.i.i = and i32 %7, 256
+  %6 = lshr i32 %1, 23
+  %fspecs.sroa.2.0.i.i = and i32 %6, 256
   %call14.i.i = tail call i64 @_ZN3fmt3v106detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %value.addr.0.i.i) #24
   store i64 %call14.i.i, ptr %dec.i.i, align 8
   %fspecs.sroa.2.0.insert.ext.i.i = zext nneg i32 %fspecs.sroa.2.0.i.i to i64
@@ -51534,8 +51530,8 @@ _ZNK3fmt3v106detail5fieldIcfLi2EE6formatISt20back_insert_iteratorINSt7__cxx1112b
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %specs.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dec.i.i)
   %rhs = getelementptr inbounds i8, ptr %this, i64 1
-  %8 = load i8, ptr %rhs, align 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.i.i, i8 noundef signext %8)
+  %7 = load i8, ptr %rhs, align 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.i.i, i8 noundef signext %7)
   %call.i2.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %args5) #24
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %args5, i64 %call.i2.i.i.i
   %call.i.i.i.i.i = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %retval.sroa.0.0.i.i) #24
@@ -58994,6 +58990,9 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
