@@ -17828,9 +17828,9 @@ entry:
   %or.i.i.i = or i64 %and, 1
   %1 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !150
   %xor.i.i.i.i.i = xor i64 %1, 63
-  %shl.i.i.i = shl nuw i64 1, %xor.i.i.i.i.i
-  %and.i.i.i = and i64 %shl.i.i.i, -2
-  %sub.i.i = sub i64 %and, %and.i.i.i
+  %shl.i.i.i = shl nuw nsw i64 1, %xor.i.i.i.i.i
+  %and.i.i.i = and i64 %shl.i.i.i, 9223372036854775806
+  %sub.i.i = sub nsw i64 %and, %and.i.i.i
   %my_table.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %arrayidx.i.i = getelementptr inbounds [64 x %"struct.std::atomic.117"], ptr %my_table.i.i, i64 0, i64 %xor.i.i.i.i.i
   %2 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
@@ -24913,9 +24913,9 @@ entry:
   %or.i.i.i = or i64 %and, 1
   %1 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !150
   %xor.i.i.i.i.i = xor i64 %1, 63
-  %shl.i.i.i = shl nuw i64 1, %xor.i.i.i.i.i
-  %and.i.i.i = and i64 %shl.i.i.i, -2
-  %sub.i.i = sub i64 %and, %and.i.i.i
+  %shl.i.i.i = shl nuw nsw i64 1, %xor.i.i.i.i.i
+  %and.i.i.i = and i64 %shl.i.i.i, 9223372036854775806
+  %sub.i.i = sub nsw i64 %and, %and.i.i.i
   %my_table.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %arrayidx.i.i = getelementptr inbounds [64 x %"struct.std::atomic.111"], ptr %my_table.i.i, i64 0, i64 %xor.i.i.i.i.i
   %2 = load atomic i64, ptr %arrayidx.i.i acquire, align 8

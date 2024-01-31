@@ -16939,8 +16939,7 @@ if.then.i.i79:                                    ; preds = %if.then14
   %cmp1.i.i.i.i.i87 = icmp eq i64 %shl.i.i.i.i.i86, %conv.i.i.i.i84
   %mul.i.i.i.i.i88 = shl nuw nsw i64 2, %sub.i.i.i.i.i85
   %spec.select.i.i.i.i.i89 = select i1 %cmp1.i.i.i.i.i87, i64 %conv.i.i.i.i84, i64 %mul.i.i.i.i.i88
-  %sext249 = shl i64 %spec.select.i.i.i.i.i89, 32
-  %conv3.i.i.i91 = ashr exact i64 %sext249, 32
+  %conv3.i.i.i91 = and i64 %spec.select.i.i.i.i.i89, 4294967294
   %call4.i.i.i92 = tail call noalias align 32 ptr @aligned_alloc(i64 noundef 32, i64 noundef %conv3.i.i.i91) #38
   %17 = ptrtoint ptr %call4.i.i.i92 to i64
   %add.i4.i.i.i93 = or disjoint i64 %17, 24
@@ -16962,12 +16961,12 @@ if.end.i:                                         ; preds = %if.then14, %if.then
 
 for.body.i.preheader:                             ; preds = %if.end.i
   %21 = or disjoint i32 %20, 1
-  %umax265 = tail call i32 @llvm.umax.i32(i32 %21, i32 128)
-  %22 = add nsw i32 %umax265, -65
+  %umax263 = tail call i32 @llvm.umax.i32(i32 %21, i32 128)
+  %22 = add nsw i32 %umax263, -65
   %23 = lshr i32 %22, 3
   %24 = and i32 %23, 536870904
-  %narrow276 = add nuw nsw i32 %24, 8
-  %25 = zext nneg i32 %narrow276 to i64
+  %narrow274 = add nuw nsw i32 %24, 8
+  %25 = zext nneg i32 %narrow274 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %childIncomingNullsVector.sroa.0.0, i8 -1, i64 %25, i1 false)
   br label %for.end.i
 
@@ -17050,8 +17049,7 @@ if.then.i.i117:                                   ; preds = %if.else
   %cmp1.i.i.i.i.i125 = icmp eq i64 %shl.i.i.i.i.i124, %conv.i.i.i.i122
   %mul.i.i.i.i.i126 = shl nuw nsw i64 2, %sub.i.i.i.i.i123
   %spec.select.i.i.i.i.i127 = select i1 %cmp1.i.i.i.i.i125, i64 %conv.i.i.i.i122, i64 %mul.i.i.i.i.i126
-  %sext248 = shl i64 %spec.select.i.i.i.i.i127, 32
-  %conv3.i.i.i130 = ashr exact i64 %sext248, 32
+  %conv3.i.i.i130 = and i64 %spec.select.i.i.i.i.i127, 4294967294
   %call4.i.i.i131 = tail call noalias align 32 ptr @aligned_alloc(i64 noundef 32, i64 noundef %conv3.i.i.i130) #38
   %33 = ptrtoint ptr %call4.i.i.i131 to i64
   %add.i4.i.i.i132 = or disjoint i64 %33, 24
@@ -17116,8 +17114,8 @@ if.end41:                                         ; preds = %if.end20, %invoke.c
   %childIncomingNulls.2 = phi ptr [ %incomingNulls, %if.end6 ], [ %childIncomingNullsVector.sroa.0.3, %invoke.cont32 ], [ %childIncomingNulls.0, %if.end20 ]
   %childrenSize_.i148 = getelementptr inbounds i8, ptr %row, i64 104
   %44 = load i64, ptr %childrenSize_.i148, align 8
-  %cmp44251.not = icmp eq i64 %44, 0
-  br i1 %cmp44251.not, label %for.end, label %_ZN8facebook5velox9RowVector7childAtEj.exit155.lr.ph
+  %cmp44249.not = icmp eq i64 %44, 0
+  br i1 %cmp44249.not, label %for.end, label %_ZN8facebook5velox9RowVector7childAtEj.exit155.lr.ph
 
 _ZN8facebook5velox9RowVector7childAtEj.exit155.lr.ph: ; preds = %if.end41
   %children_.i153 = getelementptr inbounds i8, ptr %row, i64 112
@@ -17184,8 +17182,8 @@ if.else.i168:                                     ; preds = %.noexc
 
 if.end62:                                         ; preds = %if.else.i168, %if.then.i172, %for.end
   %52 = load i64, ptr %childrenSize_.i148, align 8
-  %cmp67254.not = icmp eq i64 %52, 0
-  br i1 %cmp67254.not, label %for.end79, label %_ZN8facebook5velox9RowVector7childAtEj.exit183.lr.ph
+  %cmp67252.not = icmp eq i64 %52, 0
+  br i1 %cmp67252.not, label %for.end79, label %_ZN8facebook5velox9RowVector7childAtEj.exit183.lr.ph
 
 _ZN8facebook5velox9RowVector7childAtEj.exit183.lr.ph: ; preds = %if.end62
   %children_.i181 = getelementptr inbounds i8, ptr %row, i64 112
@@ -17194,13 +17192,13 @@ _ZN8facebook5velox9RowVector7childAtEj.exit183.lr.ph: ; preds = %if.end62
   br label %_ZN8facebook5velox9RowVector7childAtEj.exit183
 
 for.cond64:                                       ; preds = %_ZN8facebook5velox9RowVector7childAtEj.exit183
-  %indvars.iv.next274 = add nuw i64 %indvars.iv273, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next274, %52
+  %indvars.iv.next272 = add nuw i64 %indvars.iv271, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next272, %52
   br i1 %exitcond.not, label %for.end79, label %_ZN8facebook5velox9RowVector7childAtEj.exit183, !llvm.loop !157
 
 _ZN8facebook5velox9RowVector7childAtEj.exit183:   ; preds = %_ZN8facebook5velox9RowVector7childAtEj.exit183.lr.ph, %for.cond64
-  %indvars.iv273 = phi i64 [ 0, %_ZN8facebook5velox9RowVector7childAtEj.exit183.lr.ph ], [ %indvars.iv.next274, %for.cond64 ]
-  %add.ptr.i.i182 = getelementptr inbounds %"class.std::shared_ptr", ptr %53, i64 %indvars.iv273
+  %indvars.iv271 = phi i64 [ 0, %_ZN8facebook5velox9RowVector7childAtEj.exit183.lr.ph ], [ %indvars.iv.next272, %for.cond64 ]
+  %add.ptr.i.i182 = getelementptr inbounds %"class.std::shared_ptr", ptr %53, i64 %indvars.iv271
   %55 = load ptr, ptr %add.ptr.i.i182, align 8
   %length_.i184 = getelementptr inbounds i8, ptr %55, i64 56
   %56 = load i32, ptr %length_.i184, align 8
@@ -77222,7 +77220,7 @@ _ZN8facebook5velox10raw_vectorIcE12allocateDataEiRi.exit.i.i.i.i: ; preds = %_ZN
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 2, %sub.i.i.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i, i64 %mul.i.i.i.i.i.i.i
   %77 = trunc i64 %spec.select.i.i.i.i.i.i.i to i32
-  %sext.i.i = shl i64 %spec.select.i.i.i.i.i.i.i, 32
+  %sext.i.i = shl nuw i64 %spec.select.i.i.i.i.i.i.i, 32
   %conv3.i.i.i.i.i = ashr exact i64 %sext.i.i, 32
   %call4.i.i.i.i.i = call noalias align 32 ptr @aligned_alloc(i64 noundef 32, i64 noundef %conv3.i.i.i.i.i) #38
   %78 = ptrtoint ptr %call4.i.i.i.i.i to i64
@@ -78284,7 +78282,7 @@ _ZN8facebook5velox10raw_vectorIcE12allocateDataEiRi.exit.i.i.i.i391: ; preds = %
   %mul.i.i.i.i.i.i.i397 = shl nuw nsw i64 2, %sub.i.i.i.i.i.i.i394
   %spec.select.i.i.i.i.i.i.i398 = select i1 %cmp1.i.i.i.i.i.i.i396, i64 %conv.i.i.i.i.i.i393, i64 %mul.i.i.i.i.i.i.i397
   %243 = trunc i64 %spec.select.i.i.i.i.i.i.i398 to i32
-  %sext.i.i399 = shl i64 %spec.select.i.i.i.i.i.i.i398, 32
+  %sext.i.i399 = shl nuw i64 %spec.select.i.i.i.i.i.i.i398, 32
   %conv3.i.i.i.i.i400 = ashr exact i64 %sext.i.i399, 32
   %call4.i.i.i.i.i401 = tail call noalias align 32 ptr @aligned_alloc(i64 noundef 32, i64 noundef %conv3.i.i.i.i.i400) #38
   %244 = ptrtoint ptr %call4.i.i.i.i.i401 to i64
@@ -78823,7 +78821,7 @@ _ZN8facebook5velox10raw_vectorIcE12allocateDataEiRi.exit.i.i.i.i.i: ; preds = %_
   %mul.i.i.i.i.i.i.i.i = shl nuw nsw i64 2, %sub.i.i.i.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i, i64 %mul.i.i.i.i.i.i.i.i
   %311 = trunc i64 %spec.select.i.i.i.i.i.i.i.i to i32
-  %sext.i.i.i = shl i64 %spec.select.i.i.i.i.i.i.i.i, 32
+  %sext.i.i.i = shl nuw i64 %spec.select.i.i.i.i.i.i.i.i, 32
   %conv3.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i, 32
   %call4.i.i.i.i.i.i = call noalias align 32 ptr @aligned_alloc(i64 noundef 32, i64 noundef %conv3.i.i.i.i.i.i) #38
   %312 = ptrtoint ptr %call4.i.i.i.i.i.i to i64

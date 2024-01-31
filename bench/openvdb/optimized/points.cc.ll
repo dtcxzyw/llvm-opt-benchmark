@@ -130872,9 +130872,9 @@ entry:
   %or.i.i.i = or i64 %and, 1
   %1 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !682
   %xor.i.i.i.i.i = xor i64 %1, 63
-  %shl.i.i.i = shl nuw i64 1, %xor.i.i.i.i.i
-  %and.i.i.i = and i64 %shl.i.i.i, -2
-  %sub.i.i = sub i64 %and, %and.i.i.i
+  %shl.i.i.i = shl nuw nsw i64 1, %xor.i.i.i.i.i
+  %and.i.i.i = and i64 %shl.i.i.i, 9223372036854775806
+  %sub.i.i = sub nsw i64 %and, %and.i.i.i
   %my_table.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %arrayidx.i.i = getelementptr inbounds [64 x %"struct.std::atomic.595"], ptr %my_table.i.i, i64 0, i64 %xor.i.i.i.i.i
   %2 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
@@ -171604,7 +171604,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %arrayidx26 = getelementptr inbounds [4 x i32], ptr %log2Dim, i64 0, i64 %indvars.iv
   store i32 %add, ptr %arrayidx26, align 4
   %add29 = add i32 %add, %tableSize.0341
-  %shl32 = shl i32 2, %conv.i
+  %shl32 = shl nuw i32 2, %conv.i
   %add35 = add nsw i32 %shl32, %shr
   %shl36 = shl i32 %add35, 12
   %sub37 = add nsw i32 %shl36, -1

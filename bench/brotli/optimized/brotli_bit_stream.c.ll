@@ -1349,12 +1349,12 @@ if.then3.i:                                       ; preds = %if.else.i
   %conv.i27.i = trunc i64 %sub.i205 to i32
   %75 = tail call i32 @llvm.ctlz.i32(i32 %conv.i27.i, i1 true), !range !28
   %sub4.i = sub nsw i32 30, %75
-  %shl.i206 = shl nsw i32 %sub4.i, 1
-  %conv5.i = zext i32 %shl.i206 to i64
+  %shl.i206 = shl nuw nsw i32 %sub4.i, 1
   %sh_prom.i207 = zext nneg i32 %sub4.i to i64
   %shr.i208 = lshr i64 %sub.i205, %sh_prom.i207
-  %add.i209 = add nuw nsw i64 %conv5.i, 2
-  %conv8.i = add i64 %add.i209, %shr.i208
+  %narrow531 = add nuw nsw i32 %shl.i206, 2
+  %add.i209 = zext nneg i32 %narrow531 to i64
+  %conv8.i = add i64 %shr.i208, %add.i209
   br label %GetInsertLengthCode.exit
 
 if.else9.i:                                       ; preds = %if.else.i
@@ -1397,12 +1397,12 @@ if.then3.i220:                                    ; preds = %if.else.i216
   %conv.i20.i = trunc i64 %sub4.i221 to i32
   %77 = tail call i32 @llvm.ctlz.i32(i32 %conv.i20.i, i1 true), !range !28
   %sub5.i = sub nsw i32 30, %77
-  %shl.i222 = shl nsw i32 %sub5.i, 1
-  %conv6.i = zext i32 %shl.i222 to i64
+  %shl.i222 = shl nuw nsw i32 %sub5.i, 1
   %sh_prom.i223 = zext nneg i32 %sub5.i to i64
   %shr.i224 = lshr i64 %sub4.i221, %sh_prom.i223
-  %add.i225 = add nuw nsw i64 %conv6.i, 4
-  %conv9.i = add i64 %add.i225, %shr.i224
+  %narrow532 = add nuw nsw i32 %shl.i222, 4
+  %add.i225 = zext nneg i32 %narrow532 to i64
+  %conv9.i = add i64 %shr.i224, %add.i225
   br label %GetCopyLengthCode.exit
 
 if.else10.i:                                      ; preds = %if.else.i216
@@ -3642,12 +3642,12 @@ if.then3.i:                                       ; preds = %if.else.i
   %conv.i27.i = trunc i64 %sub.i100 to i32
   %5 = tail call i32 @llvm.ctlz.i32(i32 %conv.i27.i, i1 true), !range !28
   %sub4.i = sub nsw i32 30, %5
-  %shl.i101 = shl nsw i32 %sub4.i, 1
-  %conv5.i = zext i32 %shl.i101 to i64
+  %shl.i101 = shl nuw nsw i32 %sub4.i, 1
   %sh_prom.i102 = zext nneg i32 %sub4.i to i64
   %shr.i103 = lshr i64 %sub.i100, %sh_prom.i102
-  %add.i104 = add nuw nsw i64 %conv5.i, 2
-  %conv8.i = add i64 %add.i104, %shr.i103
+  %narrow76 = add nuw nsw i32 %shl.i101, 2
+  %add.i104 = zext nneg i32 %narrow76 to i64
+  %conv8.i = add i64 %shr.i103, %add.i104
   br label %GetInsertLengthCode.exit
 
 if.else9.i:                                       ; preds = %if.else.i
@@ -3690,12 +3690,12 @@ if.then3.i114:                                    ; preds = %if.else.i110
   %conv.i20.i = trunc i64 %sub4.i115 to i32
   %7 = tail call i32 @llvm.ctlz.i32(i32 %conv.i20.i, i1 true), !range !28
   %sub5.i = sub nsw i32 30, %7
-  %shl.i116 = shl nsw i32 %sub5.i, 1
-  %conv6.i = zext i32 %shl.i116 to i64
+  %shl.i116 = shl nuw nsw i32 %sub5.i, 1
   %sh_prom.i117 = zext nneg i32 %sub5.i to i64
   %shr.i118 = lshr i64 %sub4.i115, %sh_prom.i117
-  %add.i119 = add nuw nsw i64 %conv6.i, 4
-  %conv9.i = add i64 %add.i119, %shr.i118
+  %narrow77 = add nuw nsw i32 %shl.i116, 4
+  %add.i119 = zext nneg i32 %narrow77 to i64
+  %conv9.i = add i64 %shr.i118, %add.i119
   br label %GetCopyLengthCode.exit
 
 if.else10.i:                                      ; preds = %if.else.i110
