@@ -271,12 +271,12 @@ if.end26:                                         ; preds = %if.end
 
 land.lhs.true:                                    ; preds = %if.end26
   %call28 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %2, ptr noundef nonnull %7)
-  %cmp31 = icmp eq ptr %8, %7
+  %cmp31 = icmp eq ptr %5, %3
   %or.cond = or i1 %cmp31, %call28
   br i1 %or.cond, label %return, label %if.end33
 
 if.end30:                                         ; preds = %if.end26
-  %cmp31.old = icmp eq ptr %8, %7
+  %cmp31.old = icmp eq ptr %5, %3
   br i1 %cmp31.old, label %return, label %if.end33
 
 if.end33:                                         ; preds = %land.lhs.true, %if.end30

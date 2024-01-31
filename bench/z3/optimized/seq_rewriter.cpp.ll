@@ -60071,7 +60071,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   store i64 %6, ptr %compose, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN12seq_rewriter24mk_regex_inter_normalizeES1_S1_E3$_1E9_M_invokeERKSt9_Any_dataOS1_S9_", ptr %_M_invoker.i12, align 8
   store ptr @"_ZNSt17_Function_handlerIFP4exprS1_S1_EZN12seq_rewriter24mk_regex_inter_normalizeES1_S1_E3$_1E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation", ptr %_M_manager.i.i11, align 8
-  %cmp = icmp eq ptr %spec.select172, %spec.select
+  %cmp = icmp eq ptr %r2, %r1
   br i1 %cmp, label %if.then24, label %invoke.cont15
 
 lpad8:                                            ; preds = %invoke.cont9
@@ -60167,7 +60167,7 @@ invoke.cont22:                                    ; preds = %land.rhs.i.i.i
   br i1 %27, label %_ZN11ast_manager7inc_refEP3ast.exit.i, label %invoke.cont29
 
 if.then24:                                        ; preds = %invoke.cont11
-  %tobool.not.i = icmp eq ptr %spec.select, null
+  %tobool.not.i = icmp eq ptr %spec.select172, null
   br i1 %tobool.not.i, label %if.end.i, label %_ZN11ast_manager7inc_refEP3ast.exit.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %_Z9is_app_ofPK4exprii.exit.i, %invoke.cont17, %invoke.cont22, %if.then24
@@ -76440,7 +76440,7 @@ if.then16:                                        ; preds = %invoke.cont14
 if.end17:                                         ; preds = %land.rhs.i.i55, %invoke.cont12, %land.rhs.i.i, %invoke.cont8, %if.then16, %invoke.cont14, %invoke.cont10
   %r.0 = phi ptr [ %8, %if.then16 ], [ %11, %invoke.cont14 ], [ %11, %invoke.cont10 ], [ %11, %invoke.cont8 ], [ %11, %land.rhs.i.i ], [ %11, %invoke.cont12 ], [ %11, %land.rhs.i.i55 ]
   %l.0 = phi ptr [ %11, %if.then16 ], [ %8, %invoke.cont14 ], [ %8, %invoke.cont10 ], [ %8, %invoke.cont8 ], [ %8, %land.rhs.i.i ], [ %8, %invoke.cont12 ], [ %8, %land.rhs.i.i55 ]
-  %cmp = icmp eq ptr %l.0, %r.0
+  %cmp = icmp eq ptr %11, %8
   br i1 %cmp, label %if.then18, label %invoke.cont21
 
 if.then18:                                        ; preds = %if.end17
@@ -77602,7 +77602,7 @@ if.end18:                                         ; preds = %land.rhs.i.i45, %in
   %l.0 = phi ptr [ %5, %if.then17 ], [ %4, %invoke.cont15 ], [ %4, %invoke.cont11 ], [ %4, %invoke.cont9 ], [ %4, %land.rhs.i.i ], [ %4, %invoke.cont13 ], [ %4, %land.rhs.i.i45 ]
   %head2.1 = phi i32 [ %head1.0, %if.then17 ], [ %head2.0, %invoke.cont15 ], [ %head2.0, %invoke.cont11 ], [ %head2.0, %invoke.cont9 ], [ %head2.0, %land.rhs.i.i ], [ %head2.0, %invoke.cont13 ], [ %head2.0, %land.rhs.i.i45 ]
   %head1.1 = phi i32 [ %head2.0, %if.then17 ], [ %head1.0, %invoke.cont15 ], [ %head1.0, %invoke.cont11 ], [ %head1.0, %invoke.cont9 ], [ %head1.0, %land.rhs.i.i ], [ %head1.0, %invoke.cont13 ], [ %head1.0, %land.rhs.i.i45 ]
-  %cmp19 = icmp eq ptr %l.0, %r.0
+  %cmp19 = icmp eq ptr %5, %4
   br i1 %cmp19, label %if.then20, label %invoke.cont22
 
 if.then20:                                        ; preds = %if.end18

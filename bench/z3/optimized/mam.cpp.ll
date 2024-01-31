@@ -4241,7 +4241,7 @@ if.end18.i:                                       ; preds = %if.then17.i, %for.b
   %n_plbl2.0.i = phi i32 [ %__begin3.sroa.5.088.i, %if.then17.i ], [ %__begin4.sroa.5.084.i, %for.body15.i ]
   %n_r1.0.i = phi ptr [ %r2, %if.then17.i ], [ %r1, %for.body15.i ]
   %n_r2.0.i = phi ptr [ %r1, %if.then17.i ], [ %r2, %for.body15.i ]
-  %cmp19.i = icmp eq i32 %n_plbl1.0.i, %n_plbl2.0.i
+  %cmp19.i = icmp eq i32 %__begin4.sroa.5.084.i, %__begin3.sroa.5.088.i
   %m_parents.i.i = getelementptr inbounds i8, ptr %n_r1.0.i, i64 56
   %10 = load ptr, ptr %m_parents.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %10, null
@@ -4271,7 +4271,8 @@ _ZNK3smt5enode15get_num_parentsEv.exit31.i:       ; preds = %if.end.i.i28.i, %_Z
   %retval.0.i.i30.i = phi i32 [ %13, %if.end.i.i28.i ], [ 0, %_ZNK3smt5enode15get_num_parentsEv.exit.i ]
   %cmp23.not.i = icmp ugt i32 %retval.0.i.i.i, %retval.0.i.i30.i
   %idxprom28.i = zext i32 %n_plbl1.0.i to i64
-  %arrayidx31.i = getelementptr inbounds [64 x [64 x %"struct.std::pair"]], ptr %m_pp39.i, i64 0, i64 %idxprom28.i, i64 %idxprom28.i
+  %idxprom30.i = zext i32 %n_plbl2.0.i to i64
+  %arrayidx31.i = getelementptr inbounds [64 x [64 x %"struct.std::pair"]], ptr %m_pp39.i, i64 0, i64 %idxprom28.i, i64 %idxprom30.i
   %n_r2.0.i.n_r1.0.i = select i1 %cmp23.not.i, ptr %n_r2.0.i, ptr %n_r1.0.i
   br label %if.then24.i.invoke
 

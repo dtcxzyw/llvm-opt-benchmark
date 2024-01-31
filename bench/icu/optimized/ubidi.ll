@@ -885,7 +885,7 @@ cond.end120.i:                                    ; preds = %cond.false111.i, %c
   %shr.i = lshr i32 %34, 31
   %and126.i = and i32 %34, 2147483647
   %cmp128.i = icmp slt i32 %cond121.i, 2
-  br i1 %cmp128.i, label %if.then129.i, label %if.end150.i
+  br i1 %cmp128.i, label %if.then129.i, label %for.body161.i.lr.ph
 
 if.then129.i:                                     ; preds = %cond.end120.i
   %tobool130.not.i = icmp eq i32 %addedRuns.4.i493, 0
@@ -905,16 +905,12 @@ if.end137.i:                                      ; preds = %if.then129.i, %if.t
   %37 = load i32, ptr %arrayidx139.i, align 4
   br label %for.inc276.i
 
-if.end150.i:                                      ; preds = %cond.end120.i
+for.body161.i.lr.ph:                              ; preds = %cond.end120.i
   %tobool151.not.i = icmp sgt i32 %34, -1
   %add153.i = add nsw i32 %cond121.i, -1
   %sub154.i = add nuw i32 %add153.i, %and126.i
   %start.0.i = select i1 %tobool151.not.i, i32 %sub154.i, i32 %and126.i
   %limit.0.i = select i1 %tobool151.not.i, i32 %and126.i, i32 %sub154.i
-  %cmp160.not.i484 = icmp eq i32 %start.0.i, %limit.0.i
-  br i1 %cmp160.not.i484, label %for.end243.i, label %for.body161.i.lr.ph
-
-for.body161.i.lr.ph:                              ; preds = %if.end150.i
   %step.0.i = select i1 %tobool151.not.i, i64 -1, i64 1
   %visualLimit208.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 4
   %insertRemove229.i = getelementptr inbounds i8, ptr %arrayidx123.i, i64 8
@@ -994,14 +990,12 @@ for.inc241.i:                                     ; preds = %lor.lhs.false177.i.
   %cmp160.not.i = icmp eq i32 %.pre-phi612, %limit.0.i
   br i1 %cmp160.not.i, label %for.end243.i, label %for.body161.i, !llvm.loop !9
 
-for.end243.i:                                     ; preds = %for.inc241.i, %if.end150.i
-  %addedRuns.5.i.lcssa = phi i32 [ %addedRuns.4.i493, %if.end150.i ], [ %addedRuns.6.i, %for.inc241.i ]
-  %start.1.i.lcssa = phi i32 [ %start.0.i, %if.end150.i ], [ %start.2.i, %for.inc241.i ]
-  %tobool244.not.i = icmp eq i32 %addedRuns.5.i.lcssa, 0
+for.end243.i:                                     ; preds = %for.inc241.i
+  %tobool244.not.i = icmp eq i32 %addedRuns.6.i, 0
   br i1 %tobool244.not.i, label %if.end251.i, label %if.then245.i
 
 if.then245.i:                                     ; preds = %for.end243.i
-  %53 = sext i32 %addedRuns.5.i.lcssa to i64
+  %53 = sext i32 %addedRuns.6.i to i64
   %54 = add nsw i64 %indvars.iv.next591, %53
   %arrayidx250.i = getelementptr inbounds %struct.Run, ptr %runs.0.i, i64 %54
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayidx250.i, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx123.i, i64 12, i1 false)
@@ -1009,7 +1003,7 @@ if.then245.i:                                     ; preds = %for.end243.i
 
 if.end251.i:                                      ; preds = %for.end243.i, %if.then245.i
   %.pre-phi610 = phi i64 [ %54, %if.then245.i ], [ %indvars.iv.next591, %for.end243.i ]
-  %idxprom252.i = sext i32 %start.1.i.lcssa to i64
+  %idxprom252.i = sext i32 %start.2.i to i64
   %arrayidx253.i = getelementptr inbounds i32, ptr %call.i, i64 %idxprom252.i
   %55 = load i32, ptr %arrayidx253.i, align 4
   %idxprom254.i = sext i32 %limit.0.i to i64
@@ -1021,7 +1015,7 @@ if.end251.i:                                      ; preds = %for.end243.i, %if.t
 for.inc276.i:                                     ; preds = %if.end251.i, %if.end137.i
   %.215.i.sink697 = phi i32 [ %.215.i, %if.end251.i ], [ %37, %if.end137.i ]
   %.pre-phi610.sink = phi i64 [ %.pre-phi610, %if.end251.i ], [ %.pre-phi606, %if.end137.i ]
-  %addedRuns.7.i = phi i32 [ %addedRuns.5.i.lcssa, %if.end251.i ], [ %addedRuns.4.i493, %if.end137.i ]
+  %addedRuns.7.i = phi i32 [ %addedRuns.6.i, %if.end251.i ], [ %addedRuns.4.i493, %if.end137.i ]
   %idxprom265.i = sext i32 %.215.i.sink697 to i64
   %arrayidx266.i = getelementptr inbounds i8, ptr %arrayidx5.i, i64 %idxprom265.i
   %57 = load i8, ptr %arrayidx266.i, align 1

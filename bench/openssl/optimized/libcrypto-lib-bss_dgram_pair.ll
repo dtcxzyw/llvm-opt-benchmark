@@ -190,18 +190,18 @@ if.end3:                                          ; preds = %if.end
   %bf.lshr.i = lshr i8 %bf.load.i, 2
   %bf.clear.i = and i8 %bf.lshr.i, 1
   %cmp.not.i = icmp eq i8 %bf.clear.i, 0
-  %cond.i = select i1 %cmp.not.i, ptr %0, ptr %2
   %cond10.i = select i1 %cmp.not.i, ptr %2, ptr %0
   %role16.i = getelementptr inbounds i8, ptr %0, i64 80
   %bf.load17.i = load i8, ptr %role16.i, align 8
   %bf.lshr18.i = lshr i8 %bf.load17.i, 2
   %bf.clear19.i = and i8 %bf.lshr18.i, 1
   %cmp21.not.i = icmp eq i8 %bf.clear.i, %bf.clear19.i
-  %cmp28.not.i = icmp eq ptr %cond.i, %cond10.i
-  %or.cond.i = or i1 %cmp21.not.i, %cmp28.not.i
+  %cmp28.not.i = icmp eq ptr %0, %2
+  %or.cond.i = or i1 %cmp28.not.i, %cmp21.not.i
   br i1 %or.cond.i, label %if.then7, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.end3
+  %cond.i = select i1 %cmp.not.i, ptr %0, ptr %2
   %lock.i = getelementptr inbounds i8, ptr %cond.i, i64 72
   %3 = load ptr, ptr %lock.i, align 8
   %call.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %3) #8

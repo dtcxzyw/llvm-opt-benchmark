@@ -2337,7 +2337,7 @@ if.then8:                                         ; preds = %entry
   br label %do.end10
 
 do.end10:                                         ; preds = %entry, %if.then8
-  %cmp11 = icmp ne ptr %lock2_tmplock_.0, %lock1_tmplock_.0
+  %cmp11 = icmp ne ptr %0, %1
   %tobool14 = icmp ne ptr %lock2_tmplock_.0, null
   %or.cond2 = and i1 %cmp11, %tobool14
   br i1 %or.cond2, label %if.then15, label %do.end21
@@ -2502,14 +2502,12 @@ do.body45:                                        ; preds = %if.end35, %if.end26
   %result.0 = phi i32 [ 0, %do.end21 ], [ 0, %RESTORE_PINNED.exit ], [ -1, %lor.lhs.false28 ], [ -1, %if.end26 ], [ -1, %if.end35 ]
   %30 = load ptr, ptr %lock, align 8
   %31 = load ptr, ptr %lock2, align 8
-  %tobool51 = icmp ne ptr %30, null
   %tobool53 = icmp ne ptr %31, null
-  %or.cond1 = select i1 %tobool51, i1 %tobool53, i1 false
   %cmp55 = icmp ugt ptr %30, %31
-  %or.cond51 = select i1 %or.cond1, i1 %cmp55, i1 false
+  %or.cond51 = and i1 %cmp55, %tobool53
   %lock1_tmplock_46.0 = select i1 %or.cond51, ptr %31, ptr %30
   %lock2_tmplock_48.0 = select i1 %or.cond51, ptr %30, ptr %31
-  %cmp60 = icmp ne ptr %lock2_tmplock_48.0, %lock1_tmplock_46.0
+  %cmp60 = icmp ne ptr %30, %31
   %tobool63 = icmp ne ptr %lock2_tmplock_48.0, null
   %or.cond3 = and i1 %cmp60, %tobool63
   br i1 %or.cond3, label %if.then64, label %do.body69
@@ -2661,7 +2659,7 @@ if.then8:                                         ; preds = %entry
   br label %do.end10
 
 do.end10:                                         ; preds = %entry, %if.then8
-  %cmp11 = icmp ne ptr %lock2_tmplock_.0, %lock1_tmplock_.0
+  %cmp11 = icmp ne ptr %0, %1
   %tobool14 = icmp ne ptr %lock2_tmplock_.0, null
   %or.cond2 = and i1 %cmp11, %tobool14
   br i1 %or.cond2, label %if.then15, label %do.end21
@@ -2890,14 +2888,12 @@ do.body39:                                        ; preds = %for.body, %if.end25
   %result.0 = phi i32 [ 0, %do.end21 ], [ 0, %APPEND_CHAIN_MULTICAST.exit ], [ -1, %if.end25 ], [ -1, %for.body ]
   %34 = load ptr, ptr %lock, align 8
   %35 = load ptr, ptr %lock2, align 8
-  %tobool45 = icmp ne ptr %34, null
   %tobool47 = icmp ne ptr %35, null
-  %or.cond1 = select i1 %tobool45, i1 %tobool47, i1 false
   %cmp49 = icmp ugt ptr %34, %35
-  %or.cond46 = select i1 %or.cond1, i1 %cmp49, i1 false
+  %or.cond46 = and i1 %cmp49, %tobool47
   %lock1_tmplock_40.0 = select i1 %or.cond46, ptr %35, ptr %34
   %lock2_tmplock_42.0 = select i1 %or.cond46, ptr %34, ptr %35
-  %cmp54 = icmp ne ptr %lock2_tmplock_42.0, %lock1_tmplock_40.0
+  %cmp54 = icmp ne ptr %34, %35
   %tobool57 = icmp ne ptr %lock2_tmplock_42.0, null
   %or.cond3 = and i1 %cmp54, %tobool57
   br i1 %or.cond3, label %if.then58, label %do.body63
@@ -2945,7 +2941,7 @@ if.then8:                                         ; preds = %entry
   br label %do.end10
 
 do.end10:                                         ; preds = %entry, %if.then8
-  %cmp11 = icmp ne ptr %lock2_tmplock_.0, %lock1_tmplock_.0
+  %cmp11 = icmp ne ptr %0, %1
   %tobool14 = icmp ne ptr %lock2_tmplock_.0, null
   %or.cond2 = and i1 %cmp11, %tobool14
   br i1 %or.cond2, label %if.then15, label %do.end21
@@ -3089,14 +3085,12 @@ do.body46:                                        ; preds = %if.end36, %if.end26
   %result.0 = phi i32 [ 0, %RESTORE_PINNED.exit ], [ 0, %do.end21 ], [ -1, %lor.lhs.false28 ], [ -1, %if.end26 ], [ -1, %if.end36 ]
   %28 = load ptr, ptr %lock, align 8
   %29 = load ptr, ptr %lock2, align 8
-  %tobool52 = icmp ne ptr %28, null
   %tobool54 = icmp ne ptr %29, null
-  %or.cond1 = select i1 %tobool52, i1 %tobool54, i1 false
   %cmp56 = icmp ugt ptr %28, %29
-  %or.cond51 = select i1 %or.cond1, i1 %cmp56, i1 false
+  %or.cond51 = and i1 %cmp56, %tobool54
   %lock1_tmplock_47.0 = select i1 %or.cond51, ptr %29, ptr %28
   %lock2_tmplock_49.0 = select i1 %or.cond51, ptr %28, ptr %29
-  %cmp61 = icmp ne ptr %lock2_tmplock_49.0, %lock1_tmplock_47.0
+  %cmp61 = icmp ne ptr %28, %29
   %tobool64 = icmp ne ptr %lock2_tmplock_49.0, null
   %or.cond3 = and i1 %cmp61, %tobool64
   br i1 %or.cond3, label %if.then65, label %do.body70
@@ -3572,7 +3566,7 @@ if.then8:                                         ; preds = %entry
   br label %do.end10
 
 do.end10:                                         ; preds = %entry, %if.then8
-  %cmp11 = icmp ne ptr %lock2_tmplock_.0, %lock1_tmplock_.0
+  %cmp11 = icmp ne ptr %0, %1
   %tobool14 = icmp ne ptr %lock2_tmplock_.0, null
   %or.cond2 = and i1 %cmp11, %tobool14
   br i1 %or.cond2, label %if.then15, label %do.end21
@@ -3787,14 +3781,12 @@ do.body87:                                        ; preds = %if.end25, %lor.lhs.
   %result.0 = phi i32 [ %conv, %if.then36 ], [ %conv85, %if.end84 ], [ 0, %do.end21 ], [ -1, %lor.lhs.false27 ], [ -1, %if.end25 ]
   %37 = load ptr, ptr %lock, align 8
   %38 = load ptr, ptr %lock2, align 8
-  %tobool93 = icmp ne ptr %37, null
   %tobool95 = icmp ne ptr %38, null
-  %or.cond1 = select i1 %tobool93, i1 %tobool95, i1 false
   %cmp97 = icmp ugt ptr %37, %38
-  %or.cond88 = select i1 %or.cond1, i1 %cmp97, i1 false
+  %or.cond88 = and i1 %cmp97, %tobool95
   %lock1_tmplock_88.0 = select i1 %or.cond88, ptr %38, ptr %37
   %lock2_tmplock_90.0 = select i1 %or.cond88, ptr %37, ptr %38
-  %cmp103 = icmp ne ptr %lock2_tmplock_90.0, %lock1_tmplock_88.0
+  %cmp103 = icmp ne ptr %37, %38
   %tobool107 = icmp ne ptr %lock2_tmplock_90.0, null
   %or.cond3 = and i1 %cmp103, %tobool107
   br i1 %or.cond3, label %if.then108, label %do.body113
