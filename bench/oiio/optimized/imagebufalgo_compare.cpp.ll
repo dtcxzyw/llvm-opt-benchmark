@@ -6583,9 +6583,9 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %maxval.6314 = phi float [ %maxval.5323, %for.body52.lr.ph ], [ %maxval.7, %for.inc64 ]
   %batcherror.5313 = phi double [ %batcherror.4322, %for.body52.lr.ph ], [ %batcherror.6, %for.inc64 ]
   %batch_sqrerror.5312 = phi double [ %batch_sqrerror.4321, %for.body52.lr.ph ], [ %batch_sqrerror.6, %for.inc64 ]
-  %117 = phi double [ %maxerror.promoted, %for.body52.lr.ph ], [ %143, %for.inc64 ]
-  %118 = phi i64 [ %nwarn.promoted, %for.body52.lr.ph ], [ %142, %for.inc64 ]
-  %119 = phi i64 [ %nfail.promoted, %for.body52.lr.ph ], [ %141, %for.inc64 ]
+  %117 = phi double [ %maxerror.promoted, %for.body52.lr.ph ], [ %142, %for.inc64 ]
+  %118 = phi i64 [ %nwarn.promoted, %for.body52.lr.ph ], [ %141, %for.inc64 ]
+  %119 = phi i64 [ %nfail.promoted, %for.body52.lr.ph ], [ %140, %for.inc64 ]
   %cmp53 = icmp slt i64 %indvars.iv, %8
   br i1 %cmp53, label %cond.true, label %cond.end
 
@@ -6610,54 +6610,53 @@ cond.end61:                                       ; preds = %cond.true57, %cond.
   %cond62 = phi float [ %mul.i.i.i, %cond.true57 ], [ 0.000000e+00, %cond.end ]
   %122 = call float @llvm.fabs.f32(float %cond)
   %123 = fcmp one float %122, 0x7FF0000000000000
-  %124 = call float @llvm.fabs.f32(float %cond62)
-  %125 = fcmp one float %124, 0x7FF0000000000000
-  %or.cond54.i137 = and i1 %123, %125
+  %124 = fcmp one float %cond62, 0x7FF0000000000000
+  %or.cond54.i137 = and i1 %123, %124
   br i1 %or.cond54.i137, label %if.end20.i150, label %if.then.i138
 
 if.then.i138:                                     ; preds = %cond.end61
-  %126 = fcmp uno float %cond, 0.000000e+00
-  br i1 %126, label %if.end.i140, label %land.lhs.true.i139
+  %125 = fcmp uno float %cond, 0.000000e+00
+  br i1 %125, label %if.end.i140, label %land.lhs.true.i139
 
 land.lhs.true.i139:                               ; preds = %if.then.i138
-  %127 = fcmp oeq float %122, 0x7FF0000000000000
-  %128 = fcmp oeq float %124, 0x7FF0000000000000
-  %129 = xor i1 %127, %128
-  br i1 %129, label %if.end.i140, label %for.inc64
+  %126 = fcmp oeq float %122, 0x7FF0000000000000
+  %127 = fcmp oeq float %cond62, 0x7FF0000000000000
+  %128 = xor i1 %126, %127
+  br i1 %128, label %if.end.i140, label %for.inc64
 
 if.end.i140:                                      ; preds = %land.lhs.true.i139, %if.then.i138
-  %130 = call double @llvm.fabs.f64(double %117)
-  %131 = fcmp ueq double %130, 0x7FF0000000000000
-  br i1 %131, label %if.end20.i150, label %if.then12.i142
+  %129 = call double @llvm.fabs.f64(double %117)
+  %130 = fcmp ueq double %129, 0x7FF0000000000000
+  br i1 %130, label %if.end20.i150, label %if.then12.i142
 
 if.then12.i142:                                   ; preds = %if.end.i140
   store double 0x7FF0000000000000, ptr %maxerror, align 8
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %132 = trunc i64 %indvars.iv to i32
-  store i32 %132, ptr %maxc, align 4
+  %131 = trunc i64 %indvars.iv to i32
+  store i32 %131, ptr %maxc, align 4
   br label %for.inc64
 
 if.end20.i150:                                    ; preds = %if.end.i140, %cond.end61
   %conv.i.i151 = fpext float %122 to double
-  %conv1.i.i152 = fpext float %124 to double
+  %conv1.i.i152 = fpext float %cond62 to double
   %mul2.i.i153 = fmul double %conv1.i.i152, 5.000000e-01
-  %133 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
-  %conv3.i.i154 = fptrunc double %133 to float
-  %cmp.i.i155 = fcmp olt float %122, %124
-  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %124, float %122
+  %132 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
+  %conv3.i.i154 = fptrunc double %132 to float
+  %cmp.i.i155 = fcmp olt float %122, %cond62
+  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %cond62, float %122
   %cmp.i45.i157 = fcmp olt float %maxval.6314, %.sroa.speculated51.i156
   %.sroa.speculated.i158 = select i1 %cmp.i45.i157, float %.sroa.speculated51.i156, float %maxval.6314
   %sub.i159 = fsub float %cond, %cond62
-  %134 = call noundef float @llvm.fabs.f32(float %sub.i159)
-  %conv27.i160 = fpext float %134 to double
+  %133 = call noundef float @llvm.fabs.f32(float %sub.i159)
+  %conv27.i160 = fpext float %133 to double
   %conv28.i161 = fpext float %conv3.i.i154 to double
   %cmp29.i162 = fcmp ogt float %conv3.i.i154, 0.000000e+00
   %div.i163 = fdiv double %conv27.i160, %conv28.i161
   %cond.i164 = select i1 %cmp29.i162, double %div.i163, double 0.000000e+00
   %add.i165 = fadd double %batcherror.5313, %conv27.i160
-  %135 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5312)
+  %134 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5312)
   %cmp32.i167 = fcmp ult double %117, %conv27.i160
   br i1 %cmp32.i167, label %if.then33.i188, label %if.end42.i168
 
@@ -6666,15 +6665,15 @@ if.then33.i188:                                   ; preds = %if.end20.i150
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %136 = trunc i64 %indvars.iv to i32
-  store i32 %136, ptr %maxc, align 4
+  %135 = trunc i64 %indvars.iv to i32
+  store i32 %135, ptr %maxc, align 4
   br label %if.end42.i168
 
 if.end42.i168:                                    ; preds = %if.then33.i188, %if.end20.i150
-  %137 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
-  %138 = and i8 %warned45.0315, 1
-  %tobool.not.i169 = icmp eq i8 %138, 0
-  %cmp45.i170 = fcmp ugt float %134, %warnthresh
+  %136 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
+  %137 = and i8 %warned45.0315, 1
+  %tobool.not.i169 = icmp eq i8 %137, 0
+  %cmp45.i170 = fcmp ugt float %133, %warnthresh
   %or.cond.i171 = and i1 %tobool.not.i169, %cmp45.i170
   %cmp48.i173 = fcmp ugt double %cond.i164, %conv47.i172
   %or.cond42.i174 = select i1 %or.cond.i171, i1 %cmp48.i173, i1 false
@@ -6686,11 +6685,11 @@ if.then49.i185:                                   ; preds = %if.end42.i168
   br label %if.end50.i175
 
 if.end50.i175:                                    ; preds = %if.then49.i185, %if.end42.i168
-  %139 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
+  %138 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
   %warned45.1 = phi i8 [ 1, %if.then49.i185 ], [ %warned45.0315, %if.end42.i168 ]
-  %140 = and i8 %failed46.0316, 1
-  %tobool51.not.i176 = icmp eq i8 %140, 0
-  %cmp54.i177 = fcmp ugt float %134, %failthresh
+  %139 = and i8 %failed46.0316, 1
+  %tobool51.not.i176 = icmp eq i8 %139, 0
+  %cmp54.i177 = fcmp ugt float %133, %failthresh
   %or.cond43.i178 = and i1 %tobool51.not.i176, %cmp54.i177
   %cmp57.i180 = fcmp ugt double %cond.i164, %conv56.i179
   %or.cond44.i181 = select i1 %or.cond43.i178, i1 %cmp57.i180, i1 false
@@ -6702,10 +6701,10 @@ if.then58.i182:                                   ; preds = %if.end50.i175
   br label %for.inc64
 
 for.inc64:                                        ; preds = %if.then58.i182, %if.end50.i175, %if.then12.i142, %land.lhs.true.i139
-  %141 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ]
-  %142 = phi i64 [ %139, %if.then58.i182 ], [ %139, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ]
-  %143 = phi double [ %137, %if.then58.i182 ], [ %137, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %135, %if.then58.i182 ], [ %135, %if.end50.i175 ], [ %batch_sqrerror.5312, %if.then12.i142 ], [ %batch_sqrerror.5312, %land.lhs.true.i139 ]
+  %140 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ]
+  %141 = phi i64 [ %138, %if.then58.i182 ], [ %138, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ]
+  %142 = phi double [ %136, %if.then58.i182 ], [ %136, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ]
+  %batch_sqrerror.6 = phi double [ %134, %if.then58.i182 ], [ %134, %if.end50.i175 ], [ %batch_sqrerror.5312, %if.then12.i142 ], [ %batch_sqrerror.5312, %land.lhs.true.i139 ]
   %batcherror.6 = phi double [ %add.i165, %if.then58.i182 ], [ %add.i165, %if.end50.i175 ], [ %batcherror.5313, %if.then12.i142 ], [ %batcherror.5313, %land.lhs.true.i139 ]
   %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i182 ], [ %.sroa.speculated.i158, %if.end50.i175 ], [ %maxval.6314, %if.then12.i142 ], [ %maxval.6314, %land.lhs.true.i139 ]
   %warned45.2 = phi i8 [ %warned45.1, %if.then58.i182 ], [ %warned45.1, %if.end50.i175 ], [ %warned45.0315, %if.then12.i142 ], [ %warned45.0315, %land.lhs.true.i139 ]
@@ -6720,14 +6719,14 @@ for.inc67:                                        ; preds = %for.inc64, %for.bod
   %maxval.6.lcssa = phi float [ %maxval.5323, %for.body44 ], [ %maxval.7, %for.inc64 ]
   %inc.i198 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i198, ptr %m_x.i, align 4
-  %144 = load i32, ptr %m_rng_xend.i199, align 8
-  %cmp.i200 = icmp slt i32 %inc.i198, %144
+  %143 = load i32, ptr %m_rng_xend.i199, align 8
+  %cmp.i200 = icmp slt i32 %inc.i198, %143
   br i1 %cmp.i200, label %if.then.i217, label %if.else.i201
 
 if.then.i217:                                     ; preds = %for.inc67
-  %145 = load i8, ptr %m_exists.i218, align 1
-  %146 = and i8 %145, 1
-  %tobool.not.i219 = icmp eq i8 %146, 0
+  %144 = load i8, ptr %m_exists.i218, align 1
+  %145 = and i8 %144, 1
+  %tobool.not.i219 = icmp eq i8 %145, 0
   br i1 %tobool.not.i219, label %if.then.if.end13_crit_edge.i221, label %if.then2.i220
 
 if.then.if.end13_crit_edge.i221:                  ; preds = %if.then.i217
@@ -6740,23 +6739,23 @@ if.then2.i220:                                    ; preds = %if.then.i217
           to label %invoke.cont69 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i201:                                     ; preds = %for.inc67
-  %147 = load i32, ptr %m_rng_xbegin.i, align 4
-  store i32 %147, ptr %m_x.i, align 4
-  %148 = load i32, ptr %m_y.i, align 8
-  %inc4.i204 = add nsw i32 %148, 1
+  %146 = load i32, ptr %m_rng_xbegin.i, align 4
+  store i32 %146, ptr %m_x.i, align 4
+  %147 = load i32, ptr %m_y.i, align 8
+  %inc4.i204 = add nsw i32 %147, 1
   store i32 %inc4.i204, ptr %m_y.i, align 8
-  %149 = load i32, ptr %m_rng_yend.i205, align 8
-  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %149
+  %148 = load i32, ptr %m_rng_yend.i205, align 8
+  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %148
   %.pre381 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i206, label %if.end13.i215, label %if.then6.i207
 
 if.then6.i207:                                    ; preds = %if.else.i201
-  %150 = load i32, ptr %m_rng_ybegin.i, align 4
-  store i32 %150, ptr %m_y.i, align 8
+  %149 = load i32, ptr %m_rng_ybegin.i, align 4
+  store i32 %149, ptr %m_y.i, align 8
   %inc8.i210 = add nsw i32 %.pre381, 1
   store i32 %inc8.i210, ptr %m_z.i, align 4
-  %151 = load i32, ptr %m_rng_zend.i, align 8
-  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %151
+  %150 = load i32, ptr %m_rng_zend.i, align 8
+  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %150
   br i1 %cmp9.not.i212, label %if.end13.i215, label %if.then10.i213
 
 if.then10.i213:                                   ; preds = %if.then6.i207
@@ -6764,25 +6763,25 @@ if.then10.i213:                                   ; preds = %if.then6.i207
   br label %invoke.cont69
 
 if.end13.i215:                                    ; preds = %if.then6.i207, %if.else.i201, %if.then.if.end13_crit_edge.i221
-  %152 = phi i32 [ %.pre381, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre380, %if.then.if.end13_crit_edge.i221 ]
-  %153 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %150, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
-  %154 = phi i32 [ %147, %if.else.i201 ], [ %147, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %154, i32 noundef %153, i32 noundef %152)
+  %151 = phi i32 [ %.pre381, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre380, %if.then.if.end13_crit_edge.i221 ]
+  %152 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %149, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
+  %153 = phi i32 [ %146, %if.else.i201 ], [ %146, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %153, i32 noundef %152, i32 noundef %151)
           to label %invoke.cont69 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont69:                                    ; preds = %if.then10.i213, %if.then2.i220, %if.end13.i215
   %inc68 = add nuw nsw i32 %i37.0324, 1
-  %155 = load i32, ptr %m_x.i227, align 4
-  %inc.i228 = add nsw i32 %155, 1
+  %154 = load i32, ptr %m_x.i227, align 4
+  %inc.i228 = add nsw i32 %154, 1
   store i32 %inc.i228, ptr %m_x.i227, align 4
-  %156 = load i32, ptr %m_rng_xend.i229, align 8
-  %cmp.i230 = icmp slt i32 %inc.i228, %156
+  %155 = load i32, ptr %m_rng_xend.i229, align 8
+  %cmp.i230 = icmp slt i32 %inc.i228, %155
   br i1 %cmp.i230, label %if.then.i247, label %if.else.i231
 
 if.then.i247:                                     ; preds = %invoke.cont69
-  %157 = load i8, ptr %m_exists.i248, align 1
-  %158 = and i8 %157, 1
-  %tobool.not.i249 = icmp eq i8 %158, 0
+  %156 = load i8, ptr %m_exists.i248, align 1
+  %157 = and i8 %156, 1
+  %tobool.not.i249 = icmp eq i8 %157, 0
   br i1 %tobool.not.i249, label %if.then.if.end13_crit_edge.i251, label %if.then2.i250
 
 if.then.if.end13_crit_edge.i251:                  ; preds = %if.then.i247
@@ -6795,23 +6794,23 @@ if.then2.i250:                                    ; preds = %if.then.i247
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i231:                                     ; preds = %invoke.cont69
-  %159 = load i32, ptr %m_rng_xbegin.i232, align 4
-  store i32 %159, ptr %m_x.i227, align 4
-  %160 = load i32, ptr %m_y.i233, align 8
-  %inc4.i234 = add nsw i32 %160, 1
+  %158 = load i32, ptr %m_rng_xbegin.i232, align 4
+  store i32 %158, ptr %m_x.i227, align 4
+  %159 = load i32, ptr %m_y.i233, align 8
+  %inc4.i234 = add nsw i32 %159, 1
   store i32 %inc4.i234, ptr %m_y.i233, align 8
-  %161 = load i32, ptr %m_rng_yend.i235, align 8
-  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %161
+  %160 = load i32, ptr %m_rng_yend.i235, align 8
+  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %160
   %.pre383 = load i32, ptr %m_z.i239, align 4
   br i1 %cmp5.not.i236, label %if.end13.i245, label %if.then6.i237
 
 if.then6.i237:                                    ; preds = %if.else.i231
-  %162 = load i32, ptr %m_rng_ybegin.i238, align 4
-  store i32 %162, ptr %m_y.i233, align 8
+  %161 = load i32, ptr %m_rng_ybegin.i238, align 4
+  store i32 %161, ptr %m_y.i233, align 8
   %inc8.i240 = add nsw i32 %.pre383, 1
   store i32 %inc8.i240, ptr %m_z.i239, align 4
-  %163 = load i32, ptr %m_rng_zend.i241, align 8
-  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %163
+  %162 = load i32, ptr %m_rng_zend.i241, align 8
+  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %162
   br i1 %cmp9.not.i242, label %if.end13.i245, label %if.then10.i243
 
 if.then10.i243:                                   ; preds = %if.then6.i237
@@ -6819,10 +6818,10 @@ if.then10.i243:                                   ; preds = %if.then6.i237
   br label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256
 
 if.end13.i245:                                    ; preds = %if.then6.i237, %if.else.i231, %if.then.if.end13_crit_edge.i251
-  %164 = phi i32 [ %.pre383, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre382, %if.then.if.end13_crit_edge.i251 ]
-  %165 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %162, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
-  %166 = phi i32 [ %159, %if.else.i231 ], [ %159, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %166, i32 noundef %165, i32 noundef %164)
+  %163 = phi i32 [ %.pre383, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre382, %if.then.if.end13_crit_edge.i251 ]
+  %164 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %161, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
+  %165 = phi i32 [ %158, %if.else.i231 ], [ %158, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %165, i32 noundef %164, i32 noundef %163)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256: ; preds = %if.end13.i245, %if.then2.i250, %if.then10.i243
@@ -6847,19 +6846,19 @@ for.end73:                                        ; preds = %_ZNK18OpenImageIO_v
   %div = fdiv double %.us-phi362, %conv74
   store double %div, ptr %result, align 8
   %div76 = fdiv double %.us-phi361, %conv74
-  %167 = call double @llvm.sqrt.f64(double %div76)
+  %166 = call double @llvm.sqrt.f64(double %div76)
   %rms_error = getelementptr inbounds i8, ptr %result, i64 8
-  store double %167, ptr %rms_error, align 8
+  store double %166, ptr %rms_error, align 8
   %conv77 = fpext float %.us-phi360 to double
-  %div79 = fdiv double %conv77, %167
-  %168 = call double @llvm.log10.f64(double %div79)
-  %mul80 = fmul double %168, 2.000000e+01
+  %div79 = fdiv double %conv77, %166
+  %167 = call double @llvm.log10.f64(double %div79)
+  %mul80 = fmul double %167, 2.000000e+01
   %PSNR = getelementptr inbounds i8, ptr %result, i64 16
   store double %mul80, ptr %PSNR, align 8
-  %169 = load i64, ptr %nfail, align 8
+  %168 = load i64, ptr %nfail, align 8
   %m_tile.i.i257 = getelementptr inbounds i8, ptr %b, i64 72
-  %170 = load ptr, ptr %m_tile.i.i257, align 8
-  %tobool.not.i.i258 = icmp eq ptr %170, null
+  %169 = load ptr, ptr %m_tile.i.i257, align 8
+  %tobool.not.i.i258 = icmp eq ptr %169, null
   br i1 %tobool.not.i.i258, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit261, label %if.then.i.i259
 
 if.then.i.i259:                                   ; preds = %for.end73
@@ -6867,16 +6866,16 @@ if.then.i.i259:                                   ; preds = %for.end73
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit261 unwind label %terminate.lpad.i.i260
 
 terminate.lpad.i.i260:                            ; preds = %if.then.i.i259
-  %171 = landingpad { ptr, i32 }
+  %170 = landingpad { ptr, i32 }
           catch ptr null
-  %172 = extractvalue { ptr, i32 } %171, 0
-  call void @__clang_call_terminate(ptr %172) #25
+  %171 = extractvalue { ptr, i32 } %170, 0
+  call void @__clang_call_terminate(ptr %171) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit261: ; preds = %for.end73, %if.then.i.i259
   %m_tile.i.i262 = getelementptr inbounds i8, ptr %a, i64 72
-  %173 = load ptr, ptr %m_tile.i.i262, align 8
-  %tobool.not.i.i263 = icmp eq ptr %173, null
+  %172 = load ptr, ptr %m_tile.i.i262, align 8
+  %tobool.not.i.i263 = icmp eq ptr %172, null
   br i1 %tobool.not.i.i263, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit, label %if.then.i.i264
 
 if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit261
@@ -6884,21 +6883,21 @@ if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit unwind label %terminate.lpad.i.i265
 
 terminate.lpad.i.i265:                            ; preds = %if.then.i.i264
-  %174 = landingpad { ptr, i32 }
+  %173 = landingpad { ptr, i32 }
           catch ptr null
-  %175 = extractvalue { ptr, i32 } %174, 0
-  call void @__clang_call_terminate(ptr %175) #25
+  %174 = extractvalue { ptr, i32 } %173, 0
+  call void @__clang_call_terminate(ptr %174) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit261, %if.then.i.i264
-  %cmp82 = icmp eq i64 %169, 0
+  %cmp82 = icmp eq i64 %168, 0
   ret i1 %cmp82
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %99, %lpad ], [ %lpad.phi, %lpad4 ], [ %lpad.phi, %if.then.i.i ]
   %m_tile.i.i266 = getelementptr inbounds i8, ptr %a, i64 72
-  %176 = load ptr, ptr %m_tile.i.i266, align 8
-  %tobool.not.i.i267 = icmp eq ptr %176, null
+  %175 = load ptr, ptr %m_tile.i.i266, align 8
+  %tobool.not.i.i267 = icmp eq ptr %175, null
   br i1 %tobool.not.i.i267, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit270, label %if.then.i.i268
 
 if.then.i.i268:                                   ; preds = %ehcleanup
@@ -6906,10 +6905,10 @@ if.then.i.i268:                                   ; preds = %ehcleanup
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit270 unwind label %terminate.lpad.i.i269
 
 terminate.lpad.i.i269:                            ; preds = %if.then.i.i268
-  %177 = landingpad { ptr, i32 }
+  %176 = landingpad { ptr, i32 }
           catch ptr null
-  %178 = extractvalue { ptr, i32 } %177, 0
-  call void @__clang_call_terminate(ptr %178) #25
+  %177 = extractvalue { ptr, i32 } %176, 0
+  call void @__clang_call_terminate(ptr %177) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit270: ; preds = %ehcleanup, %if.then.i.i268
@@ -8388,9 +8387,9 @@ for.body52:                                       ; preds = %for.body52.lr.ph, %
   %maxval.6314 = phi float [ %maxval.5323, %for.body52.lr.ph ], [ %maxval.7, %for.inc64 ]
   %batcherror.5313 = phi double [ %batcherror.4322, %for.body52.lr.ph ], [ %batcherror.6, %for.inc64 ]
   %batch_sqrerror.5312 = phi double [ %batch_sqrerror.4321, %for.body52.lr.ph ], [ %batch_sqrerror.6, %for.inc64 ]
-  %117 = phi double [ %maxerror.promoted, %for.body52.lr.ph ], [ %143, %for.inc64 ]
-  %118 = phi i64 [ %nwarn.promoted, %for.body52.lr.ph ], [ %142, %for.inc64 ]
-  %119 = phi i64 [ %nfail.promoted, %for.body52.lr.ph ], [ %141, %for.inc64 ]
+  %117 = phi double [ %maxerror.promoted, %for.body52.lr.ph ], [ %142, %for.inc64 ]
+  %118 = phi i64 [ %nwarn.promoted, %for.body52.lr.ph ], [ %141, %for.inc64 ]
+  %119 = phi i64 [ %nfail.promoted, %for.body52.lr.ph ], [ %140, %for.inc64 ]
   %cmp53 = icmp slt i64 %indvars.iv, %8
   br i1 %cmp53, label %cond.true, label %cond.end
 
@@ -8415,54 +8414,53 @@ cond.end61:                                       ; preds = %cond.true57, %cond.
   %cond62 = phi float [ %mul.i.i.i, %cond.true57 ], [ 0.000000e+00, %cond.end ]
   %122 = call float @llvm.fabs.f32(float %cond)
   %123 = fcmp one float %122, 0x7FF0000000000000
-  %124 = call float @llvm.fabs.f32(float %cond62)
-  %125 = fcmp one float %124, 0x7FF0000000000000
-  %or.cond54.i137 = and i1 %123, %125
+  %124 = fcmp one float %cond62, 0x7FF0000000000000
+  %or.cond54.i137 = and i1 %123, %124
   br i1 %or.cond54.i137, label %if.end20.i150, label %if.then.i138
 
 if.then.i138:                                     ; preds = %cond.end61
-  %126 = fcmp uno float %cond, 0.000000e+00
-  br i1 %126, label %if.end.i140, label %land.lhs.true.i139
+  %125 = fcmp uno float %cond, 0.000000e+00
+  br i1 %125, label %if.end.i140, label %land.lhs.true.i139
 
 land.lhs.true.i139:                               ; preds = %if.then.i138
-  %127 = fcmp oeq float %122, 0x7FF0000000000000
-  %128 = fcmp oeq float %124, 0x7FF0000000000000
-  %129 = xor i1 %127, %128
-  br i1 %129, label %if.end.i140, label %for.inc64
+  %126 = fcmp oeq float %122, 0x7FF0000000000000
+  %127 = fcmp oeq float %cond62, 0x7FF0000000000000
+  %128 = xor i1 %126, %127
+  br i1 %128, label %if.end.i140, label %for.inc64
 
 if.end.i140:                                      ; preds = %land.lhs.true.i139, %if.then.i138
-  %130 = call double @llvm.fabs.f64(double %117)
-  %131 = fcmp ueq double %130, 0x7FF0000000000000
-  br i1 %131, label %if.end20.i150, label %if.then12.i142
+  %129 = call double @llvm.fabs.f64(double %117)
+  %130 = fcmp ueq double %129, 0x7FF0000000000000
+  br i1 %130, label %if.end20.i150, label %if.then12.i142
 
 if.then12.i142:                                   ; preds = %if.end.i140
   store double 0x7FF0000000000000, ptr %maxerror, align 8
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %132 = trunc i64 %indvars.iv to i32
-  store i32 %132, ptr %maxc, align 4
+  %131 = trunc i64 %indvars.iv to i32
+  store i32 %131, ptr %maxc, align 4
   br label %for.inc64
 
 if.end20.i150:                                    ; preds = %if.end.i140, %cond.end61
   %conv.i.i151 = fpext float %122 to double
-  %conv1.i.i152 = fpext float %124 to double
+  %conv1.i.i152 = fpext float %cond62 to double
   %mul2.i.i153 = fmul double %conv1.i.i152, 5.000000e-01
-  %133 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
-  %conv3.i.i154 = fptrunc double %133 to float
-  %cmp.i.i155 = fcmp olt float %122, %124
-  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %124, float %122
+  %132 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
+  %conv3.i.i154 = fptrunc double %132 to float
+  %cmp.i.i155 = fcmp olt float %122, %cond62
+  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %cond62, float %122
   %cmp.i45.i157 = fcmp olt float %maxval.6314, %.sroa.speculated51.i156
   %.sroa.speculated.i158 = select i1 %cmp.i45.i157, float %.sroa.speculated51.i156, float %maxval.6314
   %sub.i159 = fsub float %cond, %cond62
-  %134 = call noundef float @llvm.fabs.f32(float %sub.i159)
-  %conv27.i160 = fpext float %134 to double
+  %133 = call noundef float @llvm.fabs.f32(float %sub.i159)
+  %conv27.i160 = fpext float %133 to double
   %conv28.i161 = fpext float %conv3.i.i154 to double
   %cmp29.i162 = fcmp ogt float %conv3.i.i154, 0.000000e+00
   %div.i163 = fdiv double %conv27.i160, %conv28.i161
   %cond.i164 = select i1 %cmp29.i162, double %div.i163, double 0.000000e+00
   %add.i165 = fadd double %batcherror.5313, %conv27.i160
-  %135 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5312)
+  %134 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5312)
   %cmp32.i167 = fcmp ult double %117, %conv27.i160
   br i1 %cmp32.i167, label %if.then33.i188, label %if.end42.i168
 
@@ -8471,15 +8469,15 @@ if.then33.i188:                                   ; preds = %if.end20.i150
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %136 = trunc i64 %indvars.iv to i32
-  store i32 %136, ptr %maxc, align 4
+  %135 = trunc i64 %indvars.iv to i32
+  store i32 %135, ptr %maxc, align 4
   br label %if.end42.i168
 
 if.end42.i168:                                    ; preds = %if.then33.i188, %if.end20.i150
-  %137 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
-  %138 = and i8 %warned45.0315, 1
-  %tobool.not.i169 = icmp eq i8 %138, 0
-  %cmp45.i170 = fcmp ugt float %134, %warnthresh
+  %136 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
+  %137 = and i8 %warned45.0315, 1
+  %tobool.not.i169 = icmp eq i8 %137, 0
+  %cmp45.i170 = fcmp ugt float %133, %warnthresh
   %or.cond.i171 = and i1 %tobool.not.i169, %cmp45.i170
   %cmp48.i173 = fcmp ugt double %cond.i164, %conv47.i172
   %or.cond42.i174 = select i1 %or.cond.i171, i1 %cmp48.i173, i1 false
@@ -8491,11 +8489,11 @@ if.then49.i185:                                   ; preds = %if.end42.i168
   br label %if.end50.i175
 
 if.end50.i175:                                    ; preds = %if.then49.i185, %if.end42.i168
-  %139 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
+  %138 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
   %warned45.1 = phi i8 [ 1, %if.then49.i185 ], [ %warned45.0315, %if.end42.i168 ]
-  %140 = and i8 %failed46.0316, 1
-  %tobool51.not.i176 = icmp eq i8 %140, 0
-  %cmp54.i177 = fcmp ugt float %134, %failthresh
+  %139 = and i8 %failed46.0316, 1
+  %tobool51.not.i176 = icmp eq i8 %139, 0
+  %cmp54.i177 = fcmp ugt float %133, %failthresh
   %or.cond43.i178 = and i1 %tobool51.not.i176, %cmp54.i177
   %cmp57.i180 = fcmp ugt double %cond.i164, %conv56.i179
   %or.cond44.i181 = select i1 %or.cond43.i178, i1 %cmp57.i180, i1 false
@@ -8507,10 +8505,10 @@ if.then58.i182:                                   ; preds = %if.end50.i175
   br label %for.inc64
 
 for.inc64:                                        ; preds = %if.then58.i182, %if.end50.i175, %if.then12.i142, %land.lhs.true.i139
-  %141 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ]
-  %142 = phi i64 [ %139, %if.then58.i182 ], [ %139, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ]
-  %143 = phi double [ %137, %if.then58.i182 ], [ %137, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %135, %if.then58.i182 ], [ %135, %if.end50.i175 ], [ %batch_sqrerror.5312, %if.then12.i142 ], [ %batch_sqrerror.5312, %land.lhs.true.i139 ]
+  %140 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ]
+  %141 = phi i64 [ %138, %if.then58.i182 ], [ %138, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ]
+  %142 = phi double [ %136, %if.then58.i182 ], [ %136, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ]
+  %batch_sqrerror.6 = phi double [ %134, %if.then58.i182 ], [ %134, %if.end50.i175 ], [ %batch_sqrerror.5312, %if.then12.i142 ], [ %batch_sqrerror.5312, %land.lhs.true.i139 ]
   %batcherror.6 = phi double [ %add.i165, %if.then58.i182 ], [ %add.i165, %if.end50.i175 ], [ %batcherror.5313, %if.then12.i142 ], [ %batcherror.5313, %land.lhs.true.i139 ]
   %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i182 ], [ %.sroa.speculated.i158, %if.end50.i175 ], [ %maxval.6314, %if.then12.i142 ], [ %maxval.6314, %land.lhs.true.i139 ]
   %warned45.2 = phi i8 [ %warned45.1, %if.then58.i182 ], [ %warned45.1, %if.end50.i175 ], [ %warned45.0315, %if.then12.i142 ], [ %warned45.0315, %land.lhs.true.i139 ]
@@ -8525,14 +8523,14 @@ for.inc67:                                        ; preds = %for.inc64, %for.bod
   %maxval.6.lcssa = phi float [ %maxval.5323, %for.body44 ], [ %maxval.7, %for.inc64 ]
   %inc.i198 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i198, ptr %m_x.i, align 4
-  %144 = load i32, ptr %m_rng_xend.i199, align 8
-  %cmp.i200 = icmp slt i32 %inc.i198, %144
+  %143 = load i32, ptr %m_rng_xend.i199, align 8
+  %cmp.i200 = icmp slt i32 %inc.i198, %143
   br i1 %cmp.i200, label %if.then.i217, label %if.else.i201
 
 if.then.i217:                                     ; preds = %for.inc67
-  %145 = load i8, ptr %m_exists.i218, align 1
-  %146 = and i8 %145, 1
-  %tobool.not.i219 = icmp eq i8 %146, 0
+  %144 = load i8, ptr %m_exists.i218, align 1
+  %145 = and i8 %144, 1
+  %tobool.not.i219 = icmp eq i8 %145, 0
   br i1 %tobool.not.i219, label %if.then.if.end13_crit_edge.i221, label %if.then2.i220
 
 if.then.if.end13_crit_edge.i221:                  ; preds = %if.then.i217
@@ -8545,23 +8543,23 @@ if.then2.i220:                                    ; preds = %if.then.i217
           to label %invoke.cont69 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i201:                                     ; preds = %for.inc67
-  %147 = load i32, ptr %m_rng_xbegin.i, align 4
-  store i32 %147, ptr %m_x.i, align 4
-  %148 = load i32, ptr %m_y.i, align 8
-  %inc4.i204 = add nsw i32 %148, 1
+  %146 = load i32, ptr %m_rng_xbegin.i, align 4
+  store i32 %146, ptr %m_x.i, align 4
+  %147 = load i32, ptr %m_y.i, align 8
+  %inc4.i204 = add nsw i32 %147, 1
   store i32 %inc4.i204, ptr %m_y.i, align 8
-  %149 = load i32, ptr %m_rng_yend.i205, align 8
-  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %149
+  %148 = load i32, ptr %m_rng_yend.i205, align 8
+  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %148
   %.pre381 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i206, label %if.end13.i215, label %if.then6.i207
 
 if.then6.i207:                                    ; preds = %if.else.i201
-  %150 = load i32, ptr %m_rng_ybegin.i, align 4
-  store i32 %150, ptr %m_y.i, align 8
+  %149 = load i32, ptr %m_rng_ybegin.i, align 4
+  store i32 %149, ptr %m_y.i, align 8
   %inc8.i210 = add nsw i32 %.pre381, 1
   store i32 %inc8.i210, ptr %m_z.i, align 4
-  %151 = load i32, ptr %m_rng_zend.i, align 8
-  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %151
+  %150 = load i32, ptr %m_rng_zend.i, align 8
+  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %150
   br i1 %cmp9.not.i212, label %if.end13.i215, label %if.then10.i213
 
 if.then10.i213:                                   ; preds = %if.then6.i207
@@ -8569,25 +8567,25 @@ if.then10.i213:                                   ; preds = %if.then6.i207
   br label %invoke.cont69
 
 if.end13.i215:                                    ; preds = %if.then6.i207, %if.else.i201, %if.then.if.end13_crit_edge.i221
-  %152 = phi i32 [ %.pre381, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre380, %if.then.if.end13_crit_edge.i221 ]
-  %153 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %150, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
-  %154 = phi i32 [ %147, %if.else.i201 ], [ %147, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %154, i32 noundef %153, i32 noundef %152)
+  %151 = phi i32 [ %.pre381, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre380, %if.then.if.end13_crit_edge.i221 ]
+  %152 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %149, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
+  %153 = phi i32 [ %146, %if.else.i201 ], [ %146, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %153, i32 noundef %152, i32 noundef %151)
           to label %invoke.cont69 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont69:                                    ; preds = %if.then10.i213, %if.then2.i220, %if.end13.i215
   %inc68 = add nuw nsw i32 %i37.0324, 1
-  %155 = load i32, ptr %m_x.i227, align 4
-  %inc.i228 = add nsw i32 %155, 1
+  %154 = load i32, ptr %m_x.i227, align 4
+  %inc.i228 = add nsw i32 %154, 1
   store i32 %inc.i228, ptr %m_x.i227, align 4
-  %156 = load i32, ptr %m_rng_xend.i229, align 8
-  %cmp.i230 = icmp slt i32 %inc.i228, %156
+  %155 = load i32, ptr %m_rng_xend.i229, align 8
+  %cmp.i230 = icmp slt i32 %inc.i228, %155
   br i1 %cmp.i230, label %if.then.i247, label %if.else.i231
 
 if.then.i247:                                     ; preds = %invoke.cont69
-  %157 = load i8, ptr %m_exists.i248, align 1
-  %158 = and i8 %157, 1
-  %tobool.not.i249 = icmp eq i8 %158, 0
+  %156 = load i8, ptr %m_exists.i248, align 1
+  %157 = and i8 %156, 1
+  %tobool.not.i249 = icmp eq i8 %157, 0
   br i1 %tobool.not.i249, label %if.then.if.end13_crit_edge.i251, label %if.then2.i250
 
 if.then.if.end13_crit_edge.i251:                  ; preds = %if.then.i247
@@ -8600,23 +8598,23 @@ if.then2.i250:                                    ; preds = %if.then.i247
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i231:                                     ; preds = %invoke.cont69
-  %159 = load i32, ptr %m_rng_xbegin.i232, align 4
-  store i32 %159, ptr %m_x.i227, align 4
-  %160 = load i32, ptr %m_y.i233, align 8
-  %inc4.i234 = add nsw i32 %160, 1
+  %158 = load i32, ptr %m_rng_xbegin.i232, align 4
+  store i32 %158, ptr %m_x.i227, align 4
+  %159 = load i32, ptr %m_y.i233, align 8
+  %inc4.i234 = add nsw i32 %159, 1
   store i32 %inc4.i234, ptr %m_y.i233, align 8
-  %161 = load i32, ptr %m_rng_yend.i235, align 8
-  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %161
+  %160 = load i32, ptr %m_rng_yend.i235, align 8
+  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %160
   %.pre383 = load i32, ptr %m_z.i239, align 4
   br i1 %cmp5.not.i236, label %if.end13.i245, label %if.then6.i237
 
 if.then6.i237:                                    ; preds = %if.else.i231
-  %162 = load i32, ptr %m_rng_ybegin.i238, align 4
-  store i32 %162, ptr %m_y.i233, align 8
+  %161 = load i32, ptr %m_rng_ybegin.i238, align 4
+  store i32 %161, ptr %m_y.i233, align 8
   %inc8.i240 = add nsw i32 %.pre383, 1
   store i32 %inc8.i240, ptr %m_z.i239, align 4
-  %163 = load i32, ptr %m_rng_zend.i241, align 8
-  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %163
+  %162 = load i32, ptr %m_rng_zend.i241, align 8
+  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %162
   br i1 %cmp9.not.i242, label %if.end13.i245, label %if.then10.i243
 
 if.then10.i243:                                   ; preds = %if.then6.i237
@@ -8624,10 +8622,10 @@ if.then10.i243:                                   ; preds = %if.then6.i237
   br label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256
 
 if.end13.i245:                                    ; preds = %if.then6.i237, %if.else.i231, %if.then.if.end13_crit_edge.i251
-  %164 = phi i32 [ %.pre383, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre382, %if.then.if.end13_crit_edge.i251 ]
-  %165 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %162, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
-  %166 = phi i32 [ %159, %if.else.i231 ], [ %159, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %166, i32 noundef %165, i32 noundef %164)
+  %163 = phi i32 [ %.pre383, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre382, %if.then.if.end13_crit_edge.i251 ]
+  %164 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %161, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
+  %165 = phi i32 [ %158, %if.else.i231 ], [ %158, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %165, i32 noundef %164, i32 noundef %163)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256: ; preds = %if.end13.i245, %if.then2.i250, %if.then10.i243
@@ -8652,19 +8650,19 @@ for.end73:                                        ; preds = %_ZNK18OpenImageIO_v
   %div = fdiv double %.us-phi362, %conv74
   store double %div, ptr %result, align 8
   %div76 = fdiv double %.us-phi361, %conv74
-  %167 = call double @llvm.sqrt.f64(double %div76)
+  %166 = call double @llvm.sqrt.f64(double %div76)
   %rms_error = getelementptr inbounds i8, ptr %result, i64 8
-  store double %167, ptr %rms_error, align 8
+  store double %166, ptr %rms_error, align 8
   %conv77 = fpext float %.us-phi360 to double
-  %div79 = fdiv double %conv77, %167
-  %168 = call double @llvm.log10.f64(double %div79)
-  %mul80 = fmul double %168, 2.000000e+01
+  %div79 = fdiv double %conv77, %166
+  %167 = call double @llvm.log10.f64(double %div79)
+  %mul80 = fmul double %167, 2.000000e+01
   %PSNR = getelementptr inbounds i8, ptr %result, i64 16
   store double %mul80, ptr %PSNR, align 8
-  %169 = load i64, ptr %nfail, align 8
+  %168 = load i64, ptr %nfail, align 8
   %m_tile.i.i257 = getelementptr inbounds i8, ptr %b, i64 72
-  %170 = load ptr, ptr %m_tile.i.i257, align 8
-  %tobool.not.i.i258 = icmp eq ptr %170, null
+  %169 = load ptr, ptr %m_tile.i.i257, align 8
+  %tobool.not.i.i258 = icmp eq ptr %169, null
   br i1 %tobool.not.i.i258, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit261, label %if.then.i.i259
 
 if.then.i.i259:                                   ; preds = %for.end73
@@ -8672,16 +8670,16 @@ if.then.i.i259:                                   ; preds = %for.end73
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit261 unwind label %terminate.lpad.i.i260
 
 terminate.lpad.i.i260:                            ; preds = %if.then.i.i259
-  %171 = landingpad { ptr, i32 }
+  %170 = landingpad { ptr, i32 }
           catch ptr null
-  %172 = extractvalue { ptr, i32 } %171, 0
-  call void @__clang_call_terminate(ptr %172) #25
+  %171 = extractvalue { ptr, i32 } %170, 0
+  call void @__clang_call_terminate(ptr %171) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit261: ; preds = %for.end73, %if.then.i.i259
   %m_tile.i.i262 = getelementptr inbounds i8, ptr %a, i64 72
-  %173 = load ptr, ptr %m_tile.i.i262, align 8
-  %tobool.not.i.i263 = icmp eq ptr %173, null
+  %172 = load ptr, ptr %m_tile.i.i262, align 8
+  %tobool.not.i.i263 = icmp eq ptr %172, null
   br i1 %tobool.not.i.i263, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit, label %if.then.i.i264
 
 if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit261
@@ -8689,21 +8687,21 @@ if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit unwind label %terminate.lpad.i.i265
 
 terminate.lpad.i.i265:                            ; preds = %if.then.i.i264
-  %174 = landingpad { ptr, i32 }
+  %173 = landingpad { ptr, i32 }
           catch ptr null
-  %175 = extractvalue { ptr, i32 } %174, 0
-  call void @__clang_call_terminate(ptr %175) #25
+  %174 = extractvalue { ptr, i32 } %173, 0
+  call void @__clang_call_terminate(ptr %174) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit261, %if.then.i.i264
-  %cmp82 = icmp eq i64 %169, 0
+  %cmp82 = icmp eq i64 %168, 0
   ret i1 %cmp82
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %99, %lpad ], [ %lpad.phi, %lpad4 ], [ %lpad.phi, %if.then.i.i ]
   %m_tile.i.i266 = getelementptr inbounds i8, ptr %a, i64 72
-  %176 = load ptr, ptr %m_tile.i.i266, align 8
-  %tobool.not.i.i267 = icmp eq ptr %176, null
+  %175 = load ptr, ptr %m_tile.i.i266, align 8
+  %tobool.not.i.i267 = icmp eq ptr %175, null
   br i1 %tobool.not.i.i267, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit270, label %if.then.i.i268
 
 if.then.i.i268:                                   ; preds = %ehcleanup
@@ -8711,10 +8709,10 @@ if.then.i.i268:                                   ; preds = %ehcleanup
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit270 unwind label %terminate.lpad.i.i269
 
 terminate.lpad.i.i269:                            ; preds = %if.then.i.i268
-  %177 = landingpad { ptr, i32 }
+  %176 = landingpad { ptr, i32 }
           catch ptr null
-  %178 = extractvalue { ptr, i32 } %177, 0
-  call void @__clang_call_terminate(ptr %178) #25
+  %177 = extractvalue { ptr, i32 } %176, 0
+  call void @__clang_call_terminate(ptr %177) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit270: ; preds = %ehcleanup, %if.then.i.i268
@@ -8808,11 +8806,11 @@ for.cond.preheader:                               ; preds = %invoke.cont
   %m_rng_zend.i241 = getelementptr inbounds i8, ptr %b, i64 56
   %m_valid.i244 = getelementptr inbounds i8, ptr %b, i64 8
   %m_exists.i248 = getelementptr inbounds i8, ptr %b, i64 9
-  br i1 %call6, label %for.cond.us, label %for.cond.preheader366
+  br i1 %call6, label %for.cond.us, label %for.cond.preheader382
 
-for.cond.preheader366:                            ; preds = %for.cond.preheader
-  %8 = sext i32 %call2 to i64
-  %9 = sext i32 %call3 to i64
+for.cond.preheader382:                            ; preds = %for.cond.preheader
+  %8 = sext i32 %call3 to i64
+  %9 = sext i32 %call2 to i64
   br label %for.cond
 
 for.cond.us:                                      ; preds = %for.cond.preheader, %if.end.loopexit.us
@@ -8846,26 +8844,26 @@ land.rhs.us.preheader:                            ; preds = %_ZNK18OpenImageIO_v
   br label %land.rhs.us
 
 land.rhs.us:                                      ; preds = %land.rhs.us.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us
-  %i.0353.us = phi i32 [ %inc33.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0, %land.rhs.us.preheader ]
-  %maxval.1352.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.0.us, %land.rhs.us.preheader ]
-  %batcherror.0351.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
-  %batch_sqrerror.0350.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
+  %i.0369.us = phi i32 [ %inc33.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0, %land.rhs.us.preheader ]
+  %maxval.1368.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.0.us, %land.rhs.us.preheader ]
+  %batcherror.0367.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
+  %batch_sqrerror.0366.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
   %18 = load i8, ptr %m_valid.i, align 8
   %19 = and i8 %18, 1
   %cmp.i41.us = icmp eq i8 %19, 0
-  %.pre384 = load i32, ptr %m_x.i, align 4
+  %.pre400 = load i32, ptr %m_x.i, align 4
   br i1 %cmp.i41.us, label %land.lhs.true.i42.us, label %land.rhs.us.for.body11.us_crit_edge
 
 land.rhs.us.for.body11.us_crit_edge:              ; preds = %land.rhs.us
-  %.pre385 = load i32, ptr %m_y.i, align 8
+  %.pre401 = load i32, ptr %m_y.i, align 8
   br label %for.body11.us
 
 land.lhs.true.i42.us:                             ; preds = %land.rhs.us
   %20 = load i32, ptr %m_rng_xbegin.i, align 4
-  %cmp2.i45.us = icmp eq i32 %.pre384, %20
-  %.pre386 = load i32, ptr %m_y.i, align 8
+  %cmp2.i45.us = icmp eq i32 %.pre400, %20
+  %.pre402 = load i32, ptr %m_y.i, align 8
   %21 = load i32, ptr %m_rng_ybegin.i, align 4
-  %cmp4.i49.us = icmp eq i32 %.pre386, %21
+  %cmp4.i49.us = icmp eq i32 %.pre402, %21
   %or.cond = select i1 %cmp2.i45.us, i1 %cmp4.i49.us, i1 false
   br i1 %or.cond, label %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us, label %for.body11.us
 
@@ -8876,10 +8874,10 @@ _ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us: ; preds = %lan
   br i1 %cmp5.i53.us, label %if.end.loopexit.us, label %for.body11.us
 
 for.body11.us:                                    ; preds = %land.rhs.us.for.body11.us_crit_edge, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us, %land.lhs.true.i42.us
-  %24 = phi i32 [ %.pre385, %land.rhs.us.for.body11.us_crit_edge ], [ %.pre386, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ], [ %.pre386, %land.lhs.true.i42.us ]
+  %24 = phi i32 [ %.pre401, %land.rhs.us.for.body11.us_crit_edge ], [ %.pre402, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ], [ %.pre402, %land.lhs.true.i42.us ]
   %25 = load ptr, ptr %a, align 8
   %26 = load i32, ptr %m_z.i, align 4
-  %call.i58.us = invoke noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf12deep_samplesEiii(ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef %.pre384, i32 noundef %24, i32 noundef %26)
+  %call.i58.us = invoke noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf12deep_samplesEiii(ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef %.pre400, i32 noundef %24, i32 noundef %26)
           to label %invoke.cont12.us unwind label %lpad4.loopexit.split-lp.loopexit.split.us
 
 invoke.cont12.us:                                 ; preds = %for.body11.us
@@ -8894,15 +8892,15 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   %.sroa.speculated.us = call i32 @llvm.smax.i32(i32 %call.i58.us, i32 %call.i62.us)
   %31 = load i32, ptr %chbegin.i, align 8
   %32 = load i32, ptr %chend.i, align 4
-  %cmp19337.us = icmp slt i32 %31, %32
-  %cmp22325.us = icmp sgt i32 %.sroa.speculated.us, 0
-  %or.cond402 = and i1 %cmp19337.us, %cmp22325.us
-  br i1 %or.cond402, label %for.cond21.preheader.us.us, label %for.inc32.us
+  %cmp19353.us = icmp slt i32 %31, %32
+  %cmp22341.us = icmp sgt i32 %.sroa.speculated.us, 0
+  %or.cond418 = and i1 %cmp19353.us, %cmp22341.us
+  br i1 %or.cond418, label %for.cond21.preheader.us.us, label %for.inc32.us
 
 for.inc32.us:                                     ; preds = %for.cond21.for.inc29_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0350.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0351.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1352.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0366.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0367.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1368.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -8918,13 +8916,13 @@ if.else.i.us:                                     ; preds = %for.inc32.us
   store i32 %inc4.i.us, ptr %m_y.i, align 8
   %37 = load i32, ptr %m_rng_yend.i205, align 8
   %cmp5.not.i.us = icmp slt i32 %inc4.i.us, %37
-  %.pre389 = load i32, ptr %m_z.i, align 4
+  %.pre405 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i.us, label %if.end13.i.us, label %if.then6.i.us
 
 if.then6.i.us:                                    ; preds = %if.else.i.us
   %38 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %38, ptr %m_y.i, align 8
-  %inc8.i.us = add nsw i32 %.pre389, 1
+  %inc8.i.us = add nsw i32 %.pre405, 1
   store i32 %inc8.i.us, ptr %m_z.i, align 4
   %39 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i.us = icmp slt i32 %inc8.i.us, %39
@@ -8946,18 +8944,18 @@ if.then2.i.us:                                    ; preds = %if.then.i86.us
 
 if.then.if.end13_crit_edge.i.us:                  ; preds = %if.then.i86.us
   %.pre.i.us = load i32, ptr %m_y.i, align 8
-  %.pre388 = load i32, ptr %m_z.i, align 4
+  %.pre404 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i.us
 
 if.end13.i.us:                                    ; preds = %if.then.if.end13_crit_edge.i.us, %if.then6.i.us, %if.else.i.us
-  %42 = phi i32 [ %.pre389, %if.else.i.us ], [ %inc8.i.us, %if.then6.i.us ], [ %.pre388, %if.then.if.end13_crit_edge.i.us ]
+  %42 = phi i32 [ %.pre405, %if.else.i.us ], [ %inc8.i.us, %if.then6.i.us ], [ %.pre404, %if.then.if.end13_crit_edge.i.us ]
   %43 = phi i32 [ %inc4.i.us, %if.else.i.us ], [ %38, %if.then6.i.us ], [ %.pre.i.us, %if.then.if.end13_crit_edge.i.us ]
   %44 = phi i32 [ %35, %if.else.i.us ], [ %35, %if.then6.i.us ], [ %inc.i78.us, %if.then.if.end13_crit_edge.i.us ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %44, i32 noundef %43, i32 noundef %42)
           to label %invoke.cont34.us unwind label %lpad4.loopexit.split-lp.loopexit.split.us
 
 invoke.cont34.us:                                 ; preds = %if.end13.i.us, %if.then2.i.us, %if.then10.i.us
-  %inc33.us = add nuw nsw i32 %i.0353.us, 1
+  %inc33.us = add nuw nsw i32 %i.0369.us, 1
   %45 = load i32, ptr %m_x.i227, align 4
   %inc.i90.us = add nsw i32 %45, 1
   store i32 %inc.i90.us, ptr %m_x.i227, align 4
@@ -8973,13 +8971,13 @@ if.else.i93.us:                                   ; preds = %invoke.cont34.us
   store i32 %inc4.i96.us, ptr %m_y.i233, align 8
   %49 = load i32, ptr %m_rng_yend.i235, align 8
   %cmp5.not.i98.us = icmp slt i32 %inc4.i96.us, %49
-  %.pre391 = load i32, ptr %m_z.i239, align 4
+  %.pre407 = load i32, ptr %m_z.i239, align 4
   br i1 %cmp5.not.i98.us, label %if.end13.i107.us, label %if.then6.i99.us
 
 if.then6.i99.us:                                  ; preds = %if.else.i93.us
   %50 = load i32, ptr %m_rng_ybegin.i238, align 4
   store i32 %50, ptr %m_y.i233, align 8
-  %inc8.i102.us = add nsw i32 %.pre391, 1
+  %inc8.i102.us = add nsw i32 %.pre407, 1
   store i32 %inc8.i102.us, ptr %m_z.i239, align 4
   %51 = load i32, ptr %m_rng_zend.i241, align 8
   %cmp9.not.i104.us = icmp slt i32 %inc8.i102.us, %51
@@ -9001,49 +8999,49 @@ if.then2.i112.us:                                 ; preds = %if.then.i109.us
 
 if.then.if.end13_crit_edge.i113.us:               ; preds = %if.then.i109.us
   %.pre.i115.us = load i32, ptr %m_y.i233, align 8
-  %.pre390 = load i32, ptr %m_z.i239, align 4
+  %.pre406 = load i32, ptr %m_z.i239, align 4
   br label %if.end13.i107.us
 
 if.end13.i107.us:                                 ; preds = %if.then.if.end13_crit_edge.i113.us, %if.then6.i99.us, %if.else.i93.us
-  %54 = phi i32 [ %.pre391, %if.else.i93.us ], [ %inc8.i102.us, %if.then6.i99.us ], [ %.pre390, %if.then.if.end13_crit_edge.i113.us ]
+  %54 = phi i32 [ %.pre407, %if.else.i93.us ], [ %inc8.i102.us, %if.then6.i99.us ], [ %.pre406, %if.then.if.end13_crit_edge.i113.us ]
   %55 = phi i32 [ %inc4.i96.us, %if.else.i93.us ], [ %50, %if.then6.i99.us ], [ %.pre.i115.us, %if.then.if.end13_crit_edge.i113.us ]
   %56 = phi i32 [ %47, %if.else.i93.us ], [ %47, %if.then6.i99.us ], [ %inc.i90.us, %if.then.if.end13_crit_edge.i113.us ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %56, i32 noundef %55, i32 noundef %54)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us unwind label %lpad4.loopexit.split-lp.loopexit.split.us
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us: ; preds = %if.end13.i107.us, %if.then2.i112.us, %if.then10.i105.us
-  %exitcond379.not = icmp eq i32 %inc33.us, 4096
-  br i1 %exitcond379.not, label %if.end.loopexit.us, label %land.rhs.us
+  %exitcond395.not = icmp eq i32 %inc33.us, 4096
+  br i1 %exitcond395.not, label %if.end.loopexit.us, label %land.rhs.us
 
 if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us
-  %batch_sqrerror.0.lcssa.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batch_sqrerror.0350.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
-  %batcherror.0.lcssa.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batcherror.0351.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
-  %maxval.1.lcssa.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.1352.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
+  %batch_sqrerror.0.lcssa.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batch_sqrerror.0366.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
+  %batcherror.0.lcssa.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batcherror.0367.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
+  %maxval.1.lcssa.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.1368.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
   %add.us = fadd double %totalerror.0.us, %batcherror.0.lcssa.us
   %add72.us = fadd double %totalsqrerror.0.us, %batch_sqrerror.0.lcssa.us
   br label %for.cond.us, !llvm.loop !41
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc29_crit_edge.us.us
-  %c.0343.us.us = phi i32 [ %inc30.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2342.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1352.us, %invoke.cont15.us ]
-  %batcherror.1341.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0351.us, %invoke.cont15.us ]
-  %failed.0340.us.us = phi i8 [ %failed.2.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
-  %warned.0339.us.us = phi i8 [ %warned.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
-  %batch_sqrerror.1338.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0350.us, %invoke.cont15.us ]
+  %c.0359.us.us = phi i32 [ %inc30.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
+  %maxval.2358.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1368.us, %invoke.cont15.us ]
+  %batcherror.1357.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0367.us, %invoke.cont15.us ]
+  %failed.0356.us.us = phi i8 [ %failed.2.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
+  %warned.0355.us.us = phi i8 [ %warned.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
+  %batch_sqrerror.1354.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0366.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us, %for.cond21.preheader.us.us
-  %s.0331.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %maxval.3330.us.us = phi float [ %maxval.2342.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batcherror.2329.us.us = phi double [ %batcherror.1341.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %failed.1328.us.us = phi i8 [ %failed.0340.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %warned.1327.us.us = phi i8 [ %warned.0339.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batch_sqrerror.2326.us.us = phi double [ %batch_sqrerror.1338.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %s.0347.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %maxval.3346.us.us = phi float [ %maxval.2358.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batcherror.2345.us.us = phi double [ %batcherror.1357.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %failed.1344.us.us = phi i8 [ %failed.0356.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %warned.1343.us.us = phi i8 [ %warned.0355.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batch_sqrerror.2342.us.us = phi double [ %batch_sqrerror.1354.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %57 = load ptr, ptr %a, align 8
   %58 = load i32, ptr %m_x.i, align 4
   %59 = load i32, ptr %m_y.i, align 8
   %60 = load i32, ptr %m_z.i, align 4
-  %call.i68.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef %c.0343.us.us, i32 noundef %s.0331.us.us)
+  %call.i68.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef %c.0359.us.us, i32 noundef %s.0347.us.us)
           to label %invoke.cont24.us.us unwind label %lpad4.loopexit.split.us.split.us
 
 invoke.cont24.us.us:                              ; preds = %for.body23.us.us
@@ -9051,7 +9049,7 @@ invoke.cont24.us.us:                              ; preds = %for.body23.us.us
   %62 = load i32, ptr %m_x.i227, align 4
   %63 = load i32, ptr %m_y.i233, align 8
   %64 = load i32, ptr %m_z.i239, align 4
-  %call.i72.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %61, i32 noundef %62, i32 noundef %63, i32 noundef %64, i32 noundef %c.0343.us.us, i32 noundef %s.0331.us.us)
+  %call.i72.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %61, i32 noundef %62, i32 noundef %63, i32 noundef %64, i32 noundef %c.0359.us.us, i32 noundef %s.0347.us.us)
           to label %invoke.cont26.us.us unwind label %lpad4.loopexit.split.us.split.us
 
 invoke.cont26.us.us:                              ; preds = %invoke.cont24.us.us
@@ -9063,7 +9061,7 @@ invoke.cont26.us.us:                              ; preds = %invoke.cont24.us.us
   br i1 %or.cond54.i.us.us, label %invoke.cont26.us.us.if.end20.i.us.us_crit_edge, label %if.then.i.us.us
 
 invoke.cont26.us.us.if.end20.i.us.us_crit_edge:   ; preds = %invoke.cont26.us.us
-  %.pre387 = load double, ptr %maxerror, align 8
+  %.pre403 = load double, ptr %maxerror, align 8
   br label %if.end20.i.us.us
 
 if.then.i.us.us:                                  ; preds = %invoke.cont26.us.us
@@ -9090,11 +9088,11 @@ if.then12.i.us.us:                                ; preds = %if.end.i.us.us
   store <2 x i32> %78, ptr %maxx, align 8
   %79 = load i32, ptr %m_z.i, align 4
   store i32 %79, ptr %maxz, align 8
-  store i32 %c.0343.us.us, ptr %maxc, align 4
+  store i32 %c.0359.us.us, ptr %maxc, align 4
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 if.end20.i.us.us:                                 ; preds = %invoke.cont26.us.us.if.end20.i.us.us_crit_edge, %if.end.i.us.us
-  %80 = phi double [ %.pre387, %invoke.cont26.us.us.if.end20.i.us.us_crit_edge ], [ %75, %if.end.i.us.us ]
+  %80 = phi double [ %.pre403, %invoke.cont26.us.us.if.end20.i.us.us_crit_edge ], [ %75, %if.end.i.us.us ]
   %conv.i.i.us.us = fpext float %65 to double
   %conv1.i.i.us.us = fpext float %67 to double
   %mul2.i.i.us.us = fmul double %conv1.i.i.us.us, 5.000000e-01
@@ -9102,8 +9100,8 @@ if.end20.i.us.us:                                 ; preds = %invoke.cont26.us.us
   %conv3.i.i.us.us = fptrunc double %81 to float
   %cmp.i.i.us.us = fcmp olt float %65, %67
   %.sroa.speculated51.i.us.us = select i1 %cmp.i.i.us.us, float %67, float %65
-  %cmp.i45.i.us.us = fcmp olt float %maxval.3330.us.us, %.sroa.speculated51.i.us.us
-  %.sroa.speculated.i.us.us = select i1 %cmp.i45.i.us.us, float %.sroa.speculated51.i.us.us, float %maxval.3330.us.us
+  %cmp.i45.i.us.us = fcmp olt float %maxval.3346.us.us, %.sroa.speculated51.i.us.us
+  %.sroa.speculated.i.us.us = select i1 %cmp.i45.i.us.us, float %.sroa.speculated51.i.us.us, float %maxval.3346.us.us
   %sub.i75.us.us = fsub float %call.i68.us.us, %call.i72.us.us
   %82 = call noundef float @llvm.fabs.f32(float %sub.i75.us.us)
   %conv27.i.us.us = fpext float %82 to double
@@ -9111,8 +9109,8 @@ if.end20.i.us.us:                                 ; preds = %invoke.cont26.us.us
   %cmp29.i.us.us = fcmp ogt float %conv3.i.i.us.us, 0.000000e+00
   %div.i.us.us = fdiv double %conv27.i.us.us, %conv28.i.us.us
   %cond.i76.us.us = select i1 %cmp29.i.us.us, double %div.i.us.us, double 0.000000e+00
-  %add.i.us.us = fadd double %batcherror.2329.us.us, %conv27.i.us.us
-  %83 = call double @llvm.fmuladd.f64(double %conv27.i.us.us, double %conv27.i.us.us, double %batch_sqrerror.2326.us.us)
+  %add.i.us.us = fadd double %batcherror.2345.us.us, %conv27.i.us.us
+  %83 = call double @llvm.fmuladd.f64(double %conv27.i.us.us, double %conv27.i.us.us, double %batch_sqrerror.2342.us.us)
   %cmp32.i.us.us = fcmp ult double %80, %conv27.i.us.us
   br i1 %cmp32.i.us.us, label %if.then33.i.us.us, label %if.end42.i.us.us
 
@@ -9122,11 +9120,11 @@ if.then33.i.us.us:                                ; preds = %if.end20.i.us.us
   store <2 x i32> %84, ptr %maxx, align 8
   %85 = load i32, ptr %m_z.i, align 4
   store i32 %85, ptr %maxz, align 8
-  store i32 %c.0343.us.us, ptr %maxc, align 4
+  store i32 %c.0359.us.us, ptr %maxc, align 4
   br label %if.end42.i.us.us
 
 if.end42.i.us.us:                                 ; preds = %if.then33.i.us.us, %if.end20.i.us.us
-  %86 = and i8 %warned.1327.us.us, 1
+  %86 = and i8 %warned.1343.us.us, 1
   %tobool.not.i.us.us = icmp eq i8 %86, 0
   %cmp45.i.us.us = fcmp ugt float %82, %warnthresh
   %or.cond.i.us.us = and i1 %tobool.not.i.us.us, %cmp45.i.us.us
@@ -9141,8 +9139,8 @@ if.then49.i.us.us:                                ; preds = %if.end42.i.us.us
   br label %if.end50.i.us.us
 
 if.end50.i.us.us:                                 ; preds = %if.then49.i.us.us, %if.end42.i.us.us
-  %warned.2.us.us = phi i8 [ 1, %if.then49.i.us.us ], [ %warned.1327.us.us, %if.end42.i.us.us ]
-  %88 = and i8 %failed.1328.us.us, 1
+  %warned.2.us.us = phi i8 [ 1, %if.then49.i.us.us ], [ %warned.1343.us.us, %if.end42.i.us.us ]
+  %88 = and i8 %failed.1344.us.us, 1
   %tobool51.not.i.us.us = icmp eq i8 %88, 0
   %cmp54.i.us.us = fcmp ugt float %82, %failthresh
   %or.cond43.i.us.us = and i1 %tobool51.not.i.us.us, %cmp54.i.us.us
@@ -9157,23 +9155,23 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %83, %if.then58.i.us.us ], [ %83, %if.end50.i.us.us ], [ %batch_sqrerror.2326.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2326.us.us, %land.lhs.true.i74.us.us ]
-  %warned.3.us.us = phi i8 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1327.us.us, %if.then12.i.us.us ], [ %warned.1327.us.us, %land.lhs.true.i74.us.us ]
-  %failed.2.us.us = phi i8 [ 1, %if.then58.i.us.us ], [ %failed.1328.us.us, %if.end50.i.us.us ], [ %failed.1328.us.us, %if.then12.i.us.us ], [ %failed.1328.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2329.us.us, %if.then12.i.us.us ], [ %batcherror.2329.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3330.us.us, %if.then12.i.us.us ], [ %maxval.3330.us.us, %land.lhs.true.i74.us.us ]
-  %inc.us.us = add nuw nsw i32 %s.0331.us.us, 1
-  %exitcond378.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
-  br i1 %exitcond378.not, label %for.cond21.for.inc29_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !42
+  %batch_sqrerror.3.us.us = phi double [ %83, %if.then58.i.us.us ], [ %83, %if.end50.i.us.us ], [ %batch_sqrerror.2342.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2342.us.us, %land.lhs.true.i74.us.us ]
+  %warned.3.us.us = phi i8 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1343.us.us, %if.then12.i.us.us ], [ %warned.1343.us.us, %land.lhs.true.i74.us.us ]
+  %failed.2.us.us = phi i8 [ 1, %if.then58.i.us.us ], [ %failed.1344.us.us, %if.end50.i.us.us ], [ %failed.1344.us.us, %if.then12.i.us.us ], [ %failed.1344.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2345.us.us, %if.then12.i.us.us ], [ %batcherror.2345.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3346.us.us, %if.then12.i.us.us ], [ %maxval.3346.us.us, %land.lhs.true.i74.us.us ]
+  %inc.us.us = add nuw nsw i32 %s.0347.us.us, 1
+  %exitcond394.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
+  br i1 %exitcond394.not, label %for.cond21.for.inc29_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !42
 
 for.cond21.for.inc29_crit_edge.us.us:             ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
-  %inc30.us.us = add nsw i32 %c.0343.us.us, 1
+  %inc30.us.us = add nsw i32 %c.0359.us.us, 1
   %90 = load i32, ptr %chend.i, align 4
   %cmp19.us.us = icmp slt i32 %inc30.us.us, %90
   br i1 %cmp19.us.us, label %for.cond21.preheader.us.us, label %for.inc32.us, !llvm.loop !43
 
 lpad4.loopexit.split-lp.loopexit.split.us:        ; preds = %if.end13.i107.us, %if.then2.i112.us, %if.end13.i.us, %if.then2.i.us, %invoke.cont12.us, %for.body11.us
-  %lpad.loopexit279.us = landingpad { ptr, i32 }
+  %lpad.loopexit293.us = landingpad { ptr, i32 }
           cleanup
   br label %lpad4
 
@@ -9182,10 +9180,10 @@ lpad4.loopexit.split.us.split.us:                 ; preds = %invoke.cont24.us.us
           cleanup
   br label %lpad4
 
-for.cond:                                         ; preds = %for.cond.preheader366, %if.end.loopexit282
-  %maxval.0 = phi float [ %maxval.5.lcssa, %if.end.loopexit282 ], [ 1.000000e+00, %for.cond.preheader366 ]
-  %totalsqrerror.0 = phi double [ %add72, %if.end.loopexit282 ], [ 0.000000e+00, %for.cond.preheader366 ]
-  %totalerror.0 = phi double [ %add, %if.end.loopexit282 ], [ 0.000000e+00, %for.cond.preheader366 ]
+for.cond:                                         ; preds = %for.cond.preheader382, %if.end.loopexit296
+  %maxval.0 = phi float [ %maxval.5.lcssa, %if.end.loopexit296 ], [ 1.000000e+00, %for.cond.preheader382 ]
+  %totalsqrerror.0 = phi double [ %add72, %if.end.loopexit296 ], [ 0.000000e+00, %for.cond.preheader382 ]
+  %totalerror.0 = phi double [ %add, %if.end.loopexit296 ], [ 0.000000e+00, %for.cond.preheader382 ]
   %91 = load i8, ptr %m_valid.i, align 8
   %92 = and i8 %91, 1
   %cmp.i = icmp eq i8 %92, 0
@@ -9218,7 +9216,7 @@ lpad:                                             ; preds = %_ZNK18OpenImageIO_v
   br label %ehcleanup
 
 lpad4.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then2.i220, %if.end13.i215, %if.then2.i250, %if.end13.i245
-  %lpad.loopexit283 = landingpad { ptr, i32 }
+  %lpad.loopexit297 = landingpad { ptr, i32 }
           cleanup
   br label %lpad4
 
@@ -9228,7 +9226,7 @@ lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.c
   br label %lpad4
 
 lpad4:                                            ; preds = %lpad4.loopexit.split-lp.loopexit.split.us, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad4.loopexit.split.us.split.us
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us.us, %lpad4.loopexit.split.us.split.us ], [ %lpad.loopexit279.us, %lpad4.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit283, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us.us, %lpad4.loopexit.split.us.split.us ], [ %lpad.loopexit293.us, %lpad4.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit297, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %m_tile.i.i = getelementptr inbounds i8, ptr %b, i64 72
   %100 = load ptr, ptr %m_tile.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %100, null
@@ -9246,18 +9244,18 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 land.rhs40:                                       ; preds = %land.rhs40.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256
-  %i37.0324 = phi i32 [ %inc68, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0, %land.rhs40.preheader ]
-  %maxval.5323 = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.0, %land.rhs40.preheader ]
-  %batcherror.4322 = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs40.preheader ]
-  %batch_sqrerror.4321 = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs40.preheader ]
+  %i37.0340 = phi i32 [ %inc68, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0, %land.rhs40.preheader ]
+  %maxval.5339 = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.0, %land.rhs40.preheader ]
+  %batcherror.4338 = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs40.preheader ]
+  %batch_sqrerror.4337 = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs40.preheader ]
   %103 = load i8, ptr %m_valid.i, align 8
   %104 = and i8 %103, 1
   %cmp.i120 = icmp eq i8 %104, 0
   %.pre.pre = load i32, ptr %m_x.i, align 4
   %105 = load i32, ptr %m_rng_xbegin.i, align 4
   %cmp2.i124 = icmp eq i32 %.pre.pre, %105
-  %or.cond403 = select i1 %cmp.i120, i1 %cmp2.i124, i1 false
-  br i1 %or.cond403, label %land.lhs.true3.i125, label %for.body44
+  %or.cond419 = select i1 %cmp.i120, i1 %cmp2.i124, i1 false
+  br i1 %or.cond419, label %land.lhs.true3.i125, label %for.body44
 
 land.lhs.true3.i125:                              ; preds = %land.rhs40
   %106 = load i32, ptr %m_y.i, align 8
@@ -9269,13 +9267,13 @@ _ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133: ; preds = %land.
   %108 = load i32, ptr %m_z.i, align 4
   %109 = load i32, ptr %m_rng_zend.i, align 8
   %cmp5.i132 = icmp eq i32 %108, %109
-  br i1 %cmp5.i132, label %if.end.loopexit282, label %for.body44
+  br i1 %cmp5.i132, label %if.end.loopexit296, label %for.body44
 
 for.body44:                                       ; preds = %land.rhs40, %land.lhs.true3.i125, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133
   %110 = load i32, ptr %chbegin.i, align 8
   %111 = load i32, ptr %chend.i, align 4
-  %cmp51311 = icmp slt i32 %110, %111
-  br i1 %cmp51311, label %for.body52.lr.ph, label %for.inc67
+  %cmp51325 = icmp slt i32 %110, %111
+  br i1 %cmp51325, label %for.body52.lr.ph, label %for.inc67
 
 for.body52.lr.ph:                                 ; preds = %for.body44
   %nfail.promoted = load i64, ptr %nfail, align 8
@@ -9291,86 +9289,96 @@ for.body52.lr.ph:                                 ; preds = %for.body44
 
 for.body52:                                       ; preds = %for.body52.lr.ph, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
   %indvars.iv = phi i64 [ %116, %for.body52.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %failed46.0316 = phi i8 [ 0, %for.body52.lr.ph ], [ %failed46.1, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %warned45.0315 = phi i8 [ 0, %for.body52.lr.ph ], [ %warned45.2, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %maxval.6314 = phi float [ %maxval.5323, %for.body52.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %batcherror.5313 = phi double [ %batcherror.4322, %for.body52.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %batch_sqrerror.5312 = phi double [ %batch_sqrerror.4321, %for.body52.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %117 = phi double [ %maxerror.promoted, %for.body52.lr.ph ], [ %143, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %118 = phi i64 [ %nwarn.promoted, %for.body52.lr.ph ], [ %142, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %119 = phi i64 [ %nfail.promoted, %for.body52.lr.ph ], [ %141, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %cmp53 = icmp slt i64 %indvars.iv, %8
-  br i1 %cmp53, label %cond.true, label %cond.end
+  %failed46.0330 = phi i8 [ 0, %for.body52.lr.ph ], [ %failed46.1, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %warned45.0329 = phi i8 [ 0, %for.body52.lr.ph ], [ %warned45.2, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %maxval.6328 = phi float [ %maxval.5339, %for.body52.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batcherror.5327 = phi double [ %batcherror.4338, %for.body52.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batch_sqrerror.5326 = phi double [ %batch_sqrerror.4337, %for.body52.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %117 = phi double [ %maxerror.promoted, %for.body52.lr.ph ], [ %146, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %118 = phi i64 [ %nwarn.promoted, %for.body52.lr.ph ], [ %145, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %119 = phi i64 [ %nfail.promoted, %for.body52.lr.ph ], [ %144, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %cmp53 = icmp slt i64 %indvars.iv, %9
+  br i1 %cmp53, label %cond.end, label %cond.end.thread
 
-cond.true:                                        ; preds = %for.body52
+cond.end:                                         ; preds = %for.body52
   %arrayidx.i.i = getelementptr inbounds i8, ptr %112, i64 %indvars.iv
   %120 = load i8, ptr %arrayidx.i.i, align 1
   %conv1.i.i.i = uitofp i8 %120 to float
   %mul.i.i.i = fmul float %conv1.i.i.i, 0x3F70101020000000
-  br label %cond.end
+  %cmp56 = icmp slt i64 %indvars.iv, %8
+  br i1 %cmp56, label %cond.end61, label %cond.end61.thread
 
-cond.end:                                         ; preds = %cond.true, %for.body52
-  %cond = phi float [ %mul.i.i.i, %cond.true ], [ 0.000000e+00, %for.body52 ]
-  %cmp56 = icmp slt i64 %indvars.iv, %9
-  br i1 %cmp56, label %cond.true57, label %cond.end61
+cond.end.thread:                                  ; preds = %for.body52
+  %cmp56287 = icmp slt i64 %indvars.iv, %8
+  br i1 %cmp56287, label %cond.end61, label %if.end20.i150
 
-cond.true57:                                      ; preds = %cond.end
+cond.end61:                                       ; preds = %cond.end.thread, %cond.end
+  %cond288 = phi float [ 0.000000e+00, %cond.end.thread ], [ %mul.i.i.i, %cond.end ]
   %arrayidx.i.i136 = getelementptr inbounds float, ptr %113, i64 %indvars.iv
   %121 = load float, ptr %arrayidx.i.i136, align 4
-  br label %cond.end61
-
-cond.end61:                                       ; preds = %cond.true57, %cond.end
-  %cond62 = phi float [ %121, %cond.true57 ], [ 0.000000e+00, %cond.end ]
-  %122 = call float @llvm.fabs.f32(float %cond)
-  %123 = fcmp one float %122, 0x7FF0000000000000
-  %124 = call float @llvm.fabs.f32(float %cond62)
-  %125 = fcmp one float %124, 0x7FF0000000000000
-  %or.cond54.i137 = and i1 %123, %125
+  %122 = fcmp one float %cond288, 0x7FF0000000000000
+  %123 = call float @llvm.fabs.f32(float %121)
+  %124 = fcmp one float %123, 0x7FF0000000000000
+  %or.cond54.i137 = and i1 %122, %124
   br i1 %or.cond54.i137, label %if.end20.i150, label %if.then.i138
 
+cond.end61.thread:                                ; preds = %cond.end
+  %125 = fcmp ueq float %mul.i.i.i, 0x7FF0000000000000
+  br i1 %125, label %if.then.i138.thread, label %if.end20.i150
+
+if.then.i138.thread:                              ; preds = %cond.end61.thread
+  %126 = fcmp oeq float %mul.i.i.i, 0x7FF0000000000000
+  br i1 %126, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
+
 if.then.i138:                                     ; preds = %cond.end61
-  %126 = fcmp uno float %cond62, 0.000000e+00
-  br i1 %126, label %if.end.i140, label %land.lhs.true.i139
+  %127 = fcmp uno float %121, 0.000000e+00
+  br i1 %127, label %if.end.i140, label %land.lhs.true.i139
 
 land.lhs.true.i139:                               ; preds = %if.then.i138
-  %127 = fcmp oeq float %122, 0x7FF0000000000000
-  %128 = fcmp oeq float %124, 0x7FF0000000000000
-  %129 = xor i1 %127, %128
-  br i1 %129, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
+  %128 = fcmp oeq float %cond288, 0x7FF0000000000000
+  %129 = fcmp oeq float %123, 0x7FF0000000000000
+  %130 = xor i1 %128, %129
+  br i1 %130, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
 
-if.end.i140:                                      ; preds = %land.lhs.true.i139, %if.then.i138
-  %130 = call double @llvm.fabs.f64(double %117)
-  %131 = fcmp ueq double %130, 0x7FF0000000000000
-  br i1 %131, label %if.end20.i150, label %if.then12.i142
+if.end.i140:                                      ; preds = %if.then.i138.thread, %land.lhs.true.i139, %if.then.i138
+  %cond290 = phi float [ %cond288, %land.lhs.true.i139 ], [ %cond288, %if.then.i138 ], [ 0x7FF0000000000000, %if.then.i138.thread ]
+  %cond62281285 = phi float [ %121, %land.lhs.true.i139 ], [ %121, %if.then.i138 ], [ 0.000000e+00, %if.then.i138.thread ]
+  %131 = phi float [ %123, %land.lhs.true.i139 ], [ %123, %if.then.i138 ], [ 0.000000e+00, %if.then.i138.thread ]
+  %132 = call double @llvm.fabs.f64(double %117)
+  %133 = fcmp ueq double %132, 0x7FF0000000000000
+  br i1 %133, label %if.end20.i150, label %if.then12.i142
 
 if.then12.i142:                                   ; preds = %if.end.i140
   store double 0x7FF0000000000000, ptr %maxerror, align 8
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %132 = trunc i64 %indvars.iv to i32
-  store i32 %132, ptr %maxc, align 4
+  %134 = trunc i64 %indvars.iv to i32
+  store i32 %134, ptr %maxc, align 4
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
 
-if.end20.i150:                                    ; preds = %if.end.i140, %cond.end61
-  %conv.i.i151 = fpext float %122 to double
-  %conv1.i.i152 = fpext float %124 to double
+if.end20.i150:                                    ; preds = %cond.end.thread, %cond.end61.thread, %if.end.i140, %cond.end61
+  %cond289 = phi float [ %mul.i.i.i, %cond.end61.thread ], [ %cond290, %if.end.i140 ], [ %cond288, %cond.end61 ], [ 0.000000e+00, %cond.end.thread ]
+  %135 = phi float [ 0.000000e+00, %cond.end61.thread ], [ %131, %if.end.i140 ], [ %123, %cond.end61 ], [ 0.000000e+00, %cond.end.thread ]
+  %cond62282 = phi float [ 0.000000e+00, %cond.end61.thread ], [ %cond62281285, %if.end.i140 ], [ %121, %cond.end61 ], [ 0.000000e+00, %cond.end.thread ]
+  %conv.i.i151 = fpext float %cond289 to double
+  %conv1.i.i152 = fpext float %135 to double
   %mul2.i.i153 = fmul double %conv1.i.i152, 5.000000e-01
-  %133 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
-  %conv3.i.i154 = fptrunc double %133 to float
-  %cmp.i.i155 = fcmp olt float %122, %124
-  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %124, float %122
-  %cmp.i45.i157 = fcmp olt float %maxval.6314, %.sroa.speculated51.i156
-  %.sroa.speculated.i158 = select i1 %cmp.i45.i157, float %.sroa.speculated51.i156, float %maxval.6314
-  %sub.i159 = fsub float %cond, %cond62
-  %134 = call noundef float @llvm.fabs.f32(float %sub.i159)
-  %conv27.i160 = fpext float %134 to double
+  %136 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
+  %conv3.i.i154 = fptrunc double %136 to float
+  %cmp.i.i155 = fcmp olt float %cond289, %135
+  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %135, float %cond289
+  %cmp.i45.i157 = fcmp olt float %maxval.6328, %.sroa.speculated51.i156
+  %.sroa.speculated.i158 = select i1 %cmp.i45.i157, float %.sroa.speculated51.i156, float %maxval.6328
+  %sub.i159 = fsub float %cond289, %cond62282
+  %137 = call noundef float @llvm.fabs.f32(float %sub.i159)
+  %conv27.i160 = fpext float %137 to double
   %conv28.i161 = fpext float %conv3.i.i154 to double
   %cmp29.i162 = fcmp ogt float %conv3.i.i154, 0.000000e+00
   %div.i163 = fdiv double %conv27.i160, %conv28.i161
   %cond.i164 = select i1 %cmp29.i162, double %div.i163, double 0.000000e+00
-  %add.i165 = fadd double %batcherror.5313, %conv27.i160
-  %135 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5312)
+  %add.i165 = fadd double %batcherror.5327, %conv27.i160
+  %138 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5326)
   %cmp32.i167 = fcmp ult double %117, %conv27.i160
   br i1 %cmp32.i167, label %if.then33.i188, label %if.end42.i168
 
@@ -9379,15 +9387,15 @@ if.then33.i188:                                   ; preds = %if.end20.i150
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %136 = trunc i64 %indvars.iv to i32
-  store i32 %136, ptr %maxc, align 4
+  %139 = trunc i64 %indvars.iv to i32
+  store i32 %139, ptr %maxc, align 4
   br label %if.end42.i168
 
 if.end42.i168:                                    ; preds = %if.then33.i188, %if.end20.i150
-  %137 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
-  %138 = and i8 %warned45.0315, 1
-  %tobool.not.i169 = icmp eq i8 %138, 0
-  %cmp45.i170 = fcmp ugt float %134, %warnthresh
+  %140 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
+  %141 = and i8 %warned45.0329, 1
+  %tobool.not.i169 = icmp eq i8 %141, 0
+  %cmp45.i170 = fcmp ugt float %137, %warnthresh
   %or.cond.i171 = and i1 %tobool.not.i169, %cmp45.i170
   %cmp48.i173 = fcmp ugt double %cond.i164, %conv47.i172
   %or.cond42.i174 = select i1 %or.cond.i171, i1 %cmp48.i173, i1 false
@@ -9399,11 +9407,11 @@ if.then49.i185:                                   ; preds = %if.end42.i168
   br label %if.end50.i175
 
 if.end50.i175:                                    ; preds = %if.then49.i185, %if.end42.i168
-  %139 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
-  %warned45.1 = phi i8 [ 1, %if.then49.i185 ], [ %warned45.0315, %if.end42.i168 ]
-  %140 = and i8 %failed46.0316, 1
-  %tobool51.not.i176 = icmp eq i8 %140, 0
-  %cmp54.i177 = fcmp ugt float %134, %failthresh
+  %142 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
+  %warned45.1 = phi i8 [ 1, %if.then49.i185 ], [ %warned45.0329, %if.end42.i168 ]
+  %143 = and i8 %failed46.0330, 1
+  %tobool51.not.i176 = icmp eq i8 %143, 0
+  %cmp54.i177 = fcmp ugt float %137, %failthresh
   %or.cond43.i178 = and i1 %tobool51.not.i176, %cmp54.i177
   %cmp57.i180 = fcmp ugt double %cond.i164, %conv56.i179
   %or.cond44.i181 = select i1 %or.cond43.i178, i1 %cmp57.i180, i1 false
@@ -9414,38 +9422,38 @@ if.then58.i182:                                   ; preds = %if.end50.i175
   store i64 %inc59.i184, ptr %nfail, align 8
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
 
-_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196: ; preds = %land.lhs.true.i139, %if.then12.i142, %if.end50.i175, %if.then58.i182
-  %141 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ]
-  %142 = phi i64 [ %139, %if.then58.i182 ], [ %139, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ]
-  %143 = phi double [ %137, %if.then58.i182 ], [ %137, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %135, %if.then58.i182 ], [ %135, %if.end50.i175 ], [ %batch_sqrerror.5312, %if.then12.i142 ], [ %batch_sqrerror.5312, %land.lhs.true.i139 ]
-  %batcherror.6 = phi double [ %add.i165, %if.then58.i182 ], [ %add.i165, %if.end50.i175 ], [ %batcherror.5313, %if.then12.i142 ], [ %batcherror.5313, %land.lhs.true.i139 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i182 ], [ %.sroa.speculated.i158, %if.end50.i175 ], [ %maxval.6314, %if.then12.i142 ], [ %maxval.6314, %land.lhs.true.i139 ]
-  %warned45.2 = phi i8 [ %warned45.1, %if.then58.i182 ], [ %warned45.1, %if.end50.i175 ], [ %warned45.0315, %if.then12.i142 ], [ %warned45.0315, %land.lhs.true.i139 ]
-  %failed46.1 = phi i8 [ 1, %if.then58.i182 ], [ %failed46.0316, %if.end50.i175 ], [ %failed46.0316, %if.then12.i142 ], [ %failed46.0316, %land.lhs.true.i139 ]
+_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196: ; preds = %if.then.i138.thread, %land.lhs.true.i139, %if.then12.i142, %if.end50.i175, %if.then58.i182
+  %144 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ], [ %119, %if.then.i138.thread ]
+  %145 = phi i64 [ %142, %if.then58.i182 ], [ %142, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ], [ %118, %if.then.i138.thread ]
+  %146 = phi double [ %140, %if.then58.i182 ], [ %140, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ], [ %117, %if.then.i138.thread ]
+  %batch_sqrerror.6 = phi double [ %138, %if.then58.i182 ], [ %138, %if.end50.i175 ], [ %batch_sqrerror.5326, %if.then12.i142 ], [ %batch_sqrerror.5326, %land.lhs.true.i139 ], [ %batch_sqrerror.5326, %if.then.i138.thread ]
+  %batcherror.6 = phi double [ %add.i165, %if.then58.i182 ], [ %add.i165, %if.end50.i175 ], [ %batcherror.5327, %if.then12.i142 ], [ %batcherror.5327, %land.lhs.true.i139 ], [ %batcherror.5327, %if.then.i138.thread ]
+  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i182 ], [ %.sroa.speculated.i158, %if.end50.i175 ], [ %maxval.6328, %if.then12.i142 ], [ %maxval.6328, %land.lhs.true.i139 ], [ %maxval.6328, %if.then.i138.thread ]
+  %warned45.2 = phi i8 [ %warned45.1, %if.then58.i182 ], [ %warned45.1, %if.end50.i175 ], [ %warned45.0329, %if.then12.i142 ], [ %warned45.0329, %land.lhs.true.i139 ], [ %warned45.0329, %if.then.i138.thread ]
+  %failed46.1 = phi i8 [ 1, %if.then58.i182 ], [ %failed46.0330, %if.end50.i175 ], [ %failed46.0330, %if.then12.i142 ], [ %failed46.0330, %land.lhs.true.i139 ], [ %failed46.0330, %if.then.i138.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.inc67, label %for.body52, !llvm.loop !44
 
 for.inc67:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196, %for.body44
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4321, %for.body44 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4322, %for.body44 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %maxval.6.lcssa = phi float [ %maxval.5323, %for.body44 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4337, %for.body44 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4338, %for.body44 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %maxval.6.lcssa = phi float [ %maxval.5339, %for.body44 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
   %inc.i198 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i198, ptr %m_x.i, align 4
-  %144 = load i32, ptr %m_rng_xend.i199, align 8
-  %cmp.i200 = icmp slt i32 %inc.i198, %144
+  %147 = load i32, ptr %m_rng_xend.i199, align 8
+  %cmp.i200 = icmp slt i32 %inc.i198, %147
   br i1 %cmp.i200, label %if.then.i217, label %if.else.i201
 
 if.then.i217:                                     ; preds = %for.inc67
-  %145 = load i8, ptr %m_exists.i218, align 1
-  %146 = and i8 %145, 1
-  %tobool.not.i219 = icmp eq i8 %146, 0
+  %148 = load i8, ptr %m_exists.i218, align 1
+  %149 = and i8 %148, 1
+  %tobool.not.i219 = icmp eq i8 %149, 0
   br i1 %tobool.not.i219, label %if.then.if.end13_crit_edge.i221, label %if.then2.i220
 
 if.then.if.end13_crit_edge.i221:                  ; preds = %if.then.i217
   %.pre.i223 = load i32, ptr %m_y.i, align 8
-  %.pre380 = load i32, ptr %m_z.i, align 4
+  %.pre396 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i215
 
 if.then2.i220:                                    ; preds = %if.then.i217
@@ -9453,23 +9461,23 @@ if.then2.i220:                                    ; preds = %if.then.i217
           to label %invoke.cont69 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i201:                                     ; preds = %for.inc67
-  %147 = load i32, ptr %m_rng_xbegin.i, align 4
-  store i32 %147, ptr %m_x.i, align 4
-  %148 = load i32, ptr %m_y.i, align 8
-  %inc4.i204 = add nsw i32 %148, 1
+  %150 = load i32, ptr %m_rng_xbegin.i, align 4
+  store i32 %150, ptr %m_x.i, align 4
+  %151 = load i32, ptr %m_y.i, align 8
+  %inc4.i204 = add nsw i32 %151, 1
   store i32 %inc4.i204, ptr %m_y.i, align 8
-  %149 = load i32, ptr %m_rng_yend.i205, align 8
-  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %149
-  %.pre381 = load i32, ptr %m_z.i, align 4
+  %152 = load i32, ptr %m_rng_yend.i205, align 8
+  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %152
+  %.pre397 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i206, label %if.end13.i215, label %if.then6.i207
 
 if.then6.i207:                                    ; preds = %if.else.i201
-  %150 = load i32, ptr %m_rng_ybegin.i, align 4
-  store i32 %150, ptr %m_y.i, align 8
-  %inc8.i210 = add nsw i32 %.pre381, 1
+  %153 = load i32, ptr %m_rng_ybegin.i, align 4
+  store i32 %153, ptr %m_y.i, align 8
+  %inc8.i210 = add nsw i32 %.pre397, 1
   store i32 %inc8.i210, ptr %m_z.i, align 4
-  %151 = load i32, ptr %m_rng_zend.i, align 8
-  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %151
+  %154 = load i32, ptr %m_rng_zend.i, align 8
+  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %154
   br i1 %cmp9.not.i212, label %if.end13.i215, label %if.then10.i213
 
 if.then10.i213:                                   ; preds = %if.then6.i207
@@ -9477,30 +9485,30 @@ if.then10.i213:                                   ; preds = %if.then6.i207
   br label %invoke.cont69
 
 if.end13.i215:                                    ; preds = %if.then6.i207, %if.else.i201, %if.then.if.end13_crit_edge.i221
-  %152 = phi i32 [ %.pre381, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre380, %if.then.if.end13_crit_edge.i221 ]
-  %153 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %150, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
-  %154 = phi i32 [ %147, %if.else.i201 ], [ %147, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %154, i32 noundef %153, i32 noundef %152)
+  %155 = phi i32 [ %.pre397, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre396, %if.then.if.end13_crit_edge.i221 ]
+  %156 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %153, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
+  %157 = phi i32 [ %150, %if.else.i201 ], [ %150, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %157, i32 noundef %156, i32 noundef %155)
           to label %invoke.cont69 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont69:                                    ; preds = %if.then10.i213, %if.then2.i220, %if.end13.i215
-  %inc68 = add nuw nsw i32 %i37.0324, 1
-  %155 = load i32, ptr %m_x.i227, align 4
-  %inc.i228 = add nsw i32 %155, 1
+  %inc68 = add nuw nsw i32 %i37.0340, 1
+  %158 = load i32, ptr %m_x.i227, align 4
+  %inc.i228 = add nsw i32 %158, 1
   store i32 %inc.i228, ptr %m_x.i227, align 4
-  %156 = load i32, ptr %m_rng_xend.i229, align 8
-  %cmp.i230 = icmp slt i32 %inc.i228, %156
+  %159 = load i32, ptr %m_rng_xend.i229, align 8
+  %cmp.i230 = icmp slt i32 %inc.i228, %159
   br i1 %cmp.i230, label %if.then.i247, label %if.else.i231
 
 if.then.i247:                                     ; preds = %invoke.cont69
-  %157 = load i8, ptr %m_exists.i248, align 1
-  %158 = and i8 %157, 1
-  %tobool.not.i249 = icmp eq i8 %158, 0
+  %160 = load i8, ptr %m_exists.i248, align 1
+  %161 = and i8 %160, 1
+  %tobool.not.i249 = icmp eq i8 %161, 0
   br i1 %tobool.not.i249, label %if.then.if.end13_crit_edge.i251, label %if.then2.i250
 
 if.then.if.end13_crit_edge.i251:                  ; preds = %if.then.i247
   %.pre.i253 = load i32, ptr %m_y.i233, align 8
-  %.pre382 = load i32, ptr %m_z.i239, align 4
+  %.pre398 = load i32, ptr %m_z.i239, align 4
   br label %if.end13.i245
 
 if.then2.i250:                                    ; preds = %if.then.i247
@@ -9508,23 +9516,23 @@ if.then2.i250:                                    ; preds = %if.then.i247
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i231:                                     ; preds = %invoke.cont69
-  %159 = load i32, ptr %m_rng_xbegin.i232, align 4
-  store i32 %159, ptr %m_x.i227, align 4
-  %160 = load i32, ptr %m_y.i233, align 8
-  %inc4.i234 = add nsw i32 %160, 1
+  %162 = load i32, ptr %m_rng_xbegin.i232, align 4
+  store i32 %162, ptr %m_x.i227, align 4
+  %163 = load i32, ptr %m_y.i233, align 8
+  %inc4.i234 = add nsw i32 %163, 1
   store i32 %inc4.i234, ptr %m_y.i233, align 8
-  %161 = load i32, ptr %m_rng_yend.i235, align 8
-  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %161
-  %.pre383 = load i32, ptr %m_z.i239, align 4
+  %164 = load i32, ptr %m_rng_yend.i235, align 8
+  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %164
+  %.pre399 = load i32, ptr %m_z.i239, align 4
   br i1 %cmp5.not.i236, label %if.end13.i245, label %if.then6.i237
 
 if.then6.i237:                                    ; preds = %if.else.i231
-  %162 = load i32, ptr %m_rng_ybegin.i238, align 4
-  store i32 %162, ptr %m_y.i233, align 8
-  %inc8.i240 = add nsw i32 %.pre383, 1
+  %165 = load i32, ptr %m_rng_ybegin.i238, align 4
+  store i32 %165, ptr %m_y.i233, align 8
+  %inc8.i240 = add nsw i32 %.pre399, 1
   store i32 %inc8.i240, ptr %m_z.i239, align 4
-  %163 = load i32, ptr %m_rng_zend.i241, align 8
-  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %163
+  %166 = load i32, ptr %m_rng_zend.i241, align 8
+  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %166
   br i1 %cmp9.not.i242, label %if.end13.i245, label %if.then10.i243
 
 if.then10.i243:                                   ; preds = %if.then6.i237
@@ -9532,47 +9540,47 @@ if.then10.i243:                                   ; preds = %if.then6.i237
   br label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256
 
 if.end13.i245:                                    ; preds = %if.then6.i237, %if.else.i231, %if.then.if.end13_crit_edge.i251
-  %164 = phi i32 [ %.pre383, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre382, %if.then.if.end13_crit_edge.i251 ]
-  %165 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %162, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
-  %166 = phi i32 [ %159, %if.else.i231 ], [ %159, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %166, i32 noundef %165, i32 noundef %164)
+  %167 = phi i32 [ %.pre399, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre398, %if.then.if.end13_crit_edge.i251 ]
+  %168 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %165, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
+  %169 = phi i32 [ %162, %if.else.i231 ], [ %162, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %169, i32 noundef %168, i32 noundef %167)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256: ; preds = %if.end13.i245, %if.then2.i250, %if.then10.i243
-  %exitcond377.not = icmp eq i32 %inc68, 4096
-  br i1 %exitcond377.not, label %if.end.loopexit282, label %land.rhs40
+  %exitcond393.not = icmp eq i32 %inc68, 4096
+  br i1 %exitcond393.not, label %if.end.loopexit296, label %land.rhs40
 
-if.end.loopexit282:                               ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133
-  %batch_sqrerror.4.lcssa = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batch_sqrerror.4321, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
-  %batcherror.4.lcssa = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batcherror.4322, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
-  %maxval.5.lcssa = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.5323, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
+if.end.loopexit296:                               ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133
+  %batch_sqrerror.4.lcssa = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batch_sqrerror.4337, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
+  %batcherror.4.lcssa = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batcherror.4338, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
+  %maxval.5.lcssa = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.5339, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
   %add = fadd double %totalerror.0, %batcherror.4.lcssa
   %add72 = fadd double %totalsqrerror.0, %batch_sqrerror.4.lcssa
   br label %for.cond, !llvm.loop !41
 
 for.end73:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us
-  %.us-phi360 = phi float [ %maxval.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %maxval.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
-  %.us-phi361 = phi double [ %totalsqrerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalsqrerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
-  %.us-phi362 = phi double [ %totalerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
+  %.us-phi376 = phi float [ %maxval.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %maxval.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
+  %.us-phi377 = phi double [ %totalsqrerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalsqrerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
+  %.us-phi378 = phi double [ %totalerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
   %conv = sext i32 %sub.i to i64
   %mul = mul i64 %cond.i, %conv
   %conv74 = uitofp i64 %mul to double
-  %div = fdiv double %.us-phi362, %conv74
+  %div = fdiv double %.us-phi378, %conv74
   store double %div, ptr %result, align 8
-  %div76 = fdiv double %.us-phi361, %conv74
-  %167 = call double @llvm.sqrt.f64(double %div76)
+  %div76 = fdiv double %.us-phi377, %conv74
+  %170 = call double @llvm.sqrt.f64(double %div76)
   %rms_error = getelementptr inbounds i8, ptr %result, i64 8
-  store double %167, ptr %rms_error, align 8
-  %conv77 = fpext float %.us-phi360 to double
-  %div79 = fdiv double %conv77, %167
-  %168 = call double @llvm.log10.f64(double %div79)
-  %mul80 = fmul double %168, 2.000000e+01
+  store double %170, ptr %rms_error, align 8
+  %conv77 = fpext float %.us-phi376 to double
+  %div79 = fdiv double %conv77, %170
+  %171 = call double @llvm.log10.f64(double %div79)
+  %mul80 = fmul double %171, 2.000000e+01
   %PSNR = getelementptr inbounds i8, ptr %result, i64 16
   store double %mul80, ptr %PSNR, align 8
-  %169 = load i64, ptr %nfail, align 8
+  %172 = load i64, ptr %nfail, align 8
   %m_tile.i.i257 = getelementptr inbounds i8, ptr %b, i64 72
-  %170 = load ptr, ptr %m_tile.i.i257, align 8
-  %tobool.not.i.i258 = icmp eq ptr %170, null
+  %173 = load ptr, ptr %m_tile.i.i257, align 8
+  %tobool.not.i.i258 = icmp eq ptr %173, null
   br i1 %tobool.not.i.i258, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit261, label %if.then.i.i259
 
 if.then.i.i259:                                   ; preds = %for.end73
@@ -9580,16 +9588,16 @@ if.then.i.i259:                                   ; preds = %for.end73
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit261 unwind label %terminate.lpad.i.i260
 
 terminate.lpad.i.i260:                            ; preds = %if.then.i.i259
-  %171 = landingpad { ptr, i32 }
+  %174 = landingpad { ptr, i32 }
           catch ptr null
-  %172 = extractvalue { ptr, i32 } %171, 0
-  call void @__clang_call_terminate(ptr %172) #25
+  %175 = extractvalue { ptr, i32 } %174, 0
+  call void @__clang_call_terminate(ptr %175) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit261: ; preds = %for.end73, %if.then.i.i259
   %m_tile.i.i262 = getelementptr inbounds i8, ptr %a, i64 72
-  %173 = load ptr, ptr %m_tile.i.i262, align 8
-  %tobool.not.i.i263 = icmp eq ptr %173, null
+  %176 = load ptr, ptr %m_tile.i.i262, align 8
+  %tobool.not.i.i263 = icmp eq ptr %176, null
   br i1 %tobool.not.i.i263, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit, label %if.then.i.i264
 
 if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit261
@@ -9597,21 +9605,21 @@ if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit unwind label %terminate.lpad.i.i265
 
 terminate.lpad.i.i265:                            ; preds = %if.then.i.i264
-  %174 = landingpad { ptr, i32 }
+  %177 = landingpad { ptr, i32 }
           catch ptr null
-  %175 = extractvalue { ptr, i32 } %174, 0
-  call void @__clang_call_terminate(ptr %175) #25
+  %178 = extractvalue { ptr, i32 } %177, 0
+  call void @__clang_call_terminate(ptr %178) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit261, %if.then.i.i264
-  %cmp82 = icmp eq i64 %169, 0
+  %cmp82 = icmp eq i64 %172, 0
   ret i1 %cmp82
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %99, %lpad ], [ %lpad.phi, %lpad4 ], [ %lpad.phi, %if.then.i.i ]
   %m_tile.i.i266 = getelementptr inbounds i8, ptr %a, i64 72
-  %176 = load ptr, ptr %m_tile.i.i266, align 8
-  %tobool.not.i.i267 = icmp eq ptr %176, null
+  %179 = load ptr, ptr %m_tile.i.i266, align 8
+  %tobool.not.i.i267 = icmp eq ptr %179, null
   br i1 %tobool.not.i.i267, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit270, label %if.then.i.i268
 
 if.then.i.i268:                                   ; preds = %ehcleanup
@@ -9619,10 +9627,10 @@ if.then.i.i268:                                   ; preds = %ehcleanup
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit270 unwind label %terminate.lpad.i.i269
 
 terminate.lpad.i.i269:                            ; preds = %if.then.i.i268
-  %177 = landingpad { ptr, i32 }
+  %180 = landingpad { ptr, i32 }
           catch ptr null
-  %178 = extractvalue { ptr, i32 } %177, 0
-  call void @__clang_call_terminate(ptr %178) #25
+  %181 = extractvalue { ptr, i32 } %180, 0
+  call void @__clang_call_terminate(ptr %181) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit270: ; preds = %ehcleanup, %if.then.i.i268
@@ -10197,9 +10205,9 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %maxval.6317 = phi float [ %maxval.5326, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %batcherror.5316 = phi double [ %batcherror.4325, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %batch_sqrerror.5315 = phi double [ %batch_sqrerror.4324, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %142, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %141, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %140, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %140, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %139, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %138, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %cmp52 = icmp slt i64 %indvars.iv, %8
   br i1 %cmp52, label %cond.true, label %cond.end
 
@@ -10224,52 +10232,50 @@ cond.true56:                                      ; preds = %cond.end
 
 cond.end60:                                       ; preds = %cond.true56, %cond.end
   %cond61 = phi float [ %mul.i.i.i138, %cond.true56 ], [ 0.000000e+00, %cond.end ]
-  %122 = call float @llvm.fabs.f32(float %cond)
-  %123 = fcmp one float %122, 0x7FF0000000000000
-  %124 = call float @llvm.fabs.f32(float %cond61)
-  %125 = fcmp one float %124, 0x7FF0000000000000
-  %or.cond54.i139 = and i1 %123, %125
+  %122 = fcmp one float %cond, 0x7FF0000000000000
+  %123 = fcmp one float %cond61, 0x7FF0000000000000
+  %or.cond54.i139 = and i1 %122, %123
   br i1 %or.cond54.i139, label %if.end20.i152, label %if.then.i140
 
 if.then.i140:                                     ; preds = %cond.end60
-  %126 = fcmp oeq float %122, 0x7FF0000000000000
-  %127 = fcmp oeq float %124, 0x7FF0000000000000
-  %128 = xor i1 %126, %127
-  br i1 %128, label %if.end.i142, label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
+  %124 = fcmp oeq float %cond, 0x7FF0000000000000
+  %125 = fcmp oeq float %cond61, 0x7FF0000000000000
+  %126 = xor i1 %124, %125
+  br i1 %126, label %if.end.i142, label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
 
 if.end.i142:                                      ; preds = %if.then.i140
-  %129 = call double @llvm.fabs.f64(double %117)
-  %130 = fcmp ueq double %129, 0x7FF0000000000000
-  br i1 %130, label %if.end20.i152, label %if.then12.i144
+  %127 = call double @llvm.fabs.f64(double %117)
+  %128 = fcmp ueq double %127, 0x7FF0000000000000
+  br i1 %128, label %if.end20.i152, label %if.then12.i144
 
 if.then12.i144:                                   ; preds = %if.end.i142
   store double 0x7FF0000000000000, ptr %maxerror, align 8
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %131 = trunc i64 %indvars.iv to i32
-  store i32 %131, ptr %maxc, align 4
+  %129 = trunc i64 %indvars.iv to i32
+  store i32 %129, ptr %maxc, align 4
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
 
 if.end20.i152:                                    ; preds = %if.end.i142, %cond.end60
-  %conv.i.i153 = fpext float %122 to double
-  %conv1.i.i154 = fpext float %124 to double
+  %conv.i.i153 = fpext float %cond to double
+  %conv1.i.i154 = fpext float %cond61 to double
   %mul2.i.i155 = fmul double %conv1.i.i154, 5.000000e-01
-  %132 = call double @llvm.fmuladd.f64(double %conv.i.i153, double 5.000000e-01, double %mul2.i.i155)
-  %conv3.i.i156 = fptrunc double %132 to float
-  %cmp.i.i157 = fcmp olt float %122, %124
-  %.sroa.speculated51.i158 = select i1 %cmp.i.i157, float %124, float %122
+  %130 = call double @llvm.fmuladd.f64(double %conv.i.i153, double 5.000000e-01, double %mul2.i.i155)
+  %conv3.i.i156 = fptrunc double %130 to float
+  %cmp.i.i157 = fcmp olt float %cond, %cond61
+  %.sroa.speculated51.i158 = select i1 %cmp.i.i157, float %cond61, float %cond
   %cmp.i45.i159 = fcmp olt float %maxval.6317, %.sroa.speculated51.i158
   %.sroa.speculated.i160 = select i1 %cmp.i45.i159, float %.sroa.speculated51.i158, float %maxval.6317
   %sub.i161 = fsub float %cond, %cond61
-  %133 = call noundef float @llvm.fabs.f32(float %sub.i161)
-  %conv27.i162 = fpext float %133 to double
+  %131 = call noundef float @llvm.fabs.f32(float %sub.i161)
+  %conv27.i162 = fpext float %131 to double
   %conv28.i163 = fpext float %conv3.i.i156 to double
   %cmp29.i164 = fcmp ogt float %conv3.i.i156, 0.000000e+00
   %div.i165 = fdiv double %conv27.i162, %conv28.i163
   %cond.i166 = select i1 %cmp29.i164, double %div.i165, double 0.000000e+00
   %add.i167 = fadd double %batcherror.5316, %conv27.i162
-  %134 = call double @llvm.fmuladd.f64(double %conv27.i162, double %conv27.i162, double %batch_sqrerror.5315)
+  %132 = call double @llvm.fmuladd.f64(double %conv27.i162, double %conv27.i162, double %batch_sqrerror.5315)
   %cmp32.i169 = fcmp ult double %117, %conv27.i162
   br i1 %cmp32.i169, label %if.then33.i190, label %if.end42.i170
 
@@ -10278,15 +10284,15 @@ if.then33.i190:                                   ; preds = %if.end20.i152
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %135 = trunc i64 %indvars.iv to i32
-  store i32 %135, ptr %maxc, align 4
+  %133 = trunc i64 %indvars.iv to i32
+  store i32 %133, ptr %maxc, align 4
   br label %if.end42.i170
 
 if.end42.i170:                                    ; preds = %if.then33.i190, %if.end20.i152
-  %136 = phi double [ %conv27.i162, %if.then33.i190 ], [ %117, %if.end20.i152 ]
-  %137 = and i8 %warned44.0318, 1
-  %tobool.not.i171 = icmp eq i8 %137, 0
-  %cmp45.i172 = fcmp ugt float %133, %warnthresh
+  %134 = phi double [ %conv27.i162, %if.then33.i190 ], [ %117, %if.end20.i152 ]
+  %135 = and i8 %warned44.0318, 1
+  %tobool.not.i171 = icmp eq i8 %135, 0
+  %cmp45.i172 = fcmp ugt float %131, %warnthresh
   %or.cond.i173 = and i1 %tobool.not.i171, %cmp45.i172
   %cmp48.i175 = fcmp ugt double %cond.i166, %conv47.i174
   %or.cond42.i176 = select i1 %or.cond.i173, i1 %cmp48.i175, i1 false
@@ -10298,11 +10304,11 @@ if.then49.i187:                                   ; preds = %if.end42.i170
   br label %if.end50.i177
 
 if.end50.i177:                                    ; preds = %if.then49.i187, %if.end42.i170
-  %138 = phi i64 [ %inc.i189, %if.then49.i187 ], [ %118, %if.end42.i170 ]
+  %136 = phi i64 [ %inc.i189, %if.then49.i187 ], [ %118, %if.end42.i170 ]
   %warned44.1 = phi i8 [ 1, %if.then49.i187 ], [ %warned44.0318, %if.end42.i170 ]
-  %139 = and i8 %failed45.0319, 1
-  %tobool51.not.i178 = icmp eq i8 %139, 0
-  %cmp54.i179 = fcmp ugt float %133, %failthresh
+  %137 = and i8 %failed45.0319, 1
+  %tobool51.not.i178 = icmp eq i8 %137, 0
+  %cmp54.i179 = fcmp ugt float %131, %failthresh
   %or.cond43.i180 = and i1 %tobool51.not.i178, %cmp54.i179
   %cmp57.i182 = fcmp ugt double %cond.i166, %conv56.i181
   %or.cond44.i183 = select i1 %or.cond43.i180, i1 %cmp57.i182, i1 false
@@ -10314,10 +10320,10 @@ if.then58.i184:                                   ; preds = %if.end50.i177
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
 
 _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198: ; preds = %if.then.i140, %if.then12.i144, %if.end50.i177, %if.then58.i184
-  %140 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %119, %if.end50.i177 ], [ %119, %if.then12.i144 ], [ %119, %if.then.i140 ]
-  %141 = phi i64 [ %138, %if.then58.i184 ], [ %138, %if.end50.i177 ], [ %118, %if.then12.i144 ], [ %118, %if.then.i140 ]
-  %142 = phi double [ %136, %if.then58.i184 ], [ %136, %if.end50.i177 ], [ 0x7FF0000000000000, %if.then12.i144 ], [ %117, %if.then.i140 ]
-  %batch_sqrerror.6 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i177 ], [ %batch_sqrerror.5315, %if.then12.i144 ], [ %batch_sqrerror.5315, %if.then.i140 ]
+  %138 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %119, %if.end50.i177 ], [ %119, %if.then12.i144 ], [ %119, %if.then.i140 ]
+  %139 = phi i64 [ %136, %if.then58.i184 ], [ %136, %if.end50.i177 ], [ %118, %if.then12.i144 ], [ %118, %if.then.i140 ]
+  %140 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i177 ], [ 0x7FF0000000000000, %if.then12.i144 ], [ %117, %if.then.i140 ]
+  %batch_sqrerror.6 = phi double [ %132, %if.then58.i184 ], [ %132, %if.end50.i177 ], [ %batch_sqrerror.5315, %if.then12.i144 ], [ %batch_sqrerror.5315, %if.then.i140 ]
   %batcherror.6 = phi double [ %add.i167, %if.then58.i184 ], [ %add.i167, %if.end50.i177 ], [ %batcherror.5316, %if.then12.i144 ], [ %batcherror.5316, %if.then.i140 ]
   %maxval.7 = phi float [ %.sroa.speculated.i160, %if.then58.i184 ], [ %.sroa.speculated.i160, %if.end50.i177 ], [ %maxval.6317, %if.then12.i144 ], [ %maxval.6317, %if.then.i140 ]
   %warned44.2 = phi i8 [ %warned44.1, %if.then58.i184 ], [ %warned44.1, %if.end50.i177 ], [ %warned44.0318, %if.then12.i144 ], [ %warned44.0318, %if.then.i140 ]
@@ -10332,14 +10338,14 @@ for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2
   %maxval.6.lcssa = phi float [ %maxval.5326, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %inc.i200 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i200, ptr %m_x.i, align 4
-  %143 = load i32, ptr %m_rng_xend.i201, align 8
-  %cmp.i202 = icmp slt i32 %inc.i200, %143
+  %141 = load i32, ptr %m_rng_xend.i201, align 8
+  %cmp.i202 = icmp slt i32 %inc.i200, %141
   br i1 %cmp.i202, label %if.then.i219, label %if.else.i203
 
 if.then.i219:                                     ; preds = %for.inc65
-  %144 = load i8, ptr %m_exists.i220, align 1
-  %145 = and i8 %144, 1
-  %tobool.not.i221 = icmp eq i8 %145, 0
+  %142 = load i8, ptr %m_exists.i220, align 1
+  %143 = and i8 %142, 1
+  %tobool.not.i221 = icmp eq i8 %143, 0
   br i1 %tobool.not.i221, label %if.then.if.end13_crit_edge.i223, label %if.then2.i222
 
 if.then.if.end13_crit_edge.i223:                  ; preds = %if.then.i219
@@ -10352,23 +10358,23 @@ if.then2.i222:                                    ; preds = %if.then.i219
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i203:                                     ; preds = %for.inc65
-  %146 = load i32, ptr %m_rng_xbegin.i, align 4
-  store i32 %146, ptr %m_x.i, align 4
-  %147 = load i32, ptr %m_y.i, align 8
-  %inc4.i206 = add nsw i32 %147, 1
+  %144 = load i32, ptr %m_rng_xbegin.i, align 4
+  store i32 %144, ptr %m_x.i, align 4
+  %145 = load i32, ptr %m_y.i, align 8
+  %inc4.i206 = add nsw i32 %145, 1
   store i32 %inc4.i206, ptr %m_y.i, align 8
-  %148 = load i32, ptr %m_rng_yend.i207, align 8
-  %cmp5.not.i208 = icmp slt i32 %inc4.i206, %148
+  %146 = load i32, ptr %m_rng_yend.i207, align 8
+  %cmp5.not.i208 = icmp slt i32 %inc4.i206, %146
   %.pre384 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i208, label %if.end13.i217, label %if.then6.i209
 
 if.then6.i209:                                    ; preds = %if.else.i203
-  %149 = load i32, ptr %m_rng_ybegin.i, align 4
-  store i32 %149, ptr %m_y.i, align 8
+  %147 = load i32, ptr %m_rng_ybegin.i, align 4
+  store i32 %147, ptr %m_y.i, align 8
   %inc8.i212 = add nsw i32 %.pre384, 1
   store i32 %inc8.i212, ptr %m_z.i, align 4
-  %150 = load i32, ptr %m_rng_zend.i, align 8
-  %cmp9.not.i214 = icmp slt i32 %inc8.i212, %150
+  %148 = load i32, ptr %m_rng_zend.i, align 8
+  %cmp9.not.i214 = icmp slt i32 %inc8.i212, %148
   br i1 %cmp9.not.i214, label %if.end13.i217, label %if.then10.i215
 
 if.then10.i215:                                   ; preds = %if.then6.i209
@@ -10376,25 +10382,25 @@ if.then10.i215:                                   ; preds = %if.then6.i209
   br label %invoke.cont67
 
 if.end13.i217:                                    ; preds = %if.then6.i209, %if.else.i203, %if.then.if.end13_crit_edge.i223
-  %151 = phi i32 [ %.pre384, %if.else.i203 ], [ %inc8.i212, %if.then6.i209 ], [ %.pre383, %if.then.if.end13_crit_edge.i223 ]
-  %152 = phi i32 [ %inc4.i206, %if.else.i203 ], [ %149, %if.then6.i209 ], [ %.pre.i225, %if.then.if.end13_crit_edge.i223 ]
-  %153 = phi i32 [ %146, %if.else.i203 ], [ %146, %if.then6.i209 ], [ %inc.i200, %if.then.if.end13_crit_edge.i223 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %153, i32 noundef %152, i32 noundef %151)
+  %149 = phi i32 [ %.pre384, %if.else.i203 ], [ %inc8.i212, %if.then6.i209 ], [ %.pre383, %if.then.if.end13_crit_edge.i223 ]
+  %150 = phi i32 [ %inc4.i206, %if.else.i203 ], [ %147, %if.then6.i209 ], [ %.pre.i225, %if.then.if.end13_crit_edge.i223 ]
+  %151 = phi i32 [ %144, %if.else.i203 ], [ %144, %if.then6.i209 ], [ %inc.i200, %if.then.if.end13_crit_edge.i223 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %151, i32 noundef %150, i32 noundef %149)
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont67:                                    ; preds = %if.then10.i215, %if.then2.i222, %if.end13.i217
   %inc66 = add nuw nsw i32 %i36.0327, 1
-  %154 = load i32, ptr %m_x.i229, align 4
-  %inc.i230 = add nsw i32 %154, 1
+  %152 = load i32, ptr %m_x.i229, align 4
+  %inc.i230 = add nsw i32 %152, 1
   store i32 %inc.i230, ptr %m_x.i229, align 4
-  %155 = load i32, ptr %m_rng_xend.i231, align 8
-  %cmp.i232 = icmp slt i32 %inc.i230, %155
+  %153 = load i32, ptr %m_rng_xend.i231, align 8
+  %cmp.i232 = icmp slt i32 %inc.i230, %153
   br i1 %cmp.i232, label %if.then.i249, label %if.else.i233
 
 if.then.i249:                                     ; preds = %invoke.cont67
-  %156 = load i8, ptr %m_exists.i250, align 1
-  %157 = and i8 %156, 1
-  %tobool.not.i251 = icmp eq i8 %157, 0
+  %154 = load i8, ptr %m_exists.i250, align 1
+  %155 = and i8 %154, 1
+  %tobool.not.i251 = icmp eq i8 %155, 0
   br i1 %tobool.not.i251, label %if.then.if.end13_crit_edge.i253, label %if.then2.i252
 
 if.then.if.end13_crit_edge.i253:                  ; preds = %if.then.i249
@@ -10407,23 +10413,23 @@ if.then2.i252:                                    ; preds = %if.then.i249
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i233:                                     ; preds = %invoke.cont67
-  %158 = load i32, ptr %m_rng_xbegin.i234, align 4
-  store i32 %158, ptr %m_x.i229, align 4
-  %159 = load i32, ptr %m_y.i235, align 8
-  %inc4.i236 = add nsw i32 %159, 1
+  %156 = load i32, ptr %m_rng_xbegin.i234, align 4
+  store i32 %156, ptr %m_x.i229, align 4
+  %157 = load i32, ptr %m_y.i235, align 8
+  %inc4.i236 = add nsw i32 %157, 1
   store i32 %inc4.i236, ptr %m_y.i235, align 8
-  %160 = load i32, ptr %m_rng_yend.i237, align 8
-  %cmp5.not.i238 = icmp slt i32 %inc4.i236, %160
+  %158 = load i32, ptr %m_rng_yend.i237, align 8
+  %cmp5.not.i238 = icmp slt i32 %inc4.i236, %158
   %.pre386 = load i32, ptr %m_z.i241, align 4
   br i1 %cmp5.not.i238, label %if.end13.i247, label %if.then6.i239
 
 if.then6.i239:                                    ; preds = %if.else.i233
-  %161 = load i32, ptr %m_rng_ybegin.i240, align 4
-  store i32 %161, ptr %m_y.i235, align 8
+  %159 = load i32, ptr %m_rng_ybegin.i240, align 4
+  store i32 %159, ptr %m_y.i235, align 8
   %inc8.i242 = add nsw i32 %.pre386, 1
   store i32 %inc8.i242, ptr %m_z.i241, align 4
-  %162 = load i32, ptr %m_rng_zend.i243, align 8
-  %cmp9.not.i244 = icmp slt i32 %inc8.i242, %162
+  %160 = load i32, ptr %m_rng_zend.i243, align 8
+  %cmp9.not.i244 = icmp slt i32 %inc8.i242, %160
   br i1 %cmp9.not.i244, label %if.end13.i247, label %if.then10.i245
 
 if.then10.i245:                                   ; preds = %if.then6.i239
@@ -10431,10 +10437,10 @@ if.then10.i245:                                   ; preds = %if.then6.i239
   br label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258
 
 if.end13.i247:                                    ; preds = %if.then6.i239, %if.else.i233, %if.then.if.end13_crit_edge.i253
-  %163 = phi i32 [ %.pre386, %if.else.i233 ], [ %inc8.i242, %if.then6.i239 ], [ %.pre385, %if.then.if.end13_crit_edge.i253 ]
-  %164 = phi i32 [ %inc4.i236, %if.else.i233 ], [ %161, %if.then6.i239 ], [ %.pre.i255, %if.then.if.end13_crit_edge.i253 ]
-  %165 = phi i32 [ %158, %if.else.i233 ], [ %158, %if.then6.i239 ], [ %inc.i230, %if.then.if.end13_crit_edge.i253 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %165, i32 noundef %164, i32 noundef %163)
+  %161 = phi i32 [ %.pre386, %if.else.i233 ], [ %inc8.i242, %if.then6.i239 ], [ %.pre385, %if.then.if.end13_crit_edge.i253 ]
+  %162 = phi i32 [ %inc4.i236, %if.else.i233 ], [ %159, %if.then6.i239 ], [ %.pre.i255, %if.then.if.end13_crit_edge.i253 ]
+  %163 = phi i32 [ %156, %if.else.i233 ], [ %156, %if.then6.i239 ], [ %inc.i230, %if.then.if.end13_crit_edge.i253 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %163, i32 noundef %162, i32 noundef %161)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258: ; preds = %if.end13.i247, %if.then2.i252, %if.then10.i245
@@ -10459,19 +10465,19 @@ for.end71:                                        ; preds = %_ZNK18OpenImageIO_v
   %div = fdiv double %.us-phi365, %conv72
   store double %div, ptr %result, align 8
   %div74 = fdiv double %.us-phi364, %conv72
-  %166 = call double @llvm.sqrt.f64(double %div74)
+  %164 = call double @llvm.sqrt.f64(double %div74)
   %rms_error = getelementptr inbounds i8, ptr %result, i64 8
-  store double %166, ptr %rms_error, align 8
+  store double %164, ptr %rms_error, align 8
   %conv75 = fpext float %.us-phi363 to double
-  %div77 = fdiv double %conv75, %166
-  %167 = call double @llvm.log10.f64(double %div77)
-  %mul78 = fmul double %167, 2.000000e+01
+  %div77 = fdiv double %conv75, %164
+  %165 = call double @llvm.log10.f64(double %div77)
+  %mul78 = fmul double %165, 2.000000e+01
   %PSNR = getelementptr inbounds i8, ptr %result, i64 16
   store double %mul78, ptr %PSNR, align 8
-  %168 = load i64, ptr %nfail, align 8
+  %166 = load i64, ptr %nfail, align 8
   %m_tile.i.i259 = getelementptr inbounds i8, ptr %b, i64 72
-  %169 = load ptr, ptr %m_tile.i.i259, align 8
-  %tobool.not.i.i260 = icmp eq ptr %169, null
+  %167 = load ptr, ptr %m_tile.i.i259, align 8
+  %tobool.not.i.i260 = icmp eq ptr %167, null
   br i1 %tobool.not.i.i260, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit263, label %if.then.i.i261
 
 if.then.i.i261:                                   ; preds = %for.end71
@@ -10479,16 +10485,16 @@ if.then.i.i261:                                   ; preds = %for.end71
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit263 unwind label %terminate.lpad.i.i262
 
 terminate.lpad.i.i262:                            ; preds = %if.then.i.i261
-  %170 = landingpad { ptr, i32 }
+  %168 = landingpad { ptr, i32 }
           catch ptr null
-  %171 = extractvalue { ptr, i32 } %170, 0
-  call void @__clang_call_terminate(ptr %171) #25
+  %169 = extractvalue { ptr, i32 } %168, 0
+  call void @__clang_call_terminate(ptr %169) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit263: ; preds = %for.end71, %if.then.i.i261
   %m_tile.i.i264 = getelementptr inbounds i8, ptr %a, i64 72
-  %172 = load ptr, ptr %m_tile.i.i264, align 8
-  %tobool.not.i.i265 = icmp eq ptr %172, null
+  %170 = load ptr, ptr %m_tile.i.i264, align 8
+  %tobool.not.i.i265 = icmp eq ptr %170, null
   br i1 %tobool.not.i.i265, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit268, label %if.then.i.i266
 
 if.then.i.i266:                                   ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit263
@@ -10496,21 +10502,21 @@ if.then.i.i266:                                   ; preds = %_ZN18OpenImageIO_v2
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit268 unwind label %terminate.lpad.i.i267
 
 terminate.lpad.i.i267:                            ; preds = %if.then.i.i266
-  %173 = landingpad { ptr, i32 }
+  %171 = landingpad { ptr, i32 }
           catch ptr null
-  %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #25
+  %172 = extractvalue { ptr, i32 } %171, 0
+  call void @__clang_call_terminate(ptr %172) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit268: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit263, %if.then.i.i266
-  %cmp80 = icmp eq i64 %168, 0
+  %cmp80 = icmp eq i64 %166, 0
   ret i1 %cmp80
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %99, %lpad ], [ %lpad.phi, %lpad4 ], [ %lpad.phi, %if.then.i.i ]
   %m_tile.i.i269 = getelementptr inbounds i8, ptr %a, i64 72
-  %175 = load ptr, ptr %m_tile.i.i269, align 8
-  %tobool.not.i.i270 = icmp eq ptr %175, null
+  %173 = load ptr, ptr %m_tile.i.i269, align 8
+  %tobool.not.i.i270 = icmp eq ptr %173, null
   br i1 %tobool.not.i.i270, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit273, label %if.then.i.i271
 
 if.then.i.i271:                                   ; preds = %ehcleanup
@@ -10518,10 +10524,10 @@ if.then.i.i271:                                   ; preds = %ehcleanup
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit273 unwind label %terminate.lpad.i.i272
 
 terminate.lpad.i.i272:                            ; preds = %if.then.i.i271
-  %176 = landingpad { ptr, i32 }
+  %174 = landingpad { ptr, i32 }
           catch ptr null
-  %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #25
+  %175 = extractvalue { ptr, i32 } %174, 0
+  call void @__clang_call_terminate(ptr %175) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit273: ; preds = %ehcleanup, %if.then.i.i271
@@ -10608,11 +10614,11 @@ for.cond.preheader:                               ; preds = %invoke.cont
   %m_rng_zend.i241 = getelementptr inbounds i8, ptr %b, i64 56
   %m_valid.i244 = getelementptr inbounds i8, ptr %b, i64 8
   %m_exists.i248 = getelementptr inbounds i8, ptr %b, i64 9
-  br i1 %call6, label %for.cond.us, label %for.cond.preheader366
+  br i1 %call6, label %for.cond.us, label %for.cond.preheader382
 
-for.cond.preheader366:                            ; preds = %for.cond.preheader
-  %8 = sext i32 %call2 to i64
-  %9 = sext i32 %call3 to i64
+for.cond.preheader382:                            ; preds = %for.cond.preheader
+  %8 = sext i32 %call3 to i64
+  %9 = sext i32 %call2 to i64
   br label %for.cond
 
 for.cond.us:                                      ; preds = %for.cond.preheader, %if.end.loopexit.us
@@ -10646,26 +10652,26 @@ land.rhs.us.preheader:                            ; preds = %_ZNK18OpenImageIO_v
   br label %land.rhs.us
 
 land.rhs.us:                                      ; preds = %land.rhs.us.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us
-  %i.0353.us = phi i32 [ %inc32.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0, %land.rhs.us.preheader ]
-  %maxval.1352.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.0.us, %land.rhs.us.preheader ]
-  %batcherror.0351.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
-  %batch_sqrerror.0350.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
+  %i.0369.us = phi i32 [ %inc32.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0, %land.rhs.us.preheader ]
+  %maxval.1368.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.0.us, %land.rhs.us.preheader ]
+  %batcherror.0367.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
+  %batch_sqrerror.0366.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
   %18 = load i8, ptr %m_valid.i, align 8
   %19 = and i8 %18, 1
   %cmp.i41.us = icmp eq i8 %19, 0
-  %.pre384 = load i32, ptr %m_x.i, align 4
+  %.pre400 = load i32, ptr %m_x.i, align 4
   br i1 %cmp.i41.us, label %land.lhs.true.i42.us, label %land.rhs.us.for.body11.us_crit_edge
 
 land.rhs.us.for.body11.us_crit_edge:              ; preds = %land.rhs.us
-  %.pre385 = load i32, ptr %m_y.i, align 8
+  %.pre401 = load i32, ptr %m_y.i, align 8
   br label %for.body11.us
 
 land.lhs.true.i42.us:                             ; preds = %land.rhs.us
   %20 = load i32, ptr %m_rng_xbegin.i, align 4
-  %cmp2.i45.us = icmp eq i32 %.pre384, %20
-  %.pre386 = load i32, ptr %m_y.i, align 8
+  %cmp2.i45.us = icmp eq i32 %.pre400, %20
+  %.pre402 = load i32, ptr %m_y.i, align 8
   %21 = load i32, ptr %m_rng_ybegin.i, align 4
-  %cmp4.i49.us = icmp eq i32 %.pre386, %21
+  %cmp4.i49.us = icmp eq i32 %.pre402, %21
   %or.cond = select i1 %cmp2.i45.us, i1 %cmp4.i49.us, i1 false
   br i1 %or.cond, label %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us, label %for.body11.us
 
@@ -10676,10 +10682,10 @@ _ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us: ; preds = %lan
   br i1 %cmp5.i53.us, label %if.end.loopexit.us, label %for.body11.us
 
 for.body11.us:                                    ; preds = %land.rhs.us.for.body11.us_crit_edge, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us, %land.lhs.true.i42.us
-  %24 = phi i32 [ %.pre385, %land.rhs.us.for.body11.us_crit_edge ], [ %.pre386, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ], [ %.pre386, %land.lhs.true.i42.us ]
+  %24 = phi i32 [ %.pre401, %land.rhs.us.for.body11.us_crit_edge ], [ %.pre402, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ], [ %.pre402, %land.lhs.true.i42.us ]
   %25 = load ptr, ptr %a, align 8
   %26 = load i32, ptr %m_z.i, align 4
-  %call.i58.us = invoke noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf12deep_samplesEiii(ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef %.pre384, i32 noundef %24, i32 noundef %26)
+  %call.i58.us = invoke noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf12deep_samplesEiii(ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef %.pre400, i32 noundef %24, i32 noundef %26)
           to label %invoke.cont12.us unwind label %lpad4.loopexit.split-lp.loopexit.split.us
 
 invoke.cont12.us:                                 ; preds = %for.body11.us
@@ -10694,15 +10700,15 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   %.sroa.speculated.us = call i32 @llvm.smax.i32(i32 %call.i58.us, i32 %call.i62.us)
   %31 = load i32, ptr %chbegin.i, align 8
   %32 = load i32, ptr %chend.i, align 4
-  %cmp19337.us = icmp slt i32 %31, %32
-  %cmp22325.us = icmp sgt i32 %.sroa.speculated.us, 0
-  %or.cond402 = and i1 %cmp19337.us, %cmp22325.us
-  br i1 %or.cond402, label %for.cond21.preheader.us.us, label %for.inc31.us
+  %cmp19353.us = icmp slt i32 %31, %32
+  %cmp22341.us = icmp sgt i32 %.sroa.speculated.us, 0
+  %or.cond418 = and i1 %cmp19353.us, %cmp22341.us
+  br i1 %or.cond418, label %for.cond21.preheader.us.us, label %for.inc31.us
 
 for.inc31.us:                                     ; preds = %for.cond21.for.inc28_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0350.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0351.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1352.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0366.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0367.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1368.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -10718,13 +10724,13 @@ if.else.i.us:                                     ; preds = %for.inc31.us
   store i32 %inc4.i.us, ptr %m_y.i, align 8
   %37 = load i32, ptr %m_rng_yend.i205, align 8
   %cmp5.not.i.us = icmp slt i32 %inc4.i.us, %37
-  %.pre389 = load i32, ptr %m_z.i, align 4
+  %.pre405 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i.us, label %if.end13.i.us, label %if.then6.i.us
 
 if.then6.i.us:                                    ; preds = %if.else.i.us
   %38 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %38, ptr %m_y.i, align 8
-  %inc8.i.us = add nsw i32 %.pre389, 1
+  %inc8.i.us = add nsw i32 %.pre405, 1
   store i32 %inc8.i.us, ptr %m_z.i, align 4
   %39 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i.us = icmp slt i32 %inc8.i.us, %39
@@ -10746,18 +10752,18 @@ if.then2.i.us:                                    ; preds = %if.then.i86.us
 
 if.then.if.end13_crit_edge.i.us:                  ; preds = %if.then.i86.us
   %.pre.i.us = load i32, ptr %m_y.i, align 8
-  %.pre388 = load i32, ptr %m_z.i, align 4
+  %.pre404 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i.us
 
 if.end13.i.us:                                    ; preds = %if.then.if.end13_crit_edge.i.us, %if.then6.i.us, %if.else.i.us
-  %42 = phi i32 [ %.pre389, %if.else.i.us ], [ %inc8.i.us, %if.then6.i.us ], [ %.pre388, %if.then.if.end13_crit_edge.i.us ]
+  %42 = phi i32 [ %.pre405, %if.else.i.us ], [ %inc8.i.us, %if.then6.i.us ], [ %.pre404, %if.then.if.end13_crit_edge.i.us ]
   %43 = phi i32 [ %inc4.i.us, %if.else.i.us ], [ %38, %if.then6.i.us ], [ %.pre.i.us, %if.then.if.end13_crit_edge.i.us ]
   %44 = phi i32 [ %35, %if.else.i.us ], [ %35, %if.then6.i.us ], [ %inc.i78.us, %if.then.if.end13_crit_edge.i.us ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %44, i32 noundef %43, i32 noundef %42)
           to label %invoke.cont33.us unwind label %lpad4.loopexit.split-lp.loopexit.split.us
 
 invoke.cont33.us:                                 ; preds = %if.end13.i.us, %if.then2.i.us, %if.then10.i.us
-  %inc32.us = add nuw nsw i32 %i.0353.us, 1
+  %inc32.us = add nuw nsw i32 %i.0369.us, 1
   %45 = load i32, ptr %m_x.i227, align 4
   %inc.i90.us = add nsw i32 %45, 1
   store i32 %inc.i90.us, ptr %m_x.i227, align 4
@@ -10773,13 +10779,13 @@ if.else.i93.us:                                   ; preds = %invoke.cont33.us
   store i32 %inc4.i96.us, ptr %m_y.i233, align 8
   %49 = load i32, ptr %m_rng_yend.i235, align 8
   %cmp5.not.i98.us = icmp slt i32 %inc4.i96.us, %49
-  %.pre391 = load i32, ptr %m_z.i239, align 4
+  %.pre407 = load i32, ptr %m_z.i239, align 4
   br i1 %cmp5.not.i98.us, label %if.end13.i107.us, label %if.then6.i99.us
 
 if.then6.i99.us:                                  ; preds = %if.else.i93.us
   %50 = load i32, ptr %m_rng_ybegin.i238, align 4
   store i32 %50, ptr %m_y.i233, align 8
-  %inc8.i102.us = add nsw i32 %.pre391, 1
+  %inc8.i102.us = add nsw i32 %.pre407, 1
   store i32 %inc8.i102.us, ptr %m_z.i239, align 4
   %51 = load i32, ptr %m_rng_zend.i241, align 8
   %cmp9.not.i104.us = icmp slt i32 %inc8.i102.us, %51
@@ -10801,49 +10807,49 @@ if.then2.i112.us:                                 ; preds = %if.then.i109.us
 
 if.then.if.end13_crit_edge.i113.us:               ; preds = %if.then.i109.us
   %.pre.i115.us = load i32, ptr %m_y.i233, align 8
-  %.pre390 = load i32, ptr %m_z.i239, align 4
+  %.pre406 = load i32, ptr %m_z.i239, align 4
   br label %if.end13.i107.us
 
 if.end13.i107.us:                                 ; preds = %if.then.if.end13_crit_edge.i113.us, %if.then6.i99.us, %if.else.i93.us
-  %54 = phi i32 [ %.pre391, %if.else.i93.us ], [ %inc8.i102.us, %if.then6.i99.us ], [ %.pre390, %if.then.if.end13_crit_edge.i113.us ]
+  %54 = phi i32 [ %.pre407, %if.else.i93.us ], [ %inc8.i102.us, %if.then6.i99.us ], [ %.pre406, %if.then.if.end13_crit_edge.i113.us ]
   %55 = phi i32 [ %inc4.i96.us, %if.else.i93.us ], [ %50, %if.then6.i99.us ], [ %.pre.i115.us, %if.then.if.end13_crit_edge.i113.us ]
   %56 = phi i32 [ %47, %if.else.i93.us ], [ %47, %if.then6.i99.us ], [ %inc.i90.us, %if.then.if.end13_crit_edge.i113.us ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %56, i32 noundef %55, i32 noundef %54)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us unwind label %lpad4.loopexit.split-lp.loopexit.split.us
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us: ; preds = %if.end13.i107.us, %if.then2.i112.us, %if.then10.i105.us
-  %exitcond379.not = icmp eq i32 %inc32.us, 4096
-  br i1 %exitcond379.not, label %if.end.loopexit.us, label %land.rhs.us
+  %exitcond395.not = icmp eq i32 %inc32.us, 4096
+  br i1 %exitcond395.not, label %if.end.loopexit.us, label %land.rhs.us
 
 if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us
-  %batch_sqrerror.0.lcssa.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batch_sqrerror.0350.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
-  %batcherror.0.lcssa.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batcherror.0351.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
-  %maxval.1.lcssa.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.1352.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
+  %batch_sqrerror.0.lcssa.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batch_sqrerror.0366.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
+  %batcherror.0.lcssa.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batcherror.0367.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
+  %maxval.1.lcssa.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.1368.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
   %add.us = fadd double %totalerror.0.us, %batcherror.0.lcssa.us
   %add70.us = fadd double %totalsqrerror.0.us, %batch_sqrerror.0.lcssa.us
   br label %for.cond.us, !llvm.loop !49
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc28_crit_edge.us.us
-  %c.0343.us.us = phi i32 [ %inc29.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2342.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1352.us, %invoke.cont15.us ]
-  %batcherror.1341.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0351.us, %invoke.cont15.us ]
-  %failed.0340.us.us = phi i8 [ %failed.2.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
-  %warned.0339.us.us = phi i8 [ %warned.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
-  %batch_sqrerror.1338.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0350.us, %invoke.cont15.us ]
+  %c.0359.us.us = phi i32 [ %inc29.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
+  %maxval.2358.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1368.us, %invoke.cont15.us ]
+  %batcherror.1357.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0367.us, %invoke.cont15.us ]
+  %failed.0356.us.us = phi i8 [ %failed.2.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
+  %warned.0355.us.us = phi i8 [ %warned.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
+  %batch_sqrerror.1354.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0366.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us, %for.cond21.preheader.us.us
-  %s.0331.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %maxval.3330.us.us = phi float [ %maxval.2342.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batcherror.2329.us.us = phi double [ %batcherror.1341.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %failed.1328.us.us = phi i8 [ %failed.0340.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %warned.1327.us.us = phi i8 [ %warned.0339.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batch_sqrerror.2326.us.us = phi double [ %batch_sqrerror.1338.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %s.0347.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %maxval.3346.us.us = phi float [ %maxval.2358.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batcherror.2345.us.us = phi double [ %batcherror.1357.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %failed.1344.us.us = phi i8 [ %failed.0356.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %warned.1343.us.us = phi i8 [ %warned.0355.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batch_sqrerror.2342.us.us = phi double [ %batch_sqrerror.1354.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %57 = load ptr, ptr %a, align 8
   %58 = load i32, ptr %m_x.i, align 4
   %59 = load i32, ptr %m_y.i, align 8
   %60 = load i32, ptr %m_z.i, align 4
-  %call.i68.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef %c.0343.us.us, i32 noundef %s.0331.us.us)
+  %call.i68.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef %c.0359.us.us, i32 noundef %s.0347.us.us)
           to label %invoke.cont24.us.us unwind label %lpad4.loopexit.split.us.split.us
 
 invoke.cont24.us.us:                              ; preds = %for.body23.us.us
@@ -10851,7 +10857,7 @@ invoke.cont24.us.us:                              ; preds = %for.body23.us.us
   %62 = load i32, ptr %m_x.i227, align 4
   %63 = load i32, ptr %m_y.i233, align 8
   %64 = load i32, ptr %m_z.i239, align 4
-  %call.i72.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %61, i32 noundef %62, i32 noundef %63, i32 noundef %64, i32 noundef %c.0343.us.us, i32 noundef %s.0331.us.us)
+  %call.i72.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %61, i32 noundef %62, i32 noundef %63, i32 noundef %64, i32 noundef %c.0359.us.us, i32 noundef %s.0347.us.us)
           to label %invoke.cont26.us.us unwind label %lpad4.loopexit.split.us.split.us
 
 invoke.cont26.us.us:                              ; preds = %invoke.cont24.us.us
@@ -10863,7 +10869,7 @@ invoke.cont26.us.us:                              ; preds = %invoke.cont24.us.us
   br i1 %or.cond54.i.us.us, label %invoke.cont26.us.us.if.end20.i.us.us_crit_edge, label %if.then.i.us.us
 
 invoke.cont26.us.us.if.end20.i.us.us_crit_edge:   ; preds = %invoke.cont26.us.us
-  %.pre387 = load double, ptr %maxerror, align 8
+  %.pre403 = load double, ptr %maxerror, align 8
   br label %if.end20.i.us.us
 
 if.then.i.us.us:                                  ; preds = %invoke.cont26.us.us
@@ -10890,11 +10896,11 @@ if.then12.i.us.us:                                ; preds = %if.end.i.us.us
   store <2 x i32> %78, ptr %maxx, align 8
   %79 = load i32, ptr %m_z.i, align 4
   store i32 %79, ptr %maxz, align 8
-  store i32 %c.0343.us.us, ptr %maxc, align 4
+  store i32 %c.0359.us.us, ptr %maxc, align 4
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 if.end20.i.us.us:                                 ; preds = %invoke.cont26.us.us.if.end20.i.us.us_crit_edge, %if.end.i.us.us
-  %80 = phi double [ %.pre387, %invoke.cont26.us.us.if.end20.i.us.us_crit_edge ], [ %75, %if.end.i.us.us ]
+  %80 = phi double [ %.pre403, %invoke.cont26.us.us.if.end20.i.us.us_crit_edge ], [ %75, %if.end.i.us.us ]
   %conv.i.i.us.us = fpext float %65 to double
   %conv1.i.i.us.us = fpext float %67 to double
   %mul2.i.i.us.us = fmul double %conv1.i.i.us.us, 5.000000e-01
@@ -10902,8 +10908,8 @@ if.end20.i.us.us:                                 ; preds = %invoke.cont26.us.us
   %conv3.i.i.us.us = fptrunc double %81 to float
   %cmp.i.i.us.us = fcmp olt float %65, %67
   %.sroa.speculated51.i.us.us = select i1 %cmp.i.i.us.us, float %67, float %65
-  %cmp.i45.i.us.us = fcmp olt float %maxval.3330.us.us, %.sroa.speculated51.i.us.us
-  %.sroa.speculated.i.us.us = select i1 %cmp.i45.i.us.us, float %.sroa.speculated51.i.us.us, float %maxval.3330.us.us
+  %cmp.i45.i.us.us = fcmp olt float %maxval.3346.us.us, %.sroa.speculated51.i.us.us
+  %.sroa.speculated.i.us.us = select i1 %cmp.i45.i.us.us, float %.sroa.speculated51.i.us.us, float %maxval.3346.us.us
   %sub.i75.us.us = fsub float %call.i68.us.us, %call.i72.us.us
   %82 = call noundef float @llvm.fabs.f32(float %sub.i75.us.us)
   %conv27.i.us.us = fpext float %82 to double
@@ -10911,8 +10917,8 @@ if.end20.i.us.us:                                 ; preds = %invoke.cont26.us.us
   %cmp29.i.us.us = fcmp ogt float %conv3.i.i.us.us, 0.000000e+00
   %div.i.us.us = fdiv double %conv27.i.us.us, %conv28.i.us.us
   %cond.i76.us.us = select i1 %cmp29.i.us.us, double %div.i.us.us, double 0.000000e+00
-  %add.i.us.us = fadd double %batcherror.2329.us.us, %conv27.i.us.us
-  %83 = call double @llvm.fmuladd.f64(double %conv27.i.us.us, double %conv27.i.us.us, double %batch_sqrerror.2326.us.us)
+  %add.i.us.us = fadd double %batcherror.2345.us.us, %conv27.i.us.us
+  %83 = call double @llvm.fmuladd.f64(double %conv27.i.us.us, double %conv27.i.us.us, double %batch_sqrerror.2342.us.us)
   %cmp32.i.us.us = fcmp ult double %80, %conv27.i.us.us
   br i1 %cmp32.i.us.us, label %if.then33.i.us.us, label %if.end42.i.us.us
 
@@ -10922,11 +10928,11 @@ if.then33.i.us.us:                                ; preds = %if.end20.i.us.us
   store <2 x i32> %84, ptr %maxx, align 8
   %85 = load i32, ptr %m_z.i, align 4
   store i32 %85, ptr %maxz, align 8
-  store i32 %c.0343.us.us, ptr %maxc, align 4
+  store i32 %c.0359.us.us, ptr %maxc, align 4
   br label %if.end42.i.us.us
 
 if.end42.i.us.us:                                 ; preds = %if.then33.i.us.us, %if.end20.i.us.us
-  %86 = and i8 %warned.1327.us.us, 1
+  %86 = and i8 %warned.1343.us.us, 1
   %tobool.not.i.us.us = icmp eq i8 %86, 0
   %cmp45.i.us.us = fcmp ugt float %82, %warnthresh
   %or.cond.i.us.us = and i1 %tobool.not.i.us.us, %cmp45.i.us.us
@@ -10941,8 +10947,8 @@ if.then49.i.us.us:                                ; preds = %if.end42.i.us.us
   br label %if.end50.i.us.us
 
 if.end50.i.us.us:                                 ; preds = %if.then49.i.us.us, %if.end42.i.us.us
-  %warned.2.us.us = phi i8 [ 1, %if.then49.i.us.us ], [ %warned.1327.us.us, %if.end42.i.us.us ]
-  %88 = and i8 %failed.1328.us.us, 1
+  %warned.2.us.us = phi i8 [ 1, %if.then49.i.us.us ], [ %warned.1343.us.us, %if.end42.i.us.us ]
+  %88 = and i8 %failed.1344.us.us, 1
   %tobool51.not.i.us.us = icmp eq i8 %88, 0
   %cmp54.i.us.us = fcmp ugt float %82, %failthresh
   %or.cond43.i.us.us = and i1 %tobool51.not.i.us.us, %cmp54.i.us.us
@@ -10957,23 +10963,23 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %83, %if.then58.i.us.us ], [ %83, %if.end50.i.us.us ], [ %batch_sqrerror.2326.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2326.us.us, %land.lhs.true.i74.us.us ]
-  %warned.3.us.us = phi i8 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1327.us.us, %if.then12.i.us.us ], [ %warned.1327.us.us, %land.lhs.true.i74.us.us ]
-  %failed.2.us.us = phi i8 [ 1, %if.then58.i.us.us ], [ %failed.1328.us.us, %if.end50.i.us.us ], [ %failed.1328.us.us, %if.then12.i.us.us ], [ %failed.1328.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2329.us.us, %if.then12.i.us.us ], [ %batcherror.2329.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3330.us.us, %if.then12.i.us.us ], [ %maxval.3330.us.us, %land.lhs.true.i74.us.us ]
-  %inc.us.us = add nuw nsw i32 %s.0331.us.us, 1
-  %exitcond378.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
-  br i1 %exitcond378.not, label %for.cond21.for.inc28_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !50
+  %batch_sqrerror.3.us.us = phi double [ %83, %if.then58.i.us.us ], [ %83, %if.end50.i.us.us ], [ %batch_sqrerror.2342.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2342.us.us, %land.lhs.true.i74.us.us ]
+  %warned.3.us.us = phi i8 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1343.us.us, %if.then12.i.us.us ], [ %warned.1343.us.us, %land.lhs.true.i74.us.us ]
+  %failed.2.us.us = phi i8 [ 1, %if.then58.i.us.us ], [ %failed.1344.us.us, %if.end50.i.us.us ], [ %failed.1344.us.us, %if.then12.i.us.us ], [ %failed.1344.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2345.us.us, %if.then12.i.us.us ], [ %batcherror.2345.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3346.us.us, %if.then12.i.us.us ], [ %maxval.3346.us.us, %land.lhs.true.i74.us.us ]
+  %inc.us.us = add nuw nsw i32 %s.0347.us.us, 1
+  %exitcond394.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
+  br i1 %exitcond394.not, label %for.cond21.for.inc28_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !50
 
 for.cond21.for.inc28_crit_edge.us.us:             ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
-  %inc29.us.us = add nsw i32 %c.0343.us.us, 1
+  %inc29.us.us = add nsw i32 %c.0359.us.us, 1
   %90 = load i32, ptr %chend.i, align 4
   %cmp19.us.us = icmp slt i32 %inc29.us.us, %90
   br i1 %cmp19.us.us, label %for.cond21.preheader.us.us, label %for.inc31.us, !llvm.loop !51
 
 lpad4.loopexit.split-lp.loopexit.split.us:        ; preds = %if.end13.i107.us, %if.then2.i112.us, %if.end13.i.us, %if.then2.i.us, %invoke.cont12.us, %for.body11.us
-  %lpad.loopexit279.us = landingpad { ptr, i32 }
+  %lpad.loopexit293.us = landingpad { ptr, i32 }
           cleanup
   br label %lpad4
 
@@ -10982,10 +10988,10 @@ lpad4.loopexit.split.us.split.us:                 ; preds = %invoke.cont24.us.us
           cleanup
   br label %lpad4
 
-for.cond:                                         ; preds = %for.cond.preheader366, %if.end.loopexit282
-  %maxval.0 = phi float [ %maxval.5.lcssa, %if.end.loopexit282 ], [ 1.000000e+00, %for.cond.preheader366 ]
-  %totalsqrerror.0 = phi double [ %add70, %if.end.loopexit282 ], [ 0.000000e+00, %for.cond.preheader366 ]
-  %totalerror.0 = phi double [ %add, %if.end.loopexit282 ], [ 0.000000e+00, %for.cond.preheader366 ]
+for.cond:                                         ; preds = %for.cond.preheader382, %if.end.loopexit296
+  %maxval.0 = phi float [ %maxval.5.lcssa, %if.end.loopexit296 ], [ 1.000000e+00, %for.cond.preheader382 ]
+  %totalsqrerror.0 = phi double [ %add70, %if.end.loopexit296 ], [ 0.000000e+00, %for.cond.preheader382 ]
+  %totalerror.0 = phi double [ %add, %if.end.loopexit296 ], [ 0.000000e+00, %for.cond.preheader382 ]
   %91 = load i8, ptr %m_valid.i, align 8
   %92 = and i8 %91, 1
   %cmp.i = icmp eq i8 %92, 0
@@ -11018,7 +11024,7 @@ lpad:                                             ; preds = %_ZNK18OpenImageIO_v
   br label %ehcleanup
 
 lpad4.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then2.i220, %if.end13.i215, %if.then2.i250, %if.end13.i245
-  %lpad.loopexit283 = landingpad { ptr, i32 }
+  %lpad.loopexit297 = landingpad { ptr, i32 }
           cleanup
   br label %lpad4
 
@@ -11028,7 +11034,7 @@ lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.c
   br label %lpad4
 
 lpad4:                                            ; preds = %lpad4.loopexit.split-lp.loopexit.split.us, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad4.loopexit.split.us.split.us
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us.us, %lpad4.loopexit.split.us.split.us ], [ %lpad.loopexit279.us, %lpad4.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit283, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us.us, %lpad4.loopexit.split.us.split.us ], [ %lpad.loopexit293.us, %lpad4.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit297, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %m_tile.i.i = getelementptr inbounds i8, ptr %b, i64 72
   %100 = load ptr, ptr %m_tile.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %100, null
@@ -11046,18 +11052,18 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 land.rhs39:                                       ; preds = %land.rhs39.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256
-  %i36.0324 = phi i32 [ %inc66, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0, %land.rhs39.preheader ]
-  %maxval.5323 = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.0, %land.rhs39.preheader ]
-  %batcherror.4322 = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs39.preheader ]
-  %batch_sqrerror.4321 = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs39.preheader ]
+  %i36.0340 = phi i32 [ %inc66, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0, %land.rhs39.preheader ]
+  %maxval.5339 = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.0, %land.rhs39.preheader ]
+  %batcherror.4338 = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs39.preheader ]
+  %batch_sqrerror.4337 = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs39.preheader ]
   %103 = load i8, ptr %m_valid.i, align 8
   %104 = and i8 %103, 1
   %cmp.i120 = icmp eq i8 %104, 0
   %.pre.pre = load i32, ptr %m_x.i, align 4
   %105 = load i32, ptr %m_rng_xbegin.i, align 4
   %cmp2.i124 = icmp eq i32 %.pre.pre, %105
-  %or.cond403 = select i1 %cmp.i120, i1 %cmp2.i124, i1 false
-  br i1 %or.cond403, label %land.lhs.true3.i125, label %for.body43
+  %or.cond419 = select i1 %cmp.i120, i1 %cmp2.i124, i1 false
+  br i1 %or.cond419, label %land.lhs.true3.i125, label %for.body43
 
 land.lhs.true3.i125:                              ; preds = %land.rhs39
   %106 = load i32, ptr %m_y.i, align 8
@@ -11069,13 +11075,13 @@ _ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133: ; preds = %land.
   %108 = load i32, ptr %m_z.i, align 4
   %109 = load i32, ptr %m_rng_zend.i, align 8
   %cmp5.i132 = icmp eq i32 %108, %109
-  br i1 %cmp5.i132, label %if.end.loopexit282, label %for.body43
+  br i1 %cmp5.i132, label %if.end.loopexit296, label %for.body43
 
 for.body43:                                       ; preds = %land.rhs39, %land.lhs.true3.i125, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133
   %110 = load i32, ptr %chbegin.i, align 8
   %111 = load i32, ptr %chend.i, align 4
-  %cmp50311 = icmp slt i32 %110, %111
-  br i1 %cmp50311, label %for.body51.lr.ph, label %for.inc65
+  %cmp50325 = icmp slt i32 %110, %111
+  br i1 %cmp50325, label %for.body51.lr.ph, label %for.inc65
 
 for.body51.lr.ph:                                 ; preds = %for.body43
   %nfail.promoted = load i64, ptr %nfail, align 8
@@ -11091,89 +11097,99 @@ for.body51.lr.ph:                                 ; preds = %for.body43
 
 for.body51:                                       ; preds = %for.body51.lr.ph, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
   %indvars.iv = phi i64 [ %116, %for.body51.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %failed45.0316 = phi i8 [ 0, %for.body51.lr.ph ], [ %failed45.1, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %warned44.0315 = phi i8 [ 0, %for.body51.lr.ph ], [ %warned44.2, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %maxval.6314 = phi float [ %maxval.5323, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %batcherror.5313 = phi double [ %batcherror.4322, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %batch_sqrerror.5312 = phi double [ %batch_sqrerror.4321, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %144, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %143, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %142, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %cmp52 = icmp slt i64 %indvars.iv, %8
-  br i1 %cmp52, label %cond.true, label %cond.end
+  %failed45.0330 = phi i8 [ 0, %for.body51.lr.ph ], [ %failed45.1, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %warned44.0329 = phi i8 [ 0, %for.body51.lr.ph ], [ %warned44.2, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %maxval.6328 = phi float [ %maxval.5339, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batcherror.5327 = phi double [ %batcherror.4338, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batch_sqrerror.5326 = phi double [ %batch_sqrerror.4337, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %147, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %146, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %145, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %cmp52 = icmp slt i64 %indvars.iv, %9
+  br i1 %cmp52, label %cond.end, label %cond.end.thread
 
-cond.true:                                        ; preds = %for.body51
+cond.end:                                         ; preds = %for.body51
   %arrayidx.i.i = getelementptr inbounds i8, ptr %112, i64 %indvars.iv
   %120 = load i8, ptr %arrayidx.i.i, align 1
   %conv1.i.i.i = uitofp i8 %120 to float
   %mul.i.i.i = fmul float %conv1.i.i.i, 0x3F70101020000000
-  br label %cond.end
+  %cmp55 = icmp slt i64 %indvars.iv, %8
+  br i1 %cmp55, label %cond.end60, label %cond.end60.thread
 
-cond.end:                                         ; preds = %cond.true, %for.body51
-  %cond = phi float [ %mul.i.i.i, %cond.true ], [ 0.000000e+00, %for.body51 ]
-  %cmp55 = icmp slt i64 %indvars.iv, %9
-  br i1 %cmp55, label %cond.true56, label %cond.end60
+cond.end.thread:                                  ; preds = %for.body51
+  %cmp55287 = icmp slt i64 %indvars.iv, %8
+  br i1 %cmp55287, label %cond.end60, label %if.end20.i150
 
-cond.true56:                                      ; preds = %cond.end
+cond.end60:                                       ; preds = %cond.end.thread, %cond.end
+  %cond288 = phi float [ 0.000000e+00, %cond.end.thread ], [ %mul.i.i.i, %cond.end ]
   %arrayidx.i.i136 = getelementptr inbounds %class.half, ptr %113, i64 %indvars.iv
   %121 = load i16, ptr %arrayidx.i.i136, align 2
   %idxprom.i.i.i.i = zext i16 %121 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [65536 x %"union.half::uif"], ptr @_ZN4half8_toFloatE, i64 0, i64 %idxprom.i.i.i.i
   %122 = load float, ptr %arrayidx.i.i.i.i, align 4
-  br label %cond.end60
-
-cond.end60:                                       ; preds = %cond.true56, %cond.end
-  %cond61 = phi float [ %122, %cond.true56 ], [ 0.000000e+00, %cond.end ]
-  %123 = call float @llvm.fabs.f32(float %cond)
-  %124 = fcmp one float %123, 0x7FF0000000000000
-  %125 = call float @llvm.fabs.f32(float %cond61)
-  %126 = fcmp one float %125, 0x7FF0000000000000
-  %or.cond54.i137 = and i1 %124, %126
+  %123 = fcmp one float %cond288, 0x7FF0000000000000
+  %124 = call float @llvm.fabs.f32(float %122)
+  %125 = fcmp one float %124, 0x7FF0000000000000
+  %or.cond54.i137 = and i1 %123, %125
   br i1 %or.cond54.i137, label %if.end20.i150, label %if.then.i138
 
+cond.end60.thread:                                ; preds = %cond.end
+  %126 = fcmp ueq float %mul.i.i.i, 0x7FF0000000000000
+  br i1 %126, label %if.then.i138.thread, label %if.end20.i150
+
+if.then.i138.thread:                              ; preds = %cond.end60.thread
+  %127 = fcmp oeq float %mul.i.i.i, 0x7FF0000000000000
+  br i1 %127, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
+
 if.then.i138:                                     ; preds = %cond.end60
-  %127 = fcmp uno float %cond61, 0.000000e+00
-  br i1 %127, label %if.end.i140, label %land.lhs.true.i139
+  %128 = fcmp uno float %122, 0.000000e+00
+  br i1 %128, label %if.end.i140, label %land.lhs.true.i139
 
 land.lhs.true.i139:                               ; preds = %if.then.i138
-  %128 = fcmp oeq float %123, 0x7FF0000000000000
-  %129 = fcmp oeq float %125, 0x7FF0000000000000
-  %130 = xor i1 %128, %129
-  br i1 %130, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
+  %129 = fcmp oeq float %cond288, 0x7FF0000000000000
+  %130 = fcmp oeq float %124, 0x7FF0000000000000
+  %131 = xor i1 %129, %130
+  br i1 %131, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
 
-if.end.i140:                                      ; preds = %land.lhs.true.i139, %if.then.i138
-  %131 = call double @llvm.fabs.f64(double %117)
-  %132 = fcmp ueq double %131, 0x7FF0000000000000
-  br i1 %132, label %if.end20.i150, label %if.then12.i142
+if.end.i140:                                      ; preds = %if.then.i138.thread, %land.lhs.true.i139, %if.then.i138
+  %cond290 = phi float [ %cond288, %land.lhs.true.i139 ], [ %cond288, %if.then.i138 ], [ 0x7FF0000000000000, %if.then.i138.thread ]
+  %cond61281285 = phi float [ %122, %land.lhs.true.i139 ], [ %122, %if.then.i138 ], [ 0.000000e+00, %if.then.i138.thread ]
+  %132 = phi float [ %124, %land.lhs.true.i139 ], [ %124, %if.then.i138 ], [ 0.000000e+00, %if.then.i138.thread ]
+  %133 = call double @llvm.fabs.f64(double %117)
+  %134 = fcmp ueq double %133, 0x7FF0000000000000
+  br i1 %134, label %if.end20.i150, label %if.then12.i142
 
 if.then12.i142:                                   ; preds = %if.end.i140
   store double 0x7FF0000000000000, ptr %maxerror, align 8
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %133 = trunc i64 %indvars.iv to i32
-  store i32 %133, ptr %maxc, align 4
+  %135 = trunc i64 %indvars.iv to i32
+  store i32 %135, ptr %maxc, align 4
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
 
-if.end20.i150:                                    ; preds = %if.end.i140, %cond.end60
-  %conv.i.i151 = fpext float %123 to double
-  %conv1.i.i152 = fpext float %125 to double
+if.end20.i150:                                    ; preds = %cond.end.thread, %cond.end60.thread, %if.end.i140, %cond.end60
+  %cond289 = phi float [ %mul.i.i.i, %cond.end60.thread ], [ %cond290, %if.end.i140 ], [ %cond288, %cond.end60 ], [ 0.000000e+00, %cond.end.thread ]
+  %136 = phi float [ 0.000000e+00, %cond.end60.thread ], [ %132, %if.end.i140 ], [ %124, %cond.end60 ], [ 0.000000e+00, %cond.end.thread ]
+  %cond61282 = phi float [ 0.000000e+00, %cond.end60.thread ], [ %cond61281285, %if.end.i140 ], [ %122, %cond.end60 ], [ 0.000000e+00, %cond.end.thread ]
+  %conv.i.i151 = fpext float %cond289 to double
+  %conv1.i.i152 = fpext float %136 to double
   %mul2.i.i153 = fmul double %conv1.i.i152, 5.000000e-01
-  %134 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
-  %conv3.i.i154 = fptrunc double %134 to float
-  %cmp.i.i155 = fcmp olt float %123, %125
-  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %125, float %123
-  %cmp.i45.i157 = fcmp olt float %maxval.6314, %.sroa.speculated51.i156
-  %.sroa.speculated.i158 = select i1 %cmp.i45.i157, float %.sroa.speculated51.i156, float %maxval.6314
-  %sub.i159 = fsub float %cond, %cond61
-  %135 = call noundef float @llvm.fabs.f32(float %sub.i159)
-  %conv27.i160 = fpext float %135 to double
+  %137 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
+  %conv3.i.i154 = fptrunc double %137 to float
+  %cmp.i.i155 = fcmp olt float %cond289, %136
+  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %136, float %cond289
+  %cmp.i45.i157 = fcmp olt float %maxval.6328, %.sroa.speculated51.i156
+  %.sroa.speculated.i158 = select i1 %cmp.i45.i157, float %.sroa.speculated51.i156, float %maxval.6328
+  %sub.i159 = fsub float %cond289, %cond61282
+  %138 = call noundef float @llvm.fabs.f32(float %sub.i159)
+  %conv27.i160 = fpext float %138 to double
   %conv28.i161 = fpext float %conv3.i.i154 to double
   %cmp29.i162 = fcmp ogt float %conv3.i.i154, 0.000000e+00
   %div.i163 = fdiv double %conv27.i160, %conv28.i161
   %cond.i164 = select i1 %cmp29.i162, double %div.i163, double 0.000000e+00
-  %add.i165 = fadd double %batcherror.5313, %conv27.i160
-  %136 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5312)
+  %add.i165 = fadd double %batcherror.5327, %conv27.i160
+  %139 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5326)
   %cmp32.i167 = fcmp ult double %117, %conv27.i160
   br i1 %cmp32.i167, label %if.then33.i188, label %if.end42.i168
 
@@ -11182,15 +11198,15 @@ if.then33.i188:                                   ; preds = %if.end20.i150
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %137 = trunc i64 %indvars.iv to i32
-  store i32 %137, ptr %maxc, align 4
+  %140 = trunc i64 %indvars.iv to i32
+  store i32 %140, ptr %maxc, align 4
   br label %if.end42.i168
 
 if.end42.i168:                                    ; preds = %if.then33.i188, %if.end20.i150
-  %138 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
-  %139 = and i8 %warned44.0315, 1
-  %tobool.not.i169 = icmp eq i8 %139, 0
-  %cmp45.i170 = fcmp ugt float %135, %warnthresh
+  %141 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
+  %142 = and i8 %warned44.0329, 1
+  %tobool.not.i169 = icmp eq i8 %142, 0
+  %cmp45.i170 = fcmp ugt float %138, %warnthresh
   %or.cond.i171 = and i1 %tobool.not.i169, %cmp45.i170
   %cmp48.i173 = fcmp ugt double %cond.i164, %conv47.i172
   %or.cond42.i174 = select i1 %or.cond.i171, i1 %cmp48.i173, i1 false
@@ -11202,11 +11218,11 @@ if.then49.i185:                                   ; preds = %if.end42.i168
   br label %if.end50.i175
 
 if.end50.i175:                                    ; preds = %if.then49.i185, %if.end42.i168
-  %140 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
-  %warned44.1 = phi i8 [ 1, %if.then49.i185 ], [ %warned44.0315, %if.end42.i168 ]
-  %141 = and i8 %failed45.0316, 1
-  %tobool51.not.i176 = icmp eq i8 %141, 0
-  %cmp54.i177 = fcmp ugt float %135, %failthresh
+  %143 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
+  %warned44.1 = phi i8 [ 1, %if.then49.i185 ], [ %warned44.0329, %if.end42.i168 ]
+  %144 = and i8 %failed45.0330, 1
+  %tobool51.not.i176 = icmp eq i8 %144, 0
+  %cmp54.i177 = fcmp ugt float %138, %failthresh
   %or.cond43.i178 = and i1 %tobool51.not.i176, %cmp54.i177
   %cmp57.i180 = fcmp ugt double %cond.i164, %conv56.i179
   %or.cond44.i181 = select i1 %or.cond43.i178, i1 %cmp57.i180, i1 false
@@ -11217,38 +11233,38 @@ if.then58.i182:                                   ; preds = %if.end50.i175
   store i64 %inc59.i184, ptr %nfail, align 8
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
 
-_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196: ; preds = %land.lhs.true.i139, %if.then12.i142, %if.end50.i175, %if.then58.i182
-  %142 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ]
-  %143 = phi i64 [ %140, %if.then58.i182 ], [ %140, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ]
-  %144 = phi double [ %138, %if.then58.i182 ], [ %138, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %136, %if.then58.i182 ], [ %136, %if.end50.i175 ], [ %batch_sqrerror.5312, %if.then12.i142 ], [ %batch_sqrerror.5312, %land.lhs.true.i139 ]
-  %batcherror.6 = phi double [ %add.i165, %if.then58.i182 ], [ %add.i165, %if.end50.i175 ], [ %batcherror.5313, %if.then12.i142 ], [ %batcherror.5313, %land.lhs.true.i139 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i182 ], [ %.sroa.speculated.i158, %if.end50.i175 ], [ %maxval.6314, %if.then12.i142 ], [ %maxval.6314, %land.lhs.true.i139 ]
-  %warned44.2 = phi i8 [ %warned44.1, %if.then58.i182 ], [ %warned44.1, %if.end50.i175 ], [ %warned44.0315, %if.then12.i142 ], [ %warned44.0315, %land.lhs.true.i139 ]
-  %failed45.1 = phi i8 [ 1, %if.then58.i182 ], [ %failed45.0316, %if.end50.i175 ], [ %failed45.0316, %if.then12.i142 ], [ %failed45.0316, %land.lhs.true.i139 ]
+_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196: ; preds = %if.then.i138.thread, %land.lhs.true.i139, %if.then12.i142, %if.end50.i175, %if.then58.i182
+  %145 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ], [ %119, %if.then.i138.thread ]
+  %146 = phi i64 [ %143, %if.then58.i182 ], [ %143, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ], [ %118, %if.then.i138.thread ]
+  %147 = phi double [ %141, %if.then58.i182 ], [ %141, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ], [ %117, %if.then.i138.thread ]
+  %batch_sqrerror.6 = phi double [ %139, %if.then58.i182 ], [ %139, %if.end50.i175 ], [ %batch_sqrerror.5326, %if.then12.i142 ], [ %batch_sqrerror.5326, %land.lhs.true.i139 ], [ %batch_sqrerror.5326, %if.then.i138.thread ]
+  %batcherror.6 = phi double [ %add.i165, %if.then58.i182 ], [ %add.i165, %if.end50.i175 ], [ %batcherror.5327, %if.then12.i142 ], [ %batcherror.5327, %land.lhs.true.i139 ], [ %batcherror.5327, %if.then.i138.thread ]
+  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i182 ], [ %.sroa.speculated.i158, %if.end50.i175 ], [ %maxval.6328, %if.then12.i142 ], [ %maxval.6328, %land.lhs.true.i139 ], [ %maxval.6328, %if.then.i138.thread ]
+  %warned44.2 = phi i8 [ %warned44.1, %if.then58.i182 ], [ %warned44.1, %if.end50.i175 ], [ %warned44.0329, %if.then12.i142 ], [ %warned44.0329, %land.lhs.true.i139 ], [ %warned44.0329, %if.then.i138.thread ]
+  %failed45.1 = phi i8 [ 1, %if.then58.i182 ], [ %failed45.0330, %if.end50.i175 ], [ %failed45.0330, %if.then12.i142 ], [ %failed45.0330, %land.lhs.true.i139 ], [ %failed45.0330, %if.then.i138.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.inc65, label %for.body51, !llvm.loop !52
 
 for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196, %for.body43
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4321, %for.body43 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4322, %for.body43 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %maxval.6.lcssa = phi float [ %maxval.5323, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4337, %for.body43 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4338, %for.body43 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %maxval.6.lcssa = phi float [ %maxval.5339, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
   %inc.i198 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i198, ptr %m_x.i, align 4
-  %145 = load i32, ptr %m_rng_xend.i199, align 8
-  %cmp.i200 = icmp slt i32 %inc.i198, %145
+  %148 = load i32, ptr %m_rng_xend.i199, align 8
+  %cmp.i200 = icmp slt i32 %inc.i198, %148
   br i1 %cmp.i200, label %if.then.i217, label %if.else.i201
 
 if.then.i217:                                     ; preds = %for.inc65
-  %146 = load i8, ptr %m_exists.i218, align 1
-  %147 = and i8 %146, 1
-  %tobool.not.i219 = icmp eq i8 %147, 0
+  %149 = load i8, ptr %m_exists.i218, align 1
+  %150 = and i8 %149, 1
+  %tobool.not.i219 = icmp eq i8 %150, 0
   br i1 %tobool.not.i219, label %if.then.if.end13_crit_edge.i221, label %if.then2.i220
 
 if.then.if.end13_crit_edge.i221:                  ; preds = %if.then.i217
   %.pre.i223 = load i32, ptr %m_y.i, align 8
-  %.pre380 = load i32, ptr %m_z.i, align 4
+  %.pre396 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i215
 
 if.then2.i220:                                    ; preds = %if.then.i217
@@ -11256,23 +11272,23 @@ if.then2.i220:                                    ; preds = %if.then.i217
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i201:                                     ; preds = %for.inc65
-  %148 = load i32, ptr %m_rng_xbegin.i, align 4
-  store i32 %148, ptr %m_x.i, align 4
-  %149 = load i32, ptr %m_y.i, align 8
-  %inc4.i204 = add nsw i32 %149, 1
+  %151 = load i32, ptr %m_rng_xbegin.i, align 4
+  store i32 %151, ptr %m_x.i, align 4
+  %152 = load i32, ptr %m_y.i, align 8
+  %inc4.i204 = add nsw i32 %152, 1
   store i32 %inc4.i204, ptr %m_y.i, align 8
-  %150 = load i32, ptr %m_rng_yend.i205, align 8
-  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %150
-  %.pre381 = load i32, ptr %m_z.i, align 4
+  %153 = load i32, ptr %m_rng_yend.i205, align 8
+  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %153
+  %.pre397 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i206, label %if.end13.i215, label %if.then6.i207
 
 if.then6.i207:                                    ; preds = %if.else.i201
-  %151 = load i32, ptr %m_rng_ybegin.i, align 4
-  store i32 %151, ptr %m_y.i, align 8
-  %inc8.i210 = add nsw i32 %.pre381, 1
+  %154 = load i32, ptr %m_rng_ybegin.i, align 4
+  store i32 %154, ptr %m_y.i, align 8
+  %inc8.i210 = add nsw i32 %.pre397, 1
   store i32 %inc8.i210, ptr %m_z.i, align 4
-  %152 = load i32, ptr %m_rng_zend.i, align 8
-  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %152
+  %155 = load i32, ptr %m_rng_zend.i, align 8
+  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %155
   br i1 %cmp9.not.i212, label %if.end13.i215, label %if.then10.i213
 
 if.then10.i213:                                   ; preds = %if.then6.i207
@@ -11280,30 +11296,30 @@ if.then10.i213:                                   ; preds = %if.then6.i207
   br label %invoke.cont67
 
 if.end13.i215:                                    ; preds = %if.then6.i207, %if.else.i201, %if.then.if.end13_crit_edge.i221
-  %153 = phi i32 [ %.pre381, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre380, %if.then.if.end13_crit_edge.i221 ]
-  %154 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %151, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
-  %155 = phi i32 [ %148, %if.else.i201 ], [ %148, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %155, i32 noundef %154, i32 noundef %153)
+  %156 = phi i32 [ %.pre397, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre396, %if.then.if.end13_crit_edge.i221 ]
+  %157 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %154, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
+  %158 = phi i32 [ %151, %if.else.i201 ], [ %151, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %158, i32 noundef %157, i32 noundef %156)
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont67:                                    ; preds = %if.then10.i213, %if.then2.i220, %if.end13.i215
-  %inc66 = add nuw nsw i32 %i36.0324, 1
-  %156 = load i32, ptr %m_x.i227, align 4
-  %inc.i228 = add nsw i32 %156, 1
+  %inc66 = add nuw nsw i32 %i36.0340, 1
+  %159 = load i32, ptr %m_x.i227, align 4
+  %inc.i228 = add nsw i32 %159, 1
   store i32 %inc.i228, ptr %m_x.i227, align 4
-  %157 = load i32, ptr %m_rng_xend.i229, align 8
-  %cmp.i230 = icmp slt i32 %inc.i228, %157
+  %160 = load i32, ptr %m_rng_xend.i229, align 8
+  %cmp.i230 = icmp slt i32 %inc.i228, %160
   br i1 %cmp.i230, label %if.then.i247, label %if.else.i231
 
 if.then.i247:                                     ; preds = %invoke.cont67
-  %158 = load i8, ptr %m_exists.i248, align 1
-  %159 = and i8 %158, 1
-  %tobool.not.i249 = icmp eq i8 %159, 0
+  %161 = load i8, ptr %m_exists.i248, align 1
+  %162 = and i8 %161, 1
+  %tobool.not.i249 = icmp eq i8 %162, 0
   br i1 %tobool.not.i249, label %if.then.if.end13_crit_edge.i251, label %if.then2.i250
 
 if.then.if.end13_crit_edge.i251:                  ; preds = %if.then.i247
   %.pre.i253 = load i32, ptr %m_y.i233, align 8
-  %.pre382 = load i32, ptr %m_z.i239, align 4
+  %.pre398 = load i32, ptr %m_z.i239, align 4
   br label %if.end13.i245
 
 if.then2.i250:                                    ; preds = %if.then.i247
@@ -11311,23 +11327,23 @@ if.then2.i250:                                    ; preds = %if.then.i247
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i231:                                     ; preds = %invoke.cont67
-  %160 = load i32, ptr %m_rng_xbegin.i232, align 4
-  store i32 %160, ptr %m_x.i227, align 4
-  %161 = load i32, ptr %m_y.i233, align 8
-  %inc4.i234 = add nsw i32 %161, 1
+  %163 = load i32, ptr %m_rng_xbegin.i232, align 4
+  store i32 %163, ptr %m_x.i227, align 4
+  %164 = load i32, ptr %m_y.i233, align 8
+  %inc4.i234 = add nsw i32 %164, 1
   store i32 %inc4.i234, ptr %m_y.i233, align 8
-  %162 = load i32, ptr %m_rng_yend.i235, align 8
-  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %162
-  %.pre383 = load i32, ptr %m_z.i239, align 4
+  %165 = load i32, ptr %m_rng_yend.i235, align 8
+  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %165
+  %.pre399 = load i32, ptr %m_z.i239, align 4
   br i1 %cmp5.not.i236, label %if.end13.i245, label %if.then6.i237
 
 if.then6.i237:                                    ; preds = %if.else.i231
-  %163 = load i32, ptr %m_rng_ybegin.i238, align 4
-  store i32 %163, ptr %m_y.i233, align 8
-  %inc8.i240 = add nsw i32 %.pre383, 1
+  %166 = load i32, ptr %m_rng_ybegin.i238, align 4
+  store i32 %166, ptr %m_y.i233, align 8
+  %inc8.i240 = add nsw i32 %.pre399, 1
   store i32 %inc8.i240, ptr %m_z.i239, align 4
-  %164 = load i32, ptr %m_rng_zend.i241, align 8
-  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %164
+  %167 = load i32, ptr %m_rng_zend.i241, align 8
+  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %167
   br i1 %cmp9.not.i242, label %if.end13.i245, label %if.then10.i243
 
 if.then10.i243:                                   ; preds = %if.then6.i237
@@ -11335,47 +11351,47 @@ if.then10.i243:                                   ; preds = %if.then6.i237
   br label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256
 
 if.end13.i245:                                    ; preds = %if.then6.i237, %if.else.i231, %if.then.if.end13_crit_edge.i251
-  %165 = phi i32 [ %.pre383, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre382, %if.then.if.end13_crit_edge.i251 ]
-  %166 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %163, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
-  %167 = phi i32 [ %160, %if.else.i231 ], [ %160, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %167, i32 noundef %166, i32 noundef %165)
+  %168 = phi i32 [ %.pre399, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre398, %if.then.if.end13_crit_edge.i251 ]
+  %169 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %166, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
+  %170 = phi i32 [ %163, %if.else.i231 ], [ %163, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %170, i32 noundef %169, i32 noundef %168)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256: ; preds = %if.end13.i245, %if.then2.i250, %if.then10.i243
-  %exitcond377.not = icmp eq i32 %inc66, 4096
-  br i1 %exitcond377.not, label %if.end.loopexit282, label %land.rhs39
+  %exitcond393.not = icmp eq i32 %inc66, 4096
+  br i1 %exitcond393.not, label %if.end.loopexit296, label %land.rhs39
 
-if.end.loopexit282:                               ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133
-  %batch_sqrerror.4.lcssa = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batch_sqrerror.4321, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
-  %batcherror.4.lcssa = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batcherror.4322, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
-  %maxval.5.lcssa = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.5323, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
+if.end.loopexit296:                               ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133
+  %batch_sqrerror.4.lcssa = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batch_sqrerror.4337, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
+  %batcherror.4.lcssa = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batcherror.4338, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
+  %maxval.5.lcssa = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.5339, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
   %add = fadd double %totalerror.0, %batcherror.4.lcssa
   %add70 = fadd double %totalsqrerror.0, %batch_sqrerror.4.lcssa
   br label %for.cond, !llvm.loop !49
 
 for.end71:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us
-  %.us-phi360 = phi float [ %maxval.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %maxval.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
-  %.us-phi361 = phi double [ %totalsqrerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalsqrerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
-  %.us-phi362 = phi double [ %totalerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
+  %.us-phi376 = phi float [ %maxval.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %maxval.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
+  %.us-phi377 = phi double [ %totalsqrerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalsqrerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
+  %.us-phi378 = phi double [ %totalerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
   %conv = sext i32 %sub.i to i64
   %mul = mul i64 %cond.i, %conv
   %conv72 = uitofp i64 %mul to double
-  %div = fdiv double %.us-phi362, %conv72
+  %div = fdiv double %.us-phi378, %conv72
   store double %div, ptr %result, align 8
-  %div74 = fdiv double %.us-phi361, %conv72
-  %168 = call double @llvm.sqrt.f64(double %div74)
+  %div74 = fdiv double %.us-phi377, %conv72
+  %171 = call double @llvm.sqrt.f64(double %div74)
   %rms_error = getelementptr inbounds i8, ptr %result, i64 8
-  store double %168, ptr %rms_error, align 8
-  %conv75 = fpext float %.us-phi360 to double
-  %div77 = fdiv double %conv75, %168
-  %169 = call double @llvm.log10.f64(double %div77)
-  %mul78 = fmul double %169, 2.000000e+01
+  store double %171, ptr %rms_error, align 8
+  %conv75 = fpext float %.us-phi376 to double
+  %div77 = fdiv double %conv75, %171
+  %172 = call double @llvm.log10.f64(double %div77)
+  %mul78 = fmul double %172, 2.000000e+01
   %PSNR = getelementptr inbounds i8, ptr %result, i64 16
   store double %mul78, ptr %PSNR, align 8
-  %170 = load i64, ptr %nfail, align 8
+  %173 = load i64, ptr %nfail, align 8
   %m_tile.i.i257 = getelementptr inbounds i8, ptr %b, i64 72
-  %171 = load ptr, ptr %m_tile.i.i257, align 8
-  %tobool.not.i.i258 = icmp eq ptr %171, null
+  %174 = load ptr, ptr %m_tile.i.i257, align 8
+  %tobool.not.i.i258 = icmp eq ptr %174, null
   br i1 %tobool.not.i.i258, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit261, label %if.then.i.i259
 
 if.then.i.i259:                                   ; preds = %for.end71
@@ -11383,16 +11399,16 @@ if.then.i.i259:                                   ; preds = %for.end71
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit261 unwind label %terminate.lpad.i.i260
 
 terminate.lpad.i.i260:                            ; preds = %if.then.i.i259
-  %172 = landingpad { ptr, i32 }
+  %175 = landingpad { ptr, i32 }
           catch ptr null
-  %173 = extractvalue { ptr, i32 } %172, 0
-  call void @__clang_call_terminate(ptr %173) #25
+  %176 = extractvalue { ptr, i32 } %175, 0
+  call void @__clang_call_terminate(ptr %176) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit261: ; preds = %for.end71, %if.then.i.i259
   %m_tile.i.i262 = getelementptr inbounds i8, ptr %a, i64 72
-  %174 = load ptr, ptr %m_tile.i.i262, align 8
-  %tobool.not.i.i263 = icmp eq ptr %174, null
+  %177 = load ptr, ptr %m_tile.i.i262, align 8
+  %tobool.not.i.i263 = icmp eq ptr %177, null
   br i1 %tobool.not.i.i263, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit, label %if.then.i.i264
 
 if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit261
@@ -11400,21 +11416,21 @@ if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit unwind label %terminate.lpad.i.i265
 
 terminate.lpad.i.i265:                            ; preds = %if.then.i.i264
-  %175 = landingpad { ptr, i32 }
+  %178 = landingpad { ptr, i32 }
           catch ptr null
-  %176 = extractvalue { ptr, i32 } %175, 0
-  call void @__clang_call_terminate(ptr %176) #25
+  %179 = extractvalue { ptr, i32 } %178, 0
+  call void @__clang_call_terminate(ptr %179) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit261, %if.then.i.i264
-  %cmp80 = icmp eq i64 %170, 0
+  %cmp80 = icmp eq i64 %173, 0
   ret i1 %cmp80
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %99, %lpad ], [ %lpad.phi, %lpad4 ], [ %lpad.phi, %if.then.i.i ]
   %m_tile.i.i266 = getelementptr inbounds i8, ptr %a, i64 72
-  %177 = load ptr, ptr %m_tile.i.i266, align 8
-  %tobool.not.i.i267 = icmp eq ptr %177, null
+  %180 = load ptr, ptr %m_tile.i.i266, align 8
+  %tobool.not.i.i267 = icmp eq ptr %180, null
   br i1 %tobool.not.i.i267, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit270, label %if.then.i.i268
 
 if.then.i.i268:                                   ; preds = %ehcleanup
@@ -11422,10 +11438,10 @@ if.then.i.i268:                                   ; preds = %ehcleanup
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit270 unwind label %terminate.lpad.i.i269
 
 terminate.lpad.i.i269:                            ; preds = %if.then.i.i268
-  %178 = landingpad { ptr, i32 }
+  %181 = landingpad { ptr, i32 }
           catch ptr null
-  %179 = extractvalue { ptr, i32 } %178, 0
-  call void @__clang_call_terminate(ptr %179) #25
+  %182 = extractvalue { ptr, i32 } %181, 0
+  call void @__clang_call_terminate(ptr %182) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit270: ; preds = %ehcleanup, %if.then.i.i268
@@ -12000,9 +12016,9 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %maxval.6316 = phi float [ %maxval.5325, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %batcherror.5315 = phi double [ %batcherror.4324, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %batch_sqrerror.5314 = phi double [ %batch_sqrerror.4323, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %142, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %141, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %140, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %140, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %139, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %138, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %cmp52 = icmp slt i64 %indvars.iv, %8
   br i1 %cmp52, label %cond.true, label %cond.end
 
@@ -12027,52 +12043,50 @@ cond.true56:                                      ; preds = %cond.end
 
 cond.end60:                                       ; preds = %cond.true56, %cond.end
   %cond61 = phi float [ %mul.i.i.i138, %cond.true56 ], [ 0.000000e+00, %cond.end ]
-  %122 = call float @llvm.fabs.f32(float %cond)
-  %123 = fcmp one float %122, 0x7FF0000000000000
-  %124 = call float @llvm.fabs.f32(float %cond61)
-  %125 = fcmp one float %124, 0x7FF0000000000000
-  %or.cond54.i139 = and i1 %123, %125
+  %122 = fcmp one float %cond, 0x7FF0000000000000
+  %123 = fcmp one float %cond61, 0x7FF0000000000000
+  %or.cond54.i139 = and i1 %122, %123
   br i1 %or.cond54.i139, label %if.end20.i152, label %if.then.i140
 
 if.then.i140:                                     ; preds = %cond.end60
-  %126 = fcmp oeq float %122, 0x7FF0000000000000
-  %127 = fcmp oeq float %124, 0x7FF0000000000000
-  %128 = xor i1 %126, %127
-  br i1 %128, label %if.end.i142, label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
+  %124 = fcmp oeq float %cond, 0x7FF0000000000000
+  %125 = fcmp oeq float %cond61, 0x7FF0000000000000
+  %126 = xor i1 %124, %125
+  br i1 %126, label %if.end.i142, label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
 
 if.end.i142:                                      ; preds = %if.then.i140
-  %129 = call double @llvm.fabs.f64(double %117)
-  %130 = fcmp ueq double %129, 0x7FF0000000000000
-  br i1 %130, label %if.end20.i152, label %if.then12.i144
+  %127 = call double @llvm.fabs.f64(double %117)
+  %128 = fcmp ueq double %127, 0x7FF0000000000000
+  br i1 %128, label %if.end20.i152, label %if.then12.i144
 
 if.then12.i144:                                   ; preds = %if.end.i142
   store double 0x7FF0000000000000, ptr %maxerror, align 8
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %131 = trunc i64 %indvars.iv to i32
-  store i32 %131, ptr %maxc, align 4
+  %129 = trunc i64 %indvars.iv to i32
+  store i32 %129, ptr %maxc, align 4
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
 
 if.end20.i152:                                    ; preds = %if.end.i142, %cond.end60
-  %conv.i.i153 = fpext float %122 to double
-  %conv1.i.i154 = fpext float %124 to double
+  %conv.i.i153 = fpext float %cond to double
+  %conv1.i.i154 = fpext float %cond61 to double
   %mul2.i.i155 = fmul double %conv1.i.i154, 5.000000e-01
-  %132 = call double @llvm.fmuladd.f64(double %conv.i.i153, double 5.000000e-01, double %mul2.i.i155)
-  %conv3.i.i156 = fptrunc double %132 to float
-  %cmp.i.i157 = fcmp olt float %122, %124
-  %.sroa.speculated51.i158 = select i1 %cmp.i.i157, float %124, float %122
+  %130 = call double @llvm.fmuladd.f64(double %conv.i.i153, double 5.000000e-01, double %mul2.i.i155)
+  %conv3.i.i156 = fptrunc double %130 to float
+  %cmp.i.i157 = fcmp olt float %cond, %cond61
+  %.sroa.speculated51.i158 = select i1 %cmp.i.i157, float %cond61, float %cond
   %cmp.i45.i159 = fcmp olt float %maxval.6316, %.sroa.speculated51.i158
   %.sroa.speculated.i160 = select i1 %cmp.i45.i159, float %.sroa.speculated51.i158, float %maxval.6316
   %sub.i161 = fsub float %cond, %cond61
-  %133 = call noundef float @llvm.fabs.f32(float %sub.i161)
-  %conv27.i162 = fpext float %133 to double
+  %131 = call noundef float @llvm.fabs.f32(float %sub.i161)
+  %conv27.i162 = fpext float %131 to double
   %conv28.i163 = fpext float %conv3.i.i156 to double
   %cmp29.i164 = fcmp ogt float %conv3.i.i156, 0.000000e+00
   %div.i165 = fdiv double %conv27.i162, %conv28.i163
   %cond.i166 = select i1 %cmp29.i164, double %div.i165, double 0.000000e+00
   %add.i167 = fadd double %batcherror.5315, %conv27.i162
-  %134 = call double @llvm.fmuladd.f64(double %conv27.i162, double %conv27.i162, double %batch_sqrerror.5314)
+  %132 = call double @llvm.fmuladd.f64(double %conv27.i162, double %conv27.i162, double %batch_sqrerror.5314)
   %cmp32.i169 = fcmp ult double %117, %conv27.i162
   br i1 %cmp32.i169, label %if.then33.i190, label %if.end42.i170
 
@@ -12081,15 +12095,15 @@ if.then33.i190:                                   ; preds = %if.end20.i152
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %135 = trunc i64 %indvars.iv to i32
-  store i32 %135, ptr %maxc, align 4
+  %133 = trunc i64 %indvars.iv to i32
+  store i32 %133, ptr %maxc, align 4
   br label %if.end42.i170
 
 if.end42.i170:                                    ; preds = %if.then33.i190, %if.end20.i152
-  %136 = phi double [ %conv27.i162, %if.then33.i190 ], [ %117, %if.end20.i152 ]
-  %137 = and i8 %warned44.0317, 1
-  %tobool.not.i171 = icmp eq i8 %137, 0
-  %cmp45.i172 = fcmp ugt float %133, %warnthresh
+  %134 = phi double [ %conv27.i162, %if.then33.i190 ], [ %117, %if.end20.i152 ]
+  %135 = and i8 %warned44.0317, 1
+  %tobool.not.i171 = icmp eq i8 %135, 0
+  %cmp45.i172 = fcmp ugt float %131, %warnthresh
   %or.cond.i173 = and i1 %tobool.not.i171, %cmp45.i172
   %cmp48.i175 = fcmp ugt double %cond.i166, %conv47.i174
   %or.cond42.i176 = select i1 %or.cond.i173, i1 %cmp48.i175, i1 false
@@ -12101,11 +12115,11 @@ if.then49.i187:                                   ; preds = %if.end42.i170
   br label %if.end50.i177
 
 if.end50.i177:                                    ; preds = %if.then49.i187, %if.end42.i170
-  %138 = phi i64 [ %inc.i189, %if.then49.i187 ], [ %118, %if.end42.i170 ]
+  %136 = phi i64 [ %inc.i189, %if.then49.i187 ], [ %118, %if.end42.i170 ]
   %warned44.1 = phi i8 [ 1, %if.then49.i187 ], [ %warned44.0317, %if.end42.i170 ]
-  %139 = and i8 %failed45.0318, 1
-  %tobool51.not.i178 = icmp eq i8 %139, 0
-  %cmp54.i179 = fcmp ugt float %133, %failthresh
+  %137 = and i8 %failed45.0318, 1
+  %tobool51.not.i178 = icmp eq i8 %137, 0
+  %cmp54.i179 = fcmp ugt float %131, %failthresh
   %or.cond43.i180 = and i1 %tobool51.not.i178, %cmp54.i179
   %cmp57.i182 = fcmp ugt double %cond.i166, %conv56.i181
   %or.cond44.i183 = select i1 %or.cond43.i180, i1 %cmp57.i182, i1 false
@@ -12117,10 +12131,10 @@ if.then58.i184:                                   ; preds = %if.end50.i177
   br label %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
 
 _ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198: ; preds = %if.then.i140, %if.then12.i144, %if.end50.i177, %if.then58.i184
-  %140 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %119, %if.end50.i177 ], [ %119, %if.then12.i144 ], [ %119, %if.then.i140 ]
-  %141 = phi i64 [ %138, %if.then58.i184 ], [ %138, %if.end50.i177 ], [ %118, %if.then12.i144 ], [ %118, %if.then.i140 ]
-  %142 = phi double [ %136, %if.then58.i184 ], [ %136, %if.end50.i177 ], [ 0x7FF0000000000000, %if.then12.i144 ], [ %117, %if.then.i140 ]
-  %batch_sqrerror.6 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i177 ], [ %batch_sqrerror.5314, %if.then12.i144 ], [ %batch_sqrerror.5314, %if.then.i140 ]
+  %138 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %119, %if.end50.i177 ], [ %119, %if.then12.i144 ], [ %119, %if.then.i140 ]
+  %139 = phi i64 [ %136, %if.then58.i184 ], [ %136, %if.end50.i177 ], [ %118, %if.then12.i144 ], [ %118, %if.then.i140 ]
+  %140 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i177 ], [ 0x7FF0000000000000, %if.then12.i144 ], [ %117, %if.then.i140 ]
+  %batch_sqrerror.6 = phi double [ %132, %if.then58.i184 ], [ %132, %if.end50.i177 ], [ %batch_sqrerror.5314, %if.then12.i144 ], [ %batch_sqrerror.5314, %if.then.i140 ]
   %batcherror.6 = phi double [ %add.i167, %if.then58.i184 ], [ %add.i167, %if.end50.i177 ], [ %batcherror.5315, %if.then12.i144 ], [ %batcherror.5315, %if.then.i140 ]
   %maxval.7 = phi float [ %.sroa.speculated.i160, %if.then58.i184 ], [ %.sroa.speculated.i160, %if.end50.i177 ], [ %maxval.6316, %if.then12.i144 ], [ %maxval.6316, %if.then.i140 ]
   %warned44.2 = phi i8 [ %warned44.1, %if.then58.i184 ], [ %warned44.1, %if.end50.i177 ], [ %warned44.0317, %if.then12.i144 ], [ %warned44.0317, %if.then.i140 ]
@@ -12135,14 +12149,14 @@ for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2
   %maxval.6.lcssa = phi float [ %maxval.5325, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueIhfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %inc.i200 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i200, ptr %m_x.i, align 4
-  %143 = load i32, ptr %m_rng_xend.i201, align 8
-  %cmp.i202 = icmp slt i32 %inc.i200, %143
+  %141 = load i32, ptr %m_rng_xend.i201, align 8
+  %cmp.i202 = icmp slt i32 %inc.i200, %141
   br i1 %cmp.i202, label %if.then.i219, label %if.else.i203
 
 if.then.i219:                                     ; preds = %for.inc65
-  %144 = load i8, ptr %m_exists.i220, align 1
-  %145 = and i8 %144, 1
-  %tobool.not.i221 = icmp eq i8 %145, 0
+  %142 = load i8, ptr %m_exists.i220, align 1
+  %143 = and i8 %142, 1
+  %tobool.not.i221 = icmp eq i8 %143, 0
   br i1 %tobool.not.i221, label %if.then.if.end13_crit_edge.i223, label %if.then2.i222
 
 if.then.if.end13_crit_edge.i223:                  ; preds = %if.then.i219
@@ -12155,23 +12169,23 @@ if.then2.i222:                                    ; preds = %if.then.i219
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i203:                                     ; preds = %for.inc65
-  %146 = load i32, ptr %m_rng_xbegin.i, align 4
-  store i32 %146, ptr %m_x.i, align 4
-  %147 = load i32, ptr %m_y.i, align 8
-  %inc4.i206 = add nsw i32 %147, 1
+  %144 = load i32, ptr %m_rng_xbegin.i, align 4
+  store i32 %144, ptr %m_x.i, align 4
+  %145 = load i32, ptr %m_y.i, align 8
+  %inc4.i206 = add nsw i32 %145, 1
   store i32 %inc4.i206, ptr %m_y.i, align 8
-  %148 = load i32, ptr %m_rng_yend.i207, align 8
-  %cmp5.not.i208 = icmp slt i32 %inc4.i206, %148
+  %146 = load i32, ptr %m_rng_yend.i207, align 8
+  %cmp5.not.i208 = icmp slt i32 %inc4.i206, %146
   %.pre383 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i208, label %if.end13.i217, label %if.then6.i209
 
 if.then6.i209:                                    ; preds = %if.else.i203
-  %149 = load i32, ptr %m_rng_ybegin.i, align 4
-  store i32 %149, ptr %m_y.i, align 8
+  %147 = load i32, ptr %m_rng_ybegin.i, align 4
+  store i32 %147, ptr %m_y.i, align 8
   %inc8.i212 = add nsw i32 %.pre383, 1
   store i32 %inc8.i212, ptr %m_z.i, align 4
-  %150 = load i32, ptr %m_rng_zend.i, align 8
-  %cmp9.not.i214 = icmp slt i32 %inc8.i212, %150
+  %148 = load i32, ptr %m_rng_zend.i, align 8
+  %cmp9.not.i214 = icmp slt i32 %inc8.i212, %148
   br i1 %cmp9.not.i214, label %if.end13.i217, label %if.then10.i215
 
 if.then10.i215:                                   ; preds = %if.then6.i209
@@ -12179,25 +12193,25 @@ if.then10.i215:                                   ; preds = %if.then6.i209
   br label %invoke.cont67
 
 if.end13.i217:                                    ; preds = %if.then6.i209, %if.else.i203, %if.then.if.end13_crit_edge.i223
-  %151 = phi i32 [ %.pre383, %if.else.i203 ], [ %inc8.i212, %if.then6.i209 ], [ %.pre382, %if.then.if.end13_crit_edge.i223 ]
-  %152 = phi i32 [ %inc4.i206, %if.else.i203 ], [ %149, %if.then6.i209 ], [ %.pre.i225, %if.then.if.end13_crit_edge.i223 ]
-  %153 = phi i32 [ %146, %if.else.i203 ], [ %146, %if.then6.i209 ], [ %inc.i200, %if.then.if.end13_crit_edge.i223 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %153, i32 noundef %152, i32 noundef %151)
+  %149 = phi i32 [ %.pre383, %if.else.i203 ], [ %inc8.i212, %if.then6.i209 ], [ %.pre382, %if.then.if.end13_crit_edge.i223 ]
+  %150 = phi i32 [ %inc4.i206, %if.else.i203 ], [ %147, %if.then6.i209 ], [ %.pre.i225, %if.then.if.end13_crit_edge.i223 ]
+  %151 = phi i32 [ %144, %if.else.i203 ], [ %144, %if.then6.i209 ], [ %inc.i200, %if.then.if.end13_crit_edge.i223 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %151, i32 noundef %150, i32 noundef %149)
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont67:                                    ; preds = %if.then10.i215, %if.then2.i222, %if.end13.i217
   %inc66 = add nuw nsw i32 %i36.0326, 1
-  %154 = load i32, ptr %m_x.i229, align 4
-  %inc.i230 = add nsw i32 %154, 1
+  %152 = load i32, ptr %m_x.i229, align 4
+  %inc.i230 = add nsw i32 %152, 1
   store i32 %inc.i230, ptr %m_x.i229, align 4
-  %155 = load i32, ptr %m_rng_xend.i231, align 8
-  %cmp.i232 = icmp slt i32 %inc.i230, %155
+  %153 = load i32, ptr %m_rng_xend.i231, align 8
+  %cmp.i232 = icmp slt i32 %inc.i230, %153
   br i1 %cmp.i232, label %if.then.i249, label %if.else.i233
 
 if.then.i249:                                     ; preds = %invoke.cont67
-  %156 = load i8, ptr %m_exists.i250, align 1
-  %157 = and i8 %156, 1
-  %tobool.not.i251 = icmp eq i8 %157, 0
+  %154 = load i8, ptr %m_exists.i250, align 1
+  %155 = and i8 %154, 1
+  %tobool.not.i251 = icmp eq i8 %155, 0
   br i1 %tobool.not.i251, label %if.then.if.end13_crit_edge.i253, label %if.then2.i252
 
 if.then.if.end13_crit_edge.i253:                  ; preds = %if.then.i249
@@ -12210,23 +12224,23 @@ if.then2.i252:                                    ; preds = %if.then.i249
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i233:                                     ; preds = %invoke.cont67
-  %158 = load i32, ptr %m_rng_xbegin.i234, align 4
-  store i32 %158, ptr %m_x.i229, align 4
-  %159 = load i32, ptr %m_y.i235, align 8
-  %inc4.i236 = add nsw i32 %159, 1
+  %156 = load i32, ptr %m_rng_xbegin.i234, align 4
+  store i32 %156, ptr %m_x.i229, align 4
+  %157 = load i32, ptr %m_y.i235, align 8
+  %inc4.i236 = add nsw i32 %157, 1
   store i32 %inc4.i236, ptr %m_y.i235, align 8
-  %160 = load i32, ptr %m_rng_yend.i237, align 8
-  %cmp5.not.i238 = icmp slt i32 %inc4.i236, %160
+  %158 = load i32, ptr %m_rng_yend.i237, align 8
+  %cmp5.not.i238 = icmp slt i32 %inc4.i236, %158
   %.pre385 = load i32, ptr %m_z.i241, align 4
   br i1 %cmp5.not.i238, label %if.end13.i247, label %if.then6.i239
 
 if.then6.i239:                                    ; preds = %if.else.i233
-  %161 = load i32, ptr %m_rng_ybegin.i240, align 4
-  store i32 %161, ptr %m_y.i235, align 8
+  %159 = load i32, ptr %m_rng_ybegin.i240, align 4
+  store i32 %159, ptr %m_y.i235, align 8
   %inc8.i242 = add nsw i32 %.pre385, 1
   store i32 %inc8.i242, ptr %m_z.i241, align 4
-  %162 = load i32, ptr %m_rng_zend.i243, align 8
-  %cmp9.not.i244 = icmp slt i32 %inc8.i242, %162
+  %160 = load i32, ptr %m_rng_zend.i243, align 8
+  %cmp9.not.i244 = icmp slt i32 %inc8.i242, %160
   br i1 %cmp9.not.i244, label %if.end13.i247, label %if.then10.i245
 
 if.then10.i245:                                   ; preds = %if.then6.i239
@@ -12234,10 +12248,10 @@ if.then10.i245:                                   ; preds = %if.then6.i239
   br label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258
 
 if.end13.i247:                                    ; preds = %if.then6.i239, %if.else.i233, %if.then.if.end13_crit_edge.i253
-  %163 = phi i32 [ %.pre385, %if.else.i233 ], [ %inc8.i242, %if.then6.i239 ], [ %.pre384, %if.then.if.end13_crit_edge.i253 ]
-  %164 = phi i32 [ %inc4.i236, %if.else.i233 ], [ %161, %if.then6.i239 ], [ %.pre.i255, %if.then.if.end13_crit_edge.i253 ]
-  %165 = phi i32 [ %158, %if.else.i233 ], [ %158, %if.then6.i239 ], [ %inc.i230, %if.then.if.end13_crit_edge.i253 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %165, i32 noundef %164, i32 noundef %163)
+  %161 = phi i32 [ %.pre385, %if.else.i233 ], [ %inc8.i242, %if.then6.i239 ], [ %.pre384, %if.then.if.end13_crit_edge.i253 ]
+  %162 = phi i32 [ %inc4.i236, %if.else.i233 ], [ %159, %if.then6.i239 ], [ %.pre.i255, %if.then.if.end13_crit_edge.i253 ]
+  %163 = phi i32 [ %156, %if.else.i233 ], [ %156, %if.then6.i239 ], [ %inc.i230, %if.then.if.end13_crit_edge.i253 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %163, i32 noundef %162, i32 noundef %161)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258: ; preds = %if.end13.i247, %if.then2.i252, %if.then10.i245
@@ -12262,19 +12276,19 @@ for.end71:                                        ; preds = %_ZNK18OpenImageIO_v
   %div = fdiv double %.us-phi364, %conv72
   store double %div, ptr %result, align 8
   %div74 = fdiv double %.us-phi363, %conv72
-  %166 = call double @llvm.sqrt.f64(double %div74)
+  %164 = call double @llvm.sqrt.f64(double %div74)
   %rms_error = getelementptr inbounds i8, ptr %result, i64 8
-  store double %166, ptr %rms_error, align 8
+  store double %164, ptr %rms_error, align 8
   %conv75 = fpext float %.us-phi362 to double
-  %div77 = fdiv double %conv75, %166
-  %167 = call double @llvm.log10.f64(double %div77)
-  %mul78 = fmul double %167, 2.000000e+01
+  %div77 = fdiv double %conv75, %164
+  %165 = call double @llvm.log10.f64(double %div77)
+  %mul78 = fmul double %165, 2.000000e+01
   %PSNR = getelementptr inbounds i8, ptr %result, i64 16
   store double %mul78, ptr %PSNR, align 8
-  %168 = load i64, ptr %nfail, align 8
+  %166 = load i64, ptr %nfail, align 8
   %m_tile.i.i259 = getelementptr inbounds i8, ptr %b, i64 72
-  %169 = load ptr, ptr %m_tile.i.i259, align 8
-  %tobool.not.i.i260 = icmp eq ptr %169, null
+  %167 = load ptr, ptr %m_tile.i.i259, align 8
+  %tobool.not.i.i260 = icmp eq ptr %167, null
   br i1 %tobool.not.i.i260, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit263, label %if.then.i.i261
 
 if.then.i.i261:                                   ; preds = %for.end71
@@ -12282,16 +12296,16 @@ if.then.i.i261:                                   ; preds = %for.end71
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit263 unwind label %terminate.lpad.i.i262
 
 terminate.lpad.i.i262:                            ; preds = %if.then.i.i261
-  %170 = landingpad { ptr, i32 }
+  %168 = landingpad { ptr, i32 }
           catch ptr null
-  %171 = extractvalue { ptr, i32 } %170, 0
-  call void @__clang_call_terminate(ptr %171) #25
+  %169 = extractvalue { ptr, i32 } %168, 0
+  call void @__clang_call_terminate(ptr %169) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit263: ; preds = %for.end71, %if.then.i.i261
   %m_tile.i.i264 = getelementptr inbounds i8, ptr %a, i64 72
-  %172 = load ptr, ptr %m_tile.i.i264, align 8
-  %tobool.not.i.i265 = icmp eq ptr %172, null
+  %170 = load ptr, ptr %m_tile.i.i264, align 8
+  %tobool.not.i.i265 = icmp eq ptr %170, null
   br i1 %tobool.not.i.i265, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit, label %if.then.i.i266
 
 if.then.i.i266:                                   ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit263
@@ -12299,21 +12313,21 @@ if.then.i.i266:                                   ; preds = %_ZN18OpenImageIO_v2
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit unwind label %terminate.lpad.i.i267
 
 terminate.lpad.i.i267:                            ; preds = %if.then.i.i266
-  %173 = landingpad { ptr, i32 }
+  %171 = landingpad { ptr, i32 }
           catch ptr null
-  %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #25
+  %172 = extractvalue { ptr, i32 } %171, 0
+  call void @__clang_call_terminate(ptr %172) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit263, %if.then.i.i266
-  %cmp80 = icmp eq i64 %168, 0
+  %cmp80 = icmp eq i64 %166, 0
   ret i1 %cmp80
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %99, %lpad ], [ %lpad.phi, %lpad4 ], [ %lpad.phi, %if.then.i.i ]
   %m_tile.i.i268 = getelementptr inbounds i8, ptr %a, i64 72
-  %175 = load ptr, ptr %m_tile.i.i268, align 8
-  %tobool.not.i.i269 = icmp eq ptr %175, null
+  %173 = load ptr, ptr %m_tile.i.i268, align 8
+  %tobool.not.i.i269 = icmp eq ptr %173, null
   br i1 %tobool.not.i.i269, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit272, label %if.then.i.i270
 
 if.then.i.i270:                                   ; preds = %ehcleanup
@@ -12321,10 +12335,10 @@ if.then.i.i270:                                   ; preds = %ehcleanup
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit272 unwind label %terminate.lpad.i.i271
 
 terminate.lpad.i.i271:                            ; preds = %if.then.i.i270
-  %176 = landingpad { ptr, i32 }
+  %174 = landingpad { ptr, i32 }
           catch ptr null
-  %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #25
+  %175 = extractvalue { ptr, i32 } %174, 0
+  call void @__clang_call_terminate(ptr %175) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit272: ; preds = %ehcleanup, %if.then.i.i270
@@ -13803,9 +13817,9 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %maxval.6314 = phi float [ %maxval.5323, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
   %batcherror.5313 = phi double [ %batcherror.4322, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
   %batch_sqrerror.5312 = phi double [ %batch_sqrerror.4321, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
-  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %144, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
-  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %143, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
-  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %142, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
+  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %143, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
+  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %142, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
+  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %141, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
   %cmp52 = icmp slt i64 %indvars.iv, %8
   br i1 %cmp52, label %cond.true, label %cond.end
 
@@ -13833,54 +13847,53 @@ cond.end60:                                       ; preds = %cond.true56, %cond.
   %cond61 = phi float [ %mul.i.i.i, %cond.true56 ], [ 0.000000e+00, %cond.end ]
   %123 = call float @llvm.fabs.f32(float %cond)
   %124 = fcmp one float %123, 0x7FF0000000000000
-  %125 = call float @llvm.fabs.f32(float %cond61)
-  %126 = fcmp one float %125, 0x7FF0000000000000
-  %or.cond54.i137 = and i1 %124, %126
+  %125 = fcmp one float %cond61, 0x7FF0000000000000
+  %or.cond54.i137 = and i1 %124, %125
   br i1 %or.cond54.i137, label %if.end20.i150, label %if.then.i138
 
 if.then.i138:                                     ; preds = %cond.end60
-  %127 = fcmp uno float %cond, 0.000000e+00
-  br i1 %127, label %if.end.i140, label %land.lhs.true.i139
+  %126 = fcmp uno float %cond, 0.000000e+00
+  br i1 %126, label %if.end.i140, label %land.lhs.true.i139
 
 land.lhs.true.i139:                               ; preds = %if.then.i138
-  %128 = fcmp oeq float %123, 0x7FF0000000000000
-  %129 = fcmp oeq float %125, 0x7FF0000000000000
-  %130 = xor i1 %128, %129
-  br i1 %130, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196
+  %127 = fcmp oeq float %123, 0x7FF0000000000000
+  %128 = fcmp oeq float %cond61, 0x7FF0000000000000
+  %129 = xor i1 %127, %128
+  br i1 %129, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196
 
 if.end.i140:                                      ; preds = %land.lhs.true.i139, %if.then.i138
-  %131 = call double @llvm.fabs.f64(double %117)
-  %132 = fcmp ueq double %131, 0x7FF0000000000000
-  br i1 %132, label %if.end20.i150, label %if.then12.i142
+  %130 = call double @llvm.fabs.f64(double %117)
+  %131 = fcmp ueq double %130, 0x7FF0000000000000
+  br i1 %131, label %if.end20.i150, label %if.then12.i142
 
 if.then12.i142:                                   ; preds = %if.end.i140
   store double 0x7FF0000000000000, ptr %maxerror, align 8
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %133 = trunc i64 %indvars.iv to i32
-  store i32 %133, ptr %maxc, align 4
+  %132 = trunc i64 %indvars.iv to i32
+  store i32 %132, ptr %maxc, align 4
   br label %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196
 
 if.end20.i150:                                    ; preds = %if.end.i140, %cond.end60
   %conv.i.i151 = fpext float %123 to double
-  %conv1.i.i152 = fpext float %125 to double
+  %conv1.i.i152 = fpext float %cond61 to double
   %mul2.i.i153 = fmul double %conv1.i.i152, 5.000000e-01
-  %134 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
-  %conv3.i.i154 = fptrunc double %134 to float
-  %cmp.i.i155 = fcmp olt float %123, %125
-  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %125, float %123
+  %133 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
+  %conv3.i.i154 = fptrunc double %133 to float
+  %cmp.i.i155 = fcmp olt float %123, %cond61
+  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %cond61, float %123
   %cmp.i45.i157 = fcmp olt float %maxval.6314, %.sroa.speculated51.i156
   %.sroa.speculated.i158 = select i1 %cmp.i45.i157, float %.sroa.speculated51.i156, float %maxval.6314
   %sub.i159 = fsub float %cond, %cond61
-  %135 = call noundef float @llvm.fabs.f32(float %sub.i159)
-  %conv27.i160 = fpext float %135 to double
+  %134 = call noundef float @llvm.fabs.f32(float %sub.i159)
+  %conv27.i160 = fpext float %134 to double
   %conv28.i161 = fpext float %conv3.i.i154 to double
   %cmp29.i162 = fcmp ogt float %conv3.i.i154, 0.000000e+00
   %div.i163 = fdiv double %conv27.i160, %conv28.i161
   %cond.i164 = select i1 %cmp29.i162, double %div.i163, double 0.000000e+00
   %add.i165 = fadd double %batcherror.5313, %conv27.i160
-  %136 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5312)
+  %135 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5312)
   %cmp32.i167 = fcmp ult double %117, %conv27.i160
   br i1 %cmp32.i167, label %if.then33.i188, label %if.end42.i168
 
@@ -13889,15 +13902,15 @@ if.then33.i188:                                   ; preds = %if.end20.i150
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %137 = trunc i64 %indvars.iv to i32
-  store i32 %137, ptr %maxc, align 4
+  %136 = trunc i64 %indvars.iv to i32
+  store i32 %136, ptr %maxc, align 4
   br label %if.end42.i168
 
 if.end42.i168:                                    ; preds = %if.then33.i188, %if.end20.i150
-  %138 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
-  %139 = and i8 %warned44.0315, 1
-  %tobool.not.i169 = icmp eq i8 %139, 0
-  %cmp45.i170 = fcmp ugt float %135, %warnthresh
+  %137 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
+  %138 = and i8 %warned44.0315, 1
+  %tobool.not.i169 = icmp eq i8 %138, 0
+  %cmp45.i170 = fcmp ugt float %134, %warnthresh
   %or.cond.i171 = and i1 %tobool.not.i169, %cmp45.i170
   %cmp48.i173 = fcmp ugt double %cond.i164, %conv47.i172
   %or.cond42.i174 = select i1 %or.cond.i171, i1 %cmp48.i173, i1 false
@@ -13909,11 +13922,11 @@ if.then49.i185:                                   ; preds = %if.end42.i168
   br label %if.end50.i175
 
 if.end50.i175:                                    ; preds = %if.then49.i185, %if.end42.i168
-  %140 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
+  %139 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
   %warned44.1 = phi i8 [ 1, %if.then49.i185 ], [ %warned44.0315, %if.end42.i168 ]
-  %141 = and i8 %failed45.0316, 1
-  %tobool51.not.i176 = icmp eq i8 %141, 0
-  %cmp54.i177 = fcmp ugt float %135, %failthresh
+  %140 = and i8 %failed45.0316, 1
+  %tobool51.not.i176 = icmp eq i8 %140, 0
+  %cmp54.i177 = fcmp ugt float %134, %failthresh
   %or.cond43.i178 = and i1 %tobool51.not.i176, %cmp54.i177
   %cmp57.i180 = fcmp ugt double %cond.i164, %conv56.i179
   %or.cond44.i181 = select i1 %or.cond43.i178, i1 %cmp57.i180, i1 false
@@ -13925,10 +13938,10 @@ if.then58.i182:                                   ; preds = %if.end50.i175
   br label %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196
 
 _ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196: ; preds = %land.lhs.true.i139, %if.then12.i142, %if.end50.i175, %if.then58.i182
-  %142 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ]
-  %143 = phi i64 [ %140, %if.then58.i182 ], [ %140, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ]
-  %144 = phi double [ %138, %if.then58.i182 ], [ %138, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %136, %if.then58.i182 ], [ %136, %if.end50.i175 ], [ %batch_sqrerror.5312, %if.then12.i142 ], [ %batch_sqrerror.5312, %land.lhs.true.i139 ]
+  %141 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ]
+  %142 = phi i64 [ %139, %if.then58.i182 ], [ %139, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ]
+  %143 = phi double [ %137, %if.then58.i182 ], [ %137, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ]
+  %batch_sqrerror.6 = phi double [ %135, %if.then58.i182 ], [ %135, %if.end50.i175 ], [ %batch_sqrerror.5312, %if.then12.i142 ], [ %batch_sqrerror.5312, %land.lhs.true.i139 ]
   %batcherror.6 = phi double [ %add.i165, %if.then58.i182 ], [ %add.i165, %if.end50.i175 ], [ %batcherror.5313, %if.then12.i142 ], [ %batcherror.5313, %land.lhs.true.i139 ]
   %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i182 ], [ %.sroa.speculated.i158, %if.end50.i175 ], [ %maxval.6314, %if.then12.i142 ], [ %maxval.6314, %land.lhs.true.i139 ]
   %warned44.2 = phi i8 [ %warned44.1, %if.then58.i182 ], [ %warned44.1, %if.end50.i175 ], [ %warned44.0315, %if.then12.i142 ], [ %warned44.0315, %land.lhs.true.i139 ]
@@ -13943,14 +13956,14 @@ for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2
   %maxval.6.lcssa = phi float [ %maxval.5323, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
   %inc.i198 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i198, ptr %m_x.i, align 4
-  %145 = load i32, ptr %m_rng_xend.i199, align 8
-  %cmp.i200 = icmp slt i32 %inc.i198, %145
+  %144 = load i32, ptr %m_rng_xend.i199, align 8
+  %cmp.i200 = icmp slt i32 %inc.i198, %144
   br i1 %cmp.i200, label %if.then.i217, label %if.else.i201
 
 if.then.i217:                                     ; preds = %for.inc65
-  %146 = load i8, ptr %m_exists.i218, align 1
-  %147 = and i8 %146, 1
-  %tobool.not.i219 = icmp eq i8 %147, 0
+  %145 = load i8, ptr %m_exists.i218, align 1
+  %146 = and i8 %145, 1
+  %tobool.not.i219 = icmp eq i8 %146, 0
   br i1 %tobool.not.i219, label %if.then.if.end13_crit_edge.i221, label %if.then2.i220
 
 if.then.if.end13_crit_edge.i221:                  ; preds = %if.then.i217
@@ -13963,23 +13976,23 @@ if.then2.i220:                                    ; preds = %if.then.i217
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i201:                                     ; preds = %for.inc65
-  %148 = load i32, ptr %m_rng_xbegin.i, align 4
-  store i32 %148, ptr %m_x.i, align 4
-  %149 = load i32, ptr %m_y.i, align 8
-  %inc4.i204 = add nsw i32 %149, 1
+  %147 = load i32, ptr %m_rng_xbegin.i, align 4
+  store i32 %147, ptr %m_x.i, align 4
+  %148 = load i32, ptr %m_y.i, align 8
+  %inc4.i204 = add nsw i32 %148, 1
   store i32 %inc4.i204, ptr %m_y.i, align 8
-  %150 = load i32, ptr %m_rng_yend.i205, align 8
-  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %150
+  %149 = load i32, ptr %m_rng_yend.i205, align 8
+  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %149
   %.pre381 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i206, label %if.end13.i215, label %if.then6.i207
 
 if.then6.i207:                                    ; preds = %if.else.i201
-  %151 = load i32, ptr %m_rng_ybegin.i, align 4
-  store i32 %151, ptr %m_y.i, align 8
+  %150 = load i32, ptr %m_rng_ybegin.i, align 4
+  store i32 %150, ptr %m_y.i, align 8
   %inc8.i210 = add nsw i32 %.pre381, 1
   store i32 %inc8.i210, ptr %m_z.i, align 4
-  %152 = load i32, ptr %m_rng_zend.i, align 8
-  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %152
+  %151 = load i32, ptr %m_rng_zend.i, align 8
+  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %151
   br i1 %cmp9.not.i212, label %if.end13.i215, label %if.then10.i213
 
 if.then10.i213:                                   ; preds = %if.then6.i207
@@ -13987,25 +14000,25 @@ if.then10.i213:                                   ; preds = %if.then6.i207
   br label %invoke.cont67
 
 if.end13.i215:                                    ; preds = %if.then6.i207, %if.else.i201, %if.then.if.end13_crit_edge.i221
-  %153 = phi i32 [ %.pre381, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre380, %if.then.if.end13_crit_edge.i221 ]
-  %154 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %151, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
-  %155 = phi i32 [ %148, %if.else.i201 ], [ %148, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %155, i32 noundef %154, i32 noundef %153)
+  %152 = phi i32 [ %.pre381, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre380, %if.then.if.end13_crit_edge.i221 ]
+  %153 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %150, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
+  %154 = phi i32 [ %147, %if.else.i201 ], [ %147, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %154, i32 noundef %153, i32 noundef %152)
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont67:                                    ; preds = %if.then10.i213, %if.then2.i220, %if.end13.i215
   %inc66 = add nuw nsw i32 %i36.0324, 1
-  %156 = load i32, ptr %m_x.i227, align 4
-  %inc.i228 = add nsw i32 %156, 1
+  %155 = load i32, ptr %m_x.i227, align 4
+  %inc.i228 = add nsw i32 %155, 1
   store i32 %inc.i228, ptr %m_x.i227, align 4
-  %157 = load i32, ptr %m_rng_xend.i229, align 8
-  %cmp.i230 = icmp slt i32 %inc.i228, %157
+  %156 = load i32, ptr %m_rng_xend.i229, align 8
+  %cmp.i230 = icmp slt i32 %inc.i228, %156
   br i1 %cmp.i230, label %if.then.i247, label %if.else.i231
 
 if.then.i247:                                     ; preds = %invoke.cont67
-  %158 = load i8, ptr %m_exists.i248, align 1
-  %159 = and i8 %158, 1
-  %tobool.not.i249 = icmp eq i8 %159, 0
+  %157 = load i8, ptr %m_exists.i248, align 1
+  %158 = and i8 %157, 1
+  %tobool.not.i249 = icmp eq i8 %158, 0
   br i1 %tobool.not.i249, label %if.then.if.end13_crit_edge.i251, label %if.then2.i250
 
 if.then.if.end13_crit_edge.i251:                  ; preds = %if.then.i247
@@ -14018,23 +14031,23 @@ if.then2.i250:                                    ; preds = %if.then.i247
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i231:                                     ; preds = %invoke.cont67
-  %160 = load i32, ptr %m_rng_xbegin.i232, align 4
-  store i32 %160, ptr %m_x.i227, align 4
-  %161 = load i32, ptr %m_y.i233, align 8
-  %inc4.i234 = add nsw i32 %161, 1
+  %159 = load i32, ptr %m_rng_xbegin.i232, align 4
+  store i32 %159, ptr %m_x.i227, align 4
+  %160 = load i32, ptr %m_y.i233, align 8
+  %inc4.i234 = add nsw i32 %160, 1
   store i32 %inc4.i234, ptr %m_y.i233, align 8
-  %162 = load i32, ptr %m_rng_yend.i235, align 8
-  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %162
+  %161 = load i32, ptr %m_rng_yend.i235, align 8
+  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %161
   %.pre383 = load i32, ptr %m_z.i239, align 4
   br i1 %cmp5.not.i236, label %if.end13.i245, label %if.then6.i237
 
 if.then6.i237:                                    ; preds = %if.else.i231
-  %163 = load i32, ptr %m_rng_ybegin.i238, align 4
-  store i32 %163, ptr %m_y.i233, align 8
+  %162 = load i32, ptr %m_rng_ybegin.i238, align 4
+  store i32 %162, ptr %m_y.i233, align 8
   %inc8.i240 = add nsw i32 %.pre383, 1
   store i32 %inc8.i240, ptr %m_z.i239, align 4
-  %164 = load i32, ptr %m_rng_zend.i241, align 8
-  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %164
+  %163 = load i32, ptr %m_rng_zend.i241, align 8
+  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %163
   br i1 %cmp9.not.i242, label %if.end13.i245, label %if.then10.i243
 
 if.then10.i243:                                   ; preds = %if.then6.i237
@@ -14042,10 +14055,10 @@ if.then10.i243:                                   ; preds = %if.then6.i237
   br label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256
 
 if.end13.i245:                                    ; preds = %if.then6.i237, %if.else.i231, %if.then.if.end13_crit_edge.i251
-  %165 = phi i32 [ %.pre383, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre382, %if.then.if.end13_crit_edge.i251 ]
-  %166 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %163, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
-  %167 = phi i32 [ %160, %if.else.i231 ], [ %160, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %167, i32 noundef %166, i32 noundef %165)
+  %164 = phi i32 [ %.pre383, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre382, %if.then.if.end13_crit_edge.i251 ]
+  %165 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %162, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
+  %166 = phi i32 [ %159, %if.else.i231 ], [ %159, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %166, i32 noundef %165, i32 noundef %164)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256: ; preds = %if.end13.i245, %if.then2.i250, %if.then10.i243
@@ -14070,19 +14083,19 @@ for.end71:                                        ; preds = %_ZNK18OpenImageIO_v
   %div = fdiv double %.us-phi362, %conv72
   store double %div, ptr %result, align 8
   %div74 = fdiv double %.us-phi361, %conv72
-  %168 = call double @llvm.sqrt.f64(double %div74)
+  %167 = call double @llvm.sqrt.f64(double %div74)
   %rms_error = getelementptr inbounds i8, ptr %result, i64 8
-  store double %168, ptr %rms_error, align 8
+  store double %167, ptr %rms_error, align 8
   %conv75 = fpext float %.us-phi360 to double
-  %div77 = fdiv double %conv75, %168
-  %169 = call double @llvm.log10.f64(double %div77)
-  %mul78 = fmul double %169, 2.000000e+01
+  %div77 = fdiv double %conv75, %167
+  %168 = call double @llvm.log10.f64(double %div77)
+  %mul78 = fmul double %168, 2.000000e+01
   %PSNR = getelementptr inbounds i8, ptr %result, i64 16
   store double %mul78, ptr %PSNR, align 8
-  %170 = load i64, ptr %nfail, align 8
+  %169 = load i64, ptr %nfail, align 8
   %m_tile.i.i257 = getelementptr inbounds i8, ptr %b, i64 72
-  %171 = load ptr, ptr %m_tile.i.i257, align 8
-  %tobool.not.i.i258 = icmp eq ptr %171, null
+  %170 = load ptr, ptr %m_tile.i.i257, align 8
+  %tobool.not.i.i258 = icmp eq ptr %170, null
   br i1 %tobool.not.i.i258, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit261, label %if.then.i.i259
 
 if.then.i.i259:                                   ; preds = %for.end71
@@ -14090,16 +14103,16 @@ if.then.i.i259:                                   ; preds = %for.end71
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit261 unwind label %terminate.lpad.i.i260
 
 terminate.lpad.i.i260:                            ; preds = %if.then.i.i259
-  %172 = landingpad { ptr, i32 }
+  %171 = landingpad { ptr, i32 }
           catch ptr null
-  %173 = extractvalue { ptr, i32 } %172, 0
-  call void @__clang_call_terminate(ptr %173) #25
+  %172 = extractvalue { ptr, i32 } %171, 0
+  call void @__clang_call_terminate(ptr %172) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit261: ; preds = %for.end71, %if.then.i.i259
   %m_tile.i.i262 = getelementptr inbounds i8, ptr %a, i64 72
-  %174 = load ptr, ptr %m_tile.i.i262, align 8
-  %tobool.not.i.i263 = icmp eq ptr %174, null
+  %173 = load ptr, ptr %m_tile.i.i262, align 8
+  %tobool.not.i.i263 = icmp eq ptr %173, null
   br i1 %tobool.not.i.i263, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit, label %if.then.i.i264
 
 if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit261
@@ -14107,21 +14120,21 @@ if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit unwind label %terminate.lpad.i.i265
 
 terminate.lpad.i.i265:                            ; preds = %if.then.i.i264
-  %175 = landingpad { ptr, i32 }
+  %174 = landingpad { ptr, i32 }
           catch ptr null
-  %176 = extractvalue { ptr, i32 } %175, 0
-  call void @__clang_call_terminate(ptr %176) #25
+  %175 = extractvalue { ptr, i32 } %174, 0
+  call void @__clang_call_terminate(ptr %175) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit261, %if.then.i.i264
-  %cmp80 = icmp eq i64 %170, 0
+  %cmp80 = icmp eq i64 %169, 0
   ret i1 %cmp80
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %99, %lpad ], [ %lpad.phi, %lpad4 ], [ %lpad.phi, %if.then.i.i ]
   %m_tile.i.i266 = getelementptr inbounds i8, ptr %a, i64 72
-  %177 = load ptr, ptr %m_tile.i.i266, align 8
-  %tobool.not.i.i267 = icmp eq ptr %177, null
+  %176 = load ptr, ptr %m_tile.i.i266, align 8
+  %tobool.not.i.i267 = icmp eq ptr %176, null
   br i1 %tobool.not.i.i267, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit270, label %if.then.i.i268
 
 if.then.i.i268:                                   ; preds = %ehcleanup
@@ -14129,10 +14142,10 @@ if.then.i.i268:                                   ; preds = %ehcleanup
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit270 unwind label %terminate.lpad.i.i269
 
 terminate.lpad.i.i269:                            ; preds = %if.then.i.i268
-  %178 = landingpad { ptr, i32 }
+  %177 = landingpad { ptr, i32 }
           catch ptr null
-  %179 = extractvalue { ptr, i32 } %178, 0
-  call void @__clang_call_terminate(ptr %179) #25
+  %178 = extractvalue { ptr, i32 } %177, 0
+  call void @__clang_call_terminate(ptr %178) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit270: ; preds = %ehcleanup, %if.then.i.i268
@@ -15614,9 +15627,9 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %maxval.6314 = phi float [ %maxval.5323, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
   %batcherror.5313 = phi double [ %batcherror.4322, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
   %batch_sqrerror.5312 = phi double [ %batch_sqrerror.4321, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
-  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %144, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
-  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %143, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
-  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %142, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
+  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %143, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
+  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %142, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
+  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %141, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
   %cmp52 = icmp slt i64 %indvars.iv, %8
   br i1 %cmp52, label %cond.true, label %cond.end
 
@@ -15644,54 +15657,53 @@ cond.end60:                                       ; preds = %cond.true56, %cond.
   %cond61 = phi float [ %mul.i.i.i, %cond.true56 ], [ 0.000000e+00, %cond.end ]
   %123 = call float @llvm.fabs.f32(float %cond)
   %124 = fcmp one float %123, 0x7FF0000000000000
-  %125 = call float @llvm.fabs.f32(float %cond61)
-  %126 = fcmp one float %125, 0x7FF0000000000000
-  %or.cond54.i137 = and i1 %124, %126
+  %125 = fcmp one float %cond61, 0x7FF0000000000000
+  %or.cond54.i137 = and i1 %124, %125
   br i1 %or.cond54.i137, label %if.end20.i150, label %if.then.i138
 
 if.then.i138:                                     ; preds = %cond.end60
-  %127 = fcmp uno float %cond, 0.000000e+00
-  br i1 %127, label %if.end.i140, label %land.lhs.true.i139
+  %126 = fcmp uno float %cond, 0.000000e+00
+  br i1 %126, label %if.end.i140, label %land.lhs.true.i139
 
 land.lhs.true.i139:                               ; preds = %if.then.i138
-  %128 = fcmp oeq float %123, 0x7FF0000000000000
-  %129 = fcmp oeq float %125, 0x7FF0000000000000
-  %130 = xor i1 %128, %129
-  br i1 %130, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196
+  %127 = fcmp oeq float %123, 0x7FF0000000000000
+  %128 = fcmp oeq float %cond61, 0x7FF0000000000000
+  %129 = xor i1 %127, %128
+  br i1 %129, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196
 
 if.end.i140:                                      ; preds = %land.lhs.true.i139, %if.then.i138
-  %131 = call double @llvm.fabs.f64(double %117)
-  %132 = fcmp ueq double %131, 0x7FF0000000000000
-  br i1 %132, label %if.end20.i150, label %if.then12.i142
+  %130 = call double @llvm.fabs.f64(double %117)
+  %131 = fcmp ueq double %130, 0x7FF0000000000000
+  br i1 %131, label %if.end20.i150, label %if.then12.i142
 
 if.then12.i142:                                   ; preds = %if.end.i140
   store double 0x7FF0000000000000, ptr %maxerror, align 8
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %133 = trunc i64 %indvars.iv to i32
-  store i32 %133, ptr %maxc, align 4
+  %132 = trunc i64 %indvars.iv to i32
+  store i32 %132, ptr %maxc, align 4
   br label %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196
 
 if.end20.i150:                                    ; preds = %if.end.i140, %cond.end60
   %conv.i.i151 = fpext float %123 to double
-  %conv1.i.i152 = fpext float %125 to double
+  %conv1.i.i152 = fpext float %cond61 to double
   %mul2.i.i153 = fmul double %conv1.i.i152, 5.000000e-01
-  %134 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
-  %conv3.i.i154 = fptrunc double %134 to float
-  %cmp.i.i155 = fcmp olt float %123, %125
-  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %125, float %123
+  %133 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
+  %conv3.i.i154 = fptrunc double %133 to float
+  %cmp.i.i155 = fcmp olt float %123, %cond61
+  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %cond61, float %123
   %cmp.i45.i157 = fcmp olt float %maxval.6314, %.sroa.speculated51.i156
   %.sroa.speculated.i158 = select i1 %cmp.i45.i157, float %.sroa.speculated51.i156, float %maxval.6314
   %sub.i159 = fsub float %cond, %cond61
-  %135 = call noundef float @llvm.fabs.f32(float %sub.i159)
-  %conv27.i160 = fpext float %135 to double
+  %134 = call noundef float @llvm.fabs.f32(float %sub.i159)
+  %conv27.i160 = fpext float %134 to double
   %conv28.i161 = fpext float %conv3.i.i154 to double
   %cmp29.i162 = fcmp ogt float %conv3.i.i154, 0.000000e+00
   %div.i163 = fdiv double %conv27.i160, %conv28.i161
   %cond.i164 = select i1 %cmp29.i162, double %div.i163, double 0.000000e+00
   %add.i165 = fadd double %batcherror.5313, %conv27.i160
-  %136 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5312)
+  %135 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5312)
   %cmp32.i167 = fcmp ult double %117, %conv27.i160
   br i1 %cmp32.i167, label %if.then33.i188, label %if.end42.i168
 
@@ -15700,15 +15712,15 @@ if.then33.i188:                                   ; preds = %if.end20.i150
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %137 = trunc i64 %indvars.iv to i32
-  store i32 %137, ptr %maxc, align 4
+  %136 = trunc i64 %indvars.iv to i32
+  store i32 %136, ptr %maxc, align 4
   br label %if.end42.i168
 
 if.end42.i168:                                    ; preds = %if.then33.i188, %if.end20.i150
-  %138 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
-  %139 = and i8 %warned44.0315, 1
-  %tobool.not.i169 = icmp eq i8 %139, 0
-  %cmp45.i170 = fcmp ugt float %135, %warnthresh
+  %137 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
+  %138 = and i8 %warned44.0315, 1
+  %tobool.not.i169 = icmp eq i8 %138, 0
+  %cmp45.i170 = fcmp ugt float %134, %warnthresh
   %or.cond.i171 = and i1 %tobool.not.i169, %cmp45.i170
   %cmp48.i173 = fcmp ugt double %cond.i164, %conv47.i172
   %or.cond42.i174 = select i1 %or.cond.i171, i1 %cmp48.i173, i1 false
@@ -15720,11 +15732,11 @@ if.then49.i185:                                   ; preds = %if.end42.i168
   br label %if.end50.i175
 
 if.end50.i175:                                    ; preds = %if.then49.i185, %if.end42.i168
-  %140 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
+  %139 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
   %warned44.1 = phi i8 [ 1, %if.then49.i185 ], [ %warned44.0315, %if.end42.i168 ]
-  %141 = and i8 %failed45.0316, 1
-  %tobool51.not.i176 = icmp eq i8 %141, 0
-  %cmp54.i177 = fcmp ugt float %135, %failthresh
+  %140 = and i8 %failed45.0316, 1
+  %tobool51.not.i176 = icmp eq i8 %140, 0
+  %cmp54.i177 = fcmp ugt float %134, %failthresh
   %or.cond43.i178 = and i1 %tobool51.not.i176, %cmp54.i177
   %cmp57.i180 = fcmp ugt double %cond.i164, %conv56.i179
   %or.cond44.i181 = select i1 %or.cond43.i178, i1 %cmp57.i180, i1 false
@@ -15736,10 +15748,10 @@ if.then58.i182:                                   ; preds = %if.end50.i175
   br label %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196
 
 _ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196: ; preds = %land.lhs.true.i139, %if.then12.i142, %if.end50.i175, %if.then58.i182
-  %142 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ]
-  %143 = phi i64 [ %140, %if.then58.i182 ], [ %140, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ]
-  %144 = phi double [ %138, %if.then58.i182 ], [ %138, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %136, %if.then58.i182 ], [ %136, %if.end50.i175 ], [ %batch_sqrerror.5312, %if.then12.i142 ], [ %batch_sqrerror.5312, %land.lhs.true.i139 ]
+  %141 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ]
+  %142 = phi i64 [ %139, %if.then58.i182 ], [ %139, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ]
+  %143 = phi double [ %137, %if.then58.i182 ], [ %137, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ]
+  %batch_sqrerror.6 = phi double [ %135, %if.then58.i182 ], [ %135, %if.end50.i175 ], [ %batch_sqrerror.5312, %if.then12.i142 ], [ %batch_sqrerror.5312, %land.lhs.true.i139 ]
   %batcherror.6 = phi double [ %add.i165, %if.then58.i182 ], [ %add.i165, %if.end50.i175 ], [ %batcherror.5313, %if.then12.i142 ], [ %batcherror.5313, %land.lhs.true.i139 ]
   %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i182 ], [ %.sroa.speculated.i158, %if.end50.i175 ], [ %maxval.6314, %if.then12.i142 ], [ %maxval.6314, %land.lhs.true.i139 ]
   %warned44.2 = phi i8 [ %warned44.1, %if.then58.i182 ], [ %warned44.1, %if.end50.i175 ], [ %warned44.0315, %if.then12.i142 ], [ %warned44.0315, %land.lhs.true.i139 ]
@@ -15754,14 +15766,14 @@ for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2
   %maxval.6.lcssa = phi float [ %maxval.5323, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueI4halffEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S7_RNS_12ImageBufAlgo14CompareResultsERfRdSC_RbSD_ffff.exit196 ]
   %inc.i198 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i198, ptr %m_x.i, align 4
-  %145 = load i32, ptr %m_rng_xend.i199, align 8
-  %cmp.i200 = icmp slt i32 %inc.i198, %145
+  %144 = load i32, ptr %m_rng_xend.i199, align 8
+  %cmp.i200 = icmp slt i32 %inc.i198, %144
   br i1 %cmp.i200, label %if.then.i217, label %if.else.i201
 
 if.then.i217:                                     ; preds = %for.inc65
-  %146 = load i8, ptr %m_exists.i218, align 1
-  %147 = and i8 %146, 1
-  %tobool.not.i219 = icmp eq i8 %147, 0
+  %145 = load i8, ptr %m_exists.i218, align 1
+  %146 = and i8 %145, 1
+  %tobool.not.i219 = icmp eq i8 %146, 0
   br i1 %tobool.not.i219, label %if.then.if.end13_crit_edge.i221, label %if.then2.i220
 
 if.then.if.end13_crit_edge.i221:                  ; preds = %if.then.i217
@@ -15774,23 +15786,23 @@ if.then2.i220:                                    ; preds = %if.then.i217
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i201:                                     ; preds = %for.inc65
-  %148 = load i32, ptr %m_rng_xbegin.i, align 4
-  store i32 %148, ptr %m_x.i, align 4
-  %149 = load i32, ptr %m_y.i, align 8
-  %inc4.i204 = add nsw i32 %149, 1
+  %147 = load i32, ptr %m_rng_xbegin.i, align 4
+  store i32 %147, ptr %m_x.i, align 4
+  %148 = load i32, ptr %m_y.i, align 8
+  %inc4.i204 = add nsw i32 %148, 1
   store i32 %inc4.i204, ptr %m_y.i, align 8
-  %150 = load i32, ptr %m_rng_yend.i205, align 8
-  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %150
+  %149 = load i32, ptr %m_rng_yend.i205, align 8
+  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %149
   %.pre381 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i206, label %if.end13.i215, label %if.then6.i207
 
 if.then6.i207:                                    ; preds = %if.else.i201
-  %151 = load i32, ptr %m_rng_ybegin.i, align 4
-  store i32 %151, ptr %m_y.i, align 8
+  %150 = load i32, ptr %m_rng_ybegin.i, align 4
+  store i32 %150, ptr %m_y.i, align 8
   %inc8.i210 = add nsw i32 %.pre381, 1
   store i32 %inc8.i210, ptr %m_z.i, align 4
-  %152 = load i32, ptr %m_rng_zend.i, align 8
-  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %152
+  %151 = load i32, ptr %m_rng_zend.i, align 8
+  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %151
   br i1 %cmp9.not.i212, label %if.end13.i215, label %if.then10.i213
 
 if.then10.i213:                                   ; preds = %if.then6.i207
@@ -15798,25 +15810,25 @@ if.then10.i213:                                   ; preds = %if.then6.i207
   br label %invoke.cont67
 
 if.end13.i215:                                    ; preds = %if.then6.i207, %if.else.i201, %if.then.if.end13_crit_edge.i221
-  %153 = phi i32 [ %.pre381, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre380, %if.then.if.end13_crit_edge.i221 ]
-  %154 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %151, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
-  %155 = phi i32 [ %148, %if.else.i201 ], [ %148, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %155, i32 noundef %154, i32 noundef %153)
+  %152 = phi i32 [ %.pre381, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre380, %if.then.if.end13_crit_edge.i221 ]
+  %153 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %150, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
+  %154 = phi i32 [ %147, %if.else.i201 ], [ %147, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %154, i32 noundef %153, i32 noundef %152)
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont67:                                    ; preds = %if.then10.i213, %if.then2.i220, %if.end13.i215
   %inc66 = add nuw nsw i32 %i36.0324, 1
-  %156 = load i32, ptr %m_x.i227, align 4
-  %inc.i228 = add nsw i32 %156, 1
+  %155 = load i32, ptr %m_x.i227, align 4
+  %inc.i228 = add nsw i32 %155, 1
   store i32 %inc.i228, ptr %m_x.i227, align 4
-  %157 = load i32, ptr %m_rng_xend.i229, align 8
-  %cmp.i230 = icmp slt i32 %inc.i228, %157
+  %156 = load i32, ptr %m_rng_xend.i229, align 8
+  %cmp.i230 = icmp slt i32 %inc.i228, %156
   br i1 %cmp.i230, label %if.then.i247, label %if.else.i231
 
 if.then.i247:                                     ; preds = %invoke.cont67
-  %158 = load i8, ptr %m_exists.i248, align 1
-  %159 = and i8 %158, 1
-  %tobool.not.i249 = icmp eq i8 %159, 0
+  %157 = load i8, ptr %m_exists.i248, align 1
+  %158 = and i8 %157, 1
+  %tobool.not.i249 = icmp eq i8 %158, 0
   br i1 %tobool.not.i249, label %if.then.if.end13_crit_edge.i251, label %if.then2.i250
 
 if.then.if.end13_crit_edge.i251:                  ; preds = %if.then.i247
@@ -15829,23 +15841,23 @@ if.then2.i250:                                    ; preds = %if.then.i247
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i231:                                     ; preds = %invoke.cont67
-  %160 = load i32, ptr %m_rng_xbegin.i232, align 4
-  store i32 %160, ptr %m_x.i227, align 4
-  %161 = load i32, ptr %m_y.i233, align 8
-  %inc4.i234 = add nsw i32 %161, 1
+  %159 = load i32, ptr %m_rng_xbegin.i232, align 4
+  store i32 %159, ptr %m_x.i227, align 4
+  %160 = load i32, ptr %m_y.i233, align 8
+  %inc4.i234 = add nsw i32 %160, 1
   store i32 %inc4.i234, ptr %m_y.i233, align 8
-  %162 = load i32, ptr %m_rng_yend.i235, align 8
-  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %162
+  %161 = load i32, ptr %m_rng_yend.i235, align 8
+  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %161
   %.pre383 = load i32, ptr %m_z.i239, align 4
   br i1 %cmp5.not.i236, label %if.end13.i245, label %if.then6.i237
 
 if.then6.i237:                                    ; preds = %if.else.i231
-  %163 = load i32, ptr %m_rng_ybegin.i238, align 4
-  store i32 %163, ptr %m_y.i233, align 8
+  %162 = load i32, ptr %m_rng_ybegin.i238, align 4
+  store i32 %162, ptr %m_y.i233, align 8
   %inc8.i240 = add nsw i32 %.pre383, 1
   store i32 %inc8.i240, ptr %m_z.i239, align 4
-  %164 = load i32, ptr %m_rng_zend.i241, align 8
-  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %164
+  %163 = load i32, ptr %m_rng_zend.i241, align 8
+  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %163
   br i1 %cmp9.not.i242, label %if.end13.i245, label %if.then10.i243
 
 if.then10.i243:                                   ; preds = %if.then6.i237
@@ -15853,10 +15865,10 @@ if.then10.i243:                                   ; preds = %if.then6.i237
   br label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256
 
 if.end13.i245:                                    ; preds = %if.then6.i237, %if.else.i231, %if.then.if.end13_crit_edge.i251
-  %165 = phi i32 [ %.pre383, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre382, %if.then.if.end13_crit_edge.i251 ]
-  %166 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %163, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
-  %167 = phi i32 [ %160, %if.else.i231 ], [ %160, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %167, i32 noundef %166, i32 noundef %165)
+  %164 = phi i32 [ %.pre383, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre382, %if.then.if.end13_crit_edge.i251 ]
+  %165 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %162, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
+  %166 = phi i32 [ %159, %if.else.i231 ], [ %159, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %166, i32 noundef %165, i32 noundef %164)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256: ; preds = %if.end13.i245, %if.then2.i250, %if.then10.i243
@@ -15881,19 +15893,19 @@ for.end71:                                        ; preds = %_ZNK18OpenImageIO_v
   %div = fdiv double %.us-phi362, %conv72
   store double %div, ptr %result, align 8
   %div74 = fdiv double %.us-phi361, %conv72
-  %168 = call double @llvm.sqrt.f64(double %div74)
+  %167 = call double @llvm.sqrt.f64(double %div74)
   %rms_error = getelementptr inbounds i8, ptr %result, i64 8
-  store double %168, ptr %rms_error, align 8
+  store double %167, ptr %rms_error, align 8
   %conv75 = fpext float %.us-phi360 to double
-  %div77 = fdiv double %conv75, %168
-  %169 = call double @llvm.log10.f64(double %div77)
-  %mul78 = fmul double %169, 2.000000e+01
+  %div77 = fdiv double %conv75, %167
+  %168 = call double @llvm.log10.f64(double %div77)
+  %mul78 = fmul double %168, 2.000000e+01
   %PSNR = getelementptr inbounds i8, ptr %result, i64 16
   store double %mul78, ptr %PSNR, align 8
-  %170 = load i64, ptr %nfail, align 8
+  %169 = load i64, ptr %nfail, align 8
   %m_tile.i.i257 = getelementptr inbounds i8, ptr %b, i64 72
-  %171 = load ptr, ptr %m_tile.i.i257, align 8
-  %tobool.not.i.i258 = icmp eq ptr %171, null
+  %170 = load ptr, ptr %m_tile.i.i257, align 8
+  %tobool.not.i.i258 = icmp eq ptr %170, null
   br i1 %tobool.not.i.i258, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit261, label %if.then.i.i259
 
 if.then.i.i259:                                   ; preds = %for.end71
@@ -15901,16 +15913,16 @@ if.then.i.i259:                                   ; preds = %for.end71
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit261 unwind label %terminate.lpad.i.i260
 
 terminate.lpad.i.i260:                            ; preds = %if.then.i.i259
-  %172 = landingpad { ptr, i32 }
+  %171 = landingpad { ptr, i32 }
           catch ptr null
-  %173 = extractvalue { ptr, i32 } %172, 0
-  call void @__clang_call_terminate(ptr %173) #25
+  %172 = extractvalue { ptr, i32 } %171, 0
+  call void @__clang_call_terminate(ptr %172) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit261: ; preds = %for.end71, %if.then.i.i259
   %m_tile.i.i262 = getelementptr inbounds i8, ptr %a, i64 72
-  %174 = load ptr, ptr %m_tile.i.i262, align 8
-  %tobool.not.i.i263 = icmp eq ptr %174, null
+  %173 = load ptr, ptr %m_tile.i.i262, align 8
+  %tobool.not.i.i263 = icmp eq ptr %173, null
   br i1 %tobool.not.i.i263, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit, label %if.then.i.i264
 
 if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit261
@@ -15918,21 +15930,21 @@ if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit unwind label %terminate.lpad.i.i265
 
 terminate.lpad.i.i265:                            ; preds = %if.then.i.i264
-  %175 = landingpad { ptr, i32 }
+  %174 = landingpad { ptr, i32 }
           catch ptr null
-  %176 = extractvalue { ptr, i32 } %175, 0
-  call void @__clang_call_terminate(ptr %176) #25
+  %175 = extractvalue { ptr, i32 } %174, 0
+  call void @__clang_call_terminate(ptr %175) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit261, %if.then.i.i264
-  %cmp80 = icmp eq i64 %170, 0
+  %cmp80 = icmp eq i64 %169, 0
   ret i1 %cmp80
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %99, %lpad ], [ %lpad.phi, %lpad4 ], [ %lpad.phi, %if.then.i.i ]
   %m_tile.i.i266 = getelementptr inbounds i8, ptr %a, i64 72
-  %177 = load ptr, ptr %m_tile.i.i266, align 8
-  %tobool.not.i.i267 = icmp eq ptr %177, null
+  %176 = load ptr, ptr %m_tile.i.i266, align 8
+  %tobool.not.i.i267 = icmp eq ptr %176, null
   br i1 %tobool.not.i.i267, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit270, label %if.then.i.i268
 
 if.then.i.i268:                                   ; preds = %ehcleanup
@@ -15940,10 +15952,10 @@ if.then.i.i268:                                   ; preds = %ehcleanup
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit270 unwind label %terminate.lpad.i.i269
 
 terminate.lpad.i.i269:                            ; preds = %if.then.i.i268
-  %178 = landingpad { ptr, i32 }
+  %177 = landingpad { ptr, i32 }
           catch ptr null
-  %179 = extractvalue { ptr, i32 } %178, 0
-  call void @__clang_call_terminate(ptr %179) #25
+  %178 = extractvalue { ptr, i32 } %177, 0
+  call void @__clang_call_terminate(ptr %178) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit270: ; preds = %ehcleanup, %if.then.i.i268
@@ -16030,11 +16042,11 @@ for.cond.preheader:                               ; preds = %invoke.cont
   %m_rng_zend.i241 = getelementptr inbounds i8, ptr %b, i64 56
   %m_valid.i244 = getelementptr inbounds i8, ptr %b, i64 8
   %m_exists.i248 = getelementptr inbounds i8, ptr %b, i64 9
-  br i1 %call6, label %for.cond.us, label %for.cond.preheader366
+  br i1 %call6, label %for.cond.us, label %for.cond.preheader382
 
-for.cond.preheader366:                            ; preds = %for.cond.preheader
-  %8 = sext i32 %call2 to i64
-  %9 = sext i32 %call3 to i64
+for.cond.preheader382:                            ; preds = %for.cond.preheader
+  %8 = sext i32 %call3 to i64
+  %9 = sext i32 %call2 to i64
   br label %for.cond
 
 for.cond.us:                                      ; preds = %for.cond.preheader, %if.end.loopexit.us
@@ -16068,26 +16080,26 @@ land.rhs.us.preheader:                            ; preds = %_ZNK18OpenImageIO_v
   br label %land.rhs.us
 
 land.rhs.us:                                      ; preds = %land.rhs.us.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us
-  %i.0353.us = phi i32 [ %inc33.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0, %land.rhs.us.preheader ]
-  %maxval.1352.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.0.us, %land.rhs.us.preheader ]
-  %batcherror.0351.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
-  %batch_sqrerror.0350.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
+  %i.0369.us = phi i32 [ %inc33.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0, %land.rhs.us.preheader ]
+  %maxval.1368.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.0.us, %land.rhs.us.preheader ]
+  %batcherror.0367.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
+  %batch_sqrerror.0366.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
   %18 = load i8, ptr %m_valid.i, align 8
   %19 = and i8 %18, 1
   %cmp.i41.us = icmp eq i8 %19, 0
-  %.pre384 = load i32, ptr %m_x.i, align 4
+  %.pre400 = load i32, ptr %m_x.i, align 4
   br i1 %cmp.i41.us, label %land.lhs.true.i42.us, label %land.rhs.us.for.body11.us_crit_edge
 
 land.rhs.us.for.body11.us_crit_edge:              ; preds = %land.rhs.us
-  %.pre385 = load i32, ptr %m_y.i, align 8
+  %.pre401 = load i32, ptr %m_y.i, align 8
   br label %for.body11.us
 
 land.lhs.true.i42.us:                             ; preds = %land.rhs.us
   %20 = load i32, ptr %m_rng_xbegin.i, align 4
-  %cmp2.i45.us = icmp eq i32 %.pre384, %20
-  %.pre386 = load i32, ptr %m_y.i, align 8
+  %cmp2.i45.us = icmp eq i32 %.pre400, %20
+  %.pre402 = load i32, ptr %m_y.i, align 8
   %21 = load i32, ptr %m_rng_ybegin.i, align 4
-  %cmp4.i49.us = icmp eq i32 %.pre386, %21
+  %cmp4.i49.us = icmp eq i32 %.pre402, %21
   %or.cond = select i1 %cmp2.i45.us, i1 %cmp4.i49.us, i1 false
   br i1 %or.cond, label %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us, label %for.body11.us
 
@@ -16098,10 +16110,10 @@ _ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us: ; preds = %lan
   br i1 %cmp5.i53.us, label %if.end.loopexit.us, label %for.body11.us
 
 for.body11.us:                                    ; preds = %land.rhs.us.for.body11.us_crit_edge, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us, %land.lhs.true.i42.us
-  %24 = phi i32 [ %.pre385, %land.rhs.us.for.body11.us_crit_edge ], [ %.pre386, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ], [ %.pre386, %land.lhs.true.i42.us ]
+  %24 = phi i32 [ %.pre401, %land.rhs.us.for.body11.us_crit_edge ], [ %.pre402, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ], [ %.pre402, %land.lhs.true.i42.us ]
   %25 = load ptr, ptr %a, align 8
   %26 = load i32, ptr %m_z.i, align 4
-  %call.i58.us = invoke noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf12deep_samplesEiii(ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef %.pre384, i32 noundef %24, i32 noundef %26)
+  %call.i58.us = invoke noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf12deep_samplesEiii(ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef %.pre400, i32 noundef %24, i32 noundef %26)
           to label %invoke.cont12.us unwind label %lpad4.loopexit.split-lp.loopexit.split.us
 
 invoke.cont12.us:                                 ; preds = %for.body11.us
@@ -16116,15 +16128,15 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   %.sroa.speculated.us = call i32 @llvm.smax.i32(i32 %call.i58.us, i32 %call.i62.us)
   %31 = load i32, ptr %chbegin.i, align 8
   %32 = load i32, ptr %chend.i, align 4
-  %cmp19337.us = icmp slt i32 %31, %32
-  %cmp22325.us = icmp sgt i32 %.sroa.speculated.us, 0
-  %or.cond402 = and i1 %cmp19337.us, %cmp22325.us
-  br i1 %or.cond402, label %for.cond21.preheader.us.us, label %for.inc32.us
+  %cmp19353.us = icmp slt i32 %31, %32
+  %cmp22341.us = icmp sgt i32 %.sroa.speculated.us, 0
+  %or.cond418 = and i1 %cmp19353.us, %cmp22341.us
+  br i1 %or.cond418, label %for.cond21.preheader.us.us, label %for.inc32.us
 
 for.inc32.us:                                     ; preds = %for.cond21.for.inc29_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0350.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0351.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1352.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0366.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0367.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1368.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -16140,13 +16152,13 @@ if.else.i.us:                                     ; preds = %for.inc32.us
   store i32 %inc4.i.us, ptr %m_y.i, align 8
   %37 = load i32, ptr %m_rng_yend.i205, align 8
   %cmp5.not.i.us = icmp slt i32 %inc4.i.us, %37
-  %.pre389 = load i32, ptr %m_z.i, align 4
+  %.pre405 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i.us, label %if.end13.i.us, label %if.then6.i.us
 
 if.then6.i.us:                                    ; preds = %if.else.i.us
   %38 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %38, ptr %m_y.i, align 8
-  %inc8.i.us = add nsw i32 %.pre389, 1
+  %inc8.i.us = add nsw i32 %.pre405, 1
   store i32 %inc8.i.us, ptr %m_z.i, align 4
   %39 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i.us = icmp slt i32 %inc8.i.us, %39
@@ -16168,18 +16180,18 @@ if.then2.i.us:                                    ; preds = %if.then.i86.us
 
 if.then.if.end13_crit_edge.i.us:                  ; preds = %if.then.i86.us
   %.pre.i.us = load i32, ptr %m_y.i, align 8
-  %.pre388 = load i32, ptr %m_z.i, align 4
+  %.pre404 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i.us
 
 if.end13.i.us:                                    ; preds = %if.then.if.end13_crit_edge.i.us, %if.then6.i.us, %if.else.i.us
-  %42 = phi i32 [ %.pre389, %if.else.i.us ], [ %inc8.i.us, %if.then6.i.us ], [ %.pre388, %if.then.if.end13_crit_edge.i.us ]
+  %42 = phi i32 [ %.pre405, %if.else.i.us ], [ %inc8.i.us, %if.then6.i.us ], [ %.pre404, %if.then.if.end13_crit_edge.i.us ]
   %43 = phi i32 [ %inc4.i.us, %if.else.i.us ], [ %38, %if.then6.i.us ], [ %.pre.i.us, %if.then.if.end13_crit_edge.i.us ]
   %44 = phi i32 [ %35, %if.else.i.us ], [ %35, %if.then6.i.us ], [ %inc.i78.us, %if.then.if.end13_crit_edge.i.us ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %44, i32 noundef %43, i32 noundef %42)
           to label %invoke.cont34.us unwind label %lpad4.loopexit.split-lp.loopexit.split.us
 
 invoke.cont34.us:                                 ; preds = %if.end13.i.us, %if.then2.i.us, %if.then10.i.us
-  %inc33.us = add nuw nsw i32 %i.0353.us, 1
+  %inc33.us = add nuw nsw i32 %i.0369.us, 1
   %45 = load i32, ptr %m_x.i227, align 4
   %inc.i90.us = add nsw i32 %45, 1
   store i32 %inc.i90.us, ptr %m_x.i227, align 4
@@ -16195,13 +16207,13 @@ if.else.i93.us:                                   ; preds = %invoke.cont34.us
   store i32 %inc4.i96.us, ptr %m_y.i233, align 8
   %49 = load i32, ptr %m_rng_yend.i235, align 8
   %cmp5.not.i98.us = icmp slt i32 %inc4.i96.us, %49
-  %.pre391 = load i32, ptr %m_z.i239, align 4
+  %.pre407 = load i32, ptr %m_z.i239, align 4
   br i1 %cmp5.not.i98.us, label %if.end13.i107.us, label %if.then6.i99.us
 
 if.then6.i99.us:                                  ; preds = %if.else.i93.us
   %50 = load i32, ptr %m_rng_ybegin.i238, align 4
   store i32 %50, ptr %m_y.i233, align 8
-  %inc8.i102.us = add nsw i32 %.pre391, 1
+  %inc8.i102.us = add nsw i32 %.pre407, 1
   store i32 %inc8.i102.us, ptr %m_z.i239, align 4
   %51 = load i32, ptr %m_rng_zend.i241, align 8
   %cmp9.not.i104.us = icmp slt i32 %inc8.i102.us, %51
@@ -16223,49 +16235,49 @@ if.then2.i112.us:                                 ; preds = %if.then.i109.us
 
 if.then.if.end13_crit_edge.i113.us:               ; preds = %if.then.i109.us
   %.pre.i115.us = load i32, ptr %m_y.i233, align 8
-  %.pre390 = load i32, ptr %m_z.i239, align 4
+  %.pre406 = load i32, ptr %m_z.i239, align 4
   br label %if.end13.i107.us
 
 if.end13.i107.us:                                 ; preds = %if.then.if.end13_crit_edge.i113.us, %if.then6.i99.us, %if.else.i93.us
-  %54 = phi i32 [ %.pre391, %if.else.i93.us ], [ %inc8.i102.us, %if.then6.i99.us ], [ %.pre390, %if.then.if.end13_crit_edge.i113.us ]
+  %54 = phi i32 [ %.pre407, %if.else.i93.us ], [ %inc8.i102.us, %if.then6.i99.us ], [ %.pre406, %if.then.if.end13_crit_edge.i113.us ]
   %55 = phi i32 [ %inc4.i96.us, %if.else.i93.us ], [ %50, %if.then6.i99.us ], [ %.pre.i115.us, %if.then.if.end13_crit_edge.i113.us ]
   %56 = phi i32 [ %47, %if.else.i93.us ], [ %47, %if.then6.i99.us ], [ %inc.i90.us, %if.then.if.end13_crit_edge.i113.us ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %56, i32 noundef %55, i32 noundef %54)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us unwind label %lpad4.loopexit.split-lp.loopexit.split.us
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us: ; preds = %if.end13.i107.us, %if.then2.i112.us, %if.then10.i105.us
-  %exitcond379.not = icmp eq i32 %inc33.us, 4096
-  br i1 %exitcond379.not, label %if.end.loopexit.us, label %land.rhs.us
+  %exitcond395.not = icmp eq i32 %inc33.us, 4096
+  br i1 %exitcond395.not, label %if.end.loopexit.us, label %land.rhs.us
 
 if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us
-  %batch_sqrerror.0.lcssa.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batch_sqrerror.0350.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
-  %batcherror.0.lcssa.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batcherror.0351.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
-  %maxval.1.lcssa.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.1352.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
+  %batch_sqrerror.0.lcssa.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batch_sqrerror.0366.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
+  %batcherror.0.lcssa.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batcherror.0367.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
+  %maxval.1.lcssa.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.1368.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
   %add.us = fadd double %totalerror.0.us, %batcherror.0.lcssa.us
   %add72.us = fadd double %totalsqrerror.0.us, %batch_sqrerror.0.lcssa.us
   br label %for.cond.us, !llvm.loop !73
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc29_crit_edge.us.us
-  %c.0343.us.us = phi i32 [ %inc30.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2342.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1352.us, %invoke.cont15.us ]
-  %batcherror.1341.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0351.us, %invoke.cont15.us ]
-  %failed.0340.us.us = phi i8 [ %failed.2.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
-  %warned.0339.us.us = phi i8 [ %warned.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
-  %batch_sqrerror.1338.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0350.us, %invoke.cont15.us ]
+  %c.0359.us.us = phi i32 [ %inc30.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
+  %maxval.2358.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %maxval.1368.us, %invoke.cont15.us ]
+  %batcherror.1357.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batcherror.0367.us, %invoke.cont15.us ]
+  %failed.0356.us.us = phi i8 [ %failed.2.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
+  %warned.0355.us.us = phi i8 [ %warned.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
+  %batch_sqrerror.1354.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc29_crit_edge.us.us ], [ %batch_sqrerror.0366.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us, %for.cond21.preheader.us.us
-  %s.0331.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %maxval.3330.us.us = phi float [ %maxval.2342.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batcherror.2329.us.us = phi double [ %batcherror.1341.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %failed.1328.us.us = phi i8 [ %failed.0340.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %warned.1327.us.us = phi i8 [ %warned.0339.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batch_sqrerror.2326.us.us = phi double [ %batch_sqrerror.1338.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %s.0347.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %maxval.3346.us.us = phi float [ %maxval.2358.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batcherror.2345.us.us = phi double [ %batcherror.1357.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %failed.1344.us.us = phi i8 [ %failed.0356.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %warned.1343.us.us = phi i8 [ %warned.0355.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batch_sqrerror.2342.us.us = phi double [ %batch_sqrerror.1354.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %57 = load ptr, ptr %a, align 8
   %58 = load i32, ptr %m_x.i, align 4
   %59 = load i32, ptr %m_y.i, align 8
   %60 = load i32, ptr %m_z.i, align 4
-  %call.i68.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef %c.0343.us.us, i32 noundef %s.0331.us.us)
+  %call.i68.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef %c.0359.us.us, i32 noundef %s.0347.us.us)
           to label %invoke.cont24.us.us unwind label %lpad4.loopexit.split.us.split.us
 
 invoke.cont24.us.us:                              ; preds = %for.body23.us.us
@@ -16273,7 +16285,7 @@ invoke.cont24.us.us:                              ; preds = %for.body23.us.us
   %62 = load i32, ptr %m_x.i227, align 4
   %63 = load i32, ptr %m_y.i233, align 8
   %64 = load i32, ptr %m_z.i239, align 4
-  %call.i72.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %61, i32 noundef %62, i32 noundef %63, i32 noundef %64, i32 noundef %c.0343.us.us, i32 noundef %s.0331.us.us)
+  %call.i72.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %61, i32 noundef %62, i32 noundef %63, i32 noundef %64, i32 noundef %c.0359.us.us, i32 noundef %s.0347.us.us)
           to label %invoke.cont26.us.us unwind label %lpad4.loopexit.split.us.split.us
 
 invoke.cont26.us.us:                              ; preds = %invoke.cont24.us.us
@@ -16285,7 +16297,7 @@ invoke.cont26.us.us:                              ; preds = %invoke.cont24.us.us
   br i1 %or.cond54.i.us.us, label %invoke.cont26.us.us.if.end20.i.us.us_crit_edge, label %if.then.i.us.us
 
 invoke.cont26.us.us.if.end20.i.us.us_crit_edge:   ; preds = %invoke.cont26.us.us
-  %.pre387 = load double, ptr %maxerror, align 8
+  %.pre403 = load double, ptr %maxerror, align 8
   br label %if.end20.i.us.us
 
 if.then.i.us.us:                                  ; preds = %invoke.cont26.us.us
@@ -16312,11 +16324,11 @@ if.then12.i.us.us:                                ; preds = %if.end.i.us.us
   store <2 x i32> %78, ptr %maxx, align 8
   %79 = load i32, ptr %m_z.i, align 4
   store i32 %79, ptr %maxz, align 8
-  store i32 %c.0343.us.us, ptr %maxc, align 4
+  store i32 %c.0359.us.us, ptr %maxc, align 4
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 if.end20.i.us.us:                                 ; preds = %invoke.cont26.us.us.if.end20.i.us.us_crit_edge, %if.end.i.us.us
-  %80 = phi double [ %.pre387, %invoke.cont26.us.us.if.end20.i.us.us_crit_edge ], [ %75, %if.end.i.us.us ]
+  %80 = phi double [ %.pre403, %invoke.cont26.us.us.if.end20.i.us.us_crit_edge ], [ %75, %if.end.i.us.us ]
   %conv.i.i.us.us = fpext float %65 to double
   %conv1.i.i.us.us = fpext float %67 to double
   %mul2.i.i.us.us = fmul double %conv1.i.i.us.us, 5.000000e-01
@@ -16324,8 +16336,8 @@ if.end20.i.us.us:                                 ; preds = %invoke.cont26.us.us
   %conv3.i.i.us.us = fptrunc double %81 to float
   %cmp.i.i.us.us = fcmp olt float %65, %67
   %.sroa.speculated51.i.us.us = select i1 %cmp.i.i.us.us, float %67, float %65
-  %cmp.i45.i.us.us = fcmp olt float %maxval.3330.us.us, %.sroa.speculated51.i.us.us
-  %.sroa.speculated.i.us.us = select i1 %cmp.i45.i.us.us, float %.sroa.speculated51.i.us.us, float %maxval.3330.us.us
+  %cmp.i45.i.us.us = fcmp olt float %maxval.3346.us.us, %.sroa.speculated51.i.us.us
+  %.sroa.speculated.i.us.us = select i1 %cmp.i45.i.us.us, float %.sroa.speculated51.i.us.us, float %maxval.3346.us.us
   %sub.i75.us.us = fsub float %call.i68.us.us, %call.i72.us.us
   %82 = call noundef float @llvm.fabs.f32(float %sub.i75.us.us)
   %conv27.i.us.us = fpext float %82 to double
@@ -16333,8 +16345,8 @@ if.end20.i.us.us:                                 ; preds = %invoke.cont26.us.us
   %cmp29.i.us.us = fcmp ogt float %conv3.i.i.us.us, 0.000000e+00
   %div.i.us.us = fdiv double %conv27.i.us.us, %conv28.i.us.us
   %cond.i76.us.us = select i1 %cmp29.i.us.us, double %div.i.us.us, double 0.000000e+00
-  %add.i.us.us = fadd double %batcherror.2329.us.us, %conv27.i.us.us
-  %83 = call double @llvm.fmuladd.f64(double %conv27.i.us.us, double %conv27.i.us.us, double %batch_sqrerror.2326.us.us)
+  %add.i.us.us = fadd double %batcherror.2345.us.us, %conv27.i.us.us
+  %83 = call double @llvm.fmuladd.f64(double %conv27.i.us.us, double %conv27.i.us.us, double %batch_sqrerror.2342.us.us)
   %cmp32.i.us.us = fcmp ult double %80, %conv27.i.us.us
   br i1 %cmp32.i.us.us, label %if.then33.i.us.us, label %if.end42.i.us.us
 
@@ -16344,11 +16356,11 @@ if.then33.i.us.us:                                ; preds = %if.end20.i.us.us
   store <2 x i32> %84, ptr %maxx, align 8
   %85 = load i32, ptr %m_z.i, align 4
   store i32 %85, ptr %maxz, align 8
-  store i32 %c.0343.us.us, ptr %maxc, align 4
+  store i32 %c.0359.us.us, ptr %maxc, align 4
   br label %if.end42.i.us.us
 
 if.end42.i.us.us:                                 ; preds = %if.then33.i.us.us, %if.end20.i.us.us
-  %86 = and i8 %warned.1327.us.us, 1
+  %86 = and i8 %warned.1343.us.us, 1
   %tobool.not.i.us.us = icmp eq i8 %86, 0
   %cmp45.i.us.us = fcmp ugt float %82, %warnthresh
   %or.cond.i.us.us = and i1 %tobool.not.i.us.us, %cmp45.i.us.us
@@ -16363,8 +16375,8 @@ if.then49.i.us.us:                                ; preds = %if.end42.i.us.us
   br label %if.end50.i.us.us
 
 if.end50.i.us.us:                                 ; preds = %if.then49.i.us.us, %if.end42.i.us.us
-  %warned.2.us.us = phi i8 [ 1, %if.then49.i.us.us ], [ %warned.1327.us.us, %if.end42.i.us.us ]
-  %88 = and i8 %failed.1328.us.us, 1
+  %warned.2.us.us = phi i8 [ 1, %if.then49.i.us.us ], [ %warned.1343.us.us, %if.end42.i.us.us ]
+  %88 = and i8 %failed.1344.us.us, 1
   %tobool51.not.i.us.us = icmp eq i8 %88, 0
   %cmp54.i.us.us = fcmp ugt float %82, %failthresh
   %or.cond43.i.us.us = and i1 %tobool51.not.i.us.us, %cmp54.i.us.us
@@ -16379,23 +16391,23 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %83, %if.then58.i.us.us ], [ %83, %if.end50.i.us.us ], [ %batch_sqrerror.2326.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2326.us.us, %land.lhs.true.i74.us.us ]
-  %warned.3.us.us = phi i8 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1327.us.us, %if.then12.i.us.us ], [ %warned.1327.us.us, %land.lhs.true.i74.us.us ]
-  %failed.2.us.us = phi i8 [ 1, %if.then58.i.us.us ], [ %failed.1328.us.us, %if.end50.i.us.us ], [ %failed.1328.us.us, %if.then12.i.us.us ], [ %failed.1328.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2329.us.us, %if.then12.i.us.us ], [ %batcherror.2329.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3330.us.us, %if.then12.i.us.us ], [ %maxval.3330.us.us, %land.lhs.true.i74.us.us ]
-  %inc.us.us = add nuw nsw i32 %s.0331.us.us, 1
-  %exitcond378.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
-  br i1 %exitcond378.not, label %for.cond21.for.inc29_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !74
+  %batch_sqrerror.3.us.us = phi double [ %83, %if.then58.i.us.us ], [ %83, %if.end50.i.us.us ], [ %batch_sqrerror.2342.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2342.us.us, %land.lhs.true.i74.us.us ]
+  %warned.3.us.us = phi i8 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1343.us.us, %if.then12.i.us.us ], [ %warned.1343.us.us, %land.lhs.true.i74.us.us ]
+  %failed.2.us.us = phi i8 [ 1, %if.then58.i.us.us ], [ %failed.1344.us.us, %if.end50.i.us.us ], [ %failed.1344.us.us, %if.then12.i.us.us ], [ %failed.1344.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2345.us.us, %if.then12.i.us.us ], [ %batcherror.2345.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3346.us.us, %if.then12.i.us.us ], [ %maxval.3346.us.us, %land.lhs.true.i74.us.us ]
+  %inc.us.us = add nuw nsw i32 %s.0347.us.us, 1
+  %exitcond394.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
+  br i1 %exitcond394.not, label %for.cond21.for.inc29_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !74
 
 for.cond21.for.inc29_crit_edge.us.us:             ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
-  %inc30.us.us = add nsw i32 %c.0343.us.us, 1
+  %inc30.us.us = add nsw i32 %c.0359.us.us, 1
   %90 = load i32, ptr %chend.i, align 4
   %cmp19.us.us = icmp slt i32 %inc30.us.us, %90
   br i1 %cmp19.us.us, label %for.cond21.preheader.us.us, label %for.inc32.us, !llvm.loop !75
 
 lpad4.loopexit.split-lp.loopexit.split.us:        ; preds = %if.end13.i107.us, %if.then2.i112.us, %if.end13.i.us, %if.then2.i.us, %invoke.cont12.us, %for.body11.us
-  %lpad.loopexit279.us = landingpad { ptr, i32 }
+  %lpad.loopexit293.us = landingpad { ptr, i32 }
           cleanup
   br label %lpad4
 
@@ -16404,10 +16416,10 @@ lpad4.loopexit.split.us.split.us:                 ; preds = %invoke.cont24.us.us
           cleanup
   br label %lpad4
 
-for.cond:                                         ; preds = %for.cond.preheader366, %if.end.loopexit282
-  %maxval.0 = phi float [ %maxval.5.lcssa, %if.end.loopexit282 ], [ 1.000000e+00, %for.cond.preheader366 ]
-  %totalsqrerror.0 = phi double [ %add72, %if.end.loopexit282 ], [ 0.000000e+00, %for.cond.preheader366 ]
-  %totalerror.0 = phi double [ %add, %if.end.loopexit282 ], [ 0.000000e+00, %for.cond.preheader366 ]
+for.cond:                                         ; preds = %for.cond.preheader382, %if.end.loopexit296
+  %maxval.0 = phi float [ %maxval.5.lcssa, %if.end.loopexit296 ], [ 1.000000e+00, %for.cond.preheader382 ]
+  %totalsqrerror.0 = phi double [ %add72, %if.end.loopexit296 ], [ 0.000000e+00, %for.cond.preheader382 ]
+  %totalerror.0 = phi double [ %add, %if.end.loopexit296 ], [ 0.000000e+00, %for.cond.preheader382 ]
   %91 = load i8, ptr %m_valid.i, align 8
   %92 = and i8 %91, 1
   %cmp.i = icmp eq i8 %92, 0
@@ -16440,7 +16452,7 @@ lpad:                                             ; preds = %_ZNK18OpenImageIO_v
   br label %ehcleanup
 
 lpad4.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then2.i220, %if.end13.i215, %if.then2.i250, %if.end13.i245
-  %lpad.loopexit283 = landingpad { ptr, i32 }
+  %lpad.loopexit297 = landingpad { ptr, i32 }
           cleanup
   br label %lpad4
 
@@ -16450,7 +16462,7 @@ lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.c
   br label %lpad4
 
 lpad4:                                            ; preds = %lpad4.loopexit.split-lp.loopexit.split.us, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad4.loopexit.split.us.split.us
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us.us, %lpad4.loopexit.split.us.split.us ], [ %lpad.loopexit279.us, %lpad4.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit283, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us.us, %lpad4.loopexit.split.us.split.us ], [ %lpad.loopexit293.us, %lpad4.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit297, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %m_tile.i.i = getelementptr inbounds i8, ptr %b, i64 72
   %100 = load ptr, ptr %m_tile.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %100, null
@@ -16468,18 +16480,18 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 land.rhs40:                                       ; preds = %land.rhs40.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256
-  %i37.0324 = phi i32 [ %inc68, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0, %land.rhs40.preheader ]
-  %maxval.5323 = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.0, %land.rhs40.preheader ]
-  %batcherror.4322 = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs40.preheader ]
-  %batch_sqrerror.4321 = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs40.preheader ]
+  %i37.0340 = phi i32 [ %inc68, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0, %land.rhs40.preheader ]
+  %maxval.5339 = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.0, %land.rhs40.preheader ]
+  %batcherror.4338 = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs40.preheader ]
+  %batch_sqrerror.4337 = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs40.preheader ]
   %103 = load i8, ptr %m_valid.i, align 8
   %104 = and i8 %103, 1
   %cmp.i120 = icmp eq i8 %104, 0
   %.pre.pre = load i32, ptr %m_x.i, align 4
   %105 = load i32, ptr %m_rng_xbegin.i, align 4
   %cmp2.i124 = icmp eq i32 %.pre.pre, %105
-  %or.cond403 = select i1 %cmp.i120, i1 %cmp2.i124, i1 false
-  br i1 %or.cond403, label %land.lhs.true3.i125, label %for.body44
+  %or.cond419 = select i1 %cmp.i120, i1 %cmp2.i124, i1 false
+  br i1 %or.cond419, label %land.lhs.true3.i125, label %for.body44
 
 land.lhs.true3.i125:                              ; preds = %land.rhs40
   %106 = load i32, ptr %m_y.i, align 8
@@ -16491,13 +16503,13 @@ _ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133: ; preds = %land.
   %108 = load i32, ptr %m_z.i, align 4
   %109 = load i32, ptr %m_rng_zend.i, align 8
   %cmp5.i132 = icmp eq i32 %108, %109
-  br i1 %cmp5.i132, label %if.end.loopexit282, label %for.body44
+  br i1 %cmp5.i132, label %if.end.loopexit296, label %for.body44
 
 for.body44:                                       ; preds = %land.rhs40, %land.lhs.true3.i125, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133
   %110 = load i32, ptr %chbegin.i, align 8
   %111 = load i32, ptr %chend.i, align 4
-  %cmp51311 = icmp slt i32 %110, %111
-  br i1 %cmp51311, label %for.body52.lr.ph, label %for.inc67
+  %cmp51325 = icmp slt i32 %110, %111
+  br i1 %cmp51325, label %for.body52.lr.ph, label %for.inc67
 
 for.body52.lr.ph:                                 ; preds = %for.body44
   %nfail.promoted = load i64, ptr %nfail, align 8
@@ -16513,86 +16525,96 @@ for.body52.lr.ph:                                 ; preds = %for.body44
 
 for.body52:                                       ; preds = %for.body52.lr.ph, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
   %indvars.iv = phi i64 [ %116, %for.body52.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %failed46.0316 = phi i8 [ 0, %for.body52.lr.ph ], [ %failed46.1, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %warned45.0315 = phi i8 [ 0, %for.body52.lr.ph ], [ %warned45.2, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %maxval.6314 = phi float [ %maxval.5323, %for.body52.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %batcherror.5313 = phi double [ %batcherror.4322, %for.body52.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %batch_sqrerror.5312 = phi double [ %batch_sqrerror.4321, %for.body52.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %117 = phi double [ %maxerror.promoted, %for.body52.lr.ph ], [ %143, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %118 = phi i64 [ %nwarn.promoted, %for.body52.lr.ph ], [ %142, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %119 = phi i64 [ %nfail.promoted, %for.body52.lr.ph ], [ %141, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %cmp53 = icmp slt i64 %indvars.iv, %8
-  br i1 %cmp53, label %cond.true, label %cond.end
+  %failed46.0330 = phi i8 [ 0, %for.body52.lr.ph ], [ %failed46.1, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %warned45.0329 = phi i8 [ 0, %for.body52.lr.ph ], [ %warned45.2, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %maxval.6328 = phi float [ %maxval.5339, %for.body52.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batcherror.5327 = phi double [ %batcherror.4338, %for.body52.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batch_sqrerror.5326 = phi double [ %batch_sqrerror.4337, %for.body52.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %117 = phi double [ %maxerror.promoted, %for.body52.lr.ph ], [ %146, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %118 = phi i64 [ %nwarn.promoted, %for.body52.lr.ph ], [ %145, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %119 = phi i64 [ %nfail.promoted, %for.body52.lr.ph ], [ %144, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %cmp53 = icmp slt i64 %indvars.iv, %9
+  br i1 %cmp53, label %cond.end, label %cond.end.thread
 
-cond.true:                                        ; preds = %for.body52
+cond.end:                                         ; preds = %for.body52
   %arrayidx.i.i = getelementptr inbounds i16, ptr %112, i64 %indvars.iv
   %120 = load i16, ptr %arrayidx.i.i, align 2
   %conv1.i.i.i = uitofp i16 %120 to float
   %mul.i.i.i = fmul float %conv1.i.i.i, 0x3EF0001000000000
-  br label %cond.end
+  %cmp56 = icmp slt i64 %indvars.iv, %8
+  br i1 %cmp56, label %cond.end61, label %cond.end61.thread
 
-cond.end:                                         ; preds = %cond.true, %for.body52
-  %cond = phi float [ %mul.i.i.i, %cond.true ], [ 0.000000e+00, %for.body52 ]
-  %cmp56 = icmp slt i64 %indvars.iv, %9
-  br i1 %cmp56, label %cond.true57, label %cond.end61
+cond.end.thread:                                  ; preds = %for.body52
+  %cmp56287 = icmp slt i64 %indvars.iv, %8
+  br i1 %cmp56287, label %cond.end61, label %if.end20.i150
 
-cond.true57:                                      ; preds = %cond.end
+cond.end61:                                       ; preds = %cond.end.thread, %cond.end
+  %cond288 = phi float [ 0.000000e+00, %cond.end.thread ], [ %mul.i.i.i, %cond.end ]
   %arrayidx.i.i136 = getelementptr inbounds float, ptr %113, i64 %indvars.iv
   %121 = load float, ptr %arrayidx.i.i136, align 4
-  br label %cond.end61
-
-cond.end61:                                       ; preds = %cond.true57, %cond.end
-  %cond62 = phi float [ %121, %cond.true57 ], [ 0.000000e+00, %cond.end ]
-  %122 = call float @llvm.fabs.f32(float %cond)
-  %123 = fcmp one float %122, 0x7FF0000000000000
-  %124 = call float @llvm.fabs.f32(float %cond62)
-  %125 = fcmp one float %124, 0x7FF0000000000000
-  %or.cond54.i137 = and i1 %123, %125
+  %122 = fcmp one float %cond288, 0x7FF0000000000000
+  %123 = call float @llvm.fabs.f32(float %121)
+  %124 = fcmp one float %123, 0x7FF0000000000000
+  %or.cond54.i137 = and i1 %122, %124
   br i1 %or.cond54.i137, label %if.end20.i150, label %if.then.i138
 
+cond.end61.thread:                                ; preds = %cond.end
+  %125 = fcmp ueq float %mul.i.i.i, 0x7FF0000000000000
+  br i1 %125, label %if.then.i138.thread, label %if.end20.i150
+
+if.then.i138.thread:                              ; preds = %cond.end61.thread
+  %126 = fcmp oeq float %mul.i.i.i, 0x7FF0000000000000
+  br i1 %126, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
+
 if.then.i138:                                     ; preds = %cond.end61
-  %126 = fcmp uno float %cond62, 0.000000e+00
-  br i1 %126, label %if.end.i140, label %land.lhs.true.i139
+  %127 = fcmp uno float %121, 0.000000e+00
+  br i1 %127, label %if.end.i140, label %land.lhs.true.i139
 
 land.lhs.true.i139:                               ; preds = %if.then.i138
-  %127 = fcmp oeq float %122, 0x7FF0000000000000
-  %128 = fcmp oeq float %124, 0x7FF0000000000000
-  %129 = xor i1 %127, %128
-  br i1 %129, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
+  %128 = fcmp oeq float %cond288, 0x7FF0000000000000
+  %129 = fcmp oeq float %123, 0x7FF0000000000000
+  %130 = xor i1 %128, %129
+  br i1 %130, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
 
-if.end.i140:                                      ; preds = %land.lhs.true.i139, %if.then.i138
-  %130 = call double @llvm.fabs.f64(double %117)
-  %131 = fcmp ueq double %130, 0x7FF0000000000000
-  br i1 %131, label %if.end20.i150, label %if.then12.i142
+if.end.i140:                                      ; preds = %if.then.i138.thread, %land.lhs.true.i139, %if.then.i138
+  %cond290 = phi float [ %cond288, %land.lhs.true.i139 ], [ %cond288, %if.then.i138 ], [ 0x7FF0000000000000, %if.then.i138.thread ]
+  %cond62281285 = phi float [ %121, %land.lhs.true.i139 ], [ %121, %if.then.i138 ], [ 0.000000e+00, %if.then.i138.thread ]
+  %131 = phi float [ %123, %land.lhs.true.i139 ], [ %123, %if.then.i138 ], [ 0.000000e+00, %if.then.i138.thread ]
+  %132 = call double @llvm.fabs.f64(double %117)
+  %133 = fcmp ueq double %132, 0x7FF0000000000000
+  br i1 %133, label %if.end20.i150, label %if.then12.i142
 
 if.then12.i142:                                   ; preds = %if.end.i140
   store double 0x7FF0000000000000, ptr %maxerror, align 8
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %132 = trunc i64 %indvars.iv to i32
-  store i32 %132, ptr %maxc, align 4
+  %134 = trunc i64 %indvars.iv to i32
+  store i32 %134, ptr %maxc, align 4
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
 
-if.end20.i150:                                    ; preds = %if.end.i140, %cond.end61
-  %conv.i.i151 = fpext float %122 to double
-  %conv1.i.i152 = fpext float %124 to double
+if.end20.i150:                                    ; preds = %cond.end.thread, %cond.end61.thread, %if.end.i140, %cond.end61
+  %cond289 = phi float [ %mul.i.i.i, %cond.end61.thread ], [ %cond290, %if.end.i140 ], [ %cond288, %cond.end61 ], [ 0.000000e+00, %cond.end.thread ]
+  %135 = phi float [ 0.000000e+00, %cond.end61.thread ], [ %131, %if.end.i140 ], [ %123, %cond.end61 ], [ 0.000000e+00, %cond.end.thread ]
+  %cond62282 = phi float [ 0.000000e+00, %cond.end61.thread ], [ %cond62281285, %if.end.i140 ], [ %121, %cond.end61 ], [ 0.000000e+00, %cond.end.thread ]
+  %conv.i.i151 = fpext float %cond289 to double
+  %conv1.i.i152 = fpext float %135 to double
   %mul2.i.i153 = fmul double %conv1.i.i152, 5.000000e-01
-  %133 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
-  %conv3.i.i154 = fptrunc double %133 to float
-  %cmp.i.i155 = fcmp olt float %122, %124
-  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %124, float %122
-  %cmp.i45.i157 = fcmp olt float %maxval.6314, %.sroa.speculated51.i156
-  %.sroa.speculated.i158 = select i1 %cmp.i45.i157, float %.sroa.speculated51.i156, float %maxval.6314
-  %sub.i159 = fsub float %cond, %cond62
-  %134 = call noundef float @llvm.fabs.f32(float %sub.i159)
-  %conv27.i160 = fpext float %134 to double
+  %136 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
+  %conv3.i.i154 = fptrunc double %136 to float
+  %cmp.i.i155 = fcmp olt float %cond289, %135
+  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %135, float %cond289
+  %cmp.i45.i157 = fcmp olt float %maxval.6328, %.sroa.speculated51.i156
+  %.sroa.speculated.i158 = select i1 %cmp.i45.i157, float %.sroa.speculated51.i156, float %maxval.6328
+  %sub.i159 = fsub float %cond289, %cond62282
+  %137 = call noundef float @llvm.fabs.f32(float %sub.i159)
+  %conv27.i160 = fpext float %137 to double
   %conv28.i161 = fpext float %conv3.i.i154 to double
   %cmp29.i162 = fcmp ogt float %conv3.i.i154, 0.000000e+00
   %div.i163 = fdiv double %conv27.i160, %conv28.i161
   %cond.i164 = select i1 %cmp29.i162, double %div.i163, double 0.000000e+00
-  %add.i165 = fadd double %batcherror.5313, %conv27.i160
-  %135 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5312)
+  %add.i165 = fadd double %batcherror.5327, %conv27.i160
+  %138 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5326)
   %cmp32.i167 = fcmp ult double %117, %conv27.i160
   br i1 %cmp32.i167, label %if.then33.i188, label %if.end42.i168
 
@@ -16601,15 +16623,15 @@ if.then33.i188:                                   ; preds = %if.end20.i150
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %136 = trunc i64 %indvars.iv to i32
-  store i32 %136, ptr %maxc, align 4
+  %139 = trunc i64 %indvars.iv to i32
+  store i32 %139, ptr %maxc, align 4
   br label %if.end42.i168
 
 if.end42.i168:                                    ; preds = %if.then33.i188, %if.end20.i150
-  %137 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
-  %138 = and i8 %warned45.0315, 1
-  %tobool.not.i169 = icmp eq i8 %138, 0
-  %cmp45.i170 = fcmp ugt float %134, %warnthresh
+  %140 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
+  %141 = and i8 %warned45.0329, 1
+  %tobool.not.i169 = icmp eq i8 %141, 0
+  %cmp45.i170 = fcmp ugt float %137, %warnthresh
   %or.cond.i171 = and i1 %tobool.not.i169, %cmp45.i170
   %cmp48.i173 = fcmp ugt double %cond.i164, %conv47.i172
   %or.cond42.i174 = select i1 %or.cond.i171, i1 %cmp48.i173, i1 false
@@ -16621,11 +16643,11 @@ if.then49.i185:                                   ; preds = %if.end42.i168
   br label %if.end50.i175
 
 if.end50.i175:                                    ; preds = %if.then49.i185, %if.end42.i168
-  %139 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
-  %warned45.1 = phi i8 [ 1, %if.then49.i185 ], [ %warned45.0315, %if.end42.i168 ]
-  %140 = and i8 %failed46.0316, 1
-  %tobool51.not.i176 = icmp eq i8 %140, 0
-  %cmp54.i177 = fcmp ugt float %134, %failthresh
+  %142 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
+  %warned45.1 = phi i8 [ 1, %if.then49.i185 ], [ %warned45.0329, %if.end42.i168 ]
+  %143 = and i8 %failed46.0330, 1
+  %tobool51.not.i176 = icmp eq i8 %143, 0
+  %cmp54.i177 = fcmp ugt float %137, %failthresh
   %or.cond43.i178 = and i1 %tobool51.not.i176, %cmp54.i177
   %cmp57.i180 = fcmp ugt double %cond.i164, %conv56.i179
   %or.cond44.i181 = select i1 %or.cond43.i178, i1 %cmp57.i180, i1 false
@@ -16636,38 +16658,38 @@ if.then58.i182:                                   ; preds = %if.end50.i175
   store i64 %inc59.i184, ptr %nfail, align 8
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
 
-_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196: ; preds = %land.lhs.true.i139, %if.then12.i142, %if.end50.i175, %if.then58.i182
-  %141 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ]
-  %142 = phi i64 [ %139, %if.then58.i182 ], [ %139, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ]
-  %143 = phi double [ %137, %if.then58.i182 ], [ %137, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %135, %if.then58.i182 ], [ %135, %if.end50.i175 ], [ %batch_sqrerror.5312, %if.then12.i142 ], [ %batch_sqrerror.5312, %land.lhs.true.i139 ]
-  %batcherror.6 = phi double [ %add.i165, %if.then58.i182 ], [ %add.i165, %if.end50.i175 ], [ %batcherror.5313, %if.then12.i142 ], [ %batcherror.5313, %land.lhs.true.i139 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i182 ], [ %.sroa.speculated.i158, %if.end50.i175 ], [ %maxval.6314, %if.then12.i142 ], [ %maxval.6314, %land.lhs.true.i139 ]
-  %warned45.2 = phi i8 [ %warned45.1, %if.then58.i182 ], [ %warned45.1, %if.end50.i175 ], [ %warned45.0315, %if.then12.i142 ], [ %warned45.0315, %land.lhs.true.i139 ]
-  %failed46.1 = phi i8 [ 1, %if.then58.i182 ], [ %failed46.0316, %if.end50.i175 ], [ %failed46.0316, %if.then12.i142 ], [ %failed46.0316, %land.lhs.true.i139 ]
+_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196: ; preds = %if.then.i138.thread, %land.lhs.true.i139, %if.then12.i142, %if.end50.i175, %if.then58.i182
+  %144 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ], [ %119, %if.then.i138.thread ]
+  %145 = phi i64 [ %142, %if.then58.i182 ], [ %142, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ], [ %118, %if.then.i138.thread ]
+  %146 = phi double [ %140, %if.then58.i182 ], [ %140, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ], [ %117, %if.then.i138.thread ]
+  %batch_sqrerror.6 = phi double [ %138, %if.then58.i182 ], [ %138, %if.end50.i175 ], [ %batch_sqrerror.5326, %if.then12.i142 ], [ %batch_sqrerror.5326, %land.lhs.true.i139 ], [ %batch_sqrerror.5326, %if.then.i138.thread ]
+  %batcherror.6 = phi double [ %add.i165, %if.then58.i182 ], [ %add.i165, %if.end50.i175 ], [ %batcherror.5327, %if.then12.i142 ], [ %batcherror.5327, %land.lhs.true.i139 ], [ %batcherror.5327, %if.then.i138.thread ]
+  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i182 ], [ %.sroa.speculated.i158, %if.end50.i175 ], [ %maxval.6328, %if.then12.i142 ], [ %maxval.6328, %land.lhs.true.i139 ], [ %maxval.6328, %if.then.i138.thread ]
+  %warned45.2 = phi i8 [ %warned45.1, %if.then58.i182 ], [ %warned45.1, %if.end50.i175 ], [ %warned45.0329, %if.then12.i142 ], [ %warned45.0329, %land.lhs.true.i139 ], [ %warned45.0329, %if.then.i138.thread ]
+  %failed46.1 = phi i8 [ 1, %if.then58.i182 ], [ %failed46.0330, %if.end50.i175 ], [ %failed46.0330, %if.then12.i142 ], [ %failed46.0330, %land.lhs.true.i139 ], [ %failed46.0330, %if.then.i138.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.inc67, label %for.body52, !llvm.loop !76
 
 for.inc67:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196, %for.body44
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4321, %for.body44 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4322, %for.body44 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %maxval.6.lcssa = phi float [ %maxval.5323, %for.body44 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4337, %for.body44 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4338, %for.body44 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %maxval.6.lcssa = phi float [ %maxval.5339, %for.body44 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
   %inc.i198 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i198, ptr %m_x.i, align 4
-  %144 = load i32, ptr %m_rng_xend.i199, align 8
-  %cmp.i200 = icmp slt i32 %inc.i198, %144
+  %147 = load i32, ptr %m_rng_xend.i199, align 8
+  %cmp.i200 = icmp slt i32 %inc.i198, %147
   br i1 %cmp.i200, label %if.then.i217, label %if.else.i201
 
 if.then.i217:                                     ; preds = %for.inc67
-  %145 = load i8, ptr %m_exists.i218, align 1
-  %146 = and i8 %145, 1
-  %tobool.not.i219 = icmp eq i8 %146, 0
+  %148 = load i8, ptr %m_exists.i218, align 1
+  %149 = and i8 %148, 1
+  %tobool.not.i219 = icmp eq i8 %149, 0
   br i1 %tobool.not.i219, label %if.then.if.end13_crit_edge.i221, label %if.then2.i220
 
 if.then.if.end13_crit_edge.i221:                  ; preds = %if.then.i217
   %.pre.i223 = load i32, ptr %m_y.i, align 8
-  %.pre380 = load i32, ptr %m_z.i, align 4
+  %.pre396 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i215
 
 if.then2.i220:                                    ; preds = %if.then.i217
@@ -16675,23 +16697,23 @@ if.then2.i220:                                    ; preds = %if.then.i217
           to label %invoke.cont69 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i201:                                     ; preds = %for.inc67
-  %147 = load i32, ptr %m_rng_xbegin.i, align 4
-  store i32 %147, ptr %m_x.i, align 4
-  %148 = load i32, ptr %m_y.i, align 8
-  %inc4.i204 = add nsw i32 %148, 1
+  %150 = load i32, ptr %m_rng_xbegin.i, align 4
+  store i32 %150, ptr %m_x.i, align 4
+  %151 = load i32, ptr %m_y.i, align 8
+  %inc4.i204 = add nsw i32 %151, 1
   store i32 %inc4.i204, ptr %m_y.i, align 8
-  %149 = load i32, ptr %m_rng_yend.i205, align 8
-  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %149
-  %.pre381 = load i32, ptr %m_z.i, align 4
+  %152 = load i32, ptr %m_rng_yend.i205, align 8
+  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %152
+  %.pre397 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i206, label %if.end13.i215, label %if.then6.i207
 
 if.then6.i207:                                    ; preds = %if.else.i201
-  %150 = load i32, ptr %m_rng_ybegin.i, align 4
-  store i32 %150, ptr %m_y.i, align 8
-  %inc8.i210 = add nsw i32 %.pre381, 1
+  %153 = load i32, ptr %m_rng_ybegin.i, align 4
+  store i32 %153, ptr %m_y.i, align 8
+  %inc8.i210 = add nsw i32 %.pre397, 1
   store i32 %inc8.i210, ptr %m_z.i, align 4
-  %151 = load i32, ptr %m_rng_zend.i, align 8
-  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %151
+  %154 = load i32, ptr %m_rng_zend.i, align 8
+  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %154
   br i1 %cmp9.not.i212, label %if.end13.i215, label %if.then10.i213
 
 if.then10.i213:                                   ; preds = %if.then6.i207
@@ -16699,30 +16721,30 @@ if.then10.i213:                                   ; preds = %if.then6.i207
   br label %invoke.cont69
 
 if.end13.i215:                                    ; preds = %if.then6.i207, %if.else.i201, %if.then.if.end13_crit_edge.i221
-  %152 = phi i32 [ %.pre381, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre380, %if.then.if.end13_crit_edge.i221 ]
-  %153 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %150, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
-  %154 = phi i32 [ %147, %if.else.i201 ], [ %147, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %154, i32 noundef %153, i32 noundef %152)
+  %155 = phi i32 [ %.pre397, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre396, %if.then.if.end13_crit_edge.i221 ]
+  %156 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %153, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
+  %157 = phi i32 [ %150, %if.else.i201 ], [ %150, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %157, i32 noundef %156, i32 noundef %155)
           to label %invoke.cont69 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont69:                                    ; preds = %if.then10.i213, %if.then2.i220, %if.end13.i215
-  %inc68 = add nuw nsw i32 %i37.0324, 1
-  %155 = load i32, ptr %m_x.i227, align 4
-  %inc.i228 = add nsw i32 %155, 1
+  %inc68 = add nuw nsw i32 %i37.0340, 1
+  %158 = load i32, ptr %m_x.i227, align 4
+  %inc.i228 = add nsw i32 %158, 1
   store i32 %inc.i228, ptr %m_x.i227, align 4
-  %156 = load i32, ptr %m_rng_xend.i229, align 8
-  %cmp.i230 = icmp slt i32 %inc.i228, %156
+  %159 = load i32, ptr %m_rng_xend.i229, align 8
+  %cmp.i230 = icmp slt i32 %inc.i228, %159
   br i1 %cmp.i230, label %if.then.i247, label %if.else.i231
 
 if.then.i247:                                     ; preds = %invoke.cont69
-  %157 = load i8, ptr %m_exists.i248, align 1
-  %158 = and i8 %157, 1
-  %tobool.not.i249 = icmp eq i8 %158, 0
+  %160 = load i8, ptr %m_exists.i248, align 1
+  %161 = and i8 %160, 1
+  %tobool.not.i249 = icmp eq i8 %161, 0
   br i1 %tobool.not.i249, label %if.then.if.end13_crit_edge.i251, label %if.then2.i250
 
 if.then.if.end13_crit_edge.i251:                  ; preds = %if.then.i247
   %.pre.i253 = load i32, ptr %m_y.i233, align 8
-  %.pre382 = load i32, ptr %m_z.i239, align 4
+  %.pre398 = load i32, ptr %m_z.i239, align 4
   br label %if.end13.i245
 
 if.then2.i250:                                    ; preds = %if.then.i247
@@ -16730,23 +16752,23 @@ if.then2.i250:                                    ; preds = %if.then.i247
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i231:                                     ; preds = %invoke.cont69
-  %159 = load i32, ptr %m_rng_xbegin.i232, align 4
-  store i32 %159, ptr %m_x.i227, align 4
-  %160 = load i32, ptr %m_y.i233, align 8
-  %inc4.i234 = add nsw i32 %160, 1
+  %162 = load i32, ptr %m_rng_xbegin.i232, align 4
+  store i32 %162, ptr %m_x.i227, align 4
+  %163 = load i32, ptr %m_y.i233, align 8
+  %inc4.i234 = add nsw i32 %163, 1
   store i32 %inc4.i234, ptr %m_y.i233, align 8
-  %161 = load i32, ptr %m_rng_yend.i235, align 8
-  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %161
-  %.pre383 = load i32, ptr %m_z.i239, align 4
+  %164 = load i32, ptr %m_rng_yend.i235, align 8
+  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %164
+  %.pre399 = load i32, ptr %m_z.i239, align 4
   br i1 %cmp5.not.i236, label %if.end13.i245, label %if.then6.i237
 
 if.then6.i237:                                    ; preds = %if.else.i231
-  %162 = load i32, ptr %m_rng_ybegin.i238, align 4
-  store i32 %162, ptr %m_y.i233, align 8
-  %inc8.i240 = add nsw i32 %.pre383, 1
+  %165 = load i32, ptr %m_rng_ybegin.i238, align 4
+  store i32 %165, ptr %m_y.i233, align 8
+  %inc8.i240 = add nsw i32 %.pre399, 1
   store i32 %inc8.i240, ptr %m_z.i239, align 4
-  %163 = load i32, ptr %m_rng_zend.i241, align 8
-  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %163
+  %166 = load i32, ptr %m_rng_zend.i241, align 8
+  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %166
   br i1 %cmp9.not.i242, label %if.end13.i245, label %if.then10.i243
 
 if.then10.i243:                                   ; preds = %if.then6.i237
@@ -16754,47 +16776,47 @@ if.then10.i243:                                   ; preds = %if.then6.i237
   br label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256
 
 if.end13.i245:                                    ; preds = %if.then6.i237, %if.else.i231, %if.then.if.end13_crit_edge.i251
-  %164 = phi i32 [ %.pre383, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre382, %if.then.if.end13_crit_edge.i251 ]
-  %165 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %162, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
-  %166 = phi i32 [ %159, %if.else.i231 ], [ %159, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %166, i32 noundef %165, i32 noundef %164)
+  %167 = phi i32 [ %.pre399, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre398, %if.then.if.end13_crit_edge.i251 ]
+  %168 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %165, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
+  %169 = phi i32 [ %162, %if.else.i231 ], [ %162, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %169, i32 noundef %168, i32 noundef %167)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256: ; preds = %if.end13.i245, %if.then2.i250, %if.then10.i243
-  %exitcond377.not = icmp eq i32 %inc68, 4096
-  br i1 %exitcond377.not, label %if.end.loopexit282, label %land.rhs40
+  %exitcond393.not = icmp eq i32 %inc68, 4096
+  br i1 %exitcond393.not, label %if.end.loopexit296, label %land.rhs40
 
-if.end.loopexit282:                               ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133
-  %batch_sqrerror.4.lcssa = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batch_sqrerror.4321, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
-  %batcherror.4.lcssa = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batcherror.4322, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
-  %maxval.5.lcssa = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.5323, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
+if.end.loopexit296:                               ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133
+  %batch_sqrerror.4.lcssa = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batch_sqrerror.4337, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
+  %batcherror.4.lcssa = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batcherror.4338, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
+  %maxval.5.lcssa = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.5339, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
   %add = fadd double %totalerror.0, %batcherror.4.lcssa
   %add72 = fadd double %totalsqrerror.0, %batch_sqrerror.4.lcssa
   br label %for.cond, !llvm.loop !73
 
 for.end73:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us
-  %.us-phi360 = phi float [ %maxval.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %maxval.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
-  %.us-phi361 = phi double [ %totalsqrerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalsqrerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
-  %.us-phi362 = phi double [ %totalerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
+  %.us-phi376 = phi float [ %maxval.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %maxval.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
+  %.us-phi377 = phi double [ %totalsqrerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalsqrerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
+  %.us-phi378 = phi double [ %totalerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
   %conv = sext i32 %sub.i to i64
   %mul = mul i64 %cond.i, %conv
   %conv74 = uitofp i64 %mul to double
-  %div = fdiv double %.us-phi362, %conv74
+  %div = fdiv double %.us-phi378, %conv74
   store double %div, ptr %result, align 8
-  %div76 = fdiv double %.us-phi361, %conv74
-  %167 = call double @llvm.sqrt.f64(double %div76)
+  %div76 = fdiv double %.us-phi377, %conv74
+  %170 = call double @llvm.sqrt.f64(double %div76)
   %rms_error = getelementptr inbounds i8, ptr %result, i64 8
-  store double %167, ptr %rms_error, align 8
-  %conv77 = fpext float %.us-phi360 to double
-  %div79 = fdiv double %conv77, %167
-  %168 = call double @llvm.log10.f64(double %div79)
-  %mul80 = fmul double %168, 2.000000e+01
+  store double %170, ptr %rms_error, align 8
+  %conv77 = fpext float %.us-phi376 to double
+  %div79 = fdiv double %conv77, %170
+  %171 = call double @llvm.log10.f64(double %div79)
+  %mul80 = fmul double %171, 2.000000e+01
   %PSNR = getelementptr inbounds i8, ptr %result, i64 16
   store double %mul80, ptr %PSNR, align 8
-  %169 = load i64, ptr %nfail, align 8
+  %172 = load i64, ptr %nfail, align 8
   %m_tile.i.i257 = getelementptr inbounds i8, ptr %b, i64 72
-  %170 = load ptr, ptr %m_tile.i.i257, align 8
-  %tobool.not.i.i258 = icmp eq ptr %170, null
+  %173 = load ptr, ptr %m_tile.i.i257, align 8
+  %tobool.not.i.i258 = icmp eq ptr %173, null
   br i1 %tobool.not.i.i258, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit261, label %if.then.i.i259
 
 if.then.i.i259:                                   ; preds = %for.end73
@@ -16802,16 +16824,16 @@ if.then.i.i259:                                   ; preds = %for.end73
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit261 unwind label %terminate.lpad.i.i260
 
 terminate.lpad.i.i260:                            ; preds = %if.then.i.i259
-  %171 = landingpad { ptr, i32 }
+  %174 = landingpad { ptr, i32 }
           catch ptr null
-  %172 = extractvalue { ptr, i32 } %171, 0
-  call void @__clang_call_terminate(ptr %172) #25
+  %175 = extractvalue { ptr, i32 } %174, 0
+  call void @__clang_call_terminate(ptr %175) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit261: ; preds = %for.end73, %if.then.i.i259
   %m_tile.i.i262 = getelementptr inbounds i8, ptr %a, i64 72
-  %173 = load ptr, ptr %m_tile.i.i262, align 8
-  %tobool.not.i.i263 = icmp eq ptr %173, null
+  %176 = load ptr, ptr %m_tile.i.i262, align 8
+  %tobool.not.i.i263 = icmp eq ptr %176, null
   br i1 %tobool.not.i.i263, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit, label %if.then.i.i264
 
 if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit261
@@ -16819,21 +16841,21 @@ if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit unwind label %terminate.lpad.i.i265
 
 terminate.lpad.i.i265:                            ; preds = %if.then.i.i264
-  %174 = landingpad { ptr, i32 }
+  %177 = landingpad { ptr, i32 }
           catch ptr null
-  %175 = extractvalue { ptr, i32 } %174, 0
-  call void @__clang_call_terminate(ptr %175) #25
+  %178 = extractvalue { ptr, i32 } %177, 0
+  call void @__clang_call_terminate(ptr %178) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIffED2Ev.exit261, %if.then.i.i264
-  %cmp82 = icmp eq i64 %169, 0
+  %cmp82 = icmp eq i64 %172, 0
   ret i1 %cmp82
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %99, %lpad ], [ %lpad.phi, %lpad4 ], [ %lpad.phi, %if.then.i.i ]
   %m_tile.i.i266 = getelementptr inbounds i8, ptr %a, i64 72
-  %176 = load ptr, ptr %m_tile.i.i266, align 8
-  %tobool.not.i.i267 = icmp eq ptr %176, null
+  %179 = load ptr, ptr %m_tile.i.i266, align 8
+  %tobool.not.i.i267 = icmp eq ptr %179, null
   br i1 %tobool.not.i.i267, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit270, label %if.then.i.i268
 
 if.then.i.i268:                                   ; preds = %ehcleanup
@@ -16841,10 +16863,10 @@ if.then.i.i268:                                   ; preds = %ehcleanup
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit270 unwind label %terminate.lpad.i.i269
 
 terminate.lpad.i.i269:                            ; preds = %if.then.i.i268
-  %177 = landingpad { ptr, i32 }
+  %180 = landingpad { ptr, i32 }
           catch ptr null
-  %178 = extractvalue { ptr, i32 } %177, 0
-  call void @__clang_call_terminate(ptr %178) #25
+  %181 = extractvalue { ptr, i32 } %180, 0
+  call void @__clang_call_terminate(ptr %181) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit270: ; preds = %ehcleanup, %if.then.i.i268
@@ -17419,9 +17441,9 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %maxval.6316 = phi float [ %maxval.5325, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %batcherror.5315 = phi double [ %batcherror.4324, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %batch_sqrerror.5314 = phi double [ %batch_sqrerror.4323, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %142, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %141, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %140, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %140, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %139, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %138, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %cmp52 = icmp slt i64 %indvars.iv, %8
   br i1 %cmp52, label %cond.true, label %cond.end
 
@@ -17446,52 +17468,50 @@ cond.true56:                                      ; preds = %cond.end
 
 cond.end60:                                       ; preds = %cond.true56, %cond.end
   %cond61 = phi float [ %mul.i.i.i138, %cond.true56 ], [ 0.000000e+00, %cond.end ]
-  %122 = call float @llvm.fabs.f32(float %cond)
-  %123 = fcmp one float %122, 0x7FF0000000000000
-  %124 = call float @llvm.fabs.f32(float %cond61)
-  %125 = fcmp one float %124, 0x7FF0000000000000
-  %or.cond54.i139 = and i1 %123, %125
+  %122 = fcmp one float %cond, 0x7FF0000000000000
+  %123 = fcmp one float %cond61, 0x7FF0000000000000
+  %or.cond54.i139 = and i1 %122, %123
   br i1 %or.cond54.i139, label %if.end20.i152, label %if.then.i140
 
 if.then.i140:                                     ; preds = %cond.end60
-  %126 = fcmp oeq float %122, 0x7FF0000000000000
-  %127 = fcmp oeq float %124, 0x7FF0000000000000
-  %128 = xor i1 %126, %127
-  br i1 %128, label %if.end.i142, label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
+  %124 = fcmp oeq float %cond, 0x7FF0000000000000
+  %125 = fcmp oeq float %cond61, 0x7FF0000000000000
+  %126 = xor i1 %124, %125
+  br i1 %126, label %if.end.i142, label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
 
 if.end.i142:                                      ; preds = %if.then.i140
-  %129 = call double @llvm.fabs.f64(double %117)
-  %130 = fcmp ueq double %129, 0x7FF0000000000000
-  br i1 %130, label %if.end20.i152, label %if.then12.i144
+  %127 = call double @llvm.fabs.f64(double %117)
+  %128 = fcmp ueq double %127, 0x7FF0000000000000
+  br i1 %128, label %if.end20.i152, label %if.then12.i144
 
 if.then12.i144:                                   ; preds = %if.end.i142
   store double 0x7FF0000000000000, ptr %maxerror, align 8
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %131 = trunc i64 %indvars.iv to i32
-  store i32 %131, ptr %maxc, align 4
+  %129 = trunc i64 %indvars.iv to i32
+  store i32 %129, ptr %maxc, align 4
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
 
 if.end20.i152:                                    ; preds = %if.end.i142, %cond.end60
-  %conv.i.i153 = fpext float %122 to double
-  %conv1.i.i154 = fpext float %124 to double
+  %conv.i.i153 = fpext float %cond to double
+  %conv1.i.i154 = fpext float %cond61 to double
   %mul2.i.i155 = fmul double %conv1.i.i154, 5.000000e-01
-  %132 = call double @llvm.fmuladd.f64(double %conv.i.i153, double 5.000000e-01, double %mul2.i.i155)
-  %conv3.i.i156 = fptrunc double %132 to float
-  %cmp.i.i157 = fcmp olt float %122, %124
-  %.sroa.speculated51.i158 = select i1 %cmp.i.i157, float %124, float %122
+  %130 = call double @llvm.fmuladd.f64(double %conv.i.i153, double 5.000000e-01, double %mul2.i.i155)
+  %conv3.i.i156 = fptrunc double %130 to float
+  %cmp.i.i157 = fcmp olt float %cond, %cond61
+  %.sroa.speculated51.i158 = select i1 %cmp.i.i157, float %cond61, float %cond
   %cmp.i45.i159 = fcmp olt float %maxval.6316, %.sroa.speculated51.i158
   %.sroa.speculated.i160 = select i1 %cmp.i45.i159, float %.sroa.speculated51.i158, float %maxval.6316
   %sub.i161 = fsub float %cond, %cond61
-  %133 = call noundef float @llvm.fabs.f32(float %sub.i161)
-  %conv27.i162 = fpext float %133 to double
+  %131 = call noundef float @llvm.fabs.f32(float %sub.i161)
+  %conv27.i162 = fpext float %131 to double
   %conv28.i163 = fpext float %conv3.i.i156 to double
   %cmp29.i164 = fcmp ogt float %conv3.i.i156, 0.000000e+00
   %div.i165 = fdiv double %conv27.i162, %conv28.i163
   %cond.i166 = select i1 %cmp29.i164, double %div.i165, double 0.000000e+00
   %add.i167 = fadd double %batcherror.5315, %conv27.i162
-  %134 = call double @llvm.fmuladd.f64(double %conv27.i162, double %conv27.i162, double %batch_sqrerror.5314)
+  %132 = call double @llvm.fmuladd.f64(double %conv27.i162, double %conv27.i162, double %batch_sqrerror.5314)
   %cmp32.i169 = fcmp ult double %117, %conv27.i162
   br i1 %cmp32.i169, label %if.then33.i190, label %if.end42.i170
 
@@ -17500,15 +17520,15 @@ if.then33.i190:                                   ; preds = %if.end20.i152
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %135 = trunc i64 %indvars.iv to i32
-  store i32 %135, ptr %maxc, align 4
+  %133 = trunc i64 %indvars.iv to i32
+  store i32 %133, ptr %maxc, align 4
   br label %if.end42.i170
 
 if.end42.i170:                                    ; preds = %if.then33.i190, %if.end20.i152
-  %136 = phi double [ %conv27.i162, %if.then33.i190 ], [ %117, %if.end20.i152 ]
-  %137 = and i8 %warned44.0317, 1
-  %tobool.not.i171 = icmp eq i8 %137, 0
-  %cmp45.i172 = fcmp ugt float %133, %warnthresh
+  %134 = phi double [ %conv27.i162, %if.then33.i190 ], [ %117, %if.end20.i152 ]
+  %135 = and i8 %warned44.0317, 1
+  %tobool.not.i171 = icmp eq i8 %135, 0
+  %cmp45.i172 = fcmp ugt float %131, %warnthresh
   %or.cond.i173 = and i1 %tobool.not.i171, %cmp45.i172
   %cmp48.i175 = fcmp ugt double %cond.i166, %conv47.i174
   %or.cond42.i176 = select i1 %or.cond.i173, i1 %cmp48.i175, i1 false
@@ -17520,11 +17540,11 @@ if.then49.i187:                                   ; preds = %if.end42.i170
   br label %if.end50.i177
 
 if.end50.i177:                                    ; preds = %if.then49.i187, %if.end42.i170
-  %138 = phi i64 [ %inc.i189, %if.then49.i187 ], [ %118, %if.end42.i170 ]
+  %136 = phi i64 [ %inc.i189, %if.then49.i187 ], [ %118, %if.end42.i170 ]
   %warned44.1 = phi i8 [ 1, %if.then49.i187 ], [ %warned44.0317, %if.end42.i170 ]
-  %139 = and i8 %failed45.0318, 1
-  %tobool51.not.i178 = icmp eq i8 %139, 0
-  %cmp54.i179 = fcmp ugt float %133, %failthresh
+  %137 = and i8 %failed45.0318, 1
+  %tobool51.not.i178 = icmp eq i8 %137, 0
+  %cmp54.i179 = fcmp ugt float %131, %failthresh
   %or.cond43.i180 = and i1 %tobool51.not.i178, %cmp54.i179
   %cmp57.i182 = fcmp ugt double %cond.i166, %conv56.i181
   %or.cond44.i183 = select i1 %or.cond43.i180, i1 %cmp57.i182, i1 false
@@ -17536,10 +17556,10 @@ if.then58.i184:                                   ; preds = %if.end50.i177
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
 
 _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198: ; preds = %if.then.i140, %if.then12.i144, %if.end50.i177, %if.then58.i184
-  %140 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %119, %if.end50.i177 ], [ %119, %if.then12.i144 ], [ %119, %if.then.i140 ]
-  %141 = phi i64 [ %138, %if.then58.i184 ], [ %138, %if.end50.i177 ], [ %118, %if.then12.i144 ], [ %118, %if.then.i140 ]
-  %142 = phi double [ %136, %if.then58.i184 ], [ %136, %if.end50.i177 ], [ 0x7FF0000000000000, %if.then12.i144 ], [ %117, %if.then.i140 ]
-  %batch_sqrerror.6 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i177 ], [ %batch_sqrerror.5314, %if.then12.i144 ], [ %batch_sqrerror.5314, %if.then.i140 ]
+  %138 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %119, %if.end50.i177 ], [ %119, %if.then12.i144 ], [ %119, %if.then.i140 ]
+  %139 = phi i64 [ %136, %if.then58.i184 ], [ %136, %if.end50.i177 ], [ %118, %if.then12.i144 ], [ %118, %if.then.i140 ]
+  %140 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i177 ], [ 0x7FF0000000000000, %if.then12.i144 ], [ %117, %if.then.i140 ]
+  %batch_sqrerror.6 = phi double [ %132, %if.then58.i184 ], [ %132, %if.end50.i177 ], [ %batch_sqrerror.5314, %if.then12.i144 ], [ %batch_sqrerror.5314, %if.then.i140 ]
   %batcherror.6 = phi double [ %add.i167, %if.then58.i184 ], [ %add.i167, %if.end50.i177 ], [ %batcherror.5315, %if.then12.i144 ], [ %batcherror.5315, %if.then.i140 ]
   %maxval.7 = phi float [ %.sroa.speculated.i160, %if.then58.i184 ], [ %.sroa.speculated.i160, %if.end50.i177 ], [ %maxval.6316, %if.then12.i144 ], [ %maxval.6316, %if.then.i140 ]
   %warned44.2 = phi i8 [ %warned44.1, %if.then58.i184 ], [ %warned44.1, %if.end50.i177 ], [ %warned44.0317, %if.then12.i144 ], [ %warned44.0317, %if.then.i140 ]
@@ -17554,14 +17574,14 @@ for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2
   %maxval.6.lcssa = phi float [ %maxval.5325, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %inc.i200 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i200, ptr %m_x.i, align 4
-  %143 = load i32, ptr %m_rng_xend.i201, align 8
-  %cmp.i202 = icmp slt i32 %inc.i200, %143
+  %141 = load i32, ptr %m_rng_xend.i201, align 8
+  %cmp.i202 = icmp slt i32 %inc.i200, %141
   br i1 %cmp.i202, label %if.then.i219, label %if.else.i203
 
 if.then.i219:                                     ; preds = %for.inc65
-  %144 = load i8, ptr %m_exists.i220, align 1
-  %145 = and i8 %144, 1
-  %tobool.not.i221 = icmp eq i8 %145, 0
+  %142 = load i8, ptr %m_exists.i220, align 1
+  %143 = and i8 %142, 1
+  %tobool.not.i221 = icmp eq i8 %143, 0
   br i1 %tobool.not.i221, label %if.then.if.end13_crit_edge.i223, label %if.then2.i222
 
 if.then.if.end13_crit_edge.i223:                  ; preds = %if.then.i219
@@ -17574,23 +17594,23 @@ if.then2.i222:                                    ; preds = %if.then.i219
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i203:                                     ; preds = %for.inc65
-  %146 = load i32, ptr %m_rng_xbegin.i, align 4
-  store i32 %146, ptr %m_x.i, align 4
-  %147 = load i32, ptr %m_y.i, align 8
-  %inc4.i206 = add nsw i32 %147, 1
+  %144 = load i32, ptr %m_rng_xbegin.i, align 4
+  store i32 %144, ptr %m_x.i, align 4
+  %145 = load i32, ptr %m_y.i, align 8
+  %inc4.i206 = add nsw i32 %145, 1
   store i32 %inc4.i206, ptr %m_y.i, align 8
-  %148 = load i32, ptr %m_rng_yend.i207, align 8
-  %cmp5.not.i208 = icmp slt i32 %inc4.i206, %148
+  %146 = load i32, ptr %m_rng_yend.i207, align 8
+  %cmp5.not.i208 = icmp slt i32 %inc4.i206, %146
   %.pre383 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i208, label %if.end13.i217, label %if.then6.i209
 
 if.then6.i209:                                    ; preds = %if.else.i203
-  %149 = load i32, ptr %m_rng_ybegin.i, align 4
-  store i32 %149, ptr %m_y.i, align 8
+  %147 = load i32, ptr %m_rng_ybegin.i, align 4
+  store i32 %147, ptr %m_y.i, align 8
   %inc8.i212 = add nsw i32 %.pre383, 1
   store i32 %inc8.i212, ptr %m_z.i, align 4
-  %150 = load i32, ptr %m_rng_zend.i, align 8
-  %cmp9.not.i214 = icmp slt i32 %inc8.i212, %150
+  %148 = load i32, ptr %m_rng_zend.i, align 8
+  %cmp9.not.i214 = icmp slt i32 %inc8.i212, %148
   br i1 %cmp9.not.i214, label %if.end13.i217, label %if.then10.i215
 
 if.then10.i215:                                   ; preds = %if.then6.i209
@@ -17598,25 +17618,25 @@ if.then10.i215:                                   ; preds = %if.then6.i209
   br label %invoke.cont67
 
 if.end13.i217:                                    ; preds = %if.then6.i209, %if.else.i203, %if.then.if.end13_crit_edge.i223
-  %151 = phi i32 [ %.pre383, %if.else.i203 ], [ %inc8.i212, %if.then6.i209 ], [ %.pre382, %if.then.if.end13_crit_edge.i223 ]
-  %152 = phi i32 [ %inc4.i206, %if.else.i203 ], [ %149, %if.then6.i209 ], [ %.pre.i225, %if.then.if.end13_crit_edge.i223 ]
-  %153 = phi i32 [ %146, %if.else.i203 ], [ %146, %if.then6.i209 ], [ %inc.i200, %if.then.if.end13_crit_edge.i223 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %153, i32 noundef %152, i32 noundef %151)
+  %149 = phi i32 [ %.pre383, %if.else.i203 ], [ %inc8.i212, %if.then6.i209 ], [ %.pre382, %if.then.if.end13_crit_edge.i223 ]
+  %150 = phi i32 [ %inc4.i206, %if.else.i203 ], [ %147, %if.then6.i209 ], [ %.pre.i225, %if.then.if.end13_crit_edge.i223 ]
+  %151 = phi i32 [ %144, %if.else.i203 ], [ %144, %if.then6.i209 ], [ %inc.i200, %if.then.if.end13_crit_edge.i223 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %151, i32 noundef %150, i32 noundef %149)
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont67:                                    ; preds = %if.then10.i215, %if.then2.i222, %if.end13.i217
   %inc66 = add nuw nsw i32 %i36.0326, 1
-  %154 = load i32, ptr %m_x.i229, align 4
-  %inc.i230 = add nsw i32 %154, 1
+  %152 = load i32, ptr %m_x.i229, align 4
+  %inc.i230 = add nsw i32 %152, 1
   store i32 %inc.i230, ptr %m_x.i229, align 4
-  %155 = load i32, ptr %m_rng_xend.i231, align 8
-  %cmp.i232 = icmp slt i32 %inc.i230, %155
+  %153 = load i32, ptr %m_rng_xend.i231, align 8
+  %cmp.i232 = icmp slt i32 %inc.i230, %153
   br i1 %cmp.i232, label %if.then.i249, label %if.else.i233
 
 if.then.i249:                                     ; preds = %invoke.cont67
-  %156 = load i8, ptr %m_exists.i250, align 1
-  %157 = and i8 %156, 1
-  %tobool.not.i251 = icmp eq i8 %157, 0
+  %154 = load i8, ptr %m_exists.i250, align 1
+  %155 = and i8 %154, 1
+  %tobool.not.i251 = icmp eq i8 %155, 0
   br i1 %tobool.not.i251, label %if.then.if.end13_crit_edge.i253, label %if.then2.i252
 
 if.then.if.end13_crit_edge.i253:                  ; preds = %if.then.i249
@@ -17629,23 +17649,23 @@ if.then2.i252:                                    ; preds = %if.then.i249
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i233:                                     ; preds = %invoke.cont67
-  %158 = load i32, ptr %m_rng_xbegin.i234, align 4
-  store i32 %158, ptr %m_x.i229, align 4
-  %159 = load i32, ptr %m_y.i235, align 8
-  %inc4.i236 = add nsw i32 %159, 1
+  %156 = load i32, ptr %m_rng_xbegin.i234, align 4
+  store i32 %156, ptr %m_x.i229, align 4
+  %157 = load i32, ptr %m_y.i235, align 8
+  %inc4.i236 = add nsw i32 %157, 1
   store i32 %inc4.i236, ptr %m_y.i235, align 8
-  %160 = load i32, ptr %m_rng_yend.i237, align 8
-  %cmp5.not.i238 = icmp slt i32 %inc4.i236, %160
+  %158 = load i32, ptr %m_rng_yend.i237, align 8
+  %cmp5.not.i238 = icmp slt i32 %inc4.i236, %158
   %.pre385 = load i32, ptr %m_z.i241, align 4
   br i1 %cmp5.not.i238, label %if.end13.i247, label %if.then6.i239
 
 if.then6.i239:                                    ; preds = %if.else.i233
-  %161 = load i32, ptr %m_rng_ybegin.i240, align 4
-  store i32 %161, ptr %m_y.i235, align 8
+  %159 = load i32, ptr %m_rng_ybegin.i240, align 4
+  store i32 %159, ptr %m_y.i235, align 8
   %inc8.i242 = add nsw i32 %.pre385, 1
   store i32 %inc8.i242, ptr %m_z.i241, align 4
-  %162 = load i32, ptr %m_rng_zend.i243, align 8
-  %cmp9.not.i244 = icmp slt i32 %inc8.i242, %162
+  %160 = load i32, ptr %m_rng_zend.i243, align 8
+  %cmp9.not.i244 = icmp slt i32 %inc8.i242, %160
   br i1 %cmp9.not.i244, label %if.end13.i247, label %if.then10.i245
 
 if.then10.i245:                                   ; preds = %if.then6.i239
@@ -17653,10 +17673,10 @@ if.then10.i245:                                   ; preds = %if.then6.i239
   br label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258
 
 if.end13.i247:                                    ; preds = %if.then6.i239, %if.else.i233, %if.then.if.end13_crit_edge.i253
-  %163 = phi i32 [ %.pre385, %if.else.i233 ], [ %inc8.i242, %if.then6.i239 ], [ %.pre384, %if.then.if.end13_crit_edge.i253 ]
-  %164 = phi i32 [ %inc4.i236, %if.else.i233 ], [ %161, %if.then6.i239 ], [ %.pre.i255, %if.then.if.end13_crit_edge.i253 ]
-  %165 = phi i32 [ %158, %if.else.i233 ], [ %158, %if.then6.i239 ], [ %inc.i230, %if.then.if.end13_crit_edge.i253 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %165, i32 noundef %164, i32 noundef %163)
+  %161 = phi i32 [ %.pre385, %if.else.i233 ], [ %inc8.i242, %if.then6.i239 ], [ %.pre384, %if.then.if.end13_crit_edge.i253 ]
+  %162 = phi i32 [ %inc4.i236, %if.else.i233 ], [ %159, %if.then6.i239 ], [ %.pre.i255, %if.then.if.end13_crit_edge.i253 ]
+  %163 = phi i32 [ %156, %if.else.i233 ], [ %156, %if.then6.i239 ], [ %inc.i230, %if.then.if.end13_crit_edge.i253 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %163, i32 noundef %162, i32 noundef %161)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258: ; preds = %if.end13.i247, %if.then2.i252, %if.then10.i245
@@ -17681,19 +17701,19 @@ for.end71:                                        ; preds = %_ZNK18OpenImageIO_v
   %div = fdiv double %.us-phi364, %conv72
   store double %div, ptr %result, align 8
   %div74 = fdiv double %.us-phi363, %conv72
-  %166 = call double @llvm.sqrt.f64(double %div74)
+  %164 = call double @llvm.sqrt.f64(double %div74)
   %rms_error = getelementptr inbounds i8, ptr %result, i64 8
-  store double %166, ptr %rms_error, align 8
+  store double %164, ptr %rms_error, align 8
   %conv75 = fpext float %.us-phi362 to double
-  %div77 = fdiv double %conv75, %166
-  %167 = call double @llvm.log10.f64(double %div77)
-  %mul78 = fmul double %167, 2.000000e+01
+  %div77 = fdiv double %conv75, %164
+  %165 = call double @llvm.log10.f64(double %div77)
+  %mul78 = fmul double %165, 2.000000e+01
   %PSNR = getelementptr inbounds i8, ptr %result, i64 16
   store double %mul78, ptr %PSNR, align 8
-  %168 = load i64, ptr %nfail, align 8
+  %166 = load i64, ptr %nfail, align 8
   %m_tile.i.i259 = getelementptr inbounds i8, ptr %b, i64 72
-  %169 = load ptr, ptr %m_tile.i.i259, align 8
-  %tobool.not.i.i260 = icmp eq ptr %169, null
+  %167 = load ptr, ptr %m_tile.i.i259, align 8
+  %tobool.not.i.i260 = icmp eq ptr %167, null
   br i1 %tobool.not.i.i260, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit263, label %if.then.i.i261
 
 if.then.i.i261:                                   ; preds = %for.end71
@@ -17701,16 +17721,16 @@ if.then.i.i261:                                   ; preds = %for.end71
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit263 unwind label %terminate.lpad.i.i262
 
 terminate.lpad.i.i262:                            ; preds = %if.then.i.i261
-  %170 = landingpad { ptr, i32 }
+  %168 = landingpad { ptr, i32 }
           catch ptr null
-  %171 = extractvalue { ptr, i32 } %170, 0
-  call void @__clang_call_terminate(ptr %171) #25
+  %169 = extractvalue { ptr, i32 } %168, 0
+  call void @__clang_call_terminate(ptr %169) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit263: ; preds = %for.end71, %if.then.i.i261
   %m_tile.i.i264 = getelementptr inbounds i8, ptr %a, i64 72
-  %172 = load ptr, ptr %m_tile.i.i264, align 8
-  %tobool.not.i.i265 = icmp eq ptr %172, null
+  %170 = load ptr, ptr %m_tile.i.i264, align 8
+  %tobool.not.i.i265 = icmp eq ptr %170, null
   br i1 %tobool.not.i.i265, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit, label %if.then.i.i266
 
 if.then.i.i266:                                   ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit263
@@ -17718,21 +17738,21 @@ if.then.i.i266:                                   ; preds = %_ZN18OpenImageIO_v2
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit unwind label %terminate.lpad.i.i267
 
 terminate.lpad.i.i267:                            ; preds = %if.then.i.i266
-  %173 = landingpad { ptr, i32 }
+  %171 = landingpad { ptr, i32 }
           catch ptr null
-  %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #25
+  %172 = extractvalue { ptr, i32 } %171, 0
+  call void @__clang_call_terminate(ptr %172) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorIhfED2Ev.exit263, %if.then.i.i266
-  %cmp80 = icmp eq i64 %168, 0
+  %cmp80 = icmp eq i64 %166, 0
   ret i1 %cmp80
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %99, %lpad ], [ %lpad.phi, %lpad4 ], [ %lpad.phi, %if.then.i.i ]
   %m_tile.i.i268 = getelementptr inbounds i8, ptr %a, i64 72
-  %175 = load ptr, ptr %m_tile.i.i268, align 8
-  %tobool.not.i.i269 = icmp eq ptr %175, null
+  %173 = load ptr, ptr %m_tile.i.i268, align 8
+  %tobool.not.i.i269 = icmp eq ptr %173, null
   br i1 %tobool.not.i.i269, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit272, label %if.then.i.i270
 
 if.then.i.i270:                                   ; preds = %ehcleanup
@@ -17740,10 +17760,10 @@ if.then.i.i270:                                   ; preds = %ehcleanup
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit272 unwind label %terminate.lpad.i.i271
 
 terminate.lpad.i.i271:                            ; preds = %if.then.i.i270
-  %176 = landingpad { ptr, i32 }
+  %174 = landingpad { ptr, i32 }
           catch ptr null
-  %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #25
+  %175 = extractvalue { ptr, i32 } %174, 0
+  call void @__clang_call_terminate(ptr %175) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit272: ; preds = %ehcleanup, %if.then.i.i270
@@ -17830,11 +17850,11 @@ for.cond.preheader:                               ; preds = %invoke.cont
   %m_rng_zend.i241 = getelementptr inbounds i8, ptr %b, i64 56
   %m_valid.i244 = getelementptr inbounds i8, ptr %b, i64 8
   %m_exists.i248 = getelementptr inbounds i8, ptr %b, i64 9
-  br i1 %call6, label %for.cond.us, label %for.cond.preheader366
+  br i1 %call6, label %for.cond.us, label %for.cond.preheader382
 
-for.cond.preheader366:                            ; preds = %for.cond.preheader
-  %8 = sext i32 %call2 to i64
-  %9 = sext i32 %call3 to i64
+for.cond.preheader382:                            ; preds = %for.cond.preheader
+  %8 = sext i32 %call3 to i64
+  %9 = sext i32 %call2 to i64
   br label %for.cond
 
 for.cond.us:                                      ; preds = %for.cond.preheader, %if.end.loopexit.us
@@ -17868,26 +17888,26 @@ land.rhs.us.preheader:                            ; preds = %_ZNK18OpenImageIO_v
   br label %land.rhs.us
 
 land.rhs.us:                                      ; preds = %land.rhs.us.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us
-  %i.0353.us = phi i32 [ %inc32.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0, %land.rhs.us.preheader ]
-  %maxval.1352.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.0.us, %land.rhs.us.preheader ]
-  %batcherror.0351.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
-  %batch_sqrerror.0350.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
+  %i.0369.us = phi i32 [ %inc32.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0, %land.rhs.us.preheader ]
+  %maxval.1368.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.0.us, %land.rhs.us.preheader ]
+  %batcherror.0367.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
+  %batch_sqrerror.0366.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ 0.000000e+00, %land.rhs.us.preheader ]
   %18 = load i8, ptr %m_valid.i, align 8
   %19 = and i8 %18, 1
   %cmp.i41.us = icmp eq i8 %19, 0
-  %.pre384 = load i32, ptr %m_x.i, align 4
+  %.pre400 = load i32, ptr %m_x.i, align 4
   br i1 %cmp.i41.us, label %land.lhs.true.i42.us, label %land.rhs.us.for.body11.us_crit_edge
 
 land.rhs.us.for.body11.us_crit_edge:              ; preds = %land.rhs.us
-  %.pre385 = load i32, ptr %m_y.i, align 8
+  %.pre401 = load i32, ptr %m_y.i, align 8
   br label %for.body11.us
 
 land.lhs.true.i42.us:                             ; preds = %land.rhs.us
   %20 = load i32, ptr %m_rng_xbegin.i, align 4
-  %cmp2.i45.us = icmp eq i32 %.pre384, %20
-  %.pre386 = load i32, ptr %m_y.i, align 8
+  %cmp2.i45.us = icmp eq i32 %.pre400, %20
+  %.pre402 = load i32, ptr %m_y.i, align 8
   %21 = load i32, ptr %m_rng_ybegin.i, align 4
-  %cmp4.i49.us = icmp eq i32 %.pre386, %21
+  %cmp4.i49.us = icmp eq i32 %.pre402, %21
   %or.cond = select i1 %cmp2.i45.us, i1 %cmp4.i49.us, i1 false
   br i1 %or.cond, label %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us, label %for.body11.us
 
@@ -17898,10 +17918,10 @@ _ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us: ; preds = %lan
   br i1 %cmp5.i53.us, label %if.end.loopexit.us, label %for.body11.us
 
 for.body11.us:                                    ; preds = %land.rhs.us.for.body11.us_crit_edge, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us, %land.lhs.true.i42.us
-  %24 = phi i32 [ %.pre385, %land.rhs.us.for.body11.us_crit_edge ], [ %.pre386, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ], [ %.pre386, %land.lhs.true.i42.us ]
+  %24 = phi i32 [ %.pre401, %land.rhs.us.for.body11.us_crit_edge ], [ %.pre402, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ], [ %.pre402, %land.lhs.true.i42.us ]
   %25 = load ptr, ptr %a, align 8
   %26 = load i32, ptr %m_z.i, align 4
-  %call.i58.us = invoke noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf12deep_samplesEiii(ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef %.pre384, i32 noundef %24, i32 noundef %26)
+  %call.i58.us = invoke noundef i32 @_ZNK18OpenImageIO_v2_6_08ImageBuf12deep_samplesEiii(ptr noundef nonnull align 8 dereferenceable(16) %25, i32 noundef %.pre400, i32 noundef %24, i32 noundef %26)
           to label %invoke.cont12.us unwind label %lpad4.loopexit.split-lp.loopexit.split.us
 
 invoke.cont12.us:                                 ; preds = %for.body11.us
@@ -17916,15 +17936,15 @@ invoke.cont15.us:                                 ; preds = %invoke.cont12.us
   %.sroa.speculated.us = call i32 @llvm.smax.i32(i32 %call.i58.us, i32 %call.i62.us)
   %31 = load i32, ptr %chbegin.i, align 8
   %32 = load i32, ptr %chend.i, align 4
-  %cmp19337.us = icmp slt i32 %31, %32
-  %cmp22325.us = icmp sgt i32 %.sroa.speculated.us, 0
-  %or.cond402 = and i1 %cmp19337.us, %cmp22325.us
-  br i1 %or.cond402, label %for.cond21.preheader.us.us, label %for.inc31.us
+  %cmp19353.us = icmp slt i32 %31, %32
+  %cmp22341.us = icmp sgt i32 %.sroa.speculated.us, 0
+  %or.cond418 = and i1 %cmp19353.us, %cmp22341.us
+  br i1 %or.cond418, label %for.cond21.preheader.us.us, label %for.inc31.us
 
 for.inc31.us:                                     ; preds = %for.cond21.for.inc28_crit_edge.us.us, %invoke.cont15.us
-  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0350.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %batcherror.1.lcssa.us = phi double [ %batcherror.0351.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
-  %maxval.2.lcssa.us = phi float [ %maxval.1352.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batch_sqrerror.1.lcssa.us = phi double [ %batch_sqrerror.0366.us, %invoke.cont15.us ], [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %batcherror.1.lcssa.us = phi double [ %batcherror.0367.us, %invoke.cont15.us ], [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
+  %maxval.2.lcssa.us = phi float [ %maxval.1368.us, %invoke.cont15.us ], [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ]
   %33 = load i32, ptr %m_x.i, align 4
   %inc.i78.us = add nsw i32 %33, 1
   store i32 %inc.i78.us, ptr %m_x.i, align 4
@@ -17940,13 +17960,13 @@ if.else.i.us:                                     ; preds = %for.inc31.us
   store i32 %inc4.i.us, ptr %m_y.i, align 8
   %37 = load i32, ptr %m_rng_yend.i205, align 8
   %cmp5.not.i.us = icmp slt i32 %inc4.i.us, %37
-  %.pre389 = load i32, ptr %m_z.i, align 4
+  %.pre405 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i.us, label %if.end13.i.us, label %if.then6.i.us
 
 if.then6.i.us:                                    ; preds = %if.else.i.us
   %38 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %38, ptr %m_y.i, align 8
-  %inc8.i.us = add nsw i32 %.pre389, 1
+  %inc8.i.us = add nsw i32 %.pre405, 1
   store i32 %inc8.i.us, ptr %m_z.i, align 4
   %39 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i.us = icmp slt i32 %inc8.i.us, %39
@@ -17968,18 +17988,18 @@ if.then2.i.us:                                    ; preds = %if.then.i86.us
 
 if.then.if.end13_crit_edge.i.us:                  ; preds = %if.then.i86.us
   %.pre.i.us = load i32, ptr %m_y.i, align 8
-  %.pre388 = load i32, ptr %m_z.i, align 4
+  %.pre404 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i.us
 
 if.end13.i.us:                                    ; preds = %if.then.if.end13_crit_edge.i.us, %if.then6.i.us, %if.else.i.us
-  %42 = phi i32 [ %.pre389, %if.else.i.us ], [ %inc8.i.us, %if.then6.i.us ], [ %.pre388, %if.then.if.end13_crit_edge.i.us ]
+  %42 = phi i32 [ %.pre405, %if.else.i.us ], [ %inc8.i.us, %if.then6.i.us ], [ %.pre404, %if.then.if.end13_crit_edge.i.us ]
   %43 = phi i32 [ %inc4.i.us, %if.else.i.us ], [ %38, %if.then6.i.us ], [ %.pre.i.us, %if.then.if.end13_crit_edge.i.us ]
   %44 = phi i32 [ %35, %if.else.i.us ], [ %35, %if.then6.i.us ], [ %inc.i78.us, %if.then.if.end13_crit_edge.i.us ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %44, i32 noundef %43, i32 noundef %42)
           to label %invoke.cont33.us unwind label %lpad4.loopexit.split-lp.loopexit.split.us
 
 invoke.cont33.us:                                 ; preds = %if.end13.i.us, %if.then2.i.us, %if.then10.i.us
-  %inc32.us = add nuw nsw i32 %i.0353.us, 1
+  %inc32.us = add nuw nsw i32 %i.0369.us, 1
   %45 = load i32, ptr %m_x.i227, align 4
   %inc.i90.us = add nsw i32 %45, 1
   store i32 %inc.i90.us, ptr %m_x.i227, align 4
@@ -17995,13 +18015,13 @@ if.else.i93.us:                                   ; preds = %invoke.cont33.us
   store i32 %inc4.i96.us, ptr %m_y.i233, align 8
   %49 = load i32, ptr %m_rng_yend.i235, align 8
   %cmp5.not.i98.us = icmp slt i32 %inc4.i96.us, %49
-  %.pre391 = load i32, ptr %m_z.i239, align 4
+  %.pre407 = load i32, ptr %m_z.i239, align 4
   br i1 %cmp5.not.i98.us, label %if.end13.i107.us, label %if.then6.i99.us
 
 if.then6.i99.us:                                  ; preds = %if.else.i93.us
   %50 = load i32, ptr %m_rng_ybegin.i238, align 4
   store i32 %50, ptr %m_y.i233, align 8
-  %inc8.i102.us = add nsw i32 %.pre391, 1
+  %inc8.i102.us = add nsw i32 %.pre407, 1
   store i32 %inc8.i102.us, ptr %m_z.i239, align 4
   %51 = load i32, ptr %m_rng_zend.i241, align 8
   %cmp9.not.i104.us = icmp slt i32 %inc8.i102.us, %51
@@ -18023,49 +18043,49 @@ if.then2.i112.us:                                 ; preds = %if.then.i109.us
 
 if.then.if.end13_crit_edge.i113.us:               ; preds = %if.then.i109.us
   %.pre.i115.us = load i32, ptr %m_y.i233, align 8
-  %.pre390 = load i32, ptr %m_z.i239, align 4
+  %.pre406 = load i32, ptr %m_z.i239, align 4
   br label %if.end13.i107.us
 
 if.end13.i107.us:                                 ; preds = %if.then.if.end13_crit_edge.i113.us, %if.then6.i99.us, %if.else.i93.us
-  %54 = phi i32 [ %.pre391, %if.else.i93.us ], [ %inc8.i102.us, %if.then6.i99.us ], [ %.pre390, %if.then.if.end13_crit_edge.i113.us ]
+  %54 = phi i32 [ %.pre407, %if.else.i93.us ], [ %inc8.i102.us, %if.then6.i99.us ], [ %.pre406, %if.then.if.end13_crit_edge.i113.us ]
   %55 = phi i32 [ %inc4.i96.us, %if.else.i93.us ], [ %50, %if.then6.i99.us ], [ %.pre.i115.us, %if.then.if.end13_crit_edge.i113.us ]
   %56 = phi i32 [ %47, %if.else.i93.us ], [ %47, %if.then6.i99.us ], [ %inc.i90.us, %if.then.if.end13_crit_edge.i113.us ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %56, i32 noundef %55, i32 noundef %54)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us unwind label %lpad4.loopexit.split-lp.loopexit.split.us
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us: ; preds = %if.end13.i107.us, %if.then2.i112.us, %if.then10.i105.us
-  %exitcond379.not = icmp eq i32 %inc32.us, 4096
-  br i1 %exitcond379.not, label %if.end.loopexit.us, label %land.rhs.us
+  %exitcond395.not = icmp eq i32 %inc32.us, 4096
+  br i1 %exitcond395.not, label %if.end.loopexit.us, label %land.rhs.us
 
 if.end.loopexit.us:                               ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us
-  %batch_sqrerror.0.lcssa.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batch_sqrerror.0350.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
-  %batcherror.0.lcssa.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batcherror.0351.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
-  %maxval.1.lcssa.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.1352.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
+  %batch_sqrerror.0.lcssa.us = phi double [ %batch_sqrerror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batch_sqrerror.0366.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
+  %batcherror.0.lcssa.us = phi double [ %batcherror.1.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %batcherror.0367.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
+  %maxval.1.lcssa.us = phi float [ %maxval.2.lcssa.us, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit118.us ], [ %maxval.1368.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit54.us ]
   %add.us = fadd double %totalerror.0.us, %batcherror.0.lcssa.us
   %add70.us = fadd double %totalsqrerror.0.us, %batch_sqrerror.0.lcssa.us
   br label %for.cond.us, !llvm.loop !81
 
 for.cond21.preheader.us.us:                       ; preds = %invoke.cont15.us, %for.cond21.for.inc28_crit_edge.us.us
-  %c.0343.us.us = phi i32 [ %inc29.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
-  %maxval.2342.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1352.us, %invoke.cont15.us ]
-  %batcherror.1341.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0351.us, %invoke.cont15.us ]
-  %failed.0340.us.us = phi i8 [ %failed.2.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
-  %warned.0339.us.us = phi i8 [ %warned.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
-  %batch_sqrerror.1338.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0350.us, %invoke.cont15.us ]
+  %c.0359.us.us = phi i32 [ %inc29.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %31, %invoke.cont15.us ]
+  %maxval.2358.us.us = phi float [ %maxval.4.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %maxval.1368.us, %invoke.cont15.us ]
+  %batcherror.1357.us.us = phi double [ %batcherror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batcherror.0367.us, %invoke.cont15.us ]
+  %failed.0356.us.us = phi i8 [ %failed.2.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
+  %warned.0355.us.us = phi i8 [ %warned.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ 0, %invoke.cont15.us ]
+  %batch_sqrerror.1354.us.us = phi double [ %batch_sqrerror.3.us.us, %for.cond21.for.inc28_crit_edge.us.us ], [ %batch_sqrerror.0366.us, %invoke.cont15.us ]
   br label %for.body23.us.us
 
 for.body23.us.us:                                 ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us, %for.cond21.preheader.us.us
-  %s.0331.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %maxval.3330.us.us = phi float [ %maxval.2342.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batcherror.2329.us.us = phi double [ %batcherror.1341.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %failed.1328.us.us = phi i8 [ %failed.0340.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %warned.1327.us.us = phi i8 [ %warned.0339.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
-  %batch_sqrerror.2326.us.us = phi double [ %batch_sqrerror.1338.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %s.0347.us.us = phi i32 [ 0, %for.cond21.preheader.us.us ], [ %inc.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %maxval.3346.us.us = phi float [ %maxval.2358.us.us, %for.cond21.preheader.us.us ], [ %maxval.4.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batcherror.2345.us.us = phi double [ %batcherror.1357.us.us, %for.cond21.preheader.us.us ], [ %batcherror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %failed.1344.us.us = phi i8 [ %failed.0356.us.us, %for.cond21.preheader.us.us ], [ %failed.2.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %warned.1343.us.us = phi i8 [ %warned.0355.us.us, %for.cond21.preheader.us.us ], [ %warned.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
+  %batch_sqrerror.2342.us.us = phi double [ %batch_sqrerror.1354.us.us, %for.cond21.preheader.us.us ], [ %batch_sqrerror.3.us.us, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us ]
   %57 = load ptr, ptr %a, align 8
   %58 = load i32, ptr %m_x.i, align 4
   %59 = load i32, ptr %m_y.i, align 8
   %60 = load i32, ptr %m_z.i, align 4
-  %call.i68.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef %c.0343.us.us, i32 noundef %s.0331.us.us)
+  %call.i68.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef %c.0359.us.us, i32 noundef %s.0347.us.us)
           to label %invoke.cont24.us.us unwind label %lpad4.loopexit.split.us.split.us
 
 invoke.cont24.us.us:                              ; preds = %for.body23.us.us
@@ -18073,7 +18093,7 @@ invoke.cont24.us.us:                              ; preds = %for.body23.us.us
   %62 = load i32, ptr %m_x.i227, align 4
   %63 = load i32, ptr %m_y.i233, align 8
   %64 = load i32, ptr %m_z.i239, align 4
-  %call.i72.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %61, i32 noundef %62, i32 noundef %63, i32 noundef %64, i32 noundef %c.0343.us.us, i32 noundef %s.0331.us.us)
+  %call.i72.us.us = invoke noundef float @_ZNK18OpenImageIO_v2_6_08ImageBuf10deep_valueEiiiii(ptr noundef nonnull align 8 dereferenceable(16) %61, i32 noundef %62, i32 noundef %63, i32 noundef %64, i32 noundef %c.0359.us.us, i32 noundef %s.0347.us.us)
           to label %invoke.cont26.us.us unwind label %lpad4.loopexit.split.us.split.us
 
 invoke.cont26.us.us:                              ; preds = %invoke.cont24.us.us
@@ -18085,7 +18105,7 @@ invoke.cont26.us.us:                              ; preds = %invoke.cont24.us.us
   br i1 %or.cond54.i.us.us, label %invoke.cont26.us.us.if.end20.i.us.us_crit_edge, label %if.then.i.us.us
 
 invoke.cont26.us.us.if.end20.i.us.us_crit_edge:   ; preds = %invoke.cont26.us.us
-  %.pre387 = load double, ptr %maxerror, align 8
+  %.pre403 = load double, ptr %maxerror, align 8
   br label %if.end20.i.us.us
 
 if.then.i.us.us:                                  ; preds = %invoke.cont26.us.us
@@ -18112,11 +18132,11 @@ if.then12.i.us.us:                                ; preds = %if.end.i.us.us
   store <2 x i32> %78, ptr %maxx, align 8
   %79 = load i32, ptr %m_z.i, align 4
   store i32 %79, ptr %maxz, align 8
-  store i32 %c.0343.us.us, ptr %maxc, align 4
+  store i32 %c.0359.us.us, ptr %maxc, align 4
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 if.end20.i.us.us:                                 ; preds = %invoke.cont26.us.us.if.end20.i.us.us_crit_edge, %if.end.i.us.us
-  %80 = phi double [ %.pre387, %invoke.cont26.us.us.if.end20.i.us.us_crit_edge ], [ %75, %if.end.i.us.us ]
+  %80 = phi double [ %.pre403, %invoke.cont26.us.us.if.end20.i.us.us_crit_edge ], [ %75, %if.end.i.us.us ]
   %conv.i.i.us.us = fpext float %65 to double
   %conv1.i.i.us.us = fpext float %67 to double
   %mul2.i.i.us.us = fmul double %conv1.i.i.us.us, 5.000000e-01
@@ -18124,8 +18144,8 @@ if.end20.i.us.us:                                 ; preds = %invoke.cont26.us.us
   %conv3.i.i.us.us = fptrunc double %81 to float
   %cmp.i.i.us.us = fcmp olt float %65, %67
   %.sroa.speculated51.i.us.us = select i1 %cmp.i.i.us.us, float %67, float %65
-  %cmp.i45.i.us.us = fcmp olt float %maxval.3330.us.us, %.sroa.speculated51.i.us.us
-  %.sroa.speculated.i.us.us = select i1 %cmp.i45.i.us.us, float %.sroa.speculated51.i.us.us, float %maxval.3330.us.us
+  %cmp.i45.i.us.us = fcmp olt float %maxval.3346.us.us, %.sroa.speculated51.i.us.us
+  %.sroa.speculated.i.us.us = select i1 %cmp.i45.i.us.us, float %.sroa.speculated51.i.us.us, float %maxval.3346.us.us
   %sub.i75.us.us = fsub float %call.i68.us.us, %call.i72.us.us
   %82 = call noundef float @llvm.fabs.f32(float %sub.i75.us.us)
   %conv27.i.us.us = fpext float %82 to double
@@ -18133,8 +18153,8 @@ if.end20.i.us.us:                                 ; preds = %invoke.cont26.us.us
   %cmp29.i.us.us = fcmp ogt float %conv3.i.i.us.us, 0.000000e+00
   %div.i.us.us = fdiv double %conv27.i.us.us, %conv28.i.us.us
   %cond.i76.us.us = select i1 %cmp29.i.us.us, double %div.i.us.us, double 0.000000e+00
-  %add.i.us.us = fadd double %batcherror.2329.us.us, %conv27.i.us.us
-  %83 = call double @llvm.fmuladd.f64(double %conv27.i.us.us, double %conv27.i.us.us, double %batch_sqrerror.2326.us.us)
+  %add.i.us.us = fadd double %batcherror.2345.us.us, %conv27.i.us.us
+  %83 = call double @llvm.fmuladd.f64(double %conv27.i.us.us, double %conv27.i.us.us, double %batch_sqrerror.2342.us.us)
   %cmp32.i.us.us = fcmp ult double %80, %conv27.i.us.us
   br i1 %cmp32.i.us.us, label %if.then33.i.us.us, label %if.end42.i.us.us
 
@@ -18144,11 +18164,11 @@ if.then33.i.us.us:                                ; preds = %if.end20.i.us.us
   store <2 x i32> %84, ptr %maxx, align 8
   %85 = load i32, ptr %m_z.i, align 4
   store i32 %85, ptr %maxz, align 8
-  store i32 %c.0343.us.us, ptr %maxc, align 4
+  store i32 %c.0359.us.us, ptr %maxc, align 4
   br label %if.end42.i.us.us
 
 if.end42.i.us.us:                                 ; preds = %if.then33.i.us.us, %if.end20.i.us.us
-  %86 = and i8 %warned.1327.us.us, 1
+  %86 = and i8 %warned.1343.us.us, 1
   %tobool.not.i.us.us = icmp eq i8 %86, 0
   %cmp45.i.us.us = fcmp ugt float %82, %warnthresh
   %or.cond.i.us.us = and i1 %tobool.not.i.us.us, %cmp45.i.us.us
@@ -18163,8 +18183,8 @@ if.then49.i.us.us:                                ; preds = %if.end42.i.us.us
   br label %if.end50.i.us.us
 
 if.end50.i.us.us:                                 ; preds = %if.then49.i.us.us, %if.end42.i.us.us
-  %warned.2.us.us = phi i8 [ 1, %if.then49.i.us.us ], [ %warned.1327.us.us, %if.end42.i.us.us ]
-  %88 = and i8 %failed.1328.us.us, 1
+  %warned.2.us.us = phi i8 [ 1, %if.then49.i.us.us ], [ %warned.1343.us.us, %if.end42.i.us.us ]
+  %88 = and i8 %failed.1344.us.us, 1
   %tobool51.not.i.us.us = icmp eq i8 %88, 0
   %cmp54.i.us.us = fcmp ugt float %82, %failthresh
   %or.cond43.i.us.us = and i1 %tobool51.not.i.us.us, %cmp54.i.us.us
@@ -18179,23 +18199,23 @@ if.then58.i.us.us:                                ; preds = %if.end50.i.us.us
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
 
 _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us: ; preds = %if.then58.i.us.us, %if.end50.i.us.us, %if.then12.i.us.us, %land.lhs.true.i74.us.us
-  %batch_sqrerror.3.us.us = phi double [ %83, %if.then58.i.us.us ], [ %83, %if.end50.i.us.us ], [ %batch_sqrerror.2326.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2326.us.us, %land.lhs.true.i74.us.us ]
-  %warned.3.us.us = phi i8 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1327.us.us, %if.then12.i.us.us ], [ %warned.1327.us.us, %land.lhs.true.i74.us.us ]
-  %failed.2.us.us = phi i8 [ 1, %if.then58.i.us.us ], [ %failed.1328.us.us, %if.end50.i.us.us ], [ %failed.1328.us.us, %if.then12.i.us.us ], [ %failed.1328.us.us, %land.lhs.true.i74.us.us ]
-  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2329.us.us, %if.then12.i.us.us ], [ %batcherror.2329.us.us, %land.lhs.true.i74.us.us ]
-  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3330.us.us, %if.then12.i.us.us ], [ %maxval.3330.us.us, %land.lhs.true.i74.us.us ]
-  %inc.us.us = add nuw nsw i32 %s.0331.us.us, 1
-  %exitcond378.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
-  br i1 %exitcond378.not, label %for.cond21.for.inc28_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !82
+  %batch_sqrerror.3.us.us = phi double [ %83, %if.then58.i.us.us ], [ %83, %if.end50.i.us.us ], [ %batch_sqrerror.2342.us.us, %if.then12.i.us.us ], [ %batch_sqrerror.2342.us.us, %land.lhs.true.i74.us.us ]
+  %warned.3.us.us = phi i8 [ %warned.2.us.us, %if.then58.i.us.us ], [ %warned.2.us.us, %if.end50.i.us.us ], [ %warned.1343.us.us, %if.then12.i.us.us ], [ %warned.1343.us.us, %land.lhs.true.i74.us.us ]
+  %failed.2.us.us = phi i8 [ 1, %if.then58.i.us.us ], [ %failed.1344.us.us, %if.end50.i.us.us ], [ %failed.1344.us.us, %if.then12.i.us.us ], [ %failed.1344.us.us, %land.lhs.true.i74.us.us ]
+  %batcherror.3.us.us = phi double [ %add.i.us.us, %if.then58.i.us.us ], [ %add.i.us.us, %if.end50.i.us.us ], [ %batcherror.2345.us.us, %if.then12.i.us.us ], [ %batcherror.2345.us.us, %land.lhs.true.i74.us.us ]
+  %maxval.4.us.us = phi float [ %.sroa.speculated.i.us.us, %if.then58.i.us.us ], [ %.sroa.speculated.i.us.us, %if.end50.i.us.us ], [ %maxval.3346.us.us, %if.then12.i.us.us ], [ %maxval.3346.us.us, %land.lhs.true.i74.us.us ]
+  %inc.us.us = add nuw nsw i32 %s.0347.us.us, 1
+  %exitcond394.not = icmp eq i32 %inc.us.us, %.sroa.speculated.us
+  br i1 %exitcond394.not, label %for.cond21.for.inc28_crit_edge.us.us, label %for.body23.us.us, !llvm.loop !82
 
 for.cond21.for.inc28_crit_edge.us.us:             ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit.us.us
-  %inc29.us.us = add nsw i32 %c.0343.us.us, 1
+  %inc29.us.us = add nsw i32 %c.0359.us.us, 1
   %90 = load i32, ptr %chend.i, align 4
   %cmp19.us.us = icmp slt i32 %inc29.us.us, %90
   br i1 %cmp19.us.us, label %for.cond21.preheader.us.us, label %for.inc31.us, !llvm.loop !83
 
 lpad4.loopexit.split-lp.loopexit.split.us:        ; preds = %if.end13.i107.us, %if.then2.i112.us, %if.end13.i.us, %if.then2.i.us, %invoke.cont12.us, %for.body11.us
-  %lpad.loopexit279.us = landingpad { ptr, i32 }
+  %lpad.loopexit293.us = landingpad { ptr, i32 }
           cleanup
   br label %lpad4
 
@@ -18204,10 +18224,10 @@ lpad4.loopexit.split.us.split.us:                 ; preds = %invoke.cont24.us.us
           cleanup
   br label %lpad4
 
-for.cond:                                         ; preds = %for.cond.preheader366, %if.end.loopexit282
-  %maxval.0 = phi float [ %maxval.5.lcssa, %if.end.loopexit282 ], [ 1.000000e+00, %for.cond.preheader366 ]
-  %totalsqrerror.0 = phi double [ %add70, %if.end.loopexit282 ], [ 0.000000e+00, %for.cond.preheader366 ]
-  %totalerror.0 = phi double [ %add, %if.end.loopexit282 ], [ 0.000000e+00, %for.cond.preheader366 ]
+for.cond:                                         ; preds = %for.cond.preheader382, %if.end.loopexit296
+  %maxval.0 = phi float [ %maxval.5.lcssa, %if.end.loopexit296 ], [ 1.000000e+00, %for.cond.preheader382 ]
+  %totalsqrerror.0 = phi double [ %add70, %if.end.loopexit296 ], [ 0.000000e+00, %for.cond.preheader382 ]
+  %totalerror.0 = phi double [ %add, %if.end.loopexit296 ], [ 0.000000e+00, %for.cond.preheader382 ]
   %91 = load i8, ptr %m_valid.i, align 8
   %92 = and i8 %91, 1
   %cmp.i = icmp eq i8 %92, 0
@@ -18240,7 +18260,7 @@ lpad:                                             ; preds = %_ZNK18OpenImageIO_v
   br label %ehcleanup
 
 lpad4.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.then2.i220, %if.end13.i215, %if.then2.i250, %if.end13.i245
-  %lpad.loopexit283 = landingpad { ptr, i32 }
+  %lpad.loopexit297 = landingpad { ptr, i32 }
           cleanup
   br label %lpad4
 
@@ -18250,7 +18270,7 @@ lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %invoke.c
   br label %lpad4
 
 lpad4:                                            ; preds = %lpad4.loopexit.split-lp.loopexit.split.us, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad4.loopexit.split.us.split.us
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us.us, %lpad4.loopexit.split.us.split.us ], [ %lpad.loopexit279.us, %lpad4.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit283, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us.us, %lpad4.loopexit.split.us.split.us ], [ %lpad.loopexit293.us, %lpad4.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit297, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %m_tile.i.i = getelementptr inbounds i8, ptr %b, i64 72
   %100 = load ptr, ptr %m_tile.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %100, null
@@ -18268,18 +18288,18 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 land.rhs39:                                       ; preds = %land.rhs39.preheader, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256
-  %i36.0324 = phi i32 [ %inc66, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0, %land.rhs39.preheader ]
-  %maxval.5323 = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.0, %land.rhs39.preheader ]
-  %batcherror.4322 = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs39.preheader ]
-  %batch_sqrerror.4321 = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs39.preheader ]
+  %i36.0340 = phi i32 [ %inc66, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0, %land.rhs39.preheader ]
+  %maxval.5339 = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.0, %land.rhs39.preheader ]
+  %batcherror.4338 = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs39.preheader ]
+  %batch_sqrerror.4337 = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ 0.000000e+00, %land.rhs39.preheader ]
   %103 = load i8, ptr %m_valid.i, align 8
   %104 = and i8 %103, 1
   %cmp.i120 = icmp eq i8 %104, 0
   %.pre.pre = load i32, ptr %m_x.i, align 4
   %105 = load i32, ptr %m_rng_xbegin.i, align 4
   %cmp2.i124 = icmp eq i32 %.pre.pre, %105
-  %or.cond403 = select i1 %cmp.i120, i1 %cmp2.i124, i1 false
-  br i1 %or.cond403, label %land.lhs.true3.i125, label %for.body43
+  %or.cond419 = select i1 %cmp.i120, i1 %cmp2.i124, i1 false
+  br i1 %or.cond419, label %land.lhs.true3.i125, label %for.body43
 
 land.lhs.true3.i125:                              ; preds = %land.rhs39
   %106 = load i32, ptr %m_y.i, align 8
@@ -18291,13 +18311,13 @@ _ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133: ; preds = %land.
   %108 = load i32, ptr %m_z.i, align 4
   %109 = load i32, ptr %m_rng_zend.i, align 8
   %cmp5.i132 = icmp eq i32 %108, %109
-  br i1 %cmp5.i132, label %if.end.loopexit282, label %for.body43
+  br i1 %cmp5.i132, label %if.end.loopexit296, label %for.body43
 
 for.body43:                                       ; preds = %land.rhs39, %land.lhs.true3.i125, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133
   %110 = load i32, ptr %chbegin.i, align 8
   %111 = load i32, ptr %chend.i, align 4
-  %cmp50311 = icmp slt i32 %110, %111
-  br i1 %cmp50311, label %for.body51.lr.ph, label %for.inc65
+  %cmp50325 = icmp slt i32 %110, %111
+  br i1 %cmp50325, label %for.body51.lr.ph, label %for.inc65
 
 for.body51.lr.ph:                                 ; preds = %for.body43
   %nfail.promoted = load i64, ptr %nfail, align 8
@@ -18313,89 +18333,99 @@ for.body51.lr.ph:                                 ; preds = %for.body43
 
 for.body51:                                       ; preds = %for.body51.lr.ph, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
   %indvars.iv = phi i64 [ %116, %for.body51.lr.ph ], [ %indvars.iv.next, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %failed45.0316 = phi i8 [ 0, %for.body51.lr.ph ], [ %failed45.1, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %warned44.0315 = phi i8 [ 0, %for.body51.lr.ph ], [ %warned44.2, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %maxval.6314 = phi float [ %maxval.5323, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %batcherror.5313 = phi double [ %batcherror.4322, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %batch_sqrerror.5312 = phi double [ %batch_sqrerror.4321, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %144, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %143, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %142, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %cmp52 = icmp slt i64 %indvars.iv, %8
-  br i1 %cmp52, label %cond.true, label %cond.end
+  %failed45.0330 = phi i8 [ 0, %for.body51.lr.ph ], [ %failed45.1, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %warned44.0329 = phi i8 [ 0, %for.body51.lr.ph ], [ %warned44.2, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %maxval.6328 = phi float [ %maxval.5339, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batcherror.5327 = phi double [ %batcherror.4338, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batch_sqrerror.5326 = phi double [ %batch_sqrerror.4337, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %147, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %146, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %145, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %cmp52 = icmp slt i64 %indvars.iv, %9
+  br i1 %cmp52, label %cond.end, label %cond.end.thread
 
-cond.true:                                        ; preds = %for.body51
+cond.end:                                         ; preds = %for.body51
   %arrayidx.i.i = getelementptr inbounds i16, ptr %112, i64 %indvars.iv
   %120 = load i16, ptr %arrayidx.i.i, align 2
   %conv1.i.i.i = uitofp i16 %120 to float
   %mul.i.i.i = fmul float %conv1.i.i.i, 0x3EF0001000000000
-  br label %cond.end
+  %cmp55 = icmp slt i64 %indvars.iv, %8
+  br i1 %cmp55, label %cond.end60, label %cond.end60.thread
 
-cond.end:                                         ; preds = %cond.true, %for.body51
-  %cond = phi float [ %mul.i.i.i, %cond.true ], [ 0.000000e+00, %for.body51 ]
-  %cmp55 = icmp slt i64 %indvars.iv, %9
-  br i1 %cmp55, label %cond.true56, label %cond.end60
+cond.end.thread:                                  ; preds = %for.body51
+  %cmp55287 = icmp slt i64 %indvars.iv, %8
+  br i1 %cmp55287, label %cond.end60, label %if.end20.i150
 
-cond.true56:                                      ; preds = %cond.end
+cond.end60:                                       ; preds = %cond.end.thread, %cond.end
+  %cond288 = phi float [ 0.000000e+00, %cond.end.thread ], [ %mul.i.i.i, %cond.end ]
   %arrayidx.i.i136 = getelementptr inbounds %class.half, ptr %113, i64 %indvars.iv
   %121 = load i16, ptr %arrayidx.i.i136, align 2
   %idxprom.i.i.i.i = zext i16 %121 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [65536 x %"union.half::uif"], ptr @_ZN4half8_toFloatE, i64 0, i64 %idxprom.i.i.i.i
   %122 = load float, ptr %arrayidx.i.i.i.i, align 4
-  br label %cond.end60
-
-cond.end60:                                       ; preds = %cond.true56, %cond.end
-  %cond61 = phi float [ %122, %cond.true56 ], [ 0.000000e+00, %cond.end ]
-  %123 = call float @llvm.fabs.f32(float %cond)
-  %124 = fcmp one float %123, 0x7FF0000000000000
-  %125 = call float @llvm.fabs.f32(float %cond61)
-  %126 = fcmp one float %125, 0x7FF0000000000000
-  %or.cond54.i137 = and i1 %124, %126
+  %123 = fcmp one float %cond288, 0x7FF0000000000000
+  %124 = call float @llvm.fabs.f32(float %122)
+  %125 = fcmp one float %124, 0x7FF0000000000000
+  %or.cond54.i137 = and i1 %123, %125
   br i1 %or.cond54.i137, label %if.end20.i150, label %if.then.i138
 
+cond.end60.thread:                                ; preds = %cond.end
+  %126 = fcmp ueq float %mul.i.i.i, 0x7FF0000000000000
+  br i1 %126, label %if.then.i138.thread, label %if.end20.i150
+
+if.then.i138.thread:                              ; preds = %cond.end60.thread
+  %127 = fcmp oeq float %mul.i.i.i, 0x7FF0000000000000
+  br i1 %127, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
+
 if.then.i138:                                     ; preds = %cond.end60
-  %127 = fcmp uno float %cond61, 0.000000e+00
-  br i1 %127, label %if.end.i140, label %land.lhs.true.i139
+  %128 = fcmp uno float %122, 0.000000e+00
+  br i1 %128, label %if.end.i140, label %land.lhs.true.i139
 
 land.lhs.true.i139:                               ; preds = %if.then.i138
-  %128 = fcmp oeq float %123, 0x7FF0000000000000
-  %129 = fcmp oeq float %125, 0x7FF0000000000000
-  %130 = xor i1 %128, %129
-  br i1 %130, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
+  %129 = fcmp oeq float %cond288, 0x7FF0000000000000
+  %130 = fcmp oeq float %124, 0x7FF0000000000000
+  %131 = xor i1 %129, %130
+  br i1 %131, label %if.end.i140, label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
 
-if.end.i140:                                      ; preds = %land.lhs.true.i139, %if.then.i138
-  %131 = call double @llvm.fabs.f64(double %117)
-  %132 = fcmp ueq double %131, 0x7FF0000000000000
-  br i1 %132, label %if.end20.i150, label %if.then12.i142
+if.end.i140:                                      ; preds = %if.then.i138.thread, %land.lhs.true.i139, %if.then.i138
+  %cond290 = phi float [ %cond288, %land.lhs.true.i139 ], [ %cond288, %if.then.i138 ], [ 0x7FF0000000000000, %if.then.i138.thread ]
+  %cond61281285 = phi float [ %122, %land.lhs.true.i139 ], [ %122, %if.then.i138 ], [ 0.000000e+00, %if.then.i138.thread ]
+  %132 = phi float [ %124, %land.lhs.true.i139 ], [ %124, %if.then.i138 ], [ 0.000000e+00, %if.then.i138.thread ]
+  %133 = call double @llvm.fabs.f64(double %117)
+  %134 = fcmp ueq double %133, 0x7FF0000000000000
+  br i1 %134, label %if.end20.i150, label %if.then12.i142
 
 if.then12.i142:                                   ; preds = %if.end.i140
   store double 0x7FF0000000000000, ptr %maxerror, align 8
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %133 = trunc i64 %indvars.iv to i32
-  store i32 %133, ptr %maxc, align 4
+  %135 = trunc i64 %indvars.iv to i32
+  store i32 %135, ptr %maxc, align 4
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
 
-if.end20.i150:                                    ; preds = %if.end.i140, %cond.end60
-  %conv.i.i151 = fpext float %123 to double
-  %conv1.i.i152 = fpext float %125 to double
+if.end20.i150:                                    ; preds = %cond.end.thread, %cond.end60.thread, %if.end.i140, %cond.end60
+  %cond289 = phi float [ %mul.i.i.i, %cond.end60.thread ], [ %cond290, %if.end.i140 ], [ %cond288, %cond.end60 ], [ 0.000000e+00, %cond.end.thread ]
+  %136 = phi float [ 0.000000e+00, %cond.end60.thread ], [ %132, %if.end.i140 ], [ %124, %cond.end60 ], [ 0.000000e+00, %cond.end.thread ]
+  %cond61282 = phi float [ 0.000000e+00, %cond.end60.thread ], [ %cond61281285, %if.end.i140 ], [ %122, %cond.end60 ], [ 0.000000e+00, %cond.end.thread ]
+  %conv.i.i151 = fpext float %cond289 to double
+  %conv1.i.i152 = fpext float %136 to double
   %mul2.i.i153 = fmul double %conv1.i.i152, 5.000000e-01
-  %134 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
-  %conv3.i.i154 = fptrunc double %134 to float
-  %cmp.i.i155 = fcmp olt float %123, %125
-  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %125, float %123
-  %cmp.i45.i157 = fcmp olt float %maxval.6314, %.sroa.speculated51.i156
-  %.sroa.speculated.i158 = select i1 %cmp.i45.i157, float %.sroa.speculated51.i156, float %maxval.6314
-  %sub.i159 = fsub float %cond, %cond61
-  %135 = call noundef float @llvm.fabs.f32(float %sub.i159)
-  %conv27.i160 = fpext float %135 to double
+  %137 = call double @llvm.fmuladd.f64(double %conv.i.i151, double 5.000000e-01, double %mul2.i.i153)
+  %conv3.i.i154 = fptrunc double %137 to float
+  %cmp.i.i155 = fcmp olt float %cond289, %136
+  %.sroa.speculated51.i156 = select i1 %cmp.i.i155, float %136, float %cond289
+  %cmp.i45.i157 = fcmp olt float %maxval.6328, %.sroa.speculated51.i156
+  %.sroa.speculated.i158 = select i1 %cmp.i45.i157, float %.sroa.speculated51.i156, float %maxval.6328
+  %sub.i159 = fsub float %cond289, %cond61282
+  %138 = call noundef float @llvm.fabs.f32(float %sub.i159)
+  %conv27.i160 = fpext float %138 to double
   %conv28.i161 = fpext float %conv3.i.i154 to double
   %cmp29.i162 = fcmp ogt float %conv3.i.i154, 0.000000e+00
   %div.i163 = fdiv double %conv27.i160, %conv28.i161
   %cond.i164 = select i1 %cmp29.i162, double %div.i163, double 0.000000e+00
-  %add.i165 = fadd double %batcherror.5313, %conv27.i160
-  %136 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5312)
+  %add.i165 = fadd double %batcherror.5327, %conv27.i160
+  %139 = call double @llvm.fmuladd.f64(double %conv27.i160, double %conv27.i160, double %batch_sqrerror.5326)
   %cmp32.i167 = fcmp ult double %117, %conv27.i160
   br i1 %cmp32.i167, label %if.then33.i188, label %if.end42.i168
 
@@ -18404,15 +18434,15 @@ if.then33.i188:                                   ; preds = %if.end20.i150
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %137 = trunc i64 %indvars.iv to i32
-  store i32 %137, ptr %maxc, align 4
+  %140 = trunc i64 %indvars.iv to i32
+  store i32 %140, ptr %maxc, align 4
   br label %if.end42.i168
 
 if.end42.i168:                                    ; preds = %if.then33.i188, %if.end20.i150
-  %138 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
-  %139 = and i8 %warned44.0315, 1
-  %tobool.not.i169 = icmp eq i8 %139, 0
-  %cmp45.i170 = fcmp ugt float %135, %warnthresh
+  %141 = phi double [ %conv27.i160, %if.then33.i188 ], [ %117, %if.end20.i150 ]
+  %142 = and i8 %warned44.0329, 1
+  %tobool.not.i169 = icmp eq i8 %142, 0
+  %cmp45.i170 = fcmp ugt float %138, %warnthresh
   %or.cond.i171 = and i1 %tobool.not.i169, %cmp45.i170
   %cmp48.i173 = fcmp ugt double %cond.i164, %conv47.i172
   %or.cond42.i174 = select i1 %or.cond.i171, i1 %cmp48.i173, i1 false
@@ -18424,11 +18454,11 @@ if.then49.i185:                                   ; preds = %if.end42.i168
   br label %if.end50.i175
 
 if.end50.i175:                                    ; preds = %if.then49.i185, %if.end42.i168
-  %140 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
-  %warned44.1 = phi i8 [ 1, %if.then49.i185 ], [ %warned44.0315, %if.end42.i168 ]
-  %141 = and i8 %failed45.0316, 1
-  %tobool51.not.i176 = icmp eq i8 %141, 0
-  %cmp54.i177 = fcmp ugt float %135, %failthresh
+  %143 = phi i64 [ %inc.i187, %if.then49.i185 ], [ %118, %if.end42.i168 ]
+  %warned44.1 = phi i8 [ 1, %if.then49.i185 ], [ %warned44.0329, %if.end42.i168 ]
+  %144 = and i8 %failed45.0330, 1
+  %tobool51.not.i176 = icmp eq i8 %144, 0
+  %cmp54.i177 = fcmp ugt float %138, %failthresh
   %or.cond43.i178 = and i1 %tobool51.not.i176, %cmp54.i177
   %cmp57.i180 = fcmp ugt double %cond.i164, %conv56.i179
   %or.cond44.i181 = select i1 %or.cond43.i178, i1 %cmp57.i180, i1 false
@@ -18439,38 +18469,38 @@ if.then58.i182:                                   ; preds = %if.end50.i175
   store i64 %inc59.i184, ptr %nfail, align 8
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196
 
-_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196: ; preds = %land.lhs.true.i139, %if.then12.i142, %if.end50.i175, %if.then58.i182
-  %142 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ]
-  %143 = phi i64 [ %140, %if.then58.i182 ], [ %140, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ]
-  %144 = phi double [ %138, %if.then58.i182 ], [ %138, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ]
-  %batch_sqrerror.6 = phi double [ %136, %if.then58.i182 ], [ %136, %if.end50.i175 ], [ %batch_sqrerror.5312, %if.then12.i142 ], [ %batch_sqrerror.5312, %land.lhs.true.i139 ]
-  %batcherror.6 = phi double [ %add.i165, %if.then58.i182 ], [ %add.i165, %if.end50.i175 ], [ %batcherror.5313, %if.then12.i142 ], [ %batcherror.5313, %land.lhs.true.i139 ]
-  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i182 ], [ %.sroa.speculated.i158, %if.end50.i175 ], [ %maxval.6314, %if.then12.i142 ], [ %maxval.6314, %land.lhs.true.i139 ]
-  %warned44.2 = phi i8 [ %warned44.1, %if.then58.i182 ], [ %warned44.1, %if.end50.i175 ], [ %warned44.0315, %if.then12.i142 ], [ %warned44.0315, %land.lhs.true.i139 ]
-  %failed45.1 = phi i8 [ 1, %if.then58.i182 ], [ %failed45.0316, %if.end50.i175 ], [ %failed45.0316, %if.then12.i142 ], [ %failed45.0316, %land.lhs.true.i139 ]
+_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196: ; preds = %if.then.i138.thread, %land.lhs.true.i139, %if.then12.i142, %if.end50.i175, %if.then58.i182
+  %145 = phi i64 [ %inc59.i184, %if.then58.i182 ], [ %119, %if.end50.i175 ], [ %119, %if.then12.i142 ], [ %119, %land.lhs.true.i139 ], [ %119, %if.then.i138.thread ]
+  %146 = phi i64 [ %143, %if.then58.i182 ], [ %143, %if.end50.i175 ], [ %118, %if.then12.i142 ], [ %118, %land.lhs.true.i139 ], [ %118, %if.then.i138.thread ]
+  %147 = phi double [ %141, %if.then58.i182 ], [ %141, %if.end50.i175 ], [ 0x7FF0000000000000, %if.then12.i142 ], [ %117, %land.lhs.true.i139 ], [ %117, %if.then.i138.thread ]
+  %batch_sqrerror.6 = phi double [ %139, %if.then58.i182 ], [ %139, %if.end50.i175 ], [ %batch_sqrerror.5326, %if.then12.i142 ], [ %batch_sqrerror.5326, %land.lhs.true.i139 ], [ %batch_sqrerror.5326, %if.then.i138.thread ]
+  %batcherror.6 = phi double [ %add.i165, %if.then58.i182 ], [ %add.i165, %if.end50.i175 ], [ %batcherror.5327, %if.then12.i142 ], [ %batcherror.5327, %land.lhs.true.i139 ], [ %batcherror.5327, %if.then.i138.thread ]
+  %maxval.7 = phi float [ %.sroa.speculated.i158, %if.then58.i182 ], [ %.sroa.speculated.i158, %if.end50.i175 ], [ %maxval.6328, %if.then12.i142 ], [ %maxval.6328, %land.lhs.true.i139 ], [ %maxval.6328, %if.then.i138.thread ]
+  %warned44.2 = phi i8 [ %warned44.1, %if.then58.i182 ], [ %warned44.1, %if.end50.i175 ], [ %warned44.0329, %if.then12.i142 ], [ %warned44.0329, %land.lhs.true.i139 ], [ %warned44.0329, %if.then.i138.thread ]
+  %failed45.1 = phi i8 [ 1, %if.then58.i182 ], [ %failed45.0330, %if.end50.i175 ], [ %failed45.0330, %if.then12.i142 ], [ %failed45.0330, %land.lhs.true.i139 ], [ %failed45.0330, %if.then.i138.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.inc65, label %for.body51, !llvm.loop !84
 
 for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196, %for.body43
-  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4321, %for.body43 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %batcherror.5.lcssa = phi double [ %batcherror.4322, %for.body43 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
-  %maxval.6.lcssa = phi float [ %maxval.5323, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batch_sqrerror.5.lcssa = phi double [ %batch_sqrerror.4337, %for.body43 ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %batcherror.5.lcssa = phi double [ %batcherror.4338, %for.body43 ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
+  %maxval.6.lcssa = phi float [ %maxval.5339, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit196 ]
   %inc.i198 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i198, ptr %m_x.i, align 4
-  %145 = load i32, ptr %m_rng_xend.i199, align 8
-  %cmp.i200 = icmp slt i32 %inc.i198, %145
+  %148 = load i32, ptr %m_rng_xend.i199, align 8
+  %cmp.i200 = icmp slt i32 %inc.i198, %148
   br i1 %cmp.i200, label %if.then.i217, label %if.else.i201
 
 if.then.i217:                                     ; preds = %for.inc65
-  %146 = load i8, ptr %m_exists.i218, align 1
-  %147 = and i8 %146, 1
-  %tobool.not.i219 = icmp eq i8 %147, 0
+  %149 = load i8, ptr %m_exists.i218, align 1
+  %150 = and i8 %149, 1
+  %tobool.not.i219 = icmp eq i8 %150, 0
   br i1 %tobool.not.i219, label %if.then.if.end13_crit_edge.i221, label %if.then2.i220
 
 if.then.if.end13_crit_edge.i221:                  ; preds = %if.then.i217
   %.pre.i223 = load i32, ptr %m_y.i, align 8
-  %.pre380 = load i32, ptr %m_z.i, align 4
+  %.pre396 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i215
 
 if.then2.i220:                                    ; preds = %if.then.i217
@@ -18478,23 +18508,23 @@ if.then2.i220:                                    ; preds = %if.then.i217
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i201:                                     ; preds = %for.inc65
-  %148 = load i32, ptr %m_rng_xbegin.i, align 4
-  store i32 %148, ptr %m_x.i, align 4
-  %149 = load i32, ptr %m_y.i, align 8
-  %inc4.i204 = add nsw i32 %149, 1
+  %151 = load i32, ptr %m_rng_xbegin.i, align 4
+  store i32 %151, ptr %m_x.i, align 4
+  %152 = load i32, ptr %m_y.i, align 8
+  %inc4.i204 = add nsw i32 %152, 1
   store i32 %inc4.i204, ptr %m_y.i, align 8
-  %150 = load i32, ptr %m_rng_yend.i205, align 8
-  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %150
-  %.pre381 = load i32, ptr %m_z.i, align 4
+  %153 = load i32, ptr %m_rng_yend.i205, align 8
+  %cmp5.not.i206 = icmp slt i32 %inc4.i204, %153
+  %.pre397 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i206, label %if.end13.i215, label %if.then6.i207
 
 if.then6.i207:                                    ; preds = %if.else.i201
-  %151 = load i32, ptr %m_rng_ybegin.i, align 4
-  store i32 %151, ptr %m_y.i, align 8
-  %inc8.i210 = add nsw i32 %.pre381, 1
+  %154 = load i32, ptr %m_rng_ybegin.i, align 4
+  store i32 %154, ptr %m_y.i, align 8
+  %inc8.i210 = add nsw i32 %.pre397, 1
   store i32 %inc8.i210, ptr %m_z.i, align 4
-  %152 = load i32, ptr %m_rng_zend.i, align 8
-  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %152
+  %155 = load i32, ptr %m_rng_zend.i, align 8
+  %cmp9.not.i212 = icmp slt i32 %inc8.i210, %155
   br i1 %cmp9.not.i212, label %if.end13.i215, label %if.then10.i213
 
 if.then10.i213:                                   ; preds = %if.then6.i207
@@ -18502,30 +18532,30 @@ if.then10.i213:                                   ; preds = %if.then6.i207
   br label %invoke.cont67
 
 if.end13.i215:                                    ; preds = %if.then6.i207, %if.else.i201, %if.then.if.end13_crit_edge.i221
-  %153 = phi i32 [ %.pre381, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre380, %if.then.if.end13_crit_edge.i221 ]
-  %154 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %151, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
-  %155 = phi i32 [ %148, %if.else.i201 ], [ %148, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %155, i32 noundef %154, i32 noundef %153)
+  %156 = phi i32 [ %.pre397, %if.else.i201 ], [ %inc8.i210, %if.then6.i207 ], [ %.pre396, %if.then.if.end13_crit_edge.i221 ]
+  %157 = phi i32 [ %inc4.i204, %if.else.i201 ], [ %154, %if.then6.i207 ], [ %.pre.i223, %if.then.if.end13_crit_edge.i221 ]
+  %158 = phi i32 [ %151, %if.else.i201 ], [ %151, %if.then6.i207 ], [ %inc.i198, %if.then.if.end13_crit_edge.i221 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %158, i32 noundef %157, i32 noundef %156)
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont67:                                    ; preds = %if.then10.i213, %if.then2.i220, %if.end13.i215
-  %inc66 = add nuw nsw i32 %i36.0324, 1
-  %156 = load i32, ptr %m_x.i227, align 4
-  %inc.i228 = add nsw i32 %156, 1
+  %inc66 = add nuw nsw i32 %i36.0340, 1
+  %159 = load i32, ptr %m_x.i227, align 4
+  %inc.i228 = add nsw i32 %159, 1
   store i32 %inc.i228, ptr %m_x.i227, align 4
-  %157 = load i32, ptr %m_rng_xend.i229, align 8
-  %cmp.i230 = icmp slt i32 %inc.i228, %157
+  %160 = load i32, ptr %m_rng_xend.i229, align 8
+  %cmp.i230 = icmp slt i32 %inc.i228, %160
   br i1 %cmp.i230, label %if.then.i247, label %if.else.i231
 
 if.then.i247:                                     ; preds = %invoke.cont67
-  %158 = load i8, ptr %m_exists.i248, align 1
-  %159 = and i8 %158, 1
-  %tobool.not.i249 = icmp eq i8 %159, 0
+  %161 = load i8, ptr %m_exists.i248, align 1
+  %162 = and i8 %161, 1
+  %tobool.not.i249 = icmp eq i8 %162, 0
   br i1 %tobool.not.i249, label %if.then.if.end13_crit_edge.i251, label %if.then2.i250
 
 if.then.if.end13_crit_edge.i251:                  ; preds = %if.then.i247
   %.pre.i253 = load i32, ptr %m_y.i233, align 8
-  %.pre382 = load i32, ptr %m_z.i239, align 4
+  %.pre398 = load i32, ptr %m_z.i239, align 4
   br label %if.end13.i245
 
 if.then2.i250:                                    ; preds = %if.then.i247
@@ -18533,23 +18563,23 @@ if.then2.i250:                                    ; preds = %if.then.i247
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i231:                                     ; preds = %invoke.cont67
-  %160 = load i32, ptr %m_rng_xbegin.i232, align 4
-  store i32 %160, ptr %m_x.i227, align 4
-  %161 = load i32, ptr %m_y.i233, align 8
-  %inc4.i234 = add nsw i32 %161, 1
+  %163 = load i32, ptr %m_rng_xbegin.i232, align 4
+  store i32 %163, ptr %m_x.i227, align 4
+  %164 = load i32, ptr %m_y.i233, align 8
+  %inc4.i234 = add nsw i32 %164, 1
   store i32 %inc4.i234, ptr %m_y.i233, align 8
-  %162 = load i32, ptr %m_rng_yend.i235, align 8
-  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %162
-  %.pre383 = load i32, ptr %m_z.i239, align 4
+  %165 = load i32, ptr %m_rng_yend.i235, align 8
+  %cmp5.not.i236 = icmp slt i32 %inc4.i234, %165
+  %.pre399 = load i32, ptr %m_z.i239, align 4
   br i1 %cmp5.not.i236, label %if.end13.i245, label %if.then6.i237
 
 if.then6.i237:                                    ; preds = %if.else.i231
-  %163 = load i32, ptr %m_rng_ybegin.i238, align 4
-  store i32 %163, ptr %m_y.i233, align 8
-  %inc8.i240 = add nsw i32 %.pre383, 1
+  %166 = load i32, ptr %m_rng_ybegin.i238, align 4
+  store i32 %166, ptr %m_y.i233, align 8
+  %inc8.i240 = add nsw i32 %.pre399, 1
   store i32 %inc8.i240, ptr %m_z.i239, align 4
-  %164 = load i32, ptr %m_rng_zend.i241, align 8
-  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %164
+  %167 = load i32, ptr %m_rng_zend.i241, align 8
+  %cmp9.not.i242 = icmp slt i32 %inc8.i240, %167
   br i1 %cmp9.not.i242, label %if.end13.i245, label %if.then10.i243
 
 if.then10.i243:                                   ; preds = %if.then6.i237
@@ -18557,47 +18587,47 @@ if.then10.i243:                                   ; preds = %if.then6.i237
   br label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256
 
 if.end13.i245:                                    ; preds = %if.then6.i237, %if.else.i231, %if.then.if.end13_crit_edge.i251
-  %165 = phi i32 [ %.pre383, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre382, %if.then.if.end13_crit_edge.i251 ]
-  %166 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %163, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
-  %167 = phi i32 [ %160, %if.else.i231 ], [ %160, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %167, i32 noundef %166, i32 noundef %165)
+  %168 = phi i32 [ %.pre399, %if.else.i231 ], [ %inc8.i240, %if.then6.i237 ], [ %.pre398, %if.then.if.end13_crit_edge.i251 ]
+  %169 = phi i32 [ %inc4.i234, %if.else.i231 ], [ %166, %if.then6.i237 ], [ %.pre.i253, %if.then.if.end13_crit_edge.i251 ]
+  %170 = phi i32 [ %163, %if.else.i231 ], [ %163, %if.then6.i237 ], [ %inc.i228, %if.then.if.end13_crit_edge.i251 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %170, i32 noundef %169, i32 noundef %168)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256: ; preds = %if.end13.i245, %if.then2.i250, %if.then10.i243
-  %exitcond377.not = icmp eq i32 %inc66, 4096
-  br i1 %exitcond377.not, label %if.end.loopexit282, label %land.rhs39
+  %exitcond393.not = icmp eq i32 %inc66, 4096
+  br i1 %exitcond393.not, label %if.end.loopexit296, label %land.rhs39
 
-if.end.loopexit282:                               ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133
-  %batch_sqrerror.4.lcssa = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batch_sqrerror.4321, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
-  %batcherror.4.lcssa = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batcherror.4322, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
-  %maxval.5.lcssa = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.5323, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
+if.end.loopexit296:                               ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133
+  %batch_sqrerror.4.lcssa = phi double [ %batch_sqrerror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batch_sqrerror.4337, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
+  %batcherror.4.lcssa = phi double [ %batcherror.5.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %batcherror.4338, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
+  %maxval.5.lcssa = phi float [ %maxval.6.lcssa, %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit256 ], [ %maxval.5339, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit133 ]
   %add = fadd double %totalerror.0, %batcherror.4.lcssa
   %add70 = fadd double %totalsqrerror.0, %batch_sqrerror.4.lcssa
   br label %for.cond, !llvm.loop !81
 
 for.end71:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us
-  %.us-phi360 = phi float [ %maxval.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %maxval.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
-  %.us-phi361 = phi double [ %totalsqrerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalsqrerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
-  %.us-phi362 = phi double [ %totalerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
+  %.us-phi376 = phi float [ %maxval.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %maxval.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
+  %.us-phi377 = phi double [ %totalsqrerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalsqrerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
+  %.us-phi378 = phi double [ %totalerror.0.us, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit.us ], [ %totalerror.0, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
   %conv = sext i32 %sub.i to i64
   %mul = mul i64 %cond.i, %conv
   %conv72 = uitofp i64 %mul to double
-  %div = fdiv double %.us-phi362, %conv72
+  %div = fdiv double %.us-phi378, %conv72
   store double %div, ptr %result, align 8
-  %div74 = fdiv double %.us-phi361, %conv72
-  %168 = call double @llvm.sqrt.f64(double %div74)
+  %div74 = fdiv double %.us-phi377, %conv72
+  %171 = call double @llvm.sqrt.f64(double %div74)
   %rms_error = getelementptr inbounds i8, ptr %result, i64 8
-  store double %168, ptr %rms_error, align 8
-  %conv75 = fpext float %.us-phi360 to double
-  %div77 = fdiv double %conv75, %168
-  %169 = call double @llvm.log10.f64(double %div77)
-  %mul78 = fmul double %169, 2.000000e+01
+  store double %171, ptr %rms_error, align 8
+  %conv75 = fpext float %.us-phi376 to double
+  %div77 = fdiv double %conv75, %171
+  %172 = call double @llvm.log10.f64(double %div77)
+  %mul78 = fmul double %172, 2.000000e+01
   %PSNR = getelementptr inbounds i8, ptr %result, i64 16
   store double %mul78, ptr %PSNR, align 8
-  %170 = load i64, ptr %nfail, align 8
+  %173 = load i64, ptr %nfail, align 8
   %m_tile.i.i257 = getelementptr inbounds i8, ptr %b, i64 72
-  %171 = load ptr, ptr %m_tile.i.i257, align 8
-  %tobool.not.i.i258 = icmp eq ptr %171, null
+  %174 = load ptr, ptr %m_tile.i.i257, align 8
+  %tobool.not.i.i258 = icmp eq ptr %174, null
   br i1 %tobool.not.i.i258, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit261, label %if.then.i.i259
 
 if.then.i.i259:                                   ; preds = %for.end71
@@ -18605,16 +18635,16 @@ if.then.i.i259:                                   ; preds = %for.end71
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit261 unwind label %terminate.lpad.i.i260
 
 terminate.lpad.i.i260:                            ; preds = %if.then.i.i259
-  %172 = landingpad { ptr, i32 }
+  %175 = landingpad { ptr, i32 }
           catch ptr null
-  %173 = extractvalue { ptr, i32 } %172, 0
-  call void @__clang_call_terminate(ptr %173) #25
+  %176 = extractvalue { ptr, i32 } %175, 0
+  call void @__clang_call_terminate(ptr %176) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit261: ; preds = %for.end71, %if.then.i.i259
   %m_tile.i.i262 = getelementptr inbounds i8, ptr %a, i64 72
-  %174 = load ptr, ptr %m_tile.i.i262, align 8
-  %tobool.not.i.i263 = icmp eq ptr %174, null
+  %177 = load ptr, ptr %m_tile.i.i262, align 8
+  %tobool.not.i.i263 = icmp eq ptr %177, null
   br i1 %tobool.not.i.i263, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit, label %if.then.i.i264
 
 if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit261
@@ -18622,21 +18652,21 @@ if.then.i.i264:                                   ; preds = %_ZN18OpenImageIO_v2
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit unwind label %terminate.lpad.i.i265
 
 terminate.lpad.i.i265:                            ; preds = %if.then.i.i264
-  %175 = landingpad { ptr, i32 }
+  %178 = landingpad { ptr, i32 }
           catch ptr null
-  %176 = extractvalue { ptr, i32 } %175, 0
-  call void @__clang_call_terminate(ptr %176) #25
+  %179 = extractvalue { ptr, i32 } %178, 0
+  call void @__clang_call_terminate(ptr %179) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorI4halffED2Ev.exit261, %if.then.i.i264
-  %cmp80 = icmp eq i64 %170, 0
+  %cmp80 = icmp eq i64 %173, 0
   ret i1 %cmp80
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %99, %lpad ], [ %lpad.phi, %lpad4 ], [ %lpad.phi, %if.then.i.i ]
   %m_tile.i.i266 = getelementptr inbounds i8, ptr %a, i64 72
-  %177 = load ptr, ptr %m_tile.i.i266, align 8
-  %tobool.not.i.i267 = icmp eq ptr %177, null
+  %180 = load ptr, ptr %m_tile.i.i266, align 8
+  %tobool.not.i.i267 = icmp eq ptr %180, null
   br i1 %tobool.not.i.i267, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit270, label %if.then.i.i268
 
 if.then.i.i268:                                   ; preds = %ehcleanup
@@ -18644,10 +18674,10 @@ if.then.i.i268:                                   ; preds = %ehcleanup
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit270 unwind label %terminate.lpad.i.i269
 
 terminate.lpad.i.i269:                            ; preds = %if.then.i.i268
-  %178 = landingpad { ptr, i32 }
+  %181 = landingpad { ptr, i32 }
           catch ptr null
-  %179 = extractvalue { ptr, i32 } %178, 0
-  call void @__clang_call_terminate(ptr %179) #25
+  %182 = extractvalue { ptr, i32 } %181, 0
+  call void @__clang_call_terminate(ptr %182) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit270: ; preds = %ehcleanup, %if.then.i.i268
@@ -19222,9 +19252,9 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %maxval.6317 = phi float [ %maxval.5326, %for.body51.lr.ph ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %batcherror.5316 = phi double [ %batcherror.4325, %for.body51.lr.ph ], [ %batcherror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %batch_sqrerror.5315 = phi double [ %batch_sqrerror.4324, %for.body51.lr.ph ], [ %batch_sqrerror.6, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %142, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %141, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
-  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %140, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %117 = phi double [ %maxerror.promoted, %for.body51.lr.ph ], [ %140, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %118 = phi i64 [ %nwarn.promoted, %for.body51.lr.ph ], [ %139, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
+  %119 = phi i64 [ %nfail.promoted, %for.body51.lr.ph ], [ %138, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %cmp52 = icmp slt i64 %indvars.iv, %8
   br i1 %cmp52, label %cond.true, label %cond.end
 
@@ -19249,52 +19279,50 @@ cond.true56:                                      ; preds = %cond.end
 
 cond.end60:                                       ; preds = %cond.true56, %cond.end
   %cond61 = phi float [ %mul.i.i.i138, %cond.true56 ], [ 0.000000e+00, %cond.end ]
-  %122 = call float @llvm.fabs.f32(float %cond)
-  %123 = fcmp one float %122, 0x7FF0000000000000
-  %124 = call float @llvm.fabs.f32(float %cond61)
-  %125 = fcmp one float %124, 0x7FF0000000000000
-  %or.cond54.i139 = and i1 %123, %125
+  %122 = fcmp one float %cond, 0x7FF0000000000000
+  %123 = fcmp one float %cond61, 0x7FF0000000000000
+  %or.cond54.i139 = and i1 %122, %123
   br i1 %or.cond54.i139, label %if.end20.i152, label %if.then.i140
 
 if.then.i140:                                     ; preds = %cond.end60
-  %126 = fcmp oeq float %122, 0x7FF0000000000000
-  %127 = fcmp oeq float %124, 0x7FF0000000000000
-  %128 = xor i1 %126, %127
-  br i1 %128, label %if.end.i142, label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
+  %124 = fcmp oeq float %cond, 0x7FF0000000000000
+  %125 = fcmp oeq float %cond61, 0x7FF0000000000000
+  %126 = xor i1 %124, %125
+  br i1 %126, label %if.end.i142, label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
 
 if.end.i142:                                      ; preds = %if.then.i140
-  %129 = call double @llvm.fabs.f64(double %117)
-  %130 = fcmp ueq double %129, 0x7FF0000000000000
-  br i1 %130, label %if.end20.i152, label %if.then12.i144
+  %127 = call double @llvm.fabs.f64(double %117)
+  %128 = fcmp ueq double %127, 0x7FF0000000000000
+  br i1 %128, label %if.end20.i152, label %if.then12.i144
 
 if.then12.i144:                                   ; preds = %if.end.i142
   store double 0x7FF0000000000000, ptr %maxerror, align 8
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %131 = trunc i64 %indvars.iv to i32
-  store i32 %131, ptr %maxc, align 4
+  %129 = trunc i64 %indvars.iv to i32
+  store i32 %129, ptr %maxc, align 4
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
 
 if.end20.i152:                                    ; preds = %if.end.i142, %cond.end60
-  %conv.i.i153 = fpext float %122 to double
-  %conv1.i.i154 = fpext float %124 to double
+  %conv.i.i153 = fpext float %cond to double
+  %conv1.i.i154 = fpext float %cond61 to double
   %mul2.i.i155 = fmul double %conv1.i.i154, 5.000000e-01
-  %132 = call double @llvm.fmuladd.f64(double %conv.i.i153, double 5.000000e-01, double %mul2.i.i155)
-  %conv3.i.i156 = fptrunc double %132 to float
-  %cmp.i.i157 = fcmp olt float %122, %124
-  %.sroa.speculated51.i158 = select i1 %cmp.i.i157, float %124, float %122
+  %130 = call double @llvm.fmuladd.f64(double %conv.i.i153, double 5.000000e-01, double %mul2.i.i155)
+  %conv3.i.i156 = fptrunc double %130 to float
+  %cmp.i.i157 = fcmp olt float %cond, %cond61
+  %.sroa.speculated51.i158 = select i1 %cmp.i.i157, float %cond61, float %cond
   %cmp.i45.i159 = fcmp olt float %maxval.6317, %.sroa.speculated51.i158
   %.sroa.speculated.i160 = select i1 %cmp.i45.i159, float %.sroa.speculated51.i158, float %maxval.6317
   %sub.i161 = fsub float %cond, %cond61
-  %133 = call noundef float @llvm.fabs.f32(float %sub.i161)
-  %conv27.i162 = fpext float %133 to double
+  %131 = call noundef float @llvm.fabs.f32(float %sub.i161)
+  %conv27.i162 = fpext float %131 to double
   %conv28.i163 = fpext float %conv3.i.i156 to double
   %cmp29.i164 = fcmp ogt float %conv3.i.i156, 0.000000e+00
   %div.i165 = fdiv double %conv27.i162, %conv28.i163
   %cond.i166 = select i1 %cmp29.i164, double %div.i165, double 0.000000e+00
   %add.i167 = fadd double %batcherror.5316, %conv27.i162
-  %134 = call double @llvm.fmuladd.f64(double %conv27.i162, double %conv27.i162, double %batch_sqrerror.5315)
+  %132 = call double @llvm.fmuladd.f64(double %conv27.i162, double %conv27.i162, double %batch_sqrerror.5315)
   %cmp32.i169 = fcmp ult double %117, %conv27.i162
   br i1 %cmp32.i169, label %if.then33.i190, label %if.end42.i170
 
@@ -19303,15 +19331,15 @@ if.then33.i190:                                   ; preds = %if.end20.i152
   store i32 %.pre.pre, ptr %maxx, align 8
   store i32 %114, ptr %maxy, align 4
   store i32 %115, ptr %maxz, align 8
-  %135 = trunc i64 %indvars.iv to i32
-  store i32 %135, ptr %maxc, align 4
+  %133 = trunc i64 %indvars.iv to i32
+  store i32 %133, ptr %maxc, align 4
   br label %if.end42.i170
 
 if.end42.i170:                                    ; preds = %if.then33.i190, %if.end20.i152
-  %136 = phi double [ %conv27.i162, %if.then33.i190 ], [ %117, %if.end20.i152 ]
-  %137 = and i8 %warned44.0318, 1
-  %tobool.not.i171 = icmp eq i8 %137, 0
-  %cmp45.i172 = fcmp ugt float %133, %warnthresh
+  %134 = phi double [ %conv27.i162, %if.then33.i190 ], [ %117, %if.end20.i152 ]
+  %135 = and i8 %warned44.0318, 1
+  %tobool.not.i171 = icmp eq i8 %135, 0
+  %cmp45.i172 = fcmp ugt float %131, %warnthresh
   %or.cond.i173 = and i1 %tobool.not.i171, %cmp45.i172
   %cmp48.i175 = fcmp ugt double %cond.i166, %conv47.i174
   %or.cond42.i176 = select i1 %or.cond.i173, i1 %cmp48.i175, i1 false
@@ -19323,11 +19351,11 @@ if.then49.i187:                                   ; preds = %if.end42.i170
   br label %if.end50.i177
 
 if.end50.i177:                                    ; preds = %if.then49.i187, %if.end42.i170
-  %138 = phi i64 [ %inc.i189, %if.then49.i187 ], [ %118, %if.end42.i170 ]
+  %136 = phi i64 [ %inc.i189, %if.then49.i187 ], [ %118, %if.end42.i170 ]
   %warned44.1 = phi i8 [ 1, %if.then49.i187 ], [ %warned44.0318, %if.end42.i170 ]
-  %139 = and i8 %failed45.0319, 1
-  %tobool51.not.i178 = icmp eq i8 %139, 0
-  %cmp54.i179 = fcmp ugt float %133, %failthresh
+  %137 = and i8 %failed45.0319, 1
+  %tobool51.not.i178 = icmp eq i8 %137, 0
+  %cmp54.i179 = fcmp ugt float %131, %failthresh
   %or.cond43.i180 = and i1 %tobool51.not.i178, %cmp54.i179
   %cmp57.i182 = fcmp ugt double %cond.i166, %conv56.i181
   %or.cond44.i183 = select i1 %or.cond43.i180, i1 %cmp57.i182, i1 false
@@ -19339,10 +19367,10 @@ if.then58.i184:                                   ; preds = %if.end50.i177
   br label %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198
 
 _ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198: ; preds = %if.then.i140, %if.then12.i144, %if.end50.i177, %if.then58.i184
-  %140 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %119, %if.end50.i177 ], [ %119, %if.then12.i144 ], [ %119, %if.then.i140 ]
-  %141 = phi i64 [ %138, %if.then58.i184 ], [ %138, %if.end50.i177 ], [ %118, %if.then12.i144 ], [ %118, %if.then.i140 ]
-  %142 = phi double [ %136, %if.then58.i184 ], [ %136, %if.end50.i177 ], [ 0x7FF0000000000000, %if.then12.i144 ], [ %117, %if.then.i140 ]
-  %batch_sqrerror.6 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i177 ], [ %batch_sqrerror.5315, %if.then12.i144 ], [ %batch_sqrerror.5315, %if.then.i140 ]
+  %138 = phi i64 [ %inc59.i186, %if.then58.i184 ], [ %119, %if.end50.i177 ], [ %119, %if.then12.i144 ], [ %119, %if.then.i140 ]
+  %139 = phi i64 [ %136, %if.then58.i184 ], [ %136, %if.end50.i177 ], [ %118, %if.then12.i144 ], [ %118, %if.then.i140 ]
+  %140 = phi double [ %134, %if.then58.i184 ], [ %134, %if.end50.i177 ], [ 0x7FF0000000000000, %if.then12.i144 ], [ %117, %if.then.i140 ]
+  %batch_sqrerror.6 = phi double [ %132, %if.then58.i184 ], [ %132, %if.end50.i177 ], [ %batch_sqrerror.5315, %if.then12.i144 ], [ %batch_sqrerror.5315, %if.then.i140 ]
   %batcherror.6 = phi double [ %add.i167, %if.then58.i184 ], [ %add.i167, %if.end50.i177 ], [ %batcherror.5316, %if.then12.i144 ], [ %batcherror.5316, %if.then.i140 ]
   %maxval.7 = phi float [ %.sroa.speculated.i160, %if.then58.i184 ], [ %.sroa.speculated.i160, %if.end50.i177 ], [ %maxval.6317, %if.then12.i144 ], [ %maxval.6317, %if.then.i140 ]
   %warned44.2 = phi i8 [ %warned44.1, %if.then58.i184 ], [ %warned44.1, %if.end50.i177 ], [ %warned44.0318, %if.then12.i144 ], [ %warned44.0318, %if.then.i140 ]
@@ -19357,14 +19385,14 @@ for.inc65:                                        ; preds = %_ZN18OpenImageIO_v2
   %maxval.6.lcssa = phi float [ %maxval.5326, %for.body43 ], [ %maxval.7, %_ZN18OpenImageIO_v2_6_013compare_valueItfEEvRNS_8ImageBuf13ConstIteratorIT_fEEiT0_S6_RNS_12ImageBufAlgo14CompareResultsERfRdSB_RbSC_ffff.exit198 ]
   %inc.i200 = add nsw i32 %.pre.pre, 1
   store i32 %inc.i200, ptr %m_x.i, align 4
-  %143 = load i32, ptr %m_rng_xend.i201, align 8
-  %cmp.i202 = icmp slt i32 %inc.i200, %143
+  %141 = load i32, ptr %m_rng_xend.i201, align 8
+  %cmp.i202 = icmp slt i32 %inc.i200, %141
   br i1 %cmp.i202, label %if.then.i219, label %if.else.i203
 
 if.then.i219:                                     ; preds = %for.inc65
-  %144 = load i8, ptr %m_exists.i220, align 1
-  %145 = and i8 %144, 1
-  %tobool.not.i221 = icmp eq i8 %145, 0
+  %142 = load i8, ptr %m_exists.i220, align 1
+  %143 = and i8 %142, 1
+  %tobool.not.i221 = icmp eq i8 %143, 0
   br i1 %tobool.not.i221, label %if.then.if.end13_crit_edge.i223, label %if.then2.i222
 
 if.then.if.end13_crit_edge.i223:                  ; preds = %if.then.i219
@@ -19377,23 +19405,23 @@ if.then2.i222:                                    ; preds = %if.then.i219
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i203:                                     ; preds = %for.inc65
-  %146 = load i32, ptr %m_rng_xbegin.i, align 4
-  store i32 %146, ptr %m_x.i, align 4
-  %147 = load i32, ptr %m_y.i, align 8
-  %inc4.i206 = add nsw i32 %147, 1
+  %144 = load i32, ptr %m_rng_xbegin.i, align 4
+  store i32 %144, ptr %m_x.i, align 4
+  %145 = load i32, ptr %m_y.i, align 8
+  %inc4.i206 = add nsw i32 %145, 1
   store i32 %inc4.i206, ptr %m_y.i, align 8
-  %148 = load i32, ptr %m_rng_yend.i207, align 8
-  %cmp5.not.i208 = icmp slt i32 %inc4.i206, %148
+  %146 = load i32, ptr %m_rng_yend.i207, align 8
+  %cmp5.not.i208 = icmp slt i32 %inc4.i206, %146
   %.pre384 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i208, label %if.end13.i217, label %if.then6.i209
 
 if.then6.i209:                                    ; preds = %if.else.i203
-  %149 = load i32, ptr %m_rng_ybegin.i, align 4
-  store i32 %149, ptr %m_y.i, align 8
+  %147 = load i32, ptr %m_rng_ybegin.i, align 4
+  store i32 %147, ptr %m_y.i, align 8
   %inc8.i212 = add nsw i32 %.pre384, 1
   store i32 %inc8.i212, ptr %m_z.i, align 4
-  %150 = load i32, ptr %m_rng_zend.i, align 8
-  %cmp9.not.i214 = icmp slt i32 %inc8.i212, %150
+  %148 = load i32, ptr %m_rng_zend.i, align 8
+  %cmp9.not.i214 = icmp slt i32 %inc8.i212, %148
   br i1 %cmp9.not.i214, label %if.end13.i217, label %if.then10.i215
 
 if.then10.i215:                                   ; preds = %if.then6.i209
@@ -19401,25 +19429,25 @@ if.then10.i215:                                   ; preds = %if.then6.i209
   br label %invoke.cont67
 
 if.end13.i217:                                    ; preds = %if.then6.i209, %if.else.i203, %if.then.if.end13_crit_edge.i223
-  %151 = phi i32 [ %.pre384, %if.else.i203 ], [ %inc8.i212, %if.then6.i209 ], [ %.pre383, %if.then.if.end13_crit_edge.i223 ]
-  %152 = phi i32 [ %inc4.i206, %if.else.i203 ], [ %149, %if.then6.i209 ], [ %.pre.i225, %if.then.if.end13_crit_edge.i223 ]
-  %153 = phi i32 [ %146, %if.else.i203 ], [ %146, %if.then6.i209 ], [ %inc.i200, %if.then.if.end13_crit_edge.i223 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %153, i32 noundef %152, i32 noundef %151)
+  %149 = phi i32 [ %.pre384, %if.else.i203 ], [ %inc8.i212, %if.then6.i209 ], [ %.pre383, %if.then.if.end13_crit_edge.i223 ]
+  %150 = phi i32 [ %inc4.i206, %if.else.i203 ], [ %147, %if.then6.i209 ], [ %.pre.i225, %if.then.if.end13_crit_edge.i223 ]
+  %151 = phi i32 [ %144, %if.else.i203 ], [ %144, %if.then6.i209 ], [ %inc.i200, %if.then.if.end13_crit_edge.i223 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %a, i32 noundef %151, i32 noundef %150, i32 noundef %149)
           to label %invoke.cont67 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont67:                                    ; preds = %if.then10.i215, %if.then2.i222, %if.end13.i217
   %inc66 = add nuw nsw i32 %i36.0327, 1
-  %154 = load i32, ptr %m_x.i229, align 4
-  %inc.i230 = add nsw i32 %154, 1
+  %152 = load i32, ptr %m_x.i229, align 4
+  %inc.i230 = add nsw i32 %152, 1
   store i32 %inc.i230, ptr %m_x.i229, align 4
-  %155 = load i32, ptr %m_rng_xend.i231, align 8
-  %cmp.i232 = icmp slt i32 %inc.i230, %155
+  %153 = load i32, ptr %m_rng_xend.i231, align 8
+  %cmp.i232 = icmp slt i32 %inc.i230, %153
   br i1 %cmp.i232, label %if.then.i249, label %if.else.i233
 
 if.then.i249:                                     ; preds = %invoke.cont67
-  %156 = load i8, ptr %m_exists.i250, align 1
-  %157 = and i8 %156, 1
-  %tobool.not.i251 = icmp eq i8 %157, 0
+  %154 = load i8, ptr %m_exists.i250, align 1
+  %155 = and i8 %154, 1
+  %tobool.not.i251 = icmp eq i8 %155, 0
   br i1 %tobool.not.i251, label %if.then.if.end13_crit_edge.i253, label %if.then2.i252
 
 if.then.if.end13_crit_edge.i253:                  ; preds = %if.then.i249
@@ -19432,23 +19460,23 @@ if.then2.i252:                                    ; preds = %if.then.i249
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.else.i233:                                     ; preds = %invoke.cont67
-  %158 = load i32, ptr %m_rng_xbegin.i234, align 4
-  store i32 %158, ptr %m_x.i229, align 4
-  %159 = load i32, ptr %m_y.i235, align 8
-  %inc4.i236 = add nsw i32 %159, 1
+  %156 = load i32, ptr %m_rng_xbegin.i234, align 4
+  store i32 %156, ptr %m_x.i229, align 4
+  %157 = load i32, ptr %m_y.i235, align 8
+  %inc4.i236 = add nsw i32 %157, 1
   store i32 %inc4.i236, ptr %m_y.i235, align 8
-  %160 = load i32, ptr %m_rng_yend.i237, align 8
-  %cmp5.not.i238 = icmp slt i32 %inc4.i236, %160
+  %158 = load i32, ptr %m_rng_yend.i237, align 8
+  %cmp5.not.i238 = icmp slt i32 %inc4.i236, %158
   %.pre386 = load i32, ptr %m_z.i241, align 4
   br i1 %cmp5.not.i238, label %if.end13.i247, label %if.then6.i239
 
 if.then6.i239:                                    ; preds = %if.else.i233
-  %161 = load i32, ptr %m_rng_ybegin.i240, align 4
-  store i32 %161, ptr %m_y.i235, align 8
+  %159 = load i32, ptr %m_rng_ybegin.i240, align 4
+  store i32 %159, ptr %m_y.i235, align 8
   %inc8.i242 = add nsw i32 %.pre386, 1
   store i32 %inc8.i242, ptr %m_z.i241, align 4
-  %162 = load i32, ptr %m_rng_zend.i243, align 8
-  %cmp9.not.i244 = icmp slt i32 %inc8.i242, %162
+  %160 = load i32, ptr %m_rng_zend.i243, align 8
+  %cmp9.not.i244 = icmp slt i32 %inc8.i242, %160
   br i1 %cmp9.not.i244, label %if.end13.i247, label %if.then10.i245
 
 if.then10.i245:                                   ; preds = %if.then6.i239
@@ -19456,10 +19484,10 @@ if.then10.i245:                                   ; preds = %if.then6.i239
   br label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258
 
 if.end13.i247:                                    ; preds = %if.then6.i239, %if.else.i233, %if.then.if.end13_crit_edge.i253
-  %163 = phi i32 [ %.pre386, %if.else.i233 ], [ %inc8.i242, %if.then6.i239 ], [ %.pre385, %if.then.if.end13_crit_edge.i253 ]
-  %164 = phi i32 [ %inc4.i236, %if.else.i233 ], [ %161, %if.then6.i239 ], [ %.pre.i255, %if.then.if.end13_crit_edge.i253 ]
-  %165 = phi i32 [ %158, %if.else.i233 ], [ %158, %if.then6.i239 ], [ %inc.i230, %if.then.if.end13_crit_edge.i253 ]
-  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %165, i32 noundef %164, i32 noundef %163)
+  %161 = phi i32 [ %.pre386, %if.else.i233 ], [ %inc8.i242, %if.then6.i239 ], [ %.pre385, %if.then.if.end13_crit_edge.i253 ]
+  %162 = phi i32 [ %inc4.i236, %if.else.i233 ], [ %159, %if.then6.i239 ], [ %.pre.i255, %if.then.if.end13_crit_edge.i253 ]
+  %163 = phi i32 [ %156, %if.else.i233 ], [ %156, %if.then6.i239 ], [ %inc.i230, %if.then.if.end13_crit_edge.i253 ]
+  invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %b, i32 noundef %163, i32 noundef %162, i32 noundef %161)
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseppEv.exit258: ; preds = %if.end13.i247, %if.then2.i252, %if.then10.i245
@@ -19484,19 +19512,19 @@ for.end71:                                        ; preds = %_ZNK18OpenImageIO_v
   %div = fdiv double %.us-phi365, %conv72
   store double %div, ptr %result, align 8
   %div74 = fdiv double %.us-phi364, %conv72
-  %166 = call double @llvm.sqrt.f64(double %div74)
+  %164 = call double @llvm.sqrt.f64(double %div74)
   %rms_error = getelementptr inbounds i8, ptr %result, i64 8
-  store double %166, ptr %rms_error, align 8
+  store double %164, ptr %rms_error, align 8
   %conv75 = fpext float %.us-phi363 to double
-  %div77 = fdiv double %conv75, %166
-  %167 = call double @llvm.log10.f64(double %div77)
-  %mul78 = fmul double %167, 2.000000e+01
+  %div77 = fdiv double %conv75, %164
+  %165 = call double @llvm.log10.f64(double %div77)
+  %mul78 = fmul double %165, 2.000000e+01
   %PSNR = getelementptr inbounds i8, ptr %result, i64 16
   store double %mul78, ptr %PSNR, align 8
-  %168 = load i64, ptr %nfail, align 8
+  %166 = load i64, ptr %nfail, align 8
   %m_tile.i.i259 = getelementptr inbounds i8, ptr %b, i64 72
-  %169 = load ptr, ptr %m_tile.i.i259, align 8
-  %tobool.not.i.i260 = icmp eq ptr %169, null
+  %167 = load ptr, ptr %m_tile.i.i259, align 8
+  %tobool.not.i.i260 = icmp eq ptr %167, null
   br i1 %tobool.not.i.i260, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit263, label %if.then.i.i261
 
 if.then.i.i261:                                   ; preds = %for.end71
@@ -19504,16 +19532,16 @@ if.then.i.i261:                                   ; preds = %for.end71
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit263 unwind label %terminate.lpad.i.i262
 
 terminate.lpad.i.i262:                            ; preds = %if.then.i.i261
-  %170 = landingpad { ptr, i32 }
+  %168 = landingpad { ptr, i32 }
           catch ptr null
-  %171 = extractvalue { ptr, i32 } %170, 0
-  call void @__clang_call_terminate(ptr %171) #25
+  %169 = extractvalue { ptr, i32 } %168, 0
+  call void @__clang_call_terminate(ptr %169) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit263: ; preds = %for.end71, %if.then.i.i261
   %m_tile.i.i264 = getelementptr inbounds i8, ptr %a, i64 72
-  %172 = load ptr, ptr %m_tile.i.i264, align 8
-  %tobool.not.i.i265 = icmp eq ptr %172, null
+  %170 = load ptr, ptr %m_tile.i.i264, align 8
+  %tobool.not.i.i265 = icmp eq ptr %170, null
   br i1 %tobool.not.i.i265, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit268, label %if.then.i.i266
 
 if.then.i.i266:                                   ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit263
@@ -19521,21 +19549,21 @@ if.then.i.i266:                                   ; preds = %_ZN18OpenImageIO_v2
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit268 unwind label %terminate.lpad.i.i267
 
 terminate.lpad.i.i267:                            ; preds = %if.then.i.i266
-  %173 = landingpad { ptr, i32 }
+  %171 = landingpad { ptr, i32 }
           catch ptr null
-  %174 = extractvalue { ptr, i32 } %173, 0
-  call void @__clang_call_terminate(ptr %174) #25
+  %172 = extractvalue { ptr, i32 } %171, 0
+  call void @__clang_call_terminate(ptr %172) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit268: ; preds = %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit263, %if.then.i.i266
-  %cmp80 = icmp eq i64 %168, 0
+  %cmp80 = icmp eq i64 %166, 0
   ret i1 %cmp80
 
 ehcleanup:                                        ; preds = %if.then.i.i, %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %99, %lpad ], [ %lpad.phi, %lpad4 ], [ %lpad.phi, %if.then.i.i ]
   %m_tile.i.i269 = getelementptr inbounds i8, ptr %a, i64 72
-  %175 = load ptr, ptr %m_tile.i.i269, align 8
-  %tobool.not.i.i270 = icmp eq ptr %175, null
+  %173 = load ptr, ptr %m_tile.i.i269, align 8
+  %tobool.not.i.i270 = icmp eq ptr %173, null
   br i1 %tobool.not.i.i270, label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit273, label %if.then.i.i271
 
 if.then.i.i271:                                   ; preds = %ehcleanup
@@ -19543,10 +19571,10 @@ if.then.i.i271:                                   ; preds = %ehcleanup
           to label %_ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit273 unwind label %terminate.lpad.i.i272
 
 terminate.lpad.i.i272:                            ; preds = %if.then.i.i271
-  %176 = landingpad { ptr, i32 }
+  %174 = landingpad { ptr, i32 }
           catch ptr null
-  %177 = extractvalue { ptr, i32 } %176, 0
-  call void @__clang_call_terminate(ptr %177) #25
+  %175 = extractvalue { ptr, i32 } %174, 0
+  call void @__clang_call_terminate(ptr %175) #25
   unreachable
 
 _ZN18OpenImageIO_v2_6_08ImageBuf13ConstIteratorItfED2Ev.exit273: ; preds = %ehcleanup, %if.then.i.i271
