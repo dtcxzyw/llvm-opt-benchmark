@@ -2051,7 +2051,7 @@ if.end590:                                        ; preds = %sw.bb574
   store ptr %cond.i706, ptr %end_.i705, align 8
   store i8 %261, ptr %forwards_.i707, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %cursor1, ptr noundef nonnull align 8 dereferenceable(40) %s, i64 40, i1 false)
-  %cmp.i7101196 = icmp eq ptr %cond608, %cond.i706
+  %cmp.i7101196 = icmp eq i32 %cr.sroa.3.0.copyload, %cr.sroa.0.0.copyload
   br i1 %cmp.i7101196, label %if.end590.if.end679_crit_edge, label %while.body.lr.ph
 
 if.end590.if.end679_crit_edge:                    ; preds = %if.end590
@@ -5298,7 +5298,7 @@ if.end672.us:                                     ; preds = %while.body.us
 if.end597.split:                                  ; preds = %if.end597
   %216 = and i8 %bf.load.fr, 8
   %tobool603.not = icmp eq i8 %216, 0
-  %cmp.i572.us9771078 = icmp eq ptr %cond615, %cond.i
+  %cmp.i572.us9771078 = icmp eq i32 %cr.sroa.3.0.copyload, %cr.sroa.0.0.copyload
   br i1 %tobool603.not, label %land.rhs.us974.preheader, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %if.end597.split

@@ -22309,7 +22309,7 @@ if.then:                                          ; preds = %land.lhs.true, %_ZN
 if.end:                                           ; preds = %if.then, %land.lhs.true, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit13
   %lhs.addr.0 = phi ptr [ %rhs, %if.then ], [ %lhs, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit13 ], [ %lhs, %land.lhs.true ]
   %rhs.addr.0 = phi ptr [ %lhs, %if.then ], [ %rhs, %_ZNK17arith_recognizers10is_numeralEPK4expr.exit13 ], [ %rhs, %land.lhs.true ]
-  %cmp5 = icmp eq ptr %lhs.addr.0, %rhs.addr.0
+  %cmp5 = icmp eq ptr %rhs, %lhs
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end

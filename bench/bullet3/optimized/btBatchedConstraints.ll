@@ -3306,15 +3306,14 @@ for.body17.i:                                     ; preds = %if.end39.i, %if.the
   %13 = load i32, ptr %arrayidx19.i, align 4
   %14 = load i32, ptr %arrayidx22.i, align 4
   %15 = call i32 @llvm.smin.i32(i32 %13, i32 %14)
-  %16 = call i32 @llvm.smax.i32(i32 %13, i32 %14)
-  %cmp30.not.i = icmp eq i32 %15, %16
+  %cmp30.not.i = icmp eq i32 %13, %14
   br i1 %cmp30.not.i, label %if.end39.i, label %if.then31.i
 
 if.then31.i:                                      ; preds = %for.body17.i
   %and32.i = and i32 %15, 1
   %cmp33.i = icmp eq i32 %and32.i, 0
-  %17 = trunc i64 %indvars.iv.i to i32
-  %shl.i = shl nuw nsw i32 1, %17
+  %16 = trunc i64 %indvars.iv.i to i32
+  %shl.i = shl nuw nsw i32 1, %16
   br i1 %cmp33.i, label %if.then34.i, label %if.else.i
 
 if.then34.i:                                      ; preds = %if.then31.i
@@ -3337,8 +3336,8 @@ if.end39.i:                                       ; preds = %if.else.i, %if.then
 
 if.end50.i:                                       ; preds = %land.lhs.true.i, %for.body.i
   %idxprom53.pre-phi.i = phi i64 [ %idxprom4.i, %land.lhs.true.i ], [ %.pre.i, %for.body.i ]
-  %18 = load ptr, ptr %bodyGridCoords.i, align 8
-  %arrayidx54.i = getelementptr inbounds %struct.btIntVec3, ptr %18, i64 %idxprom53.pre-phi.i
+  %17 = load ptr, ptr %bodyGridCoords.i, align 8
+  %arrayidx54.i = getelementptr inbounds %struct.btIntVec3, ptr %17, i64 %idxprom53.pre-phi.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %gridCoord.i, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx54.i, i64 12, i1 false)
   br label %if.end67.i
 
@@ -3349,12 +3348,12 @@ if.end67.i:                                       ; preds = %if.end39.i, %if.end
 
 for.body72.i:                                     ; preds = %_Z7btClampIiEvRT_RKS0_S3_.exit.i, %if.end67.i
   %indvars.iv65.i = phi i64 [ 0, %if.end67.i ], [ %indvars.iv.next66.i, %_Z7btClampIiEvRT_RKS0_S3_.exit.i ]
-  %19 = trunc i64 %indvars.iv65.i to i32
-  %shr48.i = lshr i32 %iPhase.2.i, %19
+  %18 = trunc i64 %indvars.iv65.i to i32
+  %shr48.i = lshr i32 %iPhase.2.i, %18
   %and73.i = and i32 %shr48.i, 1
   %arrayidx75.i = getelementptr inbounds [3 x i32], ptr %gridCoord.i, i64 0, i64 %indvars.iv65.i
-  %20 = load i32, ptr %arrayidx75.i, align 4
-  %sub.i = sub nsw i32 %20, %and73.i
+  %19 = load i32, ptr %arrayidx75.i, align 4
+  %sub.i = sub nsw i32 %19, %and73.i
   %div.i = sdiv i32 %sub.i, 2
   %arrayidx77.i = getelementptr inbounds [3 x i32], ptr %chunkCoord.i, i64 0, i64 %indvars.iv65.i
   store i32 %div.i, ptr %arrayidx77.i, align 4
@@ -3363,9 +3362,9 @@ for.body72.i:                                     ; preds = %_Z7btClampIiEvRT_RK
 
 if.else.i.i:                                      ; preds = %for.body72.i
   %arrayidx.i.i = getelementptr inbounds [3 x i32], ptr %gridChunkDim.i, i64 0, i64 %indvars.iv65.i
-  %21 = load i32, ptr %arrayidx.i.i, align 4
-  %sub82.i = add nsw i32 %21, -1
-  %cmp1.i.not.i = icmp sgt i32 %21, %div.i
+  %20 = load i32, ptr %arrayidx.i.i, align 4
+  %sub82.i = add nsw i32 %20, -1
+  %cmp1.i.not.i = icmp sgt i32 %20, %div.i
   br i1 %cmp1.i.not.i, label %_Z7btClampIiEvRT_RKS0_S3_.exit.i, label %if.end3.sink.split.i.i
 
 if.end3.sink.split.i.i:                           ; preds = %if.else.i.i, %for.body72.i
@@ -3379,20 +3378,20 @@ _Z7btClampIiEvRT_RKS0_S3_.exit.i:                 ; preds = %if.end3.sink.split.
   br i1 %exitcond68.not.i, label %for.end86.i, label %for.body72.i, !llvm.loop !43
 
 for.end86.i:                                      ; preds = %_Z7btClampIiEvRT_RKS0_S3_.exit.i
-  %22 = load i32, ptr %maxNumBatchesPerPhase.i, align 4
-  %mul.i = mul nsw i32 %22, %iPhase.2.i
-  %23 = load i32, ptr %chunkCoord.i, align 4
-  %24 = load i32, ptr %arrayidx88.i, align 4
-  %25 = load i32, ptr %gridChunkDim.i, align 4
-  %26 = load i32, ptr %arrayidx92.i, align 4
-  %27 = load i32, ptr %arrayidx.i52.i, align 4
-  %mul96.i = mul i32 %27, %26
-  %reass.add.i = add i32 %mul96.i, %24
-  %reass.mul.i = mul i32 %reass.add.i, %25
-  %add91.i = add i32 %mul.i, %23
+  %21 = load i32, ptr %maxNumBatchesPerPhase.i, align 4
+  %mul.i = mul nsw i32 %21, %iPhase.2.i
+  %22 = load i32, ptr %chunkCoord.i, align 4
+  %23 = load i32, ptr %arrayidx88.i, align 4
+  %24 = load i32, ptr %gridChunkDim.i, align 4
+  %25 = load i32, ptr %arrayidx92.i, align 4
+  %26 = load i32, ptr %arrayidx.i52.i, align 4
+  %mul96.i = mul i32 %26, %25
+  %reass.add.i = add i32 %mul96.i, %23
+  %reass.mul.i = mul i32 %reass.add.i, %24
+  %add91.i = add i32 %mul.i, %22
   %add97.i = add i32 %add91.i, %reass.mul.i
-  %28 = load ptr, ptr %constraintBatchIds.i, align 8
-  %arrayidx99.i = getelementptr inbounds i32, ptr %28, i64 %indvars.iv69.i
+  %27 = load ptr, ptr %constraintBatchIds.i, align 8
+  %arrayidx99.i = getelementptr inbounds i32, ptr %27, i64 %indvars.iv69.i
   store i32 %add97.i, ptr %arrayidx99.i, align 4
   %indvars.iv.next70.i = add nsw i64 %indvars.iv69.i, 1
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next70.i, %wide.trip.count.i

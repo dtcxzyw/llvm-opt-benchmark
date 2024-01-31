@@ -1178,8 +1178,7 @@ entry:
   br i1 %cmp14, label %if.then, label %if.end17
 
 if.then:                                          ; preds = %entry
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 %sub.ptr.div.i.i16)
-  %cmp15.not = icmp eq i64 %spec.select, %cond13
+  %cmp15.not = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i16
   br i1 %cmp15.not, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.then, %entry
@@ -1228,8 +1227,7 @@ entry:
   br i1 %cmp14, label %if.then, label %if.end17
 
 if.then:                                          ; preds = %entry
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 %sub.ptr.div.i.i17)
-  %cmp15.not = icmp eq i64 %spec.select, %cond13
+  %cmp15.not = icmp eq i64 %sub.ptr.div.i.i, %sub.ptr.div.i.i17
   br i1 %cmp15.not, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.then, %entry

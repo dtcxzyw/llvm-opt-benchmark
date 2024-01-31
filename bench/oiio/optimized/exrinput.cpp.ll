@@ -10375,26 +10375,26 @@ if.end3.i:                                        ; preds = %if.end.i
   %cast.i22.i = trunc i64 %1 to i32
   %shr6.i = lshr i64 %retval.0.i1, %1
   %cond.i = tail call i32 @llvm.smin.i32(i32 %cast.i.i, i32 %cast.i22.i)
-  %spec.select24.i = tail call i64 @llvm.umax.i64(i64 %shr.i, i64 %shr6.i)
-  %spec.select2125.i = tail call i64 @llvm.umin.i64(i64 %shr.i, i64 %shr6.i)
-  %cmp1126.i = icmp eq i64 %spec.select24.i, %spec.select2125.i
-  br i1 %cmp1126.i, label %if.then12.i, label %if.end14.i
+  %spec.select2124.i = tail call i64 @llvm.umin.i64(i64 %shr.i, i64 %shr6.i)
+  %cmp1125.i = icmp eq i64 %shr.i, %shr6.i
+  br i1 %cmp1125.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end14.i, %if.end3.i
-  %spec.select21.lcssa.i = phi i64 [ %spec.select24.i, %if.end3.i ], [ %spec.select.i, %if.end14.i ]
+  %spec.select21.lcssa.i = phi i64 [ %spec.select2124.i, %if.end3.i ], [ %spec.select21.i, %if.end14.i ]
   %sh_prom13.i = zext nneg i32 %cond.i to i64
   %shl.i = shl i64 %spec.select21.lcssa.i, %sh_prom13.i
   br label %_ZNSt8__detail5__gcdImEET_S1_S1_.exit
 
 if.end14.i:                                       ; preds = %if.end3.i, %if.end14.i
-  %spec.select2128.i = phi i64 [ %spec.select21.i, %if.end14.i ], [ %spec.select2125.i, %if.end3.i ]
-  %spec.select27.i = phi i64 [ %spec.select.i, %if.end14.i ], [ %spec.select24.i, %if.end3.i ]
-  %sub.i = sub i64 %spec.select27.i, %spec.select2128.i
+  %spec.select2128.i = phi i64 [ %spec.select21.i, %if.end14.i ], [ %spec.select2124.i, %if.end3.i ]
+  %__m.addr.027.i = phi i64 [ %spec.select2128.i, %if.end14.i ], [ %shr.i, %if.end3.i ]
+  %__n.addr.026.i = phi i64 [ %shr17.i, %if.end14.i ], [ %shr6.i, %if.end3.i ]
+  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %__m.addr.027.i, i64 %__n.addr.026.i)
+  %sub.i = sub i64 %spec.select.i, %spec.select2128.i
   %2 = tail call i64 @llvm.cttz.i64(i64 %sub.i, i1 false), !range !53
   %shr17.i = lshr i64 %sub.i, %2
-  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %spec.select2128.i, i64 %shr17.i)
   %spec.select21.i = tail call i64 @llvm.umin.i64(i64 %spec.select2128.i, i64 %shr17.i)
-  %cmp11.i = icmp eq i64 %spec.select.i, %spec.select21.i
+  %cmp11.i = icmp eq i64 %spec.select2128.i, %shr17.i
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i, !llvm.loop !67
 
 _ZNSt8__detail5__gcdImEET_S1_S1_.exit:            ; preds = %entry, %if.end.i, %if.then12.i

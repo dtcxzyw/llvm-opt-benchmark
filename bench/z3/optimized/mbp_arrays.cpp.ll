@@ -8459,7 +8459,7 @@ ehcleanup131:                                     ; preds = %lpad29.loopexit, %l
   br label %ehcleanup147
 
 invoke.cont134:                                   ; preds = %land.rhs.i.i, %land.lhs.true, %invoke.cont19, %invoke.cont23
-  %cmp.i334 = icmp eq ptr %15, %14
+  %cmp.i334 = icmp eq ptr %10, %7
   br i1 %cmp.i334, label %cleanup, label %invoke.cont138
 
 invoke.cont138:                                   ; preds = %invoke.cont134

@@ -6558,7 +6558,7 @@ if.then57:                                        ; preds = %land.rhs.i178, %_Z1
 if.end58:                                         ; preds = %land.lhs.true55, %land.lhs.true.i175, %if.then57, %_Z17is_uninterp_constPK4expr.exit183, %if.end53
   %x2.1 = phi ptr [ %69, %if.then57 ], [ %77, %_Z17is_uninterp_constPK4expr.exit183 ], [ %77, %if.end53 ], [ %77, %land.lhs.true.i175 ], [ %77, %land.lhs.true55 ]
   %y2.1 = phi ptr [ %77, %if.then57 ], [ %69, %_Z17is_uninterp_constPK4expr.exit183 ], [ %78, %if.end53 ], [ %69, %land.lhs.true.i175 ], [ %69, %land.lhs.true55 ]
-  %cmp59 = icmp eq ptr %x2.1, %y2.1
+  %cmp59 = icmp eq ptr %78, %77
   br i1 %cmp59, label %land.lhs.true60, label %if.end63
 
 land.lhs.true60:                                  ; preds = %if.end58
@@ -6593,57 +6593,61 @@ if.then62:                                        ; preds = %land.rhs.i191, %_Z1
 if.end63:                                         ; preds = %land.lhs.true60, %land.lhs.true.i188, %if.then62, %_Z17is_uninterp_constPK4expr.exit196, %if.end58
   %x1.1 = phi ptr [ %70, %if.then62 ], [ %69, %_Z17is_uninterp_constPK4expr.exit196 ], [ %69, %if.end58 ], [ %69, %land.lhs.true.i188 ], [ %69, %land.lhs.true60 ]
   %y1.1 = phi ptr [ %69, %if.then62 ], [ %70, %_Z17is_uninterp_constPK4expr.exit196 ], [ %70, %if.end58 ], [ %70, %land.lhs.true.i188 ], [ %70, %land.lhs.true60 ]
-  %y2.2 = phi ptr [ %x2.1, %if.then62 ], [ %x2.1, %_Z17is_uninterp_constPK4expr.exit196 ], [ %y2.1, %if.end58 ], [ %x2.1, %land.lhs.true.i188 ], [ %x2.1, %land.lhs.true60 ]
-  %cmp64 = icmp eq ptr %x2.1, %y1.1
+  %x2.2 = phi ptr [ %y2.1, %if.then62 ], [ %x2.1, %_Z17is_uninterp_constPK4expr.exit196 ], [ %x2.1, %if.end58 ], [ %x2.1, %land.lhs.true.i188 ], [ %x2.1, %land.lhs.true60 ]
+  %y2.2 = phi ptr [ %x2.1, %if.then62 ], [ %y2.1, %_Z17is_uninterp_constPK4expr.exit196 ], [ %y2.1, %if.end58 ], [ %y2.1, %land.lhs.true.i188 ], [ %y2.1, %land.lhs.true60 ]
+  %cmp64 = icmp eq ptr %x2.2, %y1.1
   br i1 %cmp64, label %land.lhs.true65, label %if.end68
 
 land.lhs.true65:                                  ; preds = %if.end63
-  %m_kind.i.i197 = getelementptr inbounds i8, ptr %x2.1, i64 4
+  %m_kind.i.i197 = getelementptr inbounds i8, ptr %y1.1, i64 4
   %bf.load.i.i198 = load i32, ptr %m_kind.i.i197, align 4
   %bf.clear.i.i199 = and i32 %bf.load.i.i198, 65535
   %cmp.i200 = icmp eq i32 %bf.clear.i.i199, 0
   br i1 %cmp.i200, label %land.lhs.true.i201, label %if.end68
 
 land.lhs.true.i201:                               ; preds = %land.lhs.true65
-  %m_num_args.i.i202 = getelementptr inbounds i8, ptr %x2.1, i64 24
+  %m_num_args.i.i202 = getelementptr inbounds i8, ptr %y1.1, i64 24
   %92 = load i32, ptr %m_num_args.i.i202, align 8
   %cmp3.i203 = icmp eq i32 %92, 0
   br i1 %cmp3.i203, label %land.rhs.i204, label %if.end68
 
 land.rhs.i204:                                    ; preds = %land.lhs.true.i201
-  %m_decl.i.i.i205 = getelementptr inbounds i8, ptr %x2.1, i64 16
+  %m_decl.i.i.i205 = getelementptr inbounds i8, ptr %y1.1, i64 16
   %93 = load ptr, ptr %m_decl.i.i.i205, align 8
   %m_info.i.i.i206 = getelementptr inbounds i8, ptr %93, i64 24
   %94 = load ptr, ptr %m_info.i.i.i206, align 8
   %cmp.i.i.i207 = icmp eq ptr %94, null
-  br i1 %cmp.i.i.i207, label %land.lhs.true70, label %_Z17is_uninterp_constPK4expr.exit209
+  br i1 %cmp.i.i.i207, label %if.then67, label %_Z17is_uninterp_constPK4expr.exit209
 
 _Z17is_uninterp_constPK4expr.exit209:             ; preds = %land.rhs.i204
   %95 = load i32, ptr %94, align 8
   %96 = icmp eq i32 %95, -1
-  br i1 %96, label %land.lhs.true70, label %if.end68
+  br i1 %96, label %if.then67, label %if.end68
 
-if.end68:                                         ; preds = %land.lhs.true65, %land.lhs.true.i201, %_Z17is_uninterp_constPK4expr.exit209, %if.end63
-  %y1.2 = phi ptr [ %x2.1, %_Z17is_uninterp_constPK4expr.exit209 ], [ %y1.1, %if.end63 ], [ %x2.1, %land.lhs.true.i201 ], [ %x2.1, %land.lhs.true65 ]
-  %cmp69 = icmp eq ptr %x1.1, %x2.1
+if.then67:                                        ; preds = %land.rhs.i204, %_Z17is_uninterp_constPK4expr.exit209
+  br label %if.end68
+
+if.end68:                                         ; preds = %land.lhs.true65, %land.lhs.true.i201, %if.then67, %_Z17is_uninterp_constPK4expr.exit209, %if.end63
+  %x1.2 = phi ptr [ %y1.1, %if.then67 ], [ %x1.1, %_Z17is_uninterp_constPK4expr.exit209 ], [ %x1.1, %if.end63 ], [ %x1.1, %land.lhs.true.i201 ], [ %x1.1, %land.lhs.true65 ]
+  %y1.2 = phi ptr [ %x1.1, %if.then67 ], [ %y1.1, %_Z17is_uninterp_constPK4expr.exit209 ], [ %y1.1, %if.end63 ], [ %y1.1, %land.lhs.true.i201 ], [ %y1.1, %land.lhs.true65 ]
+  %cmp69 = icmp eq ptr %x1.2, %x2.2
   br i1 %cmp69, label %land.lhs.true70, label %if.end89
 
-land.lhs.true70:                                  ; preds = %land.rhs.i204, %_Z17is_uninterp_constPK4expr.exit209, %if.end68
-  %y1.2480 = phi ptr [ %y1.2, %if.end68 ], [ %x1.1, %_Z17is_uninterp_constPK4expr.exit209 ], [ %x1.1, %land.rhs.i204 ]
-  %m_kind.i.i210 = getelementptr inbounds i8, ptr %x2.1, i64 4
+land.lhs.true70:                                  ; preds = %if.end68
+  %m_kind.i.i210 = getelementptr inbounds i8, ptr %x2.2, i64 4
   %bf.load.i.i211 = load i32, ptr %m_kind.i.i210, align 4
   %bf.clear.i.i212 = and i32 %bf.load.i.i211, 65535
   %cmp.i213 = icmp eq i32 %bf.clear.i.i212, 0
   br i1 %cmp.i213, label %land.lhs.true.i214, label %if.end89
 
 land.lhs.true.i214:                               ; preds = %land.lhs.true70
-  %m_num_args.i.i215 = getelementptr inbounds i8, ptr %x2.1, i64 24
+  %m_num_args.i.i215 = getelementptr inbounds i8, ptr %x2.2, i64 24
   %97 = load i32, ptr %m_num_args.i.i215, align 8
   %cmp3.i216 = icmp eq i32 %97, 0
   br i1 %cmp3.i216, label %land.rhs.i217, label %if.end89
 
 land.rhs.i217:                                    ; preds = %land.lhs.true.i214
-  %m_decl.i.i.i218 = getelementptr inbounds i8, ptr %x2.1, i64 16
+  %m_decl.i.i.i218 = getelementptr inbounds i8, ptr %x2.2, i64 16
   %98 = load ptr, ptr %m_decl.i.i.i218, align 8
   %m_info.i.i.i219 = getelementptr inbounds i8, ptr %98, i64 24
   %99 = load ptr, ptr %m_info.i.i.i219, align 8
@@ -6658,7 +6662,7 @@ _Z17is_uninterp_constPK4expr.exit222:             ; preds = %land.rhs.i217
 if.then72:                                        ; preds = %land.rhs.i217, %_Z17is_uninterp_constPK4expr.exit222
   %102 = load ptr, ptr %m_fml.i, align 8
   %103 = load ptr, ptr %m, align 8
-  %call.i = tail call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_S1_(ptr noundef nonnull align 8 dereferenceable(976) %103, i32 noundef 0, i32 noundef 4, ptr noundef %60, ptr noundef %y1.2480, ptr noundef %y2.2)
+  %call.i = tail call noundef ptr @_ZN11ast_manager6mk_appEiiP4exprS1_S1_(ptr noundef nonnull align 8 dereferenceable(976) %103, i32 noundef 0, i32 noundef 4, ptr noundef %60, ptr noundef %y1.2, ptr noundef %y2.2)
   %104 = load ptr, ptr %m, align 8
   store ptr %call.i, ptr %ref.tmp76, align 8
   %m_manager.i224 = getelementptr inbounds i8, ptr %ref.tmp76, i64 8
@@ -6668,7 +6672,7 @@ if.then72:                                        ; preds = %land.rhs.i217, %_Z1
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit229.thread: ; preds = %if.then72
   %var3.i230455 = getelementptr inbounds i8, ptr %ref.tmp73, i64 8
-  store ptr %x2.1, ptr %var3.i230455, align 8
+  store ptr %x2.2, ptr %var3.i230455, align 8
   %term4.i231456 = getelementptr inbounds i8, ptr %ref.tmp73, i64 16
   store ptr null, ptr %term4.i231456, align 8
   %m_manager.i.i232457 = getelementptr inbounds i8, ptr %ref.tmp73, i64 24
@@ -6681,7 +6685,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i235:     ; preds = %if.then72
   %inc.i.i.i.i228 = add i32 %105, 1
   store i32 %inc.i.i.i.i228, ptr %m_ref_count.i.i.i.i227, align 4
   %var3.i230 = getelementptr inbounds i8, ptr %ref.tmp73, i64 8
-  store ptr %x2.1, ptr %var3.i230, align 8
+  store ptr %x2.2, ptr %var3.i230, align 8
   %term4.i231 = getelementptr inbounds i8, ptr %ref.tmp73, i64 16
   store ptr %call.i, ptr %term4.i231, align 8
   %m_manager.i.i232 = getelementptr inbounds i8, ptr %ref.tmp73, i64 24

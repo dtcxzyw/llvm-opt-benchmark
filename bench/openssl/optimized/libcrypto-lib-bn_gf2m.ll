@@ -1361,7 +1361,7 @@ for.body117.i:                                    ; preds = %if.end114.i, %for.b
   br i1 %exitcond140.not.i, label %for.end130.i, label %for.body117.i, !llvm.loop !22
 
 for.end130.i:                                     ; preds = %for.body117.i, %if.end114.i
-  %cmp131.i = icmp eq i32 %ubits.2.i, %vbits.1.i
+  %cmp131.i = icmp eq i32 %vbits.0.i, %ubits.1105.i
   br i1 %cmp131.i, label %if.then132.i, label %while.body.i.backedge
 
 if.then132.i:                                     ; preds = %for.end130.i

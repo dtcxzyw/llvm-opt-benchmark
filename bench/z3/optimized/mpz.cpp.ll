@@ -774,7 +774,7 @@ _ZL17_trailing_zeros64m.exit22:                   ; preds = %for.inc.i15, %do.bo
   %spec.select = tail call i64 @llvm.umin.i64(i64 %u.addr.0, i64 %shr10)
   %spec.select31 = tail call i64 @llvm.umax.i64(i64 %u.addr.0, i64 %shr10)
   %sub = sub i64 %spec.select31, %spec.select
-  %cmp14.not = icmp eq i64 %spec.select31, %spec.select
+  %cmp14.not = icmp eq i64 %u.addr.0, %shr10
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !8
 
 do.end:                                           ; preds = %_ZL17_trailing_zeros64m.exit22

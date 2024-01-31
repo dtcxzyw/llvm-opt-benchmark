@@ -7266,7 +7266,7 @@ if.end:                                           ; preds = %if.then, %entry
   %asize.0 = phi i64 [ %shr.i86, %if.then ], [ %shr.i, %entry ]
   %bsize.0 = phi i64 [ %shr.i, %if.then ], [ %shr.i86, %entry ]
   %a.addr.0 = phi ptr [ %b, %if.then ], [ %a, %entry ]
-  %cmp2 = icmp eq ptr %a.addr.0, %b.addr.0
+  %cmp2 = icmp eq ptr %b, %a
   %conv = select i1 %cmp2, i64 140, i64 70
   %cmp3.not = icmp ugt i64 %asize.0, %conv
   br i1 %cmp3.not, label %if.end11, label %if.then5
@@ -7400,9 +7400,9 @@ while.cond82.while.end96_crit_edge.us.i:          ; preds = %while.body85.us.i
   br i1 %tobool97.not.us.i, label %for.inc103.us.i, label %if.then98.us.i
 
 if.then5.i:                                       ; preds = %if.end.i87
-  %ob_digit7.i = getelementptr inbounds i8, ptr %b.addr.0, i64 24
+  %ob_digit7.i = getelementptr inbounds i8, ptr %a.addr.0, i64 24
   %add.ptr.i = getelementptr i32, ptr %ob_digit7.i, i64 %shr.i.i
-  %invariant.gep.i = getelementptr i8, ptr %b.addr.0, i64 28
+  %invariant.gep.i = getelementptr i8, ptr %a.addr.0, i64 28
   %cmp987.not.i = icmp ult i64 %a.val.i, 8
   br i1 %cmp987.not.i, label %if.end106.i, label %for.body.i
 

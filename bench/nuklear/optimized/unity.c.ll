@@ -80222,7 +80222,7 @@ nk_textedit_sortselection.exit:                   ; preds = %if.then, %if.then.i
   %3 = phi i32 [ %0, %if.then ], [ %1, %if.then.i ]
   %len.i = getelementptr inbounds i8, ptr %state, i64 144
   %4 = load i32, ptr %len.i, align 8
-  %cmp.not.i = icmp eq i32 %3, %2
+  %cmp.not.i = icmp eq i32 %0, %1
   br i1 %cmp.not.i, label %if.end16.i, label %if.then.i11
 
 if.then.i11:                                      ; preds = %nk_textedit_sortselection.exit

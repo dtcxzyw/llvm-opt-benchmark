@@ -6309,14 +6309,14 @@ invoke.cont5:                                     ; preds = %invoke.cont
   %sub.ptr.rhs.cast.i93 = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i94 = sub i64 %sub.ptr.lhs.cast.i92, %sub.ptr.rhs.cast.i93
   %sub.ptr.div.i95 = ashr exact i64 %sub.ptr.sub.i94, 3
-  %sub.ptr.div.i95. = select i1 %call6, i64 %sub.ptr.div.i95, i64 0
   %. = select i1 %call6, i64 -1, i64 1
   %.sub.ptr.div.i95 = select i1 %call6, i64 0, i64 %sub.ptr.div.i95
   %conv20 = sext i1 %call6 to i64
-  %cmp21.not134 = icmp eq i64 %sub.ptr.div.i95., %.sub.ptr.div.i95
+  %cmp21.not134 = icmp eq ptr %5, %6
   br i1 %cmp21.not134, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont5
+  %sub.ptr.div.i95. = select i1 %call6, i64 %sub.ptr.div.i95, i64 0
   %chunk_state.i = getelementptr inbounds i8, ptr %iterator, i64 168
   %current_segment_idx.i = getelementptr inbounds i8, ptr %iterator, i64 544
   %current_chunk_idx.i = getelementptr inbounds i8, ptr %iterator, i64 552
