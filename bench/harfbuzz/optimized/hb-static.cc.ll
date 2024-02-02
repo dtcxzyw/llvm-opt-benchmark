@@ -7801,17 +7801,24 @@ if.end:                                           ; preds = %_ZN11hb_vector_tI9h
 for.body.lr.ph:                                   ; preds = %if.end
   %cmp3274.not = icmp eq i32 %add.i.i65, 0
   %arrayZ47 = getelementptr inbounds i8, ptr %this, i64 24
-  %wide.trip.count93 = zext nneg i32 %add.i.i to i64
-  br i1 %cmp3274.not, label %for.body, label %for.body.us.preheader
+  br i1 %cmp3274.not, label %for.body.preheader, label %for.body.us.preheader
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
-  %wide.trip.count = zext nneg i32 %add.i.i65 to i64
+  %34 = or disjoint i32 %shl.i.i62, %conv4.i.i64
+  %35 = or disjoint i32 %shl.i.i, %conv4.i.i
+  %wide.trip.count88 = zext nneg i32 %35 to i64
+  %wide.trip.count = zext nneg i32 %34 to i64
   br label %for.body.us
+
+for.body.preheader:                               ; preds = %for.body.lr.ph
+  %36 = or disjoint i32 %shl.i.i, %conv4.i.i
+  %wide.trip.count93 = zext nneg i32 %36 to i64
+  br label %for.body
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.end.us
   %indvars.iv85 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next86, %for.end.us ]
-  %34 = trunc i64 %indvars.iv85 to i32
-  %mul29.us = mul i32 %add.i.i65, %34
+  %37 = trunc i64 %indvars.iv85 to i32
+  %mul29.us = mul i32 %add.i.i65, %37
   %idx.ext.i.i.us = zext i32 %mul29.us to i64
   %add.ptr.i.i.us = getelementptr inbounds %"struct.OT::HBFixed", ptr %add.ptr.i.i.i, i64 %idx.ext.i.i.us
   br label %for.body33.us
@@ -7821,19 +7828,19 @@ for.body33.us:                                    ; preds = %for.body.us, %for.i
   %idx2.076.us = phi i32 [ -1, %for.body.us ], [ %idx2.1.us, %for.inc.us ]
   %idx1.075.us = phi i32 [ -1, %for.body.us ], [ %idx1.1.us, %for.inc.us ]
   %arrayidx.us = getelementptr inbounds %"struct.OT::HBFixed", ptr %add.ptr.i.i.us, i64 %indvars.iv
-  %35 = load i8, ptr %arrayidx.us, align 1
-  %conv.i.i68.us = zext i8 %35 to i16
+  %38 = load i8, ptr %arrayidx.us, align 1
+  %conv.i.i68.us = zext i8 %38 to i16
   %shl.i.i69.us = shl nuw i16 %conv.i.i68.us, 8
   %arrayidx3.i.i70.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 1
-  %36 = load i8, ptr %arrayidx3.i.i70.us, align 1
-  %conv4.i.i71.us = zext i8 %36 to i16
+  %39 = load i8, ptr %arrayidx3.i.i70.us, align 1
+  %conv4.i.i71.us = zext i8 %39 to i16
   %add.i.i72.us = or disjoint i16 %shl.i.i69.us, %conv4.i.i71.us
   %cmp35.not.us = icmp eq i16 %add.i.i72.us, 0
   br i1 %cmp35.not.us, label %for.inc.us, label %if.then36.us
 
 if.then36.us:                                     ; preds = %for.body33.us
   %cmp37.us = icmp eq i32 %idx1.075.us, -1
-  %37 = trunc i64 %indvars.iv to i32
+  %40 = trunc i64 %indvars.iv to i32
   br i1 %cmp37.us, label %for.inc.us, label %if.else.us
 
 if.else.us:                                       ; preds = %if.then36.us
@@ -7843,28 +7850,28 @@ if.else.us:                                       ; preds = %if.then36.us
 for.end.us:                                       ; preds = %for.inc.us, %if.else.us
   %idx1.2.us = phi i32 [ -1, %if.else.us ], [ %idx1.1.us, %for.inc.us ]
   %idx2.2.us = phi i32 [ -1, %if.else.us ], [ %idx2.1.us, %for.inc.us ]
-  %38 = load ptr, ptr %arrayZ47, align 8
-  %arrayidx49.us = getelementptr inbounds %struct.hb_pair_t, ptr %38, i64 %indvars.iv85
+  %41 = load ptr, ptr %arrayZ47, align 8
+  %arrayidx49.us = getelementptr inbounds %struct.hb_pair_t, ptr %41, i64 %indvars.iv85
   %ref.tmp45.sroa.2.0.insert.ext.us = zext i32 %idx2.2.us to i64
   %ref.tmp45.sroa.2.0.insert.shift.us = shl nuw i64 %ref.tmp45.sroa.2.0.insert.ext.us, 32
   %ref.tmp45.sroa.0.0.insert.ext.us = zext i32 %idx1.2.us to i64
   %ref.tmp45.sroa.0.0.insert.insert.us = or disjoint i64 %ref.tmp45.sroa.2.0.insert.shift.us, %ref.tmp45.sroa.0.0.insert.ext.us
   store i64 %ref.tmp45.sroa.0.0.insert.insert.us, ptr %arrayidx49.us, align 4
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count93
+  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
   br i1 %exitcond89.not, label %for.end52, label %for.body.us, !llvm.loop !65
 
 for.inc.us:                                       ; preds = %if.else.us, %if.then36.us, %for.body33.us
-  %idx1.1.us = phi i32 [ %idx1.075.us, %for.body33.us ], [ %37, %if.then36.us ], [ %idx1.075.us, %if.else.us ]
-  %idx2.1.us = phi i32 [ %idx2.076.us, %for.body33.us ], [ %idx2.076.us, %if.then36.us ], [ %37, %if.else.us ]
+  %idx1.1.us = phi i32 [ %idx1.075.us, %for.body33.us ], [ %40, %if.then36.us ], [ %idx1.075.us, %if.else.us ]
+  %idx2.1.us = phi i32 [ %idx2.076.us, %for.body33.us ], [ %idx2.076.us, %if.then36.us ], [ %40, %if.else.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end.us, label %for.body33.us, !llvm.loop !66
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv90 = phi i64 [ %indvars.iv.next91, %for.body ], [ 0, %for.body.lr.ph ]
-  %39 = load ptr, ptr %arrayZ47, align 8
-  %arrayidx49 = getelementptr inbounds %struct.hb_pair_t, ptr %39, i64 %indvars.iv90
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %indvars.iv90 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next91, %for.body ]
+  %42 = load ptr, ptr %arrayZ47, align 8
+  %arrayidx49 = getelementptr inbounds %struct.hb_pair_t, ptr %42, i64 %indvars.iv90
   store i64 -1, ptr %arrayidx49, align 4
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
