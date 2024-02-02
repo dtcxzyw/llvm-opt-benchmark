@@ -36931,11 +36931,9 @@ sw.bb2:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dec.i.i.i.i.i.i)
   %4 = bitcast float %3 to i32
-  %value.addr.0.i.i.i.i.i.i = tail call float @llvm.fabs.f32(float %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %specs.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) @__const._ZN3fmt3v106detail5writeIcNS0_8appenderEfTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_S8_S5_.specs, i64 16, i1 false)
-  %5 = bitcast float %value.addr.0.i.i.i.i.i.i to i32
-  %and.i.i.i.i.i.i = and i32 %5, 2139095040
-  %cmp.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, 2139095040
+  %5 = tail call float @llvm.fabs.f32(float %3)
+  %cmp.i.i.i.i.i.i = fcmp ueq float %5, 0x7FF0000000000000
   br i1 %cmp.i.i.i.i.i.i, label %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i.i.i.i.i.i, label %if.end16.i.i.i.i.i.i
 
 _ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i.i.i.i.i.i: ; preds = %sw.bb2
@@ -36961,7 +36959,7 @@ _ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT
 if.end16.i.i.i.i.i.i:                             ; preds = %sw.bb2
   %9 = lshr i32 %4, 23
   %fspecs.sroa.2.0.i.i.i.i.i.i = and i32 %9, 256
-  %call17.i.i.i.i.i.i = tail call i64 @_ZN3fmt3v106detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %value.addr.0.i.i.i.i.i.i) #25
+  %call17.i.i.i.i.i.i = tail call i64 @_ZN3fmt3v106detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %5) #25
   store i64 %call17.i.i.i.i.i.i, ptr %dec.i.i.i.i.i.i, align 8
   %fspecs.sroa.2.0.insert.ext.i.i.i.i.i.i = zext nneg i32 %fspecs.sroa.2.0.i.i.i.i.i.i to i64
   %fspecs.sroa.2.0.insert.shift.i.i.i.i.i.i = shl nuw nsw i64 %fspecs.sroa.2.0.insert.ext.i.i.i.i.i.i, 32

@@ -161,10 +161,9 @@ return:                                           ; preds = %if.end20.i.i, %if.t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i16 @_ZN7Imf_3_211floatToHalfEf(float noundef %f) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = bitcast float %f to i32
-  %and.i = and i32 %0, 2139095040
-  %cmp.i.not = icmp eq i32 %and.i, 2139095040
-  br i1 %cmp.i.not, label %if.end15, label %if.then
+  %0 = tail call float @llvm.fabs.f32(float %f)
+  %cmp.i = fcmp ueq float %0, 0x7FF0000000000000
+  br i1 %cmp.i, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @imath_half_to_float_table, align 8
@@ -180,9 +179,9 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp10, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end, %entry
-  %4 = tail call float @llvm.fabs.f32(float %f)
-  %and.i.i = bitcast float %4 to i32
-  %shr.i.i = lshr i32 %0, 16
+  %4 = bitcast float %f to i32
+  %and.i.i = bitcast float %0 to i32
+  %shr.i.i = lshr i32 %4, 16
   %5 = trunc i32 %shr.i.i to i16
   %conv.i.i = and i16 %5, -32768
   %cmp.i.i = icmp ugt i32 %and.i.i, 947912703

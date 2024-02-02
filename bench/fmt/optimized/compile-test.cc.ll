@@ -20160,11 +20160,9 @@ invoke.cont2:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dec.i)
   %1 = bitcast double %0 to i64
-  %value.addr.0.i = call double @llvm.fabs.f64(double %0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %specs.i, ptr noundef nonnull align 4 dereferenceable(16) @__const._ZN3fmt3v106detail5writeIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEfTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_SF_SC_.specs, i64 16, i1 false)
-  %2 = bitcast double %value.addr.0.i to i64
-  %and.i = and i64 %2, 9218868437227405312
-  %cmp.i = icmp eq i64 %and.i, 9218868437227405312
+  %2 = call double @llvm.fabs.f64(double %0)
+  %cmp.i = fcmp ueq double %2, 0x7FF0000000000000
   br i1 %cmp.i, label %_ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i, label %if.end16.i
 
 _ZN3fmt3v106detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i: ; preds = %invoke.cont2
@@ -20191,7 +20189,7 @@ call.i.i.i.noexc:                                 ; preds = %_ZN3fmt3v106detail1
   br label %invoke.cont4
 
 if.end16.i:                                       ; preds = %invoke.cont2
-  %call17.i = call { i64, i32 } @_ZN3fmt3v106detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %value.addr.0.i) #24
+  %call17.i = call { i64, i32 } @_ZN3fmt3v106detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %2) #24
   %6 = extractvalue { i64, i32 } %call17.i, 0
   store i64 %6, ptr %dec.i, align 8
   %7 = getelementptr inbounds i8, ptr %dec.i, i64 8
@@ -51488,11 +51486,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dec.i.i)
   %1 = bitcast float %0 to i32
-  %value.addr.0.i.i = tail call float @llvm.fabs.f32(float %0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %specs.i.i, ptr noundef nonnull align 4 dereferenceable(16) @__const._ZN3fmt3v106detail5writeIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEfTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_SF_SC_.specs, i64 16, i1 false)
-  %2 = bitcast float %value.addr.0.i.i to i32
-  %and.i.i = and i32 %2, 2139095040
-  %cmp.i.i = icmp eq i32 %and.i.i, 2139095040
+  %2 = tail call float @llvm.fabs.f32(float %0)
+  %cmp.i.i = fcmp ueq float %2, 0x7FF0000000000000
   br i1 %cmp.i.i, label %_ZN3fmt3v106detail15write_nonfiniteIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET0_SB_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i.i, label %if.end13.i.i
 
 _ZN3fmt3v106detail15write_nonfiniteIcSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET0_SB_bNS0_12format_specsIT_EERKNS1_11float_specsE.exit.i.i: ; preds = %entry
@@ -51518,7 +51514,7 @@ _ZN3fmt3v106detail15write_nonfiniteIcSt20back_insert_iteratorINSt7__cxx1112basic
 if.end13.i.i:                                     ; preds = %entry
   %6 = lshr i32 %1, 23
   %fspecs.sroa.2.0.i.i = and i32 %6, 256
-  %call14.i.i = tail call i64 @_ZN3fmt3v106detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %value.addr.0.i.i) #24
+  %call14.i.i = tail call i64 @_ZN3fmt3v106detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %2) #24
   store i64 %call14.i.i, ptr %dec.i.i, align 8
   %fspecs.sroa.2.0.insert.ext.i.i = zext nneg i32 %fspecs.sroa.2.0.i.i to i64
   %fspecs.sroa.2.0.insert.shift.i.i = shl nuw nsw i64 %fspecs.sroa.2.0.insert.ext.i.i, 32

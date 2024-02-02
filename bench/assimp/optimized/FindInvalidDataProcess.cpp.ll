@@ -2521,25 +2521,22 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
   %b.031.us.us = phi i8 [ %b.1.us.us, %for.inc.us.us ], [ 0, %for.body.lr.ph.split.us ]
   %arrayidx.us.us = getelementptr inbounds %class.aiVector3t, ptr %arr, i64 %indvars.iv108
   %3 = load float, ptr %arrayidx.us.us, align 4
-  %4 = bitcast float %3 to i32
-  %5 = and i32 %4, 2139095040
-  %cmp.i.us.us = icmp eq i32 %5, 2139095040
+  %4 = tail call float @llvm.fabs.f32(float %3)
+  %cmp.i.us.us = fcmp ueq float %4, 0x7FF0000000000000
   br i1 %cmp.i.us.us, label %return, label %lor.lhs.false.us.us
 
 lor.lhs.false.us.us:                              ; preds = %for.body.us.us
   %y.us.us = getelementptr inbounds i8, ptr %arrayidx.us.us, i64 4
-  %6 = load float, ptr %y.us.us, align 4
-  %7 = bitcast float %6 to i32
-  %8 = and i32 %7, 2139095040
-  %cmp.i16.us.us = icmp eq i32 %8, 2139095040
+  %5 = load float, ptr %y.us.us, align 4
+  %6 = tail call float @llvm.fabs.f32(float %5)
+  %cmp.i16.us.us = fcmp ueq float %6, 0x7FF0000000000000
   br i1 %cmp.i16.us.us, label %return, label %lor.lhs.false5.us.us
 
 lor.lhs.false5.us.us:                             ; preds = %lor.lhs.false.us.us
   %z.us.us = getelementptr inbounds i8, ptr %arrayidx.us.us, i64 8
-  %9 = load float, ptr %z.us.us, align 4
-  %10 = bitcast float %9 to i32
-  %11 = and i32 %10, 2139095040
-  %cmp.i17.us.us = icmp eq i32 %11, 2139095040
+  %7 = load float, ptr %z.us.us, align 4
+  %8 = tail call float @llvm.fabs.f32(float %7)
+  %cmp.i17.us.us = fcmp ueq float %8, 0x7FF0000000000000
   br i1 %cmp.i17.us.us, label %return, label %if.end8.us.us
 
 if.end8.us.us:                                    ; preds = %lor.lhs.false5.us.us
@@ -2547,22 +2544,22 @@ if.end8.us.us:                                    ; preds = %lor.lhs.false5.us.u
   br i1 %tobool21.not.us.us, label %for.inc.us.us, label %land.lhs.true22.us.us
 
 land.lhs.true22.us.us:                            ; preds = %if.end8.us.us
-  %12 = getelementptr %class.aiVector3t, ptr %arr, i64 %indvars.iv108
-  %arrayidx24.us.us = getelementptr i8, ptr %12, i64 -12
-  %13 = load float, ptr %arrayidx24.us.us, align 4
-  %cmp.i18.us.us = fcmp une float %3, %13
+  %9 = getelementptr %class.aiVector3t, ptr %arr, i64 %indvars.iv108
+  %arrayidx24.us.us = getelementptr i8, ptr %9, i64 -12
+  %10 = load float, ptr %arrayidx24.us.us, align 4
+  %cmp.i18.us.us = fcmp une float %3, %10
   br i1 %cmp.i18.us.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us, label %lor.lhs.false.i.us.us
 
 lor.lhs.false.i.us.us:                            ; preds = %land.lhs.true22.us.us
-  %y3.i.us.us = getelementptr i8, ptr %12, i64 -8
-  %14 = load float, ptr %y3.i.us.us, align 4
-  %cmp4.i.us.us = fcmp une float %6, %14
+  %y3.i.us.us = getelementptr i8, ptr %9, i64 -8
+  %11 = load float, ptr %y3.i.us.us, align 4
+  %cmp4.i.us.us = fcmp une float %5, %11
   br i1 %cmp4.i.us.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.us.us
 
 _ZNK10aiVector3tIfEneERKS0_.exit.us.us:           ; preds = %lor.lhs.false.i.us.us
-  %z5.i.us.us = getelementptr i8, ptr %12, i64 -4
-  %15 = load float, ptr %z5.i.us.us, align 4
-  %cmp6.i.us.us = fcmp une float %9, %15
+  %z5.i.us.us = getelementptr i8, ptr %9, i64 -4
+  %12 = load float, ptr %z5.i.us.us, align 4
+  %cmp6.i.us.us = fcmp une float %7, %12
   %cond.fr.us.us = freeze i1 %cmp6.i.us.us
   br i1 %cond.fr.us.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us.us, label %for.inc.us.us
 
@@ -2579,34 +2576,31 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
   %b.031.us = phi i8 [ %b.1.us, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
   %arrayidx.us = getelementptr inbounds %class.aiVector3t, ptr %arr, i64 %indvars.iv103
-  %16 = load float, ptr %arrayidx.us, align 4
-  %17 = bitcast float %16 to i32
-  %18 = and i32 %17, 2139095040
-  %cmp.i.us = icmp eq i32 %18, 2139095040
+  %13 = load float, ptr %arrayidx.us, align 4
+  %14 = tail call float @llvm.fabs.f32(float %13)
+  %cmp.i.us = fcmp ueq float %14, 0x7FF0000000000000
   br i1 %cmp.i.us, label %return, label %lor.lhs.false.us
 
 lor.lhs.false.us:                                 ; preds = %for.body.us
   %y.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 4
-  %19 = load float, ptr %y.us, align 4
-  %20 = bitcast float %19 to i32
-  %21 = and i32 %20, 2139095040
-  %cmp.i16.us = icmp eq i32 %21, 2139095040
+  %15 = load float, ptr %y.us, align 4
+  %16 = tail call float @llvm.fabs.f32(float %15)
+  %cmp.i16.us = fcmp ueq float %16, 0x7FF0000000000000
   br i1 %cmp.i16.us, label %return, label %lor.lhs.false5.us
 
 lor.lhs.false5.us:                                ; preds = %lor.lhs.false.us
   %z.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 8
-  %22 = load float, ptr %z.us, align 4
-  %23 = bitcast float %22 to i32
-  %24 = and i32 %23, 2139095040
-  %cmp.i17.us = icmp eq i32 %24, 2139095040
+  %17 = load float, ptr %z.us, align 4
+  %18 = tail call float @llvm.fabs.f32(float %17)
+  %cmp.i17.us = fcmp ueq float %18, 0x7FF0000000000000
   br i1 %cmp.i17.us, label %return, label %if.end8.us
 
 if.end8.us:                                       ; preds = %lor.lhs.false5.us
-  %tobool12.us = fcmp une float %16, 0.000000e+00
-  %tobool15.us = fcmp une float %19, 0.000000e+00
-  %or.cond23.us = or i1 %tobool12.us, %tobool15.us
-  %tobool18.us = fcmp une float %22, 0.000000e+00
-  %or.cond24.us = or i1 %or.cond23.us, %tobool18.us
+  %tobool12.us = fcmp une float %13, 0.000000e+00
+  %tobool15.us = fcmp une float %15, 0.000000e+00
+  %or.cond23.us = select i1 %tobool12.us, i1 true, i1 %tobool15.us
+  %tobool18.us = fcmp une float %17, 0.000000e+00
+  %or.cond24.us = select i1 %or.cond23.us, i1 true, i1 %tobool18.us
   br i1 %or.cond24.us, label %if.end20.us, label %return
 
 if.end20.us:                                      ; preds = %if.end8.us
@@ -2614,22 +2608,22 @@ if.end20.us:                                      ; preds = %if.end8.us
   br i1 %tobool21.not.us, label %for.inc.us, label %land.lhs.true22.us
 
 land.lhs.true22.us:                               ; preds = %if.end20.us
-  %25 = getelementptr %class.aiVector3t, ptr %arr, i64 %indvars.iv103
-  %arrayidx24.us = getelementptr i8, ptr %25, i64 -12
-  %26 = load float, ptr %arrayidx24.us, align 4
-  %cmp.i18.us = fcmp une float %16, %26
+  %19 = getelementptr %class.aiVector3t, ptr %arr, i64 %indvars.iv103
+  %arrayidx24.us = getelementptr i8, ptr %19, i64 -12
+  %20 = load float, ptr %arrayidx24.us, align 4
+  %cmp.i18.us = fcmp une float %13, %20
   br i1 %cmp.i18.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us, label %lor.lhs.false.i.us
 
 lor.lhs.false.i.us:                               ; preds = %land.lhs.true22.us
-  %y3.i.us = getelementptr i8, ptr %25, i64 -8
-  %27 = load float, ptr %y3.i.us, align 4
-  %cmp4.i.us = fcmp une float %19, %27
+  %y3.i.us = getelementptr i8, ptr %19, i64 -8
+  %21 = load float, ptr %y3.i.us, align 4
+  %cmp4.i.us = fcmp une float %15, %21
   br i1 %cmp4.i.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.us
 
 _ZNK10aiVector3tIfEneERKS0_.exit.us:              ; preds = %lor.lhs.false.i.us
-  %z5.i.us = getelementptr i8, ptr %25, i64 -4
-  %28 = load float, ptr %z5.i.us, align 4
-  %cmp6.i.us = fcmp une float %22, %28
+  %z5.i.us = getelementptr i8, ptr %19, i64 -4
+  %22 = load float, ptr %z5.i.us, align 4
+  %cmp6.i.us = fcmp une float %17, %22
   %cond.fr.us = freeze i1 %cmp6.i.us
   br i1 %cond.fr.us, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us, label %for.inc.us
 
@@ -2654,34 +2648,31 @@ for.body.us37:                                    ; preds = %for.body.lr.ph.spli
   %add.ptr.i.i.i.i.i.us = getelementptr inbounds i64, ptr %2, i64 %div.i.i.i.i.i20.zext.us
   %conv4.i.i.i.i.i.us = and i64 %indvars.iv98, 63
   %shl.i.i.i.us = shl nuw i64 1, %conv4.i.i.i.i.i.us
-  %29 = load i64, ptr %add.ptr.i.i.i.i.i.us, align 8
-  %and.i.i.i.i.us = and i64 %29, %shl.i.i.i.us
+  %23 = load i64, ptr %add.ptr.i.i.i.i.i.us, align 8
+  %and.i.i.i.i.us = and i64 %23, %shl.i.i.i.us
   %tobool.i.i.i.i.not.us = icmp eq i64 %and.i.i.i.i.us, 0
   br i1 %tobool.i.i.i.i.not.us, label %if.end.us41, label %for.inc.us74
 
 if.end.us41:                                      ; preds = %for.body.us37
   %inc.us42 = add i32 %cnt.032.us39, 1
   %arrayidx.us44 = getelementptr inbounds %class.aiVector3t, ptr %arr, i64 %indvars.iv98
-  %30 = load float, ptr %arrayidx.us44, align 4
-  %31 = bitcast float %30 to i32
-  %32 = and i32 %31, 2139095040
-  %cmp.i.us45 = icmp eq i32 %32, 2139095040
+  %24 = load float, ptr %arrayidx.us44, align 4
+  %25 = tail call float @llvm.fabs.f32(float %24)
+  %cmp.i.us45 = fcmp ueq float %25, 0x7FF0000000000000
   br i1 %cmp.i.us45, label %return, label %lor.lhs.false.us46
 
 lor.lhs.false.us46:                               ; preds = %if.end.us41
   %y.us47 = getelementptr inbounds i8, ptr %arrayidx.us44, i64 4
-  %33 = load float, ptr %y.us47, align 4
-  %34 = bitcast float %33 to i32
-  %35 = and i32 %34, 2139095040
-  %cmp.i16.us48 = icmp eq i32 %35, 2139095040
+  %26 = load float, ptr %y.us47, align 4
+  %27 = tail call float @llvm.fabs.f32(float %26)
+  %cmp.i16.us48 = fcmp ueq float %27, 0x7FF0000000000000
   br i1 %cmp.i16.us48, label %return, label %lor.lhs.false5.us49
 
 lor.lhs.false5.us49:                              ; preds = %lor.lhs.false.us46
   %z.us50 = getelementptr inbounds i8, ptr %arrayidx.us44, i64 8
-  %36 = load float, ptr %z.us50, align 4
-  %37 = bitcast float %36 to i32
-  %38 = and i32 %37, 2139095040
-  %cmp.i17.us51 = icmp eq i32 %38, 2139095040
+  %28 = load float, ptr %z.us50, align 4
+  %29 = tail call float @llvm.fabs.f32(float %28)
+  %cmp.i17.us51 = fcmp ueq float %29, 0x7FF0000000000000
   br i1 %cmp.i17.us51, label %return, label %if.end8.us52
 
 if.end8.us52:                                     ; preds = %lor.lhs.false5.us49
@@ -2689,22 +2680,22 @@ if.end8.us52:                                     ; preds = %lor.lhs.false5.us49
   br i1 %tobool21.not.us60, label %for.inc.us74, label %land.lhs.true22.us61
 
 land.lhs.true22.us61:                             ; preds = %if.end8.us52
-  %39 = getelementptr %class.aiVector3t, ptr %arr, i64 %indvars.iv98
-  %arrayidx24.us64 = getelementptr i8, ptr %39, i64 -12
-  %40 = load float, ptr %arrayidx24.us64, align 4
-  %cmp.i18.us65 = fcmp une float %30, %40
+  %30 = getelementptr %class.aiVector3t, ptr %arr, i64 %indvars.iv98
+  %arrayidx24.us64 = getelementptr i8, ptr %30, i64 -12
+  %31 = load float, ptr %arrayidx24.us64, align 4
+  %cmp.i18.us65 = fcmp une float %24, %31
   br i1 %cmp.i18.us65, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us73, label %lor.lhs.false.i.us66
 
 lor.lhs.false.i.us66:                             ; preds = %land.lhs.true22.us61
-  %y3.i.us67 = getelementptr i8, ptr %39, i64 -8
-  %41 = load float, ptr %y3.i.us67, align 4
-  %cmp4.i.us68 = fcmp une float %33, %41
+  %y3.i.us67 = getelementptr i8, ptr %30, i64 -8
+  %32 = load float, ptr %y3.i.us67, align 4
+  %cmp4.i.us68 = fcmp une float %26, %32
   br i1 %cmp4.i.us68, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us73, label %_ZNK10aiVector3tIfEneERKS0_.exit.us69
 
 _ZNK10aiVector3tIfEneERKS0_.exit.us69:            ; preds = %lor.lhs.false.i.us66
-  %z5.i.us70 = getelementptr i8, ptr %39, i64 -4
-  %42 = load float, ptr %z5.i.us70, align 4
-  %cmp6.i.us71 = fcmp une float %36, %42
+  %z5.i.us70 = getelementptr i8, ptr %30, i64 -4
+  %33 = load float, ptr %z5.i.us70, align 4
+  %cmp6.i.us71 = fcmp une float %28, %33
   %cond.fr.us72 = freeze i1 %cmp6.i.us71
   br i1 %cond.fr.us72, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread.us73, label %for.inc.us74
 
@@ -2727,42 +2718,39 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %2, i64 %div.i.i.i.i.i20.zext
   %conv4.i.i.i.i.i = and i64 %indvars.iv, 63
   %shl.i.i.i = shl nuw i64 1, %conv4.i.i.i.i.i
-  %43 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %and.i.i.i.i = and i64 %43, %shl.i.i.i
+  %34 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %and.i.i.i.i = and i64 %34, %shl.i.i.i
   %tobool.i.i.i.i.not = icmp eq i64 %and.i.i.i.i, 0
   br i1 %tobool.i.i.i.i.not, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
   %inc = add i32 %cnt.032, 1
   %arrayidx = getelementptr inbounds %class.aiVector3t, ptr %arr, i64 %indvars.iv
-  %44 = load float, ptr %arrayidx, align 4
-  %45 = bitcast float %44 to i32
-  %46 = and i32 %45, 2139095040
-  %cmp.i = icmp eq i32 %46, 2139095040
+  %35 = load float, ptr %arrayidx, align 4
+  %36 = tail call float @llvm.fabs.f32(float %35)
+  %cmp.i = fcmp ueq float %36, 0x7FF0000000000000
   br i1 %cmp.i, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
   %y = getelementptr inbounds i8, ptr %arrayidx, i64 4
-  %47 = load float, ptr %y, align 4
-  %48 = bitcast float %47 to i32
-  %49 = and i32 %48, 2139095040
-  %cmp.i16 = icmp eq i32 %49, 2139095040
+  %37 = load float, ptr %y, align 4
+  %38 = tail call float @llvm.fabs.f32(float %37)
+  %cmp.i16 = fcmp ueq float %38, 0x7FF0000000000000
   br i1 %cmp.i16, label %return, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
   %z = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  %50 = load float, ptr %z, align 4
-  %51 = bitcast float %50 to i32
-  %52 = and i32 %51, 2139095040
-  %cmp.i17 = icmp eq i32 %52, 2139095040
+  %39 = load float, ptr %z, align 4
+  %40 = tail call float @llvm.fabs.f32(float %39)
+  %cmp.i17 = fcmp ueq float %40, 0x7FF0000000000000
   br i1 %cmp.i17, label %return, label %if.end8
 
 if.end8:                                          ; preds = %lor.lhs.false5
-  %tobool12 = fcmp une float %44, 0.000000e+00
-  %tobool15 = fcmp une float %47, 0.000000e+00
-  %or.cond23 = or i1 %tobool12, %tobool15
-  %tobool18 = fcmp une float %50, 0.000000e+00
-  %or.cond24 = or i1 %or.cond23, %tobool18
+  %tobool12 = fcmp une float %35, 0.000000e+00
+  %tobool15 = fcmp une float %37, 0.000000e+00
+  %or.cond23 = select i1 %tobool12, i1 true, i1 %tobool15
+  %tobool18 = fcmp une float %39, 0.000000e+00
+  %or.cond24 = select i1 %or.cond23, i1 true, i1 %tobool18
   br i1 %or.cond24, label %if.end20, label %return
 
 if.end20:                                         ; preds = %if.end8
@@ -2770,22 +2758,22 @@ if.end20:                                         ; preds = %if.end8
   br i1 %tobool21.not, label %for.inc, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %if.end20
-  %53 = getelementptr %class.aiVector3t, ptr %arr, i64 %indvars.iv
-  %arrayidx24 = getelementptr i8, ptr %53, i64 -12
-  %54 = load float, ptr %arrayidx24, align 4
-  %cmp.i18 = fcmp une float %44, %54
+  %41 = getelementptr %class.aiVector3t, ptr %arr, i64 %indvars.iv
+  %arrayidx24 = getelementptr i8, ptr %41, i64 -12
+  %42 = load float, ptr %arrayidx24, align 4
+  %cmp.i18 = fcmp une float %35, %42
   br i1 %cmp.i18, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true22
-  %y3.i = getelementptr i8, ptr %53, i64 -8
-  %55 = load float, ptr %y3.i, align 4
-  %cmp4.i = fcmp une float %47, %55
+  %y3.i = getelementptr i8, ptr %41, i64 -8
+  %43 = load float, ptr %y3.i, align 4
+  %cmp4.i = fcmp une float %37, %43
   br i1 %cmp4.i, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread, label %_ZNK10aiVector3tIfEneERKS0_.exit
 
 _ZNK10aiVector3tIfEneERKS0_.exit:                 ; preds = %lor.lhs.false.i
-  %z5.i = getelementptr i8, ptr %53, i64 -4
-  %56 = load float, ptr %z5.i, align 4
-  %cmp6.i = fcmp une float %50, %56
+  %z5.i = getelementptr i8, ptr %41, i64 -4
+  %44 = load float, ptr %z5.i, align 4
+  %cmp6.i = fcmp une float %39, %44
   %cond.fr = freeze i1 %cmp6.i
   br i1 %cond.fr, label %_ZNK10aiVector3tIfEneERKS0_.exit.thread, label %for.inc
 
@@ -2803,8 +2791,8 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
   %b.0.lcssa = phi i8 [ 0, %entry ], [ %b.1.us.us, %for.inc.us.us ], [ %b.1.us, %for.inc.us ], [ %b.1.us75, %for.inc.us74 ], [ %b.1, %for.inc ]
   %cnt.0.lcssa = phi i32 [ 0, %entry ], [ %size, %for.inc.us.us ], [ %size, %for.inc.us ], [ %cnt.1.us76, %for.inc.us74 ], [ %cnt.1, %for.inc ]
   %cmp29 = icmp ult i32 %cnt.0.lcssa, 2
-  %57 = and i8 %b.0.lcssa, 1
-  %tobool31.not = icmp ne i8 %57, 0
+  %45 = and i8 %b.0.lcssa, 1
+  %tobool31.not = icmp ne i8 %45, 0
   %or.cond.not25 = select i1 %cmp29, i1 true, i1 %tobool31.not
   %brmerge = or i1 %or.cond.not25, %mayBeIdentical
   %spec.select15 = select i1 %brmerge, ptr null, ptr @.str.20
