@@ -2207,8 +2207,8 @@ if.end44.i.i.i:                                   ; preds = %if.end31.i.i.i
 
 if.end57.i.i.i:                                   ; preds = %if.end44.i.i.i
   %add.ptr45.i.i.i = getelementptr inbounds i8, ptr %it.052.i, i64 3
-  %30 = and i32 %or50.i.i.i, 63488
-  %or.cond.i.i.i = icmp eq i32 %30, 55296
+  %30 = add nsw i32 %or50.i.i.i, -55296
+  %or.cond.i.i.i = icmp ult i32 %30, 1985
   %spec.select48.i = select i1 %or.cond.i.i.i, i8 1, i8 %hasSurrogate.051.i
   br label %"_ZN6hermes10decodeUTF8ILb0EZNS_3hbc12_GLOBAL__N_119ensureUTF8IdentiferERNS_11StringTableENS_10IdentifierERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEjRPKcT0_.exit.i"
 

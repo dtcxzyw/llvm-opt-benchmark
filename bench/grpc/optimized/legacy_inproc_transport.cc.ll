@@ -12952,7 +12952,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp2.i.i.i.i = icmp ugt i64 %mul.i, 461168601842738790
+  %cmp2.i.i.i.i = icmp ugt i64 %mul.i, 461168601842738791
   br i1 %cmp2.i.i.i.i, label %if.then3.i.i.i.i, label %if.end.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
@@ -15699,7 +15699,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core17LbCostBinMetadata9ValueTypeEELb0EE8AllocateERS6_m.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %cmp2.i.i.i.i = icmp ugt i64 %mul.i, 461168601842738790
+  %cmp2.i.i.i.i = icmp ugt i64 %mul.i, 461168601842738791
   br i1 %cmp2.i.i.i.i, label %if.then3.i.i.i.i, label %if.end.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then.i.i.i.i

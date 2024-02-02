@@ -21869,7 +21869,7 @@ if.then.i.i:                                      ; preds = %do.end8.i
 
 if.end.i.i215:                                    ; preds = %do.end8.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %children.i, i64 16
-  %cmp3.i.i.not = icmp ult i64 %sext, 4294967296
+  %cmp3.i.i.not = icmp ult i64 %sext, 4026531841
   br i1 %cmp3.i.i.not, label %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE7reserveEm.exit.i, label %_ZNSt12_Vector_baseIPKN5arrow5ArrayESaIS3_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseIPKN5arrow5ArrayESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %if.end.i.i215
@@ -24650,7 +24650,7 @@ if.then.i:                                        ; preds = %if.end99
 
 if.end.i300:                                      ; preds = %if.end99
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %children, i64 16
-  %cmp3.i.not = icmp ult i64 %sext, 4294967296
+  %cmp3.i.not = icmp ult i64 %sext, 4026531841
   br i1 %cmp3.i.not, label %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPKN5arrow5ArrayESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIPKN5arrow5ArrayESaIS3_EE11_M_allocateEm.exit.i: ; preds = %if.end.i300

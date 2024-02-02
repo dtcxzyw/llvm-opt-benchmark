@@ -7828,7 +7828,7 @@ _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit43.i: ; preds = %
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %for.body.i
   %i.0.in.i = phi i32 [ %i.0.i, %for.body.i ], [ %3, %for.cond.i.preheader ]
-  %cmp20.not.i = icmp slt i32 %i.0.in.i, 64
+  %cmp20.not.i = icmp slt i32 %i.0.in.i, 1
   br i1 %cmp20.not.i, label %if.end, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i

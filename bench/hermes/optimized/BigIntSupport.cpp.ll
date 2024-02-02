@@ -6126,7 +6126,7 @@ entry:
   %1 = load i32, ptr %dst.coerce1, align 4
   %mul.i = shl i32 %lhs.coerce1, 3
   %conv.i = zext i32 %mul.i to i64
-  %cmp.i.i = icmp ugt i32 %mul.i, 8192
+  %cmp.i.i = icmp ugt i32 %mul.i, 8199
   br i1 %cmp.i.i, label %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
@@ -6135,12 +6135,12 @@ if.end.i.i:                                       ; preds = %entry
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.pre.i.i, ptr align 1 %lhs.coerce0, i64 %conv.i, i1 false)
-  %conv9.i.i = sub nuw nsw i32 8192, %mul.i
+  %conv9.i.i = sub nsw i32 8192, %mul.i
   %2 = getelementptr i8, ptr %.pre.i.i, i64 %conv.i
   %arrayidx.i.i = getelementptr i8, ptr %2, i64 -1
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %4 = ashr i8 %3, 7
-  %conv13.i.i = zext nneg i32 %conv9.i.i to i64
+  %conv13.i.i = zext i32 %conv9.i.i to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %2, i8 %4, i64 %conv13.i.i, i1 false)
   %arrayidx.i.i.i.i.i = getelementptr i8, ptr %.pre.i.i, i64 8191
   %5 = load i8, ptr %arrayidx.i.i.i.i.i, align 1

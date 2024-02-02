@@ -6768,7 +6768,7 @@ invoke.cont5.i:                                   ; preds = %invoke.cont5.i.preh
 
 invoke.cont12.i:                                  ; preds = %invoke.cont5.i
   %inc.i13.i = or disjoint i64 %agg.tmp.sroa.2.0.copyload.i187, 2
-  %cmp.i.i.i15.i = icmp ult i64 %inc.i13.i, 8
+  %cmp.i.i.i15.i = icmp ult i64 %inc.i13.i, 7
   %retval.0.i.i.i20.i.v = select i1 %cmp.i.i.i15.i, ptr %41, ptr %invariant.gep
   %retval.0.i.i.i20.i = getelementptr i64, ptr %retval.0.i.i.i20.i.v, i64 %inc.i13.i
   %46 = load i64, ptr %retval.0.i.i.i20.i, align 8, !noalias !105
@@ -6808,7 +6808,7 @@ for.end.i.invoke.cont35.i_crit_edge:              ; preds = %for.end.i
   br label %invoke.cont35.i
 
 invoke.cont27.i:                                  ; preds = %for.end.i
-  %cmp.i.i.i38.i = icmp ult i64 %agg.tmp.i.i.i.sroa.14.0, 8
+  %cmp.i.i.i38.i = icmp ult i64 %agg.tmp.i.i.i.sroa.14.0, 5
   %values_.i.i.i39.i = getelementptr inbounds i8, ptr %call.i.i3849, i64 120
   %48 = load ptr, ptr %values_.i.i.i39.i, align 8, !noalias !105
   %arrayidx.i.i.i40.i = getelementptr inbounds i64, ptr %48, i64 %agg.tmp.i.i.i.sroa.14.0

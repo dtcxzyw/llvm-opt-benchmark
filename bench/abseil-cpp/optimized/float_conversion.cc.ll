@@ -1571,7 +1571,7 @@ if.then.i.i106:                                   ; preds = %while.body.i.i
 if.end.i.i:                                       ; preds = %while.body.i.i
   %shl.i.i109 = shl nuw i64 %64, 1
   %dec.i.i110 = add nsw i32 %exp.addr.0.i105, -1
-  %or.cond.i.i = icmp sgt i64 %shl.i.i109, 0
+  %or.cond.i.i = icmp sgt i64 %shl.i.i109, 1
   br i1 %or.cond.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !20
 
 while.end.i.i:                                    ; preds = %if.end.i.i, %if.then101

@@ -3265,7 +3265,7 @@ invoke.cont163:                                   ; preds = %invoke.cont142
   %mul = shl nsw i32 %add162, 1
   %mul164 = shl nsw i32 %add159, 3
   %add165 = add nsw i32 %mul, %mul164
-  %or.cond857 = icmp sgt i32 %add165, 0
+  %or.cond857 = icmp sgt i32 %add165, 1
   br i1 %or.cond857, label %if.then.i.i.i383, label %invoke.cont168
 
 if.then.i.i.i383:                                 ; preds = %invoke.cont163

@@ -462,7 +462,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pmpcfg_csr_write.exit:                      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %cmp18 = icmp sgt i32 %shl, 0
+  %cmp18 = icmp sgt i32 %shl, 1
   br i1 %cmp18, label %for.body.lr.ph, label %if.end
 
 for.body.lr.ph:                                   ; preds = %trace_pmpcfg_csr_write.exit
@@ -680,7 +680,7 @@ entry:
   %0 = getelementptr i8, ptr %env, i64 5008
   %env.val = load i32, ptr %0, align 16
   %shl = shl i32 2, %env.val
-  %cmp9 = icmp sgt i32 %shl, 0
+  %cmp9 = icmp sgt i32 %shl, 1
   br i1 %cmp9, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry

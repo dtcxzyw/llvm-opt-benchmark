@@ -23230,7 +23230,7 @@ if.then.i:                                        ; preds = %_ZNK5arrow8FieldRef
   %size_.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i64, ptr %size_.i.i, align 8, !noalias !376
   %add.ptr.i.idx.i = shl nsw i64 %6, 2
-  %cmp.i.i.i9.i = icmp ugt i64 %add.ptr.i.idx.i, 9223372036854775804
+  %cmp.i.i.i9.i = icmp slt i64 %6, 0
   br i1 %cmp.i.i.i9.i, label %if.then.i.i.i11.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
 if.then.i.i.i11.i:                                ; preds = %if.then.i

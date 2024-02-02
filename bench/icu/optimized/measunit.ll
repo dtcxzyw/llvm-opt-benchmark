@@ -8975,7 +8975,7 @@ land.lhs.true.i.i:                                ; preds = %invoke.cont8
   %cmp3.i.i = icmp eq i32 %8, 8
   %mul4.i.i = shl nsw i32 %8, 1
   %cond.i.i = select i1 %cmp3.i.i, i32 32, i32 %mul4.i.i
-  %cmp.i.i.i = icmp sgt i32 %cond.i.i, 0
+  %cmp.i.i.i = icmp sgt i32 %cond.i.i, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then
 
 if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i

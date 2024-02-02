@@ -1347,7 +1347,7 @@ for.end:                                          ; preds = %for.cond, %for.cond
   %sh_prom.i.i = zext nneg i8 %16 to i64
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %arrayidx.i.i = getelementptr i8, ptr %dk_indices.i.i, i64 %shl.i.i
-  %cmp100125 = icmp sgt i64 %shl3, 2
+  %cmp100125 = icmp sgt i64 %shl3, 3
   br i1 %cmp94, label %if.then96, label %if.else135
 
 if.then96:                                        ; preds = %for.end

@@ -12726,7 +12726,7 @@ codegen_addop_i.exit160.i:                        ; preds = %instr_sequence_next
 
 if.else.i375:                                     ; preds = %for.body.i372
   %mul.i = shl i64 %elements.0.i750, 1
-  %cmp51.i376 = icmp sgt i64 %mul.i, 30
+  %cmp51.i376 = icmp sgt i64 %mul.i, 31
   br i1 %cmp51.i376, label %if.then53.i, label %if.else70.i
 
 if.then53.i:                                      ; preds = %if.else.i375
@@ -22202,7 +22202,7 @@ define internal fastcc noundef i32 @compiler_subkwargs(ptr noundef %c, i64 %loc.
 entry:
   %sub = sub i64 %end, %begin
   %mul = shl i64 %sub, 1
-  %cmp = icmp sgt i64 %mul, 30
+  %cmp = icmp sgt i64 %mul, 31
   %cmp1 = icmp slt i64 %sub, 2
   %or.cond = or i1 %cmp1, %cmp
   br i1 %or.cond, label %if.end39, label %for.cond.preheader
@@ -31864,7 +31864,7 @@ define internal fastcc noundef i32 @compiler_subdict(ptr noundef %c, ptr nocaptu
 entry:
   %sub = sub i64 %end, %begin
   %mul = shl i64 %sub, 1
-  %cmp = icmp sgt i64 %mul, 30
+  %cmp = icmp sgt i64 %mul, 31
   %lineno1 = getelementptr inbounds i8, ptr %e, i64 32
   %0 = load i32, ptr %lineno1, align 8
   %end_lineno2 = getelementptr inbounds i8, ptr %e, i64 40

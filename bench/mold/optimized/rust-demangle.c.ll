@@ -2250,7 +2250,7 @@ while.cond:                                       ; preds = %while.cond.preheade
 
 while.body:                                       ; preds = %while.cond
   %mul = shl i64 %cap.0, 1
-  %cmp7 = icmp ult i64 %mul, 4611686018427387904
+  %cmp7 = icmp ult i64 %mul, 4611686018427387897
   br i1 %cmp7, label %while.cond, label %do.body9, !llvm.loop !16
 
 do.body9:                                         ; preds = %while.body
@@ -2369,7 +2369,7 @@ do.end88:                                         ; preds = %if.end79
 
 if.then97:                                        ; preds = %do.end88
   %mul98 = shl i64 %cap.1137, 1
-  %cmp102 = icmp ult i64 %mul98, 4611686018427387904
+  %cmp102 = icmp ult i64 %mul98, 4611686018427387903
   br i1 %cmp102, label %do.body112, label %do.body105
 
 do.body105:                                       ; preds = %if.then97

@@ -2639,7 +2639,7 @@ if.end21.thread32:                                ; preds = %land.lhs.true
   br label %lor.rhs
 
 if.else:                                          ; preds = %land.lhs.true, %if.end
-  %cmp8 = icmp ult i64 %mul, 32768
+  %cmp8 = icmp ult i64 %mul, 32767
   br i1 %cmp8, label %land.lhs.true9, label %cond.end30
 
 land.lhs.true9:                                   ; preds = %if.else

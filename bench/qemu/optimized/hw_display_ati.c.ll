@@ -3218,7 +3218,7 @@ if.end19:                                         ; preds = %if.then16, %if.end
   %6 = phi i32 [ 31391744, %if.then16 ], [ %5, %if.end ]
   %and29 = and i32 %0, 1792
   %7 = add nsw i32 %and29, -256
-  %8 = icmp ult i32 %7, 1536
+  %8 = icmp ult i32 %7, 1281
   br i1 %8, label %switch.lookup, label %do.body35
 
 do.body35:                                        ; preds = %if.end19

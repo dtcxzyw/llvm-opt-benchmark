@@ -142,7 +142,7 @@ if.then40:                                        ; preds = %if.end33
 if.end42:                                         ; preds = %if.end33
   %add = shl nuw i32 %6, 3
   %mul = add i32 %add, 8
-  %cmp46 = icmp ugt i32 %mul, 536870912
+  %cmp46 = icmp ugt i32 %mul, 536870919
   br i1 %cmp46, label %if.then48, label %if.end49
 
 if.then48:                                        ; preds = %if.end42

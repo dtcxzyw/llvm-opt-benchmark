@@ -3378,7 +3378,7 @@ entry:
   %ref.tmp2 = alloca %"class.async_simple::coro::Lazy", align 8
   %call = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #28
   %mul = mul i32 %call, 20
-  %cmp23 = icmp sgt i32 %mul, 0
+  %cmp23 = icmp sgt i32 %mul, 3
   br i1 %cmp23, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %call.i.noexc.i

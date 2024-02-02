@@ -1807,7 +1807,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.pr
   br i1 %cmp.not.i.i.i.i, label %invoke.cont7, label %for.body.i.i.i.i, !llvm.loop !7
 
 invoke.cont7:                                     ; preds = %for.body.i.i.i.i
-  %cmp.i.i.i.i.i.i27 = icmp ugt i64 %add.ptr.i.idx.i.i, 9223372036854775804
+  %cmp.i.i.i.i.i.i27 = icmp slt i64 %1, 0
   br i1 %cmp.i.i.i.i.i.i27, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont7

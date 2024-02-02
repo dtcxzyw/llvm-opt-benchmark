@@ -6672,7 +6672,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i.i, align 8
   %add = add i64 %cond.i, 1
-  %cmp29 = icmp ult i64 %add, 16
+  %cmp29 = icmp ult i64 %add, 15
   br i1 %cmp29, label %invoke.cont40, label %invoke.cont76
 
 invoke.cont40:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit

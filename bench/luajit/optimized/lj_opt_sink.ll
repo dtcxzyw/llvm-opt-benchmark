@@ -722,7 +722,7 @@ sw.default.i74:                                   ; preds = %for.body.i43
 
 for.inc.i48:                                      ; preds = %sw.default.i74, %if.else87.i, %if.then85.i, %if.else47.i, %if.then39.i, %if.else25.i, %if.then23.i, %if.else.i, %if.then.i69
   %ir.0.add.i = add nsw i64 %ir.0.idx48.i, -8
-  %cmp.not.i = icmp slt i64 %ir.0.idx48.i, 262152
+  %cmp.not.i = icmp slt i64 %ir.0.idx48.i, 262145
   br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i43, !llvm.loop !9
 
 for.end.loopexit.i:                               ; preds = %for.inc.i48

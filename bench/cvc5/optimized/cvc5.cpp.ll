@@ -131156,7 +131156,7 @@ entry:
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   %add.ptr.i.idx.i = shl nsw i64 %agg.tmp.sroa.2.0.copyload, 2
-  %cmp.i.i.i = icmp ugt i64 %add.ptr.i.idx.i, 9223372036854775804
+  %cmp.i.i.i = icmp slt i64 %agg.tmp.sroa.2.0.copyload, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %entry

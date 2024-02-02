@@ -643,7 +643,7 @@ _PyLong_AsMode_t.exit:                            ; preds = %if.end.i
 entry.split:                                      ; preds = %_PyLong_AsMode_t.exit
   %and.i = and i32 %conv.i, 61440
   %1 = add nsw i32 %and.i, -4096
-  %2 = icmp ult i32 %1, 49152
+  %2 = icmp ult i32 %1, 45057
   br i1 %2, label %switch.lookup, label %filetype.exit
 
 switch.lookup:                                    ; preds = %entry.split

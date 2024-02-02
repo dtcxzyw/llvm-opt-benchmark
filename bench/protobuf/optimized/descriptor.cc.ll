@@ -72032,7 +72032,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %element_path = getelementptr inbounds i8, ptr %this, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %element_path, i8 0, i64 24, i1 false)
   %add.ptr.i.idx = shl nsw i64 %path.8.val, 2
-  %cmp.i.i.i = icmp ugt i64 %add.ptr.i.idx, 9223372036854775804
+  %cmp.i.i.i = icmp slt i64 %path.8.val, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont4

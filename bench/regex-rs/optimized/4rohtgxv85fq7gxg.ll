@@ -667,7 +667,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw19capacity_to_buckets17hf45da5d554e
   br label %16
 
 8:                                                ; preds = %3
-  %9 = icmp ult i64 %4, 14
+  %9 = icmp ult i64 %4, 9
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %8

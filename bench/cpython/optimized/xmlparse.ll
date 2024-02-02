@@ -4520,7 +4520,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %bufferSize.0 = phi i32 [ %mul, %do.body ], [ %bufferSize.0.ph, %do.body.preheader ]
   %mul = shl i32 %bufferSize.0, 1
   %cmp142 = icmp slt i32 %mul, %add55
-  %cmp144 = icmp sgt i32 %mul, 0
+  %cmp144 = icmp sgt i32 %mul, 1
   %15 = and i1 %cmp142, %cmp144
   br i1 %15, label %do.body, label %do.end, !llvm.loop !27
 

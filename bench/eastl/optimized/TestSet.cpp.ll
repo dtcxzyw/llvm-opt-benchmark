@@ -51654,7 +51654,7 @@ _ZSt9iter_swapIP10TestObjectS1_EvT_T0_.exit:      ; preds = %_ZN10TestObjectaSEO
   %22 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %inc3.i.i.i = add nsw i64 %22, 1
   store i64 %inc3.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %cmp19.i = icmp ult i64 %__i.0.idx, -24
+  %cmp19.i = icmp ult i64 %__i.0.idx, -31
   br i1 %cmp19.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i, label %return
 
 _ZN10TestObjectaSEOS_.exit.i.i.i:                 ; preds = %_ZSt9iter_swapIP10TestObjectS1_EvT_T0_.exit, %_ZSt9iter_swapIP10TestObjectS1_EvT_T0_.exit.i

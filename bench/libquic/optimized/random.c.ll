@@ -307,7 +307,7 @@ if.end9:                                          ; preds = %if.end5
   %0 = load i32, ptr %top, align 8
   %conv10 = sext i32 %0 to i64
   %mul = shl nsw i64 %conv10, 3
-  %cmp11 = icmp ugt i64 %mul, 96
+  %cmp11 = icmp ugt i64 %mul, 103
   br i1 %cmp11, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end9

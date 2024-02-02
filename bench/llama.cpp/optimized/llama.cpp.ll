@@ -25228,7 +25228,8 @@ _ZL23llama_kv_cache_cell_maxRK14llama_kv_cache.exit: ; preds = %land.lhs.true.i,
   %retval.0.i183 = phi i32 [ 0, %if.end96 ], [ %i.0.in3.i, %land.lhs.true.i ], [ 0, %for.inc.i ]
   %sub = add nsw i32 %retval.0.i183, 31
   %and = and i32 %sub, -32
-  %68 = tail call i32 @llvm.smax.i32(i32 %and, i32 32)
+  %cmp.i184 = icmp sgt i32 %and, 63
+  %68 = select i1 %cmp.i184, i32 %and, i32 32
   %.sroa.speculated412 = tail call i32 @llvm.smin.i32(i32 %68, i32 %62)
   %n = getelementptr inbounds i8, ptr %lctx, i64 72
   store i32 %.sroa.speculated412, ptr %n, align 8

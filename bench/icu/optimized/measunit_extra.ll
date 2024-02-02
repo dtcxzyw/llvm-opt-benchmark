@@ -5141,7 +5141,7 @@ land.lhs.true.i:                                  ; preds = %if.end
   %cmp3.i = icmp eq i32 %1, 8
   %mul4.i = shl nsw i32 %1, 1
   %cond.i = select i1 %cmp3.i, i32 32, i32 %mul4.i
-  %cmp.i.i = icmp sgt i32 %cond.i, 0
+  %cmp.i.i = icmp sgt i32 %cond.i, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN6icu_7510MemoryPoolINS_14SingleUnitImplELi8EE6createIJRKS1_EEEPS1_DpOT_.exit
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i
@@ -5235,7 +5235,7 @@ land.lhs.true:                                    ; preds = %entry
   %cmp7 = icmp eq i32 %0, 8
   %mul8 = shl nsw i32 %0, 1
   %cond = select i1 %cmp7, i32 32, i32 %mul8
-  %cmp.i = icmp sgt i32 %cond, 0
+  %cmp.i = icmp sgt i32 %cond, 1
   br i1 %cmp.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %land.lhs.true
@@ -5323,7 +5323,7 @@ land.lhs.true:                                    ; preds = %entry
   %cmp7 = icmp eq i32 %0, 8
   %mul8 = shl nsw i32 %0, 1
   %cond = select i1 %cmp7, i32 32, i32 %mul8
-  %cmp.i = icmp sgt i32 %cond, 0
+  %cmp.i = icmp sgt i32 %cond, 1
   br i1 %cmp.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %land.lhs.true

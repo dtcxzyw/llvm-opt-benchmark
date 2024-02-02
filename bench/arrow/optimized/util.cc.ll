@@ -13436,7 +13436,7 @@ if.then.i.i:                                      ; preds = %if.end9
 
 _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %if.end9
   store i64 0, ptr %child_data, align 8
-  %cmp.not.i.i.i.i = icmp ult i64 %sext, 4294967296
+  %cmp.not.i.i.i.i = icmp ult i64 %sext, 4026531841
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EEC2EmRKS4_.exit.thread.i, label %for.body.preheader.i.i.i.i.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EEC2EmRKS4_.exit.thread.i: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
@@ -41188,7 +41188,7 @@ do.body:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %size_.i.i.i = getelementptr inbounds i8, ptr %builder, i64 40
   %add46.i = shl i64 %this.16.val, 2
-  %cmp.not.i.i.i = icmp sgt i64 %add46.i, 0
+  %cmp.not.i.i.i = icmp sgt i64 %add46.i, 3
   br i1 %cmp.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit.i, label %do.end7.i
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %do.body
@@ -42122,7 +42122,7 @@ do.body:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %size_.i.i.i = getelementptr inbounds i8, ptr %builder, i64 40
   %add46.i = shl i64 %this.16.val, 3
-  %cmp.not.i.i.i = icmp sgt i64 %add46.i, 0
+  %cmp.not.i.i.i = icmp sgt i64 %add46.i, 7
   br i1 %cmp.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit.i, label %do.end7.i
 
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %do.body

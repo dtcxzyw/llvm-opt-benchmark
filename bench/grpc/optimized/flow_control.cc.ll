@@ -1442,8 +1442,9 @@ if.then18:                                        ; preds = %_ZN9grpc_core6chttp
   %34 = load i64, ptr %target_frame_size_, align 8
   %.tr = trunc i64 %34 to i32
   %conv20 = shl i32 %.tr, 1
+  %cmp.i42 = icmp ult i32 %conv20, 16383
   %max.val.i43 = call i32 @llvm.umin.i32(i32 %conv20, i32 134217727)
-  %retval.0.i44 = call i32 @llvm.umax.i32(i32 %max.val.i43, i32 16384)
+  %retval.0.i44 = select i1 %cmp.i42, i32 16384, i32 %max.val.i43
   %35 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 7, i32 2), align 4
   %36 = load i32, ptr getelementptr inbounds ([8 x %struct.grpc_chttp2_setting_parameters], ptr @grpc_chttp2_settings_parameters, i64 0, i64 7, i32 3), align 16
   %cmp.i.i45 = icmp ugt i32 %35, %retval.0.i44
@@ -2618,9 +2619,6 @@ declare i64 @llvm.smin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

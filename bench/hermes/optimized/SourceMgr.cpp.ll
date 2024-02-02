@@ -3006,7 +3006,7 @@ _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %5 = load i64, ptr %Length.i, align 8, !noalias !55
   store i64 0, ptr %Ranges3, align 8, !alias.scope !55
   %add.ptr.idx.i = shl nsw i64 %5, 3
-  %cmp.i.i.i.i = icmp ugt i64 %add.ptr.idx.i, 9223372036854775800
+  %cmp.i.i.i.i = icmp slt i64 %5, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorISt4pairIjjESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit12

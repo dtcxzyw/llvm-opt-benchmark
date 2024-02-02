@@ -40419,7 +40419,7 @@ lor.lhs.false31.i:                                ; preds = %lor.lhs.false.i
   %conv.i.i48.i = zext i8 %16 to i32
   %shl.i.i49.i = shl nuw nsw i32 %conv.i.i48.i, 8
   %17 = add nsw i32 %shl.i.i49.i, -256
-  %or.cond.i = icmp ult i32 %17, 32512
+  %or.cond.i = icmp ult i32 %17, 32257
   br label %return
 
 if.end:                                           ; preds = %entry

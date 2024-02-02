@@ -7560,7 +7560,7 @@ entry:
   %add1 = shl i32 %maxFields, 1
   %mul2 = add i32 %add1, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %digits, i8 0, i64 24, i1 false)
-  %cmp45 = icmp sgt i32 %mul2, 0
+  %cmp45 = icmp ult i32 %add1, 2147483645
   br i1 %cmp45, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %entry

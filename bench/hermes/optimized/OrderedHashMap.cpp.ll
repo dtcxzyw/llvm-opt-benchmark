@@ -416,7 +416,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %mul8 = shl i32 %1, 1
-  %cmp9 = icmp ugt i32 %mul8, 1027070
+  %cmp9 = icmp ugt i32 %mul8, 1027071
   br i1 %cmp9, label %return, label %if.end26
 
 if.else:                                          ; preds = %entry

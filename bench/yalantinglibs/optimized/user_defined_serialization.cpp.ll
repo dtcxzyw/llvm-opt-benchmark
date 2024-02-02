@@ -240,7 +240,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   %conv3.i.i.i.i = zext i32 %17 to i64
   %mul4.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i44, 2
   %mul.i.i.i.i.i = mul i64 %mul4.i.i.i.i, %conv3.i.i.i.i
-  %cmp.i.i.i.i.i = icmp ult i64 %mul.i.i.i.i.i, 9223372036854775807
+  %cmp.i.i.i.i.i = icmp sgt i64 %mul.i.i.i.i.i, -1
   call void @llvm.assume(i1 %cmp.i.i.i.i.i)
   %p.i.i.i.i45 = getelementptr inbounds i8, ptr %__begin0.sroa.0.08.i.i, i64 8
   %18 = load ptr, ptr %p.i.i.i.i45, align 8
@@ -302,7 +302,7 @@ for.body.i12.i:                                   ; preds = %for.body.i12.i.preh
   %conv3.i.i.i17.i = zext i32 %23 to i64
   %mul4.i.i.i18.i = shl nuw nsw i64 %conv.i.i.i16.i, 2
   %mul.i.i.i.i19.i = mul i64 %mul4.i.i.i18.i, %conv3.i.i.i17.i
-  %cmp.i.i.i.i20.i = icmp ult i64 %mul.i.i.i.i19.i, 9223372036854775807
+  %cmp.i.i.i.i20.i = icmp sgt i64 %mul.i.i.i.i19.i, -1
   call void @llvm.assume(i1 %cmp.i.i.i.i20.i)
   %p.i.i.i21.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.018.i.i, i64 8
   %24 = load ptr, ptr %p.i.i.i21.i, align 8

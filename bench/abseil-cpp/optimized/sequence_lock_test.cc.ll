@@ -2362,7 +2362,7 @@ invoke.cont5:                                     ; preds = %_ZNSt16allocator_tr
   %data_.i.i = getelementptr inbounds i8, ptr %protected_buf, i64 264
   store ptr %retval.0.i.i.i, ptr %data_.i.i, align 8
   %add.ptr.i = getelementptr inbounds %"struct.std::atomic", ptr %retval.0.i.i.i, i64 %conv3
-  %cmp.not141 = icmp ult i64 %mul.i, 4294967296
+  %cmp.not141 = icmp ult i64 %mul.i, 3758096385
   br i1 %cmp.not141, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont5, %for.body

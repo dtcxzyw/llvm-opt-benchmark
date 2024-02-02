@@ -2002,8 +2002,8 @@ do.end56:                                         ; preds = %do.end56.sink.split
 
 if.then72:                                        ; preds = %do.end56
   %shr = lshr i32 %12, 4
-  %shl = shl i32 256, %shr
-  %cmp75 = icmp ugt i32 %shl, 32768
+  %shl = shl nuw i32 256, %shr
+  %cmp75 = icmp ugt i32 %shl, 33023
   %conv83 = zext nneg i32 %shl to i64
   %cmp84 = icmp ult i64 %add2, %conv83
   %15 = select i1 %cmp75, i1 true, i1 %cmp84

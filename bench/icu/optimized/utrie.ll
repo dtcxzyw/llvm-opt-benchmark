@@ -1408,7 +1408,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 for.inc:                                          ; preds = %land.rhs.i
   %indvars.iv.next = add nsw i64 %indvars.iv, -4
-  %cmp30 = icmp ugt i64 %indvars.iv, 4
+  %cmp30 = icmp ugt i64 %indvars.iv, 7
   %indvars.iv.next70 = add i32 %indvars.iv69, -4
   br i1 %cmp30, label %land.rhs, label %if.else62, !llvm.loop !22
 
@@ -1416,7 +1416,7 @@ if.then42:                                        ; preds = %while.body.i
   %sub43 = sub nsw i32 %newStart.0.ph43, %19
   store i32 %sub43, ptr %arrayidx, align 4
   %add48 = add nsw i32 %start.029, %19
-  %cmp5132 = icmp slt i32 %19, 32
+  %cmp5132 = icmp slt i32 %19, 29
   br i1 %cmp5132, label %for.body52.preheader, label %if.end90
 
 for.body52.preheader:                             ; preds = %if.then42

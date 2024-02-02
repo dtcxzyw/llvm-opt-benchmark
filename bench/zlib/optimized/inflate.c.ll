@@ -1815,7 +1815,7 @@ do.body750:                                       ; preds = %for.cond
   %sh_prom752 = zext nneg i32 %and751 to i64
   %shr753 = lshr i64 %hold.0, %sh_prom752
   %sub755 = and i32 %bits.0, -8
-  %cmp7601711 = icmp ult i32 %sub755, 32
+  %cmp7601711 = icmp ult i32 %sub755, 25
   br i1 %cmp7601711, label %do.body763.preheader, label %do.end779
 
 do.body763.preheader:                             ; preds = %do.body750
@@ -1839,7 +1839,7 @@ if.end767:                                        ; preds = %do.body763
   %shl772 = shl nuw nsw i64 %conv770, %indvars.iv2319
   %add773 = add i64 %shl772, %hold.211714
   %indvars.iv.next2320 = add nuw nsw i64 %indvars.iv2319, 8
-  %cmp760 = icmp ult i64 %indvars.iv2319, 24
+  %cmp760 = icmp ult i64 %indvars.iv2319, 17
   br i1 %cmp760, label %do.body763, label %do.end779.loopexit, !llvm.loop !16
 
 do.end779.loopexit:                               ; preds = %if.end767

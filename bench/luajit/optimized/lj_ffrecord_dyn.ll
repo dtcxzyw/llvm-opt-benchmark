@@ -1051,7 +1051,7 @@ if.end12:                                         ; preds = %lor.lhs.false, %ent
   %shr = lshr i32 %1, 24
   %and13 = and i32 %shr, 30
   %sub = add nsw i32 %and13, -14
-  %cmp14 = icmp ult i32 %sub, 6
+  %cmp14 = icmp ult i32 %sub, 5
   %.pre = and i32 %1, 520093696
   br i1 %cmp14, label %if.then20, label %lor.lhs.false16
 
@@ -3970,7 +3970,7 @@ if.else:                                          ; preds = %for.body14
   %shr = lshr i32 %16, 24
   %and22 = and i32 %shr, 30
   %sub = add nsw i32 %and22, -14
-  %cmp23 = icmp ult i32 %sub, 6
+  %cmp23 = icmp ult i32 %sub, 5
   br i1 %cmp23, label %if.then25, label %if.else35
 
 if.then25:                                        ; preds = %if.else

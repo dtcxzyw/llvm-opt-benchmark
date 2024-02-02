@@ -2427,7 +2427,7 @@ invoke.cont58.i.i:                                ; preds = %_ZNSt6vectorIN3ue29
   %add.ptr.i100.i.i = getelementptr inbounds %"class.ue2::CharReach", ptr %224, i64 %225
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp51.i.i, i8 0, i64 24, i1 false), !noalias !41
   %add.ptr.i100.idx.i.i = shl nsw i64 %225, 5
-  %cmp.i.i.i.i.i = icmp ugt i64 %add.ptr.i100.idx.i.i, 9223372036854775776
+  %cmp.i.i.i.i.i = icmp slt i64 %225, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i109.i.i, label %_ZNSt6vectorIN3ue29CharReachESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i
 
 if.then.i.i.i109.i.i:                             ; preds = %invoke.cont58.i.i

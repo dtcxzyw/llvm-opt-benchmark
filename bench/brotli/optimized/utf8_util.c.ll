@@ -125,7 +125,7 @@ if.then98.i:                                      ; preds = %land.lhs.true92.i
   %7 = or disjoint i32 %shl111.i, %and115.i
   %or116.i = or disjoint i32 %7, %or107.i
   %8 = add nsw i32 %or107.i, -65536
-  %or.cond.i = icmp ult i32 %8, 1048576
+  %or.cond.i = icmp ult i32 %8, 1044481
   br i1 %or.cond.i, label %BrotliParseAsUTF8.exit, label %if.end124.i
 
 if.end124.i:                                      ; preds = %if.then98.i, %land.lhs.true92.i, %land.lhs.true86.i, %land.lhs.true80.i, %if.end71.i, %if.end32.i, %if.end7.i

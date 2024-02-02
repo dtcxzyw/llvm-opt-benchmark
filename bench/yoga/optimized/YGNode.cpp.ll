@@ -729,7 +729,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %childrenVector, i8 0, i64 24, i1 false)
   %add.ptr.idx = shl nsw i64 %count, 3
-  %cmp.i.i.i = icmp ugt i64 %add.ptr.idx, 9223372036854775800
+  %cmp.i.i.i = icmp slt i64 %count, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
@@ -853,7 +853,7 @@ lpad20:                                           ; preds = %for.end
 for.body40.lr.ph:                                 ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i.i.i.i.i.i.i.i.i.i to i64
   %shr.i.i.i = lshr i64 %add.ptr.idx, 5
-  %cmp50.i.i.i.not = icmp ult i64 %add.ptr.idx, 32
+  %cmp50.i.i.i.not = icmp ult i64 %add.ptr.idx, 25
   %8 = and i64 %add.ptr.idx, 9223372036854775776
   %scevgep.i.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i, i64 %8
   %.pre58.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64

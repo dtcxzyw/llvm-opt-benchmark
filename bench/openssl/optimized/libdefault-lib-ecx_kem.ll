@@ -855,7 +855,7 @@ ecx_pubkey.exit.thread:                           ; preds = %if.end10, %lor.lhs.
 
 if.end17:                                         ; preds = %if.end
   %add18 = shl i64 %2, 1
-  %cmp19 = icmp ugt i64 %add18, 168
+  %cmp19 = icmp ugt i64 %add18, 169
   br i1 %cmp19, label %err, label %if.end22
 
 if.end17.thread:                                  ; preds = %lor.lhs.false.i

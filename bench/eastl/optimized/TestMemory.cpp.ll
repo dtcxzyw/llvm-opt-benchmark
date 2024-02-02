@@ -1522,7 +1522,7 @@ if.then.i432:                                     ; preds = %_ZN5eastl9allocator
   %add.i = add i64 %229, 255
   %and.i = and i64 %add.i, -256
   %sub.ptr.sub.i = sub i64 %and.i, %229
-  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i, 256
+  %cmp3.not.i = icmp ugt i64 %sub.ptr.sub.i, 271
   %230 = inttoptr i64 %and.i to ptr
   %spec.select507 = select i1 %cmp3.not.i, ptr %buffer, ptr %230
   %spec.select508 = select i1 %cmp3.not.i, ptr null, ptr %230
@@ -1755,7 +1755,7 @@ if.then.us:                                       ; preds = %lor.lhs.false.us, %
 for.inc.us:                                       ; preds = %if.then.us, %lor.lhs.false.us
   %bReturnValue.1.us = phi i8 [ %bReturnValue.025.us, %lor.lhs.false.us ], [ 0, %if.then.us ]
   %incdec.ptr.us = getelementptr inbounds i8, ptr %first.addr.022.us, i64 4
-  %inc6.us = add nuw i32 %seqIndex.024.us, 1
+  %inc6.us = add nuw nsw i32 %seqIndex.024.us, 1
   %cmp.not.us = icmp eq ptr %incdec.ptr.us, %last
   br i1 %cmp.not.us, label %for.end13, label %for.body.us, !llvm.loop !16
 
@@ -1799,7 +1799,7 @@ if.then:                                          ; preds = %lor.lhs.false, %vaa
 for.inc:                                          ; preds = %if.then, %lor.lhs.false
   %bReturnValue.1 = phi i8 [ %bReturnValue.025, %lor.lhs.false ], [ 0, %if.then ]
   %incdec.ptr = getelementptr inbounds i8, ptr %first.addr.022, i64 4
-  %inc6 = add nuw i32 %seqIndex.024, 1
+  %inc6 = add nuw nsw i32 %seqIndex.024, 1
   %cmp.not = icmp eq ptr %incdec.ptr, %last
   br i1 %cmp.not, label %for.end13, label %for.body, !llvm.loop !16
 

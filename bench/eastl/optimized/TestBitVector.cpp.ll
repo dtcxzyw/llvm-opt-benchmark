@@ -16813,8 +16813,8 @@ invoke.cont760:                                   ; preds = %_ZN5eastl6vectorIm1
   %sub.ptr.rhs.cast.i.i1856 = ptrtoint ptr %334 to i64
   %sub.ptr.sub.i.i1857 = sub i64 %sub.ptr.lhs.cast.i.i1855, %sub.ptr.rhs.cast.i.i1856
   %mul.i1858 = shl i64 %sub.ptr.sub.i.i1857, 3
-  %336 = add i64 %mul.i1858, -17
-  %spec.select3697 = icmp ult i64 %336, 84
+  %336 = add i64 %mul.i1858, -24
+  %spec.select3697 = icmp ult i64 %336, 73
   %call768 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select3697, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 322, ptr noundef nonnull @.str.49)
           to label %invoke.cont767 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -18778,7 +18778,7 @@ if.else:                                          ; preds = %entry
 
 if.then18:                                        ; preds = %if.else
   %mul = shl i64 %cond.i, 1
-  %cmp2155 = icmp ult i64 %mul, 1000000
+  %cmp2155 = icmp ult i64 %mul, 999999
   br i1 %cmp2155, label %for.body.preheader, label %if.end44
 
 for.body.preheader:                               ; preds = %if.then18

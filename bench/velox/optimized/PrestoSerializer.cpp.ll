@@ -52616,7 +52616,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 _ZN8facebook5velox4bits11reverseBitsEPhi.exit:    ; preds = %for.body.i, %_ZNK8facebook5velox6Buffer9asMutableIhEEPT_v.exit
   %conv16 = shl i32 %conv14, 3
-  %cmp.not18.i = icmp slt i32 %conv16, 64
+  %cmp.not18.i = icmp slt i32 %conv16, 57
   br i1 %cmp.not18.i, label %for.cond2.preheader.i, label %for.body.preheader.i31
 
 for.body.preheader.i31:                           ; preds = %_ZN8facebook5velox4bits11reverseBitsEPhi.exit

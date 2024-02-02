@@ -1217,8 +1217,8 @@ land.end:                                         ; preds = %land.rhs, %if.then1
 
 if.end19:                                         ; preds = %land.end, %if.end8
   %bf.load21 = phi i8 [ %bf.set, %land.end ], [ %bf.load, %if.end8 ]
-  %5 = and i8 %bf.load21, 6
-  %tobool25.not = icmp eq i8 %5, 0
+  %bf.shl22 = shl i8 %bf.load21, 5
+  %tobool25.not = icmp ult i8 %bf.shl22, 33
   br i1 %tobool25.not, label %if.then26, label %if.end28
 
 if.then26:                                        ; preds = %if.end19

@@ -2552,7 +2552,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   %bf.load.i = phi i32 [ %bf.load.i.pre, %while.cond.preheader ], [ %bf.load.i.be, %while.cond.backedge ]
   %has_something.0 = phi i1 [ false, %while.cond.preheader ], [ true, %while.cond.backedge ]
   %bf.shl.i = shl i32 %bf.load.i, 1
-  %cmp.i20 = icmp slt i32 %bf.shl.i, 131072
+  %cmp.i20 = icmp slt i32 %bf.shl.i, 131071
   %tobool.not.i.i = icmp sgt i32 %bf.load.i, -1
   %or.cond.i = or i1 %tobool.not.i.i, %cmp.i20
   br i1 %or.cond.i, label %_ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit, label %while.body.i.i.preheader.i
@@ -2650,7 +2650,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 if.end15:                                         ; preds = %invoke.cont11, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread
   %bf.load.i32 = load i32, ptr %nest_level.i, align 4
   %bf.shl.i33 = shl i32 %bf.load.i32, 1
-  %cmp.i34 = icmp slt i32 %bf.shl.i33, 131072
+  %cmp.i34 = icmp slt i32 %bf.shl.i33, 131071
   %tobool.not.i = icmp sgt i32 %bf.load.i32, -1
   %or.cond.i35 = or i1 %tobool.not.i, %cmp.i34
   br i1 %or.cond.i35, label %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit, label %land.lhs.true3.i

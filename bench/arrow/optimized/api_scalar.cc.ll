@@ -5403,7 +5403,7 @@ entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow7compute18StructFieldOptionsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
   %add.ptr.i.idx.i.i = shl nsw i64 %indices.coerce1, 2
-  %cmp.i.i.i.i = icmp ugt i64 %add.ptr.i.idx.i.i, 9223372036854775804
+  %cmp.i.i.i.i = icmp slt i64 %indices.coerce1, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry

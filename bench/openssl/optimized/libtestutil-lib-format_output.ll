@@ -482,7 +482,7 @@ if.end42:                                         ; preds = %if.then41, %lor.lhs
   %cond48 = sext i32 %1 to i64
   %sub = add nsw i64 %cond48, 31
   %div5079 = and i64 %sub, -32
-  %cmp51 = icmp ugt i64 %div5079, 2000
+  %cmp51 = icmp ugt i64 %div5079, 2015
   br i1 %cmp51, label %land.lhs.true53, label %if.end61
 
 land.lhs.true53:                                  ; preds = %if.end42

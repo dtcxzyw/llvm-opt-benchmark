@@ -27,11 +27,11 @@ arrayctor.loop.preheader:                         ; preds = %entry
   %key2.sroa.0.0.vec.expand = shufflevector <2 x i64> %key.sroa.0.8.vec.insert, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %key2.sroa.0.16.vec.expand = shufflevector <2 x i64> %key.sroa.0.8.vec.insert, <2 x i64> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
   %key2.sroa.0.16.vecblend = shufflevector <4 x i64> %key2.sroa.0.0.vec.expand, <4 x i64> %key2.sroa.0.16.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %cmp82222 = icmp sgt i32 %1, 0
+  %cmp82222 = icmp sgt i32 %1, 3
   br i1 %cmp82222, label %for.body83.lr.ph, label %for.end154
 
 if.then:                                          ; preds = %entry
-  %cmp7164 = icmp sgt i32 %1, 0
+  %cmp7164 = icmp sgt i32 %1, 3
   br i1 %cmp7164, label %for.body.lr.ph, label %if.then.for.cond.preheader.i_crit_edge
 
 if.then.for.cond.preheader.i_crit_edge:           ; preds = %if.then

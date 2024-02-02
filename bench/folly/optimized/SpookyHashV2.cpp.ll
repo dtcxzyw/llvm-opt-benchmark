@@ -354,7 +354,7 @@ if.end:                                           ; preds = %entry
   %mul = mul nuw nsw i64 %div, 12
   %add.ptr = getelementptr inbounds i64, ptr %message, i64 %mul
   %add.ptr.idx = mul nuw i64 %div, 96
-  %cmp1365 = icmp sgt i64 %add.ptr.idx, 0
+  %cmp1365 = icmp sgt i64 %add.ptr.idx, 31
   br i1 %cmp1365, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end, %while.body
@@ -919,7 +919,7 @@ if.end59:                                         ; preds = %if.then42, %if.end3
   %sub61 = add i64 %add.ptr60.idx.neg, %length.addr.0
   %conv62 = trunc i64 %sub61 to i8
   %add.ptr60.idx = mul nuw i64 %div, 96
-  %cmp63559 = icmp sgt i64 %add.ptr60.idx, 0
+  %cmp63559 = icmp sgt i64 %add.ptr60.idx, 31
   br i1 %cmp63559, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end59, %while.body

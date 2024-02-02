@@ -9009,7 +9009,7 @@ cond.true.i.i.i.i160:                             ; preds = %_ZN7testing15Assert
   br i1 %cmp8.i.i.i.i161, label %if.else.i163, label %if.then.i162
 
 _ZN4abslleENS_4TimeES0_.exit.i166:                ; preds = %_ZN7testing15AssertionResultD2Ev.exit152
-  %cmp25.i.i.i.i167 = icmp ugt i32 %conv.i.pn.i.i.i.i, 4
+  %cmp25.i.i.i.i167 = icmp ugt i32 %conv.i.pn.i.i.i.i, 7
   br i1 %cmp25.i.i.i.i167, label %if.else.i163, label %if.then.i162
 
 if.then.i162:                                     ; preds = %_ZN4abslleENS_4TimeES0_.exit.i166, %cond.true.i.i.i.i160

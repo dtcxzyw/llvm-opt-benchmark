@@ -3057,7 +3057,7 @@ for.end31:                                        ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %num_classes.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp7.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vec.i, i8 0, i64 24, i1 false)
-  %cmp.i.i.i.i397 = icmp ugt i64 %sub.ptr.sub.i.i.i391, 9223372036854775792
+  %cmp.i.i.i.i397 = icmp slt i64 %sub.ptr.div.i.i.i392, 0
   br i1 %cmp.i.i.i.i397, label %if.then.i.i.i.i446, label %_ZNSt6vectorISt5arrayIhLm16EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i
 
 if.then.i.i.i.i446:                               ; preds = %for.end31
@@ -3083,7 +3083,7 @@ if.then.i.i.i1.i:                                 ; preds = %_ZNSt6vectorISt5arr
   store ptr %add.ptr.i.i.sink.i, ptr %206, align 8
   store ptr %add.ptr.i.i.sink.i, ptr %_M_finish.i.i.i399, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
-  %cmp.i.i.i2.i400 = icmp slt i64 %sub.ptr.div.i.i.i392, 500
+  %cmp.i.i.i2.i400 = icmp ult i64 %sub.ptr.div.i.i.i392, 500
   br i1 %cmp.i.i.i2.i400, label %if.then.i.i.i.i.i.i445, label %if.else.i.i.i.i
 
 if.then.i.i.i.i.i.i445:                           ; preds = %if.then.i.i.i1.i

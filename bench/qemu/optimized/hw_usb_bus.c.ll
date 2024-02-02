@@ -1543,7 +1543,7 @@ entry:
   %1 = load ptr, ptr %port, align 8
   %path4 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %path4, ptr %in, align 8
-  %cmp16 = icmp sgt i64 %add, 0
+  %cmp16 = icmp sgt i64 %add, 1
   br i1 %cmp16, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %if.then

@@ -608,7 +608,7 @@ invoke.cont30:                                    ; preds = %if.then28
   %19 = load i32, ptr %length_.i3, align 8
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %19, i32 %vectorSize)
   %mul = shl i32 %.sroa.speculated, 4
-  %cmp.not83.i6 = icmp slt i32 %mul, 32
+  %cmp.not83.i6 = icmp slt i32 %mul, 17
   br i1 %cmp.not83.i6, label %while.end.i15, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %invoke.cont30, %_ZN8facebook5velox4simd6detail11setNextWordIN5xsimd5batchIaNS4_4fma3INS4_4avx2EEEEES8_EEbRPvT_RiRKT0_.exit.i12
@@ -623,7 +623,7 @@ _ZN8facebook5velox4simd6detail11setNextWordIN5xsimd5batchIaNS4_4fma3INS4_4avx2EE
   %20 = ptrtoint ptr %to.addr.084.i9 to i64
   %add.i.i.i13 = add i64 %20, 32
   %21 = inttoptr i64 %add.i.i.i13 to ptr
-  %cmp.not.i14 = icmp ult i32 %bytes.addr.085.i8, 64
+  %cmp.not.i14 = icmp ult i32 %bytes.addr.085.i8, 49
   br i1 %cmp.not.i14, label %while.end.i15, label %if.then.i.i7, !llvm.loop !5
 
 while.end.i15:                                    ; preds = %_ZN8facebook5velox4simd6detail11setNextWordIN5xsimd5batchIaNS4_4fma3INS4_4avx2EEEEES8_EEbRPvT_RiRKT0_.exit.i12, %invoke.cont30

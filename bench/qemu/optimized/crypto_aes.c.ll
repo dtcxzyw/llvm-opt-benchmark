@@ -2232,7 +2232,7 @@ if.end:                                           ; preds = %entry
   %rounds = getelementptr inbounds i8, ptr %key, i64 240
   %0 = load i32, ptr %rounds, align 4
   %mul = shl i32 %0, 2
-  %cmp164 = icmp sgt i32 %mul, 0
+  %cmp164 = icmp sgt i32 %mul, 3
   br i1 %cmp164, label %for.body.preheader, label %for.cond44.preheader
 
 for.body.preheader:                               ; preds = %if.end

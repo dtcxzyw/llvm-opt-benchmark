@@ -1098,7 +1098,7 @@ if.then59:                                        ; preds = %if.end53
   %cmp61 = icmp slt i32 %12, 50
   %mul = shl nsw i32 %12, 2
   %spec.select = select i1 %cmp61, i32 100, i32 %mul
-  %cmp.i35 = icmp sgt i32 %spec.select, 0
+  %cmp.i35 = icmp sgt i32 %spec.select, 3
   br i1 %cmp.i35, label %if.then.i, label %if.then69
 
 if.then.i:                                        ; preds = %if.then59

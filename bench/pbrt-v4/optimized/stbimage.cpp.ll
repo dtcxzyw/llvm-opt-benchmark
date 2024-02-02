@@ -17262,7 +17262,7 @@ if.end:                                           ; preds = %entry
   %add12 = add nuw nsw i32 %mul9, %conv11
   %sub = add nsw i32 %w, -1
   %and = and i32 %sub, -8
-  %cmp1366 = icmp sgt i32 %and, 0
+  %cmp1366 = icmp sgt i32 %and, 7
   br i1 %cmp1366, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end

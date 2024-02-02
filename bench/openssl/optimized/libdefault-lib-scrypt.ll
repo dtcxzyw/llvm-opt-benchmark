@@ -1053,7 +1053,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.en
   %or344.i = call i32 @llvm.fshl.i32(i32 %add338.i, i32 %add338.i, i32 18)
   %xor346.i = xor i32 %or344.i, %xor170.i
   %sub.i = add nsw i32 %i.023.i, -2
-  %cmp.i = icmp ugt i32 %i.023.i, 2
+  %cmp.i = icmp ugt i32 %i.023.i, 3
   br i1 %cmp.i, label %for.body.i, label %for.cond347.preheader.i, !llvm.loop !14
 
 for.body349.i:                                    ; preds = %for.body349.i, %for.cond347.preheader.i

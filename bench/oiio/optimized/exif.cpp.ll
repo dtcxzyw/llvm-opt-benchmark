@@ -2657,7 +2657,7 @@ _ZN18OpenImageIO_v2_6_011swap_endianImEEvPT_i.exit: ; preds = %for.body.i82, %if
 
 if.then60:                                        ; preds = %if.then31, %if.then31, %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69, %_ZN18OpenImageIO_v2_6_011swap_endianItEEvPT_i.exit69, %_ZN18OpenImageIO_v2_6_011swap_endianIjEEvPT_i.exit78, %_ZN18OpenImageIO_v2_6_011swap_endianIjEEvPT_i.exit78, %_ZN18OpenImageIO_v2_6_011swap_endianImEEvPT_i.exit, %_ZN18OpenImageIO_v2_6_011swap_endianImEEvPT_i.exit
   %conv61 = shl i32 %conv2, 1
-  %cmp5.i87 = icmp sgt i32 %conv61, 0
+  %cmp5.i87 = icmp sgt i32 %conv61, 1
   br i1 %cmp5.i87, label %for.body.preheader.i88, label %if.end64
 
 for.body.preheader.i88:                           ; preds = %if.then60

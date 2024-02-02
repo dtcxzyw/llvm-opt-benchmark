@@ -15439,7 +15439,7 @@ do.body166:                                       ; preds = %if.then162
   %133 = load i64, ptr %length, align 8
   %mul.i = shl i64 %133, 2
   %size_.i.i = getelementptr inbounds i8, ptr %builder, i64 40
-  %cmp.not.i.i = icmp sgt i64 %mul.i, 0
+  %cmp.not.i.i = icmp sgt i64 %mul.i, 3
   br i1 %cmp.not.i.i, label %if.end.i.i, label %_ZN5arrow6StatusD2Ev.exit442.thread
 
 _ZN5arrow6StatusD2Ev.exit442.thread:              ; preds = %do.body166
@@ -15486,7 +15486,7 @@ if.then.i.i495:                                   ; preds = %_ZN5arrow6StatusD2E
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZN5arrow6StatusD2Ev.exit479
-  %cmp.not.i.i.i.i488 = icmp ult i64 %sext, 4294967296
+  %cmp.not.i.i.i.i488 = icmp ult i64 %sext, 4026531841
   br i1 %cmp.not.i.i.i.i488, label %invoke.cont198, label %if.then.i.i.i.i.i489
 
 if.then.i.i.i.i.i489:                             ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i

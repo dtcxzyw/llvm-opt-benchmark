@@ -174,7 +174,7 @@ again:                                            ; preds = %if.then258, %if.end
   %shr18 = lshr i32 %27, 24
   %and19 = and i32 %shr18, 30
   %sub = add nsw i32 %and19, -14
-  %cmp20 = icmp ult i32 %sub, 6
+  %cmp20 = icmp ult i32 %sub, 5
   br i1 %cmp20, label %if.then22, label %if.else
 
 if.then22:                                        ; preds = %again

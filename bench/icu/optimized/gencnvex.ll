@@ -1573,7 +1573,7 @@ while.end56:                                      ; preds = %while.cond43, %whil
   store i16 %conv60, ptr %arrayidx37, align 2
   %add64 = add nsw i32 %and58, 16
   store i32 %add64, ptr %stage3Top, align 8
-  %cmp67 = icmp sgt i32 %and58, 262128
+  %cmp67 = icmp sgt i32 %and58, 262131
   br i1 %cmp67, label %if.then69, label %if.end72
 
 if.then69:                                        ; preds = %while.end56

@@ -4567,7 +4567,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sext.i = shl i64 %sub.ptr.sub.i.i.i, 27
   %conv.i = ashr i64 %sext.i, 32
-  %tobool.not = icmp ult i64 %sext.i, 4294967296
+  %tobool.not = icmp ult i64 %sext.i, 4160749569
   br i1 %tobool.not, label %if.end15, label %for.body8.preheader
 
 for.body8.preheader:                              ; preds = %for.body
@@ -4612,7 +4612,7 @@ if.end15:                                         ; preds = %for.end, %for.body
   %sub.ptr.sub.i.i.i61 = sub i64 %sub.ptr.lhs.cast.i.i.i59, %sub.ptr.rhs.cast.i.i.i60
   %sext.i62 = shl i64 %sub.ptr.sub.i.i.i61, 27
   %conv.i63 = ashr i64 %sext.i62, 32
-  %tobool17.not = icmp ult i64 %sext.i62, 4294967296
+  %tobool17.not = icmp ult i64 %sext.i62, 4160749569
   br i1 %tobool17.not, label %if.end34, label %for.body22.preheader
 
 for.body22.preheader:                             ; preds = %if.end15

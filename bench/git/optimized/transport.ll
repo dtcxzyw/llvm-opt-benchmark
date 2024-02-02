@@ -3386,7 +3386,7 @@ entry:
   %verbose = getelementptr inbounds i8, ptr %transport, i64 120
   %bf.load28 = load i8, ptr %verbose, align 8
   %bf.shl29 = shl i8 %bf.load28, 5
-  %cmp = icmp sgt i8 %bf.shl29, 32
+  %cmp = icmp sgt i8 %bf.shl29, 63
   %bf.shl34 = select i1 %cmp, i32 256, i32 0
   %10 = lshr i8 %bf.load28, 1
   %11 = and i8 %10, 2
@@ -3698,7 +3698,7 @@ if.end4:                                          ; preds = %if.then2, %if.end
   %verbose = getelementptr inbounds i8, ptr %transport, i64 120
   %bf.load30 = load i8, ptr %verbose, align 8
   %bf.shl31 = shl i8 %bf.load30, 5
-  %cmp33 = icmp sgt i8 %bf.shl31, 0
+  %cmp33 = icmp sgt i8 %bf.shl31, 31
   %5 = zext i1 %cmp33 to i16
   %6 = lshr i8 %bf.load30, 1
   %7 = and i8 %6, 2
@@ -3869,7 +3869,7 @@ entry:
   %verbose.i = getelementptr inbounds i8, ptr %transport, i64 120
   %bf.load.i = load i8, ptr %verbose.i, align 8
   %bf.shl.i = shl i8 %bf.load.i, 5
-  %cmp.i = icmp sgt i8 %bf.shl.i, 0
+  %cmp.i = icmp sgt i8 %bf.shl.i, 31
   %cond.i = zext i1 %cmp.i to i32
   %conn.i = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load ptr, ptr %conn.i, align 8

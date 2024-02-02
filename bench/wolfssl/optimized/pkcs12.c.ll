@@ -2373,8 +2373,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %mul = shl i32 %pswSz, 1
-  %1 = add i32 %mul, -255
-  %cmp7 = icmp ult i32 %1, -257
+  %1 = add i32 %mul, -256
+  %cmp7 = icmp ult i32 %1, -259
   br i1 %cmp7, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end

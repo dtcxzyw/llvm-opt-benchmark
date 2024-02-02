@@ -9724,7 +9724,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %buf_.i.i = getelementptr inbounds i8, ptr %headers_v, i64 16
   store ptr %buf_st_.ptr.i.i, ptr %buf_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %buf_st_.ptr.i.i, i8 0, i64 512, i1 false)
-  %cmp.i.i = icmp ugt i64 %mul, 64
+  %cmp.i.i = icmp ugt i64 %mul, 65
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEC2Em.exit
 
 land.lhs.true.i.i:                                ; preds = %if.end

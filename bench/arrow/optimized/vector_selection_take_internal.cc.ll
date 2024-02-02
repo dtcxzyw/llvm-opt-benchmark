@@ -1890,7 +1890,7 @@ if.then.i477.i.i:                                 ; preds = %do.body213.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i), !noalias !52
   %mul.i.i.i478.i.i = shl i64 %2, 1
   %size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %builder105.i.i, i64 40
-  %cmp.not.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i478.i.i, 0
+  %cmp.not.i.i.i.i.i.i = icmp sgt i64 %mul.i.i.i478.i.i, 1
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit39.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %if.then.i477.i.i
@@ -36115,7 +36115,7 @@ if.then.i.i.i60:                                  ; preds = %invoke.cont
 
 _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i: ; preds = %invoke.cont
   store i64 0, ptr %new_chunks.i, align 8, !noalias !1122
-  %cmp.not.i.i.i.i.i = icmp ult i64 %sext.i, 4294967296
+  %cmp.not.i.i.i.i.i = icmp ult i64 %sext.i, 4026531841
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i, label %for.body.preheader.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i:                   ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
@@ -40736,7 +40736,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %entry
   store i64 0, ptr %new_chunks, align 8
-  %cmp.not.i.i.i.i = icmp ult i64 %sext, 4294967296
+  %cmp.not.i.i.i.i = icmp ult i64 %sext, 4026531841
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EEC2EmRKS4_.exit.thread.i, label %for.body.preheader.i.i.i.i.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EEC2EmRKS4_.exit.thread.i: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i

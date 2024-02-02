@@ -3240,7 +3240,7 @@ if.end.i.if.end_crit_edge.i.i.i:                  ; preds = %if.end.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   %mul.i.i.i.i = shl i64 %.pr, 1
-  %cmp.i.i.i.i.i.i = icmp ugt i64 %mul.i.i.i.i, 9223372036854775806
+  %cmp.i.i.i.i.i.i = icmp slt i64 %mul.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i64, label %while.body.i.i6.i.i.i.i
 
 while.body.i.i6.i.i.i.i:                          ; preds = %if.then3.i.i.i.i, %while.body.i.i6.i.i.i.i

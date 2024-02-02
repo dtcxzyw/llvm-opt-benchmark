@@ -5323,7 +5323,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %if.t
   br i1 %4, label %while.cond.i, label %HashTableSize.exit, !llvm.loop !8
 
 HashTableSize.exit:                               ; preds = %while.cond.i
-  %cmp14 = icmp ult i64 %htsize.0.i, 1024
+  %cmp14 = icmp ult i64 %htsize.0.i, 769
   %mul16 = shl i64 %htsize.0.i, 2
   %cond = select i1 %cmp14, i64 0, i64 %mul16
   br i1 %cmp4.not, label %cond.true20, label %cond.end24

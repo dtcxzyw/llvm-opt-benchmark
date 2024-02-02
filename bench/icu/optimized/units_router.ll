@@ -2622,7 +2622,7 @@ land.lhs.true:                                    ; preds = %entry
   %cmp3 = icmp eq i32 %0, 8
   %mul4 = shl nsw i32 %0, 1
   %cond = select i1 %cmp3, i32 32, i32 %mul4
-  %cmp.i = icmp sgt i32 %cond, 0
+  %cmp.i = icmp sgt i32 %cond, 1
   br i1 %cmp.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %land.lhs.true
@@ -2713,7 +2713,7 @@ land.lhs.true:                                    ; preds = %entry
   %cmp13 = icmp eq i32 %0, 8
   %mul14 = shl nsw i32 %0, 1
   %cond = select i1 %cmp13, i32 32, i32 %mul14
-  %cmp.i = icmp sgt i32 %cond, 0
+  %cmp.i = icmp sgt i32 %cond, 1
   br i1 %cmp.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %land.lhs.true

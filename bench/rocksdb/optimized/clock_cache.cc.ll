@@ -1716,7 +1716,7 @@ entry:
   %shl.i = shl nuw i64 1, %sh_prom.i
   %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::clock_cache::FixedHyperClockTable::HandleImpl", ptr %0, i64 %shl.i
   %arrayidx.i.i.idx = shl i64 64, %sh_prom.i
-  %cmp10.i = icmp sgt i64 %arrayidx.i.i.idx, 0
+  %cmp10.i = icmp sgt i64 %arrayidx.i.i.idx, 63
   br i1 %cmp10.i, label %for.body.i.preheader, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit
 
 for.body.i.preheader:                             ; preds = %entry

@@ -5035,7 +5035,7 @@ lor.lhs.false65.us:                               ; preds = %lor.lhs.false59.us
   %size66.us = getelementptr inbounds i8, ptr %ct.i.0.us, i64 4
   %8 = load i32, ptr %size66.us, align 4
   %mul.us = shl i32 %8, 3
-  %cmp67.us = icmp ugt i32 %mul.us, 32
+  %cmp67.us = icmp ugt i32 %mul.us, 39
   br i1 %cmp67.us, label %if.then81, label %lor.lhs.false69.us
 
 lor.lhs.false69.us:                               ; preds = %lor.lhs.false65.us

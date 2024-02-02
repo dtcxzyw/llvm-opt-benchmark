@@ -1348,7 +1348,7 @@ for.body228:                                      ; preds = %for.end213, %for.bo
   %conv235 = zext nneg i32 %i.4359 to i64
   call void @bn_scatter5(ptr noundef %43, i64 noundef %conv105, ptr noundef nonnull %add.ptr, i64 noundef %conv235) #7
   %mul237 = shl nuw nsw i32 %i.4359, 1
-  %cmp226 = icmp ult i32 %i.4359, 16
+  %cmp226 = icmp ult i32 %i.4359, 13
   br i1 %cmp226, label %for.body228, label %for.body242, !llvm.loop !22
 
 for.body242:                                      ; preds = %for.body228, %for.inc264

@@ -6730,7 +6730,7 @@ if.end:                                           ; preds = %entry
   %7 = load ptr, ptr %format, align 8
   %vars_.i = getelementptr inbounds i8, ptr %format, i64 8
   tail call void @_ZN6google8protobuf2io7Printer14FormatInternalIN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcS9_SaIcEEENS5_18container_internal10StringHashENSF_8StringEqESaISt4pairIKSA_SE_EEEEEEvNS5_4SpanIKSE_EERKT_SA_(ptr noundef nonnull align 8 dereferenceable(256) %7, ptr null, i64 0, ptr noundef nonnull align 8 dereferenceable(32) %vars_.i, i64 1, ptr nonnull @.str.94)
-  %cmp20 = icmp sgt i32 %conv, 0
+  %cmp20 = icmp ult i32 %6, 2147483633
   br i1 %cmp20, label %for.body, label %for.end.thread
 
 for.end.thread:                                   ; preds = %if.end

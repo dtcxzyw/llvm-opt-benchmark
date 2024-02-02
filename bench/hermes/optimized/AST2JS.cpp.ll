@@ -1837,7 +1837,7 @@ if.end112.i.i.i.i:                                ; preds = %if.end99.i.i.i.i
   %16 = or disjoint i32 %shl120.i.i.i.i, %and122.i.i.i.i
   %or123.i.i.i.i = or disjoint i32 %16, %or118.i.i.i.i
   %17 = add nsw i32 %or118.i.i.i.i, -1114112
-  %or.cond257.i.i = icmp ult i32 %17, -1048576
+  %or.cond257.i.i = icmp ult i32 %17, -1052671
   br i1 %or.cond257.i.i, label %if.then65.i.i, label %"_ZN6hermes10decodeUTF8ILb1EZNS_12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS4_E3$_0EEjRPKcT0_.exit.i.i"
 
 "_ZN6hermes10decodeUTF8ILb1EZNS_12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS4_E3$_0EEjRPKcT0_.exit.i.i": ; preds = %if.end112.i.i.i.i, %if.end44.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i

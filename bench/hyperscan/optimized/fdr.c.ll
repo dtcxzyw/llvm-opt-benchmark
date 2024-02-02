@@ -424,7 +424,7 @@ if.end.i:                                         ; preds = %entry
   store i64 %sub.i1805, ptr %zone_pointer_adjust.i1806, align 8
   %sub6.i = add i64 %sub.i, -3
   %and.i = and i64 %sub6.i, -16
-  %cmp8.i = icmp sgt i64 %and.i, 16
+  %cmp8.i = icmp sgt i64 %and.i, 31
   br i1 %cmp8.i, label %if.then9.i, label %if.end12.i
 
 if.then9.i:                                       ; preds = %if.end.i

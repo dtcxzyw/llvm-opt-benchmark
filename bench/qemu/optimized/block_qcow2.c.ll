@@ -5608,7 +5608,7 @@ if.end37:                                         ; preds = %glib_autoptr_cleanu
   %sub47 = add i64 %add46, %div
   %div49 = udiv i64 %sub47, %div4568
   %mul = shl i64 %div49, 3
-  %cmp50 = icmp ugt i64 %mul, 33554432
+  %cmp50 = icmp ugt i64 %mul, 33554439
   br i1 %cmp50, label %if.then51, label %if.end52
 
 if.then51:                                        ; preds = %if.end37

@@ -522,7 +522,7 @@ if.then29.i:                                      ; preds = %if.end25.i
   %10 = load i16, ptr @currentIndex, align 2
   %shl.i = shl i16 %10, 2
   %11 = or disjoint i16 %shl.i, 2
-  %cmp36.i = icmp ugt i16 %11, -16
+  %cmp36.i = icmp ugt i16 %11, -15
   br i1 %cmp36.i, label %if.then38.i, label %if.end40.i
 
 if.then38.i:                                      ; preds = %if.then29.i

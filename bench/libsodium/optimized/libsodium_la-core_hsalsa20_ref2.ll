@@ -163,7 +163,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %or.i203 = tail call i32 @llvm.fshl.i32(i32 %add123, i32 %add123, i32 18)
   %xor125 = xor i32 %or.i203, %xor77
   %sub = add nsw i32 %i.0220, -2
-  %cmp31 = icmp ugt i32 %i.0220, 2
+  %cmp31 = icmp ugt i32 %i.0220, 3
   br i1 %cmp31, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body

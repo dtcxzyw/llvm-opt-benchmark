@@ -732,7 +732,7 @@ cond.end7.i.i:                                    ; preds = %cond.end.i.i, %for.
   %sub.i159.i = shl i64 %retval.0.i.i, 4
   %mul10.i.i = add i64 %sub.i159.i, 1008
   %div288.i.i = lshr i64 %mul10.i.i, 6
-  %cmp11.not.i.i = icmp ult i64 %mul10.i.i, 64
+  %cmp11.not.i.i = icmp ult i64 %mul10.i.i, 49
   br i1 %cmp11.not.i.i, label %cond.end23.i.i, label %cond.true19.i.i
 
 cond.true19.i.i:                                  ; preds = %cond.end7.i.i, %cond.end.i.i
@@ -1927,7 +1927,7 @@ cond.end7.i.i338:                                 ; preds = %cond.end.i.i333, %f
   %sub.i159.i343 = shl i64 %retval.0.i.i280, 4
   %mul10.i.i344 = add i64 %sub.i159.i343, 1008
   %div288.i.i345 = lshr i64 %mul10.i.i344, 6
-  %cmp11.not.i.i346 = icmp ult i64 %mul10.i.i344, 64
+  %cmp11.not.i.i346 = icmp ult i64 %mul10.i.i344, 49
   br i1 %cmp11.not.i.i346, label %cond.end23.i.i356, label %cond.true19.i.i347
 
 cond.true19.i.i347:                               ; preds = %cond.end7.i.i338, %cond.end.i.i333
@@ -3146,7 +3146,7 @@ cond.end7.i.i978:                                 ; preds = %cond.end.i.i973, %f
   %sub.i159.i983 = shl i64 %retval.0.i.i920, 4
   %mul10.i.i984 = add i64 %sub.i159.i983, 1008
   %div288.i.i985 = lshr i64 %mul10.i.i984, 6
-  %cmp11.not.i.i986 = icmp ult i64 %mul10.i.i984, 64
+  %cmp11.not.i.i986 = icmp ult i64 %mul10.i.i984, 49
   br i1 %cmp11.not.i.i986, label %cond.end23.i.i996, label %cond.true19.i.i987
 
 cond.true19.i.i987:                               ; preds = %cond.end7.i.i978, %cond.end.i.i973

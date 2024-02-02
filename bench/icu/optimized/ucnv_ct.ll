@@ -612,7 +612,7 @@ if.end32:                                         ; preds = %if.then20, %if.then
 lor.lhs.false4.i:                                 ; preds = %if.end32
   %11 = and i32 %sourceChar.1, -160
   %12 = add i32 %11, -32
-  %or.cond.i = icmp ult i32 %12, 96
+  %or.cond.i = icmp ult i32 %12, 65
   br i1 %or.cond.i, label %_ZL8getStatei.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %lor.lhs.false4.i

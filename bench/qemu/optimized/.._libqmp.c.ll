@@ -317,7 +317,7 @@ do.end.i:                                         ; preds = %if.else.i13, %if.th
   %add4.i = add i64 %and.i, 16
   %msg_controllen.i = getelementptr inbounds i8, ptr %msg.i, i64 40
   store i64 %add4.i, ptr %msg_controllen.i, align 8
-  %cmp6.i = icmp ult i64 %and.i, -16
+  %cmp6.i = icmp ult i64 %and.i, -23
   %cond.i = select i1 %cmp6.i, ptr %control.i, ptr null
   %add9.i = add i64 %mul.i, 16
   store i64 %add9.i, ptr %cond.i, align 16

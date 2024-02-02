@@ -289,7 +289,7 @@ if.end4.i:                                        ; preds = %if.end.i
 
 if.then5.i:                                       ; preds = %if.end4.i
   %mul.i = shl i64 %keylen, 3
-  %cmp6.i = icmp ult i64 %mul.i, 112
+  %cmp6.i = icmp ult i64 %mul.i, 105
   br i1 %cmp6.i, label %if.then8.i, label %if.end9.i
 
 if.then8.i:                                       ; preds = %if.then5.i

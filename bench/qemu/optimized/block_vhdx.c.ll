@@ -1557,7 +1557,7 @@ if.end46.thread:                                  ; preds = %if.then33
   br label %if.end54
 
 if.end46:                                         ; preds = %if.then33
-  %cmp49 = icmp ugt i64 %and37, 268435456
+  %cmp49 = icmp ugt i64 %and37, 269484031
   br i1 %cmp49, label %if.then50, label %if.end54
 
 if.then50:                                        ; preds = %if.end46

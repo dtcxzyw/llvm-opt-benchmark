@@ -568,7 +568,7 @@ _ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11Asyn
 invoke.cont.thread:                               ; preds = %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp6) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp) #25
-  %19 = icmp ult i64 %and.i, -16
+  %19 = icmp ult i64 %and.i, -23
   br i1 %19, label %while.exit, label %while.exit.thread
 
 if.else.i:                                        ; preds = %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit, %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit.thread

@@ -6103,7 +6103,7 @@ if.then.i:                                        ; preds = %if.end4
   unreachable
 
 if.end.i:                                         ; preds = %if.end4
-  %cmp3.i.not = icmp ult i64 %sext, 4294967296
+  %cmp3.i.not = icmp ult i64 %sext, 4026531841
   br i1 %cmp3.i.not, label %invoke.cont6, label %_ZNSt12_Vector_baseISt4pairIiPKN6google8protobuf12UnknownFieldEESaIS6_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt4pairIiPKN6google8protobuf12UnknownFieldEESaIS6_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
@@ -6137,7 +6137,7 @@ if.then.i141:                                     ; preds = %invoke.cont6
   unreachable
 
 if.end.i116:                                      ; preds = %invoke.cont6
-  %cmp3.i122.not = icmp ult i64 %sext444, 4294967296
+  %cmp3.i122.not = icmp ult i64 %sext444, 4026531841
   br i1 %cmp3.i122.not, label %_ZNSt6vectorISt4pairIiPKN6google8protobuf12UnknownFieldEESaIS6_EE7reserveEm.exit145, label %_ZNSt12_Vector_baseISt4pairIiPKN6google8protobuf12UnknownFieldEESaIS6_EE11_M_allocateEm.exit.i123
 
 _ZNSt12_Vector_baseISt4pairIiPKN6google8protobuf12UnknownFieldEESaIS6_EE11_M_allocateEm.exit.i123: ; preds = %if.end.i116

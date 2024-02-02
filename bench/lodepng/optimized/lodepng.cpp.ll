@@ -1014,7 +1014,7 @@ entry:
   %tree_d.i = alloca %struct.HuffmanTree, align 8
   %mul.val.i.i = shl i64 %insize, 3
   %mul.ov.i.i = icmp ult i64 %insize, 2305843009213693952
-  %cmp.i.i = icmp ult i64 %mul.val.i.i, -64
+  %cmp.i.i = icmp ult i64 %mul.val.i.i, -71
   %or.cond.i = and i1 %mul.ov.i.i, %cmp.i.i
   br i1 %or.cond.i, label %while.cond.preheader, label %return
 

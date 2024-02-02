@@ -728,7 +728,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
-  %cmp.not.i.i.i.i = icmp ult i64 %sext, 4294967296
+  %cmp.not.i.i.i.i = icmp ult i64 %sext, 3221225473
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
@@ -907,7 +907,7 @@ invoke.cont3:
   %sext = shl i64 %sub.ptr.sub.i.i, 30
   %conv = ashr i64 %sext, 32
   %_M_finish.i.i5 = getelementptr inbounds i8, ptr %data, i64 16
-  %cmp.i.not = icmp ult i64 %sext, 4294967296
+  %cmp.i.not = icmp ult i64 %sext, 3221225473
   br i1 %cmp.i.not, label %if.end, label %if.else.i31
 
 if.else.i31:                                      ; preds = %invoke.cont3

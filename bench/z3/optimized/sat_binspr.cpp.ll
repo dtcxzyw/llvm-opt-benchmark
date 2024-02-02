@@ -705,7 +705,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   %shl4.i.i = shl i32 %sub.i.i165, %pos.08.i.i
   %or.i.i = or i32 %shl4.i.i, %mask.09.i.i
   %add7.i.i = add nuw i32 %pos.08.i.i, %shl3.i.i167
-  %cmp.i.i = icmp ult i32 %add7.i.i, 32
+  %cmp.i.i = icmp ult i32 %add7.i.i, 31
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN3sat6binspr7mk_maskEj.exit.i, !llvm.loop !11
 
 _ZN3sat6binspr7mk_maskEj.exit.i:                  ; preds = %while.body.i.i
@@ -1527,7 +1527,7 @@ while.body.i:                                     ; preds = %for.body, %while.bo
   %shl4.i = shl i32 %sub.i, %pos.08.i
   %or.i = or i32 %shl4.i, %mask.09.i
   %add7.i = add nuw i32 %pos.08.i, %shl3.i
-  %cmp.i = icmp ult i32 %add7.i, 32
+  %cmp.i = icmp ult i32 %add7.i, 31
   br i1 %cmp.i, label %while.body.i, label %_ZN3sat6binspr7mk_maskEj.exit, !llvm.loop !11
 
 _ZN3sat6binspr7mk_maskEj.exit:                    ; preds = %while.body.i

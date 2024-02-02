@@ -180,7 +180,7 @@ do.body.i:                                        ; preds = %do.body.i, %for.bod
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, %32
   %arrayidx.i = getelementptr inbounds %struct.HuffmanCode, ptr %arrayidx106, i64 %38
   store i32 %retval.i.sroa.0.0.insert.insert, ptr %arrayidx.i, align 2
-  %cmp.i = icmp sgt i64 %38, 0
+  %cmp.i = icmp sgt i64 %38, 1
   br i1 %cmp.i, label %do.body.i, label %ReplicateValue.exit, !llvm.loop !7
 
 ReplicateValue.exit:                              ; preds = %do.body.i

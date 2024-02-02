@@ -13181,7 +13181,7 @@ if.then.i.i68:                                    ; preds = %if.end47
 
 _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %if.end47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chunks, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i60 = icmp ult i64 %sext, 4294967296
+  %cmp.not.i.i.i.i60 = icmp ult i64 %sext, 4026531841
   br i1 %cmp.not.i.i.i.i60, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EEC2EmRKS4_.exit.thread.i, label %for.body.preheader.i.i.i.i.i61
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EEC2EmRKS4_.exit.thread.i: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i

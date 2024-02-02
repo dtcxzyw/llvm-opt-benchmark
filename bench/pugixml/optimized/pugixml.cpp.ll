@@ -1606,7 +1606,7 @@ if.else5:                                         ; preds = %if.end4.i, %if.then
   br i1 %cmp.i.i36, label %if.then.i.i44, label %if.end.i.i37
 
 if.then.i.i44:                                    ; preds = %if.else5
-  %cmp.i.i.i = icmp ult i64 %and.i33, 8183
+  %cmp.i.i.i = icmp ult i64 %and.i33, 8177
   %20 = add i64 %and.i33, 40
   %add.i.i.i.i = select i1 %cmp.i.i.i, i64 32768, i64 %20
   %21 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE8allocateE, align 8
@@ -1673,7 +1673,7 @@ if.end17:                                         ; preds = %if.end.i.i37, %if.e
   %div7.i = lshr i64 %sub.i39, 3
   %conv.i40 = trunc i64 %div7.i to i16
   store i16 %conv.i40, ptr %retval.0.i.ph.i, align 2
-  %cmp.i41 = icmp ult i64 %and.i33, 524288
+  %cmp.i41 = icmp ult i64 %and.i33, 524281
   %div48.i = lshr i64 %add2.i, 3
   %32 = trunc i64 %div48.i to i16
   %conv5.i = select i1 %cmp.i41, i16 %32, i16 0

@@ -1164,7 +1164,8 @@ if.end103:                                        ; preds = %while.body100.prehe
 
 if.then105:                                       ; preds = %if.end103
   %conv106 = trunc i32 %prefix.1 to i8
-  %cmp108 = icmp sgt i8 %conv106, 87
+  %sext = shl i32 %prefix.1, 24
+  %cmp108 = icmp sgt i32 %sext, 1476395007
   br i1 %cmp108, label %if.then110, label %if.end112
 
 if.then110:                                       ; preds = %if.then105

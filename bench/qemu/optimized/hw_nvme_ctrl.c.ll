@@ -15767,7 +15767,7 @@ if.end13:                                         ; preds = %land.lhs.true10, %i
 
 if.end17:                                         ; preds = %if.end13
   %conv = zext i32 %shl to i64
-  %cmp18 = icmp ult i32 %shl, 64
+  %cmp18 = icmp ult i32 %shl, 61
   br i1 %cmp18, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end17

@@ -4386,7 +4386,7 @@ entry:
   %0 = load ptr, ptr %parent_bus, align 8
   %call17 = tail call i32 @qemu_get_byte(ptr noundef %f) #15
   %sext18 = shl i32 %call17, 24
-  %cmp19 = icmp sgt i32 %sext18, 0
+  %cmp19 = icmp sgt i32 %sext18, 16777215
   br i1 %cmp19, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
@@ -4483,7 +4483,7 @@ scsi_req_enqueue_internal.exit:                   ; preds = %scsi_req_ref.exit.i
   call void @scsi_req_unref(ptr noundef nonnull %call6)
   %call = call i32 @qemu_get_byte(ptr noundef %f) #15
   %sext = shl i32 %call, 24
-  %cmp = icmp sgt i32 %sext, 0
+  %cmp = icmp sgt i32 %sext, 16777215
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !19
 
 while.end:                                        ; preds = %scsi_req_enqueue_internal.exit, %entry

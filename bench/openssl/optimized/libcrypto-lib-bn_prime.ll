@@ -181,7 +181,7 @@ for.end72.split.us.us.us.i:                       ; preds = %for.inc70.us.us74.u
 
 loop.us.us.us90.i:                                ; preds = %if.end16.us.us.i, %if.then61.split.us.us.us.us.i
   %delta.0.us.us.us91.i = phi i64 [ %add64.us.us.us106.i, %if.then61.split.us.us.us.us.i ], [ 0, %if.end16.us.us.i ]
-  %cmp27.us.us.us.i = icmp ult i64 %delta.0.us.us.us91.i, 2147483648
+  %cmp27.us.us.us.i = icmp ult i64 %delta.0.us.us.us91.i, 2147483647
   br i1 %cmp27.us.us.us.i, label %for.body23.us.us.us.us.us.i, label %for.body23.us.us64.us.us92.i
 
 for.body23.us.us64.us.us92.i:                     ; preds = %loop.us.us.us90.i, %for.inc70.us.us74.us.us102.i
@@ -349,7 +349,7 @@ if.then61.split.i.loopexit99.us:                  ; preds = %for.body23.i.us
 
 loop.i:                                           ; preds = %loop.i.preheader, %if.then61.split.i
   %delta.0.i = phi i64 [ %add64.i, %if.then61.split.i ], [ 0, %loop.i.preheader ]
-  %cmp27.i = icmp ult i64 %delta.0.i, 2147483648
+  %cmp27.i = icmp ult i64 %delta.0.i, 2147483645
   br i1 %cmp27.i, label %for.body23.us38.i, label %for.body23.i
 
 for.body23.us38.i:                                ; preds = %loop.i, %for.inc70.us49.i

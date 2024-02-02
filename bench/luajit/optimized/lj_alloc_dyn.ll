@@ -243,7 +243,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i
   br i1 %tobool8.not.i, label %if.else10.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %land.lhs.true.i
-  %cmp.i.i = icmp ult i64 %cond.i, 256
+  %cmp.i.i = icmp ult i64 %cond.i, 249
   br i1 %cmp.i.i, label %if.else61.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then9.i
@@ -1214,7 +1214,7 @@ if.else61:                                        ; preds = %if.then31
 if.end64:                                         ; preds = %if.else61, %if.then55
   %shl65 = shl nuw nsw i64 %conv46, 3
   %sub = sub nsw i64 %shl65, %cond
-  %cmp66 = icmp ult i64 %sub, 32
+  %cmp66 = icmp ult i64 %sub, 25
   %head72 = getelementptr inbounds i8, ptr %6, i64 8
   br i1 %cmp66, label %if.then68, label %if.else77
 

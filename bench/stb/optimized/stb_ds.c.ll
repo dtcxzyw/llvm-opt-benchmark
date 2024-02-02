@@ -1652,7 +1652,7 @@ if.then.i183:                                     ; preds = %sw.bb187
   %46 = lshr i8 %45, 1
   %shr.i184 = zext nneg i8 %46 to i64
   %shl.i = shl i64 512, %shr.i184
-  %cmp1.i = icmp ult i64 %shl.i, 1048576
+  %cmp1.i = icmp ult i64 %shl.i, 1048065
   br i1 %cmp1.i, label %if.then3.i, label %if.end.i
 
 if.then3.i:                                       ; preds = %if.then.i183
@@ -1769,7 +1769,7 @@ if.then:                                          ; preds = %entry
   %2 = lshr i8 %1, 1
   %shr = zext nneg i8 %2 to i64
   %shl = shl i64 512, %shr
-  %cmp1 = icmp ult i64 %shl, 1048576
+  %cmp1 = icmp ult i64 %shl, 1048065
   br i1 %cmp1, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then

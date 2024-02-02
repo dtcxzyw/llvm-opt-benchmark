@@ -92,7 +92,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
 
 sw.bb12.i:                                        ; preds = %while.body.i
   %shl.i = shl i32 %out_len.016.i, 1
-  %cmp13.i = icmp ugt i32 %shl.i, 1048576
+  %cmp13.i = icmp ugt i32 %shl.i, 1048577
   br i1 %cmp13.i, label %err_end.i, label %if.end16.i
 
 if.end16.i:                                       ; preds = %sw.bb12.i
@@ -269,7 +269,7 @@ while.body.i:                                     ; preds = %entry, %sw.epilog.i
 
 sw.bb9.i:                                         ; preds = %while.body.i
   %shl.i = shl i32 %out_len.013.i, 1
-  %cmp10.i = icmp ugt i32 %shl.i, 1048576
+  %cmp10.i = icmp ugt i32 %shl.i, 1048577
   br i1 %cmp10.i, label %err_end.i, label %if.end13.i
 
 if.end13.i:                                       ; preds = %sw.bb9.i

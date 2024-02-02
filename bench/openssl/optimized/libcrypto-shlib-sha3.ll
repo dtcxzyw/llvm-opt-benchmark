@@ -22,7 +22,7 @@ define noundef i32 @ossl_sha3_init(ptr nocapture noundef writeonly %ctx, i8 noun
 entry:
   %mul = shl i64 %bitlen, 1
   %sub = sub i64 1600, %mul
-  %cmp = icmp ult i64 %sub, 1352
+  %cmp = icmp ult i64 %sub, 1351
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
@@ -51,7 +51,7 @@ define noundef i32 @ossl_keccak_kmac_init(ptr nocapture noundef writeonly %ctx, 
 entry:
   %mul.i = shl i64 %bitlen, 1
   %sub.i = sub i64 1600, %mul.i
-  %cmp.i = icmp ult i64 %sub.i, 1352
+  %cmp.i = icmp ult i64 %sub.i, 1351
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

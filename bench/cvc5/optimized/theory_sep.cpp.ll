@@ -3849,7 +3849,7 @@ entry:
   %bf.clear.i = and i16 %bf.load.i, 1022
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
   %call.off = add nsw i32 %bf.cast.i, -238
-  %switch = icmp ult i32 %call.off, 4
+  %switch = icmp ult i32 %call.off, 3
   br i1 %switch, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -11917,7 +11917,7 @@ cond.end10:                                       ; preds = %cond.end, %cond.tru
   %bf.clear.i23 = and i16 %bf.load.i22, 1022
   %bf.cast.i24 = zext nneg i16 %bf.clear.i23 to i32
   %3 = add nsw i32 %bf.cast.i24, -242
-  %switch.selectcmp.i = icmp ult i32 %3, -4
+  %switch.selectcmp.i = icmp ult i32 %3, -5
   br i1 %switch.selectcmp.i, label %if.end31, label %if.then
 
 if.then:                                          ; preds = %cond.end10

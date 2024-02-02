@@ -3559,7 +3559,7 @@ invoke.cont:                                      ; preds = %if.end
   %conv5 = zext i32 %6 to i64
   %mul = mul i64 %sub.ptr.div.i, %conv5
   %mul6 = shl i64 %mul, 2
-  %cmp.i = icmp ugt i64 %mul6, 384307168202282325
+  %cmp.i = icmp ugt i64 %mul6, 384307168202282327
   br i1 %cmp.i, label %if.then.i94.invoke, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont

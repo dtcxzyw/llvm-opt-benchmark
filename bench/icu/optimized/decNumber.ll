@@ -6492,7 +6492,7 @@ if.end88:                                         ; preds = %if.then85, %if.end8
   %div93 = sdiv i32 %add92, 8
   %mul90190 = add nsw i32 %div93, %add73
   %add95 = shl i32 %mul90190, 3
-  %cmp96 = icmp sgt i32 %add95, 160
+  %cmp96 = icmp sgt i32 %add95, 167
   br i1 %cmp96, label %if.then97, label %if.end100
 
 if.then97:                                        ; preds = %if.end88

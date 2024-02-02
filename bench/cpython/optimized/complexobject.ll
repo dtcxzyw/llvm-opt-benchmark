@@ -2891,7 +2891,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %while
   %29 = insertelement <2 x double> %28, double %26, i64 0
   %30 = fmul <2 x double> %27, %29
   %31 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %28, <2 x double> %15, <2 x double> %30)
-  %cmp.i.i = icmp sgt i64 %shl.i.i, 0
+  %cmp.i.i = icmp sgt i64 %shl.i.i, 1
   %cmp1.i.i = icmp sle i64 %shl.i.i, %conv
   %32 = and i1 %cmp.i.i, %cmp1.i.i
   br i1 %32, label %while.body.i.i, label %c_powi.exit, !llvm.loop !6
@@ -2929,7 +2929,7 @@ if.end.i22.i:                                     ; preds = %if.then.i19.i, %whi
   %47 = insertelement <2 x double> %46, double %44, i64 0
   %48 = fmul <2 x double> %45, %47
   %49 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %46, <2 x double> %33, <2 x double> %48)
-  %cmp.i28.i = icmp sgt i64 %shl.i25.i, 0
+  %cmp.i28.i = icmp sgt i64 %shl.i25.i, 1
   %cmp1.i29.i = icmp sle i64 %shl.i25.i, %sub.i
   %50 = and i1 %cmp.i28.i, %cmp1.i29.i
   br i1 %50, label %while.body.i11.i, label %c_powu.exit30.i, !llvm.loop !6

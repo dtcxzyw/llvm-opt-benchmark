@@ -1839,7 +1839,7 @@ land.lhs.true111:                                 ; preds = %if.end106
   %readers = getelementptr inbounds i8, ptr %23, i64 40
   %24 = load i64, ptr %readers, align 8
   %and112 = and i64 %24, -256
-  %cmp113 = icmp sgt i64 %and112, 256
+  %cmp113 = icmp sgt i64 %and112, 511
   br i1 %cmp113, label %if.then114, label %do.body144
 
 if.then114:                                       ; preds = %land.lhs.true111

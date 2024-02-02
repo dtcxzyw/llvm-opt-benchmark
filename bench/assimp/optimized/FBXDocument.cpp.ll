@@ -5571,7 +5571,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %mul = shl i64 %1, 1
-  %2 = tail call i64 @llvm.umin.i64(i64 %mul, i64 67108864)
+  %cmp.i = icmp ugt i64 %mul, 67108865
+  %2 = select i1 %cmp.i, i64 67108864, i64 %mul
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %2, i64 %byteSize)
   store i64 %.sroa.speculated, ptr %this, align 8
   %call6 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %.sroa.speculated) #26

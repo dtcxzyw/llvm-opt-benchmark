@@ -2551,7 +2551,7 @@ hamt_node_collision_new.exit.i:                   ; preds = %for.body.lr.ph.i58.
   %127 = ptrtoint ptr %122 to i64
   store i64 %127, ptr %add.ptr.i.i.i51.i, align 8
   store i64 %125, ptr %_gc_prev.i.i54.i, align 8
-  %cmp4277.i = icmp sgt i64 %i.09.i.i, 0
+  %cmp4277.i = icmp sgt i64 %i.09.i.i, 1
   br i1 %cmp4277.i, label %for.body.lr.ph.i, label %for.end.i47
 
 for.body.lr.ph.i:                                 ; preds = %hamt_node_collision_new.exit.i

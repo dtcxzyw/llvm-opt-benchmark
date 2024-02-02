@@ -3364,7 +3364,7 @@ if.end124:                                        ; preds = %invoke.cont97
   %18 = load ptr, ptr %aead_tags, align 8
   %19 = load i64, ptr %aead_len, align 8
   %add.ptr.idx = shl nsw i64 %19, 2
-  %cmp.i.i.i = icmp ugt i64 %add.ptr.idx, 9223372036854775804
+  %cmp.i.i.i = icmp slt i64 %19, 0
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end124
@@ -3490,7 +3490,7 @@ if.end194:                                        ; preds = %invoke.cont165, %in
   %24 = load ptr, ptr %tbkp_tags, align 8
   %25 = load i64, ptr %tbkp_len, align 8
   %add.ptr196.idx = shl nsw i64 %25, 2
-  %cmp.i.i.i39 = icmp ugt i64 %add.ptr196.idx, 9223372036854775804
+  %cmp.i.i.i39 = icmp slt i64 %25, 0
   br i1 %cmp.i.i.i39, label %if.then.i.i.i57, label %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i40
 
 if.then.i.i.i57:                                  ; preds = %if.end194

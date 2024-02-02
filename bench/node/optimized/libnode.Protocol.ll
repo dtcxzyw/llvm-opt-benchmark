@@ -24809,7 +24809,7 @@ if.end42:                                         ; preds = %while.body35
 
 while.end:                                        ; preds = %if.end42
   %7 = add i32 %shl, -1114112
-  %or.cond = icmp ult i32 %7, -1113984
+  %or.cond = icmp ult i32 %7, -1114047
   br i1 %or.cond, label %return, label %if.end50
 
 if.end50:                                         ; preds = %while.end

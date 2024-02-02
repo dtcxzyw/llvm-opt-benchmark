@@ -3919,7 +3919,7 @@ while.body:                                       ; preds = %if.end78, %while.bo
   %sub42 = add i32 %wait_timeout.036, -1000
   %call79 = call i32 @access(ptr noundef nonnull %add.ptr, i32 noundef 0) #18
   %cmp80 = icmp eq i32 %call79, -1
-  %cmp82 = icmp ugt i32 %wait_timeout.036, 1000
+  %cmp82 = icmp ugt i32 %wait_timeout.036, 1007
   %1 = select i1 %cmp80, i1 %cmp82, i1 false
   br i1 %1, label %while.body, label %while.end, !llvm.loop !26
 

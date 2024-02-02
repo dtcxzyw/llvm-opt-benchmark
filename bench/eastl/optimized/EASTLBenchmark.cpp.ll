@@ -1737,7 +1737,7 @@ if.else:                                          ; preds = %entry
 
 if.then18:                                        ; preds = %if.else
   %mul = shl i64 %cond.i, 1
-  %cmp2155 = icmp ult i64 %mul, 1000000
+  %cmp2155 = icmp ult i64 %mul, 999999
   br i1 %cmp2155, label %for.body.preheader, label %if.end44
 
 for.body.preheader:                               ; preds = %if.then18

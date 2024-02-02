@@ -1197,17 +1197,17 @@ if.end38.i:                                       ; preds = %for.end34.i
 
 sw.bb.i:                                          ; preds = %if.end38.i
   %12 = add i32 %shl28.i, -2048
-  %or.cond2.i = icmp ult i32 %12, -1920
+  %or.cond2.i = icmp ult i32 %12, -1983
   br i1 %or.cond2.i, label %if.then23, label %_ZN11flatbuffers8FromUTF8EPPKc.exit
 
 sw.bb44.i:                                        ; preds = %if.end38.i
   %13 = add i32 %shl28.i, -65536
-  %or.cond3.i = icmp ult i32 %13, -63488
+  %or.cond3.i = icmp ult i32 %13, -63551
   br i1 %or.cond3.i, label %if.then23, label %_ZN11flatbuffers8FromUTF8EPPKc.exit
 
 sw.bb50.i:                                        ; preds = %if.end38.i
   %14 = add i32 %shl28.i, -1114112
-  %or.cond4.i = icmp ult i32 %14, -1048576
+  %or.cond4.i = icmp ult i32 %14, -1048639
   br i1 %or.cond4.i, label %if.then23, label %_ZN11flatbuffers8FromUTF8EPPKc.exit
 
 default.unreachable.i:                            ; preds = %if.end38.i

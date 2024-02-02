@@ -755,7 +755,7 @@ if.then3.i:                                       ; preds = %if.end.i
   store i64 0, ptr %n_added_buckets.i6.i, align 8
   %div14.i.i = lshr i64 %mul.i, 3
   %n_added_buckets_threshold.i7.i = getelementptr inbounds i8, ptr %call.i5.i, i64 40
-  %cmp.i8.i = icmp ult i64 %mul.i, 8
+  %cmp.i8.i = icmp ult i64 %mul.i, 7
   %spec.select.i.i = select i1 %cmp.i8.i, i64 1, i64 %div14.i.i
   store i64 %spec.select.i.i, ptr %n_added_buckets_threshold.i7.i, align 8
   %mul.i.i = shl i64 %20, 7

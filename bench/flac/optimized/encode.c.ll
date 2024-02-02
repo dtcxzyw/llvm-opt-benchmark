@@ -1390,7 +1390,7 @@ if.end475.i:                                      ; preds = %if.else469.i
   %192 = load i64, ptr %skip.i, align 8
   %add476.i = add i64 %192, 7
   %and477.i = and i64 %add476.i, -8
-  %cmp478.i = icmp ult i64 %and477.i, 24
+  %cmp478.i = icmp ult i64 %and477.i, 17
   br i1 %cmp478.i, label %if.then480.i, label %if.end483.i
 
 if.then480.i:                                     ; preds = %if.end475.i

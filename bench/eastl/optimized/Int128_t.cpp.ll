@@ -1902,7 +1902,7 @@ land.rhs89:                                       ; preds = %while.cond85.prehea
   %p.6.idx162 = phi i64 [ %p.6.add, %while.body95 ], [ 0, %while.cond85.preheader ]
   %conv91 = and i32 %18, 126
   %isdigittmp = add nsw i32 %conv91, -48
-  %isdigit = icmp ult i32 %isdigittmp, 10
+  %isdigit = icmp ult i32 %isdigittmp, 9
   br i1 %isdigit, label %while.body95, label %while.end97
 
 while.body95:                                     ; preds = %land.rhs89
@@ -4643,7 +4643,7 @@ land.rhs89:                                       ; preds = %while.cond85.prehea
   %p.6.idx166 = phi i64 [ %p.6.add, %while.body95 ], [ 0, %while.cond85.preheader ]
   %conv91 = and i32 %18, 126
   %isdigittmp = add nsw i32 %conv91, -48
-  %isdigit = icmp ult i32 %isdigittmp, 10
+  %isdigit = icmp ult i32 %isdigittmp, 9
   br i1 %isdigit, label %while.body95, label %while.end97
 
 while.body95:                                     ; preds = %land.rhs89

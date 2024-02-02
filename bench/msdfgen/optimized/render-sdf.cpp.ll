@@ -1418,7 +1418,7 @@ entry:
   %mul1 = mul nsw i32 %mul, %2
   %idx.ext = sext i32 %mul1 to i64
   %add.ptr = getelementptr inbounds float, ptr %0, i64 %idx.ext
-  %cmp9 = icmp sgt i32 %mul1, 0
+  %cmp9 = icmp sgt i32 %mul1, 3
   br i1 %cmp9, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.body

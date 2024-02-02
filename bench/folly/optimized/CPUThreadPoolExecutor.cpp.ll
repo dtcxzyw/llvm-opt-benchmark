@@ -26055,7 +26055,7 @@ if.end.us:                                        ; preds = %if.end.lr.ph, %for.
   %begin.0171.us = phi i64 [ %spec.select.us, %for.inc.us ], [ 0, %if.end.lr.ph ]
   %tries.0170.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %if.end.lr.ph ]
   %sub.us = sub i32 %shl, %and.i172.us
-  %cmp6.not.us = icmp ult i32 %sub.us, 2147483647
+  %cmp6.not.us = icmp ult i32 %sub.us, 2147483585
   br i1 %cmp6.not.us, label %if.end8.us, label %cleanup84
 
 if.end8.us:                                       ; preds = %if.end.us
@@ -26111,7 +26111,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %for.
   %begin.0171 = phi i64 [ %spec.select, %for.inc ], [ 0, %if.end.lr.ph ]
   %tries.0170 = phi i32 [ %inc, %for.inc ], [ 0, %if.end.lr.ph ]
   %sub = sub i32 %shl, %and.i172
-  %cmp6.not = icmp ult i32 %sub, 2147483647
+  %cmp6.not = icmp ult i32 %sub, 2147483585
   br i1 %cmp6.not, label %if.end8, label %cleanup84
 
 if.end8:                                          ; preds = %if.end

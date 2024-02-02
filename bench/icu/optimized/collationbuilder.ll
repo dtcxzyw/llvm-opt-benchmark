@@ -6519,7 +6519,7 @@ land.lhs.true.i:                                  ; preds = %entry
   %shr.i = lshr i32 %ce32, 8
   %and1.i = and i32 %shr.i, 254
   %0 = add nsw i32 %and1.i, -70
-  %or.cond = icmp ult i32 %0, -64
+  %or.cond = icmp ult i32 %0, -65
   br i1 %or.cond, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true.i

@@ -2214,7 +2214,8 @@ if.then230:                                       ; preds = %if.then228
   %reass.sub = sub i32 %30, %31
   %32 = and i32 %reass.sub, -4
   %and236 = add i32 %32, 4
-  %spec.select.v = tail call i32 @llvm.smax.i32(i32 %and236, i32 8)
+  %cmp239 = icmp slt i32 %and236, 5
+  %spec.select.v = select i1 %cmp239, i32 8, i32 %and236
   %spec.select = or disjoint i32 %spec.select.v, %and
   %.pre = add nsw i32 %spec.select, %29
   br label %if.end243

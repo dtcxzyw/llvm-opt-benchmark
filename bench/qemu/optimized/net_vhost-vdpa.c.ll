@@ -428,7 +428,7 @@ if.end45.i:                                       ; preds = %if.end32.i
   br i1 %cmp47.i, label %if.then55.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end45.i
-  %cmp6237.i = icmp sgt i32 %mul, 0
+  %cmp6237.i = icmp sgt i32 %mul, 1
   br i1 %cmp6237.i, label %for.body.lr.ph.i, label %out.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i

@@ -2003,7 +2003,7 @@ entry:
   %staticbuf = alloca [1024 x i8], align 16
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #27
   %mul = shl i64 %call, 1
-  %cmp = icmp ugt i64 %mul, 1024
+  %cmp = icmp ugt i64 %mul, 1025
   br i1 %cmp, label %if.then, label %while.body.preheader
 
 if.then:                                          ; preds = %entry

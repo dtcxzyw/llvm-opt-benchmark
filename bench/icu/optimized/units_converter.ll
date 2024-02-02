@@ -1935,7 +1935,7 @@ land.lhs.true.i.i.i:                              ; preds = %for.end.i
   %cmp5.i.i.i = icmp eq i32 %unitIndicesWithDimension.val.i, 8
   %mul6.i.i.i = shl nsw i32 %unitIndicesWithDimension.val.i, 1
   %cond.i.i.i = select i1 %cmp5.i.i.i, i32 32, i32 %mul6.i.i.i
-  %cmp.i.i.i.i = icmp sgt i32 %cond.i.i.i, 0
+  %cmp.i.i.i.i = icmp sgt i32 %cond.i.i.i, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN6icu_755units12_GLOBAL__N_128mergeSingleUnitWithDimensionERNS_16MaybeStackVectorINS1_21UnitIndexAndDimensionELi8EEERKNS_14SingleUnitImplEi.exit
 
 if.then.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i

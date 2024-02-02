@@ -17506,7 +17506,7 @@ land.lhs.true:                                    ; preds = %entry
   %cmp5 = icmp eq i32 %0, 8
   %mul6 = shl nsw i32 %0, 1
   %cond = select i1 %cmp5, i32 32, i32 %mul6
-  %cmp.i = icmp sgt i32 %cond, 0
+  %cmp.i = icmp sgt i32 %cond, 1
   br i1 %cmp.i, label %if.then.i, label %return
 
 if.then.i:                                        ; preds = %land.lhs.true

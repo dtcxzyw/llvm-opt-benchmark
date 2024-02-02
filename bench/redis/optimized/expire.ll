@@ -292,7 +292,7 @@ if.end61:                                         ; preds = %if.end61.lr.ph, %do
   store i64 %call62, ptr %now, align 8
   %spec.select44 = call i64 @llvm.umin.i64(i64 %call5763, i64 %add)
   %mul67 = mul i64 %spec.select44, 20
-  %cmp7255 = icmp sgt i64 %mul67, 0
+  %cmp7255 = icmp sgt i64 %mul67, 3
   %10 = select i1 %cmp6954, i1 %cmp7255, i1 false
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %sampled, i8 0, i64 28, i1 false)
   br i1 %10, label %while.body.preheader, label %if.end107

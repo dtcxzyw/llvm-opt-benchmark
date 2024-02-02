@@ -278,7 +278,7 @@ if.end108:                                        ; preds = %while.body100
   br i1 %cmp98.not, label %while.end, label %while.body100, !llvm.loop !5
 
 while.end:                                        ; preds = %if.end108
-  %cmp113 = icmp ult i64 %chunk_max.082, 1073741823
+  %cmp113 = icmp ult i64 %chunk_max.082, 1073725441
   %mul = zext i1 %cmp113 to i64
   %spec.select = shl nuw nsw i64 %chunk_max.082, %mul
   %cmp87.not = icmp eq i64 %sub96, 0

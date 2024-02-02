@@ -1812,7 +1812,7 @@ entry:
   %div13 = lshr exact i64 %and1.i, 16
   %arena_id = getelementptr inbounds i8, ptr %heap, i64 2856
   %0 = load i32, ptr %arena_id, align 8
-  %cmp.i.i.i.i = icmp ult i64 %and1.i, 131072
+  %cmp.i.i.i.i = icmp ult i64 %and1.i, 65537
   br i1 %cmp.i.i.i.i, label %for.cond.preheader.preheader.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
@@ -2034,7 +2034,7 @@ for.inc.i:                                        ; preds = %if.then6.i, %for.bo
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %sq.0.add.i = add nuw nsw i64 %sq.0.idx39.i, 24
-  %cmp1.not.i = icmp ugt i64 %sq.0.idx39.i, 816
+  %cmp1.not.i = icmp ugt i64 %sq.0.idx39.i, 823
   br i1 %cmp1.not.i, label %if.then, label %for.cond.preheader.i, !llvm.loop !27
 
 if.then:                                          ; preds = %for.end.i, %if.then22.i, %mi_span_queue_for.exit.i

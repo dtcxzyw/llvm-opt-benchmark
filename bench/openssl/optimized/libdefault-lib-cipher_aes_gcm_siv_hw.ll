@@ -211,7 +211,7 @@ if.end.i12:                                       ; preds = %if.then2
   %add.i = add i64 %len, 15
   %add4.i = add i64 %add.i, %3
   %and.i13 = and i64 %add4.i, -16
-  %cmp5.i = icmp ugt i64 %and.i13, 68719476736
+  %cmp5.i = icmp ugt i64 %and.i13, 68719476751
   br i1 %cmp5.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i12

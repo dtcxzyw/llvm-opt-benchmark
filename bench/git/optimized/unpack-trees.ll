@@ -6570,7 +6570,7 @@ strbuf_addch.exit103:                             ; preds = %strbuf_avail.exit.i
   %sext1 = shl i64 %sub.ptr.sub22, 29
   %idx.ext.i = ashr i64 %sext1, 32
   %add.ptr.i = getelementptr inbounds ptr, ptr %cache.addr.015, i64 %idx.ext.i
-  %cmp2.not.i8 = icmp ult i64 %sext1, 4294967296
+  %cmp2.not.i8 = icmp ult i64 %sext1, 3758096385
   br i1 %cmp2.not.i8, label %for.end.i, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %strbuf_addch.exit103

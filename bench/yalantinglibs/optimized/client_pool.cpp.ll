@@ -3493,7 +3493,7 @@ if.then.i.i2.i.i:                                 ; preds = %_ZNSt7__cxx1112basi
 
 _ZN7coro_io11client_poolIN8coro_rpc15coro_rpc_clientENS_15io_context_poolEE11pool_configD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3.i.i, %if.then.i.i2.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %host) #28
-  %cmp52 = icmp sgt i32 %mul, 0
+  %cmp52 = icmp sgt i32 %mul, 3
   %.pre56 = load ptr, ptr %client_pool, align 8
   br i1 %cmp52, label %for.body, label %for.end
 

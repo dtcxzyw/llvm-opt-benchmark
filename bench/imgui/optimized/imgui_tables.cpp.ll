@@ -13550,7 +13550,7 @@ if.end29:                                         ; preds = %if.then26, %if.end2
   %11 = load i32, ptr %Flags, align 4
   %and.i = and i32 %11, 57344
   %12 = add nsw i32 %and.i, -8192
-  %13 = icmp ult i32 %12, 32768
+  %13 = icmp ult i32 %12, 24577
   br i1 %13, label %switch.lookup, label %_ZL33DebugNodeTableGetSizingPolicyDesci.exit
 
 switch.lookup:                                    ; preds = %if.end29

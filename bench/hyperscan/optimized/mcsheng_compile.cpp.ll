@@ -10210,7 +10210,7 @@ land.lhs.true17:                                  ; preds = %if.end7
 if.end28:                                         ; preds = %if.end7.if.end28_crit_edge, %land.lhs.true17
   %conv29.pre-phi = phi i32 [ %.pre62, %if.end7.if.end28_crit_edge ], [ %conv22, %land.lhs.true17 ]
   %mul30 = shl i16 %.fr, 1
-  %cmp33 = icmp ugt i16 %mul30, 28
+  %cmp33 = icmp ugt i16 %mul30, 29
   br i1 %cmp33, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end28

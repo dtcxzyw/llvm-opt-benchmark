@@ -903,7 +903,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %if.end.i, %if.then.
   %0 = getelementptr i8, ptr %edata, i64 16
   %edata.val7 = load i64, ptr %0, align 8
   %and.i = and i64 %edata.val7, -4096
-  %cmp = icmp ugt i64 %and.i, 8192
+  %cmp = icmp ugt i64 %and.i, 12287
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %tsdn_rtree_ctx.exit
@@ -1147,7 +1147,7 @@ land.lhs.true:                                    ; preds = %rtree_write.exit153
   %17 = getelementptr i8, ptr %edata, i64 16
   %edata.val = load i64, ptr %17, align 8
   %and.i158 = and i64 %edata.val, -4096
-  %cmp17 = icmp ugt i64 %and.i158, 4096
+  %cmp17 = icmp ugt i64 %and.i158, 8191
   br i1 %cmp17, label %if.then19, label %if.end23
 
 if.then19:                                        ; preds = %land.lhs.true

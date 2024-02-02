@@ -517,7 +517,7 @@ for.body113.i:                                    ; preds = %for.body113.i, %if.
   %inc120.i = zext i1 %cmp116.i to i32
   %spec.select.i = add nuw nsw i32 %15, %inc120.i
   %add.i = add nuw nsw i32 %i.348.i, 2
-  %cmp111.i = icmp ult i32 %i.348.i, 318
+  %cmp111.i = icmp ult i32 %i.348.i, 317
   br i1 %cmp111.i, label %for.body113.i, label %for.end124.i, !llvm.loop !10
 
 for.end124.i:                                     ; preds = %for.body113.i

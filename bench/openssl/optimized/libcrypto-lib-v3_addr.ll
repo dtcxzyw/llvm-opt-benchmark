@@ -3664,7 +3664,7 @@ land.rhs:                                         ; preds = %land.lhs.true
 
 for.end:                                          ; preds = %land.lhs.true, %land.rhs
   %24 = trunc i64 %indvars.iv to i32
-  %cmp3061 = icmp sgt i32 %24, 0
+  %cmp3061 = icmp sgt i32 %24, 1
   br i1 %cmp3061, label %for.body32.preheader, label %if.end49.thread
 
 for.body32.preheader:                             ; preds = %for.end
@@ -3695,7 +3695,7 @@ if.end49.thread:                                  ; preds = %for.cond, %for.end
 
 for.end44:                                        ; preds = %for.body32
   %29 = trunc i64 %indvars.iv.next68 to i32
-  %cmp45 = icmp ult i32 %29, 16
+  %cmp45 = icmp ult i32 %29, 15
   br i1 %cmp45, label %if.end49, label %return
 
 if.end49:                                         ; preds = %for.end44

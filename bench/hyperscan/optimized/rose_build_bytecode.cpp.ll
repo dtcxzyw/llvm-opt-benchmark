@@ -16449,7 +16449,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.prol:                ; preds = %for.body.i.i.i.i.i.
 
 for.body.i.i.i.i.i.i.i.i.i.i.prol.loopexit:       ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.prol, %for.body.i.i.i.i.i.i.i.i.i.i.preheader
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.unr = phi ptr [ %incdec.ptr.i.i.i.i.i.ptr.i, %for.body.i.i.i.i.i.i.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.prol, %for.body.i.i.i.i.i.i.i.i.i.i.prol ]
-  %1594 = icmp ult i64 %1591, 60
+  %1594 = icmp ult i64 %1591, 57
   br i1 %1594, label %invoke.cont.i2327, label %for.body.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.prol.loopexit, %for.body.i.i.i.i.i.i.i.i.i.i
@@ -18243,7 +18243,7 @@ invoke.cont20.i2805:                              ; preds = %if.end8.i2798
   %add.ptr.i2806 = getelementptr inbounds i8, ptr %1862, i64 %and.i2800
   %1864 = load ptr, ptr %smwr_engine.i, align 8, !noalias !277
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i2806, ptr align 1 %1864, i64 %1860, i1 false)
-  %cmp.not.i.i.i2807 = icmp ult i64 %and.i2800, 4294967296
+  %cmp.not.i.i.i2807 = icmp ult i64 %and.i2800, 4294967233
   br i1 %cmp.not.i.i.i2807, label %invoke.cont28.i2812, label %if.then.i.i.i2808
 
 if.then.i.i.i2808:                                ; preds = %invoke.cont20.i2805

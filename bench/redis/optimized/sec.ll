@@ -26,7 +26,7 @@ entry:
   %max_alloc1 = getelementptr inbounds i8, ptr %opts, i64 8
   %0 = load i64, ptr %max_alloc1, align 8
   %and = and i64 %0, -4096
-  %cmp.i = icmp ugt i64 %and, 8070450532247928832
+  %cmp.i = icmp ugt i64 %and, 8070450532247932927
   br i1 %cmp.i, label %sz_psz2ind.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
@@ -648,7 +648,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i19, %if.the
 if.then4:                                         ; preds = %malloc_mutex_lock.exit
   %edata.val.i = load i64, ptr %1, align 8
   %and.i.i = and i64 %edata.val.i, -4096
-  %cmp.i.i20 = icmp ugt i64 %and.i.i, 8070450532247928832
+  %cmp.i.i20 = icmp ugt i64 %and.i.i, 8070450532247932927
   br i1 %cmp.i.i20, label %sz_psz2ind.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then4

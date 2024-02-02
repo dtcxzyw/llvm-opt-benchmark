@@ -1303,7 +1303,7 @@ entry:
   %shr = lshr i32 %tr, 24
   %and = and i32 %shr, 30
   %sub = add nsw i32 %and, -14
-  %cmp = icmp ult i32 %sub, 6
+  %cmp = icmp ult i32 %sub, 5
   br i1 %cmp, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -1382,7 +1382,7 @@ if.then:                                          ; preds = %entry
   %shr = lshr i32 %tr, 24
   %and1 = and i32 %shr, 30
   %sub = add nsw i32 %and1, -14
-  %cmp2 = icmp ult i32 %sub, 6
+  %cmp2 = icmp ult i32 %sub, 5
   br i1 %cmp2, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.then

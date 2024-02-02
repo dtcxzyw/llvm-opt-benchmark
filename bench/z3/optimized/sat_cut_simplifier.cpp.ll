@@ -9206,7 +9206,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %shl23.i.i = shl i64 %r.020.i.i, %inc.019.i.i
   %or.i.i = or i64 %shl23.i.i, %r.020.i.i
   %mul.i.i = shl nuw nsw i64 %inc.019.i.i, 1
-  %cmp22.i.i = icmp ult i64 %inc.019.i.i, 32
+  %cmp22.i.i = icmp ult i64 %inc.019.i.i, 31
   br i1 %cmp22.i.i, label %while.body.i.i, label %_ZN3sat14cut_simplifier12op2dont_careEjjRKNS0_7bin_relE.exit.i, !llvm.loop !59
 
 _ZN3sat14cut_simplifier12op2dont_careEjjRKNS0_7bin_relE.exit.i: ; preds = %while.body.i.i, %if.then.i
@@ -9819,7 +9819,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %shl23.i = shl i64 %r.020.i, %inc.019.i
   %or.i = or i64 %shl23.i, %r.020.i
   %mul.i = shl nuw nsw i64 %inc.019.i, 1
-  %cmp22.i = icmp ult i64 %inc.019.i, 32
+  %cmp22.i = icmp ult i64 %inc.019.i, 31
   br i1 %cmp22.i, label %while.body.i, label %_ZN3sat14cut_simplifier12op2dont_careEjjRKNS0_7bin_relE.exit, !llvm.loop !59
 
 _ZN3sat14cut_simplifier12op2dont_careEjjRKNS0_7bin_relE.exit: ; preds = %while.body.i, %if.then

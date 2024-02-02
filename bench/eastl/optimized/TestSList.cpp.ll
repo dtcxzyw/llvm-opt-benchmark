@@ -9082,7 +9082,7 @@ for.body.i.i.i4608:                               ; preds = %_ZN5eastl8distanceI
   %add.i.i.i = add nsw i64 %mul.i.i.i, 3
   %div.i.i.i = sdiv i64 %add.i.i.i, 13
   %955 = add i64 %mul.i.i.i, -114
-  %or.cond.i.i.i4609 = icmp ult i64 %955, 26
+  %or.cond.i.i.i4609 = icmp ult i64 %955, 25
   %spec.store.select.i.i.i = select i1 %or.cond.i.i.i4609, i64 11, i64 %div.i.i.i
   %tobool.not1.i.i.i.i.i = icmp eq i64 %spec.store.select.i.i.i, 0
   br i1 %tobool.not1.i.i.i.i.i, label %_ZN5eastl7advanceINS_13SListIteratorIiPiRiEElEEvRT_T0_.exit.i.i.i, label %while.body.i.i6.i.i.i
@@ -9273,7 +9273,7 @@ for.body.i.i4669:                                 ; preds = %_ZN5eastl8distanceI
   %add.i.i4670 = add nsw i64 %mul.i.i, 3
   %div.i.i = sdiv i64 %add.i.i4670, 13
   %975 = add i64 %mul.i.i, -114
-  %or.cond.i.i4671 = icmp ult i64 %975, 26
+  %or.cond.i.i4671 = icmp ult i64 %975, 25
   %spec.store.select.i.i = select i1 %or.cond.i.i4671, i64 11, i64 %div.i.i
   %tobool.not1.i.i.i.i = icmp eq i64 %spec.store.select.i.i, 0
   br i1 %tobool.not1.i.i.i.i, label %_ZN5eastl7advanceINS_13SListIteratorIiPiRiEElEEvRT_T0_.exit.i.i, label %while.body.i.i6.i.i

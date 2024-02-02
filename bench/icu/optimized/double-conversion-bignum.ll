@@ -1665,7 +1665,7 @@ for.end66:                                        ; preds = %while.end59, %for.c
   %22 = load i16, ptr %exponent_, align 2
   %mul70 = shl i16 %22, 1
   store i16 %mul70, ptr %exponent_, align 2
-  %cmp3.i = icmp sgt i16 %conv67, 0
+  %cmp3.i = icmp sgt i16 %conv67, 1
   br i1 %cmp3.i, label %land.rhs.lr.ph.i, label %while.end.i
 
 land.rhs.lr.ph.i:                                 ; preds = %for.end66

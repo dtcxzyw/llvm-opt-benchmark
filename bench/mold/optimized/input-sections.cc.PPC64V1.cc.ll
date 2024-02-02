@@ -4268,7 +4268,7 @@ cond.end.i83:                                     ; preds = %cond.true.i80
   br i1 %47, label %cleanup.sink.split, label %if.end39
 
 if.end39:                                         ; preds = %cond.end.i83, %cond.true.i80, %if.end.i.i77, %cond.false.i69
-  %cmp1.i.i = icmp sgt i32 %backoff.sroa.0.0, 0
+  %cmp1.i.i = icmp sgt i32 %backoff.sroa.0.0, 1
   br i1 %cmp1.i.i, label %while.body.i.i, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit
 
 while.body.i.i:                                   ; preds = %if.end39, %while.body.i.i
@@ -4279,7 +4279,7 @@ while.body.i.i:                                   ; preds = %if.end39, %while.bo
   br i1 %cmp.i.i86, label %while.body.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i, !llvm.loop !15
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i:       ; preds = %while.body.i.i
-  %cmp.i87 = icmp slt i32 %backoff.sroa.0.0, 16
+  %cmp.i87 = icmp slt i32 %backoff.sroa.0.0, 15
   br i1 %cmp.i87, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit, label %if.then41
 
 _ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit: ; preds = %if.end39, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i

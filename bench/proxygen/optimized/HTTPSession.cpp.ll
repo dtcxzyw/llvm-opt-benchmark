@@ -39321,7 +39321,7 @@ if.else11.i.i.i:                                  ; preds = %if.then.i
   %11 = tail call i64 @llvm.ctlz.i64(i64 %div.i.i.i, i1 true), !range !247
   %add.i.i.i.i = sub nuw nsw i64 64, %11
   %mul.i11.i.i.i = shl i64 12, %add.i.i.i.i
-  %cmp32.i.i.i = icmp ugt i64 %mul.i11.i.i.i, 10025404387885625
+  %cmp32.i.i.i = icmp ugt i64 %mul.i11.i.i.i, 10025404387885627
   br i1 %cmp32.i.i.i, label %if.then33.i.i.i, label %if.end34.i.i.i
 
 if.then33.i.i.i:                                  ; preds = %if.else11.i.i.i

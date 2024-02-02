@@ -3860,7 +3860,7 @@ if.then:                                          ; preds = %entry
   %len = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %len, align 4
   %and = and i32 %0, -2
-  %cmp29 = icmp sgt i32 %and, 0
+  %cmp29 = icmp sgt i32 %and, 1
   br i1 %cmp29, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.then

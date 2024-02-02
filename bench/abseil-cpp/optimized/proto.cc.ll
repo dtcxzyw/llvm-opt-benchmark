@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noundef zeroext i1 @_ZN4absl12log_internal12EncodeVarintEmmPNS_4SpanIcEE(i64 noundef %tag, i64 noundef %value, ptr nocapture noundef %buf) local_unnamed_addr #0 {
 entry:
   %shl.i = shl i64 %tag, 3
-  %cmp2.i = icmp ult i64 %shl.i, 128
+  %cmp2.i = icmp ult i64 %shl.i, 121
   br i1 %cmp2.i, label %_ZN4absl12log_internal10VarintSizeEm.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry, %cond.false.i

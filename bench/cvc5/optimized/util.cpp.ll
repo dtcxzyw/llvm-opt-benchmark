@@ -370,7 +370,7 @@ land.rhs:                                         ; preds = %invoke.cont
   %bf.clear.i = and i16 %bf.load.i, 1022
   %bf.cast.i = zext nneg i16 %bf.clear.i to i32
   %2 = add nsw i32 %bf.cast.i, -150
-  %switch.selectcmp = icmp ult i32 %2, -4
+  %switch.selectcmp = icmp ult i32 %2, -5
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %invoke.cont

@@ -693,7 +693,7 @@ if.end189:                                        ; preds = %land.lhs.true182, %
 if.then194:                                       ; preds = %if.end189
   %and195 = and i32 %i.4, -4
   %call200 = call i32 @EVP_DecodeBlock(ptr noundef nonnull %buf92, ptr noundef nonnull %tmp.ptr, i32 noundef %and195) #7
-  %cmp201 = icmp sgt i32 %and195, 2
+  %cmp201 = icmp sgt i32 %and195, 3
   br i1 %cmp201, label %if.then203, label %if.end223
 
 if.then203:                                       ; preds = %if.then194

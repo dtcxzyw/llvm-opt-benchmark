@@ -710,7 +710,7 @@ if.end:                                           ; preds = %for.body.i.i.i, %lo
   %19 = and i64 %sub1.i.i.i.i, 7
   %sub.i.i.i = sub i64 %add.i.i.i.i, %19
   store i64 %sub.i.i.i, ptr %offset.i.i, align 8
-  %cmp.i.i = icmp ugt i64 %add.i, 262144
+  %cmp.i.i = icmp ugt i64 %add.i, 262151
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.end
@@ -958,7 +958,7 @@ _ZN4llvh11SmallVectorIPN6hermes6parser10JSONStringELj10EEC2INS1_17PairFirstItera
   %16 = and i64 %sub1.i.i.i.i.i.i, 7
   %sub.i.i.i.i.i = sub i64 %add.i.i.i.i.i.i, %16
   store i64 %sub.i.i.i.i.i, ptr %offset.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, 262144
+  %cmp.i.i.i.i = icmp ugt i64 %add.i.i.i, 262151
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %_ZN4llvh11SmallVectorIPN6hermes6parser10JSONStringELj10EEC2INS1_17PairFirstIteratorIPSt4pairIS4_PNS2_9JSONValueEEEEvEET_SE_.exit

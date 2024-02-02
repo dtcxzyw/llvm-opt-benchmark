@@ -2252,7 +2252,7 @@ if.then195:                                       ; preds = %land.lhs.true188
   %shl201 = shl nuw nsw i32 %conv131, 12
   %or202 = or disjoint i32 %shl201, %shl199
   %31 = add nsw i32 %or202, -65536
-  %or.cond2 = icmp ult i32 %31, 1048576
+  %or.cond2 = icmp ult i32 %31, 1044481
   br i1 %or.cond2, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then195

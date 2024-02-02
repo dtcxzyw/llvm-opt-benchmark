@@ -650,7 +650,7 @@ if.end10:                                         ; preds = %if.end
   %add12 = add i64 %add, %3
   %mul = shl nsw i64 %add12, 1
   %add13 = add nsw i64 %mul, 2
-  %cmp14 = icmp ult i64 %add13, 2305843009213693952
+  %cmp14 = icmp ult i64 %add13, 2305843009213693951
   br i1 %cmp14, label %cond.end, label %if.then19
 
 cond.end:                                         ; preds = %if.end10

@@ -3960,7 +3960,7 @@ if.then.i.i:                                      ; preds = %if.end
 
 _ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %columns, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i = icmp ult i64 %sext, 4294967296
+  %cmp.not.i.i.i.i = icmp ult i64 %sext, 4026531841
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EEC2EmRKS4_.exit.thread.i, label %for.body.preheader.i.i.i.i.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EEC2EmRKS4_.exit.thread.i: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
@@ -3993,7 +3993,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont17
   %sext367 = shl i64 %sub.ptr.sub.i.i18, 28
   %conv19 = ashr i64 %sext367, 32
   %cmp.i.i22 = icmp ugt i64 %conv19, 576460752303423487
-  %cmp.not.i.i.i.i23 = icmp ult i64 %sext367, 4294967296
+  %cmp.not.i.i.i.i23 = icmp ult i64 %sext367, 4026531841
   %mul.i.i.i.i.i.i25 = shl nuw nsw i64 %conv19, 4
   %_M_finish.i.i7.i30 = getelementptr inbounds i8, ptr %chunks, i64 8
   %27 = getelementptr inbounds i8, ptr %chunks, i64 16

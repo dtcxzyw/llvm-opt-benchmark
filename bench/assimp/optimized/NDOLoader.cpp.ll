@@ -2220,7 +2220,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop, %in
   %mFaces = getelementptr inbounds i8, ptr %call369, i64 208
   store ptr %181, ptr %mFaces, align 8
   %mul378 = shl i64 %178, 2
-  %cmp.i785 = icmp ugt i64 %mul378, 768614336404564650
+  %cmp.i785 = icmp ugt i64 %mul378, 768614336404564651
   br i1 %cmp.i785, label %if.then.i807, label %if.end.i
 
 if.then.i807:                                     ; preds = %arrayctor.cont

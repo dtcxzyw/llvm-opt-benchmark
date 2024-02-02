@@ -3722,7 +3722,7 @@ if.then.i.i:                                      ; preds = %if.end
 
 _ZNSt6vectorIS_ISt10shared_ptrIN5arrow5ArrayEESaIS3_EESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i: ; preds = %if.end
   store i64 0, ptr %flattened_chunks, align 8
-  %cmp.not.i.i.i.i25 = icmp ult i64 %sext, 4294967296
+  %cmp.not.i.i.i.i25 = icmp ult i64 %sext, 4026531841
   br i1 %cmp.not.i.i.i.i25, label %_ZNSt12_Vector_baseISt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS4_EESaIS6_EEC2EmRKS7_.exit.thread.i, label %for.body.preheader.i.i.i.i.i
 
 _ZNSt12_Vector_baseISt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS4_EESaIS6_EEC2EmRKS7_.exit.thread.i: ; preds = %_ZNSt6vectorIS_ISt10shared_ptrIN5arrow5ArrayEESaIS3_EESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
@@ -3985,7 +3985,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEm
   %sext258.pre-phi311 = phi i64 [ %.pre298, %for.end67 ], [ %sext, %invoke.cont25 ]
   %conv73.pre-phi310 = phi i64 [ %.pre299, %for.end67 ], [ %conv, %invoke.cont25 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %flattened, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i89 = icmp ult i64 %sext258.pre-phi311, 4294967296
+  %cmp.not.i.i.i.i89 = icmp ult i64 %sext258.pre-phi311, 4026531841
   br i1 %cmp.not.i.i.i.i89, label %invoke.cont.i225, label %for.body.preheader.i.i.i.i.i90
 
 for.body.preheader.i.i.i.i.i90:                   ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
@@ -4868,7 +4868,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %entry
   store i64 0, ptr %out_chunks, align 8
-  %cmp.not.i.i.i.i = icmp ult i64 %sext, 4294967296
+  %cmp.not.i.i.i.i = icmp ult i64 %sext, 4026531841
   br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EEC2EmRKS4_.exit.thread.i, label %for.body.preheader.i.i.i.i.i
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EEC2EmRKS4_.exit.thread.i: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i

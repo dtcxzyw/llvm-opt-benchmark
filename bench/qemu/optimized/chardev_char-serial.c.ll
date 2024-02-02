@@ -242,7 +242,7 @@ entry:
   br i1 %cmp, label %done, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp ult i32 %mul, 836
+  %cmp1 = icmp ult i32 %mul, 835
   br i1 %cmp1, label %done, label %if.end3
 
 if.end3:                                          ; preds = %if.end

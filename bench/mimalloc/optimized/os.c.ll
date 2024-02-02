@@ -165,7 +165,7 @@ entry:
 if.end:                                           ; preds = %entry
   %add.i = add i64 %size, 33554431
   %and1.i = and i64 %add.i, -33554432
-  %cmp2 = icmp ugt i64 %and1.i, 1073741824
+  %cmp2 = icmp ugt i64 %and1.i, 1107296255
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end

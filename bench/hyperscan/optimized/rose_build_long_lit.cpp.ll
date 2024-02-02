@@ -722,7 +722,7 @@ invoke.cont103:                                   ; preds = %invoke.cont83
   %86 = load ptr, ptr %table, align 8, !alias.scope !30
   call void @llvm.memset.p0.i64(ptr align 1 %86, i8 0, i64 %and79, i1 false)
   %87 = load ptr, ptr %table, align 8
-  %cmp.not.i.i = icmp ult i64 %and79, 4294967296
+  %cmp.not.i.i = icmp ult i64 %and79, 4294967281
   br i1 %cmp.not.i.i, label %invoke.cont107, label %if.then.i.i388
 
 if.then.i.i388:                                   ; preds = %invoke.cont103
@@ -765,7 +765,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
   %conv.i.i396 = trunc i64 %sub to i8
   %maxLen = getelementptr inbounds i8, ptr %87, i64 29
   store i8 %conv.i.i396, ptr %maxLen, align 1
-  %cmp.not.i.i400 = icmp ult i64 %add61, 4294967296
+  %cmp.not.i.i400 = icmp ult i64 %add61, 4294967281
   br i1 %cmp.not.i.i400, label %invoke.cont111, label %if.then.i.i401
 
 if.then.i.i401:                                   ; preds = %invoke.cont109
@@ -1148,7 +1148,7 @@ call5.i.i.i.i3.i.i40.i.noexc:                     ; preds = %invoke.cont.thread.
   br i1 %cmp.i.not49.i, label %invoke.cont, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %call5.i.i.i.i3.i.i40.i.noexc
-  %cmp.not.i.i.i.i = icmp ult i64 %num_entries.0, 4294967296
+  %cmp.not.i.i.i.i = icmp ult i64 %num_entries.0, 4294967041
   %conv.i.i.i.i = trunc i64 %num_entries.0 to i32
   %tobool.not.i.i.i = icmp eq i32 %conv.i.i.i.i, 0
   %sub.i.i.i = tail call i32 @llvm.cttz.i32(i32 %conv.i.i.i.i, i1 true), !range !36

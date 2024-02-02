@@ -670,7 +670,7 @@ ccall_set_args.exit:                              ; preds = %for.end.i
   %conv262.i = and i8 %nsp.0.lcssa.i, -8
   %nsp263.i = getelementptr inbounds i8, ptr %cc, i64 12
   store i8 %conv262.i, ptr %nsp263.i, align 4
-  %cmp266.i = icmp ugt i8 %conv262.i, 8
+  %cmp266.i = icmp ugt i8 %conv262.i, 15
   %57 = and i8 %nsp.0.lcssa.i, -16
   %58 = or disjoint i8 %57, 8
   %narrow.i = select i1 %cmp266.i, i8 %58, i8 8
