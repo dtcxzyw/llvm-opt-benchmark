@@ -41,8 +41,6 @@ for.body6.lr.ph.i:                                ; preds = %for.body.i, %for.bo
   %cur_len_.i.i = getelementptr inbounds i8, ptr %buffer, i64 20
   %buffer_len_.i.i = getelementptr inbounds i8, ptr %buffer, i64 16
   %.sink.in.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %input_len, i32 1)
-  %wide.trip.count25.i = zext nneg i32 %smax.i to i64
   br label %for.body6.i
 
 if.then1.i:                                       ; preds = %for.inc.i, %entry
@@ -101,7 +99,7 @@ return.sink.split.i.i:                            ; preds = %if.end5.i.i, %if.th
 
 for.inc15.i:                                      ; preds = %do.body.i.i.i, %return.sink.split.i.i, %for.body6.i, %for.body6.i, %for.body6.i
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
-  %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, %wide.trip.count25.i
+  %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, %wide.trip.count.i
   br i1 %exitcond26.not.i, label %for.end17.i, label %for.body6.i, !llvm.loop !8
 
 for.end17.i:                                      ; preds = %for.inc15.i
@@ -144,8 +142,6 @@ for.body6.lr.ph.i:                                ; preds = %for.body.i, %for.bo
   %cur_len_.i.i = getelementptr inbounds i8, ptr %buffer, i64 20
   %buffer_len_.i.i = getelementptr inbounds i8, ptr %buffer, i64 16
   %.sink.in.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %input_len, i32 1)
-  %wide.trip.count25.i = zext nneg i32 %smax.i to i64
   br label %for.body6.i
 
 if.then1.i:                                       ; preds = %for.inc.i, %entry
@@ -204,7 +200,7 @@ return.sink.split.i.i:                            ; preds = %if.end5.i.i, %if.th
 
 for.inc15.i:                                      ; preds = %do.body.i.i.i, %return.sink.split.i.i, %for.body6.i, %for.body6.i, %for.body6.i
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
-  %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, %wide.trip.count25.i
+  %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, %wide.trip.count.i
   br i1 %exitcond26.not.i, label %for.end17.i, label %for.body6.i, !llvm.loop !11
 
 for.end17.i:                                      ; preds = %for.inc15.i
@@ -2418,20 +2414,16 @@ if.end39:                                         ; preds = %do.body.i.i.i213, %
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #3
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

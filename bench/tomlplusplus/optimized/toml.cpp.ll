@@ -44023,7 +44023,6 @@ if.else44.i:                                      ; preds = %for.body22.i.i, %fo
   %codepoint6.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %currently_decoding_62.i = getelementptr inbounds i8, ptr %this, i64 32
   %count65.i = getelementptr inbounds i8, ptr %this, i64 40
-  %umax.i = call i64 @llvm.umax.i64(i64 %call3.i27.i, i64 1)
   br label %for.body48.i
 
 for.body48.i:                                     ; preds = %for.inc105.i, %if.else44.i
@@ -44129,7 +44128,7 @@ if.then99.i:                                      ; preds = %if.else92.i
 
 for.inc105.i:                                     ; preds = %if.else92.i, %if.then70.i
   %inc106.i = add nuw i64 %i45.060.i, 1
-  %exitcond.not.i = icmp eq i64 %inc106.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %inc106.i, %call3.i27.i
   br i1 %exitcond.not.i, label %for.end107.i, label %for.body48.i, !llvm.loop !317
 
 for.end107.i:                                     ; preds = %for.inc105.i

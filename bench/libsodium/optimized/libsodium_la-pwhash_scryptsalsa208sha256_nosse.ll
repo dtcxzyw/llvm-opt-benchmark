@@ -125,7 +125,6 @@ for.body.preheader.i.lr.ph:                       ; preds = %if.end53, %if.end59
   %arrayidx.i = getelementptr i32, ptr %add.ptr65, i64 %mul.i
   %mul1.i = shl nuw nsw i64 %conv, 6
   %arrayidx2.i = getelementptr i32, ptr %add.ptr65, i64 %mul1.i
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %mul.i, i64 1)
   %mul13.i = shl nuw nsw i64 %conv, 1
   %arrayidx.i.i = getelementptr i8, ptr %arrayidx.i, i64 -64
   %mul10.i.i = shl nuw nsw i64 %conv, 4
@@ -148,7 +147,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx6.i = getelementptr i32, ptr %add.ptr65, i64 %k.0190.i
   store i32 %arrayidx5.val.i, ptr %arrayidx6.i, align 4
   %inc.i = add nuw nsw i64 %k.0190.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %inc.i, %mul.i
   br i1 %exitcond.not.i, label %for.body9.i, label %for.body.i, !llvm.loop !4
 
 for.body9.i:                                      ; preds = %for.body.i, %blockmix_salsa8.exit92.loopexit.i
@@ -283,7 +282,7 @@ for.body.i95.i:                                   ; preds = %for.body.i95.i, %fo
   %xor.i.i = xor i32 %13, %12
   store i32 %xor.i.i, ptr %arrayidx1.i.i, align 4
   %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %umax.i
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %mul.i
   br i1 %exitcond.not.i.i, label %blkxor.exit.i, label %for.body.i95.i, !llvm.loop !6
 
 blkxor.exit.i:                                    ; preds = %for.body.i95.i
@@ -353,7 +352,7 @@ for.body.i137.i:                                  ; preds = %for.body.i137.i, %b
   %xor.i141.i = xor i32 %20, %19
   store i32 %xor.i141.i, ptr %arrayidx1.i140.i, align 4
   %inc.i142.i = add nuw nsw i64 %i.05.i138.i, 1
-  %exitcond.not.i143.i = icmp eq i64 %inc.i142.i, %umax.i
+  %exitcond.not.i143.i = icmp eq i64 %inc.i142.i, %mul.i
   br i1 %exitcond.not.i143.i, label %blkxor.exit144.loopexit.i, label %for.body.i137.i, !llvm.loop !6
 
 blkxor.exit144.loopexit.i:                        ; preds = %for.body.i137.i
@@ -420,7 +419,7 @@ for.body42.i:                                     ; preds = %blockmix_salsa8.exi
   %25 = load i32, ptr %arrayidx45.i, align 4
   store i32 %25, ptr %arrayidx44.i, align 1
   %inc47.i = add nuw nsw i64 %k.1196.i, 1
-  %exitcond200.not.i = icmp eq i64 %inc47.i, %umax.i
+  %exitcond200.not.i = icmp eq i64 %inc47.i, %mul.i
   br i1 %exitcond200.not.i, label %smix.exit, label %for.body42.i, !llvm.loop !10
 
 smix.exit:                                        ; preds = %for.body42.i
@@ -642,9 +641,6 @@ for.end355:                                       ; preds = %for.body350
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #5
 
 attributes #0 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

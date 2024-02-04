@@ -122,7 +122,6 @@ for.cond2.preheader.preheader.i.lr.ph:            ; preds = %if.end53, %if.end59
   %add.ptr65 = getelementptr i8, ptr %add.ptr, i64 %mul40
   tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %passwd, i64 noundef %passwdlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef 1, ptr noundef %1, i64 noundef %mul38) #6
   %mul1.i = shl nuw nsw i64 %conv, 1
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %mul1.i, i64 1)
   %sub.i = add nsw i64 %N, -1
   %cmp1566.i = icmp ugt i64 %sub.i, 1
   %2 = ptrtoint ptr %add.ptr to i64
@@ -166,7 +165,7 @@ for.body4.i:                                      ; preds = %for.body4.i, %for.c
 
 for.inc11.i:                                      ; preds = %for.body4.i
   %inc12.i = add nuw nsw i64 %k.065.i, 1
-  %exitcond78.not.i = icmp eq i64 %inc12.i, %umax.i
+  %exitcond78.not.i = icmp eq i64 %inc12.i, %mul1.i
   br i1 %exitcond78.not.i, label %for.cond14.preheader.i, label %for.cond2.preheader.i, !llvm.loop !6
 
 for.body16.i:                                     ; preds = %for.cond14.preheader.i, %for.body16.i
@@ -243,7 +242,7 @@ for.body55.i:                                     ; preds = %for.body55.i, %for.
 
 for.inc68.i:                                      ; preds = %for.body55.i
   %inc69.i = add nuw nsw i64 %k.177.i, 1
-  %exitcond81.not.i = icmp eq i64 %inc69.i, %umax.i
+  %exitcond81.not.i = icmp eq i64 %inc69.i, %mul1.i
   br i1 %exitcond81.not.i, label %smix.exit, label %for.cond52.preheader.i, !llvm.loop !10
 
 smix.exit:                                        ; preds = %for.inc68.i
@@ -1930,9 +1929,6 @@ for.end:                                          ; preds = %for.body, %entry
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #4
 
 attributes #0 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

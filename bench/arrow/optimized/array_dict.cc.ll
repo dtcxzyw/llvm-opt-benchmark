@@ -30548,7 +30548,6 @@ _ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit381.i.i3071: ;
   %cond.i.i.i.i3077 = select i1 %1529, ptr %1530, ptr null
   %length_3.i.i.i.i3078 = getelementptr inbounds i8, ptr %dict_indices_builder.i.i2957, i64 104
   %size_.i.i.i.i.i3079 = getelementptr inbounds i8, ptr %dict_indices_builder.i.i2957, i64 200
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %1390, i64 1)
   br label %invoke.cont138.i.i3080
 
 invoke.cont138.i.i3080:                           ; preds = %for.inc148.i.i3097, %_ZNSt10unique_ptrIN5arrow6BufferESt14default_deleteIS1_EED2Ev.exit381.i.i3071
@@ -30600,7 +30599,7 @@ for.inc148.i.i3097:                               ; preds = %invoke.cont142.i.i3
   %1542 = getelementptr inbounds i32, ptr %cond.i.i.i.i3077, i64 %i133.0549.i.i
   store i32 %current_index132.0548.sink.i.i, ptr %1542, align 4, !noalias !787
   %inc149.i.i3099 = add nuw i64 %i133.0549.i.i, 1
-  %exitcond.not.i.i3100 = icmp eq i64 %inc149.i.i3099, %umax.i.i
+  %exitcond.not.i.i3100 = icmp eq i64 %inc149.i.i3099, %1390
   br i1 %exitcond.not.i.i3100, label %for.end150.i.i3101, label %invoke.cont138.i.i3080, !llvm.loop !827
 
 for.end150.i.i3101:                               ; preds = %for.inc148.i.i3097

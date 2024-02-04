@@ -7905,8 +7905,6 @@ for.body116.lr.ph.i.i:                            ; preds = %for.cond112.prehead
   %idx.ext442.i.i = zext nneg i32 %cond11.i103.i to i64
   %arrayidx398.i.i = getelementptr inbounds i8, ptr %coutput.i.i, i64 8
   %arrayidx402.i.i = getelementptr inbounds i8, ptr %coutput.i.i, i64 16
-  %smax.i.i = call i32 @llvm.smax.i32(i32 %..i.i, i32 1)
-  %wide.trip.count578.i.i = zext nneg i32 %smax.i.i to i64
   br label %for.body122.preheader.i.i
 
 if.then107.i.i:                                   ; preds = %_ZL17stbi__malloc_mad3iiii.exit.i.i, %_ZL21stbi__mad3sizes_validiiii.exit.i.i.i, %_ZL21stbi__mul2sizes_validii.exit14.i.i.i.i, %land.lhs.true.i.i.i.i, %_ZL21stbi__mul2sizes_validii.exit.i.i.i.i, %for.end.i.i
@@ -8028,7 +8026,7 @@ if.then169.i.i:                                   ; preds = %if.then159.i.i
 
 for.inc178.i.i:                                   ; preds = %if.then169.i.i, %if.then159.i.i, %for.body122.i.i
   %indvars.iv.next576.i.i = add nuw nsw i64 %indvars.iv575.i.i, 1
-  %exitcond579.not.i.i = icmp eq i64 %indvars.iv.next576.i.i, %wide.trip.count578.i.i
+  %exitcond579.not.i.i = icmp eq i64 %indvars.iv.next576.i.i, %wide.trip.count.i.i
   br i1 %exitcond579.not.i.i, label %for.end180.i.i, label %for.body122.i.i, !llvm.loop !71
 
 for.end180.i.i:                                   ; preds = %for.inc178.i.i

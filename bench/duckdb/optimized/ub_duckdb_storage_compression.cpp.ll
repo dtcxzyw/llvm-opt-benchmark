@@ -19916,7 +19916,6 @@ _ZN6duckdb18DeltaDecodeIndicesEPjS0_mj.exit:      ; preds = %for.body.i.epil, %_
 for.cond.preheader:                               ; preds = %_ZN6duckdb18DeltaDecodeIndicesEPjS0_mj.exit
   %dict.sroa.1.0.extract.shift.i.i = lshr i64 %ret.0.copyload.i.i, 32
   %add.ptr.i.i204 = getelementptr inbounds i8, ptr %add.ptr, i64 %dict.sroa.1.0.extract.shift.i.i
-  %umax = tail call i64 @llvm.umax.i64(i64 %scan_count, i64 1)
   %retval.sroa.0.i.i.sroa.3.4.i.i.8.i.i.8.i.8.i.8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %retval.sroa.0.i.i.sroa.3, i64 4
   br label %for.body
 
@@ -19925,7 +19924,6 @@ for.cond56.preheader:                             ; preds = %_ZN6duckdb18DeltaDe
   %dict.sroa.1.0.extract.shift.i = lshr i64 %ret.0.copyload.i.i, 32
   %add.ptr.i209 = getelementptr inbounds i8, ptr %add.ptr, i64 %dict.sroa.1.0.extract.shift.i
   %duckdb_fsst_decoder76 = getelementptr inbounds i8, ptr %call, i64 32
-  %umax233 = tail call i64 @llvm.umax.i64(i64 %scan_count, i64 1)
   br label %for.body59
 
 lpad:                                             ; preds = %for.body.i.i
@@ -20027,7 +20025,7 @@ invoke.cont49:                                    ; preds = %if.else.i.i.i, %if.
 
 invoke.cont52:                                    ; preds = %invoke.cont49
   %inc = add nuw i64 %i.0228, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %scan_count
   br i1 %exitcond.not, label %if.end100, label %for.body, !llvm.loop !753
 
 lpad42:                                           ; preds = %invoke.cont49, %for.body
@@ -20099,7 +20097,7 @@ invoke.cont89:                                    ; preds = %invoke.cont71
 
 if.end93:                                         ; preds = %invoke.cont89, %invoke.cont79
   %inc97 = add nuw i64 %i55.0231, 1
-  %exitcond234.not = icmp eq i64 %inc97, %umax233
+  %exitcond234.not = icmp eq i64 %inc97, %scan_count
   br i1 %exitcond234.not, label %if.end100, label %for.body59, !llvm.loop !754
 
 if.end100:                                        ; preds = %invoke.cont52, %if.end93
@@ -20881,7 +20879,6 @@ _ZN6duckdb18DeltaDecodeIndicesEPjS0_mj.exit:      ; preds = %for.body.i.epil, %_
   %dict.sroa.1.0.extract.shift.i = lshr i64 %ret.0.copyload.i.i, 32
   %add.ptr.i196 = getelementptr inbounds i8, ptr %add.ptr, i64 %dict.sroa.1.0.extract.shift.i
   %duckdb_fsst_decoder73 = getelementptr inbounds i8, ptr %call, i64 32
-  %umax = tail call i64 @llvm.umax.i64(i64 %scan_count, i64 1)
   br label %for.body56
 
 ehcleanup107.thread:                              ; preds = %for.body.i.i
@@ -20954,7 +20951,7 @@ invoke.cont86:                                    ; preds = %invoke.cont68
 
 if.end90:                                         ; preds = %invoke.cont86, %invoke.cont76
   %inc94 = add nuw i64 %i52.0213, 1
-  %exitcond.not = icmp eq i64 %inc94, %umax
+  %exitcond.not = icmp eq i64 %inc94, %scan_count
   br i1 %exitcond.not, label %if.end97, label %for.body56, !llvm.loop !765
 
 if.end97:                                         ; preds = %if.end90

@@ -62382,10 +62382,9 @@ cond.true:                                        ; preds = %_ZNK7testing8intern
   tail call void @llvm.experimental.noalias.scope.decl(metadata !931)
   %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %5, ptr %ref.tmp, align 8, !alias.scope !931
-  %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %0, i64 %sub)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #49, !noalias !931
-  store i64 %spec.select.i.i.i, ptr %__dnew.i.i.i, align 8, !noalias !931
-  %cmp.i15.i.i = icmp ugt i64 %spec.select.i.i.i, 15
+  store i64 %sub, ptr %__dnew.i.i.i, align 8, !noalias !931
+  %cmp.i15.i.i = icmp ugt i64 %sub, 15
   br i1 %cmp.i15.i.i, label %if.then.i16.i.i, label %if.end.i.i.i
 
 if.then.i16.i.i:                                  ; preds = %cond.true
@@ -62397,9 +62396,9 @@ if.then.i16.i.i:                                  ; preds = %cond.true
 
 if.end.i.i.i:                                     ; preds = %if.then.i16.i.i, %cond.true
   %7 = phi ptr [ %call2.i17.i.i, %if.then.i16.i.i ], [ %5, %cond.true ]
-  switch i64 %spec.select.i.i.i, label %if.end.i.i.i.i.i.i [
-    i64 1, label %if.then.i.i.i.i.i
-    i64 0, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit
+  switch i64 %0, label %if.end.i.i.i.i.i.i [
+    i64 2, label %if.then.i.i.i.i.i
+    i64 1, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit
   ]
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
@@ -62408,7 +62407,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr nonnull align 1 %2, i64 %spec.select.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr nonnull align 1 %2, i64 %sub, i1 false)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm.exit: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i.i.i

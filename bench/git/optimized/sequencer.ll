@@ -13987,19 +13987,15 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
 peek_command.exit.i:                              ; preds = %for.body.i.i
   %128 = and i32 %127, 14
   %.not.i142 = icmp eq i32 %128, 4
-  br i1 %.not.i142, label %for.body.lr.ph.i55.i, label %if.end74
-
-for.body.lr.ph.i55.i:                             ; preds = %peek_command.exit.i
-  %umax83.i = call i64 @llvm.umax.i64(i64 %126, i64 1)
-  br label %for.body.i57.i
+  br i1 %.not.i142, label %for.body.i57.i, label %if.end74
 
 for.cond.i61.i:                                   ; preds = %for.body.i57.i
   %indvars.iv.next.i62.i = add nuw nsw i64 %indvars.iv.i58.i, 1
-  %exitcond84.not.i = icmp eq i64 %indvars.iv.next.i62.i, %umax83.i
+  %exitcond84.not.i = icmp eq i64 %indvars.iv.next.i62.i, %126
   br i1 %exitcond84.not.i, label %peek_command.exit64.i, label %for.body.i57.i, !llvm.loop !20
 
-for.body.i57.i:                                   ; preds = %for.cond.i61.i, %for.body.lr.ph.i55.i
-  %indvars.iv.i58.i = phi i64 [ 0, %for.body.lr.ph.i55.i ], [ %indvars.iv.next.i62.i, %for.cond.i61.i ]
+for.body.i57.i:                                   ; preds = %peek_command.exit.i, %for.cond.i61.i
+  %indvars.iv.i58.i = phi i64 [ %indvars.iv.next.i62.i, %for.cond.i61.i ], [ 0, %peek_command.exit.i ]
   %arrayidx.i59.i = getelementptr inbounds %struct.todo_item, ptr %125, i64 %indvars.iv.i58.i
   %129 = load i32, ptr %arrayidx.i59.i, align 8
   %cmp.i.i60.i = icmp ult i32 %129, 12

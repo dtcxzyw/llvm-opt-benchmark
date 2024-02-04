@@ -466,25 +466,25 @@ stbtt__buf_peek8.exit:                            ; preds = %entry
 if.then:                                          ; preds = %stbtt__buf_peek8.exit
   %add.i = add nsw i32 %0, 1
   %cmp1.i.i = icmp slt i32 %0, -1
-  %4 = tail call i32 @llvm.smin.i32(i32 %1, i32 %add.i)
-  %.o.i.i = select i1 %cmp1.i.i, i32 %1, i32 %4
+  %.o.i.i = select i1 %cmp1.i.i, i32 %1, i32 %add.i
   store i32 %.o.i.i, ptr %cursor.i, align 8
-  %5 = sext i32 %.o.i.i to i64
-  %wide.trip.count = sext i32 %1 to i64
+  %4 = sext i32 %.o.i.i to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %.o.i.i, i32 %1)
+  %wide.trip.count = sext i32 %smax to i64
   br label %while.cond
 
 while.cond:                                       ; preds = %stbtt__buf_get8.exit, %if.then
-  %indvars.iv = phi i64 [ %indvars.iv.next, %stbtt__buf_get8.exit ], [ %5, %if.then ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %stbtt__buf_get8.exit ], [ %4, %if.then ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
   br i1 %exitcond.not, label %if.end12, label %stbtt__buf_get8.exit
 
 stbtt__buf_get8.exit:                             ; preds = %while.cond
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %6 = trunc i64 %indvars.iv.next to i32
-  store i32 %6, ptr %cursor.i, align 8
+  %5 = trunc i64 %indvars.iv.next to i32
+  store i32 %5, ptr %cursor.i, align 8
   %arrayidx.i14 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
-  %7 = load i8, ptr %arrayidx.i14, align 1
-  %conv5 = zext i8 %7 to i32
+  %6 = load i8, ptr %arrayidx.i14, align 1
+  %conv5 = zext i8 %6 to i32
   %and = and i32 %conv5, 15
   %cmp6 = icmp eq i32 %and, 15
   %shr.mask = and i32 %conv5, 240
@@ -508,7 +508,6 @@ entry:
   %1 = tail call i32 @llvm.smin.i32(i32 %0, i32 0)
   %cursor.i = getelementptr inbounds i8, ptr %b, i64 8
   store i32 %1, ptr %cursor.i, align 8
-  %wide.trip.count.i = sext i32 %0 to i64
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end, %entry
@@ -537,14 +536,15 @@ stbtt__buf_peek8.exit.i:                          ; preds = %stbtt__buf_peek8.ex
 
 if.then.i:                                        ; preds = %stbtt__buf_peek8.exit.i
   %cmp1.i.i.i = icmp slt i32 %inc.i.i6974, -1
-  %5 = tail call i32 @llvm.smin.i32(i32 %0, i32 %add.i.i)
-  %.o.i.i.i = select i1 %cmp1.i.i.i, i32 %0, i32 %5
+  %.o.i.i.i = select i1 %cmp1.i.i.i, i32 %0, i32 %add.i.i
   store i32 %.o.i.i.i, ptr %cursor.i, align 8
-  %6 = sext i32 %.o.i.i.i to i64
+  %5 = sext i32 %.o.i.i.i to i64
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %.o.i.i.i, i32 %0)
+  %wide.trip.count.i = sext i32 %smax.i to i64
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %stbtt__buf_get8.exit.i, %if.then.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %stbtt__buf_get8.exit.i ], [ %6, %if.then.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %stbtt__buf_get8.exit.i ], [ %5, %if.then.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %if.end, label %stbtt__buf_get8.exit.i
 
@@ -553,8 +553,8 @@ stbtt__buf_get8.exit.i:                           ; preds = %while.cond.i
   %indvars = trunc i64 %indvars.iv.next.i to i32
   store i32 %indvars, ptr %cursor.i, align 8
   %arrayidx.i14.i = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
-  %7 = load i8, ptr %arrayidx.i14.i, align 1
-  %conv5.i = zext i8 %7 to i32
+  %6 = load i8, ptr %arrayidx.i14.i, align 1
+  %conv5.i = zext i8 %6 to i32
   %and.i = and i32 %conv5.i, 15
   %cmp6.i = icmp eq i32 %and.i, 15
   %shr.mask.i = and i32 %conv5.i, 240
@@ -564,14 +564,14 @@ stbtt__buf_get8.exit.i:                           ; preds = %while.cond.i
 
 stbtt__buf_get8.exit.i51:                         ; preds = %stbtt__buf_peek8.exit.i
   store i32 %add.i.i, ptr %cursor.i, align 8
-  %8 = load i8, ptr %arrayidx.i, align 1
-  %9 = add i8 %8, -32
-  %or.cond.i54 = icmp ult i8 %9, -41
+  %7 = load i8, ptr %arrayidx.i, align 1
+  %8 = add i8 %7, -32
+  %or.cond.i54 = icmp ult i8 %8, -41
   br i1 %or.cond.i54, label %stbtt__cff_skip_operand.exit, label %if.else.i55
 
 if.else.i55:                                      ; preds = %stbtt__buf_get8.exit.i51
-  %10 = add nsw i8 %8, 9
-  %or.cond1.i = icmp ult i8 %10, 4
+  %9 = add nsw i8 %7, 9
+  %or.cond1.i = icmp ult i8 %9, 4
   br i1 %or.cond1.i, label %if.then9.i, label %if.else14.i
 
 if.then9.i:                                       ; preds = %if.else.i55
@@ -579,8 +579,8 @@ if.then9.i:                                       ; preds = %if.else.i55
   br i1 %cmp.not.i19.i, label %stbtt__cff_skip_operand.exit.sink.split, label %stbtt__cff_skip_operand.exit
 
 if.else14.i:                                      ; preds = %if.else.i55
-  %11 = add nsw i8 %8, 5
-  %or.cond2.i = icmp ult i8 %11, 4
+  %10 = add nsw i8 %7, 5
+  %or.cond2.i = icmp ult i8 %10, 4
   br i1 %or.cond2.i, label %if.then20.i, label %if.else28.i
 
 if.then20.i:                                      ; preds = %if.else14.i
@@ -588,7 +588,7 @@ if.then20.i:                                      ; preds = %if.else14.i
   br i1 %cmp.not.i28.i, label %stbtt__cff_skip_operand.exit.sink.split, label %stbtt__cff_skip_operand.exit
 
 if.else28.i:                                      ; preds = %if.else14.i
-  switch i8 %8, label %stbtt__cff_skip_operand.exit [
+  switch i8 %7, label %stbtt__cff_skip_operand.exit [
     i8 28, label %for.body.i.i
     i8 29, label %for.body.i39.i
   ]
@@ -641,9 +641,9 @@ stbtt__buf_get8.exit:                             ; preds = %stbtt__buf_peek8.ex
   %inc.i = add nsw i32 %inc.i.i6974, 1
   store i32 %inc.i, ptr %cursor.i, align 8
   %arrayidx.i22 = getelementptr inbounds i8, ptr %2, i64 %idxprom.i
-  %12 = load i8, ptr %arrayidx.i22, align 1
-  %conv8 = zext i8 %12 to i32
-  %cmp9 = icmp eq i8 %12, 12
+  %11 = load i8, ptr %arrayidx.i22, align 1
+  %conv8 = zext i8 %11 to i32
+  %cmp9 = icmp eq i8 %11, 12
   br i1 %cmp9, label %if.then, label %if.end
 
 if.then:                                          ; preds = %stbtt__buf_get8.exit
@@ -655,36 +655,36 @@ if.end.i27:                                       ; preds = %if.then
   store i32 %inc.i28, ptr %cursor.i, align 8
   %idxprom.i29 = sext i32 %inc.i to i64
   %arrayidx.i30 = getelementptr inbounds i8, ptr %2, i64 %idxprom.i29
-  %13 = load i8, ptr %arrayidx.i30, align 1
+  %12 = load i8, ptr %arrayidx.i30, align 1
   br label %stbtt__buf_get8.exit31
 
 stbtt__buf_get8.exit31:                           ; preds = %if.then, %if.end.i27
   %cursor.i.promoted79 = phi i32 [ %inc.i28, %if.end.i27 ], [ %inc.i, %if.then ]
-  %retval.0.i26 = phi i8 [ %13, %if.end.i27 ], [ 0, %if.then ]
+  %retval.0.i26 = phi i8 [ %12, %if.end.i27 ], [ 0, %if.then ]
   %conv12 = zext i8 %retval.0.i26 to i32
   %or = or disjoint i32 %conv12, 256
   br label %if.end
 
 if.end:                                           ; preds = %stbtt__cff_skip_operand.exit, %while.cond.i, %stbtt__buf_get8.exit31, %stbtt__buf_get8.exit
-  %cursor.i.promoted76 = phi i32 [ %cursor.i.promoted79, %stbtt__buf_get8.exit31 ], [ %inc.i, %stbtt__buf_get8.exit ], [ %0, %while.cond.i ], [ %cursor.i.promoted80, %stbtt__cff_skip_operand.exit ]
-  %14 = phi i32 [ %inc.i.i6974, %stbtt__buf_get8.exit31 ], [ %inc.i.i6974, %stbtt__buf_get8.exit ], [ %0, %while.cond.i ], [ %cursor.i.promoted80, %stbtt__cff_skip_operand.exit ]
+  %cursor.i.promoted76 = phi i32 [ %cursor.i.promoted79, %stbtt__buf_get8.exit31 ], [ %inc.i, %stbtt__buf_get8.exit ], [ %smax.i, %while.cond.i ], [ %cursor.i.promoted80, %stbtt__cff_skip_operand.exit ]
+  %13 = phi i32 [ %inc.i.i6974, %stbtt__buf_get8.exit31 ], [ %inc.i.i6974, %stbtt__buf_get8.exit ], [ %smax.i, %while.cond.i ], [ %cursor.i.promoted80, %stbtt__cff_skip_operand.exit ]
   %op.0 = phi i32 [ %or, %stbtt__buf_get8.exit31 ], [ %conv8, %stbtt__buf_get8.exit ], [ 0, %while.cond.i ], [ 0, %stbtt__cff_skip_operand.exit ]
   %cmp13 = icmp eq i32 %op.0, %key
   br i1 %cmp13, label %if.then15, label %while.cond, !llvm.loop !8
 
 if.then15:                                        ; preds = %if.end
-  %sub = sub nsw i32 %14, %cursor.i.promoted78
-  %15 = or i32 %sub, %cursor.i.promoted78
-  %or.cond.not.i = icmp slt i32 %15, 0
-  %cmp6.i33 = icmp slt i32 %0, %14
+  %sub = sub nsw i32 %13, %cursor.i.promoted78
+  %14 = or i32 %sub, %cursor.i.promoted78
+  %or.cond.not.i = icmp slt i32 %14, 0
+  %cmp6.i33 = icmp slt i32 %0, %13
   %or.cond = or i1 %or.cond.not.i, %cmp6.i33
   br i1 %or.cond, label %return, label %if.end.i35
 
 if.end.i35:                                       ; preds = %if.then15
   %idx.ext.i = zext nneg i32 %cursor.i.promoted78 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %idx.ext.i
-  %16 = zext i32 %sub to i64
-  %17 = shl nuw i64 %16, 32
+  %15 = zext i32 %sub to i64
+  %16 = shl nuw i64 %15, 32
   br label %return
 
 while.end18:                                      ; preds = %while.cond
@@ -692,12 +692,12 @@ while.end18:                                      ; preds = %while.cond
   br i1 %cmp3.i38, label %return, label %if.end.i41
 
 if.end.i41:                                       ; preds = %while.end18
-  %18 = load ptr, ptr %b, align 8
+  %17 = load ptr, ptr %b, align 8
   br label %return
 
 return:                                           ; preds = %if.end.i41, %while.end18, %if.end.i35, %if.then15
-  %retval.sroa.0.0.i.pn = phi ptr [ null, %if.then15 ], [ %add.ptr.i, %if.end.i35 ], [ null, %while.end18 ], [ %18, %if.end.i41 ]
-  %retval.sroa.5.0.i.pn = phi i64 [ 0, %if.then15 ], [ %17, %if.end.i35 ], [ 0, %while.end18 ], [ 0, %if.end.i41 ]
+  %retval.sroa.0.0.i.pn = phi ptr [ null, %if.then15 ], [ %add.ptr.i, %if.end.i35 ], [ null, %while.end18 ], [ %17, %if.end.i41 ]
+  %retval.sroa.5.0.i.pn = phi i64 [ 0, %if.then15 ], [ %16, %if.end.i35 ], [ 0, %while.end18 ], [ 0, %if.end.i41 ]
   %.fca.0.insert.i.pn = insertvalue { ptr, i64 } undef, ptr %retval.sroa.0.0.i.pn, 0
   %call16.pn = insertvalue { ptr, i64 } %.fca.0.insert.i.pn, i64 %retval.sroa.5.0.i.pn, 1
   ret { ptr, i64 } %call16.pn

@@ -6280,7 +6280,6 @@ _sp_sub_off.exit448.i:                            ; preds = %land.rhs53.i404.i, 
 
 if.else38.i:                                      ; preds = %if.else14.i.i, %if.else.i272.i
   %132 = zext i32 %26 to i64
-  %umax.i = call i64 @llvm.umax.i64(i64 %132, i64 1)
   br label %land.rhs9.i484.i
 
 land.rhs9.i484.i:                                 ; preds = %for.body13.i493.i, %if.else38.i
@@ -6304,11 +6303,11 @@ for.body13.i493.i:                                ; preds = %land.rhs9.i484.i
   store i64 %conv21.i500.i, ptr %arrayidx16.i494.i, align 8
   %shr.i502.i = ashr i128 %sub.i499.i, 64
   %indvars.iv.next59.i503.i = add nuw nsw i64 %indvars.iv58.i485.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next59.i503.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next59.i503.i, %132
   br i1 %exitcond.not.i, label %for.end28.loopexit.i489.i, label %land.rhs9.i484.i, !llvm.loop !41
 
 for.end28.loopexit.i489.i:                        ; preds = %for.body13.i493.i, %land.rhs9.i484.i
-  %i.2.lcssa.ph.in.i490.i = phi i64 [ %indvars.iv58.i485.i, %land.rhs9.i484.i ], [ %umax.i, %for.body13.i493.i ]
+  %i.2.lcssa.ph.in.i490.i = phi i64 [ %indvars.iv58.i485.i, %land.rhs9.i484.i ], [ %132, %for.body13.i493.i ]
   %t.0.lcssa.ph.i491.i = phi i128 [ %t.046.i487.i, %land.rhs9.i484.i ], [ %shr.i502.i, %for.body13.i493.i ]
   %i.2.lcssa.ph.i492.i = trunc i64 %i.2.lcssa.ph.in.i490.i to i32
   %cmp3151.i453.i = icmp ugt i32 %26, %i.2.lcssa.ph.i492.i

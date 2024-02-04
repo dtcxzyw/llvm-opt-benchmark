@@ -33177,11 +33177,6 @@ for.body41.us.i:                                  ; preds = %for.cond38.preheade
   %exitcond356.not.i = icmp eq i32 %add55.us.i, %channelsOut
   br i1 %exitcond356.not.i, label %for.body60.us.i, label %for.body41.us.i, !llvm.loop !358
 
-for.body60.preheader.i:                           ; preds = %for.body41.i
-  %umax.i = tail call i32 @llvm.umax.i32(i32 %channelsOut, i32 1)
-  %wide.trip.count360.i = zext i32 %umax.i to i64
-  br label %for.body60.i
-
 for.body60.us.i:                                  ; preds = %for.body41.us.i, %for.body60.us.i
   %iChannelOut.3283.us.i = phi i32 [ %add74.us.i, %for.body60.us.i ], [ 0, %for.body41.us.i ]
   %iChannelLeft.2282.us.i = phi i32 [ %spec.select195.us.i, %for.body60.us.i ], [ %spec.select194.us.i, %for.body41.us.i ]
@@ -33208,12 +33203,12 @@ for.body41.i:                                     ; preds = %for.body41.i, %for.
   %iChannelRight.1.i = select i1 %cmp50.i, i32 %18, i32 %iChannelRight.0277.i
   %indvars.iv.next.i289 = add nuw nsw i64 %indvars.iv.i288, 1
   %exitcond.not.i290 = icmp eq i64 %indvars.iv.next.i289, %wide.trip.count.i287
-  br i1 %exitcond.not.i290, label %for.body60.preheader.i, label %for.body41.i, !llvm.loop !358
+  br i1 %exitcond.not.i290, label %for.body60.i, label %for.body41.i, !llvm.loop !358
 
-for.body60.i:                                     ; preds = %for.body60.i, %for.body60.preheader.i
-  %indvars.iv357.i = phi i64 [ 0, %for.body60.preheader.i ], [ %indvars.iv.next358.i, %for.body60.i ]
-  %iChannelLeft.2282.i = phi i32 [ %spec.select194.i, %for.body60.preheader.i ], [ %spec.select195.i, %for.body60.i ]
-  %iChannelRight.2281.i = phi i32 [ %iChannelRight.1.i, %for.body60.preheader.i ], [ %iChannelRight.3.i, %for.body60.i ]
+for.body60.i:                                     ; preds = %for.body41.i, %for.body60.i
+  %indvars.iv357.i = phi i64 [ %indvars.iv.next358.i, %for.body60.i ], [ 0, %for.body41.i ]
+  %iChannelLeft.2282.i = phi i32 [ %spec.select195.i, %for.body60.i ], [ %spec.select194.i, %for.body41.i ]
+  %iChannelRight.2281.i = phi i32 [ %iChannelRight.3.i, %for.body60.i ], [ %iChannelRight.1.i, %for.body41.i ]
   %arrayidx.i224.i = getelementptr inbounds i8, ptr %pChannelMapOut, i64 %indvars.iv357.i
   %19 = load i8, ptr %arrayidx.i224.i, align 1, !noalias !355
   %cmp64.i = icmp eq i8 %19, 2
@@ -33222,7 +33217,7 @@ for.body60.i:                                     ; preds = %for.body60.i, %for.
   %cmp69.i = icmp eq i8 %19, 3
   %iChannelRight.3.i = select i1 %cmp69.i, i32 %20, i32 %iChannelRight.2281.i
   %indvars.iv.next358.i = add nuw nsw i64 %indvars.iv357.i, 1
-  %exitcond361.not.i = icmp eq i64 %indvars.iv.next358.i, %wide.trip.count360.i
+  %exitcond361.not.i = icmp eq i64 %indvars.iv.next358.i, %wide.trip.count.i287
   br i1 %exitcond361.not.i, label %for.end75.i, label %for.body60.i, !llvm.loop !359
 
 for.end75.i:                                      ; preds = %for.body60.i, %for.body60.us.i
@@ -33239,8 +33234,6 @@ for.cond81.preheader.i:                           ; preds = %for.end75.i
 
 for.cond85.preheader.lr.ph.i:                     ; preds = %for.cond81.preheader.i
   %idx.ext111.i = zext i32 %channelsOut to i64
-  %umax374.i = tail call i32 @llvm.umax.i32(i32 %channelsOut, i32 1)
-  %wide.trip.count375.i = zext i32 %umax374.i to i64
   br i1 %cmp.i208.i, label %for.cond85.preheader.us.preheader.i, label %for.cond85.preheader.preheader.i
 
 for.cond85.preheader.preheader.i:                 ; preds = %for.cond85.preheader.lr.ph.i
@@ -33284,7 +33277,7 @@ for.inc108.us.us.sink.split.i:                    ; preds = %if.then100.us.us.i,
 
 for.inc108.us.us.i:                               ; preds = %for.inc108.us.us.sink.split.i, %for.body88.us.us.i
   %indvars.iv.next372.i = add nuw nsw i64 %indvars.iv371.i, 1
-  %exitcond376.not.i = icmp eq i64 %indvars.iv.next372.i, %wide.trip.count375.i
+  %exitcond376.not.i = icmp eq i64 %indvars.iv.next372.i, %idx.ext111.i
   br i1 %exitcond376.not.i, label %for.end110.split.us.us.i, label %for.body88.us.us.i, !llvm.loop !360
 
 for.end110.split.us.us.i:                         ; preds = %for.inc108.us.us.i
@@ -33325,7 +33318,7 @@ for.inc108.sink.split.i:                          ; preds = %if.then100.i, %if.t
 
 for.inc108.i:                                     ; preds = %for.inc108.sink.split.i, %for.body88.i
   %indvars.iv.next365.i = add nuw nsw i64 %indvars.iv364.i, 1
-  %exitcond369.not.i = icmp eq i64 %indvars.iv.next365.i, %wide.trip.count375.i
+  %exitcond369.not.i = icmp eq i64 %indvars.iv.next365.i, %idx.ext111.i
   br i1 %exitcond369.not.i, label %for.end110.split.i, label %for.body88.i, !llvm.loop !360
 
 for.end110.split.i:                               ; preds = %for.inc108.i

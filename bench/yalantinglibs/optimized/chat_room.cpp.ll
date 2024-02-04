@@ -60560,10 +60560,9 @@ _ZN4asio6detail25base_from_completion_condINS0_18transfer_exactly_tEE20check_for
   %stream_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %function, i64 8
   %5 = load ptr, ptr %stream_.i.i.i.i.i.i, align 8
   %buffers_3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %function, i64 16
-  %spec.select.i.i4.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %3, i64 %add.i.i.i.i.i.i.i)
   %6 = load ptr, ptr %buffers_3.i.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %spec.select.i.i4.i.i.i.i.i.i
-  %sub.i.i5.i.i.i.i.i.i = sub i64 %3, %spec.select.i.i4.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 %add.i.i.i.i.i.i.i
+  %sub.i.i5.i.i.i.i.i.i = sub i64 %3, %add.i.i.i.i.i.i.i
   %spec.select.i.i16.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i15.i.i.i.i.i.i, i64 %sub.i.i5.i.i.i.i.i.i)
   %spec.select.i2.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %spec.select.i.i16.i.i.i.i.i.i, i64 65536)
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i, align 8
@@ -60852,10 +60851,9 @@ _ZN4asio6detail25base_from_completion_condINS0_18transfer_exactly_tEE20check_for
   %stream_.i.i = getelementptr inbounds i8, ptr %f, i64 8
   %4 = load ptr, ptr %stream_.i.i, align 8
   %buffers_3.i.i = getelementptr inbounds i8, ptr %f, i64 16
-  %spec.select.i.i4.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %add.i.i.i)
   %5 = load ptr, ptr %buffers_3.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %spec.select.i.i4.i.i
-  %sub.i.i5.i.i = sub i64 %2, %spec.select.i.i4.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %add.i.i.i
+  %sub.i.i5.i.i = sub i64 %2, %add.i.i.i
   %spec.select.i.i16.i.i = tail call i64 @llvm.umin.i64(i64 %sub.i.i15.i.i, i64 %sub.i.i5.i.i)
   %spec.select.i2.i.i.i = tail call i64 @llvm.umin.i64(i64 %spec.select.i.i16.i.i, i64 65536)
   store ptr %add.ptr.i.i.i.i, ptr %ref.tmp.i.i, align 8

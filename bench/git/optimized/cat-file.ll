@@ -1163,7 +1163,6 @@ for.body.i47.i.i:                                 ; preds = %for.body.i47.i.i, %
 dispatch_calls.exit55.i.i:                        ; preds = %for.body.i47.i.i, %for.cond.preheader.i42.i.i
   %57 = load ptr, ptr @stdout, align 8
   %call3.i44.i.i = call i32 @fflush(ptr noundef %57)
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %nr.1.i.i, i64 1)
   br label %do.body.i57.i.i
 
 do.body.i57.i.i:                                  ; preds = %do.body.i57.i.i, %dispatch_calls.exit55.i.i
@@ -1173,7 +1172,7 @@ do.body.i57.i.i:                                  ; preds = %do.body.i57.i.i, %d
   call void @free(ptr noundef %58) #13
   store ptr null, ptr %line.i59.i.i, align 8
   %inc.i60.i.i = add nuw i64 %i.07.i58.i.i, 1
-  %exitcond136.not.i.i = icmp eq i64 %inc.i60.i.i, %umax.i.i
+  %exitcond136.not.i.i = icmp eq i64 %inc.i60.i.i, %nr.1.i.i
   br i1 %exitcond136.not.i.i, label %batch_objects_command.exit.i, label %do.body.i57.i.i, !llvm.loop !9
 
 if.end87.i.i:                                     ; preds = %while.end.i.i

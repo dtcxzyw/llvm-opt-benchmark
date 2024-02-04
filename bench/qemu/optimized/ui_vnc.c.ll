@@ -2568,17 +2568,16 @@ for.body.lr.ph.i:                                 ; preds = %if.end
   %sub26.i = or disjoint i32 %reass.sub.i, 15
   %div27.i = sdiv i32 %sub26.i, 16
   %conv28.i = sext i32 %div27.i to i64
-  %smin30.i = sext i32 %cond8.i to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %smin30.i, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr [3 x i64], ptr %dirty, i64 %indvars.iv.i
   tail call void @bitmap_set(ptr noundef %arrayidx.i, i64 noundef %conv.i, i64 noundef %conv28.i) #23
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %cond23.i, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !13
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next.i to i32
+  %exitcond = icmp eq i32 %cond23.i, %lftr.wideiv
+  br i1 %exitcond, label %return, label %for.body.i, !llvm.loop !13
 
 return:                                           ; preds = %for.body.i, %if.end, %entry
   ret void
@@ -12185,17 +12184,16 @@ for.body.lr.ph.i:                                 ; preds = %trace_vnc_server_dp
   %sub26.i = add i32 %reass.sub, 15
   %div27.i = sdiv i32 %sub26.i, 16
   %conv28.i = sext i32 %div27.i to i64
-  %smin30.i = sext i32 %cond8.i to i64
   br label %for.body.i48
 
 for.body.i48:                                     ; preds = %for.body.i48, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %smin30.i, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i48 ]
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i48 ]
   %arrayidx.i = getelementptr [3 x i64], ptr %dirty, i64 %indvars.iv.i
   tail call void @bitmap_set(ptr noundef %arrayidx.i, i64 noundef %conv.i, i64 noundef %conv28.i) #23
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %cond23.i, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %for.end, label %for.body.i48, !llvm.loop !13
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %lftr.wideiv120 = trunc i64 %indvars.iv.next.i to i32
+  %exitcond121 = icmp eq i32 %cond23.i, %lftr.wideiv120
+  br i1 %exitcond121, label %for.end, label %for.body.i48, !llvm.loop !13
 
 if.end:                                           ; preds = %vnc_abort_display_jobs.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i52)
@@ -12404,17 +12402,16 @@ for.body.lr.ph.i89:                               ; preds = %vnc_colordepth.exit
   %sub26.i99 = or disjoint i32 %reass.sub.i98, 15
   %div27.i100 = sdiv i32 %sub26.i99, 16
   %conv28.i101 = sext i32 %div27.i100 to i64
-  %smin30.i102 = sext i32 %cond8.i85 to i64
   br label %for.body.i103
 
 for.body.i103:                                    ; preds = %for.body.i103, %for.body.lr.ph.i89
-  %indvars.iv.i104 = phi i64 [ %smin30.i102, %for.body.lr.ph.i89 ], [ %indvars.iv.next.i106, %for.body.i103 ]
+  %indvars.iv.i104 = phi i64 [ 0, %for.body.lr.ph.i89 ], [ %indvars.iv.next.i106, %for.body.i103 ]
   %arrayidx.i105 = getelementptr [3 x i64], ptr %dirty18, i64 %indvars.iv.i104
   call void @bitmap_set(ptr noundef %arrayidx.i105, i64 noundef %conv.i97, i64 noundef %conv28.i101) #23
-  %indvars.iv.next.i106 = add nsw i64 %indvars.iv.i104, 1
-  %lftr.wideiv.i107 = trunc i64 %indvars.iv.next.i106 to i32
-  %exitcond.not.i108 = icmp eq i32 %cond23.i87, %lftr.wideiv.i107
-  br i1 %exitcond.not.i108, label %vnc_set_area_dirty.exit109, label %for.body.i103, !llvm.loop !13
+  %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i104, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next.i106 to i32
+  %exitcond = icmp eq i32 %cond23.i87, %lftr.wideiv
+  br i1 %exitcond, label %vnc_set_area_dirty.exit109, label %for.body.i103, !llvm.loop !13
 
 vnc_set_area_dirty.exit109:                       ; preds = %for.body.i103, %vnc_colordepth.exit
   call fastcc void @vnc_update_throttle_offset(ptr noundef nonnull %vs.0117)

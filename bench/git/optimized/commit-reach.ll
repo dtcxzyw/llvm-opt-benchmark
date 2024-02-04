@@ -1405,8 +1405,6 @@ for.inc78.i:                                      ; preds = %for.end75.i, %for.b
 for.body85.preheader.i:                           ; preds = %for.inc78.i
   %mul.i.i.i = shl nuw nsw i64 %conv.i9, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr nonnull align 1 %array, i64 %mul.i.i.i, i1 false)
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %cnt, i32 1)
-  %wide.trip.count97.i = zext nneg i32 %smax.i to i64
   br label %for.body85.i
 
 for.body85.i:                                     ; preds = %for.inc96.i, %for.body85.preheader.i
@@ -1429,7 +1427,7 @@ if.then89.i:                                      ; preds = %for.body85.i
 for.inc96.i:                                      ; preds = %if.then89.i, %for.body85.i
   %filled.3.i = phi i32 [ %filled.275.i, %for.body85.i ], [ %inc92.i, %if.then89.i ]
   %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
-  %exitcond98.not.i = icmp eq i64 %indvars.iv.next95.i, %wide.trip.count97.i
+  %exitcond98.not.i = icmp eq i64 %indvars.iv.next95.i, %wide.trip.count.i14
   br i1 %exitcond98.not.i, label %remove_redundant_no_gen.exit, label %for.body85.i, !llvm.loop !44
 
 remove_redundant_no_gen.exit:                     ; preds = %for.inc96.i

@@ -1074,7 +1074,6 @@ _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EED2Ev.ex
   resume { ptr, i32 } %eh.lpad-body
 
 invoke.cont9:                                     ; preds = %for.body.i
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %glob_level.sroa.0.0.copyload, i64 %dec4.i)
   %sub.i = sub i64 %glob_level.sroa.0.0.copyload, %__size.1.i
   %add.ptr.i = getelementptr inbounds i8, ptr %glob_level.sroa.4.0.copyload, i64 %__size.1.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val.i.i)
@@ -1091,7 +1090,7 @@ if.end17:                                         ; preds = %invoke.cont14
   br i1 %cmp.not.i25, label %if.else.i, label %if.then.i26
 
 if.then.i26:                                      ; preds = %if.end17
-  store i64 %.sroa.speculated.i, ptr %glob_levels.sroa.6.0116, align 8
+  store i64 %dec4.i, ptr %glob_levels.sroa.6.0116, align 8
   %glob.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %glob_levels.sroa.6.0116, i64 8
   store ptr %glob_level.sroa.4.0.copyload, ptr %glob.sroa.3.0..sroa_idx, align 8
   %second.i.i.i.i = getelementptr inbounds i8, ptr %glob_levels.sroa.6.0116, i64 16
@@ -1131,7 +1130,7 @@ cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorISt4pa
 invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_ZNKSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE12_M_check_lenEmPKc.exit.i.i
   %cond.i17.i.i = phi ptr [ null, %_ZNKSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i32, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %cond.i17.i.i, i64 %sub.ptr.div.i.i.i.i
-  store i64 %.sroa.speculated.i, ptr %add.ptr.i.i, align 8
+  store i64 %dec4.i, ptr %add.ptr.i.i, align 8
   %glob.sroa.3.0.add.ptr.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   store ptr %glob_level.sroa.4.0.copyload, ptr %glob.sroa.3.0.add.ptr.i.i.sroa_idx, align 8
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16

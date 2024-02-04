@@ -614,9 +614,8 @@ if.then.i.i.i32:                                  ; preds = %if.else.i
   unreachable
 
 _ZNKSt6vectorIN3ue29CharReachESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i104, i64 1)
-  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i104
-  %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i104
+  %add.i.i.i = shl nsw i64 %sub.ptr.div.i104, 1
+  %cmp7.i.i.i = icmp slt i64 %sub.ptr.div.i104, 0
   %20 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 288230376151711743)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 288230376151711743, i64 %20
   %cmp.not.i.i.i30 = icmp eq i64 %cond.i.i.i, 0

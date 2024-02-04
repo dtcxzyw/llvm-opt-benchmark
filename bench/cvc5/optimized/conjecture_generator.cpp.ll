@@ -29359,8 +29359,7 @@ if.then.i.i.i.i306.cont:                          ; preds = %if.then.i.i.i.i306.
   unreachable
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i285: ; preds = %if.else.i.i280
-  %.sroa.speculated.i.i.i.i287 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i237, i64 1)
-  %add.i.i.i.i288 = add nsw i64 %.sroa.speculated.i.i.i.i287, %sub.ptr.div.i237
+  %add.i.i.i.i288 = ashr exact i64 %sub.ptr.sub.i236, 1
   %cmp7.i.i.i.i289 = icmp ult i64 %add.i.i.i.i288, %sub.ptr.div.i237
   %43 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i288, i64 2305843009213693951)
   %cond.i.i.i.i290 = select i1 %cmp7.i.i.i.i289, i64 2305843009213693951, i64 %43

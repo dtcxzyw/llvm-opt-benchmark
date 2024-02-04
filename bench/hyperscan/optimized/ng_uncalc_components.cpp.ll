@@ -4196,7 +4196,6 @@ for.body.lr.ph.i:                                 ; preds = %_ZNSt12_Vector_base
   store ptr %call5.i.i.i.i71.i, ptr %5, align 8
   %add.ptr21.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::ranking_info", ptr %call5.i.i.i.i71.i, i64 %sub.ptr.div.i
   store ptr %add.ptr21.i.i, ptr %4, align 8
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -4375,7 +4374,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_112ranking_infoESaIS2_EE17_M_realloc_insertIJRKNS
 for.inc.i:                                        ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_112ranking_infoESaIS2_EE17_M_realloc_insertIJRKNS0_8NGHolderEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %.noexc78.i
   %26 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN3ue212_GLOBAL__N_112ranking_infoESaIS2_EE17_M_realloc_insertIJRKNS0_8NGHolderEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %.noexc78.i ]
   %inc.i = add nuw nsw i64 %i.0213.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
+  %exitcond.not.i = icmp eq i64 %inc.i, %sub.ptr.div.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !225
 
 lpad.loopexit207.i:                               ; preds = %cond.true.i.i.i.i, %if.then.i74.i

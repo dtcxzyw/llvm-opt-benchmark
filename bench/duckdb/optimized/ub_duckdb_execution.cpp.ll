@@ -66280,7 +66280,11 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %shl.i.i = shl nuw i64 1, %shift.011.i
   %and.i.i = and i64 %shl.i.i, %6
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not.i, label %for.inc.i, label %if.then19
+  br i1 %tobool.i.not.i, label %for.inc.i, label %_ZN6duckdbL13FindNextStartERKNS_12ValidityMaskEmmRm.exit.thread
+
+_ZN6duckdbL13FindNextStartERKNS_12ValidityMaskEmmRm.exit.thread: ; preds = %for.body.i
+  %cond.i42.i = tail call noundef i64 @llvm.umin.i64(i64 %l.addr.112.i, i64 %4)
+  br label %if.then19
 
 for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %shift.011.i, 1
@@ -66295,12 +66299,11 @@ cleanup.i:                                        ; preds = %for.inc.i, %if.then
   %cmp.i52 = icmp ult i64 %l.addr.2.i, %4
   br i1 %cmp.i52, label %_ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i, label %if.else
 
-if.then19:                                        ; preds = %for.body.i, %if.end15
-  %.sink = phi i64 [ %3, %if.end15 ], [ %l.addr.112.i, %for.body.i ]
-  %cond.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink, i64 %4)
+if.then19:                                        ; preds = %if.end15, %_ZN6duckdbL13FindNextStartERKNS_12ValidityMaskEmmRm.exit.thread
+  %retval.2.i60 = phi i64 [ %cond.i42.i, %_ZN6duckdbL13FindNextStartERKNS_12ValidityMaskEmmRm.exit.thread ], [ %3, %if.end15 ]
   %call.i = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZNK6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %payload_collection, i64 noundef 0)
-  %add.i53 = add nuw i64 %cond.i.i, 1
-  tail call void @_ZN6duckdb16VectorOperations4CopyERKNS_6VectorERS1_mmm(ptr noundef nonnull align 8 dereferenceable(104) %call.i, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %add.i53, i64 noundef %cond.i.i, i64 noundef %i.063)
+  %add.i53 = add nuw i64 %retval.2.i60, 1
+  tail call void @_ZN6duckdb16VectorOperations4CopyERKNS_6VectorERS1_mmm(ptr noundef nonnull align 8 dereferenceable(104) %call.i, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %add.i53, i64 noundef %retval.2.i60, i64 noundef %i.063)
   br label %if.end20
 
 if.else:                                          ; preds = %cleanup.i
