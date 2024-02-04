@@ -13961,9 +13961,7 @@ _ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit: 
   %8 = load i32, ptr %maxDecimalPlaces_, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %K.i)
-  %9 = tail call double @llvm.fabs.f64(double %d)
-  %and.i.i = bitcast double %9 to i64
-  %cmp.i.i3 = icmp eq i64 %and.i.i, 0
+  %cmp.i.i3 = fcmp oeq double %d, 0.000000e+00
   br i1 %cmp.i.i3, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit
@@ -13999,23 +13997,23 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.els
   %value.addr.0.i = phi double [ %fneg.i, %if.then6.i ], [ %d, %if.else.i ]
   %buffer.addr.1.i = phi ptr [ %incdec.ptr7.i, %if.then6.i ], [ %7, %if.else.i ]
   call void @_ZN9rapidjson8internal6Grisu2EdPcPiS2_(double noundef %value.addr.0.i, ptr noundef %buffer.addr.1.i, ptr noundef nonnull %length.i, ptr noundef nonnull %K.i)
-  %10 = load i32, ptr %length.i, align 4
-  %11 = load i32, ptr %K.i, align 4
-  %call9.i = call noundef ptr @_ZN9rapidjson8internal8PrettifyEPciii(ptr noundef %buffer.addr.1.i, i32 noundef %10, i32 noundef %11, i32 noundef %8)
+  %9 = load i32, ptr %length.i, align 4
+  %10 = load i32, ptr %K.i, align 4
+  %call9.i = call noundef ptr @_ZN9rapidjson8internal8PrettifyEPciii(ptr noundef %buffer.addr.1.i, i32 noundef %9, i32 noundef %10, i32 noundef %8)
   br label %_ZN9rapidjson8internal4dtoaEdPci.exit
 
 _ZN9rapidjson8internal4dtoaEdPci.exit:            ; preds = %if.end.i, %if.end8.i
   %retval.0.i = phi ptr [ %arrayidx5.i, %if.end.i ], [ %call9.i, %if.end8.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %K.i)
-  %12 = load ptr, ptr %this, align 8
+  %11 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %retval.0.i to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
   %sub.ptr.sub.neg.neg = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %stackTop_.i.i5 = getelementptr inbounds i8, ptr %12, i64 24
-  %13 = load ptr, ptr %stackTop_.i.i5, align 8
-  %14 = getelementptr i8, ptr %13, i64 %sub.ptr.sub.neg.neg
-  %add.ptr.i.i6 = getelementptr i8, ptr %14, i64 -25
+  %stackTop_.i.i5 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = load ptr, ptr %stackTop_.i.i5, align 8
+  %13 = getelementptr i8, ptr %12, i64 %sub.ptr.sub.neg.neg
+  %add.ptr.i.i6 = getelementptr i8, ptr %13, i64 -25
   store ptr %add.ptr.i.i6, ptr %stackTop_.i.i5, align 8
   br label %return
 
@@ -63980,7 +63978,7 @@ if.then.i199:                                     ; preds = %invoke.cont39, %.no
 .noexc:                                           ; preds = %if.then.i199
   %sub.i = sub i32 %symbol.addr.011.i, %shl12.i
   %inc.i = add nuw nsw i32 %k.addr.010.i, 1
-  %shl.i = shl i32 2, %k.addr.010.i
+  %shl.i = shl nuw i32 2, %k.addr.010.i
   %cmp.not.i = icmp ult i32 %sub.i, %shl.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i199, !llvm.loop !616
 
@@ -65094,7 +65092,7 @@ if.then.i.i380:                                   ; preds = %.noexc388, %.noexc3
 .noexc390:                                        ; preds = %if.then.i.i380
   %sub.i.i = sub i32 %symbol.addr.011.i.i, %shl12.i.i
   %inc.i.i381 = add nuw nsw i32 %k.addr.010.i.i, 1
-  %shl.i.i = shl i32 2, %k.addr.010.i.i
+  %shl.i.i = shl nuw i32 2, %k.addr.010.i.i
   %cmp.not.i.i = icmp ult i32 %sub.i.i, %shl.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i380, !llvm.loop !616
 
@@ -65353,7 +65351,7 @@ if.then.i.i406:                                   ; preds = %.noexc426, %.noexc4
 .noexc428:                                        ; preds = %if.then.i.i406
   %sub.i.i410 = sub i32 %symbol.addr.011.i.i408, %shl12.i.i407
   %inc.i.i411 = add nuw nsw i32 %k.addr.010.i.i409, 1
-  %shl.i.i412 = shl i32 2, %k.addr.010.i.i409
+  %shl.i.i412 = shl nuw i32 2, %k.addr.010.i.i409
   %cmp.not.i.i413 = icmp ult i32 %sub.i.i410, %shl.i.i412
   br i1 %cmp.not.i.i413, label %if.else.i.i414, label %if.then.i.i406, !llvm.loop !616
 
@@ -65573,7 +65571,7 @@ if.then.i.i453:                                   ; preds = %.noexc473, %.noexc4
 .noexc475:                                        ; preds = %if.then.i.i453
   %sub.i.i457 = sub i32 %symbol.addr.011.i.i455, %shl12.i.i454
   %inc.i.i458 = add nuw nsw i32 %k.addr.010.i.i456, 1
-  %shl.i.i459 = shl i32 2, %k.addr.010.i.i456
+  %shl.i.i459 = shl nuw i32 2, %k.addr.010.i.i456
   %cmp.not.i.i460 = icmp ult i32 %sub.i.i457, %shl.i.i459
   br i1 %cmp.not.i.i460, label %if.else.i.i461, label %if.then.i.i453, !llvm.loop !616
 
@@ -66529,7 +66527,7 @@ if.then.i111:                                     ; preds = %invoke.cont36, %.no
 .noexc:                                           ; preds = %if.then.i111
   %sub.i = sub i32 %symbol.addr.011.i, %shl12.i
   %inc.i = add nuw nsw i32 %k.addr.010.i, 1
-  %shl.i = shl i32 2, %k.addr.010.i
+  %shl.i = shl nuw i32 2, %k.addr.010.i
   %cmp.not.i = icmp ult i32 %sub.i, %shl.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i111, !llvm.loop !616
 
@@ -67142,7 +67140,7 @@ if.then.i.i160:                                   ; preds = %.noexc168, %.noexc1
 .noexc170:                                        ; preds = %if.then.i.i160
   %sub.i.i = sub i32 %symbol.addr.011.i.i, %shl12.i.i
   %inc.i.i161 = add nuw nsw i32 %k.addr.010.i.i, 1
-  %shl.i.i = shl i32 2, %k.addr.010.i.i
+  %shl.i.i = shl nuw i32 2, %k.addr.010.i.i
   %cmp.not.i.i = icmp ult i32 %sub.i.i, %shl.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i160, !llvm.loop !616
 
@@ -67401,7 +67399,7 @@ if.then.i.i186:                                   ; preds = %.noexc206, %.noexc2
 .noexc208:                                        ; preds = %if.then.i.i186
   %sub.i.i190 = sub i32 %symbol.addr.011.i.i188, %shl12.i.i187
   %inc.i.i191 = add nuw nsw i32 %k.addr.010.i.i189, 1
-  %shl.i.i192 = shl i32 2, %k.addr.010.i.i189
+  %shl.i.i192 = shl nuw i32 2, %k.addr.010.i.i189
   %cmp.not.i.i193 = icmp ult i32 %sub.i.i190, %shl.i.i192
   br i1 %cmp.not.i.i193, label %if.else.i.i194, label %if.then.i.i186, !llvm.loop !616
 
@@ -67619,7 +67617,7 @@ if.then.i.i233:                                   ; preds = %.noexc253, %.noexc2
 .noexc255:                                        ; preds = %if.then.i.i233
   %sub.i.i237 = sub i32 %symbol.addr.011.i.i235, %shl12.i.i234
   %inc.i.i238 = add nuw nsw i32 %k.addr.010.i.i236, 1
-  %shl.i.i239 = shl i32 2, %k.addr.010.i.i236
+  %shl.i.i239 = shl nuw i32 2, %k.addr.010.i.i236
   %cmp.not.i.i240 = icmp ult i32 %sub.i.i237, %shl.i.i239
   br i1 %cmp.not.i.i240, label %if.else.i.i241, label %if.then.i.i233, !llvm.loop !616
 
@@ -72177,9 +72175,6 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #22
 
 attributes #0 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
