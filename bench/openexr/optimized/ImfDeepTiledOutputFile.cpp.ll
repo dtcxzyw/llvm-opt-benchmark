@@ -6064,11 +6064,10 @@ if.then11:                                        ; preds = %if.then4
   ]
 
 sw.bb:                                            ; preds = %if.then11, %if.then11
-  %inc14 = add i64 %a.8.val, 1
-  %retval.sroa.18.8.insert.ext = and i64 %inc14, 4294967295
-  %6 = and i64 %a.8.val, -4294967296
-  %retval.sroa.18.12.insert.shift = add i64 %6, 4294967296
-  %retval.sroa.18.12.insert.insert = or disjoint i64 %retval.sroa.18.8.insert.ext, %retval.sroa.18.12.insert.shift
+  %6 = and i64 %a.8.val, 9223372034707292159
+  %7 = add nuw i64 %6, 4294967297
+  %8 = and i64 %a.8.val, -9223372034707292160
+  %retval.sroa.18.12.insert.insert = xor i64 %7, %8
   br label %if.end91
 
 sw.bb17:                                          ; preds = %if.then11
@@ -6078,8 +6077,8 @@ sw.bb17:                                          ; preds = %if.then11
   %retval.sroa.18.8.insert.insert17 = or disjoint i64 %retval.sroa.18.8.insert.ext15, %retval.sroa.18.8.insert.mask16
   %retval.sroa.18.8.extract.trunc19 = trunc i64 %inc19 to i32
   %numXLevels = getelementptr inbounds i8, ptr %this, i64 212
-  %7 = load i32, ptr %numXLevels, align 4
-  %cmp21.not = icmp sgt i32 %7, %retval.sroa.18.8.extract.trunc19
+  %9 = load i32, ptr %numXLevels, align 4
+  %cmp21.not = icmp sgt i32 %9, %retval.sroa.18.8.extract.trunc19
   %retval.sroa.18.12.insert.shift50 = add i64 %retval.sroa.18.8.insert.mask16, 4294967296
   %spec.select = select i1 %cmp21.not, i64 %retval.sroa.18.8.insert.insert17, i64 %retval.sroa.18.12.insert.shift50
   br label %if.end91
@@ -6094,7 +6093,7 @@ invoke.cont:                                      ; preds = %sw.bb26
   unreachable
 
 lpad:                                             ; preds = %sw.bb26
-  %8 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception) #21
   br label %eh.resume
@@ -6102,12 +6101,12 @@ lpad:                                             ; preds = %sw.bb26
 if.then31:                                        ; preds = %entry
   %inc33 = add nsw i32 %retval.sroa.0.sroa.0.0.extract.trunc, 1
   %numXTiles35 = getelementptr inbounds i8, ptr %this, i64 224
-  %9 = load ptr, ptr %numXTiles35, align 8
+  %11 = load ptr, ptr %numXTiles35, align 8
   %sext = shl i64 %a.8.val, 32
   %idxprom37 = ashr exact i64 %sext, 32
-  %arrayidx38 = getelementptr inbounds i32, ptr %9, i64 %idxprom37
-  %10 = load i32, ptr %arrayidx38, align 4
-  %cmp39.not = icmp slt i32 %inc33, %10
+  %arrayidx38 = getelementptr inbounds i32, ptr %11, i64 %idxprom37
+  %12 = load i32, ptr %arrayidx38, align 4
+  %cmp39.not = icmp slt i32 %inc33, %12
   br i1 %cmp39.not, label %if.end91, label %if.then40
 
 if.then40:                                        ; preds = %if.then31
@@ -6117,8 +6116,8 @@ if.then40:                                        ; preds = %if.then31
 
 if.then45:                                        ; preds = %if.then40
   %mode47 = getelementptr inbounds i8, ptr %this, i64 72
-  %11 = load i32, ptr %mode47, align 8
-  switch i32 %11, label %sw.epilog68 [
+  %13 = load i32, ptr %mode47, align 8
+  switch i32 %13, label %sw.epilog68 [
     i32 0, label %sw.bb48
     i32 1, label %sw.bb48
     i32 2, label %sw.bb53
@@ -6126,11 +6125,10 @@ if.then45:                                        ; preds = %if.then40
   ]
 
 sw.bb48:                                          ; preds = %if.then45, %if.then45
-  %inc50 = add i64 %a.8.val, 1
-  %retval.sroa.18.8.insert.ext28 = and i64 %inc50, 4294967295
-  %12 = and i64 %a.8.val, -4294967296
-  %retval.sroa.18.12.insert.shift58 = add i64 %12, 4294967296
-  %retval.sroa.18.12.insert.insert60 = or disjoint i64 %retval.sroa.18.8.insert.ext28, %retval.sroa.18.12.insert.shift58
+  %14 = and i64 %a.8.val, 9223372034707292159
+  %15 = add nuw i64 %14, 4294967297
+  %16 = and i64 %a.8.val, -9223372034707292160
+  %retval.sroa.18.12.insert.insert60 = xor i64 %15, %16
   br label %sw.epilog68
 
 sw.bb53:                                          ; preds = %if.then45
@@ -6140,8 +6138,8 @@ sw.bb53:                                          ; preds = %if.then45
   %retval.sroa.18.8.insert.insert36 = or disjoint i64 %retval.sroa.18.8.insert.ext34, %retval.sroa.18.8.insert.mask35
   %retval.sroa.18.8.extract.trunc38 = trunc i64 %inc55 to i32
   %numXLevels57 = getelementptr inbounds i8, ptr %this, i64 212
-  %13 = load i32, ptr %numXLevels57, align 4
-  %cmp58.not = icmp sgt i32 %13, %retval.sroa.18.8.extract.trunc38
+  %17 = load i32, ptr %numXLevels57, align 4
+  %cmp58.not = icmp sgt i32 %17, %retval.sroa.18.8.extract.trunc38
   %retval.sroa.18.12.insert.shift66 = add i64 %retval.sroa.18.8.insert.mask35, 4294967296
   %spec.select1 = select i1 %cmp58.not, i64 %retval.sroa.18.8.insert.insert36, i64 %retval.sroa.18.12.insert.shift66
   br label %sw.epilog68
@@ -6156,7 +6154,7 @@ invoke.cont67:                                    ; preds = %sw.bb64
   unreachable
 
 lpad66:                                           ; preds = %sw.bb64
-  %14 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr %exception65) #21
   br label %eh.resume
@@ -6166,17 +6164,17 @@ sw.epilog68:                                      ; preds = %sw.bb53, %sw.bb48, 
   %retval.sroa.18.12.extract.shift70 = lshr i64 %retval.sroa.18.0, 32
   %retval.sroa.18.12.extract.trunc71 = trunc i64 %retval.sroa.18.12.extract.shift70 to i32
   %numYLevels = getelementptr inbounds i8, ptr %this, i64 216
-  %15 = load i32, ptr %numYLevels, align 8
-  %cmp70 = icmp sgt i32 %15, %retval.sroa.18.12.extract.trunc71
+  %19 = load i32, ptr %numYLevels, align 8
+  %cmp70 = icmp sgt i32 %19, %retval.sroa.18.12.extract.trunc71
   br i1 %cmp70, label %if.then71, label %if.end91
 
 if.then71:                                        ; preds = %sw.epilog68
   %numYTiles72 = getelementptr inbounds i8, ptr %this, i64 232
-  %16 = load ptr, ptr %numYTiles72, align 8
+  %20 = load ptr, ptr %numYTiles72, align 8
   %idxprom74 = ashr i64 %retval.sroa.18.0, 32
-  %arrayidx75 = getelementptr inbounds i32, ptr %16, i64 %idxprom74
-  %17 = load i32, ptr %arrayidx75, align 4
-  %sub = add nsw i32 %17, -1
+  %arrayidx75 = getelementptr inbounds i32, ptr %20, i64 %idxprom74
+  %21 = load i32, ptr %arrayidx75, align 4
+  %sub = add nsw i32 %21, -1
   br label %if.end91
 
 do.body:                                          ; preds = %entry
@@ -6196,18 +6194,18 @@ invoke.cont88:                                    ; preds = %invoke.cont85
           to label %unreachable unwind label %lpad84
 
 lpad84:                                           ; preds = %invoke.cont88, %do.body
-  %18 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad87:                                           ; preds = %invoke.cont85
-  %19 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception86) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad87, %lpad84
-  %.pn = phi { ptr, i32 } [ %18, %lpad84 ], [ %19, %lpad87 ]
+  %.pn = phi { ptr, i32 } [ %22, %lpad84 ], [ %23, %lpad87 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %_iex_throw_s) #21
   br label %eh.resume
 
@@ -6224,7 +6222,7 @@ if.end91:                                         ; preds = %sw.bb17, %entry, %i
   ret { i64, i64 } %.fca.1.insert
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad66, %lpad
-  %.pn79 = phi { ptr, i32 } [ %8, %lpad ], [ %14, %lpad66 ], [ %.pn, %ehcleanup ]
+  %.pn79 = phi { ptr, i32 } [ %10, %lpad ], [ %18, %lpad66 ], [ %.pn, %ehcleanup ]
   resume { ptr, i32 } %.pn79
 
 unreachable:                                      ; preds = %invoke.cont88
@@ -8980,7 +8978,7 @@ declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #15
 
 declare void @_ZN7Iex_3_27TypeExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #0
@@ -9251,7 +9249,7 @@ attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind memory(read) }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #16 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
