@@ -2905,15 +2905,15 @@ if.end23:                                         ; preds = %if.then.i.i.i.i163,
           to label %invoke.cont26 unwind label %lpad11.loopexit.split-lp
 
 invoke.cont26:                                    ; preds = %if.end23
-  %141 = call noundef ptr @__dynamic_cast(ptr nonnull %call27, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9RowVectorE, i64 0) #22
   %childrenSize_ = getelementptr inbounds i8, ptr %this, i64 104
-  %142 = load i64, ptr %childrenSize_, align 8
-  %cmp30919.not = icmp eq i64 %142, 0
+  %141 = load i64, ptr %childrenSize_, align 8
+  %cmp30919.not = icmp eq i64 %141, 0
   br i1 %cmp30919.not, label %if.end146, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont26
-  %childrenSize_.i = getelementptr inbounds i8, ptr %141, i64 104
-  %children_.i = getelementptr inbounds i8, ptr %141, i64 112
+  %142 = call noundef ptr @__dynamic_cast(ptr nonnull %call27, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9RowVectorE, i64 0) #22
+  %childrenSize_.i = getelementptr inbounds i8, ptr %142, i64 104
+  %children_.i = getelementptr inbounds i8, ptr %142, i64 112
   %type_.i = getelementptr inbounds i8, ptr %this, i64 8
   %pool_.i = getelementptr inbounds i8, ptr %this, i64 48
   %children_ = getelementptr inbounds i8, ptr %this, i64 112
@@ -4171,16 +4171,16 @@ lpad80.body:                                      ; preds = %lpad80.body.loopexi
 if.end93:                                         ; preds = %for.body.i576, %while.body.i83.i.i.i.i, %while.body.i.i.i.i.i657, %if.then19.i.i.i.i619, %for.end.i.i.i6.i, %if.then3.i.i.i.i639, %if.else.i581, %if.then.i572, %invoke.cont76
   %331 = phi ptr [ null, %invoke.cont76 ], [ %284, %if.then.i572 ], [ %284, %if.else.i581 ], [ %284, %if.then3.i.i.i.i639 ], [ %284, %for.end.i.i.i6.i ], [ %284, %if.then19.i.i.i.i619 ], [ %284, %while.body.i.i.i.i.i657 ], [ %284, %while.body.i83.i.i.i.i ], [ %284, %for.body.i576 ]
   %rawMappedIndices.0 = phi ptr [ null, %invoke.cont76 ], [ %286, %if.then.i572 ], [ %286, %if.else.i581 ], [ %286, %if.then3.i.i.i.i639 ], [ %286, %for.end.i.i.i6.i ], [ %286, %if.then19.i.i.i.i619 ], [ %286, %while.body.i.i.i.i.i657 ], [ %286, %while.body.i83.i.i.i.i ], [ %286, %for.body.i576 ]
-  %332 = load ptr, ptr %baseVector_.i, align 8
-  %333 = call noundef ptr @__dynamic_cast(ptr nonnull %332, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9RowVectorE, i64 0) #22
   %childrenSize_101 = getelementptr inbounds i8, ptr %this, i64 104
-  %334 = load i64, ptr %childrenSize_101, align 8
-  %cmp102922.not = icmp eq i64 %334, 0
+  %332 = load i64, ptr %childrenSize_101, align 8
+  %cmp102922.not = icmp eq i64 %332, 0
   br i1 %cmp102922.not, label %for.end145, label %for.body103.lr.ph
 
 for.body103.lr.ph:                                ; preds = %if.end93
-  %childrenSize_.i698 = getelementptr inbounds i8, ptr %333, i64 104
-  %children_.i701 = getelementptr inbounds i8, ptr %333, i64 112
+  %333 = load ptr, ptr %baseVector_.i, align 8
+  %334 = call noundef ptr @__dynamic_cast(ptr nonnull %333, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9RowVectorE, i64 0) #22
+  %childrenSize_.i698 = getelementptr inbounds i8, ptr %334, i64 104
+  %children_.i701 = getelementptr inbounds i8, ptr %334, i64 112
   %type_.i705 = getelementptr inbounds i8, ptr %this, i64 8
   %pool_.i709 = getelementptr inbounds i8, ptr %this, i64 48
   %children_119 = getelementptr inbounds i8, ptr %this, i64 112
@@ -5392,20 +5392,20 @@ if.end34:                                         ; preds = %invoke.cont31, %if.
           to label %invoke.cont37 unwind label %lpad24.loopexit.split-lp
 
 invoke.cont37:                                    ; preds = %if.end34
-  %62 = call noundef ptr @__dynamic_cast(ptr nonnull %call38, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9RowVectorE, i64 0) #22
-  %63 = load ptr, ptr %_M_finish.i, align 8
-  %64 = load ptr, ptr %children_, align 8
-  %cmp46186.not = icmp eq ptr %63, %64
+  %62 = load ptr, ptr %_M_finish.i, align 8
+  %63 = load ptr, ptr %children_, align 8
+  %cmp46186.not = icmp eq ptr %62, %63
   br i1 %cmp46186.not, label %if.end102, label %for.body47.lr.ph
 
 for.body47.lr.ph:                                 ; preds = %invoke.cont37
-  %childrenSize_.i = getelementptr inbounds i8, ptr %62, i64 104
-  %children_.i = getelementptr inbounds i8, ptr %62, i64 112
+  %64 = call noundef ptr @__dynamic_cast(ptr nonnull %call38, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9RowVectorE, i64 0) #22
+  %childrenSize_.i = getelementptr inbounds i8, ptr %64, i64 104
+  %children_.i = getelementptr inbounds i8, ptr %64, i64 112
   br label %for.body47
 
 for.body47:                                       ; preds = %for.body47.lr.ph, %for.inc62
   %indvars.iv206 = phi i64 [ 0, %for.body47.lr.ph ], [ %indvars.iv.next207, %for.inc62 ]
-  %65 = phi ptr [ %64, %for.body47.lr.ph ], [ %73, %for.inc62 ]
+  %65 = phi ptr [ %63, %for.body47.lr.ph ], [ %73, %for.inc62 ]
   %add.ptr.i52 = getelementptr inbounds %"class.std::shared_ptr.3", ptr %65, i64 %indvars.iv206
   %66 = load ptr, ptr %add.ptr.i52, align 8
   %67 = load i64, ptr %childrenSize_.i, align 8
@@ -5725,16 +5725,16 @@ invoke.cont70.loopexit:                           ; preds = %for.inc6.i
 invoke.cont70:                                    ; preds = %invoke.cont70.loopexit, %if.end.i61
   %baseRanges.sroa.0.5 = phi ptr [ null, %if.end.i61 ], [ %baseRanges.sroa.0.4, %invoke.cont70.loopexit ]
   %baseRanges.sroa.8.5 = phi i64 [ 0, %if.end.i61 ], [ %107, %invoke.cont70.loopexit ]
-  %108 = load ptr, ptr %baseVector_.i, align 8
-  %109 = call noundef ptr @__dynamic_cast(ptr nonnull %108, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9RowVectorE, i64 0) #22
-  %110 = load ptr, ptr %_M_finish.i, align 8
-  %111 = load ptr, ptr %children_, align 8
-  %cmp81193.not = icmp eq ptr %110, %111
+  %108 = load ptr, ptr %_M_finish.i, align 8
+  %109 = load ptr, ptr %children_, align 8
+  %cmp81193.not = icmp eq ptr %108, %109
   br i1 %cmp81193.not, label %for.end101, label %for.body82.lr.ph
 
 for.body82.lr.ph:                                 ; preds = %invoke.cont70
-  %childrenSize_.i91 = getelementptr inbounds i8, ptr %109, i64 104
-  %children_.i95 = getelementptr inbounds i8, ptr %109, i64 112
+  %110 = load ptr, ptr %baseVector_.i, align 8
+  %111 = call noundef ptr @__dynamic_cast(ptr nonnull %110, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9RowVectorE, i64 0) #22
+  %childrenSize_.i91 = getelementptr inbounds i8, ptr %111, i64 104
+  %children_.i95 = getelementptr inbounds i8, ptr %111, i64 112
   %sub.ptr.rhs.cast.i.i100 = ptrtoint ptr %baseRanges.sroa.0.5 to i64
   %sub.ptr.sub.i.i101 = sub i64 %baseRanges.sroa.8.5, %sub.ptr.rhs.cast.i.i100
   %e_.i.i = getelementptr inbounds i8, ptr %ref.tmp94, i64 8
@@ -5743,7 +5743,7 @@ for.body82.lr.ph:                                 ; preds = %invoke.cont70
 
 for.body82:                                       ; preds = %for.body82.lr.ph, %for.inc99
   %indvars.iv209 = phi i64 [ 0, %for.body82.lr.ph ], [ %indvars.iv.next210, %for.inc99 ]
-  %112 = phi ptr [ %111, %for.body82.lr.ph ], [ %120, %for.inc99 ]
+  %112 = phi ptr [ %109, %for.body82.lr.ph ], [ %120, %for.inc99 ]
   %add.ptr.i89 = getelementptr inbounds %"class.std::shared_ptr.3", ptr %112, i64 %indvars.iv209
   %113 = load ptr, ptr %add.ptr.i89, align 8
   %114 = load i64, ptr %childrenSize_.i91, align 8
@@ -14822,7 +14822,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #14
 
 declare void @_ZN8facebook5velox13DecodedVector6decodeERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEb(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(99), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #15
 
 declare void @__cxa_bad_cast() local_unnamed_addr
@@ -17831,14 +17831,23 @@ invoke.cont24:                                    ; preds = %_ZNSt10shared_ptrIK
   %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 4
   %conv = zext i32 %call25 to i64
   %cmp.not = icmp ugt i64 %sub.ptr.div.i23, %conv
-  br i1 %cmp.not, label %if.then, label %if.end
+  br i1 %cmp.not, label %if.then, label %for.cond.preheader
+
+for.cond.preheader:                               ; preds = %invoke.cont24
+  %35 = load ptr, ptr %children_, align 8
+  store i8 0, ptr %childrenLoaded_, align 1
+  %containsLazyNotLoaded_.i = getelementptr inbounds i8, ptr %this, i64 136
+  store i8 0, ptr %containsLazyNotLoaded_.i, align 8
+  %36 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %cmp.i.not6.i = icmp eq ptr %35, %36
+  br i1 %cmp.i.not6.i, label %invoke.cont38, label %for.body.i
 
 if.then:                                          ; preds = %invoke.cont24
   call void @llvm.trap()
   unreachable
 
 lpad18:                                           ; preds = %invoke.cont
-  %35 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp3) #22
   call void @_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #22
@@ -17860,32 +17869,14 @@ lpad23:                                           ; preds = %lpad23.loopexit.spl
   call void @_ZN8facebook5velox10BaseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %this) #22
   br label %eh.resume
 
-if.end:                                           ; preds = %invoke.cont24
-  %36 = load ptr, ptr %type, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %dynamic_cast.end, label %dynamic_cast.notnull
-
-dynamic_cast.notnull:                             ; preds = %if.end
-  %38 = call ptr @__dynamic_cast(ptr nonnull %36, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox7RowTypeE, i64 0) #22
-  br label %dynamic_cast.end
-
-dynamic_cast.end:                                 ; preds = %if.end, %dynamic_cast.notnull
-  %39 = load ptr, ptr %children_, align 8
-  store i8 0, ptr %childrenLoaded_, align 1
-  %containsLazyNotLoaded_.i = getelementptr inbounds i8, ptr %this, i64 136
-  store i8 0, ptr %containsLazyNotLoaded_.i, align 8
-  %40 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %cmp.i.not6.i = icmp eq ptr %39, %40
-  br i1 %cmp.i.not6.i, label %invoke.cont38, label %for.body.i
-
-for.body.i:                                       ; preds = %dynamic_cast.end, %for.inc.i
-  %__begin2.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %39, %dynamic_cast.end ]
-  %41 = load ptr, ptr %__begin2.sroa.0.07.i, align 8
-  %cmp.i3.not.i = icmp eq ptr %41, null
+for.body.i:                                       ; preds = %for.cond.preheader, %for.inc.i
+  %__begin2.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %35, %for.cond.preheader ]
+  %38 = load ptr, ptr %__begin2.sroa.0.07.i, align 8
+  %cmp.i3.not.i = icmp eq ptr %38, null
   br i1 %cmp.i3.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %call8.i30 = invoke noundef zeroext i1 @_ZN8facebook5velox15isLazyNotLoadedERKNS0_10BaseVectorE(ptr noundef nonnull align 8 dereferenceable(99) %41)
+  %call8.i30 = invoke noundef zeroext i1 @_ZN8facebook5velox15isLazyNotLoadedERKNS0_10BaseVectorE(ptr noundef nonnull align 8 dereferenceable(99) %38)
           to label %call8.i.noexc unwind label %lpad23.loopexit
 
 call8.i.noexc:                                    ; preds = %land.lhs.true.i
@@ -17897,14 +17888,14 @@ if.then.i29:                                      ; preds = %call8.i.noexc
 
 for.inc.i:                                        ; preds = %call8.i.noexc, %for.body.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i, i64 16
-  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %40
+  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %36
   br i1 %cmp.i.not.i, label %invoke.cont38, label %for.body.i
 
-invoke.cont38:                                    ; preds = %for.inc.i, %if.then.i29, %dynamic_cast.end
+invoke.cont38:                                    ; preds = %for.inc.i, %if.then.i29, %for.cond.preheader
   ret void
 
 eh.resume:                                        ; preds = %lpad23, %lpad18
-  %.pn4 = phi { ptr, i32 } [ %lpad.phi, %lpad23 ], [ %35, %lpad18 ]
+  %.pn4 = phi { ptr, i32 } [ %lpad.phi, %lpad23 ], [ %37, %lpad18 ]
   resume { ptr, i32 } %.pn4
 }
 
@@ -22137,7 +22128,7 @@ attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nofree nounwind memory(read) }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #18 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

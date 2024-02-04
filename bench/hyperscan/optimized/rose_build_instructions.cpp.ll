@@ -10948,13 +10948,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue216RoseInstrCatchUpE, i64 0) #25
   %tobool.not = icmp ne ptr %0, null
-  br i1 %tobool.not, label %dynamic_cast.notnull2, label %cleanup
-
-dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode20E20ROSE_STRUCT_CATCH_UPNS_16RoseInstrCatchUpEEE, ptr nonnull @_ZTIN3ue216RoseInstrCatchUpE, i64 0) #25
-  br label %cleanup
-
-cleanup:                                          ; preds = %dynamic_cast.notnull2, %entry
   ret i1 %tobool.not
 }
 
@@ -11000,13 +10993,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrCatchUpMpvE, i64 0) #25
   %tobool.not = icmp ne ptr %0, null
-  br i1 %tobool.not, label %dynamic_cast.notnull2, label %cleanup
-
-dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode21E24ROSE_STRUCT_CATCH_UP_MPVNS_19RoseInstrCatchUpMpvEEE, ptr nonnull @_ZTIN3ue219RoseInstrCatchUpMpvE, i64 0) #25
-  br label %cleanup
-
-cleanup:                                          ; preds = %dynamic_cast.notnull2, %entry
   ret i1 %tobool.not
 }
 
@@ -11052,13 +11038,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue216RoseInstrSomZeroE, i64 0) #25
   %tobool.not = icmp ne ptr %0, null
-  br i1 %tobool.not, label %dynamic_cast.notnull2, label %cleanup
-
-dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode25E20ROSE_STRUCT_SOM_ZERONS_16RoseInstrSomZeroEEE, ptr nonnull @_ZTIN3ue216RoseInstrSomZeroE, i64 0) #25
-  br label %cleanup
-
-cleanup:                                          ; preds = %dynamic_cast.notnull2, %entry
   ret i1 %tobool.not
 }
 
@@ -11104,13 +11083,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue220RoseInstrSuffixesEodE, i64 0) #25
   %tobool.not = icmp ne ptr %0, null
-  br i1 %tobool.not, label %dynamic_cast.notnull2, label %cleanup
-
-dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode49E24ROSE_STRUCT_SUFFIXES_EODNS_20RoseInstrSuffixesEodEEE, ptr nonnull @_ZTIN3ue220RoseInstrSuffixesEodE, i64 0) #25
-  br label %cleanup
-
-cleanup:                                          ; preds = %dynamic_cast.notnull2, %entry
   ret i1 %tobool.not
 }
 
@@ -11156,13 +11128,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue219RoseInstrMatcherEodE, i64 0) #25
   %tobool.not = icmp ne ptr %0, null
-  br i1 %tobool.not, label %dynamic_cast.notnull2, label %cleanup
-
-dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode50E23ROSE_STRUCT_MATCHER_EODNS_19RoseInstrMatcherEodEEE, ptr nonnull @_ZTIN3ue219RoseInstrMatcherEodE, i64 0) #25
-  br label %cleanup
-
-cleanup:                                          ; preds = %dynamic_cast.notnull2, %entry
   ret i1 %tobool.not
 }
 
@@ -11208,13 +11173,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue212RoseInstrEndE, i64 0) #25
   %tobool.not = icmp ne ptr %0, null
-  br i1 %tobool.not, label %dynamic_cast.notnull2, label %cleanup
-
-dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode0E15ROSE_STRUCT_ENDNS_12RoseInstrEndEEE, ptr nonnull @_ZTIN3ue212RoseInstrEndE, i64 0) #25
-  br label %cleanup
-
-cleanup:                                          ; preds = %dynamic_cast.notnull2, %entry
   ret i1 %tobool.not
 }
 
@@ -11260,13 +11218,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue222RoseInstrClearWorkDoneE, i64 0) #25
   %tobool.not = icmp ne ptr %0, null
-  br i1 %tobool.not, label %dynamic_cast.notnull2, label %cleanup
-
-dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode55E27ROSE_STRUCT_CLEAR_WORK_DONENS_22RoseInstrClearWorkDoneEEE, ptr nonnull @_ZTIN3ue222RoseInstrClearWorkDoneE, i64 0) #25
-  br label %cleanup
-
-cleanup:                                          ; preds = %dynamic_cast.notnull2, %entry
   ret i1 %tobool.not
 }
 
@@ -11312,13 +11263,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue225RoseInstrFlushCombinationE, i64 0) #25
   %tobool.not = icmp ne ptr %0, null
-  br i1 %tobool.not, label %dynamic_cast.notnull2, label %cleanup
-
-dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode64E29ROSE_STRUCT_FLUSH_COMBINATIONNS_25RoseInstrFlushCombinationEEE, ptr nonnull @_ZTIN3ue225RoseInstrFlushCombinationE, i64 0) #25
-  br label %cleanup
-
-cleanup:                                          ; preds = %dynamic_cast.notnull2, %entry
   ret i1 %tobool.not
 }
 
@@ -11364,13 +11308,6 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3ue213RoseInstrBaseIL19RoseIn
 entry:
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN3ue215RoseInstructionE, ptr nonnull @_ZTIN3ue229RoseInstrLastFlushCombinationE, i64 0) #25
   %tobool.not = icmp ne ptr %0, null
-  br i1 %tobool.not, label %dynamic_cast.notnull2, label %cleanup
-
-dynamic_cast.notnull2:                            ; preds = %entry
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %this, ptr nonnull @_ZTIN3ue213RoseInstrBaseIL19RoseInstructionCode66E34ROSE_STRUCT_LAST_FLUSH_COMBINATIONNS_29RoseInstrLastFlushCombinationEEE, ptr nonnull @_ZTIN3ue229RoseInstrLastFlushCombinationE, i64 0) #25
-  br label %cleanup
-
-cleanup:                                          ; preds = %dynamic_cast.notnull2, %entry
   ret i1 %tobool.not
 }
 
@@ -13821,7 +13758,7 @@ _ZNSt12_Vector_baseISt6vectorIN3ue29CharReachESaIS2_EESaIS4_EE13_M_deallocateEPS
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
@@ -19933,7 +19870,7 @@ attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-
 attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind memory(read) }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

@@ -4651,7 +4651,7 @@ dynamic_cast.end:                                 ; preds = %entry
   ret ptr %0
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #10
 
 declare void @__cxa_bad_cast() local_unnamed_addr
@@ -16307,22 +16307,22 @@ entry:
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(28) %t1)
   %tobool.not.i = icmp ne ptr %call, null
   tail call void @llvm.assume(i1 %tobool.not.i)
-  %1 = tail call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
-  %2 = tail call ptr @__dynamic_cast(ptr nonnull %t2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
+  %1 = tail call ptr @__dynamic_cast(ptr nonnull %t2, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %2 = icmp eq ptr %1, null
+  br i1 %2, label %dynamic_cast.bad_cast.i, label %_ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit
 
 dynamic_cast.bad_cast.i:                          ; preds = %entry
   tail call void @__cxa_bad_cast() #20
   unreachable
 
 _ZN7datalog11udoc_plugin3getERKNS_13relation_baseE.exit: ; preds = %entry
-  %dm.i = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = tail call ptr @__dynamic_cast(ptr nonnull %call, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog13udoc_relationE, i64 0) #19
+  %dm.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %dm.i, align 8
-  %m_elems.i = getelementptr inbounds i8, ptr %1, i64 40
-  %m_elems.i3 = getelementptr inbounds i8, ptr %2, i64 40
+  %m_elems.i = getelementptr inbounds i8, ptr %3, i64 40
+  %m_elems.i3 = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @_ZN10union_bvecI11doc_manager3docE9intersectERS0_RKS2_(ptr noundef nonnull align 8 dereferenceable(80) %m_elems.i, ptr noundef nonnull align 8 dereferenceable(1080) %4, ptr noundef nonnull align 8 dereferenceable(80) %m_elems.i3)
-  ret ptr %1
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -19158,7 +19158,7 @@ attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind memory(read) }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

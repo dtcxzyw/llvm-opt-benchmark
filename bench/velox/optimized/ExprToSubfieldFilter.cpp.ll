@@ -7316,7 +7316,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @_ZSt9terminatev() local_unnamed_addr
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8844,7 +8844,11 @@ invoke.cont24:                                    ; preds = %_ZNSt10shared_ptrIK
   %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 4
   %conv = zext i32 %call25 to i64
   %cmp.not = icmp ugt i64 %sub.ptr.div.i23, %conv
-  br i1 %cmp.not, label %if.then, label %if.end
+  br i1 %cmp.not, label %if.then, label %for.cond.preheader
+
+for.cond.preheader:                               ; preds = %invoke.cont24
+  invoke void @_ZNK8facebook5velox9RowVector27updateContainsLazyNotLoadedEv(ptr noundef nonnull align 8 dereferenceable(138) %this)
+          to label %invoke.cont38 unwind label %lpad23
 
 if.then:                                          ; preds = %invoke.cont24
   call void @llvm.trap()
@@ -8857,27 +8861,14 @@ lpad18:                                           ; preds = %invoke.cont
   call void @_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #29
   br label %eh.resume
 
-lpad23:                                           ; preds = %dynamic_cast.end, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit
+lpad23:                                           ; preds = %for.cond.preheader, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit
   %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children_) #29
   call void @_ZN8facebook5velox10BaseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %this) #29
   br label %eh.resume
 
-if.end:                                           ; preds = %invoke.cont24
-  %37 = load ptr, ptr %type, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %dynamic_cast.end, label %dynamic_cast.notnull
-
-dynamic_cast.notnull:                             ; preds = %if.end
-  %39 = call ptr @__dynamic_cast(ptr nonnull %37, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox7RowTypeE, i64 0) #29
-  br label %dynamic_cast.end
-
-dynamic_cast.end:                                 ; preds = %if.end, %dynamic_cast.notnull
-  invoke void @_ZNK8facebook5velox9RowVector27updateContainsLazyNotLoadedEv(ptr noundef nonnull align 8 dereferenceable(138) %this)
-          to label %invoke.cont38 unwind label %lpad23
-
-invoke.cont38:                                    ; preds = %dynamic_cast.end
+invoke.cont38:                                    ; preds = %for.cond.preheader
   ret void
 
 eh.resume:                                        ; preds = %lpad23, %lpad18
@@ -16012,7 +16003,7 @@ attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind memory(read) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

@@ -693,7 +693,7 @@ dynamic_cast.end:                                 ; preds = %entry
   ret ptr %0
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #5
 
 declare void @__cxa_bad_cast() local_unnamed_addr
@@ -13525,14 +13525,6 @@ dynamic_cast.bad_cast.i1:                         ; preds = %_ZN7datalog21bound_
   unreachable
 
 _ZN7datalog21bound_relation_plugin21get_interval_relationERKNS_13relation_baseE.exit: ; preds = %_ZN7datalog21bound_relation_plugin3getERNS_13relation_baseE.exit
-  %4 = icmp eq ptr %_delta, null
-  br i1 %4, label %_ZN7datalog21bound_relation_plugin3getEPNS_13relation_baseE.exit, label %dynamic_cast.notnull.i
-
-dynamic_cast.notnull.i:                           ; preds = %_ZN7datalog21bound_relation_plugin21get_interval_relationERKNS_13relation_baseE.exit
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %_delta, ptr nonnull @_ZTIN7datalog13relation_baseE, ptr nonnull @_ZTIN7datalog14bound_relationE, i64 0) #20
-  br label %_ZN7datalog21bound_relation_plugin3getEPNS_13relation_baseE.exit
-
-_ZN7datalog21bound_relation_plugin3getEPNS_13relation_baseE.exit: ; preds = %_ZN7datalog21bound_relation_plugin21get_interval_relationERKNS_13relation_baseE.exit, %dynamic_cast.notnull.i
   tail call void @_ZN7datalog14bound_relation10mk_union_iERKNS_17interval_relationEPS0_b(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(224) %2, ptr poison, i1 zeroext poison)
   ret void
 }
@@ -16467,7 +16459,7 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind memory(read) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #6 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

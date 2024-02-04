@@ -394,20 +394,20 @@ lpad:                                             ; preds = %if.then.i
   resume { ptr, i32 } %3
 
 invoke.cont4:                                     ; preds = %_ZNK15ref_vector_coreI6solver21ref_unmanaged_wrapperIS0_EE3endEv.exit, %for.inc
+  %4 = phi ptr [ %15, %for.inc ], [ null, %_ZNK15ref_vector_coreI6solver21ref_unmanaged_wrapperIS0_EE3endEv.exit ]
   %__begin1.012 = phi ptr [ %incdec.ptr, %for.inc ], [ %0, %_ZNK15ref_vector_coreI6solver21ref_unmanaged_wrapperIS0_EE3endEv.exit ]
-  %4 = load ptr, ptr %__begin1.012, align 8, !nonnull !4, !noundef !4
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %4, ptr nonnull @_ZTI6solver, ptr nonnull @_ZTI11pool_solver, i64 0) #18
-  %m_base.i = getelementptr inbounds i8, ptr %5, i64 160
-  %6 = load ptr, ptr %m_base.i, align 8
-  %7 = load ptr, ptr %agg.result, align 8
-  %cmp.i.i.i5 = icmp eq ptr %7, null
+  %5 = load ptr, ptr %__begin1.012, align 8, !nonnull !4, !noundef !4
+  %6 = tail call ptr @__dynamic_cast(ptr nonnull %5, ptr nonnull @_ZTI6solver, ptr nonnull @_ZTI11pool_solver, i64 0) #18
+  %m_base.i = getelementptr inbounds i8, ptr %6, i64 160
+  %7 = load ptr, ptr %m_base.i, align 8
+  %cmp.i.i.i5 = icmp eq ptr %4, null
   br i1 %cmp.i.i.i5, label %if.then.i, label %_ZNK6vectorIP6solverLb0EjE3endEv.exit.i
 
 _ZNK6vectorIP6solverLb0EjE3endEv.exit.i:          ; preds = %invoke.cont4
-  %arrayidx.i.i.i6 = getelementptr inbounds i8, ptr %7, i64 -4
+  %arrayidx.i.i.i6 = getelementptr inbounds i8, ptr %4, i64 -4
   %8 = load i32, ptr %arrayidx.i.i.i6, align 4
   %9 = zext i32 %8 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %7, i64 %9
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %4, i64 %9
   %cmp.not3.not.i = icmp eq i32 %8, 0
   br i1 %cmp.not3.not.i, label %lor.lhs.false.i, label %for.body.i
 
@@ -417,13 +417,13 @@ for.cond.i:                                       ; preds = %for.body.i
   br i1 %cmp.not.not.i, label %lor.lhs.false.i, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %_ZNK6vectorIP6solverLb0EjE3endEv.exit.i, %for.cond.i
-  %it.04.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %7, %_ZNK6vectorIP6solverLb0EjE3endEv.exit.i ]
+  %it.04.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %4, %_ZNK6vectorIP6solverLb0EjE3endEv.exit.i ]
   %10 = load ptr, ptr %it.04.i, align 8
-  %cmp3.i = icmp eq ptr %10, %6
+  %cmp3.i = icmp eq ptr %10, %7
   br i1 %cmp3.i, label %for.inc, label %for.cond.i
 
 lor.lhs.false.i:                                  ; preds = %for.cond.i, %_ZNK6vectorIP6solverLb0EjE3endEv.exit.i
-  %arrayidx4.i = getelementptr inbounds i8, ptr %7, i64 -8
+  %arrayidx4.i = getelementptr inbounds i8, ptr %4, i64 -8
   %11 = load i32, ptr %arrayidx4.i, align 4
   %cmp5.i = icmp eq i32 %8, %11
   br i1 %cmp5.i, label %if.then.i, label %_ZN6vectorIP6solverLb0EjE9push_backEOS1_.exit
@@ -436,22 +436,24 @@ if.then.i:                                        ; preds = %invoke.cont4, %lor.
   %.pre.i = load ptr, ptr %agg.result, align 8
   %arrayidx8.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre1.i = load i32, ptr %arrayidx8.phi.trans.insert.i, align 4
-  %.pre = zext i32 %.pre1.i to i64
+  %.pre14 = zext i32 %.pre1.i to i64
   br label %_ZN6vectorIP6solverLb0EjE9push_backEOS1_.exit
 
 _ZN6vectorIP6solverLb0EjE9push_backEOS1_.exit:    ; preds = %lor.lhs.false.i, %.noexc
-  %idx.ext.i.pre-phi = phi i64 [ %9, %lor.lhs.false.i ], [ %.pre, %.noexc ]
-  %12 = phi ptr [ %7, %lor.lhs.false.i ], [ %.pre.i, %.noexc ]
+  %idx.ext.i.pre-phi = phi i64 [ %9, %lor.lhs.false.i ], [ %.pre14, %.noexc ]
+  %12 = phi ptr [ %4, %lor.lhs.false.i ], [ %.pre.i, %.noexc ]
   %add.ptr.i8 = getelementptr inbounds ptr, ptr %12, i64 %idx.ext.i.pre-phi
-  store ptr %6, ptr %add.ptr.i8, align 8
+  store ptr %7, ptr %add.ptr.i8, align 8
   %13 = load ptr, ptr %agg.result, align 8
   %arrayidx10.i = getelementptr inbounds i8, ptr %13, i64 -4
   %14 = load i32, ptr %arrayidx10.i, align 4
   %inc.i = add i32 %14, 1
   store i32 %inc.i, ptr %arrayidx10.i, align 4
+  %.pre = load ptr, ptr %agg.result, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body.i, %_ZN6vectorIP6solverLb0EjE9push_backEOS1_.exit
+  %15 = phi ptr [ %.pre, %_ZN6vectorIP6solverLb0EjE9push_backEOS1_.exit ], [ %4, %for.body.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.012, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %nrvo.skipdtor, label %invoke.cont4
@@ -460,7 +462,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %invoke.co
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7687,7 +7689,7 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind memory(read) }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

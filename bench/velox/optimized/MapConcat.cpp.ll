@@ -9906,7 +9906,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_d
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress noreturn uwtable
@@ -18877,142 +18877,140 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %nulls_.i = getelementptr inbounds i8, ptr %call2.i, i64 24
   %13 = load ptr, ptr %nulls_.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
+  %isIdentityMapping_.i16.phi.trans.insert = getelementptr inbounds i8, ptr %call2.i, i64 58
+  %.pre = load i8, ptr %isIdentityMapping_.i16.phi.trans.insert, align 2
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %isIdentityMapping_.i = getelementptr inbounds i8, ptr %call2.i, i64 58
-  %14 = load i8, ptr %isIdentityMapping_.i, align 2
-  %15 = and i8 %14, 1
-  %tobool2.not.i = icmp eq i8 %15, 0
+  %14 = and i8 %.pre, 1
+  %tobool2.not.i = icmp eq i8 %14, 0
   br i1 %tobool2.not.i, label %lor.lhs.false.i, label %if.then4.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %hasExtraNulls_.i = getelementptr inbounds i8, ptr %call2.i, i64 57
-  %16 = load i8, ptr %hasExtraNulls_.i, align 1
-  %17 = and i8 %16, 1
-  %tobool3.not.i = icmp eq i8 %17, 0
+  %15 = load i8, ptr %hasExtraNulls_.i, align 1
+  %16 = and i8 %15, 1
+  %tobool3.not.i = icmp eq i8 %16, 0
   br i1 %tobool3.not.i, label %if.end6.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %lor.lhs.false.i, %if.end.i
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %13, i64 %div2.i.i.i
-  %18 = load i64, ptr %arrayidx.i.i.i, align 8
-  %and2.i.i.i = and i64 %18, %shl.i.i.i
+  %17 = load i64, ptr %arrayidx.i.i.i, align 8
+  %and2.i.i.i = and i64 %17, %shl.i.i.i
   %tobool.i.not.i.i = icmp eq i64 %and2.i.i.i, 0
   br i1 %tobool.i.not.i.i, label %for.inc, label %if.end
 
 if.end6.i:                                        ; preds = %lor.lhs.false.i
   %isConstantMapping_.i = getelementptr inbounds i8, ptr %call2.i, i64 59
-  %19 = load i8, ptr %isConstantMapping_.i, align 1
-  %20 = and i8 %19, 1
-  %tobool7.not.i = icmp eq i8 %20, 0
+  %18 = load i8, ptr %isConstantMapping_.i, align 1
+  %19 = and i8 %18, 1
+  %tobool7.not.i = icmp eq i8 %19, 0
   br i1 %tobool7.not.i, label %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %21 = load i64, ptr %13, align 8
-  %and2.i.i2.i = and i64 %21, 1
+  %20 = load i64, ptr %13, align 8
+  %and2.i.i2.i = and i64 %20, 1
   %tobool.i.not.i3.i = icmp eq i64 %and2.i.i2.i, 0
   br i1 %tobool.i.not.i3.i, label %for.inc, label %if.end
 
 _ZNK8facebook5velox13DecodedVector8isNullAtEi.exit: ; preds = %if.end6.i
   %indices_.i = getelementptr inbounds i8, ptr %call2.i, i64 8
-  %22 = load ptr, ptr %indices_.i, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %22, i64 %idxprom
-  %23 = load i32, ptr %arrayidx.i, align 4
-  %conv.i.i4.i = sext i32 %23 to i64
+  %21 = load ptr, ptr %indices_.i, align 8
+  %arrayidx.i = getelementptr inbounds i32, ptr %21, i64 %idxprom
+  %22 = load i32, ptr %arrayidx.i, align 4
+  %conv.i.i4.i = sext i32 %22 to i64
   %div2.i.i5.i = lshr i64 %conv.i.i4.i, 6
   %arrayidx.i.i6.i = getelementptr inbounds i64, ptr %13, i64 %div2.i.i5.i
-  %24 = load i64, ptr %arrayidx.i.i6.i, align 8
+  %23 = load i64, ptr %arrayidx.i.i6.i, align 8
   %and.i.i7.i = and i64 %conv.i.i4.i, 63
   %shl.i.i8.i = shl nuw i64 1, %and.i.i7.i
-  %and2.i.i9.i = and i64 %shl.i.i8.i, %24
+  %and2.i.i9.i = and i64 %shl.i.i8.i, %23
   %tobool.i.not.i10.i = icmp eq i64 %and2.i.i9.i, 0
   br i1 %tobool.i.not.i10.i, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body, %if.then8.i, %if.then4.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit
   %baseVector_.i = getelementptr inbounds i8, ptr %call2.i, i64 48
-  %25 = load ptr, ptr %baseVector_.i, align 8
-  %26 = tail call noundef ptr @__dynamic_cast(ptr nonnull %25, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9MapVectorE, i64 0) #21
-  %isIdentityMapping_.i16 = getelementptr inbounds i8, ptr %call2.i, i64 58
-  %27 = load i8, ptr %isIdentityMapping_.i16, align 2
-  %28 = and i8 %27, 1
-  %tobool.not.i17 = icmp eq i8 %28, 0
+  %24 = load ptr, ptr %baseVector_.i, align 8
+  %25 = tail call noundef ptr @__dynamic_cast(ptr nonnull %24, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox9MapVectorE, i64 0) #21
+  %26 = and i8 %.pre, 1
+  %tobool.not.i17 = icmp eq i8 %26, 0
   br i1 %tobool.not.i17, label %if.end.i19, label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end.i19:                                       ; preds = %if.end
   %isConstantMapping_.i20 = getelementptr inbounds i8, ptr %call2.i, i64 59
-  %29 = load i8, ptr %isConstantMapping_.i20, align 1
-  %30 = and i8 %29, 1
-  %tobool2.not.i21 = icmp eq i8 %30, 0
+  %27 = load i8, ptr %isConstantMapping_.i20, align 1
+  %28 = and i8 %27, 1
+  %tobool2.not.i21 = icmp eq i8 %28, 0
   br i1 %tobool2.not.i21, label %if.end4.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i19
   %constantIndex_.i = getelementptr inbounds i8, ptr %call2.i, i64 64
-  %31 = load i32, ptr %constantIndex_.i, align 8
+  %29 = load i32, ptr %constantIndex_.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 if.end4.i:                                        ; preds = %if.end.i19
   %indices_.i22 = getelementptr inbounds i8, ptr %call2.i, i64 8
-  %32 = load ptr, ptr %indices_.i22, align 8
-  %arrayidx.i24 = getelementptr inbounds i32, ptr %32, i64 %idxprom
-  %33 = load i32, ptr %arrayidx.i24, align 4
+  %30 = load ptr, ptr %indices_.i22, align 8
+  %arrayidx.i24 = getelementptr inbounds i32, ptr %30, i64 %idxprom
+  %31 = load i32, ptr %arrayidx.i24, align 4
   br label %_ZNK8facebook5velox13DecodedVector5indexEi.exit
 
 _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %if.end, %if.then3.i, %if.end4.i
-  %retval.0.i18 = phi i32 [ %31, %if.then3.i ], [ %33, %if.end4.i ], [ %row, %if.end ]
-  %rawOffsets_.i = getelementptr inbounds i8, ptr %26, i64 112
-  %34 = load ptr, ptr %rawOffsets_.i, align 8
+  %retval.0.i18 = phi i32 [ %29, %if.then3.i ], [ %31, %if.end4.i ], [ %row, %if.end ]
+  %rawOffsets_.i = getelementptr inbounds i8, ptr %25, i64 112
+  %32 = load ptr, ptr %rawOffsets_.i, align 8
   %idxprom.i25 = sext i32 %retval.0.i18 to i64
-  %arrayidx.i26 = getelementptr inbounds i32, ptr %34, i64 %idxprom.i25
-  %35 = load i32, ptr %arrayidx.i26, align 4
-  %rawSizes_.i = getelementptr inbounds i8, ptr %26, i64 128
-  %36 = load ptr, ptr %rawSizes_.i, align 8
-  %arrayidx.i28 = getelementptr inbounds i32, ptr %36, i64 %idxprom.i25
-  %37 = load i32, ptr %arrayidx.i28, align 4
-  %38 = load ptr, ptr %9, align 8
-  %39 = load ptr, ptr %38, align 8
-  %keys_.i = getelementptr inbounds i8, ptr %26, i64 136
-  %40 = load ptr, ptr %keys_.i, align 8
-  %41 = load ptr, ptr %0, align 8
-  %42 = load i32, ptr %41, align 4
-  %vtable = load ptr, ptr %39, align 8
+  %arrayidx.i26 = getelementptr inbounds i32, ptr %32, i64 %idxprom.i25
+  %33 = load i32, ptr %arrayidx.i26, align 4
+  %rawSizes_.i = getelementptr inbounds i8, ptr %25, i64 128
+  %34 = load ptr, ptr %rawSizes_.i, align 8
+  %arrayidx.i28 = getelementptr inbounds i32, ptr %34, i64 %idxprom.i25
+  %35 = load i32, ptr %arrayidx.i28, align 4
+  %36 = load ptr, ptr %9, align 8
+  %37 = load ptr, ptr %36, align 8
+  %keys_.i = getelementptr inbounds i8, ptr %25, i64 136
+  %38 = load ptr, ptr %keys_.i, align 8
+  %39 = load ptr, ptr %0, align 8
+  %40 = load i32, ptr %39, align 4
+  %vtable = load ptr, ptr %37, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
-  %43 = load ptr, ptr %vfn, align 8
-  tail call void %43(ptr noundef nonnull align 8 dereferenceable(99) %39, ptr noundef %40, i32 noundef %42, i32 noundef %35, i32 noundef %37)
-  %44 = load ptr, ptr %10, align 8
-  %45 = load ptr, ptr %44, align 8
-  %values_.i = getelementptr inbounds i8, ptr %26, i64 152
-  %46 = load ptr, ptr %values_.i, align 8
-  %47 = load ptr, ptr %0, align 8
-  %48 = load i32, ptr %47, align 4
-  %vtable14 = load ptr, ptr %45, align 8
+  %41 = load ptr, ptr %vfn, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(99) %37, ptr noundef %38, i32 noundef %40, i32 noundef %33, i32 noundef %35)
+  %42 = load ptr, ptr %10, align 8
+  %43 = load ptr, ptr %42, align 8
+  %values_.i = getelementptr inbounds i8, ptr %25, i64 152
+  %44 = load ptr, ptr %values_.i, align 8
+  %45 = load ptr, ptr %0, align 8
+  %46 = load i32, ptr %45, align 4
+  %vtable14 = load ptr, ptr %43, align 8
   %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 208
-  %49 = load ptr, ptr %vfn15, align 8
-  tail call void %49(ptr noundef nonnull align 8 dereferenceable(99) %45, ptr noundef %46, i32 noundef %48, i32 noundef %35, i32 noundef %37)
-  %50 = load ptr, ptr %0, align 8
-  %51 = load i32, ptr %50, align 4
-  %add = add nsw i32 %51, %37
-  store i32 %add, ptr %50, align 4
+  %47 = load ptr, ptr %vfn15, align 8
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(99) %43, ptr noundef %44, i32 noundef %46, i32 noundef %33, i32 noundef %35)
+  %48 = load ptr, ptr %0, align 8
+  %49 = load i32, ptr %48, align 4
+  %add = add nsw i32 %49, %35
+  store i32 %add, ptr %48, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then8.i, %if.then4.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit, %_ZNK8facebook5velox13DecodedVector5indexEi.exit
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %52 = load ptr, ptr %5, align 8
-  %53 = load i64, ptr %52, align 8
-  %cmp = icmp ugt i64 %53, %indvars.iv.next
+  %50 = load ptr, ptr %5, align 8
+  %51 = load i64, ptr %50, align 8
+  %cmp = icmp ugt i64 %51, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !221
 
 for.end:                                          ; preds = %for.inc, %entry
-  %54 = load ptr, ptr %0, align 8
-  %55 = load i32, ptr %54, align 4
-  %56 = load ptr, ptr %this, align 8
-  %57 = load ptr, ptr %56, align 8
-  %arrayidx17 = getelementptr inbounds i32, ptr %57, i64 %idxprom
-  %58 = load i32, ptr %arrayidx17, align 4
-  %sub = sub nsw i32 %55, %58
-  %59 = getelementptr inbounds i8, ptr %this, i64 48
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %60, align 8
-  %arrayidx19 = getelementptr inbounds i32, ptr %61, i64 %idxprom
+  %52 = load ptr, ptr %0, align 8
+  %53 = load i32, ptr %52, align 4
+  %54 = load ptr, ptr %this, align 8
+  %55 = load ptr, ptr %54, align 8
+  %arrayidx17 = getelementptr inbounds i32, ptr %55, i64 %idxprom
+  %56 = load i32, ptr %arrayidx17, align 4
+  %sub = sub nsw i32 %53, %56
+  %57 = getelementptr inbounds i8, ptr %this, i64 48
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %58, align 8
+  %arrayidx19 = getelementptr inbounds i32, ptr %59, i64 %idxprom
   store i32 %sub, ptr %arrayidx19, align 4
   ret void
 }
@@ -19165,7 +19163,7 @@ attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind memory(read) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #14 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { alwaysinline mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

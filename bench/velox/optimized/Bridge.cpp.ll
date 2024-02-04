@@ -15547,7 +15547,7 @@ _ZNK8facebook5velox6Buffer9asMutableIhEEPT_v.exit: ; preds = %entry
   %kind_.i = getelementptr inbounds i8, ptr %type, i64 16
   %3 = load i8, ptr %kind_.i, align 8
   %cmp = icmp eq i8 %3, 0
-  br i1 %cmp, label %if.then, label %dynamic_cast.notnull.i
+  br i1 %cmp, label %if.then, label %_ZNK8facebook5velox4Type14isShortDecimalEv.exit
 
 if.then:                                          ; preds = %_ZNK8facebook5velox6Buffer9asMutableIhEEPT_v.exit
   %4 = getelementptr inbounds i8, ptr %rows, i64 24
@@ -15671,12 +15671,12 @@ cond.false.i.i23.i:                               ; preds = %for.body18.i
   %cmp17.i = icmp slt i32 %inc.i7.i, %24
   br i1 %cmp17.i, label %for.body18.i, label %if.end16, !llvm.loop !176
 
-dynamic_cast.notnull.i:                           ; preds = %_ZNK8facebook5velox6Buffer9asMutableIhEEPT_v.exit
+_ZNK8facebook5velox4Type14isShortDecimalEv.exit:  ; preds = %_ZNK8facebook5velox6Buffer9asMutableIhEEPT_v.exit
   %25 = tail call ptr @__dynamic_cast(ptr nonnull %type, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox16ShortDecimalTypeE, i64 0) #37
   %cmp.i.not = icmp eq ptr %25, null
   br i1 %cmp.i.not, label %if.else6, label %if.then4
 
-if.then4:                                         ; preds = %dynamic_cast.notnull.i
+if.then4:                                         ; preds = %_ZNK8facebook5velox4Type14isShortDecimalEv.exit
   %26 = getelementptr inbounds i8, ptr %rows, i64 24
   %this.val.i12 = load i8, ptr %26, align 8
   %27 = and i8 %this.val.i12, 1
@@ -15752,7 +15752,7 @@ for.body18.i33:                                   ; preds = %for.cond16.preheade
   %cmp17.i34 = icmp slt i64 %indvars.iv.next28.i, %41
   br i1 %cmp17.i34, label %for.body18.i33, label %if.end16, !llvm.loop !178
 
-if.else6:                                         ; preds = %dynamic_cast.notnull.i
+if.else6:                                         ; preds = %_ZNK8facebook5velox4Type14isShortDecimalEv.exit
   %cmp.i = icmp eq i8 %3, 9
   br i1 %cmp.i, label %if.then8, label %if.else12
 
@@ -16223,7 +16223,7 @@ entry:
   unreachable
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -16593,7 +16593,11 @@ invoke.cont24:                                    ; preds = %_ZNSt10shared_ptrIK
   %sub.ptr.div.i23 = ashr exact i64 %sub.ptr.sub.i22, 4
   %conv = zext i32 %call25 to i64
   %cmp.not = icmp ugt i64 %sub.ptr.div.i23, %conv
-  br i1 %cmp.not, label %if.then, label %if.end
+  br i1 %cmp.not, label %if.then, label %for.cond.preheader
+
+for.cond.preheader:                               ; preds = %invoke.cont24
+  invoke void @_ZNK8facebook5velox9RowVector27updateContainsLazyNotLoadedEv(ptr noundef nonnull align 8 dereferenceable(138) %this)
+          to label %invoke.cont38 unwind label %lpad23
 
 if.then:                                          ; preds = %invoke.cont24
   call void @llvm.trap()
@@ -16606,27 +16610,14 @@ lpad18:                                           ; preds = %invoke.cont
   call void @_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #37
   br label %eh.resume
 
-lpad23:                                           ; preds = %dynamic_cast.end, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit
+lpad23:                                           ; preds = %for.cond.preheader, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit
   %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children_) #37
   call void @_ZN8facebook5velox10BaseVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %this) #37
   br label %eh.resume
 
-if.end:                                           ; preds = %invoke.cont24
-  %37 = load ptr, ptr %type, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %dynamic_cast.end, label %dynamic_cast.notnull
-
-dynamic_cast.notnull:                             ; preds = %if.end
-  %39 = call ptr @__dynamic_cast(ptr nonnull %37, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox7RowTypeE, i64 0) #37
-  br label %dynamic_cast.end
-
-dynamic_cast.end:                                 ; preds = %if.end, %dynamic_cast.notnull
-  invoke void @_ZNK8facebook5velox9RowVector27updateContainsLazyNotLoadedEv(ptr noundef nonnull align 8 dereferenceable(138) %this)
-          to label %invoke.cont38 unwind label %lpad23
-
-invoke.cont38:                                    ; preds = %dynamic_cast.end
+invoke.cont38:                                    ; preds = %for.cond.preheader
   ret void
 
 eh.resume:                                        ; preds = %lpad23, %lpad18
@@ -201666,7 +201657,7 @@ attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nofree nounwind memory(read) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #14 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #15 = { alwaysinline mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
