@@ -28917,7 +28917,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #30
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #17
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -79763,7 +79763,7 @@ land.rhs:                                         ; preds = %lor.rhs
   %call3 = call noundef ptr @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %text) #3
   %call4 = call noundef ptr @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %prefix) #3
   %call5 = call noundef i64 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %prefix) #3
-  %call6 = call i32 @memcmp(ptr noundef %call3, ptr noundef %call4, i64 noundef %call5) #30
+  %call6 = call i32 @memcmp(ptr noundef %call3, ptr noundef %call4, i64 noundef %call5) #17
   %cmp7 = icmp eq i32 %call6, 0
   br label %land.end
 
@@ -88696,7 +88696,7 @@ eh.resume:                                        ; preds = %lpad
   resume { ptr, i32 } %lpad.val4
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #17
 
 ; Function Attrs: mustprogress uwtable
@@ -90209,7 +90209,7 @@ if.end3:                                          ; preds = %if.end, %if.then
   %call = call noundef i64 @_ZN4absl13cord_internal13RoundUpForTagEm(i64 noundef %add)
   store i64 %call, ptr %size, align 8
   %3 = load i64, ptr %size, align 8
-  %call4 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %3) #31
+  %call4 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %3) #30
   store ptr %call4, ptr %raw_rep, align 8
   %4 = load ptr, ptr %raw_rep, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 16, i1 false)
@@ -90460,7 +90460,7 @@ if.end3:                                          ; preds = %if.end, %if.then
   %call = call noundef i64 @_ZN4absl13cord_internal13RoundUpForTagEm(i64 noundef %add)
   store i64 %call, ptr %size, align 8
   %3 = load i64, ptr %size, align 8
-  %call4 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %3) #31
+  %call4 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %3) #30
   store ptr %call4, ptr %raw_rep, align 8
   %4 = load ptr, ptr %raw_rep, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 16, i1 false)
@@ -93535,7 +93535,7 @@ entry:
   store ptr %rhs, ptr %rhs.addr, align 8
   %0 = load ptr, ptr %lhs.addr, align 8
   %1 = load ptr, ptr %rhs.addr, align 8
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef 16) #30
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef 16) #17
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -141022,7 +141022,7 @@ entry:
   %2 = getelementptr inbounds %class.anon.463, ptr %this1, i32 0, i32 0
   %call = call noundef ptr @_ZNKSt5arrayIcLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %2) #3
   %3 = getelementptr inbounds %class.anon.463, ptr %this1, i32 0, i32 0
-  %call2 = call noundef i64 @_ZNKSt5arrayIcLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %3) #32
+  %call2 = call noundef i64 @_ZNKSt5arrayIcLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %3) #31
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKcm(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %call, i64 noundef %call2) #3
   call void @_ZN7testing8internal8EqHelper7CompareISt17basic_string_viewIcSt11char_traitsIcEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_(ptr sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef @.str.362, ptr noundef @.str.703, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %call3 = call noundef zeroext i1 @_ZNK7testing15AssertionResultcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar)
@@ -170231,7 +170231,7 @@ entry:
   store i8 %ch, ptr %ch.addr, align 1
   %0 = load i8, ptr %ch.addr, align 1
   %conv = zext i8 %0 to i32
-  %call = call i32 @isalnum(i32 noundef %conv) #30
+  %call = call i32 @isalnum(i32 noundef %conv) #17
   %cmp = icmp ne i32 %call, 0
   ret i1 %cmp
 }
@@ -170954,7 +170954,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #30
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #17
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -176208,7 +176208,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.770", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #30
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #17
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.770", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -200981,7 +200981,7 @@ attributes #13 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-
 attributes #14 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nounwind memory(read) }
+attributes #17 = { nounwind willreturn memory(read) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #19 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
@@ -200994,9 +200994,8 @@ attributes #26 = { builtin nounwind }
 attributes #27 = { noreturn nounwind }
 attributes #28 = { cold }
 attributes #29 = { cold nounwind }
-attributes #30 = { nounwind willreturn memory(read) }
-attributes #31 = { allocsize(0) }
-attributes #32 = { nounwind willreturn memory(none) }
+attributes #30 = { allocsize(0) }
+attributes #31 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

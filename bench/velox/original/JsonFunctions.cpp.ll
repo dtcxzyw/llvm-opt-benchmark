@@ -14175,7 +14175,7 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -18300,7 +18300,7 @@ if.end9:                                          ; preds = %if.end
   %7 = load i32, ptr %size_12, align 8
   %conv13 = zext i32 %7 to i64
   %sub = sub i64 %conv13, 4
-  %call14 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %add.ptr11, i64 noundef %sub) #37
+  %call14 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %add.ptr11, i64 noundef %sub) #11
   %cmp15 = icmp eq i32 %call14, 0
   store i1 %cmp15, ptr %retval, align 1
   br label %return
@@ -18334,7 +18334,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %other.addr, align 8
   %prefix_3 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %1, i32 0, i32 1
   %arraydecay4 = getelementptr inbounds [4 x i8], ptr %prefix_3, i64 0, i64 0
-  %call5 = call i32 @memcmp(ptr noundef %arraydecay, ptr noundef %arraydecay4, i64 noundef 4) #37
+  %call5 = call i32 @memcmp(ptr noundef %arraydecay, ptr noundef %arraydecay4, i64 noundef 4) #11
   store i32 %call5, ptr %retval, align 4
   br label %return
 
@@ -18385,7 +18385,7 @@ if.then20:                                        ; preds = %land.lhs.true18
   %arraydecay23 = getelementptr inbounds [8 x i8], ptr %value_22, i64 0, i64 0
   %11 = load i32, ptr %size, align 4
   %conv24 = sext i32 %11 to i64
-  %call25 = call i32 @memcmp(ptr noundef %arraydecay21, ptr noundef %arraydecay23, i64 noundef %conv24) #37
+  %call25 = call i32 @memcmp(ptr noundef %arraydecay21, ptr noundef %arraydecay23, i64 noundef %conv24) #11
   store i32 %call25, ptr %result, align 4
   %12 = load i32, ptr %result, align 4
   %cmp26 = icmp ne i32 %12, 0
@@ -18417,7 +18417,7 @@ if.end30:                                         ; preds = %land.lhs.true18, %l
   %add.ptr34 = getelementptr inbounds i8, ptr %call33, i64 4
   %18 = load i32, ptr %size, align 4
   %conv35 = sext i32 %18 to i64
-  %call36 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %add.ptr34, i64 noundef %conv35) #37
+  %call36 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %add.ptr34, i64 noundef %conv35) #11
   store i32 %call36, ptr %result31, align 4
   %19 = load i32, ptr %result31, align 4
   %cmp37 = icmp ne i32 %19, 0
@@ -30012,7 +30012,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %10 = load i32, ptr %agg.tmp.i, align 8
   %11 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp.i, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12system_errorJSt10error_codeEEEvDpT0_(i32 %10, ptr %12) #38
+  call void @_ZN5folly6detail16throw_exception_ISt12system_errorJSt10error_codeEEEvDpT0_(i32 %10, ptr %12) #37
   unreachable
 
 _ZN5folly15throw_exceptionISt12system_errorJSt10error_codeEEEvDpOT0_.exit: ; No predecessors!
@@ -30026,7 +30026,7 @@ entry:
   %__e.addr = alloca i32, align 4
   store i32 %__e, ptr %__e.addr, align 4
   %0 = load i32, ptr %__e.addr, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #39
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #38
   call void @_ZNSt10error_codeC2EiRKNSt3_V214error_categoryE(ptr noundef nonnull align 8 dereferenceable(16) %retval, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %call) #29
   %1 = load { i32, ptr }, ptr %retval, align 8
   ret { i32, ptr } %1
@@ -30050,7 +30050,7 @@ entry:
   %4 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   call void @_ZNSt12system_errorC2ESt10error_code(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 %3, ptr %5)
-  invoke void @_ZN5folly15throw_exceptionISt12system_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #38
+  invoke void @_ZN5folly15throw_exceptionISt12system_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #37
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -33304,7 +33304,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %10 = load i32, ptr %agg.tmp.i, align 8
   %11 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp.i, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12system_errorJSt10error_codeEEEvDpT0_(i32 %10, ptr %12) #38
+  call void @_ZN5folly6detail16throw_exception_ISt12system_errorJSt10error_codeEEEvDpT0_(i32 %10, ptr %12) #37
   unreachable
 
 _ZN5folly15throw_exceptionISt12system_errorJSt10error_codeEEEvDpOT0_.exit: ; No predecessors!
@@ -40570,7 +40570,7 @@ if.else11:                                        ; preds = %entry
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.else11
-  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #38
+  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #37
   unreachable
 
 _ZN5folly15throw_exceptionISt9bad_allocJEEEvDpOT0_.exit36: ; No predecessors!
@@ -40635,7 +40635,7 @@ do.end30:                                         ; preds = %do.body29
   br i1 %cmp32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %do.end30
-  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #38
+  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #37
   unreachable
 
 _ZN5folly15throw_exceptionISt9bad_allocJEEEvDpOT0_.exit: ; No predecessors!
@@ -41001,7 +41001,7 @@ entry:
   %exn.slot = alloca ptr, align 8
   %ehselector.slot = alloca i32, align 4
   call void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #29
-  invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #38
+  invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #37
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -41663,12 +41663,12 @@ invoke.cont27:                                    ; preds = %while.end
 
 if.else30:                                        ; preds = %land.lhs.true, %if.else
   %52 = load i64, ptr %newChunkCount.addr, align 8
-  %call31 = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #39
+  %call31 = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #38
   %cmp32 = icmp ule i64 %52, %call31
   br i1 %cmp32, label %if.then33, label %if.else35
 
 if.then33:                                        ; preds = %if.else30
-  %call34 = call noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #39
+  %call34 = call noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #38
   store ptr %call34, ptr %fullness, align 8
   br label %if.end41
 
@@ -41803,7 +41803,7 @@ if.then70:                                        ; preds = %invoke.cont67
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then70
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %79, ptr noundef %81) #40
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %79, ptr noundef %81) #39
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -42181,7 +42181,7 @@ if.then:                                          ; preds = %do.body2
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #40
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #39
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -43279,7 +43279,7 @@ entry:
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds %class.anon.280, ptr %this1, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
-  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %6) #39
+  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %6) #38
   %cmp = icmp ugt i64 %4, %call
   br i1 %cmp, label %if.then, label %if.end
 
@@ -44720,7 +44720,7 @@ if.then:                                          ; preds = %do.body
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #40
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #39
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -74619,7 +74619,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %3 = load i64, ptr %totalpaddedlength, align 8
-  %call = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
+  %call = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #40
   store ptr %call, ptr %padded_buffer, align 8
   %4 = load ptr, ptr %padded_buffer, align 8
   %cmp1 = icmp eq ptr %4, null
@@ -74750,7 +74750,7 @@ if.end:                                           ; preds = %entry
   store i64 %and5, ptr %string_capacity, align 8
   %string_buf6 = getelementptr inbounds %"class.simdjson::dom::document", ptr %this1, i32 0, i32 1
   %3 = load i64, ptr %string_capacity, align 8
-  %call = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
+  %call = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #40
   call void @_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_(ptr noundef nonnull align 8 dereferenceable(8) %string_buf6, ptr noundef %call) #29
   %tape7 = getelementptr inbounds %"class.simdjson::dom::document", ptr %this1, i32 0, i32 0
   %4 = load i64, ptr %tape_capacity, align 8
@@ -74758,7 +74758,7 @@ if.end:                                           ; preds = %entry
   %6 = extractvalue { i64, i1 } %5, 1
   %7 = extractvalue { i64, i1 } %5, 0
   %8 = select i1 %6, i64 -1, i64 %7
-  %call8 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %8, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #41
+  %call8 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %8, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #40
   call void @_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EE5resetIPmvEEvT_(ptr noundef nonnull align 8 dereferenceable(8) %tape7, ptr noundef %call8) #29
   %string_buf9 = getelementptr inbounds %"class.simdjson::dom::document", ptr %this1, i32 0, i32 1
   %call10 = call noundef zeroext i1 @_ZNKSt10unique_ptrIA_hSt14default_deleteIS0_EEcvbEv(ptr noundef nonnull align 8 dereferenceable(8) %string_buf9) #29
@@ -79035,7 +79035,7 @@ attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #11 = { nounwind memory(read) }
+attributes #11 = { nounwind willreturn memory(read) }
 attributes #12 = { alwaysinline mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #14 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -79061,11 +79061,10 @@ attributes #33 = { builtin allocsize(0) }
 attributes #34 = { noreturn nounwind }
 attributes #35 = { noreturn }
 attributes #36 = { builtin nounwind }
-attributes #37 = { nounwind willreturn memory(read) }
-attributes #38 = { cold noreturn }
-attributes #39 = { nounwind willreturn memory(none) }
-attributes #40 = { cold noreturn nounwind }
-attributes #41 = { builtin nounwind allocsize(0) }
+attributes #37 = { cold noreturn }
+attributes #38 = { nounwind willreturn memory(none) }
+attributes #39 = { cold noreturn nounwind }
+attributes #40 = { builtin nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -562,7 +562,7 @@ if.end31:                                         ; preds = %land.lhs.true25, %l
 
 if.then33:                                        ; preds = %if.end31
   %21 = load ptr, ptr %src1.addr, align 8
-  %call = call i64 @strlen(ptr noundef %21) #8
+  %call = call i64 @strlen(ptr noundef %21) #6
   %conv34 = trunc i64 %call to i32
   %add = add nsw i32 %conv34, 1
   store i32 %add, ptr %src1Length.addr, align 4
@@ -575,7 +575,7 @@ if.end35:                                         ; preds = %if.then33, %if.end3
 
 if.then37:                                        ; preds = %if.end35
   %23 = load ptr, ptr %src2.addr, align 8
-  %call38 = call i64 @strlen(ptr noundef %23) #8
+  %call38 = call i64 @strlen(ptr noundef %23) #6
   %conv39 = trunc i64 %call38 to i32
   %add40 = add nsw i32 %conv39, 1
   store i32 %add40, ptr %src2Length.addr, align 4
@@ -2166,7 +2166,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
   ret i8 %conv
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2225,9 +2225,8 @@ attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind memory(read) }
+attributes #6 = { nounwind willreturn memory(read) }
 attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

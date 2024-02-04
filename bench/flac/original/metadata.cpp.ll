@@ -871,7 +871,7 @@ eh.resume:                                        ; preds = %lpad61, %lpad55, %l
   resume { ptr, i32 } %lpad.val64
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #3
 
 ; Function Attrs: mustprogress sspstrong uwtable
@@ -2270,7 +2270,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %field.addr, align 8
   %1 = load ptr, ptr %field.addr, align 8
-  %call = call i64 @strlen(ptr noundef %1) #16
+  %call = call i64 @strlen(ptr noundef %1) #3
   %conv = trunc i64 %call to i32
   call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcj(ptr noundef nonnull align 8 dereferenceable(60) %this1, ptr noundef %0, i32 noundef %conv)
   ret void
@@ -2382,7 +2382,7 @@ entry:
   %0 = load ptr, ptr %field_name.addr, align 8
   %1 = load ptr, ptr %field_value.addr, align 8
   %2 = load ptr, ptr %field_value.addr, align 8
-  %call = call i64 @strlen(ptr noundef %2) #16
+  %call = call i64 @strlen(ptr noundef %2) #3
   %conv = trunc i64 %call to i32
   call void @_ZN4FLAC8Metadata13VorbisComment5Entry9constructEPKcS4_j(ptr noundef nonnull align 8 dereferenceable(60) %this1, ptr noundef %0, ptr noundef %1, i32 noundef %conv)
   ret void
@@ -2734,7 +2734,7 @@ entry:
   %length = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %entry_3, i32 0, i32 0
   %1 = load i32, ptr %length, align 8
   %conv = zext i32 %1 to i64
-  %call = call noundef ptr @memchr(ptr noundef %0, i32 noundef 61, i64 noundef %conv) #16
+  %call = call noundef ptr @memchr(ptr noundef %0, i32 noundef 61, i64 noundef %conv) #3
   store ptr %call, ptr %p, align 8
   %2 = load ptr, ptr %p, align 8
   %cmp = icmp eq ptr null, %2
@@ -2882,7 +2882,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %field.addr, align 8
   %1 = load ptr, ptr %field.addr, align 8
-  %call = call i64 @strlen(ptr noundef %1) #16
+  %call = call i64 @strlen(ptr noundef %1) #3
   %conv = trunc i64 %call to i32
   %call2 = call noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj(ptr noundef nonnull align 8 dereferenceable(60) %this1, ptr noundef %0, i32 noundef %conv)
   ret i1 %call2
@@ -2928,7 +2928,7 @@ if.then3:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %field_name_5 = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this1, i32 0, i32 4
   %2 = load ptr, ptr %field_name_5, align 8
-  %call6 = call i64 @strlen(ptr noundef %2) #16
+  %call6 = call i64 @strlen(ptr noundef %2) #3
   %conv = trunc i64 %call6 to i32
   %field_name_length_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this1, i32 0, i32 5
   store i32 %conv, ptr %field_name_length_, align 8
@@ -3186,7 +3186,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %field_value.addr, align 8
   %1 = load ptr, ptr %field_value.addr, align 8
-  %call = call i64 @strlen(ptr noundef %1) #16
+  %call = call i64 @strlen(ptr noundef %1) #3
   %conv = trunc i64 %call to i32
   %call2 = call noundef zeroext i1 @_ZN4FLAC8Metadata13VorbisComment5Entry15set_field_valueEPKcj(ptr noundef nonnull align 8 dereferenceable(60) %this1, ptr noundef %0, i32 noundef %conv)
   ret i1 %call2
@@ -3279,7 +3279,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %2 = load i64, ptr %size.addr, align 8
-  %call = call noalias ptr @malloc(i64 noundef %2) #17
+  %call = call noalias ptr @malloc(i64 noundef %2) #16
   ret ptr %call
 }
 
@@ -3391,7 +3391,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %length = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %vendor_string, i32 0, i32 0
   %0 = load ptr, ptr %string.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #16
+  %call = call i64 @strlen(ptr noundef %0) #3
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %length, align 8
   %entry2 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %vendor_string, i32 0, i32 1
@@ -6167,7 +6167,7 @@ declare noalias ptr @malloc(i64 noundef) #11
 attributes #0 = { mustprogress sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind memory(read) }
+attributes #3 = { nounwind willreturn memory(read) }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6180,8 +6180,7 @@ attributes #12 = { builtin allocsize(0) }
 attributes #13 = { builtin nounwind }
 attributes #14 = { nounwind }
 attributes #15 = { noreturn nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { nounwind allocsize(0) }
+attributes #16 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

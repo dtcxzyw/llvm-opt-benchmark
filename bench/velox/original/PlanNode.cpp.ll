@@ -48352,7 +48352,7 @@ for.body:                                         ; preds = %for.cond
   store i8 %7, ptr %c, align 1
   %8 = load i8, ptr %c, align 1
   %conv = sext i8 %8 to i32
-  %call2 = call i32 @isspace(i32 noundef %conv) #33
+  %call2 = call i32 @isspace(i32 noundef %conv) #15
   %tobool = icmp ne i32 %call2, 0
   %lnot = xor i1 %tobool, true
   br i1 %lnot, label %if.then, label %if.end
@@ -49869,7 +49869,7 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -50493,7 +50493,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 16
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -51147,7 +51147,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -54771,7 +54771,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -55997,7 +55997,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 48
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -57763,7 +57763,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 40
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -61360,7 +61360,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 24
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -65285,7 +65285,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 16
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -65836,7 +65836,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 2
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -71588,7 +71588,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 32
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -72433,7 +72433,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 24
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -73772,7 +73772,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 24
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -74755,7 +74755,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 16
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -75924,7 +75924,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 16
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -79530,7 +79530,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 48
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -83225,7 +83225,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 48
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -86184,7 +86184,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 48
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -89575,7 +89575,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 48
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -92246,7 +92246,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 24
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -96732,7 +96732,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 112
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -97382,7 +97382,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 4
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -99112,7 +99112,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 48
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -101376,7 +101376,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 56
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -104909,7 +104909,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 256
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -106027,7 +106027,7 @@ if.then:                                          ; preds = %do.body2
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #35
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #34
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -107020,12 +107020,12 @@ while.end:                                        ; preds = %while.cond
 
 if.else23:                                        ; preds = %land.lhs.true, %if.else
   %50 = load i64, ptr %newChunkCount.addr, align 8
-  %call24 = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #36
+  %call24 = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #35
   %cmp25 = icmp ule i64 %50, %call24
   br i1 %cmp25, label %if.then26, label %if.else28
 
 if.then26:                                        ; preds = %if.else23
-  %call27 = call noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #36
+  %call27 = call noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #35
   store ptr %call27, ptr %fullness, align 8
   br label %if.end34
 
@@ -107192,7 +107192,7 @@ if.then70:                                        ; preds = %invoke.cont67
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then70
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %81, ptr noundef %83) #35
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %81, ptr noundef %83) #34
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -108390,7 +108390,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 16
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -108590,7 +108590,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 1
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -108756,7 +108756,7 @@ entry:
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds %class.anon.850, ptr %this1, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
-  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %6) #36
+  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %6) #35
   %cmp = icmp ugt i64 %4, %call
   br i1 %cmp, label %if.then, label %if.end
 
@@ -109320,7 +109320,7 @@ if.then:                                          ; preds = %do.body
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #35
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #34
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -110245,7 +110245,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 120
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -111513,7 +111513,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 48
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -112084,7 +112084,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 200
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -113038,7 +113038,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 16
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -113585,7 +113585,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 112
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -114646,7 +114646,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 144
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -116806,7 +116806,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 64
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -117870,7 +117870,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 144
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -119314,7 +119314,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 72
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -120375,7 +120375,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 152
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -122031,7 +122031,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 56
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -123444,7 +123444,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 176
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -124423,7 +124423,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 168
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -125263,7 +125263,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 120
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -125929,7 +125929,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 24
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -126663,7 +126663,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 120
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -128505,7 +128505,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 56
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -130684,7 +130684,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 56
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -132077,7 +132077,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 72
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -132672,7 +132672,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 200
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -134088,7 +134088,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 152
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -134938,7 +134938,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 128
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -135719,7 +135719,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 176
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -136511,7 +136511,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 128
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -138289,7 +138289,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 64
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -139060,7 +139060,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 184
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -140103,7 +140103,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 112
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -140947,7 +140947,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 120
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -141735,7 +141735,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 104
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -143284,7 +143284,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 56
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -144521,7 +144521,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 80
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -145797,7 +145797,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 152
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -147095,7 +147095,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -147809,7 +147809,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 104
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -148629,7 +148629,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -149895,7 +149895,7 @@ if.then:                                          ; preds = %do.body2
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #35
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #34
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -150577,12 +150577,12 @@ invoke.cont28:                                    ; preds = %invoke.cont26
 
 if.else30:                                        ; preds = %land.lhs.true, %if.else
   %52 = load i64, ptr %newChunkCount.addr, align 8
-  %call31 = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #36
+  %call31 = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #35
   %cmp32 = icmp ule i64 %52, %call31
   br i1 %cmp32, label %if.then33, label %if.else35
 
 if.then33:                                        ; preds = %if.else30
-  %call34 = call noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #36
+  %call34 = call noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #35
   store ptr %call34, ptr %fullness, align 8
   br label %if.end41
 
@@ -150743,7 +150743,7 @@ if.then74:                                        ; preds = %invoke.cont71
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then74
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %83, ptr noundef %85) #35
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %83, ptr noundef %85) #34
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -151772,7 +151772,7 @@ entry:
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds %class.anon.1093, ptr %this1, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
-  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %6) #36
+  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %6) #35
   %cmp = icmp ugt i64 %4, %call
   br i1 %cmp, label %if.then, label %if.end
 
@@ -152313,7 +152313,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 64
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -152641,7 +152641,7 @@ if.then:                                          ; preds = %do.body
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #35
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #34
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -153821,7 +153821,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 80
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -155764,7 +155764,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 96
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #34
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #33
   ret ptr %call5
 }
 
@@ -156238,7 +156238,7 @@ attributes #11 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min
 attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #13 = { cold mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #14 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #15 = { nounwind memory(read) }
+attributes #15 = { nounwind willreturn memory(read) }
 attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #17 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #18 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -156256,10 +156256,9 @@ attributes #29 = { noreturn }
 attributes #30 = { builtin nounwind }
 attributes #31 = { cold noreturn }
 attributes #32 = { cold }
-attributes #33 = { nounwind willreturn memory(read) }
-attributes #34 = { builtin allocsize(0) }
-attributes #35 = { cold noreturn nounwind }
-attributes #36 = { nounwind willreturn memory(none) }
+attributes #33 = { builtin allocsize(0) }
+attributes #34 = { cold noreturn nounwind }
+attributes #35 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

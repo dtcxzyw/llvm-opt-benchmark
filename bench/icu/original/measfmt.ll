@@ -1963,7 +1963,7 @@ declare void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 deref
 ; Function Attrs: nounwind
 declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #7
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2998,7 +2998,7 @@ if.then14:                                        ; preds = %if.then10
 if.end15:                                         ; preds = %if.then10
   %11 = load ptr, ptr %localeId, align 8
   %12 = load ptr, ptr %rhsLocaleId, align 8
-  %call16 = call i32 @strcmp(ptr noundef %11, ptr noundef %12) #15
+  %call16 = call i32 @strcmp(ptr noundef %11, ptr noundef %12) #8
   %cmp17 = icmp ne i32 %call16, 0
   br i1 %cmp17, label %if.then18, label %if.end19
 
@@ -6307,7 +6307,7 @@ entry:
   store ptr %unit, ptr %unit.addr, align 8
   %0 = load ptr, ptr %unit.addr, align 8
   %call = call noundef ptr @_ZNK6icu_7511MeasureUnit7getTypeEv(ptr noundef nonnull align 8 dereferenceable(19) %0)
-  %call1 = call i32 @strcmp(ptr noundef %call, ptr noundef @.str.11) #15
+  %call1 = call i32 @strcmp(ptr noundef %call, ptr noundef @.str.11) #8
   %cmp = icmp eq i32 %call1, 0
   %conv = zext i1 %cmp to i8
   ret i8 %conv
@@ -7473,7 +7473,7 @@ entry:
   store ptr %tu, ptr %tu.addr, align 8
   %0 = load ptr, ptr %mu.addr, align 8
   %call = call noundef ptr @_ZNK6icu_7511MeasureUnit7getTypeEv(ptr noundef nonnull align 8 dereferenceable(19) %0)
-  %call1 = call i32 @strcmp(ptr noundef %call, ptr noundef @.str.10) #15
+  %call1 = call i32 @strcmp(ptr noundef %call, ptr noundef @.str.10) #8
   %cmp = icmp eq i32 %call1, 0
   br i1 %cmp, label %land.rhs, label %land.end
 
@@ -7481,7 +7481,7 @@ land.rhs:                                         ; preds = %entry
   %1 = load ptr, ptr %mu.addr, align 8
   %call2 = call noundef ptr @_ZNK6icu_7511MeasureUnit10getSubtypeEv(ptr noundef nonnull align 8 dereferenceable(19) %1)
   %2 = load ptr, ptr %tu.addr, align 8
-  %call3 = call i32 @strcmp(ptr noundef %call2, ptr noundef %2) #15
+  %call3 = call i32 @strcmp(ptr noundef %call2, ptr noundef %2) #8
   %cmp4 = icmp eq i32 %call3, 0
   br label %land.end
 
@@ -8285,7 +8285,7 @@ entry:
   store ptr %call, ptr %s, align 8
   %0 = load ptr, ptr %s, align 8
   %1 = load ptr, ptr %s, align 8
-  %call2 = call i64 @strlen(ptr noundef %1) #15
+  %call2 = call i64 @strlen(ptr noundef %1) #8
   %conv = trunc i64 %call2 to i32
   %call3 = call i32 @ustr_hashCharsN_75(ptr noundef %0, i32 noundef %conv)
   ret i32 %call3
@@ -8337,7 +8337,7 @@ lor.rhs:                                          ; preds = %entry
   br i1 %1, label %typeid.bad_typeid, label %typeid.end
 
 typeid.bad_typeid:                                ; preds = %lor.rhs
-  call void @__cxa_bad_typeid() #16
+  call void @__cxa_bad_typeid() #15
   unreachable
 
 typeid.end:                                       ; preds = %lor.rhs
@@ -8599,15 +8599,14 @@ attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind memory(read) }
+attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #12 = { nounwind }
 attributes #13 = { allocsize(0) }
 attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { noreturn }
+attributes #15 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

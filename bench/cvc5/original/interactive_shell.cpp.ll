@@ -1455,7 +1455,7 @@ land.rhs:                                         ; preds = %while.cond98
 invoke.cont101:                                   ; preds = %land.rhs
   %35 = load i8, ptr %call102, align 1
   %conv103 = sext i8 %35 to i32
-  %call104 = call i32 @isspace(i32 noundef %conv103) #19
+  %call104 = call i32 @isspace(i32 noundef %conv103) #10
   %tobool105 = icmp ne i32 %call104, 0
   br label %land.end
 
@@ -2846,7 +2846,7 @@ if.end:                                           ; preds = %if.else, %if.then
   ret ptr %call9
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #10
 
 ; Function Attrs: nounwind memory(none)
@@ -5319,7 +5319,7 @@ attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind memory(read) }
+attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { nounwind memory(none) }
 attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -5328,7 +5328,6 @@ attributes #15 = { noreturn }
 attributes #16 = { builtin allocsize(0) }
 attributes #17 = { builtin nounwind }
 attributes #18 = { noreturn nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -705,7 +705,7 @@ if.end:                                           ; preds = %entry
   %call1 = call noundef ptr @_ZNK6icu_756Locale7getNameEv(ptr noundef nonnull align 8 dereferenceable(217) %2)
   %3 = load ptr, ptr %loc.addr, align 8
   %call2 = call noundef ptr @_ZNK6icu_756Locale11getBaseNameEv(ptr noundef nonnull align 8 dereferenceable(217) %3)
-  %call3 = call i32 @strcmp(ptr noundef %call1, ptr noundef %call2) #12
+  %call3 = call i32 @strcmp(ptr noundef %call1, ptr noundef %call2) #6
   %cmp = icmp eq i32 %call3, 0
   br i1 %cmp, label %if.then4, label %if.end5
 
@@ -1604,7 +1604,7 @@ entry:
   br i1 %0, label %typeid.bad_typeid, label %typeid.end
 
 typeid.bad_typeid:                                ; preds = %entry
-  call void @__cxa_bad_typeid() #13
+  call void @__cxa_bad_typeid() #12
   unreachable
 
 typeid.end:                                       ; preds = %entry
@@ -2027,7 +2027,7 @@ eh.resume:                                        ; preds = %lpad
   resume { ptr, i32 } %lpad.val9
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #6
 
 ; Function Attrs: mustprogress uwtable
@@ -2992,7 +2992,7 @@ if.end7:                                          ; preds = %land.lhs.true4, %lo
 
 cond.true:                                        ; preds = %if.end7
   %9 = load ptr, ptr %left.addr, align 8
-  %call9 = call i64 @strlen(ptr noundef %9) #12
+  %call9 = call i64 @strlen(ptr noundef %9) #6
   %conv = trunc i64 %call9 to i32
   br label %cond.end
 
@@ -3010,7 +3010,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 
 cond.true12:                                      ; preds = %cond.end
   %13 = load ptr, ptr %right.addr, align 8
-  %call13 = call i64 @strlen(ptr noundef %13) #12
+  %call13 = call i64 @strlen(ptr noundef %13) #6
   %conv14 = trunc i64 %call13 to i32
   br label %cond.end16
 
@@ -3437,7 +3437,7 @@ if.then:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.then
   %6 = load ptr, ptr %result, align 8
-  %call5 = call i64 @strlen(ptr noundef %6) #12
+  %call5 = call i64 @strlen(ptr noundef %6) #6
   %conv = trunc i64 %call5 to i32
   %7 = load ptr, ptr %resultLength.addr, align 8
   store i32 %conv, ptr %7, align 4
@@ -4772,14 +4772,13 @@ attributes #2 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind memory(read) }
+attributes #6 = { nounwind willreturn memory(read) }
 attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { noreturn }
+attributes #12 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

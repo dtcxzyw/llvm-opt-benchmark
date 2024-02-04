@@ -11266,7 +11266,7 @@ if.then:                                          ; preds = %entry
 do.body:                                          ; preds = %if.then
   %1 = load ptr, ptr %msg.addr, align 8
   %2 = load ptr, ptr %msg.addr, align 8
-  %call = call i64 @strlen(ptr noundef %2) #26
+  %call = call i64 @strlen(ptr noundef %2) #18
   %3 = load ptr, ptr @_ZN12_GLOBAL__N_110error_fileE, align 8
   %call1 = call i64 @fwrite(ptr noundef %1, i64 noundef %call, i64 noundef 1, ptr noundef %3)
   %cmp2 = icmp eq i64 %call1, 1
@@ -15393,7 +15393,7 @@ entry:
   ret ptr %_M_current
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -19042,7 +19042,7 @@ entry:
   store i8 %ch, ptr %ch.addr, align 1
   %0 = load i8, ptr %ch.addr, align 1
   %conv = zext i8 %0 to i32
-  %call = call i32 @isalnum(i32 noundef %conv) #26
+  %call = call i32 @isalnum(i32 noundef %conv) #18
   %cmp = icmp ne i32 %call, 0
   ret i1 %cmp
 }
@@ -19767,7 +19767,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #26
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -21811,7 +21811,7 @@ attributes #14 = { nounwind memory(none) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind memory(read) }
+attributes #18 = { nounwind willreturn memory(read) }
 attributes #19 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { builtin allocsize(0) }
@@ -21819,7 +21819,6 @@ attributes #22 = { noreturn }
 attributes #23 = { builtin nounwind }
 attributes #24 = { noreturn nounwind }
 attributes #25 = { cold }
-attributes #26 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

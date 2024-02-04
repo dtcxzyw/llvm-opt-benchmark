@@ -5314,7 +5314,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #25
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #13
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -6587,7 +6587,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #25
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #13
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -6612,7 +6612,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #25
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #13
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -6961,7 +6961,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 96
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #26
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
   ret ptr %call5
 }
 
@@ -7141,7 +7141,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   ret void
 }
 
@@ -7590,7 +7590,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 16
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #26
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
   ret ptr %call5
 }
 
@@ -7842,7 +7842,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   ret void
 }
 
@@ -9181,7 +9181,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 96
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #26
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
   ret ptr %call5
 }
 
@@ -9818,7 +9818,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   ret void
 }
 
@@ -12250,7 +12250,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #26
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
   ret ptr %call5
 }
 
@@ -13061,7 +13061,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   ret void
 }
 
@@ -13932,7 +13932,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   ret void
 }
 
@@ -14088,7 +14088,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   ret void
 }
 
@@ -14909,7 +14909,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 24
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #26
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
   ret ptr %call5
 }
 
@@ -15004,7 +15004,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -15173,7 +15173,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIalED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -16593,7 +16593,7 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -18701,7 +18701,7 @@ define linkonce_odr void @_ZSt11make_uniqueIN8facebook5velox13DecodedVectorEJEEN
 entry:
   %result.ptr = alloca ptr, align 8
   store ptr %agg.result, ptr %result.ptr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 120) #26
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 120) #25
   call void @llvm.memset.p0.i64(ptr align 16 %call, i8 0, i64 120, i1 false)
   call void @_ZN8facebook5velox13DecodedVectorC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %call) #3
   call void @_ZNSt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call) #3
@@ -19384,7 +19384,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   call void @_ZN8facebook5velox13DecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #3
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -19576,7 +19576,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   ret void
 }
 
@@ -20956,7 +20956,7 @@ if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 256
   %4 = load i64, ptr %__al, align 8
-  %call5 = call noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef %mul, i64 noundef %4) #26
+  %call5 = call noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef %mul, i64 noundef %4) #25
   call void @llvm.assume(i1 true) [ "align"(ptr %call5, i64 %4) ]
   ret ptr %call5
 }
@@ -21039,7 +21039,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox14ConstantVectorIlEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 32 dereferenceable(256) %this1) #3
-  call void @_ZdlPvSt11align_val_t(ptr noundef %this1, i64 noundef 32) #27
+  call void @_ZdlPvSt11align_val_t(ptr noundef %this1, i64 noundef 32) #26
   ret void
 }
 
@@ -21883,7 +21883,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox14ConstantVectorIlED2Ev(ptr noundef nonnull align 32 dereferenceable(224) %this1) #3
-  call void @_ZdlPvSt11align_val_t(ptr noundef %this1, i64 noundef 32) #27
+  call void @_ZdlPvSt11align_val_t(ptr noundef %this1, i64 noundef 32) #26
   ret void
 }
 
@@ -25475,7 +25475,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox13AlignedBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -25676,7 +25676,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox6BufferD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -26358,7 +26358,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt19bad_optional_accessD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -29867,7 +29867,7 @@ entry:
   store ptr %__args7, ptr %__args.addr8, align 8
   store ptr %__args9, ptr %__args.addr10, align 8
   store ptr %__args11, ptr %__args.addr12, align 8
-  %call = call noalias noundef nonnull align 32 ptr @_ZnwmSt11align_val_t(i64 noundef 224, i64 noundef 32) #26
+  %call = call noalias noundef nonnull align 32 ptr @_ZnwmSt11align_val_t(i64 noundef 224, i64 noundef 32) #25
   store i1 true, ptr %cleanup.isactive, align 1
   %0 = load ptr, ptr %__args.addr, align 8
   %1 = load ptr, ptr %0, align 8
@@ -29911,7 +29911,7 @@ lpad:                                             ; preds = %entry
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %lpad
-  call void @_ZdlPvSt11align_val_t(ptr noundef %call, i64 noundef 32) #27
+  call void @_ZdlPvSt11align_val_t(ptr noundef %call, i64 noundef 32) #26
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %lpad
@@ -30484,7 +30484,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox14ConstantVectorImED2Ev(ptr noundef nonnull align 32 dereferenceable(224) %this1) #3
-  call void @_ZdlPvSt11align_val_t(ptr noundef %this1, i64 noundef 32) #27
+  call void @_ZdlPvSt11align_val_t(ptr noundef %this1, i64 noundef 32) #26
   ret void
 }
 
@@ -32835,7 +32835,7 @@ if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 256
   %4 = load i64, ptr %__al, align 8
-  %call5 = call noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef %mul, i64 noundef %4) #26
+  %call5 = call noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef %mul, i64 noundef %4) #25
   call void @llvm.assume(i1 true) [ "align"(ptr %call5, i64 %4) ]
   ret ptr %call5
 }
@@ -32909,7 +32909,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox14ConstantVectorImEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 32 dereferenceable(256) %this1) #3
-  call void @_ZdlPvSt11align_val_t(ptr noundef %this1, i64 noundef 32) #27
+  call void @_ZdlPvSt11align_val_t(ptr noundef %this1, i64 noundef 32) #26
   ret void
 }
 
@@ -33646,7 +33646,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPvSt11align_val_t(ptr noundef %0, i64 noundef 32) #27
+  call void @_ZdlPvSt11align_val_t(ptr noundef %0, i64 noundef 32) #26
   ret void
 }
 
@@ -34038,7 +34038,7 @@ entry:
   store i64 %size, ptr %size.addr, align 8
   %frombool = zext i1 %podType to i8
   store i8 %frombool, ptr %podType.addr, align 1
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #26
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #25
   %0 = load ptr, ptr %data.addr, align 8
   %1 = load i64, ptr %size.addr, align 8
   %2 = load i8, ptr %podType.addr, align 1
@@ -34062,7 +34062,7 @@ lpad:                                             ; preds = %entry
   store ptr %5, ptr %exn.slot, align 8
   %6 = extractvalue { ptr, i32 } %4, 1
   store i32 %6, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #27
+  call void @_ZdlPv(ptr noundef %call) #26
   br label %eh.resume
 
 nrvo.unused:                                      ; preds = %invoke.cont
@@ -34170,7 +34170,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_113DummyReleaserEED2Ev(ptr noundef nonnull align 8 dereferenceable(65) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -34932,7 +34932,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   call void @_ZN8facebook5velox14ConstantVectorImED2Ev(ptr noundef nonnull align 32 dereferenceable(224) %0) #3
-  call void @_ZdlPvSt11align_val_t(ptr noundef %0, i64 noundef 32) #27
+  call void @_ZdlPvSt11align_val_t(ptr noundef %0, i64 noundef 32) #26
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -36179,7 +36179,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPvSt11align_val_t(ptr noundef %0, i64 noundef 32) #27
+  call void @_ZdlPvSt11align_val_t(ptr noundef %0, i64 noundef 32) #26
   ret void
 }
 
@@ -36757,7 +36757,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #26
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
   ret ptr %call5
 }
 
@@ -36880,7 +36880,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   ret void
 }
 
@@ -43063,7 +43063,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   ret void
 }
 
@@ -43433,7 +43433,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 24
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #26
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
   ret ptr %call5
 }
 
@@ -43504,7 +43504,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -43614,7 +43614,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIslED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -49344,7 +49344,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   ret void
 }
 
@@ -49714,7 +49714,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 24
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #26
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
   ret ptr %call5
 }
 
@@ -49785,7 +49785,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -49895,7 +49895,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIilED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -55625,7 +55625,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   ret void
 }
 
@@ -55995,7 +55995,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 24
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #26
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
   ret ptr %call5
 }
 
@@ -56066,7 +56066,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -56176,7 +56176,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIllED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -61882,7 +61882,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   ret void
 }
 
@@ -62252,7 +62252,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 24
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #26
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
   ret ptr %call5
 }
 
@@ -62323,7 +62323,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -62433,7 +62433,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIfdED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -63766,7 +63766,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 208
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #26
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
   ret ptr %call5
 }
 
@@ -63842,7 +63842,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox14ConstantVectorIdEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -64407,7 +64407,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox14ConstantVectorIdED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -67558,7 +67558,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   ret void
 }
 
@@ -72966,7 +72966,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   ret void
 }
 
@@ -73336,7 +73336,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 24
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #26
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
   ret ptr %call5
 }
 
@@ -73407,7 +73407,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -73517,7 +73517,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox9functions12_GLOBAL__N_116ArraySumFunctionIddED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #27
+  call void @_ZdlPv(ptr noundef %this1) #26
   ret void
 }
 
@@ -79229,7 +79229,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #27
+  call void @_ZdlPv(ptr noundef %0) #26
   ret void
 }
 
@@ -79801,7 +79801,7 @@ attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-tra
 attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #13 = { nounwind memory(read) }
+attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #16 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -79813,9 +79813,8 @@ attributes #21 = { nounwind memory(none) }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #23 = { noreturn nounwind }
 attributes #24 = { noreturn }
-attributes #25 = { nounwind willreturn memory(read) }
-attributes #26 = { builtin allocsize(0) }
-attributes #27 = { builtin nounwind }
+attributes #25 = { builtin allocsize(0) }
+attributes #26 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

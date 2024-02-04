@@ -2461,7 +2461,7 @@ invoke.cont48:                                    ; preds = %dynamic_cast.end
 
 invoke.cont51:                                    ; preds = %invoke.cont48
   %call53 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %call52) #3
-  %call54 = call i32 @strcmp(ptr noundef %call53, ptr noundef @_ZN19OpenColorIO_v2_4devL9TAG_SLOPEE) #19
+  %call54 = call i32 @strcmp(ptr noundef %call53, ptr noundef @_ZN19OpenColorIO_v2_4devL9TAG_SLOPEE) #10
   %cmp55 = icmp eq i32 0, %call54
   br i1 %cmp55, label %if.then56, label %if.else
 
@@ -2504,7 +2504,7 @@ if.else:                                          ; preds = %invoke.cont51
 
 invoke.cont65:                                    ; preds = %if.else
   %call67 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %call66) #3
-  %call68 = call i32 @strcmp(ptr noundef %call67, ptr noundef @_ZN19OpenColorIO_v2_4devL10TAG_OFFSETE) #19
+  %call68 = call i32 @strcmp(ptr noundef %call67, ptr noundef @_ZN19OpenColorIO_v2_4devL10TAG_OFFSETE) #10
   %cmp69 = icmp eq i32 0, %call68
   br i1 %cmp69, label %if.then70, label %if.else79
 
@@ -2537,7 +2537,7 @@ if.else79:                                        ; preds = %invoke.cont65
 
 invoke.cont80:                                    ; preds = %if.else79
   %call82 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %call81) #3
-  %call83 = call i32 @strcmp(ptr noundef %call82, ptr noundef @_ZN19OpenColorIO_v2_4devL9TAG_POWERE) #19
+  %call83 = call i32 @strcmp(ptr noundef %call82, ptr noundef @_ZN19OpenColorIO_v2_4devL9TAG_POWERE) #10
   %cmp84 = icmp eq i32 0, %call83
   br i1 %cmp84, label %if.then85, label %if.end94
 
@@ -2777,7 +2777,7 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3337,7 +3337,7 @@ invoke.cont48:                                    ; preds = %dynamic_cast.end
 
 invoke.cont51:                                    ; preds = %invoke.cont48
   %call53 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %call52) #3
-  %call54 = call i32 @strcmp(ptr noundef %call53, ptr noundef @_ZN19OpenColorIO_v2_4devL14TAG_SATURATIONE) #19
+  %call54 = call i32 @strcmp(ptr noundef %call53, ptr noundef @_ZN19OpenColorIO_v2_4devL14TAG_SATURATIONE) #10
   %cmp55 = icmp eq i32 0, %call54
   br i1 %cmp55, label %if.then56, label %if.end60
 
@@ -5070,7 +5070,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 32
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
   ret ptr %call5
 }
 
@@ -5763,7 +5763,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 96
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
   ret ptr %call5
 }
 
@@ -7203,7 +7203,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 16
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
   ret ptr %call5
 }
 
@@ -8050,7 +8050,7 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr1, ptr %first.addr.i, align 8
   store ptr %add.ptr2, ptr %last.addr.i, align 8
   store ptr %val, ptr %value.addr.i, align 8
-  %call.i = call ptr @__errno_location() #21
+  %call.i = call ptr @__errno_location() #20
   store i32 0, ptr %call.i, align 4
   %16 = load ptr, ptr %first.addr.i, align 8
   %tobool.i = icmp ne ptr %16, null
@@ -8080,13 +8080,13 @@ if.end.i:                                         ; preds = %lor.lhs.false2.i
   %22 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev11NumberUtilsL3locE, align 8
   %call3.i = call double @strtod_l(ptr noundef %21, ptr noundef %endptr.i, ptr noundef %22) #3
   store double %call3.i, ptr %tempval.i, align 8
-  %call4.i = call ptr @__errno_location() #21
+  %call4.i = call ptr @__errno_location() #20
   %23 = load i32, ptr %call4.i, align 4
   %cmp5.i = icmp ne i32 %23, 0
   br i1 %cmp5.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %call6.i = call ptr @__errno_location() #21
+  %call6.i = call ptr @__errno_location() #20
   %24 = load i32, ptr %call6.i, align 4
   %cmp7.i = icmp ne i32 %24, 22
   br i1 %cmp7.i, label %if.then8.i, label %if.else.i
@@ -9087,7 +9087,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
   ret ptr %call5
 }
 
@@ -9410,7 +9410,7 @@ attributes #6 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind memory(none) }
-attributes #10 = { nounwind memory(read) }
+attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9419,9 +9419,8 @@ attributes #15 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-tr
 attributes #16 = { noreturn nounwind }
 attributes #17 = { noreturn }
 attributes #18 = { builtin nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { builtin allocsize(0) }
-attributes #21 = { nounwind willreturn memory(none) }
+attributes #19 = { builtin allocsize(0) }
+attributes #20 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

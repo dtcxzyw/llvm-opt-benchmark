@@ -45103,7 +45103,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj354EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -45128,7 +45128,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj362EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -45153,7 +45153,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj386EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -45178,7 +45178,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj394EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -45257,7 +45257,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj434EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -45282,7 +45282,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj442EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -45371,7 +45371,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj450EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -45460,7 +45460,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj458EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -45549,7 +45549,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj466EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -45638,7 +45638,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj474EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -45727,7 +45727,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj482EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -45816,7 +45816,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj490EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -45905,7 +45905,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj498EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -45994,7 +45994,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj506EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -46083,7 +46083,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj514EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -46172,7 +46172,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj522EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -46261,7 +46261,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj530EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -46350,7 +46350,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj538EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -46439,7 +46439,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj546EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -46528,7 +46528,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj554EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -46617,7 +46617,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj562EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -46706,7 +46706,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj570EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -46795,7 +46795,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj578EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -46884,7 +46884,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj586EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -46973,7 +46973,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj594EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -47326,7 +47326,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj712EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -47363,7 +47363,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj720EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -47400,7 +47400,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj728EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -47437,7 +47437,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj736EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -47474,7 +47474,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj744EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -47511,7 +47511,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj752EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -47548,7 +47548,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj765EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -47585,7 +47585,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj769EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -47622,7 +47622,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj781EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -47659,7 +47659,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj785EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -47696,7 +47696,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj797EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -47733,7 +47733,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj801EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -47771,7 +47771,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj808EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -47811,7 +47811,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj816EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -48814,7 +48814,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj1690EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -48839,7 +48839,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj1698EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -48864,7 +48864,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj1706EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -48889,7 +48889,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj1714EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -48914,7 +48914,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj1722EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -48939,7 +48939,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj1730EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -48964,7 +48964,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj1738EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -48989,7 +48989,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj1746EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -49014,7 +49014,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj1754EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -49665,7 +49665,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj2490EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -49690,7 +49690,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj2498EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -49715,7 +49715,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj2506EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -49740,7 +49740,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj2522EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -49765,7 +49765,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj2530EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -49865,7 +49865,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj2538EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -49890,7 +49890,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr align 1 @__const._ZN6google8protobuf8internal9ExpectTagILj2594EEEbPKc.buf, i64 2, i1 false)
   %0 = load ptr, ptr %ptr.addr, align 8
   %arraydecay = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #19
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %arraydecay, i64 noundef 2) #15
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -102336,7 +102336,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -104313,7 +104313,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %this1, i64 8, i1 false)
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   %1 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
@@ -105799,7 +105799,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.52) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.52) #19
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -106041,11 +106041,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #20
+  call void @_ZSt28__throw_bad_array_new_lengthv() #19
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #20
+  call void @_ZSt17__throw_bad_allocv() #19
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -106457,7 +106457,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %8 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -107696,7 +107696,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -107748,7 +107748,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -107936,7 +107936,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 24
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -107988,7 +107988,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -108624,7 +108624,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 56
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -108676,7 +108676,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -109509,7 +109509,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -109622,7 +109622,7 @@ catch:                                            ; preds = %lpad
   %5 = call ptr @__cxa_begin_catch(ptr %exn) #3
   %6 = load ptr, ptr %__node.addr, align 8
   call void @_ZNSt8_Rb_treeIPN6google8protobuf8internal7KeyViewINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_St9_IdentityISB_ENS2_12DerefCompareISA_EENS2_12MapAllocatorISB_EEE11_M_put_nodeEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %6) #3
-  invoke void @__cxa_rethrow() #20
+  invoke void @__cxa_rethrow() #19
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %catch
@@ -109707,7 +109707,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 40
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -109759,7 +109759,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -115801,7 +115801,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %8 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -117010,7 +117010,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 24
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -117062,7 +117062,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -122395,7 +122395,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %8 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -123601,7 +123601,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 24
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -123653,7 +123653,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -129064,7 +129064,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %8 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -130270,7 +130270,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 24
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -130322,7 +130322,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -135733,7 +135733,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %8 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -136939,7 +136939,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 24
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -136991,7 +136991,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -142323,7 +142323,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.400", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.400", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -143919,7 +143919,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %this1, i64 8, i1 false)
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.400", ptr %this1, i32 0, i32 0
   %1 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.400", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.400", ptr %retval, i32 0, i32 0
@@ -145092,7 +145092,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %8 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -146301,7 +146301,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 24
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -146353,7 +146353,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -146989,7 +146989,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 56
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -147041,7 +147041,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -147768,7 +147768,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.408", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.408", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -147854,7 +147854,7 @@ catch:                                            ; preds = %lpad
   %5 = call ptr @__cxa_begin_catch(ptr %exn) #3
   %6 = load ptr, ptr %__node.addr, align 8
   call void @_ZNSt8_Rb_treeIPbS0_St9_IdentityIS0_EN6google8protobuf8internal12DerefCompareIbEENS5_12MapAllocatorIS0_EEE11_M_put_nodeEPSt13_Rb_tree_nodeIS0_E(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %6) #3
-  invoke void @__cxa_rethrow() #20
+  invoke void @__cxa_rethrow() #19
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %catch
@@ -147939,7 +147939,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 40
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -147991,7 +147991,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -151400,7 +151400,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.433", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.433", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -152985,7 +152985,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %this1, i64 8, i1 false)
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.433", ptr %this1, i32 0, i32 0
   %1 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.433", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.433", ptr %retval, i32 0, i32 0
@@ -154155,7 +154155,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %8 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -155362,7 +155362,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 24
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -155414,7 +155414,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -156050,7 +156050,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 56
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -156102,7 +156102,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -156829,7 +156829,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.441", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.441", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -156915,7 +156915,7 @@ catch:                                            ; preds = %lpad
   %5 = call ptr @__cxa_begin_catch(ptr %exn) #3
   %6 = load ptr, ptr %__node.addr, align 8
   call void @_ZNSt8_Rb_treeIPiS0_St9_IdentityIS0_EN6google8protobuf8internal12DerefCompareIiEENS5_12MapAllocatorIS0_EEE11_M_put_nodeEPSt13_Rb_tree_nodeIS0_E(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %6) #3
-  invoke void @__cxa_rethrow() #20
+  invoke void @__cxa_rethrow() #19
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %catch
@@ -157000,7 +157000,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 40
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -157052,7 +157052,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -161874,7 +161874,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %8 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -163081,7 +163081,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 24
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -163133,7 +163133,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -166978,7 +166978,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.479", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.479", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -168562,7 +168562,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %this1, i64 8, i1 false)
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.479", ptr %this1, i32 0, i32 0
   %1 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.479", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.479", ptr %retval, i32 0, i32 0
@@ -169732,7 +169732,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %8 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -170939,7 +170939,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 24
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -170991,7 +170991,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -171627,7 +171627,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 56
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -171679,7 +171679,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -172406,7 +172406,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.487", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.487", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -172492,7 +172492,7 @@ catch:                                            ; preds = %lpad
   %5 = call ptr @__cxa_begin_catch(ptr %exn) #3
   %6 = load ptr, ptr %__node.addr, align 8
   call void @_ZNSt8_Rb_treeIPlS0_St9_IdentityIS0_EN6google8protobuf8internal12DerefCompareIlEENS5_12MapAllocatorIS0_EEE11_M_put_nodeEPSt13_Rb_tree_nodeIS0_E(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %6) #3
-  invoke void @__cxa_rethrow() #20
+  invoke void @__cxa_rethrow() #19
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %catch
@@ -172577,7 +172577,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 40
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -172629,7 +172629,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -177422,7 +177422,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %8 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -178629,7 +178629,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 24
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -178681,7 +178681,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -182516,7 +182516,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.525", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.525", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -184100,7 +184100,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %this1, i64 8, i1 false)
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.525", ptr %this1, i32 0, i32 0
   %1 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.525", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.525", ptr %retval, i32 0, i32 0
@@ -185270,7 +185270,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %8 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -186477,7 +186477,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 24
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -186529,7 +186529,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -187165,7 +187165,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 56
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -187217,7 +187217,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -187944,7 +187944,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.533", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.533", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -188030,7 +188030,7 @@ catch:                                            ; preds = %lpad
   %5 = call ptr @__cxa_begin_catch(ptr %exn) #3
   %6 = load ptr, ptr %__node.addr, align 8
   call void @_ZNSt8_Rb_treeIPmS0_St9_IdentityIS0_EN6google8protobuf8internal12DerefCompareImEENS5_12MapAllocatorIS0_EEE11_M_put_nodeEPSt13_Rb_tree_nodeIS0_E(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %6) #3
-  invoke void @__cxa_rethrow() #20
+  invoke void @__cxa_rethrow() #19
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %catch
@@ -188115,7 +188115,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 40
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -188167,7 +188167,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -191568,7 +191568,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.560", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.560", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -193153,7 +193153,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %this1, i64 8, i1 false)
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.560", ptr %this1, i32 0, i32 0
   %1 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.560", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.560", ptr %retval, i32 0, i32 0
@@ -194323,7 +194323,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %8 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -195530,7 +195530,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 24
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -195582,7 +195582,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -196218,7 +196218,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 56
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -196270,7 +196270,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -196997,7 +196997,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.568", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.568", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -197083,7 +197083,7 @@ catch:                                            ; preds = %lpad
   %5 = call ptr @__cxa_begin_catch(ptr %exn) #3
   %6 = load ptr, ptr %__node.addr, align 8
   call void @_ZNSt8_Rb_treeIPjS0_St9_IdentityIS0_EN6google8protobuf8internal12DerefCompareIjEENS5_12MapAllocatorIS0_EEE11_M_put_nodeEPSt13_Rb_tree_nodeIS0_E(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %6) #3
-  invoke void @__cxa_rethrow() #20
+  invoke void @__cxa_rethrow() #19
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %catch
@@ -197168,7 +197168,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load i64, ptr %n.addr, align 8
   %mul = mul i64 %2, 40
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   store ptr %call, ptr %retval, align 8
   br label %return
 
@@ -197220,7 +197220,7 @@ cleanup.done.i:                                   ; preds = %cleanup.action.i, %
 
 if.then.i:                                        ; preds = %cleanup.done.i
   %7 = load i64, ptr %num_elements.addr.i, align 8
-  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  %call10.i = call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #20
   store ptr %call10.i, ptr %retval.i, align 8
   br label %_ZN6google8protobuf5Arena11CreateArrayIhEEPT_PS1_m.exit
 
@@ -230835,7 +230835,7 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #15
 
 ; Function Attrs: mustprogress uwtable
@@ -236118,7 +236118,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = ptrtoint ptr %this1 to i64
   store i64 %0, ptr %s, align 8
-  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !1002
+  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !1002
   %asmresult = extractvalue { i32, i32 } %1, 0
   %asmresult2 = extractvalue { i32, i32 } %1, 1
   store i32 %asmresult, ptr %lo, align 4
@@ -236476,7 +236476,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = ptrtoint ptr %this1 to i64
   store i64 %0, ptr %s, align 8
-  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !1002
+  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !1002
   %asmresult = extractvalue { i32, i32 } %1, 0
   %asmresult2 = extractvalue { i32, i32 } %1, 1
   store i32 %asmresult, ptr %lo, align 4
@@ -236834,7 +236834,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = ptrtoint ptr %this1 to i64
   store i64 %0, ptr %s, align 8
-  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !1002
+  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !1002
   %asmresult = extractvalue { i32, i32 } %1, 0
   %asmresult2 = extractvalue { i32, i32 } %1, 1
   store i32 %asmresult, ptr %lo, align 4
@@ -237192,7 +237192,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = ptrtoint ptr %this1 to i64
   store i64 %0, ptr %s, align 8
-  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !1002
+  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !1002
   %asmresult = extractvalue { i32, i32 } %1, 0
   %asmresult2 = extractvalue { i32, i32 } %1, 1
   store i32 %asmresult, ptr %lo, align 4
@@ -237838,7 +237838,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = ptrtoint ptr %this1 to i64
   store i64 %0, ptr %s, align 8
-  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !1002
+  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !1002
   %asmresult = extractvalue { i32, i32 } %1, 0
   %asmresult2 = extractvalue { i32, i32 } %1, 1
   store i32 %asmresult, ptr %lo, align 4
@@ -238196,7 +238196,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = ptrtoint ptr %this1 to i64
   store i64 %0, ptr %s, align 8
-  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !1002
+  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !1002
   %asmresult = extractvalue { i32, i32 } %1, 0
   %asmresult2 = extractvalue { i32, i32 } %1, 1
   store i32 %asmresult, ptr %lo, align 4
@@ -238554,7 +238554,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = ptrtoint ptr %this1 to i64
   store i64 %0, ptr %s, align 8
-  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !1002
+  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !1002
   %asmresult = extractvalue { i32, i32 } %1, 0
   %asmresult2 = extractvalue { i32, i32 } %1, 1
   store i32 %asmresult, ptr %lo, align 4
@@ -238912,7 +238912,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = ptrtoint ptr %this1 to i64
   store i64 %0, ptr %s, align 8
-  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !1002
+  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !1002
   %asmresult = extractvalue { i32, i32 } %1, 0
   %asmresult2 = extractvalue { i32, i32 } %1, 1
   store i32 %asmresult, ptr %lo, align 4
@@ -239318,7 +239318,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = ptrtoint ptr %this1 to i64
   store i64 %0, ptr %s, align 8
-  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !1002
+  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !1002
   %asmresult = extractvalue { i32, i32 } %1, 0
   %asmresult2 = extractvalue { i32, i32 } %1, 1
   store i32 %asmresult, ptr %lo, align 4
@@ -239676,7 +239676,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = ptrtoint ptr %this1 to i64
   store i64 %0, ptr %s, align 8
-  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !1002
+  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !1002
   %asmresult = extractvalue { i32, i32 } %1, 0
   %asmresult2 = extractvalue { i32, i32 } %1, 1
   store i32 %asmresult, ptr %lo, align 4
@@ -240034,7 +240034,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = ptrtoint ptr %this1 to i64
   store i64 %0, ptr %s, align 8
-  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !1002
+  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !1002
   %asmresult = extractvalue { i32, i32 } %1, 0
   %asmresult2 = extractvalue { i32, i32 } %1, 1
   store i32 %asmresult, ptr %lo, align 4
@@ -240392,7 +240392,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = ptrtoint ptr %this1 to i64
   store i64 %0, ptr %s, align 8
-  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !1002
+  %1 = call { i32, i32 } asm "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !1002
   %asmresult = extractvalue { i32, i32 } %1, 0
   %asmresult2 = extractvalue { i32, i32 } %1, 1
   store i32 %asmresult, ptr %lo, align 4
@@ -250718,7 +250718,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %2) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %2) #19
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -275170,7 +275170,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.94) #20
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.94) #19
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -277509,14 +277509,13 @@ attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn mem
 attributes #12 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { nounwind memory(read) }
+attributes #15 = { nounwind willreturn memory(read) }
 attributes #16 = { builtin allocsize(0) }
 attributes #17 = { builtin nounwind }
 attributes #18 = { noreturn nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { noreturn }
-attributes #21 = { allocsize(0) }
-attributes #22 = { nounwind memory(none) }
+attributes #19 = { noreturn }
+attributes #20 = { allocsize(0) }
+attributes #21 = { nounwind memory(none) }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3, !4}

@@ -15145,7 +15145,7 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #13
 
 ; Function Attrs: mustprogress uwtable
@@ -16082,7 +16082,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %data.addr, align 8
   %1 = load ptr, ptr %data.addr, align 8
-  %call = call i64 @strlen(ptr noundef %1) #34
+  %call = call i64 @strlen(ptr noundef %1) #13
   %conv = trunc i64 %call to i32
   call void @_ZN8facebook5velox10StringViewC2EPKci(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0, i32 noundef %conv)
   ret void
@@ -39896,7 +39896,7 @@ entry:
   store ptr %0, ptr %.addr, align 8
   store ptr %1, ptr %.addr1, align 8
   store ptr %2, ptr %.addr2, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionISt17bad_function_callJEEEvDpOT0_.exit: ; No predecessors!
@@ -39911,7 +39911,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr align 8 %ref.tmp, i8 0, i64 8, i1 false)
   call void @_ZNSt17bad_function_callC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #4
-  invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -68586,7 +68586,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %other.addr, align 8
   %prefix_3 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %1, i32 0, i32 1
   %arraydecay4 = getelementptr inbounds [4 x i8], ptr %prefix_3, i64 0, i64 0
-  %call5 = call i32 @memcmp(ptr noundef %arraydecay, ptr noundef %arraydecay4, i64 noundef 4) #34
+  %call5 = call i32 @memcmp(ptr noundef %arraydecay, ptr noundef %arraydecay4, i64 noundef 4) #13
   store i32 %call5, ptr %retval, align 4
   br label %return
 
@@ -68637,7 +68637,7 @@ if.then20:                                        ; preds = %land.lhs.true18
   %arraydecay23 = getelementptr inbounds [8 x i8], ptr %value_22, i64 0, i64 0
   %11 = load i32, ptr %size, align 4
   %conv24 = sext i32 %11 to i64
-  %call25 = call i32 @memcmp(ptr noundef %arraydecay21, ptr noundef %arraydecay23, i64 noundef %conv24) #34
+  %call25 = call i32 @memcmp(ptr noundef %arraydecay21, ptr noundef %arraydecay23, i64 noundef %conv24) #13
   store i32 %call25, ptr %result, align 4
   %12 = load i32, ptr %result, align 4
   %cmp26 = icmp ne i32 %12, 0
@@ -68669,7 +68669,7 @@ if.end30:                                         ; preds = %land.lhs.true18, %l
   %add.ptr34 = getelementptr inbounds i8, ptr %call33, i64 4
   %18 = load i32, ptr %size, align 4
   %conv35 = sext i32 %18 to i64
-  %call36 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %add.ptr34, i64 noundef %conv35) #34
+  %call36 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %add.ptr34, i64 noundef %conv35) #13
   store i32 %call36, ptr %result31, align 4
   %19 = load i32, ptr %result31, align 4
   %cmp37 = icmp ne i32 %19, 0
@@ -77124,7 +77124,7 @@ sw.default:                                       ; preds = %sw.bb13, %entry
   %0 = load ptr, ptr %args.addr.i, align 8
   %1 = load ptr, ptr %args.addr2.i, align 8
   %2 = load i32, ptr %1, align 4
-  call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %0, i32 noundef %2) #35
+  call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %0, i32 noundef %2) #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_9TypeErrorEJRA23_KcNS_7dynamic4TypeEEEEvDpOT0_.exit: ; No predecessors!
@@ -77452,7 +77452,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -77486,7 +77486,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -77557,7 +77557,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -77643,7 +77643,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr align 8 %ref.tmp, i8 0, i64 8, i1 false)
   call void @_ZN5folly17BadExpectedAccessIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #4
-  invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -77823,7 +77823,7 @@ entry:
   %err.addr = alloca ptr, align 8
   store ptr %err, ptr %err.addr, align 8
   %0 = load ptr, ptr %err.addr, align 8
-  call void @_ZN5folly10UnexpectedINS_14ConversionCodeEEC2EOS1_(ptr noundef nonnull align 1 dereferenceable(1) %retval, ptr noundef nonnull align 1 dereferenceable(1) %0) #36
+  call void @_ZN5folly10UnexpectedINS_14ConversionCodeEEC2EOS1_(ptr noundef nonnull align 1 dereferenceable(1) %retval, ptr noundef nonnull align 1 dereferenceable(1) %0) #35
   %coerce.dive = getelementptr inbounds %"class.folly::Unexpected", ptr %retval, i32 0, i32 0
   %1 = load i8, ptr %coerce.dive, align 1
   ret i8 %1
@@ -77989,7 +77989,7 @@ if.end:                                           ; preds = %entry
   store ptr %call3, ptr %args.addr.i, align 8
   %13 = load ptr, ptr %args.addr.i, align 8
   %14 = load i8, ptr %13, align 1
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %14) #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %14) #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEJRS2_EEEvDpOT0_.exit: ; No predecessors!
@@ -78080,7 +78080,7 @@ entry:
   %5 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   call void @_ZN5folly19makeConversionErrorENS_14ConversionCodeENS_5RangeIPKcEE(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, i8 noundef zeroext %0, ptr %4, ptr %6)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -78148,7 +78148,7 @@ for.body:                                         ; preds = %for.cond
   store i8 %7, ptr %c, align 1
   %8 = load i8, ptr %c, align 1
   %conv = sext i8 %8 to i32
-  %call2 = call i32 @isspace(i32 noundef %conv) #34
+  %call2 = call i32 @isspace(i32 noundef %conv) #13
   %tobool = icmp ne i32 %call2, 0
   %lnot = xor i1 %tobool, true
   br i1 %lnot, label %if.then, label %if.end
@@ -78182,7 +78182,7 @@ entry:
   %err.addr = alloca ptr, align 8
   store ptr %err, ptr %err.addr, align 8
   %0 = load ptr, ptr %err.addr, align 8
-  call void @_ZN5folly10UnexpectedINS_14ConversionCodeEEC2ERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %retval, ptr noundef nonnull align 1 dereferenceable(1) %0) #36
+  call void @_ZN5folly10UnexpectedINS_14ConversionCodeEEC2ERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %retval, ptr noundef nonnull align 1 dereferenceable(1) %0) #35
   %coerce.dive = getelementptr inbounds %"class.folly::Unexpected", ptr %retval, i32 0, i32 0
   %1 = load i8, ptr %coerce.dive, align 1
   ret i8 %1
@@ -78398,7 +78398,7 @@ entry:
   store i8 %args, ptr %args.addr, align 1
   %0 = load i8, ptr %args.addr, align 1
   call void @_ZN5folly17BadExpectedAccessINS_14ConversionCodeEEC2ES1_(ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp, i8 noundef zeroext %0)
-  invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -78552,7 +78552,7 @@ if.end:                                           ; preds = %entry
   store ptr %call3, ptr %args.addr.i, align 8
   %8 = load ptr, ptr %args.addr.i, align 8
   %9 = load i8, ptr %8, align 1
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %9) #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %9) #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEJS2_EEEvDpOT0_.exit: ; No predecessors!
@@ -78613,7 +78613,7 @@ entry:
   %5 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   call void @_ZN5folly19makeConversionErrorENS_14ConversionCodeENS_5RangeIPKcEE(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, i8 noundef zeroext %0, ptr %4, ptr %6)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -78688,14 +78688,14 @@ if.then3:                                         ; preds = %if.then
   store ptr %0, ptr %args.addr.i, align 8
   %1 = load ptr, ptr %args.addr.i, align 8
   %2 = load i8, ptr %1, align 1
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %2) #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %2) #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEJRKS2_EEEvDpOT0_.exit: ; No predecessors!
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -78798,7 +78798,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
-  invoke void @_ZN5folly15throw_exceptionINS_9TypeErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_9TypeErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #34
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -85180,7 +85180,7 @@ sw.default:                                       ; preds = %sw.bb13, %entry
   %0 = load ptr, ptr %args.addr.i, align 8
   %1 = load ptr, ptr %args.addr2.i, align 8
   %2 = load i32, ptr %1, align 4
-  call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %0, i32 noundef %2) #35
+  call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %0, i32 noundef %2) #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_9TypeErrorEJRA23_KcNS_7dynamic4TypeEEEEvDpOT0_.exit: ; No predecessors!
@@ -85302,7 +85302,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -85616,7 +85616,7 @@ if.end:                                           ; preds = %entry
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly15expected_detail15ExpectedStorageIdNS_14ConversionCodeELNS0_11StorageTypeE0EE5errorEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %7 = load i8, ptr %call2, align 1
   call void @_ZZN5folly2toIdlEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef zeroext %7)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -86453,7 +86453,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -86518,7 +86518,7 @@ if.end:                                           ; preds = %entry
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly15expected_detail15ExpectedStorageIdNS_14ConversionCodeELNS0_11StorageTypeE0EE5errorEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %7 = load i8, ptr %call2, align 1
   call void @_ZZN5folly2toIdbEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef zeroext %7)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -87211,7 +87211,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -87245,7 +87245,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -87320,7 +87320,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -87451,7 +87451,7 @@ if.end:                                           ; preds = %entry
   store ptr %call3, ptr %args.addr.i, align 8
   %13 = load ptr, ptr %args.addr.i, align 8
   %14 = load i8, ptr %13, align 1
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %14) #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %14) #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEJRS2_EEEvDpOT0_.exit: ; No predecessors!
@@ -87479,7 +87479,7 @@ entry:
   %5 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   call void @_ZN5folly19makeConversionErrorENS_14ConversionCodeENS_5RangeIPKcEE(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, i8 noundef zeroext %0, ptr %4, ptr %6)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -87537,7 +87537,7 @@ if.end:                                           ; preds = %entry
   store ptr %call3, ptr %args.addr.i, align 8
   %8 = load ptr, ptr %args.addr.i, align 8
   %9 = load i8, ptr %8, align 1
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %9) #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %9) #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEJS2_EEEvDpOT0_.exit: ; No predecessors!
@@ -87578,7 +87578,7 @@ entry:
   %5 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   call void @_ZN5folly19makeConversionErrorENS_14ConversionCodeENS_5RangeIPKcEE(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, i8 noundef zeroext %0, ptr %4, ptr %6)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -87631,7 +87631,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -87865,7 +87865,7 @@ if.end:                                           ; preds = %entry
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly15expected_detail15ExpectedStorageIiNS_14ConversionCodeELNS0_11StorageTypeE0EE5errorEv(ptr noundef nonnull align 4 dereferenceable(8) %6)
   %7 = load i8, ptr %call2, align 1
   call void @_ZZN5folly2toIilEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef zeroext %7)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -88057,7 +88057,7 @@ sw.default:                                       ; preds = %sw.bb13, %entry
   %0 = load ptr, ptr %args.addr.i, align 8
   %1 = load ptr, ptr %args.addr2.i, align 8
   %2 = load i32, ptr %1, align 4
-  call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %0, i32 noundef %2) #35
+  call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %0, i32 noundef %2) #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_9TypeErrorEJRA23_KcNS_7dynamic4TypeEEEEvDpOT0_.exit: ; No predecessors!
@@ -88179,7 +88179,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -88358,7 +88358,7 @@ if.end:                                           ; preds = %entry
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly15expected_detail15ExpectedStorageIlNS_14ConversionCodeELNS0_11StorageTypeE0EE5errorEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %7 = load i8, ptr %call2, align 1
   call void @_ZZN5folly2toIldEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef zeroext %7)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -89004,7 +89004,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -89069,7 +89069,7 @@ if.end:                                           ; preds = %entry
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly15expected_detail15ExpectedStorageIlNS_14ConversionCodeELNS0_11StorageTypeE0EE5errorEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %7 = load i8, ptr %call2, align 1
   call void @_ZZN5folly2toIlbEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef zeroext %7)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -89246,7 +89246,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -89280,7 +89280,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -89355,7 +89355,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -89486,7 +89486,7 @@ if.end:                                           ; preds = %entry
   store ptr %call3, ptr %args.addr.i, align 8
   %13 = load ptr, ptr %args.addr.i, align 8
   %14 = load i8, ptr %13, align 1
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %14) #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %14) #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEJRS2_EEEvDpOT0_.exit: ; No predecessors!
@@ -89514,7 +89514,7 @@ entry:
   %5 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   call void @_ZN5folly19makeConversionErrorENS_14ConversionCodeENS_5RangeIPKcEE(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, i8 noundef zeroext %0, ptr %4, ptr %6)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -89572,7 +89572,7 @@ if.end:                                           ; preds = %entry
   store ptr %call3, ptr %args.addr.i, align 8
   %8 = load ptr, ptr %args.addr.i, align 8
   %9 = load i8, ptr %8, align 1
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %9) #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %9) #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEJS2_EEEvDpOT0_.exit: ; No predecessors!
@@ -89613,7 +89613,7 @@ entry:
   %5 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   call void @_ZN5folly19makeConversionErrorENS_14ConversionCodeENS_5RangeIPKcEE(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, i8 noundef zeroext %0, ptr %4, ptr %6)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -94513,7 +94513,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -94749,7 +94749,7 @@ if.end:                                           ; preds = %entry
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly15expected_detail15ExpectedStorageIaNS_14ConversionCodeELNS0_11StorageTypeE0EE5errorEv(ptr noundef nonnull align 1 dereferenceable(3) %6)
   %7 = load i8, ptr %call2, align 1
   call void @_ZZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef zeroext %7)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -100078,7 +100078,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -100312,7 +100312,7 @@ if.end:                                           ; preds = %entry
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly15expected_detail15ExpectedStorageIsNS_14ConversionCodeELNS0_11StorageTypeE0EE5errorEv(ptr noundef nonnull align 2 dereferenceable(4) %6)
   %7 = load i8, ptr %call2, align 1
   call void @_ZZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef zeroext %7)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -112196,7 +112196,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -112431,7 +112431,7 @@ if.end:                                           ; preds = %entry
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly15expected_detail15ExpectedStorageIfNS_14ConversionCodeELNS0_11StorageTypeE0EE5errorEv(ptr noundef nonnull align 4 dereferenceable(8) %6)
   %7 = load i8, ptr %call2, align 1
   call void @_ZZN5folly2toIfdEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef zeroext %7)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -127016,7 +127016,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %10 = load i32, ptr %agg.tmp.i, align 8
   %11 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp.i, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12system_errorJSt10error_codeEEEvDpT0_(i32 %10, ptr %12) #35
+  call void @_ZN5folly6detail16throw_exception_ISt12system_errorJSt10error_codeEEEvDpT0_(i32 %10, ptr %12) #34
   unreachable
 
 _ZN5folly15throw_exceptionISt12system_errorJSt10error_codeEEEvDpOT0_.exit: ; No predecessors!
@@ -127030,7 +127030,7 @@ entry:
   %__e.addr = alloca i32, align 4
   store i32 %__e, ptr %__e.addr, align 4
   %0 = load i32, ptr %__e.addr, align 4
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #37
+  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #36
   call void @_ZNSt10error_codeC2EiRKNSt3_V214error_categoryE(ptr noundef nonnull align 8 dereferenceable(16) %retval, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %call) #4
   %1 = load { i32, ptr }, ptr %retval, align 8
   ret { i32, ptr } %1
@@ -127054,7 +127054,7 @@ entry:
   %4 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   call void @_ZNSt12system_errorC2ESt10error_code(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i32 %3, ptr %5)
-  invoke void @_ZN5folly15throw_exceptionISt12system_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionISt12system_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -127853,7 +127853,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %10 = load i32, ptr %agg.tmp.i, align 8
   %11 = getelementptr inbounds { i32, ptr }, ptr %agg.tmp.i, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12system_errorJSt10error_codeEEEvDpT0_(i32 %10, ptr %12) #35
+  call void @_ZN5folly6detail16throw_exception_ISt12system_errorJSt10error_codeEEEvDpT0_(i32 %10, ptr %12) #34
   unreachable
 
 _ZN5folly15throw_exceptionISt12system_errorJSt10error_codeEEEvDpOT0_.exit: ; No predecessors!
@@ -129695,7 +129695,7 @@ if.else11:                                        ; preds = %entry
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.else11
-  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionISt9bad_allocJEEEvDpOT0_.exit36: ; No predecessors!
@@ -129760,7 +129760,7 @@ do.end30:                                         ; preds = %do.body29
   br i1 %cmp32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %do.end30
-  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionISt9bad_allocJEEEvDpOT0_.exit: ; No predecessors!
@@ -130126,7 +130126,7 @@ entry:
   %exn.slot = alloca ptr, align 8
   %ehselector.slot = alloca i32, align 4
   call void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #4
-  invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -130776,12 +130776,12 @@ invoke.cont27:                                    ; preds = %while.end
 
 if.else30:                                        ; preds = %land.lhs.true, %if.else
   %52 = load i64, ptr %newChunkCount.addr, align 8
-  %call31 = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #37
+  %call31 = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #36
   %cmp32 = icmp ule i64 %52, %call31
   br i1 %cmp32, label %if.then33, label %if.else35
 
 if.then33:                                        ; preds = %if.else30
-  %call34 = call noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #37
+  %call34 = call noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #36
   store ptr %call34, ptr %fullness, align 8
   br label %if.end41
 
@@ -130916,7 +130916,7 @@ if.then70:                                        ; preds = %invoke.cont67
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then70
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %79, ptr noundef %81) #38
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %79, ptr noundef %81) #37
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -131294,7 +131294,7 @@ if.then:                                          ; preds = %do.body2
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #38
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #37
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -132392,7 +132392,7 @@ entry:
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds %class.anon.761, ptr %this1, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
-  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %6) #37
+  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %6) #36
   %cmp = icmp ugt i64 %4, %call
   br i1 %cmp, label %if.then, label %if.end
 
@@ -133843,7 +133843,7 @@ if.then:                                          ; preds = %do.body
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #38
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #37
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -134875,7 +134875,7 @@ sw.default:                                       ; preds = %sw.bb9, %entry
   %1 = load ptr, ptr %args.addr.i, align 8
   %2 = load ptr, ptr %args.addr2.i, align 8
   %3 = load i32, ptr %2, align 4
-  call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %1, i32 noundef %3) #35
+  call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %1, i32 noundef %3) #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_9TypeErrorEJRA23_KcNS_7dynamic4TypeEEEEvDpOT0_.exit: ; No predecessors!
@@ -135228,7 +135228,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -135264,7 +135264,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -135402,7 +135402,7 @@ if.end:                                           ; preds = %entry
   store ptr %call3, ptr %args.addr.i, align 8
   %9 = load ptr, ptr %args.addr.i, align 8
   %10 = load i8, ptr %9, align 1
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %10) #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %10) #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEJRS2_EEEvDpOT0_.exit: ; No predecessors!
@@ -135446,7 +135446,7 @@ entry:
   %5 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   call void @_ZN5folly19makeConversionErrorENS_14ConversionCodeENS_5RangeIPKcEE(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, i8 noundef zeroext %0, ptr %4, ptr %6)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -135506,7 +135506,7 @@ if.end:                                           ; preds = %entry
   store ptr %call2, ptr %args.addr.i, align 8
   %8 = load ptr, ptr %args.addr.i, align 8
   %9 = load i8, ptr %8, align 1
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %9) #35
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessINS_14ConversionCodeEEEJS3_EEEvDpT0_(i8 noundef zeroext %9) #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEJS2_EEEvDpOT0_.exit: ; No predecessors!
@@ -135549,7 +135549,7 @@ entry:
   %5 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   call void @_ZN5folly19makeConversionErrorENS_14ConversionCodeENS_5RangeIPKcEE(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, i8 noundef zeroext %0, ptr %4, ptr %6)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #35
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #34
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -144601,7 +144601,7 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %args.addr2.i, align 8
   %5 = load i32, ptr %4, align 4
-  call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %3, i32 noundef %5) #35
+  call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %3, i32 noundef %5) #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_9TypeErrorEJRKPKcNS_7dynamic4TypeEEEEvDpOT0_.exit: ; No predecessors!
@@ -150572,7 +150572,7 @@ if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %args.addr2.i, align 8
   %5 = load i32, ptr %4, align 4
-  call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %3, i32 noundef %5) #35
+  call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef %3, i32 noundef %5) #34
   unreachable
 
 _ZN5folly15throw_exceptionINS_9TypeErrorEJRKPKcNS_7dynamic4TypeEEEEvDpOT0_.exit: ; No predecessors!
@@ -163591,7 +163591,7 @@ if.else11:                                        ; preds = %entry
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.else11
-  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionISt9bad_allocJEEEvDpOT0_.exit36: ; No predecessors!
@@ -163656,7 +163656,7 @@ do.end30:                                         ; preds = %do.body29
   br i1 %cmp32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %do.end30
-  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionISt9bad_allocJEEEvDpOT0_.exit: ; No predecessors!
@@ -163941,12 +163941,12 @@ while.end:                                        ; preds = %while.cond
 
 if.else25:                                        ; preds = %land.lhs.true, %if.else
   %50 = load i64, ptr %newChunkCount.addr, align 8
-  %call26 = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #37
+  %call26 = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #36
   %cmp27 = icmp ule i64 %50, %call26
   br i1 %cmp27, label %if.then28, label %if.else30
 
 if.then28:                                        ; preds = %if.else25
-  %call29 = call noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #37
+  %call29 = call noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #36
   store ptr %call29, ptr %fullness, align 8
   br label %if.end36
 
@@ -164113,7 +164113,7 @@ if.then72:                                        ; preds = %invoke.cont69
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then72
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %81, ptr noundef %83) #38
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %81, ptr noundef %83) #37
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -164486,12 +164486,12 @@ do.end:                                           ; preds = %do.body
   store i32 %add, ptr %cc, align 4
   %1 = load i32, ptr %cc, align 4
   %conv = zext i32 %1 to i64
-  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #37
+  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #36
   %cmp = icmp ule i64 %conv, %call
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %do.end
-  %call2 = call noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #37
+  %call2 = call noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #36
   store ptr %call2, ptr %fullness, align 8
   br label %if.end
 
@@ -164776,7 +164776,7 @@ if.then74:                                        ; preds = %do.body70
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then74
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %72, ptr noundef %74) #38
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %72, ptr noundef %74) #37
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -165260,7 +165260,7 @@ if.then:                                          ; preds = %do.body2
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #38
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #37
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -166435,7 +166435,7 @@ entry:
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds %class.anon.904, ptr %this1, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
-  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %6) #37
+  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %6) #36
   %cmp = icmp ugt i64 %4, %call
   br i1 %cmp, label %if.then, label %if.end
 
@@ -167872,7 +167872,7 @@ if.then:                                          ; preds = %do.body
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #38
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #37
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -168064,7 +168064,7 @@ entry:
   %conv = zext i32 %4 to i64
   %5 = getelementptr inbounds %class.anon.919, ptr %this1, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
-  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %6) #37
+  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %6) #36
   %cmp = icmp ugt i64 %conv, %call
   br i1 %cmp, label %if.then, label %if.end
 
@@ -168975,7 +168975,7 @@ if.else11:                                        ; preds = %entry
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.else11
-  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionISt9bad_allocJEEEvDpOT0_.exit36: ; No predecessors!
@@ -169040,7 +169040,7 @@ do.end30:                                         ; preds = %do.body29
   br i1 %cmp32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %do.end30
-  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #35
+  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #34
   unreachable
 
 _ZN5folly15throw_exceptionISt9bad_allocJEEEvDpOT0_.exit: ; No predecessors!
@@ -170015,12 +170015,12 @@ while.end:                                        ; preds = %while.cond
 
 if.else20:                                        ; preds = %land.lhs.true, %if.else
   %50 = load i64, ptr %newChunkCount.addr, align 8
-  %call21 = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #37
+  %call21 = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #36
   %cmp22 = icmp ule i64 %50, %call21
   br i1 %cmp22, label %if.then23, label %if.else25
 
 if.then23:                                        ; preds = %if.else20
-  %call24 = call noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #37
+  %call24 = call noundef ptr @_ZNSt5arrayIhLm256EE4dataEv(ptr noundef nonnull align 1 dereferenceable(256) %stackBuf) #36
   store ptr %call24, ptr %fullness, align 8
   br label %if.end31
 
@@ -170178,7 +170178,7 @@ if.then64:                                        ; preds = %do.body60
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then64
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %81, ptr noundef %83) #38
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %81, ptr noundef %83) #37
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -171054,7 +171054,7 @@ entry:
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds %class.anon.929, ptr %this1, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
-  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %6) #37
+  %call = call noundef i64 @_ZNKSt5arrayIhLm256EE4sizeEv(ptr noundef nonnull align 1 dereferenceable(256) %6) #36
   %cmp = icmp ugt i64 %4, %call
   br i1 %cmp, label %if.then, label %if.end
 
@@ -180744,7 +180744,7 @@ attributes #9 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nounwind memory(read) }
+attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #16 = { nounwind memory(none) }
@@ -180765,11 +180765,10 @@ attributes #30 = { noreturn }
 attributes #31 = { builtin allocsize(0) }
 attributes #32 = { noreturn nounwind }
 attributes #33 = { builtin nounwind }
-attributes #34 = { nounwind willreturn memory(read) }
-attributes #35 = { cold noreturn }
-attributes #36 = { cold }
-attributes #37 = { nounwind willreturn memory(none) }
-attributes #38 = { cold noreturn nounwind }
+attributes #34 = { cold noreturn }
+attributes #35 = { cold }
+attributes #36 = { nounwind willreturn memory(none) }
+attributes #37 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -10253,7 +10253,7 @@ entry:
   store i8 %ch, ptr %ch.addr, align 1
   %0 = load i8, ptr %ch.addr, align 1
   %conv = zext i8 %0 to i32
-  %call = call i32 @isspace(i32 noundef %conv) #23
+  %call = call i32 @isspace(i32 noundef %conv) #17
   %tobool = icmp ne i32 %call, 0
   %lnot = xor i1 %tobool, true
   ret i1 %lnot
@@ -10552,7 +10552,7 @@ entry:
   store i8 %ch, ptr %ch.addr, align 1
   %0 = load i8, ptr %ch.addr, align 1
   %conv = zext i8 %0 to i32
-  %call = call i32 @isspace(i32 noundef %conv) #23
+  %call = call i32 @isspace(i32 noundef %conv) #17
   %tobool = icmp ne i32 %call, 0
   %lnot = xor i1 %tobool, true
   ret i1 %lnot
@@ -11420,7 +11420,7 @@ lpad:                                             ; preds = %if.then6, %lor.rhs,
   br label %eh.resume
 
 if.else:                                          ; preds = %invoke.cont
-  %call2 = call ptr @__errno_location() #24
+  %call2 = call ptr @__errno_location() #23
   %9 = load i32, ptr %call2, align 4
   %cmp3 = icmp eq i32 %9, 34
   br i1 %cmp3, label %lor.end, label %lor.rhs
@@ -11492,10 +11492,10 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_errno = getelementptr inbounds %struct._Save_errno, ptr %this1, i32 0, i32 0
-  %call = call ptr @__errno_location() #24
+  %call = call ptr @__errno_location() #23
   %0 = load i32, ptr %call, align 4
   store i32 %0, ptr %_M_errno, align 4
-  %call2 = call ptr @__errno_location() #24
+  %call2 = call ptr @__errno_location() #23
   store i32 0, ptr %call2, align 4
   ret void
 }
@@ -11534,7 +11534,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call ptr @__errno_location() #24
+  %call = call ptr @__errno_location() #23
   %0 = load i32, ptr %call, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -11542,7 +11542,7 @@ entry:
 if.then:                                          ; preds = %entry
   %_M_errno = getelementptr inbounds %struct._Save_errno, ptr %this1, i32 0, i32 0
   %1 = load i32, ptr %_M_errno, align 4
-  %call2 = call ptr @__errno_location() #24
+  %call2 = call ptr @__errno_location() #23
   store i32 %1, ptr %call2, align 4
   br label %if.end
 
@@ -16017,7 +16017,7 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -16103,14 +16103,13 @@ attributes #13 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-tr
 attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #15 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind memory(read) }
+attributes #17 = { nounwind willreturn memory(read) }
 attributes #18 = { builtin allocsize(0) }
 attributes #19 = { builtin nounwind }
 attributes #20 = { noreturn }
 attributes #21 = { noreturn nounwind }
 attributes #22 = { nounwind allocsize(0) }
-attributes #23 = { nounwind willreturn memory(read) }
-attributes #24 = { nounwind willreturn memory(none) }
+attributes #23 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

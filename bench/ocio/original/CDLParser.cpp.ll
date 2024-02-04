@@ -2380,7 +2380,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #3
   %arraydecay15 = getelementptr inbounds [5121 x i8], ptr %line, i64 0, i64 0
-  %call16 = call i64 @strlen(ptr noundef %arraydecay15) #15
+  %call16 = call i64 @strlen(ptr noundef %arraydecay15) #8
   %conv = trunc i64 %call16 to i32
   %4 = load i32, ptr %sizeProcessed, align 4
   %add = add i32 %4, %conv
@@ -3429,7 +3429,7 @@ invoke.cont31:                                    ; preds = %invoke.cont28
 
 invoke.cont34:                                    ; preds = %invoke.cont31
   store i1 false, ptr %cleanup.isactive, align 1
-  invoke void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
+  invoke void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #15
           to label %unreachable unwind label %lpad33
 
 lpad30:                                           ; preds = %invoke.cont28
@@ -3590,7 +3590,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %1 = load ptr, ptr %header.addr, align 8
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   %call4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %pattern) #3
-  %call5 = call noundef ptr @strstr(ptr noundef %call, ptr noundef %call4) #15
+  %call5 = call noundef ptr @strstr(ptr noundef %call, ptr noundef %call4) #8
   %cmp = icmp ne ptr %call5, null
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pattern) #3
   ret i1 %cmp
@@ -3692,7 +3692,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
+  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #15
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -4321,7 +4321,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
+  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #15
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -5284,18 +5284,18 @@ entry:
   %call1 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   store ptr %call1, ptr %parId, align 8
   %2 = load ptr, ptr %currId, align 8
-  %call2 = call i32 @strcmp(ptr noundef %2, ptr noundef @_ZN19OpenColorIO_v2_4devL15TAG_DESCRIPTIONE) #15
+  %call2 = call i32 @strcmp(ptr noundef %2, ptr noundef @_ZN19OpenColorIO_v2_4devL15TAG_DESCRIPTIONE) #8
   %cmp = icmp eq i32 0, %call2
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %isDesc, align 1
   %3 = load ptr, ptr %currId, align 8
-  %call3 = call i32 @strcmp(ptr noundef %3, ptr noundef @_ZN19OpenColorIO_v2_4devL26METADATA_INPUT_DESCRIPTIONE) #15
+  %call3 = call i32 @strcmp(ptr noundef %3, ptr noundef @_ZN19OpenColorIO_v2_4devL26METADATA_INPUT_DESCRIPTIONE) #8
   %cmp4 = icmp eq i32 0, %call3
   br i1 %cmp4, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
   %4 = load ptr, ptr %currId, align 8
-  %call5 = call i32 @strcmp(ptr noundef %4, ptr noundef @_ZN19OpenColorIO_v2_4devL28METADATA_VIEWING_DESCRIPTIONE) #15
+  %call5 = call i32 @strcmp(ptr noundef %4, ptr noundef @_ZN19OpenColorIO_v2_4devL28METADATA_VIEWING_DESCRIPTIONE) #8
   %cmp6 = icmp eq i32 0, %call5
   br label %lor.end
 
@@ -5304,19 +5304,19 @@ lor.end:                                          ; preds = %lor.rhs, %entry
   %frombool7 = zext i1 %5 to i8
   store i8 %frombool7, ptr %isInputViewingDesc, align 1
   %6 = load ptr, ptr %parId, align 8
-  %call8 = call i32 @strcmp(ptr noundef %6, ptr noundef @_ZN19OpenColorIO_v2_4devL11TAG_SOPNODEE) #15
+  %call8 = call i32 @strcmp(ptr noundef %6, ptr noundef @_ZN19OpenColorIO_v2_4devL11TAG_SOPNODEE) #8
   %cmp9 = icmp eq i32 0, %call8
   br i1 %cmp9, label %lor.end15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %lor.end
   %7 = load ptr, ptr %parId, align 8
-  %call10 = call i32 @strcmp(ptr noundef %7, ptr noundef @_ZN19OpenColorIO_v2_4devL11TAG_SATNODEE) #15
+  %call10 = call i32 @strcmp(ptr noundef %7, ptr noundef @_ZN19OpenColorIO_v2_4devL11TAG_SATNODEE) #8
   %cmp11 = icmp eq i32 0, %call10
   br i1 %cmp11, label %lor.end15, label %lor.rhs12
 
 lor.rhs12:                                        ; preds = %lor.lhs.false
   %8 = load ptr, ptr %parId, align 8
-  %call13 = call i32 @strcmp(ptr noundef %8, ptr noundef @_ZN19OpenColorIO_v2_4devL14TAG_SATNODEALTE) #15
+  %call13 = call i32 @strcmp(ptr noundef %8, ptr noundef @_ZN19OpenColorIO_v2_4devL14TAG_SATNODEALTE) #8
   %cmp14 = icmp eq i32 0, %call13
   br label %lor.end15
 
@@ -5372,7 +5372,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
+  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #15
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -5466,7 +5466,7 @@ entry:
   store ptr %pImpl, ptr %pImpl.addr, align 8
   store ptr %name, ptr %name.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
-  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL27CDL_TAG_COLOR_DECISION_LISTE) #15
+  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL27CDL_TAG_COLOR_DECISION_LISTE) #8
   %cmp = icmp eq i32 0, %call
   br i1 %cmp, label %if.then, label %if.end34
 
@@ -5659,7 +5659,7 @@ entry:
   store ptr %pImpl, ptr %pImpl.addr, align 8
   store ptr %name, ptr %name.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
-  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL22CDL_TAG_COLOR_DECISIONE) #15
+  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL22CDL_TAG_COLOR_DECISIONE) #8
   %cmp = icmp eq i32 0, %call
   br i1 %cmp, label %if.then, label %if.end30
 
@@ -5851,7 +5851,7 @@ entry:
   store ptr %pImpl, ptr %pImpl.addr, align 8
   store ptr %name, ptr %name.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
-  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL24CDL_TAG_COLOR_CORRECTIONE) #15
+  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL24CDL_TAG_COLOR_CORRECTIONE) #8
   %cmp = icmp eq i32 0, %call
   br i1 %cmp, label %if.then, label %if.end46
 
@@ -6102,7 +6102,7 @@ entry:
   store ptr %pImpl, ptr %pImpl.addr, align 8
   store ptr %name, ptr %name.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
-  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL11TAG_SOPNODEE) #15
+  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL11TAG_SOPNODEE) #8
   %cmp = icmp eq i32 0, %call
   br i1 %cmp, label %if.then, label %if.end30
 
@@ -6291,13 +6291,13 @@ entry:
   store ptr %pImpl, ptr %pImpl.addr, align 8
   store ptr %name, ptr %name.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
-  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL11TAG_SATNODEE) #15
+  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL11TAG_SATNODEE) #8
   %cmp = icmp eq i32 0, %call
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
   %1 = load ptr, ptr %name.addr, align 8
-  %call1 = call i32 @strcmp(ptr noundef %1, ptr noundef @_ZN19OpenColorIO_v2_4devL14TAG_SATNODEALTE) #15
+  %call1 = call i32 @strcmp(ptr noundef %1, ptr noundef @_ZN19OpenColorIO_v2_4devL14TAG_SATNODEALTE) #8
   %cmp2 = icmp eq i32 0, %call1
   br i1 %cmp2, label %if.then, label %if.end32
 
@@ -6709,19 +6709,19 @@ lpad37:                                           ; preds = %invoke.cont32
 
 if.else41:                                        ; preds = %invoke.cont23
   %36 = load ptr, ptr %name.addr, align 8
-  %call42 = call i32 @strcmp(ptr noundef %36, ptr noundef @_ZN19OpenColorIO_v2_4devL9TAG_SLOPEE) #15
+  %call42 = call i32 @strcmp(ptr noundef %36, ptr noundef @_ZN19OpenColorIO_v2_4devL9TAG_SLOPEE) #8
   %cmp = icmp eq i32 0, %call42
   br i1 %cmp, label %if.then48, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else41
   %37 = load ptr, ptr %name.addr, align 8
-  %call43 = call i32 @strcmp(ptr noundef %37, ptr noundef @_ZN19OpenColorIO_v2_4devL10TAG_OFFSETE) #15
+  %call43 = call i32 @strcmp(ptr noundef %37, ptr noundef @_ZN19OpenColorIO_v2_4devL10TAG_OFFSETE) #8
   %cmp44 = icmp eq i32 0, %call43
   br i1 %cmp44, label %if.then48, label %lor.lhs.false45
 
 lor.lhs.false45:                                  ; preds = %lor.lhs.false
   %38 = load ptr, ptr %name.addr, align 8
-  %call46 = call i32 @strcmp(ptr noundef %38, ptr noundef @_ZN19OpenColorIO_v2_4devL9TAG_POWERE) #15
+  %call46 = call i32 @strcmp(ptr noundef %38, ptr noundef @_ZN19OpenColorIO_v2_4devL9TAG_POWERE) #8
   %cmp47 = icmp eq i32 0, %call46
   br i1 %cmp47, label %if.then48, label %if.else86
 
@@ -6876,7 +6876,7 @@ ehcleanup85:                                      ; preds = %lpad82, %ehcleanup7
 
 if.else86:                                        ; preds = %lor.lhs.false45
   %66 = load ptr, ptr %name.addr, align 8
-  %call87 = call i32 @strcmp(ptr noundef %66, ptr noundef @_ZN19OpenColorIO_v2_4devL14TAG_SATURATIONE) #15
+  %call87 = call i32 @strcmp(ptr noundef %66, ptr noundef @_ZN19OpenColorIO_v2_4devL14TAG_SATURATIONE) #8
   %cmp88 = icmp eq i32 0, %call87
   br i1 %cmp88, label %if.then89, label %if.end129
 
@@ -7201,7 +7201,7 @@ entry:
   store ptr %pImpl, ptr %pImpl.addr, align 8
   store ptr %name, ptr %name.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
-  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL35CDL_TAG_COLOR_CORRECTION_COLLECTIONE) #15
+  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL35CDL_TAG_COLOR_CORRECTION_COLLECTIONE) #8
   %cmp = icmp eq i32 0, %call
   br i1 %cmp, label %if.then, label %if.end34
 
@@ -7396,7 +7396,7 @@ entry:
   store ptr %pImpl, ptr %pImpl.addr, align 8
   store ptr %name, ptr %name.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
-  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL24CDL_TAG_COLOR_CORRECTIONE) #15
+  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL24CDL_TAG_COLOR_CORRECTIONE) #8
   %cmp = icmp eq i32 0, %call
   br i1 %cmp, label %if.then, label %if.end40
 
@@ -7629,7 +7629,7 @@ entry:
   store ptr %pImpl, ptr %pImpl.addr, align 8
   store ptr %name, ptr %name.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
-  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL24CDL_TAG_COLOR_CORRECTIONE) #15
+  %call = call i32 @strcmp(ptr noundef %0, ptr noundef @_ZN19OpenColorIO_v2_4devL24CDL_TAG_COLOR_CORRECTIONE) #8
   %cmp = icmp eq i32 0, %call
   br i1 %cmp, label %if.then, label %if.end35
 
@@ -7900,7 +7900,7 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9004,7 +9004,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev9CDLParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
   %m_impl = getelementptr inbounds %"class.OpenColorIO_v2_4dev::CDLParser", ptr %this1, i32 0, i32 1
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #17
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #16
   %0 = load ptr, ptr %xmlFile.addr, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev9CDLParser4ImplC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(98) %call, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %invoke.cont unwind label %lpad
@@ -9020,7 +9020,7 @@ lpad:                                             ; preds = %entry
   store ptr %2, ptr %exn.slot, align 8
   %3 = extractvalue { ptr, i32 } %1, 1
   store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #18
+  call void @_ZdlPv(ptr noundef %call) #17
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -9051,7 +9051,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   call void @_ZN19OpenColorIO_v2_4dev9CDLParser4ImplD1Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) #3
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -9067,7 +9067,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev9CDLParserD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -9190,7 +9190,7 @@ invoke.cont25:                                    ; preds = %invoke.cont21
 
 invoke.cont28:                                    ; preds = %invoke.cont25
   store i1 false, ptr %cleanup.isactive, align 1
-  invoke void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
+  invoke void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #15
           to label %unreachable unwind label %lpad27
 
 lpad:                                             ; preds = %invoke.cont19, %invoke.cont17, %invoke.cont15, %invoke.cont, %if.then13
@@ -9492,7 +9492,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #16
+  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #15
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -10548,17 +10548,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+  call void @_ZSt17__throw_bad_allocv() #15
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 160
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #16
   ret ptr %call5
 }
 
@@ -10649,7 +10649,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev14CDLParsingInfoESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -11107,7 +11107,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -11337,7 +11337,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -11504,7 +11504,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load i64, ptr %__n.addr, align 8
   %call2 = call noundef i64 @_ZNKSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEESaIS3_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef @.str.44, i64 noundef %1, i64 noundef %call2) #16
+  call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef @.str.44, i64 noundef %1, i64 noundef %call2) #15
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -12033,17 +12033,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+  call void @_ZSt17__throw_bad_allocv() #15
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #16
   ret ptr %call5
 }
 
@@ -12119,7 +12119,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev17XmlReaderDummyEltESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -12373,7 +12373,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -12827,17 +12827,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+  call void @_ZSt17__throw_bad_allocv() #15
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 112
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #16
   ret ptr %call5
 }
 
@@ -12907,7 +12907,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev29CDLReaderColorDecisionListEltESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -13127,7 +13127,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev29CDLReaderColorDecisionListEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -13324,7 +13324,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -13878,17 +13878,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+  call void @_ZSt17__throw_bad_allocv() #15
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 232
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #16
   ret ptr %call5
 }
 
@@ -13961,7 +13961,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev25CDLReaderColorDecisionEltESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(232) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -14219,7 +14219,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev25CDLReaderColorDecisionEltD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -14406,7 +14406,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -14829,17 +14829,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+  call void @_ZSt17__throw_bad_allocv() #15
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 112
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #16
   ret ptr %call5
 }
 
@@ -14909,7 +14909,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev37CDLReaderColorCorrectionCollectionEltESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -15109,7 +15109,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev37CDLReaderColorCorrectionCollectionEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -15264,7 +15264,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -15726,17 +15726,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+  call void @_ZSt17__throw_bad_allocv() #15
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 144
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #16
   ret ptr %call5
 }
 
@@ -15809,7 +15809,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev27CDLReaderColorCorrectionEltESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -16021,7 +16021,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -16483,17 +16483,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+  call void @_ZSt17__throw_bad_allocv() #15
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 120
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #16
   ret ptr %call5
 }
 
@@ -16566,7 +16566,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21CDLReaderSOPNodeCCEltESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -16802,7 +16802,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev21CDLReaderSOPNodeCCEltD2Ev(ptr noundef nonnull align 8 dereferenceable(99) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -17331,7 +17331,7 @@ if.end:                                           ; preds = %invoke.cont20, %if.
           to label %invoke.cont21 unwind label %lpad19
 
 invoke.cont21:                                    ; preds = %if.end
-  invoke void @__cxa_rethrow() #16
+  invoke void @__cxa_rethrow() #15
           to label %unreachable unwind label %lpad19
 
 invoke.cont22:                                    ; preds = %lpad19
@@ -17439,7 +17439,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #16
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #15
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -17839,17 +17839,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+  call void @_ZSt17__throw_bad_allocv() #15
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 120
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #16
   ret ptr %call5
 }
 
@@ -17974,7 +17974,7 @@ catch:                                            ; preds = %lpad
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %catch
-  invoke void @__cxa_rethrow() #16
+  invoke void @__cxa_rethrow() #15
           to label %unreachable unwind label %lpad2
 
 for.end:                                          ; preds = %for.cond
@@ -18126,7 +18126,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -18231,7 +18231,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -18693,17 +18693,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+  call void @_ZSt17__throw_bad_allocv() #15
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 112
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #16
   ret ptr %call5
 }
 
@@ -18776,7 +18776,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev21CDLReaderSatNodeCCEltESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -19006,7 +19006,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev21CDLReaderSatNodeCCEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -19235,7 +19235,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -19766,17 +19766,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+  call void @_ZSt17__throw_bad_allocv() #15
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 152
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #16
   ret ptr %call5
 }
 
@@ -19849,7 +19849,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev23XmlReaderDescriptionEltESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -20161,7 +20161,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -20602,17 +20602,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+  call void @_ZSt17__throw_bad_allocv() #15
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 144
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #16
   ret ptr %call5
 }
 
@@ -20685,7 +20685,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev20XmlReaderSOPValueEltESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -20897,7 +20897,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -21359,17 +21359,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+  call void @_ZSt17__throw_bad_allocv() #15
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 144
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #16
   ret ptr %call5
 }
 
@@ -21442,7 +21442,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev22XmlReaderSaturationEltESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this1) #3
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -21654,7 +21654,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -22073,7 +22073,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #16
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #15
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -22312,17 +22312,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+  call void @_ZSt17__throw_bad_allocv() #15
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 16
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #16
   ret ptr %call5
 }
 
@@ -23485,7 +23485,7 @@ catch:                                            ; preds = %lpad
   %7 = call ptr @__cxa_begin_catch(ptr %exn) #3
   %8 = load ptr, ptr %__node.addr, align 8
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_M_put_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %this5, ptr noundef %8) #3
-  invoke void @__cxa_rethrow() #16
+  invoke void @__cxa_rethrow() #15
           to label %unreachable unwind label %lpad7
 
 lpad7:                                            ; preds = %catch
@@ -23566,17 +23566,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #16
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #16
+  call void @_ZSt17__throw_bad_allocv() #15
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 80
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #16
   ret ptr %call5
 }
 
@@ -23803,7 +23803,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -24018,7 +24018,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #15
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #8
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -24032,7 +24032,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #15
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #8
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -24256,17 +24256,16 @@ attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind memory(read) }
+attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { noreturn }
-attributes #17 = { builtin allocsize(0) }
-attributes #18 = { builtin nounwind }
+attributes #15 = { noreturn }
+attributes #16 = { builtin allocsize(0) }
+attributes #17 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

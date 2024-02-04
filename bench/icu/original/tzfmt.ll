@@ -1647,7 +1647,7 @@ for.end:                                          ; preds = %for.cond
 invoke.cont15:                                    ; preds = %for.end
   store ptr %call, ptr %region, align 8
   %22 = load ptr, ptr %region, align 8
-  %call16 = call i64 @strlen(ptr noundef %22) #14
+  %call16 = call i64 @strlen(ptr noundef %22) #9
   %conv = trunc i64 %call16 to i32
   store i32 %conv, ptr %regionLen, align 4
   %23 = load i32, ptr %regionLen, align 4
@@ -6271,7 +6271,7 @@ declare noundef i32 @_ZNK6icu_7511Formattable7getTypeEv(ptr noundef nonnull alig
 
 declare noundef ptr @_ZNK6icu_7511Formattable9getObjectEv(ptr noundef nonnull align 8 dereferenceable(112)) #5
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #9
 
 declare noundef nonnull align 8 dereferenceable(72) ptr @_ZNK6icu_758Calendar11getTimeZoneEv(ptr noundef nonnull align 8 dereferenceable(618)) #5
@@ -14510,12 +14510,11 @@ attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind memory(read) }
+attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nounwind }
 attributes #12 = { allocsize(0) }
 attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

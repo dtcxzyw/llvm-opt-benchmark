@@ -1526,7 +1526,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
 
 land.lhs.true:                                    ; preds = %invoke.cont67
   %arraydecay70 = getelementptr inbounds [157 x i8], ptr %keyword, i64 0, i64 0
-  %call71 = call i32 @strcmp(ptr noundef %arraydecay70, ptr noundef @.str.2) #15
+  %call71 = call i32 @strcmp(ptr noundef %arraydecay70, ptr noundef @.str.2) #9
   %cmp72 = icmp eq i32 %call71, 0
   br i1 %cmp72, label %if.then73, label %if.end76
 
@@ -1970,7 +1970,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  %call6 = call i64 @strlen(ptr noundef %call5) #15
+  %call6 = call i64 @strlen(ptr noundef %call5) #9
   %cmp = icmp eq i64 %call6, 0
   br i1 %cmp, label %if.then15, label %lor.lhs.false
 
@@ -1980,7 +1980,7 @@ lor.lhs.false:                                    ; preds = %invoke.cont4
           to label %invoke.cont7 unwind label %lpad3
 
 invoke.cont7:                                     ; preds = %lor.lhs.false
-  %call9 = call i64 @strlen(ptr noundef %call8) #15
+  %call9 = call i64 @strlen(ptr noundef %call8) #9
   %cmp10 = icmp ugt i64 %call9, 0
   br i1 %cmp10, label %land.lhs.true, label %if.else
 
@@ -1989,7 +1989,7 @@ land.lhs.true:                                    ; preds = %invoke.cont7
           to label %invoke.cont11 unwind label %lpad3
 
 invoke.cont11:                                    ; preds = %land.lhs.true
-  %call13 = call i64 @strlen(ptr noundef %call12) #15
+  %call13 = call i64 @strlen(ptr noundef %call12) #9
   %cmp14 = icmp eq i64 %call13, 0
   br i1 %cmp14, label %if.then15, label %if.else
 
@@ -2101,7 +2101,7 @@ land.lhs.true42:                                  ; preds = %invoke.cont40
 
 land.lhs.true44:                                  ; preds = %land.lhs.true42
   %21 = load ptr, ptr %type.addr, align 8
-  %call45 = call i32 @strcmp(ptr noundef %21, ptr noundef @_ZN6icu_75L10gGregorianE) #15
+  %call45 = call i32 @strcmp(ptr noundef %21, ptr noundef @_ZN6icu_75L10gGregorianE) #9
   %cmp46 = icmp ne i32 %call45, 0
   br i1 %cmp46, label %if.then47, label %if.end60
 
@@ -2458,7 +2458,7 @@ invoke.cont171:                                   ; preds = %invoke.cont169
 
 if.then174:                                       ; preds = %invoke.cont171
   %arraydecay175 = getelementptr inbounds [157 x i8], ptr %fwExt, i64 0, i64 0
-  %call176 = call i32 @strcmp(ptr noundef %arraydecay175, ptr noundef @.str.11) #15
+  %call176 = call i32 @strcmp(ptr noundef %arraydecay175, ptr noundef @.str.11) #9
   %cmp177 = icmp eq i32 %call176, 0
   br i1 %cmp177, label %if.then178, label %if.else180
 
@@ -2469,7 +2469,7 @@ if.then178:                                       ; preds = %if.then174
 
 if.else180:                                       ; preds = %if.then174
   %arraydecay181 = getelementptr inbounds [157 x i8], ptr %fwExt, i64 0, i64 0
-  %call182 = call i32 @strcmp(ptr noundef %arraydecay181, ptr noundef @.str.12) #15
+  %call182 = call i32 @strcmp(ptr noundef %arraydecay181, ptr noundef @.str.12) #9
   %cmp183 = icmp eq i32 %call182, 0
   br i1 %cmp183, label %if.then184, label %if.else186
 
@@ -2480,7 +2480,7 @@ if.then184:                                       ; preds = %if.else180
 
 if.else186:                                       ; preds = %if.else180
   %arraydecay187 = getelementptr inbounds [157 x i8], ptr %fwExt, i64 0, i64 0
-  %call188 = call i32 @strcmp(ptr noundef %arraydecay187, ptr noundef @.str.13) #15
+  %call188 = call i32 @strcmp(ptr noundef %arraydecay187, ptr noundef @.str.13) #9
   %cmp189 = icmp eq i32 %call188, 0
   br i1 %cmp189, label %if.then190, label %if.else192
 
@@ -2491,7 +2491,7 @@ if.then190:                                       ; preds = %if.else186
 
 if.else192:                                       ; preds = %if.else186
   %arraydecay193 = getelementptr inbounds [157 x i8], ptr %fwExt, i64 0, i64 0
-  %call194 = call i32 @strcmp(ptr noundef %arraydecay193, ptr noundef @.str.14) #15
+  %call194 = call i32 @strcmp(ptr noundef %arraydecay193, ptr noundef @.str.14) #9
   %cmp195 = icmp eq i32 %call194, 0
   br i1 %cmp195, label %if.then196, label %if.else198
 
@@ -2502,7 +2502,7 @@ if.then196:                                       ; preds = %if.else192
 
 if.else198:                                       ; preds = %if.else192
   %arraydecay199 = getelementptr inbounds [157 x i8], ptr %fwExt, i64 0, i64 0
-  %call200 = call i32 @strcmp(ptr noundef %arraydecay199, ptr noundef @.str.15) #15
+  %call200 = call i32 @strcmp(ptr noundef %arraydecay199, ptr noundef @.str.15) #9
   %cmp201 = icmp eq i32 %call200, 0
   br i1 %cmp201, label %if.then202, label %if.else204
 
@@ -2513,7 +2513,7 @@ if.then202:                                       ; preds = %if.else198
 
 if.else204:                                       ; preds = %if.else198
   %arraydecay205 = getelementptr inbounds [157 x i8], ptr %fwExt, i64 0, i64 0
-  %call206 = call i32 @strcmp(ptr noundef %arraydecay205, ptr noundef @.str.16) #15
+  %call206 = call i32 @strcmp(ptr noundef %arraydecay205, ptr noundef @.str.16) #9
   %cmp207 = icmp eq i32 %call206, 0
   br i1 %cmp207, label %if.then208, label %if.else210
 
@@ -2524,7 +2524,7 @@ if.then208:                                       ; preds = %if.else204
 
 if.else210:                                       ; preds = %if.else204
   %arraydecay211 = getelementptr inbounds [157 x i8], ptr %fwExt, i64 0, i64 0
-  %call212 = call i32 @strcmp(ptr noundef %arraydecay211, ptr noundef @.str.17) #15
+  %call212 = call i32 @strcmp(ptr noundef %arraydecay211, ptr noundef @.str.17) #9
   %cmp213 = icmp eq i32 %call212, 0
   br i1 %cmp213, label %if.then214, label %if.end216
 
@@ -4564,7 +4564,7 @@ entry:
   ret i8 %conv
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #9
 
 declare void @_ZN6icu_756LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #5
@@ -5139,7 +5139,7 @@ entry:
   br i1 %0, label %typeid.bad_typeid, label %typeid.end
 
 typeid.bad_typeid:                                ; preds = %entry
-  call void @__cxa_bad_typeid() #16
+  call void @__cxa_bad_typeid() #15
   unreachable
 
 typeid.end:                                       ; preds = %entry
@@ -7370,19 +7370,19 @@ if.then56:                                        ; preds = %sw.bb53
   %call59 = call noundef ptr %54(ptr noundef nonnull align 8 dereferenceable(618) %this1)
   store ptr %call59, ptr %calType, align 8
   %55 = load ptr, ptr %calType, align 8
-  %call60 = call i32 @strcmp(ptr noundef %55, ptr noundef @.str.3) #15
+  %call60 = call i32 @strcmp(ptr noundef %55, ptr noundef @.str.3) #9
   %cmp61 = icmp eq i32 %call60, 0
   br i1 %cmp61, label %if.then68, label %lor.lhs.false62
 
 lor.lhs.false62:                                  ; preds = %if.then56
   %56 = load ptr, ptr %calType, align 8
-  %call63 = call i32 @strcmp(ptr noundef %56, ptr noundef @.str.4) #15
+  %call63 = call i32 @strcmp(ptr noundef %56, ptr noundef @.str.4) #9
   %cmp64 = icmp eq i32 %call63, 0
   br i1 %cmp64, label %if.then68, label %lor.lhs.false65
 
 lor.lhs.false65:                                  ; preds = %lor.lhs.false62
   %57 = load ptr, ptr %calType, align 8
-  %call66 = call i32 @strcmp(ptr noundef %57, ptr noundef @.str.5) #15
+  %call66 = call i32 @strcmp(ptr noundef %57, ptr noundef @.str.5) #9
   %cmp67 = icmp eq i32 %call66, 0
   br i1 %cmp67, label %if.then68, label %if.end70
 
@@ -8146,19 +8146,19 @@ if.then12:                                        ; preds = %sw.bb9
   %call15 = call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(618) %this1)
   store ptr %call15, ptr %calType, align 8
   %17 = load ptr, ptr %calType, align 8
-  %call16 = call i32 @strcmp(ptr noundef %17, ptr noundef @.str.3) #15
+  %call16 = call i32 @strcmp(ptr noundef %17, ptr noundef @.str.3) #9
   %cmp17 = icmp eq i32 %call16, 0
   br i1 %cmp17, label %if.then24, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %if.then12
   %18 = load ptr, ptr %calType, align 8
-  %call19 = call i32 @strcmp(ptr noundef %18, ptr noundef @.str.4) #15
+  %call19 = call i32 @strcmp(ptr noundef %18, ptr noundef @.str.4) #9
   %cmp20 = icmp eq i32 %call19, 0
   br i1 %cmp20, label %if.then24, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false18
   %19 = load ptr, ptr %calType, align 8
-  %call22 = call i32 @strcmp(ptr noundef %19, ptr noundef @.str.5) #15
+  %call22 = call i32 @strcmp(ptr noundef %19, ptr noundef @.str.5) #9
   %cmp23 = icmp eq i32 %call22, 0
   br i1 %cmp23, label %if.then24, label %if.end25
 
@@ -10076,7 +10076,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %code.addr, align 8
-  %call2 = call i64 @strlen(ptr noundef %2) #15
+  %call2 = call i64 @strlen(ptr noundef %2) #9
   %conv = trunc i64 %call2 to i32
   store i32 %conv, ptr %len, align 4
   %3 = load i32, ptr %len, align 4
@@ -10109,7 +10109,7 @@ for.body:                                         ; preds = %for.cond
   %idxprom8 = sext i32 %9 to i64
   %arrayidx9 = getelementptr inbounds [13 x ptr], ptr @_ZN6icu_75L19gTemporalMonthCodesE, i64 0, i64 %idxprom8
   %10 = load ptr, ptr %arrayidx9, align 8
-  %call10 = call i32 @strcmp(ptr noundef %8, ptr noundef %10) #15
+  %call10 = call i32 @strcmp(ptr noundef %8, ptr noundef %10) #9
   %cmp11 = icmp eq i32 %call10, 0
   br i1 %cmp11, label %if.then12, label %if.end13
 
@@ -15491,7 +15491,7 @@ entry:
   store ptr %call, ptr %s, align 8
   %0 = load ptr, ptr %s, align 8
   %1 = load ptr, ptr %s, align 8
-  %call2 = call i64 @strlen(ptr noundef %1) #15
+  %call2 = call i64 @strlen(ptr noundef %1) #9
   %conv = trunc i64 %call2 to i32
   %call3 = call i32 @ustr_hashCharsN_75(ptr noundef %0, i32 noundef %conv)
   ret i32 %call3
@@ -15541,7 +15541,7 @@ lor.rhs:                                          ; preds = %entry
   br i1 %1, label %typeid.bad_typeid, label %typeid.end
 
 typeid.bad_typeid:                                ; preds = %lor.rhs
-  call void @__cxa_bad_typeid() #16
+  call void @__cxa_bad_typeid() #15
   unreachable
 
 typeid.end:                                       ; preds = %lor.rhs
@@ -15668,14 +15668,13 @@ attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #9 = { nounwind memory(read) }
+attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nounwind }
 attributes #13 = { allocsize(0) }
 attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { noreturn }
+attributes #15 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

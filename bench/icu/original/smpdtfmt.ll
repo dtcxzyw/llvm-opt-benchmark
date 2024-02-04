@@ -1725,7 +1725,7 @@ invoke.cont16:                                    ; preds = %if.end15
 
 land.lhs.true:                                    ; preds = %invoke.cont16
   %17 = load ptr, ptr %cType, align 8
-  %call17 = call i32 @strcmp(ptr noundef %17, ptr noundef @.str) #14
+  %call17 = call i32 @strcmp(ptr noundef %17, ptr noundef @.str) #8
   %cmp18 = icmp ne i32 %call17, 0
   br i1 %cmp18, label %if.then19, label %if.end39
 
@@ -2012,7 +2012,7 @@ invoke.cont100:                                   ; preds = %if.end99
 
 land.lhs.true103:                                 ; preds = %invoke.cont100
   %69 = load ptr, ptr %baseLocID, align 8
-  %call104 = call i32 @strcmp(ptr noundef %69, ptr noundef @.str.6) #14
+  %call104 = call i32 @strcmp(ptr noundef %69, ptr noundef @.str.6) #8
   %cmp105 = icmp ne i32 %call104, 0
   br i1 %cmp105, label %if.then106, label %if.end165
 
@@ -2075,7 +2075,7 @@ land.lhs.true126:                                 ; preds = %land.lhs.true124
           to label %invoke.cont127 unwind label %lpad112
 
 invoke.cont127:                                   ; preds = %land.lhs.true126
-  %call129 = call i32 @strncmp(ptr noundef %77, ptr noundef %call128, i64 noundef 4) #14
+  %call129 = call i32 @strncmp(ptr noundef %77, ptr noundef %call128, i64 noundef 4) #8
   %cmp130 = icmp ne i32 %call129, 0
   br i1 %cmp130, label %if.then138, label %lor.lhs.false131
 
@@ -2088,7 +2088,7 @@ invoke.cont132:                                   ; preds = %lor.lhs.false131
           to label %invoke.cont134 unwind label %lpad112
 
 invoke.cont134:                                   ; preds = %invoke.cont132
-  %call136 = call i32 @strncmp(ptr noundef %call133, ptr noundef %call135, i64 noundef 12) #14
+  %call136 = call i32 @strncmp(ptr noundef %call133, ptr noundef %call135, i64 noundef 12) #8
   %cmp137 = icmp ne i32 %call136, 0
   br i1 %cmp137, label %if.then138, label %if.end139
 
@@ -3481,14 +3481,14 @@ land.lhs.true6:                                   ; preds = %land.lhs.true5
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 23
   %5 = load ptr, ptr %vfn, align 8
   %call8 = call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(618) %4)
-  %call9 = call i32 @strcmp(ptr noundef %call8, ptr noundef @.str.9) #14
+  %call9 = call i32 @strcmp(ptr noundef %call8, ptr noundef @.str.9) #8
   %cmp10 = icmp eq i32 %call9, 0
   br i1 %cmp10, label %land.lhs.true11, label %if.end18
 
 land.lhs.true11:                                  ; preds = %land.lhs.true6
   %fLocale = getelementptr inbounds %"class.icu_75::SimpleDateFormat", ptr %this1, i32 0, i32 4
   %call12 = call noundef ptr @_ZNK6icu_756Locale11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(217) %fLocale)
-  %call13 = call i32 @strcmp(ptr noundef %call12, ptr noundef @.str.10) #14
+  %call13 = call i32 @strcmp(ptr noundef %call12, ptr noundef @.str.10) #8
   %cmp14 = icmp eq i32 %call13, 0
   br i1 %cmp14, label %if.then15, label %if.end18
 
@@ -7229,7 +7229,7 @@ land.lhs.true:                                    ; preds = %if.end
   %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 23
   %9 = load ptr, ptr %vfn5, align 8
   %call6 = call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(618) %8)
-  %call7 = call i32 @strcmp(ptr noundef %call2, ptr noundef %call6) #14
+  %call7 = call i32 @strcmp(ptr noundef %call2, ptr noundef %call6) #8
   %cmp8 = icmp ne i32 %call7, 0
   br i1 %cmp8, label %if.then9, label %if.end19
 
@@ -7771,13 +7771,13 @@ sw.bb:                                            ; preds = %if.end23
   %call26 = call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(618) %29)
   store ptr %call26, ptr %calType, align 8
   %31 = load ptr, ptr %calType, align 8
-  %call27 = call i32 @strcmp(ptr noundef %31, ptr noundef @.str.14) #14
+  %call27 = call i32 @strcmp(ptr noundef %31, ptr noundef @.str.14) #8
   %cmp28 = icmp eq i32 %call27, 0
   br i1 %cmp28, label %if.then31, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb
   %32 = load ptr, ptr %calType, align 8
-  %call29 = call i32 @strcmp(ptr noundef %32, ptr noundef @.str.15) #14
+  %call29 = call i32 @strcmp(ptr noundef %32, ptr noundef @.str.15) #8
   %cmp30 = icmp eq i32 %call29, 0
   br i1 %cmp30, label %if.then31, label %if.else
 
@@ -7939,7 +7939,7 @@ sw.bb72:                                          ; preds = %if.end23, %if.end23
   %vfn74 = getelementptr inbounds ptr, ptr %vtable73, i64 23
   %79 = load ptr, ptr %vfn74, align 8
   %call75 = call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(618) %78)
-  %call76 = call i32 @strcmp(ptr noundef %call75, ptr noundef @.str.16) #14
+  %call76 = call i32 @strcmp(ptr noundef %call75, ptr noundef @.str.16) #8
   %cmp77 = icmp eq i32 %call76, 0
   br i1 %cmp77, label %if.then78, label %if.end97
 
@@ -10074,7 +10074,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   ret i32 %cond
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #8
 
 declare void @_ZN6icu_756number21SimpleNumberFormatter38forLocaleAndSymbolsAndGroupingStrategyERKNS_6LocaleERKNS_20DecimalFormatSymbolsE23UNumberGroupingStrategyR10UErrorCode(ptr sret(%"class.icu_75::number::SimpleNumberFormatter") align 8, ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(2883), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) #5
@@ -11806,7 +11806,7 @@ land.lhs.true:                                    ; preds = %if.end
   %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 23
   %10 = load ptr, ptr %vfn7, align 8
   %call8 = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(618) %9)
-  %call9 = call i32 @strcmp(ptr noundef %call4, ptr noundef %call8) #14
+  %call9 = call i32 @strcmp(ptr noundef %call4, ptr noundef %call8) #8
   %cmp10 = icmp ne i32 %call9, 0
   br i1 %cmp10, label %if.then11, label %if.end24
 
@@ -13237,7 +13237,7 @@ if.end17:                                         ; preds = %invoke.cont16, %inv
           to label %invoke.cont20 unwind label %lpad15
 
 invoke.cont20:                                    ; preds = %if.end17
-  %call22 = call i32 @strcmp(ptr noundef %call21, ptr noundef @.str.14) #14
+  %call22 = call i32 @strcmp(ptr noundef %call21, ptr noundef @.str.14) #8
   %cmp23 = icmp eq i32 %call22, 0
   br i1 %cmp23, label %lor.end, label %lor.rhs
 
@@ -13250,7 +13250,7 @@ lor.rhs:                                          ; preds = %invoke.cont20
           to label %invoke.cont26 unwind label %lpad15
 
 invoke.cont26:                                    ; preds = %lor.rhs
-  %call28 = call i32 @strcmp(ptr noundef %call27, ptr noundef @.str.15) #14
+  %call28 = call i32 @strcmp(ptr noundef %call27, ptr noundef @.str.15) #8
   %cmp29 = icmp eq i32 %call28, 0
   br label %lor.end
 
@@ -14368,7 +14368,7 @@ if.then391:                                       ; preds = %sw.bb389
           to label %invoke.cont394 unwind label %lpad15
 
 invoke.cont394:                                   ; preds = %if.then391
-  %call396 = call i32 @strcmp(ptr noundef %call395, ptr noundef @.str.16) #14
+  %call396 = call i32 @strcmp(ptr noundef %call395, ptr noundef @.str.16) #8
   %tobool397 = icmp ne i32 %call396, 0
   br i1 %tobool397, label %if.else419, label %if.then398
 
@@ -17126,7 +17126,7 @@ sw.bb1366:                                        ; preds = %if.end1365
           to label %invoke.cont1369 unwind label %lpad15
 
 invoke.cont1369:                                  ; preds = %sw.bb1366
-  %call1371 = call i32 @strcmp(ptr noundef %call1370, ptr noundef @.str.16) #14
+  %call1371 = call i32 @strcmp(ptr noundef %call1370, ptr noundef @.str.16) #8
   %tobool1372 = icmp ne i32 %call1371, 0
   br i1 %tobool1372, label %if.else1395, label %if.then1373
 
@@ -18325,7 +18325,7 @@ if.then17:                                        ; preds = %for.end15
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 23
   %22 = load ptr, ptr %vfn, align 8
   %call18 = call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(618) %21)
-  %call19 = call i32 @strcmp(ptr noundef %call18, ptr noundef @.str.16) #14
+  %call19 = call i32 @strcmp(ptr noundef %call18, ptr noundef @.str.16) #8
   %tobool = icmp ne i32 %call19, 0
   br i1 %tobool, label %if.else, label %land.lhs.true
 
@@ -18564,7 +18564,7 @@ if.then29:                                        ; preds = %if.then27
           to label %invoke.cont30 unwind label %lpad
 
 invoke.cont30:                                    ; preds = %if.then29
-  %call32 = call i32 @strcmp(ptr noundef %call31, ptr noundef @.str.16) #14
+  %call32 = call i32 @strcmp(ptr noundef %call31, ptr noundef @.str.16) #8
   %tobool33 = icmp ne i32 %call32, 0
   br i1 %tobool33, label %if.else, label %land.lhs.true
 
@@ -19703,14 +19703,14 @@ land.lhs.true:                                    ; preds = %entry
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 23
   %3 = load ptr, ptr %vfn, align 8
   %call3 = call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(618) %2)
-  %call4 = call i32 @strcmp(ptr noundef %call3, ptr noundef @.str.9) #14
+  %call4 = call i32 @strcmp(ptr noundef %call3, ptr noundef @.str.9) #8
   %cmp5 = icmp eq i32 %call4, 0
   br i1 %cmp5, label %land.lhs.true6, label %if.end58
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
   %fLocale = getelementptr inbounds %"class.icu_75::SimpleDateFormat", ptr %this1, i32 0, i32 4
   %call7 = call noundef ptr @_ZNK6icu_756Locale11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(217) %fLocale)
-  %call8 = call i32 @strcmp(ptr noundef %call7, ptr noundef @.str.10) #14
+  %call8 = call i32 @strcmp(ptr noundef %call7, ptr noundef @.str.10) #8
   %cmp9 = icmp eq i32 %call8, 0
   br i1 %cmp9, label %if.then, label %if.end58
 
@@ -21496,13 +21496,12 @@ attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind memory(read) }
+attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { allocsize(0) }
 attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

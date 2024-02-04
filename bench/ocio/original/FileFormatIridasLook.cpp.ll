@@ -3010,7 +3010,7 @@ if.end24:                                         ; preds = %invoke.cont21, %if.
 
 if.else25:                                        ; preds = %if.end11
   %30 = load ptr, ptr %name.addr, align 8
-  %call = call i32 @strcmp(ptr noundef %30, ptr noundef @.str.3) #20
+  %call = call i32 @strcmp(ptr noundef %30, ptr noundef @.str.3) #15
   %cmp26 = icmp eq i32 0, %call
   br i1 %cmp26, label %if.then27, label %if.else41
 
@@ -3122,7 +3122,7 @@ if.else53:                                        ; preds = %if.else41
 
 if.then55:                                        ; preds = %if.else53
   %52 = load ptr, ptr %name.addr, align 8
-  %call56 = call i32 @strcmp(ptr noundef %52, ptr noundef @.str.11) #20
+  %call56 = call i32 @strcmp(ptr noundef %52, ptr noundef @.str.11) #15
   %cmp57 = icmp eq i32 0, %call56
   br i1 %cmp57, label %if.then58, label %if.else60
 
@@ -3134,7 +3134,7 @@ if.then58:                                        ; preds = %if.then55
 
 if.else60:                                        ; preds = %if.then55
   %54 = load ptr, ptr %name.addr, align 8
-  %call61 = call i32 @strcmp(ptr noundef %54, ptr noundef @.str.12) #20
+  %call61 = call i32 @strcmp(ptr noundef %54, ptr noundef @.str.12) #15
   %cmp62 = icmp eq i32 0, %call61
   br i1 %cmp62, label %if.then63, label %if.else67
 
@@ -3165,7 +3165,7 @@ if.end71:                                         ; preds = %if.end70, %if.then5
 
 if.else72:                                        ; preds = %if.else53
   %60 = load ptr, ptr %name.addr, align 8
-  %call73 = call i32 @strcmp(ptr noundef %60, ptr noundef @.str.13) #20
+  %call73 = call i32 @strcmp(ptr noundef %60, ptr noundef @.str.13) #15
   %cmp74 = icmp eq i32 0, %call73
   br i1 %cmp74, label %if.then75, label %if.else76
 
@@ -3177,7 +3177,7 @@ if.then75:                                        ; preds = %if.else72
 
 if.else76:                                        ; preds = %if.else72
   %62 = load ptr, ptr %name.addr, align 8
-  %call77 = call i32 @strcmp(ptr noundef %62, ptr noundef @.str.14) #20
+  %call77 = call i32 @strcmp(ptr noundef %62, ptr noundef @.str.14) #15
   %cmp78 = icmp eq i32 0, %call77
   br i1 %cmp78, label %if.then79, label %if.end80
 
@@ -3293,7 +3293,7 @@ if.else:                                          ; preds = %if.end
 
 if.then7:                                         ; preds = %if.else
   %14 = load ptr, ptr %name.addr, align 8
-  %call = call i32 @strcmp(ptr noundef %14, ptr noundef @.str.13) #20
+  %call = call i32 @strcmp(ptr noundef %14, ptr noundef @.str.13) #15
   %cmp8 = icmp ne i32 0, %call
   br i1 %cmp8, label %if.then9, label %if.end15
 
@@ -3350,7 +3350,7 @@ if.else17:                                        ; preds = %if.else
 
 if.then19:                                        ; preds = %if.else17
   %25 = load ptr, ptr %name.addr, align 8
-  %call20 = call i32 @strcmp(ptr noundef %25, ptr noundef @.str.14) #20
+  %call20 = call i32 @strcmp(ptr noundef %25, ptr noundef @.str.14) #15
   %cmp21 = icmp ne i32 0, %call20
   br i1 %cmp21, label %if.then22, label %if.end31
 
@@ -3407,7 +3407,7 @@ if.else33:                                        ; preds = %if.else17
 
 if.then35:                                        ; preds = %if.else33
   %36 = load ptr, ptr %name.addr, align 8
-  %call36 = call i32 @strcmp(ptr noundef %36, ptr noundef @.str.11) #20
+  %call36 = call i32 @strcmp(ptr noundef %36, ptr noundef @.str.11) #15
   %cmp37 = icmp ne i32 0, %call36
   br i1 %cmp37, label %if.then38, label %if.end47
 
@@ -3464,7 +3464,7 @@ if.else49:                                        ; preds = %if.else33
 
 if.then51:                                        ; preds = %if.else49
   %47 = load ptr, ptr %name.addr, align 8
-  %call52 = call i32 @strcmp(ptr noundef %47, ptr noundef @.str.3) #20
+  %call52 = call i32 @strcmp(ptr noundef %47, ptr noundef @.str.3) #15
   %cmp53 = icmp ne i32 0, %call52
   br i1 %cmp53, label %if.then54, label %if.end63
 
@@ -3521,7 +3521,7 @@ if.else65:                                        ; preds = %if.else49
 
 if.then67:                                        ; preds = %if.else65
   %58 = load ptr, ptr %name.addr, align 8
-  %call68 = call i32 @strcmp(ptr noundef %58, ptr noundef @.str.12) #20
+  %call68 = call i32 @strcmp(ptr noundef %58, ptr noundef @.str.12) #15
   %cmp69 = icmp ne i32 0, %call68
   br i1 %cmp69, label %if.then70, label %if.end79
 
@@ -3785,7 +3785,7 @@ invoke.cont30:                                    ; preds = %invoke.cont28
   store ptr %call, ptr %first.addr.i, align 8
   store ptr %add.ptr, ptr %last.addr.i, align 8
   store ptr %size_3d, ptr %value.addr.i, align 8
-  %call.i = call ptr @__errno_location() #21
+  %call.i = call ptr @__errno_location() #20
   store i32 0, ptr %call.i, align 4
   %24 = load ptr, ptr %first.addr.i, align 8
   %tobool.i = icmp ne ptr %24, null
@@ -3815,7 +3815,7 @@ if.end.i:                                         ; preds = %lor.lhs.false2.i
   %30 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev11NumberUtilsL3locE, align 8
   %call3.i = call i64 @strtol_l(ptr noundef %29, ptr noundef %endptr.i, i32 noundef 0, ptr noundef %30) #3
   store i64 %call3.i, ptr %tempval.i, align 8
-  %call4.i = call ptr @__errno_location() #21
+  %call4.i = call ptr @__errno_location() #20
   %31 = load i32, ptr %call4.i, align 4
   %cmp5.i = icmp ne i32 %31, 0
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i
@@ -7417,7 +7417,7 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7590,13 +7590,12 @@ attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #12 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { nounwind memory(read) }
+attributes #15 = { nounwind willreturn memory(read) }
 attributes #16 = { builtin allocsize(0) }
 attributes #17 = { builtin nounwind }
 attributes #18 = { noreturn }
 attributes #19 = { noreturn nounwind }
-attributes #20 = { nounwind willreturn memory(read) }
-attributes #21 = { nounwind willreturn memory(none) }
+attributes #20 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

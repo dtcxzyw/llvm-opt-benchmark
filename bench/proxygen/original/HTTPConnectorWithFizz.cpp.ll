@@ -8915,7 +8915,7 @@ return:                                           ; preds = %while.end, %if.then
   ret ptr %9
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #13
 
 ; Function Attrs: mustprogress uwtable
@@ -22751,7 +22751,7 @@ entry:
   store ptr %out, ptr %out.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
   %1 = load ptr, ptr %name.addr, align 8
-  %call = call i64 @strlen(ptr noundef %1) #33
+  %call = call i64 @strlen(ptr noundef %1) #13
   %2 = load ptr, ptr %out.addr, align 8
   %call1 = invoke zeroext i1 @MallocExtension_Internal_GetNumericProperty(ptr noundef %0, i64 noundef %call, ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
@@ -28480,7 +28480,7 @@ entry:
   %target = alloca ptr, align 8
   %object = alloca ptr, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
-  %call = call noundef zeroext i1 @_ZN5folly20exception_ptr_accessEv() #33
+  %call = call noundef zeroext i1 @_ZN5folly20exception_ptr_accessEv() #13
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -28643,7 +28643,7 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %entry
-  %call = call noundef zeroext i1 @_ZN5folly20exception_ptr_accessEv() #33
+  %call = call noundef zeroext i1 @_ZN5folly20exception_ptr_accessEv() #13
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %do.body
@@ -28659,7 +28659,7 @@ if.then:                                          ; preds = %do.body
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %0, ptr noundef %2) #34
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %0, ptr noundef %2) #33
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -29036,7 +29036,7 @@ entry:
   %target = alloca ptr, align 8
   %object = alloca ptr, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
-  %call = call noundef zeroext i1 @_ZN5folly20exception_ptr_accessEv() #33
+  %call = call noundef zeroext i1 @_ZN5folly20exception_ptr_accessEv() #13
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -32307,7 +32307,7 @@ if.then1:                                         ; preds = %if.end
 
 if.end2:                                          ; preds = %if.end
   %2 = load i64, ptr %minSize.addr, align 8
-  %call3 = call i64 @nallocx(i64 noundef %2, i32 noundef 0) #33
+  %call3 = call i64 @nallocx(i64 noundef %2, i32 noundef 0) #13
   store i64 %call3, ptr %rv, align 8
   %3 = load i64, ptr %rv, align 8
   %tobool = icmp ne i64 %3, 0
@@ -33106,7 +33106,7 @@ entry:
   store i64 %size, ptr %size.addr, align 8
   %0 = load ptr, ptr %ptr.addr, align 8
   %1 = load i64, ptr %size.addr, align 8
-  %call = call ptr @realloc(ptr noundef %0, i64 noundef %1) #35
+  %call = call ptr @realloc(ptr noundef %0, i64 noundef %1) #34
   store ptr %call, ptr %p, align 8
   %2 = load ptr, ptr %p, align 8
   %tobool = icmp ne ptr %2, null
@@ -33530,7 +33530,7 @@ entry:
   %retval = alloca ptr, align 8
   %ptr.addr = alloca ptr, align 8
   store ptr %ptr, ptr %ptr.addr, align 8
-  %call = call noundef zeroext i1 @_ZN5folly20exception_ptr_accessEv() #33
+  %call = call noundef zeroext i1 @_ZN5folly20exception_ptr_accessEv() #13
   br i1 %call, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -44778,7 +44778,7 @@ attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind memory(read) }
+attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -44798,9 +44798,8 @@ attributes #29 = { cold noreturn }
 attributes #30 = { noreturn }
 attributes #31 = { nounwind willreturn memory(none) }
 attributes #32 = { nounwind allocsize(0) }
-attributes #33 = { nounwind willreturn memory(read) }
-attributes #34 = { cold noreturn nounwind }
-attributes #35 = { nounwind allocsize(1) }
+attributes #33 = { cold noreturn nounwind }
+attributes #34 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

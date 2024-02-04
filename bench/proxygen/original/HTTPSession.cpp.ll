@@ -16906,7 +16906,7 @@ terminate.lpad:                                   ; preds = %invoke.cont52, %inv
   unreachable
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -26060,7 +26060,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #35
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #14
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -51013,7 +51013,7 @@ sw.bb:                                            ; preds = %cleanup.done, %clea
 sw.bb19:                                          ; preds = %cleanup.done
   store ptr @.str.238, ptr %args.addr.i, align 8
   %8 = load ptr, ptr %args.addr.i, align 8
-  call void @_ZN5folly6detail15terminate_with_ISt13runtime_errorJPKcEEEvDpT0_(ptr noundef %8) #36
+  call void @_ZN5folly6detail15terminate_with_ISt13runtime_errorJPKcEEEvDpT0_(ptr noundef %8) #35
   unreachable
 
 _ZN5folly14terminate_withISt13runtime_errorJRA82_KcEEEvDpOT0_.exit: ; No predecessors!
@@ -51022,7 +51022,7 @@ _ZN5folly14terminate_withISt13runtime_errorJRA82_KcEEEvDpOT0_.exit: ; No predece
 sw.bb20:                                          ; preds = %cleanup.done
   store ptr @.str.239, ptr %args.addr.i27, align 8
   %9 = load ptr, ptr %args.addr.i27, align 8
-  call void @_ZN5folly6detail15terminate_with_ISt13runtime_errorJPKcEEEvDpT0_(ptr noundef %9) #36
+  call void @_ZN5folly6detail15terminate_with_ISt13runtime_errorJPKcEEEvDpT0_(ptr noundef %9) #35
   unreachable
 
 _ZN5folly14terminate_withISt13runtime_errorJRA81_KcEEEvDpOT0_.exit: ; No predecessors!
@@ -51169,7 +51169,7 @@ sw.bb:                                            ; preds = %cleanup.done, %clea
 sw.bb19:                                          ; preds = %cleanup.done
   store ptr @.str.241, ptr %args.addr.i, align 8
   %9 = load ptr, ptr %args.addr.i, align 8
-  call void @_ZN5folly6detail15terminate_with_ISt13runtime_errorJPKcEEEvDpT0_(ptr noundef %9) #36
+  call void @_ZN5folly6detail15terminate_with_ISt13runtime_errorJPKcEEEvDpT0_(ptr noundef %9) #35
   unreachable
 
 _ZN5folly14terminate_withISt13runtime_errorJRA85_KcEEEvDpOT0_.exit: ; No predecessors!
@@ -51705,7 +51705,7 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr @.str.234, ptr %args.addr.i, align 8
   %1 = load ptr, ptr %args.addr.i, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %1) #37
+  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %1) #36
   unreachable
 
 _ZN5folly15throw_exceptionISt12length_errorJRA34_KcEEEvDpOT0_.exit: ; No predecessors!
@@ -51732,7 +51732,7 @@ if.end3:                                          ; preds = %if.end
 if.then7:                                         ; preds = %if.end3
   store ptr @.str.235, ptr %args.addr.i38, align 8
   %5 = load ptr, ptr %args.addr.i38, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %5) #37
+  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %5) #36
   unreachable
 
 _ZN5folly15throw_exceptionISt12length_errorJRA59_KcEEEvDpOT0_.exit39: ; No predecessors!
@@ -51750,7 +51750,7 @@ if.end8:                                          ; preds = %if.end3
 if.then10:                                        ; preds = %if.end8
   store ptr @.str.235, ptr %args.addr.i37, align 8
   %8 = load ptr, ptr %args.addr.i37, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %8) #37
+  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %8) #36
   unreachable
 
 _ZN5folly15throw_exceptionISt12length_errorJRA59_KcEEEvDpOT0_.exit: ; No predecessors!
@@ -52006,7 +52006,7 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr @.str.235, ptr %args.addr.i, align 8
   %1 = load ptr, ptr %args.addr.i, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %1) #37
+  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %1) #36
   unreachable
 
 _ZN5folly15throw_exceptionISt12length_errorJRA59_KcEEEvDpOT0_.exit: ; No predecessors!
@@ -52120,7 +52120,7 @@ if.then1:                                         ; preds = %if.end
 
 if.end2:                                          ; preds = %if.end
   %2 = load i64, ptr %minSize.addr, align 8
-  %call3 = call i64 @nallocx(i64 noundef %2, i32 noundef 0) #35
+  %call3 = call i64 @nallocx(i64 noundef %2, i32 noundef 0) #14
   store i64 %call3, ptr %rv, align 8
   %3 = load i64, ptr %rv, align 8
   %tobool = icmp ne i64 %3, 0
@@ -52181,14 +52181,14 @@ entry:
   %p = alloca ptr, align 8
   store i64 %size, ptr %size.addr, align 8
   %0 = load i64, ptr %size.addr, align 8
-  %call = call noalias ptr @malloc(i64 noundef %0) #38
+  %call = call noalias ptr @malloc(i64 noundef %0) #37
   store ptr %call, ptr %p, align 8
   %1 = load ptr, ptr %p, align 8
   %tobool = icmp ne ptr %1, null
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionISt9bad_allocJEEEvDpOT0_.exit: ; No predecessors!
@@ -52615,7 +52615,7 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %0 = load ptr, ptr %args.addr, align 8
   call void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %0)
-  invoke void @_ZN5folly15throw_exceptionISt12length_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #37
+  invoke void @_ZN5folly15throw_exceptionISt12length_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #36
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -52905,7 +52905,7 @@ init.check:                                       ; preds = %if.end14
   br i1 %tobool, label %init, label %init.end
 
 init:                                             ; preds = %init.check
-  %call15 = call noalias ptr @malloc(i64 noundef 1) #38
+  %call15 = call noalias ptr @malloc(i64 noundef 1) #37
   store volatile ptr %call15, ptr @_ZZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr, align 8
   call void @__cxa_guard_release(ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr) #3
   br label %init.end
@@ -53000,7 +53000,7 @@ init.check:                                       ; preds = %if.end
   br i1 %tobool, label %init, label %init.end
 
 init:                                             ; preds = %init.check
-  %call3 = call noalias ptr @malloc(i64 noundef 1) #38
+  %call3 = call noalias ptr @malloc(i64 noundef 1) #37
   store volatile ptr %call3, ptr @_ZZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr, align 8
   call void @__cxa_guard_release(ptr @_ZGVZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr) #3
   br label %init.end
@@ -53041,7 +53041,7 @@ entry:
   store ptr %out, ptr %out.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
   %1 = load ptr, ptr %name.addr, align 8
-  %call = call i64 @strlen(ptr noundef %1) #35
+  %call = call i64 @strlen(ptr noundef %1) #14
   %2 = load ptr, ptr %out.addr, align 8
   %call1 = invoke zeroext i1 @MallocExtension_Internal_GetNumericProperty(ptr noundef %0, i64 noundef %call, ptr noundef %2)
           to label %invoke.cont unwind label %terminate.lpad
@@ -53067,7 +53067,7 @@ entry:
   %exn.slot = alloca ptr, align 8
   %ehselector.slot = alloca i32, align 4
   call void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
-  invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #37
+  invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #36
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -54785,7 +54785,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEJEEEvDpOT0_.exit: ; No predecessors!
@@ -54802,7 +54802,7 @@ entry:
   %exn.slot = alloca ptr, align 8
   %ehselector.slot = alloca i32, align 4
   call void @_ZN5folly22OptionalEmptyExceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  invoke void @_ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #37
+  invoke void @_ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #36
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -54906,7 +54906,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN5folly15throw_exceptionISt13runtime_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #37
+  invoke void @_ZN5folly15throw_exceptionISt13runtime_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #36
           to label %invoke.cont1 unwind label %terminate.lpad
 
 invoke.cont1:                                     ; preds = %invoke.cont
@@ -55407,7 +55407,7 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr @.str.234, ptr %args.addr.i, align 8
   %1 = load ptr, ptr %args.addr.i, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %1) #37
+  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %1) #36
   unreachable
 
 _ZN5folly15throw_exceptionISt12length_errorJRA34_KcEEEvDpOT0_.exit: ; No predecessors!
@@ -55434,7 +55434,7 @@ if.end3:                                          ; preds = %if.end
 if.then7:                                         ; preds = %if.end3
   store ptr @.str.235, ptr %args.addr.i35, align 8
   %5 = load ptr, ptr %args.addr.i35, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %5) #37
+  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %5) #36
   unreachable
 
 _ZN5folly15throw_exceptionISt12length_errorJRA59_KcEEEvDpOT0_.exit36: ; No predecessors!
@@ -55452,7 +55452,7 @@ if.end8:                                          ; preds = %if.end3
 if.then10:                                        ; preds = %if.end8
   store ptr @.str.235, ptr %args.addr.i34, align 8
   %8 = load ptr, ptr %args.addr.i34, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %8) #37
+  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %8) #36
   unreachable
 
 _ZN5folly15throw_exceptionISt12length_errorJRA59_KcEEEvDpOT0_.exit: ; No predecessors!
@@ -56354,7 +56354,7 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr @.str.234, ptr %args.addr.i, align 8
   %1 = load ptr, ptr %args.addr.i, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %1) #37
+  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %1) #36
   unreachable
 
 _ZN5folly15throw_exceptionISt12length_errorJRA34_KcEEEvDpOT0_.exit: ; No predecessors!
@@ -56381,7 +56381,7 @@ if.end3:                                          ; preds = %if.end
 if.then7:                                         ; preds = %if.end3
   store ptr @.str.235, ptr %args.addr.i35, align 8
   %5 = load ptr, ptr %args.addr.i35, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %5) #37
+  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %5) #36
   unreachable
 
 _ZN5folly15throw_exceptionISt12length_errorJRA59_KcEEEvDpOT0_.exit36: ; No predecessors!
@@ -56399,7 +56399,7 @@ if.end8:                                          ; preds = %if.end3
 if.then10:                                        ; preds = %if.end8
   store ptr @.str.235, ptr %args.addr.i34, align 8
   %8 = load ptr, ptr %args.addr.i34, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %8) #37
+  call void @_ZN5folly6detail16throw_exception_ISt12length_errorJPKcEEEvDpT0_(ptr noundef %8) #36
   unreachable
 
 _ZN5folly15throw_exceptionISt12length_errorJRA59_KcEEEvDpOT0_.exit: ; No predecessors!
@@ -58030,7 +58030,7 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr @.str.245, ptr %args.addr.i, align 8
   %1 = load ptr, ptr %args.addr.i, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef %1) #37
+  call void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef %1) #36
   unreachable
 
 _ZN5folly15throw_exceptionISt12out_of_rangeJRA19_KcEEEvDpOT0_.exit: ; No predecessors!
@@ -58238,7 +58238,7 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %0 = load ptr, ptr %args.addr, align 8
   call void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %0)
-  invoke void @_ZN5folly15throw_exceptionISt12out_of_rangeEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #37
+  invoke void @_ZN5folly15throw_exceptionISt12out_of_rangeEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #36
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -58935,7 +58935,7 @@ entry:
   %.addr1 = alloca ptr, align 8
   store ptr %0, ptr %.addr, align 8
   store ptr %1, ptr %.addr1, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionISt17bad_function_callJEEEvDpOT0_.exit: ; No predecessors!
@@ -58987,7 +58987,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr align 8 %ref.tmp, i8 0, i64 8, i1 false)
   call void @_ZNSt17bad_function_callC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
-  invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #37
+  invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #36
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -59058,7 +59058,7 @@ entry:
   %.addr1 = alloca ptr, align 8
   store ptr %0, ptr %.addr, align 8
   store ptr %1, ptr %.addr1, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionISt17bad_function_callJEEEvDpOT0_.exit: ; No predecessors!
@@ -59370,7 +59370,7 @@ entry:
   %.addr1 = alloca ptr, align 8
   store ptr %0, ptr %.addr, align 8
   store ptr %1, ptr %.addr1, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionISt17bad_function_callJEEEvDpOT0_.exit: ; No predecessors!
@@ -65495,7 +65495,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEJEEEvDpOT0_.exit: ; No predecessors!
@@ -65841,7 +65841,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #35
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #14
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -66318,7 +66318,7 @@ entry:
   store ptr %0, ptr %.addr, align 8
   store ptr %1, ptr %.addr1, align 8
   store ptr %2, ptr %.addr2, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionISt17bad_function_callJEEEvDpOT0_.exit: ; No predecessors!
@@ -66400,7 +66400,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEJEEEvDpOT0_.exit: ; No predecessors!
@@ -66435,7 +66435,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEJEEEvDpOT0_.exit: ; No predecessors!
@@ -67811,7 +67811,7 @@ entry:
   %.addr1 = alloca ptr, align 8
   store ptr %0, ptr %.addr, align 8
   store ptr %1, ptr %.addr1, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionISt17bad_function_callJEEEvDpOT0_.exit: ; No predecessors!
@@ -68616,7 +68616,7 @@ define linkonce_odr void @_ZN5folly6detail8function14FunctionTraitsIFvvEE10unini
 entry:
   %.addr = alloca ptr, align 8
   store ptr %0, ptr %.addr, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionISt17bad_function_callJEEEvDpOT0_.exit: ; No predecessors!
@@ -70349,7 +70349,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %this1, i64 8, i1 false)
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   %1 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #35
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #14
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %retval, i32 0, i32 0
@@ -72595,7 +72595,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEJEEEvDpOT0_.exit: ; No predecessors!
@@ -72681,7 +72681,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef @.str.11)
-  invoke void @_ZN5folly15throw_exceptionISt12length_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #37
+  invoke void @_ZN5folly15throw_exceptionISt12length_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #36
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -72943,7 +72943,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEJEEEvDpOT0_.exit: ; No predecessors!
@@ -73774,7 +73774,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEJEEEvDpOT0_.exit: ; No predecessors!
@@ -79396,7 +79396,7 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr @.str.289, ptr %args.addr.i, align 8
   %3 = load ptr, ptr %args.addr.i, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef %3) #37
+  call void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef %3) #36
   unreachable
 
 _ZN5folly15throw_exceptionISt12out_of_rangeJRA10_KcEEEvDpOT0_.exit: ; No predecessors!
@@ -80868,7 +80868,7 @@ if.then:                                          ; preds = %do.body2
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #36
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #35
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -81604,7 +81604,7 @@ if.else11:                                        ; preds = %entry
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.else11
-  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionISt9bad_allocJEEEvDpOT0_.exit36: ; No predecessors!
@@ -81669,7 +81669,7 @@ do.end30:                                         ; preds = %do.body29
   br i1 %cmp32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %do.end30
-  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionISt9bad_allocJEEEvDpOT0_.exit: ; No predecessors!
@@ -82078,7 +82078,7 @@ if.then65:                                        ; preds = %invoke.cont62
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then65
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %79, ptr noundef %81) #36
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %79, ptr noundef %81) #35
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -83850,7 +83850,7 @@ if.then:                                          ; preds = %do.body
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #36
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #35
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -85563,7 +85563,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #35
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #14
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -86626,7 +86626,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEJEEEvDpOT0_.exit: ; No predecessors!
@@ -87017,7 +87017,7 @@ entry:
   store ptr %0, ptr %.addr, align 8
   store ptr %1, ptr %.addr1, align 8
   store ptr %2, ptr %.addr2, align 8
-  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_ISt17bad_function_callJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionISt17bad_function_callJEEEvDpOT0_.exit: ; No predecessors!
@@ -87810,7 +87810,7 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %2 = load ptr, ptr %c, align 8
-  %call = call i64 @strlen(ptr noundef %2) #35
+  %call = call i64 @strlen(ptr noundef %2) #14
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -90335,7 +90335,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEJEEEvDpOT0_.exit: ; No predecessors!
@@ -91976,7 +91976,7 @@ if.then:                                          ; preds = %do.body
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #36
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #35
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -94151,7 +94151,7 @@ if.then:                                          ; preds = %do.body2
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #36
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #35
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -94468,7 +94468,7 @@ if.else11:                                        ; preds = %entry
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.else11
-  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionISt9bad_allocJEEEvDpOT0_.exit36: ; No predecessors!
@@ -94533,7 +94533,7 @@ do.end30:                                         ; preds = %do.body29
   br i1 %cmp32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %do.end30
-  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionISt9bad_allocJEEEvDpOT0_.exit: ; No predecessors!
@@ -94944,7 +94944,7 @@ if.then73:                                        ; preds = %invoke.cont70
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then73
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %83, ptr noundef %85) #36
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %83, ptr noundef %85) #35
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -97394,7 +97394,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #37
+  call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #36
   unreachable
 
 _ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEJEEEvDpOT0_.exit: ; No predecessors!
@@ -97476,7 +97476,7 @@ entry:
   %err.addr = alloca ptr, align 8
   store ptr %err, ptr %err.addr, align 8
   %0 = load ptr, ptr %err.addr, align 8
-  call void @_ZN5folly10UnexpectedINS_14ConversionCodeEEC2EOS1_(ptr noundef nonnull align 1 dereferenceable(1) %retval, ptr noundef nonnull align 1 dereferenceable(1) %0) #39
+  call void @_ZN5folly10UnexpectedINS_14ConversionCodeEEC2EOS1_(ptr noundef nonnull align 1 dereferenceable(1) %retval, ptr noundef nonnull align 1 dereferenceable(1) %0) #38
   %coerce.dive = getelementptr inbounds %"class.folly::Unexpected", ptr %retval, i32 0, i32 0
   %1 = load i8, ptr %coerce.dive, align 1
   ret i8 %1
@@ -97619,7 +97619,7 @@ if.end:                                           ; preds = %entry
   %call2 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNO5folly15expected_detail15ExpectedStorageIlNS_14ConversionCodeELNS0_11StorageTypeE0EE5errorEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %6 = load i8, ptr %call2, align 1
   call void @_ZZN5folly2toIlmEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr sret(%"class.folly::ConversionError") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %4, i8 noundef zeroext %6)
-  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #37
+  invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp) #36
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -97660,7 +97660,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr align 8 %ref.tmp, i8 0, i64 8, i1 false)
   call void @_ZN5folly17BadExpectedAccessIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
-  invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #37
+  invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #36
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -99508,7 +99508,7 @@ attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #11 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #13 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nounwind memory(read) }
+attributes #14 = { nounwind willreturn memory(read) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #17 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -99529,11 +99529,10 @@ attributes #31 = { builtin allocsize(0) }
 attributes #32 = { builtin nounwind }
 attributes #33 = { noreturn }
 attributes #34 = { nounwind willreturn memory(none) }
-attributes #35 = { nounwind willreturn memory(read) }
-attributes #36 = { cold noreturn nounwind }
-attributes #37 = { cold noreturn }
-attributes #38 = { nounwind allocsize(0) }
-attributes #39 = { cold }
+attributes #35 = { cold noreturn nounwind }
+attributes #36 = { cold noreturn }
+attributes #37 = { nounwind allocsize(0) }
+attributes #38 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

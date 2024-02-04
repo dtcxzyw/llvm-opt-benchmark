@@ -15069,7 +15069,7 @@ declare noundef i64 @_ZNKSt6locale2id5_M_idEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: noreturn
 declare void @_ZSt16__throw_bad_castv() #9
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #11
 
 declare void @__cxa_bad_cast()
@@ -47895,7 +47895,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #22
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #11
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -49394,7 +49394,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #22
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #11
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -63096,7 +63096,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %globPattern.addr, align 8
-  %call = call i64 @strlen(ptr noundef %1) #22
+  %call = call i64 @strlen(ptr noundef %1) #11
   store i64 %call, ptr %length, align 8
   store i8 0, ptr %respectCase, align 1
   store i64 0, ptr %i, align 8
@@ -63145,7 +63145,7 @@ if.end:                                           ; preds = %lor.lhs.false5
   %arrayidx10 = getelementptr inbounds i8, ptr %13, i64 %14
   %15 = load i8, ptr %arrayidx10, align 1
   %conv11 = sext i8 %15 to i32
-  %call12 = call i32 @isalpha(i32 noundef %conv11) #22
+  %call12 = call i32 @isalpha(i32 noundef %conv11) #11
   %tobool13 = icmp ne i32 %call12, 0
   br i1 %tobool13, label %if.then14, label %if.else
 
@@ -63161,7 +63161,7 @@ invoke.cont:                                      ; preds = %if.then14
   %arrayidx15 = getelementptr inbounds i8, ptr %16, i64 %17
   %18 = load i8, ptr %arrayidx15, align 1
   %conv16 = sext i8 %18 to i32
-  %call17 = call i32 @tolower(i32 noundef %conv16) #22
+  %call17 = call i32 @tolower(i32 noundef %conv16) #11
   %conv18 = trunc i32 %call17 to i8
   %call21 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %replaceBy, i8 noundef signext %conv18)
           to label %invoke.cont20 unwind label %lpad19
@@ -63172,7 +63172,7 @@ invoke.cont20:                                    ; preds = %invoke.cont
   %arrayidx22 = getelementptr inbounds i8, ptr %19, i64 %20
   %21 = load i8, ptr %arrayidx22, align 1
   %conv23 = sext i8 %21 to i32
-  %call24 = call i32 @toupper(i32 noundef %conv23) #22
+  %call24 = call i32 @toupper(i32 noundef %conv23) #11
   %conv25 = trunc i32 %call24 to i8
   %call27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %replaceBy, i8 noundef signext %conv25)
           to label %invoke.cont26 unwind label %lpad19
@@ -76967,7 +76967,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.222", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #22
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #11
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.222", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -76981,7 +76981,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.222", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %0) #22
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %0) #11
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.222", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -78190,7 +78190,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.223", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #22
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #11
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.223", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -78204,7 +78204,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.223", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #22
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #11
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.223", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -78736,7 +78736,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %this1, i64 8, i1 false)
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.222", ptr %this1, i32 0, i32 0
   %1 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #22
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #11
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.222", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.222", ptr %retval, i32 0, i32 0
@@ -79088,7 +79088,7 @@ entry:
   store i8 %ch, ptr %ch.addr, align 1
   %0 = load i8, ptr %ch.addr, align 1
   %conv = zext i8 %0 to i32
-  %call = call i32 @isspace(i32 noundef %conv) #22
+  %call = call i32 @isspace(i32 noundef %conv) #11
   %tobool = icmp ne i32 %call, 0
   %lnot = xor i1 %tobool, true
   ret i1 %lnot
@@ -79387,7 +79387,7 @@ entry:
   store i8 %ch, ptr %ch.addr, align 1
   %0 = load i8, ptr %ch.addr, align 1
   %conv = zext i8 %0 to i32
-  %call = call i32 @isspace(i32 noundef %conv) #22
+  %call = call i32 @isspace(i32 noundef %conv) #11
   %tobool = icmp ne i32 %call, 0
   %lnot = xor i1 %tobool, true
   ret i1 %lnot
@@ -83410,7 +83410,7 @@ attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind memory(read) }
+attributes #11 = { nounwind willreturn memory(read) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nounwind }
@@ -83421,7 +83421,6 @@ attributes #18 = { builtin allocsize(0) }
 attributes #19 = { builtin nounwind }
 attributes #20 = { noreturn }
 attributes #21 = { noreturn nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -11180,7 +11180,7 @@ invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr %foo, align 8
   %1 = load ptr, ptr %foo, align 8
   %2 = load ptr, ptr %foo, align 8
-  %call = call i64 @strlen(ptr noundef %2) #26
+  %call = call i64 @strlen(ptr noundef %2) #16
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %call
   invoke void @_ZN3fmt3v106detail6bufferIcE6appendIcEEvPKT_S7_(ptr noundef nonnull align 8 dereferenceable(32) %buffer, ptr noundef %0, ptr noundef %add.ptr)
           to label %invoke.cont3 unwind label %lpad2
@@ -19802,7 +19802,7 @@ lpad:                                             ; preds = %invoke.cont5, %invo
   br label %eh.resume
 
 if.end:                                           ; preds = %invoke.cont7, %entry
-  %call9 = call i64 @pthread_self() #27
+  %call9 = call i64 @pthread_self() #26
   %owner_ = getelementptr inbounds %"class.testing::internal::MutexBase", ptr %this1, i32 0, i32 2
   store i64 %call9, ptr %owner_, align 8
   %has_owner_ = getelementptr inbounds %"class.testing::internal::MutexBase", ptr %this1, i32 0, i32 1
@@ -19915,8 +19915,8 @@ entry:
 land.rhs:                                         ; preds = %entry
   %owner_ = getelementptr inbounds %"class.testing::internal::MutexBase", ptr %this1, i32 0, i32 2
   %1 = load i64, ptr %owner_, align 8
-  %call = call i64 @pthread_self() #27
-  %call2 = call i32 @pthread_equal(i64 noundef %1, i64 noundef %call) #27
+  %call = call i64 @pthread_self() #26
+  %call2 = call i32 @pthread_equal(i64 noundef %1, i64 noundef %call) #26
   %tobool3 = icmp ne i32 %call2, 0
   br label %land.end
 
@@ -24013,7 +24013,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #26
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #16
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -26229,7 +26229,7 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #16
 
 ; Function Attrs: mustprogress uwtable
@@ -56614,7 +56614,7 @@ attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #13 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nounwind memory(read) }
+attributes #16 = { nounwind willreturn memory(read) }
 attributes #17 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #19 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -56624,8 +56624,7 @@ attributes #22 = { builtin allocsize(0) }
 attributes #23 = { builtin nounwind }
 attributes #24 = { noreturn }
 attributes #25 = { noreturn nounwind }
-attributes #26 = { nounwind willreturn memory(read) }
-attributes #27 = { nounwind willreturn memory(none) }
+attributes #26 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

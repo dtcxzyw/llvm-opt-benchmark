@@ -947,7 +947,7 @@ for.body:                                         ; preds = %for.cond
 
 invoke.cont:                                      ; preds = %for.body
   %4 = load ptr, ptr %monitorName.addr, align 8
-  %call7 = call i32 @strcmp(ptr noundef %call6, ptr noundef %4) #16
+  %call7 = call i32 @strcmp(ptr noundef %call6, ptr noundef %4) #13
   %cmp8 = icmp eq i32 0, %call7
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev14SystemMonitorsEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2) #1
   br i1 %cmp8, label %if.then, label %if.end
@@ -1139,7 +1139,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev18SystemMonitorsImplD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #1
-  call void @_ZdlPv(ptr noundef %this1) #17
+  call void @_ZdlPv(ptr noundef %this1) #16
   ret void
 }
 
@@ -1732,7 +1732,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #17
+  call void @_ZdlPv(ptr noundef %0) #16
   ret void
 }
 
@@ -2181,7 +2181,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 48
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #18
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
   ret ptr %call5
 }
 
@@ -2285,7 +2285,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev18SystemMonitorsImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #1
-  call void @_ZdlPv(ptr noundef %this1) #17
+  call void @_ZdlPv(ptr noundef %this1) #16
   ret void
 }
 
@@ -2722,7 +2722,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #17
+  call void @_ZdlPv(ptr noundef %0) #16
   ret void
 }
 
@@ -2846,7 +2846,7 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3044,12 +3044,11 @@ attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nounwind memory(read) }
+attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { noreturn nounwind }
 attributes #15 = { noreturn }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { builtin nounwind }
-attributes #18 = { builtin allocsize(0) }
+attributes #16 = { builtin nounwind }
+attributes #17 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

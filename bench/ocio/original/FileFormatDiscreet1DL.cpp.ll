@@ -2300,7 +2300,7 @@ if.end:                                           ; preds = %entry
   %arraydecay1 = getelementptr inbounds [200 x i8], ptr %InString, i64 0, i64 0
   %4 = load i8, ptr %arraydecay1, align 16
   %conv = sext i8 %4 to i32
-  %call2 = call i32 @isdigit(i32 noundef %conv) #22
+  %call2 = call i32 @isdigit(i32 noundef %conv) #17
   %tobool = icmp ne i32 %call2, 0
   br i1 %tobool, label %if.then3, label %if.else
 
@@ -3303,7 +3303,7 @@ if.end4:                                          ; preds = %invoke.cont
   %14 = load ptr, ptr %lut, align 8
   %targetBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::Lut1dUtils::IMLutStruct", ptr %14, i32 0, i32 3
   store i32 %call7, ptr %targetBitDepth, align 4
-  %call8 = call noalias ptr @malloc(i64 noundef 32) #23
+  %call8 = call noalias ptr @malloc(i64 noundef 32) #22
   %15 = load ptr, ptr %lut, align 8
   %tables9 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::Lut1dUtils::IMLutStruct", ptr %15, i32 0, i32 4
   store ptr %call8, ptr %tables9, align 8
@@ -3368,7 +3368,7 @@ for.body18:                                       ; preds = %for.cond16
   %27 = load i32, ptr %length.addr, align 4
   %conv = sext i32 %27 to i64
   %mul = mul i64 %conv, 2
-  %call19 = call noalias ptr @malloc(i64 noundef %mul) #23
+  %call19 = call noalias ptr @malloc(i64 noundef %mul) #22
   %28 = load ptr, ptr %lut, align 8
   %tables20 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::(anonymous namespace)::Lut1dUtils::IMLutStruct", ptr %28, i32 0, i32 4
   %29 = load ptr, ptr %tables20, align 8
@@ -3614,7 +3614,7 @@ if.end:                                           ; preds = %while.body
   %arraydecay9 = getelementptr inbounds [200 x i8], ptr %InString, i64 0, i64 0
   %6 = load i8, ptr %arraydecay9, align 16
   %conv = sext i8 %6 to i32
-  %call10 = call i32 @isdigit(i32 noundef %conv) #22
+  %call10 = call i32 @isdigit(i32 noundef %conv) #17
   %tobool = icmp ne i32 %call10, 0
   br i1 %tobool, label %if.then11, label %if.else
 
@@ -3743,7 +3743,7 @@ if.end:                                           ; preds = %entry
 invoke.cont:                                      ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
   %call1 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %lowerFileName) #3
-  %call2 = call noundef ptr @strstr(ptr noundef %call1, ptr noundef @.str.14) #22
+  %call2 = call noundef ptr @strstr(ptr noundef %call1, ptr noundef @.str.14) #17
   store ptr %call2, ptr %tokenStr, align 8
   %tobool = icmp ne ptr %call2, null
   br i1 %tobool, label %if.then3, label %if.end51
@@ -4098,7 +4098,7 @@ entry:
   %length = alloca i64, align 8
   store ptr %stringToStrip, ptr %stringToStrip.addr, align 8
   %0 = load ptr, ptr %stringToStrip.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #22
+  %call = call i64 @strlen(ptr noundef %0) #17
   store i64 %call, ptr %length, align 8
   %1 = load i64, ptr %length, align 8
   %tobool = icmp ne i64 %1, 0
@@ -4325,7 +4325,7 @@ lpad:                                             ; preds = %if.then6, %lor.rhs,
   br label %eh.resume
 
 if.else:                                          ; preds = %invoke.cont
-  %call2 = call ptr @__errno_location() #24
+  %call2 = call ptr @__errno_location() #23
   %9 = load i32, ptr %call2, align 4
   %cmp3 = icmp eq i32 %9, 34
   br i1 %cmp3, label %lor.end, label %lor.rhs
@@ -4397,10 +4397,10 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_errno = getelementptr inbounds %struct._Save_errno, ptr %this1, i32 0, i32 0
-  %call = call ptr @__errno_location() #24
+  %call = call ptr @__errno_location() #23
   %0 = load i32, ptr %call, align 4
   store i32 %0, ptr %_M_errno, align 4
-  %call2 = call ptr @__errno_location() #24
+  %call2 = call ptr @__errno_location() #23
   store i32 0, ptr %call2, align 4
   ret void
 }
@@ -4439,7 +4439,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call ptr @__errno_location() #24
+  %call = call ptr @__errno_location() #23
   %0 = load i32, ptr %call, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -4447,7 +4447,7 @@ entry:
 if.then:                                          ; preds = %entry
   %_M_errno = getelementptr inbounds %struct._Save_errno, ptr %this1, i32 0, i32 0
   %1 = load i32, ptr %_M_errno, align 4
-  %call2 = call ptr @__errno_location() #24
+  %call2 = call ptr @__errno_location() #23
   store i32 %1, ptr %call2, align 4
   br label %if.end
 
@@ -6479,7 +6479,7 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6653,14 +6653,13 @@ attributes #13 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #14 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind memory(read) }
+attributes #17 = { nounwind willreturn memory(read) }
 attributes #18 = { builtin allocsize(0) }
 attributes #19 = { builtin nounwind }
 attributes #20 = { noreturn }
 attributes #21 = { noreturn nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
-attributes #23 = { nounwind allocsize(0) }
-attributes #24 = { nounwind willreturn memory(none) }
+attributes #22 = { nounwind allocsize(0) }
+attributes #23 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

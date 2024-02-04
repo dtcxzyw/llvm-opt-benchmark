@@ -3011,7 +3011,7 @@ entry:
   ret ptr %call
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #7
 
 declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet3addEii(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef, i32 noundef) unnamed_addr #5
@@ -4827,13 +4827,13 @@ entry:
   call void @u_charAge_75(i32 noundef %0, ptr noundef %arraydecay)
   %1 = load ptr, ptr %context.addr, align 8
   store ptr %1, ptr %version, align 8
-  %call = call i32 @memcmp(ptr noundef %v, ptr noundef @_ZZN6icu_7512_GLOBAL__N_113versionFilterEiPvE4none, i64 noundef 4) #13
+  %call = call i32 @memcmp(ptr noundef %v, ptr noundef @_ZZN6icu_7512_GLOBAL__N_113versionFilterEiPvE4none, i64 noundef 4) #7
   %cmp = icmp sgt i32 %call, 0
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
   %2 = load ptr, ptr %version, align 8
-  %call1 = call i32 @memcmp(ptr noundef %v, ptr noundef %2, i64 noundef 4) #13
+  %call1 = call i32 @memcmp(ptr noundef %v, ptr noundef %2, i64 noundef 4) #7
   %cmp2 = icmp sle i32 %call1, 0
   br label %land.end
 
@@ -5893,13 +5893,12 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind memory(read) }
+attributes #7 = { nounwind willreturn memory(read) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind }
 attributes #11 = { allocsize(0) }
 attributes #12 = { noreturn nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

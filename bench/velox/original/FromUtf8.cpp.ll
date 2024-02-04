@@ -18805,7 +18805,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 ; Function Attrs: nounwind
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) #2
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #14
 
 ; Function Attrs: mustprogress uwtable
@@ -29379,7 +29379,7 @@ if.end9:                                          ; preds = %if.end
   %7 = load i32, ptr %size_12, align 8
   %conv13 = zext i32 %7 to i64
   %sub = sub i64 %conv13, 4
-  %call14 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %add.ptr11, i64 noundef %sub) #37
+  %call14 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %add.ptr11, i64 noundef %sub) #14
   %cmp15 = icmp eq i32 %call14, 0
   store i1 %cmp15, ptr %retval, align 1
   br label %return
@@ -29413,7 +29413,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %other.addr, align 8
   %prefix_3 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %1, i32 0, i32 1
   %arraydecay4 = getelementptr inbounds [4 x i8], ptr %prefix_3, i64 0, i64 0
-  %call5 = call i32 @memcmp(ptr noundef %arraydecay, ptr noundef %arraydecay4, i64 noundef 4) #37
+  %call5 = call i32 @memcmp(ptr noundef %arraydecay, ptr noundef %arraydecay4, i64 noundef 4) #14
   store i32 %call5, ptr %retval, align 4
   br label %return
 
@@ -29464,7 +29464,7 @@ if.then20:                                        ; preds = %land.lhs.true18
   %arraydecay23 = getelementptr inbounds [8 x i8], ptr %value_22, i64 0, i64 0
   %11 = load i32, ptr %size, align 4
   %conv24 = sext i32 %11 to i64
-  %call25 = call i32 @memcmp(ptr noundef %arraydecay21, ptr noundef %arraydecay23, i64 noundef %conv24) #37
+  %call25 = call i32 @memcmp(ptr noundef %arraydecay21, ptr noundef %arraydecay23, i64 noundef %conv24) #14
   store i32 %call25, ptr %result, align 4
   %12 = load i32, ptr %result, align 4
   %cmp26 = icmp ne i32 %12, 0
@@ -29496,7 +29496,7 @@ if.end30:                                         ; preds = %land.lhs.true18, %l
   %add.ptr34 = getelementptr inbounds i8, ptr %call33, i64 4
   %18 = load i32, ptr %size, align 4
   %conv35 = sext i32 %18 to i64
-  %call36 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %add.ptr34, i64 noundef %conv35) #37
+  %call36 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %add.ptr34, i64 noundef %conv35) #14
   store i32 %call36, ptr %result31, align 4
   %19 = load i32, ptr %result31, align 4
   %cmp37 = icmp ne i32 %19, 0
@@ -48013,7 +48013,7 @@ if.then70:                                        ; preds = %invoke.cont67
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then70
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %79, ptr noundef %81) #38
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %79, ptr noundef %81) #37
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -48391,7 +48391,7 @@ if.then:                                          ; preds = %do.body2
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #38
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #37
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -50930,7 +50930,7 @@ if.then:                                          ; preds = %do.body
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #38
+  call void (ptr, ...) @_ZN5folly6detail21safe_assert_terminateILb0EEEvPKNS0_15safe_assert_argEz(ptr noundef %2, ptr noundef %4) #37
   unreachable
 
 terminate.lpad.i:                                 ; No predecessors!
@@ -79726,7 +79726,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %data.addr, align 8
   %1 = load ptr, ptr %data.addr, align 8
-  %call = call i64 @strlen(ptr noundef %1) #37
+  %call = call i64 @strlen(ptr noundef %1) #14
   %conv = trunc i64 %call to i32
   call void @_ZN8facebook5velox10StringViewC2EPKci(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0, i32 noundef %conv)
   ret void
@@ -82264,7 +82264,7 @@ attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-mat
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #13 = { nounwind memory(none) }
-attributes #14 = { nounwind memory(read) }
+attributes #14 = { nounwind willreturn memory(read) }
 attributes #15 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #16 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #17 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -82287,8 +82287,7 @@ attributes #33 = { noreturn }
 attributes #34 = { builtin nounwind }
 attributes #35 = { cold noreturn }
 attributes #36 = { nounwind willreturn memory(none) }
-attributes #37 = { nounwind willreturn memory(read) }
-attributes #38 = { cold noreturn nounwind }
+attributes #37 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

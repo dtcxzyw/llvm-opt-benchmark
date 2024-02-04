@@ -3200,7 +3200,7 @@ return:                                           ; preds = %land.end, %if.then5
   ret i8 %60
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #6
 
 ; Function Attrs: mustprogress uwtable
@@ -3282,7 +3282,7 @@ if.end12:                                         ; preds = %if.end9
   %9 = load ptr, ptr %a2.addr, align 8
   %10 = load i32, ptr %size.addr, align 4
   %conv = sext i32 %10 to i64
-  %call = call i32 @memcmp(ptr noundef %8, ptr noundef %9, i64 noundef %conv) #12
+  %call = call i32 @memcmp(ptr noundef %8, ptr noundef %9, i64 noundef %conv) #6
   %cmp13 = icmp eq i32 %call, 0
   %conv14 = zext i1 %cmp13 to i8
   store i8 %conv14, ptr %retval, align 1
@@ -3707,7 +3707,7 @@ if.else:                                          ; preds = %for.end
   %43 = load i32, ptr %transCount, align 4
   %conv48 = sext i32 %43 to i64
   %mul49 = mul i64 8, %conv48
-  %call51 = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul49) #13
+  %call51 = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul49) #12
           to label %invoke.cont50 unwind label %lpad18
 
 invoke.cont50:                                    ; preds = %if.else
@@ -3850,7 +3850,7 @@ if.then100:                                       ; preds = %if.then88
   %72 = load i16, ptr %historicRuleCount102, align 8
   %conv103 = sext i16 %72 to i64
   %mul104 = mul i64 8, %conv103
-  %call106 = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul104) #13
+  %call106 = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul104) #12
           to label %invoke.cont105 unwind label %lpad18
 
 invoke.cont105:                                   ; preds = %if.then100
@@ -5929,14 +5929,13 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind memory(read) }
+attributes #6 = { nounwind willreturn memory(read) }
 attributes #7 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind }
 attributes #10 = { noreturn nounwind }
 attributes #11 = { noreturn }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { allocsize(0) }
+attributes #12 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

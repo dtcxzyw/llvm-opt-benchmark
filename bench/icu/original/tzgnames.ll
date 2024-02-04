@@ -2130,7 +2130,7 @@ invoke.cont78:                                    ; preds = %if.end76
 invoke.cont80:                                    ; preds = %invoke.cont78
   store ptr %call81, ptr %region, align 8
   %43 = load ptr, ptr %region, align 8
-  %call82 = call i64 @strlen(ptr noundef %43) #12
+  %call82 = call i64 @strlen(ptr noundef %43) #8
   %conv = trunc i64 %call82 to i32
   store i32 %conv, ptr %regionLen, align 4
   %44 = load i32, ptr %regionLen, align 4
@@ -4466,7 +4466,7 @@ declare void @_ZN6icu_7511TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnul
 
 declare void @_ZN6icu_7513UnicodeStringC1EPDsii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #5
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #8
 
 declare void @_ZN6icu_7518TimeZoneTransitionC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
@@ -6275,7 +6275,7 @@ invoke.cont45:                                    ; preds = %if.end44
 
 if.then48:                                        ; preds = %invoke.cont45
   %35 = load ptr, ptr %key, align 8
-  %call49 = call i64 @strlen(ptr noundef %35) #12
+  %call49 = call i64 @strlen(ptr noundef %35) #8
   %add = add i64 %call49, 1
   %call51 = invoke noalias ptr @uprv_malloc_75(i64 noundef %add) #10
           to label %invoke.cont50 unwind label %lpad6
@@ -7177,11 +7177,10 @@ attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind memory(read) }
+attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { nounwind }
 attributes #10 = { allocsize(0) }
 attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

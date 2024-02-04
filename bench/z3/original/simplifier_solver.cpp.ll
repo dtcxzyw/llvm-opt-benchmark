@@ -15755,7 +15755,7 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #15
 
 ; Function Attrs: mustprogress uwtable
@@ -19732,7 +19732,7 @@ attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrit
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #14 = { nounwind memory(none) }
-attributes #15 = { nounwind memory(read) }
+attributes #15 = { nounwind willreturn memory(read) }
 attributes #16 = { noreturn }
 attributes #17 = { noreturn nounwind }
 attributes #18 = { builtin nounwind }

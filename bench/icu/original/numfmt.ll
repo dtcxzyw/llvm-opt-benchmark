@@ -2013,7 +2013,7 @@ if.end:                                           ; preds = %if.else, %if.then
 
 declare noundef ptr @_ZNK6icu_7511Formattable9getObjectEv(ptr noundef nonnull align 8 dereferenceable(112)) #5
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #8
 
 declare ptr @u_strcpy_75(ptr noundef, ptr noundef) #5
@@ -4080,7 +4080,7 @@ land.lhs.true:                                    ; preds = %if.then
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
   %arraydecay4 = getelementptr inbounds [32 x i8], ptr %cfKeyValue, i64 0, i64 0
-  %call5 = call i32 @strcmp(ptr noundef %arraydecay4, ptr noundef @.str.1) #14
+  %call5 = call i32 @strcmp(ptr noundef %arraydecay4, ptr noundef @.str.1) #8
   %cmp6 = icmp eq i32 %call5, 0
   br i1 %cmp6, label %if.then7, label %if.end
 
@@ -8484,7 +8484,7 @@ entry:
   store ptr %call, ptr %s, align 8
   %0 = load ptr, ptr %s, align 8
   %1 = load ptr, ptr %s, align 8
-  %call2 = call i64 @strlen(ptr noundef %1) #14
+  %call2 = call i64 @strlen(ptr noundef %1) #8
   %conv = trunc i64 %call2 to i32
   %call3 = call i32 @ustr_hashCharsN_75(ptr noundef %0, i32 noundef %conv)
   ret i32 %call3
@@ -8534,7 +8534,7 @@ lor.rhs:                                          ; preds = %entry
   br i1 %1, label %typeid.bad_typeid, label %typeid.end
 
 typeid.bad_typeid:                                ; preds = %lor.rhs
-  call void @__cxa_bad_typeid() #15
+  call void @__cxa_bad_typeid() #14
   unreachable
 
 typeid.end:                                       ; preds = %lor.rhs
@@ -8823,14 +8823,13 @@ attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #8 = { nounwind memory(read) }
+attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nounwind }
 attributes #12 = { allocsize(0) }
 attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { noreturn }
+attributes #14 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

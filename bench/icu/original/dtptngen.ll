@@ -5540,7 +5540,7 @@ if.then24:                                        ; preds = %lor.lhs.false, %inv
 
 if.end27:                                         ; preds = %if.then24, %lor.lhs.false
   %arraydecay28 = getelementptr inbounds [33 x i8], ptr %cType, i64 0, i64 0
-  %call29 = call i32 @strcmp(ptr noundef %arraydecay28, ptr noundef @_ZN6icu_75L23DT_DateTimeGregorianTagE) #15
+  %call29 = call i32 @strcmp(ptr noundef %arraydecay28, ptr noundef @_ZN6icu_75L23DT_DateTimeGregorianTagE) #10
   %cmp30 = icmp eq i32 %call29, 0
   %conv31 = zext i1 %cmp30 to i8
   store i8 %conv31, ptr %cTypeIsGregorian, align 1
@@ -6333,7 +6333,7 @@ land.lhs.true:                                    ; preds = %invoke.cont34
 
 if.then38:                                        ; preds = %land.lhs.true
   %arraydecay39 = getelementptr inbounds [8 x i8], ptr %buffer, i64 0, i64 0
-  %call40 = call i32 @strcmp(ptr noundef %arraydecay39, ptr noundef @.str.5) #15
+  %call40 = call i32 @strcmp(ptr noundef %arraydecay39, ptr noundef @.str.5) #10
   %cmp41 = icmp eq i32 %call40, 0
   br i1 %cmp41, label %if.then42, label %if.else
 
@@ -6344,7 +6344,7 @@ if.then42:                                        ; preds = %if.then38
 
 if.else:                                          ; preds = %if.then38
   %arraydecay44 = getelementptr inbounds [8 x i8], ptr %buffer, i64 0, i64 0
-  %call45 = call i32 @strcmp(ptr noundef %arraydecay44, ptr noundef @.str.6) #15
+  %call45 = call i32 @strcmp(ptr noundef %arraydecay44, ptr noundef @.str.6) #10
   %cmp46 = icmp eq i32 %call45, 0
   br i1 %cmp46, label %if.then47, label %if.else49
 
@@ -6355,7 +6355,7 @@ if.then47:                                        ; preds = %if.else
 
 if.else49:                                        ; preds = %if.else
   %arraydecay50 = getelementptr inbounds [8 x i8], ptr %buffer, i64 0, i64 0
-  %call51 = call i32 @strcmp(ptr noundef %arraydecay50, ptr noundef @.str.7) #15
+  %call51 = call i32 @strcmp(ptr noundef %arraydecay50, ptr noundef @.str.7) #10
   %cmp52 = icmp eq i32 %call51, 0
   br i1 %cmp52, label %if.then53, label %if.else55
 
@@ -6366,7 +6366,7 @@ if.then53:                                        ; preds = %if.else49
 
 if.else55:                                        ; preds = %if.else49
   %arraydecay56 = getelementptr inbounds [8 x i8], ptr %buffer, i64 0, i64 0
-  %call57 = call i32 @strcmp(ptr noundef %arraydecay56, ptr noundef @.str.8) #15
+  %call57 = call i32 @strcmp(ptr noundef %arraydecay56, ptr noundef @.str.8) #10
   %cmp58 = icmp eq i32 %call57, 0
   br i1 %cmp58, label %if.then59, label %if.end61
 
@@ -7780,7 +7780,7 @@ eh.resume:                                        ; preds = %ehcleanup6
 
 declare noundef ptr @_ZN6icu_7510DateFormat18createDateInstanceENS0_6EStyleERKNS_6LocaleE(i32 noundef, ptr noundef nonnull align 8 dereferenceable(217)) #5
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #10
 
 ; Function Attrs: mustprogress uwtable
@@ -13262,7 +13262,7 @@ for.body:                                         ; preds = %for.cond
   %arrayidx = getelementptr inbounds [16 x ptr], ptr @_ZN6icu_75L17CLDR_FIELD_APPENDE, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = load ptr, ptr %field.addr, align 8
-  %call = call i32 @strcmp(ptr noundef %2, ptr noundef %3) #15
+  %call = call i32 @strcmp(ptr noundef %2, ptr noundef %3) #10
   %cmp2 = icmp eq i32 %call, 0
   br i1 %cmp2, label %if.then, label %if.end
 
@@ -13311,7 +13311,7 @@ entry:
   %1 = load ptr, ptr %widthP.addr, align 8
   store i32 0, ptr %1, align 4
   %arraydecay2 = getelementptr inbounds [25 x i8], ptr %cldrFieldKey, i64 0, i64 0
-  %call3 = call noundef ptr @strchr(ptr noundef %arraydecay2, i32 noundef 45) #15
+  %call3 = call noundef ptr @strchr(ptr noundef %arraydecay2, i32 noundef 45) #10
   store ptr %call3, ptr %hyphenPtr, align 8
   %2 = load ptr, ptr %hyphenPtr, align 8
   %tobool = icmp ne ptr %2, null
@@ -13332,7 +13332,7 @@ for.body:                                         ; preds = %for.cond
   %arrayidx4 = getelementptr inbounds [3 x ptr], ptr @_ZN6icu_75L16CLDR_FIELD_WIDTHE, i64 0, i64 %idxprom
   %5 = load ptr, ptr %arrayidx4, align 8
   %6 = load ptr, ptr %hyphenPtr, align 8
-  %call5 = call i32 @strcmp(ptr noundef %5, ptr noundef %6) #15
+  %call5 = call i32 @strcmp(ptr noundef %5, ptr noundef %6) #10
   %cmp6 = icmp eq i32 %call5, 0
   br i1 %cmp6, label %if.then7, label %if.end
 
@@ -13371,7 +13371,7 @@ for.body12:                                       ; preds = %for.cond10
   %arrayidx14 = getelementptr inbounds [16 x ptr], ptr @_ZN6icu_75L15CLDR_FIELD_NAMEE, i64 0, i64 %idxprom13
   %13 = load ptr, ptr %arrayidx14, align 8
   %arraydecay15 = getelementptr inbounds [25 x i8], ptr %cldrFieldKey, i64 0, i64 0
-  %call16 = call i32 @strcmp(ptr noundef %13, ptr noundef %arraydecay15) #15
+  %call16 = call i32 @strcmp(ptr noundef %13, ptr noundef %arraydecay15) #10
   %cmp17 = icmp eq i32 %call16, 0
   br i1 %cmp17, label %if.then18, label %if.end19
 
@@ -15852,7 +15852,7 @@ entry:
   %0 = load ptr, ptr %other.addr, align 8
   %chars2 = getelementptr inbounds %"class.icu_75::SkeletonFields", ptr %0, i32 0, i32 0
   %arraydecay3 = getelementptr inbounds [16 x i8], ptr %chars2, i64 0, i64 0
-  %call = call i32 @memcmp(ptr noundef %arraydecay, ptr noundef %arraydecay3, i64 noundef 16) #15
+  %call = call i32 @memcmp(ptr noundef %arraydecay, ptr noundef %arraydecay3, i64 noundef 16) #10
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %land.rhs, label %land.end
 
@@ -15862,7 +15862,7 @@ land.rhs:                                         ; preds = %entry
   %1 = load ptr, ptr %other.addr, align 8
   %lengths5 = getelementptr inbounds %"class.icu_75::SkeletonFields", ptr %1, i32 0, i32 1
   %arraydecay6 = getelementptr inbounds [16 x i8], ptr %lengths5, i64 0, i64 0
-  %call7 = call i32 @memcmp(ptr noundef %arraydecay4, ptr noundef %arraydecay6, i64 noundef 16) #15
+  %call7 = call i32 @memcmp(ptr noundef %arraydecay4, ptr noundef %arraydecay6, i64 noundef 16) #10
   %cmp8 = icmp eq i32 %call7, 0
   br label %land.end
 
@@ -15909,7 +15909,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   %2 = load ptr, ptr %other.addr, align 8
   %type5 = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %2, i32 0, i32 1
   %arraydecay6 = getelementptr inbounds [16 x i32], ptr %type5, i64 0, i64 0
-  %call7 = call i32 @memcmp(ptr noundef %arraydecay, ptr noundef %arraydecay6, i64 noundef 64) #15
+  %call7 = call i32 @memcmp(ptr noundef %arraydecay, ptr noundef %arraydecay6, i64 noundef 64) #10
   %cmp = icmp eq i32 %call7, 0
   br label %land.end
 
@@ -18957,7 +18957,7 @@ invoke.cont:                                      ; preds = %for.cond10
 
 for.body13:                                       ; preds = %invoke.cont
   %16 = load ptr, ptr %key.addr, align 8
-  %call14 = call i32 @strcmp(ptr noundef %16, ptr noundef @.str.12) #15
+  %call14 = call i32 @strcmp(ptr noundef %16, ptr noundef @.str.12) #10
   %cmp = icmp eq i32 %call14, 0
   br i1 %cmp, label %if.then15, label %if.else58
 
@@ -19121,7 +19121,7 @@ if.end57:                                         ; preds = %for.end, %invoke.co
 
 if.else58:                                        ; preds = %for.body13
   %45 = load ptr, ptr %key.addr, align 8
-  %call59 = call i32 @strcmp(ptr noundef %45, ptr noundef @.str.13) #15
+  %call59 = call i32 @strcmp(ptr noundef %45, ptr noundef @.str.13) #10
   %cmp60 = icmp eq i32 %call59, 0
   br i1 %cmp60, label %if.then61, label %if.end67
 
@@ -20290,12 +20290,11 @@ attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind memory(read) }
+attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { nounwind }
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { allocsize(0) }
 attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -14930,7 +14930,7 @@ declare i32 @pthread_setspecific(i32 noundef, ptr noundef) #2
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) #1
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -19073,7 +19073,7 @@ land.rhs:                                         ; preds = %lor.rhs
   %add.ptr = getelementptr inbounds i8, ptr %call3, i64 %sub
   %call6 = call noundef ptr @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %suffix) #3
   %call7 = call noundef i64 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %suffix) #3
-  %call8 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %call6, i64 noundef %call7) #23
+  %call8 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %call6, i64 noundef %call7) #16
   %cmp9 = icmp eq i32 %call8, 0
   br label %land.end
 
@@ -32319,14 +32319,13 @@ attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrit
 attributes #13 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { cold nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nounwind memory(read) }
+attributes #16 = { nounwind willreturn memory(read) }
 attributes #17 = { builtin allocsize(0) }
 attributes #18 = { builtin nounwind }
 attributes #19 = { noreturn }
 attributes #20 = { noreturn nounwind }
 attributes #21 = { cold }
 attributes #22 = { cold nounwind }
-attributes #23 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

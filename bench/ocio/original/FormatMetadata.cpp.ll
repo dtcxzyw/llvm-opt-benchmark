@@ -1366,7 +1366,7 @@ dynamic_cast.end:                                 ; preds = %entry
   ret void
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #5
 
 declare void @__cxa_bad_cast()
@@ -2805,7 +2805,7 @@ lpad:                                             ; preds = %if.then
 if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %name.addr, align 8
   %call1 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
-  %call2 = call i32 @strcmp(ptr noundef %call1, ptr noundef @_ZN19OpenColorIO_v2_4devL13METADATA_ROOTE) #17
+  %call2 = call i32 @strcmp(ptr noundef %call1, ptr noundef @_ZN19OpenColorIO_v2_4devL13METADATA_ROOTE) #5
   %cmp = icmp eq i32 %call2, 0
   br i1 %cmp, label %if.then3, label %if.end7
 
@@ -2856,7 +2856,7 @@ entry:
   call void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImpl19ValidateElementNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %m_name = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name) #9
-  %call2 = call i32 @strcmp(ptr noundef %call, ptr noundef @_ZN19OpenColorIO_v2_4devL13METADATA_ROOTE) #17
+  %call2 = call i32 @strcmp(ptr noundef %call, ptr noundef @_ZN19OpenColorIO_v2_4devL13METADATA_ROOTE) #5
   %cmp = icmp eq i32 %call2, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -4821,7 +4821,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 64
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #18
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
   ret ptr %call5
 }
 
@@ -5300,7 +5300,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 120
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #18
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #17
   ret ptr %call5
 }
 
@@ -9002,7 +9002,7 @@ attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind memory(read) }
+attributes #5 = { nounwind willreturn memory(read) }
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9014,8 +9014,7 @@ attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrit
 attributes #14 = { noreturn }
 attributes #15 = { noreturn nounwind }
 attributes #16 = { builtin nounwind }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { builtin allocsize(0) }
+attributes #17 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

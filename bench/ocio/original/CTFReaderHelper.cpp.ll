@@ -8826,7 +8826,7 @@ if.then:                                          ; preds = %while.body
   %14 = load ptr, ptr %arrayidx8, align 8
   store ptr %14, ptr %dimStr, align 8
   %15 = load ptr, ptr %dimStr, align 8
-  %call9 = call i64 @strlen(ptr noundef %15) #22
+  %call9 = call i64 @strlen(ptr noundef %15) #10
   store i64 %call9, ptr %len, align 8
   call void @_ZNSt6vectorIjSaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %dims) #3
   %16 = load ptr, ptr %dimStr, align 8
@@ -9412,7 +9412,7 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #10
 
 ; Function Attrs: mustprogress uwtable
@@ -10629,7 +10629,7 @@ if.then:                                          ; preds = %while.body
   %14 = load ptr, ptr %arrayidx5, align 8
   store ptr %14, ptr %dimStr, align 8
   %15 = load ptr, ptr %dimStr, align 8
-  %call6 = call i64 @strlen(ptr noundef %15) #22
+  %call6 = call i64 @strlen(ptr noundef %15) #10
   store i64 %call6, ptr %len, align 8
   call void @_ZNSt6vectorIjSaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %dims) #3
   %16 = load ptr, ptr %dimStr, align 8
@@ -11448,7 +11448,7 @@ invoke.cont13:                                    ; preds = %invoke.cont9
 
 invoke.cont16:                                    ; preds = %invoke.cont13
   store i1 false, ptr %cleanup.isactive, align 1
-  invoke void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  invoke void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
           to label %unreachable unwind label %lpad15
 
 lpad:                                             ; preds = %invoke.cont, %if.then3
@@ -12249,7 +12249,7 @@ if.then5:                                         ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then5
-  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
   unreachable
 
 lpad:                                             ; preds = %if.then5
@@ -12296,7 +12296,7 @@ invoke.cont18:                                    ; preds = %invoke.cont14
 
 invoke.cont21:                                    ; preds = %invoke.cont18
   store i1 false, ptr %cleanup.isactive, align 1
-  invoke void @__cxa_throw(ptr %exception16, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  invoke void @__cxa_throw(ptr %exception16, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
           to label %unreachable unwind label %lpad20
 
 lpad9:                                            ; preds = %invoke.cont12, %invoke.cont10, %if.then8
@@ -12374,7 +12374,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
 
 invoke.cont40:                                    ; preds = %invoke.cont37
   store i1 false, ptr %cleanup.isactive41, align 1
-  invoke void @__cxa_throw(ptr %exception34, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  invoke void @__cxa_throw(ptr %exception34, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
           to label %unreachable unwind label %lpad39
 
 lpad27:                                           ; preds = %invoke.cont30, %invoke.cont28, %if.then25
@@ -16619,7 +16619,7 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %attrib.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #22
+  %call = call i64 @strlen(ptr noundef %0) #10
   store i64 %call, ptr %len, align 8
   call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %data) #3
   %1 = load ptr, ptr %attrib.addr, align 8
@@ -17836,7 +17836,7 @@ if.then20:                                        ; preds = %if.else
 
 cond.true:                                        ; preds = %if.then20
   %31 = load ptr, ptr %paramsStr, align 8
-  %call25 = call i64 @strlen(ptr noundef %31) #22
+  %call25 = call i64 @strlen(ptr noundef %31) #10
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then20
@@ -23115,7 +23115,7 @@ while.body:                                       ; preds = %land.end
   %idxprom5 = zext i32 %add to i64
   %arrayidx6 = getelementptr inbounds ptr, ptr %8, i64 %idxprom5
   %10 = load ptr, ptr %arrayidx6, align 8
-  %call = call i64 @strlen(ptr noundef %10) #22
+  %call = call i64 @strlen(ptr noundef %10) #10
   store i64 %call, ptr %len, align 8
   call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %data) #3
   %11 = load ptr, ptr %atts.addr, align 8
@@ -23981,7 +23981,7 @@ while.body:                                       ; preds = %land.end
   %idxprom5 = zext i32 %add to i64
   %arrayidx6 = getelementptr inbounds ptr, ptr %8, i64 %idxprom5
   %10 = load ptr, ptr %arrayidx6, align 8
-  %call = call i64 @strlen(ptr noundef %10) #22
+  %call = call i64 @strlen(ptr noundef %10) #10
   store i64 %call, ptr %len, align 8
   call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %data) #3
   %11 = load ptr, ptr %atts.addr, align 8
@@ -24496,7 +24496,7 @@ while.body:                                       ; preds = %land.end
   %idxprom5 = zext i32 %add to i64
   %arrayidx6 = getelementptr inbounds ptr, ptr %8, i64 %idxprom5
   %10 = load ptr, ptr %arrayidx6, align 8
-  %call = call i64 @strlen(ptr noundef %10) #22
+  %call = call i64 @strlen(ptr noundef %10) #10
   store i64 %call, ptr %len, align 8
   call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %data) #3
   %11 = load ptr, ptr %atts.addr, align 8
@@ -25073,7 +25073,7 @@ while.body:                                       ; preds = %land.end
   %idxprom5 = zext i32 %add to i64
   %arrayidx6 = getelementptr inbounds ptr, ptr %8, i64 %idxprom5
   %10 = load ptr, ptr %arrayidx6, align 8
-  %call = call i64 @strlen(ptr noundef %10) #22
+  %call = call i64 @strlen(ptr noundef %10) #10
   store i64 %call, ptr %len, align 8
   call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %data) #3
   %11 = load ptr, ptr %atts.addr, align 8
@@ -26535,7 +26535,7 @@ invoke.cont25:                                    ; preds = %invoke.cont22
 
 invoke.cont28:                                    ; preds = %invoke.cont25
   store i1 false, ptr %cleanup.isactive, align 1
-  invoke void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  invoke void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
           to label %unreachable unwind label %lpad27
 
 lpad:                                             ; preds = %invoke.cont20, %invoke.cont, %if.end18
@@ -28306,7 +28306,7 @@ while.body:                                       ; preds = %land.end
   %idxprom6 = zext i32 %add to i64
   %arrayidx7 = getelementptr inbounds ptr, ptr %8, i64 %idxprom6
   %10 = load ptr, ptr %arrayidx7, align 8
-  %call = call i64 @strlen(ptr noundef %10) #22
+  %call = call i64 @strlen(ptr noundef %10) #10
   store i64 %call, ptr %len, align 8
   call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %data) #3
   %11 = load ptr, ptr %atts.addr, align 8
@@ -28951,7 +28951,7 @@ while.body:                                       ; preds = %land.end
   %idxprom5 = zext i32 %add to i64
   %arrayidx6 = getelementptr inbounds ptr, ptr %8, i64 %idxprom5
   %10 = load ptr, ptr %arrayidx6, align 8
-  %call = call i64 @strlen(ptr noundef %10) #22
+  %call = call i64 @strlen(ptr noundef %10) #10
   store i64 %call, ptr %len, align 8
   call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %data) #3
   %11 = load ptr, ptr %atts.addr, align 8
@@ -37733,7 +37733,7 @@ invoke.cont24:                                    ; preds = %invoke.cont21
 
 invoke.cont27:                                    ; preds = %invoke.cont24
   store i1 false, ptr %cleanup.isactive, align 1
-  invoke void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  invoke void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
           to label %unreachable unwind label %lpad26
 
 lpad:                                             ; preds = %invoke.cont19, %invoke.cont17, %invoke.cont15, %invoke.cont11, %invoke.cont9, %invoke.cont7, %invoke.cont, %if.then
@@ -38003,7 +38003,7 @@ invoke.cont68:                                    ; preds = %invoke.cont65
 
 invoke.cont71:                                    ; preds = %invoke.cont68
   store i1 false, ptr %cleanup.isactive, align 1
-  invoke void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  invoke void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
           to label %unreachable unwind label %lpad70
 
 lpad56:                                           ; preds = %invoke.cont63, %invoke.cont61, %invoke.cont57, %if.else55
@@ -42365,7 +42365,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -42402,7 +42402,7 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr1, ptr %first.addr.i, align 8
   store ptr %add.ptr2, ptr %last.addr.i, align 8
   store ptr %val, ptr %value.addr.i, align 8
-  %call.i = call ptr @__errno_location() #24
+  %call.i = call ptr @__errno_location() #23
   store i32 0, ptr %call.i, align 4
   %16 = load ptr, ptr %first.addr.i, align 8
   %tobool.i = icmp ne ptr %16, null
@@ -42432,13 +42432,13 @@ if.end.i:                                         ; preds = %lor.lhs.false2.i
   %22 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev11NumberUtilsL3locE, align 8
   %call3.i = call double @strtod_l(ptr noundef %21, ptr noundef %endptr.i, ptr noundef %22) #3
   store double %call3.i, ptr %tempval.i, align 8
-  %call4.i = call ptr @__errno_location() #24
+  %call4.i = call ptr @__errno_location() #23
   %23 = load i32, ptr %call4.i, align 4
   %cmp5.i = icmp ne i32 %23, 0
   br i1 %cmp5.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %call6.i = call ptr @__errno_location() #24
+  %call6.i = call ptr @__errno_location() #23
   %24 = load i32, ptr %call6.i, align 4
   %cmp7.i = icmp ne i32 %24, 22
   br i1 %cmp7.i, label %if.then8.i, label %if.else.i
@@ -42577,7 +42577,7 @@ invoke.cont31:                                    ; preds = %invoke.cont26
 
 invoke.cont34:                                    ; preds = %invoke.cont31
   store i1 false, ptr %cleanup.isactive, align 1
-  invoke void @__cxa_throw(ptr %exception28, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  invoke void @__cxa_throw(ptr %exception28, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
           to label %unreachable unwind label %lpad33
 
 lpad5:                                            ; preds = %if.then4
@@ -42739,7 +42739,7 @@ invoke.cont73:                                    ; preds = %invoke.cont67
 
 invoke.cont76:                                    ; preds = %invoke.cont73
   store i1 false, ptr %cleanup.isactive77, align 1
-  invoke void @__cxa_throw(ptr %exception70, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  invoke void @__cxa_throw(ptr %exception70, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
           to label %unreachable unwind label %lpad75
 
 lpad42:                                           ; preds = %if.then39
@@ -42903,7 +42903,7 @@ invoke.cont123:                                   ; preds = %invoke.cont117
 
 invoke.cont126:                                   ; preds = %invoke.cont123
   store i1 false, ptr %cleanup.isactive127, align 1
-  invoke void @__cxa_throw(ptr %exception120, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  invoke void @__cxa_throw(ptr %exception120, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
           to label %unreachable unwind label %lpad125
 
 lpad92:                                           ; preds = %if.then89
@@ -44626,7 +44626,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.182) #23
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.182) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -44720,17 +44720,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -45605,7 +45605,7 @@ if.end:                                           ; preds = %invoke.cont20, %if.
           to label %invoke.cont21 unwind label %lpad19
 
 invoke.cont21:                                    ; preds = %if.end
-  invoke void @__cxa_rethrow() #23
+  invoke void @__cxa_rethrow() #22
           to label %unreachable unwind label %lpad19
 
 invoke.cont22:                                    ; preds = %lpad19
@@ -45713,7 +45713,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #23
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -46068,17 +46068,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 120
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -46203,7 +46203,7 @@ catch:                                            ; preds = %lpad
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %catch
-  invoke void @__cxa_rethrow() #23
+  invoke void @__cxa_rethrow() #22
           to label %unreachable unwind label %lpad2
 
 for.end:                                          ; preds = %for.cond
@@ -46454,7 +46454,7 @@ catch:                                            ; preds = %lpad
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %catch
-  invoke void @__cxa_rethrow() #23
+  invoke void @__cxa_rethrow() #22
           to label %unreachable unwind label %lpad8
 
 lpad8:                                            ; preds = %invoke.cont9, %catch
@@ -47547,17 +47547,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 376
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -48773,7 +48773,7 @@ if.end:                                           ; preds = %invoke.cont18, %if.
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %if.end
-  invoke void @__cxa_rethrow() #23
+  invoke void @__cxa_rethrow() #22
           to label %unreachable unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %lpad17
@@ -48875,7 +48875,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #23
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -49146,17 +49146,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 32
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -49689,7 +49689,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -49726,7 +49726,7 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr1, ptr %first.addr.i, align 8
   store ptr %add.ptr2, ptr %last.addr.i, align 8
   store ptr %val, ptr %value.addr.i, align 8
-  %call.i = call ptr @__errno_location() #24
+  %call.i = call ptr @__errno_location() #23
   store i32 0, ptr %call.i, align 4
   %16 = load ptr, ptr %first.addr.i, align 8
   %tobool.i = icmp ne ptr %16, null
@@ -49756,13 +49756,13 @@ if.end.i:                                         ; preds = %lor.lhs.false2.i
   %22 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev11NumberUtilsL3locE, align 8
   %call3.i = call double @strtod_l(ptr noundef %21, ptr noundef %endptr.i, ptr noundef %22) #3
   store double %call3.i, ptr %tempval.i, align 8
-  %call4.i = call ptr @__errno_location() #24
+  %call4.i = call ptr @__errno_location() #23
   %23 = load i32, ptr %call4.i, align 4
   %cmp5.i = icmp ne i32 %23, 0
   br i1 %cmp5.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %call6.i = call ptr @__errno_location() #24
+  %call6.i = call ptr @__errno_location() #23
   %24 = load i32, ptr %call6.i, align 4
   %cmp7.i = icmp ne i32 %24, 22
   br i1 %cmp7.i, label %if.then8.i, label %if.else.i
@@ -49901,7 +49901,7 @@ invoke.cont31:                                    ; preds = %invoke.cont26
 
 invoke.cont34:                                    ; preds = %invoke.cont31
   store i1 false, ptr %cleanup.isactive, align 1
-  invoke void @__cxa_throw(ptr %exception28, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  invoke void @__cxa_throw(ptr %exception28, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
           to label %unreachable unwind label %lpad33
 
 lpad5:                                            ; preds = %if.then4
@@ -50063,7 +50063,7 @@ invoke.cont73:                                    ; preds = %invoke.cont67
 
 invoke.cont76:                                    ; preds = %invoke.cont73
   store i1 false, ptr %cleanup.isactive77, align 1
-  invoke void @__cxa_throw(ptr %exception70, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  invoke void @__cxa_throw(ptr %exception70, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
           to label %unreachable unwind label %lpad75
 
 lpad42:                                           ; preds = %if.then39
@@ -50227,7 +50227,7 @@ invoke.cont123:                                   ; preds = %invoke.cont117
 
 invoke.cont126:                                   ; preds = %invoke.cont123
   store i1 false, ptr %cleanup.isactive127, align 1
-  invoke void @__cxa_throw(ptr %exception120, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  invoke void @__cxa_throw(ptr %exception120, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
           to label %unreachable unwind label %lpad125
 
 lpad92:                                           ; preds = %if.then89
@@ -50511,7 +50511,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #23
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -50750,17 +50750,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 4
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -51490,7 +51490,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  call void @__cxa_throw(ptr %exception, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -51527,7 +51527,7 @@ if.end:                                           ; preds = %entry
   store ptr %add.ptr1, ptr %first.addr.i, align 8
   store ptr %add.ptr2, ptr %last.addr.i, align 8
   store ptr %val, ptr %value.addr.i, align 8
-  %call.i = call ptr @__errno_location() #24
+  %call.i = call ptr @__errno_location() #23
   store i32 0, ptr %call.i, align 4
   %16 = load ptr, ptr %first.addr.i, align 8
   %tobool.i = icmp ne ptr %16, null
@@ -51557,13 +51557,13 @@ if.end.i:                                         ; preds = %lor.lhs.false2.i
   %22 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev11NumberUtilsL3locE, align 8
   %call3.i = call double @strtod_l(ptr noundef %21, ptr noundef %endptr.i, ptr noundef %22) #3
   store double %call3.i, ptr %tempval.i, align 8
-  %call4.i = call ptr @__errno_location() #24
+  %call4.i = call ptr @__errno_location() #23
   %23 = load i32, ptr %call4.i, align 4
   %cmp5.i = icmp ne i32 %23, 0
   br i1 %cmp5.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %call6.i = call ptr @__errno_location() #24
+  %call6.i = call ptr @__errno_location() #23
   %24 = load i32, ptr %call6.i, align 4
   %cmp7.i = icmp ne i32 %24, 22
   br i1 %cmp7.i, label %if.then8.i, label %if.else.i
@@ -51701,7 +51701,7 @@ invoke.cont31:                                    ; preds = %invoke.cont26
 
 invoke.cont34:                                    ; preds = %invoke.cont31
   store i1 false, ptr %cleanup.isactive, align 1
-  invoke void @__cxa_throw(ptr %exception28, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  invoke void @__cxa_throw(ptr %exception28, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
           to label %unreachable unwind label %lpad33
 
 lpad5:                                            ; preds = %if.then4
@@ -51863,7 +51863,7 @@ invoke.cont73:                                    ; preds = %invoke.cont67
 
 invoke.cont76:                                    ; preds = %invoke.cont73
   store i1 false, ptr %cleanup.isactive77, align 1
-  invoke void @__cxa_throw(ptr %exception70, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  invoke void @__cxa_throw(ptr %exception70, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
           to label %unreachable unwind label %lpad75
 
 lpad42:                                           ; preds = %if.then39
@@ -52027,7 +52027,7 @@ invoke.cont123:                                   ; preds = %invoke.cont117
 
 invoke.cont126:                                   ; preds = %invoke.cont123
   store i1 false, ptr %cleanup.isactive127, align 1
-  invoke void @__cxa_throw(ptr %exception120, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #23
+  invoke void @__cxa_throw(ptr %exception120, ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE, ptr @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev) #22
           to label %unreachable unwind label %lpad125
 
 lpad92:                                           ; preds = %if.then89
@@ -52537,7 +52537,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #23
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -52746,17 +52746,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 16
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -53334,17 +53334,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -54015,17 +54015,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -54645,17 +54645,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -55275,17 +55275,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -55905,17 +55905,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -56535,17 +56535,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -57165,17 +57165,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -57806,17 +57806,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -58447,17 +58447,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -59088,17 +59088,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 408
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -59718,17 +59718,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 152
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -60348,17 +60348,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -60978,17 +60978,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 152
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -61608,17 +61608,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 152
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -62238,17 +62238,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 232
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -62868,17 +62868,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 232
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -63509,17 +63509,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 256
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -64139,17 +64139,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 256
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -64784,17 +64784,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 256
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -65429,17 +65429,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 256
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -66059,17 +66059,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 256
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -66704,17 +66704,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 152
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -67334,17 +67334,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 152
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -67977,17 +67977,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -68607,17 +68607,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 144
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -69237,17 +69237,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -69882,17 +69882,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 216
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -70425,7 +70425,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #23
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -70933,17 +70933,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 272
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -71815,17 +71815,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 264
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -72443,17 +72443,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 288
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -73157,17 +73157,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 112
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -73844,17 +73844,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 112
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -74622,17 +74622,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 208
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -76004,17 +76004,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 216
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -76785,7 +76785,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #23
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -76994,17 +76994,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 4
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -77688,7 +77688,7 @@ invoke.cont91:                                    ; preds = %catch
           to label %invoke.cont92 unwind label %lpad90
 
 invoke.cont92:                                    ; preds = %invoke.cont91
-  invoke void @__cxa_rethrow() #23
+  invoke void @__cxa_rethrow() #22
           to label %unreachable unwind label %lpad90
 
 lpad90:                                           ; preds = %invoke.cont92, %invoke.cont91, %catch
@@ -79070,17 +79070,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 216
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -79738,17 +79738,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 384
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -80409,17 +80409,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 248
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -81080,17 +81080,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 272
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -81939,17 +81939,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 112
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -82626,17 +82626,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 112
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -84297,17 +84297,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 248
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -85816,17 +85816,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 280
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -86326,7 +86326,7 @@ catch:                                            ; preds = %lpad
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %catch
-  invoke void @__cxa_rethrow() #23
+  invoke void @__cxa_rethrow() #22
           to label %unreachable unwind label %lpad23
 
 lpad23:                                           ; preds = %invoke.cont24, %catch
@@ -87050,17 +87050,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #23
+  call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #22
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 264
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -87376,7 +87376,7 @@ attributes #6 = { nounwind memory(none) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind memory(read) }
+attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -87388,10 +87388,9 @@ attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn mem
 attributes #19 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #20 = { noreturn nounwind }
 attributes #21 = { builtin nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
-attributes #23 = { noreturn }
-attributes #24 = { nounwind willreturn memory(none) }
-attributes #25 = { builtin allocsize(0) }
+attributes #22 = { noreturn }
+attributes #23 = { nounwind willreturn memory(none) }
+attributes #24 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

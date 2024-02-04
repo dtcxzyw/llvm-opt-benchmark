@@ -8913,7 +8913,7 @@ land.rhs:                                         ; preds = %lor.rhs
   %add.ptr = getelementptr inbounds i8, ptr %call3, i64 %sub
   %call6 = call noundef ptr @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %suffix) #3
   %call7 = call noundef i64 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %suffix) #3
-  %call8 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %call6, i64 noundef %call7) #27
+  %call8 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %call6, i64 noundef %call7) #15
   %cmp9 = icmp eq i32 %call8, 0
   br label %land.end
 
@@ -15515,7 +15515,7 @@ entry:
 ; Function Attrs: nounwind
 declare i32 @pthread_setspecific(i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -19829,7 +19829,7 @@ entry:
   %agg.tmp28.coerce = alloca { i64, i32 }, align 4
   store ptr %this, ptr %this.addr, align 8
   call void @_ZN4absl13ScopedMockLogC1ENS_14MockLogDefaultE(ptr noundef nonnull align 8 dereferenceable(240) %test_sink, i32 noundef 1)
-  %call = call { i64, i32 } @_ZN4absl9UnixEpochEv() #28
+  %call = call { i64, i32 } @_ZN4absl9UnixEpochEv() #27
   %coerce.dive = getelementptr inbounds %"class.absl::Time", ptr %agg.tmp, i32 0, i32 0
   store { i64, i32 } %call, ptr %tmp.coerce, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %coerce.dive, ptr align 8 %tmp.coerce, i64 12, i1 false)
@@ -19880,7 +19880,7 @@ invoke.cont22:                                    ; preds = %invoke.cont19
 
 invoke.cont26:                                    ; preds = %invoke.cont22
   %call27 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessage14InternalStreamEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24)
-  %call29 = call { i64, i32 } @_ZN4absl9UnixEpochEv() #28
+  %call29 = call { i64, i32 } @_ZN4absl9UnixEpochEv() #27
   %coerce.dive30 = getelementptr inbounds %"class.absl::Time", ptr %agg.tmp28, i32 0, i32 0
   store { i64, i32 } %call29, ptr %tmp.coerce31, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %coerce.dive30, ptr align 8 %tmp.coerce31, i64 12, i1 false)
@@ -20526,7 +20526,7 @@ entry:
   %7 = load i64, ptr %6, align 4
   %8 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp2.coerce, i32 0, i32 1
   %9 = load i32, ptr %8, align 4
-  %call = call noundef zeroext i1 @_ZN4absleqENS_4TimeES0_(i64 %3, i32 %5, i64 %7, i32 %9) #28
+  %call = call noundef zeroext i1 @_ZN4absleqENS_4TimeES0_(i64 %3, i32 %5, i64 %7, i32 %9) #27
   ret i1 %call
 }
 
@@ -20574,7 +20574,7 @@ entry:
   %9 = load i64, ptr %8, align 4
   %10 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp2.coerce, i32 0, i32 1
   %11 = load i32, ptr %10, align 4
-  %call = call noundef zeroext i1 @_ZN4absleqENS_8DurationES0_(i64 %5, i32 %7, i64 %9, i32 %11) #28
+  %call = call noundef zeroext i1 @_ZN4absleqENS_8DurationES0_(i64 %5, i32 %7, i64 %9, i32 %11) #27
   ret i1 %call
 }
 
@@ -20609,14 +20609,14 @@ entry:
   %5 = load i64, ptr %4, align 4
   %6 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp.coerce, i32 0, i32 1
   %7 = load i32, ptr %6, align 4
-  %call = call noundef i64 @_ZN4absl13time_internal8GetRepHiENS_8DurationE(i64 %5, i32 %7) #28
+  %call = call noundef i64 @_ZN4absl13time_internal8GetRepHiENS_8DurationE(i64 %5, i32 %7) #27
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp2, ptr align 4 %rhs, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp2.coerce, ptr align 4 %agg.tmp2, i64 12, i1 false)
   %8 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp2.coerce, i32 0, i32 0
   %9 = load i64, ptr %8, align 4
   %10 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp2.coerce, i32 0, i32 1
   %11 = load i32, ptr %10, align 4
-  %call3 = call noundef i64 @_ZN4absl13time_internal8GetRepHiENS_8DurationE(i64 %9, i32 %11) #28
+  %call3 = call noundef i64 @_ZN4absl13time_internal8GetRepHiENS_8DurationE(i64 %9, i32 %11) #27
   %cmp = icmp eq i64 %call, %call3
   br i1 %cmp, label %land.rhs, label %land.end
 
@@ -20627,14 +20627,14 @@ land.rhs:                                         ; preds = %entry
   %13 = load i64, ptr %12, align 4
   %14 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp4.coerce, i32 0, i32 1
   %15 = load i32, ptr %14, align 4
-  %call5 = call noundef i32 @_ZN4absl13time_internal8GetRepLoENS_8DurationE(i64 %13, i32 %15) #28
+  %call5 = call noundef i32 @_ZN4absl13time_internal8GetRepLoENS_8DurationE(i64 %13, i32 %15) #27
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp6, ptr align 4 %rhs, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp6.coerce, ptr align 4 %agg.tmp6, i64 12, i1 false)
   %16 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp6.coerce, i32 0, i32 0
   %17 = load i64, ptr %16, align 4
   %18 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp6.coerce, i32 0, i32 1
   %19 = load i32, ptr %18, align 4
-  %call7 = call noundef i32 @_ZN4absl13time_internal8GetRepLoENS_8DurationE(i64 %17, i32 %19) #28
+  %call7 = call noundef i32 @_ZN4absl13time_internal8GetRepLoENS_8DurationE(i64 %17, i32 %19) #27
   %cmp8 = icmp eq i32 %call5, %call7
   br label %land.end
 
@@ -20834,7 +20834,7 @@ entry:
   %4 = load i64, ptr %3, align 4
   %5 = getelementptr inbounds { i64, i32 }, ptr %agg.tmp.coerce, i32 0, i32 1
   %6 = load i32, ptr %5, align 4
-  call void @_ZN4absl10FormatTimeB5cxx11ENS_4TimeE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i64 %4, i32 %6) #29
+  call void @_ZN4absl10FormatTimeB5cxx11ENS_4TimeE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i64 %4, i32 %6) #28
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -21773,7 +21773,7 @@ invoke.cont50:                                    ; preds = %invoke.cont46
           to label %invoke.cont52 unwind label %lpad51
 
 invoke.cont52:                                    ; preds = %invoke.cont50
-  %call56 = call { i64, i32 } @_ZN4absl9UnixEpochEv() #28
+  %call56 = call { i64, i32 } @_ZN4absl9UnixEpochEv() #27
   %coerce.dive57 = getelementptr inbounds %"class.absl::Time", ptr %agg.tmp, i32 0, i32 0
   store { i64, i32 } %call56, ptr %tmp.coerce, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %coerce.dive57, ptr align 8 %tmp.coerce, i64 12, i1 false)
@@ -21908,7 +21908,7 @@ invoke.cont141:                                   ; preds = %invoke.cont137
           to label %invoke.cont143 unwind label %lpad140
 
 invoke.cont143:                                   ; preds = %invoke.cont141
-  %call146 = call { i64, i32 } @_ZN4absl9UnixEpochEv() #28
+  %call146 = call { i64, i32 } @_ZN4absl9UnixEpochEv() #27
   %coerce.dive147 = getelementptr inbounds %"class.absl::Time", ptr %agg.tmp145, i32 0, i32 0
   store { i64, i32 } %call146, ptr %tmp.coerce148, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %coerce.dive147, ptr align 8 %tmp.coerce148, i64 12, i1 false)
@@ -25498,7 +25498,7 @@ invoke.cont33:                                    ; preds = %invoke.cont31
           to label %invoke.cont38 unwind label %lpad
 
 invoke.cont38:                                    ; preds = %invoke.cont33
-  %call39 = call ptr @__errno_location() #28
+  %call39 = call ptr @__errno_location() #27
   store i32 9, ptr %call39, align 4
   invoke void @_ZN4absl12log_internal10LogMessageC1EPKciNS1_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp41, ptr noundef @.str.3, i32 noundef 204) #25
           to label %invoke.cont42 unwind label %lpad
@@ -35171,7 +35171,7 @@ attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrit
 attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind memory(read) }
+attributes #15 = { nounwind willreturn memory(read) }
 attributes #16 = { mustprogress nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nounwind willreturn memory(read, argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -35183,9 +35183,8 @@ attributes #23 = { noreturn }
 attributes #24 = { noreturn nounwind }
 attributes #25 = { cold }
 attributes #26 = { cold nounwind }
-attributes #27 = { nounwind willreturn memory(read) }
-attributes #28 = { nounwind willreturn memory(none) }
-attributes #29 = { nounwind willreturn memory(read, argmem: readwrite) }
+attributes #27 = { nounwind willreturn memory(none) }
+attributes #28 = { nounwind willreturn memory(read, argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

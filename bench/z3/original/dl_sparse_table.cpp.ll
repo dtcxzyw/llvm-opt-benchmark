@@ -6756,7 +6756,7 @@ dynamic_cast.end:                                 ; preds = %entry
   ret ptr %1
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #9
 
 declare void @__cxa_bad_cast()
@@ -9597,7 +9597,7 @@ entry:
   %m_unique_entry_size = getelementptr inbounds %"class.datalog::entry_storage::offset_eq_proc", ptr %this1, i32 0, i32 1
   %5 = load i32, ptr %m_unique_entry_size, align 8
   %conv = zext i32 %5 to i64
-  %call3 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %add.ptr2, i64 noundef %conv) #19
+  %call3 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef %add.ptr2, i64 noundef %conv) #9
   %cmp = icmp eq i32 %call3, 0
   ret i1 %cmp
 }
@@ -16449,7 +16449,7 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %n, align 4
   %conv = zext i32 %3 to i64
   %mul = mul i64 %conv, 8
-  %call5 = call i32 @memcmp(ptr noundef %call3, ptr noundef %call4, i64 noundef %mul) #19
+  %call5 = call i32 @memcmp(ptr noundef %call3, ptr noundef %call4, i64 noundef %mul) #9
   %cmp6 = icmp eq i32 %call5, 0
   store i1 %cmp6, ptr %retval, align 1
   br label %return
@@ -27763,7 +27763,7 @@ attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind memory(read) }
+attributes #9 = { nounwind willreturn memory(read) }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -27773,7 +27773,6 @@ attributes #15 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #16 = { noreturn }
 attributes #17 = { noreturn nounwind }
 attributes #18 = { builtin nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

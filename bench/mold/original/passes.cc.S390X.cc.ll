@@ -66572,7 +66572,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #29
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #23
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -81057,7 +81057,7 @@ entry:
 define linkonce_odr dso_local i64 @_ZNSt11this_thread6get_idEv() #4 comdat {
 entry:
   %retval = alloca %"class.std::thread::id", align 8
-  %call = call i64 @pthread_self() #30
+  %call = call i64 @pthread_self() #29
   call void @_ZNSt6thread2idC2Em(ptr noundef nonnull align 8 dereferenceable(8) %retval, i64 noundef %call)
   %coerce.dive = getelementptr inbounds %"class.std::thread::id", ptr %retval, i32 0, i32 0
   %0 = load i64, ptr %coerce.dive, align 8
@@ -113364,7 +113364,7 @@ entry:
   store ptr %str.coerce1, ptr %1, align 8
   %call = call noundef ptr @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %str) #3
   %call1 = call noundef i64 @_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %str) #3
-  %call2 = call noundef i64 @_ZL22XXH_INLINE_XXH3_64bitsPKvm(ptr nocapture noundef %call, i64 noundef %call1) #29
+  %call2 = call noundef i64 @_ZL22XXH_INLINE_XXH3_64bitsPKvm(ptr nocapture noundef %call, i64 noundef %call1) #23
   ret i64 %call2
 }
 
@@ -113409,7 +113409,7 @@ if.then:                                          ; preds = %entry
   %3 = load i64, ptr %len.addr, align 8
   %4 = load ptr, ptr %secret.addr, align 8
   %5 = load i64, ptr %seed64.addr, align 8
-  %call = call noundef i64 @_ZL18XXH3_len_0to16_64bPKhmS0_m(ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #29
+  %call = call noundef i64 @_ZL18XXH3_len_0to16_64bPKhmS0_m(ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #23
   store i64 %call, ptr %retval, align 8
   br label %return
 
@@ -113424,7 +113424,7 @@ if.then3:                                         ; preds = %if.end
   %9 = load ptr, ptr %secret.addr, align 8
   %10 = load i64, ptr %secretLen.addr, align 8
   %11 = load i64, ptr %seed64.addr, align 8
-  %call4 = call noundef i64 @_ZL20XXH3_len_17to128_64bPKhmS0_mm(ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10, i64 noundef %11) #29
+  %call4 = call noundef i64 @_ZL20XXH3_len_17to128_64bPKhmS0_mm(ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10, i64 noundef %11) #23
   store i64 %call4, ptr %retval, align 8
   br label %return
 
@@ -113439,7 +113439,7 @@ if.then7:                                         ; preds = %if.end5
   %15 = load ptr, ptr %secret.addr, align 8
   %16 = load i64, ptr %secretLen.addr, align 8
   %17 = load i64, ptr %seed64.addr, align 8
-  %call8 = call noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_mm(ptr noundef %13, i64 noundef %14, ptr noundef %15, i64 noundef %16, i64 noundef %17) #29
+  %call8 = call noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_mm(ptr noundef %13, i64 noundef %14, ptr noundef %15, i64 noundef %16, i64 noundef %17) #23
   store i64 %call8, ptr %retval, align 8
   br label %return
 
@@ -113505,7 +113505,7 @@ if.then:                                          ; preds = %entry
   %3 = load i64, ptr %len.addr, align 8
   %4 = load ptr, ptr %secret.addr, align 8
   %5 = load i64, ptr %seed.addr, align 8
-  %call = call noundef i64 @_ZL18XXH3_len_9to16_64bPKhmS0_m(ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #29
+  %call = call noundef i64 @_ZL18XXH3_len_9to16_64bPKhmS0_m(ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #23
   store i64 %call, ptr %retval, align 8
   br label %return
 
@@ -113519,7 +113519,7 @@ if.then3:                                         ; preds = %if.end
   %8 = load i64, ptr %len.addr, align 8
   %9 = load ptr, ptr %secret.addr, align 8
   %10 = load i64, ptr %seed.addr, align 8
-  %call4 = call noundef i64 @_ZL17XXH3_len_4to8_64bPKhmS0_m(ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10) #29
+  %call4 = call noundef i64 @_ZL17XXH3_len_4to8_64bPKhmS0_m(ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10) #23
   store i64 %call4, ptr %retval, align 8
   br label %return
 
@@ -113533,7 +113533,7 @@ if.then6:                                         ; preds = %if.end5
   %13 = load i64, ptr %len.addr, align 8
   %14 = load ptr, ptr %secret.addr, align 8
   %15 = load i64, ptr %seed.addr, align 8
-  %call7 = call noundef i64 @_ZL17XXH3_len_1to3_64bPKhmS0_m(ptr noundef %12, i64 noundef %13, ptr noundef %14, i64 noundef %15) #29
+  %call7 = call noundef i64 @_ZL17XXH3_len_1to3_64bPKhmS0_m(ptr noundef %12, i64 noundef %13, ptr noundef %14, i64 noundef %15) #23
   store i64 %call7, ptr %retval, align 8
   br label %return
 
@@ -113808,7 +113808,7 @@ for.cond19:                                       ; preds = %for.inc31, %for.end
 
 for.body21:                                       ; preds = %for.cond19
   %25 = load i64, ptr %acc, align 8
-  %26 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %25) #31, !srcloc !159
+  %26 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %25) #30, !srcloc !159
   store i64 %26, ptr %acc, align 8
   %27 = load ptr, ptr %input.addr, align 8
   %28 = load i32, ptr %i, align 4
@@ -114201,13 +114201,13 @@ entry:
   %h64.addr = alloca i64, align 8
   store i64 %h64, ptr %h64.addr, align 8
   %0 = load i64, ptr %h64.addr, align 8
-  %call = call noundef i64 @_ZL14XXH_xorshift64mi(i64 noundef %0, i32 noundef 37) #30
+  %call = call noundef i64 @_ZL14XXH_xorshift64mi(i64 noundef %0, i32 noundef 37) #29
   store i64 %call, ptr %h64.addr, align 8
   %1 = load i64, ptr %h64.addr, align 8
   %mul = mul i64 %1, 1609587791953885689
   store i64 %mul, ptr %h64.addr, align 8
   %2 = load i64, ptr %h64.addr, align 8
-  %call1 = call noundef i64 @_ZL14XXH_xorshift64mi(i64 noundef %2, i32 noundef 32) #30
+  %call1 = call noundef i64 @_ZL14XXH_xorshift64mi(i64 noundef %2, i32 noundef 32) #29
   store i64 %call1, ptr %h64.addr, align 8
   %3 = load i64, ptr %h64.addr, align 8
   ret i64 %3
@@ -114331,7 +114331,7 @@ entry:
   %mul3 = mul i64 %9, -6939452855193903323
   store i64 %mul3, ptr %h64.addr, align 8
   %10 = load i64, ptr %h64.addr, align 8
-  %call = call noundef i64 @_ZL14XXH_xorshift64mi(i64 noundef %10, i32 noundef 28) #30
+  %call = call noundef i64 @_ZL14XXH_xorshift64mi(i64 noundef %10, i32 noundef 28) #29
   ret i64 %call
 }
 
@@ -139570,7 +139570,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   br i1 %cmp, label %if.then10, label %if.end21
 
 if.then10:                                        ; preds = %if.end
-  %call11 = call ptr @__errno_location() #30
+  %call11 = call ptr @__errno_location() #29
   %11 = load i32, ptr %call11, align 4
   %cmp12 = icmp ne i32 %11, 2
   br i1 %cmp12, label %if.then13, label %if.end20
@@ -150242,7 +150242,7 @@ declare noundef i64 @_ZNKSt6locale2id5_M_idEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: noreturn
 declare void @_ZSt16__throw_bad_castv() #11
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #23
 
 declare void @__cxa_bad_cast()
@@ -177275,7 +177275,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.1348", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #29
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #23
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.1348", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -178575,7 +178575,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.1348", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #29
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #23
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.1348", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -191772,7 +191772,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.else:                                          ; preds = %entry
-  %call1 = call ptr @__errno_location() #30
+  %call1 = call ptr @__errno_location() #29
   %6 = load i32, ptr %call1, align 4
   %cmp2 = icmp eq i32 %6, 34
   br i1 %cmp2, label %lor.end, label %lor.rhs
@@ -191831,10 +191831,10 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_errno = getelementptr inbounds %struct._Save_errno, ptr %this1, i32 0, i32 0
-  %call = call ptr @__errno_location() #30
+  %call = call ptr @__errno_location() #29
   %0 = load i32, ptr %call, align 4
   store i32 %0, ptr %_M_errno, align 4
-  %call2 = call ptr @__errno_location() #30
+  %call2 = call ptr @__errno_location() #29
   store i32 0, ptr %call2, align 4
   ret void
 }
@@ -191870,7 +191870,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call ptr @__errno_location() #30
+  %call = call ptr @__errno_location() #29
   %0 = load i32, ptr %call, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -191878,7 +191878,7 @@ entry:
 if.then:                                          ; preds = %entry
   %_M_errno = getelementptr inbounds %struct._Save_errno, ptr %this1, i32 0, i32 0
   %1 = load i32, ptr %_M_errno, align 4
-  %call2 = call ptr @__errno_location() #30
+  %call2 = call ptr @__errno_location() #29
   store i32 %1, ptr %call2, align 4
   br label %if.end
 
@@ -202490,7 +202490,7 @@ while.cond:                                       ; preds = %cond.end, %if.end
 while.body:                                       ; preds = %while.cond
   %2 = load i64, ptr %__len.addr, align 8
   %mul = mul i64 %2, 8
-  %call = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #32
+  %call = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #31
   store ptr %call, ptr %__tmp, align 8
   %3 = load ptr, ptr %__tmp, align 8
   %cmp2 = icmp ne ptr %3, null
@@ -218447,7 +218447,7 @@ while.cond:                                       ; preds = %cond.end, %if.end
 while.body:                                       ; preds = %while.cond
   %2 = load i64, ptr %__len.addr, align 8
   %mul = mul i64 %2, 8
-  %call = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #32
+  %call = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #31
   store ptr %call, ptr %__tmp, align 8
   %3 = load ptr, ptr %__tmp, align 8
   %cmp2 = icmp ne ptr %3, null
@@ -238868,7 +238868,7 @@ if.then16:                                        ; preds = %if.then14
   %23 = getelementptr inbounds %class.anon.568, ptr %this1, i32 0, i32 1
   %24 = load ptr, ptr %23, align 8
   %arraydecay = getelementptr inbounds [4 x i8], ptr %24, i64 0, i64 0
-  %call21 = call i32 @memcmp(ptr noundef %22, ptr noundef %arraydecay, i64 noundef 4) #29
+  %call21 = call i32 @memcmp(ptr noundef %22, ptr noundef %arraydecay, i64 noundef 4) #23
   %cmp22 = icmp eq i32 %call21, 0
   br i1 %cmp22, label %if.then23, label %if.end
 
@@ -244922,7 +244922,7 @@ while.cond:                                       ; preds = %cond.end, %if.end
 while.body:                                       ; preds = %while.cond
   %2 = load i64, ptr %__len.addr, align 8
   %mul = mul i64 %2, 56
-  %call = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #32
+  %call = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #31
   store ptr %call, ptr %__tmp, align 8
   %3 = load ptr, ptr %__tmp, align 8
   %cmp2 = icmp ne ptr %3, null
@@ -250120,7 +250120,7 @@ if.end11:                                         ; preds = %if.end6
   %add.ptr = getelementptr inbounds i8, ptr %call12, i64 %idx.ext
   store ptr %add.ptr, ptr %name, align 8
   %21 = load ptr, ptr %name, align 8
-  %call16 = call noundef ptr @strchr(ptr noundef %21, i32 noundef 64) #29
+  %call16 = call noundef ptr @strchr(ptr noundef %21, i32 noundef 64) #23
   %add.ptr17 = getelementptr inbounds i8, ptr %call16, i64 1
   call void @_ZNSt17basic_string_viewIcSt11char_traitsIcEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ver, ptr noundef %add.ptr17) #3
   store i8 0, ptr %is_default, align 1
@@ -260711,16 +260711,15 @@ attributes #19 = { mustprogress nounwind willreturn memory(none) "frame-pointer"
 attributes #20 = { mustprogress nounwind "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #23 = { nounwind memory(read) }
+attributes #23 = { nounwind willreturn memory(read) }
 attributes #24 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { builtin allocsize(0) }
 attributes #26 = { noreturn }
 attributes #27 = { noreturn nounwind }
 attributes #28 = { builtin nounwind }
-attributes #29 = { nounwind willreturn memory(read) }
-attributes #30 = { nounwind willreturn memory(none) }
-attributes #31 = { nounwind memory(none) }
-attributes #32 = { nounwind allocsize(0) }
+attributes #29 = { nounwind willreturn memory(none) }
+attributes #30 = { nounwind memory(none) }
+attributes #31 = { nounwind allocsize(0) }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3}

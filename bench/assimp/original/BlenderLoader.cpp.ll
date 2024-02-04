@@ -5809,7 +5809,7 @@ if.end:                                           ; preds = %invoke.cont5
 
 invoke.cont20:                                    ; preds = %if.end
   %arraydecay22 = getelementptr inbounds [8 x i8], ptr %magic, i64 0, i64 0
-  %call23 = call i32 @strcmp(ptr noundef %arraydecay22, ptr noundef @_ZL5Token) #18
+  %call23 = call i32 @strcmp(ptr noundef %arraydecay22, ptr noundef @_ZL5Token) #10
   %cmp = icmp eq i32 %call23, 0
   br i1 %cmp, label %if.then24, label %if.end28
 
@@ -6075,7 +6075,7 @@ invoke.cont115:                                   ; preds = %if.end110
 
 invoke.cont121:                                   ; preds = %invoke.cont115
   %arraydecay123 = getelementptr inbounds [8 x i8], ptr %magic, i64 0, i64 0
-  %call124 = call i32 @strcmp(ptr noundef %arraydecay123, ptr noundef @_ZL5Token) #18
+  %call124 = call i32 @strcmp(ptr noundef %arraydecay123, ptr noundef @_ZL5Token) #10
   %cmp125 = icmp eq i32 %call124, 0
   br i1 %cmp125, label %if.then126, label %if.end130
 
@@ -6472,7 +6472,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -7804,7 +7804,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.108) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.108) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -8028,7 +8028,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -8145,7 +8145,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.127) #19
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.127) #18
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -8241,7 +8241,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -8377,7 +8377,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -10119,7 +10119,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -11183,7 +11183,7 @@ if.then:                                          ; preds = %entry
   %5 = load ptr, ptr %img.addr, align 8
   %name12 = getelementptr inbounds %"struct.Assimp::Blender::Image", ptr %5, i32 0, i32 2
   %arraydecay13 = getelementptr inbounds [240 x i8], ptr %name12, i64 0, i64 0
-  %call14 = call i64 @strlen(ptr noundef %arraydecay13) #18
+  %call14 = call i64 @strlen(ptr noundef %arraydecay13) #10
   store i64 %call14, ptr %nlen, align 8
   %6 = load ptr, ptr %img.addr, align 8
   %name15 = getelementptr inbounds %"struct.Assimp::Blender::Image", ptr %6, i32 0, i32 2
@@ -11235,7 +11235,7 @@ cond.false:                                       ; preds = %while.end
   %arrayidx24 = getelementptr inbounds i8, ptr %17, i64 1
   %18 = load i8, ptr %arrayidx24, align 1
   %conv25 = zext i8 %18 to i32
-  %call26 = call i32 @tolower(i32 noundef %conv25) #18
+  %call26 = call i32 @tolower(i32 noundef %conv25) #10
   %conv27 = trunc i32 %call26 to i8
   br label %cond.end
 
@@ -11259,7 +11259,7 @@ cond.false32:                                     ; preds = %cond.end
   %arrayidx33 = getelementptr inbounds i8, ptr %22, i64 2
   %23 = load i8, ptr %arrayidx33, align 1
   %conv34 = zext i8 %23 to i32
-  %call35 = call i32 @tolower(i32 noundef %conv34) #18
+  %call35 = call i32 @tolower(i32 noundef %conv34) #10
   %conv36 = trunc i32 %call35 to i8
   br label %cond.end37
 
@@ -11283,7 +11283,7 @@ cond.false44:                                     ; preds = %cond.end37
   %arrayidx45 = getelementptr inbounds i8, ptr %27, i64 3
   %28 = load i8, ptr %arrayidx45, align 1
   %conv46 = zext i8 %28 to i32
-  %call47 = call i32 @tolower(i32 noundef %conv46) #18
+  %call47 = call i32 @tolower(i32 noundef %conv46) #10
   %conv48 = trunc i32 %call47 to i8
   br label %cond.end49
 
@@ -13043,7 +13043,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.108) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.108) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -13309,7 +13309,7 @@ entry:
   %dna_type = getelementptr inbounds %"struct.Assimp::Blender::ElemBase", ptr %0, i32 0, i32 1
   %1 = load ptr, ptr %dna_type, align 8
   %2 = load ptr, ptr %check.addr, align 8
-  %call = call i32 @strcmp(ptr noundef %1, ptr noundef %2) #18
+  %call = call i32 @strcmp(ptr noundef %1, ptr noundef %2) #10
   %tobool = icmp ne i32 %call, 0
   br i1 %tobool, label %if.then, label %if.end
 
@@ -13363,7 +13363,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -16261,7 +16261,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -16317,7 +16317,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -16528,7 +16528,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.108) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.108) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -16896,7 +16896,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -17027,7 +17027,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #10
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -17063,7 +17063,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -17132,7 +17132,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -17267,7 +17267,7 @@ entry:
   ret { i32, ptr } %2
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -17440,7 +17440,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -17680,7 +17680,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -17774,7 +17774,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -18845,7 +18845,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %this1, i64 8, i1 false)
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.129", ptr %this1, i32 0, i32 0
   %1 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %1) #10
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.129", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   %coerce.dive = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.129", ptr %retval, i32 0, i32 0
@@ -18861,7 +18861,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.129", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #10
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.129", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -21497,7 +21497,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.108) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.108) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -21894,11 +21894,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -24984,7 +24984,7 @@ catch:                                            ; preds = %lpad
   %_M_impl21 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
   %_M_map_size22 = getelementptr inbounds %"struct.std::_Deque_base<Assimp::Blender::Object *, std::allocator<Assimp::Blender::Object *>>::_Deque_impl_data", ptr %_M_impl21, i32 0, i32 1
   store i64 0, ptr %_M_map_size22, align 8
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad23
 
 lpad23:                                           ; preds = %catch
@@ -25255,7 +25255,7 @@ catch:                                            ; preds = %lpad
   %9 = load ptr, ptr %__nstart.addr, align 8
   %10 = load ptr, ptr %__cur, align 8
   call void @_ZNSt11_Deque_baseIPN6Assimp7Blender6ObjectESaIS3_EE16_M_destroy_nodesEPPS3_S7_(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %9, ptr noundef %10) #15
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad2
 
 for.end:                                          ; preds = %for.cond
@@ -25439,11 +25439,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -25552,11 +25552,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -25955,7 +25955,7 @@ catch:                                            ; preds = %lpad
   %_M_impl21 = getelementptr inbounds %"class.std::_Deque_base.69", ptr %this1, i32 0, i32 0
   %_M_map_size22 = getelementptr inbounds %"struct.std::_Deque_base<Assimp::Blender::Collection *, std::allocator<Assimp::Blender::Collection *>>::_Deque_impl_data", ptr %_M_impl21, i32 0, i32 1
   store i64 0, ptr %_M_map_size22, align 8
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad23
 
 lpad23:                                           ; preds = %catch
@@ -26174,7 +26174,7 @@ catch:                                            ; preds = %lpad
   %9 = load ptr, ptr %__nstart.addr, align 8
   %10 = load ptr, ptr %__cur, align 8
   call void @_ZNSt11_Deque_baseIPN6Assimp7Blender10CollectionESaIS3_EE16_M_destroy_nodesEPPS3_S7_(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %9, ptr noundef %10) #15
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad2
 
 for.end:                                          ; preds = %for.cond
@@ -26354,11 +26354,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -26467,11 +26467,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -27479,7 +27479,7 @@ catch:                                            ; preds = %lpad
   %_M_impl21 = getelementptr inbounds %"class.std::_Deque_base.113", ptr %this1, i32 0, i32 0
   %_M_map_size22 = getelementptr inbounds %"struct.std::_Deque_base<std::shared_ptr<Assimp::Blender::Material>, std::allocator<std::shared_ptr<Assimp::Blender::Material>>>::_Deque_impl_data", ptr %_M_impl21, i32 0, i32 1
   store i64 0, ptr %_M_map_size22, align 8
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad23
 
 lpad23:                                           ; preds = %catch
@@ -27698,7 +27698,7 @@ catch:                                            ; preds = %lpad
   %9 = load ptr, ptr %__nstart.addr, align 8
   %10 = load ptr, ptr %__cur, align 8
   call void @_ZNSt11_Deque_baseISt10shared_ptrIN6Assimp7Blender8MaterialEESaIS4_EE16_M_destroy_nodesEPPS4_S8_(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %9, ptr noundef %10) #15
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad2
 
 for.end:                                          ; preds = %for.cond
@@ -27878,11 +27878,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -27991,11 +27991,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -30955,7 +30955,7 @@ invoke.cont7:                                     ; preds = %catch
           to label %invoke.cont9 unwind label %lpad6
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad6
 
 lpad6:                                            ; preds = %invoke.cont9, %invoke.cont7, %catch
@@ -31099,11 +31099,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -31231,7 +31231,7 @@ catch:                                            ; preds = %lpad
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %catch
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad2
 
 lpad2:                                            ; preds = %invoke.cont3, %catch
@@ -31658,11 +31658,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -32611,7 +32611,7 @@ catch:                                            ; preds = %lpad
   %_M_impl21 = getelementptr inbounds %"class.std::_Deque_base.119", ptr %this1, i32 0, i32 0
   %_M_map_size22 = getelementptr inbounds %"struct.std::_Deque_base<const Assimp::Blender::Object *, std::allocator<const Assimp::Blender::Object *>>::_Deque_impl_data", ptr %_M_impl21, i32 0, i32 1
   store i64 0, ptr %_M_map_size22, align 8
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad23
 
 lpad23:                                           ; preds = %catch
@@ -32830,7 +32830,7 @@ catch:                                            ; preds = %lpad
   %9 = load ptr, ptr %__nstart.addr, align 8
   %10 = load ptr, ptr %__cur, align 8
   call void @_ZNSt11_Deque_baseIPKN6Assimp7Blender6ObjectESaIS4_EE16_M_destroy_nodesEPPS4_S8_(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %9, ptr noundef %10) #15
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad2
 
 for.end:                                          ; preds = %for.cond
@@ -33010,11 +33010,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -33123,11 +33123,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -34522,7 +34522,7 @@ catch:                                            ; preds = %lpad
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %catch
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad18
 
 if.end:                                           ; preds = %invoke.cont, %entry
@@ -34869,7 +34869,7 @@ catch:                                            ; preds = %lpad
   %5 = call ptr @__cxa_begin_catch(ptr %exn) #15
   %6 = load ptr, ptr %__node.addr, align 8
   call void @_ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4lessIjESaIS7_EE11_M_put_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %6) #15
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %catch
@@ -34950,11 +34950,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -36102,7 +36102,7 @@ entry:
   store ptr %sz, ptr %sz.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %sz.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #18
+  %call = call i64 @strlen(ptr noundef %0) #10
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %len, align 4
   %1 = load i32, ptr %len, align 4
@@ -36430,7 +36430,7 @@ if.end:                                           ; preds = %invoke.cont18, %if.
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %if.end
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %lpad17
@@ -36534,7 +36534,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -36855,11 +36855,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -37572,7 +37572,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -39216,11 +39216,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -39550,7 +39550,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -39588,7 +39588,7 @@ if.then10:                                        ; preds = %if.end
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %if.then10
-  call void @__cxa_throw(ptr %exception11, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception11, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad12:                                           ; preds = %if.then10
@@ -40162,11 +40162,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -40485,7 +40485,7 @@ if.end:                                           ; preds = %invoke.cont18, %if.
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %if.end
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %lpad17
@@ -40596,7 +40596,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -43705,7 +43705,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.128) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.128) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -44532,7 +44532,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.128) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.128) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -45589,7 +45589,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.128) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.128) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -46557,8 +46557,8 @@ entry:
   %id5 = getelementptr inbounds %"struct.Assimp::Blender::Object", ptr %2, i32 0, i32 1
   %name6 = getelementptr inbounds %"struct.Assimp::Blender::ID", ptr %id5, i32 0, i32 1
   %arraydecay7 = getelementptr inbounds [1024 x i8], ptr %name6, i64 0, i64 0
-  %call = call i64 @strlen(ptr noundef %arraydecay7) #18
-  %call8 = call i32 @strncmp(ptr noundef %arraydecay, ptr noundef %arraydecay4, i64 noundef %call) #18
+  %call = call i64 @strlen(ptr noundef %arraydecay7) #10
+  %call8 = call i32 @strncmp(ptr noundef %arraydecay, ptr noundef %arraydecay4, i64 noundef %call) #10
   %cmp = icmp slt i32 %call8, 0
   ret i1 %cmp
 }
@@ -46639,7 +46639,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.378", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #10
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.378", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -46823,11 +46823,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -48532,7 +48532,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -48731,11 +48731,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -49416,7 +49416,7 @@ delete.notnull:                                   ; preds = %catch
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %catch
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %delete.end
@@ -49580,7 +49580,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.128) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.128) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -50431,11 +50431,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -50664,7 +50664,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -52703,7 +52703,7 @@ catch:                                            ; preds = %lpad
   %7 = call ptr @__cxa_begin_catch(ptr %exn) #15
   %8 = load ptr, ptr %__node.addr, align 8
   call void @_ZNSt8_Rb_treeIiSt4pairIKimESt10_Select1stIS2_ESt4lessIiESaIS2_EE11_M_put_nodeEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %this5, ptr noundef %8) #15
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad7
 
 lpad7:                                            ; preds = %catch
@@ -52774,11 +52774,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -53139,7 +53139,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #10
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -53470,7 +53470,7 @@ catch:                                            ; preds = %lpad
   %7 = call ptr @__cxa_begin_catch(ptr %exn) #15
   %8 = load ptr, ptr %__node.addr, align 8
   call void @_ZNSt8_Rb_treeIiSt4pairIKimESt10_Select1stIS2_ESt4lessIiESaIS2_EE11_M_put_nodeEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %this5, ptr noundef %8) #15
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad7
 
 lpad7:                                            ; preds = %catch
@@ -53863,11 +53863,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -54723,7 +54723,7 @@ catch:                                            ; preds = %lpad
   %7 = call ptr @__cxa_begin_catch(ptr %exn) #15
   %8 = load ptr, ptr %__node.addr, align 8
   call void @_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE11_M_put_nodeEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %this5, ptr noundef %8) #15
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad7
 
 lpad7:                                            ; preds = %catch
@@ -54794,11 +54794,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -55138,7 +55138,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.395", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #10
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.395", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -55152,7 +55152,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.395", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #10
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.395", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -55495,7 +55495,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -57090,7 +57090,7 @@ catch:                                            ; preds = %lpad
   %5 = call ptr @__cxa_begin_catch(ptr %exn) #15
   %6 = load ptr, ptr %__node.addr, align 8
   call void @_ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4lessIjESaIS7_EE11_M_put_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %6) #15
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %catch
@@ -57332,7 +57332,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.267", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #10
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.267", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -57346,7 +57346,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.267", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #10
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.267", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -58163,7 +58163,7 @@ catch:                                            ; preds = %lpad
   %5 = call ptr @__cxa_begin_catch(ptr %exn) #15
   %6 = load ptr, ptr %__node.addr, align 8
   call void @_ZNSt8_Rb_treeIjSt4pairIKjSt3mapIjPKN6Assimp7Blender7MLoopUVESt4lessIjESaIS0_IS1_S7_EEEESt10_Select1stISD_ES9_SaISD_EE11_M_put_nodeEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %6) #15
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %catch
@@ -58234,11 +58234,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -58545,7 +58545,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.273", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #10
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.273", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -58559,7 +58559,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.273", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #10
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.273", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -59261,7 +59261,7 @@ catch:                                            ; preds = %lpad
   %7 = call ptr @__cxa_begin_catch(ptr %exn) #15
   %8 = load ptr, ptr %__node.addr, align 8
   call void @_ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4lessIjESaIS7_EE11_M_put_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %this5, ptr noundef %8) #15
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad7
 
 lpad7:                                            ; preds = %catch
@@ -60698,7 +60698,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.128) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.128) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -61199,7 +61199,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -61398,11 +61398,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -61614,7 +61614,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #19
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #18
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -61813,11 +61813,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -62824,7 +62824,7 @@ delete.notnull:                                   ; preds = %catch
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %catch
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %delete.end
@@ -63089,7 +63089,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -63127,7 +63127,7 @@ if.then10:                                        ; preds = %if.end
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %if.then10
-  call void @__cxa_throw(ptr %exception11, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #19
+  call void @__cxa_throw(ptr %exception11, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
 lpad12:                                           ; preds = %if.then10
@@ -63263,7 +63263,7 @@ delete.notnull:                                   ; preds = %catch
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %catch
-  invoke void @__cxa_rethrow() #19
+  invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %delete.end
@@ -63718,11 +63718,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -64617,11 +64617,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #19
+  call void @_ZSt28__throw_bad_array_new_lengthv() #18
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #19
+  call void @_ZSt17__throw_bad_allocv() #18
   unreachable
 
 if.end4:                                          ; preds = %entry
@@ -65255,7 +65255,7 @@ attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind memory(read) }
+attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -65263,8 +65263,7 @@ attributes #14 = { noreturn nounwind }
 attributes #15 = { nounwind }
 attributes #16 = { builtin allocsize(0) }
 attributes #17 = { builtin nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { noreturn }
+attributes #18 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

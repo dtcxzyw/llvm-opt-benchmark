@@ -21439,7 +21439,7 @@ invoke.cont153:                                   ; preds = %for.body152
           to label %invoke.cont155 unwind label %lpad9
 
 invoke.cont155:                                   ; preds = %invoke.cont153
-  %call157 = call i32 @strcmp(ptr noundef %call156, ptr noundef @.str.108) #24
+  %call157 = call i32 @strcmp(ptr noundef %call156, ptr noundef @.str.108) #20
   %cmp158 = icmp eq i32 %call157, 0
   br i1 %cmp158, label %if.then159, label %if.end175
 
@@ -21513,7 +21513,7 @@ invoke.cont176:                                   ; preds = %if.end175
           to label %invoke.cont180 unwind label %lpad9
 
 invoke.cont180:                                   ; preds = %invoke.cont176
-  %call182 = call i32 @strcmp(ptr noundef %call181, ptr noundef @.str.109) #24
+  %call182 = call i32 @strcmp(ptr noundef %call181, ptr noundef @.str.109) #20
   %cmp183 = icmp eq i32 %call182, 0
   br i1 %cmp183, label %if.then184, label %if.end203
 
@@ -24120,7 +24120,7 @@ invoke.cont7:                                     ; preds = %if.then6
 
 if.end8:                                          ; preds = %invoke.cont4
   %arraydecay9 = getelementptr inbounds [80 x i8], ptr %buffer, i64 0, i64 0
-  %call10 = call i32 @strcmp(ptr noundef %arraydecay9, ptr noundef @.str.124) #24
+  %call10 = call i32 @strcmp(ptr noundef %arraydecay9, ptr noundef @.str.124) #20
   %cmp11 = icmp eq i32 %call10, 0
   br i1 %cmp11, label %if.then12, label %if.else
 
@@ -24130,7 +24130,7 @@ if.then12:                                        ; preds = %if.end8
 
 if.else:                                          ; preds = %if.end8
   %arraydecay13 = getelementptr inbounds [80 x i8], ptr %buffer, i64 0, i64 0
-  %call14 = call i32 @strcmp(ptr noundef %arraydecay13, ptr noundef @.str.125) #24
+  %call14 = call i32 @strcmp(ptr noundef %arraydecay13, ptr noundef @.str.125) #20
   %cmp15 = icmp eq i32 %call14, 0
   br i1 %cmp15, label %if.then16, label %if.else17
 
@@ -32654,7 +32654,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.101", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #24
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #20
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.101", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -32780,7 +32780,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.103", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #24
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #20
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.103", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -33913,7 +33913,7 @@ entry:
   store ptr %agg.result, ptr %result.ptr, align 8
   store i64 %__num, ptr %__num.addr, align 8
   %0 = load i64, ptr %__num.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znam(i64 noundef %0) #25
+  %call = call noalias noundef nonnull ptr @_Znam(i64 noundef %0) #24
   call void @llvm.memset.p0.i64(ptr align 1 %call, i8 0, i64 %0, i1 false)
   call void @_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EEC2IPhS2_vbEET_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call) #4
   ret void
@@ -34412,7 +34412,7 @@ entry:
   %2 = extractvalue { i64, i1 } %1, 1
   %3 = extractvalue { i64, i1 } %1, 0
   %4 = select i1 %2, i64 -1, i64 %3
-  %call = call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #25
+  %call = call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #24
   call void @llvm.memset.p0.i64(ptr align 4 %call, i8 0, i64 %4, i1 false)
   call void @_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EEC2IPfS2_vbEET_(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef %call) #4
   ret void
@@ -42727,7 +42727,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 96
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -42870,7 +42870,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #26
+  call void @_ZdlPv(ptr noundef %0) #25
   ret void
 }
 
@@ -43759,7 +43759,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 88
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -44284,7 +44284,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 32
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -44640,7 +44640,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #26
+  call void @_ZdlPv(ptr noundef %0) #25
   ret void
 }
 
@@ -44670,7 +44670,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #26
+  call void @_ZdlPv(ptr noundef %0) #25
   ret void
 }
 
@@ -46471,7 +46471,7 @@ entry:
   ret ptr %call
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #20
 
 ; Function Attrs: mustprogress uwtable
@@ -46746,7 +46746,7 @@ entry:
   %call = call noundef ptr @_ZNK7Imf_2_54NamedeEv(ptr noundef nonnull align 1 dereferenceable(256) %0)
   %1 = load ptr, ptr %y.addr, align 8
   %call1 = call noundef ptr @_ZNK7Imf_2_54NamedeEv(ptr noundef nonnull align 1 dereferenceable(256) %1)
-  %call2 = call i32 @strcmp(ptr noundef %call, ptr noundef %call1) #24
+  %call2 = call i32 @strcmp(ptr noundef %call, ptr noundef %call1) #20
   %cmp = icmp slt i32 %call2, 0
   ret i1 %cmp
 }
@@ -47937,7 +47937,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.138", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #24
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #20
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.138", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -47951,7 +47951,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.138", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #24
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #20
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.138", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -49095,7 +49095,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.148", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #24
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #20
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.148", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -49109,7 +49109,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.148", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #24
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #20
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.148", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -50006,7 +50006,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.131", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #24
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #20
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.131", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -52840,7 +52840,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.132", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #24
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #20
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.132", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -54884,7 +54884,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #24
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #20
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -54900,7 +54900,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_2_514TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #4
-  call void @_ZdlPv(ptr noundef %this1) #26
+  call void @_ZdlPv(ptr noundef %this1) #25
   ret void
 }
 
@@ -54922,7 +54922,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #24
   call void @llvm.memset.p0.i64(ptr align 16 %call, i8 0, i64 40, i1 false)
   invoke void @_ZN7Imf_2_514TypedAttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %call)
           to label %invoke.cont unwind label %lpad
@@ -54944,7 +54944,7 @@ lpad:                                             ; preds = %entry
   store ptr %4, ptr %exn.slot, align 8
   %5 = extractvalue { ptr, i32 } %3, 1
   store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #26
+  call void @_ZdlPv(ptr noundef %call) #25
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -55054,7 +55054,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_2_514TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #4
-  call void @_ZdlPv(ptr noundef %this1) #26
+  call void @_ZdlPv(ptr noundef %this1) #25
   ret void
 }
 
@@ -55076,7 +55076,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #24
   call void @llvm.memset.p0.i64(ptr align 16 %call, i8 0, i64 32, i1 false)
   invoke void @_ZN7Imf_2_514TypedAttributeISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %call)
           to label %invoke.cont unwind label %lpad
@@ -55098,7 +55098,7 @@ lpad:                                             ; preds = %entry
   store ptr %4, ptr %exn.slot, align 8
   %5 = extractvalue { ptr, i32 } %3, 1
   store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #26
+  call void @_ZdlPv(ptr noundef %call) #25
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -55411,7 +55411,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #26
+  call void @_ZdlPv(ptr noundef %0) #25
   ret void
 }
 
@@ -56128,7 +56128,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #26
+  call void @_ZdlPv(ptr noundef %0) #25
   ret void
 }
 
@@ -66630,7 +66630,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 4
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -66872,7 +66872,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #26
+  call void @_ZdlPv(ptr noundef %0) #25
   ret void
 }
 
@@ -67048,7 +67048,7 @@ entry:
   %__f.addr = alloca ptr, align 8
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #24
   %0 = load ptr, ptr %__f.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %call, ptr align 8 %0, i64 48, i1 false)
   %1 = load ptr, ptr %__dest.addr, align 8
@@ -67390,7 +67390,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdlPv(ptr noundef %1) #26
+  call void @_ZdlPv(ptr noundef %1) #25
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -67404,7 +67404,7 @@ entry:
   %__f.addr = alloca ptr, align 8
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #24
   %0 = load ptr, ptr %__f.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %call, ptr align 8 %0, i64 48, i1 false)
   %1 = load ptr, ptr %__dest.addr, align 8
@@ -67498,7 +67498,7 @@ entry:
   %__f.addr = alloca ptr, align 8
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #24
   %0 = load ptr, ptr %__f.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %call, ptr align 8 %0, i64 56, i1 false)
   %1 = load ptr, ptr %__dest.addr, align 8
@@ -67840,7 +67840,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdlPv(ptr noundef %1) #26
+  call void @_ZdlPv(ptr noundef %1) #25
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -67854,7 +67854,7 @@ entry:
   %__f.addr = alloca ptr, align 8
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #24
   %0 = load ptr, ptr %__f.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %call, ptr align 8 %0, i64 56, i1 false)
   %1 = load ptr, ptr %__dest.addr, align 8
@@ -69503,7 +69503,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 20
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -69753,7 +69753,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #26
+  call void @_ZdlPv(ptr noundef %0) #25
   ret void
 }
 
@@ -71496,7 +71496,7 @@ entry:
   %__f.addr = alloca ptr, align 8
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #24
   %0 = load ptr, ptr %__f.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %call, ptr align 8 %0, i64 40, i1 false)
   %1 = load ptr, ptr %__dest.addr, align 8
@@ -72577,7 +72577,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdlPv(ptr noundef %1) #26
+  call void @_ZdlPv(ptr noundef %1) #25
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -72591,7 +72591,7 @@ entry:
   %__f.addr = alloca ptr, align 8
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #24
   %0 = load ptr, ptr %__f.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %call, ptr align 8 %0, i64 40, i1 false)
   %1 = load ptr, ptr %__dest.addr, align 8
@@ -73158,7 +73158,7 @@ entry:
   %__f.addr = alloca ptr, align 8
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #24
   %0 = load ptr, ptr %__f.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %call, ptr align 8 %0, i64 56, i1 false)
   %1 = load ptr, ptr %__dest.addr, align 8
@@ -73529,7 +73529,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdlPv(ptr noundef %1) #26
+  call void @_ZdlPv(ptr noundef %1) #25
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -73543,7 +73543,7 @@ entry:
   %__f.addr = alloca ptr, align 8
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #24
   %0 = load ptr, ptr %__f.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %call, ptr align 8 %0, i64 56, i1 false)
   %1 = load ptr, ptr %__dest.addr, align 8
@@ -78148,7 +78148,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #25
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
   ret ptr %call5
 }
 
@@ -78381,7 +78381,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #26
+  call void @_ZdlPv(ptr noundef %0) #25
   ret void
 }
 
@@ -85545,7 +85545,7 @@ entry:
   %__f.addr = alloca ptr, align 8
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #24
   %0 = load ptr, ptr %__f.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %call, ptr align 8 %0, i64 64, i1 false)
   %1 = load ptr, ptr %__dest.addr, align 8
@@ -86183,7 +86183,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdlPv(ptr noundef %1) #26
+  call void @_ZdlPv(ptr noundef %1) #25
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -86197,7 +86197,7 @@ entry:
   %__f.addr = alloca ptr, align 8
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #24
   %0 = load ptr, ptr %__f.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %call, ptr align 8 %0, i64 64, i1 false)
   %1 = load ptr, ptr %__dest.addr, align 8
@@ -89016,7 +89016,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_2_514TypedAttributeIfED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #4
-  call void @_ZdlPv(ptr noundef %this1) #26
+  call void @_ZdlPv(ptr noundef %this1) #25
   ret void
 }
 
@@ -89038,7 +89038,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #24
   call void @llvm.memset.p0.i64(ptr align 16 %call, i8 0, i64 16, i1 false)
   invoke void @_ZN7Imf_2_514TypedAttributeIfEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %call)
           to label %invoke.cont unwind label %lpad
@@ -89060,7 +89060,7 @@ lpad:                                             ; preds = %entry
   store ptr %4, ptr %exn.slot, align 8
   %5 = extractvalue { ptr, i32 } %3, 1
   store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #26
+  call void @_ZdlPv(ptr noundef %call) #25
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -89489,7 +89489,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix44IfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #4
-  call void @_ZdlPv(ptr noundef %this1) #26
+  call void @_ZdlPv(ptr noundef %this1) #25
   ret void
 }
 
@@ -89511,7 +89511,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #24
   call void @llvm.memset.p0.i64(ptr align 16 %call, i8 0, i64 72, i1 false)
   invoke void @_ZN7Imf_2_514TypedAttributeIN9Imath_2_58Matrix44IfEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %call)
           to label %invoke.cont unwind label %lpad
@@ -89533,7 +89533,7 @@ lpad:                                             ; preds = %entry
   store ptr %4, ptr %exn.slot, align 8
   %5 = extractvalue { ptr, i32 } %3, 1
   store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #26
+  call void @_ZdlPv(ptr noundef %call) #25
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -89836,7 +89836,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_2_514TypedAttributeIiED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #4
-  call void @_ZdlPv(ptr noundef %this1) #26
+  call void @_ZdlPv(ptr noundef %this1) #25
   ret void
 }
 
@@ -89858,7 +89858,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #24
   call void @llvm.memset.p0.i64(ptr align 16 %call, i8 0, i64 16, i1 false)
   invoke void @_ZN7Imf_2_514TypedAttributeIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %call)
           to label %invoke.cont unwind label %lpad
@@ -89880,7 +89880,7 @@ lpad:                                             ; preds = %entry
   store ptr %4, ptr %exn.slot, align 8
   %5 = extractvalue { ptr, i32 } %3, 1
   store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #26
+  call void @_ZdlPv(ptr noundef %call) #25
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -90206,7 +90206,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_2_514TypedAttributeINS_14ChromaticitiesEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #4
-  call void @_ZdlPv(ptr noundef %this1) #26
+  call void @_ZdlPv(ptr noundef %this1) #25
   ret void
 }
 
@@ -90228,7 +90228,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #25
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #24
   call void @llvm.memset.p0.i64(ptr align 16 %call, i8 0, i64 40, i1 false)
   invoke void @_ZN7Imf_2_514TypedAttributeINS_14ChromaticitiesEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %call)
           to label %invoke.cont unwind label %lpad
@@ -90250,7 +90250,7 @@ lpad:                                             ; preds = %entry
   store ptr %4, ptr %exn.slot, align 8
   %5 = extractvalue { ptr, i32 } %3, 1
   store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #26
+  call void @_ZdlPv(ptr noundef %call) #25
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -93300,7 +93300,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdaPv(ptr noundef %0) #26
+  call void @_ZdaPv(ptr noundef %0) #25
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -94149,7 +94149,7 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  call void @_ZdaPv(ptr noundef %0) #26
+  call void @_ZdaPv(ptr noundef %0) #25
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -95346,13 +95346,12 @@ attributes #16 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="
 attributes #17 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #18 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #19 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
-attributes #20 = { nounwind memory(read) }
+attributes #20 = { nounwind willreturn memory(read) }
 attributes #21 = { nounwind allocsize(0) }
 attributes #22 = { noreturn }
 attributes #23 = { noreturn nounwind }
-attributes #24 = { nounwind willreturn memory(read) }
-attributes #25 = { builtin allocsize(0) }
-attributes #26 = { builtin nounwind }
+attributes #24 = { builtin allocsize(0) }
+attributes #25 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

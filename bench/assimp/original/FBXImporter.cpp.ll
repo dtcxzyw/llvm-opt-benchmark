@@ -1004,7 +1004,7 @@ invoke.cont23:                                    ; preds = %invoke.cont15
 invoke.cont33:                                    ; preds = %invoke.cont23
   store i8 0, ptr %is_binary, align 1
   %15 = load ptr, ptr %begin, align 8
-  %call34 = call i32 @strncmp(ptr noundef %15, ptr noundef @.str.20, i64 noundef 18) #16
+  %call34 = call i32 @strncmp(ptr noundef %15, ptr noundef @.str.20, i64 noundef 18) #8
   %tobool = icmp ne i32 %call34, 0
   br i1 %tobool, label %if.else, label %if.then35
 
@@ -1171,7 +1171,7 @@ catch:                                            ; preds = %catch.dispatch
           to label %invoke.cont79 unwind label %lpad78
 
 invoke.cont79:                                    ; preds = %catch
-  invoke void @__cxa_rethrow() #17
+  invoke void @__cxa_rethrow() #16
           to label %unreachable unwind label %lpad78
 
 lpad78:                                           ; preds = %invoke.cont79, %catch
@@ -1274,7 +1274,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.27) #17
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.27) #16
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -1378,7 +1378,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #17
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #16
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -1647,7 +1647,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #17
+  call void @__cxa_throw(ptr %exception, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev) #16
   unreachable
 
 lpad:                                             ; preds = %entry
@@ -2097,7 +2097,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp11FBXImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(87) %this1) #15
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -2429,7 +2429,7 @@ entry:
   ret ptr %value
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2499,7 +2499,7 @@ for.body:                                         ; preds = %for.cond
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  call void @_ZdaPv(ptr noundef %2) #18
+  call void @_ZdaPv(ptr noundef %2) #17
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
@@ -2853,7 +2853,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -3063,7 +3063,7 @@ if.end:                                           ; preds = %invoke.cont18, %if.
           to label %invoke.cont19 unwind label %lpad17
 
 invoke.cont19:                                    ; preds = %if.end
-  invoke void @__cxa_rethrow() #17
+  invoke void @__cxa_rethrow() #16
           to label %unreachable unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %lpad17
@@ -3167,7 +3167,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #17
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #16
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -3561,17 +3561,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #17
+  call void @_ZSt28__throw_bad_array_new_lengthv() #16
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #17
+  call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 32
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #18
   ret ptr %call5
 }
 
@@ -3802,7 +3802,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -4652,7 +4652,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN17DeadlyImportErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -4969,7 +4969,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -5084,7 +5084,7 @@ catch:                                            ; preds = %lpad
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %catch
-  invoke void @__cxa_rethrow() #17
+  invoke void @__cxa_rethrow() #16
           to label %unreachable unwind label %lpad23
 
 lpad23:                                           ; preds = %invoke.cont24, %catch
@@ -5254,7 +5254,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #17
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #16
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -5608,17 +5608,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #17
+  call void @_ZSt28__throw_bad_array_new_lengthv() #16
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #17
+  call void @_ZSt17__throw_bad_allocv() #16
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 1
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #18
   ret ptr %call5
 }
 
@@ -5852,7 +5852,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -6108,7 +6108,7 @@ attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind memory(none) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind memory(read) }
+attributes #8 = { nounwind willreturn memory(read) }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6116,10 +6116,9 @@ attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrit
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { noreturn nounwind }
 attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { noreturn }
-attributes #18 = { builtin nounwind }
-attributes #19 = { builtin allocsize(0) }
+attributes #16 = { noreturn }
+attributes #17 = { builtin nounwind }
+attributes #18 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

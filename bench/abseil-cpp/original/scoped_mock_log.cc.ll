@@ -8271,7 +8271,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -9902,7 +9902,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.65) #20
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.65) #19
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -14863,7 +14863,7 @@ if.then4:                                         ; preds = %invoke.cont
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.then4
-  invoke void @__cxa_throw(ptr %exception, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #20
+  invoke void @__cxa_throw(ptr %exception, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #19
           to label %unreachable unwind label %lpad
 
 lpad:                                             ; preds = %if.end7, %invoke.cont6, %if.end
@@ -15379,7 +15379,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #19
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -16216,7 +16216,7 @@ if.then4:                                         ; preds = %if.end
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then4
-  invoke void @__cxa_throw(ptr %exception, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #20
+  invoke void @__cxa_throw(ptr %exception, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #19
           to label %unreachable unwind label %lpad5
 
 lpad:                                             ; preds = %if.then4
@@ -16451,7 +16451,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #19
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -18720,7 +18720,7 @@ entry:
   %0 = load ptr, ptr %file.addr, align 8
   %1 = load i32, ptr %line.addr, align 4
   call void @_ZN7testing4Mock31RegisterUseByOnCallOrExpectCallEPKvPKci(ptr noundef %call, ptr noundef %0, i32 noundef %1)
-  %call2 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 400) #21
+  %call2 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 400) #20
   %2 = load ptr, ptr %file.addr, align 8
   %3 = load i32, ptr %line.addr, align 4
   %4 = load ptr, ptr %source_text.addr, align 8
@@ -19523,7 +19523,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_pi = getelementptr inbounds %"class.std::__shared_count", ptr %this1, i32 0, i32 0
   store ptr null, ptr %_M_pi, align 8
-  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #21
+  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -19557,7 +19557,7 @@ delete.notnull:                                   ; preds = %catch
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %catch
-  invoke void @__cxa_rethrow() #20
+  invoke void @__cxa_rethrow() #19
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %delete.end
@@ -20013,7 +20013,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #20
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #19
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -20360,17 +20360,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #20
+  call void @_ZSt28__throw_bad_array_new_lengthv() #19
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #20
+  call void @_ZSt17__throw_bad_allocv() #19
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 16
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #21
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
   ret ptr %call5
 }
 
@@ -20832,7 +20832,7 @@ entry:
 ; Function Attrs: nounwind
 declare i32 @pthread_setspecific(i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -20937,7 +20937,7 @@ entry:
   %0 = load ptr, ptr %file.addr, align 8
   %1 = load i32, ptr %line.addr, align 4
   call void @_ZN7testing4Mock31RegisterUseByOnCallOrExpectCallEPKvPKci(ptr noundef %call, ptr noundef %0, i32 noundef %1)
-  %call2 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 352) #21
+  %call2 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 352) #20
   %2 = load ptr, ptr %file.addr, align 8
   %3 = load i32, ptr %line.addr, align 4
   %4 = load ptr, ptr %source_text.addr, align 8
@@ -21649,7 +21649,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_pi = getelementptr inbounds %"class.std::__shared_count", ptr %this1, i32 0, i32 0
   store ptr null, ptr %_M_pi, align 8
-  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #21
+  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -21683,7 +21683,7 @@ delete.notnull:                                   ; preds = %catch
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %catch
-  invoke void @__cxa_rethrow() #20
+  invoke void @__cxa_rethrow() #19
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %delete.end
@@ -23081,7 +23081,7 @@ if.then4:                                         ; preds = %if.end
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then4
-  invoke void @__cxa_throw(ptr %exception, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #20
+  invoke void @__cxa_throw(ptr %exception, ptr @_ZTISt13runtime_error, ptr @_ZNSt13runtime_errorD1Ev) #19
           to label %unreachable unwind label %lpad5
 
 lpad:                                             ; preds = %if.then4
@@ -23346,7 +23346,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZSt25__throw_bad_function_callv() #20
+  call void @_ZSt25__throw_bad_function_callv() #19
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -23920,7 +23920,7 @@ entry:
   %0 = load ptr, ptr %file.addr, align 8
   %1 = load i32, ptr %line.addr, align 4
   call void @_ZN7testing4Mock31RegisterUseByOnCallOrExpectCallEPKvPKci(ptr noundef %call, ptr noundef %0, i32 noundef %1)
-  %call2 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 336) #21
+  %call2 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 336) #20
   %2 = load ptr, ptr %file.addr, align 8
   %3 = load i32, ptr %line.addr, align 4
   %4 = load ptr, ptr %source_text.addr, align 8
@@ -24611,7 +24611,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_pi = getelementptr inbounds %"class.std::__shared_count", ptr %this1, i32 0, i32 0
   store ptr null, ptr %_M_pi, align 8
-  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #21
+  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #20
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -24645,7 +24645,7 @@ delete.notnull:                                   ; preds = %catch
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %catch
-  invoke void @__cxa_rethrow() #20
+  invoke void @__cxa_rethrow() #19
           to label %unreachable unwind label %lpad3
 
 lpad3:                                            ; preds = %delete.end
@@ -24791,13 +24791,12 @@ attributes #11 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-tr
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind memory(read) }
+attributes #15 = { nounwind willreturn memory(read) }
 attributes #16 = { noreturn nounwind }
 attributes #17 = { builtin nounwind }
 attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { noreturn }
-attributes #21 = { builtin allocsize(0) }
+attributes #19 = { noreturn }
+attributes #20 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

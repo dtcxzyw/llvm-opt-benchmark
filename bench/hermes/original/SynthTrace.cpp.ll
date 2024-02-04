@@ -1592,7 +1592,7 @@ invoke.cont10:                                    ; preds = %invoke.cont
 
 cond.true.i:                                      ; preds = %invoke.cont10
   %3 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %3) #14
+  %call.i = call i64 @strlen(ptr noundef %3) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %invoke.cont10
@@ -1631,7 +1631,7 @@ invoke.cont17:                                    ; preds = %invoke.cont15
 
 cond.true.i283:                                   ; preds = %invoke.cont17
   %10 = load ptr, ptr %Str.addr.i277, align 8
-  %call.i284 = call i64 @strlen(ptr noundef %10) #14
+  %call.i284 = call i64 @strlen(ptr noundef %10) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit285
 
 cond.false.i281:                                  ; preds = %invoke.cont17
@@ -1666,7 +1666,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
 
 cond.true.i293:                                   ; preds = %invoke.cont23
   %17 = load ptr, ptr %Str.addr.i287, align 8
-  %call.i294 = call i64 @strlen(ptr noundef %17) #14
+  %call.i294 = call i64 @strlen(ptr noundef %17) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit295
 
 cond.false.i291:                                  ; preds = %invoke.cont23
@@ -1706,7 +1706,7 @@ invoke.cont31:                                    ; preds = %invoke.cont28
 
 cond.true.i303:                                   ; preds = %invoke.cont31
   %24 = load ptr, ptr %Str.addr.i297, align 8
-  %call.i304 = call i64 @strlen(ptr noundef %24) #14
+  %call.i304 = call i64 @strlen(ptr noundef %24) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit305
 
 cond.false.i301:                                  ; preds = %invoke.cont31
@@ -1746,7 +1746,7 @@ invoke.cont39:                                    ; preds = %invoke.cont36
 
 cond.true.i313:                                   ; preds = %invoke.cont39
   %31 = load ptr, ptr %Str.addr.i307, align 8
-  %call.i314 = call i64 @strlen(ptr noundef %31) #14
+  %call.i314 = call i64 @strlen(ptr noundef %31) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit315
 
 cond.false.i311:                                  ; preds = %invoke.cont39
@@ -1791,7 +1791,7 @@ invoke.cont50:                                    ; preds = %invoke.cont48
 
 cond.true.i323:                                   ; preds = %invoke.cont50
   %39 = load ptr, ptr %Str.addr.i317, align 8
-  %call.i324 = call i64 @strlen(ptr noundef %39) #14
+  %call.i324 = call i64 @strlen(ptr noundef %39) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit325
 
 cond.false.i321:                                  ; preds = %invoke.cont50
@@ -1836,7 +1836,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
 
 cond.true.i333:                                   ; preds = %invoke.cont61
   %47 = load ptr, ptr %Str.addr.i327, align 8
-  %call.i334 = call i64 @strlen(ptr noundef %47) #14
+  %call.i334 = call i64 @strlen(ptr noundef %47) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit335
 
 cond.false.i331:                                  ; preds = %invoke.cont61
@@ -1881,7 +1881,7 @@ invoke.cont72:                                    ; preds = %invoke.cont70
 
 cond.true.i343:                                   ; preds = %invoke.cont72
   %55 = load ptr, ptr %Str.addr.i337, align 8
-  %call.i344 = call i64 @strlen(ptr noundef %55) #14
+  %call.i344 = call i64 @strlen(ptr noundef %55) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit345
 
 cond.false.i341:                                  ; preds = %invoke.cont72
@@ -1926,7 +1926,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
 
 cond.true.i353:                                   ; preds = %invoke.cont83
   %63 = load ptr, ptr %Str.addr.i347, align 8
-  %call.i354 = call i64 @strlen(ptr noundef %63) #14
+  %call.i354 = call i64 @strlen(ptr noundef %63) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit355
 
 cond.false.i351:                                  ; preds = %invoke.cont83
@@ -1971,7 +1971,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
 
 cond.true.i363:                                   ; preds = %invoke.cont94
   %71 = load ptr, ptr %Str.addr.i357, align 8
-  %call.i364 = call i64 @strlen(ptr noundef %71) #14
+  %call.i364 = call i64 @strlen(ptr noundef %71) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit365
 
 cond.false.i361:                                  ; preds = %invoke.cont94
@@ -2020,7 +2020,7 @@ invoke.cont107:                                   ; preds = %invoke.cont105
 
 cond.true.i373:                                   ; preds = %invoke.cont107
   %79 = load ptr, ptr %Str.addr.i367, align 8
-  %call.i374 = call i64 @strlen(ptr noundef %79) #14
+  %call.i374 = call i64 @strlen(ptr noundef %79) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit375
 
 cond.false.i371:                                  ; preds = %invoke.cont107
@@ -2065,7 +2065,7 @@ invoke.cont118:                                   ; preds = %invoke.cont116
 
 cond.true.i383:                                   ; preds = %invoke.cont118
   %87 = load ptr, ptr %Str.addr.i377, align 8
-  %call.i384 = call i64 @strlen(ptr noundef %87) #14
+  %call.i384 = call i64 @strlen(ptr noundef %87) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit385
 
 cond.false.i381:                                  ; preds = %invoke.cont118
@@ -2111,7 +2111,7 @@ invoke.cont129:                                   ; preds = %invoke.cont127
 
 cond.true.i393:                                   ; preds = %invoke.cont129
   %95 = load ptr, ptr %Str.addr.i387, align 8
-  %call.i394 = call i64 @strlen(ptr noundef %95) #14
+  %call.i394 = call i64 @strlen(ptr noundef %95) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit395
 
 cond.false.i391:                                  ; preds = %invoke.cont129
@@ -2163,7 +2163,7 @@ invoke.cont146:                                   ; preds = %invoke.cont142
 
 cond.true.i403:                                   ; preds = %invoke.cont146
   %103 = load ptr, ptr %Str.addr.i397, align 8
-  %call.i404 = call i64 @strlen(ptr noundef %103) #14
+  %call.i404 = call i64 @strlen(ptr noundef %103) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit405
 
 cond.false.i401:                                  ; preds = %invoke.cont146
@@ -2203,7 +2203,7 @@ invoke.cont154:                                   ; preds = %invoke.cont152
 
 cond.true.i413:                                   ; preds = %invoke.cont154
   %111 = load ptr, ptr %Str.addr.i407, align 8
-  %call.i414 = call i64 @strlen(ptr noundef %111) #14
+  %call.i414 = call i64 @strlen(ptr noundef %111) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit415
 
 cond.false.i411:                                  ; preds = %invoke.cont154
@@ -2244,7 +2244,7 @@ invoke.cont163:                                   ; preds = %invoke.cont160
 
 cond.true.i423:                                   ; preds = %invoke.cont163
   %119 = load ptr, ptr %Str.addr.i417, align 8
-  %call.i424 = call i64 @strlen(ptr noundef %119) #14
+  %call.i424 = call i64 @strlen(ptr noundef %119) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit425
 
 cond.false.i421:                                  ; preds = %invoke.cont163
@@ -2285,7 +2285,7 @@ invoke.cont172:                                   ; preds = %invoke.cont169
 
 cond.true.i433:                                   ; preds = %invoke.cont172
   %127 = load ptr, ptr %Str.addr.i427, align 8
-  %call.i434 = call i64 @strlen(ptr noundef %127) #14
+  %call.i434 = call i64 @strlen(ptr noundef %127) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit435
 
 cond.false.i431:                                  ; preds = %invoke.cont172
@@ -2326,7 +2326,7 @@ invoke.cont181:                                   ; preds = %invoke.cont178
 
 cond.true.i443:                                   ; preds = %invoke.cont181
   %135 = load ptr, ptr %Str.addr.i437, align 8
-  %call.i444 = call i64 @strlen(ptr noundef %135) #14
+  %call.i444 = call i64 @strlen(ptr noundef %135) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit445
 
 cond.false.i441:                                  ; preds = %invoke.cont181
@@ -2367,7 +2367,7 @@ invoke.cont190:                                   ; preds = %invoke.cont187
 
 cond.true.i453:                                   ; preds = %invoke.cont190
   %143 = load ptr, ptr %Str.addr.i447, align 8
-  %call.i454 = call i64 @strlen(ptr noundef %143) #14
+  %call.i454 = call i64 @strlen(ptr noundef %143) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit455
 
 cond.false.i451:                                  ; preds = %invoke.cont190
@@ -2408,7 +2408,7 @@ invoke.cont199:                                   ; preds = %invoke.cont196
 
 cond.true.i463:                                   ; preds = %invoke.cont199
   %151 = load ptr, ptr %Str.addr.i457, align 8
-  %call.i464 = call i64 @strlen(ptr noundef %151) #14
+  %call.i464 = call i64 @strlen(ptr noundef %151) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit465
 
 cond.false.i461:                                  ; preds = %invoke.cont199
@@ -2454,7 +2454,7 @@ invoke.cont210:                                   ; preds = %invoke.cont207
 
 cond.true.i473:                                   ; preds = %invoke.cont210
   %159 = load ptr, ptr %Str.addr.i467, align 8
-  %call.i474 = call i64 @strlen(ptr noundef %159) #14
+  %call.i474 = call i64 @strlen(ptr noundef %159) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit475
 
 cond.false.i471:                                  ; preds = %invoke.cont210
@@ -2494,7 +2494,7 @@ invoke.cont218:                                   ; preds = %invoke.cont215
 
 cond.true.i483:                                   ; preds = %invoke.cont218
   %166 = load ptr, ptr %Str.addr.i477, align 8
-  %call.i484 = call i64 @strlen(ptr noundef %166) #14
+  %call.i484 = call i64 @strlen(ptr noundef %166) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit485
 
 cond.false.i481:                                  ; preds = %invoke.cont218
@@ -2529,7 +2529,7 @@ invoke.cont224:                                   ; preds = %invoke.cont222
 
 cond.true.i493:                                   ; preds = %invoke.cont224
   %173 = load ptr, ptr %Str.addr.i487, align 8
-  %call.i494 = call i64 @strlen(ptr noundef %173) #14
+  %call.i494 = call i64 @strlen(ptr noundef %173) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit495
 
 cond.false.i491:                                  ; preds = %invoke.cont224
@@ -2564,7 +2564,7 @@ invoke.cont230:                                   ; preds = %invoke.cont228
 
 cond.true.i503:                                   ; preds = %invoke.cont230
   %180 = load ptr, ptr %Str.addr.i497, align 8
-  %call.i504 = call i64 @strlen(ptr noundef %180) #14
+  %call.i504 = call i64 @strlen(ptr noundef %180) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit505
 
 cond.false.i501:                                  ; preds = %invoke.cont230
@@ -2599,7 +2599,7 @@ invoke.cont236:                                   ; preds = %invoke.cont234
 
 cond.true.i513:                                   ; preds = %invoke.cont236
   %187 = load ptr, ptr %Str.addr.i507, align 8
-  %call.i514 = call i64 @strlen(ptr noundef %187) #14
+  %call.i514 = call i64 @strlen(ptr noundef %187) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit515
 
 cond.false.i511:                                  ; preds = %invoke.cont236
@@ -2634,7 +2634,7 @@ invoke.cont242:                                   ; preds = %invoke.cont240
 
 cond.true.i523:                                   ; preds = %invoke.cont242
   %194 = load ptr, ptr %Str.addr.i517, align 8
-  %call.i524 = call i64 @strlen(ptr noundef %194) #14
+  %call.i524 = call i64 @strlen(ptr noundef %194) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit525
 
 cond.false.i521:                                  ; preds = %invoke.cont242
@@ -2669,7 +2669,7 @@ invoke.cont248:                                   ; preds = %invoke.cont246
 
 cond.true.i533:                                   ; preds = %invoke.cont248
   %201 = load ptr, ptr %Str.addr.i527, align 8
-  %call.i534 = call i64 @strlen(ptr noundef %201) #14
+  %call.i534 = call i64 @strlen(ptr noundef %201) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit535
 
 cond.false.i531:                                  ; preds = %invoke.cont248
@@ -2704,7 +2704,7 @@ invoke.cont254:                                   ; preds = %invoke.cont252
 
 cond.true.i543:                                   ; preds = %invoke.cont254
   %208 = load ptr, ptr %Str.addr.i537, align 8
-  %call.i544 = call i64 @strlen(ptr noundef %208) #14
+  %call.i544 = call i64 @strlen(ptr noundef %208) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit545
 
 cond.false.i541:                                  ; preds = %invoke.cont254
@@ -2745,7 +2745,7 @@ invoke.cont263:                                   ; preds = %invoke.cont260
 
 cond.true.i553:                                   ; preds = %invoke.cont263
   %215 = load ptr, ptr %Str.addr.i547, align 8
-  %call.i554 = call i64 @strlen(ptr noundef %215) #14
+  %call.i554 = call i64 @strlen(ptr noundef %215) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit555
 
 cond.false.i551:                                  ; preds = %invoke.cont263
@@ -2962,7 +2962,7 @@ entry:
   store ptr %agg.result, ptr %result.ptr, align 8
   store ptr %__args, ptr %__args.addr, align 8
   store ptr %__args1, ptr %__args.addr2, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #15
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #14
   %0 = load ptr, ptr %__args.addr, align 8
   %1 = load ptr, ptr %__args.addr2, align 8
   %2 = load i8, ptr %1, align 1
@@ -2981,7 +2981,7 @@ lpad:                                             ; preds = %entry
   store ptr %4, ptr %exn.slot, align 8
   %5 = extractvalue { ptr, i32 } %3, 1
   store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call) #16
+  call void @_ZdlPv(ptr noundef %call) #15
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad
@@ -3533,7 +3533,7 @@ terminate.lpad:                                   ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 }
 
@@ -3571,7 +3571,7 @@ terminate.lpad:                                   ; preds = %if.then
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #17
+  call void @__clang_call_terminate(ptr %6) #16
   unreachable
 }
 
@@ -4391,7 +4391,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.150) #18
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.150) #17
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -5336,7 +5336,7 @@ land.rhs:                                         ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %land.rhs
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %land.rhs
@@ -5407,11 +5407,11 @@ terminate.lpad:                                   ; preds = %land.rhs
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #17
+  call void @__clang_call_terminate(ptr %7) #16
   unreachable
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #4
 
 declare void @__cxa_bad_cast()
@@ -5456,7 +5456,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -5539,7 +5539,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -5590,7 +5590,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -5634,7 +5634,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -5678,7 +5678,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -5744,7 +5744,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -5810,7 +5810,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -5878,7 +5878,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -5949,7 +5949,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -6009,7 +6009,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -6074,7 +6074,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -6129,7 +6129,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -6186,7 +6186,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -6243,7 +6243,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -6310,7 +6310,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -6470,7 +6470,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -6509,7 +6509,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -6627,7 +6627,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -6692,7 +6692,7 @@ land.rhs:                                         ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %land.rhs
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %land.rhs
@@ -6730,7 +6730,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -6774,7 +6774,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -6860,7 +6860,7 @@ if.end:                                           ; preds = %entry
   br i1 %3, label %dynamic_cast.bad_cast, label %dynamic_cast.end
 
 dynamic_cast.bad_cast:                            ; preds = %if.end
-  call void @__cxa_bad_cast() #18
+  call void @__cxa_bad_cast() #17
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
@@ -6948,7 +6948,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
 
 cond.true.i:                                      ; preds = %invoke.cont8
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %invoke.cont8
@@ -6981,7 +6981,7 @@ invoke.cont10:                                    ; preds = %invoke.cont9
 
 cond.true.i24:                                    ; preds = %invoke.cont10
   %12 = load ptr, ptr %Str.addr.i18, align 8
-  %call.i25 = call i64 @strlen(ptr noundef %12) #14
+  %call.i25 = call i64 @strlen(ptr noundef %12) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit26
 
 cond.false.i22:                                   ; preds = %invoke.cont10
@@ -7317,7 +7317,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %3 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %3) #14
+  %call.i = call i64 @strlen(ptr noundef %3) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -7421,7 +7421,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -7465,7 +7465,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -7519,7 +7519,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -7547,7 +7547,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
 
 cond.true.i15:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
   %12 = load ptr, ptr %Str.addr.i9, align 8
-  %call.i16 = call i64 @strlen(ptr noundef %12) #14
+  %call.i16 = call i64 @strlen(ptr noundef %12) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit17
 
 cond.false.i13:                                   ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -7581,7 +7581,7 @@ invoke.cont:                                      ; preds = %_ZN4llvh9StringRefC
 
 cond.true.i25:                                    ; preds = %invoke.cont
   %21 = load ptr, ptr %Str.addr.i19, align 8
-  %call.i26 = call i64 @strlen(ptr noundef %21) #14
+  %call.i26 = call i64 @strlen(ptr noundef %21) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit27
 
 cond.false.i23:                                   ; preds = %invoke.cont
@@ -7733,7 +7733,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -7761,7 +7761,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
 
 cond.true.i11:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
   %12 = load ptr, ptr %Str.addr.i5, align 8
-  %call.i12 = call i64 @strlen(ptr noundef %12) #14
+  %call.i12 = call i64 @strlen(ptr noundef %12) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit13
 
 cond.false.i9:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -7789,7 +7789,7 @@ _ZN4llvh9StringRefC2EPKc.exit13:                  ; preds = %cond.false.i9, %con
 
 cond.true.i21:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit13
   %20 = load ptr, ptr %Str.addr.i15, align 8
-  %call.i22 = call i64 @strlen(ptr noundef %20) #14
+  %call.i22 = call i64 @strlen(ptr noundef %20) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit23
 
 cond.false.i19:                                   ; preds = %_ZN4llvh9StringRefC2EPKc.exit13
@@ -7872,7 +7872,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -7900,7 +7900,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
 
 cond.true.i15:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
   %12 = load ptr, ptr %Str.addr.i9, align 8
-  %call.i16 = call i64 @strlen(ptr noundef %12) #14
+  %call.i16 = call i64 @strlen(ptr noundef %12) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit17
 
 cond.false.i13:                                   ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -7935,7 +7935,7 @@ invoke.cont:                                      ; preds = %_ZN4llvh9StringRefC
 
 cond.true.i25:                                    ; preds = %invoke.cont
   %21 = load ptr, ptr %Str.addr.i19, align 8
-  %call.i26 = call i64 @strlen(ptr noundef %21) #14
+  %call.i26 = call i64 @strlen(ptr noundef %21) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit27
 
 cond.false.i23:                                   ; preds = %invoke.cont
@@ -8113,7 +8113,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -8147,7 +8147,7 @@ if.then:                                          ; preds = %_ZN4llvh9StringRefC
 
 cond.true.i22:                                    ; preds = %if.then
   %13 = load ptr, ptr %Str.addr.i16, align 8
-  %call.i23 = call i64 @strlen(ptr noundef %13) #14
+  %call.i23 = call i64 @strlen(ptr noundef %13) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit24
 
 cond.false.i20:                                   ; preds = %if.then
@@ -8198,7 +8198,7 @@ if.else:                                          ; preds = %_ZN4llvh9StringRefC
 
 cond.true.i32:                                    ; preds = %if.else
   %28 = load ptr, ptr %Str.addr.i26, align 8
-  %call.i33 = call i64 @strlen(ptr noundef %28) #14
+  %call.i33 = call i64 @strlen(ptr noundef %28) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit34
 
 cond.false.i30:                                   ; preds = %if.else
@@ -8233,7 +8233,7 @@ invoke.cont9:                                     ; preds = %_ZN4llvh9StringRefC
 
 cond.true.i42:                                    ; preds = %invoke.cont9
   %37 = load ptr, ptr %Str.addr.i36, align 8
-  %call.i43 = call i64 @strlen(ptr noundef %37) #14
+  %call.i43 = call i64 @strlen(ptr noundef %37) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit44
 
 cond.false.i40:                                   ; preds = %invoke.cont9
@@ -8315,7 +8315,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -8343,7 +8343,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
 
 cond.true.i10:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
   %12 = load ptr, ptr %Str.addr.i4, align 8
-  %call.i11 = call i64 @strlen(ptr noundef %12) #14
+  %call.i11 = call i64 @strlen(ptr noundef %12) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit12
 
 cond.false.i8:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -8399,7 +8399,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -8427,7 +8427,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
 
 cond.true.i17:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
   %12 = load ptr, ptr %Str.addr.i11, align 8
-  %call.i18 = call i64 @strlen(ptr noundef %12) #14
+  %call.i18 = call i64 @strlen(ptr noundef %12) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit19
 
 cond.false.i15:                                   ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -8465,7 +8465,7 @@ invoke.cont:                                      ; preds = %_ZN4llvh9StringRefC
 
 cond.true.i27:                                    ; preds = %invoke.cont
   %24 = load ptr, ptr %Str.addr.i21, align 8
-  %call.i28 = call i64 @strlen(ptr noundef %24) #14
+  %call.i28 = call i64 @strlen(ptr noundef %24) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit29
 
 cond.false.i25:                                   ; preds = %invoke.cont
@@ -8553,7 +8553,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -8581,7 +8581,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
 
 cond.true.i12:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
   %12 = load ptr, ptr %Str.addr.i6, align 8
-  %call.i13 = call i64 @strlen(ptr noundef %12) #14
+  %call.i13 = call i64 @strlen(ptr noundef %12) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit14
 
 cond.false.i10:                                   ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -8652,7 +8652,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -8699,7 +8699,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -8727,7 +8727,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
 
 cond.true.i10:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
   %12 = load ptr, ptr %Str.addr.i4, align 8
-  %call.i11 = call i64 @strlen(ptr noundef %12) #14
+  %call.i11 = call i64 @strlen(ptr noundef %12) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit12
 
 cond.false.i8:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -8774,7 +8774,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -8802,7 +8802,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
 
 cond.true.i10:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
   %12 = load ptr, ptr %Str.addr.i4, align 8
-  %call.i11 = call i64 @strlen(ptr noundef %12) #14
+  %call.i11 = call i64 @strlen(ptr noundef %12) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit12
 
 cond.false.i8:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -8856,7 +8856,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -8884,7 +8884,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
 
 cond.true.i13:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
   %12 = load ptr, ptr %Str.addr.i7, align 8
-  %call.i14 = call i64 @strlen(ptr noundef %12) #14
+  %call.i14 = call i64 @strlen(ptr noundef %12) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit15
 
 cond.false.i11:                                   ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -8912,7 +8912,7 @@ _ZN4llvh9StringRefC2EPKc.exit15:                  ; preds = %cond.false.i11, %co
 
 cond.true.i23:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit15
   %20 = load ptr, ptr %Str.addr.i17, align 8
-  %call.i24 = call i64 @strlen(ptr noundef %20) #14
+  %call.i24 = call i64 @strlen(ptr noundef %20) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit25
 
 cond.false.i21:                                   ; preds = %_ZN4llvh9StringRefC2EPKc.exit15
@@ -9002,7 +9002,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -9030,7 +9030,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
 
 cond.true.i24:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
   %12 = load ptr, ptr %Str.addr.i18, align 8
-  %call.i25 = call i64 @strlen(ptr noundef %12) #14
+  %call.i25 = call i64 @strlen(ptr noundef %12) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit26
 
 cond.false.i22:                                   ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -9068,7 +9068,7 @@ invoke.cont:                                      ; preds = %_ZN4llvh9StringRefC
 
 cond.true.i34:                                    ; preds = %invoke.cont
   %24 = load ptr, ptr %Str.addr.i28, align 8
-  %call.i35 = call i64 @strlen(ptr noundef %24) #14
+  %call.i35 = call i64 @strlen(ptr noundef %24) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit36
 
 cond.false.i32:                                   ; preds = %invoke.cont
@@ -9252,7 +9252,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -9280,7 +9280,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
 
 cond.true.i12:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
   %12 = load ptr, ptr %Str.addr.i6, align 8
-  %call.i13 = call i64 @strlen(ptr noundef %12) #14
+  %call.i13 = call i64 @strlen(ptr noundef %12) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit14
 
 cond.false.i10:                                   ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -9313,7 +9313,7 @@ invoke.cont:                                      ; preds = %_ZN4llvh9StringRefC
 
 cond.true.i22:                                    ; preds = %invoke.cont
   %20 = load ptr, ptr %Str.addr.i16, align 8
-  %call.i23 = call i64 @strlen(ptr noundef %20) #14
+  %call.i23 = call i64 @strlen(ptr noundef %20) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit24
 
 cond.false.i20:                                   ; preds = %invoke.cont
@@ -9378,7 +9378,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %3 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %3) #14
+  %call.i = call i64 @strlen(ptr noundef %3) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -9503,7 +9503,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -9531,7 +9531,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
 
 cond.true.i11:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
   %12 = load ptr, ptr %Str.addr.i5, align 8
-  %call.i12 = call i64 @strlen(ptr noundef %12) #14
+  %call.i12 = call i64 @strlen(ptr noundef %12) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit13
 
 cond.false.i9:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -9559,7 +9559,7 @@ _ZN4llvh9StringRefC2EPKc.exit13:                  ; preds = %cond.false.i9, %con
 
 cond.true.i21:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit13
   %20 = load ptr, ptr %Str.addr.i15, align 8
-  %call.i22 = call i64 @strlen(ptr noundef %20) #14
+  %call.i22 = call i64 @strlen(ptr noundef %20) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit23
 
 cond.false.i19:                                   ; preds = %_ZN4llvh9StringRefC2EPKc.exit13
@@ -9623,7 +9623,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -9694,7 +9694,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -9745,7 +9745,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -9909,7 +9909,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %4 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %4) #14
+  %call.i = call i64 @strlen(ptr noundef %4) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -9937,7 +9937,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
 
 cond.true.i10:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
   %12 = load ptr, ptr %Str.addr.i4, align 8
-  %call.i11 = call i64 @strlen(ptr noundef %12) #14
+  %call.i11 = call i64 @strlen(ptr noundef %12) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit12
 
 cond.false.i8:                                    ; preds = %_ZN4llvh9StringRefC2EPKc.exit
@@ -10045,7 +10045,7 @@ if.end14:                                         ; preds = %invoke.cont11
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %if.end14
-  invoke void @__cxa_throw(ptr %exception, ptr @_ZTISt16invalid_argument, ptr @_ZNSt16invalid_argumentD1Ev) #18
+  invoke void @__cxa_throw(ptr %exception, ptr @_ZTISt16invalid_argument, ptr @_ZNSt16invalid_argumentD1Ev) #17
           to label %unreachable unwind label %lpad1
 
 lpad15:                                           ; preds = %if.end14
@@ -11385,7 +11385,7 @@ define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace6RecordD
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #17
+  call void @llvm.trap() #16
   unreachable
 }
 
@@ -11435,7 +11435,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12MarkerRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -11466,7 +11466,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace17BeginExecJSRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -11495,7 +11495,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace15EndExecJSRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -11572,7 +11572,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace18CreateObjectRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -11665,7 +11665,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace18CreateBigIntRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -11758,7 +11758,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace20BigIntToStringRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -11894,7 +11894,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace18CreateStringRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -11990,7 +11990,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -12118,7 +12118,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace24CreateHostFunctionRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -12198,7 +12198,7 @@ define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace22GetOrS
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #17
+  call void @llvm.trap() #16
   unreachable
 }
 
@@ -12297,7 +12297,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace21DrainMicrotasksRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -12326,7 +12326,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace17HasPropertyRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -12433,7 +12433,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace22GetPropertyNamesRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -12566,7 +12566,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace17CreateArrayRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -12645,7 +12645,7 @@ define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace22ArrayR
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #17
+  call void @llvm.trap() #16
   unreachable
 }
 
@@ -12719,7 +12719,7 @@ define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace10CallRe
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #17
+  call void @llvm.trap() #16
   unreachable
 }
 
@@ -12792,7 +12792,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace22ReturnFromNativeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -12869,7 +12869,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace20ReturnToNativeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -12947,7 +12947,7 @@ define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace28GetOrS
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #17
+  call void @llvm.trap() #16
   unreachable
 }
 
@@ -13062,7 +13062,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace29GetPropertyNativeReturnRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -13139,7 +13139,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace23SetPropertyNativeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -13215,7 +13215,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace28GetNativePropertyNamesRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -13298,7 +13298,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace34GetNativePropertyNamesReturnRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -13327,7 +13327,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace31SetExternalMemoryPressureRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -13408,7 +13408,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace23GetPropertyNativeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #13
-  call void @_ZdlPv(ptr noundef %this1) #16
+  call void @_ZdlPv(ptr noundef %this1) #15
   ret void
 }
 
@@ -13580,7 +13580,7 @@ terminate.lpad:                                   ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #17
+  call void @__clang_call_terminate(ptr %1) #16
   unreachable
 }
 
@@ -13598,7 +13598,7 @@ entry:
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #13
-  call void @_ZSt9terminatev() #17
+  call void @_ZSt9terminatev() #16
   unreachable
 }
 
@@ -13755,7 +13755,7 @@ terminate.lpad:                                   ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #17
+  call void @__clang_call_terminate(ptr %5) #16
   unreachable
 }
 
@@ -13810,7 +13810,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   call void @_ZN6hermes11JSONEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #13
-  call void @_ZdlPv(ptr noundef %0) #16
+  call void @_ZdlPv(ptr noundef %0) #15
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -13907,7 +13907,7 @@ terminate.lpad:                                   ; preds = %invoke.cont2
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 }
 
@@ -13948,7 +13948,7 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #17
+  call void @__clang_call_terminate(ptr %2) #16
   unreachable
 }
 
@@ -14383,7 +14383,7 @@ terminate.lpad:                                   ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #17
+  call void @__clang_call_terminate(ptr %1) #16
   unreachable
 }
 
@@ -14416,7 +14416,7 @@ terminate.lpad:                                   ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 }
 
@@ -15194,7 +15194,7 @@ terminate.lpad:                                   ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 }
 
@@ -15463,7 +15463,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #18
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #17
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -15708,7 +15708,7 @@ terminate.lpad:                                   ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 }
 
@@ -15829,17 +15829,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end
 
 if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #18
+  call void @_ZSt28__throw_bad_array_new_lengthv() #17
   unreachable
 
 if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #18
+  call void @_ZSt17__throw_bad_allocv() #17
   unreachable
 
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #15
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #14
   ret ptr %call5
 }
 
@@ -15950,7 +15950,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #16
+  call void @_ZdlPv(ptr noundef %0) #15
   ret void
 }
 
@@ -16033,7 +16033,7 @@ terminate.lpad:                                   ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #17
+  call void @__clang_call_terminate(ptr %4) #16
   unreachable
 }
 
@@ -16276,7 +16276,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.149) #18
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.149) #17
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -16545,7 +16545,7 @@ terminate.lpad:                                   ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 }
 
@@ -16605,7 +16605,7 @@ terminate.lpad:                                   ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #17
+  call void @__clang_call_terminate(ptr %4) #16
   unreachable
 }
 
@@ -16693,7 +16693,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #16
+  call void @_ZdlPv(ptr noundef %0) #15
   ret void
 }
 
@@ -16739,7 +16739,7 @@ terminate.lpad:                                   ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 }
 
@@ -16799,7 +16799,7 @@ terminate.lpad:                                   ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #17
+  call void @__clang_call_terminate(ptr %4) #16
   unreachable
 }
 
@@ -16917,7 +16917,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #16
+  call void @_ZdlPv(ptr noundef %0) #15
   ret void
 }
 
@@ -17002,7 +17002,7 @@ terminate.lpad.i:                                 ; preds = %if.else
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #17
+  call void @__clang_call_terminate(ptr %5) #16
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv.exit: ; preds = %if.else
@@ -17113,7 +17113,7 @@ terminate.lpad:                                   ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 }
 
@@ -17414,7 +17414,7 @@ terminate.lpad:                                   ; preds = %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #17
+  call void @__clang_call_terminate(ptr %4) #16
   unreachable
 }
 
@@ -17505,7 +17505,7 @@ terminate.lpad:                                   ; preds = %if.then
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #17
+  call void @__clang_call_terminate(ptr %6) #16
   unreachable
 }
 
@@ -17704,7 +17704,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #16
+  call void @_ZdlPv(ptr noundef %0) #15
   ret void
 }
 
@@ -17772,7 +17772,7 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #17
+  call void @__clang_call_terminate(ptr %2) #16
   unreachable
 }
 
@@ -17971,7 +17971,7 @@ entry:
 
 cond.true.i:                                      ; preds = %entry
   %3 = load ptr, ptr %Str.addr.i, align 8
-  %call.i = call i64 @strlen(ptr noundef %3) #14
+  %call.i = call i64 @strlen(ptr noundef %3) #4
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 cond.false.i:                                     ; preds = %entry
@@ -18057,7 +18057,7 @@ terminate.lpad.i:                                 ; preds = %if.else
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #17
+  call void @__clang_call_terminate(ptr %5) #16
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_M_use_local_dataEv.exit: ; preds = %if.else
@@ -18178,7 +18178,7 @@ terminate.lpad:                                   ; preds = %if.then
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #17
+  call void @__clang_call_terminate(ptr %3) #16
   unreachable
 }
 
@@ -18725,7 +18725,7 @@ terminate.lpad:                                   ; preds = %if.then
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #17
+  call void @__clang_call_terminate(ptr %7) #16
   unreachable
 }
 
@@ -18762,7 +18762,7 @@ attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind memory(read) }
+attributes #4 = { nounwind willreturn memory(read) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -18772,11 +18772,10 @@ attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { builtin allocsize(0) }
-attributes #16 = { builtin nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { noreturn }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { builtin nounwind }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

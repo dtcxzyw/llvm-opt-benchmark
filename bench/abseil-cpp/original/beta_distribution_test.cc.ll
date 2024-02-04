@@ -21255,7 +21255,7 @@ eh.resume:                                        ; preds = %lpad
   resume { ptr, i32 } %lpad.val4
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #18
 
 ; Function Attrs: mustprogress uwtable
@@ -48425,7 +48425,7 @@ entry:
   store ptr %agg.result, ptr %result.ptr, align 8
   store ptr %str, ptr %str.addr, align 8
   %0 = load ptr, ptr %str.addr, align 8
-  %call = call noundef ptr @strchr(ptr noundef %0, i32 noundef 44) #28
+  %call = call noundef ptr @strchr(ptr noundef %0, i32 noundef 44) #18
   store ptr %call, ptr %comma, align 8
   %1 = load ptr, ptr %comma, align 8
   %cmp = icmp eq ptr %1, null
@@ -49055,7 +49055,7 @@ entry:
   store i8 %ch, ptr %ch.addr, align 1
   %0 = load i8, ptr %ch.addr, align 1
   %conv = zext i8 %0 to i32
-  %call = call i32 @isspace(i32 noundef %conv) #28
+  %call = call i32 @isspace(i32 noundef %conv) #18
   %cmp = icmp ne i32 %call, 0
   ret i1 %cmp
 }
@@ -54988,7 +54988,7 @@ fpclassify_not_zero:                              ; preds = %entry
   br i1 %cmp, label %fpclassify_end, label %fpclassify_not_nan
 
 fpclassify_not_nan:                               ; preds = %fpclassify_not_zero
-  %1 = call float @llvm.fabs.f32(float %0) #29
+  %1 = call float @llvm.fabs.f32(float %0) #28
   %isinf = fcmp oeq float %1, 0x7FF0000000000000
   br i1 %isinf, label %fpclassify_end, label %fpclassify_not_inf
 
@@ -58291,7 +58291,7 @@ fpclassify_not_zero:                              ; preds = %entry
   br i1 %cmp, label %fpclassify_end, label %fpclassify_not_nan
 
 fpclassify_not_nan:                               ; preds = %fpclassify_not_zero
-  %1 = call double @llvm.fabs.f64(double %0) #29
+  %1 = call double @llvm.fabs.f64(double %0) #28
   %isinf = fcmp oeq double %1, 0x7FF0000000000000
   br i1 %isinf, label %fpclassify_end, label %fpclassify_not_inf
 
@@ -66502,7 +66502,7 @@ entry:
   store i8 %ch, ptr %ch.addr, align 1
   %0 = load i8, ptr %ch.addr, align 1
   %conv = zext i8 %0 to i32
-  %call = call i32 @isalnum(i32 noundef %conv) #28
+  %call = call i32 @isalnum(i32 noundef %conv) #18
   %cmp = icmp ne i32 %call, 0
   ret i1 %cmp
 }
@@ -67227,7 +67227,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #28
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -69271,7 +69271,7 @@ attributes #14 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-p
 attributes #15 = { cold nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #18 = { nounwind memory(read) }
+attributes #18 = { nounwind willreturn memory(read) }
 attributes #19 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -69281,8 +69281,7 @@ attributes #24 = { noreturn }
 attributes #25 = { noreturn nounwind }
 attributes #26 = { cold }
 attributes #27 = { cold nounwind }
-attributes #28 = { nounwind willreturn memory(read) }
-attributes #29 = { memory(none) }
+attributes #28 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

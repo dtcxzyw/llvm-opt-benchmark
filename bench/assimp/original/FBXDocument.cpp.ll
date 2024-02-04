@@ -2213,19 +2213,19 @@ invoke.cont82:                                    ; preds = %invoke.cont80
   store i64 %sub.ptr.sub, ptr %length, align 8
   %59 = load ptr, ptr %obtype, align 8
   %60 = load i64, ptr %length, align 8
-  %call84 = call i32 @strncmp(ptr noundef %59, ptr noundef @.str.2, i64 noundef %60) #18
+  %call84 = call i32 @strncmp(ptr noundef %59, ptr noundef @.str.2, i64 noundef %60) #13
   %tobool85 = icmp ne i32 %call84, 0
   br i1 %tobool85, label %if.else, label %if.then86
 
 if.then86:                                        ; preds = %invoke.cont82
   %call87 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call88 = call i32 @strcmp(ptr noundef %call87, ptr noundef @.str.3) #18
+  %call88 = call i32 @strcmp(ptr noundef %call87, ptr noundef @.str.3) #13
   %tobool89 = icmp ne i32 %call88, 0
   br i1 %tobool89, label %if.end98, label %if.then90
 
 if.then90:                                        ; preds = %if.then86
   %object91 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call93 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 1000) #19
+  %call93 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 1000) #18
           to label %invoke.cont92 unwind label %lpad77
 
 invoke.cont92:                                    ; preds = %if.then90
@@ -2262,18 +2262,18 @@ lpad95:                                           ; preds = %invoke.cont92
   store ptr %68, ptr %exn.slot, align 8
   %69 = extractvalue { ptr, i32 } %67, 1
   store i32 %69, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call93) #20
+  call void @_ZdlPv(ptr noundef %call93) #19
   br label %catch.dispatch
 
 if.end98:                                         ; preds = %invoke.cont96, %if.then86
   %call99 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call100 = call i32 @strcmp(ptr noundef %call99, ptr noundef @.str.4) #18
+  %call100 = call i32 @strcmp(ptr noundef %call99, ptr noundef @.str.4) #13
   %tobool101 = icmp ne i32 %call100, 0
   br i1 %tobool101, label %if.end112, label %if.then102
 
 if.then102:                                       ; preds = %if.end98
   %object103 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call105 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 192) #19
+  %call105 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 192) #18
           to label %invoke.cont104 unwind label %lpad77
 
 invoke.cont104:                                   ; preds = %if.then102
@@ -2299,18 +2299,18 @@ lpad109:                                          ; preds = %invoke.cont104
   store ptr %74, ptr %exn.slot, align 8
   %75 = extractvalue { ptr, i32 } %73, 1
   store i32 %75, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call105) #20
+  call void @_ZdlPv(ptr noundef %call105) #19
   br label %catch.dispatch
 
 if.end112:                                        ; preds = %invoke.cont110, %if.end98
   %call113 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call114 = call i32 @strcmp(ptr noundef %call113, ptr noundef @.str.5) #18
+  %call114 = call i32 @strcmp(ptr noundef %call113, ptr noundef @.str.5) #13
   %tobool115 = icmp ne i32 %call114, 0
   br i1 %tobool115, label %if.end126, label %if.then116
 
 if.then116:                                       ; preds = %if.end112
   %object117 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call119 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 168) #19
+  %call119 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 168) #18
           to label %invoke.cont118 unwind label %lpad77
 
 invoke.cont118:                                   ; preds = %if.then116
@@ -2336,7 +2336,7 @@ lpad123:                                          ; preds = %invoke.cont118
   store ptr %80, ptr %exn.slot, align 8
   %81 = extractvalue { ptr, i32 } %79, 1
   store i32 %81, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call119) #20
+  call void @_ZdlPv(ptr noundef %call119) #19
   br label %catch.dispatch
 
 if.end126:                                        ; preds = %invoke.cont124, %if.end112
@@ -2345,19 +2345,19 @@ if.end126:                                        ; preds = %invoke.cont124, %if
 if.else:                                          ; preds = %invoke.cont82
   %82 = load ptr, ptr %obtype, align 8
   %83 = load i64, ptr %length, align 8
-  %call127 = call i32 @strncmp(ptr noundef %82, ptr noundef @.str.6, i64 noundef %83) #18
+  %call127 = call i32 @strncmp(ptr noundef %82, ptr noundef @.str.6, i64 noundef %83) #13
   %tobool128 = icmp ne i32 %call127, 0
   br i1 %tobool128, label %if.else204, label %if.then129
 
 if.then129:                                       ; preds = %if.else
   %call130 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call131 = call i32 @strcmp(ptr noundef %call130, ptr noundef @.str.7) #18
+  %call131 = call i32 @strcmp(ptr noundef %call130, ptr noundef @.str.7) #13
   %tobool132 = icmp ne i32 %call131, 0
   br i1 %tobool132, label %if.else143, label %if.then133
 
 if.then133:                                       ; preds = %if.then129
   %object134 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call136 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #19
+  %call136 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #18
           to label %invoke.cont135 unwind label %lpad77
 
 invoke.cont135:                                   ; preds = %if.then133
@@ -2383,18 +2383,18 @@ lpad140:                                          ; preds = %invoke.cont135
   store ptr %88, ptr %exn.slot, align 8
   %89 = extractvalue { ptr, i32 } %87, 1
   store i32 %89, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call136) #20
+  call void @_ZdlPv(ptr noundef %call136) #19
   br label %catch.dispatch
 
 if.else143:                                       ; preds = %if.then129
   %call144 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call145 = call i32 @strcmp(ptr noundef %call144, ptr noundef @.str.8) #18
+  %call145 = call i32 @strcmp(ptr noundef %call144, ptr noundef @.str.8) #13
   %tobool146 = icmp ne i32 %call145, 0
   br i1 %tobool146, label %if.else157, label %if.then147
 
 if.then147:                                       ; preds = %if.else143
   %object148 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call150 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 144) #19
+  %call150 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 144) #18
           to label %invoke.cont149 unwind label %lpad77
 
 invoke.cont149:                                   ; preds = %if.then147
@@ -2420,18 +2420,18 @@ lpad154:                                          ; preds = %invoke.cont149
   store ptr %94, ptr %exn.slot, align 8
   %95 = extractvalue { ptr, i32 } %93, 1
   store i32 %95, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call150) #20
+  call void @_ZdlPv(ptr noundef %call150) #19
   br label %catch.dispatch
 
 if.else157:                                       ; preds = %if.else143
   %call158 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call159 = call i32 @strcmp(ptr noundef %call158, ptr noundef @.str.9) #18
+  %call159 = call i32 @strcmp(ptr noundef %call158, ptr noundef @.str.9) #13
   %tobool160 = icmp ne i32 %call159, 0
   br i1 %tobool160, label %if.else171, label %if.then161
 
 if.then161:                                       ; preds = %if.else157
   %object162 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call164 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #19
+  %call164 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #18
           to label %invoke.cont163 unwind label %lpad77
 
 invoke.cont163:                                   ; preds = %if.then161
@@ -2457,18 +2457,18 @@ lpad168:                                          ; preds = %invoke.cont163
   store ptr %100, ptr %exn.slot, align 8
   %101 = extractvalue { ptr, i32 } %99, 1
   store i32 %101, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call164) #20
+  call void @_ZdlPv(ptr noundef %call164) #19
   br label %catch.dispatch
 
 if.else171:                                       ; preds = %if.else157
   %call172 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call173 = call i32 @strcmp(ptr noundef %call172, ptr noundef @.str.10) #18
+  %call173 = call i32 @strcmp(ptr noundef %call172, ptr noundef @.str.10) #13
   %tobool174 = icmp ne i32 %call173, 0
   br i1 %tobool174, label %if.else185, label %if.then175
 
 if.then175:                                       ; preds = %if.else171
   %object176 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call178 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #19
+  %call178 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #18
           to label %invoke.cont177 unwind label %lpad77
 
 invoke.cont177:                                   ; preds = %if.then175
@@ -2494,18 +2494,18 @@ lpad182:                                          ; preds = %invoke.cont177
   store ptr %106, ptr %exn.slot, align 8
   %107 = extractvalue { ptr, i32 } %105, 1
   store i32 %107, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call178) #20
+  call void @_ZdlPv(ptr noundef %call178) #19
   br label %catch.dispatch
 
 if.else185:                                       ; preds = %if.else171
   %call186 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call187 = call i32 @strcmp(ptr noundef %call186, ptr noundef @.str.11) #18
+  %call187 = call i32 @strcmp(ptr noundef %call186, ptr noundef @.str.11) #13
   %tobool188 = icmp ne i32 %call187, 0
   br i1 %tobool188, label %if.end199, label %if.then189
 
 if.then189:                                       ; preds = %if.else185
   %object190 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call192 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #19
+  %call192 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #18
           to label %invoke.cont191 unwind label %lpad77
 
 invoke.cont191:                                   ; preds = %if.then189
@@ -2531,7 +2531,7 @@ lpad196:                                          ; preds = %invoke.cont191
   store ptr %112, ptr %exn.slot, align 8
   %113 = extractvalue { ptr, i32 } %111, 1
   store i32 %113, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call192) #20
+  call void @_ZdlPv(ptr noundef %call192) #19
   br label %catch.dispatch
 
 if.end199:                                        ; preds = %invoke.cont197, %if.else185
@@ -2552,19 +2552,19 @@ if.end203:                                        ; preds = %if.end202, %invoke.
 if.else204:                                       ; preds = %if.else
   %114 = load ptr, ptr %obtype, align 8
   %115 = load i64, ptr %length, align 8
-  %call205 = call i32 @strncmp(ptr noundef %114, ptr noundef @.str.12, i64 noundef %115) #18
+  %call205 = call i32 @strncmp(ptr noundef %114, ptr noundef @.str.12, i64 noundef %115) #13
   %tobool206 = icmp ne i32 %call205, 0
   br i1 %tobool206, label %if.else267, label %if.then207
 
 if.then207:                                       ; preds = %if.else204
   %call208 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call209 = call i32 @strcmp(ptr noundef %call208, ptr noundef @.str.13) #18
+  %call209 = call i32 @strcmp(ptr noundef %call208, ptr noundef @.str.13) #13
   %tobool210 = icmp ne i32 %call209, 0
   br i1 %tobool210, label %if.else221, label %if.then211
 
 if.then211:                                       ; preds = %if.then207
   %object212 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call214 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 256) #19
+  %call214 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 256) #18
           to label %invoke.cont213 unwind label %lpad77
 
 invoke.cont213:                                   ; preds = %if.then211
@@ -2590,18 +2590,18 @@ lpad218:                                          ; preds = %invoke.cont213
   store ptr %120, ptr %exn.slot, align 8
   %121 = extractvalue { ptr, i32 } %119, 1
   store i32 %121, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call214) #20
+  call void @_ZdlPv(ptr noundef %call214) #19
   br label %catch.dispatch
 
 if.else221:                                       ; preds = %if.then207
   %call222 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call223 = call i32 @strcmp(ptr noundef %call222, ptr noundef @.str.14) #18
+  %call223 = call i32 @strcmp(ptr noundef %call222, ptr noundef @.str.14) #13
   %tobool224 = icmp ne i32 %call223, 0
   br i1 %tobool224, label %if.else235, label %if.then225
 
 if.then225:                                       ; preds = %if.else221
   %object226 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call228 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #19
+  %call228 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #18
           to label %invoke.cont227 unwind label %lpad77
 
 invoke.cont227:                                   ; preds = %if.then225
@@ -2627,18 +2627,18 @@ lpad232:                                          ; preds = %invoke.cont227
   store ptr %126, ptr %exn.slot, align 8
   %127 = extractvalue { ptr, i32 } %125, 1
   store i32 %127, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call228) #20
+  call void @_ZdlPv(ptr noundef %call228) #19
   br label %catch.dispatch
 
 if.else235:                                       ; preds = %if.else221
   %call236 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call237 = call i32 @strcmp(ptr noundef %call236, ptr noundef @.str.15) #18
+  %call237 = call i32 @strcmp(ptr noundef %call236, ptr noundef @.str.15) #13
   %tobool238 = icmp ne i32 %call237, 0
   br i1 %tobool238, label %if.else249, label %if.then239
 
 if.then239:                                       ; preds = %if.else235
   %object240 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call242 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 128) #19
+  %call242 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 128) #18
           to label %invoke.cont241 unwind label %lpad77
 
 invoke.cont241:                                   ; preds = %if.then239
@@ -2664,18 +2664,18 @@ lpad246:                                          ; preds = %invoke.cont241
   store ptr %132, ptr %exn.slot, align 8
   %133 = extractvalue { ptr, i32 } %131, 1
   store i32 %133, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call242) #20
+  call void @_ZdlPv(ptr noundef %call242) #19
   br label %catch.dispatch
 
 if.else249:                                       ; preds = %if.else235
   %call250 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call251 = call i32 @strcmp(ptr noundef %call250, ptr noundef @.str.16) #18
+  %call251 = call i32 @strcmp(ptr noundef %call250, ptr noundef @.str.16) #13
   %tobool252 = icmp ne i32 %call251, 0
   br i1 %tobool252, label %if.end263, label %if.then253
 
 if.then253:                                       ; preds = %if.else249
   %object254 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call256 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #19
+  %call256 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #18
           to label %invoke.cont255 unwind label %lpad77
 
 invoke.cont255:                                   ; preds = %if.then253
@@ -2701,7 +2701,7 @@ lpad260:                                          ; preds = %invoke.cont255
   store ptr %138, ptr %exn.slot, align 8
   %139 = extractvalue { ptr, i32 } %137, 1
   store i32 %139, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call256) #20
+  call void @_ZdlPv(ptr noundef %call256) #19
   br label %catch.dispatch
 
 if.end263:                                        ; preds = %invoke.cont261, %if.else249
@@ -2719,25 +2719,25 @@ if.end266:                                        ; preds = %if.end265, %invoke.
 if.else267:                                       ; preds = %if.else204
   %140 = load ptr, ptr %obtype, align 8
   %141 = load i64, ptr %length, align 8
-  %call268 = call i32 @strncmp(ptr noundef %140, ptr noundef @.str.17, i64 noundef %141) #18
+  %call268 = call i32 @strncmp(ptr noundef %140, ptr noundef @.str.17, i64 noundef %141) #13
   %tobool269 = icmp ne i32 %call268, 0
   br i1 %tobool269, label %if.else289, label %if.then270
 
 if.then270:                                       ; preds = %if.else267
   %call271 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call272 = call i32 @strcmp(ptr noundef %call271, ptr noundef @.str.18) #18
+  %call272 = call i32 @strcmp(ptr noundef %call271, ptr noundef @.str.18) #13
   %tobool273 = icmp ne i32 %call272, 0
   br i1 %tobool273, label %land.lhs.true274, label %if.end288
 
 land.lhs.true274:                                 ; preds = %if.then270
   %call275 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %classtag) #16
-  %call276 = call i32 @strcmp(ptr noundef %call275, ptr noundef @.str.19) #18
+  %call276 = call i32 @strcmp(ptr noundef %call275, ptr noundef @.str.19) #13
   %tobool277 = icmp ne i32 %call276, 0
   br i1 %tobool277, label %if.then278, label %if.end288
 
 if.then278:                                       ; preds = %land.lhs.true274
   %object279 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call281 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 208) #19
+  %call281 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 208) #18
           to label %invoke.cont280 unwind label %lpad77
 
 invoke.cont280:                                   ; preds = %if.then278
@@ -2763,7 +2763,7 @@ lpad285:                                          ; preds = %invoke.cont280
   store ptr %146, ptr %exn.slot, align 8
   %147 = extractvalue { ptr, i32 } %145, 1
   store i32 %147, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call281) #20
+  call void @_ZdlPv(ptr noundef %call281) #19
   br label %catch.dispatch
 
 if.end288:                                        ; preds = %invoke.cont286, %land.lhs.true274, %if.then270
@@ -2772,13 +2772,13 @@ if.end288:                                        ; preds = %invoke.cont286, %la
 if.else289:                                       ; preds = %if.else267
   %148 = load ptr, ptr %obtype, align 8
   %149 = load i64, ptr %length, align 8
-  %call290 = call i32 @strncmp(ptr noundef %148, ptr noundef @.str.20, i64 noundef %149) #18
+  %call290 = call i32 @strncmp(ptr noundef %148, ptr noundef @.str.20, i64 noundef %149) #13
   %tobool291 = icmp ne i32 %call290, 0
   br i1 %tobool291, label %if.else302, label %if.then292
 
 if.then292:                                       ; preds = %if.else289
   %object293 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call295 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 208) #19
+  %call295 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 208) #18
           to label %invoke.cont294 unwind label %lpad77
 
 invoke.cont294:                                   ; preds = %if.then292
@@ -2804,19 +2804,19 @@ lpad299:                                          ; preds = %invoke.cont294
   store ptr %154, ptr %exn.slot, align 8
   %155 = extractvalue { ptr, i32 } %153, 1
   store i32 %155, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call295) #20
+  call void @_ZdlPv(ptr noundef %call295) #19
   br label %catch.dispatch
 
 if.else302:                                       ; preds = %if.else289
   %156 = load ptr, ptr %obtype, align 8
   %157 = load i64, ptr %length, align 8
-  %call303 = call i32 @strncmp(ptr noundef %156, ptr noundef @.str.21, i64 noundef %157) #18
+  %call303 = call i32 @strncmp(ptr noundef %156, ptr noundef @.str.21, i64 noundef %157) #13
   %tobool304 = icmp ne i32 %call303, 0
   br i1 %tobool304, label %if.else315, label %if.then305
 
 if.then305:                                       ; preds = %if.else302
   %object306 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call308 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 248) #19
+  %call308 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 248) #18
           to label %invoke.cont307 unwind label %lpad77
 
 invoke.cont307:                                   ; preds = %if.then305
@@ -2842,19 +2842,19 @@ lpad312:                                          ; preds = %invoke.cont307
   store ptr %162, ptr %exn.slot, align 8
   %163 = extractvalue { ptr, i32 } %161, 1
   store i32 %163, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call308) #20
+  call void @_ZdlPv(ptr noundef %call308) #19
   br label %catch.dispatch
 
 if.else315:                                       ; preds = %if.else302
   %164 = load ptr, ptr %obtype, align 8
   %165 = load i64, ptr %length, align 8
-  %call316 = call i32 @strncmp(ptr noundef %164, ptr noundef @.str.22, i64 noundef %165) #18
+  %call316 = call i32 @strncmp(ptr noundef %164, ptr noundef @.str.22, i64 noundef %165) #13
   %tobool317 = icmp ne i32 %call316, 0
   br i1 %tobool317, label %if.else328, label %if.then318
 
 if.then318:                                       ; preds = %if.else315
   %object319 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call321 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #19
+  %call321 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #18
           to label %invoke.cont320 unwind label %lpad77
 
 invoke.cont320:                                   ; preds = %if.then318
@@ -2880,19 +2880,19 @@ lpad325:                                          ; preds = %invoke.cont320
   store ptr %170, ptr %exn.slot, align 8
   %171 = extractvalue { ptr, i32 } %169, 1
   store i32 %171, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call321) #20
+  call void @_ZdlPv(ptr noundef %call321) #19
   br label %catch.dispatch
 
 if.else328:                                       ; preds = %if.else315
   %172 = load ptr, ptr %obtype, align 8
   %173 = load i64, ptr %length, align 8
-  %call329 = call i32 @strncmp(ptr noundef %172, ptr noundef @.str.23, i64 noundef %173) #18
+  %call329 = call i32 @strncmp(ptr noundef %172, ptr noundef @.str.23, i64 noundef %173) #13
   %tobool330 = icmp ne i32 %call329, 0
   br i1 %tobool330, label %if.else341, label %if.then331
 
 if.then331:                                       ; preds = %if.else328
   %object332 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call334 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 184) #19
+  %call334 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 184) #18
           to label %invoke.cont333 unwind label %lpad77
 
 invoke.cont333:                                   ; preds = %if.then331
@@ -2918,19 +2918,19 @@ lpad338:                                          ; preds = %invoke.cont333
   store ptr %178, ptr %exn.slot, align 8
   %179 = extractvalue { ptr, i32 } %177, 1
   store i32 %179, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call334) #20
+  call void @_ZdlPv(ptr noundef %call334) #19
   br label %catch.dispatch
 
 if.else341:                                       ; preds = %if.else328
   %180 = load ptr, ptr %obtype, align 8
   %181 = load i64, ptr %length, align 8
-  %call342 = call i32 @strncmp(ptr noundef %180, ptr noundef @.str.24, i64 noundef %181) #18
+  %call342 = call i32 @strncmp(ptr noundef %180, ptr noundef @.str.24, i64 noundef %181) #13
   %tobool343 = icmp ne i32 %call342, 0
   br i1 %tobool343, label %if.else354, label %if.then344
 
 if.then344:                                       ; preds = %if.else341
   %object345 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call347 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 96) #19
+  %call347 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 96) #18
           to label %invoke.cont346 unwind label %lpad77
 
 invoke.cont346:                                   ; preds = %if.then344
@@ -2956,19 +2956,19 @@ lpad351:                                          ; preds = %invoke.cont346
   store ptr %186, ptr %exn.slot, align 8
   %187 = extractvalue { ptr, i32 } %185, 1
   store i32 %187, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call347) #20
+  call void @_ZdlPv(ptr noundef %call347) #19
   br label %catch.dispatch
 
 if.else354:                                       ; preds = %if.else341
   %188 = load ptr, ptr %obtype, align 8
   %189 = load i64, ptr %length, align 8
-  %call355 = call i32 @strncmp(ptr noundef %188, ptr noundef @.str.25, i64 noundef %189) #18
+  %call355 = call i32 @strncmp(ptr noundef %188, ptr noundef @.str.25, i64 noundef %189) #13
   %tobool356 = icmp ne i32 %call355, 0
   br i1 %tobool356, label %if.else367, label %if.then357
 
 if.then357:                                       ; preds = %if.else354
   %object358 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call360 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #19
+  %call360 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #18
           to label %invoke.cont359 unwind label %lpad77
 
 invoke.cont359:                                   ; preds = %if.then357
@@ -2994,19 +2994,19 @@ lpad364:                                          ; preds = %invoke.cont359
   store ptr %194, ptr %exn.slot, align 8
   %195 = extractvalue { ptr, i32 } %193, 1
   store i32 %195, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call360) #20
+  call void @_ZdlPv(ptr noundef %call360) #19
   br label %catch.dispatch
 
 if.else367:                                       ; preds = %if.else354
   %196 = load ptr, ptr %obtype, align 8
   %197 = load i64, ptr %length, align 8
-  %call368 = call i32 @strncmp(ptr noundef %196, ptr noundef @.str.26, i64 noundef %197) #18
+  %call368 = call i32 @strncmp(ptr noundef %196, ptr noundef @.str.26, i64 noundef %197) #13
   %tobool369 = icmp ne i32 %call368, 0
   br i1 %tobool369, label %if.else380, label %if.then370
 
 if.then370:                                       ; preds = %if.else367
   %object371 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call373 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 152) #19
+  %call373 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 152) #18
           to label %invoke.cont372 unwind label %lpad77
 
 invoke.cont372:                                   ; preds = %if.then370
@@ -3032,19 +3032,19 @@ lpad377:                                          ; preds = %invoke.cont372
   store ptr %202, ptr %exn.slot, align 8
   %203 = extractvalue { ptr, i32 } %201, 1
   store i32 %203, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call373) #20
+  call void @_ZdlPv(ptr noundef %call373) #19
   br label %catch.dispatch
 
 if.else380:                                       ; preds = %if.else367
   %204 = load ptr, ptr %obtype, align 8
   %205 = load i64, ptr %length, align 8
-  %call381 = call i32 @strncmp(ptr noundef %204, ptr noundef @.str.27, i64 noundef %205) #18
+  %call381 = call i32 @strncmp(ptr noundef %204, ptr noundef @.str.27, i64 noundef %205) #13
   %tobool382 = icmp ne i32 %call381, 0
   br i1 %tobool382, label %if.end393, label %if.then383
 
 if.then383:                                       ; preds = %if.else380
   %object384 = getelementptr inbounds %"class.Assimp::FBX::LazyObject", ptr %this1, i32 0, i32 2
-  %call386 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 168) #19
+  %call386 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 168) #18
           to label %invoke.cont385 unwind label %lpad77
 
 invoke.cont385:                                   ; preds = %if.then383
@@ -3070,7 +3070,7 @@ lpad390:                                          ; preds = %invoke.cont385
   store ptr %210, ptr %exn.slot, align 8
   %211 = extractvalue { ptr, i32 } %209, 1
   store i32 %211, ptr %ehselector.slot, align 4
-  call void @_ZdlPv(ptr noundef %call386) #20
+  call void @_ZdlPv(ptr noundef %call386) #19
   br label %catch.dispatch
 
 catch.dispatch:                                   ; preds = %lpad390, %lpad377, %lpad364, %lpad351, %lpad338, %lpad325, %lpad312, %lpad299, %lpad285, %lpad260, %lpad246, %lpad232, %lpad218, %lpad196, %lpad182, %lpad168, %lpad154, %lpad140, %lpad123, %lpad109, %lpad95, %lpad77
@@ -5381,7 +5381,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8) #16
   %globals = getelementptr inbounds %"class.Assimp::FBX::Document", ptr %this1, i32 0, i32 11
-  %call15 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #19
+  %call15 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #18
   store i1 true, ptr %cleanup.isactive, align 1
   invoke void @_ZSt11make_sharedIKN6Assimp3FBX13PropertyTableEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_(ptr sret(%"class.std::shared_ptr") align 8 %agg.tmp)
           to label %invoke.cont17 unwind label %lpad16
@@ -5466,7 +5466,7 @@ ehcleanup21:                                      ; preds = %lpad18, %lpad16
   br i1 %cleanup.is_active, label %cleanup.action, label %cleanup.done
 
 cleanup.action:                                   ; preds = %ehcleanup21
-  call void @_ZdlPv(ptr noundef %call15) #20
+  call void @_ZdlPv(ptr noundef %call15) #19
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %ehcleanup21
@@ -5553,7 +5553,7 @@ ehcleanup41:                                      ; preds = %lpad38, %lpad36
 
 if.end42:                                         ; preds = %invoke.cont29
   %globals43 = getelementptr inbounds %"class.Assimp::FBX::Document", ptr %this1, i32 0, i32 11
-  %call46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #19
+  %call46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #18
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %if.end42
@@ -5593,7 +5593,7 @@ lpad48:                                           ; preds = %invoke.cont45
   br i1 %cleanup.is_active53, label %cleanup.action54, label %cleanup.done55
 
 cleanup.action54:                                 ; preds = %lpad48
-  call void @_ZdlPv(ptr noundef %call46) #20
+  call void @_ZdlPv(ptr noundef %call46) #19
   br label %cleanup.done55
 
 cleanup.done55:                                   ; preds = %cleanup.action54, %lpad48
@@ -5975,7 +5975,7 @@ if.end86:                                         ; preds = %invoke.cont81, %if.
   %68 = load ptr, ptr %el, align 8
   %first = getelementptr inbounds %"struct.std::pair.178", ptr %68, i32 0, i32 0
   %call91 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %first) #16
-  %call92 = call i32 @strcmp(ptr noundef %call91, ptr noundef @.str.24) #18
+  %call92 = call i32 @strcmp(ptr noundef %call91, ptr noundef @.str.24) #13
   %tobool93 = icmp ne i32 %call92, 0
   br i1 %tobool93, label %if.end95, label %if.then94
 
@@ -6795,7 +6795,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #13
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -6881,7 +6881,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.165", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #13
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.165", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -7113,7 +7113,7 @@ if.then:                                          ; preds = %entry
   store i64 %4, ptr %m_blockAllocationSize4, align 8
   %m_blockAllocationSize5 = getelementptr inbounds %"class.Assimp::StackAllocator", ptr %this1, i32 0, i32 0
   %5 = load i64, ptr %m_blockAllocationSize5, align 8
-  %call6 = call noalias noundef nonnull ptr @_Znam(i64 noundef %5) #19
+  %call6 = call noalias noundef nonnull ptr @_Znam(i64 noundef %5) #18
   store ptr %call6, ptr %data, align 8
   %m_storageBlocks = getelementptr inbounds %"class.Assimp::StackAllocator", ptr %this1, i32 0, i32 2
   %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPhSaIS0_EE12emplace_backIJRS0_EEES4_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_storageBlocks, ptr noundef nonnull align 8 dereferenceable(8) %data)
@@ -7436,7 +7436,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #13
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -8583,7 +8583,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.191", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #13
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.191", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -8787,7 +8787,7 @@ for.body:                                         ; preds = %for.cond
   %4 = load i64, ptr %i, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %4
   %5 = load ptr, ptr %arrayidx, align 8
-  %call = call i64 @strlen(ptr noundef %5) #18
+  %call = call i64 @strlen(ptr noundef %5) #13
   %6 = load i64, ptr %i, align 8
   %arrayidx2 = getelementptr inbounds [6 x i64], ptr %lengths, i64 0, i64 %6
   store i64 %call, ptr %arrayidx2, align 8
@@ -8919,7 +8919,7 @@ land.lhs.true:                                    ; preds = %invoke.cont36
   %29 = load i64, ptr %i28, align 8
   %arrayidx41 = getelementptr inbounds [6 x i64], ptr %lengths, i64 0, i64 %29
   %30 = load i64, ptr %arrayidx41, align 8
-  %call42 = call i32 @strncmp(ptr noundef %27, ptr noundef %28, i64 noundef %30) #18
+  %call42 = call i32 @strncmp(ptr noundef %27, ptr noundef %28, i64 noundef %30) #13
   %tobool43 = icmp ne i32 %call42, 0
   br i1 %tobool43, label %if.end, label %if.then
 
@@ -9339,7 +9339,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp3FBX6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #16
-  call void @_ZdlPv(ptr noundef %this1) #20
+  call void @_ZdlPv(ptr noundef %this1) #19
   ret void
 }
 
@@ -10054,7 +10054,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #20
+  call void @_ZdlPv(ptr noundef %0) #19
   ret void
 }
 
@@ -10357,7 +10357,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #20
+  call void @_ZdlPv(ptr noundef %0) #19
   ret void
 }
 
@@ -10645,7 +10645,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #20
+  call void @_ZdlPv(ptr noundef %0) #19
   ret void
 }
 
@@ -12011,7 +12011,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #18
   ret ptr %call5
 }
 
@@ -12119,7 +12119,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #20
+  call void @_ZdlPv(ptr noundef %0) #19
   ret void
 }
 
@@ -13109,7 +13109,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #20
+  call void @_ZdlPv(ptr noundef %0) #19
   ret void
 }
 
@@ -13275,7 +13275,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #20
+  call void @_ZdlPv(ptr noundef %0) #19
   ret void
 }
 
@@ -13332,7 +13332,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   call void @_ZN6Assimp3FBX18FileGlobalSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
-  call void @_ZdlPv(ptr noundef %0) #20
+  call void @_ZdlPv(ptr noundef %0) #19
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -14116,7 +14116,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 136
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #18
   ret ptr %call5
 }
 
@@ -14201,7 +14201,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt23_Sp_counted_ptr_inplaceIKN6Assimp3FBX13PropertyTableESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this1) #16
-  call void @_ZdlPv(ptr noundef %this1) #20
+  call void @_ZdlPv(ptr noundef %this1) #19
   ret void
 }
 
@@ -14526,7 +14526,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #20
+  call void @_ZdlPv(ptr noundef %0) #19
   ret void
 }
 
@@ -15311,7 +15311,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 48
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #18
   ret ptr %call5
 }
 
@@ -15687,7 +15687,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #13
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -16774,7 +16774,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #18
   ret ptr %call5
 }
 
@@ -16891,7 +16891,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_pi = getelementptr inbounds %"class.std::__shared_count", ptr %this1, i32 0, i32 0
   store ptr null, ptr %_M_pi, align 8
-  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #19
+  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #18
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -16919,7 +16919,7 @@ catch:                                            ; preds = %lpad
 
 delete.notnull:                                   ; preds = %catch
   call void @_ZN6Assimp3FBX13PropertyTableD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %5) #16
-  call void @_ZdlPv(ptr noundef %5) #20
+  call void @_ZdlPv(ptr noundef %5) #19
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %catch
@@ -16993,7 +16993,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt15_Sp_counted_ptrIPKN6Assimp3FBX13PropertyTableELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #16
-  call void @_ZdlPv(ptr noundef %this1) #20
+  call void @_ZdlPv(ptr noundef %this1) #19
   ret void
 }
 
@@ -17010,7 +17010,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   call void @_ZN6Assimp3FBX13PropertyTableD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #16
-  call void @_ZdlPv(ptr noundef %0) #20
+  call void @_ZdlPv(ptr noundef %0) #19
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -17028,7 +17028,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   call void @_ZNSt15_Sp_counted_ptrIPKN6Assimp3FBX13PropertyTableELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #16
-  call void @_ZdlPv(ptr noundef %this1) #20
+  call void @_ZdlPv(ptr noundef %this1) #19
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
@@ -18115,7 +18115,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 80
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #18
   ret ptr %call5
 }
 
@@ -18471,7 +18471,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.232", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #13
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.232", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -18485,7 +18485,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator.232", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #13
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator.232", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -19028,7 +19028,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 48
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #18
   ret ptr %call5
 }
 
@@ -19362,7 +19362,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #18
   ret ptr %call5
 }
 
@@ -19450,7 +19450,7 @@ entry:
   ret void
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -20030,7 +20030,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #20
+  call void @_ZdlPv(ptr noundef %0) #19
   ret void
 }
 
@@ -20540,7 +20540,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #18
   ret ptr %call5
 }
 
@@ -22750,14 +22750,13 @@ attributes #9 = { nounwind memory(none) }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nounwind memory(read) }
+attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { noreturn nounwind }
 attributes #16 = { nounwind }
 attributes #17 = { noreturn }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { builtin allocsize(0) }
-attributes #20 = { builtin nounwind }
+attributes #18 = { builtin allocsize(0) }
+attributes #19 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

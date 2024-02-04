@@ -16027,7 +16027,7 @@ for.body155:                                      ; preds = %for.cond153
   %58 = load ptr, ptr %p, align 8
   %call159 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK18OpenImageIO_v2_6_010ParamValue4nameEv(ptr noundef nonnull align 8 dereferenceable(39) %58) #3
   %call160 = call noundef ptr @_ZNK18OpenImageIO_v2_6_07ustring5c_strEv(ptr noundef nonnull align 8 dereferenceable(8) %call159) #3
-  %call161 = call i32 @strcmp(ptr noundef %57, ptr noundef %call160) #23
+  %call161 = call i32 @strcmp(ptr noundef %57, ptr noundef %call160) #18
   %tobool162 = icmp ne i32 %call161, 0
   br i1 %tobool162, label %if.end177, label %land.lhs.true163
 
@@ -20435,7 +20435,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 1
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -20634,7 +20634,7 @@ entry:
   store ptr %rhs, ptr %rhs.addr, align 8
   %0 = load ptr, ptr %lhs.addr, align 8
   %1 = load ptr, ptr %rhs.addr, align 8
-  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef 2) #23
+  %call = call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef 2) #18
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -26554,7 +26554,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 4
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -41567,7 +41567,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 4
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -46922,7 +46922,7 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call = call noundef i64 @_ZN3fmt2v86detail11to_unsignedIlEENSt13make_unsignedIT_E4typeES4_(i64 noundef %sub.ptr.sub)
-  %call1 = call noundef ptr @memchr(ptr noundef %0, i32 noundef %conv, i64 noundef %call) #23
+  %call1 = call noundef ptr @memchr(ptr noundef %0, i32 noundef %conv, i64 noundef %call) #18
   %4 = load ptr, ptr %out.addr, align 8
   store ptr %call1, ptr %4, align 8
   %5 = load ptr, ptr %out.addr, align 8
@@ -74371,7 +74371,7 @@ entry:
   %size.addr = alloca i64, align 8
   store i64 %size, ptr %size.addr, align 8
   %0 = load i64, ptr %size.addr, align 8
-  %call = call noalias ptr @malloc(i64 noundef %0) #25
+  %call = call noalias ptr @malloc(i64 noundef %0) #24
   ret ptr %call
 }
 
@@ -74544,7 +74544,7 @@ entry:
   %s.addr = alloca ptr, align 8
   store ptr %s, ptr %s.addr, align 8
   %0 = load ptr, ptr %s.addr, align 8
-  %call = call i64 @strlen(ptr noundef %0) #23
+  %call = call i64 @strlen(ptr noundef %0) #18
   ret i64 %call
 }
 
@@ -80788,7 +80788,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 40
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -92622,7 +92622,7 @@ entry:
   store ptr %dst, ptr %dst.addr, align 8
   %0 = load ptr, ptr %src.addr, align 8
   %1 = load ptr, ptr %dst.addr, align 8
-  %call = call i32 @strcmp(ptr noundef %0, ptr noundef %1) #23
+  %call = call i32 @strcmp(ptr noundef %0, ptr noundef %1) #18
   %cmp = icmp eq i32 %call, 0
   ret i1 %cmp
 }
@@ -93514,7 +93514,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 32
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -98471,7 +98471,7 @@ declare noundef i64 @_ZNKSt6locale2id5_M_idEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: noreturn
 declare void @_ZSt16__throw_bad_castv() #11
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #18
 
 declare void @__cxa_bad_cast()
@@ -100042,7 +100042,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 104
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -101859,7 +101859,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -101972,7 +101972,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 24
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -102679,7 +102679,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -103297,7 +103297,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 48
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -112973,7 +112973,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 4
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -117262,7 +117262,7 @@ entry:
   %__f.addr = alloca ptr, align 8
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 152) #24
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 152) #23
   %0 = load ptr, ptr %__f.addr, align 8
   call void @_ZNSt8__detail15_BracketMatcherINSt7__cxx1112regex_traitsIcEELb0ELb0EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(152) %call, ptr noundef nonnull align 8 dereferenceable(152) %0) #3
   %1 = load ptr, ptr %__dest.addr, align 8
@@ -117865,7 +117865,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 152) #24
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 152) #23
   %0 = load ptr, ptr %__f.addr, align 8
   invoke void @_ZNSt8__detail15_BracketMatcherINSt7__cxx1112regex_traitsIcEELb0ELb0EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(152) %call, ptr noundef nonnull align 8 dereferenceable(152) %0)
           to label %invoke.cont unwind label %lpad
@@ -119129,7 +119129,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 2
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -121126,7 +121126,7 @@ entry:
   %__f.addr = alloca ptr, align 8
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #24
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #23
   %0 = load ptr, ptr %__f.addr, align 8
   call void @_ZNSt8__detail15_BracketMatcherINSt7__cxx1112regex_traitsIcEELb0ELb1EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(160) %call, ptr noundef nonnull align 8 dereferenceable(160) %0) #3
   %1 = load ptr, ptr %__dest.addr, align 8
@@ -121429,7 +121429,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #24
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #23
   %0 = load ptr, ptr %__f.addr, align 8
   invoke void @_ZNSt8__detail15_BracketMatcherINSt7__cxx1112regex_traitsIcEELb0ELb1EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(160) %call, ptr noundef nonnull align 8 dereferenceable(160) %0)
           to label %invoke.cont unwind label %lpad
@@ -121875,7 +121875,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 64
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -122861,7 +122861,7 @@ entry:
   %__f.addr = alloca ptr, align 8
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #24
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #23
   %0 = load ptr, ptr %__f.addr, align 8
   call void @_ZNSt8__detail15_BracketMatcherINSt7__cxx1112regex_traitsIcEELb1ELb0EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(160) %call, ptr noundef nonnull align 8 dereferenceable(160) %0) #3
   %1 = load ptr, ptr %__dest.addr, align 8
@@ -123076,7 +123076,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #24
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #23
   %0 = load ptr, ptr %__f.addr, align 8
   invoke void @_ZNSt8__detail15_BracketMatcherINSt7__cxx1112regex_traitsIcEELb1ELb0EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(160) %call, ptr noundef nonnull align 8 dereferenceable(160) %0)
           to label %invoke.cont unwind label %lpad
@@ -124048,7 +124048,7 @@ entry:
   %__f.addr = alloca ptr, align 8
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #24
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #23
   %0 = load ptr, ptr %__f.addr, align 8
   call void @_ZNSt8__detail15_BracketMatcherINSt7__cxx1112regex_traitsIcEELb1ELb1EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(160) %call, ptr noundef nonnull align 8 dereferenceable(160) %0) #3
   %1 = load ptr, ptr %__dest.addr, align 8
@@ -124263,7 +124263,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %__dest, ptr %__dest.addr, align 8
   store ptr %__f, ptr %__f.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #24
+  %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #23
   %0 = load ptr, ptr %__f.addr, align 8
   invoke void @_ZNSt8__detail15_BracketMatcherINSt7__cxx1112regex_traitsIcEELb1ELb1EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(160) %call, ptr noundef nonnull align 8 dereferenceable(160) %0)
           to label %invoke.cont unwind label %lpad
@@ -130091,7 +130091,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #23
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -131161,7 +131161,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 48
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -131622,7 +131622,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #23
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #18
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -132710,7 +132710,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -132823,7 +132823,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -137980,7 +137980,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 24
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -138601,7 +138601,7 @@ entry:
   call void @_ZNSt6vectorISt4pairIlS_INSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS1_12basic_stringIcSt11char_traitsIcESaIcEEEEEEESaISD_EEESaISG_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_M_match_queue) #3
   %_M_visited_states = getelementptr inbounds %"struct.std::__detail::_Executor<__gnu_cxx::__normal_iterator<const char *, std::__cxx11::basic_string<char>>, std::allocator<std::__cxx11::sub_match<__gnu_cxx::__normal_iterator<const char *, std::__cxx11::basic_string<char>>>>, std::__cxx11::regex_traits<char>, false>::_State_info", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %__n.addr, align 8
-  %call = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %0) #24
+  %call = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %0) #23
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -139087,7 +139087,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 16
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -141035,7 +141035,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 32
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #24
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #23
   ret ptr %call5
 }
 
@@ -150453,14 +150453,13 @@ attributes #14 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-tr
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #16 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nounwind memory(read) }
+attributes #18 = { nounwind willreturn memory(read) }
 attributes #19 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #20 = { builtin nounwind }
 attributes #21 = { noreturn nounwind }
 attributes #22 = { noreturn }
-attributes #23 = { nounwind willreturn memory(read) }
-attributes #24 = { builtin allocsize(0) }
-attributes #25 = { nounwind allocsize(0) }
+attributes #23 = { builtin allocsize(0) }
+attributes #24 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

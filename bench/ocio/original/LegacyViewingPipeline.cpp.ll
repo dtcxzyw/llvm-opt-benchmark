@@ -1882,7 +1882,7 @@ invoke.cont78:                                    ; preds = %invoke.cont74
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76) #14
   %call80 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #14
   %38 = load ptr, ptr @_ZN19OpenColorIO_v2_4dev26OCIO_VIEW_USE_DISPLAY_NAMEE, align 8
-  %call81 = call i32 @strcmp(ptr noundef %call80, ptr noundef %38) #17
+  %call81 = call i32 @strcmp(ptr noundef %call80, ptr noundef %38) #12
   %cmp = icmp eq i32 0, %call81
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %nameFromDisplay, align 1
@@ -3726,7 +3726,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN19OpenColorIO_v2_4dev25LegacyViewingPipelineImplD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this1) #14
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -4825,7 +4825,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev25LegacyViewingPipelineImplEPFvPNS0_21LegacyViewingPipelineEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #14
-  call void @_ZdlPv(ptr noundef %this1) #18
+  call void @_ZdlPv(ptr noundef %this1) #17
   ret void
 }
 
@@ -5124,7 +5124,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   store i64 %__n, ptr %__n.addr, align 8
   %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #18
+  call void @_ZdlPv(ptr noundef %0) #17
   ret void
 }
 
@@ -5188,7 +5188,7 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5938,13 +5938,12 @@ attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-tra
 attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind memory(read) }
+attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { builtin allocsize(0) }
 attributes #14 = { nounwind }
 attributes #15 = { noreturn nounwind }
 attributes #16 = { noreturn }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { builtin nounwind }
+attributes #17 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

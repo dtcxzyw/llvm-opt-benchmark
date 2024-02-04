@@ -1474,7 +1474,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -1562,7 +1562,7 @@ entry:
   call void @_ZN7Imf_3_217GenericOutputFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_215TiledOutputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::TiledOutputFile", ptr %this1, i32 0, i32 1
-  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 376) #20
+  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 376) #19
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1573,7 +1573,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %invoke.cont
   store ptr %call, ptr %_data, align 8
   %_streamData = getelementptr inbounds %"class.Imf_3_2::TiledOutputFile", ptr %this1, i32 0, i32 2
-  %call5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #20
+  %call5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #19
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
@@ -1587,7 +1587,7 @@ invoke.cont4:                                     ; preds = %invoke.cont3
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont4
-  %call9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #20
+  %call9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #19
           to label %invoke.cont8 unwind label %lpad6
 
 invoke.cont8:                                     ; preds = %invoke.cont7
@@ -2146,7 +2146,7 @@ for.cond:                                         ; preds = %for.inc, %if.end63
   br i1 %cmp66, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %call67 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #20
+  %call67 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 136) #19
   %_data68 = getelementptr inbounds %"class.Imf_3_2::TiledOutputFile", ptr %this1, i32 0, i32 1
   %57 = load ptr, ptr %_data68, align 8
   %header69 = getelementptr inbounds %"struct.Imf_3_2::TiledOutputFile::Data", ptr %57, i32 0, i32 0
@@ -2317,7 +2317,7 @@ entry:
   call void @_ZN7Imf_3_217GenericOutputFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_215TiledOutputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::TiledOutputFile", ptr %this1, i32 0, i32 1
-  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 376) #20
+  %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 376) #19
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -2328,7 +2328,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %invoke.cont
   store ptr %call, ptr %_data, align 8
   %_streamData = getelementptr inbounds %"class.Imf_3_2::TiledOutputFile", ptr %this1, i32 0, i32 2
-  %call5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #20
+  %call5 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 56) #19
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
@@ -2677,7 +2677,7 @@ if.end:                                           ; preds = %invoke.cont
   %8 = load ptr, ptr %mutex, align 8
   %_streamData = getelementptr inbounds %"class.Imf_3_2::TiledOutputFile", ptr %this1, i32 0, i32 2
   store ptr %8, ptr %_streamData, align 8
-  %call6 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 376) #20
+  %call6 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 376) #19
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %if.end
@@ -3016,7 +3016,7 @@ entry:
   store i64 %size, ptr %size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %size.addr, align 8
-  %call = call noalias noundef nonnull ptr @_Znam(i64 noundef %0) #20
+  %call = call noalias noundef nonnull ptr @_Znam(i64 noundef %0) #19
   store ptr %call, ptr %tmp, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::Array", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %_data, align 8
@@ -4419,7 +4419,7 @@ while.cond:                                       ; preds = %if.end64, %invoke.c
   br i1 %cmp51, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %call54 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #20
+  %call54 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #19
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %while.body
@@ -4538,7 +4538,7 @@ invoke.cont75:                                    ; preds = %invoke.cont74
   br i1 %cmp76, label %if.then77, label %if.end85
 
 if.then77:                                        ; preds = %invoke.cont75
-  %call79 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #20
+  %call79 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #19
           to label %invoke.cont78 unwind label %lpad52
 
 invoke.cont78:                                    ; preds = %if.then77
@@ -5508,7 +5508,7 @@ while.end:                                        ; preds = %while.cond
   br label %if.end110
 
 if.else:                                          ; preds = %if.end57
-  %call104 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #20
+  %call104 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #19
   %83 = load ptr, ptr %pixelData.addr, align 8
   %84 = load i32, ptr %pixelDataSize.addr, align 4
   invoke void @_ZN7Imf_3_212_GLOBAL__N_112BufferedTileC2EPKci(ptr noundef nonnull align 8 dereferenceable(12) %call104, ptr noundef %83, i32 noundef %84)
@@ -11217,7 +11217,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -11991,7 +11991,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 344
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
   ret ptr %call5
 }
 
@@ -12835,7 +12835,7 @@ entry:
   %pixelDataSize2 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::BufferedTile", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %pixelDataSize2, align 8
   %conv = sext i32 %1 to i64
-  %call = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #20
+  %call = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #19
   %pixelData3 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::BufferedTile", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %pixelData3, align 8
   %pixelData4 = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::BufferedTile", ptr %this1, i32 0, i32 0
@@ -13962,7 +13962,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 56
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
   ret ptr %call5
 }
 
@@ -14327,7 +14327,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %_M_node = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   %0 = load ptr, ptr %_M_node, align 8
-  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #19
+  %call = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %0) #15
   %_M_node2 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %this1, i32 0, i32 0
   store ptr %call, ptr %_M_node2, align 8
   ret ptr %this1
@@ -15833,7 +15833,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
   ret ptr %call5
 }
 
@@ -16562,7 +16562,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 48
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
   ret ptr %call5
 }
 
@@ -18004,7 +18004,7 @@ if.end:                                           ; preds = %if.then
 if.end4:                                          ; preds = %entry
   %3 = load i64, ptr %__n.addr, align 8
   %mul = mul i64 %3, 4
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #20
+  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #19
   ret ptr %call5
 }
 
@@ -18302,7 +18302,7 @@ entry:
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7Imf_3_26HeaderixEPKc(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef) #1
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #15
 
 declare void @_ZN7Iex_3_27TypeExcC1EPKc(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #1
@@ -18336,12 +18336,11 @@ attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrit
 attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #13 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind memory(read) }
+attributes #15 = { nounwind willreturn memory(read) }
 attributes #16 = { noreturn }
 attributes #17 = { noreturn nounwind }
 attributes #18 = { builtin nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { builtin allocsize(0) }
+attributes #19 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

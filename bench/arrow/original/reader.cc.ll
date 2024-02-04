@@ -37289,7 +37289,7 @@ entry:
   %tobool = trunc i8 %1 to i1
   %call = call noundef ptr @_ZN22arrow_vendored_private11flatbuffers19GetBufferIdentifierEPKvb(ptr noundef %0, i1 noundef zeroext %tobool)
   %2 = load ptr, ptr %identifier.addr, align 8
-  %call1 = call i32 @strncmp(ptr noundef %call, ptr noundef %2, i64 noundef 4) #21
+  %call1 = call i32 @strncmp(ptr noundef %call, ptr noundef %2, i64 noundef 4) #15
   %cmp = icmp eq i32 %call1, 0
   ret i1 %cmp
 }
@@ -74977,7 +74977,7 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78013,7 +78013,7 @@ if.end:                                           ; preds = %entry
   %call3 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN5arrow6BufferELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %4) #16
   %call4 = call noundef ptr @_ZNK5arrow6Buffer4dataEv(ptr noundef nonnull align 8 dereferenceable(80) %call3)
   %add.ptr = getelementptr inbounds i8, ptr %call4, i64 4
-  %call5 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef @.str.48, i64 noundef 6) #21
+  %call5 = call i32 @memcmp(ptr noundef %add.ptr, ptr noundef @.str.48, i64 noundef 6) #15
   %tobool = icmp ne i32 %call5, 0
   br i1 %tobool, label %if.then6, label %if.end10
 
@@ -145105,13 +145105,12 @@ attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-mat
 attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { nounwind memory(read) }
+attributes #15 = { nounwind willreturn memory(read) }
 attributes #16 = { nounwind }
 attributes #17 = { noreturn nounwind }
 attributes #18 = { builtin allocsize(0) }
 attributes #19 = { builtin nounwind }
 attributes #20 = { noreturn }
-attributes #21 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

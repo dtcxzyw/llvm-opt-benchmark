@@ -7098,7 +7098,7 @@ while.body:                                       ; preds = %land.end
   %call7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi7getlineEPcl(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %arraydecay, i64 noundef 5120)
   %arraydecay8 = getelementptr inbounds [5121 x i8], ptr %line, i64 0, i64 0
   %11 = load ptr, ptr %pattern, align 8
-  %call9 = call noundef ptr @strstr(ptr noundef %arraydecay8, ptr noundef %11) #19
+  %call9 = call noundef ptr @strstr(ptr noundef %arraydecay8, ptr noundef %11) #13
   %tobool10 = icmp ne ptr %call9, null
   br i1 %tobool10, label %if.then11, label %if.end
 
@@ -7108,7 +7108,7 @@ if.then11:                                        ; preds = %while.body
 
 if.end:                                           ; preds = %if.then11, %while.body
   %arraydecay12 = getelementptr inbounds [5121 x i8], ptr %line, i64 0, i64 0
-  %call13 = call i64 @strlen(ptr noundef %arraydecay12) #19
+  %call13 = call i64 @strlen(ptr noundef %arraydecay12) #13
   %conv = trunc i64 %call13 to i32
   %12 = load i32, ptr %sizeProcessed, align 4
   %add = add i32 %12, %conv
@@ -12580,7 +12580,7 @@ if.then6:                                         ; preds = %if.then
 
 lor.lhs.false:                                    ; preds = %if.then6
   %11 = load ptr, ptr %parentName.addr, align 8
-  %call10 = call i64 @strlen(ptr noundef %11) #19
+  %call10 = call i64 @strlen(ptr noundef %11) #13
   %tobool11 = icmp ne i64 %call10, 0
   br i1 %tobool11, label %lor.lhs.false12, label %if.then20
 
@@ -13544,7 +13544,7 @@ entry:
   ret ptr %0
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14114,7 +14114,7 @@ if.then9:                                         ; preds = %for.end
 
 lor.lhs.false:                                    ; preds = %if.then9
   %16 = load ptr, ptr %parentName.addr, align 8
-  %call11 = call i64 @strlen(ptr noundef %16) #19
+  %call11 = call i64 @strlen(ptr noundef %16) #13
   %tobool12 = icmp ne i64 %call11, 0
   br i1 %tobool12, label %lor.lhs.false13, label %if.then21
 
@@ -45533,13 +45533,12 @@ attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind memory(read) }
+attributes #13 = { nounwind willreturn memory(read) }
 attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #15 = { builtin allocsize(0) }
 attributes #16 = { builtin nounwind }
 attributes #17 = { noreturn }
 attributes #18 = { noreturn nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

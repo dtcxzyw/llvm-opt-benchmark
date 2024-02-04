@@ -1425,7 +1425,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
   ret i32 %24
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #7
 
 declare noundef double @_ZN6icu_758Calendar6getNowEv() #5
@@ -1532,7 +1532,7 @@ invoke.cont11:                                    ; preds = %if.then10
 
 if.end13:                                         ; preds = %invoke.cont11, %if.then8
   %14 = load ptr, ptr %locale.addr, align 8
-  %call14 = call i64 @strlen(ptr noundef %14) #12
+  %call14 = call i64 @strlen(ptr noundef %14) #7
   %conv = trunc i64 %call14 to i32
   store i32 %conv, ptr %localeLength, align 4
   %15 = load i32, ptr %localeLength, align 4
@@ -2262,7 +2262,7 @@ if.end2:                                          ; preds = %dynamic_cast.end
   br i1 %10, label %typeid.bad_typeid, label %typeid.end
 
 typeid.bad_typeid:                                ; preds = %if.end2
-  call void @__cxa_bad_typeid() #13
+  call void @__cxa_bad_typeid() #12
   unreachable
 
 typeid.end:                                       ; preds = %if.end2
@@ -2278,7 +2278,7 @@ land.lhs.true:                                    ; preds = %typeid.end
   br i1 %14, label %typeid.bad_typeid4, label %typeid.end5
 
 typeid.bad_typeid4:                               ; preds = %land.lhs.true
-  call void @__cxa_bad_typeid() #13
+  call void @__cxa_bad_typeid() #12
   unreachable
 
 typeid.end5:                                      ; preds = %land.lhs.true
@@ -2375,7 +2375,7 @@ if.end2:                                          ; preds = %dynamic_cast.end
   br i1 %10, label %typeid.bad_typeid, label %typeid.end
 
 typeid.bad_typeid:                                ; preds = %if.end2
-  call void @__cxa_bad_typeid() #13
+  call void @__cxa_bad_typeid() #12
   unreachable
 
 typeid.end:                                       ; preds = %if.end2
@@ -2391,7 +2391,7 @@ land.lhs.true:                                    ; preds = %typeid.end
   br i1 %14, label %typeid.bad_typeid4, label %typeid.end5
 
 typeid.bad_typeid4:                               ; preds = %land.lhs.true
-  call void @__cxa_bad_typeid() #13
+  call void @__cxa_bad_typeid() #12
   unreachable
 
 typeid.end5:                                      ; preds = %land.lhs.true
@@ -3830,7 +3830,7 @@ for.body32:                                       ; preds = %for.cond30
   %idxprom35 = sext i32 %47 to i64
   %arrayidx36 = getelementptr inbounds [19 x ptr], ptr @_ZL9CAL_TYPES, i64 0, i64 %idxprom35
   %48 = load ptr, ptr %arrayidx36, align 8
-  %call37 = call i64 @strlen(ptr noundef %48) #12
+  %call37 = call i64 @strlen(ptr noundef %48) #7
   %conv38 = trunc i64 %call37 to i32
   %call39 = call signext i8 @ulist_containsString_75(ptr noundef %44, ptr noundef %46, i32 noundef %conv38)
   %tobool40 = icmp ne i8 %call39, 0
@@ -4740,13 +4740,12 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind memory(read) }
+attributes #7 = { nounwind willreturn memory(read) }
 attributes #8 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind }
 attributes #10 = { allocsize(0) }
 attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { noreturn }
+attributes #12 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

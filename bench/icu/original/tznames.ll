@@ -305,9 +305,9 @@ invoke.cont30:                                    ; preds = %if.end29
 
 if.then33:                                        ; preds = %invoke.cont30
   %29 = load ptr, ptr %key, align 8
-  %call34 = call i64 @strlen(ptr noundef %29) #10
+  %call34 = call i64 @strlen(ptr noundef %29) #7
   %add = add i64 %call34, 1
-  %call36 = invoke noalias ptr @uprv_malloc_75(i64 noundef %add) #11
+  %call36 = invoke noalias ptr @uprv_malloc_75(i64 noundef %add) #10
           to label %invoke.cont35 unwind label %lpad2
 
 invoke.cont35:                                    ; preds = %if.then33
@@ -341,7 +341,7 @@ invoke.cont42:                                    ; preds = %if.end41
   br i1 %tobool44, label %if.then45, label %if.end56
 
 if.then45:                                        ; preds = %invoke.cont42
-  %call47 = invoke noalias ptr @uprv_malloc_75(i64 noundef 24) #11
+  %call47 = invoke noalias ptr @uprv_malloc_75(i64 noundef 24) #10
           to label %invoke.cont46 unwind label %lpad2
 
 invoke.cont46:                                    ; preds = %if.then45
@@ -718,7 +718,7 @@ terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #12
+  call void @__clang_call_terminate(ptr %2) #11
   unreachable
 }
 
@@ -769,7 +769,7 @@ terminate.lpad:                                   ; preds = %if.end, %entry
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #12
+  call void @__clang_call_terminate(ptr %4) #11
   unreachable
 }
 
@@ -778,7 +778,7 @@ declare void @umtx_lock_75(ptr noundef) #2
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #9
-  call void @_ZSt9terminatev() #12
+  call void @_ZSt9terminatev() #11
   unreachable
 }
 
@@ -855,7 +855,7 @@ return:                                           ; preds = %if.end5, %if.then2,
   ret i1 %9
 }
 
-; Function Attrs: nounwind memory(read)
+; Function Attrs: nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) #7
 
 ; Function Attrs: mustprogress uwtable
@@ -1195,7 +1195,7 @@ define void @_ZN6icu_7513TimeZoneNamesD0Ev(ptr noundef nonnull align 8 dereferen
 entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
-  call void @llvm.trap() #12
+  call void @llvm.trap() #11
   unreachable
 }
 
@@ -2659,12 +2659,11 @@ attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind memory(read) }
+attributes #7 = { nounwind willreturn memory(read) }
 attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { allocsize(0) }
-attributes #12 = { noreturn nounwind }
+attributes #10 = { allocsize(0) }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
