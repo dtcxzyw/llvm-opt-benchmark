@@ -32295,16 +32295,13 @@ define noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertIfEEbT_RNS_9hugeint_tE(
 entry:
   %conv = fpext float %value to double
   %0 = tail call double @llvm.fabs.f64(double %conv)
-  %lnot.i.i.i.i = fcmp ueq double %0, 0x7FF0000000000000
-  br i1 %lnot.i.i.i.i, label %_ZN6duckdb7Hugeint10TryConvertIdEEbT_RNS_9hugeint_tE.exit, label %if.end.i.i
+  %lnot.i.i.i.i = fcmp one double %0, 0x7FF0000000000000
+  %1 = tail call float @llvm.fabs.f32(float %value)
+  %or.cond.i.i = fcmp ult float %1, 0x47E0000000000000
+  %or.cond = and i1 %or.cond.i.i, %lnot.i.i.i.i
+  br i1 %or.cond, label %if.end3.i.i, label %_ZN6duckdb7Hugeint10TryConvertIdEEbT_RNS_9hugeint_tE.exit
 
-if.end.i.i:                                       ; preds = %entry
-  %cmp.i.i = fcmp ole float %value, 0xC7E0000000000000
-  %cmp1.i.i = fcmp oge float %value, 0x47E0000000000000
-  %or.cond.i.i = or i1 %cmp.i.i, %cmp1.i.i
-  br i1 %or.cond.i.i, label %_ZN6duckdb7Hugeint10TryConvertIdEEbT_RNS_9hugeint_tE.exit, label %if.end3.i.i
-
-if.end3.i.i:                                      ; preds = %if.end.i.i
+if.end3.i.i:                                      ; preds = %entry
   %cmp4.i.i = fcmp olt float %value, 0.000000e+00
   %fneg.i.i = fneg double %conv
   %value.addr.0.i.i = select i1 %cmp4.i.i, double %fneg.i.i, double %conv
@@ -32321,25 +32318,20 @@ if.then14.i.i:                                    ; preds = %if.end3.i.i
   tail call void @_ZN6duckdb7Hugeint13NegateInPlaceERNS_9hugeint_tE(ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %_ZN6duckdb7Hugeint10TryConvertIdEEbT_RNS_9hugeint_tE.exit
 
-_ZN6duckdb7Hugeint10TryConvertIdEEbT_RNS_9hugeint_tE.exit: ; preds = %if.then14.i.i, %if.end3.i.i, %if.end.i.i, %entry
-  %retval.0.i.i = phi i1 [ false, %entry ], [ false, %if.end.i.i ], [ true, %if.then14.i.i ], [ true, %if.end3.i.i ]
-  ret i1 %retval.0.i.i
+_ZN6duckdb7Hugeint10TryConvertIdEEbT_RNS_9hugeint_tE.exit: ; preds = %if.then14.i.i, %if.end3.i.i, %entry
+  ret i1 %or.cond
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertIdEEbT_RNS_9hugeint_tE(double noundef %value, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #1 align 2 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %value)
-  %lnot.i.i.i = fcmp ueq double %0, 0x7FF0000000000000
-  br i1 %lnot.i.i.i, label %_ZN6duckdb23ConvertFloatingToBigintIdEEbT_RNS_9hugeint_tE.exit, label %if.end.i
+  %lnot.i.i.i = fcmp one double %0, 0x7FF0000000000000
+  %or.cond.i = fcmp ult double %0, 0x47E0000000000000
+  %or.cond = and i1 %lnot.i.i.i, %or.cond.i
+  br i1 %or.cond, label %if.end3.i, label %_ZN6duckdb23ConvertFloatingToBigintIdEEbT_RNS_9hugeint_tE.exit
 
-if.end.i:                                         ; preds = %entry
-  %cmp.i = fcmp ole double %value, 0xC7E0000000000000
-  %cmp1.i = fcmp oge double %value, 0x47E0000000000000
-  %or.cond.i = or i1 %cmp.i, %cmp1.i
-  br i1 %or.cond.i, label %_ZN6duckdb23ConvertFloatingToBigintIdEEbT_RNS_9hugeint_tE.exit, label %if.end3.i
-
-if.end3.i:                                        ; preds = %if.end.i
+if.end3.i:                                        ; preds = %entry
   %cmp4.i = fcmp olt double %value, 0.000000e+00
   %fneg.i = fneg double %value
   %value.addr.0.i = select i1 %cmp4.i, double %fneg.i, double %value
@@ -32356,17 +32348,15 @@ if.then14.i:                                      ; preds = %if.end3.i
   tail call void @_ZN6duckdb7Hugeint13NegateInPlaceERNS_9hugeint_tE(ptr noundef nonnull align 8 dereferenceable(16) %result)
   br label %_ZN6duckdb23ConvertFloatingToBigintIdEEbT_RNS_9hugeint_tE.exit
 
-_ZN6duckdb23ConvertFloatingToBigintIdEEbT_RNS_9hugeint_tE.exit: ; preds = %if.then14.i, %if.end3.i, %if.end.i, %entry
-  %retval.0.i = phi i1 [ false, %entry ], [ false, %if.end.i ], [ true, %if.then14.i ], [ true, %if.end3.i ]
-  ret i1 %retval.0.i
+_ZN6duckdb23ConvertFloatingToBigintIdEEbT_RNS_9hugeint_tE.exit: ; preds = %if.then14.i, %if.end3.i, %entry
+  ret i1 %or.cond
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertIeEEbT_RNS_9hugeint_tE(x86_fp80 noundef %value, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #1 align 2 {
 entry:
-  %cmp.i = fcmp ugt x86_fp80 %value, 0xKC07E8000000000000000
-  %cmp1.i = fcmp ult x86_fp80 %value, 0xK407E8000000000000000
-  %or.cond.not.i = and i1 %cmp.i, %cmp1.i
+  %0 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %value)
+  %or.cond.not.i = fcmp ult x86_fp80 %0, 0xK407E8000000000000000
   br i1 %or.cond.not.i, label %if.end3.i, label %_ZN6duckdb23ConvertFloatingToBigintIeEEbT_RNS_9hugeint_tE.exit
 
 if.end3.i:                                        ; preds = %entry
@@ -219279,6 +219269,9 @@ declare i32 @llvm.vector.reduce.add.v4i32(<4 x i32>) #23
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.vector.reduce.xor.v2i64(<2 x i64>) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare x86_fp80 @llvm.fabs.f80(x86_fp80) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #37

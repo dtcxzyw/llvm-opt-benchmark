@@ -63028,7 +63028,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %arrayidx26 = getelementptr inbounds [4 x i32], ptr %log2Dim, i64 0, i64 %indvars.iv
   store i32 %add, ptr %arrayidx26, align 4
   %add29 = add i32 %add, %tableSize.0340
-  %shl32 = shl i32 2, %conv.i
+  %shl32 = shl nuw i32 2, %conv.i
   %add35 = add nsw i32 %shl32, %shr
   %shl36 = shl i32 %add35, 12
   %sub37 = add nsw i32 %shl36, -1
@@ -134687,10 +134687,9 @@ entry:
   %1 = load ptr, ptr %mTree.i, align 8
   %mBackground.i.i.i = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load float, ptr %mBackground.i.i.i, align 4
-  %cmp.i = fcmp ule float %2, 0x3E45798EE0000000
-  %cmp2.i = fcmp uge float %2, 0xBE45798EE0000000
-  %3 = and i1 %cmp.i, %cmp2.i
-  br i1 %3, label %if.end, label %if.then
+  %3 = tail call float @llvm.fabs.f32(float %2)
+  %4 = fcmp ule float %3, 0x3E45798EE0000000
+  br i1 %4, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ss)
@@ -134698,12 +134697,12 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %if.then
-  %4 = load ptr, ptr %this, align 8
-  %mTree.i2 = getelementptr inbounds i8, ptr %4, i64 72
-  %5 = load ptr, ptr %mTree.i2, align 8
-  %mBackground.i.i.i3 = getelementptr inbounds i8, ptr %5, i64 56
-  %6 = load float, ptr %mBackground.i.i.i3, align 4
-  %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call4, float noundef %6)
+  %5 = load ptr, ptr %this, align 8
+  %mTree.i2 = getelementptr inbounds i8, ptr %5, i64 72
+  %6 = load ptr, ptr %mTree.i2, align 8
+  %mBackground.i.i.i3 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = load float, ptr %mBackground.i.i.i3, align 4
+  %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %call4, float noundef %7)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -134719,7 +134718,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   br label %return
 
 lpad:                                             ; preds = %invoke.cont11, %invoke.cont9, %invoke.cont7, %if.then
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ss) #15
   br label %eh.resume
@@ -134738,7 +134737,7 @@ call.i.noexc:                                     ; preds = %if.end
           to label %invoke.cont15 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #15
   br label %lpad14.body
@@ -134748,12 +134747,12 @@ invoke.cont15:                                    ; preds = %.noexc
   br label %return
 
 lpad14:                                           ; preds = %call.i.noexc, %if.end
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad14.body
 
 lpad14.body:                                      ; preds = %lpad.i, %lpad14
-  %eh.lpad-body = phi { ptr, i32 } [ %9, %lpad14 ], [ %8, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad14 ], [ %9, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   br label %eh.resume
 
@@ -134761,7 +134760,7 @@ return:                                           ; preds = %invoke.cont15, %inv
   ret void
 
 eh.resume:                                        ; preds = %lpad14.body, %lpad
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad14.body ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad14.body ], [ %8, %lpad ]
   resume { ptr, i32 } %.pn
 }
 
@@ -134855,10 +134854,9 @@ entry:
   %1 = load ptr, ptr %mTree.i, align 8
   %mBackground.i.i.i = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load double, ptr %mBackground.i.i.i, align 8
-  %cmp.i = fcmp ule double %2, 1.000000e-15
-  %cmp2.i = fcmp uge double %2, -1.000000e-15
-  %3 = and i1 %cmp.i, %cmp2.i
-  br i1 %3, label %if.end, label %if.then
+  %3 = tail call double @llvm.fabs.f64(double %2)
+  %4 = fcmp ule double %3, 1.000000e-15
+  br i1 %4, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ss)
@@ -134866,12 +134864,12 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %if.then
-  %4 = load ptr, ptr %this, align 8
-  %mTree.i2 = getelementptr inbounds i8, ptr %4, i64 72
-  %5 = load ptr, ptr %mTree.i2, align 8
-  %mBackground.i.i.i3 = getelementptr inbounds i8, ptr %5, i64 56
-  %6 = load double, ptr %mBackground.i.i.i3, align 8
-  %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call4, double noundef %6)
+  %5 = load ptr, ptr %this, align 8
+  %mTree.i2 = getelementptr inbounds i8, ptr %5, i64 72
+  %6 = load ptr, ptr %mTree.i2, align 8
+  %mBackground.i.i.i3 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = load double, ptr %mBackground.i.i.i3, align 8
+  %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call4, double noundef %7)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -134887,7 +134885,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   br label %return
 
 lpad:                                             ; preds = %invoke.cont11, %invoke.cont9, %invoke.cont7, %if.then
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ss) #15
   br label %eh.resume
@@ -134906,7 +134904,7 @@ call.i.noexc:                                     ; preds = %if.end
           to label %invoke.cont15 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.result) #15
   br label %lpad14.body
@@ -134916,12 +134914,12 @@ invoke.cont15:                                    ; preds = %.noexc
   br label %return
 
 lpad14:                                           ; preds = %call.i.noexc, %if.end
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad14.body
 
 lpad14.body:                                      ; preds = %lpad.i, %lpad14
-  %eh.lpad-body = phi { ptr, i32 } [ %9, %lpad14 ], [ %8, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad14 ], [ %9, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #15
   br label %eh.resume
 
@@ -134929,7 +134927,7 @@ return:                                           ; preds = %invoke.cont15, %inv
   ret void
 
 eh.resume:                                        ; preds = %lpad14.body, %lpad
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad14.body ], [ %7, %lpad ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad14.body ], [ %8, %lpad ]
   resume { ptr, i32 } %.pn
 }
 

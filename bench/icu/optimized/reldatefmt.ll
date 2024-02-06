@@ -3472,9 +3472,8 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %cmp = fcmp ogt double %offset, -2.100000e+00
-  %cmp2 = fcmp olt double %offset, 2.100000e+00
-  %or.cond = and i1 %cmp, %cmp2
+  %1 = tail call double @llvm.fabs.f64(double %offset)
+  %or.cond = fcmp olt double %1, 2.100000e+00
   br i1 %or.cond, label %if.then3, label %if.end10
 
 if.then3:                                         ; preds = %if.end
@@ -3579,38 +3578,38 @@ if.end11.i:                                       ; preds = %sw.bb16, %sw.epilog
   %direction.126 = phi i64 [ %direction.0, %sw.epilog30 ], [ 5, %sw.bb16 ]
   %fString.i.i = getelementptr inbounds i8, ptr %output, i64 8
   %fCache.i = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load ptr, ptr %fCache.i, align 8
+  %2 = load ptr, ptr %fCache.i, align 8
   %fStyle.i = getelementptr inbounds i8, ptr %this, i64 32
-  %2 = load i32, ptr %fStyle.i, align 8
-  %absoluteUnits.i.i = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = load i32, ptr %fStyle.i, align 8
+  %absoluteUnits.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %idxprom4.i.i = and i64 %direction.126, 4294967295
-  %fallBackCache.i.i = getelementptr inbounds i8, ptr %1, i64 23128
+  %fallBackCache.i.i = getelementptr inbounds i8, ptr %2, i64 23128
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.end.i.i, %if.end11.i
-  %style.0.i.i = phi i32 [ %2, %if.end11.i ], [ %4, %if.end.i.i ]
+  %style.0.i.i = phi i32 [ %3, %if.end11.i ], [ %5, %if.end.i.i ]
   %idxprom.i.i = sext i32 %style.0.i.i to i64
   %arrayidx5.i.i = getelementptr inbounds [3 x [15 x [6 x %"class.icu_75::UnicodeString"]]], ptr %absoluteUnits.i.i, i64 0, i64 %idxprom.i.i, i64 %absunit.028, i64 %idxprom4.i.i
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 8
-  %3 = load i16, ptr %fUnion.i.i.i, align 8
-  %cmp.i.i.i = icmp ugt i16 %3, 31
+  %4 = load i16, ptr %fUnion.i.i.i, align 8
+  %cmp.i.i.i = icmp ugt i16 %4, 31
   br i1 %cmp.i.i.i, label %_ZNK6icu_7525RelativeDateTimeFormatter18formatAbsoluteImplE14UDateDirection17UDateAbsoluteUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCode.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %do.body.i.i
   %arrayidx14.i.i = getelementptr inbounds [3 x i32], ptr %fallBackCache.i.i, i64 0, i64 %idxprom.i.i
-  %4 = load i32, ptr %arrayidx14.i.i, align 4
-  %cmp.not.i.i = icmp eq i32 %4, -1
+  %5 = load i32, ptr %arrayidx14.i.i, align 4
+  %cmp.not.i.i = icmp eq i32 %5, -1
   br i1 %cmp.not.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !8
 
 do.end.i.i:                                       ; preds = %if.end.i.i
-  %emptyString.i.i = getelementptr inbounds i8, ptr %1, i64 23064
+  %emptyString.i.i = getelementptr inbounds i8, ptr %2, i64 23064
   br label %_ZNK6icu_7525RelativeDateTimeFormatter18formatAbsoluteImplE14UDateDirection17UDateAbsoluteUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCode.exit
 
 _ZNK6icu_7525RelativeDateTimeFormatter18formatAbsoluteImplE14UDateDirection17UDateAbsoluteUnitRNS_29FormattedRelativeDateTimeDataER10UErrorCode.exit: ; preds = %do.body.i.i, %do.end.i.i
   %retval.0.i.i = phi ptr [ %emptyString.i.i, %do.end.i.i ], [ %arrayidx5.i.i, %do.body.i.i ]
   %fLength.i.i = getelementptr inbounds i8, ptr %output, i64 140
-  %5 = load i32, ptr %fLength.i.i, align 4
-  %call.i.i = tail call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %fString.i.i, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i.i, i8 64, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %6 = load i32, ptr %fLength.i.i, align 4
+  %call.i.i = tail call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringENS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %fString.i.i, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i.i, i8 64, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %fString.i = getelementptr inbounds i8, ptr %output, i64 8
   %call36 = tail call noundef i32 @_ZNK6icu_7522FormattedStringBuilder6lengthEv(ptr noundef nonnull align 8 dereferenceable(136) %fString.i)
   %cmp37.not = icmp eq i32 %call36, 0
@@ -5754,6 +5753,9 @@ declare noundef i32 @_ZNK6icu_756Locale8hashCodeEv(ptr noundef nonnull align 8 d
 declare noundef zeroext i1 @_ZNK6icu_756LocaleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -5767,9 +5769,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

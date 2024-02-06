@@ -3664,8 +3664,8 @@ entry:
   %3 = shufflevector <2 x float> %2, <2 x float> poison, <2 x i32> zeroinitializer
   %4 = fdiv <2 x float> %agg.tmp2.sroa.0.0.copyload, %3
   %5 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %4)
-  %shift133 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %6 = fadd <2 x float> %5, %shift133
+  %shift129 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %6 = fadd <2 x float> %5, %shift129
   %add.i = extractelement <2 x float> %6, i64 0
   %7 = tail call noundef float @llvm.fabs.f32(float %div3.i.i)
   %add4.i = fadd float %7, %add.i
@@ -3729,184 +3729,182 @@ _ZN4pbrt16OctahedralVectorC2ENS_7Vector3IfEE.exit: ; preds = %if.then.i, %if.els
   %24 = getelementptr inbounds i8, ptr %this, i64 8
   %cosTheta_o = getelementptr inbounds i8, ptr %lb, i64 40
   %25 = load float, ptr %cosTheta_o, align 4
-  %cmp.i22 = fcmp oge float %25, -1.000000e+00
-  %cmp1.i = fcmp ole float %25, 1.000000e+00
-  %or.cond.i = and i1 %cmp.i22, %cmp1.i
-  br i1 %or.cond.i, label %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit, label %land.rhs.i
+  %26 = tail call float @llvm.fabs.f32(float %25)
+  %or.cond.i = fcmp ugt float %26, 1.000000e+00
+  br i1 %or.cond.i, label %land.rhs.i, label %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit
 
 land.rhs.i:                                       ; preds = %_ZN4pbrt16OctahedralVectorC2ENS_7Vector3IfEE.exit
   tail call void @_ZN4pbrt8LogFatalIJRA18_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.34, i32 noundef 207, ptr noundef nonnull @.str.26, ptr noundef nonnull align 1 dereferenceable(18) @.str.35) #22
   unreachable
 
 _ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit: ; preds = %_ZN4pbrt16OctahedralVectorC2ENS_7Vector3IfEE.exit
-  %add.i23 = fadd float %25, 1.000000e+00
-  %div.i = fmul float %add.i23, 5.000000e-01
-  %mul.i24 = fmul float %div.i, 3.276700e+04
-  %26 = tail call noundef float @llvm.floor.f32(float %mul.i24)
-  %conv.i = fptoui float %26 to i32
+  %add.i22 = fadd float %25, 1.000000e+00
+  %div.i = fmul float %add.i22, 5.000000e-01
+  %mul.i23 = fmul float %div.i, 3.276700e+04
+  %27 = tail call noundef float @llvm.floor.f32(float %mul.i23)
+  %conv.i = fptoui float %27 to i32
   %bf.load = load i32, ptr %24, align 4
   %bf.value = and i32 %conv.i, 32767
   %bf.clear = and i32 %bf.load, -32768
   %bf.set = or disjoint i32 %bf.clear, %bf.value
   store i32 %bf.set, ptr %24, align 4
   %cosTheta_e = getelementptr inbounds i8, ptr %lb, i64 44
-  %27 = load float, ptr %cosTheta_e, align 4
-  %cmp.i25 = fcmp oge float %27, -1.000000e+00
-  %cmp1.i26 = fcmp ole float %27, 1.000000e+00
-  %or.cond.i27 = and i1 %cmp.i25, %cmp1.i26
-  br i1 %or.cond.i27, label %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit33, label %land.rhs.i28
+  %28 = load float, ptr %cosTheta_e, align 4
+  %29 = tail call float @llvm.fabs.f32(float %28)
+  %or.cond.i24 = fcmp ugt float %29, 1.000000e+00
+  br i1 %or.cond.i24, label %land.rhs.i29, label %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit30
 
-land.rhs.i28:                                     ; preds = %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit
+land.rhs.i29:                                     ; preds = %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit
   tail call void @_ZN4pbrt8LogFatalIJRA18_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.34, i32 noundef 207, ptr noundef nonnull @.str.26, ptr noundef nonnull align 1 dereferenceable(18) @.str.35) #22
   unreachable
 
-_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit33: ; preds = %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit
-  %add.i29 = fadd float %27, 1.000000e+00
-  %div.i30 = fmul float %add.i29, 5.000000e-01
-  %mul.i31 = fmul float %div.i30, 3.276700e+04
-  %28 = tail call noundef float @llvm.floor.f32(float %mul.i31)
-  %conv.i32 = fptoui float %28 to i32
-  %bf.value8 = shl i32 %conv.i32, 15
+_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit30: ; preds = %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit
+  %add.i25 = fadd float %28, 1.000000e+00
+  %div.i26 = fmul float %add.i25, 5.000000e-01
+  %mul.i27 = fmul float %div.i26, 3.276700e+04
+  %30 = tail call noundef float @llvm.floor.f32(float %mul.i27)
+  %conv.i28 = fptoui float %30 to i32
+  %bf.value8 = shl i32 %conv.i28, 15
   %bf.shl = and i32 %bf.value8, 1073709056
   %bf.clear9 = and i32 %bf.set, -1073709057
   %bf.set10 = or disjoint i32 %bf.shl, %bf.clear9
   store i32 %bf.set10, ptr %24, align 4
   %twoSided = getelementptr inbounds i8, ptr %lb, i64 48
-  %29 = load i8, ptr %twoSided, align 4
-  %30 = and i8 %29, 1
-  %bf.value12 = zext nneg i8 %30 to i32
+  %31 = load i8, ptr %twoSided, align 4
+  %32 = and i8 %31, 1
+  %bf.value12 = zext nneg i8 %32 to i32
   %bf.shl13 = shl nuw nsw i32 %bf.value12, 30
   %bf.clear14 = and i32 %bf.set10, -1073741825
   %bf.set15 = or disjoint i32 %bf.shl13, %bf.clear14
   store i32 %bf.set15, ptr %24, align 4
-  %y.i35 = getelementptr inbounds i8, ptr %allb, i64 4
+  %y.i32 = getelementptr inbounds i8, ptr %allb, i64 4
   %pMax = getelementptr inbounds i8, ptr %allb, i64 12
-  %y.i40 = getelementptr inbounds i8, ptr %allb, i64 16
+  %y.i37 = getelementptr inbounds i8, ptr %allb, i64 16
   %retval.sroa.2.0.cond-lvalue.sroa_idx.i = getelementptr inbounds i8, ptr %lb, i64 8
-  %z.i38 = getelementptr inbounds i8, ptr %allb, i64 8
-  %z.i44 = getelementptr inbounds i8, ptr %allb, i64 20
+  %z.i35 = getelementptr inbounds i8, ptr %allb, i64 8
+  %z.i41 = getelementptr inbounds i8, ptr %allb, i64 20
   %qb = getelementptr inbounds i8, ptr %this, i64 12
   %cond-lvalue.i = getelementptr inbounds i8, ptr %lb, i64 12
-  %retval.sroa.2.0.cond-lvalue.sroa_idx.i55 = getelementptr inbounds i8, ptr %lb, i64 20
+  %retval.sroa.2.0.cond-lvalue.sroa_idx.i51 = getelementptr inbounds i8, ptr %lb, i64 20
   %arrayidx40 = getelementptr inbounds i8, ptr %this, i64 18
   br label %for.body
 
-for.body:                                         ; preds = %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit33, %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit94
-  %indvars.iv = phi i64 [ 0, %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit33 ], [ %indvars.iv.next, %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit94 ]
+for.body:                                         ; preds = %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit30, %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit90
+  %indvars.iv = phi i64 [ 0, %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit30 ], [ %indvars.iv.next, %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit90 ]
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %lb, align 4
-  %31 = trunc i64 %indvars.iv to i32
-  switch i32 %31, label %if.end4.i43 [
-    i32 0, label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread110
-    i32 1, label %if.then3.i39
+  %33 = trunc i64 %indvars.iv to i32
+  switch i32 %33, label %if.end4.i40 [
+    i32 0, label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread106
+    i32 1, label %if.then3.i36
   ]
 
-_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread110: ; preds = %for.body
+_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread106: ; preds = %for.body
   %ref.tmp.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 0
-  br label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit45
+  br label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit42
 
-if.then3.i39:                                     ; preds = %for.body
+if.then3.i36:                                     ; preds = %for.body
   %ref.tmp.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i, i64 1
-  br label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit45
+  br label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit42
 
-if.end4.i43:                                      ; preds = %for.body
+if.end4.i40:                                      ; preds = %for.body
   %retval.sroa.2.0.copyload.i = load float, ptr %retval.sroa.2.0.cond-lvalue.sroa_idx.i, align 4
-  br label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit45
+  br label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit42
 
-_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit45:        ; preds = %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread110, %if.then3.i39, %if.end4.i43
-  %retval.0.i36106.in = phi ptr [ %y.i35, %if.then3.i39 ], [ %z.i38, %if.end4.i43 ], [ %allb, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread110 ]
-  %retval.0.i.sroa.speculated96104 = phi float [ %ref.tmp.sroa.0.4.vec.extract, %if.then3.i39 ], [ %retval.sroa.2.0.copyload.i, %if.end4.i43 ], [ %ref.tmp.sroa.0.0.vec.extract, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread110 ]
-  %retval.0.in.i41 = phi ptr [ %y.i40, %if.then3.i39 ], [ %z.i44, %if.end4.i43 ], [ %pMax, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread110 ]
-  %retval.0.i36106 = load float, ptr %retval.0.i36106.in, align 4
-  %retval.0.i42 = load float, ptr %retval.0.in.i41, align 4
-  %cmp.i46 = fcmp ult float %retval.0.i.sroa.speculated96104, %retval.0.i36106
-  %cmp1.i47 = fcmp ugt float %retval.0.i.sroa.speculated96104, %retval.0.i42
-  %or.cond.i48 = or i1 %cmp.i46, %cmp1.i47
-  br i1 %or.cond.i48, label %land.rhs.i53, label %land.end.i
+_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit42:        ; preds = %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread106, %if.then3.i36, %if.end4.i40
+  %retval.0.i33102.in = phi ptr [ %y.i32, %if.then3.i36 ], [ %z.i35, %if.end4.i40 ], [ %allb, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread106 ]
+  %retval.0.i.sroa.speculated92100 = phi float [ %ref.tmp.sroa.0.4.vec.extract, %if.then3.i36 ], [ %retval.sroa.2.0.copyload.i, %if.end4.i40 ], [ %ref.tmp.sroa.0.0.vec.extract, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread106 ]
+  %retval.0.in.i38 = phi ptr [ %y.i37, %if.then3.i36 ], [ %z.i41, %if.end4.i40 ], [ %pMax, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread106 ]
+  %retval.0.i33102 = load float, ptr %retval.0.i33102.in, align 4
+  %retval.0.i39 = load float, ptr %retval.0.in.i38, align 4
+  %cmp.i43 = fcmp ult float %retval.0.i.sroa.speculated92100, %retval.0.i33102
+  %cmp1.i = fcmp ugt float %retval.0.i.sroa.speculated92100, %retval.0.i39
+  %or.cond.i44 = or i1 %cmp.i43, %cmp1.i
+  br i1 %or.cond.i44, label %land.rhs.i49, label %land.end.i
 
-land.rhs.i53:                                     ; preds = %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit45
+land.rhs.i49:                                     ; preds = %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit42
   tail call void @_ZN4pbrt8LogFatalIJRA21_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.34, i32 noundef 213, ptr noundef nonnull @.str.26, ptr noundef nonnull align 1 dereferenceable(21) @.str.36) #22
   unreachable
 
-land.end.i:                                       ; preds = %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit45
-  %cmp2.i = fcmp oeq float %retval.0.i36106, %retval.0.i42
+land.end.i:                                       ; preds = %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit42
+  %cmp2.i = fcmp oeq float %retval.0.i33102, %retval.0.i39
   br i1 %cmp2.i, label %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %land.end.i
-  %sub.i49 = fsub float %retval.0.i.sroa.speculated96104, %retval.0.i36106
-  %sub3.i = fsub float %retval.0.i42, %retval.0.i36106
-  %div.i50 = fdiv float %sub.i49, %sub3.i
-  %cmp.i.i = fcmp olt float %div.i50, 0.000000e+00
-  %cmp3.i.i = fcmp ogt float %div.i50, 1.000000e+00
-  %conv2.val.i.i = select i1 %cmp3.i.i, float 1.000000e+00, float %div.i50
-  %32 = fmul float %conv2.val.i.i, 6.553500e+04
-  %mul.i51 = select i1 %cmp.i.i, float 0.000000e+00, float %32
+  %sub.i45 = fsub float %retval.0.i.sroa.speculated92100, %retval.0.i33102
+  %sub3.i = fsub float %retval.0.i39, %retval.0.i33102
+  %div.i46 = fdiv float %sub.i45, %sub3.i
+  %cmp.i.i = fcmp olt float %div.i46, 0.000000e+00
+  %cmp3.i.i = fcmp ogt float %div.i46, 1.000000e+00
+  %conv2.val.i.i = select i1 %cmp3.i.i, float 1.000000e+00, float %div.i46
+  %34 = fmul float %conv2.val.i.i, 6.553500e+04
+  %mul.i47 = select i1 %cmp.i.i, float 0.000000e+00, float %34
   br label %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit
 
 _ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit: ; preds = %land.end.i, %if.end.i
-  %retval.0.i52 = phi float [ %mul.i51, %if.end.i ], [ 0.000000e+00, %land.end.i ]
-  %33 = tail call noundef float @llvm.floor.f32(float %retval.0.i52)
-  %conv24 = fptoui float %33 to i16
+  %retval.0.i48 = phi float [ %mul.i47, %if.end.i ], [ 0.000000e+00, %land.end.i ]
+  %35 = tail call noundef float @llvm.floor.f32(float %retval.0.i48)
+  %conv24 = fptoui float %35 to i16
   %arrayidx25 = getelementptr inbounds [3 x i16], ptr %qb, i64 0, i64 %indvars.iv
   store i16 %conv24, ptr %arrayidx25, align 2
-  %retval.sroa.0.0.copyload.i54 = load <2 x float>, ptr %cond-lvalue.i, align 4
-  switch i32 %31, label %if.end4.i76 [
-    i32 0, label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit71.thread127
-    i32 1, label %if.then3.i72
+  %retval.sroa.0.0.copyload.i50 = load <2 x float>, ptr %cond-lvalue.i, align 4
+  switch i32 %33, label %if.end4.i72 [
+    i32 0, label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit67.thread123
+    i32 1, label %if.then3.i68
   ]
 
-_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit71.thread127: ; preds = %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit
-  %ref.tmp26.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i54, i64 0
-  br label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit78
+_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit67.thread123: ; preds = %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit
+  %ref.tmp26.sroa.0.0.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i50, i64 0
+  br label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit74
 
-if.then3.i72:                                     ; preds = %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit
-  %ref.tmp26.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i54, i64 1
-  br label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit78
+if.then3.i68:                                     ; preds = %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit
+  %ref.tmp26.sroa.0.4.vec.extract = extractelement <2 x float> %retval.sroa.0.0.copyload.i50, i64 1
+  br label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit74
 
-if.end4.i76:                                      ; preds = %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit
-  %retval.sroa.2.0.copyload.i56 = load float, ptr %retval.sroa.2.0.cond-lvalue.sroa_idx.i55, align 4
-  br label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit78
+if.end4.i72:                                      ; preds = %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit
+  %retval.sroa.2.0.copyload.i52 = load float, ptr %retval.sroa.2.0.cond-lvalue.sroa_idx.i51, align 4
+  br label %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit74
 
-_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit78:        ; preds = %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit71.thread127, %if.then3.i72, %if.end4.i76
-  %retval.0.i68125.in = phi ptr [ %y.i35, %if.then3.i72 ], [ %z.i38, %if.end4.i76 ], [ %allb, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit71.thread127 ]
-  %retval.0.i61.sroa.speculated116123 = phi float [ %ref.tmp26.sroa.0.4.vec.extract, %if.then3.i72 ], [ %retval.sroa.2.0.copyload.i56, %if.end4.i76 ], [ %ref.tmp26.sroa.0.0.vec.extract, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit71.thread127 ]
-  %retval.0.in.i74 = phi ptr [ %y.i40, %if.then3.i72 ], [ %z.i44, %if.end4.i76 ], [ %pMax, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit71.thread127 ]
-  %retval.0.i68125 = load float, ptr %retval.0.i68125.in, align 4
-  %retval.0.i75 = load float, ptr %retval.0.in.i74, align 4
-  %cmp.i79 = fcmp ult float %retval.0.i61.sroa.speculated116123, %retval.0.i68125
-  %cmp1.i80 = fcmp ugt float %retval.0.i61.sroa.speculated116123, %retval.0.i75
-  %or.cond.i81 = or i1 %cmp.i79, %cmp1.i80
-  br i1 %or.cond.i81, label %land.rhs.i93, label %land.end.i82
+_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit74:        ; preds = %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit67.thread123, %if.then3.i68, %if.end4.i72
+  %retval.0.i64121.in = phi ptr [ %y.i32, %if.then3.i68 ], [ %z.i35, %if.end4.i72 ], [ %allb, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit67.thread123 ]
+  %retval.0.i57.sroa.speculated112119 = phi float [ %ref.tmp26.sroa.0.4.vec.extract, %if.then3.i68 ], [ %retval.sroa.2.0.copyload.i52, %if.end4.i72 ], [ %ref.tmp26.sroa.0.0.vec.extract, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit67.thread123 ]
+  %retval.0.in.i70 = phi ptr [ %y.i37, %if.then3.i68 ], [ %z.i41, %if.end4.i72 ], [ %pMax, %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit67.thread123 ]
+  %retval.0.i64121 = load float, ptr %retval.0.i64121.in, align 4
+  %retval.0.i71 = load float, ptr %retval.0.in.i70, align 4
+  %cmp.i75 = fcmp ult float %retval.0.i57.sroa.speculated112119, %retval.0.i64121
+  %cmp1.i76 = fcmp ugt float %retval.0.i57.sroa.speculated112119, %retval.0.i71
+  %or.cond.i77 = or i1 %cmp.i75, %cmp1.i76
+  br i1 %or.cond.i77, label %land.rhs.i89, label %land.end.i78
 
-land.rhs.i93:                                     ; preds = %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit78
+land.rhs.i89:                                     ; preds = %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit74
   tail call void @_ZN4pbrt8LogFatalIJRA21_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.34, i32 noundef 213, ptr noundef nonnull @.str.26, ptr noundef nonnull align 1 dereferenceable(21) @.str.36) #22
   unreachable
 
-land.end.i82:                                     ; preds = %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit78
-  %cmp2.i83 = fcmp oeq float %retval.0.i68125, %retval.0.i75
-  br i1 %cmp2.i83, label %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit94, label %if.end.i84
+land.end.i78:                                     ; preds = %_ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit74
+  %cmp2.i79 = fcmp oeq float %retval.0.i64121, %retval.0.i71
+  br i1 %cmp2.i79, label %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit90, label %if.end.i80
 
-if.end.i84:                                       ; preds = %land.end.i82
-  %sub.i85 = fsub float %retval.0.i61.sroa.speculated116123, %retval.0.i68125
-  %sub3.i86 = fsub float %retval.0.i75, %retval.0.i68125
-  %div.i87 = fdiv float %sub.i85, %sub3.i86
-  %cmp.i.i88 = fcmp olt float %div.i87, 0.000000e+00
-  %cmp3.i.i89 = fcmp ogt float %div.i87, 1.000000e+00
-  %conv2.val.i.i90 = select i1 %cmp3.i.i89, float 1.000000e+00, float %div.i87
-  %34 = fmul float %conv2.val.i.i90, 6.553500e+04
-  %mul.i91 = select i1 %cmp.i.i88, float 0.000000e+00, float %34
-  br label %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit94
+if.end.i80:                                       ; preds = %land.end.i78
+  %sub.i81 = fsub float %retval.0.i57.sroa.speculated112119, %retval.0.i64121
+  %sub3.i82 = fsub float %retval.0.i71, %retval.0.i64121
+  %div.i83 = fdiv float %sub.i81, %sub3.i82
+  %cmp.i.i84 = fcmp olt float %div.i83, 0.000000e+00
+  %cmp3.i.i85 = fcmp ogt float %div.i83, 1.000000e+00
+  %conv2.val.i.i86 = select i1 %cmp3.i.i85, float 1.000000e+00, float %div.i83
+  %36 = fmul float %conv2.val.i.i86, 6.553500e+04
+  %mul.i87 = select i1 %cmp.i.i84, float 0.000000e+00, float %36
+  br label %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit90
 
-_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit94: ; preds = %land.end.i82, %if.end.i84
-  %retval.0.i92 = phi float [ %mul.i91, %if.end.i84 ], [ 0.000000e+00, %land.end.i82 ]
-  %35 = tail call noundef float @llvm.ceil.f32(float %retval.0.i92)
-  %conv38 = fptoui float %35 to i16
+_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit90: ; preds = %land.end.i78, %if.end.i80
+  %retval.0.i88 = phi float [ %mul.i87, %if.end.i80 ], [ 0.000000e+00, %land.end.i78 ]
+  %37 = tail call noundef float @llvm.ceil.f32(float %retval.0.i88)
+  %conv38 = fptoui float %37 to i16
   %arrayidx42 = getelementptr inbounds [3 x i16], ptr %arrayidx40, i64 0, i64 %indvars.iv
   store i16 %conv38, ptr %arrayidx42, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !84
 
-for.end:                                          ; preds = %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit94
+for.end:                                          ; preds = %_ZN4pbrt18CompactLightBounds14QuantizeBoundsEfff.exit90
   ret void
 }
 

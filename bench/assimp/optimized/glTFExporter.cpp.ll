@@ -9754,135 +9754,123 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK12aiMatrix4x4tIfE10IsIdentity
 entry:
   %a2 = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load float, ptr %a2, align 4
-  %cmp = fcmp ugt float %0, 0x3F847AE140000000
-  %cmp3 = fcmp ult float %0, 0xBF847AE140000000
-  %or.cond = or i1 %cmp, %cmp3
+  %1 = tail call float @llvm.fabs.f32(float %0)
+  %or.cond = fcmp ugt float %1, 0x3F847AE140000000
   br i1 %or.cond, label %land.end, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %entry
   %a3 = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = load float, ptr %a3, align 4
-  %cmp5 = fcmp ugt float %1, 0x3F847AE140000000
-  %cmp8 = fcmp ult float %1, 0xBF847AE140000000
-  %or.cond16 = or i1 %cmp5, %cmp8
+  %2 = load float, ptr %a3, align 4
+  %3 = tail call float @llvm.fabs.f32(float %2)
+  %or.cond16 = fcmp ugt float %3, 0x3F847AE140000000
   br i1 %or.cond16, label %land.end, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true4
   %a4 = getelementptr inbounds i8, ptr %this, i64 12
-  %2 = load float, ptr %a4, align 4
-  %cmp10 = fcmp ugt float %2, 0x3F847AE140000000
-  %cmp13 = fcmp ult float %2, 0xBF847AE140000000
-  %or.cond17 = or i1 %cmp10, %cmp13
+  %4 = load float, ptr %a4, align 4
+  %5 = tail call float @llvm.fabs.f32(float %4)
+  %or.cond17 = fcmp ugt float %5, 0x3F847AE140000000
   br i1 %or.cond17, label %land.end, label %land.lhs.true14
 
 land.lhs.true14:                                  ; preds = %land.lhs.true9
   %b1 = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load float, ptr %b1, align 4
-  %cmp15 = fcmp ugt float %3, 0x3F847AE140000000
-  %cmp18 = fcmp ult float %3, 0xBF847AE140000000
-  %or.cond18 = or i1 %cmp15, %cmp18
+  %6 = load float, ptr %b1, align 4
+  %7 = tail call float @llvm.fabs.f32(float %6)
+  %or.cond18 = fcmp ugt float %7, 0x3F847AE140000000
   br i1 %or.cond18, label %land.end, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %land.lhs.true14
   %b3 = getelementptr inbounds i8, ptr %this, i64 24
-  %4 = load float, ptr %b3, align 4
-  %cmp20 = fcmp ugt float %4, 0x3F847AE140000000
-  %cmp23 = fcmp ult float %4, 0xBF847AE140000000
-  %or.cond19 = or i1 %cmp20, %cmp23
+  %8 = load float, ptr %b3, align 4
+  %9 = tail call float @llvm.fabs.f32(float %8)
+  %or.cond19 = fcmp ugt float %9, 0x3F847AE140000000
   br i1 %or.cond19, label %land.end, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %land.lhs.true19
   %b4 = getelementptr inbounds i8, ptr %this, i64 28
-  %5 = load float, ptr %b4, align 4
-  %cmp25 = fcmp ugt float %5, 0x3F847AE140000000
-  %cmp28 = fcmp ult float %5, 0xBF847AE140000000
-  %or.cond20 = or i1 %cmp25, %cmp28
+  %10 = load float, ptr %b4, align 4
+  %11 = tail call float @llvm.fabs.f32(float %10)
+  %or.cond20 = fcmp ugt float %11, 0x3F847AE140000000
   br i1 %or.cond20, label %land.end, label %land.lhs.true29
 
 land.lhs.true29:                                  ; preds = %land.lhs.true24
   %c1 = getelementptr inbounds i8, ptr %this, i64 32
-  %6 = load float, ptr %c1, align 4
-  %cmp30 = fcmp ugt float %6, 0x3F847AE140000000
-  %cmp33 = fcmp ult float %6, 0xBF847AE140000000
-  %or.cond21 = or i1 %cmp30, %cmp33
+  %12 = load float, ptr %c1, align 4
+  %13 = tail call float @llvm.fabs.f32(float %12)
+  %or.cond21 = fcmp ugt float %13, 0x3F847AE140000000
   br i1 %or.cond21, label %land.end, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %land.lhs.true29
   %c2 = getelementptr inbounds i8, ptr %this, i64 36
-  %7 = load float, ptr %c2, align 4
-  %cmp35 = fcmp ugt float %7, 0x3F847AE140000000
-  %cmp38 = fcmp ult float %7, 0xBF847AE140000000
-  %or.cond22 = or i1 %cmp35, %cmp38
+  %14 = load float, ptr %c2, align 4
+  %15 = tail call float @llvm.fabs.f32(float %14)
+  %or.cond22 = fcmp ugt float %15, 0x3F847AE140000000
   br i1 %or.cond22, label %land.end, label %land.lhs.true39
 
 land.lhs.true39:                                  ; preds = %land.lhs.true34
   %c4 = getelementptr inbounds i8, ptr %this, i64 44
-  %8 = load float, ptr %c4, align 4
-  %cmp40 = fcmp ugt float %8, 0x3F847AE140000000
-  %cmp43 = fcmp ult float %8, 0xBF847AE140000000
-  %or.cond23 = or i1 %cmp40, %cmp43
+  %16 = load float, ptr %c4, align 4
+  %17 = tail call float @llvm.fabs.f32(float %16)
+  %or.cond23 = fcmp ugt float %17, 0x3F847AE140000000
   br i1 %or.cond23, label %land.end, label %land.lhs.true44
 
 land.lhs.true44:                                  ; preds = %land.lhs.true39
   %d1 = getelementptr inbounds i8, ptr %this, i64 48
-  %9 = load float, ptr %d1, align 4
-  %cmp45 = fcmp ugt float %9, 0x3F847AE140000000
-  %cmp48 = fcmp ult float %9, 0xBF847AE140000000
-  %or.cond24 = or i1 %cmp45, %cmp48
+  %18 = load float, ptr %d1, align 4
+  %19 = tail call float @llvm.fabs.f32(float %18)
+  %or.cond24 = fcmp ugt float %19, 0x3F847AE140000000
   br i1 %or.cond24, label %land.end, label %land.lhs.true49
 
 land.lhs.true49:                                  ; preds = %land.lhs.true44
   %d2 = getelementptr inbounds i8, ptr %this, i64 52
-  %10 = load float, ptr %d2, align 4
-  %cmp50 = fcmp ugt float %10, 0x3F847AE140000000
-  %cmp53 = fcmp ult float %10, 0xBF847AE140000000
-  %or.cond25 = or i1 %cmp50, %cmp53
+  %20 = load float, ptr %d2, align 4
+  %21 = tail call float @llvm.fabs.f32(float %20)
+  %or.cond25 = fcmp ugt float %21, 0x3F847AE140000000
   br i1 %or.cond25, label %land.end, label %land.lhs.true54
 
 land.lhs.true54:                                  ; preds = %land.lhs.true49
   %d3 = getelementptr inbounds i8, ptr %this, i64 56
-  %11 = load float, ptr %d3, align 4
-  %cmp55 = fcmp ugt float %11, 0x3F847AE140000000
-  %cmp58 = fcmp ult float %11, 0xBF847AE140000000
-  %or.cond26 = or i1 %cmp55, %cmp58
+  %22 = load float, ptr %d3, align 4
+  %23 = tail call float @llvm.fabs.f32(float %22)
+  %or.cond26 = fcmp ugt float %23, 0x3F847AE140000000
   br i1 %or.cond26, label %land.end, label %land.lhs.true59
 
 land.lhs.true59:                                  ; preds = %land.lhs.true54
-  %12 = load float, ptr %this, align 4
-  %cmp60 = fcmp ugt float %12, 0x3FF028F5C0000000
-  %cmp63 = fcmp ult float %12, 0x3FEFAE1480000000
+  %24 = load float, ptr %this, align 4
+  %cmp60 = fcmp ugt float %24, 0x3FF028F5C0000000
+  %cmp63 = fcmp ult float %24, 0x3FEFAE1480000000
   %or.cond27 = or i1 %cmp60, %cmp63
   br i1 %or.cond27, label %land.end, label %land.lhs.true64
 
 land.lhs.true64:                                  ; preds = %land.lhs.true59
   %b2 = getelementptr inbounds i8, ptr %this, i64 20
-  %13 = load float, ptr %b2, align 4
-  %cmp65 = fcmp ugt float %13, 0x3FF028F5C0000000
-  %cmp68 = fcmp ult float %13, 0x3FEFAE1480000000
+  %25 = load float, ptr %b2, align 4
+  %cmp65 = fcmp ugt float %25, 0x3FF028F5C0000000
+  %cmp68 = fcmp ult float %25, 0x3FEFAE1480000000
   %or.cond28 = or i1 %cmp65, %cmp68
   br i1 %or.cond28, label %land.end, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %land.lhs.true64
   %c3 = getelementptr inbounds i8, ptr %this, i64 40
-  %14 = load float, ptr %c3, align 4
-  %cmp70 = fcmp ugt float %14, 0x3FF028F5C0000000
-  %cmp73 = fcmp ult float %14, 0x3FEFAE1480000000
+  %26 = load float, ptr %c3, align 4
+  %cmp70 = fcmp ugt float %26, 0x3FF028F5C0000000
+  %cmp73 = fcmp ult float %26, 0x3FEFAE1480000000
   %or.cond29 = or i1 %cmp70, %cmp73
   br i1 %or.cond29, label %land.end, label %land.lhs.true74
 
 land.lhs.true74:                                  ; preds = %land.lhs.true69
   %d4 = getelementptr inbounds i8, ptr %this, i64 60
-  %15 = load float, ptr %d4, align 4
-  %cmp75 = fcmp ugt float %15, 0x3FF028F5C0000000
+  %27 = load float, ptr %d4, align 4
+  %cmp75 = fcmp ugt float %27, 0x3FF028F5C0000000
   br i1 %cmp75, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true74
-  %cmp77 = fcmp oge float %15, 0x3FEFAE1480000000
+  %cmp77 = fcmp oge float %27, 0x3FEFAE1480000000
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true74, %land.lhs.true69, %land.lhs.true64, %land.lhs.true59, %land.lhs.true54, %land.lhs.true49, %land.lhs.true44, %land.lhs.true39, %land.lhs.true34, %land.lhs.true29, %land.lhs.true24, %land.lhs.true19, %land.lhs.true14, %land.lhs.true9, %land.lhs.true4, %entry
-  %16 = phi i1 [ false, %land.lhs.true74 ], [ false, %land.lhs.true69 ], [ false, %land.lhs.true64 ], [ false, %land.lhs.true59 ], [ false, %land.lhs.true54 ], [ false, %land.lhs.true49 ], [ false, %land.lhs.true44 ], [ false, %land.lhs.true39 ], [ false, %land.lhs.true34 ], [ false, %land.lhs.true29 ], [ false, %land.lhs.true24 ], [ false, %land.lhs.true19 ], [ false, %land.lhs.true14 ], [ false, %land.lhs.true9 ], [ false, %land.lhs.true4 ], [ false, %entry ], [ %cmp77, %land.rhs ]
-  ret i1 %16
+  %28 = phi i1 [ false, %land.lhs.true74 ], [ false, %land.lhs.true69 ], [ false, %land.lhs.true64 ], [ false, %land.lhs.true59 ], [ false, %land.lhs.true54 ], [ false, %land.lhs.true49 ], [ false, %land.lhs.true44 ], [ false, %land.lhs.true39 ], [ false, %land.lhs.true34 ], [ false, %land.lhs.true29 ], [ false, %land.lhs.true24 ], [ false, %land.lhs.true19 ], [ false, %land.lhs.true14 ], [ false, %land.lhs.true9 ], [ false, %land.lhs.true4 ], [ false, %entry ], [ %cmp77, %land.rhs ]
+  ret i1 %28
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -63980,7 +63968,7 @@ if.then.i199:                                     ; preds = %invoke.cont39, %.no
 .noexc:                                           ; preds = %if.then.i199
   %sub.i = sub i32 %symbol.addr.011.i, %shl12.i
   %inc.i = add nuw nsw i32 %k.addr.010.i, 1
-  %shl.i = shl i32 2, %k.addr.010.i
+  %shl.i = shl nuw i32 2, %k.addr.010.i
   %cmp.not.i = icmp ult i32 %sub.i, %shl.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i199, !llvm.loop !616
 
@@ -65094,7 +65082,7 @@ if.then.i.i380:                                   ; preds = %.noexc388, %.noexc3
 .noexc390:                                        ; preds = %if.then.i.i380
   %sub.i.i = sub i32 %symbol.addr.011.i.i, %shl12.i.i
   %inc.i.i381 = add nuw nsw i32 %k.addr.010.i.i, 1
-  %shl.i.i = shl i32 2, %k.addr.010.i.i
+  %shl.i.i = shl nuw i32 2, %k.addr.010.i.i
   %cmp.not.i.i = icmp ult i32 %sub.i.i, %shl.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i380, !llvm.loop !616
 
@@ -65353,7 +65341,7 @@ if.then.i.i406:                                   ; preds = %.noexc426, %.noexc4
 .noexc428:                                        ; preds = %if.then.i.i406
   %sub.i.i410 = sub i32 %symbol.addr.011.i.i408, %shl12.i.i407
   %inc.i.i411 = add nuw nsw i32 %k.addr.010.i.i409, 1
-  %shl.i.i412 = shl i32 2, %k.addr.010.i.i409
+  %shl.i.i412 = shl nuw i32 2, %k.addr.010.i.i409
   %cmp.not.i.i413 = icmp ult i32 %sub.i.i410, %shl.i.i412
   br i1 %cmp.not.i.i413, label %if.else.i.i414, label %if.then.i.i406, !llvm.loop !616
 
@@ -65573,7 +65561,7 @@ if.then.i.i453:                                   ; preds = %.noexc473, %.noexc4
 .noexc475:                                        ; preds = %if.then.i.i453
   %sub.i.i457 = sub i32 %symbol.addr.011.i.i455, %shl12.i.i454
   %inc.i.i458 = add nuw nsw i32 %k.addr.010.i.i456, 1
-  %shl.i.i459 = shl i32 2, %k.addr.010.i.i456
+  %shl.i.i459 = shl nuw i32 2, %k.addr.010.i.i456
   %cmp.not.i.i460 = icmp ult i32 %sub.i.i457, %shl.i.i459
   br i1 %cmp.not.i.i460, label %if.else.i.i461, label %if.then.i.i453, !llvm.loop !616
 
@@ -66529,7 +66517,7 @@ if.then.i111:                                     ; preds = %invoke.cont36, %.no
 .noexc:                                           ; preds = %if.then.i111
   %sub.i = sub i32 %symbol.addr.011.i, %shl12.i
   %inc.i = add nuw nsw i32 %k.addr.010.i, 1
-  %shl.i = shl i32 2, %k.addr.010.i
+  %shl.i = shl nuw i32 2, %k.addr.010.i
   %cmp.not.i = icmp ult i32 %sub.i, %shl.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i111, !llvm.loop !616
 
@@ -67142,7 +67130,7 @@ if.then.i.i160:                                   ; preds = %.noexc168, %.noexc1
 .noexc170:                                        ; preds = %if.then.i.i160
   %sub.i.i = sub i32 %symbol.addr.011.i.i, %shl12.i.i
   %inc.i.i161 = add nuw nsw i32 %k.addr.010.i.i, 1
-  %shl.i.i = shl i32 2, %k.addr.010.i.i
+  %shl.i.i = shl nuw i32 2, %k.addr.010.i.i
   %cmp.not.i.i = icmp ult i32 %sub.i.i, %shl.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i160, !llvm.loop !616
 
@@ -67401,7 +67389,7 @@ if.then.i.i186:                                   ; preds = %.noexc206, %.noexc2
 .noexc208:                                        ; preds = %if.then.i.i186
   %sub.i.i190 = sub i32 %symbol.addr.011.i.i188, %shl12.i.i187
   %inc.i.i191 = add nuw nsw i32 %k.addr.010.i.i189, 1
-  %shl.i.i192 = shl i32 2, %k.addr.010.i.i189
+  %shl.i.i192 = shl nuw i32 2, %k.addr.010.i.i189
   %cmp.not.i.i193 = icmp ult i32 %sub.i.i190, %shl.i.i192
   br i1 %cmp.not.i.i193, label %if.else.i.i194, label %if.then.i.i186, !llvm.loop !616
 
@@ -67619,7 +67607,7 @@ if.then.i.i233:                                   ; preds = %.noexc253, %.noexc2
 .noexc255:                                        ; preds = %if.then.i.i233
   %sub.i.i237 = sub i32 %symbol.addr.011.i.i235, %shl12.i.i234
   %inc.i.i238 = add nuw nsw i32 %k.addr.010.i.i236, 1
-  %shl.i.i239 = shl i32 2, %k.addr.010.i.i236
+  %shl.i.i239 = shl nuw i32 2, %k.addr.010.i.i236
   %cmp.not.i.i240 = icmp ult i32 %sub.i.i237, %shl.i.i239
   br i1 %cmp.not.i.i240, label %if.else.i.i241, label %if.then.i.i233, !llvm.loop !616
 
@@ -72165,6 +72153,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.fabs.f32(float) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #22

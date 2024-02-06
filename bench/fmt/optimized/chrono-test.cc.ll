@@ -61335,7 +61335,7 @@ declare noundef i64 @_ZNKSt6locale2id5_M_idEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: noreturn
 declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #17
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #21
 
 declare void @__cxa_bad_cast() local_unnamed_addr
@@ -145279,9 +145279,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   br i1 %14, label %invoke.cont31, label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.end.i.i.i
-  %cmp.i.i.i = fcmp ogt float %11, 0x4432725DC0000000
-  %cmp15.i.i.i = fcmp olt float %11, 0xC432725DC0000000
-  %or.cond.i.i = or i1 %cmp.i.i.i, %cmp15.i.i.i
+  %or.cond.i.i = fcmp ogt float %13, 0x4432725DC0000000
   br i1 %or.cond.i.i, label %if.then.i.i, label %if.end21.i.i.i
 
 if.end21.i.i.i:                                   ; preds = %if.end12.i.i.i
@@ -223742,7 +223740,7 @@ attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #18 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nofree nounwind memory(read) }
+attributes #21 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #22 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

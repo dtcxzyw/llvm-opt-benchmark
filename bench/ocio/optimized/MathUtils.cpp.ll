@@ -815,9 +815,8 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp5 = fcmp ogt double %val, 0xBF0FFFFFFF8F68F6
-  %cmp7 = fcmp olt double %val, 0x3F0FFFFFFF8F68F6
-  %or.cond = and i1 %cmp5, %cmp7
+  %0 = tail call double @llvm.fabs.f64(double %val)
+  %or.cond = fcmp olt double %0, 0x3F0FFFFFFF8F68F6
   br i1 %or.cond, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
@@ -1555,6 +1554,9 @@ entry:
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #11
