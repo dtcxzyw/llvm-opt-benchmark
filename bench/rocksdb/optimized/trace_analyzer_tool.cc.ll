@@ -15222,18 +15222,9 @@ invoke.cont93:                                    ; preds = %lor.rhs.i234, %if.t
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i217)
   %a_key_size_sum = getelementptr inbounds i8, ptr %__i.sroa.0.0.i238, i64 112
   store i64 %call88, ptr %a_key_size_sum, align 8
-  %cmp1.i246 = icmp eq i64 %value_size, 0
-  br i1 %cmp1.i246, label %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit253, label %if.end.i247
-
-if.end.i247:                                      ; preds = %invoke.cont93
-  %mul6.i248 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %value_size, i64 %value_size)
-  %mul.ov.i249 = extractvalue { i64, i1 } %mul6.i248, 1
+  %mul.ov.i249 = icmp ugt i64 %value_size, 4294967295
   %mul.i250 = select i1 %mul.ov.i249, i64 1, i64 %value_size
   %spec.select.i251 = mul i64 %mul.i250, %value_size
-  br label %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit253
-
-_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit253: ; preds = %invoke.cont93, %if.end.i247
-  %retval.0.i252 = phi i64 [ 0, %invoke.cont93 ], [ %spec.select.i251, %if.end.i247 ]
   %53 = load i32, ptr %type, align 4
   %conv98 = zext i32 %53 to i64
   %54 = load ptr, ptr %ta_, align 8
@@ -15246,7 +15237,7 @@ _ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit253: ; preds = %invoke.c
   %cmp.not5.i.i.i.i259 = icmp eq ptr %55, null
   br i1 %cmp.not5.i.i.i.i259, label %if.then.i279, label %while.body.lr.ph.i.i.i.i260
 
-while.body.lr.ph.i.i.i.i260:                      ; preds = %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit253
+while.body.lr.ph.i.i.i.i260:                      ; preds = %invoke.cont93
   %56 = load i32, ptr %cf_id, align 4
   br label %while.body.i.i.i.i261
 
@@ -15273,8 +15264,8 @@ lor.rhs.i273:                                     ; preds = %_ZNSt3mapIjN7rocksd
   %cmp.i3.i275 = icmp ult i32 %56, %58
   br i1 %cmp.i3.i275, label %if.then.i279, label %invoke.cont101
 
-if.then.i279:                                     ; preds = %lor.rhs.i273, %_ZNSt3mapIjN7rocksdb10TraceStatsESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i271, %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit253
-  %__y.addr.0.lcssa.i.i.i10.i280 = phi ptr [ %add.ptr.i.i.i.i258, %_ZNSt3mapIjN7rocksdb10TraceStatsESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i271 ], [ %__y.addr.1.i.i.i.i266, %lor.rhs.i273 ], [ %add.ptr.i.i.i.i258, %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit253 ]
+if.then.i279:                                     ; preds = %lor.rhs.i273, %_ZNSt3mapIjN7rocksdb10TraceStatsESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i271, %invoke.cont93
+  %__y.addr.0.lcssa.i.i.i10.i280 = phi ptr [ %add.ptr.i.i.i.i258, %_ZNSt3mapIjN7rocksdb10TraceStatsESt4lessIjESaISt4pairIKjS1_EEE11lower_boundERS5_.exit.i271 ], [ %__y.addr.1.i.i.i.i266, %lor.rhs.i273 ], [ %add.ptr.i.i.i.i258, %invoke.cont93 ]
   store ptr %cf_id, ptr %ref.tmp9.i255, align 8
   %call12.i282 = invoke ptr @_ZNSt8_Rb_treeIjSt4pairIKjN7rocksdb10TraceStatsEESt10_Select1stIS4_ESt4lessIjESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %stats100, ptr %__y.addr.0.lcssa.i.i.i10.i280, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i255, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i256)
           to label %invoke.cont101 unwind label %lpad20
@@ -15284,7 +15275,7 @@ invoke.cont101:                                   ; preds = %lor.rhs.i273, %if.t
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i255)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i256)
   %a_value_size_sqsum = getelementptr inbounds i8, ptr %__i.sroa.0.0.i277, i64 128
-  store i64 %retval.0.i252, ptr %a_value_size_sqsum, align 8
+  store i64 %spec.select.i251, ptr %a_value_size_sqsum, align 8
   %59 = load i32, ptr %type, align 4
   %conv104 = zext i32 %59 to i64
   %60 = load ptr, ptr %ta_, align 8
@@ -16024,21 +16015,12 @@ _ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit627: ; preds = %if.else2
   %153 = load i64, ptr %a_key_size_sum214, align 8
   %add215 = add i64 %153, %call211
   store i64 %add215, ptr %a_key_size_sum214, align 8
-  %cmp1.i631 = icmp eq i64 %value_size, 0
-  br i1 %cmp1.i631, label %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit638, label %if.end.i632
-
-if.end.i632:                                      ; preds = %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit627
-  %mul6.i633 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %value_size, i64 %value_size)
-  %mul.ov.i634 = extractvalue { i64, i1 } %mul6.i633, 1
+  %mul.ov.i634 = icmp ugt i64 %value_size, 4294967295
   %mul.i635 = select i1 %mul.ov.i634, i64 1, i64 %value_size
   %spec.select.i636 = mul i64 %mul.i635, %value_size
-  br label %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit638
-
-_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit638: ; preds = %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit627, %if.end.i632
-  %retval.0.i637 = phi i64 [ 0, %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit627 ], [ %spec.select.i636, %if.end.i632 ]
   %a_value_size_sqsum220 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 128
   %154 = load <2 x i64>, ptr %a_value_size_sqsum220, align 8
-  %155 = insertelement <2 x i64> poison, i64 %retval.0.i637, i64 0
+  %155 = insertelement <2 x i64> poison, i64 %spec.select.i636, i64 0
   %156 = insertelement <2 x i64> %155, i64 %value_size, i64 1
   %157 = add <2 x i64> %154, %156
   store <2 x i64> %157, ptr %a_value_size_sqsum220, align 8
@@ -16049,9 +16031,9 @@ _ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit638: ; preds = %_ZN7rock
   %cmp.not6.i.i.i = icmp eq ptr %158, null
   br i1 %cmp.not6.i.i.i, label %if.then239, label %while.body.i.i.i644
 
-while.body.i.i.i644:                              ; preds = %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit638, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
-  %__x.addr.08.i.i.i = phi ptr [ %__x.addr.1.i.i.i650, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %158, %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit638 ]
-  %__y.addr.07.i.i.i = phi ptr [ %__y.addr.1.i.i.i647, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %add.ptr.i.i.i643, %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit638 ]
+while.body.i.i.i644:                              ; preds = %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit627, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
+  %__x.addr.08.i.i.i = phi ptr [ %__x.addr.1.i.i.i650, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %158, %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit627 ]
+  %__y.addr.07.i.i.i = phi ptr [ %__y.addr.1.i.i.i647, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i ], [ %add.ptr.i.i.i643, %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit627 ]
   %_M_storage.i.i.i.i.i645 = getelementptr inbounds i8, ptr %__x.addr.08.i.i.i, i64 32
   %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i645, ptr noundef nonnull align 8 dereferenceable(32) %key)
           to label %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
@@ -16092,7 +16074,7 @@ invoke.cont229:                                   ; preds = %lor.lhs.false.i.i65
   %cmp.i.i.i.i655 = icmp slt i32 %call.i.i.i.i, 0
   br i1 %cmp.i.i.i.i655, label %if.then239, label %if.else247
 
-if.then239:                                       ; preds = %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit638, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb9StatsUnitEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %invoke.cont229
+if.then239:                                       ; preds = %_ZN7rocksdb12_GLOBAL__N_121MultiplyCheckOverflowEmm.exit627, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7rocksdb9StatsUnitEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %invoke.cont229
   %call244 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb9StatsUnitESt4lessIS5_ESaISt4pairIKS5_S7_EEEixERSB_(ptr noundef nonnull align 8 dereferenceable(48) %a_key_stats228, ptr noundef nonnull align 8 dereferenceable(32) %key)
           to label %invoke.cont243 unwind label %lpad20
 
