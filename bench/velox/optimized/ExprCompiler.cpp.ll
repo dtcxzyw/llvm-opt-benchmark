@@ -1925,7 +1925,7 @@ lpad.i.i715:                                      ; preds = %lpad.loopexit.split
   br label %ehcleanup319.i
 
 cleanup.i.i:                                      ; preds = %call12.i.noexc.i.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS5_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISC_ISt10in_place_tSJ_EESt16is_constructibleIS5_JSF_EESt14is_convertibleISF_S5_EEEbE4typeELb1EEEOSF_.exit.i.i, %invoke.cont19.i.i, %_ZSt20dynamic_pointer_castIKN8facebook5velox4core13CallTypedExprEKNS2_10ITypedExprEESt10shared_ptrIT_ERKS7_IT0_E.exit.i.i, %_ZSt20dynamic_pointer_castIKN8facebook5velox4core13CallTypedExprEKNS2_10ITypedExprEESt10shared_ptrIT_ERKS7_IT0_E.exit.thread14.i.i
-  %cleanup.dest.slot.0.i.i = phi i1 [ false, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS5_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISC_ISt10in_place_tSJ_EESt16is_constructibleIS5_JSF_EESt14is_convertibleISF_S5_EEEbE4typeELb1EEEOSF_.exit.i.i ], [ true, %invoke.cont19.i.i ], [ true, %_ZSt20dynamic_pointer_castIKN8facebook5velox4core13CallTypedExprEKNS2_10ITypedExprEESt10shared_ptrIT_ERKS7_IT0_E.exit.i.i ], [ true, %_ZSt20dynamic_pointer_castIKN8facebook5velox4core13CallTypedExprEKNS2_10ITypedExprEESt10shared_ptrIT_ERKS7_IT0_E.exit.thread14.i.i ], [ true, %call12.i.noexc.i.i ]
+  %switch.i.i = phi i1 [ false, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKS5_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESB_ISC_ISt10in_place_tSJ_EESt16is_constructibleIS5_JSF_EESt14is_convertibleISF_S5_EEEbE4typeELb1EEEOSF_.exit.i.i ], [ true, %invoke.cont19.i.i ], [ true, %_ZSt20dynamic_pointer_castIKN8facebook5velox4core13CallTypedExprEKNS2_10ITypedExprEESt10shared_ptrIT_ERKS7_IT0_E.exit.i.i ], [ true, %_ZSt20dynamic_pointer_castIKN8facebook5velox4core13CallTypedExprEKNS2_10ITypedExprEESt10shared_ptrIT_ERKS7_IT0_E.exit.thread14.i.i ], [ true, %call12.i.noexc.i.i ]
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i700, i64 8
   %92 = load ptr, ptr %_M_refcount.i.i.i.i, align 8, !noalias !42
   %cmp.not.i.i.i.i.i719 = icmp eq ptr %92, null
@@ -2000,7 +2000,7 @@ if.end8.sink.split.i.i.i.i.i.i830:                ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN8facebook5velox4core13CallTypedExprEED2Ev.exit.i.i
 
 _ZNSt10shared_ptrIKN8facebook5velox4core13CallTypedExprEED2Ev.exit.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i830, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i827, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i727, %cleanup.i.i
-  br i1 %cleanup.dest.slot.0.i.i, label %cleanup.cont.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_113shouldFlattenERKSt10shared_ptrIKNS0_4core10ITypedExprEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISG_ESt8equal_toISG_ESaISG_EE.exit.i
+  br i1 %switch.i.i, label %cleanup.cont.i.i, label %_ZN8facebook5velox4exec12_GLOBAL__N_113shouldFlattenERKSt10shared_ptrIKNS0_4core10ITypedExprEERKSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashISG_ESt8equal_toISG_ESaISG_EE.exit.i
 
 cleanup.cont.i.i:                                 ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4core13CallTypedExprEED2Ev.exit.i.i
   %_M_engaged.i.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %flattenIf.i, i64 32
@@ -5509,15 +5509,14 @@ if.end8.sink.split.i.i.i.i.i1094:                 ; preds = %_ZN9__gnu_cxx27__ex
   br label %if.end303.i
 
 if.end303.i:                                      ; preds = %invoke.cont293.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1081, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1091, %if.end8.sink.split.i.i.i.i.i1094, %if.end8.sink.split.i.i.i.i311, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i308, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i298, %if.end222.i, %invoke.cont64.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i527, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i537, %if.end8.sink.split.i.i.i.i.i540, %if.end9.i.i.i580, %if.then54.i, %invoke.cont281.i, %invoke.cont261.i, %if.end244.i, %_ZNSt10shared_ptrIN8facebook5velox4exec4ExprEED2Ev.exit636
-  %isConstantExpr.0.i = phi i1 [ false, %_ZNSt10shared_ptrIN8facebook5velox4exec4ExprEED2Ev.exit636 ], [ false, %if.end244.i ], [ false, %invoke.cont261.i ], [ true, %invoke.cont281.i ], [ false, %if.then54.i ], [ false, %if.end9.i.i.i580 ], [ false, %if.end8.sink.split.i.i.i.i.i540 ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i537 ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i527 ], [ false, %invoke.cont64.i ], [ false, %if.end222.i ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i298 ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i308 ], [ false, %if.end8.sink.split.i.i.i.i311 ], [ false, %if.end8.sink.split.i.i.i.i.i1094 ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1091 ], [ false, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1081 ], [ false, %invoke.cont293.i ]
+  %isConstantExpr.0.i.not = phi i1 [ true, %_ZNSt10shared_ptrIN8facebook5velox4exec4ExprEED2Ev.exit636 ], [ true, %if.end244.i ], [ true, %invoke.cont261.i ], [ false, %invoke.cont281.i ], [ true, %if.then54.i ], [ true, %if.end9.i.i.i580 ], [ true, %if.end8.sink.split.i.i.i.i.i540 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i537 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i527 ], [ true, %invoke.cont64.i ], [ true, %if.end222.i ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i298 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i308 ], [ true, %if.end8.sink.split.i.i.i.i311 ], [ true, %if.end8.sink.split.i.i.i.i.i1094 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1091 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1081 ], [ true, %invoke.cont293.i ]
   %593 = load ptr, ptr %result.i, align 16, !noalias !27
   invoke void @_ZN8facebook5velox4exec4Expr15computeMetadataEv(ptr noundef nonnull align 8 dereferenceable(442) %593)
           to label %invoke.cont305.i unwind label %lpad48.i, !noalias !27
 
 invoke.cont305.i:                                 ; preds = %if.end303.i
-  %enableConstantFolding.not.i = xor i1 %enableConstantFolding, true
-  %brmerge.i = or i1 %isConstantExpr.0.i, %enableConstantFolding.not.i
-  br i1 %brmerge.i, label %cond.false.i, label %cond.true.i
+  %brmerge.i.not = and i1 %isConstantExpr.0.i.not, %enableConstantFolding
+  br i1 %brmerge.i.not, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %invoke.cont305.i
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
@@ -8277,7 +8276,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox4core13CallTypedExprELN9__gnu_cxx12_Lock_po
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
@@ -11728,7 +11727,7 @@ lpad.i:                                           ; preds = %if.then.i
   resume { ptr, i32 } %9
 
 cleanup.i:                                        ; preds = %if.end.i.i.i, %land.rhs.i.i, %invoke.cont.i, %_ZSt20dynamic_pointer_castIKN8facebook5velox4core13CallTypedExprEKNS2_10ITypedExprEESt10shared_ptrIT_ERKS7_IT0_E.exit.i, %_ZSt20dynamic_pointer_castIKN8facebook5velox4core13CallTypedExprEKNS2_10ITypedExprEESt10shared_ptrIT_ERKS7_IT0_E.exit.thread.i
-  %cmp.i3.i = phi i1 [ false, %_ZSt20dynamic_pointer_castIKN8facebook5velox4core13CallTypedExprEKNS2_10ITypedExprEESt10shared_ptrIT_ERKS7_IT0_E.exit.i ], [ false, %invoke.cont.i ], [ true, %land.rhs.i.i ], [ %8, %if.end.i.i.i ], [ false, %_ZSt20dynamic_pointer_castIKN8facebook5velox4core13CallTypedExprEKNS2_10ITypedExprEESt10shared_ptrIT_ERKS7_IT0_E.exit.thread.i ]
+  %not.switch.i = phi i1 [ false, %_ZSt20dynamic_pointer_castIKN8facebook5velox4core13CallTypedExprEKNS2_10ITypedExprEESt10shared_ptrIT_ERKS7_IT0_E.exit.i ], [ false, %invoke.cont.i ], [ true, %land.rhs.i.i ], [ %8, %if.end.i.i.i ], [ false, %_ZSt20dynamic_pointer_castIKN8facebook5velox4core13CallTypedExprEKNS2_10ITypedExprEESt10shared_ptrIT_ERKS7_IT0_E.exit.thread.i ]
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %10 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %10, null
@@ -11804,7 +11803,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %cleanup.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %call.i)
-  br i1 %cmp.i3.i, label %land.lhs.true, label %if.else
+  br i1 %not.switch.i, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %_ZN8facebook5velox4exec12_GLOBAL__N_16isCallERKSt10shared_ptrIKNS0_4core10ITypedExprEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %input.val = load ptr, ptr %input, align 8
@@ -21246,7 +21245,7 @@ attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #10 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind memory(read) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }

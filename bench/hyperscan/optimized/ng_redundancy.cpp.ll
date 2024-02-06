@@ -1093,7 +1093,7 @@ invoke.cont:                                      ; preds = %for.inc.i21, %_ZN3u
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.lhs.true.backedge, %invoke.cont
-  %tobool8.not221 = phi i1 [ false, %invoke.cont ], [ true, %land.lhs.true.backedge ]
+  %tobool8.not221.not = phi i1 [ true, %invoke.cont ], [ false, %land.lhs.true.backedge ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %succPredSet.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %predSuccSet.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %intersection.i)
@@ -1552,9 +1552,8 @@ if.end7:                                          ; preds = %land.lhs.true, %_ZN
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %succPredSet.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %predSuccSet.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %intersection.i)
-  %not.changed.0.lcssa171.i166 = xor i1 %changed.0.lcssa171.i166226, true
-  %tobool8.not = and i1 %tobool8.not221, %not.changed.0.lcssa171.i166
-  br i1 %tobool8.not, label %do.end15, label %land.lhs.true9
+  %tobool8.not.not = or i1 %tobool8.not221.not, %changed.0.lcssa171.i166226
+  br i1 %tobool8.not.not, label %land.lhs.true9, label %do.end15
 
 land.lhs.true9:                                   ; preds = %if.end7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %succPredSet.i63)

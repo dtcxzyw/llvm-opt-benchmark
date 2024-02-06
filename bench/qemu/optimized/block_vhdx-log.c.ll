@@ -1034,7 +1034,6 @@ if.end22:                                         ; preds = %if.end14
   %conv23 = zext nneg i32 %spec.select.i to i64
   %mul = shl nuw nsw i64 %conv23, 12
   %call24 = call i32 @vhdx_checksum_calc(i32 noundef -1, ptr noundef %.pre, i64 noundef %mul, i32 noundef 4) #8
-  %xor = xor i32 %call24, -1
   %call25 = call ptr @qemu_blockalign(ptr noundef nonnull %bs, i64 noundef 4096) #8
   %cmp26 = icmp ugt i32 %12, %spec.select.i
   br i1 %cmp26, label %for.body.lr.ph, label %if.end40
@@ -1044,8 +1043,9 @@ for.body.lr.ph:                                   ; preds = %if.end22
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end37
-  %crc.073 = phi i32 [ %xor, %for.body.lr.ph ], [ %xor39, %if.end37 ]
+  %crc.073.in = phi i32 [ %call24, %for.body.lr.ph ], [ %call38, %if.end37 ]
   %i.072 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end37 ]
+  %crc.073 = xor i32 %crc.073.in, -1
   %13 = load i32, ptr %read1.i, align 4
   %14 = load i32, ptr %write.i, align 8
   %cmp.i62.not = icmp eq i32 %13, %14
@@ -1072,18 +1072,16 @@ if.end37:                                         ; preds = %if.end.i37.preheade
   %cond.i.i = select i1 %cmp.not.i.i, i32 %add.i.i, i32 0
   store i32 %cond.i.i, ptr %read1.i, align 4
   %call38 = call i32 @vhdx_checksum_calc(i32 noundef %crc.073, ptr noundef %call25, i64 noundef 4096, i32 noundef -1) #8
-  %xor39 = xor i32 %call38, -1
   %inc = add nuw i32 %i.072, 1
   %exitcond.not = icmp eq i32 %inc, %sub
   br i1 %exitcond.not, label %if.end40, label %for.body, !llvm.loop !11
 
 if.end40:                                         ; preds = %if.end37, %if.end22
   %ret.1 = phi i32 [ %call18, %if.end22 ], [ %call.i40, %if.end37 ]
-  %crc.1 = phi i32 [ %xor, %if.end22 ], [ %xor39, %if.end37 ]
+  %18 = phi i32 [ %call24, %if.end22 ], [ %call38, %if.end37 ]
   %checksum = getelementptr inbounds i8, ptr %hdr, i64 4
-  %18 = load i32, ptr %checksum, align 4
-  %19 = xor i32 %18, %crc.1
-  %cmp42.not = icmp eq i32 %19, -1
+  %19 = load i32, ptr %checksum, align 4
+  %cmp42.not = icmp eq i32 %19, %18
   br i1 %cmp42.not, label %if.end45, label %free_and_exit
 
 if.end45:                                         ; preds = %if.end40

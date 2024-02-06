@@ -6506,18 +6506,17 @@ do.end.i:                                         ; preds = %entry, %do.end.i
   %arrayidx.i = getelementptr inbounds [3 x ptr], ptr @systemCaDirs, i64 0, i64 %indvars.iv.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef %0, i32 noundef 1)
-  %cmp5.not.i = icmp eq i32 %call.i, 1
+  %cmp5.not.i.not = icmp ne i32 %call.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  %or.cond2 = select i1 %cmp5.not.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond2, label %LoadSystemCaCertsNix.exit, label %do.end.i, !llvm.loop !26
+  %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, 3
+  %or.cond.not2 = select i1 %cmp5.not.i.not, i1 %exitcond.not.i, i1 false
+  br i1 %or.cond.not2, label %do.end.i, label %LoadSystemCaCertsNix.exit, !llvm.loop !26
 
 LoadSystemCaCertsNix.exit:                        ; preds = %do.end.i, %entry
-  %tobool = phi i1 [ false, %entry ], [ %cmp5.not.i, %do.end.i ]
+  %tobool.not = phi i1 [ true, %entry ], [ %cmp5.not.i.not, %do.end.i ]
   %spec.store.select.i = zext i1 %cmp.i to i32
-  %cmp = xor i1 %cmp.i, true
-  %or.cond = or i1 %tobool, %cmp
-  %spec.store.select = select i1 %or.cond, i32 %spec.store.select.i, i32 -6
+  %or.cond.not = and i1 %cmp.i, %tobool.not
+  %spec.store.select = select i1 %or.cond.not, i32 -6, i32 %spec.store.select.i
   ret i32 %spec.store.select
 }
 

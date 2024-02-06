@@ -218,7 +218,7 @@ lor.lhs.false:                                    ; preds = %open_midx_bitmap.ex
   br i1 %tobool3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry, %lor.lhs.false, %open_midx_bitmap.exit
-  %tobool.not11 = phi i1 [ true, %lor.lhs.false ], [ false, %open_midx_bitmap.exit ], [ false, %entry ]
+  %tobool.not11.not = phi i1 [ false, %lor.lhs.false ], [ true, %open_midx_bitmap.exit ], [ true, %entry ]
   %call.i6 = tail call ptr @get_all_packs(ptr noundef %r) #18
   %tobool.not5.i = icmp eq ptr %call.i6, null
   br i1 %tobool.not5.i, label %open_pack_bitmap.exit, label %for.body.lr.ph.i
@@ -367,18 +367,17 @@ for.inc.i:                                        ; preds = %if.then.i, %open_pa
 
 open_pack_bitmap.exit.loopexit:                   ; preds = %for.inc.i, %if.then.i
   %ret.2.i.ph = phi i32 [ 0, %if.then.i ], [ %ret.1.i, %for.inc.i ]
-  %11 = icmp eq i32 %ret.2.i.ph, 0
+  %11 = icmp ne i32 %ret.2.i.ph, 0
   br label %open_pack_bitmap.exit
 
 open_pack_bitmap.exit:                            ; preds = %open_pack_bitmap.exit.loopexit, %if.then
-  %ret.2.i = phi i1 [ false, %if.then ], [ %11, %open_pack_bitmap.exit.loopexit ]
-  %or5 = or i1 %tobool.not11, %ret.2.i
-  %12 = xor i1 %or5, true
-  %13 = sext i1 %12 to i32
+  %ret.2.i = phi i1 [ true, %if.then ], [ %11, %open_pack_bitmap.exit.loopexit ]
+  %or5.not = and i1 %tobool.not11.not, %ret.2.i
+  %12 = sext i1 %or5.not to i32
   br label %if.end
 
 if.end:                                           ; preds = %open_pack_bitmap.exit, %lor.lhs.false
-  %found.0.in = phi i32 [ %13, %open_pack_bitmap.exit ], [ 0, %lor.lhs.false ]
+  %found.0.in = phi i32 [ %12, %open_pack_bitmap.exit ], [ 0, %lor.lhs.false ]
   ret i32 %found.0.in
 }
 

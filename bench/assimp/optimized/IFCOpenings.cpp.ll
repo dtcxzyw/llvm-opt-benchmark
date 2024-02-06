@@ -8358,7 +8358,6 @@ for.body.lr.ph:                                   ; preds = %invoke.cont2
   %c4.i = getelementptr inbounds i8, ptr %m, i64 88
   %_M_end_of_storage.i.i.i213 = getelementptr inbounds i8, ptr %temp_contour, i64 16
   %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %temp_contour2, i64 16
-  %check_intersection.not = xor i1 %check_intersection, true
   %vpmin.sroa.8.0.bb.sroa_idx = getelementptr inbounds i8, ptr %bb, i64 8
   %second.i = getelementptr inbounds i8, ptr %bb, i64 16
   %vpmax.sroa.8.0.second.i.sroa_idx = getelementptr inbounds i8, ptr %bb, i64 24
@@ -8442,7 +8441,7 @@ if.then27:                                        ; preds = %if.then23
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then23, %if.then27, %land.lhs.true, %if.end17
-  %is_2d_source.0 = phi i1 [ true, %if.then27 ], [ false, %if.then23 ], [ false, %land.lhs.true ], [ false, %if.end17 ]
+  %is_2d_source.0.not = phi i1 [ false, %if.then27 ], [ true, %if.then23 ], [ true, %land.lhs.true ], [ true, %if.end17 ]
   %profile_data.0 = phi ptr [ %10, %if.then27 ], [ %9, %if.then23 ], [ %9, %land.lhs.true ], [ %9, %if.end17 ]
   %_M_finish.i.i = getelementptr inbounds i8, ptr %profile_data.0, i64 8
   %19 = load ptr, ptr %_M_finish.i.i, align 8
@@ -8590,7 +8589,7 @@ for.body53:                                       ; preds = %for.body53.lr.ph, %
   %42 = phi <2 x double> [ <double 1.000000e+10, double 1.000000e+10>, %for.body53.lr.ph ], [ %116, %for.inc127 ]
   %43 = phi <2 x double> [ <double -1.000000e+10, double -1.000000e+10>, %for.body53.lr.ph ], [ %117, %for.inc127 ]
   %44 = phi <2 x double> [ <double -1.000000e+10, double -1.000000e+10>, %for.body53.lr.ph ], [ %118, %for.inc127 ]
-  br i1 %is_2d_source.0, label %if.end82, label %invoke.cont66
+  br i1 %is_2d_source.0.not, label %invoke.cont66, label %if.end82
 
 invoke.cont66:                                    ; preds = %for.body53
   %add = add i64 %vi_total.0629, 2
@@ -8923,8 +8922,8 @@ if.end151:                                        ; preds = %lor.lhs.false, %if.
   %sub.ptr.sub.i217.pre-phi747 = phi i64 [ %sub.ptr.sub.i217.pre-phi, %if.end147 ], [ %sub.ptr.sub.i209, %lor.lhs.false ]
   %139 = phi <2 x double> [ %136, %if.end147 ], [ %121, %lor.lhs.false ]
   %140 = phi <2 x double> [ %137, %if.end147 ], [ %123, %lor.lhs.false ]
-  %brmerge = or i1 %is_2d_source.0, %check_intersection.not
-  br i1 %brmerge, label %if.end163, label %land.lhs.true156
+  %brmerge.not = and i1 %is_2d_source.0.not, %check_intersection
+  br i1 %brmerge.not, label %land.lhs.true156, label %if.end163
 
 land.lhs.true156:                                 ; preds = %if.end151
   %sub = fsub double %dmax.0.lcssa, %dmin.0.lcssa

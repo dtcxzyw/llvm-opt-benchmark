@@ -5736,7 +5736,7 @@ if.else178:                                       ; preds = %switch.early.test11
 
 if.end188:                                        ; preds = %for.cond143, %if.end.i247, %for.body145, %for.cond143.us, %if.end8.i253.us, %for.body145.us, %for.inc128, %if.end.i226, %for.inc128.us, %if.end8.i232.us, %for.cond97, %if.end.i205, %for.body99, %for.cond97.us, %if.end8.i211.us, %for.body99.us, %for.inc82, %if.end.i184, %for.inc82.us, %if.end8.i190.us, %if.then142, %if.then119, %if.then96, %if.then73, %if.else178, %if.else170, %if.else166, %if.then162
   %cmp198 = phi i1 [ false, %if.then162 ], [ false, %if.else166 ], [ false, %if.else170 ], [ false, %if.else178 ], [ false, %if.then73 ], [ true, %if.then96 ], [ true, %if.then119 ], [ false, %if.then142 ], [ false, %if.end8.i190.us ], [ false, %for.inc82.us ], [ false, %if.end.i184 ], [ false, %for.inc82 ], [ true, %for.cond97.us ], [ false, %if.end8.i211.us ], [ false, %for.body99.us ], [ true, %for.cond97 ], [ false, %if.end.i205 ], [ false, %for.body99 ], [ true, %for.inc128.us ], [ false, %if.end8.i232.us ], [ true, %for.inc128 ], [ false, %if.end.i226 ], [ false, %for.body145.us ], [ false, %if.end8.i253.us ], [ false, %for.cond143.us ], [ false, %for.body145 ], [ false, %if.end.i247 ], [ false, %for.cond143 ]
-  %cmp202 = phi i1 [ false, %if.then162 ], [ false, %if.else166 ], [ false, %if.else170 ], [ false, %if.else178 ], [ true, %if.then73 ], [ false, %if.then96 ], [ false, %if.then119 ], [ true, %if.then142 ], [ true, %for.inc82.us ], [ false, %if.end8.i190.us ], [ true, %for.inc82 ], [ false, %if.end.i184 ], [ false, %for.body99.us ], [ false, %if.end8.i211.us ], [ false, %for.cond97.us ], [ false, %for.body99 ], [ false, %if.end.i205 ], [ false, %for.cond97 ], [ false, %if.end8.i232.us ], [ false, %for.inc128.us ], [ false, %if.end.i226 ], [ false, %for.inc128 ], [ true, %for.cond143.us ], [ false, %if.end8.i253.us ], [ false, %for.body145.us ], [ true, %for.cond143 ], [ false, %if.end.i247 ], [ false, %for.body145 ]
+  %cmp202.not = phi i1 [ true, %if.then162 ], [ true, %if.else166 ], [ true, %if.else170 ], [ true, %if.else178 ], [ false, %if.then73 ], [ true, %if.then96 ], [ true, %if.then119 ], [ false, %if.then142 ], [ false, %for.inc82.us ], [ true, %if.end8.i190.us ], [ false, %for.inc82 ], [ true, %if.end.i184 ], [ true, %for.body99.us ], [ true, %if.end8.i211.us ], [ true, %for.cond97.us ], [ true, %for.body99 ], [ true, %if.end.i205 ], [ true, %for.cond97 ], [ true, %if.end8.i232.us ], [ true, %for.inc128.us ], [ true, %if.end.i226 ], [ true, %for.inc128 ], [ false, %for.cond143.us ], [ true, %if.end8.i253.us ], [ true, %for.body145.us ], [ false, %for.cond143 ], [ true, %if.end.i247 ], [ true, %for.body145 ]
   %cmp221 = phi i32 [ 1, %if.then162 ], [ 3, %if.else166 ], [ %.114, %if.else170 ], [ %.115, %if.else178 ], [ 1, %if.then73 ], [ 2, %if.then96 ], [ 2, %if.then119 ], [ 3, %if.then142 ], [ 1, %if.end8.i190.us ], [ 1, %for.inc82.us ], [ 1, %if.end.i184 ], [ 1, %for.inc82 ], [ 2, %for.cond97.us ], [ 1, %if.end8.i211.us ], [ 1, %for.body99.us ], [ 2, %for.cond97 ], [ 1, %if.end.i205 ], [ 1, %for.body99 ], [ 2, %for.inc128.us ], [ 3, %if.end8.i232.us ], [ 2, %for.inc128 ], [ 3, %if.end.i226 ], [ 3, %for.body145.us ], [ 3, %if.end8.i253.us ], [ 3, %for.cond143.us ], [ 3, %for.body145 ], [ 3, %if.end.i247 ], [ 3, %for.cond143 ]
   %switch.i = icmp ugt i32 %roundingMode, 3
   %44 = load i32, ptr %precision, align 8
@@ -5744,10 +5744,10 @@ if.end188:                                        ; preds = %for.cond143, %if.en
   %cmp194 = icmp slt i32 %spec.select.i125, %sub193
   %or.cond14 = and i1 %switch.i, %cmp198
   %or.cond = or i1 %or.cond14, %cmp194
-  %tobool200.not = xor i1 %switch.i, true
-  %or.cond15 = and i1 %cmp202, %tobool200.not
-  %or.cond116 = or i1 %or.cond15, %or.cond
-  br i1 %or.cond116, label %if.then203, label %if.end205
+  %or.cond.not = xor i1 %or.cond, true
+  %or.cond15.not = or i1 %switch.i, %cmp202.not
+  %or.cond116 = and i1 %or.cond15.not, %or.cond.not
+  br i1 %or.cond116, label %if.end205, label %if.then203
 
 if.then203:                                       ; preds = %if.end188
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %buffer.i)

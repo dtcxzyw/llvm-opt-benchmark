@@ -9566,11 +9566,11 @@ for.cond.preheader.i:                             ; preds = %if.end36
 for.body.us.i:                                    ; preds = %for.cond.preheader.i, %for.body.us.i
   %__begin1.sroa.0.07.us.i = phi ptr [ %incdec.ptr.i.us.i, %for.body.us.i ], [ %18, %for.cond.preheader.i ]
   %22 = load i32, ptr %__begin1.sroa.0.07.us.i, align 8
-  %cmp.us.i = icmp eq i32 %22, 2
+  %cmp.us.i.not = icmp ne i32 %22, 2
   %incdec.ptr.i.us.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07.us.i, i64 16
-  %cmp.i.not.us.i = icmp eq ptr %incdec.ptr.i.us.i, %19
-  %or.cond = select i1 %cmp.us.i, i1 true, i1 %cmp.i.not.us.i
-  br i1 %or.cond, label %_ZN3net14QuicConnection19IsTerminationPacketERKNS_16SerializedPacketE.exit, label %for.body.us.i
+  %cmp.i.not.us.i = icmp ne ptr %incdec.ptr.i.us.i, %19
+  %or.cond.not = select i1 %cmp.us.i.not, i1 %cmp.i.not.us.i, i1 false
+  br i1 %or.cond.not, label %for.body.us.i, label %_ZN3net14QuicConnection19IsTerminationPacketERKNS_16SerializedPacketE.exit
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
   %__begin1.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %18, %for.cond.preheader.i ]
@@ -9593,16 +9593,15 @@ for.inc.i:                                        ; preds = %land.lhs.true12.i, 
   br i1 %cmp.i.not.i, label %_ZN3net14QuicConnection19IsTerminationPacketERKNS_16SerializedPacketE.exit, label %for.body.i
 
 _ZN3net14QuicConnection19IsTerminationPacketERKNS_16SerializedPacketE.exit: ; preds = %for.body.i, %land.lhs.true12.i, %for.inc.i, %for.body.us.i, %if.end36
-  %retval.0.i44 = phi i1 [ false, %if.end36 ], [ %cmp.us.i, %for.body.us.i ], [ true, %for.body.i ], [ true, %land.lhs.true12.i ], [ false, %for.inc.i ]
+  %retval.0.i44.not = phi i1 [ true, %if.end36 ], [ %cmp.us.i.not, %for.body.us.i ], [ false, %for.body.i ], [ false, %land.lhs.true12.i ], [ true, %for.inc.i ]
   %writer_ = getelementptr inbounds i8, ptr %this, i64 464
   %27 = load ptr, ptr %writer_, align 8
   %vtable38 = load ptr, ptr %27, align 8
   %vfn39 = getelementptr inbounds i8, ptr %vtable38, i64 32
   %28 = load ptr, ptr %vfn39, align 8
   %call40 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(8) %27)
-  %call40.not = xor i1 %call40, true
-  %brmerge = or i1 %retval.0.i44, %call40.not
-  br i1 %brmerge, label %if.end53, label %return
+  %brmerge.not = and i1 %retval.0.i44.not, %call40
+  br i1 %brmerge.not, label %return, label %if.end53
 
 if.end53:                                         ; preds = %_ZN3net14QuicConnection19IsTerminationPacketERKNS_16SerializedPacketE.exit
   %29 = load i64, ptr %packet_number, align 8
@@ -9610,7 +9609,7 @@ if.end53:                                         ; preds = %_ZN3net14QuicConnec
   store i64 %29, ptr %packet_number_of_last_sent_packet_, align 8
   %encrypted_length54 = getelementptr inbounds i8, ptr %packet, i64 8
   %30 = load i16, ptr %encrypted_length54, align 8
-  br i1 %retval.0.i44, label %if.then56, label %if.end53.if.end104_crit_edge
+  br i1 %retval.0.i44.not, label %if.end53.if.end104_crit_edge, label %if.then56
 
 if.end53.if.end104_crit_edge:                     ; preds = %if.end53
   %.pre123 = zext i16 %30 to i64

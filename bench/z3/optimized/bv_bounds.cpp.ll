@@ -1258,7 +1258,7 @@ if.else.i.i7.i.i286:                              ; preds = %_ZN11mpq_managerILb
 if.end74:                                         ; preds = %if.else, %if.then.i.i8.i.i287, %if.else.i.i7.i.i286, %if.then.i.i8.i.i263, %if.end69
   %negated.addr.0.shrunk423440 = phi i1 [ false, %if.end69 ], [ false, %if.then.i.i8.i.i263 ], [ false, %if.else.i.i7.i.i286 ], [ false, %if.then.i.i8.i.i287 ], [ true, %if.else ]
   %lo_min.0.shrunk425438 = phi i1 [ %lo_min.0.shrunk425, %if.end69 ], [ true, %if.then.i.i8.i.i263 ], [ %lo_min.0.shrunk425439, %if.else.i.i7.i.i286 ], [ %lo_min.0.shrunk425439, %if.then.i.i8.i.i287 ], [ false, %if.else ]
-  %hi_max.0.shrunk427436 = phi i1 [ true, %if.end69 ], [ true, %if.then.i.i8.i.i263 ], [ false, %if.else.i.i7.i.i286 ], [ false, %if.then.i.i8.i.i287 ], [ true, %if.else ]
+  %hi_max.0.shrunk.not.not = phi i1 [ false, %if.end69 ], [ false, %if.then.i.i8.i.i263 ], [ true, %if.else.i.i7.i.i286 ], [ true, %if.then.i.i8.i.i287 ], [ false, %if.else ]
   %92 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %bf.load.i.i.i.i.i.i.i300 = load i8, ptr %m_kind.i.i.i.i.i.i.i83, align 4
   %bf.clear.i.i.i.i.i.i.i301 = and i8 %bf.load.i.i.i.i.i.i.i300, 1
@@ -1319,9 +1319,8 @@ if.then77:                                        ; preds = %call4.i.i.i.i.i.noe
   br label %cleanup
 
 if.end79:                                         ; preds = %call4.i.i.i.i.i.noexc327, %if.then.i.i.i.i.i325, %invoke.cont75
-  %lo_min.0.shrunk.not = xor i1 %lo_min.0.shrunk425438, true
-  %brmerge22 = or i1 %hi_max.0.shrunk427436, %lo_min.0.shrunk.not
-  br i1 %brmerge22, label %if.end86, label %cleanup
+  %brmerge22.not = and i1 %lo_min.0.shrunk425438, %hi_max.0.shrunk.not.not
+  br i1 %brmerge22.not, label %cleanup, label %if.end86
 
 if.end86:                                         ; preds = %if.end79
   %99 = load ptr, ptr %nis, align 8

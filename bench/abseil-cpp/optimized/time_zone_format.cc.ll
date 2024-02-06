@@ -1867,33 +1867,33 @@ if.end6.i821:                                     ; preds = %land.lhs.true455, %
   %191 = phi i8 [ %.pre.i, %if.then2.i ], [ %133, %if.then487 ], [ 52, %land.lhs.true452 ], [ 52, %land.lhs.true455 ]
   %cmp1.i820921 = phi i1 [ true, %if.then2.i ], [ false, %if.then487 ], [ false, %land.lhs.true452 ], [ false, %land.lhs.true455 ]
   %dp.addr.0.i = phi ptr [ %incdec.ptr.i829, %if.then2.i ], [ %incdec.ptr304, %if.then487 ], [ %incdec.ptr304, %land.lhs.true452 ], [ %incdec.ptr304, %land.lhs.true455 ]
-  %conv833.i = sext i8 %191 to i32
-  %memchr34.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833.i, i64 11)
-  %tobool9.not35.i = icmp eq ptr %memchr34.i, null
-  %sub.ptr.lhs.cast.i1006 = ptrtoint ptr %memchr34.i to i64
+  %conv834.i = sext i8 %191 to i32
+  %memchr35.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834.i, i64 11)
+  %tobool9.not36.i = icmp eq ptr %memchr35.i, null
+  %sub.ptr.lhs.cast.i1006 = ptrtoint ptr %memchr35.i to i64
   %192 = trunc i64 %sub.ptr.lhs.cast.i1006 to i32
   %conv10.i1007 = sub i32 %192, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11.i1008 = icmp sgt i32 %conv10.i1007, 9
-  %or.cond1027 = or i1 %tobool9.not35.i, %cmp11.i1008
+  %or.cond1027 = or i1 %tobool9.not36.i, %cmp11.i1008
   br i1 %or.cond1027, label %while.end.i825, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end6.i821, %if.end19.i
   %conv10.i1011 = phi i32 [ %conv10.i, %if.end19.i ], [ %conv10.i1007, %if.end6.i821 ]
-  %value.036.i1010 = phi i32 [ %sub.i824, %if.end19.i ], [ 0, %if.end6.i821 ]
-  %dp.addr.138.i1009 = phi ptr [ %add.ptr.i, %if.end19.i ], [ %dp.addr.0.i, %if.end6.i821 ]
+  %value.037.i1010 = phi i32 [ %sub.i824, %if.end19.i ], [ 0, %if.end6.i821 ]
+  %dp.addr.139.i1009 = phi ptr [ %add.ptr.i, %if.end19.i ], [ %dp.addr.0.i, %if.end6.i821 ]
   %193 = phi i8 [ %194, %if.end19.i ], [ %191, %if.end6.i821 ]
-  %cmp14.i = icmp slt i32 %value.036.i1010, -214748364
+  %cmp14.i = icmp slt i32 %value.037.i1010, -214748364
   br i1 %cmp14.i, label %while.end.i825, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end13.i
-  %mul.i = mul nsw i32 %value.036.i1010, 10
+  %mul.i = mul nsw i32 %value.037.i1010, 10
   %add.i = or i32 %conv10.i1011, -2147483648
   %cmp17.i823 = icmp slt i32 %mul.i, %add.i
   br i1 %cmp17.i823, label %while.end.i825, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end16.i
   %sub.i824 = sub nsw i32 %mul.i, %conv10.i1011
-  %add.ptr.i = getelementptr inbounds i8, ptr %dp.addr.138.i1009, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %dp.addr.139.i1009, i64 1
   %194 = load i8, ptr %add.ptr.i, align 1
   %conv8.i = sext i8 %194 to i32
   %memchr.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv8.i, i64 11)
@@ -1907,15 +1907,15 @@ if.end19.i:                                       ; preds = %if.end16.i
 
 while.end.i825:                                   ; preds = %if.end13.i, %if.end16.i, %if.end19.i, %if.end6.i821
   %196 = phi i8 [ %191, %if.end6.i821 ], [ %194, %if.end19.i ], [ %193, %if.end16.i ], [ %193, %if.end13.i ]
-  %value.1.i = phi i32 [ 0, %if.end6.i821 ], [ %sub.i824, %if.end19.i ], [ %mul.i, %if.end16.i ], [ %value.036.i1010, %if.end13.i ]
-  %erange.0.i = phi i1 [ false, %if.end6.i821 ], [ false, %if.end19.i ], [ true, %if.end16.i ], [ true, %if.end13.i ]
-  %dp.addr.2.i = phi ptr [ %dp.addr.0.i, %if.end6.i821 ], [ %add.ptr.i, %if.end19.i ], [ %dp.addr.138.i1009, %if.end16.i ], [ %dp.addr.138.i1009, %if.end13.i ]
-  %cmp25.not.i = icmp eq ptr %dp.addr.2.i, %dp.addr.0.i
-  %brmerge.i = or i1 %erange.0.i, %cmp25.not.i
-  %cmp31.i = icmp eq i32 %value.1.i, -2147483648
-  %not.cmp1.i = xor i1 %cmp1.i820921, true
-  %or.cond.i826 = select i1 %not.cmp1.i, i1 %cmp31.i, i1 false
-  %or.cond27.not.i = select i1 %brmerge.i, i1 true, i1 %or.cond.i826
+  %value.1.i = phi i32 [ 0, %if.end6.i821 ], [ %sub.i824, %if.end19.i ], [ %mul.i, %if.end16.i ], [ %value.037.i1010, %if.end13.i ]
+  %erange.0.not.i = phi i1 [ true, %if.end6.i821 ], [ true, %if.end19.i ], [ false, %if.end16.i ], [ false, %if.end13.i ]
+  %dp.addr.2.i = phi ptr [ %dp.addr.0.i, %if.end6.i821 ], [ %add.ptr.i, %if.end19.i ], [ %dp.addr.139.i1009, %if.end16.i ], [ %dp.addr.139.i1009, %if.end13.i ]
+  %cmp25.not.i = icmp ne ptr %dp.addr.2.i, %dp.addr.0.i
+  %brmerge.not33.i = and i1 %erange.0.not.i, %cmp25.not.i
+  %cmp31.i = icmp ne i32 %value.1.i, -2147483648
+  %or.cond.i826 = select i1 %cmp1.i820921, i1 true, i1 %cmp31.i
+  %or.cond27.i = select i1 %brmerge.not33.i, i1 %or.cond.i826, i1 false
+  %or.cond27.not.i = xor i1 %or.cond27.i, true
   %cmp35.i = icmp eq i32 %value.1.i, 0
   %or.cond1.not.i = select i1 %cmp1.i820921, i1 %cmp35.i, i1 false
   %or.cond29.i = select i1 %or.cond27.not.i, i1 true, i1 %or.cond1.not.i
@@ -2444,40 +2444,40 @@ if.end6:                                          ; preds = %if.then5, %if.then
   %1 = phi i8 [ %.pre, %if.then5 ], [ %0, %if.then ]
   %width.addr.1 = phi i32 [ %width.addr.0, %if.then5 ], [ %width, %if.then ]
   %dp.addr.0 = phi ptr [ %incdec.ptr, %if.then5 ], [ %dp, %if.then ]
-  %conv833 = sext i8 %1 to i32
-  %memchr34 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833, i64 11)
-  %tobool9.not35 = icmp eq ptr %memchr34, null
-  br i1 %tobool9.not35, label %while.end, label %while.body
+  %conv834 = sext i8 %1 to i32
+  %memchr35 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834, i64 11)
+  %tobool9.not36 = icmp eq ptr %memchr35, null
+  br i1 %tobool9.not36, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end6, %if.end24
-  %memchr39 = phi ptr [ %memchr, %if.end24 ], [ %memchr34, %if.end6 ]
-  %dp.addr.138 = phi ptr [ %add.ptr, %if.end24 ], [ %dp.addr.0, %if.end6 ]
-  %width.addr.237 = phi i32 [ %width.addr.3, %if.end24 ], [ %width.addr.1, %if.end6 ]
-  %value.036 = phi i32 [ %sub, %if.end24 ], [ 0, %if.end6 ]
-  %sub.ptr.lhs.cast = ptrtoint ptr %memchr39 to i64
+  %memchr40 = phi ptr [ %memchr, %if.end24 ], [ %memchr35, %if.end6 ]
+  %dp.addr.139 = phi ptr [ %add.ptr, %if.end24 ], [ %dp.addr.0, %if.end6 ]
+  %width.addr.238 = phi i32 [ %width.addr.3, %if.end24 ], [ %width.addr.1, %if.end6 ]
+  %value.037 = phi i32 [ %sub, %if.end24 ], [ 0, %if.end6 ]
+  %sub.ptr.lhs.cast = ptrtoint ptr %memchr40 to i64
   %2 = trunc i64 %sub.ptr.lhs.cast to i32
   %conv10 = sub i32 %2, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11 = icmp sgt i32 %conv10, 9
   br i1 %cmp11, label %while.end, label %if.end13
 
 if.end13:                                         ; preds = %while.body
-  %cmp14 = icmp slt i32 %value.036, -214748364
+  %cmp14 = icmp slt i32 %value.037, -214748364
   br i1 %cmp14, label %while.end, label %if.end16
 
 if.end16:                                         ; preds = %if.end13
-  %mul = mul nsw i32 %value.036, 10
+  %mul = mul nsw i32 %value.037, 10
   %add = or i32 %conv10, -2147483648
   %cmp17 = icmp slt i32 %mul, %add
   br i1 %cmp17, label %while.end, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
   %sub = sub nsw i32 %mul, %conv10
-  %add.ptr = getelementptr inbounds i8, ptr %dp.addr.138, i64 1
-  %cmp20 = icmp sgt i32 %width.addr.237, 0
+  %add.ptr = getelementptr inbounds i8, ptr %dp.addr.139, i64 1
+  %cmp20 = icmp sgt i32 %width.addr.238, 0
   br i1 %cmp20, label %land.lhs.true, label %if.end24
 
 land.lhs.true:                                    ; preds = %if.end19
-  %cmp22 = icmp eq i32 %width.addr.237, 1
+  %cmp22 = icmp eq i32 %width.addr.238, 1
   br i1 %cmp22, label %while.end, label %if.end24
 
 if.end24:                                         ; preds = %land.lhs.true, %if.end19
@@ -2489,15 +2489,15 @@ if.end24:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool9.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %if.end24, %while.body, %land.lhs.true, %if.end13, %if.end16, %if.end6
-  %value.1 = phi i32 [ 0, %if.end6 ], [ %mul, %if.end16 ], [ %value.036, %if.end13 ], [ %sub, %land.lhs.true ], [ %value.036, %while.body ], [ %sub, %if.end24 ]
-  %erange.0 = phi i1 [ false, %if.end6 ], [ true, %if.end16 ], [ true, %if.end13 ], [ false, %land.lhs.true ], [ false, %while.body ], [ false, %if.end24 ]
-  %dp.addr.2 = phi ptr [ %dp.addr.0, %if.end6 ], [ %dp.addr.138, %if.end16 ], [ %dp.addr.138, %if.end13 ], [ %add.ptr, %land.lhs.true ], [ %dp.addr.138, %while.body ], [ %add.ptr, %if.end24 ]
-  %cmp25.not = icmp eq ptr %dp.addr.2, %dp.addr.0
-  %brmerge = or i1 %erange.0, %cmp25.not
-  %cmp31 = icmp eq i32 %value.1, -2147483648
-  %not.cmp1 = xor i1 %cmp1, true
-  %or.cond = select i1 %not.cmp1, i1 %cmp31, i1 false
-  %or.cond27.not = select i1 %brmerge, i1 true, i1 %or.cond
+  %value.1 = phi i32 [ 0, %if.end6 ], [ %mul, %if.end16 ], [ %value.037, %if.end13 ], [ %sub, %land.lhs.true ], [ %value.037, %while.body ], [ %sub, %if.end24 ]
+  %erange.0.not = phi i1 [ true, %if.end6 ], [ false, %if.end16 ], [ false, %if.end13 ], [ true, %land.lhs.true ], [ true, %while.body ], [ true, %if.end24 ]
+  %dp.addr.2 = phi ptr [ %dp.addr.0, %if.end6 ], [ %dp.addr.139, %if.end16 ], [ %dp.addr.139, %if.end13 ], [ %add.ptr, %land.lhs.true ], [ %dp.addr.139, %while.body ], [ %add.ptr, %if.end24 ]
+  %cmp25.not = icmp ne ptr %dp.addr.2, %dp.addr.0
+  %brmerge.not33 = and i1 %erange.0.not, %cmp25.not
+  %cmp31 = icmp ne i32 %value.1, -2147483648
+  %or.cond = select i1 %cmp1, i1 true, i1 %cmp31
+  %or.cond27 = select i1 %brmerge.not33, i1 %or.cond, i1 false
+  %or.cond27.not = xor i1 %or.cond27, true
   %cmp35 = icmp eq i32 %value.1, 0
   %or.cond1.not = select i1 %cmp1, i1 %cmp35, i1 false
   %or.cond29 = select i1 %or.cond27.not, i1 true, i1 %or.cond1.not
@@ -2718,34 +2718,34 @@ if.then2.i:                                       ; preds = %sw.bb
 if.end6.i:                                        ; preds = %if.then2.i, %sw.bb
   %10 = phi i8 [ %.pre.i, %if.then2.i ], [ %9, %sw.bb ]
   %dp.addr.0.i = phi ptr [ %incdec.ptr.i, %if.then2.i ], [ %data.1864, %sw.bb ]
-  %conv833.i = sext i8 %10 to i32
-  %memchr34.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833.i, i64 11)
-  %tobool9.not35.i = icmp eq ptr %memchr34.i, null
-  br i1 %tobool9.not35.i, label %while.end.i, label %while.body.i
+  %conv834.i = sext i8 %10 to i32
+  %memchr35.i = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834.i, i64 11)
+  %tobool9.not36.i = icmp eq ptr %memchr35.i, null
+  br i1 %tobool9.not36.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end6.i, %if.end26.i
-  %memchr39.i = phi ptr [ %memchr.i, %if.end26.i ], [ %memchr34.i, %if.end6.i ]
-  %dp.addr.138.i = phi ptr [ %add.ptr.i147, %if.end26.i ], [ %dp.addr.0.i, %if.end6.i ]
-  %value.036.i = phi i64 [ %sub.i, %if.end26.i ], [ 0, %if.end6.i ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %memchr39.i to i64
+  %memchr40.i = phi ptr [ %memchr.i, %if.end26.i ], [ %memchr35.i, %if.end6.i ]
+  %dp.addr.139.i = phi ptr [ %add.ptr.i147, %if.end26.i ], [ %dp.addr.0.i, %if.end6.i ]
+  %value.037.i = phi i64 [ %sub.i, %if.end26.i ], [ 0, %if.end6.i ]
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %memchr40.i to i64
   %11 = trunc i64 %sub.ptr.lhs.cast.i to i32
   %conv10.i = sub i32 %11, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11.i = icmp sgt i32 %conv10.i, 9
   br i1 %cmp11.i, label %while.end.i, label %if.end13.i
 
 if.end13.i:                                       ; preds = %while.body.i
-  %cmp14.i = icmp slt i64 %value.036.i, -922337203685477580
+  %cmp14.i = icmp slt i64 %value.037.i, -922337203685477580
   br i1 %cmp14.i, label %while.end.i, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end13.i
-  %mul.i = mul nsw i64 %value.036.i, 10
+  %mul.i = mul nsw i64 %value.037.i, 10
   %conv17.i = sext i32 %conv10.i to i64
   %add.i = or i64 %conv17.i, -9223372036854775808
   %cmp18.i = icmp slt i64 %mul.i, %add.i
   br i1 %cmp18.i, label %while.end.i, label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.end16.i
-  %add.ptr.i147 = getelementptr inbounds i8, ptr %dp.addr.138.i, i64 1
+  %add.ptr.i147 = getelementptr inbounds i8, ptr %dp.addr.139.i, i64 1
   %sub.i = sub nsw i64 %mul.i, %conv17.i
   %12 = load i8, ptr %add.ptr.i147, align 1
   %conv8.i = sext i8 %12 to i32
@@ -2754,15 +2754,15 @@ if.end26.i:                                       ; preds = %if.end16.i
   br i1 %tobool9.not.i, label %while.end.i, label %while.body.i, !llvm.loop !22
 
 while.end.i:                                      ; preds = %if.end26.i, %if.end16.i, %if.end13.i, %while.body.i, %if.end6.i
-  %value.1.i = phi i64 [ 0, %if.end6.i ], [ %sub.i, %if.end26.i ], [ %value.036.i, %while.body.i ], [ %value.036.i, %if.end13.i ], [ %mul.i, %if.end16.i ]
-  %erange.0.i = phi i1 [ false, %if.end6.i ], [ false, %if.end26.i ], [ false, %while.body.i ], [ true, %if.end13.i ], [ true, %if.end16.i ]
-  %dp.addr.2.i = phi ptr [ %dp.addr.0.i, %if.end6.i ], [ %add.ptr.i147, %if.end26.i ], [ %dp.addr.138.i, %while.body.i ], [ %dp.addr.138.i, %if.end13.i ], [ %dp.addr.138.i, %if.end16.i ]
-  %cmp27.not.i = icmp eq ptr %dp.addr.2.i, %dp.addr.0.i
-  %brmerge.i = or i1 %erange.0.i, %cmp27.not.i
-  %cmp33.i = icmp eq i64 %value.1.i, -9223372036854775808
-  %not.cmp1.i = xor i1 %cmp1.i, true
-  %or.cond.i = select i1 %not.cmp1.i, i1 %cmp33.i, i1 false
-  %or.cond27.not.i = select i1 %brmerge.i, i1 true, i1 %or.cond.i
+  %value.1.i = phi i64 [ 0, %if.end6.i ], [ %sub.i, %if.end26.i ], [ %value.037.i, %while.body.i ], [ %value.037.i, %if.end13.i ], [ %mul.i, %if.end16.i ]
+  %erange.0.not.i = phi i1 [ true, %if.end6.i ], [ true, %if.end26.i ], [ true, %while.body.i ], [ false, %if.end13.i ], [ false, %if.end16.i ]
+  %dp.addr.2.i = phi ptr [ %dp.addr.0.i, %if.end6.i ], [ %add.ptr.i147, %if.end26.i ], [ %dp.addr.139.i, %while.body.i ], [ %dp.addr.139.i, %if.end13.i ], [ %dp.addr.139.i, %if.end16.i ]
+  %cmp27.not.i = icmp ne ptr %dp.addr.2.i, %dp.addr.0.i
+  %brmerge.not33.i = and i1 %erange.0.not.i, %cmp27.not.i
+  %cmp33.i = icmp ne i64 %value.1.i, -9223372036854775808
+  %or.cond.i = select i1 %cmp1.i, i1 true, i1 %cmp33.i
+  %or.cond27.i = select i1 %brmerge.not33.i, i1 %or.cond.i, i1 false
+  %or.cond27.not.i = xor i1 %or.cond27.i, true
   %cmp37.i = icmp eq i64 %value.1.i, 0
   %or.cond1.not.i = select i1 %cmp1.i, i1 %cmp37.i, i1 false
   %or.cond29.i = select i1 %or.cond27.not.i, i1 true, i1 %or.cond1.not.i
@@ -2804,36 +2804,36 @@ if.end6.i149:                                     ; preds = %if.then2.i187, %if.
   %14 = phi i8 [ %.pre.i189, %if.then2.i187 ], [ %13, %if.then.i ]
   %width.addr.1.i = phi i32 [ 1, %if.then2.i187 ], [ 2, %if.then.i ]
   %dp.addr.0.i150 = phi ptr [ %incdec.ptr.i188, %if.then2.i187 ], [ %data.1864, %if.then.i ]
-  %conv833.i151 = sext i8 %14 to i32
-  %memchr34.i152 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833.i151, i64 11)
-  %tobool9.not35.i153 = icmp eq ptr %memchr34.i152, null
-  br i1 %tobool9.not35.i153, label %while.end.i173, label %while.body.i154
+  %conv834.i151 = sext i8 %14 to i32
+  %memchr35.i152 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834.i151, i64 11)
+  %tobool9.not36.i153 = icmp eq ptr %memchr35.i152, null
+  br i1 %tobool9.not36.i153, label %while.end.i173, label %while.body.i154
 
 while.body.i154:                                  ; preds = %if.end6.i149, %if.end24.i
-  %memchr39.i155 = phi ptr [ %memchr.i171, %if.end24.i ], [ %memchr34.i152, %if.end6.i149 ]
-  %dp.addr.138.i156 = phi ptr [ %add.ptr.i168, %if.end24.i ], [ %dp.addr.0.i150, %if.end6.i149 ]
-  %width.addr.237.i157 = phi i32 [ 1, %if.end24.i ], [ %width.addr.1.i, %if.end6.i149 ]
-  %value.036.i158 = phi i32 [ %sub.i167, %if.end24.i ], [ 0, %if.end6.i149 ]
-  %sub.ptr.lhs.cast.i159 = ptrtoint ptr %memchr39.i155 to i64
+  %memchr40.i155 = phi ptr [ %memchr.i171, %if.end24.i ], [ %memchr35.i152, %if.end6.i149 ]
+  %dp.addr.139.i156 = phi ptr [ %add.ptr.i168, %if.end24.i ], [ %dp.addr.0.i150, %if.end6.i149 ]
+  %width.addr.238.i157 = phi i32 [ 1, %if.end24.i ], [ %width.addr.1.i, %if.end6.i149 ]
+  %value.037.i158 = phi i32 [ %sub.i167, %if.end24.i ], [ 0, %if.end6.i149 ]
+  %sub.ptr.lhs.cast.i159 = ptrtoint ptr %memchr40.i155 to i64
   %15 = trunc i64 %sub.ptr.lhs.cast.i159 to i32
   %conv10.i160 = sub i32 %15, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11.i161 = icmp sgt i32 %conv10.i160, 9
   br i1 %cmp11.i161, label %while.end.i173, label %if.end13.i162
 
 if.end13.i162:                                    ; preds = %while.body.i154
-  %cmp14.i163 = icmp slt i32 %value.036.i158, -214748364
+  %cmp14.i163 = icmp slt i32 %value.037.i158, -214748364
   br i1 %cmp14.i163, label %while.end.i173, label %if.end16.i164
 
 if.end16.i164:                                    ; preds = %if.end13.i162
-  %mul.i165 = mul nsw i32 %value.036.i158, 10
+  %mul.i165 = mul nsw i32 %value.037.i158, 10
   %add.i166 = or i32 %conv10.i160, -2147483648
   %cmp17.i = icmp slt i32 %mul.i165, %add.i166
   br i1 %cmp17.i, label %while.end.i173, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end16.i164
   %sub.i167 = sub nsw i32 %mul.i165, %conv10.i160
-  %add.ptr.i168 = getelementptr inbounds i8, ptr %dp.addr.138.i156, i64 1
-  %cond953 = icmp eq i32 %width.addr.237.i157, 1
+  %add.ptr.i168 = getelementptr inbounds i8, ptr %dp.addr.139.i156, i64 1
+  %cond953 = icmp eq i32 %width.addr.238.i157, 1
   br i1 %cond953, label %while.end.i173, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end19.i
@@ -2844,15 +2844,15 @@ if.end24.i:                                       ; preds = %if.end19.i
   br i1 %tobool9.not.i172, label %while.end.i173, label %while.body.i154, !llvm.loop !14
 
 while.end.i173:                                   ; preds = %if.end24.i, %if.end16.i164, %if.end13.i162, %while.body.i154, %if.end19.i, %if.end6.i149
-  %value.1.i174 = phi i32 [ 0, %if.end6.i149 ], [ %sub.i167, %if.end19.i ], [ %sub.i167, %if.end24.i ], [ %value.036.i158, %while.body.i154 ], [ %value.036.i158, %if.end13.i162 ], [ %mul.i165, %if.end16.i164 ]
-  %erange.0.i175 = phi i1 [ false, %if.end6.i149 ], [ false, %if.end19.i ], [ false, %if.end24.i ], [ false, %while.body.i154 ], [ true, %if.end13.i162 ], [ true, %if.end16.i164 ]
-  %dp.addr.2.i176 = phi ptr [ %dp.addr.0.i150, %if.end6.i149 ], [ %add.ptr.i168, %if.end19.i ], [ %add.ptr.i168, %if.end24.i ], [ %dp.addr.138.i156, %while.body.i154 ], [ %dp.addr.138.i156, %if.end13.i162 ], [ %dp.addr.138.i156, %if.end16.i164 ]
-  %cmp25.not.i = icmp eq ptr %dp.addr.2.i176, %dp.addr.0.i150
-  %brmerge.i177 = or i1 %erange.0.i175, %cmp25.not.i
-  %cmp31.i = icmp eq i32 %value.1.i174, -2147483648
-  %not.cmp1.i178 = xor i1 %cmp1.i148, true
-  %or.cond.i179 = select i1 %not.cmp1.i178, i1 %cmp31.i, i1 false
-  %or.cond27.not.i180 = select i1 %brmerge.i177, i1 true, i1 %or.cond.i179
+  %value.1.i174 = phi i32 [ 0, %if.end6.i149 ], [ %sub.i167, %if.end19.i ], [ %sub.i167, %if.end24.i ], [ %value.037.i158, %while.body.i154 ], [ %value.037.i158, %if.end13.i162 ], [ %mul.i165, %if.end16.i164 ]
+  %erange.0.not.i175 = phi i1 [ true, %if.end6.i149 ], [ true, %if.end19.i ], [ true, %if.end24.i ], [ true, %while.body.i154 ], [ false, %if.end13.i162 ], [ false, %if.end16.i164 ]
+  %dp.addr.2.i176 = phi ptr [ %dp.addr.0.i150, %if.end6.i149 ], [ %add.ptr.i168, %if.end19.i ], [ %add.ptr.i168, %if.end24.i ], [ %dp.addr.139.i156, %while.body.i154 ], [ %dp.addr.139.i156, %if.end13.i162 ], [ %dp.addr.139.i156, %if.end16.i164 ]
+  %cmp25.not.i = icmp ne ptr %dp.addr.2.i176, %dp.addr.0.i150
+  %brmerge.not33.i177 = and i1 %erange.0.not.i175, %cmp25.not.i
+  %cmp31.i = icmp ne i32 %value.1.i174, -2147483648
+  %or.cond.i178 = select i1 %cmp1.i148, i1 true, i1 %cmp31.i
+  %or.cond27.i179 = select i1 %brmerge.not33.i177, i1 %or.cond.i178, i1 false
+  %or.cond27.not.i180 = xor i1 %or.cond27.i179, true
   %cmp35.i = icmp eq i32 %value.1.i174, 0
   %or.cond1.not.i181 = select i1 %cmp1.i148, i1 %cmp35.i, i1 false
   %or.cond29.i182 = select i1 %or.cond27.not.i180, i1 true, i1 %or.cond1.not.i181
@@ -2884,36 +2884,36 @@ if.end6.i193:                                     ; preds = %if.then2.i245, %if.
   %19 = phi i8 [ %.pre.i247, %if.then2.i245 ], [ %18, %if.then.i191 ]
   %width.addr.1.i194 = phi i32 [ 1, %if.then2.i245 ], [ 2, %if.then.i191 ]
   %dp.addr.0.i195 = phi ptr [ %incdec.ptr.i246, %if.then2.i245 ], [ %data.1864, %if.then.i191 ]
-  %conv833.i196 = sext i8 %19 to i32
-  %memchr34.i197 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833.i196, i64 11)
-  %tobool9.not35.i198 = icmp eq ptr %memchr34.i197, null
-  br i1 %tobool9.not35.i198, label %while.end.i222, label %while.body.i199
+  %conv834.i196 = sext i8 %19 to i32
+  %memchr35.i197 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834.i196, i64 11)
+  %tobool9.not36.i198 = icmp eq ptr %memchr35.i197, null
+  br i1 %tobool9.not36.i198, label %while.end.i222, label %while.body.i199
 
 while.body.i199:                                  ; preds = %if.end6.i193, %if.end24.i217
-  %memchr39.i200 = phi ptr [ %memchr.i220, %if.end24.i217 ], [ %memchr34.i197, %if.end6.i193 ]
-  %dp.addr.138.i201 = phi ptr [ %add.ptr.i215, %if.end24.i217 ], [ %dp.addr.0.i195, %if.end6.i193 ]
-  %width.addr.237.i202 = phi i32 [ 1, %if.end24.i217 ], [ %width.addr.1.i194, %if.end6.i193 ]
-  %value.036.i203 = phi i32 [ %sub.i214, %if.end24.i217 ], [ 0, %if.end6.i193 ]
-  %sub.ptr.lhs.cast.i204 = ptrtoint ptr %memchr39.i200 to i64
+  %memchr40.i200 = phi ptr [ %memchr.i220, %if.end24.i217 ], [ %memchr35.i197, %if.end6.i193 ]
+  %dp.addr.139.i201 = phi ptr [ %add.ptr.i215, %if.end24.i217 ], [ %dp.addr.0.i195, %if.end6.i193 ]
+  %width.addr.238.i202 = phi i32 [ 1, %if.end24.i217 ], [ %width.addr.1.i194, %if.end6.i193 ]
+  %value.037.i203 = phi i32 [ %sub.i214, %if.end24.i217 ], [ 0, %if.end6.i193 ]
+  %sub.ptr.lhs.cast.i204 = ptrtoint ptr %memchr40.i200 to i64
   %20 = trunc i64 %sub.ptr.lhs.cast.i204 to i32
   %conv10.i205 = sub i32 %20, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11.i206 = icmp sgt i32 %conv10.i205, 9
   br i1 %cmp11.i206, label %while.end.i222, label %if.end13.i207
 
 if.end13.i207:                                    ; preds = %while.body.i199
-  %cmp14.i208 = icmp slt i32 %value.036.i203, -214748364
+  %cmp14.i208 = icmp slt i32 %value.037.i203, -214748364
   br i1 %cmp14.i208, label %while.end.i222, label %if.end16.i209
 
 if.end16.i209:                                    ; preds = %if.end13.i207
-  %mul.i210 = mul nsw i32 %value.036.i203, 10
+  %mul.i210 = mul nsw i32 %value.037.i203, 10
   %add.i211 = or i32 %conv10.i205, -2147483648
   %cmp17.i212 = icmp slt i32 %mul.i210, %add.i211
   br i1 %cmp17.i212, label %while.end.i222, label %if.end19.i213
 
 if.end19.i213:                                    ; preds = %if.end16.i209
   %sub.i214 = sub nsw i32 %mul.i210, %conv10.i205
-  %add.ptr.i215 = getelementptr inbounds i8, ptr %dp.addr.138.i201, i64 1
-  %cond952 = icmp eq i32 %width.addr.237.i202, 1
+  %add.ptr.i215 = getelementptr inbounds i8, ptr %dp.addr.139.i201, i64 1
+  %cond952 = icmp eq i32 %width.addr.238.i202, 1
   br i1 %cond952, label %while.end.i222, label %if.end24.i217
 
 if.end24.i217:                                    ; preds = %if.end19.i213
@@ -2924,15 +2924,15 @@ if.end24.i217:                                    ; preds = %if.end19.i213
   br i1 %tobool9.not.i221, label %while.end.i222, label %while.body.i199, !llvm.loop !14
 
 while.end.i222:                                   ; preds = %if.end24.i217, %if.end16.i209, %if.end13.i207, %while.body.i199, %if.end19.i213, %if.end6.i193
-  %value.1.i223 = phi i32 [ 0, %if.end6.i193 ], [ %sub.i214, %if.end19.i213 ], [ %sub.i214, %if.end24.i217 ], [ %value.036.i203, %while.body.i199 ], [ %value.036.i203, %if.end13.i207 ], [ %mul.i210, %if.end16.i209 ]
-  %erange.0.i224 = phi i1 [ false, %if.end6.i193 ], [ false, %if.end19.i213 ], [ false, %if.end24.i217 ], [ false, %while.body.i199 ], [ true, %if.end13.i207 ], [ true, %if.end16.i209 ]
-  %dp.addr.2.i225 = phi ptr [ %dp.addr.0.i195, %if.end6.i193 ], [ %add.ptr.i215, %if.end19.i213 ], [ %add.ptr.i215, %if.end24.i217 ], [ %dp.addr.138.i201, %while.body.i199 ], [ %dp.addr.138.i201, %if.end13.i207 ], [ %dp.addr.138.i201, %if.end16.i209 ]
-  %cmp25.not.i226 = icmp eq ptr %dp.addr.2.i225, %dp.addr.0.i195
-  %brmerge.i227 = or i1 %erange.0.i224, %cmp25.not.i226
-  %cmp31.i228 = icmp eq i32 %value.1.i223, -2147483648
-  %not.cmp1.i229 = xor i1 %cmp1.i192, true
-  %or.cond.i230 = select i1 %not.cmp1.i229, i1 %cmp31.i228, i1 false
-  %or.cond27.not.i231 = select i1 %brmerge.i227, i1 true, i1 %or.cond.i230
+  %value.1.i223 = phi i32 [ 0, %if.end6.i193 ], [ %sub.i214, %if.end19.i213 ], [ %sub.i214, %if.end24.i217 ], [ %value.037.i203, %while.body.i199 ], [ %value.037.i203, %if.end13.i207 ], [ %mul.i210, %if.end16.i209 ]
+  %erange.0.not.i224 = phi i1 [ true, %if.end6.i193 ], [ true, %if.end19.i213 ], [ true, %if.end24.i217 ], [ true, %while.body.i199 ], [ false, %if.end13.i207 ], [ false, %if.end16.i209 ]
+  %dp.addr.2.i225 = phi ptr [ %dp.addr.0.i195, %if.end6.i193 ], [ %add.ptr.i215, %if.end19.i213 ], [ %add.ptr.i215, %if.end24.i217 ], [ %dp.addr.139.i201, %while.body.i199 ], [ %dp.addr.139.i201, %if.end13.i207 ], [ %dp.addr.139.i201, %if.end16.i209 ]
+  %cmp25.not.i226 = icmp ne ptr %dp.addr.2.i225, %dp.addr.0.i195
+  %brmerge.not33.i227 = and i1 %erange.0.not.i224, %cmp25.not.i226
+  %cmp31.i228 = icmp ne i32 %value.1.i223, -2147483648
+  %or.cond.i229 = select i1 %cmp1.i192, i1 true, i1 %cmp31.i228
+  %or.cond27.i230 = select i1 %brmerge.not33.i227, i1 %or.cond.i229, i1 false
+  %or.cond27.not.i231 = xor i1 %or.cond27.i230, true
   %cmp35.i232 = icmp eq i32 %value.1.i223, 0
   %or.cond1.not.i233 = select i1 %cmp1.i192, i1 %cmp35.i232, i1 false
   %or.cond29.i234 = select i1 %or.cond27.not.i231, i1 true, i1 %or.cond1.not.i233
@@ -2962,34 +2962,34 @@ if.then2.i304:                                    ; preds = %if.then.i250
 if.end6.i252:                                     ; preds = %if.then2.i304, %if.then.i250
   %24 = phi i8 [ %.pre.i306, %if.then2.i304 ], [ %23, %if.then.i250 ]
   %dp.addr.0.i254 = phi ptr [ %incdec.ptr.i305, %if.then2.i304 ], [ %data.1864, %if.then.i250 ]
-  %conv833.i255 = sext i8 %24 to i32
-  %memchr34.i256 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833.i255, i64 11)
-  %tobool9.not35.i257 = icmp eq ptr %memchr34.i256, null
-  br i1 %tobool9.not35.i257, label %while.end.i281, label %while.body.i258
+  %conv834.i255 = sext i8 %24 to i32
+  %memchr35.i256 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834.i255, i64 11)
+  %tobool9.not36.i257 = icmp eq ptr %memchr35.i256, null
+  br i1 %tobool9.not36.i257, label %while.end.i281, label %while.body.i258
 
 while.body.i258:                                  ; preds = %if.end6.i252, %if.end19.i272
-  %memchr39.i259 = phi ptr [ %memchr.i279, %if.end19.i272 ], [ %memchr34.i256, %if.end6.i252 ]
-  %dp.addr.138.i260 = phi ptr [ %add.ptr.i274, %if.end19.i272 ], [ %dp.addr.0.i254, %if.end6.i252 ]
-  %value.036.i262 = phi i32 [ %sub.i273, %if.end19.i272 ], [ 0, %if.end6.i252 ]
-  %sub.ptr.lhs.cast.i263 = ptrtoint ptr %memchr39.i259 to i64
+  %memchr40.i259 = phi ptr [ %memchr.i279, %if.end19.i272 ], [ %memchr35.i256, %if.end6.i252 ]
+  %dp.addr.139.i260 = phi ptr [ %add.ptr.i274, %if.end19.i272 ], [ %dp.addr.0.i254, %if.end6.i252 ]
+  %value.037.i262 = phi i32 [ %sub.i273, %if.end19.i272 ], [ 0, %if.end6.i252 ]
+  %sub.ptr.lhs.cast.i263 = ptrtoint ptr %memchr40.i259 to i64
   %25 = trunc i64 %sub.ptr.lhs.cast.i263 to i32
   %conv10.i264 = sub i32 %25, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11.i265 = icmp sgt i32 %conv10.i264, 9
   br i1 %cmp11.i265, label %while.end.i281, label %if.end13.i266
 
 if.end13.i266:                                    ; preds = %while.body.i258
-  %cmp14.i267 = icmp slt i32 %value.036.i262, -214748364
+  %cmp14.i267 = icmp slt i32 %value.037.i262, -214748364
   br i1 %cmp14.i267, label %while.end.i281, label %if.end16.i268
 
 if.end16.i268:                                    ; preds = %if.end13.i266
-  %mul.i269 = mul nsw i32 %value.036.i262, 10
+  %mul.i269 = mul nsw i32 %value.037.i262, 10
   %add.i270 = or i32 %conv10.i264, -2147483648
   %cmp17.i271 = icmp slt i32 %mul.i269, %add.i270
   br i1 %cmp17.i271, label %while.end.i281, label %if.end19.i272
 
 if.end19.i272:                                    ; preds = %if.end16.i268
   %sub.i273 = sub nsw i32 %mul.i269, %conv10.i264
-  %add.ptr.i274 = getelementptr inbounds i8, ptr %dp.addr.138.i260, i64 1
+  %add.ptr.i274 = getelementptr inbounds i8, ptr %dp.addr.139.i260, i64 1
   %26 = load i8, ptr %add.ptr.i274, align 1
   %conv8.i278 = sext i8 %26 to i32
   %memchr.i279 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv8.i278, i64 11)
@@ -2997,15 +2997,15 @@ if.end19.i272:                                    ; preds = %if.end16.i268
   br i1 %tobool9.not.i280, label %while.end.i281, label %while.body.i258, !llvm.loop !14
 
 while.end.i281:                                   ; preds = %if.end19.i272, %if.end16.i268, %if.end13.i266, %while.body.i258, %if.end6.i252
-  %value.1.i282 = phi i32 [ 0, %if.end6.i252 ], [ %sub.i273, %if.end19.i272 ], [ %value.036.i262, %while.body.i258 ], [ %value.036.i262, %if.end13.i266 ], [ %mul.i269, %if.end16.i268 ]
-  %erange.0.i283 = phi i1 [ false, %if.end6.i252 ], [ false, %if.end19.i272 ], [ false, %while.body.i258 ], [ true, %if.end13.i266 ], [ true, %if.end16.i268 ]
-  %dp.addr.2.i284 = phi ptr [ %dp.addr.0.i254, %if.end6.i252 ], [ %add.ptr.i274, %if.end19.i272 ], [ %dp.addr.138.i260, %while.body.i258 ], [ %dp.addr.138.i260, %if.end13.i266 ], [ %dp.addr.138.i260, %if.end16.i268 ]
-  %cmp25.not.i285 = icmp eq ptr %dp.addr.2.i284, %dp.addr.0.i254
-  %brmerge.i286 = or i1 %erange.0.i283, %cmp25.not.i285
-  %cmp31.i287 = icmp eq i32 %value.1.i282, -2147483648
-  %not.cmp1.i288 = xor i1 %cmp1.i251, true
-  %or.cond.i289 = select i1 %not.cmp1.i288, i1 %cmp31.i287, i1 false
-  %or.cond27.not.i290 = select i1 %brmerge.i286, i1 true, i1 %or.cond.i289
+  %value.1.i282 = phi i32 [ 0, %if.end6.i252 ], [ %sub.i273, %if.end19.i272 ], [ %value.037.i262, %while.body.i258 ], [ %value.037.i262, %if.end13.i266 ], [ %mul.i269, %if.end16.i268 ]
+  %erange.0.not.i283 = phi i1 [ true, %if.end6.i252 ], [ true, %if.end19.i272 ], [ true, %while.body.i258 ], [ false, %if.end13.i266 ], [ false, %if.end16.i268 ]
+  %dp.addr.2.i284 = phi ptr [ %dp.addr.0.i254, %if.end6.i252 ], [ %add.ptr.i274, %if.end19.i272 ], [ %dp.addr.139.i260, %while.body.i258 ], [ %dp.addr.139.i260, %if.end13.i266 ], [ %dp.addr.139.i260, %if.end16.i268 ]
+  %cmp25.not.i285 = icmp ne ptr %dp.addr.2.i284, %dp.addr.0.i254
+  %brmerge.not33.i286 = and i1 %erange.0.not.i283, %cmp25.not.i285
+  %cmp31.i287 = icmp ne i32 %value.1.i282, -2147483648
+  %or.cond.i288 = select i1 %cmp1.i251, i1 true, i1 %cmp31.i287
+  %or.cond27.i289 = select i1 %brmerge.not33.i286, i1 %or.cond.i288, i1 false
+  %or.cond27.not.i290 = xor i1 %or.cond27.i289, true
   %cmp35.i291 = icmp eq i32 %value.1.i282, 0
   %or.cond1.not.i292 = select i1 %cmp1.i251, i1 %cmp35.i291, i1 false
   %or.cond29.i293 = select i1 %or.cond27.not.i290, i1 true, i1 %or.cond1.not.i292
@@ -3030,34 +3030,34 @@ if.then2.i363:                                    ; preds = %if.then.i309
 if.end6.i311:                                     ; preds = %if.then2.i363, %if.then.i309
   %28 = phi i8 [ %.pre.i365, %if.then2.i363 ], [ %27, %if.then.i309 ]
   %dp.addr.0.i313 = phi ptr [ %incdec.ptr.i364, %if.then2.i363 ], [ %data.1864, %if.then.i309 ]
-  %conv833.i314 = sext i8 %28 to i32
-  %memchr34.i315 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833.i314, i64 11)
-  %tobool9.not35.i316 = icmp eq ptr %memchr34.i315, null
-  br i1 %tobool9.not35.i316, label %while.end.i340, label %while.body.i317
+  %conv834.i314 = sext i8 %28 to i32
+  %memchr35.i315 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834.i314, i64 11)
+  %tobool9.not36.i316 = icmp eq ptr %memchr35.i315, null
+  br i1 %tobool9.not36.i316, label %while.end.i340, label %while.body.i317
 
 while.body.i317:                                  ; preds = %if.end6.i311, %if.end19.i331
-  %memchr39.i318 = phi ptr [ %memchr.i338, %if.end19.i331 ], [ %memchr34.i315, %if.end6.i311 ]
-  %dp.addr.138.i319 = phi ptr [ %add.ptr.i333, %if.end19.i331 ], [ %dp.addr.0.i313, %if.end6.i311 ]
-  %value.036.i321 = phi i32 [ %sub.i332, %if.end19.i331 ], [ 0, %if.end6.i311 ]
-  %sub.ptr.lhs.cast.i322 = ptrtoint ptr %memchr39.i318 to i64
+  %memchr40.i318 = phi ptr [ %memchr.i338, %if.end19.i331 ], [ %memchr35.i315, %if.end6.i311 ]
+  %dp.addr.139.i319 = phi ptr [ %add.ptr.i333, %if.end19.i331 ], [ %dp.addr.0.i313, %if.end6.i311 ]
+  %value.037.i321 = phi i32 [ %sub.i332, %if.end19.i331 ], [ 0, %if.end6.i311 ]
+  %sub.ptr.lhs.cast.i322 = ptrtoint ptr %memchr40.i318 to i64
   %29 = trunc i64 %sub.ptr.lhs.cast.i322 to i32
   %conv10.i323 = sub i32 %29, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11.i324 = icmp sgt i32 %conv10.i323, 9
   br i1 %cmp11.i324, label %while.end.i340, label %if.end13.i325
 
 if.end13.i325:                                    ; preds = %while.body.i317
-  %cmp14.i326 = icmp slt i32 %value.036.i321, -214748364
+  %cmp14.i326 = icmp slt i32 %value.037.i321, -214748364
   br i1 %cmp14.i326, label %while.end.i340, label %if.end16.i327
 
 if.end16.i327:                                    ; preds = %if.end13.i325
-  %mul.i328 = mul nsw i32 %value.036.i321, 10
+  %mul.i328 = mul nsw i32 %value.037.i321, 10
   %add.i329 = or i32 %conv10.i323, -2147483648
   %cmp17.i330 = icmp slt i32 %mul.i328, %add.i329
   br i1 %cmp17.i330, label %while.end.i340, label %if.end19.i331
 
 if.end19.i331:                                    ; preds = %if.end16.i327
   %sub.i332 = sub nsw i32 %mul.i328, %conv10.i323
-  %add.ptr.i333 = getelementptr inbounds i8, ptr %dp.addr.138.i319, i64 1
+  %add.ptr.i333 = getelementptr inbounds i8, ptr %dp.addr.139.i319, i64 1
   %30 = load i8, ptr %add.ptr.i333, align 1
   %conv8.i337 = sext i8 %30 to i32
   %memchr.i338 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv8.i337, i64 11)
@@ -3065,15 +3065,15 @@ if.end19.i331:                                    ; preds = %if.end16.i327
   br i1 %tobool9.not.i339, label %while.end.i340, label %while.body.i317, !llvm.loop !14
 
 while.end.i340:                                   ; preds = %if.end19.i331, %if.end16.i327, %if.end13.i325, %while.body.i317, %if.end6.i311
-  %value.1.i341 = phi i32 [ 0, %if.end6.i311 ], [ %sub.i332, %if.end19.i331 ], [ %value.036.i321, %while.body.i317 ], [ %value.036.i321, %if.end13.i325 ], [ %mul.i328, %if.end16.i327 ]
-  %erange.0.i342 = phi i1 [ false, %if.end6.i311 ], [ false, %if.end19.i331 ], [ false, %while.body.i317 ], [ true, %if.end13.i325 ], [ true, %if.end16.i327 ]
-  %dp.addr.2.i343 = phi ptr [ %dp.addr.0.i313, %if.end6.i311 ], [ %add.ptr.i333, %if.end19.i331 ], [ %dp.addr.138.i319, %while.body.i317 ], [ %dp.addr.138.i319, %if.end13.i325 ], [ %dp.addr.138.i319, %if.end16.i327 ]
-  %cmp25.not.i344 = icmp eq ptr %dp.addr.2.i343, %dp.addr.0.i313
-  %brmerge.i345 = or i1 %erange.0.i342, %cmp25.not.i344
-  %cmp31.i346 = icmp eq i32 %value.1.i341, -2147483648
-  %not.cmp1.i347 = xor i1 %cmp1.i310, true
-  %or.cond.i348 = select i1 %not.cmp1.i347, i1 %cmp31.i346, i1 false
-  %or.cond27.not.i349 = select i1 %brmerge.i345, i1 true, i1 %or.cond.i348
+  %value.1.i341 = phi i32 [ 0, %if.end6.i311 ], [ %sub.i332, %if.end19.i331 ], [ %value.037.i321, %while.body.i317 ], [ %value.037.i321, %if.end13.i325 ], [ %mul.i328, %if.end16.i327 ]
+  %erange.0.not.i342 = phi i1 [ true, %if.end6.i311 ], [ true, %if.end19.i331 ], [ true, %while.body.i317 ], [ false, %if.end13.i325 ], [ false, %if.end16.i327 ]
+  %dp.addr.2.i343 = phi ptr [ %dp.addr.0.i313, %if.end6.i311 ], [ %add.ptr.i333, %if.end19.i331 ], [ %dp.addr.139.i319, %while.body.i317 ], [ %dp.addr.139.i319, %if.end13.i325 ], [ %dp.addr.139.i319, %if.end16.i327 ]
+  %cmp25.not.i344 = icmp ne ptr %dp.addr.2.i343, %dp.addr.0.i313
+  %brmerge.not33.i345 = and i1 %erange.0.not.i342, %cmp25.not.i344
+  %cmp31.i346 = icmp ne i32 %value.1.i341, -2147483648
+  %or.cond.i347 = select i1 %cmp1.i310, i1 true, i1 %cmp31.i346
+  %or.cond27.i348 = select i1 %brmerge.not33.i345, i1 %or.cond.i347, i1 false
+  %or.cond27.not.i349 = xor i1 %or.cond27.i348, true
   %cmp35.i350 = icmp eq i32 %value.1.i341, 0
   %or.cond1.not.i351 = select i1 %cmp1.i310, i1 %cmp35.i350, i1 false
   %or.cond29.i352 = select i1 %or.cond27.not.i349, i1 true, i1 %or.cond1.not.i351
@@ -3098,34 +3098,34 @@ if.then2.i422:                                    ; preds = %if.then.i368
 if.end6.i370:                                     ; preds = %if.then2.i422, %if.then.i368
   %32 = phi i8 [ %.pre.i424, %if.then2.i422 ], [ %31, %if.then.i368 ]
   %dp.addr.0.i372 = phi ptr [ %incdec.ptr.i423, %if.then2.i422 ], [ %data.1864, %if.then.i368 ]
-  %conv833.i373 = sext i8 %32 to i32
-  %memchr34.i374 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833.i373, i64 11)
-  %tobool9.not35.i375 = icmp eq ptr %memchr34.i374, null
-  br i1 %tobool9.not35.i375, label %while.end.i399, label %while.body.i376
+  %conv834.i373 = sext i8 %32 to i32
+  %memchr35.i374 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834.i373, i64 11)
+  %tobool9.not36.i375 = icmp eq ptr %memchr35.i374, null
+  br i1 %tobool9.not36.i375, label %while.end.i399, label %while.body.i376
 
 while.body.i376:                                  ; preds = %if.end6.i370, %if.end19.i390
-  %memchr39.i377 = phi ptr [ %memchr.i397, %if.end19.i390 ], [ %memchr34.i374, %if.end6.i370 ]
-  %dp.addr.138.i378 = phi ptr [ %add.ptr.i392, %if.end19.i390 ], [ %dp.addr.0.i372, %if.end6.i370 ]
-  %value.036.i380 = phi i32 [ %sub.i391, %if.end19.i390 ], [ 0, %if.end6.i370 ]
-  %sub.ptr.lhs.cast.i381 = ptrtoint ptr %memchr39.i377 to i64
+  %memchr40.i377 = phi ptr [ %memchr.i397, %if.end19.i390 ], [ %memchr35.i374, %if.end6.i370 ]
+  %dp.addr.139.i378 = phi ptr [ %add.ptr.i392, %if.end19.i390 ], [ %dp.addr.0.i372, %if.end6.i370 ]
+  %value.037.i380 = phi i32 [ %sub.i391, %if.end19.i390 ], [ 0, %if.end6.i370 ]
+  %sub.ptr.lhs.cast.i381 = ptrtoint ptr %memchr40.i377 to i64
   %33 = trunc i64 %sub.ptr.lhs.cast.i381 to i32
   %conv10.i382 = sub i32 %33, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11.i383 = icmp sgt i32 %conv10.i382, 9
   br i1 %cmp11.i383, label %while.end.i399, label %if.end13.i384
 
 if.end13.i384:                                    ; preds = %while.body.i376
-  %cmp14.i385 = icmp slt i32 %value.036.i380, -214748364
+  %cmp14.i385 = icmp slt i32 %value.037.i380, -214748364
   br i1 %cmp14.i385, label %while.end.i399, label %if.end16.i386
 
 if.end16.i386:                                    ; preds = %if.end13.i384
-  %mul.i387 = mul nsw i32 %value.036.i380, 10
+  %mul.i387 = mul nsw i32 %value.037.i380, 10
   %add.i388 = or i32 %conv10.i382, -2147483648
   %cmp17.i389 = icmp slt i32 %mul.i387, %add.i388
   br i1 %cmp17.i389, label %while.end.i399, label %if.end19.i390
 
 if.end19.i390:                                    ; preds = %if.end16.i386
   %sub.i391 = sub nsw i32 %mul.i387, %conv10.i382
-  %add.ptr.i392 = getelementptr inbounds i8, ptr %dp.addr.138.i378, i64 1
+  %add.ptr.i392 = getelementptr inbounds i8, ptr %dp.addr.139.i378, i64 1
   %34 = load i8, ptr %add.ptr.i392, align 1
   %conv8.i396 = sext i8 %34 to i32
   %memchr.i397 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv8.i396, i64 11)
@@ -3133,15 +3133,15 @@ if.end19.i390:                                    ; preds = %if.end16.i386
   br i1 %tobool9.not.i398, label %while.end.i399, label %while.body.i376, !llvm.loop !14
 
 while.end.i399:                                   ; preds = %if.end19.i390, %if.end16.i386, %if.end13.i384, %while.body.i376, %if.end6.i370
-  %value.1.i400 = phi i32 [ 0, %if.end6.i370 ], [ %sub.i391, %if.end19.i390 ], [ %value.036.i380, %while.body.i376 ], [ %value.036.i380, %if.end13.i384 ], [ %mul.i387, %if.end16.i386 ]
-  %erange.0.i401 = phi i1 [ false, %if.end6.i370 ], [ false, %if.end19.i390 ], [ false, %while.body.i376 ], [ true, %if.end13.i384 ], [ true, %if.end16.i386 ]
-  %dp.addr.2.i402 = phi ptr [ %dp.addr.0.i372, %if.end6.i370 ], [ %add.ptr.i392, %if.end19.i390 ], [ %dp.addr.138.i378, %while.body.i376 ], [ %dp.addr.138.i378, %if.end13.i384 ], [ %dp.addr.138.i378, %if.end16.i386 ]
-  %cmp25.not.i403 = icmp eq ptr %dp.addr.2.i402, %dp.addr.0.i372
-  %brmerge.i404 = or i1 %erange.0.i401, %cmp25.not.i403
-  %cmp31.i405 = icmp eq i32 %value.1.i400, -2147483648
-  %not.cmp1.i406 = xor i1 %cmp1.i369, true
-  %or.cond.i407 = select i1 %not.cmp1.i406, i1 %cmp31.i405, i1 false
-  %or.cond27.not.i408 = select i1 %brmerge.i404, i1 true, i1 %or.cond.i407
+  %value.1.i400 = phi i32 [ 0, %if.end6.i370 ], [ %sub.i391, %if.end19.i390 ], [ %value.037.i380, %while.body.i376 ], [ %value.037.i380, %if.end13.i384 ], [ %mul.i387, %if.end16.i386 ]
+  %erange.0.not.i401 = phi i1 [ true, %if.end6.i370 ], [ true, %if.end19.i390 ], [ true, %while.body.i376 ], [ false, %if.end13.i384 ], [ false, %if.end16.i386 ]
+  %dp.addr.2.i402 = phi ptr [ %dp.addr.0.i372, %if.end6.i370 ], [ %add.ptr.i392, %if.end19.i390 ], [ %dp.addr.139.i378, %while.body.i376 ], [ %dp.addr.139.i378, %if.end13.i384 ], [ %dp.addr.139.i378, %if.end16.i386 ]
+  %cmp25.not.i403 = icmp ne ptr %dp.addr.2.i402, %dp.addr.0.i372
+  %brmerge.not33.i404 = and i1 %erange.0.not.i401, %cmp25.not.i403
+  %cmp31.i405 = icmp ne i32 %value.1.i400, -2147483648
+  %or.cond.i406 = select i1 %cmp1.i369, i1 true, i1 %cmp31.i405
+  %or.cond27.i407 = select i1 %brmerge.not33.i404, i1 %or.cond.i406, i1 false
+  %or.cond27.not.i408 = xor i1 %or.cond27.i407, true
   %cmp35.i409 = icmp eq i32 %value.1.i400, 0
   %or.cond1.not.i410 = select i1 %cmp1.i369, i1 %cmp35.i409, i1 false
   %or.cond29.i411 = select i1 %or.cond27.not.i408, i1 true, i1 %or.cond1.not.i410
@@ -3175,34 +3175,34 @@ if.then2.i481:                                    ; preds = %if.then.i427
 if.end6.i429:                                     ; preds = %if.then2.i481, %if.then.i427
   %37 = phi i8 [ %.pre.i483, %if.then2.i481 ], [ %36, %if.then.i427 ]
   %dp.addr.0.i431 = phi ptr [ %incdec.ptr.i482, %if.then2.i481 ], [ %data.1864, %if.then.i427 ]
-  %conv833.i432 = sext i8 %37 to i32
-  %memchr34.i433 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833.i432, i64 11)
-  %tobool9.not35.i434 = icmp eq ptr %memchr34.i433, null
-  br i1 %tobool9.not35.i434, label %while.end.i458, label %while.body.i435
+  %conv834.i432 = sext i8 %37 to i32
+  %memchr35.i433 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834.i432, i64 11)
+  %tobool9.not36.i434 = icmp eq ptr %memchr35.i433, null
+  br i1 %tobool9.not36.i434, label %while.end.i458, label %while.body.i435
 
 while.body.i435:                                  ; preds = %if.end6.i429, %if.end19.i449
-  %memchr39.i436 = phi ptr [ %memchr.i456, %if.end19.i449 ], [ %memchr34.i433, %if.end6.i429 ]
-  %dp.addr.138.i437 = phi ptr [ %add.ptr.i451, %if.end19.i449 ], [ %dp.addr.0.i431, %if.end6.i429 ]
-  %value.036.i439 = phi i32 [ %sub.i450, %if.end19.i449 ], [ 0, %if.end6.i429 ]
-  %sub.ptr.lhs.cast.i440 = ptrtoint ptr %memchr39.i436 to i64
+  %memchr40.i436 = phi ptr [ %memchr.i456, %if.end19.i449 ], [ %memchr35.i433, %if.end6.i429 ]
+  %dp.addr.139.i437 = phi ptr [ %add.ptr.i451, %if.end19.i449 ], [ %dp.addr.0.i431, %if.end6.i429 ]
+  %value.037.i439 = phi i32 [ %sub.i450, %if.end19.i449 ], [ 0, %if.end6.i429 ]
+  %sub.ptr.lhs.cast.i440 = ptrtoint ptr %memchr40.i436 to i64
   %38 = trunc i64 %sub.ptr.lhs.cast.i440 to i32
   %conv10.i441 = sub i32 %38, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11.i442 = icmp sgt i32 %conv10.i441, 9
   br i1 %cmp11.i442, label %while.end.i458, label %if.end13.i443
 
 if.end13.i443:                                    ; preds = %while.body.i435
-  %cmp14.i444 = icmp slt i32 %value.036.i439, -214748364
+  %cmp14.i444 = icmp slt i32 %value.037.i439, -214748364
   br i1 %cmp14.i444, label %while.end.i458, label %if.end16.i445
 
 if.end16.i445:                                    ; preds = %if.end13.i443
-  %mul.i446 = mul nsw i32 %value.036.i439, 10
+  %mul.i446 = mul nsw i32 %value.037.i439, 10
   %add.i447 = or i32 %conv10.i441, -2147483648
   %cmp17.i448 = icmp slt i32 %mul.i446, %add.i447
   br i1 %cmp17.i448, label %while.end.i458, label %if.end19.i449
 
 if.end19.i449:                                    ; preds = %if.end16.i445
   %sub.i450 = sub nsw i32 %mul.i446, %conv10.i441
-  %add.ptr.i451 = getelementptr inbounds i8, ptr %dp.addr.138.i437, i64 1
+  %add.ptr.i451 = getelementptr inbounds i8, ptr %dp.addr.139.i437, i64 1
   %39 = load i8, ptr %add.ptr.i451, align 1
   %conv8.i455 = sext i8 %39 to i32
   %memchr.i456 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv8.i455, i64 11)
@@ -3210,15 +3210,15 @@ if.end19.i449:                                    ; preds = %if.end16.i445
   br i1 %tobool9.not.i457, label %while.end.i458, label %while.body.i435, !llvm.loop !14
 
 while.end.i458:                                   ; preds = %if.end19.i449, %if.end16.i445, %if.end13.i443, %while.body.i435, %if.end6.i429
-  %value.1.i459 = phi i32 [ 0, %if.end6.i429 ], [ %sub.i450, %if.end19.i449 ], [ %value.036.i439, %while.body.i435 ], [ %value.036.i439, %if.end13.i443 ], [ %mul.i446, %if.end16.i445 ]
-  %erange.0.i460 = phi i1 [ false, %if.end6.i429 ], [ false, %if.end19.i449 ], [ false, %while.body.i435 ], [ true, %if.end13.i443 ], [ true, %if.end16.i445 ]
-  %dp.addr.2.i461 = phi ptr [ %dp.addr.0.i431, %if.end6.i429 ], [ %add.ptr.i451, %if.end19.i449 ], [ %dp.addr.138.i437, %while.body.i435 ], [ %dp.addr.138.i437, %if.end13.i443 ], [ %dp.addr.138.i437, %if.end16.i445 ]
-  %cmp25.not.i462 = icmp eq ptr %dp.addr.2.i461, %dp.addr.0.i431
-  %brmerge.i463 = or i1 %erange.0.i460, %cmp25.not.i462
-  %cmp31.i464 = icmp eq i32 %value.1.i459, -2147483648
-  %not.cmp1.i465 = xor i1 %cmp1.i428, true
-  %or.cond.i466 = select i1 %not.cmp1.i465, i1 %cmp31.i464, i1 false
-  %or.cond27.not.i467 = select i1 %brmerge.i463, i1 true, i1 %or.cond.i466
+  %value.1.i459 = phi i32 [ 0, %if.end6.i429 ], [ %sub.i450, %if.end19.i449 ], [ %value.037.i439, %while.body.i435 ], [ %value.037.i439, %if.end13.i443 ], [ %mul.i446, %if.end16.i445 ]
+  %erange.0.not.i460 = phi i1 [ true, %if.end6.i429 ], [ true, %if.end19.i449 ], [ true, %while.body.i435 ], [ false, %if.end13.i443 ], [ false, %if.end16.i445 ]
+  %dp.addr.2.i461 = phi ptr [ %dp.addr.0.i431, %if.end6.i429 ], [ %add.ptr.i451, %if.end19.i449 ], [ %dp.addr.139.i437, %while.body.i435 ], [ %dp.addr.139.i437, %if.end13.i443 ], [ %dp.addr.139.i437, %if.end16.i445 ]
+  %cmp25.not.i462 = icmp ne ptr %dp.addr.2.i461, %dp.addr.0.i431
+  %brmerge.not33.i463 = and i1 %erange.0.not.i460, %cmp25.not.i462
+  %cmp31.i464 = icmp ne i32 %value.1.i459, -2147483648
+  %or.cond.i465 = select i1 %cmp1.i428, i1 true, i1 %cmp31.i464
+  %or.cond27.i466 = select i1 %brmerge.not33.i463, i1 %or.cond.i465, i1 false
+  %or.cond27.not.i467 = xor i1 %or.cond27.i466, true
   %cmp35.i468 = icmp eq i32 %value.1.i459, 0
   %or.cond1.not.i469 = select i1 %cmp1.i428, i1 %cmp35.i468, i1 false
   %or.cond29.i470 = select i1 %or.cond27.not.i467, i1 true, i1 %or.cond1.not.i469
@@ -3248,36 +3248,36 @@ if.end6.i488:                                     ; preds = %if.then2.i540, %if.
   %41 = phi i8 [ %.pre.i542, %if.then2.i540 ], [ %40, %if.then.i486 ]
   %width.addr.1.i489 = phi i32 [ 1, %if.then2.i540 ], [ 2, %if.then.i486 ]
   %dp.addr.0.i490 = phi ptr [ %incdec.ptr.i541, %if.then2.i540 ], [ %data.1864, %if.then.i486 ]
-  %conv833.i491 = sext i8 %41 to i32
-  %memchr34.i492 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833.i491, i64 11)
-  %tobool9.not35.i493 = icmp eq ptr %memchr34.i492, null
-  br i1 %tobool9.not35.i493, label %while.end.i517, label %while.body.i494
+  %conv834.i491 = sext i8 %41 to i32
+  %memchr35.i492 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834.i491, i64 11)
+  %tobool9.not36.i493 = icmp eq ptr %memchr35.i492, null
+  br i1 %tobool9.not36.i493, label %while.end.i517, label %while.body.i494
 
 while.body.i494:                                  ; preds = %if.end6.i488, %if.end24.i512
-  %memchr39.i495 = phi ptr [ %memchr.i515, %if.end24.i512 ], [ %memchr34.i492, %if.end6.i488 ]
-  %dp.addr.138.i496 = phi ptr [ %add.ptr.i510, %if.end24.i512 ], [ %dp.addr.0.i490, %if.end6.i488 ]
-  %width.addr.237.i497 = phi i32 [ 1, %if.end24.i512 ], [ %width.addr.1.i489, %if.end6.i488 ]
-  %value.036.i498 = phi i32 [ %sub.i509, %if.end24.i512 ], [ 0, %if.end6.i488 ]
-  %sub.ptr.lhs.cast.i499 = ptrtoint ptr %memchr39.i495 to i64
+  %memchr40.i495 = phi ptr [ %memchr.i515, %if.end24.i512 ], [ %memchr35.i492, %if.end6.i488 ]
+  %dp.addr.139.i496 = phi ptr [ %add.ptr.i510, %if.end24.i512 ], [ %dp.addr.0.i490, %if.end6.i488 ]
+  %width.addr.238.i497 = phi i32 [ 1, %if.end24.i512 ], [ %width.addr.1.i489, %if.end6.i488 ]
+  %value.037.i498 = phi i32 [ %sub.i509, %if.end24.i512 ], [ 0, %if.end6.i488 ]
+  %sub.ptr.lhs.cast.i499 = ptrtoint ptr %memchr40.i495 to i64
   %42 = trunc i64 %sub.ptr.lhs.cast.i499 to i32
   %conv10.i500 = sub i32 %42, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11.i501 = icmp sgt i32 %conv10.i500, 9
   br i1 %cmp11.i501, label %while.end.i517, label %if.end13.i502
 
 if.end13.i502:                                    ; preds = %while.body.i494
-  %cmp14.i503 = icmp slt i32 %value.036.i498, -214748364
+  %cmp14.i503 = icmp slt i32 %value.037.i498, -214748364
   br i1 %cmp14.i503, label %while.end.i517, label %if.end16.i504
 
 if.end16.i504:                                    ; preds = %if.end13.i502
-  %mul.i505 = mul nsw i32 %value.036.i498, 10
+  %mul.i505 = mul nsw i32 %value.037.i498, 10
   %add.i506 = or i32 %conv10.i500, -2147483648
   %cmp17.i507 = icmp slt i32 %mul.i505, %add.i506
   br i1 %cmp17.i507, label %while.end.i517, label %if.end19.i508
 
 if.end19.i508:                                    ; preds = %if.end16.i504
   %sub.i509 = sub nsw i32 %mul.i505, %conv10.i500
-  %add.ptr.i510 = getelementptr inbounds i8, ptr %dp.addr.138.i496, i64 1
-  %cond951 = icmp eq i32 %width.addr.237.i497, 1
+  %add.ptr.i510 = getelementptr inbounds i8, ptr %dp.addr.139.i496, i64 1
+  %cond951 = icmp eq i32 %width.addr.238.i497, 1
   br i1 %cond951, label %while.end.i517, label %if.end24.i512
 
 if.end24.i512:                                    ; preds = %if.end19.i508
@@ -3288,15 +3288,15 @@ if.end24.i512:                                    ; preds = %if.end19.i508
   br i1 %tobool9.not.i516, label %while.end.i517, label %while.body.i494, !llvm.loop !14
 
 while.end.i517:                                   ; preds = %if.end24.i512, %if.end16.i504, %if.end13.i502, %while.body.i494, %if.end19.i508, %if.end6.i488
-  %value.1.i518 = phi i32 [ 0, %if.end6.i488 ], [ %sub.i509, %if.end19.i508 ], [ %sub.i509, %if.end24.i512 ], [ %value.036.i498, %while.body.i494 ], [ %value.036.i498, %if.end13.i502 ], [ %mul.i505, %if.end16.i504 ]
-  %erange.0.i519 = phi i1 [ false, %if.end6.i488 ], [ false, %if.end19.i508 ], [ false, %if.end24.i512 ], [ false, %while.body.i494 ], [ true, %if.end13.i502 ], [ true, %if.end16.i504 ]
-  %dp.addr.2.i520 = phi ptr [ %dp.addr.0.i490, %if.end6.i488 ], [ %add.ptr.i510, %if.end19.i508 ], [ %add.ptr.i510, %if.end24.i512 ], [ %dp.addr.138.i496, %while.body.i494 ], [ %dp.addr.138.i496, %if.end13.i502 ], [ %dp.addr.138.i496, %if.end16.i504 ]
-  %cmp25.not.i521 = icmp eq ptr %dp.addr.2.i520, %dp.addr.0.i490
-  %brmerge.i522 = or i1 %erange.0.i519, %cmp25.not.i521
-  %cmp31.i523 = icmp eq i32 %value.1.i518, -2147483648
-  %not.cmp1.i524 = xor i1 %cmp1.i487, true
-  %or.cond.i525 = select i1 %not.cmp1.i524, i1 %cmp31.i523, i1 false
-  %or.cond27.not.i526 = select i1 %brmerge.i522, i1 true, i1 %or.cond.i525
+  %value.1.i518 = phi i32 [ 0, %if.end6.i488 ], [ %sub.i509, %if.end19.i508 ], [ %sub.i509, %if.end24.i512 ], [ %value.037.i498, %while.body.i494 ], [ %value.037.i498, %if.end13.i502 ], [ %mul.i505, %if.end16.i504 ]
+  %erange.0.not.i519 = phi i1 [ true, %if.end6.i488 ], [ true, %if.end19.i508 ], [ true, %if.end24.i512 ], [ true, %while.body.i494 ], [ false, %if.end13.i502 ], [ false, %if.end16.i504 ]
+  %dp.addr.2.i520 = phi ptr [ %dp.addr.0.i490, %if.end6.i488 ], [ %add.ptr.i510, %if.end19.i508 ], [ %add.ptr.i510, %if.end24.i512 ], [ %dp.addr.139.i496, %while.body.i494 ], [ %dp.addr.139.i496, %if.end13.i502 ], [ %dp.addr.139.i496, %if.end16.i504 ]
+  %cmp25.not.i521 = icmp ne ptr %dp.addr.2.i520, %dp.addr.0.i490
+  %brmerge.not33.i522 = and i1 %erange.0.not.i519, %cmp25.not.i521
+  %cmp31.i523 = icmp ne i32 %value.1.i518, -2147483648
+  %or.cond.i524 = select i1 %cmp1.i487, i1 true, i1 %cmp31.i523
+  %or.cond27.i525 = select i1 %brmerge.not33.i522, i1 %or.cond.i524, i1 false
+  %or.cond27.not.i526 = xor i1 %or.cond27.i525, true
   %cmp35.i527 = icmp eq i32 %value.1.i518, 0
   %or.cond1.not.i528 = select i1 %cmp1.i487, i1 %cmp35.i527, i1 false
   %or.cond29.i529 = select i1 %or.cond27.not.i526, i1 true, i1 %or.cond1.not.i528
@@ -3326,36 +3326,36 @@ if.end6.i547:                                     ; preds = %if.then2.i599, %if.
   %45 = phi i8 [ %.pre.i601, %if.then2.i599 ], [ %44, %if.then.i545 ]
   %width.addr.1.i548 = phi i32 [ 1, %if.then2.i599 ], [ 2, %if.then.i545 ]
   %dp.addr.0.i549 = phi ptr [ %incdec.ptr.i600, %if.then2.i599 ], [ %data.1864, %if.then.i545 ]
-  %conv833.i550 = sext i8 %45 to i32
-  %memchr34.i551 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833.i550, i64 11)
-  %tobool9.not35.i552 = icmp eq ptr %memchr34.i551, null
-  br i1 %tobool9.not35.i552, label %while.end.i576, label %while.body.i553
+  %conv834.i550 = sext i8 %45 to i32
+  %memchr35.i551 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834.i550, i64 11)
+  %tobool9.not36.i552 = icmp eq ptr %memchr35.i551, null
+  br i1 %tobool9.not36.i552, label %while.end.i576, label %while.body.i553
 
 while.body.i553:                                  ; preds = %if.end6.i547, %if.end24.i571
-  %memchr39.i554 = phi ptr [ %memchr.i574, %if.end24.i571 ], [ %memchr34.i551, %if.end6.i547 ]
-  %dp.addr.138.i555 = phi ptr [ %add.ptr.i569, %if.end24.i571 ], [ %dp.addr.0.i549, %if.end6.i547 ]
-  %width.addr.237.i556 = phi i32 [ 1, %if.end24.i571 ], [ %width.addr.1.i548, %if.end6.i547 ]
-  %value.036.i557 = phi i32 [ %sub.i568, %if.end24.i571 ], [ 0, %if.end6.i547 ]
-  %sub.ptr.lhs.cast.i558 = ptrtoint ptr %memchr39.i554 to i64
+  %memchr40.i554 = phi ptr [ %memchr.i574, %if.end24.i571 ], [ %memchr35.i551, %if.end6.i547 ]
+  %dp.addr.139.i555 = phi ptr [ %add.ptr.i569, %if.end24.i571 ], [ %dp.addr.0.i549, %if.end6.i547 ]
+  %width.addr.238.i556 = phi i32 [ 1, %if.end24.i571 ], [ %width.addr.1.i548, %if.end6.i547 ]
+  %value.037.i557 = phi i32 [ %sub.i568, %if.end24.i571 ], [ 0, %if.end6.i547 ]
+  %sub.ptr.lhs.cast.i558 = ptrtoint ptr %memchr40.i554 to i64
   %46 = trunc i64 %sub.ptr.lhs.cast.i558 to i32
   %conv10.i559 = sub i32 %46, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11.i560 = icmp sgt i32 %conv10.i559, 9
   br i1 %cmp11.i560, label %while.end.i576, label %if.end13.i561
 
 if.end13.i561:                                    ; preds = %while.body.i553
-  %cmp14.i562 = icmp slt i32 %value.036.i557, -214748364
+  %cmp14.i562 = icmp slt i32 %value.037.i557, -214748364
   br i1 %cmp14.i562, label %while.end.i576, label %if.end16.i563
 
 if.end16.i563:                                    ; preds = %if.end13.i561
-  %mul.i564 = mul nsw i32 %value.036.i557, 10
+  %mul.i564 = mul nsw i32 %value.037.i557, 10
   %add.i565 = or i32 %conv10.i559, -2147483648
   %cmp17.i566 = icmp slt i32 %mul.i564, %add.i565
   br i1 %cmp17.i566, label %while.end.i576, label %if.end19.i567
 
 if.end19.i567:                                    ; preds = %if.end16.i563
   %sub.i568 = sub nsw i32 %mul.i564, %conv10.i559
-  %add.ptr.i569 = getelementptr inbounds i8, ptr %dp.addr.138.i555, i64 1
-  %cond950 = icmp eq i32 %width.addr.237.i556, 1
+  %add.ptr.i569 = getelementptr inbounds i8, ptr %dp.addr.139.i555, i64 1
+  %cond950 = icmp eq i32 %width.addr.238.i556, 1
   br i1 %cond950, label %while.end.i576, label %if.end24.i571
 
 if.end24.i571:                                    ; preds = %if.end19.i567
@@ -3366,15 +3366,15 @@ if.end24.i571:                                    ; preds = %if.end19.i567
   br i1 %tobool9.not.i575, label %while.end.i576, label %while.body.i553, !llvm.loop !14
 
 while.end.i576:                                   ; preds = %if.end24.i571, %if.end16.i563, %if.end13.i561, %while.body.i553, %if.end19.i567, %if.end6.i547
-  %value.1.i577 = phi i32 [ 0, %if.end6.i547 ], [ %sub.i568, %if.end19.i567 ], [ %sub.i568, %if.end24.i571 ], [ %value.036.i557, %while.body.i553 ], [ %value.036.i557, %if.end13.i561 ], [ %mul.i564, %if.end16.i563 ]
-  %erange.0.i578 = phi i1 [ false, %if.end6.i547 ], [ false, %if.end19.i567 ], [ false, %if.end24.i571 ], [ false, %while.body.i553 ], [ true, %if.end13.i561 ], [ true, %if.end16.i563 ]
-  %dp.addr.2.i579 = phi ptr [ %dp.addr.0.i549, %if.end6.i547 ], [ %add.ptr.i569, %if.end19.i567 ], [ %add.ptr.i569, %if.end24.i571 ], [ %dp.addr.138.i555, %while.body.i553 ], [ %dp.addr.138.i555, %if.end13.i561 ], [ %dp.addr.138.i555, %if.end16.i563 ]
-  %cmp25.not.i580 = icmp eq ptr %dp.addr.2.i579, %dp.addr.0.i549
-  %brmerge.i581 = or i1 %erange.0.i578, %cmp25.not.i580
-  %cmp31.i582 = icmp eq i32 %value.1.i577, -2147483648
-  %not.cmp1.i583 = xor i1 %cmp1.i546, true
-  %or.cond.i584 = select i1 %not.cmp1.i583, i1 %cmp31.i582, i1 false
-  %or.cond27.not.i585 = select i1 %brmerge.i581, i1 true, i1 %or.cond.i584
+  %value.1.i577 = phi i32 [ 0, %if.end6.i547 ], [ %sub.i568, %if.end19.i567 ], [ %sub.i568, %if.end24.i571 ], [ %value.037.i557, %while.body.i553 ], [ %value.037.i557, %if.end13.i561 ], [ %mul.i564, %if.end16.i563 ]
+  %erange.0.not.i578 = phi i1 [ true, %if.end6.i547 ], [ true, %if.end19.i567 ], [ true, %if.end24.i571 ], [ true, %while.body.i553 ], [ false, %if.end13.i561 ], [ false, %if.end16.i563 ]
+  %dp.addr.2.i579 = phi ptr [ %dp.addr.0.i549, %if.end6.i547 ], [ %add.ptr.i569, %if.end19.i567 ], [ %add.ptr.i569, %if.end24.i571 ], [ %dp.addr.139.i555, %while.body.i553 ], [ %dp.addr.139.i555, %if.end13.i561 ], [ %dp.addr.139.i555, %if.end16.i563 ]
+  %cmp25.not.i580 = icmp ne ptr %dp.addr.2.i579, %dp.addr.0.i549
+  %brmerge.not33.i581 = and i1 %erange.0.not.i578, %cmp25.not.i580
+  %cmp31.i582 = icmp ne i32 %value.1.i577, -2147483648
+  %or.cond.i583 = select i1 %cmp1.i546, i1 true, i1 %cmp31.i582
+  %or.cond27.i584 = select i1 %brmerge.not33.i581, i1 %or.cond.i583, i1 false
+  %or.cond27.not.i585 = xor i1 %or.cond27.i584, true
   %cmp35.i586 = icmp eq i32 %value.1.i577, 0
   %or.cond1.not.i587 = select i1 %cmp1.i546, i1 %cmp35.i586, i1 false
   %or.cond29.i588 = select i1 %or.cond27.not.i585, i1 true, i1 %or.cond1.not.i587
@@ -3404,36 +3404,36 @@ if.end6.i606:                                     ; preds = %if.then2.i658, %if.
   %49 = phi i8 [ %.pre.i660, %if.then2.i658 ], [ %48, %if.then.i604 ]
   %width.addr.1.i607 = phi i32 [ 1, %if.then2.i658 ], [ 2, %if.then.i604 ]
   %dp.addr.0.i608 = phi ptr [ %incdec.ptr.i659, %if.then2.i658 ], [ %data.1864, %if.then.i604 ]
-  %conv833.i609 = sext i8 %49 to i32
-  %memchr34.i610 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833.i609, i64 11)
-  %tobool9.not35.i611 = icmp eq ptr %memchr34.i610, null
-  br i1 %tobool9.not35.i611, label %while.end.i635, label %while.body.i612
+  %conv834.i609 = sext i8 %49 to i32
+  %memchr35.i610 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834.i609, i64 11)
+  %tobool9.not36.i611 = icmp eq ptr %memchr35.i610, null
+  br i1 %tobool9.not36.i611, label %while.end.i635, label %while.body.i612
 
 while.body.i612:                                  ; preds = %if.end6.i606, %if.end24.i630
-  %memchr39.i613 = phi ptr [ %memchr.i633, %if.end24.i630 ], [ %memchr34.i610, %if.end6.i606 ]
-  %dp.addr.138.i614 = phi ptr [ %add.ptr.i628, %if.end24.i630 ], [ %dp.addr.0.i608, %if.end6.i606 ]
-  %width.addr.237.i615 = phi i32 [ 1, %if.end24.i630 ], [ %width.addr.1.i607, %if.end6.i606 ]
-  %value.036.i616 = phi i32 [ %sub.i627, %if.end24.i630 ], [ 0, %if.end6.i606 ]
-  %sub.ptr.lhs.cast.i617 = ptrtoint ptr %memchr39.i613 to i64
+  %memchr40.i613 = phi ptr [ %memchr.i633, %if.end24.i630 ], [ %memchr35.i610, %if.end6.i606 ]
+  %dp.addr.139.i614 = phi ptr [ %add.ptr.i628, %if.end24.i630 ], [ %dp.addr.0.i608, %if.end6.i606 ]
+  %width.addr.238.i615 = phi i32 [ 1, %if.end24.i630 ], [ %width.addr.1.i607, %if.end6.i606 ]
+  %value.037.i616 = phi i32 [ %sub.i627, %if.end24.i630 ], [ 0, %if.end6.i606 ]
+  %sub.ptr.lhs.cast.i617 = ptrtoint ptr %memchr40.i613 to i64
   %50 = trunc i64 %sub.ptr.lhs.cast.i617 to i32
   %conv10.i618 = sub i32 %50, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11.i619 = icmp sgt i32 %conv10.i618, 9
   br i1 %cmp11.i619, label %while.end.i635, label %if.end13.i620
 
 if.end13.i620:                                    ; preds = %while.body.i612
-  %cmp14.i621 = icmp slt i32 %value.036.i616, -214748364
+  %cmp14.i621 = icmp slt i32 %value.037.i616, -214748364
   br i1 %cmp14.i621, label %while.end.i635, label %if.end16.i622
 
 if.end16.i622:                                    ; preds = %if.end13.i620
-  %mul.i623 = mul nsw i32 %value.036.i616, 10
+  %mul.i623 = mul nsw i32 %value.037.i616, 10
   %add.i624 = or i32 %conv10.i618, -2147483648
   %cmp17.i625 = icmp slt i32 %mul.i623, %add.i624
   br i1 %cmp17.i625, label %while.end.i635, label %if.end19.i626
 
 if.end19.i626:                                    ; preds = %if.end16.i622
   %sub.i627 = sub nsw i32 %mul.i623, %conv10.i618
-  %add.ptr.i628 = getelementptr inbounds i8, ptr %dp.addr.138.i614, i64 1
-  %cond949 = icmp eq i32 %width.addr.237.i615, 1
+  %add.ptr.i628 = getelementptr inbounds i8, ptr %dp.addr.139.i614, i64 1
+  %cond949 = icmp eq i32 %width.addr.238.i615, 1
   br i1 %cond949, label %while.end.i635, label %if.end24.i630
 
 if.end24.i630:                                    ; preds = %if.end19.i626
@@ -3444,15 +3444,15 @@ if.end24.i630:                                    ; preds = %if.end19.i626
   br i1 %tobool9.not.i634, label %while.end.i635, label %while.body.i612, !llvm.loop !14
 
 while.end.i635:                                   ; preds = %if.end24.i630, %if.end16.i622, %if.end13.i620, %while.body.i612, %if.end19.i626, %if.end6.i606
-  %value.1.i636 = phi i32 [ 0, %if.end6.i606 ], [ %sub.i627, %if.end19.i626 ], [ %sub.i627, %if.end24.i630 ], [ %value.036.i616, %while.body.i612 ], [ %value.036.i616, %if.end13.i620 ], [ %mul.i623, %if.end16.i622 ]
-  %erange.0.i637 = phi i1 [ false, %if.end6.i606 ], [ false, %if.end19.i626 ], [ false, %if.end24.i630 ], [ false, %while.body.i612 ], [ true, %if.end13.i620 ], [ true, %if.end16.i622 ]
-  %dp.addr.2.i638 = phi ptr [ %dp.addr.0.i608, %if.end6.i606 ], [ %add.ptr.i628, %if.end19.i626 ], [ %add.ptr.i628, %if.end24.i630 ], [ %dp.addr.138.i614, %while.body.i612 ], [ %dp.addr.138.i614, %if.end13.i620 ], [ %dp.addr.138.i614, %if.end16.i622 ]
-  %cmp25.not.i639 = icmp eq ptr %dp.addr.2.i638, %dp.addr.0.i608
-  %brmerge.i640 = or i1 %erange.0.i637, %cmp25.not.i639
-  %cmp31.i641 = icmp eq i32 %value.1.i636, -2147483648
-  %not.cmp1.i642 = xor i1 %cmp1.i605, true
-  %or.cond.i643 = select i1 %not.cmp1.i642, i1 %cmp31.i641, i1 false
-  %or.cond27.not.i644 = select i1 %brmerge.i640, i1 true, i1 %or.cond.i643
+  %value.1.i636 = phi i32 [ 0, %if.end6.i606 ], [ %sub.i627, %if.end19.i626 ], [ %sub.i627, %if.end24.i630 ], [ %value.037.i616, %while.body.i612 ], [ %value.037.i616, %if.end13.i620 ], [ %mul.i623, %if.end16.i622 ]
+  %erange.0.not.i637 = phi i1 [ true, %if.end6.i606 ], [ true, %if.end19.i626 ], [ true, %if.end24.i630 ], [ true, %while.body.i612 ], [ false, %if.end13.i620 ], [ false, %if.end16.i622 ]
+  %dp.addr.2.i638 = phi ptr [ %dp.addr.0.i608, %if.end6.i606 ], [ %add.ptr.i628, %if.end19.i626 ], [ %add.ptr.i628, %if.end24.i630 ], [ %dp.addr.139.i614, %while.body.i612 ], [ %dp.addr.139.i614, %if.end13.i620 ], [ %dp.addr.139.i614, %if.end16.i622 ]
+  %cmp25.not.i639 = icmp ne ptr %dp.addr.2.i638, %dp.addr.0.i608
+  %brmerge.not33.i640 = and i1 %erange.0.not.i637, %cmp25.not.i639
+  %cmp31.i641 = icmp ne i32 %value.1.i636, -2147483648
+  %or.cond.i642 = select i1 %cmp1.i605, i1 true, i1 %cmp31.i641
+  %or.cond27.i643 = select i1 %brmerge.not33.i640, i1 %or.cond.i642, i1 false
+  %or.cond27.not.i644 = xor i1 %or.cond27.i643, true
   %cmp35.i645 = icmp eq i32 %value.1.i636, 0
   %or.cond1.not.i646 = select i1 %cmp1.i605, i1 %cmp35.i645, i1 false
   %or.cond29.i647 = select i1 %or.cond27.not.i644, i1 true, i1 %or.cond1.not.i646
@@ -3522,34 +3522,34 @@ if.then2.i718:                                    ; preds = %sw.bb101
 if.end6.i668:                                     ; preds = %if.then2.i718, %sw.bb101
   %56 = phi i8 [ %.pre.i720, %if.then2.i718 ], [ %55, %sw.bb101 ]
   %dp.addr.0.i670 = phi ptr [ %incdec.ptr.i719, %if.then2.i718 ], [ %data.1864, %sw.bb101 ]
-  %conv833.i671 = sext i8 %56 to i32
-  %memchr34.i672 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833.i671, i64 11)
-  %tobool9.not35.i673 = icmp eq ptr %memchr34.i672, null
-  br i1 %tobool9.not35.i673, label %while.end.i698, label %while.body.i674
+  %conv834.i671 = sext i8 %56 to i32
+  %memchr35.i672 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834.i671, i64 11)
+  %tobool9.not36.i673 = icmp eq ptr %memchr35.i672, null
+  br i1 %tobool9.not36.i673, label %while.end.i698, label %while.body.i674
 
 while.body.i674:                                  ; preds = %if.end6.i668, %if.end26.i693
-  %memchr39.i675 = phi ptr [ %memchr.i696, %if.end26.i693 ], [ %memchr34.i672, %if.end6.i668 ]
-  %dp.addr.138.i676 = phi ptr [ %add.ptr.i691, %if.end26.i693 ], [ %dp.addr.0.i670, %if.end6.i668 ]
-  %value.036.i678 = phi i64 [ %sub.i690, %if.end26.i693 ], [ 0, %if.end6.i668 ]
-  %sub.ptr.lhs.cast.i679 = ptrtoint ptr %memchr39.i675 to i64
+  %memchr40.i675 = phi ptr [ %memchr.i696, %if.end26.i693 ], [ %memchr35.i672, %if.end6.i668 ]
+  %dp.addr.139.i676 = phi ptr [ %add.ptr.i691, %if.end26.i693 ], [ %dp.addr.0.i670, %if.end6.i668 ]
+  %value.037.i678 = phi i64 [ %sub.i690, %if.end26.i693 ], [ 0, %if.end6.i668 ]
+  %sub.ptr.lhs.cast.i679 = ptrtoint ptr %memchr40.i675 to i64
   %57 = trunc i64 %sub.ptr.lhs.cast.i679 to i32
   %conv10.i680 = sub i32 %57, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11.i681 = icmp sgt i32 %conv10.i680, 9
   br i1 %cmp11.i681, label %while.end.i698, label %if.end13.i682
 
 if.end13.i682:                                    ; preds = %while.body.i674
-  %cmp14.i683 = icmp slt i64 %value.036.i678, -922337203685477580
+  %cmp14.i683 = icmp slt i64 %value.037.i678, -922337203685477580
   br i1 %cmp14.i683, label %while.end.i698, label %if.end16.i684
 
 if.end16.i684:                                    ; preds = %if.end13.i682
-  %mul.i685 = mul nsw i64 %value.036.i678, 10
+  %mul.i685 = mul nsw i64 %value.037.i678, 10
   %conv17.i686 = sext i32 %conv10.i680 to i64
   %add.i687 = or i64 %conv17.i686, -9223372036854775808
   %cmp18.i688 = icmp slt i64 %mul.i685, %add.i687
   br i1 %cmp18.i688, label %while.end.i698, label %if.end26.i693
 
 if.end26.i693:                                    ; preds = %if.end16.i684
-  %add.ptr.i691 = getelementptr inbounds i8, ptr %dp.addr.138.i676, i64 1
+  %add.ptr.i691 = getelementptr inbounds i8, ptr %dp.addr.139.i676, i64 1
   %sub.i690 = sub nsw i64 %mul.i685, %conv17.i686
   %58 = load i8, ptr %add.ptr.i691, align 1
   %conv8.i695 = sext i8 %58 to i32
@@ -3558,15 +3558,15 @@ if.end26.i693:                                    ; preds = %if.end16.i684
   br i1 %tobool9.not.i697, label %while.end.i698, label %while.body.i674, !llvm.loop !22
 
 while.end.i698:                                   ; preds = %if.end26.i693, %if.end16.i684, %if.end13.i682, %while.body.i674, %if.end6.i668
-  %value.1.i699 = phi i64 [ 0, %if.end6.i668 ], [ %sub.i690, %if.end26.i693 ], [ %value.036.i678, %while.body.i674 ], [ %value.036.i678, %if.end13.i682 ], [ %mul.i685, %if.end16.i684 ]
-  %erange.0.i700 = phi i1 [ false, %if.end6.i668 ], [ false, %if.end26.i693 ], [ false, %while.body.i674 ], [ true, %if.end13.i682 ], [ true, %if.end16.i684 ]
-  %dp.addr.2.i701 = phi ptr [ %dp.addr.0.i670, %if.end6.i668 ], [ %add.ptr.i691, %if.end26.i693 ], [ %dp.addr.138.i676, %while.body.i674 ], [ %dp.addr.138.i676, %if.end13.i682 ], [ %dp.addr.138.i676, %if.end16.i684 ]
-  %cmp27.not.i702 = icmp eq ptr %dp.addr.2.i701, %dp.addr.0.i670
-  %brmerge.i703 = or i1 %erange.0.i700, %cmp27.not.i702
-  %cmp33.i704 = icmp eq i64 %value.1.i699, -9223372036854775808
-  %not.cmp1.i705 = xor i1 %cmp1.i667, true
-  %or.cond.i706 = select i1 %not.cmp1.i705, i1 %cmp33.i704, i1 false
-  %or.cond27.not.i707 = select i1 %brmerge.i703, i1 true, i1 %or.cond.i706
+  %value.1.i699 = phi i64 [ 0, %if.end6.i668 ], [ %sub.i690, %if.end26.i693 ], [ %value.037.i678, %while.body.i674 ], [ %value.037.i678, %if.end13.i682 ], [ %mul.i685, %if.end16.i684 ]
+  %erange.0.not.i700 = phi i1 [ true, %if.end6.i668 ], [ true, %if.end26.i693 ], [ true, %while.body.i674 ], [ false, %if.end13.i682 ], [ false, %if.end16.i684 ]
+  %dp.addr.2.i701 = phi ptr [ %dp.addr.0.i670, %if.end6.i668 ], [ %add.ptr.i691, %if.end26.i693 ], [ %dp.addr.139.i676, %while.body.i674 ], [ %dp.addr.139.i676, %if.end13.i682 ], [ %dp.addr.139.i676, %if.end16.i684 ]
+  %cmp27.not.i702 = icmp ne ptr %dp.addr.2.i701, %dp.addr.0.i670
+  %brmerge.not33.i703 = and i1 %erange.0.not.i700, %cmp27.not.i702
+  %cmp33.i704 = icmp ne i64 %value.1.i699, -9223372036854775808
+  %or.cond.i705 = select i1 %cmp1.i667, i1 true, i1 %cmp33.i704
+  %or.cond27.i706 = select i1 %brmerge.not33.i703, i1 %or.cond.i705, i1 false
+  %or.cond27.not.i707 = xor i1 %or.cond27.i706, true
   %cmp37.i708 = icmp eq i64 %value.1.i699, 0
   %or.cond1.not.i709 = select i1 %cmp1.i667, i1 %cmp37.i708, i1 false
   %or.cond29.i710 = select i1 %or.cond27.not.i707, i1 true, i1 %or.cond1.not.i709
@@ -4350,28 +4350,28 @@ if.end6:                                          ; preds = %if.then5, %entry
   %1 = phi i8 [ %.pre, %if.then5 ], [ %0, %entry ]
   %width.addr.1 = phi i32 [ %width.addr.0, %if.then5 ], [ %width, %entry ]
   %dp.addr.0 = phi ptr [ %incdec.ptr, %if.then5 ], [ %dp, %entry ]
-  %conv833 = sext i8 %1 to i32
-  %memchr34 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833, i64 11)
-  %tobool9.not35 = icmp eq ptr %memchr34, null
-  br i1 %tobool9.not35, label %while.end, label %while.body
+  %conv834 = sext i8 %1 to i32
+  %memchr35 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834, i64 11)
+  %tobool9.not36 = icmp eq ptr %memchr35, null
+  br i1 %tobool9.not36, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end6, %if.end26
-  %memchr39 = phi ptr [ %memchr, %if.end26 ], [ %memchr34, %if.end6 ]
-  %dp.addr.138 = phi ptr [ %add.ptr, %if.end26 ], [ %dp.addr.0, %if.end6 ]
-  %width.addr.237 = phi i32 [ %width.addr.3, %if.end26 ], [ %width.addr.1, %if.end6 ]
-  %value.036 = phi i64 [ %sub, %if.end26 ], [ 0, %if.end6 ]
-  %sub.ptr.lhs.cast = ptrtoint ptr %memchr39 to i64
+  %memchr40 = phi ptr [ %memchr, %if.end26 ], [ %memchr35, %if.end6 ]
+  %dp.addr.139 = phi ptr [ %add.ptr, %if.end26 ], [ %dp.addr.0, %if.end6 ]
+  %width.addr.238 = phi i32 [ %width.addr.3, %if.end26 ], [ %width.addr.1, %if.end6 ]
+  %value.037 = phi i64 [ %sub, %if.end26 ], [ 0, %if.end6 ]
+  %sub.ptr.lhs.cast = ptrtoint ptr %memchr40 to i64
   %2 = trunc i64 %sub.ptr.lhs.cast to i32
   %conv10 = sub i32 %2, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11 = icmp sgt i32 %conv10, 9
   br i1 %cmp11, label %while.end, label %if.end13
 
 if.end13:                                         ; preds = %while.body
-  %cmp14 = icmp slt i64 %value.036, -922337203685477580
+  %cmp14 = icmp slt i64 %value.037, -922337203685477580
   br i1 %cmp14, label %while.end, label %if.end16
 
 if.end16:                                         ; preds = %if.end13
-  %mul = mul nsw i64 %value.036, 10
+  %mul = mul nsw i64 %value.037, 10
   %conv17 = sext i32 %conv10 to i64
   %add = or i64 %conv17, -9223372036854775808
   %cmp18 = icmp slt i64 %mul, %add
@@ -4379,12 +4379,12 @@ if.end16:                                         ; preds = %if.end13
 
 if.end20:                                         ; preds = %if.end16
   %sub = sub nsw i64 %mul, %conv17
-  %add.ptr = getelementptr inbounds i8, ptr %dp.addr.138, i64 1
-  %cmp22 = icmp sgt i32 %width.addr.237, 0
+  %add.ptr = getelementptr inbounds i8, ptr %dp.addr.139, i64 1
+  %cmp22 = icmp sgt i32 %width.addr.238, 0
   br i1 %cmp22, label %land.lhs.true, label %if.end26
 
 land.lhs.true:                                    ; preds = %if.end20
-  %dec23 = add nsw i32 %width.addr.237, -1
+  %dec23 = add nsw i32 %width.addr.238, -1
   %cmp24 = icmp eq i32 %dec23, 0
   br i1 %cmp24, label %while.end, label %if.end26
 
@@ -4397,15 +4397,15 @@ if.end26:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool9.not, label %while.end, label %while.body, !llvm.loop !22
 
 while.end:                                        ; preds = %if.end26, %while.body, %land.lhs.true, %if.end13, %if.end16, %if.end6
-  %value.1 = phi i64 [ 0, %if.end6 ], [ %mul, %if.end16 ], [ %value.036, %if.end13 ], [ %sub, %land.lhs.true ], [ %value.036, %while.body ], [ %sub, %if.end26 ]
-  %erange.0 = phi i1 [ false, %if.end6 ], [ true, %if.end16 ], [ true, %if.end13 ], [ false, %land.lhs.true ], [ false, %while.body ], [ false, %if.end26 ]
-  %dp.addr.2 = phi ptr [ %dp.addr.0, %if.end6 ], [ %dp.addr.138, %if.end16 ], [ %dp.addr.138, %if.end13 ], [ %add.ptr, %land.lhs.true ], [ %dp.addr.138, %while.body ], [ %add.ptr, %if.end26 ]
-  %cmp27.not = icmp eq ptr %dp.addr.2, %dp.addr.0
-  %brmerge = or i1 %erange.0, %cmp27.not
-  %cmp33 = icmp eq i64 %value.1, -9223372036854775808
-  %not.cmp1 = xor i1 %cmp1, true
-  %or.cond = select i1 %not.cmp1, i1 %cmp33, i1 false
-  %or.cond27.not = select i1 %brmerge, i1 true, i1 %or.cond
+  %value.1 = phi i64 [ 0, %if.end6 ], [ %mul, %if.end16 ], [ %value.037, %if.end13 ], [ %sub, %land.lhs.true ], [ %value.037, %while.body ], [ %sub, %if.end26 ]
+  %erange.0.not = phi i1 [ true, %if.end6 ], [ false, %if.end16 ], [ false, %if.end13 ], [ true, %land.lhs.true ], [ true, %while.body ], [ true, %if.end26 ]
+  %dp.addr.2 = phi ptr [ %dp.addr.0, %if.end6 ], [ %dp.addr.139, %if.end16 ], [ %dp.addr.139, %if.end13 ], [ %add.ptr, %land.lhs.true ], [ %dp.addr.139, %while.body ], [ %add.ptr, %if.end26 ]
+  %cmp27.not = icmp ne ptr %dp.addr.2, %dp.addr.0
+  %brmerge.not33 = and i1 %erange.0.not, %cmp27.not
+  %cmp33 = icmp ne i64 %value.1, -9223372036854775808
+  %or.cond = select i1 %cmp1, i1 true, i1 %cmp33
+  %or.cond27 = select i1 %brmerge.not33, i1 %or.cond, i1 false
+  %or.cond27.not = xor i1 %or.cond27, true
   %cmp37 = icmp eq i64 %value.1, 0
   %or.cond1.not = select i1 %cmp1, i1 %cmp37, i1 false
   %or.cond29 = select i1 %or.cond27.not, i1 true, i1 %or.cond1.not
@@ -4452,36 +4452,36 @@ if.then2.i:                                       ; preds = %if.then4
 if.end6.i:                                        ; preds = %if.then2.i, %if.then4
   %2 = phi i8 [ %.pre.i, %if.then2.i ], [ %1, %if.then4 ]
   %dp.addr.0.i = phi ptr [ %incdec.ptr.i, %if.then2.i ], [ %incdec.ptr, %if.then4 ]
-  %conv833.i = sext i8 %2 to i32
-  %memchr34.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833.i, i64 11)
-  %tobool9.not35.i = icmp eq ptr %memchr34.i, null
-  br i1 %tobool9.not35.i, label %while.end.i, label %while.body.i
+  %conv834.i = sext i8 %2 to i32
+  %memchr35.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834.i, i64 11)
+  %tobool9.not36.i = icmp eq ptr %memchr35.i, null
+  br i1 %tobool9.not36.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end6.i, %if.end24.i
-  %memchr39.i = phi ptr [ %memchr.i, %if.end24.i ], [ %memchr34.i, %if.end6.i ]
-  %dp.addr.138.i = phi ptr [ %add.ptr.i, %if.end24.i ], [ %dp.addr.0.i, %if.end6.i ]
-  %width.addr.237.i = phi i1 [ true, %if.end24.i ], [ %cmp1.i, %if.end6.i ]
-  %value.036.i = phi i32 [ %sub.i, %if.end24.i ], [ 0, %if.end6.i ]
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %memchr39.i to i64
+  %memchr40.i = phi ptr [ %memchr.i, %if.end24.i ], [ %memchr35.i, %if.end6.i ]
+  %dp.addr.139.i = phi ptr [ %add.ptr.i, %if.end24.i ], [ %dp.addr.0.i, %if.end6.i ]
+  %width.addr.238.i = phi i1 [ true, %if.end24.i ], [ %cmp1.i, %if.end6.i ]
+  %value.037.i = phi i32 [ %sub.i, %if.end24.i ], [ 0, %if.end6.i ]
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %memchr40.i to i64
   %3 = trunc i64 %sub.ptr.lhs.cast.i to i32
   %conv10.i = sub i32 %3, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11.i = icmp sgt i32 %conv10.i, 9
   br i1 %cmp11.i, label %while.end.i, label %if.end13.i
 
 if.end13.i:                                       ; preds = %while.body.i
-  %cmp14.i = icmp slt i32 %value.036.i, -214748364
+  %cmp14.i = icmp slt i32 %value.037.i, -214748364
   br i1 %cmp14.i, label %while.end.i, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end13.i
-  %mul.i = mul nsw i32 %value.036.i, 10
+  %mul.i = mul nsw i32 %value.037.i, 10
   %add.i = or i32 %conv10.i, -2147483648
   %cmp17.i = icmp slt i32 %mul.i, %add.i
   br i1 %cmp17.i, label %while.end.i, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end16.i
   %sub.i = sub nsw i32 %mul.i, %conv10.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %dp.addr.138.i, i64 1
-  br i1 %width.addr.237.i, label %while.end.i, label %if.end24.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %dp.addr.139.i, i64 1
+  br i1 %width.addr.238.i, label %while.end.i, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end19.i
   %4 = load i8, ptr %add.ptr.i, align 1
@@ -4491,15 +4491,15 @@ if.end24.i:                                       ; preds = %if.end19.i
   br i1 %tobool9.not.i, label %while.end.i, label %while.body.i, !llvm.loop !14
 
 while.end.i:                                      ; preds = %if.end24.i, %if.end16.i, %if.end13.i, %while.body.i, %if.end19.i, %if.end6.i
-  %value.1.i = phi i32 [ 0, %if.end6.i ], [ %sub.i, %if.end19.i ], [ %sub.i, %if.end24.i ], [ %value.036.i, %while.body.i ], [ %value.036.i, %if.end13.i ], [ %mul.i, %if.end16.i ]
-  %erange.0.i = phi i1 [ false, %if.end6.i ], [ false, %if.end19.i ], [ false, %if.end24.i ], [ false, %while.body.i ], [ true, %if.end13.i ], [ true, %if.end16.i ]
-  %dp.addr.2.i = phi ptr [ %dp.addr.0.i, %if.end6.i ], [ %add.ptr.i, %if.end19.i ], [ %add.ptr.i, %if.end24.i ], [ %dp.addr.138.i, %while.body.i ], [ %dp.addr.138.i, %if.end13.i ], [ %dp.addr.138.i, %if.end16.i ]
-  %cmp25.not.i = icmp eq ptr %dp.addr.2.i, %dp.addr.0.i
-  %brmerge.i = or i1 %erange.0.i, %cmp25.not.i
-  %cmp31.i = icmp eq i32 %value.1.i, -2147483648
-  %not.cmp1.i = xor i1 %cmp1.i, true
-  %or.cond.i = select i1 %not.cmp1.i, i1 %cmp31.i, i1 false
-  %or.cond27.not.i = select i1 %brmerge.i, i1 true, i1 %or.cond.i
+  %value.1.i = phi i32 [ 0, %if.end6.i ], [ %sub.i, %if.end19.i ], [ %sub.i, %if.end24.i ], [ %value.037.i, %while.body.i ], [ %value.037.i, %if.end13.i ], [ %mul.i, %if.end16.i ]
+  %erange.0.not.i = phi i1 [ true, %if.end6.i ], [ true, %if.end19.i ], [ true, %if.end24.i ], [ true, %while.body.i ], [ false, %if.end13.i ], [ false, %if.end16.i ]
+  %dp.addr.2.i = phi ptr [ %dp.addr.0.i, %if.end6.i ], [ %add.ptr.i, %if.end19.i ], [ %add.ptr.i, %if.end24.i ], [ %dp.addr.139.i, %while.body.i ], [ %dp.addr.139.i, %if.end13.i ], [ %dp.addr.139.i, %if.end16.i ]
+  %cmp25.not.i = icmp ne ptr %dp.addr.2.i, %dp.addr.0.i
+  %brmerge.not33.i = and i1 %erange.0.not.i, %cmp25.not.i
+  %cmp31.i = icmp ne i32 %value.1.i, -2147483648
+  %or.cond.i = select i1 %cmp1.i, i1 true, i1 %cmp31.i
+  %or.cond27.i = select i1 %brmerge.not33.i, i1 %or.cond.i, i1 false
+  %or.cond27.not.i = xor i1 %or.cond27.i, true
   %cmp35.i = icmp eq i32 %value.1.i, 0
   %or.cond1.not.i = select i1 %cmp1.i, i1 %cmp35.i, i1 false
   %or.cond29.i = select i1 %or.cond27.not.i, i1 true, i1 %or.cond1.not.i
@@ -4541,36 +4541,36 @@ if.then2.i88:                                     ; preds = %if.then.i
 if.end6.i36:                                      ; preds = %if.then2.i88, %if.then.i
   %7 = phi i8 [ %.pre.i90, %if.then2.i88 ], [ %6, %if.then.i ]
   %dp.addr.0.i38 = phi ptr [ %incdec.ptr.i89, %if.then2.i88 ], [ %ap.0, %if.then.i ]
-  %conv833.i39 = sext i8 %7 to i32
-  %memchr34.i40 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833.i39, i64 11)
-  %tobool9.not35.i41 = icmp eq ptr %memchr34.i40, null
-  br i1 %tobool9.not35.i41, label %while.end.i65, label %while.body.i42
+  %conv834.i39 = sext i8 %7 to i32
+  %memchr35.i40 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834.i39, i64 11)
+  %tobool9.not36.i41 = icmp eq ptr %memchr35.i40, null
+  br i1 %tobool9.not36.i41, label %while.end.i65, label %while.body.i42
 
 while.body.i42:                                   ; preds = %if.end6.i36, %if.end24.i60
-  %memchr39.i43 = phi ptr [ %memchr.i63, %if.end24.i60 ], [ %memchr34.i40, %if.end6.i36 ]
-  %dp.addr.138.i44 = phi ptr [ %add.ptr.i58, %if.end24.i60 ], [ %dp.addr.0.i38, %if.end6.i36 ]
-  %width.addr.237.i45 = phi i1 [ true, %if.end24.i60 ], [ %cmp1.i35, %if.end6.i36 ]
-  %value.036.i46 = phi i32 [ %sub.i57, %if.end24.i60 ], [ 0, %if.end6.i36 ]
-  %sub.ptr.lhs.cast.i47 = ptrtoint ptr %memchr39.i43 to i64
+  %memchr40.i43 = phi ptr [ %memchr.i63, %if.end24.i60 ], [ %memchr35.i40, %if.end6.i36 ]
+  %dp.addr.139.i44 = phi ptr [ %add.ptr.i58, %if.end24.i60 ], [ %dp.addr.0.i38, %if.end6.i36 ]
+  %width.addr.238.i45 = phi i1 [ true, %if.end24.i60 ], [ %cmp1.i35, %if.end6.i36 ]
+  %value.037.i46 = phi i32 [ %sub.i57, %if.end24.i60 ], [ 0, %if.end6.i36 ]
+  %sub.ptr.lhs.cast.i47 = ptrtoint ptr %memchr40.i43 to i64
   %8 = trunc i64 %sub.ptr.lhs.cast.i47 to i32
   %conv10.i48 = sub i32 %8, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11.i49 = icmp sgt i32 %conv10.i48, 9
   br i1 %cmp11.i49, label %while.end.i65, label %if.end13.i50
 
 if.end13.i50:                                     ; preds = %while.body.i42
-  %cmp14.i51 = icmp slt i32 %value.036.i46, -214748364
+  %cmp14.i51 = icmp slt i32 %value.037.i46, -214748364
   br i1 %cmp14.i51, label %while.end.i65, label %if.end16.i52
 
 if.end16.i52:                                     ; preds = %if.end13.i50
-  %mul.i53 = mul nsw i32 %value.036.i46, 10
+  %mul.i53 = mul nsw i32 %value.037.i46, 10
   %add.i54 = or i32 %conv10.i48, -2147483648
   %cmp17.i55 = icmp slt i32 %mul.i53, %add.i54
   br i1 %cmp17.i55, label %while.end.i65, label %if.end19.i56
 
 if.end19.i56:                                     ; preds = %if.end16.i52
   %sub.i57 = sub nsw i32 %mul.i53, %conv10.i48
-  %add.ptr.i58 = getelementptr inbounds i8, ptr %dp.addr.138.i44, i64 1
-  br i1 %width.addr.237.i45, label %while.end.i65, label %if.end24.i60
+  %add.ptr.i58 = getelementptr inbounds i8, ptr %dp.addr.139.i44, i64 1
+  br i1 %width.addr.238.i45, label %while.end.i65, label %if.end24.i60
 
 if.end24.i60:                                     ; preds = %if.end19.i56
   %9 = load i8, ptr %add.ptr.i58, align 1
@@ -4580,15 +4580,15 @@ if.end24.i60:                                     ; preds = %if.end19.i56
   br i1 %tobool9.not.i64, label %while.end.i65, label %while.body.i42, !llvm.loop !14
 
 while.end.i65:                                    ; preds = %if.end24.i60, %if.end16.i52, %if.end13.i50, %while.body.i42, %if.end19.i56, %if.end6.i36
-  %value.1.i66 = phi i32 [ 0, %if.end6.i36 ], [ %sub.i57, %if.end19.i56 ], [ %sub.i57, %if.end24.i60 ], [ %value.036.i46, %while.body.i42 ], [ %value.036.i46, %if.end13.i50 ], [ %mul.i53, %if.end16.i52 ]
-  %erange.0.i67 = phi i1 [ false, %if.end6.i36 ], [ false, %if.end19.i56 ], [ false, %if.end24.i60 ], [ false, %while.body.i42 ], [ true, %if.end13.i50 ], [ true, %if.end16.i52 ]
-  %dp.addr.2.i68 = phi ptr [ %dp.addr.0.i38, %if.end6.i36 ], [ %add.ptr.i58, %if.end19.i56 ], [ %add.ptr.i58, %if.end24.i60 ], [ %dp.addr.138.i44, %while.body.i42 ], [ %dp.addr.138.i44, %if.end13.i50 ], [ %dp.addr.138.i44, %if.end16.i52 ]
-  %cmp25.not.i69 = icmp eq ptr %dp.addr.2.i68, %dp.addr.0.i38
-  %brmerge.i70 = or i1 %erange.0.i67, %cmp25.not.i69
-  %cmp31.i71 = icmp eq i32 %value.1.i66, -2147483648
-  %not.cmp1.i72 = xor i1 %cmp1.i35, true
-  %or.cond.i73 = select i1 %not.cmp1.i72, i1 %cmp31.i71, i1 false
-  %or.cond27.not.i74 = select i1 %brmerge.i70, i1 true, i1 %or.cond.i73
+  %value.1.i66 = phi i32 [ 0, %if.end6.i36 ], [ %sub.i57, %if.end19.i56 ], [ %sub.i57, %if.end24.i60 ], [ %value.037.i46, %while.body.i42 ], [ %value.037.i46, %if.end13.i50 ], [ %mul.i53, %if.end16.i52 ]
+  %erange.0.not.i67 = phi i1 [ true, %if.end6.i36 ], [ true, %if.end19.i56 ], [ true, %if.end24.i60 ], [ true, %while.body.i42 ], [ false, %if.end13.i50 ], [ false, %if.end16.i52 ]
+  %dp.addr.2.i68 = phi ptr [ %dp.addr.0.i38, %if.end6.i36 ], [ %add.ptr.i58, %if.end19.i56 ], [ %add.ptr.i58, %if.end24.i60 ], [ %dp.addr.139.i44, %while.body.i42 ], [ %dp.addr.139.i44, %if.end13.i50 ], [ %dp.addr.139.i44, %if.end16.i52 ]
+  %cmp25.not.i69 = icmp ne ptr %dp.addr.2.i68, %dp.addr.0.i38
+  %brmerge.not33.i70 = and i1 %erange.0.not.i67, %cmp25.not.i69
+  %cmp31.i71 = icmp ne i32 %value.1.i66, -2147483648
+  %or.cond.i72 = select i1 %cmp1.i35, i1 true, i1 %cmp31.i71
+  %or.cond27.i73 = select i1 %brmerge.not33.i70, i1 %or.cond.i72, i1 false
+  %or.cond27.not.i74 = xor i1 %or.cond27.i73, true
   %cmp35.i75 = icmp eq i32 %value.1.i66, 0
   %or.cond1.not.i76 = select i1 %cmp1.i35, i1 %cmp35.i75, i1 false
   %or.cond29.i77 = select i1 %or.cond27.not.i74, i1 true, i1 %or.cond1.not.i76
@@ -4631,36 +4631,36 @@ if.then2.i147:                                    ; preds = %if.then.i93
 if.end6.i95:                                      ; preds = %if.then2.i147, %if.then.i93
   %12 = phi i8 [ %.pre.i149, %if.then2.i147 ], [ %11, %if.then.i93 ]
   %dp.addr.0.i97 = phi ptr [ %incdec.ptr.i148, %if.then2.i147 ], [ %bp.0, %if.then.i93 ]
-  %conv833.i98 = sext i8 %12 to i32
-  %memchr34.i99 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv833.i98, i64 11)
-  %tobool9.not35.i100 = icmp eq ptr %memchr34.i99, null
-  br i1 %tobool9.not35.i100, label %while.end.i124, label %while.body.i101
+  %conv834.i98 = sext i8 %12 to i32
+  %memchr35.i99 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i32 %conv834.i98, i64 11)
+  %tobool9.not36.i100 = icmp eq ptr %memchr35.i99, null
+  br i1 %tobool9.not36.i100, label %while.end.i124, label %while.body.i101
 
 while.body.i101:                                  ; preds = %if.end6.i95, %if.end24.i119
-  %memchr39.i102 = phi ptr [ %memchr.i122, %if.end24.i119 ], [ %memchr34.i99, %if.end6.i95 ]
-  %dp.addr.138.i103 = phi ptr [ %add.ptr.i117, %if.end24.i119 ], [ %dp.addr.0.i97, %if.end6.i95 ]
-  %width.addr.237.i104 = phi i1 [ true, %if.end24.i119 ], [ %cmp1.i94, %if.end6.i95 ]
-  %value.036.i105 = phi i32 [ %sub.i116, %if.end24.i119 ], [ 0, %if.end6.i95 ]
-  %sub.ptr.lhs.cast.i106 = ptrtoint ptr %memchr39.i102 to i64
+  %memchr40.i102 = phi ptr [ %memchr.i122, %if.end24.i119 ], [ %memchr35.i99, %if.end6.i95 ]
+  %dp.addr.139.i103 = phi ptr [ %add.ptr.i117, %if.end24.i119 ], [ %dp.addr.0.i97, %if.end6.i95 ]
+  %width.addr.238.i104 = phi i1 [ true, %if.end24.i119 ], [ %cmp1.i94, %if.end6.i95 ]
+  %value.037.i105 = phi i32 [ %sub.i116, %if.end24.i119 ], [ 0, %if.end6.i95 ]
+  %sub.ptr.lhs.cast.i106 = ptrtoint ptr %memchr40.i102 to i64
   %13 = trunc i64 %sub.ptr.lhs.cast.i106 to i32
   %conv10.i107 = sub i32 %13, ptrtoint (ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE to i32)
   %cmp11.i108 = icmp sgt i32 %conv10.i107, 9
   br i1 %cmp11.i108, label %while.end.i124, label %if.end13.i109
 
 if.end13.i109:                                    ; preds = %while.body.i101
-  %cmp14.i110 = icmp slt i32 %value.036.i105, -214748364
+  %cmp14.i110 = icmp slt i32 %value.037.i105, -214748364
   br i1 %cmp14.i110, label %while.end.i124, label %if.end16.i111
 
 if.end16.i111:                                    ; preds = %if.end13.i109
-  %mul.i112 = mul nsw i32 %value.036.i105, 10
+  %mul.i112 = mul nsw i32 %value.037.i105, 10
   %add.i113 = or i32 %conv10.i107, -2147483648
   %cmp17.i114 = icmp slt i32 %mul.i112, %add.i113
   br i1 %cmp17.i114, label %while.end.i124, label %if.end19.i115
 
 if.end19.i115:                                    ; preds = %if.end16.i111
   %sub.i116 = sub nsw i32 %mul.i112, %conv10.i107
-  %add.ptr.i117 = getelementptr inbounds i8, ptr %dp.addr.138.i103, i64 1
-  br i1 %width.addr.237.i104, label %while.end.i124, label %if.end24.i119
+  %add.ptr.i117 = getelementptr inbounds i8, ptr %dp.addr.139.i103, i64 1
+  br i1 %width.addr.238.i104, label %while.end.i124, label %if.end24.i119
 
 if.end24.i119:                                    ; preds = %if.end19.i115
   %14 = load i8, ptr %add.ptr.i117, align 1
@@ -4670,15 +4670,15 @@ if.end24.i119:                                    ; preds = %if.end19.i115
   br i1 %tobool9.not.i123, label %while.end.i124, label %while.body.i101, !llvm.loop !14
 
 while.end.i124:                                   ; preds = %if.end24.i119, %if.end16.i111, %if.end13.i109, %while.body.i101, %if.end19.i115, %if.end6.i95
-  %value.1.i125 = phi i32 [ 0, %if.end6.i95 ], [ %sub.i116, %if.end19.i115 ], [ %sub.i116, %if.end24.i119 ], [ %value.036.i105, %while.body.i101 ], [ %value.036.i105, %if.end13.i109 ], [ %mul.i112, %if.end16.i111 ]
-  %erange.0.i126 = phi i1 [ false, %if.end6.i95 ], [ false, %if.end19.i115 ], [ false, %if.end24.i119 ], [ false, %while.body.i101 ], [ true, %if.end13.i109 ], [ true, %if.end16.i111 ]
-  %dp.addr.2.i127 = phi ptr [ %dp.addr.0.i97, %if.end6.i95 ], [ %add.ptr.i117, %if.end19.i115 ], [ %add.ptr.i117, %if.end24.i119 ], [ %dp.addr.138.i103, %while.body.i101 ], [ %dp.addr.138.i103, %if.end13.i109 ], [ %dp.addr.138.i103, %if.end16.i111 ]
-  %cmp25.not.i128 = icmp eq ptr %dp.addr.2.i127, %dp.addr.0.i97
-  %brmerge.i129 = or i1 %erange.0.i126, %cmp25.not.i128
-  %cmp31.i130 = icmp eq i32 %value.1.i125, -2147483648
-  %not.cmp1.i131 = xor i1 %cmp1.i94, true
-  %or.cond.i132 = select i1 %not.cmp1.i131, i1 %cmp31.i130, i1 false
-  %or.cond27.not.i133 = select i1 %brmerge.i129, i1 true, i1 %or.cond.i132
+  %value.1.i125 = phi i32 [ 0, %if.end6.i95 ], [ %sub.i116, %if.end19.i115 ], [ %sub.i116, %if.end24.i119 ], [ %value.037.i105, %while.body.i101 ], [ %value.037.i105, %if.end13.i109 ], [ %mul.i112, %if.end16.i111 ]
+  %erange.0.not.i126 = phi i1 [ true, %if.end6.i95 ], [ true, %if.end19.i115 ], [ true, %if.end24.i119 ], [ true, %while.body.i101 ], [ false, %if.end13.i109 ], [ false, %if.end16.i111 ]
+  %dp.addr.2.i127 = phi ptr [ %dp.addr.0.i97, %if.end6.i95 ], [ %add.ptr.i117, %if.end19.i115 ], [ %add.ptr.i117, %if.end24.i119 ], [ %dp.addr.139.i103, %while.body.i101 ], [ %dp.addr.139.i103, %if.end13.i109 ], [ %dp.addr.139.i103, %if.end16.i111 ]
+  %cmp25.not.i128 = icmp ne ptr %dp.addr.2.i127, %dp.addr.0.i97
+  %brmerge.not33.i129 = and i1 %erange.0.not.i126, %cmp25.not.i128
+  %cmp31.i130 = icmp ne i32 %value.1.i125, -2147483648
+  %or.cond.i131 = select i1 %cmp1.i94, i1 true, i1 %cmp31.i130
+  %or.cond27.i132 = select i1 %brmerge.not33.i129, i1 %or.cond.i131, i1 false
+  %or.cond27.not.i133 = xor i1 %or.cond27.i132, true
   %cmp35.i134 = icmp eq i32 %value.1.i125, 0
   %or.cond1.not.i135 = select i1 %cmp1.i94, i1 %cmp35.i134, i1 false
   %or.cond29.i136 = select i1 %or.cond27.not.i133, i1 true, i1 %or.cond1.not.i135
