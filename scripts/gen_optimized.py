@@ -18,7 +18,7 @@ def run_opt(task):
         if os.path.exists(output_file):
            tmp_output += '.bench_tmp.ll'
            copy_if_different = True
-        ret = subprocess.run([opt_exec, '-O3', '-disable-loop-unrolling', '-vectorize-loops=false', '-force-vector-interleave=1', '-force-vector-width=1', input_file, '-S', '-o', tmp_output],stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL, timeout=600.0)
+        ret = subprocess.run([opt_exec, '-O3','-enable-jump-table-to-switch', '-disable-loop-unrolling', '-vectorize-loops=false', '-force-vector-interleave=1', '-force-vector-width=1', input_file, '-S', '-o', tmp_output],stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL, timeout=600.0)
         if ret.returncode != 0:
             return (input_file, 'fail')
         if copy_if_different:
