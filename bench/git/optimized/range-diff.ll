@@ -286,53 +286,31 @@ find_exact_matches.exit:                          ; preds = %for.inc44.i, %for.c
   %conv.i = trunc i64 %add.i to i32
   %sext.i = shl i64 %add.i, 32
   %conv2.i = ashr exact i64 %sext.i, 32
-  %tobool.not.i.i = icmp eq i64 %sext.i, 0
-  br i1 %tobool.not.i.i, label %st_mult.exit.i, label %land.lhs.true.i.i
-
-land.lhs.true.i.i:                                ; preds = %find_exact_matches.exit
-  %mul6.i.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %conv2.i, i64 %conv2.i)
-  %mul.ov.i.i = extractvalue { i64, i1 } %mul6.i.i, 1
+  %mul.ov.i.i = icmp ugt i64 %conv2.i, 4294967295
   br i1 %mul.ov.i.i, label %if.then.i.i, label %st_mult.exit.i
 
-if.then.i.i:                                      ; preds = %land.lhs.true.i.i
+if.then.i.i:                                      ; preds = %find_exact_matches.exit
   call void (ptr, ...) @die(ptr noundef nonnull @.str.48, i64 noundef %conv2.i, i64 noundef %conv2.i) #15
   unreachable
 
-st_mult.exit.i:                                   ; preds = %land.lhs.true.i.i, %find_exact_matches.exit
-  %mul.i.i = mul nsw i64 %conv2.i, %conv2.i
-  %mul.ov.i83.i = icmp ugt i64 %mul.i.i, 4611686018427387903
-  br i1 %mul.ov.i83.i, label %if.then.i85.i, label %st_mult.exit86.i
-
-if.then.i85.i:                                    ; preds = %st_mult.exit.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.48, i64 noundef 4, i64 noundef %mul.i.i) #15
-  unreachable
-
-st_mult.exit86.i:                                 ; preds = %st_mult.exit.i
-  %mul.i84.i = shl nuw i64 %mul.i.i, 2
+st_mult.exit.i:                                   ; preds = %find_exact_matches.exit
+  %mul.i.i = ashr exact i64 %sext.i, 30
+  %mul.i84.i = mul i64 %mul.i.i, %conv2.i
   %call5.i = call ptr @xmalloc(i64 noundef %mul.i84.i) #14
-  %mul.ov.i89.i = icmp ugt i64 %conv2.i, 4611686018427387903
-  br i1 %mul.ov.i89.i, label %if.then.i91.i, label %st_mult.exit98.i
-
-if.then.i91.i:                                    ; preds = %st_mult.exit86.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.48, i64 noundef 4, i64 noundef %conv2.i) #15
-  unreachable
-
-st_mult.exit98.i:                                 ; preds = %st_mult.exit86.i
-  %mul.i90.i = ashr exact i64 %sext.i, 30
-  %call8.i = call ptr @xmalloc(i64 noundef %mul.i90.i) #14
-  %call11.i = call ptr @xmalloc(i64 noundef %mul.i90.i) #14
+  %call8.i = call ptr @xmalloc(i64 noundef %mul.i.i) #14
+  %call11.i = call ptr @xmalloc(i64 noundef %mul.i.i) #14
   %27 = load i64, ptr %nr.i, align 8
   %cmp106.not.i = icmp eq i64 %27, 0
   br i1 %cmp106.not.i, label %for.cond61.preheader.i, label %for.body.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %st_mult.exit98.i
+for.body.lr.ph.i:                                 ; preds = %st_mult.exit.i
   %28 = getelementptr inbounds i8, ptr %cfg.i.i, i64 8
   %size.i.i = getelementptr inbounds i8, ptr %mf1.i.i, i64 8
   %size3.i.i = getelementptr inbounds i8, ptr %mf2.i.i, i64 8
   br label %for.body.i23
 
-for.cond61.preheader.i:                           ; preds = %for.inc58.i, %st_mult.exit98.i
-  %29 = phi i64 [ 0, %st_mult.exit98.i ], [ %49, %for.inc58.i ]
+for.cond61.preheader.i:                           ; preds = %for.inc58.i, %st_mult.exit.i
+  %29 = phi i64 [ 0, %st_mult.exit.i ], [ %49, %for.inc58.i ]
   %30 = load i64, ptr %nr12.i, align 8
   %cmp64111.not.i = icmp eq i64 %30, 0
   br i1 %cmp64111.not.i, label %for.end97.i, label %for.body66.i
@@ -2004,17 +1982,14 @@ declare void @fill_filespec(ptr noundef, ptr noundef, i32 noundef, i16 noundef z
 
 declare ptr @null_oid() local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #12
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -2028,8 +2003,8 @@ attributes #8 = { mustprogress nofree nounwind willreturn memory(read, inaccessi
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }
 attributes #15 = { noreturn nounwind }
 attributes #16 = { nounwind willreturn memory(read) }

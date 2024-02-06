@@ -23767,9 +23767,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %mul = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %sub.ptr.div.i, i64 %sub.ptr.div.i)
-  %mul.ov = extractvalue { i64, i1 } %mul, 1
+  %mul.ov = icmp ugt i64 %sub.ptr.sub.i, 34359738360
   %__i41.sroa.0.053 = getelementptr inbounds i8, ptr %__first.coerce, i64 8
   br i1 %mul.ov, label %for.cond.preheader, label %if.then5
 
@@ -38279,9 +38277,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %mul = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %sub.ptr.div.i, i64 %sub.ptr.div.i)
-  %mul.ov = extractvalue { i64, i1 } %mul, 1
+  %mul.ov = icmp ugt i64 %sub.ptr.sub.i, 34359738360
   %__i41.sroa.0.072 = getelementptr inbounds i8, ptr %__first.coerce, i64 8
   br i1 %mul.ov, label %for.cond.preheader, label %if.then5
 
@@ -60458,9 +60454,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #22
