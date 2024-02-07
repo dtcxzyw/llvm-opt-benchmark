@@ -159,45 +159,43 @@ if.else33:                                        ; preds = %if.end29
 
 if.then36:                                        ; preds = %if.else33
   %protocol.i = getelementptr inbounds i8, ptr %c, i64 88
-  %10 = load ptr, ptr %protocol.i, align 8
-  %tobool.not.i = icmp ne ptr %10, null
-  %host.i = getelementptr inbounds i8, ptr %c, i64 96
-  %11 = load ptr, ptr %host.i, align 8
-  %tobool1.not.i = icmp ne ptr %11, null
-  %or.cond.not = select i1 %tobool.not.i, i1 true, i1 %tobool1.not.i
+  %10 = load <2 x ptr>, ptr %protocol.i, align 8
   %path.i = getelementptr inbounds i8, ptr %c, i64 104
-  %12 = load ptr, ptr %path.i, align 8
-  %tobool3.not.i = icmp ne ptr %12, null
-  %or.cond39 = select i1 %or.cond.not, i1 true, i1 %tobool3.not.i
+  %11 = load ptr, ptr %path.i, align 8
   %username.i = getelementptr inbounds i8, ptr %c, i64 72
-  %13 = load ptr, ptr %username.i, align 8
-  %tobool5.not.i = icmp ne ptr %13, null
-  %or.cond40 = select i1 %or.cond39, i1 true, i1 %tobool5.not.i
-  %14 = load ptr, ptr %fns, align 8
-  %tobool6.not11.i = icmp ne ptr %14, null
-  %or.cond42 = select i1 %or.cond40, i1 %tobool6.not11.i, i1 false
-  %15 = load i64, ptr %nr, align 8
-  %cmp.i950 = icmp sgt i64 %15, 0
+  %12 = load ptr, ptr %username.i, align 8
+  %13 = shufflevector <2 x ptr> %10, <2 x ptr> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
+  %14 = insertelement <4 x ptr> %13, ptr %11, i64 2
+  %15 = insertelement <4 x ptr> %14, ptr %12, i64 3
+  %.fr = freeze <4 x ptr> %15
+  %16 = icmp ne <4 x ptr> %.fr, zeroinitializer
+  %17 = bitcast <4 x i1> %16 to i4
+  %18 = icmp ne i4 %17, 0
+  %19 = load ptr, ptr %fns, align 8
+  %tobool6.not11.i = icmp ne ptr %19, null
+  %or.cond42 = select i1 %18, i1 %tobool6.not11.i, i1 false
+  %20 = load i64, ptr %nr, align 8
+  %cmp.i950 = icmp sgt i64 %20, 0
   %or.cond61 = select i1 %or.cond42, i1 %cmp.i950, i1 false
   br i1 %or.cond61, label %for.body.i10, label %if.end44
 
 for.body.i10:                                     ; preds = %if.then36, %for.inc.i
-  %fn.012.i51 = phi ptr [ %incdec.ptr.i12, %for.inc.i ], [ %14, %if.then36 ]
-  %16 = load ptr, ptr %fn.012.i51, align 8
-  %call.i11 = call i32 @access(ptr noundef %16, i32 noundef 0) #12
+  %fn.012.i51 = phi ptr [ %incdec.ptr.i12, %for.inc.i ], [ %19, %if.then36 ]
+  %21 = load ptr, ptr %fn.012.i51, align 8
+  %call.i11 = call i32 @access(ptr noundef %21, i32 noundef 0) #12
   %tobool8.not.i = icmp eq i32 %call.i11, 0
   br i1 %tobool8.not.i, label %if.then9.i, label %for.inc.i
 
 if.then9.i:                                       ; preds = %for.body.i10
-  %17 = load ptr, ptr %fn.012.i51, align 8
-  call fastcc void @rewrite_credential_file(ptr noundef %17, ptr noundef nonnull %c, ptr noundef null, i32 noundef 1)
+  %22 = load ptr, ptr %fn.012.i51, align 8
+  call fastcc void @rewrite_credential_file(ptr noundef %22, ptr noundef nonnull %c, ptr noundef null, i32 noundef 1)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then9.i, %for.body.i10
   %incdec.ptr.i12 = getelementptr inbounds i8, ptr %fn.012.i51, i64 16
-  %18 = load ptr, ptr %fns, align 8
-  %19 = load i64, ptr %nr, align 8
-  %add.ptr.i8 = getelementptr inbounds %struct.string_list_item, ptr %18, i64 %19
+  %23 = load ptr, ptr %fns, align 8
+  %24 = load i64, ptr %nr, align 8
+  %add.ptr.i8 = getelementptr inbounds %struct.string_list_item, ptr %23, i64 %24
   %cmp.i9 = icmp ult ptr %incdec.ptr.i12, %add.ptr.i8
   br i1 %cmp.i9, label %for.body.i10, label %if.end44
 
@@ -208,35 +206,35 @@ if.else37:                                        ; preds = %if.else33
 
 if.then40:                                        ; preds = %if.else37
   %protocol.i13 = getelementptr inbounds i8, ptr %c, i64 88
-  %20 = load ptr, ptr %protocol.i13, align 8
-  %tobool.not.i14 = icmp eq ptr %20, null
+  %25 = load ptr, ptr %protocol.i13, align 8
+  %tobool.not.i14 = icmp eq ptr %25, null
   br i1 %tobool.not.i14, label %if.end44, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then40
   %host.i15 = getelementptr inbounds i8, ptr %c, i64 96
-  %21 = load ptr, ptr %host.i15, align 8
-  %tobool1.not.i16 = icmp eq ptr %21, null
+  %26 = load ptr, ptr %host.i15, align 8
+  %tobool1.not.i16 = icmp eq ptr %26, null
   %path.i29 = getelementptr inbounds i8, ptr %c, i64 104
-  %22 = load ptr, ptr %path.i29, align 8
-  %tobool3.not.i30 = icmp eq ptr %22, null
+  %27 = load ptr, ptr %path.i29, align 8
+  %tobool3.not.i30 = icmp eq ptr %27, null
   %or.cond41 = select i1 %tobool1.not.i16, i1 %tobool3.not.i30, i1 false
   br i1 %or.cond41, label %if.end44, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
   %username.i17 = getelementptr inbounds i8, ptr %c, i64 72
-  %23 = load ptr, ptr %username.i17, align 8
-  %tobool5.not.i18 = icmp eq ptr %23, null
+  %28 = load ptr, ptr %username.i17, align 8
+  %tobool5.not.i18 = icmp eq ptr %28, null
   br i1 %tobool5.not.i18, label %if.end44, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false4.i
   %password.i = getelementptr inbounds i8, ptr %c, i64 80
-  %24 = load ptr, ptr %password.i, align 8
-  %tobool7.not.i = icmp eq ptr %24, null
+  %29 = load ptr, ptr %password.i, align 8
+  %tobool7.not.i = icmp eq ptr %29, null
   br i1 %tobool7.not.i, label %if.end44, label %if.end.i19
 
 if.end.i19:                                       ; preds = %lor.lhs.false6.i
-  %25 = load ptr, ptr %fns, align 8
-  %tobool8.not16.i = icmp eq ptr %25, null
+  %30 = load ptr, ptr %fns, align 8
+  %tobool8.not16.i = icmp eq ptr %30, null
   %.pr = load i64, ptr %nr, align 8
   br i1 %tobool8.not16.i, label %for.end.i, label %land.rhs.i22.preheader
 
@@ -245,44 +243,44 @@ land.rhs.i22.preheader:                           ; preds = %if.end.i19
   br i1 %cmp.i2447, label %for.body.i25, label %for.end.i
 
 for.body.i25:                                     ; preds = %land.rhs.i22.preheader, %for.inc.i27
-  %fn.017.i48 = phi ptr [ %incdec.ptr.i28, %for.inc.i27 ], [ %25, %land.rhs.i22.preheader ]
-  %26 = load ptr, ptr %fn.017.i48, align 8
-  %call.i26 = call i32 @access(ptr noundef %26, i32 noundef 0) #12
+  %fn.017.i48 = phi ptr [ %incdec.ptr.i28, %for.inc.i27 ], [ %30, %land.rhs.i22.preheader ]
+  %31 = load ptr, ptr %fn.017.i48, align 8
+  %call.i26 = call i32 @access(ptr noundef %31, i32 noundef 0) #12
   %tobool10.not.i = icmp eq i32 %call.i26, 0
   br i1 %tobool10.not.i, label %if.end19.sink.split.i, label %for.inc.i27
 
 for.inc.i27:                                      ; preds = %for.body.i25
   %incdec.ptr.i28 = getelementptr inbounds i8, ptr %fn.017.i48, i64 16
-  %27 = load ptr, ptr %fns, align 8
-  %28 = load i64, ptr %nr, align 8
-  %add.ptr.i23 = getelementptr inbounds %struct.string_list_item, ptr %27, i64 %28
+  %32 = load ptr, ptr %fns, align 8
+  %33 = load i64, ptr %nr, align 8
+  %add.ptr.i23 = getelementptr inbounds %struct.string_list_item, ptr %32, i64 %33
   %cmp.i24 = icmp ult ptr %incdec.ptr.i28, %add.ptr.i23
   br i1 %cmp.i24, label %for.body.i25, label %for.end.i
 
 for.end.i:                                        ; preds = %for.inc.i27, %if.end.i19, %land.rhs.i22.preheader
-  %29 = phi ptr [ %25, %land.rhs.i22.preheader ], [ null, %if.end.i19 ], [ %27, %for.inc.i27 ]
-  %30 = phi i64 [ %.pr, %land.rhs.i22.preheader ], [ %.pr, %if.end.i19 ], [ %28, %for.inc.i27 ]
-  %tobool15.not.i = icmp eq i64 %30, 0
+  %34 = phi ptr [ %30, %land.rhs.i22.preheader ], [ null, %if.end.i19 ], [ %32, %for.inc.i27 ]
+  %35 = phi i64 [ %.pr, %land.rhs.i22.preheader ], [ %.pr, %if.end.i19 ], [ %33, %for.inc.i27 ]
+  %tobool15.not.i = icmp eq i64 %35, 0
   br i1 %tobool15.not.i, label %if.end44, label %if.end19.sink.split.i
 
 if.end19.sink.split.i:                            ; preds = %for.body.i25, %for.end.i
-  %.sink20.i = phi ptr [ %29, %for.end.i ], [ %fn.017.i48, %for.body.i25 ]
-  %31 = load ptr, ptr %.sink20.i, align 8
+  %.sink20.i = phi ptr [ %34, %for.end.i ], [ %fn.017.i48, %for.body.i25 ]
+  %36 = load ptr, ptr %.sink20.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.store_credential_file.buf, i64 24, i1 false)
-  %32 = load ptr, ptr %protocol.i13, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf.i, ptr noundef nonnull @.str.19, ptr noundef %32) #12
-  %33 = load ptr, ptr %username.i17, align 8
-  call void @strbuf_addstr_urlencode(ptr noundef nonnull %buf.i, ptr noundef %33, ptr noundef nonnull @is_rfc3986_unreserved) #12
-  %34 = load i64, ptr %buf.i, align 8
-  %tobool.not.i.i.i = icmp eq i64 %34, 0
+  %37 = load ptr, ptr %protocol.i13, align 8
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf.i, ptr noundef nonnull @.str.19, ptr noundef %37) #12
+  %38 = load ptr, ptr %username.i17, align 8
+  call void @strbuf_addstr_urlencode(ptr noundef nonnull %buf.i, ptr noundef %38, ptr noundef nonnull @is_rfc3986_unreserved) #12
+  %39 = load i64, ptr %buf.i, align 8
+  %tobool.not.i.i.i = icmp eq i64 %39, 0
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %if.end19.sink.split.i
   %len.i.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
-  %35 = load i64, ptr %len.i.i.i, align 8
-  %.neg.i.i = add i64 %35, 1
-  %tobool.not.i.i = icmp eq i64 %34, %.neg.i.i
+  %40 = load i64, ptr %len.i.i.i, align 8
+  %.neg.i.i = add i64 %40, 1
+  %tobool.not.i.i = icmp eq i64 %39, %.neg.i.i
   br i1 %tobool.not.i.i, label %if.then.i.i, label %strbuf_addch.exit.i
 
 if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.end19.sink.split.i
@@ -294,27 +292,27 @@ if.then.i.i:                                      ; preds = %strbuf_avail.exit.i
 
 strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbuf_avail.exit.i.i
   %inc.pre-phi.i.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ]
-  %36 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %35, %strbuf_avail.exit.i.i ]
+  %41 = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %40, %strbuf_avail.exit.i.i ]
   %buf.i.i = getelementptr inbounds i8, ptr %buf.i, i64 16
-  %37 = load ptr, ptr %buf.i.i, align 8
+  %42 = load ptr, ptr %buf.i.i, align 8
   %len.i.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   store i64 %inc.pre-phi.i.i, ptr %len.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %37, i64 %36
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %42, i64 %41
   store i8 58, ptr %arrayidx.i.i, align 1
-  %38 = load ptr, ptr %buf.i.i, align 8
-  %39 = load i64, ptr %len.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %38, i64 %39
+  %43 = load ptr, ptr %buf.i.i, align 8
+  %44 = load i64, ptr %len.i.i, align 8
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %43, i64 %44
   store i8 0, ptr %arrayidx3.i.i, align 1
-  %40 = load ptr, ptr %password.i, align 8
-  call void @strbuf_addstr_urlencode(ptr noundef nonnull %buf.i, ptr noundef %40, ptr noundef nonnull @is_rfc3986_unreserved) #12
-  %41 = load i64, ptr %buf.i, align 8
-  %tobool.not.i.i8.i = icmp eq i64 %41, 0
+  %45 = load ptr, ptr %password.i, align 8
+  call void @strbuf_addstr_urlencode(ptr noundef nonnull %buf.i, ptr noundef %45, ptr noundef nonnull @is_rfc3986_unreserved) #12
+  %46 = load i64, ptr %buf.i, align 8
+  %tobool.not.i.i8.i = icmp eq i64 %46, 0
   br i1 %tobool.not.i.i8.i, label %if.then.i18.i, label %strbuf_avail.exit.i9.i
 
 strbuf_avail.exit.i9.i:                           ; preds = %strbuf_addch.exit.i
-  %42 = load i64, ptr %len.i.i, align 8
-  %.neg.i11.i = add i64 %42, 1
-  %tobool.not.i12.i = icmp eq i64 %41, %.neg.i11.i
+  %47 = load i64, ptr %len.i.i, align 8
+  %.neg.i11.i = add i64 %47, 1
+  %tobool.not.i12.i = icmp eq i64 %46, %.neg.i11.i
   br i1 %tobool.not.i12.i, label %if.then.i18.i, label %strbuf_addch.exit22.i
 
 if.then.i18.i:                                    ; preds = %strbuf_avail.exit.i9.i, %strbuf_addch.exit.i
@@ -325,37 +323,37 @@ if.then.i18.i:                                    ; preds = %strbuf_avail.exit.i
 
 strbuf_addch.exit22.i:                            ; preds = %if.then.i18.i, %strbuf_avail.exit.i9.i
   %inc.pre-phi.i13.i = phi i64 [ %.pre8.i21.i, %if.then.i18.i ], [ %.neg.i11.i, %strbuf_avail.exit.i9.i ]
-  %43 = phi i64 [ %.pre.i20.i, %if.then.i18.i ], [ %42, %strbuf_avail.exit.i9.i ]
-  %44 = load ptr, ptr %buf.i.i, align 8
+  %48 = phi i64 [ %.pre.i20.i, %if.then.i18.i ], [ %47, %strbuf_avail.exit.i9.i ]
+  %49 = load ptr, ptr %buf.i.i, align 8
   store i64 %inc.pre-phi.i13.i, ptr %len.i.i, align 8
-  %arrayidx.i16.i = getelementptr inbounds i8, ptr %44, i64 %43
+  %arrayidx.i16.i = getelementptr inbounds i8, ptr %49, i64 %48
   store i8 64, ptr %arrayidx.i16.i, align 1
-  %45 = load ptr, ptr %buf.i.i, align 8
-  %46 = load i64, ptr %len.i.i, align 8
-  %arrayidx3.i17.i = getelementptr inbounds i8, ptr %45, i64 %46
+  %50 = load ptr, ptr %buf.i.i, align 8
+  %51 = load i64, ptr %len.i.i, align 8
+  %arrayidx3.i17.i = getelementptr inbounds i8, ptr %50, i64 %51
   store i8 0, ptr %arrayidx3.i17.i, align 1
-  %47 = load ptr, ptr %host.i15, align 8
-  %tobool.not.i35 = icmp eq ptr %47, null
+  %52 = load ptr, ptr %host.i15, align 8
+  %tobool.not.i35 = icmp eq ptr %52, null
   br i1 %tobool.not.i35, label %if.end.i36, label %if.then.i
 
 if.then.i:                                        ; preds = %strbuf_addch.exit22.i
-  call void @strbuf_addstr_urlencode(ptr noundef nonnull %buf.i, ptr noundef nonnull %47, ptr noundef nonnull @is_rfc3986_unreserved) #12
+  call void @strbuf_addstr_urlencode(ptr noundef nonnull %buf.i, ptr noundef nonnull %52, ptr noundef nonnull @is_rfc3986_unreserved) #12
   br label %if.end.i36
 
 if.end.i36:                                       ; preds = %if.then.i, %strbuf_addch.exit22.i
-  %48 = load ptr, ptr %path.i29, align 8
-  %tobool2.not.i38 = icmp eq ptr %48, null
+  %53 = load ptr, ptr %path.i29, align 8
+  %tobool2.not.i38 = icmp eq ptr %53, null
   br i1 %tobool2.not.i38, label %store_credential_file.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i36
-  %49 = load i64, ptr %buf.i, align 8
-  %tobool.not.i.i23.i = icmp eq i64 %49, 0
+  %54 = load i64, ptr %buf.i, align 8
+  %tobool.not.i.i23.i = icmp eq i64 %54, 0
   br i1 %tobool.not.i.i23.i, label %if.then.i33.i, label %strbuf_avail.exit.i24.i
 
 strbuf_avail.exit.i24.i:                          ; preds = %if.then3.i
-  %50 = load i64, ptr %len.i.i, align 8
-  %.neg.i26.i = add i64 %50, 1
-  %tobool.not.i27.i = icmp eq i64 %49, %.neg.i26.i
+  %55 = load i64, ptr %len.i.i, align 8
+  %.neg.i26.i = add i64 %55, 1
+  %tobool.not.i27.i = icmp eq i64 %54, %.neg.i26.i
   br i1 %tobool.not.i27.i, label %if.then.i33.i, label %strbuf_addch.exit37.i
 
 if.then.i33.i:                                    ; preds = %strbuf_avail.exit.i24.i, %if.then3.i
@@ -366,21 +364,21 @@ if.then.i33.i:                                    ; preds = %strbuf_avail.exit.i
 
 strbuf_addch.exit37.i:                            ; preds = %if.then.i33.i, %strbuf_avail.exit.i24.i
   %inc.pre-phi.i28.i = phi i64 [ %.pre8.i36.i, %if.then.i33.i ], [ %.neg.i26.i, %strbuf_avail.exit.i24.i ]
-  %51 = phi i64 [ %.pre.i35.i, %if.then.i33.i ], [ %50, %strbuf_avail.exit.i24.i ]
-  %52 = load ptr, ptr %buf.i.i, align 8
+  %56 = phi i64 [ %.pre.i35.i, %if.then.i33.i ], [ %55, %strbuf_avail.exit.i24.i ]
+  %57 = load ptr, ptr %buf.i.i, align 8
   store i64 %inc.pre-phi.i28.i, ptr %len.i.i, align 8
-  %arrayidx.i31.i = getelementptr inbounds i8, ptr %52, i64 %51
+  %arrayidx.i31.i = getelementptr inbounds i8, ptr %57, i64 %56
   store i8 47, ptr %arrayidx.i31.i, align 1
-  %53 = load ptr, ptr %buf.i.i, align 8
-  %54 = load i64, ptr %len.i.i, align 8
-  %arrayidx3.i32.i = getelementptr inbounds i8, ptr %53, i64 %54
+  %58 = load ptr, ptr %buf.i.i, align 8
+  %59 = load i64, ptr %len.i.i, align 8
+  %arrayidx3.i32.i = getelementptr inbounds i8, ptr %58, i64 %59
   store i8 0, ptr %arrayidx3.i32.i, align 1
-  %55 = load ptr, ptr %path.i29, align 8
-  call void @strbuf_addstr_urlencode(ptr noundef nonnull %buf.i, ptr noundef %55, ptr noundef nonnull @is_rfc3986_reserved_or_unreserved) #12
+  %60 = load ptr, ptr %path.i29, align 8
+  call void @strbuf_addstr_urlencode(ptr noundef nonnull %buf.i, ptr noundef %60, ptr noundef nonnull @is_rfc3986_reserved_or_unreserved) #12
   br label %store_credential_file.exit
 
 store_credential_file.exit:                       ; preds = %if.end.i36, %strbuf_addch.exit37.i
-  call fastcc void @rewrite_credential_file(ptr noundef %31, ptr noundef nonnull %c, ptr noundef nonnull %buf.i, i32 noundef 0)
+  call fastcc void @rewrite_credential_file(ptr noundef %36, ptr noundef nonnull %c, ptr noundef nonnull %buf.i, i32 noundef 0)
   call void @strbuf_release(ptr noundef nonnull %buf.i) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %buf.i)
   br label %if.end44

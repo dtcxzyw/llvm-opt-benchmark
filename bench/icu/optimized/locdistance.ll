@@ -29,21 +29,19 @@ entry:
 
 if.end:                                           ; preds = %entry
   %distanceData.i = getelementptr inbounds i8, ptr %call, i64 304
-  %1 = load ptr, ptr %distanceData.i, align 8
-  %cmp = icmp eq ptr %1, null
-  %regionToPartitions = getelementptr inbounds i8, ptr %call, i64 312
-  %2 = load ptr, ptr %regionToPartitions, align 8
-  %cmp3 = icmp eq ptr %2, null
-  %or.cond = select i1 %cmp, i1 true, i1 %cmp3
+  %1 = load <2 x ptr>, ptr %distanceData.i, align 8
   %partitions = getelementptr inbounds i8, ptr %call, i64 320
-  %3 = load ptr, ptr %partitions, align 8
-  %cmp5 = icmp eq ptr %3, null
-  %or.cond9 = select i1 %or.cond, i1 true, i1 %cmp5
+  %2 = load ptr, ptr %partitions, align 8
   %distances = getelementptr inbounds i8, ptr %call, i64 344
-  %4 = load ptr, ptr %distances, align 8
-  %cmp7 = icmp eq ptr %4, null
-  %or.cond10 = select i1 %or.cond9, i1 true, i1 %cmp7
-  br i1 %or.cond10, label %if.then8, label %if.end9
+  %3 = load ptr, ptr %distances, align 8
+  %4 = shufflevector <2 x ptr> %1, <2 x ptr> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
+  %5 = insertelement <4 x ptr> %4, ptr %2, i64 2
+  %6 = insertelement <4 x ptr> %5, ptr %3, i64 3
+  %.fr = freeze <4 x ptr> %6
+  %7 = icmp eq <4 x ptr> %.fr, zeroinitializer
+  %8 = bitcast <4 x i1> %7 to i4
+  %.not = icmp eq i4 %8, 0
+  br i1 %.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end
   store i32 2, ptr %errorCode, align 4
@@ -64,10 +62,10 @@ if.then12:                                        ; preds = %if.end9
   br label %return
 
 lpad:                                             ; preds = %new.notnull
-  %5 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call10) #8
-  resume { ptr, i32 } %5
+  resume { ptr, i32 } %9
 
 if.end13:                                         ; preds = %new.notnull
   store ptr %call10, ptr @_ZN6icu_7512_GLOBAL__N_115gLocaleDistanceE, align 8
@@ -134,21 +132,19 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
 
 if.end.i3:                                        ; preds = %if.then4.i
   %distanceData.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
-  %3 = load ptr, ptr %distanceData.i.i, align 8
-  %cmp.i4 = icmp eq ptr %3, null
-  %regionToPartitions.i = getelementptr inbounds i8, ptr %call.i, i64 312
-  %4 = load ptr, ptr %regionToPartitions.i, align 8
-  %cmp3.i = icmp eq ptr %4, null
-  %or.cond.i = select i1 %cmp.i4, i1 true, i1 %cmp3.i
+  %3 = load <2 x ptr>, ptr %distanceData.i.i, align 8
   %partitions.i = getelementptr inbounds i8, ptr %call.i, i64 320
-  %5 = load ptr, ptr %partitions.i, align 8
-  %cmp5.i = icmp eq ptr %5, null
-  %or.cond9.i = select i1 %or.cond.i, i1 true, i1 %cmp5.i
+  %4 = load ptr, ptr %partitions.i, align 8
   %distances.i = getelementptr inbounds i8, ptr %call.i, i64 344
-  %6 = load ptr, ptr %distances.i, align 8
-  %cmp7.i = icmp eq ptr %6, null
-  %or.cond10.i = select i1 %or.cond9.i, i1 true, i1 %cmp7.i
-  br i1 %or.cond10.i, label %if.then8.i5, label %if.end9.i
+  %5 = load ptr, ptr %distances.i, align 8
+  %6 = shufflevector <2 x ptr> %3, <2 x ptr> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
+  %7 = insertelement <4 x ptr> %6, ptr %4, i64 2
+  %8 = insertelement <4 x ptr> %7, ptr %5, i64 3
+  %.fr = freeze <4 x ptr> %8
+  %9 = icmp eq <4 x ptr> %.fr, zeroinitializer
+  %10 = bitcast <4 x i1> %9 to i4
+  %.not = icmp eq i4 %10, 0
+  br i1 %.not, label %if.end9.i, label %if.then8.i5
 
 if.then8.i5:                                      ; preds = %if.end.i3
   store i32 2, ptr %errorCode, align 4
@@ -169,10 +165,10 @@ if.then12.i:                                      ; preds = %if.end9.i
   br label %_ZN6icu_7514LocaleDistance18initLocaleDistanceER10UErrorCode.exit
 
 lpad.i:                                           ; preds = %new.notnull.i
-  %7 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call10.i) #8
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %11
 
 if.end13.i:                                       ; preds = %new.notnull.i
   store ptr %call10.i, ptr @_ZN6icu_7512_GLOBAL__N_115gLocaleDistanceE, align 8
@@ -181,26 +177,26 @@ if.end13.i:                                       ; preds = %new.notnull.i
   br label %_ZN6icu_7514LocaleDistance18initLocaleDistanceER10UErrorCode.exit
 
 _ZN6icu_7514LocaleDistance18initLocaleDistanceER10UErrorCode.exit: ; preds = %if.then4.i, %if.then8.i5, %if.then12.i, %if.end13.i
-  %8 = phi i32 [ %2, %if.then4.i ], [ 2, %if.then8.i5 ], [ 7, %if.then12.i ], [ %.pre, %if.end13.i ]
-  store i32 %8, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7512_GLOBAL__N_19gInitOnceE, i64 0, i32 1), align 4
+  %12 = phi i32 [ %2, %if.then4.i ], [ 2, %if.then8.i5 ], [ 7, %if.then12.i ], [ %.pre, %if.end13.i ]
+  store i32 %12, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7512_GLOBAL__N_19gInitOnceE, i64 0, i32 1), align 4
   tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7512_GLOBAL__N_19gInitOnceE)
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %9 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7512_GLOBAL__N_19gInitOnceE, i64 0, i32 1), align 4
-  %cmp.i9.i = icmp slt i32 %9, 1
+  %13 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN6icu_7512_GLOBAL__N_19gInitOnceE, i64 0, i32 1), align 4
+  %cmp.i9.i = icmp slt i32 %13, 1
   br i1 %cmp.i9.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.else.i
-  store i32 %9, ptr %errorCode, align 4
+  store i32 %13, ptr %errorCode, align 4
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %_ZN6icu_7514LocaleDistance18initLocaleDistanceER10UErrorCode.exit, %if.else.i, %if.then8.i
-  %10 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_115gLocaleDistanceE, align 8
+  %14 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_115gLocaleDistanceE, align 8
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
-  %retval.0 = phi ptr [ %10, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ null, %entry ]
+  %retval.0 = phi ptr [ %14, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ null, %entry ]
   ret ptr %retval.0
 }
 

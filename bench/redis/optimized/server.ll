@@ -12630,72 +12630,70 @@ entry:
   %tobool13.not = icmp ne i32 %5, 0
   %inc15 = zext i1 %tobool13.not to i64
   %deprecated_since = getelementptr inbounds i8, ptr %cmd, i64 48
-  %6 = load ptr, ptr %deprecated_since, align 8
-  %tobool17.not = icmp ne ptr %6, null
-  %inc19 = zext i1 %tobool17.not to i64
   %replaced_by = getelementptr inbounds i8, ptr %cmd, i64 40
-  %7 = load ptr, ptr %replaced_by, align 8
+  %6 = load <2 x ptr>, ptr %replaced_by, align 8
   %history = getelementptr inbounds i8, ptr %cmd, i64 64
-  %8 = load ptr, ptr %history, align 8
+  %7 = load ptr, ptr %history, align 8
   %args = getelementptr inbounds i8, ptr %cmd, i64 168
-  %9 = load ptr, ptr %args, align 8
+  %8 = load ptr, ptr %args, align 8
+  %9 = shufflevector <2 x ptr> %6, <2 x ptr> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
+  %10 = insertelement <4 x ptr> %9, ptr %7, i64 2
+  %11 = insertelement <4 x ptr> %10, ptr %8, i64 3
+  %12 = icmp ne <4 x ptr> %11, zeroinitializer
   %subcommands_dict = getelementptr inbounds i8, ptr %cmd, i64 288
-  %10 = load ptr, ptr %subcommands_dict, align 8
-  %11 = insertelement <4 x ptr> poison, ptr %7, i64 0
-  %12 = insertelement <4 x ptr> %11, ptr %8, i64 1
-  %13 = insertelement <4 x ptr> %12, ptr %9, i64 2
-  %14 = insertelement <4 x ptr> %13, ptr %10, i64 3
-  %15 = icmp ne <4 x ptr> %14, zeroinitializer
-  %16 = bitcast <4 x i1> %15 to i4
-  %17 = tail call i4 @llvm.ctpop.i4(i4 %16), !range !52
-  %18 = zext nneg i4 %17 to i64
-  %op.rdx = add nuw nsw i64 %18, %inc3
+  %13 = load ptr, ptr %subcommands_dict, align 8
+  %tobool33.not = icmp ne ptr %13, null
+  %inc35 = zext i1 %tobool33.not to i64
+  %14 = bitcast <4 x i1> %12 to i4
+  %15 = tail call i4 @llvm.ctpop.i4(i4 %14), !range !52
+  %16 = zext nneg i4 %15 to i64
+  %op.rdx = add nuw nsw i64 %16, %inc3
   %op.rdx65 = add nuw nsw i64 %inc11, %inc15
-  %op.rdx66 = add nuw nsw i64 %3, %inc19
+  %op.rdx66 = add nuw nsw i64 %3, %inc35
   %op.rdx67 = add nuw nsw i64 %op.rdx, %op.rdx65
   %op.rdx68 = add nuw nsw i64 %op.rdx66, %spec.select
   %op.rdx69 = add nuw nsw i64 %op.rdx67, %op.rdx68
   tail call void @addReplyMapLen(ptr noundef %c, i64 noundef %op.rdx69) #38
-  %19 = load ptr, ptr %summary, align 8
-  %tobool38.not = icmp eq ptr %19, null
+  %17 = load ptr, ptr %summary, align 8
+  %tobool38.not = icmp eq ptr %17, null
   br i1 %tobool38.not, label %if.end41, label %if.then39
 
 if.then39:                                        ; preds = %entry
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.270) #38
-  %20 = load ptr, ptr %summary, align 8
-  tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %20) #38
+  %18 = load ptr, ptr %summary, align 8
+  tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %18) #38
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then39, %entry
-  %21 = load ptr, ptr %since, align 8
-  %tobool43.not = icmp eq ptr %21, null
+  %19 = load ptr, ptr %since, align 8
+  %tobool43.not = icmp eq ptr %19, null
   br i1 %tobool43.not, label %if.end46, label %if.then44
 
 if.then44:                                        ; preds = %if.end41
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.271) #38
-  %22 = load ptr, ptr %since, align 8
-  tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %22) #38
+  %20 = load ptr, ptr %since, align 8
+  tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %20) #38
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then44, %if.end41
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.292) #38
   %group = getelementptr inbounds i8, ptr %cmd, i64 56
-  %23 = load i32, ptr %group, align 8
-  %call = tail call ptr @commandGroupStr(i32 noundef %23) #38
+  %21 = load i32, ptr %group, align 8
+  %call = tail call ptr @commandGroupStr(i32 noundef %21) #38
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %call) #38
-  %24 = load ptr, ptr %complexity, align 8
-  %tobool48.not = icmp eq ptr %24, null
+  %22 = load ptr, ptr %complexity, align 8
+  %tobool48.not = icmp eq ptr %22, null
   br i1 %tobool48.not, label %if.end51, label %if.then49
 
 if.then49:                                        ; preds = %if.end46
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.293) #38
-  %25 = load ptr, ptr %complexity, align 8
-  tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %25) #38
+  %23 = load ptr, ptr %complexity, align 8
+  tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %23) #38
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then49, %if.end46
-  %26 = load i64, ptr %flags, align 8
-  %and53 = and i64 %26, 8
+  %24 = load i64, ptr %flags, align 8
+  %and53 = and i64 %24, 8
   %tobool54.not = icmp eq i64 %and53, 0
   br i1 %tobool54.not, label %if.end57, label %if.then55
 
@@ -12706,22 +12704,22 @@ if.then55:                                        ; preds = %if.end51
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then55, %if.end51
-  %27 = load i32, ptr %doc_flags, align 8
-  %tobool59.not = icmp eq i32 %27, 0
+  %25 = load i32, ptr %doc_flags, align 8
+  %tobool59.not = icmp eq i32 %25, 0
   br i1 %tobool59.not, label %if.end61, label %if.then60
 
 if.then60:                                        ; preds = %if.end57
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.294) #38
-  %28 = load i32, ptr %doc_flags, align 8
-  %conv.i = sext i32 %28 to i64
+  %26 = load i32, ptr %doc_flags, align 8
+  %conv.i = sext i32 %26 to i64
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %if.then60
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %while.body.i.i ], [ 0, %if.then60 ]
   %arrayidx18.i.i = phi ptr [ %arrayidx.i.i, %while.body.i.i ], [ @__const.addReplyDocFlagsForCommand.docFlagNames, %if.then60 ]
   %count.016.i.i = phi i32 [ %spec.select.i.i, %while.body.i.i ], [ 0, %if.then60 ]
-  %29 = load i64, ptr %arrayidx18.i.i, align 8
-  %and.i.i = and i64 %29, %conv.i
+  %27 = load i64, ptr %arrayidx18.i.i, align 8
+  %and.i.i = and i64 %27, %conv.i
   %tobool3.not.i.i = icmp ne i64 %and.i.i, 0
   %inc.i.i = zext i1 %tobool3.not.i.i to i32
   %spec.select.i.i = add nuw nsw i32 %count.016.i.i, %inc.i.i
@@ -12731,101 +12729,101 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %if
   br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !50
 
 while.end.i.i:                                    ; preds = %while.body.i.i
-  %30 = zext nneg i32 %spec.select.i.i to i64
-  tail call void @addReplySetLen(ptr noundef %c, i64 noundef %30) #38
+  %28 = zext nneg i32 %spec.select.i.i to i64
+  tail call void @addReplySetLen(ptr noundef %c, i64 noundef %28) #38
   br label %while.body10.i.i
 
 while.body10.i.i:                                 ; preds = %if.end20.i.i, %while.end.i.i
   %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %if.end20.i.i ], [ 0, %while.end.i.i ]
-  %31 = phi ptr [ %33, %if.end20.i.i ], [ @.str.240, %while.end.i.i ]
+  %29 = phi ptr [ %31, %if.end20.i.i ], [ @.str.240, %while.end.i.i ]
   %arrayidx722.i.i = phi ptr [ %arrayidx7.i.i, %if.end20.i.i ], [ @__const.addReplyDocFlagsForCommand.docFlagNames, %while.end.i.i ]
-  %32 = load i64, ptr %arrayidx722.i.i, align 8
-  %and14.i.i = and i64 %32, %conv.i
+  %30 = load i64, ptr %arrayidx722.i.i, align 8
+  %and14.i.i = and i64 %30, %conv.i
   %tobool15.not.i.i = icmp eq i64 %and14.i.i, 0
   br i1 %tobool15.not.i.i, label %if.end20.i.i, label %if.then16.i.i
 
 if.then16.i.i:                                    ; preds = %while.body10.i.i
-  tail call void @addReplyStatus(ptr noundef %c, ptr noundef nonnull %31) #38
+  tail call void @addReplyStatus(ptr noundef %c, ptr noundef nonnull %29) #38
   br label %if.end20.i.i
 
 if.end20.i.i:                                     ; preds = %if.then16.i.i, %while.body10.i.i
   %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
   %arrayidx7.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyDocFlagsForCommand.docFlagNames, i64 %indvars.iv.next25.i.i
   %name8.i.i = getelementptr inbounds i8, ptr %arrayidx7.i.i, i64 8
-  %33 = load ptr, ptr %name8.i.i, align 8
+  %31 = load ptr, ptr %name8.i.i, align 8
   %exitcond2.i = icmp eq i64 %indvars.iv.next25.i.i, 2
   br i1 %exitcond2.i, label %if.end61, label %while.body10.i.i, !llvm.loop !51
 
 if.end61:                                         ; preds = %if.end20.i.i, %if.end57
-  %34 = load ptr, ptr %deprecated_since, align 8
-  %tobool63.not = icmp eq ptr %34, null
+  %32 = load ptr, ptr %deprecated_since, align 8
+  %tobool63.not = icmp eq ptr %32, null
   br i1 %tobool63.not, label %if.end66, label %if.then64
 
 if.then64:                                        ; preds = %if.end61
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.272) #38
-  %35 = load ptr, ptr %deprecated_since, align 8
-  tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %35) #38
+  %33 = load ptr, ptr %deprecated_since, align 8
+  tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %33) #38
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then64, %if.end61
-  %36 = load ptr, ptr %replaced_by, align 8
-  %tobool68.not = icmp eq ptr %36, null
+  %34 = load ptr, ptr %replaced_by, align 8
+  %tobool68.not = icmp eq ptr %34, null
   br i1 %tobool68.not, label %if.end71, label %if.then69
 
 if.then69:                                        ; preds = %if.end66
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.295) #38
-  %37 = load ptr, ptr %replaced_by, align 8
-  tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %37) #38
+  %35 = load ptr, ptr %replaced_by, align 8
+  tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %35) #38
   br label %if.end71
 
 if.end71:                                         ; preds = %if.then69, %if.end66
-  %38 = load ptr, ptr %history, align 8
-  %tobool73.not = icmp eq ptr %38, null
+  %36 = load ptr, ptr %history, align 8
+  %tobool73.not = icmp eq ptr %36, null
   br i1 %tobool73.not, label %if.end75, label %if.then74
 
 if.then74:                                        ; preds = %if.end71
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.296) #38
   %num_history.i = getelementptr inbounds i8, ptr %cmd, i64 72
-  %39 = load i32, ptr %num_history.i, align 8
-  %conv.i64 = sext i32 %39 to i64
+  %37 = load i32, ptr %num_history.i, align 8
+  %conv.i64 = sext i32 %37 to i64
   tail call void @addReplySetLen(ptr noundef %c, i64 noundef %conv.i64) #38
-  %40 = load i32, ptr %num_history.i, align 8
-  %cmp10.i = icmp sgt i32 %40, 0
+  %38 = load i32, ptr %num_history.i, align 8
+  %cmp10.i = icmp sgt i32 %38, 0
   br i1 %cmp10.i, label %for.body.i, label %if.end75
 
 for.body.i:                                       ; preds = %if.then74, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %if.then74 ]
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef 2) #38
+  %39 = load ptr, ptr %history, align 8
+  %arrayidx.i = getelementptr inbounds %struct.commandHistory, ptr %39, i64 %indvars.iv.i
+  %40 = load ptr, ptr %arrayidx.i, align 8
+  tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %40) #38
   %41 = load ptr, ptr %history, align 8
-  %arrayidx.i = getelementptr inbounds %struct.commandHistory, ptr %41, i64 %indvars.iv.i
-  %42 = load ptr, ptr %arrayidx.i, align 8
+  %changes.i = getelementptr inbounds %struct.commandHistory, ptr %41, i64 %indvars.iv.i, i32 1
+  %42 = load ptr, ptr %changes.i, align 8
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %42) #38
-  %43 = load ptr, ptr %history, align 8
-  %changes.i = getelementptr inbounds %struct.commandHistory, ptr %43, i64 %indvars.iv.i, i32 1
-  %44 = load ptr, ptr %changes.i, align 8
-  tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef %44) #38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %45 = load i32, ptr %num_history.i, align 8
-  %46 = sext i32 %45 to i64
-  %cmp.i = icmp slt i64 %indvars.iv.next.i, %46
+  %43 = load i32, ptr %num_history.i, align 8
+  %44 = sext i32 %43 to i64
+  %cmp.i = icmp slt i64 %indvars.iv.next.i, %44
   br i1 %cmp.i, label %for.body.i, label %if.end75, !llvm.loop !54
 
 if.end75:                                         ; preds = %for.body.i, %if.then74, %if.end71
-  %47 = load ptr, ptr %args, align 8
-  %tobool77.not = icmp eq ptr %47, null
+  %45 = load ptr, ptr %args, align 8
+  %tobool77.not = icmp eq ptr %45, null
   br i1 %tobool77.not, label %if.end80, label %if.then78
 
 if.then78:                                        ; preds = %if.end75
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.274) #38
-  %48 = load ptr, ptr %args, align 8
+  %46 = load ptr, ptr %args, align 8
   %num_args = getelementptr inbounds i8, ptr %cmd, i64 152
-  %49 = load i32, ptr %num_args, align 8
-  tail call void @addReplyCommandArgList(ptr noundef %c, ptr noundef %48, i32 noundef %49)
+  %47 = load i32, ptr %num_args, align 8
+  tail call void @addReplyCommandArgList(ptr noundef %c, ptr noundef %46, i32 noundef %47)
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then78, %if.end75
-  %50 = load ptr, ptr %subcommands_dict, align 8
-  %tobool82.not = icmp eq ptr %50, null
+  %48 = load ptr, ptr %subcommands_dict, align 8
+  %tobool82.not = icmp eq ptr %48, null
   br i1 %tobool82.not, label %if.end84, label %if.then83
 
 if.then83:                                        ; preds = %if.end80
