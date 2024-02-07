@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden zeroext i1 @"_ZN4core3f3221_$LT$impl$u20$f32$GT$9is_finite17h0e3f061548a39535E"(float %0) unnamed_addr #0 {
   %2 = tail call float @llvm.fabs.f32(float %0)
-  %3 = fcmp olt float %2, 0x7FF0000000000000
+  %3 = fcmp one float %2, 0x7FF0000000000000
   ret i1 %3
 }
 
