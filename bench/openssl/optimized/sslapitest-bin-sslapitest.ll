@@ -21404,21 +21404,21 @@ entry:
   br label %for.body
 
 for.cond:                                         ; preds = %lor.lhs.false
-  %inc = add nuw nsw i64 %i.039, 1
+  %inc = add nuw nsw i64 %i.042, 1
   %exitcond.not = icmp eq i64 %inc, 4
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !29
 
 for.body:                                         ; preds = %entry, %for.cond
-  %i.039 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
+  %i.042 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
   %call = tail call ptr @X509_NAME_new() #23
-  %arrayidx = getelementptr inbounds [4 x ptr], ptr %name, i64 0, i64 %i.039
+  %arrayidx = getelementptr inbounds [4 x ptr], ptr %name, i64 0, i64 %i.042
   store ptr %call, ptr %arrayidx, align 8
   %call2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 8889, ptr noundef nonnull @.str.910, ptr noundef %call) #23
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %arrayidx4 = getelementptr inbounds [4 x ptr], ptr @__const.test_ca_names_int.strnames, i64 0, i64 %i.039
+  %arrayidx4 = getelementptr inbounds [4 x ptr], ptr @__const.test_ca_names_int.strnames, i64 0, i64 %i.042
   %0 = load ptr, ptr %arrayidx4, align 8
   %call5 = tail call i32 @X509_NAME_add_entry_by_txt(ptr noundef %call, ptr noundef nonnull @.str.912, i32 noundef 4097, ptr noundef %0, i32 noundef -1, i32 noundef -1, i32 noundef 0) #23
   %cmp6 = icmp ne i32 %call5, 0
@@ -21644,9 +21644,9 @@ lor.lhs.false183:                                 ; preds = %if.end179
 
 lor.lhs.false188:                                 ; preds = %lor.lhs.false183
   %call190 = call ptr @OPENSSL_sk_value(ptr noundef %call180, i32 noundef 0) #23
-  %cond = select i1 %cmp18, i64 0, i64 2
-  %arrayidx193 = getelementptr inbounds [4 x ptr], ptr %name, i64 0, i64 %cond
-  %22 = load ptr, ptr %arrayidx193, align 16
+  %cond.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %cmp18, i64 0, i64 16
+  %cond.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %name, i64 %cond.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
+  %22 = load ptr, ptr %cond.sroa.sel.idx.sroa.sel.idx.sroa.sel, align 16
   %call194 = call i32 @X509_NAME_cmp(ptr noundef %call190, ptr noundef %22) #23
   %call195 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 8967, ptr noundef nonnull @.str.928, ptr noundef nonnull @.str.205, i32 noundef %call194, i32 noundef 0) #23
   %tobool196.not = icmp eq i32 %call195, 0
@@ -21654,9 +21654,9 @@ lor.lhs.false188:                                 ; preds = %lor.lhs.false183
 
 lor.lhs.false197:                                 ; preds = %lor.lhs.false188
   %call199 = call ptr @OPENSSL_sk_value(ptr noundef %call180, i32 noundef 1) #23
-  %cond202 = select i1 %cmp18, i64 1, i64 3
-  %arrayidx204 = getelementptr inbounds [4 x ptr], ptr %name, i64 0, i64 %cond202
-  %23 = load ptr, ptr %arrayidx204, align 8
+  %cond202.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp18, i64 8, i64 24
+  %cond202.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %name, i64 %cond202.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %23 = load ptr, ptr %cond202.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %call205 = call i32 @X509_NAME_cmp(ptr noundef %call199, ptr noundef %23) #23
   %call206 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 8969, ptr noundef nonnull @.str.929, ptr noundef nonnull @.str.205, i32 noundef %call205, i32 noundef 0) #23
   %tobool207.not = icmp ne i32 %call206, 0
@@ -21678,13 +21678,13 @@ end:                                              ; preds = %for.body, %lor.lhs.
   br label %for.body213
 
 for.body213:                                      ; preds = %end, %for.body213
-  %i.140 = phi i64 [ 0, %end ], [ %inc216, %for.body213 ]
-  %arrayidx214 = getelementptr inbounds [4 x ptr], ptr %name, i64 0, i64 %i.140
+  %i.143 = phi i64 [ 0, %end ], [ %inc216, %for.body213 ]
+  %arrayidx214 = getelementptr inbounds [4 x ptr], ptr %name, i64 0, i64 %i.143
   %28 = load ptr, ptr %arrayidx214, align 8
   call void @X509_NAME_free(ptr noundef %28) #23
-  %inc216 = add nuw nsw i64 %i.140, 1
-  %exitcond41.not = icmp eq i64 %inc216, 4
-  br i1 %exitcond41.not, label %for.end217, label %for.body213, !llvm.loop !30
+  %inc216 = add nuw nsw i64 %i.143, 1
+  %exitcond44.not = icmp eq i64 %inc216, 4
+  br i1 %exitcond44.not, label %for.end217, label %for.body213, !llvm.loop !30
 
 for.end217:                                       ; preds = %for.body213
   call void @OPENSSL_sk_pop_free(ptr noundef %sk1.2, ptr noundef nonnull @X509_NAME_free) #23

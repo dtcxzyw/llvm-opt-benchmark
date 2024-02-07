@@ -2008,8 +2008,9 @@ if.end:                                           ; preds = %lor.lhs.false17
 if.then34:                                        ; preds = %if.end
   %conv38 = select i1 %cmp32, i64 5, i64 3
   %7 = sub nuw nsw i64 6, %conv38
-  %8 = getelementptr i8, ptr %tmpline, i64 %conv38
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %8, i8 0, i64 %7, i1 false)
+  %conv38.sroa.sel.v = select i1 %cmp32, i64 5, i64 3
+  %conv38.sroa.sel = getelementptr inbounds i8, ptr %tmpline, i64 %conv38.sroa.sel.v
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %conv38.sroa.sel, i8 0, i64 %7, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %tmpline, ptr noundef nonnull align 1 dereferenceable(3) %line, i64 %conv38, i1 false)
   %call = call i64 @strtol(ptr nocapture noundef nonnull %tmpline, ptr noundef null, i32 noundef 10) #8
   %call40 = tail call i32 @curlx_sltosi(i64 noundef %call) #8
@@ -2023,8 +2024,8 @@ if.else:                                          ; preds = %if.end
 
 land.lhs.true49:                                  ; preds = %if.else
   %state = getelementptr inbounds i8, ptr %conn, i64 1024
-  %9 = load i32, ptr %state, align 8
-  switch i32 %9, label %return [
+  %8 = load i32, ptr %state, align 8
+  switch i32 %8, label %return [
     i32 2, label %return.sink.split
     i32 7, label %return.sink.split
   ]

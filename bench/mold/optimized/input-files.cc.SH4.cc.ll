@@ -102,7 +102,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.578 = type { ptr }
 %class.anon.377 = type { ptr }
 %"struct.mold::elf::ElfPhdr" = type { %"class.mold::LittleEndian.250", %"class.mold::LittleEndian.250", %"class.mold::LittleEndian.250", %"class.mold::LittleEndian.250", %"class.mold::LittleEndian.250", %"class.mold::LittleEndian.250", %"class.mold::LittleEndian.250", %"class.mold::LittleEndian.250" }
-%"class.std::filesystem::__cxx11::path::iterator" = type <{ ptr, ptr, i8, [7 x i8] }>
 %"class.std::optional.396" = type { %"struct.std::_Optional_base.397" }
 %"struct.std::_Optional_base.397" = type { %"struct.std::_Optional_payload.399" }
 %"struct.std::_Optional_payload.399" = type { %"struct.std::_Optional_payload_base.base.401", [7 x i8] }
@@ -12121,7 +12120,6 @@ entry:
   %ref.tmp.i.i16 = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i5 = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
-  %__last = alloca %"class.std::filesystem::__cxx11::path::iterator", align 8
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp eq i64 %0, 0
@@ -12187,61 +12185,45 @@ if.then10:                                        ; preds = %if.then7
 if.end:                                           ; preds = %if.then7
   %conv.i.i3.i = and i64 %4, 3
   %cmp.i = icmp eq i64 %conv.i.i3.i, 0
-  br i1 %cmp.i, label %_ZNKSt10filesystem7__cxx114path3endEv.exit, label %.thread44
-
-.thread44:                                        ; preds = %if.end
-  store ptr %this, ptr %__last, align 8
-  br label %14
+  br i1 %cmp.i, label %_ZNKSt10filesystem7__cxx114path3endEv.exit, label %.thread
 
 _ZNKSt10filesystem7__cxx114path3endEv.exit:       ; preds = %if.end
   %call2.i = tail call noundef ptr @_ZNKSt10filesystem7__cxx114path5_List3endEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i1) #14, !noalias !135
   %.pre = load ptr, ptr %_M_cmpts.i1, align 8
   %.pre.fr = freeze ptr %.pre
-  %.pre21 = ptrtoint ptr %.pre.fr to i64
-  %.pre22 = and i64 %.pre21, 3
-  %11 = icmp eq i64 %.pre22, 0
-  br i1 %11, label %12, label %13
+  %.pre24 = ptrtoint ptr %.pre.fr to i64
+  %.pre25 = and i64 %.pre24, 3
+  %11 = icmp eq i64 %.pre25, 0
+  %spec.select36 = getelementptr inbounds i8, ptr %call2.i, i64 -48
+  %spec.select = select i1 %11, ptr %spec.select36, ptr %this
+  br label %.thread
 
-12:                                               ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit
-  %spec.select39 = getelementptr inbounds i8, ptr %call2.i, i64 -48
-  store ptr %this, ptr %__last, align 8
-  br label %14
-
-13:                                               ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit
-  store ptr %this, ptr %__last, align 8
-  br label %14
-
-14:                                               ; preds = %13, %.thread44, %12
-  %call2.i.sink = phi ptr [ %call2.i, %13 ], [ null, %.thread44 ], [ %spec.select39, %12 ]
-  %15 = phi i64 [ 0, %13 ], [ 0, %.thread44 ], [ 8, %12 ]
-  %ref.tmp.sroa.3.0.__last.sroa_idx50 = getelementptr inbounds i8, ptr %__last, i64 8
-  store ptr %call2.i.sink, ptr %ref.tmp.sroa.3.0.__last.sroa_idx50, align 8
-  %retval.0.in.i.i = getelementptr inbounds i8, ptr %__last, i64 %15
-  %retval.0.i.i = load ptr, ptr %retval.0.in.i.i, align 8
-  %_M_cmpts.i9 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 32
-  %16 = load ptr, ptr %_M_cmpts.i9, align 8
-  %17 = ptrtoint ptr %16 to i64
-  %conv.i.i1020 = and i64 %17, 3
-  %cmp14 = icmp eq i64 %conv.i.i1020, 3
+.thread:                                          ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit, %if.end
+  %12 = phi ptr [ %this, %if.end ], [ %spec.select, %_ZNKSt10filesystem7__cxx114path3endEv.exit ]
+  %_M_cmpts.i9 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = load ptr, ptr %_M_cmpts.i9, align 8
+  %14 = ptrtoint ptr %13 to i64
+  %conv.i.i1023 = and i64 %14, 3
+  %cmp14 = icmp eq i64 %conv.i.i1023, 3
   br i1 %cmp14, label %if.then15, label %if.end20
 
-if.then15:                                        ; preds = %14
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i.i)
+if.then15:                                        ; preds = %.thread
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %12)
   %_M_cmpts.i14 = getelementptr inbounds i8, ptr %agg.result, i64 32
   tail call void @_ZNSt10filesystem7__cxx114path5_ListC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i14, ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i9) #14
   br label %return
 
-if.end20:                                         ; preds = %if.else, %14
+if.end20:                                         ; preds = %if.else, %.thread
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i16)
-  %18 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %15 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i16) #14
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i16) #14
-  store ptr %18, ptr %agg.result, align 8
+  store ptr %15, ptr %agg.result, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i16) #14
   %_M_string_length.i.i.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i17, align 8
-  %19 = load ptr, ptr %agg.result, align 8
-  store i8 0, ptr %19, align 1
+  %16 = load ptr, ptr %agg.result, align 8
+  store i8 0, ptr %16, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i16)
   %_M_cmpts.i18 = getelementptr inbounds i8, ptr %agg.result, i64 32
   call void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i18) #14

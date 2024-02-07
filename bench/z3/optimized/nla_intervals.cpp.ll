@@ -3544,10 +3544,10 @@ invoke.cont3:                                     ; preds = %invoke.cont3.prehea
   %tobool.not.i.i = icmp eq i8 %1, 0
   %2 = load ptr, ptr %m_ci.i.i, align 8
   %3 = load ptr, ptr %m_vi.i.i, align 8
-  %m_ci3.sink.v.i.i = select i1 %tobool.not.i.i, i64 48, i64 40
-  %m_ci3.sink.i.i = getelementptr inbounds i8, ptr %__end1, i64 %m_ci3.sink.v.i.i
+  %m_ci3.sink.v.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.i.i, i64 48, i64 40
+  %m_ci3.sink.v.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %__end1, i64 %m_ci3.sink.v.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   %.sink.i.i = select i1 %tobool.not.i.i, ptr %2, ptr %3
-  %4 = load ptr, ptr %m_ci3.sink.i.i, align 8
+  %4 = load ptr, ptr %m_ci3.sink.v.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %cmp.i.i.i.not = icmp eq ptr %.sink.i.i, %4
   br i1 %cmp.i.i.i.not, label %for.cond.cleanup, label %invoke.cont4
 
@@ -10901,10 +10901,10 @@ invoke.cont16:                                    ; preds = %.noexc.i.i42, %_ZNK
   %tobool.not.i.i = icmp eq i8 %12, 0
   %13 = load ptr, ptr %m_ci.i.i26, align 8
   %14 = load ptr, ptr %m_vi.i.i27, align 8
-  %m_ci3.sink.v.i.i = select i1 %tobool.not.i.i, i64 48, i64 40
-  %m_ci3.sink.i.i = getelementptr inbounds i8, ptr %__end4, i64 %m_ci3.sink.v.i.i
   %.sink.i.i = select i1 %tobool.not.i.i, ptr %13, ptr %14
-  %15 = load ptr, ptr %m_ci3.sink.i.i, align 8
+  %m_ci.i.i.val = load ptr, ptr %m_ci.i.i, align 8
+  %m_vi.i.i.val = load ptr, ptr %m_vi.i.i, align 8
+  %15 = select i1 %tobool.not.i.i, ptr %m_ci.i.i.val, ptr %m_vi.i.i.val
   %cmp.i.i.i.not = icmp eq ptr %.sink.i.i, %15
   br i1 %cmp.i.i.i.not, label %for.cond.cleanup, label %invoke.cont18
 
@@ -13052,26 +13052,26 @@ if.else.i.i7.i215:                                ; preds = %_ZN11mpq_managerILb
   br label %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit224
 
 _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit224:    ; preds = %if.then.i.i8.i216, %if.else.i.i7.i215
-  %.pre423.pre426 = load ptr, ptr %m_c.i178, align 8
+  %.pre422.pre425 = load ptr, ptr %m_c.i178, align 8
   br i1 %tobool.i.not.i.i, label %sw.bb1.i, label %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit
 
 sw.bb1.i:                                         ; preds = %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit224
-  tail call void @_ZN11mpq_managerILb0EE5powerERK3mpqjRS1_(ptr noundef nonnull align 8 dereferenceable(728) %.pre423.pre426, ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower, i32 noundef %n, ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower)
-  %.pre423.pre = load ptr, ptr %m_c.i178, align 8
+  tail call void @_ZN11mpq_managerILb0EE5powerERK3mpqjRS1_(ptr noundef nonnull align 8 dereferenceable(728) %.pre422.pre425, ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower, i32 noundef %n, ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower)
+  %.pre422.pre = load ptr, ptr %m_c.i178, align 8
   br label %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit
 
 _Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit: ; preds = %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit224, %sw.bb1.i
-  %.pre423 = phi ptr [ %.pre423.pre, %sw.bb1.i ], [ %.pre423.pre426, %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit224 ]
+  %.pre422 = phi ptr [ %.pre422.pre, %sw.bb1.i ], [ %.pre422.pre425, %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit224 ]
   %un1_kind.0 = phi i32 [ 1, %sw.bb1.i ], [ 2, %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit224 ]
   br i1 %tobool.i.not.i.i102, label %sw.bb1.i227, label %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit232
 
 sw.bb1.i227:                                      ; preds = %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit
-  tail call void @_ZN11mpq_managerILb0EE5powerERK3mpqjRS1_(ptr noundef nonnull align 8 dereferenceable(728) %.pre423, ptr noundef nonnull align 8 dereferenceable(32) %m_result_upper, i32 noundef %n, ptr noundef nonnull align 8 dereferenceable(32) %m_result_upper)
+  tail call void @_ZN11mpq_managerILb0EE5powerERK3mpqjRS1_(ptr noundef nonnull align 8 dereferenceable(728) %.pre422, ptr noundef nonnull align 8 dereferenceable(32) %m_result_upper, i32 noundef %n, ptr noundef nonnull align 8 dereferenceable(32) %m_result_upper)
   %.pre = load ptr, ptr %m_c.i178, align 8
   br label %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit232
 
 _Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit232: ; preds = %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit, %sw.bb1.i227
-  %34 = phi ptr [ %.pre423, %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit ], [ %.pre, %sw.bb1.i227 ]
+  %34 = phi ptr [ %.pre422, %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit ], [ %.pre, %sw.bb1.i227 ]
   %un2_kind.0 = phi i32 [ 2, %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit ], [ 1, %sw.bb1.i227 ]
   %call.i = tail call noundef zeroext i1 @_Z2ltI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_(ptr noundef nonnull align 8 dereferenceable(728) %34, ptr noundef nonnull align 8 dereferenceable(32) %m_result_upper, i32 noundef %un2_kind.0, ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower, i32 noundef %un1_kind.0)
   br i1 %call.i, label %if.then60, label %lor.lhs.false

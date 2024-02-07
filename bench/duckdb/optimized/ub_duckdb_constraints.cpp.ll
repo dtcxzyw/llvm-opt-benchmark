@@ -657,8 +657,9 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %1, ptr noundef nonnull align 1 dereferenceable(7) %cond, i64 %call.i.i, i1 false)
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %base, i64 8
   store i64 %call.i.i, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !17
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 %call.i.i
-  store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !18
+  %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not, i64 23, i64 28
+  %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %base, i64 %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i8 0, ptr %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel, align 1, !tbaa !18
   %columns = getelementptr inbounds i8, ptr %this, i64 24
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_finish.i, align 8, !tbaa !48

@@ -473,7 +473,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.asio::detail::consuming_single_buffer" = type { %"class.asio::const_buffers_1", i64 }
 %class.anon.756 = type { %"class.coro_io::callback_awaitor_base<std::pair<std::error_code, unsigned long>, coro_io::callback_awaitor<std::pair<std::error_code, unsigned long>>>::awaitor_handler" }
 %"struct.asio::detail::executor_function::impl<asio::detail::binder2<asio::detail::write_op<asio::basic_stream_socket<asio::ip::tcp>, asio::mutable_buffers_1, const asio::mutable_buffer *, asio::detail::transfer_all_t, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/yalantinglibs/yalantinglibs/include/ylt/coro_io/coro_io.hpp:193:39)>, std::error_code, unsigned long>, std::allocator<void>>::ptr" = type { ptr, ptr, ptr }
-%"class.std::filesystem::__cxx11::path::iterator" = type <{ ptr, ptr, i8, [7 x i8] }>
 %class.anon.778 = type { i8 }
 %class.anon.780 = type { %"class.std::shared_ptr.163" }
 %"class.asio::detail::binder0.832" = type { %class.anon.831 }
@@ -67083,7 +67082,6 @@ entry:
   %ref.tmp.i.i20 = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i5 = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
-  %__last = alloca %"class.std::filesystem::__cxx11::path::iterator", align 8
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp eq i64 %0, 0
@@ -67130,7 +67128,7 @@ if.then3:                                         ; preds = %if.else
           to label %return unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad.i18, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %8, %lpad.i ], [ %23, %lpad.i18 ]
+  %common.resume.op = phi { ptr, i32 } [ %8, %lpad.i ], [ %20, %lpad.i18 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #27
   resume { ptr, i32 } %common.resume.op
 
@@ -67173,78 +67171,60 @@ terminate.lpad.i8:                                ; preds = %if.then10
 if.end:                                           ; preds = %if.then7
   %conv.i.i3.i = and i64 %6, 3
   %cmp.i = icmp eq i64 %conv.i.i3.i, 0
-  br i1 %cmp.i, label %_ZNKSt10filesystem7__cxx114path3endEv.exit, label %.thread50
-
-.thread50:                                        ; preds = %if.end
-  store ptr %this, ptr %__last, align 8
-  br label %19
+  br i1 %cmp.i, label %_ZNKSt10filesystem7__cxx114path3endEv.exit, label %.thread
 
 _ZNKSt10filesystem7__cxx114path3endEv.exit:       ; preds = %if.end
   %call2.i = tail call noundef ptr @_ZNKSt10filesystem7__cxx114path5_List3endEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i1) #27, !noalias !782
   %.pre = load ptr, ptr %_M_cmpts.i1, align 8
   %.pre.fr = freeze ptr %.pre
-  %.pre27 = ptrtoint ptr %.pre.fr to i64
-  %.pre28 = and i64 %.pre27, 3
-  %16 = icmp eq i64 %.pre28, 0
-  br i1 %16, label %17, label %18
+  %.pre30 = ptrtoint ptr %.pre.fr to i64
+  %.pre31 = and i64 %.pre30, 3
+  %16 = icmp eq i64 %.pre31, 0
+  %spec.select42 = getelementptr inbounds i8, ptr %call2.i, i64 -48
+  %spec.select = select i1 %16, ptr %spec.select42, ptr %this
+  br label %.thread
 
-17:                                               ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit
-  %spec.select45 = getelementptr inbounds i8, ptr %call2.i, i64 -48
-  store ptr %this, ptr %__last, align 8
-  br label %19
-
-18:                                               ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit
-  store ptr %this, ptr %__last, align 8
-  br label %19
-
-19:                                               ; preds = %18, %.thread50, %17
-  %call2.i.sink = phi ptr [ %call2.i, %18 ], [ null, %.thread50 ], [ %spec.select45, %17 ]
-  %20 = phi i64 [ 0, %18 ], [ 0, %.thread50 ], [ 8, %17 ]
-  %ref.tmp.sroa.3.0.__last.sroa_idx56 = getelementptr inbounds i8, ptr %__last, i64 8
-  store ptr %call2.i.sink, ptr %ref.tmp.sroa.3.0.__last.sroa_idx56, align 8
-  %ref.tmp.sroa.6.0.__last.sroa_idx57 = getelementptr inbounds i8, ptr %__last, i64 16
-  store i8 0, ptr %ref.tmp.sroa.6.0.__last.sroa_idx57, align 8
-  %retval.0.in.i.i = getelementptr inbounds i8, ptr %__last, i64 %20
-  %retval.0.i.i = load ptr, ptr %retval.0.in.i.i, align 8
-  %_M_cmpts.i11 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 32
-  %21 = load ptr, ptr %_M_cmpts.i11, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %conv.i.i1226 = and i64 %22, 3
-  %cmp14 = icmp eq i64 %conv.i.i1226, 3
+.thread:                                          ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit, %if.end
+  %17 = phi ptr [ %this, %if.end ], [ %spec.select, %_ZNKSt10filesystem7__cxx114path3endEv.exit ]
+  %_M_cmpts.i11 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = load ptr, ptr %_M_cmpts.i11, align 8
+  %19 = ptrtoint ptr %18 to i64
+  %conv.i.i1229 = and i64 %19, 3
+  %cmp14 = icmp eq i64 %conv.i.i1229, 3
   br i1 %cmp14, label %if.then15, label %if.end20
 
-if.then15:                                        ; preds = %19
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i.i)
+if.then15:                                        ; preds = %.thread
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %17)
   %_M_cmpts.i16 = getelementptr inbounds i8, ptr %agg.result, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i16, ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i11)
           to label %return unwind label %lpad.i18
 
 lpad.i18:                                         ; preds = %if.then15
-  %23 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-if.end20:                                         ; preds = %if.else, %19
+if.end20:                                         ; preds = %if.else, %.thread
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i20)
-  %24 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %21 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i20) #27
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i20) #27
-  store ptr %24, ptr %agg.result, align 8
+  store ptr %21, ptr %agg.result, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i20) #27
   %_M_string_length.i.i.i.i21 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i21, align 8
-  %25 = load ptr, ptr %agg.result, align 8
-  store i8 0, ptr %25, align 1
+  %22 = load ptr, ptr %agg.result, align 8
+  store i8 0, ptr %22, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i20)
   %_M_cmpts.i22 = getelementptr inbounds i8, ptr %agg.result, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i22)
           to label %return unwind label %terminate.lpad.i23
 
 terminate.lpad.i23:                               ; preds = %if.end20
-  %26 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #40
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #40
   unreachable
 
 return:                                           ; preds = %if.end20, %if.then15, %if.then10, %if.then3, %if.then

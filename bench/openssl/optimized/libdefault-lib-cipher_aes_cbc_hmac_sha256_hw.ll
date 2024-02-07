@@ -1772,10 +1772,10 @@ for.body267.i:                                    ; preds = %for.body267.i, %for
   %mul298.i = add i32 %add297.i, 616
   %cmp299.i = icmp ult i32 %sub288.i, 56
   %38 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul298.i) #9
-  %..i = select i1 %cmp299.i, i64 60, i64 124
   %.355.i = select i1 %cmp299.i, i32 1, i32 2
-  %arrayidx314.i = getelementptr inbounds i8, ptr %arrayidx290.i, i64 %..i
-  store i32 %38, ptr %arrayidx314.i, align 4
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp299.i, i64 60, i64 124
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %arrayidx290.i, i64 %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i32 %38, ptr %..i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %39 = getelementptr inbounds [8 x %struct.HASH_DESC], ptr %edges.i, i64 0, i64 %indvars.iv331.i, i32 1
   store i32 %.355.i, ptr %39, align 8
   %arrayidx323.i = getelementptr inbounds [8 x %struct.HASH_DESC], ptr %edges.i, i64 0, i64 %indvars.iv331.i

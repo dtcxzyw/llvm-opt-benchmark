@@ -1027,7 +1027,6 @@ entry:
   %cs.i = alloca %"class.absl::time_internal::cctz::detail::civil_time", align 8
   %cl.i = alloca %"struct.absl::time_internal::cctz::time_zone::civil_lookup", align 8
   %tz = alloca %"class.absl::TimeZone", align 8
-  %ti = alloca %"struct.absl::TimeZone::TimeInfo", align 4
   store ptr %tz.coerce, ptr %tz, align 8
   %tm_year2 = getelementptr inbounds i8, ptr %tm, i64 20
   %0 = load i32, ptr %tm_year2, align 4
@@ -1055,49 +1054,31 @@ entry:
   %call.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_secEllllll(i64 noundef %add15, i64 noundef %conv17, i64 noundef %conv18, i64 noundef %conv19, i64 noundef %conv20, i64 noundef %conv21) #13
   %7 = extractvalue { i64, i64 } %call.i, 0
   %8 = extractvalue { i64, i64 } %call.i, 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cs.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cl.i)
   store i64 %7, ptr %cs.i, align 8, !noalias !26
   %9 = getelementptr inbounds i8, ptr %cs.i, i64 8
   store i64 %8, ptr %9, align 8, !noalias !26
   call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %cl.i, ptr noundef nonnull align 8 dereferenceable(8) %tz, ptr noundef nonnull align 8 dereferenceable(16) %cs.i) #13, !noalias !26
-  %pre.i.i = getelementptr inbounds i8, ptr %ti, i64 4
   %pre.i = getelementptr inbounds i8, ptr %cl.i, i64 8
   %call.i12 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %pre.i, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz) #13, !noalias !26
   %call.fca.0.extract.i = extractvalue { i64, i32 } %call.i12, 0
   %call.fca.1.extract.i = extractvalue { i64, i32 } %call.i12, 1
-  store i64 %call.fca.0.extract.i, ptr %pre.i.i, align 4, !alias.scope !26
-  %ref.tmp.sroa.2.0.pre8.sroa_idx.i = getelementptr inbounds i8, ptr %ti, i64 12
-  store i32 %call.fca.1.extract.i, ptr %ref.tmp.sroa.2.0.pre8.sroa_idx.i, align 4, !alias.scope !26
   %trans.i = getelementptr inbounds i8, ptr %cl.i, i64 16
   %call11.i = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %trans.i, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz) #13, !noalias !26
-  %call11.fca.0.extract.i = extractvalue { i64, i32 } %call11.i, 0
-  %call11.fca.1.extract.i = extractvalue { i64, i32 } %call11.i, 1
-  %trans14.i = getelementptr inbounds i8, ptr %ti, i64 16
-  store i64 %call11.fca.0.extract.i, ptr %trans14.i, align 4, !alias.scope !26
-  %ref.tmp9.sroa.2.0.trans14.sroa_idx.i = getelementptr inbounds i8, ptr %ti, i64 24
-  store i32 %call11.fca.1.extract.i, ptr %ref.tmp9.sroa.2.0.trans14.sroa_idx.i, align 4, !alias.scope !26
   %post.i = getelementptr inbounds i8, ptr %cl.i, i64 24
   %call17.i = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %post.i, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz) #13, !noalias !26
   %call17.fca.0.extract.i = extractvalue { i64, i32 } %call17.i, 0
   %call17.fca.1.extract.i = extractvalue { i64, i32 } %call17.i, 1
-  %post20.i = getelementptr inbounds i8, ptr %ti, i64 28
-  store i64 %call17.fca.0.extract.i, ptr %post20.i, align 4, !alias.scope !26
-  %ref.tmp15.sroa.2.0.post20.sroa_idx.i = getelementptr inbounds i8, ptr %ti, i64 36
-  store i32 %call17.fca.1.extract.i, ptr %ref.tmp15.sroa.2.0.post20.sroa_idx.i, align 4, !alias.scope !26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cs.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cl.i)
   %tm_isdst = getelementptr inbounds i8, ptr %tm, i64 32
   %10 = load i32, ptr %tm_isdst, align 8
   %cmp22 = icmp eq i32 %10, 0
-  %cond-lvalue.v = select i1 %cmp22, i64 28, i64 4
-  %cond-lvalue = getelementptr inbounds i8, ptr %ti, i64 %cond-lvalue.v
-  %retval.sroa.4.0.cond-lvalue.sroa_idx = getelementptr inbounds i8, ptr %cond-lvalue, i64 8
-  %retval.sroa.4.0.copyload = load i32, ptr %retval.sroa.4.0.cond-lvalue.sroa_idx, align 4
-  %retval.sroa.0.0.copyload = load i64, ptr %cond-lvalue, align 4
+  %retval.sroa.4.0.copyload.sroa.speculated = select i1 %cmp22, i32 %call17.fca.1.extract.i, i32 %call.fca.1.extract.i
+  %retval.sroa.0.0.copyload = select i1 %cmp22, i64 %call17.fca.0.extract.i, i64 %call.fca.0.extract.i
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.copyload, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %retval.sroa.4.0.copyload, 1
+  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %retval.sroa.4.0.copyload.sroa.speculated, 1
   ret { i64, i32 } %.fca.1.insert
 }
 

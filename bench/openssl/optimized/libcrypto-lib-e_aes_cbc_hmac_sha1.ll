@@ -1029,16 +1029,16 @@ if.end4.i98:                                      ; preds = %for.end
   br i1 %tobool6.not.i103, label %if.end21.i114, label %if.then7.i104
 
 if.then7.i104:                                    ; preds = %for.end, %if.end4.i98
-  %sub5.i102204 = phi i64 [ %sub5.i102, %if.end4.i98 ], [ 64, %for.end ]
-  %rem.i101202 = phi i64 [ %rem.i101, %if.end4.i98 ], [ 0, %for.end ]
-  %ptr.0.i100201 = phi ptr [ %add.ptr.i96, %if.end4.i98 ], [ %hmac_key, %for.end ]
-  call void @sha1_block_data_order(ptr noundef nonnull %head13, ptr noundef nonnull %ptr.0.i100201, i64 noundef 1) #7
-  %add.ptr8.i106 = getelementptr inbounds i8, ptr %ptr.0.i100201, i64 %sub5.i102204
+  %sub5.i102205 = phi i64 [ %sub5.i102, %if.end4.i98 ], [ 64, %for.end ]
+  %rem.i101203 = phi i64 [ %rem.i101, %if.end4.i98 ], [ 0, %for.end ]
+  %ptr.0.i100202 = phi ptr [ %add.ptr.i96, %if.end4.i98 ], [ %hmac_key, %for.end ]
+  call void @sha1_block_data_order(ptr noundef nonnull %head13, ptr noundef nonnull %ptr.0.i100202, i64 noundef 1) #7
+  %add.ptr8.i106 = getelementptr inbounds i8, ptr %ptr.0.i100202, i64 %sub5.i102205
   %Nh.i108 = getelementptr inbounds i8, ptr %call, i64 268
   %8 = load i32, ptr %Nh.i108, align 4
   %Nl.i110 = getelementptr inbounds i8, ptr %call, i64 264
   %9 = load i32, ptr %Nl.i110, align 4
-  %sub5.tr.i111 = trunc i64 %sub5.i102204 to i32
+  %sub5.tr.i111 = trunc i64 %sub5.i102205 to i32
   %10 = shl nuw nsw i32 %sub5.tr.i111, 3
   %conv13.i112 = add i32 %9, %10
   store i32 %conv13.i112, ptr %Nl.i110, align 4
@@ -1051,27 +1051,27 @@ if.then18.i119:                                   ; preds = %if.then7.i104
   br label %if.end21.i114
 
 if.end21.i114:                                    ; preds = %if.then18.i119, %if.then7.i104, %if.end4.i98
-  %rem.i101203 = phi i64 [ %rem.i101202, %if.then18.i119 ], [ %rem.i101202, %if.then7.i104 ], [ %rem.i101, %if.end4.i98 ]
+  %rem.i101204 = phi i64 [ %rem.i101203, %if.then18.i119 ], [ %rem.i101203, %if.then7.i104 ], [ %rem.i101, %if.end4.i98 ]
   %ptr.1.i115 = phi ptr [ %add.ptr8.i106, %if.then18.i119 ], [ %add.ptr8.i106, %if.then7.i104 ], [ %add.ptr.i96, %if.end4.i98 ]
-  %tobool22.not.i116 = icmp eq i64 %rem.i101203, 0
+  %tobool22.not.i116 = icmp eq i64 %rem.i101204, 0
   br i1 %tobool22.not.i116, label %for.body21.preheader, label %if.then23.i117
 
 if.then23.i117:                                   ; preds = %if.end21.i114
-  %call24.i118 = call i32 @SHA1_Update(ptr noundef nonnull %head13, ptr noundef nonnull %ptr.1.i115, i64 noundef %rem.i101203) #7
+  %call24.i118 = call i32 @SHA1_Update(ptr noundef nonnull %head13, ptr noundef nonnull %ptr.1.i115, i64 noundef %rem.i101204) #7
   br label %for.body21.preheader
 
 for.body21.preheader:                             ; preds = %if.end21.i114, %if.then23.i117
   br label %for.body21
 
 for.body21:                                       ; preds = %for.body21.preheader, %for.body21
-  %indvars.iv231 = phi i64 [ %indvars.iv.next232, %for.body21 ], [ 0, %for.body21.preheader ]
-  %arrayidx23 = getelementptr inbounds [64 x i8], ptr %hmac_key, i64 0, i64 %indvars.iv231
+  %indvars.iv232 = phi i64 [ %indvars.iv.next233, %for.body21 ], [ 0, %for.body21.preheader ]
+  %arrayidx23 = getelementptr inbounds [64 x i8], ptr %hmac_key, i64 0, i64 %indvars.iv232
   %11 = load i8, ptr %arrayidx23, align 1
   %12 = xor i8 %11, 106
   store i8 %12, ptr %arrayidx23, align 1
-  %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
-  %exitcond234.not = icmp eq i64 %indvars.iv.next232, 64
-  br i1 %exitcond234.not, label %for.end29, label %for.body21, !llvm.loop !15
+  %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
+  %exitcond235.not = icmp eq i64 %indvars.iv.next233, 64
+  br i1 %exitcond235.not, label %for.end29, label %for.body21, !llvm.loop !15
 
 for.end29:                                        ; preds = %for.body21
   %tail = getelementptr inbounds i8, ptr %call, i64 340
@@ -1094,16 +1094,16 @@ if.end4.i131:                                     ; preds = %for.end29
   br i1 %tobool6.not.i136, label %if.end21.i147, label %if.then7.i137
 
 if.then7.i137:                                    ; preds = %for.end29, %if.end4.i131
-  %sub5.i135214 = phi i64 [ %sub5.i135, %if.end4.i131 ], [ 64, %for.end29 ]
-  %rem.i134212 = phi i64 [ %rem.i134, %if.end4.i131 ], [ 0, %for.end29 ]
-  %ptr.0.i133211 = phi ptr [ %add.ptr.i129, %if.end4.i131 ], [ %hmac_key, %for.end29 ]
-  call void @sha1_block_data_order(ptr noundef nonnull %tail, ptr noundef nonnull %ptr.0.i133211, i64 noundef 1) #7
-  %add.ptr8.i139 = getelementptr inbounds i8, ptr %ptr.0.i133211, i64 %sub5.i135214
+  %sub5.i135215 = phi i64 [ %sub5.i135, %if.end4.i131 ], [ 64, %for.end29 ]
+  %rem.i134213 = phi i64 [ %rem.i134, %if.end4.i131 ], [ 0, %for.end29 ]
+  %ptr.0.i133212 = phi ptr [ %add.ptr.i129, %if.end4.i131 ], [ %hmac_key, %for.end29 ]
+  call void @sha1_block_data_order(ptr noundef nonnull %tail, ptr noundef nonnull %ptr.0.i133212, i64 noundef 1) #7
+  %add.ptr8.i139 = getelementptr inbounds i8, ptr %ptr.0.i133212, i64 %sub5.i135215
   %Nh.i141 = getelementptr inbounds i8, ptr %call, i64 364
   %14 = load i32, ptr %Nh.i141, align 4
   %Nl.i143 = getelementptr inbounds i8, ptr %call, i64 360
   %15 = load i32, ptr %Nl.i143, align 4
-  %sub5.tr.i144 = trunc i64 %sub5.i135214 to i32
+  %sub5.tr.i144 = trunc i64 %sub5.i135215 to i32
   %16 = shl nuw nsw i32 %sub5.tr.i144, 3
   %conv13.i145 = add i32 %15, %16
   store i32 %conv13.i145, ptr %Nl.i143, align 4
@@ -1116,13 +1116,13 @@ if.then18.i152:                                   ; preds = %if.then7.i137
   br label %if.end21.i147
 
 if.end21.i147:                                    ; preds = %if.then18.i152, %if.then7.i137, %if.end4.i131
-  %rem.i134213 = phi i64 [ %rem.i134212, %if.then18.i152 ], [ %rem.i134212, %if.then7.i137 ], [ %rem.i134, %if.end4.i131 ]
+  %rem.i134214 = phi i64 [ %rem.i134213, %if.then18.i152 ], [ %rem.i134213, %if.then7.i137 ], [ %rem.i134, %if.end4.i131 ]
   %ptr.1.i148 = phi ptr [ %add.ptr8.i139, %if.then18.i152 ], [ %add.ptr8.i139, %if.then7.i137 ], [ %add.ptr.i129, %if.end4.i131 ]
-  %tobool22.not.i149 = icmp eq i64 %rem.i134213, 0
+  %tobool22.not.i149 = icmp eq i64 %rem.i134214, 0
   br i1 %tobool22.not.i149, label %sha1_update.exit154, label %if.then23.i150
 
 if.then23.i150:                                   ; preds = %if.end21.i147
-  %call24.i151 = call i32 @SHA1_Update(ptr noundef nonnull %tail, ptr noundef nonnull %ptr.1.i148, i64 noundef %rem.i134213) #7
+  %call24.i151 = call i32 @SHA1_Update(ptr noundef nonnull %tail, ptr noundef nonnull %ptr.1.i148, i64 noundef %rem.i134214) #7
   br label %sha1_update.exit154
 
 sha1_update.exit154:                              ; preds = %if.end21.i147, %if.then23.i150
@@ -1197,9 +1197,9 @@ if.end4.i164:                                     ; preds = %if.end75
   br i1 %tobool22.not.i182, label %sha1_update.exit187, label %if.then23.i183
 
 if.then23.i183:                                   ; preds = %if.end75, %if.end4.i164
-  %ptr.1.i181225 = phi ptr [ %add.ptr.i162, %if.end4.i164 ], [ %ptr, %if.end75 ]
-  %rem.i167220224 = phi i64 [ %sub3.i163, %if.end4.i164 ], [ 13, %if.end75 ]
-  %call24.i184 = tail call i32 @SHA1_Update(ptr noundef nonnull %md, ptr noundef %ptr.1.i181225, i64 noundef %rem.i167220224) #7
+  %ptr.1.i181226 = phi ptr [ %add.ptr.i162, %if.end4.i164 ], [ %ptr, %if.end75 ]
+  %rem.i167221225 = phi i64 [ %sub3.i163, %if.end4.i164 ], [ 13, %if.end75 ]
+  %call24.i184 = tail call i32 @SHA1_Update(ptr noundef nonnull %md, ptr noundef %ptr.1.i181226, i64 noundef %rem.i167221225) #7
   br label %sha1_update.exit187
 
 sha1_update.exit187:                              ; preds = %if.end4.i164, %if.then23.i183
@@ -1633,10 +1633,10 @@ for.body241.i:                                    ; preds = %for.body241.i, %for
   %mul272.i = add i32 %add271.i, 616
   %cmp273.i = icmp ult i32 %sub262.i, 56
   %67 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %mul272.i) #8
-  %..i = select i1 %cmp273.i, i64 60, i64 124
   %.308.i = select i1 %cmp273.i, i32 1, i32 2
-  %arrayidx288.i = getelementptr inbounds i8, ptr %arrayidx264.i, i64 %..i
-  store i32 %67, ptr %arrayidx288.i, align 4
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp273.i, i64 60, i64 124
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %arrayidx264.i, i64 %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i32 %67, ptr %..i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %68 = getelementptr inbounds [8 x %struct.HASH_DESC], ptr %edges.i, i64 0, i64 %indvars.iv286.i, i32 1
   store i32 %.308.i, ptr %68, align 8
   %arrayidx297.i = getelementptr inbounds [8 x %struct.HASH_DESC], ptr %edges.i, i64 0, i64 %indvars.iv286.i

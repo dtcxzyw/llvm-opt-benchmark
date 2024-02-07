@@ -13801,52 +13801,50 @@ if.then:                                          ; preds = %entry, %lookup_mayb
 if.end:                                           ; preds = %lookup_maybe_method.exit.if.end_crit_edge, %if.end.i.i, %if.then7.i, %if.end.i18.i, %if.then4.i
   %callable.val.i.i.i = phi ptr [ %callable.val.i.i.i.pre, %lookup_maybe_method.exit.if.end_crit_edge ], [ %call1.val15.i, %if.then4.i ], [ %call1.val15.i, %if.end.i18.i ], [ %call1.val15.i, %if.then7.i ], [ %call1.val15.i, %if.end.i.i ]
   %nargsf.0.i = phi i64 [ -9223372036854775807, %lookup_maybe_method.exit.if.end_crit_edge ], [ 2, %if.then4.i ], [ 2, %if.end.i18.i ], [ -9223372036854775807, %if.then7.i ], [ -9223372036854775807, %if.end.i.i ]
-  %retval.0.i15 = phi ptr [ %call10.i, %lookup_maybe_method.exit.if.end_crit_edge ], [ %call1.i, %if.then4.i ], [ %call1.i, %if.end.i18.i ], [ %call1.i, %if.then7.i ], [ %call1.i, %if.end.i.i ]
+  %retval.0.i16 = phi ptr [ %call10.i, %lookup_maybe_method.exit.if.end_crit_edge ], [ %call1.i, %if.then4.i ], [ %call1.i, %if.end.i18.i ], [ %call1.i, %if.then7.i ], [ %call1.i, %if.end.i.i ]
   store ptr %self, ptr %stack, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %stack, i64 8
   store ptr %other, ptr %arrayinit.element, align 8
-  %10 = lshr exact i64 %6, 14
-  %args.addr.0.idx.i = xor i64 %10, 8
-  %args.addr.0.i = getelementptr i8, ptr %stack, i64 %args.addr.0.idx.i
-  %11 = getelementptr i8, ptr %callable.val.i.i.i, i64 168
-  %call.val.i.i.i = load i64, ptr %11, align 8
-  %12 = and i64 %call.val.i.i.i, 2048
-  %tobool.not.i.i.i = icmp eq i64 %12, 0
+  %args.addr.0.idx.i.sroa.sel = select i1 %tobool.not.i, ptr %arrayinit.element, ptr %stack
+  %10 = getelementptr i8, ptr %callable.val.i.i.i, i64 168
+  %call.val.i.i.i = load i64, ptr %10, align 8
+  %11 = and i64 %call.val.i.i.i, 2048
+  %tobool.not.i.i.i = icmp eq i64 %11, 0
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.end
   %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
-  %13 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr i8, ptr %retval.0.i15, i64 %13
+  %12 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr i8, ptr %retval.0.i16, i64 %12
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1
   %cmp.i.i9 = icmp eq ptr %ptr.0.copyload.i.i.i, null
   br i1 %cmp.i.i9, label %if.then.i.i, label %if.end.i.i10
 
 if.then.i.i:                                      ; preds = %_PyVectorcall_FunctionInline.exit.i.i, %if.end
   %and.i.i.i = and i64 %nargsf.0.i, 3
-  %call2.i.i = call ptr @_PyObject_MakeTpCall(ptr noundef %1, ptr noundef nonnull %retval.0.i15, ptr noundef %args.addr.0.i, i64 noundef %and.i.i.i, ptr noundef null) #20
+  %call2.i.i = call ptr @_PyObject_MakeTpCall(ptr noundef %1, ptr noundef nonnull %retval.0.i16, ptr noundef nonnull %args.addr.0.idx.i.sroa.sel, i64 noundef %and.i.i.i, ptr noundef null) #20
   br label %vectorcall_unbound.exit
 
 if.end.i.i10:                                     ; preds = %_PyVectorcall_FunctionInline.exit.i.i
-  %call3.i.i = call ptr %ptr.0.copyload.i.i.i(ptr noundef nonnull %retval.0.i15, ptr noundef %args.addr.0.i, i64 noundef %nargsf.0.i, ptr noundef null) #20
-  %call4.i.i = call ptr @_Py_CheckFunctionResult(ptr noundef %1, ptr noundef nonnull %retval.0.i15, ptr noundef %call3.i.i, ptr noundef null) #20
+  %call3.i.i = call ptr %ptr.0.copyload.i.i.i(ptr noundef nonnull %retval.0.i16, ptr noundef nonnull %args.addr.0.idx.i.sroa.sel, i64 noundef %nargsf.0.i, ptr noundef null) #20
+  %call4.i.i = call ptr @_Py_CheckFunctionResult(ptr noundef %1, ptr noundef nonnull %retval.0.i16, ptr noundef %call3.i.i, ptr noundef null) #20
   br label %vectorcall_unbound.exit
 
 vectorcall_unbound.exit:                          ; preds = %if.then.i.i, %if.end.i.i10
   %retval.0.i.i = phi ptr [ %call2.i.i, %if.then.i.i ], [ %call4.i.i, %if.end.i.i10 ]
-  %14 = load i64, ptr %retval.0.i15, align 8
-  %15 = and i64 %14, 2147483648
-  %cmp.i4.not = icmp eq i64 %15, 0
+  %13 = load i64, ptr %retval.0.i16, align 8
+  %14 = and i64 %13, 2147483648
+  %cmp.i4.not = icmp eq i64 %14, 0
   br i1 %cmp.i4.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %vectorcall_unbound.exit
-  %dec.i = add i64 %14, -1
-  store i64 %dec.i, ptr %retval.0.i15, align 8
+  %dec.i = add i64 %13, -1
+  store i64 %dec.i, ptr %retval.0.i16, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
 
 if.then1.i:                                       ; preds = %if.end.i
-  call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i15) #20
+  call void @_Py_Dealloc(ptr noundef nonnull %retval.0.i16) #20
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then1.i, %vectorcall_unbound.exit, %if.then
@@ -19202,45 +19200,43 @@ if.then5:                                         ; preds = %if.end
   store ptr %self, ptr %args, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %value, ptr %arrayinit.element, align 8
-  %13 = lshr exact i64 %5, 14
-  %args.addr.0.idx.i = xor i64 %13, 8
-  %args.addr.0.i = getelementptr i8, ptr %args, i64 %args.addr.0.idx.i
+  %args.addr.0.idx.i.sroa.sel = select i1 %tobool.not.i, ptr %arrayinit.element, ptr %args
   %nargsf.0.i = select i1 %tobool.not.i, i64 -9223372036854775807, i64 2
-  %14 = getelementptr i8, ptr %retval.0.i, i64 8
-  %callable.val.i.i.i = load ptr, ptr %14, align 8
-  %15 = getelementptr i8, ptr %callable.val.i.i.i, i64 168
-  %call.val.i.i.i = load i64, ptr %15, align 8
-  %16 = and i64 %call.val.i.i.i, 2048
-  %tobool.not.i.i.i = icmp eq i64 %16, 0
+  %13 = getelementptr i8, ptr %retval.0.i, i64 8
+  %callable.val.i.i.i = load ptr, ptr %13, align 8
+  %14 = getelementptr i8, ptr %callable.val.i.i.i, i64 168
+  %call.val.i.i.i = load i64, ptr %14, align 8
+  %15 = and i64 %call.val.i.i.i, 2048
+  %tobool.not.i.i.i = icmp eq i64 %15, 0
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.then5
   %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
-  %17 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr i8, ptr %retval.0.i, i64 %17
+  %16 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
+  %add.ptr.i.i.i = getelementptr i8, ptr %retval.0.i, i64 %16
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1
   %cmp.i.i20 = icmp eq ptr %ptr.0.copyload.i.i.i, null
   br i1 %cmp.i.i20, label %if.then.i.i, label %if.end.i.i21
 
 if.then.i.i:                                      ; preds = %_PyVectorcall_FunctionInline.exit.i.i, %if.then5
   %and.i.i.i = and i64 %nargsf.0.i, 3
-  %call2.i.i = call ptr @_PyObject_MakeTpCall(ptr noundef %1, ptr noundef nonnull %retval.0.i, ptr noundef %args.addr.0.i, i64 noundef %and.i.i.i, ptr noundef null) #20
+  %call2.i.i = call ptr @_PyObject_MakeTpCall(ptr noundef %1, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %args.addr.0.idx.i.sroa.sel, i64 noundef %and.i.i.i, ptr noundef null) #20
   br label %vectorcall_unbound.exit
 
 if.end.i.i21:                                     ; preds = %_PyVectorcall_FunctionInline.exit.i.i
-  %call3.i.i = call ptr %ptr.0.copyload.i.i.i(ptr noundef nonnull %retval.0.i, ptr noundef %args.addr.0.i, i64 noundef %nargsf.0.i, ptr noundef null) #20
+  %call3.i.i = call ptr %ptr.0.copyload.i.i.i(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %args.addr.0.idx.i.sroa.sel, i64 noundef %nargsf.0.i, ptr noundef null) #20
   %call4.i.i = call ptr @_Py_CheckFunctionResult(ptr noundef %1, ptr noundef nonnull %retval.0.i, ptr noundef %call3.i.i, ptr noundef null) #20
   br label %vectorcall_unbound.exit
 
 vectorcall_unbound.exit:                          ; preds = %if.then.i.i, %if.end.i.i21
   %retval.0.i.i = phi ptr [ %call2.i.i, %if.then.i.i ], [ %call4.i.i, %if.end.i.i21 ]
-  %18 = load i64, ptr %retval.0.i, align 8
-  %19 = and i64 %18, 2147483648
-  %cmp.i38.not = icmp eq i64 %19, 0
+  %17 = load i64, ptr %retval.0.i, align 8
+  %18 = and i64 %17, 2147483648
+  %cmp.i38.not = icmp eq i64 %18, 0
   br i1 %cmp.i38.not, label %if.end.i19, label %Py_DECREF.exit24
 
 if.end.i19:                                       ; preds = %vectorcall_unbound.exit
-  %dec.i20 = add i64 %18, -1
+  %dec.i20 = add i64 %17, -1
   store i64 %dec.i20, ptr %retval.0.i, align 8
   %cmp.i21 = icmp eq i64 %dec.i20, 0
   br i1 %cmp.i21, label %if.then1.i22, label %Py_DECREF.exit24
@@ -19255,13 +19251,13 @@ Py_DECREF.exit24:                                 ; preds = %vectorcall_unbound.
 
 if.then8:                                         ; preds = %Py_DECREF.exit24
   %call9 = call i32 @PyObject_IsTrue(ptr noundef nonnull %retval.0.i.i) #20
-  %20 = load i64, ptr %retval.0.i.i, align 8
-  %21 = and i64 %20, 2147483648
-  %cmp.i42.not = icmp eq i64 %21, 0
+  %19 = load i64, ptr %retval.0.i.i, align 8
+  %20 = and i64 %19, 2147483648
+  %cmp.i42.not = icmp eq i64 %20, 0
   br i1 %cmp.i42.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.then8
-  %dec.i = add i64 %20, -1
+  %dec.i = add i64 %19, -1
   store i64 %dec.i, ptr %retval.0.i.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return

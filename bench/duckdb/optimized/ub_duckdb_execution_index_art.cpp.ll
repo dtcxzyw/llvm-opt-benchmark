@@ -31709,8 +31709,9 @@ sw.bb:                                            ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %1, ptr noundef nonnull align 1 dereferenceable(6) %cond, i64 %call.i.i, i1 false)
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %type, i64 8
   store i64 %call.i.i, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !19
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %1, i64 %call.i.i
-  store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !14
+  %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i, i64 27, i64 22
+  %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %type, i64 %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i8 0, ptr %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel, align 1, !tbaa !14
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %2, ptr %agg.tmp, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i74) #23

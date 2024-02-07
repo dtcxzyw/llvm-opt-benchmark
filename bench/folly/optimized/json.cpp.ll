@@ -2104,8 +2104,9 @@ if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %4, ptr noundef nonnull align 1 dereferenceable(3) %cond.i, i64 %call.i.i.i, i1 false)
   %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i64 %call.i.i.i, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !15, !alias.scope !83
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 %call.i.i.i
-  store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !7, !alias.scope !83
+  %call.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.i, i64 21, i64 19
+  %call.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %ref.tmp2, i64 %call.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i8 0, ptr %call.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel, align 1, !tbaa !7, !alias.scope !83
   %call2.i.i24 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str.17, i64 noundef 4)
           to label %call2.i.i.noexc unwind label %lpad3
 

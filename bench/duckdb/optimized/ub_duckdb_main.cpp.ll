@@ -11453,8 +11453,9 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4) %0, ptr noundef nonnull align 1 dereferenceable(4) %cond, i64 %call.i.i, i1 false)
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %call.i.i, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !61
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %call.i.i
-  store i8 0, ptr %arrayidx.i.i.i, align 2, !tbaa !50
+  %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp, i64 22, i64 20
+  %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %agg.tmp, i64 %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i8 0, ptr %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel, align 2, !tbaa !50
   invoke void @_ZN6duckdb12CatalogEntryC2ENS_11CatalogTypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 8 dereferenceable(96) %this, i8 noundef zeroext 9, ptr noundef nonnull %agg.tmp, i64 noundef 0)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -11607,8 +11608,8 @@ lpad17.body:                                      ; preds = %if.then.i.i7.i, %_Z
   br i1 %cmp.i.i.i92, label %lpad17.body._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i95_crit_edge, label %if.then.i.i93
 
 lpad17.body._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i95_crit_edge: ; preds = %lpad17.body
-  %.pre11 = load i64, ptr %_M_string_length.i.i.i.i62, align 8, !tbaa !61
-  %18 = icmp ult i64 %.pre11, 16
+  %.pre14 = load i64, ptr %_M_string_length.i.i.i.i62, align 8, !tbaa !61
+  %18 = icmp ult i64 %.pre14, 16
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i95
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i95: ; preds = %lpad17.body._ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i95_crit_edge, %lpad17.body.thread
