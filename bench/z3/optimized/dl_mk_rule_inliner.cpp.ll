@@ -8798,7 +8798,7 @@ _Z7deallocIN7datalog8rule_setEEvPT_.exit.i:       ; preds = %if.end.i.i, %if.the
   br label %if.end64
 
 if.end64:                                         ; preds = %_Z7deallocIN7datalog8rule_setEEvPT_.exit.i, %invoke.cont61, %if.then55
-  %tobool74.not.old = phi i1 [ false, %if.then55 ], [ true, %invoke.cont61 ], [ true, %_Z7deallocIN7datalog8rule_setEEvPT_.exit.i ]
+  %tobool74.not.old.not = phi i1 [ true, %if.then55 ], [ false, %invoke.cont61 ], [ false, %_Z7deallocIN7datalog8rule_setEEvPT_.exit.i ]
   %42 = load ptr, ptr %m_context, align 8
   %m_params.i26 = getelementptr inbounds i8, ptr %42, i64 32
   %43 = load ptr, ptr %m_params.i26, align 8
@@ -8815,12 +8815,11 @@ land.lhs.true:                                    ; preds = %invoke.cont68
           to label %invoke.cont70 unwind label %lpad30
 
 invoke.cont70:                                    ; preds = %land.lhs.true
-  %call71.not = xor i1 %call71, true
-  %or.cond = and i1 %tobool74.not.old, %call71.not
-  br i1 %or.cond, label %if.then75, label %if.else78
+  %or.cond.not = or i1 %tobool74.not.old.not, %call71
+  br i1 %or.cond.not, label %if.else78, label %if.then75
 
 if.end73:                                         ; preds = %invoke.cont68
-  br i1 %tobool74.not.old, label %if.then75, label %if.else78
+  br i1 %tobool74.not.old.not, label %if.else78, label %if.then75
 
 if.then75:                                        ; preds = %invoke.cont70, %if.end73
   %45 = load ptr, ptr %res, align 8

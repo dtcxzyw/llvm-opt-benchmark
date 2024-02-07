@@ -5209,7 +5209,7 @@ _mi_heap_malloc_zero.exit63.i:                    ; preds = %if.else.i.i38.i, %i
   br i1 %cmp32.i, label %return, label %if.end36.i
 
 if.end36.i:                                       ; preds = %_mi_heap_malloc_zero.exit63.i, %if.else.i.i.i.i58.i, %if.then14.i.i.i.i57.i, %if.end.i.i.i.i48.i, %if.end20.i
-  %cmp768.i = phi i1 [ false, %if.end20.i ], [ true, %_mi_heap_malloc_zero.exit63.i ], [ true, %if.then14.i.i.i.i57.i ], [ true, %if.else.i.i.i.i58.i ], [ true, %if.end.i.i.i.i48.i ]
+  %cmp7.not.not.i = phi i1 [ true, %if.end20.i ], [ false, %_mi_heap_malloc_zero.exit63.i ], [ false, %if.then14.i.i.i.i57.i ], [ false, %if.else.i.i.i.i58.i ], [ false, %if.end.i.i.i.i48.i ]
   %p6.0.i = phi ptr [ %call4.i.i, %if.end20.i ], [ %retval.0.i.i40.i, %_mi_heap_malloc_zero.exit63.i ], [ %16, %if.then14.i.i.i.i57.i ], [ %16, %if.else.i.i.i.i58.i ], [ %16, %if.end.i.i.i.i48.i ]
   %20 = ptrtoint ptr %p6.0.i to i64
   %add37.i = add i64 %20, %offset
@@ -5242,9 +5242,8 @@ if.then49.i:                                      ; preds = %if.end36.i
   br label %if.end52.i
 
 if.end52.i:                                       ; preds = %if.then49.i, %if.end36.i
-  %zero.not.i = xor i1 %zero, true
-  %brmerge.i = or i1 %cmp768.i, %zero.not.i
-  br i1 %brmerge.i, label %return, label %if.then57.i
+  %brmerge.not.i = and i1 %cmp7.not.not.i, %zero
+  br i1 %brmerge.not.i, label %if.then57.i, label %return
 
 if.then57.i:                                      ; preds = %if.end52.i
   %cmp.i.i64.i = icmp eq i64 %add46.i, 0

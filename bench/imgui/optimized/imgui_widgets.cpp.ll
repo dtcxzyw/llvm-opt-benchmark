@@ -23844,32 +23844,33 @@ define internal fastcc noundef i32 @_ZN5ImStbL30STB_TEXTEDIT_MOVEWORDRIGHT_MACEP
 entry:
   %CurLenW = getelementptr inbounds i8, ptr %obj, i64 12
   %0 = load i32, ptr %CurLenW, align 4
-  %idx.addr.09 = add nsw i32 %idx, 1
-  %cmp10 = icmp slt i32 %idx.addr.09, %0
-  br i1 %cmp10, label %land.rhs.lr.ph, label %while.end
-
-land.rhs.lr.ph:                                   ; preds = %entry
   %Flags.i = getelementptr inbounds i8, ptr %obj, i64 3720
-  %1 = load i32, ptr %Flags.i, align 8
-  %.fr = freeze i32 %1
-  %and.i = and i32 %.fr, 32768
-  %tobool.i.not = icmp eq i32 %and.i, 0
   %Data.i.i = getelementptr inbounds i8, ptr %obj, i64 32
-  br i1 %tobool.i.not, label %land.rhs, label %while.end
+  %1 = add nsw i32 %idx, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 %1)
+  br label %while.cond
 
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.cond.backedge
-  %idx.addr.012 = phi i32 [ %idx.addr.0, %while.cond.backedge ], [ %idx.addr.09, %land.rhs.lr.ph ]
-  %idx.addr.0.in11 = phi i32 [ %idx.addr.012, %while.cond.backedge ], [ %idx, %land.rhs.lr.ph ]
-  %cmp.i = icmp slt i32 %idx.addr.0.in11, 0
-  br i1 %cmp.i, label %while.cond.backedge, label %if.end.i
+while.cond:                                       ; preds = %_ZN5ImStbL26is_word_boundary_from_leftEP19ImGuiInputTextStatei.exit, %entry
+  %idx.addr.0.in = phi i32 [ %idx, %entry ], [ %idx.addr.0, %_ZN5ImStbL26is_word_boundary_from_leftEP19ImGuiInputTextStatei.exit ]
+  %idx.addr.0 = add nsw i32 %idx.addr.0.in, 1
+  %cmp = icmp slt i32 %idx.addr.0, %0
+  br i1 %cmp, label %land.rhs, label %while.end
+
+land.rhs:                                         ; preds = %while.cond
+  %2 = load i32, ptr %Flags.i, align 8
+  %and.i = and i32 %2, 32768
+  %tobool.i = icmp ne i32 %and.i, 0
+  %cmp.i = icmp slt i32 %idx.addr.0.in, 0
+  %or.cond.i = or i1 %cmp.i, %tobool.i
+  br i1 %or.cond.i, label %_ZN5ImStbL26is_word_boundary_from_leftEP19ImGuiInputTextStatei.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %land.rhs
-  %2 = load ptr, ptr %Data.i.i, align 8
-  %idxprom.i.i = zext nneg i32 %idx.addr.012 to i64
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %2, i64 %idxprom.i.i
-  %3 = load i16, ptr %arrayidx.i.i, align 2
-  %conv.i = zext i16 %3 to i32
-  switch i16 %3, label %lor.rhs.i.i [
+  %3 = load ptr, ptr %Data.i.i, align 8
+  %idxprom.i.i = zext nneg i32 %idx.addr.0 to i64
+  %arrayidx.i.i = getelementptr inbounds i16, ptr %3, i64 %idxprom.i.i
+  %4 = load i16, ptr %arrayidx.i.i, align 2
+  %conv.i = zext i16 %4 to i32
+  switch i16 %4, label %lor.rhs.i.i [
     i16 32, label %_ZL14ImCharIsBlankWj.exit.i
     i16 9, label %_ZL14ImCharIsBlankWj.exit.i
     i16 12288, label %_ZL14ImCharIsBlankWj.exit.i
@@ -23879,12 +23880,12 @@ lor.rhs.i.i:                                      ; preds = %if.end.i
   br label %_ZL14ImCharIsBlankWj.exit.i
 
 _ZL14ImCharIsBlankWj.exit.i:                      ; preds = %lor.rhs.i.i, %if.end.i, %if.end.i, %if.end.i
-  %call1.not.i = phi i1 [ false, %if.end.i ], [ true, %lor.rhs.i.i ], [ false, %if.end.i ], [ false, %if.end.i ]
+  %call1.not.not.i = phi i1 [ true, %if.end.i ], [ false, %lor.rhs.i.i ], [ true, %if.end.i ], [ true, %if.end.i ]
   %call5.i = tail call fastcc noundef zeroext i1 @_ZN5ImStbL12is_separatorEj(i32 noundef %conv.i)
   %arrayidx.i16.i = getelementptr i8, ptr %arrayidx.i.i, i64 -2
-  %4 = load i16, ptr %arrayidx.i16.i, align 2
-  %conv9.i = zext i16 %4 to i32
-  switch i16 %4, label %lor.rhs.i17.i [
+  %5 = load i16, ptr %arrayidx.i16.i, align 2
+  %conv9.i = zext i16 %5 to i32
+  switch i16 %5, label %lor.rhs.i17.i [
     i16 32, label %_ZL14ImCharIsBlankWj.exit18.i
     i16 9, label %_ZL14ImCharIsBlankWj.exit18.i
     i16 12288, label %_ZL14ImCharIsBlankWj.exit18.i
@@ -23894,19 +23895,21 @@ lor.rhs.i17.i:                                    ; preds = %_ZL14ImCharIsBlankW
   br label %_ZL14ImCharIsBlankWj.exit18.i
 
 _ZL14ImCharIsBlankWj.exit18.i:                    ; preds = %lor.rhs.i17.i, %_ZL14ImCharIsBlankWj.exit.i, %_ZL14ImCharIsBlankWj.exit.i, %_ZL14ImCharIsBlankWj.exit.i
-  %5 = phi i1 [ true, %_ZL14ImCharIsBlankWj.exit.i ], [ false, %lor.rhs.i17.i ], [ true, %_ZL14ImCharIsBlankWj.exit.i ], [ true, %_ZL14ImCharIsBlankWj.exit.i ]
+  %.not.i = phi i1 [ false, %_ZL14ImCharIsBlankWj.exit.i ], [ true, %lor.rhs.i17.i ], [ false, %_ZL14ImCharIsBlankWj.exit.i ], [ false, %_ZL14ImCharIsBlankWj.exit.i ]
   %call16.i = tail call fastcc noundef zeroext i1 @_ZN5ImStbL12is_separatorEj(i32 noundef %conv9.i)
-  %6 = or i1 %call1.not.i, %5
-  %narrow.v.i = select i1 %call16.i, i1 %call5.i, i1 %6
-  br i1 %narrow.v.i, label %while.cond.backedge, label %while.end
+  %.not22.i = and i1 %call1.not.not.i, %.not.i
+  %lnot.i = xor i1 %call5.i, true
+  %narrow.i = select i1 %call16.i, i1 %lnot.i, i1 %.not22.i
+  %conv24.i = zext i1 %narrow.i to i32
+  br label %_ZN5ImStbL26is_word_boundary_from_leftEP19ImGuiInputTextStatei.exit
 
-while.cond.backedge:                              ; preds = %_ZL14ImCharIsBlankWj.exit18.i, %land.rhs
-  %idx.addr.0 = add i32 %idx.addr.012, 1
-  %exitcond.not = icmp eq i32 %idx.addr.0, %0
-  br i1 %exitcond.not, label %while.end, label %land.rhs, !llvm.loop !54
+_ZN5ImStbL26is_word_boundary_from_leftEP19ImGuiInputTextStatei.exit: ; preds = %land.rhs, %_ZL14ImCharIsBlankWj.exit18.i
+  %retval.0.i = phi i32 [ %conv24.i, %_ZL14ImCharIsBlankWj.exit18.i ], [ 0, %land.rhs ]
+  %tobool.not = icmp eq i32 %retval.0.i, 0
+  br i1 %tobool.not, label %while.cond, label %while.end, !llvm.loop !54
 
-while.end:                                        ; preds = %_ZL14ImCharIsBlankWj.exit18.i, %while.cond.backedge, %land.rhs.lr.ph, %entry
-  %idx.addr.0.lcssa = phi i32 [ %idx.addr.09, %entry ], [ %0, %land.rhs.lr.ph ], [ %0, %while.cond.backedge ], [ %idx.addr.012, %_ZL14ImCharIsBlankWj.exit18.i ]
+while.end:                                        ; preds = %while.cond, %_ZN5ImStbL26is_word_boundary_from_leftEP19ImGuiInputTextStatei.exit
+  %idx.addr.0.lcssa = phi i32 [ %smax, %while.cond ], [ %idx.addr.0, %_ZN5ImStbL26is_word_boundary_from_leftEP19ImGuiInputTextStatei.exit ]
   %cond = tail call i32 @llvm.smin.i32(i32 %idx.addr.0.lcssa, i32 %0)
   ret i32 %cond
 }
@@ -37225,35 +37228,33 @@ entry:
   %tobool.not = icmp eq i8 %2, 0
   %CurLenW.i4 = getelementptr inbounds i8, ptr %obj, i64 12
   %3 = load i32, ptr %CurLenW.i4, align 4
-  br i1 %tobool.not, label %if.else, label %if.then
+  %Flags.i.i5 = getelementptr inbounds i8, ptr %obj, i64 3720
+  %Data.i.i.i6 = getelementptr inbounds i8, ptr %obj, i64 32
+  %4 = add nsw i32 %idx, 1
+  %smax.i7 = tail call i32 @llvm.smax.i32(i32 %3, i32 %4)
+  br i1 %tobool.not, label %while.cond.i8, label %while.cond.i
 
-if.then:                                          ; preds = %entry
-  %idx.addr.09.i = add nsw i32 %idx, 1
-  %cmp10.i = icmp slt i32 %idx.addr.09.i, %3
-  br i1 %cmp10.i, label %land.rhs.lr.ph.i, label %return
+while.cond.i:                                     ; preds = %entry, %_ZN5ImStbL26is_word_boundary_from_leftEP19ImGuiInputTextStatei.exit.i
+  %idx.addr.0.in.i = phi i32 [ %idx.addr.0.i, %_ZN5ImStbL26is_word_boundary_from_leftEP19ImGuiInputTextStatei.exit.i ], [ %idx, %entry ]
+  %idx.addr.0.i = add nsw i32 %idx.addr.0.in.i, 1
+  %cmp.i = icmp slt i32 %idx.addr.0.i, %3
+  br i1 %cmp.i, label %land.rhs.i, label %return
 
-land.rhs.lr.ph.i:                                 ; preds = %if.then
-  %Flags.i.i = getelementptr inbounds i8, ptr %obj, i64 3720
-  %4 = load i32, ptr %Flags.i.i, align 8
-  %.fr.i = freeze i32 %4
-  %and.i.i = and i32 %.fr.i, 32768
-  %tobool.i.not.i = icmp eq i32 %and.i.i, 0
-  %Data.i.i.i = getelementptr inbounds i8, ptr %obj, i64 32
-  br i1 %tobool.i.not.i, label %land.rhs.i, label %return
-
-land.rhs.i:                                       ; preds = %land.rhs.lr.ph.i, %while.cond.backedge.i
-  %idx.addr.012.i = phi i32 [ %idx.addr.0.i, %while.cond.backedge.i ], [ %idx.addr.09.i, %land.rhs.lr.ph.i ]
-  %idx.addr.0.in11.i = phi i32 [ %idx.addr.012.i, %while.cond.backedge.i ], [ %idx, %land.rhs.lr.ph.i ]
-  %cmp.i.i = icmp slt i32 %idx.addr.0.in11.i, 0
-  br i1 %cmp.i.i, label %while.cond.backedge.i, label %if.end.i.i
+land.rhs.i:                                       ; preds = %while.cond.i
+  %5 = load i32, ptr %Flags.i.i5, align 8
+  %and.i.i = and i32 %5, 32768
+  %tobool.i.i = icmp ne i32 %and.i.i, 0
+  %cmp.i.i = icmp slt i32 %idx.addr.0.in.i, 0
+  %or.cond.i.i = or i1 %cmp.i.i, %tobool.i.i
+  br i1 %or.cond.i.i, label %_ZN5ImStbL26is_word_boundary_from_leftEP19ImGuiInputTextStatei.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.rhs.i
-  %5 = load ptr, ptr %Data.i.i.i, align 8
-  %idxprom.i.i.i = zext nneg i32 %idx.addr.012.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %5, i64 %idxprom.i.i.i
-  %6 = load i16, ptr %arrayidx.i.i.i, align 2
-  %conv.i.i = zext i16 %6 to i32
-  switch i16 %6, label %lor.rhs.i.i.i [
+  %6 = load ptr, ptr %Data.i.i.i6, align 8
+  %idxprom.i.i.i = zext nneg i32 %idx.addr.0.i to i64
+  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %6, i64 %idxprom.i.i.i
+  %7 = load i16, ptr %arrayidx.i.i.i, align 2
+  %conv.i.i = zext i16 %7 to i32
+  switch i16 %7, label %lor.rhs.i.i.i [
     i16 32, label %_ZL14ImCharIsBlankWj.exit.i.i
     i16 9, label %_ZL14ImCharIsBlankWj.exit.i.i
     i16 12288, label %_ZL14ImCharIsBlankWj.exit.i.i
@@ -37263,12 +37264,12 @@ lor.rhs.i.i.i:                                    ; preds = %if.end.i.i
   br label %_ZL14ImCharIsBlankWj.exit.i.i
 
 _ZL14ImCharIsBlankWj.exit.i.i:                    ; preds = %lor.rhs.i.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i
-  %call1.not.i.i = phi i1 [ false, %if.end.i.i ], [ true, %lor.rhs.i.i.i ], [ false, %if.end.i.i ], [ false, %if.end.i.i ]
+  %call1.not.not.i.i = phi i1 [ true, %if.end.i.i ], [ false, %lor.rhs.i.i.i ], [ true, %if.end.i.i ], [ true, %if.end.i.i ]
   %call5.i.i = tail call fastcc noundef zeroext i1 @_ZN5ImStbL12is_separatorEj(i32 noundef %conv.i.i)
   %arrayidx.i16.i.i = getelementptr i8, ptr %arrayidx.i.i.i, i64 -2
-  %7 = load i16, ptr %arrayidx.i16.i.i, align 2
-  %conv9.i.i = zext i16 %7 to i32
-  switch i16 %7, label %lor.rhs.i17.i.i [
+  %8 = load i16, ptr %arrayidx.i16.i.i, align 2
+  %conv9.i.i = zext i16 %8 to i32
+  switch i16 %8, label %lor.rhs.i17.i.i [
     i16 32, label %_ZL14ImCharIsBlankWj.exit18.i.i
     i16 9, label %_ZL14ImCharIsBlankWj.exit18.i.i
     i16 12288, label %_ZL14ImCharIsBlankWj.exit18.i.i
@@ -37278,87 +37279,82 @@ lor.rhs.i17.i.i:                                  ; preds = %_ZL14ImCharIsBlankW
   br label %_ZL14ImCharIsBlankWj.exit18.i.i
 
 _ZL14ImCharIsBlankWj.exit18.i.i:                  ; preds = %lor.rhs.i17.i.i, %_ZL14ImCharIsBlankWj.exit.i.i, %_ZL14ImCharIsBlankWj.exit.i.i, %_ZL14ImCharIsBlankWj.exit.i.i
-  %8 = phi i1 [ true, %_ZL14ImCharIsBlankWj.exit.i.i ], [ false, %lor.rhs.i17.i.i ], [ true, %_ZL14ImCharIsBlankWj.exit.i.i ], [ true, %_ZL14ImCharIsBlankWj.exit.i.i ]
+  %.not.i.i = phi i1 [ false, %_ZL14ImCharIsBlankWj.exit.i.i ], [ true, %lor.rhs.i17.i.i ], [ false, %_ZL14ImCharIsBlankWj.exit.i.i ], [ false, %_ZL14ImCharIsBlankWj.exit.i.i ]
   %call16.i.i = tail call fastcc noundef zeroext i1 @_ZN5ImStbL12is_separatorEj(i32 noundef %conv9.i.i)
-  %9 = or i1 %call1.not.i.i, %8
-  %narrow.v.i.i = select i1 %call16.i.i, i1 %call5.i.i, i1 %9
-  br i1 %narrow.v.i.i, label %while.cond.backedge.i, label %return
+  %.not22.i.i = and i1 %call1.not.not.i.i, %.not.i.i
+  %lnot.i.i = xor i1 %call5.i.i, true
+  %narrow.i.i = select i1 %call16.i.i, i1 %lnot.i.i, i1 %.not22.i.i
+  %conv24.i.i = zext i1 %narrow.i.i to i32
+  br label %_ZN5ImStbL26is_word_boundary_from_leftEP19ImGuiInputTextStatei.exit.i
 
-while.cond.backedge.i:                            ; preds = %_ZL14ImCharIsBlankWj.exit18.i.i, %land.rhs.i
-  %idx.addr.0.i = add i32 %idx.addr.012.i, 1
-  %exitcond.not.i = icmp eq i32 %idx.addr.0.i, %3
-  br i1 %exitcond.not.i, label %return, label %land.rhs.i, !llvm.loop !54
+_ZN5ImStbL26is_word_boundary_from_leftEP19ImGuiInputTextStatei.exit.i: ; preds = %_ZL14ImCharIsBlankWj.exit18.i.i, %land.rhs.i
+  %retval.0.i.i = phi i32 [ %conv24.i.i, %_ZL14ImCharIsBlankWj.exit18.i.i ], [ 0, %land.rhs.i ]
+  %tobool.not.i = icmp eq i32 %retval.0.i.i, 0
+  br i1 %tobool.not.i, label %while.cond.i, label %return, !llvm.loop !54
 
-if.else:                                          ; preds = %entry
-  %Flags.i.i5 = getelementptr inbounds i8, ptr %obj, i64 3720
-  %Data.i.i.i6 = getelementptr inbounds i8, ptr %obj, i64 32
-  %10 = add nsw i32 %idx, 1
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %3, i32 %10)
-  br label %while.cond.i
+while.cond.i8:                                    ; preds = %entry, %_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i
+  %idx.addr.0.in.i9 = phi i32 [ %idx.addr.0.i10, %_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i ], [ %idx, %entry ]
+  %idx.addr.0.i10 = add nsw i32 %idx.addr.0.in.i9, 1
+  %cmp.i11 = icmp slt i32 %idx.addr.0.i10, %3
+  br i1 %cmp.i11, label %land.rhs.i14, label %return
 
-while.cond.i:                                     ; preds = %_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i, %if.else
-  %idx.addr.0.in.i = phi i32 [ %idx, %if.else ], [ %idx.addr.0.i7, %_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i ]
-  %idx.addr.0.i7 = add nsw i32 %idx.addr.0.in.i, 1
-  %cmp.i = icmp slt i32 %idx.addr.0.i7, %3
-  br i1 %cmp.i, label %land.rhs.i10, label %return
+land.rhs.i14:                                     ; preds = %while.cond.i8
+  %9 = load i32, ptr %Flags.i.i5, align 8
+  %and.i.i15 = and i32 %9, 32768
+  %tobool.i.i16 = icmp ne i32 %and.i.i15, 0
+  %cmp.i.i17 = icmp slt i32 %idx.addr.0.in.i9, 0
+  %or.cond.i.i18 = or i1 %cmp.i.i17, %tobool.i.i16
+  br i1 %or.cond.i.i18, label %_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i, label %if.end.i.i19
 
-land.rhs.i10:                                     ; preds = %while.cond.i
-  %11 = load i32, ptr %Flags.i.i5, align 8
-  %and.i.i11 = and i32 %11, 32768
-  %tobool.i.i = icmp ne i32 %and.i.i11, 0
-  %cmp.i.i12 = icmp slt i32 %idx.addr.0.in.i, 0
-  %or.cond.i.i = or i1 %cmp.i.i12, %tobool.i.i
-  br i1 %or.cond.i.i, label %_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i, label %if.end.i.i13
-
-if.end.i.i13:                                     ; preds = %land.rhs.i10
-  %12 = load ptr, ptr %Data.i.i.i6, align 8
-  %13 = zext nneg i32 %idx.addr.0.i7 to i64
-  %14 = getelementptr i16, ptr %12, i64 %13
-  %arrayidx.i.i.i14 = getelementptr i8, ptr %14, i64 -2
-  %15 = load i16, ptr %arrayidx.i.i.i14, align 2
-  %conv.i.i15 = zext i16 %15 to i32
-  switch i16 %15, label %lor.rhs.i.i.i18 [
-    i16 32, label %_ZL14ImCharIsBlankWj.exit.i.i16
-    i16 9, label %_ZL14ImCharIsBlankWj.exit.i.i16
-    i16 12288, label %_ZL14ImCharIsBlankWj.exit.i.i16
+if.end.i.i19:                                     ; preds = %land.rhs.i14
+  %10 = load ptr, ptr %Data.i.i.i6, align 8
+  %11 = zext nneg i32 %idx.addr.0.i10 to i64
+  %12 = getelementptr i16, ptr %10, i64 %11
+  %arrayidx.i.i.i20 = getelementptr i8, ptr %12, i64 -2
+  %13 = load i16, ptr %arrayidx.i.i.i20, align 2
+  %conv.i.i21 = zext i16 %13 to i32
+  switch i16 %13, label %lor.rhs.i.i.i29 [
+    i16 32, label %_ZL14ImCharIsBlankWj.exit.i.i22
+    i16 9, label %_ZL14ImCharIsBlankWj.exit.i.i22
+    i16 12288, label %_ZL14ImCharIsBlankWj.exit.i.i22
   ]
 
-lor.rhs.i.i.i18:                                  ; preds = %if.end.i.i13
-  br label %_ZL14ImCharIsBlankWj.exit.i.i16
+lor.rhs.i.i.i29:                                  ; preds = %if.end.i.i19
+  br label %_ZL14ImCharIsBlankWj.exit.i.i22
 
-_ZL14ImCharIsBlankWj.exit.i.i16:                  ; preds = %lor.rhs.i.i.i18, %if.end.i.i13, %if.end.i.i13, %if.end.i.i13
-  %16 = phi i1 [ true, %if.end.i.i13 ], [ false, %lor.rhs.i.i.i18 ], [ true, %if.end.i.i13 ], [ true, %if.end.i.i13 ]
-  %call6.i.i = tail call fastcc noundef zeroext i1 @_ZN5ImStbL12is_separatorEj(i32 noundef %conv.i.i15)
-  %17 = load i16, ptr %14, align 2
-  %conv10.i.i = zext i16 %17 to i32
-  switch i16 %17, label %lor.rhs.i19.i.i [
+_ZL14ImCharIsBlankWj.exit.i.i22:                  ; preds = %lor.rhs.i.i.i29, %if.end.i.i19, %if.end.i.i19, %if.end.i.i19
+  %14 = phi i1 [ true, %if.end.i.i19 ], [ false, %lor.rhs.i.i.i29 ], [ true, %if.end.i.i19 ], [ true, %if.end.i.i19 ]
+  %call6.i.i = tail call fastcc noundef zeroext i1 @_ZN5ImStbL12is_separatorEj(i32 noundef %conv.i.i21)
+  %15 = load i16, ptr %12, align 2
+  %conv10.i.i = zext i16 %15 to i32
+  switch i16 %15, label %lor.rhs.i19.i.i [
     i16 32, label %_ZL14ImCharIsBlankWj.exit20.i.i
     i16 9, label %_ZL14ImCharIsBlankWj.exit20.i.i
     i16 12288, label %_ZL14ImCharIsBlankWj.exit20.i.i
   ]
 
-lor.rhs.i19.i.i:                                  ; preds = %_ZL14ImCharIsBlankWj.exit.i.i16
+lor.rhs.i19.i.i:                                  ; preds = %_ZL14ImCharIsBlankWj.exit.i.i22
   br label %_ZL14ImCharIsBlankWj.exit20.i.i
 
-_ZL14ImCharIsBlankWj.exit20.i.i:                  ; preds = %lor.rhs.i19.i.i, %_ZL14ImCharIsBlankWj.exit.i.i16, %_ZL14ImCharIsBlankWj.exit.i.i16, %_ZL14ImCharIsBlankWj.exit.i.i16
-  %.not.i.i = phi i1 [ false, %_ZL14ImCharIsBlankWj.exit.i.i16 ], [ true, %lor.rhs.i19.i.i ], [ false, %_ZL14ImCharIsBlankWj.exit.i.i16 ], [ false, %_ZL14ImCharIsBlankWj.exit.i.i16 ]
-  %call16.i.i17 = tail call fastcc noundef zeroext i1 @_ZN5ImStbL12is_separatorEj(i32 noundef %conv10.i.i)
-  %brmerge.i.i = or i1 %16, %call6.i.i
-  %lnot.i.i = xor i1 %call6.i.i, true
-  %18 = and i1 %brmerge.i.i, %.not.i.i
-  %narrow.i.i = select i1 %call16.i.i17, i1 %lnot.i.i, i1 %18
-  %conv26.i.i = zext i1 %narrow.i.i to i32
+_ZL14ImCharIsBlankWj.exit20.i.i:                  ; preds = %lor.rhs.i19.i.i, %_ZL14ImCharIsBlankWj.exit.i.i22, %_ZL14ImCharIsBlankWj.exit.i.i22, %_ZL14ImCharIsBlankWj.exit.i.i22
+  %.not.i.i23 = phi i1 [ false, %_ZL14ImCharIsBlankWj.exit.i.i22 ], [ true, %lor.rhs.i19.i.i ], [ false, %_ZL14ImCharIsBlankWj.exit.i.i22 ], [ false, %_ZL14ImCharIsBlankWj.exit.i.i22 ]
+  %call16.i.i24 = tail call fastcc noundef zeroext i1 @_ZN5ImStbL12is_separatorEj(i32 noundef %conv10.i.i)
+  %brmerge.i.i = or i1 %14, %call6.i.i
+  %lnot.i.i25 = xor i1 %call6.i.i, true
+  %16 = and i1 %brmerge.i.i, %.not.i.i23
+  %narrow.i.i26 = select i1 %call16.i.i24, i1 %lnot.i.i25, i1 %16
+  %conv26.i.i = zext i1 %narrow.i.i26 to i32
   br label %_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i
 
-_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i: ; preds = %_ZL14ImCharIsBlankWj.exit20.i.i, %land.rhs.i10
-  %retval.0.i.i = phi i32 [ %conv26.i.i, %_ZL14ImCharIsBlankWj.exit20.i.i ], [ 0, %land.rhs.i10 ]
-  %tobool.not.i = icmp eq i32 %retval.0.i.i, 0
-  br i1 %tobool.not.i, label %while.cond.i, label %return, !llvm.loop !85
+_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i: ; preds = %_ZL14ImCharIsBlankWj.exit20.i.i, %land.rhs.i14
+  %retval.0.i.i27 = phi i32 [ %conv26.i.i, %_ZL14ImCharIsBlankWj.exit20.i.i ], [ 0, %land.rhs.i14 ]
+  %tobool.not.i28 = icmp eq i32 %retval.0.i.i27, 0
+  br i1 %tobool.not.i28, label %while.cond.i8, label %return, !llvm.loop !85
 
-return:                                           ; preds = %while.cond.backedge.i, %_ZL14ImCharIsBlankWj.exit18.i.i, %_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i, %while.cond.i, %land.rhs.lr.ph.i, %if.then
-  %idx.addr.0.lcssa.i8.sink = phi i32 [ %idx.addr.09.i, %if.then ], [ %3, %land.rhs.lr.ph.i ], [ %smax.i, %while.cond.i ], [ %idx.addr.0.i7, %_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i ], [ %idx.addr.012.i, %_ZL14ImCharIsBlankWj.exit18.i.i ], [ %3, %while.cond.backedge.i ]
-  %cond.i9 = tail call noundef i32 @llvm.smin.i32(i32 %idx.addr.0.lcssa.i8.sink, i32 %3)
-  ret i32 %cond.i9
+return:                                           ; preds = %_ZN5ImStbL26is_word_boundary_from_leftEP19ImGuiInputTextStatei.exit.i, %while.cond.i, %_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i, %while.cond.i8
+  %idx.addr.0.lcssa.i12.sink = phi i32 [ %smax.i7, %while.cond.i8 ], [ %idx.addr.0.i10, %_ZN5ImStbL27is_word_boundary_from_rightEP19ImGuiInputTextStatei.exit.i ], [ %smax.i7, %while.cond.i ], [ %idx.addr.0.i, %_ZN5ImStbL26is_word_boundary_from_leftEP19ImGuiInputTextStatei.exit.i ]
+  %cond.i13 = tail call noundef i32 @llvm.smin.i32(i32 %idx.addr.0.lcssa.i12.sink, i32 %3)
+  ret i32 %cond.i13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

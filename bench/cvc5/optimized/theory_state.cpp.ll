@@ -296,7 +296,6 @@ if.then.i:                                        ; preds = %if.then3
 
 _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %if.then3, %if.then.i
   %call10 = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %a)
-  %7 = xor i1 %call10, true
   br label %if.end15
 
 if.else:                                          ; preds = %if.end
@@ -304,51 +303,50 @@ if.else:                                          ; preds = %if.end
   br i1 %call11, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.else, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit
-  %isConst.0 = phi i1 [ %7, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ], [ false, %if.else ]
-  %8 = load ptr, ptr %b, align 8
-  store ptr %8, ptr %agg.tmp16, align 8
+  %isConst.0.not = phi i1 [ %call10, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ], [ true, %if.else ]
+  %7 = load ptr, ptr %b, align 8
+  store ptr %7, ptr %agg.tmp16, align 8
   %vtable17 = load ptr, ptr %this, align 8
   %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 16
-  %9 = load ptr, ptr %vfn18, align 8
-  %call21 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %agg.tmp16)
+  %8 = load ptr, ptr %vfn18, align 8
+  %call21 = call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %agg.tmp16)
   br i1 %call21, label %if.then23, label %if.else36
 
 if.then23:                                        ; preds = %if.end15
   %d_ee25 = getelementptr inbounds i8, ptr %this, i64 24
-  %10 = load ptr, ptr %d_ee25, align 8
+  %9 = load ptr, ptr %d_ee25, align 8
+  %10 = load ptr, ptr %b, align 8
+  store ptr %10, ptr %agg.tmp26, align 8
+  call void @_ZNK4cvc58internal6theory2eq14EqualityEngine17getRepresentativeENS0_12NodeTemplateILb0EEE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp24, ptr noundef nonnull align 8 dereferenceable(1784) %9, ptr noundef nonnull %agg.tmp26)
   %11 = load ptr, ptr %b, align 8
-  store ptr %11, ptr %agg.tmp26, align 8
-  call void @_ZNK4cvc58internal6theory2eq14EqualityEngine17getRepresentativeENS0_12NodeTemplateILb0EEE(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp24, ptr noundef nonnull align 8 dereferenceable(1784) %10, ptr noundef nonnull %agg.tmp26)
-  %12 = load ptr, ptr %b, align 8
-  %13 = load ptr, ptr %ref.tmp24, align 8
-  %cmp.not.i3 = icmp eq ptr %12, %13
+  %12 = load ptr, ptr %ref.tmp24, align 8
+  %cmp.not.i3 = icmp eq ptr %11, %12
   br i1 %cmp.not.i3, label %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit5, label %if.then.i4
 
 if.then.i4:                                       ; preds = %if.then23
-  store ptr %13, ptr %b, align 8
+  store ptr %12, ptr %b, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit5
 
 _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit5: ; preds = %if.then23, %if.then.i4
-  %14 = phi ptr [ %12, %if.then23 ], [ %13, %if.then.i4 ]
-  br i1 %isConst.0, label %if.end41.thread, label %if.end41
+  %13 = phi ptr [ %11, %if.then23 ], [ %12, %if.then.i4 ]
+  br i1 %isConst.0.not, label %if.end41, label %if.end41.thread
 
 if.end41.thread:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit5
   br i1 %call2, label %if.end49, label %return
 
 if.else36:                                        ; preds = %if.end15
   %call37 = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %b)
-  %call37.not = xor i1 %call37, true
-  %or.cond = or i1 %isConst.0, %call37.not
-  br i1 %or.cond, label %return, label %if.then43
+  %or.cond.not = and i1 %isConst.0.not, %call37
+  br i1 %or.cond.not, label %if.then43, label %return
 
 if.end41:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit5
   %call34 = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %b)
   br i1 %call34, label %if.then43, label %if.else45
 
 if.then43:                                        ; preds = %if.else36, %if.end41
-  %15 = load ptr, ptr %a, align 8
-  %16 = load ptr, ptr %b, align 8
-  %cmp.i6 = icmp ne ptr %15, %16
+  %14 = load ptr, ptr %a, align 8
+  %15 = load ptr, ptr %b, align 8
+  %cmp.i6 = icmp ne ptr %14, %15
   br label %return
 
 if.else45:                                        ; preds = %if.end41
@@ -359,13 +357,13 @@ if.else45.if.end49_crit_edge:                     ; preds = %if.else45
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else45.if.end49_crit_edge, %if.end41.thread
-  %17 = phi ptr [ %.pre, %if.else45.if.end49_crit_edge ], [ %14, %if.end41.thread ]
+  %16 = phi ptr [ %.pre, %if.else45.if.end49_crit_edge ], [ %13, %if.end41.thread ]
   %d_ee50 = getelementptr inbounds i8, ptr %this, i64 24
-  %18 = load ptr, ptr %d_ee50, align 8
-  %19 = load ptr, ptr %a, align 8
-  store ptr %19, ptr %agg.tmp51, align 8
-  store ptr %17, ptr %agg.tmp52, align 8
-  %call57 = call noundef zeroext i1 @_ZNK4cvc58internal6theory2eq14EqualityEngine11areDisequalENS0_12NodeTemplateILb0EEES5_b(ptr noundef nonnull align 8 dereferenceable(1784) %18, ptr noundef nonnull %agg.tmp51, ptr noundef nonnull %agg.tmp52, i1 noundef zeroext false)
+  %17 = load ptr, ptr %d_ee50, align 8
+  %18 = load ptr, ptr %a, align 8
+  store ptr %18, ptr %agg.tmp51, align 8
+  store ptr %16, ptr %agg.tmp52, align 8
+  %call57 = call noundef zeroext i1 @_ZNK4cvc58internal6theory2eq14EqualityEngine11areDisequalENS0_12NodeTemplateILb0EEES5_b(ptr noundef nonnull align 8 dereferenceable(1784) %17, ptr noundef nonnull %agg.tmp51, ptr noundef nonnull %agg.tmp52, i1 noundef zeroext false)
   br label %return
 
 return:                                           ; preds = %if.end49, %if.end41.thread, %if.else45, %if.else36, %if.else, %entry, %if.then43

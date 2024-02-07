@@ -2220,7 +2220,7 @@ if.then66:                                        ; preds = %if.else, %if.else
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit536, %if.then66
-  %cmp99.not = phi i1 [ true, %if.then66 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit536 ]
+  %cmp99.not.not = phi i1 [ false, %if.then66 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit536 ]
   %i.01654 = phi i64 [ 0, %if.then66 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit536 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %34 = load ptr, ptr %d_match_pattern, align 8, !noalias !16
@@ -2444,7 +2444,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit311: ; preds = %cleanup.done92, %i
   br i1 %46, label %if.then98, label %cleanup
 
 if.then98:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit311
-  br i1 %cmp99.not, label %if.end153, label %if.then100
+  br i1 %cmp99.not.not, label %if.then100, label %if.end153
 
 if.then100:                                       ; preds = %if.then98
   %51 = load ptr, ptr %d_match_pattern, align 8
@@ -3010,9 +3010,8 @@ terminate.lpad.i535:                              ; preds = %if.then13.i.i534
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit536: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit525, %if.then.i.i528, %if.then13.i.i534
-  %.not = xor i1 %46, true
-  %or.cond = and i1 %cmp99.not, %.not
-  br i1 %or.cond, label %for.body, label %if.end164, !llvm.loop !28
+  %or.cond.not = or i1 %cmp99.not.not, %46
+  br i1 %or.cond.not, label %if.end164, label %for.body, !llvm.loop !28
 
 ehcleanup160:                                     ; preds = %lpad146, %ehcleanup10.i407, %lpad143, %lpad117, %ehcleanup10.i, %lpad114, %lpad127, %ehcleanup97, %lpad74
   %.pn21 = phi { ptr, i32 } [ %74, %lpad74 ], [ %79, %lpad127 ], [ %.pn, %ehcleanup97 ], [ %78, %lpad117 ], [ %77, %lpad114 ], [ %.pn2.i, %ehcleanup10.i ], [ %94, %lpad146 ], [ %93, %lpad143 ], [ %.pn2.i408, %ehcleanup10.i407 ]

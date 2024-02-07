@@ -1019,14 +1019,14 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(72) %this)
   store i32 %call2, ptr %rawOffset, align 4
-  %tobool3 = icmp ne i8 %local, 0
+  %tobool3 = icmp eq i8 %local, 0
   %conv = sitofp i32 %call2 to double
-  %add = select i1 %tobool3, double -0.000000e+00, double %conv
+  %add = select i1 %tobool3, double %conv, double -0.000000e+00
   %date.addr.0 = fadd double %add, %date
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end19, %if.end
-  %cmp = phi i1 [ true, %if.end ], [ false, %if.end19 ]
+  %cmp.not = phi i1 [ false, %if.end ], [ true, %if.end19 ]
   %date.addr.1 = phi double [ %date.addr.0, %if.end ], [ %sub21, %if.end19 ]
   %call6 = call noundef i32 @_ZN6icu_759ClockMath11floorDivideEdiPi(double noundef %date.addr.1, i32 noundef 86400000, ptr noundef nonnull %millis)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %doy_unused.i)
@@ -1067,10 +1067,10 @@ _ZN6icu_755Grego11monthLengthEii.exit:            ; preds = %land.rhs.i.i, %_ZN6
   %10 = load i32, ptr %rawOffset, align 4
   %sub = sub nsw i32 %call14, %10
   store i32 %sub, ptr %dstOffset, align 4
-  %or.cond = and i1 %tobool3, %cmp
-  %cmp17 = icmp ne i32 %call14, %10
-  %or.cond10.not = select i1 %or.cond, i1 %cmp17, i1 false
-  br i1 %or.cond10.not, label %if.end19, label %for.end
+  %or.cond.not11 = or i1 %tobool3, %cmp.not
+  %cmp17 = icmp eq i32 %call14, %10
+  %or.cond10 = select i1 %or.cond.not11, i1 true, i1 %cmp17
+  br i1 %or.cond10, label %for.end, label %if.end19
 
 if.end19:                                         ; preds = %_ZN6icu_755Grego11monthLengthEii.exit
   %conv20 = sitofp i32 %sub to double

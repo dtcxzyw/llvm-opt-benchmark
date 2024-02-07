@@ -10881,7 +10881,7 @@ if.then57:                                        ; preds = %_ZNK17arith_recogni
   br label %if.end59
 
 if.end59:                                         ; preds = %land.rhs.i.i140, %land.rhs.i.i114, %_ZNK17arith_recognizers5is_ltEPK4expr.exit135, %if.then46, %land.lhs.true41, %land.lhs.true51, %if.end47.thread, %if.then57, %_ZNK17arith_recognizers5is_leEPK4expr.exit161
-  %is_int.0.shrunk.not520 = phi i1 [ false, %if.end47.thread ], [ true, %if.then57 ], [ true, %_ZNK17arith_recognizers5is_leEPK4expr.exit161 ], [ true, %land.lhs.true51 ], [ true, %land.lhs.true41 ], [ true, %if.then46 ], [ true, %_ZNK17arith_recognizers5is_ltEPK4expr.exit135 ], [ true, %land.rhs.i.i114 ], [ true, %land.rhs.i.i140 ]
+  %is_int.0.shrunk.not520.not = phi i1 [ true, %if.end47.thread ], [ false, %if.then57 ], [ false, %_ZNK17arith_recognizers5is_leEPK4expr.exit161 ], [ false, %land.lhs.true51 ], [ false, %land.lhs.true41 ], [ false, %if.then46 ], [ false, %_ZNK17arith_recognizers5is_ltEPK4expr.exit135 ], [ false, %land.rhs.i.i114 ], [ false, %land.rhs.i.i140 ]
   %s.0509519 = phi ptr [ %s.0.ph, %if.end47.thread ], [ %call25, %if.then57 ], [ %call25, %_ZNK17arith_recognizers5is_leEPK4expr.exit161 ], [ %call25, %land.lhs.true51 ], [ %call25, %land.lhs.true41 ], [ %call25, %if.then46 ], [ %call25, %_ZNK17arith_recognizers5is_ltEPK4expr.exit135 ], [ %call25, %land.rhs.i.i114 ], [ %call25, %land.rhs.i.i140 ]
   %tobool40.not511518 = phi i1 [ %tobool40.not507, %if.end47.thread ], [ true, %if.then57 ], [ true, %_ZNK17arith_recognizers5is_leEPK4expr.exit161 ], [ true, %land.lhs.true51 ], [ false, %land.lhs.true41 ], [ false, %if.then46 ], [ false, %_ZNK17arith_recognizers5is_ltEPK4expr.exit135 ], [ false, %land.rhs.i.i114 ], [ true, %land.rhs.i.i140 ]
   %49 = load ptr, ptr %this, align 8
@@ -11416,9 +11416,8 @@ cond.end154:                                      ; preds = %cond.end154.sink.sp
   %a0.4 = phi ptr [ %a0.2531.ph, %invoke.cont147 ], [ %a0.3.ph, %invoke.cont140 ], [ %a0.4.ph, %cond.end154.sink.split ]
   %a1.4 = phi ptr [ %a1.2533.ph, %invoke.cont147 ], [ %a1.3.ph, %invoke.cont140 ], [ %a1.4.ph, %cond.end154.sink.split ]
   %cond = phi i1 [ true, %invoke.cont147 ], [ true, %invoke.cont140 ], [ %135, %cond.end154.sink.split ]
-  %cond.not = xor i1 %cond, true
-  %brmerge = or i1 %is_int.0.shrunk.not520, %cond.not
-  br i1 %brmerge, label %if.end171, label %if.then159
+  %brmerge.not = and i1 %is_int.0.shrunk.not520.not, %cond
+  br i1 %brmerge.not, label %if.then159, label %if.end171
 
 if.then159:                                       ; preds = %cond.end154
   %136 = load ptr, ptr %m_sum, align 8

@@ -92,7 +92,7 @@ if.else.i:                                        ; preds = %if.end.thread.i, %i
   br i1 %cmp32.i, label %return, label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.else.i, %if.end20.i
-  %cmp738.i = phi i1 [ false, %if.end20.i ], [ true, %if.else.i ]
+  %cmp7.not.not.i = phi i1 [ true, %if.end20.i ], [ false, %if.else.i ]
   %p6.0.i = phi ptr [ %call23.i, %if.end20.i ], [ %call31.i, %if.else.i ]
   %7 = ptrtoint ptr %p6.0.i to i64
   %add37.i = add i64 %7, %offset
@@ -127,9 +127,8 @@ if.then49.i:                                      ; preds = %if.end36.i
   br label %if.end52.i
 
 if.end52.i:                                       ; preds = %if.then49.i, %if.end36.i
-  %zero.not.i = xor i1 %zero, true
-  %brmerge.i = or i1 %cmp738.i, %zero.not.i
-  br i1 %brmerge.i, label %return, label %if.then57.i
+  %brmerge.not.i = and i1 %cmp7.not.not.i, %zero
+  br i1 %brmerge.not.i, label %if.then57.i, label %return
 
 if.then57.i:                                      ; preds = %if.end52.i
   %call58.i = tail call i64 @mi_usable_size(ptr noundef %8) #8

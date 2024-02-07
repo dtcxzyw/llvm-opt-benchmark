@@ -17410,8 +17410,8 @@ if.end:                                           ; preds = %land.rhs.i.i, %_ZSt
   br label %return
 
 return:                                           ; preds = %if.end, %invoke.cont
-  %lnot.i7 = phi i1 [ true, %if.end ], [ false, %invoke.cont ]
-  ret i1 %lnot.i7
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %invoke.cont ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -18955,11 +18955,12 @@ invoke.cont49:                                    ; preds = %invoke.cont46
   %column.i = getelementptr inbounds i8, ptr %this, i64 84
   %15 = load i32, ptr %column.i, align 4
   invoke void @_ZN6google8protobuf10TextFormat6Parser10ParserImpl11ReportErrorEiiSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %14, i32 noundef %15, i64 %12, ptr %13)
-          to label %invoke.cont52 unwind label %lpad51
+          to label %cleanup.thread unwind label %lpad51
 
-invoke.cont52:                                    ; preds = %invoke.cont49
+cleanup.thread:                                   ; preds = %invoke.cont49
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #34
-  br label %cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %text20) #34
+  br label %return
 
 lpad51:                                           ; preds = %invoke.cont49
   %16 = landingpad { ptr, i32 }
@@ -18967,13 +18968,9 @@ lpad51:                                           ; preds = %invoke.cont49
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44) #34
   br label %ehcleanup56
 
-cleanup:                                          ; preds = %if.then38.invoke, %invoke.cont52
-  %cleanup.dest.slot.0 = phi i1 [ true, %invoke.cont52 ], [ false, %if.then38.invoke ]
+cleanup:                                          ; preds = %if.then38.invoke
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %text20) #34
-  %call.not = xor i1 %2, true
-  %brmerge = or i1 %cleanup.dest.slot.0, %call.not
-  %not.cleanup.dest.slot.0 = xor i1 %cleanup.dest.slot.0, true
-  br i1 %brmerge, label %return, label %if.then72
+  br i1 %2, label %if.then72, label %return
 
 ehcleanup56:                                      ; preds = %lpad51, %lpad24
   %.pn7 = phi { ptr, i32 } [ %6, %lpad24 ], [ %16, %lpad51 ]
@@ -19017,8 +19014,8 @@ if.then72:                                        ; preds = %if.then6, %cleanup,
   store double %fneg, ptr %value, align 8
   br label %return
 
-return:                                           ; preds = %if.then6, %cleanup, %if.then12, %if.then72, %invoke.cont67
-  %retval.1 = phi i1 [ %not.cleanup.dest.slot.0, %cleanup ], [ false, %invoke.cont67 ], [ %call7, %if.then6 ], [ true, %if.then72 ], [ true, %if.then12 ]
+return:                                           ; preds = %cleanup.thread, %if.then6, %cleanup, %if.then12, %if.then72, %invoke.cont67
+  %retval.1 = phi i1 [ true, %cleanup ], [ false, %invoke.cont67 ], [ %call7, %if.then6 ], [ true, %if.then72 ], [ true, %if.then12 ], [ false, %cleanup.thread ]
   ret i1 %retval.1
 
 eh.resume:                                        ; preds = %lpad66, %ehcleanup56, %ehcleanup

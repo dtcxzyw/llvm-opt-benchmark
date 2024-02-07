@@ -556,8 +556,8 @@ if.then83.i.i:                                    ; preds = %if.else66.i.i, %if.
 
 if.end89.i.i:                                     ; preds = %if.then83.i.i, %if.then74.i.i, %if.else66.i.i, %if.then64.i.i, %if.then56.i.i, %if.then48.i.i
   %17 = phi ptr [ %add.ptr49.i.i, %if.then48.i.i ], [ %add.ptr65.i.i, %if.then64.i.i ], [ %incdec.ptr.i.i, %if.then74.i.i ], [ %incdec.ptr84.i.i, %if.then83.i.i ], [ %add.ptr57.i.i, %if.then56.i.i ], [ %15, %if.else66.i.i ]
-  %l.0.i.i = phi i1 [ true, %if.then48.i.i ], [ true, %if.then64.i.i ], [ true, %if.then74.i.i ], [ false, %if.then83.i.i ], [ true, %if.then56.i.i ], [ false, %if.else66.i.i ]
-  %u.0.i.i = phi i1 [ true, %if.then48.i.i ], [ false, %if.then64.i.i ], [ false, %if.then74.i.i ], [ true, %if.then83.i.i ], [ true, %if.then56.i.i ], [ false, %if.else66.i.i ]
+  %l.0.not40.i.i = phi i1 [ false, %if.then48.i.i ], [ false, %if.then64.i.i ], [ false, %if.then74.i.i ], [ true, %if.then83.i.i ], [ false, %if.then56.i.i ], [ true, %if.else66.i.i ]
+  %u.0.not41.i.i = phi i1 [ false, %if.then48.i.i ], [ true, %if.then64.i.i ], [ true, %if.then74.i.i ], [ false, %if.then83.i.i ], [ false, %if.then56.i.i ], [ true, %if.else66.i.i ]
   %18 = load ptr, ptr %loc.i, align 16
   %19 = load i32, ptr %len.i, align 8
   %idx.ext.i.i = sext i32 %19 to i64
@@ -566,25 +566,25 @@ if.end89.i.i:                                     ; preds = %if.then83.i.i, %if.
   br i1 %cmp92.not.i.i, label %if.end95.i.i, label %if.end.i
 
 if.end95.i.i:                                     ; preds = %if.end89.i.i
-  %brmerge.demorgan.i.i = and i1 %l.0.i.i, %u.0.i.i
+  %brmerge.i.i = or i1 %l.0.not40.i.i, %u.0.not41.i.i
   br i1 %cmp96.i.i, label %if.then98.i.i, label %if.else122.i.i
 
 if.then98.i.i:                                    ; preds = %if.end95.i.i
-  br i1 %brmerge.demorgan.i.i, label %if.then104.i.i, label %if.else105.i.i
+  br i1 %brmerge.i.i, label %if.else105.i.i, label %if.then104.i.i
 
 if.then104.i.i:                                   ; preds = %if.then98.i.i
   %20 = load ptr, ptr @ty_ulong, align 8
   br label %convert_pp_int.exit.thread.i
 
 if.else105.i.i:                                   ; preds = %if.then98.i.i
-  br i1 %l.0.i.i, label %if.then107.i.i, label %if.else108.i.i
+  br i1 %l.0.not40.i.i, label %if.else108.i.i, label %if.then107.i.i
 
 if.then107.i.i:                                   ; preds = %if.else105.i.i
   %21 = load ptr, ptr @ty_long, align 8
   br label %convert_pp_int.exit.thread.i
 
 if.else108.i.i:                                   ; preds = %if.else105.i.i
-  br i1 %u.0.i.i, label %if.then110.i.i, label %if.else112.i.i
+  br i1 %u.0.not41.i.i, label %if.else112.i.i, label %if.then110.i.i
 
 if.then110.i.i:                                   ; preds = %if.else108.i.i
   %tobool111.not.i.i = icmp ult i64 %call24.i.i, 4294967296
@@ -601,14 +601,14 @@ if.else112.i.i:                                   ; preds = %if.else108.i.i
   br label %convert_pp_int.exit.thread.i
 
 if.else122.i.i:                                   ; preds = %if.end95.i.i
-  br i1 %brmerge.demorgan.i.i, label %if.then128.i.i, label %if.else129.i.i
+  br i1 %brmerge.i.i, label %if.else129.i.i, label %if.then128.i.i
 
 if.then128.i.i:                                   ; preds = %if.else122.i.i
   %26 = load ptr, ptr @ty_ulong, align 8
   br label %convert_pp_int.exit.thread.i
 
 if.else129.i.i:                                   ; preds = %if.else122.i.i
-  br i1 %l.0.i.i, label %if.then131.i.i, label %if.else138.i.i
+  br i1 %l.0.not40.i.i, label %if.else138.i.i, label %if.then131.i.i
 
 if.then131.i.i:                                   ; preds = %if.else129.i.i
   %27 = load ptr, ptr @ty_ulong, align 8
@@ -618,7 +618,7 @@ if.then131.i.i:                                   ; preds = %if.else129.i.i
   br label %convert_pp_int.exit.thread.i
 
 if.else138.i.i:                                   ; preds = %if.else129.i.i
-  br i1 %u.0.i.i, label %if.then140.i.i, label %if.else147.i.i
+  br i1 %u.0.not41.i.i, label %if.else147.i.i, label %if.then140.i.i
 
 if.then140.i.i:                                   ; preds = %if.else138.i.i
   %tobool142.not.i.i = icmp ult i64 %call24.i.i, 4294967296

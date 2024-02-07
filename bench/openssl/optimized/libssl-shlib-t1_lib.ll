@@ -4226,9 +4226,7 @@ if.end174:                                        ; preds = %if.end151
 
 end:                                              ; preds = %if.end17, %if.end14, %land.lhs.true11, %entry
   %cmp182 = phi i1 [ false, %entry ], [ true, %land.lhs.true11 ], [ true, %if.end14 ], [ false, %if.end17 ]
-  %cmp205 = phi i1 [ true, %entry ], [ false, %land.lhs.true11 ], [ false, %if.end14 ], [ true, %if.end17 ]
   %ret.0 = phi i32 [ 3, %entry ], [ 4, %land.lhs.true11 ], [ 4, %if.end14 ], [ 0, %if.end17 ]
-  %cmp202 = xor i1 %cmp, true
   tail call void @EVP_CIPHER_CTX_free(ptr noundef null) #15
   br label %ssl_hmac_free.exit
 
@@ -4238,7 +4236,6 @@ if.then.i120:                                     ; preds = %if.end.i, %if.then1
   %cmp188.ph = phi i1 [ %not.tobool170.not, %if.end169 ], [ false, %if.end123 ], [ false, %if.end113 ], [ false, %lor.lhs.false117 ], [ false, %if.end108 ], [ false, %if.end104 ], [ false, %ssl_hmac_size.exit ], [ false, %if.else60 ], [ false, %if.end53 ], [ false, %if.end50 ], [ false, %if.end20 ], [ false, %if.then80 ], [ false, %if.end174 ], [ false, %if.then164 ], [ false, %if.then150 ], [ false, %if.then143 ], [ false, %if.end.i ]
   %cmp210.ph = phi i1 [ %not.tobool170.not, %if.end169 ], [ true, %if.end123 ], [ true, %if.end113 ], [ true, %lor.lhs.false117 ], [ true, %if.end108 ], [ true, %if.end104 ], [ true, %ssl_hmac_size.exit ], [ true, %if.else60 ], [ true, %if.end53 ], [ true, %if.end50 ], [ true, %if.end20 ], [ true, %if.then80 ], [ true, %if.end174 ], [ true, %if.then164 ], [ true, %if.then150 ], [ true, %if.then143 ], [ true, %if.end.i ]
   %cmp213.ph = phi i1 [ %tobool170.not, %if.end169 ], [ true, %if.end123 ], [ true, %if.end113 ], [ true, %lor.lhs.false117 ], [ true, %if.end108 ], [ true, %if.end104 ], [ true, %ssl_hmac_size.exit ], [ true, %if.else60 ], [ true, %if.end53 ], [ true, %if.end50 ], [ true, %if.end20 ], [ true, %if.then80 ], [ true, %if.end174 ], [ true, %if.then164 ], [ true, %if.then150 ], [ true, %if.then143 ], [ true, %if.end.i ]
-  %cmp205.ph = phi i1 [ true, %if.end169 ], [ false, %if.end123 ], [ true, %if.end113 ], [ true, %lor.lhs.false117 ], [ false, %if.end108 ], [ true, %if.end104 ], [ true, %ssl_hmac_size.exit ], [ false, %if.else60 ], [ false, %if.end53 ], [ true, %if.end50 ], [ true, %if.end20 ], [ true, %if.then80 ], [ false, %if.end174 ], [ false, %if.then164 ], [ false, %if.then150 ], [ true, %if.then143 ], [ true, %if.end.i ]
   %ret.0.ph = phi i32 [ %.115, %if.end169 ], [ 4, %if.end123 ], [ 1, %if.end113 ], [ 1, %lor.lhs.false117 ], [ 4, %if.end108 ], [ 1, %if.end104 ], [ 1, %ssl_hmac_size.exit ], [ 4, %if.else60 ], [ 4, %if.end53 ], [ 1, %if.end50 ], [ 0, %if.end20 ], [ 1, %if.then80 ], [ 4, %if.end174 ], [ 4, %if.then164 ], [ 4, %if.then150 ], [ 1, %if.then143 ], [ 1, %if.end.i ]
   %sess.0.ph = phi ptr [ %call156, %if.end169 ], [ null, %if.end123 ], [ null, %if.end113 ], [ null, %lor.lhs.false117 ], [ null, %if.end108 ], [ null, %if.end104 ], [ null, %ssl_hmac_size.exit ], [ null, %if.else60 ], [ null, %if.end53 ], [ null, %if.end50 ], [ null, %if.end20 ], [ null, %if.then80 ], [ null, %if.end174 ], [ null, %if.then164 ], [ null, %if.then150 ], [ null, %if.then143 ], [ null, %if.end.i ]
   %eticklen.addr.0.ph = phi i64 [ %sub134, %if.end169 ], [ %sub, %if.end123 ], [ %sub, %if.end113 ], [ %sub, %lor.lhs.false117 ], [ %eticklen, %if.end108 ], [ %eticklen, %if.end104 ], [ %eticklen, %ssl_hmac_size.exit ], [ %eticklen, %if.else60 ], [ %eticklen, %if.end53 ], [ %eticklen, %if.end50 ], [ %eticklen, %if.end20 ], [ %eticklen, %if.then80 ], [ %sub134, %if.end174 ], [ %sub134, %if.then164 ], [ %sub134, %if.then150 ], [ %sub134, %if.then143 ], [ %eticklen, %if.end.i ]
@@ -4250,16 +4247,14 @@ if.then.i120:                                     ; preds = %if.end.i, %if.then1
   br label %ssl_hmac_free.exit
 
 ssl_hmac_free.exit:                               ; preds = %end, %if.then.i120
-  %cmp202161 = phi i1 [ %cmp202, %end ], [ true, %if.then.i120 ]
-  %eticklen.addr.0159 = phi i64 [ %eticklen, %end ], [ %eticklen.addr.0.ph, %if.then.i120 ]
-  %sess.0157 = phi ptr [ null, %end ], [ %sess.0.ph, %if.then.i120 ]
-  %ret.0155 = phi i32 [ %ret.0, %end ], [ %ret.0.ph, %if.then.i120 ]
-  %cmp205153 = phi i1 [ %cmp205, %end ], [ %cmp205.ph, %if.then.i120 ]
-  %cmp213151 = phi i1 [ true, %end ], [ %cmp213.ph, %if.then.i120 ]
-  %cmp210149 = phi i1 [ true, %end ], [ %cmp210.ph, %if.then.i120 ]
-  %cmp188147 = phi i1 [ false, %end ], [ %cmp188.ph, %if.then.i120 ]
-  %cmp185145 = phi i1 [ false, %end ], [ %cmp185.ph, %if.then.i120 ]
-  %cmp182143 = phi i1 [ %cmp182, %end ], [ %cmp182.ph, %if.then.i120 ]
+  %eticklen.addr.0155 = phi i64 [ %eticklen, %end ], [ %eticklen.addr.0.ph, %if.then.i120 ]
+  %sess.0153 = phi ptr [ null, %end ], [ %sess.0.ph, %if.then.i120 ]
+  %ret.0151 = phi i32 [ %ret.0, %end ], [ %ret.0.ph, %if.then.i120 ]
+  %cmp213149 = phi i1 [ true, %end ], [ %cmp213.ph, %if.then.i120 ]
+  %cmp210147 = phi i1 [ true, %end ], [ %cmp210.ph, %if.then.i120 ]
+  %cmp188145 = phi i1 [ false, %end ], [ %cmp188.ph, %if.then.i120 ]
+  %cmp185143 = phi i1 [ false, %end ], [ %cmp185.ph, %if.then.i120 ]
+  %cmp182141 = phi i1 [ %cmp182, %end ], [ %cmp182.ph, %if.then.i120 ]
   %30 = load ptr, ptr %session_ctx, align 8
   %decrypt_ticket_cb = getelementptr inbounds i8, ptr %30, i64 1032
   %31 = load ptr, ptr %decrypt_ticket_cb, align 8
@@ -4267,16 +4262,16 @@ ssl_hmac_free.exit:                               ; preds = %end, %if.then.i120
   br i1 %cmp176.not, label %if.end223, label %land.lhs.true178
 
 land.lhs.true178:                                 ; preds = %ssl_hmac_free.exit
-  %32 = or i1 %cmp185145, %cmp182143
-  %33 = or i1 %cmp188147, %32
+  %32 = or i1 %cmp188145, %cmp185143
+  %33 = or i1 %32, %cmp182141
   %or.cond2 = or i1 %cmp, %33
   br i1 %or.cond2, label %if.then190, label %if.end223
 
 if.then190:                                       ; preds = %land.lhs.true178
-  %spec.store.select = call i64 @llvm.umin.i64(i64 %eticklen.addr.0159, i64 16)
+  %spec.store.select = call i64 @llvm.umin.i64(i64 %eticklen.addr.0155, i64 16)
   %ticket_cb_data = getelementptr inbounds i8, ptr %30, i64 1040
   %34 = load ptr, ptr %ticket_cb_data, align 8
-  %call199 = call i32 %31(ptr noundef nonnull %s, ptr noundef %sess.0157, ptr noundef %etick, i64 noundef %spec.store.select, i32 noundef %ret.0155, ptr noundef %34) #15
+  %call199 = call i32 %31(ptr noundef nonnull %s, ptr noundef %sess.0153, ptr noundef %etick, i64 noundef %spec.store.select, i32 noundef %ret.0151, ptr noundef %34) #15
   switch i32 %call199, label %if.end223 [
     i32 4, label %sw.bb209
     i32 1, label %sw.bb200
@@ -4285,17 +4280,17 @@ if.then190:                                       ; preds = %land.lhs.true178
   ]
 
 sw.bb200:                                         ; preds = %if.then190
-  call void @SSL_SESSION_free(ptr noundef %sess.0157) #15
+  call void @SSL_SESSION_free(ptr noundef %sess.0153) #15
   br label %if.end223
 
 sw.bb201:                                         ; preds = %if.then190
-  %or.cond3 = and i1 %cmp202161, %cmp205153
-  %spec.store.select5 = select i1 %or.cond3, i32 4, i32 %ret.0155
-  call void @SSL_SESSION_free(ptr noundef %sess.0157) #15
+  %or.cond3.not = or i1 %cmp, %cmp182141
+  %spec.store.select5 = select i1 %or.cond3.not, i32 %ret.0151, i32 4
+  call void @SSL_SESSION_free(ptr noundef %sess.0153) #15
   br label %if.end223
 
 sw.bb209:                                         ; preds = %if.then190, %if.then190
-  %or.cond4 = and i1 %cmp213151, %cmp210149
+  %or.cond4 = and i1 %cmp213149, %cmp210147
   br i1 %or.cond4, label %if.end223, label %if.else216
 
 if.else216:                                       ; preds = %sw.bb209
@@ -4304,8 +4299,8 @@ if.else216:                                       ; preds = %sw.bb209
   br label %if.end223
 
 if.end223:                                        ; preds = %if.then190, %if.else216, %sw.bb209, %sw.bb200, %sw.bb201, %land.lhs.true178, %ssl_hmac_free.exit
-  %ret.1 = phi i32 [ %spec.store.select5, %sw.bb201 ], [ 2, %sw.bb200 ], [ %ret.0155, %land.lhs.true178 ], [ %ret.0155, %ssl_hmac_free.exit ], [ 1, %sw.bb209 ], [ %.116, %if.else216 ], [ 1, %if.then190 ]
-  %sess.1 = phi ptr [ null, %sw.bb201 ], [ null, %sw.bb200 ], [ %sess.0157, %land.lhs.true178 ], [ %sess.0157, %ssl_hmac_free.exit ], [ %sess.0157, %sw.bb209 ], [ %sess.0157, %if.else216 ], [ %sess.0157, %if.then190 ]
+  %ret.1 = phi i32 [ %spec.store.select5, %sw.bb201 ], [ 2, %sw.bb200 ], [ %ret.0151, %land.lhs.true178 ], [ %ret.0151, %ssl_hmac_free.exit ], [ 1, %sw.bb209 ], [ %.116, %if.else216 ], [ 1, %if.then190 ]
+  %sess.1 = phi ptr [ null, %sw.bb201 ], [ null, %sw.bb200 ], [ %sess.0153, %land.lhs.true178 ], [ %sess.0153, %ssl_hmac_free.exit ], [ %sess.0153, %sw.bb209 ], [ %sess.0153, %if.else216 ], [ %sess.0153, %if.then190 ]
   %session_secret_cb225 = getelementptr inbounds i8, ptr %s, i64 2624
   %35 = load ptr, ptr %session_secret_cb225, align 8
   %cmp226 = icmp eq ptr %35, null

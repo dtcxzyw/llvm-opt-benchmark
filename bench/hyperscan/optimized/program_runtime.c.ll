@@ -12163,8 +12163,8 @@ if.then4.i18223:                                  ; preds = %sw.bb.i159.i18237, 
   %cmp.i186.i18226 = icmp eq i32 %inc.i18224, 64
   %conv.i185.i18225 = zext nneg i32 %inc.i18224 to i64
   %notmask7800 = shl nsw i64 -1, %conv.i185.i18225
-  %retval.i183.i17995.0 = select i1 %cmp.i186.i18226, i64 0, i64 %notmask7800
-  %and.i18233 = and i64 %retval.i138.i18010.0, %retval.i183.i17995.0
+  %not.i18232 = select i1 %cmp.i186.i18226, i64 0, i64 %notmask7800
+  %and.i18233 = and i64 %retval.i138.i18010.0, %not.i18232
   %tobool.i18219.not = icmp eq i64 %and.i18233, 0
   br i1 %tobool.i18219.not, label %if.end895, label %if.then6.i18221
 
@@ -12231,8 +12231,8 @@ mmbit_get_flat_block.exit135.i18164:              ; preds = %sw.default.i127.i18
   %cmp.i.i18167 = icmp eq i32 %sub33.i18165, 64
   %conv.i180.i18166 = zext nneg i32 %sub33.i18165 to i64
   %notmask7797 = shl nsw i64 -1, %conv.i180.i18166
-  %retval.i179.i17998.0 = select i1 %cmp.i.i18167, i64 0, i64 %notmask7797
-  %and36.i18174 = and i64 %retval.i104.i18018.0, %retval.i179.i17998.0
+  %not35.i18173 = select i1 %cmp.i.i18167, i64 0, i64 %notmask7797
+  %and36.i18174 = and i64 %retval.i104.i18018.0, %not35.i18173
   %tobool37.i18175.not = icmp eq i64 %and36.i18174, 0
   br i1 %tobool37.i18175.not, label %if.else.i18176, label %if.then38.i18185
 
@@ -18439,8 +18439,8 @@ if.then4.i19239:                                  ; preds = %sw.bb.i159.i19253, 
   %cmp.i186.i19242 = icmp eq i32 %inc.i19240, 64
   %conv.i185.i19241 = zext nneg i32 %inc.i19240 to i64
   %notmask7776 = shl nsw i64 -1, %conv.i185.i19241
-  %retval.i183.i19011.0 = select i1 %cmp.i186.i19242, i64 0, i64 %notmask7776
-  %and.i19249 = and i64 %retval.i138.i19026.0, %retval.i183.i19011.0
+  %not.i19248 = select i1 %cmp.i186.i19242, i64 0, i64 %notmask7776
+  %and.i19249 = and i64 %retval.i138.i19026.0, %not.i19248
   %tobool.i19235.not = icmp eq i64 %and.i19249, 0
   br i1 %tobool.i19235.not, label %if.then4.i.i23282, label %if.then6.i19237
 
@@ -18508,8 +18508,8 @@ mmbit_get_flat_block.exit135.i19180:              ; preds = %sw.default.i127.i19
   %cmp.i.i19183 = icmp eq i32 %sub33.i19181, 64
   %conv.i180.i19182 = zext nneg i32 %sub33.i19181 to i64
   %notmask7773 = shl nsw i64 -1, %conv.i180.i19182
-  %retval.i179.i19014.0 = select i1 %cmp.i.i19183, i64 0, i64 %notmask7773
-  %and36.i19190 = and i64 %retval.i104.i19034.0, %retval.i179.i19014.0
+  %not35.i19189 = select i1 %cmp.i.i19183, i64 0, i64 %notmask7773
+  %and36.i19190 = and i64 %retval.i104.i19034.0, %not35.i19189
   %tobool37.i19191.not = icmp eq i64 %and36.i19190, 0
   br i1 %tobool37.i19191.not, label %if.else.i19192, label %if.then38.i19201
 
@@ -20504,8 +20504,8 @@ if.then4.i18731:                                  ; preds = %sw.bb.i159.i18745, 
   %cmp.i186.i18734 = icmp eq i32 %inc.i18732, 64
   %conv.i185.i18733 = zext nneg i32 %inc.i18732 to i64
   %notmask7729 = shl nsw i64 -1, %conv.i185.i18733
-  %retval.i183.i18503.0 = select i1 %cmp.i186.i18734, i64 0, i64 %notmask7729
-  %and.i18741 = and i64 %retval.i138.i18518.0, %retval.i183.i18503.0
+  %not.i18740 = select i1 %cmp.i186.i18734, i64 0, i64 %notmask7729
+  %and.i18741 = and i64 %retval.i138.i18518.0, %not.i18740
   %tobool.i18727.not = icmp eq i64 %and.i18741, 0
   br i1 %tobool.i18727.not, label %if.then4.i.i23307, label %if.then6.i18729
 
@@ -20573,8 +20573,8 @@ mmbit_get_flat_block.exit135.i18672:              ; preds = %sw.default.i127.i18
   %cmp.i.i18675 = icmp eq i32 %sub33.i18673, 64
   %conv.i180.i18674 = zext nneg i32 %sub33.i18673 to i64
   %notmask7726 = shl nsw i64 -1, %conv.i180.i18674
-  %retval.i179.i18506.0 = select i1 %cmp.i.i18675, i64 0, i64 %notmask7726
-  %and36.i18682 = and i64 %retval.i104.i18526.0, %retval.i179.i18506.0
+  %not35.i18681 = select i1 %cmp.i.i18675, i64 0, i64 %notmask7726
+  %and36.i18682 = and i64 %retval.i104.i18526.0, %not35.i18681
   %tobool37.i18683.not = icmp eq i64 %and36.i18682, 0
   br i1 %tobool37.i18683.not, label %if.else.i18684, label %if.then38.i18693
 
@@ -28791,8 +28791,8 @@ if.then4.i9339:                                   ; preds = %sw.bb.i159.i9353, %
   %cmp.i186.i9342 = icmp eq i32 %inc.i9340, 64
   %conv.i185.i9341 = zext nneg i32 %inc.i9340 to i64
   %notmask4270 = shl nsw i64 -1, %conv.i185.i9341
-  %retval.i183.i9111.0 = select i1 %cmp.i186.i9342, i64 0, i64 %notmask4270
-  %and.i9349 = and i64 %retval.i138.i9126.0, %retval.i183.i9111.0
+  %not.i9348 = select i1 %cmp.i186.i9342, i64 0, i64 %notmask4270
+  %and.i9349 = and i64 %retval.i138.i9126.0, %not.i9348
   %tobool.i9335.not = icmp eq i64 %and.i9349, 0
   br i1 %tobool.i9335.not, label %if.then4.i.i12778, label %if.then6.i9337
 
@@ -28860,8 +28860,8 @@ mmbit_get_flat_block.exit135.i9280:               ; preds = %sw.default.i127.i93
   %cmp.i.i9283 = icmp eq i32 %sub33.i9281, 64
   %conv.i180.i9282 = zext nneg i32 %sub33.i9281 to i64
   %notmask4267 = shl nsw i64 -1, %conv.i180.i9282
-  %retval.i179.i9114.0 = select i1 %cmp.i.i9283, i64 0, i64 %notmask4267
-  %and36.i9290 = and i64 %retval.i104.i9134.0, %retval.i179.i9114.0
+  %not35.i9289 = select i1 %cmp.i.i9283, i64 0, i64 %notmask4267
+  %and36.i9290 = and i64 %retval.i104.i9134.0, %not35.i9289
   %tobool37.i9291.not = icmp eq i64 %and36.i9290, 0
   br i1 %tobool37.i9291.not, label %if.else.i9292, label %if.then38.i9301
 
@@ -30821,8 +30821,8 @@ if.then4.i8831:                                   ; preds = %sw.bb.i159.i8845, %
   %cmp.i186.i8834 = icmp eq i32 %inc.i8832, 64
   %conv.i185.i8833 = zext nneg i32 %inc.i8832 to i64
   %notmask4223 = shl nsw i64 -1, %conv.i185.i8833
-  %retval.i183.i8603.0 = select i1 %cmp.i186.i8834, i64 0, i64 %notmask4223
-  %and.i8841 = and i64 %retval.i138.i8618.0, %retval.i183.i8603.0
+  %not.i8840 = select i1 %cmp.i186.i8834, i64 0, i64 %notmask4223
+  %and.i8841 = and i64 %retval.i138.i8618.0, %not.i8840
   %tobool.i8827.not = icmp eq i64 %and.i8841, 0
   br i1 %tobool.i8827.not, label %if.then4.i.i12803, label %if.then6.i8829
 
@@ -30890,8 +30890,8 @@ mmbit_get_flat_block.exit135.i8772:               ; preds = %sw.default.i127.i88
   %cmp.i.i8775 = icmp eq i32 %sub33.i8773, 64
   %conv.i180.i8774 = zext nneg i32 %sub33.i8773 to i64
   %notmask4220 = shl nsw i64 -1, %conv.i180.i8774
-  %retval.i179.i8606.0 = select i1 %cmp.i.i8775, i64 0, i64 %notmask4220
-  %and36.i8782 = and i64 %retval.i104.i8626.0, %retval.i179.i8606.0
+  %not35.i8781 = select i1 %cmp.i.i8775, i64 0, i64 %notmask4220
+  %and36.i8782 = and i64 %retval.i104.i8626.0, %not35.i8781
   %tobool37.i8783.not = icmp eq i64 %and36.i8782, 0
   br i1 %tobool37.i8783.not, label %if.else.i8784, label %if.then38.i8793
 

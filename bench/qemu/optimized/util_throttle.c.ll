@@ -328,14 +328,13 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %entry
-  %cmp = phi i1 [ true, %entry ], [ false, %for.body ]
+  %cmp.not = phi i1 [ false, %entry ], [ true, %for.body ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 1, %for.body ]
   %arrayidx = getelementptr [2 x ptr], ptr %tt, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp ne ptr %0, null
-  %tobool.not.not = xor i1 %tobool.not, true
-  %or.cond = and i1 %cmp, %tobool.not.not
-  br i1 %or.cond, label %for.body, label %return, !llvm.loop !9
+  %or.cond.not = or i1 %cmp.not, %tobool.not
+  br i1 %or.cond.not, label %return, label %for.body, !llvm.loop !9
 
 return:                                           ; preds = %for.body
   ret i1 %tobool.not
