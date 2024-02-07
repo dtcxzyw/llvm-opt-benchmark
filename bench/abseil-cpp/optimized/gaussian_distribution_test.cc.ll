@@ -854,15 +854,15 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %__begin3.sroa.0.08, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i12 = icmp eq ptr %8, null
-  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %if.else
+dynamic_cast.end.i:                               ; preds = %if.else
   %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_125GaussianDistributionTestsEEE, i64 0) #32
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %if.else
-  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %if.else
+  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i13 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %10)
   br i1 %call.i13, label %for.end, label %if.else.i
 
@@ -4683,7 +4683,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -14803,7 +14803,7 @@ _ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBG
   %cmp143 = fcmp olt float %89, %sample_min.0867
   %sample_min.1 = select i1 %cmp143, float %89, float %sample_min.0867
   store float 0xFFF0000000000000, ptr %ref.tmp147, align 4
-  %cmp.i = fcmp ult float %89, 0xFFF0000000000000
+  %cmp.i = fcmp uno float %89, 0.000000e+00
   br i1 %cmp.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_.exit
@@ -15024,7 +15024,7 @@ _ZN7testing15AssertionResultD2Ev.exit172:         ; preds = %if.end166, %_ZNKSt1
   store ptr null, ptr %message_.i.i153, align 8
   store float 0x7FF0000000000000, ptr %ref.tmp169, align 4
   %111 = load float, ptr %sample, align 4, !noalias !365
-  %cmp.i173 = fcmp ugt float %111, 0x7FF0000000000000
+  %cmp.i173 = fcmp uno float %111, 0.000000e+00
   br i1 %cmp.i173, label %if.else.i175, label %if.then.i174
 
 if.then.i174:                                     ; preds = %_ZN7testing15AssertionResultD2Ev.exit172
@@ -19373,7 +19373,7 @@ _ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBG
   %cmp143 = fcmp olt double %91, %sample_min.0872
   %sample_min.1 = select i1 %cmp143, double %91, double %sample_min.0872
   store double 0xFFF0000000000000, ptr %ref.tmp147, align 8
-  %cmp.i = fcmp ult double %91, 0xFFF0000000000000
+  %cmp.i = fcmp uno double %91, 0.000000e+00
   br i1 %cmp.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_.exit
@@ -19594,7 +19594,7 @@ _ZN7testing15AssertionResultD2Ev.exit173:         ; preds = %if.end166, %_ZNKSt1
   store ptr null, ptr %message_.i.i154, align 8
   store double 0x7FF0000000000000, ptr %ref.tmp169, align 8
   %113 = load double, ptr %sample, align 8, !noalias !488
-  %cmp.i174 = fcmp ugt double %113, 0x7FF0000000000000
+  %cmp.i174 = fcmp uno double %113, 0.000000e+00
   br i1 %cmp.i174, label %if.else.i176, label %if.then.i175
 
 if.then.i175:                                     ; preds = %_ZN7testing15AssertionResultD2Ev.exit173
@@ -23137,7 +23137,7 @@ _ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBG
   %90 = call noundef x86_fp80 @llvm.fmuladd.f80(x86_fp80 %65, x86_fp80 %conv.i.i, x86_fp80 %64)
   store x86_fp80 %90, ptr %sample, align 16
   store x86_fp80 0xKFFFF8000000000000000, ptr %ref.tmp145, align 16
-  %cmp.i = fcmp ult x86_fp80 %90, 0xKFFFF8000000000000000
+  %cmp.i = fcmp uno x86_fp80 %90, 0xK00000000000000000000
   br i1 %cmp.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4absl15random_internal26gaussian_distribution_base6zignorINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_.exit
@@ -23358,7 +23358,7 @@ _ZN7testing15AssertionResultD2Ev.exit167:         ; preds = %if.end164, %_ZNKSt1
   store ptr null, ptr %message_.i.i148, align 8
   store x86_fp80 0xK7FFF8000000000000000, ptr %ref.tmp167, align 16
   %112 = load x86_fp80, ptr %sample, align 16, !noalias !584
-  %cmp.i168 = fcmp ugt x86_fp80 %112, 0xK7FFF8000000000000000
+  %cmp.i168 = fcmp uno x86_fp80 %112, 0xK00000000000000000000
   br i1 %cmp.i168, label %if.else.i170, label %if.then.i169
 
 if.then.i169:                                     ; preds = %_ZN7testing15AssertionResultD2Ev.exit167
@@ -30219,7 +30219,7 @@ attributes #18 = { mustprogress nofree nounwind willreturn memory(write) "frame-
 attributes #19 = { cold nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree nounwind memory(read) }
+attributes #22 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #23 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

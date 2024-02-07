@@ -4929,8 +4929,8 @@ _ZNK5btLCP12AiC_times_qCEiPf.exit783:             ; preds = %while.end.i.i760, %
 
 if.then136:                                       ; preds = %_ZNK5btLCP12AiC_times_qCEiPf.exit783
   %240 = load float, ptr %arrayidx91, align 4
-  %cmp139 = fcmp olt float %240, 0x7FF0000000000000
-  br i1 %cmp139, label %if.then140, label %if.end168
+  %cmp139 = fcmp ueq float %240, 0x7FF0000000000000
+  br i1 %cmp139, label %if.end168, label %if.then140
 
 if.then140:                                       ; preds = %if.then136
   %241 = load float, ptr %arrayidx161, align 4
@@ -4943,8 +4943,8 @@ if.then148:                                       ; preds = %if.then140
 
 if.else151:                                       ; preds = %_ZNK5btLCP12AiC_times_qCEiPf.exit783
   %242 = load float, ptr %arrayidx80, align 4
-  %cmp155 = fcmp ogt float %242, 0xFFF0000000000000
-  br i1 %cmp155, label %if.then156, label %if.end168
+  %cmp155 = fcmp ueq float %242, 0xFFF0000000000000
+  br i1 %cmp155, label %if.end168, label %if.then156
 
 if.then156:                                       ; preds = %if.else151
   %243 = load float, ptr %arrayidx161, align 4
@@ -5044,8 +5044,8 @@ for.body212:                                      ; preds = %for.body212.lr.ph, 
 land.lhs.true217:                                 ; preds = %for.body212
   %arrayidx219 = getelementptr inbounds float, ptr %lo, i64 %indvars.iv992
   %255 = load float, ptr %arrayidx219, align 4
-  %cmp221 = fcmp ogt float %255, 0xFFF0000000000000
-  br i1 %cmp221, label %if.then222, label %if.end235
+  %cmp221 = fcmp ueq float %255, 0xFFF0000000000000
+  br i1 %cmp221, label %if.end235, label %if.then222
 
 if.then222:                                       ; preds = %land.lhs.true217
   %arrayidx227 = getelementptr inbounds float, ptr %x, i64 %indvars.iv992
@@ -5069,8 +5069,8 @@ if.end235:                                        ; preds = %if.then222, %if.the
 land.lhs.true239:                                 ; preds = %if.end235
   %arrayidx241 = getelementptr inbounds float, ptr %hi, i64 %indvars.iv992
   %258 = load float, ptr %arrayidx241, align 4
-  %cmp242 = fcmp olt float %258, 0x7FF0000000000000
-  br i1 %cmp242, label %if.then243, label %for.inc257
+  %cmp242 = fcmp ueq float %258, 0x7FF0000000000000
+  br i1 %cmp242, label %for.inc257, label %if.then243
 
 if.then243:                                       ; preds = %land.lhs.true239
   %arrayidx248 = getelementptr inbounds float, ptr %x, i64 %indvars.iv992
@@ -5164,7 +5164,7 @@ _ZN5btLCP24pN_plusequals_s_times_qNEPffS0_.exit:  ; preds = %_ZN5btLCP24pN_pluse
   %275 = load float, ptr %arrayidx78, align 4
   %276 = tail call float @llvm.fmuladd.f32(float %s.3.lcssa, float %274, float %275)
   store float %276, ptr %arrayidx78, align 4
-  switch i32 %cmd.3.lcssa, label %default.unreachable1006 [
+  switch i32 %cmd.3.lcssa, label %default.unreachable [
     i32 1, label %sw.bb
     i32 2, label %sw.bb284
     i32 3, label %sw.bb291
@@ -5229,7 +5229,7 @@ sw.bb308:                                         ; preds = %_ZN5btLCP24pN_pluse
   call void @_ZN5btLCP22transfer_i_from_C_to_NEiR20btAlignedObjectArrayIfE(ptr noundef nonnull align 8 dereferenceable(144) %lcp, i32 noundef %si.2.lcssa, ptr noundef nonnull align 8 dereferenceable(25) %scratchMem)
   br label %sw.epilog
 
-default.unreachable1006:                          ; preds = %_ZN5btLCP24pN_plusequals_s_times_qNEPffS0_.exit
+default.unreachable:                              ; preds = %_ZN5btLCP24pN_plusequals_s_times_qNEPffS0_.exit
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb308, %sw.bb301, %sw.bb298
@@ -5245,8 +5245,8 @@ if.end322:                                        ; preds = %sw.bb, %sw.bb284, %
   %indvars.iv.next982 = add nsw i64 %indvars.iv981, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next982 to i32
   %exitcond998.not = icmp eq i32 %lftr.wideiv, %n
-  %or.cond1019 = select i1 %tobool323.not, i1 true, i1 %exitcond998.not
-  br i1 %or.cond1019, label %for.end328, label %for.body, !llvm.loop !80
+  %or.cond1018 = select i1 %tobool323.not, i1 true, i1 %exitcond998.not
+  br i1 %or.cond1018, label %for.end328, label %for.body, !llvm.loop !80
 
 for.end328:                                       ; preds = %if.end322, %_ZN20btAlignedObjectArrayIbE6resizeEiRKb.exit
   %m_tmp.i = getelementptr inbounds i8, ptr %lcp, i64 104

@@ -41,7 +41,7 @@ define hidden i8 @"_ZN4core3f6421_$LT$impl$u20$f64$GT$8classify17h23c0f4e5dafaae
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden zeroext i1 @"_ZN4core3f6421_$LT$impl$u20$f64$GT$9is_finite17h237414c196cd45c7E"(double %0) unnamed_addr #0 {
   %2 = tail call double @llvm.fabs.f64(double %0)
-  %3 = fcmp olt double %2, 0x7FF0000000000000
+  %3 = fcmp one double %2, 0x7FF0000000000000
   ret i1 %3
 }
 
