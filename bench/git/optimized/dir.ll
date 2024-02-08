@@ -3021,7 +3021,7 @@ fspathncmp.exit37:                                ; preds = %cond.true.i32, %con
 
 if.end27:                                         ; preds = %fspathncmp.exit37
   %add.ptr29 = getelementptr inbounds i8, ptr %pattern.addr.0, i64 %conv23
-  %sub30 = sub nsw i32 %patternlen.addr.0, %prefix.addr.0
+  %sub30 = sub i32 %patternlen, %prefix
   %add.ptr32 = getelementptr inbounds i8, ptr %add.ptr16, i64 %conv23
   %sub33 = sub nsw i32 %cond, %prefix.addr.0
   %tobool34 = icmp ne i32 %sub30, 0
@@ -9585,7 +9585,7 @@ entry:
   %sb = alloca %struct.strbuf, align 8
   %sub = add nsw i32 %len, -1
   %call = tail call fastcc i32 @directory_exists_in_index(ptr noundef %istate, ptr noundef %dirname, i32 noundef %sub), !range !58
-  switch i32 %call, label %default.unreachable [
+  switch i32 %call, label %default.unreachable105 [
     i32 1, label %return
     i32 2, label %if.then2
     i32 0, label %if.end6
@@ -9594,7 +9594,7 @@ entry:
 if.then2:                                         ; preds = %entry
   br label %return
 
-default.unreachable:                              ; preds = %entry
+default.unreachable105:                           ; preds = %entry
   unreachable
 
 if.end6:                                          ; preds = %entry

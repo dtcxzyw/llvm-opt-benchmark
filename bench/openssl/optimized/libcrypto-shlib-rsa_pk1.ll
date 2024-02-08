@@ -371,11 +371,7 @@ for.end40:                                        ; preds = %for.body31, %for.en
   %and2.i.i97 = and i32 %10, %tlen
   %or.i.i98 = or i32 %and2.i.i97, %and.i.i95
   %cmp52136 = icmp sgt i32 %num, 12
-  br i1 %cmp52136, label %for.body54.lr.ph, label %for.cond79.preheader
-
-for.body54.lr.ph:                                 ; preds = %for.end40
-  %sub56 = sub nsw i32 %sub46, %sub43
-  br label %for.body54
+  br i1 %cmp52136, label %for.body54, label %for.cond79.preheader
 
 for.cond79.preheader:                             ; preds = %for.inc77, %for.end40
   %cmp80138 = icmp sgt i32 %or.i.i98, 0
@@ -387,14 +383,14 @@ for.body82.lr.ph:                                 ; preds = %for.cond79.preheade
   %invariant.gep154 = getelementptr i8, ptr %incdec.ptr, i64 11
   br label %for.body82
 
-for.body54:                                       ; preds = %for.body54.lr.ph, %for.inc77
-  %msg_index.0137 = phi i32 [ 1, %for.body54.lr.ph ], [ %shl, %for.inc77 ]
+for.body54:                                       ; preds = %for.end40, %for.inc77
+  %msg_index.0137 = phi i32 [ %shl, %for.inc77 ], [ 1, %for.end40 ]
   %sub61 = sub nsw i32 %num, %msg_index.0137
   %cmp62134 = icmp sgt i32 %sub61, 11
   br i1 %cmp62134, label %for.body64.lr.ph, label %for.inc77
 
 for.body64.lr.ph:                                 ; preds = %for.body54
-  %and57 = and i32 %msg_index.0137, %sub56
+  %and57 = and i32 %msg_index.0137, %sub.i.i82
   %sub.i.i100 = add i32 %and57, -1
   %.inv = icmp slt i32 %sub.i.i100, 0
   %conv.i = select i1 %.inv, i32 0, i32 255
