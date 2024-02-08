@@ -16,7 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @HUFv07_readStats.l = internal unnamed_addr constant [14 x i32] [i32 1, i32 2, i32 3, i32 4, i32 7, i32 8, i32 15, i32 16, i32 31, i32 32, i32 63, i32 64, i32 127, i32 128], align 16
 @algoTime = internal unnamed_addr constant [16 x [3 x %struct.algo_time_t]] [[3 x %struct.algo_time_t] [%struct.algo_time_t zeroinitializer, %struct.algo_time_t { i32 1, i32 1 }, %struct.algo_time_t { i32 2, i32 2 }], [3 x %struct.algo_time_t] [%struct.algo_time_t zeroinitializer, %struct.algo_time_t { i32 1, i32 1 }, %struct.algo_time_t { i32 2, i32 2 }], [3 x %struct.algo_time_t] [%struct.algo_time_t { i32 38, i32 130 }, %struct.algo_time_t { i32 1313, i32 74 }, %struct.algo_time_t { i32 2151, i32 38 }], [3 x %struct.algo_time_t] [%struct.algo_time_t { i32 448, i32 128 }, %struct.algo_time_t { i32 1353, i32 74 }, %struct.algo_time_t { i32 2238, i32 41 }], [3 x %struct.algo_time_t] [%struct.algo_time_t { i32 556, i32 128 }, %struct.algo_time_t { i32 1353, i32 74 }, %struct.algo_time_t { i32 2238, i32 47 }], [3 x %struct.algo_time_t] [%struct.algo_time_t { i32 714, i32 128 }, %struct.algo_time_t { i32 1418, i32 74 }, %struct.algo_time_t { i32 2436, i32 53 }], [3 x %struct.algo_time_t] [%struct.algo_time_t { i32 883, i32 128 }, %struct.algo_time_t { i32 1437, i32 74 }, %struct.algo_time_t { i32 2464, i32 61 }], [3 x %struct.algo_time_t] [%struct.algo_time_t { i32 897, i32 128 }, %struct.algo_time_t { i32 1515, i32 75 }, %struct.algo_time_t { i32 2622, i32 68 }], [3 x %struct.algo_time_t] [%struct.algo_time_t { i32 926, i32 128 }, %struct.algo_time_t { i32 1613, i32 75 }, %struct.algo_time_t { i32 2730, i32 75 }], [3 x %struct.algo_time_t] [%struct.algo_time_t { i32 947, i32 128 }, %struct.algo_time_t { i32 1729, i32 77 }, %struct.algo_time_t { i32 3359, i32 77 }], [3 x %struct.algo_time_t] [%struct.algo_time_t { i32 1107, i32 128 }, %struct.algo_time_t { i32 2083, i32 81 }, %struct.algo_time_t { i32 4006, i32 84 }], [3 x %struct.algo_time_t] [%struct.algo_time_t { i32 1177, i32 128 }, %struct.algo_time_t { i32 2379, i32 87 }, %struct.algo_time_t { i32 4785, i32 88 }], [3 x %struct.algo_time_t] [%struct.algo_time_t { i32 1242, i32 128 }, %struct.algo_time_t { i32 2415, i32 93 }, %struct.algo_time_t { i32 5155, i32 84 }], [3 x %struct.algo_time_t] [%struct.algo_time_t { i32 1349, i32 128 }, %struct.algo_time_t { i32 2644, i32 106 }, %struct.algo_time_t { i32 5260, i32 106 }], [3 x %struct.algo_time_t] [%struct.algo_time_t { i32 1455, i32 128 }, %struct.algo_time_t { i32 2422, i32 124 }, %struct.algo_time_t { i32 4174, i32 124 }], [3 x %struct.algo_time_t] [%struct.algo_time_t { i32 722, i32 128 }, %struct.algo_time_t { i32 1891, i32 145 }, %struct.algo_time_t { i32 1936, i32 146 }]], align 16
-@HUFv07_decompress.decompress = internal unnamed_addr constant [2 x ptr] [ptr @HUFv07_decompress4X2, ptr @HUFv07_decompress4X4], align 16
 @repStartValue = internal unnamed_addr constant [3 x i32] [i32 1, i32 4, i32 8], align 4
 @defaultCustomMem = internal unnamed_addr constant %struct.ZSTDv07_customMem { ptr @ZSTDv07_defaultAllocFunction, ptr @ZSTDv07_defaultFreeFunction, ptr null }, align 8
 @ZSTDv07_did_fieldSize = internal unnamed_addr constant [4 x i64] [i64 0, i64 1, i64 2, i64 4], align 16
@@ -3189,7 +3188,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @HUFv07_decompress4X2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) #3 {
+define i64 @HUFv07_decompress4X2(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) local_unnamed_addr #3 {
 entry:
   %DTable = alloca [2049 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8196) %DTable, i8 0, i64 8196, i1 false)
@@ -4778,7 +4777,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @HUFv07_decompress4X4(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) #3 {
+define i64 @HUFv07_decompress4X4(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) local_unnamed_addr #3 {
 entry:
   %DTable = alloca [4097 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16388) %DTable, i8 0, i64 16388, i1 false)
@@ -4871,9 +4870,11 @@ entry:
   ret i32 %conv19
 }
 
-; Function Attrs: nounwind uwtable
-define i64 @HUFv07_decompress(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define i64 @HUFv07_decompress(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) local_unnamed_addr #3 {
 entry:
+  %DTable.i17 = alloca [4097 x i32], align 16
+  %DTable.i = alloca [2049 x i32], align 16
   %cmp = icmp eq i64 %dstSize, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -4919,14 +4920,56 @@ if.end9:                                          ; preds = %if.end6
   %shr17.i = lshr i32 %add16.i, 3
   %add18.i = add i32 %shr17.i, %add16.i
   %cmp.i = icmp ult i32 %add18.i, %add.i
-  %idxprom = zext i1 %cmp.i to i64
-  %arrayidx = getelementptr inbounds [2 x ptr], ptr @HUFv07_decompress.decompress, i64 0, i64 %idxprom
-  %5 = load ptr, ptr %arrayidx, align 8
-  %call10 = tail call i64 %5(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %cSrc, i64 noundef %cSrcSize) #25
+  br i1 %cmp.i, label %call.1, label %call.0
+
+call.0:                                           ; preds = %if.end9
+  call void @llvm.lifetime.start.p0(i64 8196, ptr nonnull %DTable.i)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8196) %DTable.i, i8 0, i64 8196, i1 false)
+  store i32 184549387, ptr %DTable.i, align 16
+  %call.i.i = call i64 @HUFv07_readDTableX2(ptr noundef nonnull %DTable.i, ptr noundef %cSrc, i64 noundef %cSrcSize)
+  %cmp.i.i.i.i = icmp ult i64 %call.i.i, -119
+  br i1 %cmp.i.i.i.i, label %if.end.i.i, label %HUFv07_decompress4X2.exit
+
+if.end.i.i:                                       ; preds = %call.0
+  %cmp.not.i.i = icmp ult i64 %call.i.i, %cSrcSize
+  br i1 %cmp.not.i.i, label %if.end3.i.i, label %HUFv07_decompress4X2.exit
+
+if.end3.i.i:                                      ; preds = %if.end.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %cSrc, i64 %call.i.i
+  %sub.i.i = sub i64 %cSrcSize, %call.i.i
+  %call4.i.i = call fastcc i64 @HUFv07_decompress4X2_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr.i.i, i64 noundef %sub.i.i, ptr noundef nonnull %DTable.i)
+  br label %HUFv07_decompress4X2.exit
+
+HUFv07_decompress4X2.exit:                        ; preds = %call.0, %if.end.i.i, %if.end3.i.i
+  %retval.0.i.i = phi i64 [ %call4.i.i, %if.end3.i.i ], [ %call.i.i, %call.0 ], [ -72, %if.end.i.i ]
+  call void @llvm.lifetime.end.p0(i64 8196, ptr nonnull %DTable.i)
   br label %return
 
-return:                                           ; preds = %if.end, %entry, %if.end9, %if.then8, %if.then5
-  %retval.0 = phi i64 [ %dstSize, %if.then5 ], [ %dstSize, %if.then8 ], [ %call10, %if.end9 ], [ -70, %entry ], [ -20, %if.end ]
+call.1:                                           ; preds = %if.end9
+  call void @llvm.lifetime.start.p0(i64 16388, ptr nonnull %DTable.i17)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16388) %DTable.i17, i8 0, i64 16388, i1 false)
+  store i32 201326604, ptr %DTable.i17, align 16
+  %call.i.i18 = call i64 @HUFv07_readDTableX4(ptr noundef nonnull %DTable.i17, ptr noundef %cSrc, i64 noundef %cSrcSize)
+  %cmp.i.i.i.i19 = icmp ult i64 %call.i.i18, -119
+  br i1 %cmp.i.i.i.i19, label %if.end.i.i21, label %HUFv07_decompress4X4.exit
+
+if.end.i.i21:                                     ; preds = %call.1
+  %cmp.not.i.i22 = icmp ult i64 %call.i.i18, %cSrcSize
+  br i1 %cmp.not.i.i22, label %if.end3.i.i23, label %HUFv07_decompress4X4.exit
+
+if.end3.i.i23:                                    ; preds = %if.end.i.i21
+  %add.ptr.i.i24 = getelementptr inbounds i8, ptr %cSrc, i64 %call.i.i18
+  %sub.i.i25 = sub i64 %cSrcSize, %call.i.i18
+  %call4.i.i26 = call fastcc i64 @HUFv07_decompress4X4_usingDTable_internal(ptr noundef %dst, i64 noundef %dstSize, ptr noundef %add.ptr.i.i24, i64 noundef %sub.i.i25, ptr noundef nonnull %DTable.i17)
+  br label %HUFv07_decompress4X4.exit
+
+HUFv07_decompress4X4.exit:                        ; preds = %call.1, %if.end.i.i21, %if.end3.i.i23
+  %retval.0.i.i20 = phi i64 [ %call4.i.i26, %if.end3.i.i23 ], [ %call.i.i18, %call.1 ], [ -72, %if.end.i.i21 ]
+  call void @llvm.lifetime.end.p0(i64 16388, ptr nonnull %DTable.i17)
+  br label %return
+
+return:                                           ; preds = %HUFv07_decompress4X2.exit, %HUFv07_decompress4X4.exit, %if.end, %entry, %if.then8, %if.then5
+  %retval.0 = phi i64 [ %dstSize, %if.then5 ], [ %dstSize, %if.then8 ], [ -70, %entry ], [ -20, %if.end ], [ %retval.0.i.i, %HUFv07_decompress4X2.exit ], [ %retval.0.i.i20, %HUFv07_decompress4X4.exit ]
   ret i64 %retval.0
 }
 
