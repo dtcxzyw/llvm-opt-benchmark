@@ -3828,9 +3828,7 @@ if.then6:                                         ; preds = %entry
   br label %return
 
 if.then11:                                        ; preds = %entry
-  %2 = tail call double @llvm.fabs.f64(double %value)
-  %shl.mask = bitcast double %2 to i64
-  %cmp12 = icmp eq i64 %shl.mask, 0
+  %cmp12 = fcmp oeq double %value, 0.000000e+00
   br i1 %cmp12, label %if.then13, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.then11
@@ -3880,21 +3878,21 @@ cond.end25:                                       ; preds = %cond.false22, %cond
 if.then.i:                                        ; preds = %cond.end25
   %idxprom.i = zext nneg i32 %sub26 to i64
   %arrayidx.i = getelementptr inbounds [23 x double], ptr @_ZL10stbsp__bot, i64 0, i64 %idxprom.i
-  %3 = load double, ptr %arrayidx.i, align 8
-  %mul.i = fmul double %d.0, %3
-  %4 = bitcast double %d.0 to i64
-  %and.i = and i64 %4, -134217728
-  %5 = bitcast i64 %and.i to double
-  %6 = bitcast double %3 to i64
-  %and31.i = and i64 %6, -134217728
-  %7 = bitcast i64 %and31.i to double
-  %sub.i = fsub double %d.0, %5
-  %sub45.i = fsub double %3, %7
+  %2 = load double, ptr %arrayidx.i, align 8
+  %mul.i = fmul double %d.0, %2
+  %3 = bitcast double %d.0 to i64
+  %and.i = and i64 %3, -134217728
+  %4 = bitcast i64 %and.i to double
+  %5 = bitcast double %2 to i64
+  %and31.i = and i64 %5, -134217728
+  %6 = bitcast i64 %and31.i to double
+  %sub.i = fsub double %d.0, %4
+  %sub45.i = fsub double %2, %6
   %neg.i = fneg double %mul.i
-  %8 = tail call double @llvm.fmuladd.f64(double %5, double %7, double %neg.i)
-  %9 = tail call double @llvm.fmuladd.f64(double %5, double %sub45.i, double %8)
-  %10 = tail call double @llvm.fmuladd.f64(double %sub.i, double %7, double %9)
-  %11 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub45.i, double %10)
+  %7 = tail call double @llvm.fmuladd.f64(double %4, double %6, double %neg.i)
+  %8 = tail call double @llvm.fmuladd.f64(double %4, double %sub45.i, double %7)
+  %9 = tail call double @llvm.fmuladd.f64(double %sub.i, double %6, double %8)
+  %10 = tail call double @llvm.fmuladd.f64(double %sub.i, double %sub45.i, double %9)
   br label %_ZL23stbsp__raise_to_power10PdS_di.exit
 
 if.else.i:                                        ; preds = %cond.end25
@@ -3915,29 +3913,29 @@ if.then61.i:                                      ; preds = %if.then60.i
   %dec.i = add nsw i32 %sub58.i, -1
   %idxprom67.i = sext i32 %dec.i to i64
   %arrayidx68.i = getelementptr inbounds [22 x double], ptr @_ZL13stbsp__negbot, i64 0, i64 %idxprom67.i
-  %12 = load double, ptr %arrayidx68.i, align 8
-  %mul69.i = fmul double %d.0, %12
-  %13 = bitcast double %d.0 to i64
-  %and81.i = and i64 %13, -134217728
-  %14 = bitcast i64 %and81.i to double
-  %15 = bitcast double %12 to i64
-  %and107.i = and i64 %15, -134217728
-  %16 = bitcast i64 %and107.i to double
-  %sub93.i = fsub double %d.0, %14
-  %sub121.i = fsub double %12, %16
+  %11 = load double, ptr %arrayidx68.i, align 8
+  %mul69.i = fmul double %d.0, %11
+  %12 = bitcast double %d.0 to i64
+  %and81.i = and i64 %12, -134217728
+  %13 = bitcast i64 %and81.i to double
+  %14 = bitcast double %11 to i64
+  %and107.i = and i64 %14, -134217728
+  %15 = bitcast i64 %and107.i to double
+  %sub93.i = fsub double %d.0, %13
+  %sub121.i = fsub double %11, %15
   %neg123.i = fneg double %mul69.i
-  %17 = tail call double @llvm.fmuladd.f64(double %14, double %16, double %neg123.i)
-  %18 = tail call double @llvm.fmuladd.f64(double %14, double %sub121.i, double %17)
-  %19 = tail call double @llvm.fmuladd.f64(double %sub93.i, double %16, double %18)
-  %20 = tail call double @llvm.fmuladd.f64(double %sub93.i, double %sub121.i, double %19)
+  %16 = tail call double @llvm.fmuladd.f64(double %13, double %15, double %neg123.i)
+  %17 = tail call double @llvm.fmuladd.f64(double %13, double %sub121.i, double %16)
+  %18 = tail call double @llvm.fmuladd.f64(double %sub93.i, double %15, double %17)
+  %19 = tail call double @llvm.fmuladd.f64(double %sub93.i, double %sub121.i, double %18)
   %arrayidx128.i = getelementptr inbounds [22 x double], ptr @_ZL16stbsp__negboterr, i64 0, i64 %idxprom67.i
-  %21 = load double, ptr %arrayidx128.i, align 8
-  %22 = tail call double @llvm.fmuladd.f64(double %d.0, double %21, double %20)
+  %20 = load double, ptr %arrayidx128.i, align 8
+  %21 = tail call double @llvm.fmuladd.f64(double %d.0, double %20, double %19)
   br label %if.end130.i
 
 if.end130.i:                                      ; preds = %if.then61.i, %if.then60.i
   %ph.0.i = phi double [ %d.0, %if.then60.i ], [ %mul69.i, %if.then61.i ]
-  %pl.0.i = phi double [ 0.000000e+00, %if.then60.i ], [ %22, %if.then61.i ]
+  %pl.0.i = phi double [ 0.000000e+00, %if.then60.i ], [ %21, %if.then61.i ]
   %tobool131.not.i = icmp ult i32 %spec.select.i, 23
   br i1 %tobool131.not.i, label %_ZL23stbsp__raise_to_power10PdS_di.exit, label %if.then132.i
 
@@ -3947,27 +3945,27 @@ if.then132.i:                                     ; preds = %if.end130.i
   %dec135.i = add nsw i32 %spec.store.select.i, -1
   %idxprom141.i = sext i32 %dec135.i to i64
   %arrayidx142.i = getelementptr inbounds [13 x double], ptr @_ZL13stbsp__negtop, i64 0, i64 %idxprom141.i
-  %23 = load double, ptr %arrayidx142.i, align 8
-  %24 = bitcast double %add.i to i64
+  %22 = load double, ptr %arrayidx142.i, align 8
+  %23 = bitcast double %add.i to i64
   %sub134.i = fsub double %pl.0.i, %sub133.i
-  %and155.i = and i64 %24, -134217728
-  %25 = bitcast i64 %and155.i to double
-  %26 = bitcast double %23 to i64
-  %mul143.i = fmul double %add.i, %23
-  %and181.i = and i64 %26, -134217728
-  %27 = bitcast i64 %and181.i to double
-  %sub167.i = fsub double %add.i, %25
-  %sub195.i = fsub double %23, %27
+  %and155.i = and i64 %23, -134217728
+  %24 = bitcast i64 %and155.i to double
+  %25 = bitcast double %22 to i64
+  %mul143.i = fmul double %add.i, %22
+  %and181.i = and i64 %25, -134217728
+  %26 = bitcast i64 %and181.i to double
+  %sub167.i = fsub double %add.i, %24
+  %sub195.i = fsub double %22, %26
   %neg197.i = fneg double %mul143.i
-  %28 = tail call double @llvm.fmuladd.f64(double %25, double %27, double %neg197.i)
-  %29 = tail call double @llvm.fmuladd.f64(double %25, double %sub195.i, double %28)
-  %30 = tail call double @llvm.fmuladd.f64(double %sub167.i, double %27, double %29)
-  %31 = tail call double @llvm.fmuladd.f64(double %sub167.i, double %sub195.i, double %30)
+  %27 = tail call double @llvm.fmuladd.f64(double %24, double %26, double %neg197.i)
+  %28 = tail call double @llvm.fmuladd.f64(double %24, double %sub195.i, double %27)
+  %29 = tail call double @llvm.fmuladd.f64(double %sub167.i, double %26, double %28)
+  %30 = tail call double @llvm.fmuladd.f64(double %sub167.i, double %sub195.i, double %29)
   %arrayidx202.i = getelementptr inbounds [13 x double], ptr @_ZL16stbsp__negtoperr, i64 0, i64 %idxprom141.i
-  %32 = load double, ptr %arrayidx202.i, align 8
-  %mul206.i = fmul double %sub134.i, %23
-  %33 = tail call double @llvm.fmuladd.f64(double %add.i, double %32, double %mul206.i)
-  %add207.i = fadd double %33, %31
+  %31 = load double, ptr %arrayidx202.i, align 8
+  %mul206.i = fmul double %sub134.i, %22
+  %32 = tail call double @llvm.fmuladd.f64(double %add.i, double %31, double %mul206.i)
+  %add207.i = fadd double %32, %30
   br label %_ZL23stbsp__raise_to_power10PdS_di.exit
 
 if.else209.i:                                     ; preds = %if.else.i
@@ -3977,52 +3975,52 @@ if.then211.i:                                     ; preds = %if.else209.i
   %spec.store.select1.i = tail call i32 @llvm.smin.i32(i32 %sub58.i, i32 22)
   %idxprom221.i = sext i32 %spec.store.select1.i to i64
   %arrayidx222.i = getelementptr inbounds [23 x double], ptr @_ZL10stbsp__bot, i64 0, i64 %idxprom221.i
-  %34 = load double, ptr %arrayidx222.i, align 8
-  %mul223.i = fmul double %d.0, %34
-  %35 = bitcast double %d.0 to i64
-  %and235.i = and i64 %35, -134217728
-  %36 = bitcast i64 %and235.i to double
-  %37 = bitcast double %34 to i64
-  %and261.i = and i64 %37, -134217728
-  %38 = bitcast i64 %and261.i to double
-  %sub247.i = fsub double %d.0, %36
-  %sub275.i = fsub double %34, %38
+  %33 = load double, ptr %arrayidx222.i, align 8
+  %mul223.i = fmul double %d.0, %33
+  %34 = bitcast double %d.0 to i64
+  %and235.i = and i64 %34, -134217728
+  %35 = bitcast i64 %and235.i to double
+  %36 = bitcast double %33 to i64
+  %and261.i = and i64 %36, -134217728
+  %37 = bitcast i64 %and261.i to double
+  %sub247.i = fsub double %d.0, %35
+  %sub275.i = fsub double %33, %37
   %neg277.i = fneg double %mul223.i
-  %39 = tail call double @llvm.fmuladd.f64(double %36, double %38, double %neg277.i)
-  %40 = tail call double @llvm.fmuladd.f64(double %36, double %sub275.i, double %39)
-  %41 = tail call double @llvm.fmuladd.f64(double %sub247.i, double %38, double %40)
-  %42 = tail call double @llvm.fmuladd.f64(double %sub247.i, double %sub275.i, double %41)
+  %38 = tail call double @llvm.fmuladd.f64(double %35, double %37, double %neg277.i)
+  %39 = tail call double @llvm.fmuladd.f64(double %35, double %sub275.i, double %38)
+  %40 = tail call double @llvm.fmuladd.f64(double %sub247.i, double %37, double %39)
+  %41 = tail call double @llvm.fmuladd.f64(double %sub247.i, double %sub275.i, double %40)
   %tobool281.not.i = icmp slt i32 %sub58.i, 23
   br i1 %tobool281.not.i, label %if.end356.i, label %if.then282.i
 
 if.then282.i:                                     ; preds = %if.then211.i
   %sub215.i = sub nsw i32 %sub58.i, %spec.store.select1.i
-  %add284.i = fadd double %mul223.i, %42
+  %add284.i = fadd double %mul223.i, %41
   %sub285.i = fsub double %add284.i, %mul223.i
   %idxprom292.i = zext nneg i32 %sub215.i to i64
   %arrayidx293.i = getelementptr inbounds [23 x double], ptr @_ZL10stbsp__bot, i64 0, i64 %idxprom292.i
-  %43 = load double, ptr %arrayidx293.i, align 8
-  %44 = bitcast double %add284.i to i64
-  %sub286.i = fsub double %42, %sub285.i
-  %and306.i = and i64 %44, -134217728
-  %45 = bitcast i64 %and306.i to double
-  %46 = bitcast double %43 to i64
-  %mul294.i = fmul double %add284.i, %43
-  %and332.i = and i64 %46, -134217728
-  %47 = bitcast i64 %and332.i to double
-  %sub318.i = fsub double %add284.i, %45
-  %sub346.i = fsub double %43, %47
+  %42 = load double, ptr %arrayidx293.i, align 8
+  %43 = bitcast double %add284.i to i64
+  %sub286.i = fsub double %41, %sub285.i
+  %and306.i = and i64 %43, -134217728
+  %44 = bitcast i64 %and306.i to double
+  %45 = bitcast double %42 to i64
+  %mul294.i = fmul double %add284.i, %42
+  %and332.i = and i64 %45, -134217728
+  %46 = bitcast i64 %and332.i to double
+  %sub318.i = fsub double %add284.i, %44
+  %sub346.i = fsub double %42, %46
   %neg348.i = fneg double %mul294.i
-  %48 = tail call double @llvm.fmuladd.f64(double %45, double %47, double %neg348.i)
-  %49 = tail call double @llvm.fmuladd.f64(double %45, double %sub346.i, double %48)
-  %50 = tail call double @llvm.fmuladd.f64(double %sub318.i, double %47, double %49)
-  %51 = tail call double @llvm.fmuladd.f64(double %sub318.i, double %sub346.i, double %50)
-  %52 = tail call double @llvm.fmuladd.f64(double %43, double %sub286.i, double %51)
+  %47 = tail call double @llvm.fmuladd.f64(double %44, double %46, double %neg348.i)
+  %48 = tail call double @llvm.fmuladd.f64(double %44, double %sub346.i, double %47)
+  %49 = tail call double @llvm.fmuladd.f64(double %sub318.i, double %46, double %48)
+  %50 = tail call double @llvm.fmuladd.f64(double %sub318.i, double %sub346.i, double %49)
+  %51 = tail call double @llvm.fmuladd.f64(double %42, double %sub286.i, double %50)
   br label %if.end356.i
 
 if.end356.i:                                      ; preds = %if.then282.i, %if.then211.i, %if.else209.i
   %ph.1.i = phi double [ %d.0, %if.else209.i ], [ %mul223.i, %if.then211.i ], [ %mul294.i, %if.then282.i ]
-  %pl.1.i = phi double [ 0.000000e+00, %if.else209.i ], [ %42, %if.then211.i ], [ %52, %if.then282.i ]
+  %pl.1.i = phi double [ 0.000000e+00, %if.else209.i ], [ %41, %if.then211.i ], [ %51, %if.then282.i ]
   %tobool357.not.i = icmp ult i32 %spec.select.i, 23
   br i1 %tobool357.not.i, label %_ZL23stbsp__raise_to_power10PdS_di.exit, label %if.then358.i
 
@@ -4032,32 +4030,32 @@ if.then358.i:                                     ; preds = %if.end356.i
   %dec363.i = add nsw i32 %spec.store.select.i, -1
   %idxprom369.i = sext i32 %dec363.i to i64
   %arrayidx370.i = getelementptr inbounds [13 x double], ptr @_ZL10stbsp__top, i64 0, i64 %idxprom369.i
-  %53 = load double, ptr %arrayidx370.i, align 8
-  %54 = bitcast double %add360.i to i64
+  %52 = load double, ptr %arrayidx370.i, align 8
+  %53 = bitcast double %add360.i to i64
   %sub362.i = fsub double %pl.1.i, %sub361.i
-  %and383.i = and i64 %54, -134217728
-  %55 = bitcast i64 %and383.i to double
-  %56 = bitcast double %53 to i64
-  %mul371.i = fmul double %add360.i, %53
-  %and409.i = and i64 %56, -134217728
-  %57 = bitcast i64 %and409.i to double
-  %sub395.i = fsub double %add360.i, %55
-  %sub423.i = fsub double %53, %57
+  %and383.i = and i64 %53, -134217728
+  %54 = bitcast i64 %and383.i to double
+  %55 = bitcast double %52 to i64
+  %mul371.i = fmul double %add360.i, %52
+  %and409.i = and i64 %55, -134217728
+  %56 = bitcast i64 %and409.i to double
+  %sub395.i = fsub double %add360.i, %54
+  %sub423.i = fsub double %52, %56
   %neg425.i = fneg double %mul371.i
-  %58 = tail call double @llvm.fmuladd.f64(double %55, double %57, double %neg425.i)
-  %59 = tail call double @llvm.fmuladd.f64(double %55, double %sub423.i, double %58)
-  %60 = tail call double @llvm.fmuladd.f64(double %sub395.i, double %57, double %59)
-  %61 = tail call double @llvm.fmuladd.f64(double %sub395.i, double %sub423.i, double %60)
+  %57 = tail call double @llvm.fmuladd.f64(double %54, double %56, double %neg425.i)
+  %58 = tail call double @llvm.fmuladd.f64(double %54, double %sub423.i, double %57)
+  %59 = tail call double @llvm.fmuladd.f64(double %sub395.i, double %56, double %58)
+  %60 = tail call double @llvm.fmuladd.f64(double %sub395.i, double %sub423.i, double %59)
   %arrayidx430.i = getelementptr inbounds [13 x double], ptr @_ZL13stbsp__toperr, i64 0, i64 %idxprom369.i
-  %62 = load double, ptr %arrayidx430.i, align 8
-  %mul434.i = fmul double %sub362.i, %53
-  %63 = tail call double @llvm.fmuladd.f64(double %add360.i, double %62, double %mul434.i)
-  %add435.i = fadd double %63, %61
+  %61 = load double, ptr %arrayidx430.i, align 8
+  %mul434.i = fmul double %sub362.i, %52
+  %62 = tail call double @llvm.fmuladd.f64(double %add360.i, double %61, double %mul434.i)
+  %add435.i = fadd double %62, %60
   br label %_ZL23stbsp__raise_to_power10PdS_di.exit
 
 _ZL23stbsp__raise_to_power10PdS_di.exit:          ; preds = %if.then.i, %if.end130.i, %if.then132.i, %if.end356.i, %if.then358.i
   %ph.2.i = phi double [ %mul.i, %if.then.i ], [ %ph.0.i, %if.end130.i ], [ %mul143.i, %if.then132.i ], [ %ph.1.i, %if.end356.i ], [ %mul371.i, %if.then358.i ]
-  %pl.2.i = phi double [ %11, %if.then.i ], [ %pl.0.i, %if.end130.i ], [ %add207.i, %if.then132.i ], [ %pl.1.i, %if.end356.i ], [ %add435.i, %if.then358.i ]
+  %pl.2.i = phi double [ %10, %if.then.i ], [ %pl.0.i, %if.end130.i ], [ %add207.i, %if.then132.i ], [ %pl.1.i, %if.end356.i ], [ %add435.i, %if.then358.i ]
   %add440.i = fadd double %ph.2.i, %pl.2.i
   %sub441.i = fsub double %add440.i, %ph.2.i
   %sub442.i = fsub double %pl.2.i, %sub441.i
@@ -4093,8 +4091,8 @@ while.cond57:                                     ; preds = %while.body61, %if.t
   %dg.0 = phi i32 [ %spec.store.select, %if.then53 ], [ %inc62, %while.body61 ]
   %idxprom58 = zext nneg i32 %dg.0 to i64
   %arrayidx59 = getelementptr inbounds [20 x i64], ptr @_ZL13stbsp__powten, i64 0, i64 %idxprom58
-  %64 = load i64, ptr %arrayidx59, align 8
-  %cmp60.not = icmp ult i64 %add38, %64
+  %63 = load i64, ptr %arrayidx59, align 8
+  %cmp60.not = icmp ult i64 %add38, %63
   br i1 %cmp60.not, label %while.end66, label %while.body61
 
 while.body61:                                     ; preds = %while.cond57
@@ -4114,13 +4112,13 @@ if.then68:                                        ; preds = %while.end66
 if.end72:                                         ; preds = %if.then68
   %idxprom73 = zext nneg i32 %sub69 to i64
   %arrayidx74 = getelementptr inbounds [20 x i64], ptr @_ZL13stbsp__powten, i64 0, i64 %idxprom73
-  %65 = load i64, ptr %arrayidx74, align 8
-  %div7562 = lshr i64 %65, 1
+  %64 = load i64, ptr %arrayidx74, align 8
+  %div7562 = lshr i64 %64, 1
   %add76 = add i64 %div7562, %add38
-  %cmp79.not = icmp uge i64 %add76, %64
+  %cmp79.not = icmp uge i64 %add76, %63
   %inc81 = zext i1 %cmp79.not to i32
   %spec.select63 = add nsw i32 %spec.select, %inc81
-  %div83 = udiv i64 %add76, %65
+  %div83 = udiv i64 %add76, %64
   br label %if.end85
 
 if.end85:                                         ; preds = %while.body61, %if.then68, %while.end66, %_ZL23stbsp__raise_to_power10PdS_di.exit, %if.end72
@@ -4170,7 +4168,7 @@ if.end105:                                        ; preds = %if.end91, %while.en
 
 for.cond106.loopexit:                             ; preds = %while.body139.preheader, %while.cond137.preheader
   %storemerge129 = phi i64 [ %storemerge128, %while.cond137.preheader ], [ %storemerge130, %while.body139.preheader ]
-  %e.2.lcssa = phi i32 [ %add125, %while.cond137.preheader ], [ %70, %while.body139.preheader ]
+  %e.2.lcssa = phi i32 [ %add125, %while.cond137.preheader ], [ %69, %while.body139.preheader ]
   %out.addr.2.ptr.le = getelementptr inbounds i8, ptr %out.addr.0, i64 -8
   br label %for.cond106, !llvm.loop !46
 
@@ -4208,8 +4206,8 @@ while.body118:                                    ; preds = %while.body118.prehe
   %mul121 = shl nuw nsw i32 %rem120, 1
   %idxprom122 = zext nneg i32 %mul121 to i64
   %arrayidx123 = getelementptr inbounds %struct.anon, ptr @_ZL16stbsp__digitpair, i64 0, i32 1, i64 %idxprom122
-  %66 = load i16, ptr %arrayidx123, align 2
-  store i16 %66, ptr %add.ptr119.ptr, align 2
+  %65 = load i16, ptr %arrayidx123, align 2
+  store i16 %65, ptr %add.ptr119.ptr, align 2
   %div124 = udiv i32 %n107.189, 100
   %add125 = add nsw i32 %e.187, 2
   %tobool117.not = icmp ult i32 %n107.189, 100
@@ -4228,11 +4226,11 @@ while.body139.preheader:                          ; preds = %if.end115, %while.c
   %out.addr.1.idx.lcssa85115123 = phi i64 [ %out.addr.1.add, %while.cond137.preheader ], [ 0, %if.end115 ]
   %e.1.lcssa117122 = phi i32 [ %add125, %while.cond137.preheader ], [ %e.0, %if.end115 ]
   %scevgep = getelementptr i8, ptr %out.addr.0, i64 -8
-  %67 = add nsw i64 %out.addr.1.idx.lcssa85115123, 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %67, i1 false)
-  %68 = trunc i64 %out.addr.1.idx.lcssa85115123 to i32
-  %69 = add i32 %e.1.lcssa117122, 8
-  %70 = add i32 %69, %68
+  %66 = add nsw i64 %out.addr.1.idx.lcssa85115123, 8
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %66, i1 false)
+  %67 = trunc i64 %out.addr.1.idx.lcssa85115123 to i32
+  %68 = add i32 %e.1.lcssa117122, 8
+  %69 = add i32 %68, %67
   br label %for.cond106.loopexit
 
 if.then128:                                       ; preds = %if.end115.thread, %while.end126
@@ -4243,8 +4241,8 @@ if.then128:                                       ; preds = %if.end115.thread, %
   br i1 %tobool129.not, label %for.end143, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then128
-  %71 = load i8, ptr %out.addr.1.ptr.le.le, align 1
-  %cmp132 = icmp eq i8 %71, 48
+  %70 = load i8, ptr %out.addr.1.ptr.le.le, align 1
+  %cmp132 = icmp eq i8 %70, 48
   br i1 %cmp132, label %if.then133, label %for.end143
 
 if.then133:                                       ; preds = %land.lhs.true
@@ -4765,7 +4763,7 @@ for.body.lr.ph:                                   ; preds = %if.end24.thread
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN18OpenImageIO_v2_6_05cnextERNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit53
   %15 = phi ptr [ %12, %for.body.lr.ph ], [ %add.ptr.i.i48, %_ZN18OpenImageIO_v2_6_05cnextERNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit53 ]
   %16 = phi i64 [ %13, %for.body.lr.ph ], [ %sub.i.i49, %_ZN18OpenImageIO_v2_6_05cnextERNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit53 ]
-  %anydigits.093 = phi i1 [ true, %for.body.lr.ph ], [ false, %_ZN18OpenImageIO_v2_6_05cnextERNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit53 ]
+  %lnot93 = phi i1 [ true, %for.body.lr.ph ], [ false, %_ZN18OpenImageIO_v2_6_05cnextERNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit53 ]
   %overflow.092 = phi i8 [ 0, %for.body.lr.ph ], [ %spec.select, %_ZN18OpenImageIO_v2_6_05cnextERNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit53 ]
   %acc.091 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %_ZN18OpenImageIO_v2_6_05cnextERNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit53 ]
   %c.290 = phi i8 [ %c.174, %for.body.lr.ph ], [ %24, %_ZN18OpenImageIO_v2_6_05cnextERNS_17basic_string_viewIcSt11char_traitsIcEEEi.exit53 ]
@@ -4818,7 +4816,7 @@ for.end.thread121:                                ; preds = %_ZN18OpenImageIO_v2
   br i1 %26, label %if.else79, label %if.then73
 
 for.end:                                          ; preds = %if.else, %if.end55
-  br i1 %anydigits.093, label %if.then69, label %if.else70
+  br i1 %lnot93, label %if.then69, label %if.else70
 
 if.then69:                                        ; preds = %if.then22, %if.end24.thread, %for.end
   %acc.0.lcssa119 = phi i64 [ %acc.091, %for.end ], [ 0, %if.end24.thread ], [ 0, %if.then22 ]

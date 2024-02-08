@@ -64,9 +64,9 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i5, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %cmp.i7 = icmp eq i32 %and.i, 2139095040
+  %cmp.i6 = fcmp oeq float %1, 0x7FF0000000000000
   %cmp = fcmp ogt float %f, 0x41F0000000000000
-  %or.cond = or i1 %cmp, %cmp.i7
+  %or.cond = or i1 %cmp, %cmp.i6
   %conv8 = fptoui float %f to i32
   %spec.select = select i1 %or.cond, i32 -1, i32 %conv8
   br label %return

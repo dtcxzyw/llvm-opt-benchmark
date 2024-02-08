@@ -731,8 +731,7 @@ entry:
 define noundef signext i8 @uprv_isInfinite_75(double noundef %number) local_unnamed_addr #8 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %number)
-  %and = bitcast double %0 to i64
-  %cmp = icmp eq i64 %and, 9218868437227405312
+  %cmp = fcmp oeq double %0, 0x7FF0000000000000
   %conv = zext i1 %cmp to i8
   ret i8 %conv
 }
@@ -740,36 +739,16 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef signext i8 @uprv_isPositiveInfinity_75(double noundef %number) local_unnamed_addr #8 {
 entry:
-  %cmp = fcmp ogt double %number, 0.000000e+00
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %entry
-  %0 = tail call double @llvm.fabs.f64(double %number)
-  %and.i = bitcast double %0 to i64
-  %cmp.i = icmp eq i64 %and.i, 9218868437227405312
-  %conv.i = zext i1 %cmp.i to i8
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %entry
-  %conv = phi i8 [ 0, %entry ], [ %conv.i, %land.rhs ]
+  %narrow = fcmp oeq double %number, 0x7FF0000000000000
+  %conv = zext i1 %narrow to i8
   ret i8 %conv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef signext i8 @uprv_isNegativeInfinity_75(double noundef %number) local_unnamed_addr #8 {
 entry:
-  %cmp = fcmp olt double %number, 0.000000e+00
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %entry
-  %0 = tail call double @llvm.fabs.f64(double %number)
-  %and.i = bitcast double %0 to i64
-  %cmp.i = icmp eq i64 %and.i, 9218868437227405312
-  %conv.i = zext i1 %cmp.i to i8
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %entry
-  %conv = phi i8 [ 0, %entry ], [ %conv.i, %land.rhs ]
+  %narrow = fcmp oeq double %number, 0xFFF0000000000000
+  %conv = zext i1 %narrow to i8
   ret i8 %conv
 }
 
@@ -961,8 +940,8 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %cmp.i6.not = icmp eq i64 %and.i, 9218868437227405312
-  br i1 %cmp.i6.not, label %return, label %if.end6
+  %cmp.i5 = fcmp une double %0, 0x7FF0000000000000
+  br i1 %cmp.i5, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
   %1 = bitcast double %d to i64

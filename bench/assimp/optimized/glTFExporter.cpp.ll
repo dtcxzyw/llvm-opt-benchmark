@@ -13949,9 +13949,7 @@ _ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit: 
   %8 = load i32, ptr %maxDecimalPlaces_, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %K.i)
-  %9 = tail call double @llvm.fabs.f64(double %d)
-  %and.i.i = bitcast double %9 to i64
-  %cmp.i.i3 = icmp eq i64 %and.i.i, 0
+  %cmp.i.i3 = fcmp oeq double %d, 0.000000e+00
   br i1 %cmp.i.i3, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE4PushEm.exit
@@ -13987,23 +13985,23 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.els
   %value.addr.0.i = phi double [ %fneg.i, %if.then6.i ], [ %d, %if.else.i ]
   %buffer.addr.1.i = phi ptr [ %incdec.ptr7.i, %if.then6.i ], [ %7, %if.else.i ]
   call void @_ZN9rapidjson8internal6Grisu2EdPcPiS2_(double noundef %value.addr.0.i, ptr noundef %buffer.addr.1.i, ptr noundef nonnull %length.i, ptr noundef nonnull %K.i)
-  %10 = load i32, ptr %length.i, align 4
-  %11 = load i32, ptr %K.i, align 4
-  %call9.i = call noundef ptr @_ZN9rapidjson8internal8PrettifyEPciii(ptr noundef %buffer.addr.1.i, i32 noundef %10, i32 noundef %11, i32 noundef %8)
+  %9 = load i32, ptr %length.i, align 4
+  %10 = load i32, ptr %K.i, align 4
+  %call9.i = call noundef ptr @_ZN9rapidjson8internal8PrettifyEPciii(ptr noundef %buffer.addr.1.i, i32 noundef %9, i32 noundef %10, i32 noundef %8)
   br label %_ZN9rapidjson8internal4dtoaEdPci.exit
 
 _ZN9rapidjson8internal4dtoaEdPci.exit:            ; preds = %if.end.i, %if.end8.i
   %retval.0.i = phi ptr [ %arrayidx5.i, %if.end.i ], [ %call9.i, %if.end8.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %K.i)
-  %12 = load ptr, ptr %this, align 8
+  %11 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %retval.0.i to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %7 to i64
   %sub.ptr.sub.neg.neg = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %stackTop_.i.i5 = getelementptr inbounds i8, ptr %12, i64 24
-  %13 = load ptr, ptr %stackTop_.i.i5, align 8
-  %14 = getelementptr i8, ptr %13, i64 %sub.ptr.sub.neg.neg
-  %add.ptr.i.i6 = getelementptr i8, ptr %14, i64 -25
+  %stackTop_.i.i5 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = load ptr, ptr %stackTop_.i.i5, align 8
+  %13 = getelementptr i8, ptr %12, i64 %sub.ptr.sub.neg.neg
+  %add.ptr.i.i6 = getelementptr i8, ptr %13, i64 -25
   store ptr %add.ptr.i.i6, ptr %stackTop_.i.i5, align 8
   br label %return
 
@@ -72168,9 +72166,6 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #22
 
 attributes #0 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
