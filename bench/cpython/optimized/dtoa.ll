@@ -267,14 +267,10 @@ if.then137:                                       ; preds = %if.end129
 
 if.end138:                                        ; preds = %if.then137, %if.end129
   %tobool139.not = icmp eq i32 %conv71, 0
-  br i1 %tobool139.not, label %ret, label %for.cond.preheader
+  br i1 %tobool139.not, label %ret, label %for.cond
 
-for.cond.preheader:                               ; preds = %if.end138
-  %smin = tail call i32 @llvm.smin.i32(i32 %conv71, i32 0)
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.cond.preheader, %for.body
-  %i.0 = phi i32 [ %dec, %for.body ], [ %conv71, %for.cond.preheader ]
+for.cond:                                         ; preds = %if.end138, %for.body
+  %i.0 = phi i32 [ %dec, %for.body ], [ %conv71, %if.end138 ]
   %cmp142 = icmp sgt i32 %i.0, 0
   br i1 %cmp142, label %for.body, label %for.end199.thread
 
@@ -289,9 +285,8 @@ for.body:                                         ; preds = %for.cond
   br i1 %cmp148.not, label %for.cond, label %for.body161.preheader, !llvm.loop !12
 
 for.end199.thread:                                ; preds = %for.cond
-  %sub152 = sub nsw i32 %conv71, %smin
-  %add153 = add i32 %sub152, %sub131
-  %spec.select319 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %smin)
+  %add153 = add i32 %sub131, %conv71
+  %spec.select319 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 0)
   store i32 %add153, ptr %bc, align 4
   store double 0.000000e+00, ptr %rv, align 8
   br label %land.lhs.true218
@@ -368,9 +363,9 @@ if.end215:                                        ; preds = %for.end199
   br i1 %cmp216, label %land.lhs.true218, label %if.end257
 
 land.lhs.true218:                                 ; preds = %for.end199.thread, %for.end199, %if.end215
-  %cond205958 = phi i32 [ %cond205, %for.end199 ], [ %cond205, %if.end215 ], [ %smin, %for.end199.thread ]
+  %cond205958 = phi i32 [ %cond205, %for.end199 ], [ %cond205, %if.end215 ], [ 0, %for.end199.thread ]
   %y.0.lcssa956 = phi i32 [ %y.0.lcssa, %for.end199 ], [ %y.0.lcssa, %if.end215 ], [ 0, %for.end199.thread ]
-  %i.0.lcssa935953 = phi i32 [ %i.0, %for.end199 ], [ %i.0, %if.end215 ], [ %smin, %for.end199.thread ]
+  %i.0.lcssa935953 = phi i32 [ %i.0, %for.end199 ], [ %i.0, %if.end215 ], [ 0, %for.end199.thread ]
   %add153937951 = phi i32 [ %add153932, %for.end199 ], [ %add153932, %if.end215 ], [ %add153, %for.end199.thread ]
   %spec.select319940950 = phi i32 [ %spec.select319933, %for.end199 ], [ %spec.select319933, %if.end215 ], [ %spec.select319, %for.end199.thread ]
   %31 = phi double [ %conv206, %for.end199 ], [ %30, %if.end215 ], [ 0.000000e+00, %for.end199.thread ]
@@ -398,8 +393,8 @@ if.then230:                                       ; preds = %if.then227
   br label %ret
 
 if.end234:                                        ; preds = %if.then227
-  %add236 = sub i32 37, %i.0.lcssa935953
-  %cmp237.not = icmp sgt i32 %add153937951, %add236
+  %add236 = sub nsw i32 37, %i.0.lcssa935953
+  %cmp237.not = icmp ugt i32 %add153937951, %add236
   br i1 %cmp237.not, label %if.end257, label %if.then239
 
 if.then239:                                       ; preds = %if.end234

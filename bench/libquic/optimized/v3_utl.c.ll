@@ -2230,7 +2230,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %or.cond69.i, label %if.end27.i, label %if.then5
 
 if.end27.i:                                       ; preds = %if.end.i
-  %and29.i = and i32 %state.079.i, -2
+  %and29.i = and i32 %state.079.i, -10
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i

@@ -24,10 +24,11 @@ entry:
   br i1 %or.cond, label %return, label %if.end4
 
 if.end4:                                          ; preds = %entry
-  switch i32 %keylen, label %return [
-    i32 32, label %if.end.i.i
-    i32 24, label %if.end.i.i
-    i32 16, label %if.end.i.i
+  %trunc = trunc i32 %keylen to i8
+  switch i8 %trunc, label %return [
+    i8 32, label %if.end.i.i
+    i8 24, label %if.end.i.i
+    i8 16, label %if.end.i.i
   ]
 
 if.end.i.i:                                       ; preds = %if.end4, %if.end4, %if.end4
@@ -72,7 +73,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %ByteReverseWords.exit.i, label %for.body.i.i, !llvm.loop !4
 
 if.else.i24.i:                                    ; preds = %if.end16.i
-  %and6.i.i = and i32 %keylen, -4
+  %and6.i.i = and i32 %keylen, 252
   %cmp818.not.i.i = icmp eq i32 %and6.i.i, 0
   br i1 %cmp818.not.i.i, label %if.else.i.i.thread.i, label %for.body9.preheader.i.i
 
@@ -119,12 +120,12 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   br i1 %exitcond.not.i.i.i, label %ByteReverseWords.exit.i.i, label %for.body.i.i.i, !llvm.loop !4
 
 if.else.i.i.i:                                    ; preds = %ByteReverseWords.exit.i
-  %.pre.i = and i32 %keylen, -4
+  %.pre.i = and i32 %keylen, 252
   %cmp818.not.i.i.i = icmp eq i32 %.pre.i, 0
   br i1 %cmp818.not.i.i.i, label %ByteReverseWords.exit.i.i, label %for.body9.preheader.i.i.i
 
 for.body9.preheader.i.i.i:                        ; preds = %if.else.i.i.i
-  %5 = zext i32 %.pre.i to i64
+  %5 = zext nneg i32 %.pre.i to i64
   br label %for.body9.i.i.i
 
 for.body9.i.i.i:                                  ; preds = %for.body9.i.i.i, %for.body9.preheader.i.i.i
@@ -138,10 +139,10 @@ for.body9.i.i.i:                                  ; preds = %for.body9.i.i.i, %f
   br i1 %cmp8.i.i.i, label %for.body9.i.i.i, label %ByteReverseWords.exit.i.i, !llvm.loop !6
 
 ByteReverseWords.exit.i.i:                        ; preds = %for.body9.i.i.i, %for.body.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %if.else.i.i.thread.i
-  switch i32 %keylen, label %sw.epilog.i.i [
-    i32 16, label %while.body.preheader.i.i
-    i32 24, label %while.body45.preheader.i.i
-    i32 32, label %while.body108.preheader.i.i
+  switch i8 %trunc, label %sw.epilog.i.i [
+    i8 16, label %while.body.preheader.i.i
+    i8 24, label %while.body45.preheader.i.i
+    i8 32, label %while.body108.preheader.i.i
   ]
 
 while.body108.preheader.i.i:                      ; preds = %ByteReverseWords.exit.i.i

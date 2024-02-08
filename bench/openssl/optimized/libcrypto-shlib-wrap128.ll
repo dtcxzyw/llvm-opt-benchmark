@@ -136,7 +136,7 @@ crypto_128_unwrap_raw.exit.thread7:               ; preds = %if.end.i
   br label %return
 
 for.body.us.preheader.i:                          ; preds = %if.end.i
-  %shr.i = lshr i64 %sub.i, 3
+  %shr.i = lshr exact i64 %sub.i, 3
   %mul.i = mul nuw nsw i64 %shr.i, 6
   br label %for.body.us.i
 
@@ -383,11 +383,8 @@ if.then5:                                         ; preds = %if.end
 if.else:                                          ; preds = %if.end
   %sub10 = add nsw i64 %inlen, -8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %B.i)
-  %and.i = and i64 %inlen, 7
-  %tobool.i = icmp ne i64 %and.i, 0
   %4 = icmp ult i64 %inlen, 24
-  %or.cond1.i = or i1 %4, %tobool.i
-  br i1 %or.cond1.i, label %if.then13, label %for.body.us.preheader.i
+  br i1 %4, label %if.then13, label %for.body.us.preheader.i
 
 for.body.us.preheader.i:                          ; preds = %if.else
   %5 = load i64, ptr %in, align 1
@@ -400,7 +397,7 @@ for.body.us.preheader.i:                          ; preds = %if.else
   %arrayidx28.i = getelementptr inbounds i8, ptr %B.i, i64 5
   %arrayidx36.i = getelementptr inbounds i8, ptr %B.i, i64 4
   %add.ptr42.i = getelementptr inbounds i8, ptr %B.i, i64 8
-  %shr.i = lshr i64 %sub10, 3
+  %shr.i = lshr exact i64 %sub10, 3
   %mul.i = mul nuw nsw i64 %shr.i, 6
   br label %for.body.us.i
 
@@ -504,11 +501,11 @@ if.end26:                                         ; preds = %land.lhs.true, %lan
   %21 = load i8, ptr %arrayidx34, align 1
   %conv35 = zext i8 %21 to i64
   %or36 = or disjoint i64 %or33, %conv35
-  %mul = add i64 %div30, -16
+  %mul = add nsw i64 %inlen, -16
   %cmp39.not = icmp uge i64 %mul, %or36
-  %mul42 = add i64 %div30, -8
+  %mul42 = add nsw i64 %div30, -8
   %cmp43 = icmp ugt i64 %or36, %mul42
-  %or.cond = or i1 %cmp39.not, %cmp43
+  %or.cond = select i1 %cmp39.not, i1 true, i1 %cmp43
   br i1 %or.cond, label %if.then45, label %if.end46
 
 if.then45:                                        ; preds = %if.end26

@@ -2653,9 +2653,9 @@ for.end.i136:                                     ; preds = %land.rhs.i139, %for
 
 ptr_token_to_idx.exit:                            ; preds = %for.end.i136, %if.then21.i141, %if.then6.i142
   %idx.i.0 = phi i64 [ 0, %if.then6.i142 ], [ %.100, %if.then21.i141 ], [ %.num.i121.0.ph, %for.end.i136 ]
-  %retval.i119.0 = phi i1 [ %cmp7.i, %if.then6.i142 ], [ %cmp22.i, %if.then21.i141 ], [ %19, %for.end.i136 ]
+  %lnot8.i = phi i1 [ %cmp7.i, %if.then6.i142 ], [ %cmp22.i, %if.then21.i141 ], [ %19, %for.end.i136 ]
   %cmp14.i66.not = icmp uge i64 %idx.i.0, %shr.i.i60
-  %or.cond.not = select i1 %retval.i119.0, i1 true, i1 %cmp14.i66.not
+  %or.cond.not = select i1 %lnot8.i, i1 true, i1 %cmp14.i66.not
   br i1 %or.cond.not, label %do.body22, label %if.end23.i
 
 if.end23.i:                                       ; preds = %ptr_token_to_idx.exit
@@ -4552,7 +4552,7 @@ yyjson_mut_is_arr.exit:                           ; preds = %cond.end252, %if.th
   br i1 %148, label %if.then.i805, label %if.end311
 
 if.then.i805:                                     ; preds = %yyjson_mut_is_arr.exit
-  %and.i.i808 = and i64 %147, 255
+  %and.i.i808 = and i64 %147, 254
   %add.i807 = and i64 %147, -256
   %shl.i.i809 = add i64 %add.i807, 256
   %or.i.i810 = or disjoint i64 %shl.i.i809, %and.i.i808
@@ -4707,7 +4707,7 @@ yyjson_mut_is_arr.exit907:                        ; preds = %if.then319
   br i1 %161, label %if.then.i778, label %return
 
 if.then.i778:                                     ; preds = %yyjson_mut_is_arr.exit907
-  %and.i.i = and i64 %154, 255
+  %and.i.i = and i64 %154, 254
   %add.i780 = and i64 %154, -256
   %shl.i.i = add i64 %add.i780, 256
   %or.i.i = or disjoint i64 %shl.i.i, %and.i.i

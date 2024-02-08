@@ -287,23 +287,19 @@ if.end21:                                         ; preds = %if.else, %if.then16
   %cmp25 = icmp slt i32 %set_prev.0, %5
   %cmp2820 = icmp sgt i32 %conv9, %loc
   %or.cond22 = and i1 %cmp25, %cmp2820
-  br i1 %or.cond22, label %for.body.preheader, label %return
+  br i1 %or.cond22, label %for.body, label %return
 
-for.body.preheader:                               ; preds = %if.end21
-  %6 = zext nneg i32 %loc to i64
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ %6, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+for.body:                                         ; preds = %if.end21, %for.body
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %conv, %if.end21 ]
   %call31 = tail call ptr @sk_value(ptr noundef %1, i64 noundef %indvars.iv) #7
   %set32 = getelementptr inbounds i8, ptr %call31, i64 16
-  %7 = load i32, ptr %set32, align 8
-  %dec = add nsw i32 %7, -1
+  %6 = load i32, ptr %set32, align 8
+  %dec = add nsw i32 %6, -1
   store i32 %dec, ptr %set32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %lftr.wideiv, %conv9
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
+  %7 = trunc i64 %indvars.iv.next to i32
+  %cmp28 = icmp slt i32 %7, %conv9
+  br i1 %cmp28, label %for.body, label %return, !llvm.loop !9
 
 return:                                           ; preds = %for.body, %if.end21, %if.end, %entry, %lor.lhs.false2
   %retval.0 = phi ptr [ null, %lor.lhs.false2 ], [ null, %entry ], [ %call7, %if.end ], [ %call7, %if.end21 ], [ %call7, %for.body ]

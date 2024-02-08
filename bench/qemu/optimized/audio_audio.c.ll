@@ -669,13 +669,13 @@ if.end17:                                         ; preds = %if.end11
 
 land.lhs.true:                                    ; preds = %if.end17
   %info = getelementptr inbounds i8, ptr %sw, i64 16
-  %15 = sext i32 %12 to i64
+  %15 = zext nneg i32 %12 to i64
   %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture, i64 0, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
-  %16 = sext i32 %12 to i64
+  %16 = zext nneg i32 %12 to i64
   %switch.gep67 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.17, i64 0, i64 %16
   %switch.load68 = load i32, ptr %switch.gep67, align 4
-  %17 = sext i32 %12 to i64
+  %17 = zext nneg i32 %12 to i64
   %switch.gep69 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.18, i64 0, i64 %17
   %switch.load70 = load i32, ptr %switch.gep69, align 4
   %freq.i = getelementptr inbounds i8, ptr %sw, i64 24
@@ -713,9 +713,7 @@ land.lhs.true24.i:                                ; preds = %land.lhs.true16.i
 audio_pcm_info_eq.exit:                           ; preds = %land.lhs.true24.i
   %swap_endianness.i = getelementptr inbounds i8, ptr %sw, i64 40
   %25 = load i32, ptr %swap_endianness.i, align 4
-  %cmp28.i = icmp ne i32 %11, 0
-  %conv29.i = zext i1 %cmp28.i to i32
-  %cmp30.i.not = icmp eq i32 %25, %conv29.i
+  %cmp30.i.not = icmp eq i32 %25, %11
   br i1 %cmp30.i.not, label %return, label %if.end22
 
 if.end22:                                         ; preds = %land.lhs.true, %land.lhs.true.i, %land.lhs.true10.i, %land.lhs.true16.i, %land.lhs.true24.i, %audio_pcm_info_eq.exit
@@ -1667,13 +1665,13 @@ if.end17:                                         ; preds = %if.end11
 
 land.lhs.true:                                    ; preds = %if.end17
   %info = getelementptr inbounds i8, ptr %sw, i64 20
-  %15 = sext i32 %12 to i64
+  %15 = zext nneg i32 %12 to i64
   %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture, i64 0, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
-  %16 = sext i32 %12 to i64
+  %16 = zext nneg i32 %12 to i64
   %switch.gep67 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.17, i64 0, i64 %16
   %switch.load68 = load i32, ptr %switch.gep67, align 4
-  %17 = sext i32 %12 to i64
+  %17 = zext nneg i32 %12 to i64
   %switch.gep69 = getelementptr inbounds [7 x i32], ptr @switch.table.AUD_add_capture.18, i64 0, i64 %17
   %switch.load70 = load i32, ptr %switch.gep69, align 4
   %freq.i = getelementptr inbounds i8, ptr %sw, i64 28
@@ -1711,9 +1709,7 @@ land.lhs.true24.i:                                ; preds = %land.lhs.true16.i
 audio_pcm_info_eq.exit:                           ; preds = %land.lhs.true24.i
   %swap_endianness.i = getelementptr inbounds i8, ptr %sw, i64 44
   %25 = load i32, ptr %swap_endianness.i, align 4
-  %cmp28.i = icmp ne i32 %11, 0
-  %conv29.i = zext i1 %cmp28.i to i32
-  %cmp30.i.not = icmp eq i32 %25, %conv29.i
+  %cmp30.i.not = icmp eq i32 %25, %11
   br i1 %cmp30.i.not, label %return, label %if.end22
 
 if.end22:                                         ; preds = %land.lhs.true, %land.lhs.true.i, %land.lhs.true10.i, %land.lhs.true16.i, %land.lhs.true24.i, %audio_pcm_info_eq.exit

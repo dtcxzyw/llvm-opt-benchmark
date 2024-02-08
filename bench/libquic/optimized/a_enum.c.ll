@@ -39,7 +39,7 @@ if.then12:                                        ; preds = %if.end, %if.end9
   br label %return
 
 if.end13:                                         ; preds = %if.end, %if.end9
-  %data1041 = getelementptr inbounds i8, ptr %a, i64 8
+  %data1040 = getelementptr inbounds i8, ptr %a, i64 8
   %cmp14 = icmp slt i64 %v, 0
   br i1 %cmp14, label %if.end17.thread, label %if.end17
 
@@ -57,10 +57,8 @@ if.end23.preheader:                               ; preds = %if.end17.thread, %i
   br label %if.end23
 
 for.body30.preheader:                             ; preds = %if.end23
-  %2 = trunc i64 %indvars.iv to i32
-  %3 = and i64 %indvars.iv, 4294967295
-  %4 = add nuw nsw i32 %2, 1
-  %wide.trip.count = zext nneg i32 %4 to i64
+  %2 = trunc i64 %indvars.iv.next to i32
+  %3 = and i64 %indvars.iv.next, 4294967295
   br label %for.body30
 
 if.end23:                                         ; preds = %if.end23.preheader, %if.end23
@@ -77,20 +75,20 @@ if.end23:                                         ; preds = %if.end23.preheader,
   br i1 %or.cond, label %for.body30.preheader, label %if.end23, !llvm.loop !7
 
 for.body30:                                       ; preds = %for.body30.preheader, %for.body30
-  %indvars.iv31 = phi i64 [ 0, %for.body30.preheader ], [ %indvars.iv.next32, %for.body30 ]
-  %indvars.iv29 = phi i64 [ %3, %for.body30.preheader ], [ %indvars.iv.next30, %for.body30 ]
-  %arrayidx32 = getelementptr inbounds [9 x i8], ptr %buf, i64 0, i64 %indvars.iv29
-  %5 = load i8, ptr %arrayidx32, align 1
-  %6 = load ptr, ptr %data1041, align 8
-  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %arrayidx36 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv31
-  store i8 %5, ptr %arrayidx36, align 1
-  %indvars.iv.next30 = add nsw i64 %indvars.iv29, -1
-  %exitcond.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count
+  %indvars.iv30 = phi i64 [ 0, %for.body30.preheader ], [ %indvars.iv.next31, %for.body30 ]
+  %indvars.iv28 = phi i64 [ %3, %for.body30.preheader ], [ %indvars.iv.next29, %for.body30 ]
+  %indvars.iv.next29 = add nsw i64 %indvars.iv28, -1
+  %arrayidx32 = getelementptr inbounds [9 x i8], ptr %buf, i64 0, i64 %indvars.iv.next29
+  %4 = load i8, ptr %arrayidx32, align 1
+  %5 = load ptr, ptr %data1040, align 8
+  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
+  %arrayidx36 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv30
+  store i8 %4, ptr %arrayidx36, align 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next31, %3
   br i1 %exitcond.not, label %for.end38, label %for.body30, !llvm.loop !9
 
 for.end38:                                        ; preds = %for.body30, %if.end17
-  %j.0.lcssa = phi i32 [ 0, %if.end17 ], [ %4, %for.body30 ]
+  %j.0.lcssa = phi i32 [ 0, %if.end17 ], [ %2, %for.body30 ]
   store i32 %j.0.lcssa, ptr %a, align 8
   br label %return
 

@@ -3076,12 +3076,11 @@ if.then34:                                        ; preds = %if.end32
 if.end35:                                         ; preds = %if.end32
   %conv53.i = trunc i64 %bus.0.i to i32
   %and = shl nuw nsw i32 %conv21.i, 3
-  %shl = and i32 %and, 248
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end24, %if.end35
   %busnr.1 = phi i32 [ %conv53.i, %if.end35 ], [ 0, %if.end24 ]
-  %devfn.0 = phi i32 [ %shl, %if.end35 ], [ -1, %if.end24 ]
+  %devfn.0 = phi i32 [ %and, %if.end35 ], [ -1, %if.end24 ]
   %call37 = tail call ptr @pci_find_bus_nr(ptr noundef nonnull %rootbus, i32 noundef %busnr.1)
   %tobool38.not = icmp eq ptr %call37, null
   %14 = load ptr, ptr %model, align 8

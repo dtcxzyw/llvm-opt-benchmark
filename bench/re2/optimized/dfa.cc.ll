@@ -2144,7 +2144,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %kind_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = add i32 %c, -65
   %4 = icmp ult i32 %3, 26
-  %add.i = add nuw nsw i32 %c, 32
+  %add.i = or disjoint i32 %c, 32
   %str_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br label %for.body
 
@@ -3419,11 +3419,11 @@ cleanup.sink.split:                               ; preds = %invoke.cont40, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont49
-  %cleanup.dest.slot.0 = phi i1 [ true, %invoke.cont49 ], [ false, %cleanup.sink.split ]
+  %switch = phi i1 [ true, %invoke.cont49 ], [ false, %cleanup.sink.split ]
   %ns.0 = phi ptr [ %call.i86, %invoke.cont49 ], [ null, %cleanup.sink.split ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #23
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start) #23
-  br i1 %cleanup.dest.slot.0, label %if.end63, label %return
+  br i1 %switch, label %if.end63, label %return
 
 ehcleanup:                                        ; preds = %lpad.i87, %lpad.i94, %lpad38, %lpad55
   %.pn75 = phi { ptr, i32 } [ %47, %lpad55 ], [ %40, %lpad38 ], [ %46, %lpad.i94 ], [ %43, %lpad.i87 ]
@@ -4218,10 +4218,10 @@ cleanup.sink.split:                               ; preds = %invoke.cont40, %inv
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont49
   %ns.0 = phi ptr [ %call.i93, %invoke.cont49 ], [ null, %cleanup.sink.split ]
-  %cleanup.dest.slot.0 = phi i1 [ true, %invoke.cont49 ], [ false, %cleanup.sink.split ]
+  %switch = phi i1 [ true, %invoke.cont49 ], [ false, %cleanup.sink.split ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #23
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start) #23
-  br i1 %cleanup.dest.slot.0, label %if.end63, label %return
+  br i1 %switch, label %if.end63, label %return
 
 ehcleanup:                                        ; preds = %lpad.i94, %lpad.i101, %lpad38, %lpad55
   %.pn82 = phi { ptr, i32 } [ %47, %lpad55 ], [ %40, %lpad38 ], [ %46, %lpad.i101 ], [ %43, %lpad.i94 ]
@@ -5019,11 +5019,11 @@ cleanup.sink.split:                               ; preds = %invoke.cont41, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont50
-  %cleanup.dest.slot.0 = phi i1 [ true, %invoke.cont50 ], [ false, %cleanup.sink.split ]
+  %switch = phi i1 [ true, %invoke.cont50 ], [ false, %cleanup.sink.split ]
   %ns.0 = phi ptr [ %call.i90, %invoke.cont50 ], [ null, %cleanup.sink.split ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #23
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start) #23
-  br i1 %cleanup.dest.slot.0, label %if.end64, label %return
+  br i1 %switch, label %if.end64, label %return
 
 ehcleanup:                                        ; preds = %lpad.i91, %lpad.i98, %lpad39, %lpad56
   %.pn79 = phi { ptr, i32 } [ %47, %lpad56 ], [ %40, %lpad39 ], [ %46, %lpad.i98 ], [ %43, %lpad.i91 ]
@@ -5769,10 +5769,10 @@ cleanup.sink.split:                               ; preds = %invoke.cont41, %inv
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont50
   %ns.0 = phi ptr [ %call.i97, %invoke.cont50 ], [ null, %cleanup.sink.split ]
-  %cleanup.dest.slot.0 = phi i1 [ true, %invoke.cont50 ], [ false, %cleanup.sink.split ]
+  %switch = phi i1 [ true, %invoke.cont50 ], [ false, %cleanup.sink.split ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #23
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start) #23
-  br i1 %cleanup.dest.slot.0, label %if.end64, label %return
+  br i1 %switch, label %if.end64, label %return
 
 ehcleanup:                                        ; preds = %lpad.i98, %lpad.i105, %lpad39, %lpad56
   %.pn86 = phi { ptr, i32 } [ %47, %lpad56 ], [ %40, %lpad39 ], [ %46, %lpad.i105 ], [ %43, %lpad.i98 ]
@@ -6562,11 +6562,11 @@ cleanup.sink.split:                               ; preds = %invoke.cont52, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont61
-  %cleanup.dest.slot.0 = phi i1 [ true, %invoke.cont61 ], [ false, %cleanup.sink.split ]
+  %switch = phi i1 [ true, %invoke.cont61 ], [ false, %cleanup.sink.split ]
   %ns.0 = phi ptr [ %call.i90, %invoke.cont61 ], [ null, %cleanup.sink.split ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #23
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start) #23
-  br i1 %cleanup.dest.slot.0, label %if.end75, label %return
+  br i1 %switch, label %if.end75, label %return
 
 ehcleanup:                                        ; preds = %lpad.i91, %lpad.i99, %lpad50, %lpad67
   %.pn = phi { ptr, i32 } [ %53, %lpad67 ], [ %46, %lpad50 ], [ %52, %lpad.i99 ], [ %49, %lpad.i91 ]
@@ -7402,10 +7402,10 @@ cleanup.sink.split:                               ; preds = %invoke.cont52, %inv
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont61
   %ns.0 = phi ptr [ %call.i101, %invoke.cont61 ], [ null, %cleanup.sink.split ]
-  %cleanup.dest.slot.0 = phi i1 [ true, %invoke.cont61 ], [ false, %cleanup.sink.split ]
+  %switch = phi i1 [ true, %invoke.cont61 ], [ false, %cleanup.sink.split ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #23
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start) #23
-  br i1 %cleanup.dest.slot.0, label %if.end75, label %return
+  br i1 %switch, label %if.end75, label %return
 
 ehcleanup:                                        ; preds = %lpad.i102, %lpad.i110, %lpad50, %lpad67
   %.pn = phi { ptr, i32 } [ %53, %lpad67 ], [ %46, %lpad50 ], [ %52, %lpad.i110 ], [ %49, %lpad.i102 ]
@@ -8244,11 +8244,11 @@ cleanup.sink.split:                               ; preds = %invoke.cont53, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont62
-  %cleanup.dest.slot.0 = phi i1 [ true, %invoke.cont62 ], [ false, %cleanup.sink.split ]
+  %switch = phi i1 [ true, %invoke.cont62 ], [ false, %cleanup.sink.split ]
   %ns.0 = phi ptr [ %call.i94, %invoke.cont62 ], [ null, %cleanup.sink.split ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #23
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start) #23
-  br i1 %cleanup.dest.slot.0, label %if.end76, label %return
+  br i1 %switch, label %if.end76, label %return
 
 ehcleanup:                                        ; preds = %lpad.i95, %lpad.i103, %lpad51, %lpad68
   %.pn = phi { ptr, i32 } [ %53, %lpad68 ], [ %46, %lpad51 ], [ %52, %lpad.i103 ], [ %49, %lpad.i95 ]
@@ -9035,10 +9035,10 @@ cleanup.sink.split:                               ; preds = %invoke.cont53, %inv
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont62
   %ns.0 = phi ptr [ %call.i105, %invoke.cont62 ], [ null, %cleanup.sink.split ]
-  %cleanup.dest.slot.0 = phi i1 [ true, %invoke.cont62 ], [ false, %cleanup.sink.split ]
+  %switch = phi i1 [ true, %invoke.cont62 ], [ false, %cleanup.sink.split ]
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_s) #23
   call void @_ZN3re23DFA10StateSaverD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %save_start) #23
-  br i1 %cleanup.dest.slot.0, label %if.end76, label %return
+  br i1 %switch, label %if.end76, label %return
 
 ehcleanup:                                        ; preds = %lpad.i106, %lpad.i114, %lpad51, %lpad68
   %.pn = phi { ptr, i32 } [ %53, %lpad68 ], [ %46, %lpad51 ], [ %52, %lpad.i114 ], [ %49, %lpad.i106 ]

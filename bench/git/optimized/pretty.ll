@@ -1220,7 +1220,7 @@ while.body.lr.ph:                                 ; preds = %last_line_length.ex
   %9 = trunc i64 %call3 to i32
   %conv6 = add i32 %conv8.i, %9
   %cmp23.not.i = icmp eq i32 %type, 1
-  br i1 %cmp23.not.i, label %while.body, label %while.body.us
+  br i1 %cmp23.not.i, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %for.end.us
   %line_len.045.us = phi i32 [ %add26.us, %for.end.us ], [ %conv6, %while.body.lr.ph ]
@@ -1239,153 +1239,148 @@ if.end.i.us:                                      ; preds = %lor.rhs.us
   %idxprom.i20.us = zext nneg i8 %11 to i64
   %arrayidx.i21.us = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i20.us
   %13 = load i8, ptr %arrayidx.i21.us, align 1
-  %.fr.i.us = freeze i8 %13
-  %14 = and i8 %.fr.i.us, 1
-  %cmp7.not.i.us = icmp eq i8 %14, 0
-  br i1 %cmp7.not.i.us, label %switch.early.test.i.us, label %.thread.us
+  %conv6.i.us = zext i8 %13 to i32
+  %and.i.us = and i32 %conv6.i.us, 1
+  %cmp7.i.us = icmp ne i32 %and.i.us, 0
+  %14 = and i8 %11, 125
+  %15 = icmp eq i8 %14, 61
+  %or.cond3.i.us = or i1 %15, %cmp7.i.us
+  %cmp19.i.us = icmp eq i8 %11, 95
+  %or.cond4.i.us = or i1 %cmp19.i.us, %or.cond3.i.us
+  br i1 %or.cond4.i.us, label %.thread.us, label %if.end22.i.us
 
-switch.early.test.i.us:                           ; preds = %if.end.i.us
-  switch i8 %11, label %.thread36.us [
-    i8 95, label %.thread.us
-    i8 63, label %.thread.us
-    i8 61, label %.thread.us
-  ]
+if.end22.i.us:                                    ; preds = %if.end.i.us
+  %and30.i.us = and i32 %conv6.i.us, 6
+  %cmp31.i.us = icmp ne i32 %and30.i.us, 0
+  %cmp35.i.us = icmp eq i8 %11, 33
+  %or.cond5.i.us = or i1 %cmp35.i.us, %cmp31.i.us
+  %16 = and i8 %11, 126
+  %17 = icmp eq i8 %16, 42
+  %or.cond7.i.us = or i1 %17, %or.cond5.i.us
+  %cmp47.i.us = icmp eq i8 %11, 45
+  %or.cond8.i.us = or i1 %cmp47.i.us, %or.cond7.i.us
+  %cmp50.i.us = icmp ne i8 %11, 47
+  %not.or.cond8.i.us = xor i1 %or.cond8.i.us, true
+  %narrow.i.us = and i1 %cmp50.i.us, %not.or.cond8.i.us
+  %cond.fr22.us = freeze i1 %narrow.i.us
+  %mul1338.us = mul nsw i32 %call7.us, 3
+  %spec.select.us = select i1 %cond.fr22.us, ptr @.str.43, ptr @.str.44
+  %spec.select40.us = select i1 %cond.fr22.us, i32 %mul1338.us, i32 1
+  br label %.thread35.us
 
-.thread.us:                                       ; preds = %switch.early.test.i.us, %switch.early.test.i.us, %switch.early.test.i.us, %if.end.i.us, %lor.rhs.us, %while.body.us
-  %mul1333.us = mul nsw i32 %call7.us, 3
-  br label %.thread36.us
+.thread.us:                                       ; preds = %if.end.i.us, %lor.rhs.us, %while.body.us
+  %mul1332.us = mul nsw i32 %call7.us, 3
+  br label %.thread35.us
 
-.thread36.us:                                     ; preds = %switch.early.test.i.us, %.thread.us
-  %15 = phi ptr [ @.str.43, %.thread.us ], [ @.str.44, %switch.early.test.i.us ]
-  %16 = phi i32 [ %mul1333.us, %.thread.us ], [ 1, %switch.early.test.i.us ]
-  %add15.us = add nsw i32 %16, %line_len.045.us
+.thread35.us:                                     ; preds = %.thread.us, %if.end22.i.us
+  %18 = phi ptr [ @.str.43, %.thread.us ], [ %spec.select.us, %if.end22.i.us ]
+  %19 = phi i32 [ %mul1332.us, %.thread.us ], [ %spec.select40.us, %if.end22.i.us ]
+  %add15.us = add nsw i32 %19, %line_len.045.us
   %cmp17.us = icmp sgt i32 %add15.us, 74
   br i1 %cmp17.us, label %if.then.us, label %if.end.us
 
-if.then.us:                                       ; preds = %.thread36.us
+if.then.us:                                       ; preds = %.thread35.us
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull @.str.45, ptr noundef %encoding) #19
   %call19.us = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %encoding) #20
-  %17 = trunc i64 %call19.us to i32
-  %conv22.us = add i32 %17, 6
+  %20 = trunc i64 %call19.us to i32
+  %conv22.us = add i32 %20, 6
   br label %if.end.us
 
-if.end.us:                                        ; preds = %if.then.us, %.thread36.us
-  %line_len.1.us = phi i32 [ %conv22.us, %if.then.us ], [ %line_len.045.us, %.thread36.us ]
+if.end.us:                                        ; preds = %if.then.us, %.thread35.us
+  %line_len.1.us = phi i32 [ %conv22.us, %if.then.us ], [ %line_len.045.us, %.thread35.us ]
   %cmp2342.us = icmp sgt i32 %call7.us, 0
   br i1 %cmp2342.us, label %for.body.us.preheader, label %for.end.us
 
 for.body.us.preheader:                            ; preds = %if.end.us
-  %wide.trip.count = zext nneg i32 %call7.us to i64
+  %wide.trip.count52 = zext nneg i32 %call7.us to i64
   br label %for.body.us
 
 for.end.us:                                       ; preds = %for.body.us, %if.end.us
-  %add26.us = add nsw i32 %line_len.1.us, %16
-  %18 = load i64, ptr %len.addr, align 8
-  %tobool.not.us = icmp eq i64 %18, 0
+  %add26.us = add nsw i32 %line_len.1.us, %19
+  %21 = load i64, ptr %len.addr, align 8
+  %tobool.not.us = icmp eq i64 %21, 0
   br i1 %tobool.not.us, label %while.end, label %while.body.us, !llvm.loop !15
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.body.us
-  %indvars.iv = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next, %for.body.us ]
-  %arrayidx.us = getelementptr inbounds i8, ptr %10, i64 %indvars.iv
-  %19 = load i8, ptr %arrayidx.us, align 1
-  %conv25.us = zext i8 %19 to i32
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull %15, i32 noundef %conv25.us) #19
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.us, label %for.body.us, !llvm.loop !16
+  %indvars.iv49 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next50, %for.body.us ]
+  %arrayidx.us = getelementptr inbounds i8, ptr %10, i64 %indvars.iv49
+  %22 = load i8, ptr %arrayidx.us, align 1
+  %conv25.us = zext i8 %22 to i32
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull %18, i32 noundef %conv25.us) #19
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
+  br i1 %exitcond53.not, label %for.end.us, label %for.body.us, !llvm.loop !16
 
 while.body:                                       ; preds = %while.body.lr.ph, %for.end
   %line_len.045 = phi i32 [ %add26, %for.end ], [ %conv6, %while.body.lr.ph ]
-  %20 = load ptr, ptr %line.addr, align 8
+  %23 = load ptr, ptr %line.addr, align 8
   %call7 = call i32 @mbs_chrlen(ptr noundef nonnull %line.addr, ptr noundef nonnull %len.addr, ptr noundef %encoding) #19
   %cmp = icmp sgt i32 %call7, 1
   br i1 %cmp, label %.thread, label %lor.rhs
 
 lor.rhs:                                          ; preds = %while.body
-  %21 = load i8, ptr %20, align 1
-  %22 = add i8 %21, -32
-  %or.cond1.i = icmp ult i8 %22, 95
+  %24 = load i8, ptr %23, align 1
+  %25 = add i8 %24, -32
+  %or.cond1.i = icmp ult i8 %25, 95
   br i1 %or.cond1.i, label %if.end.i, label %.thread
 
 if.end.i:                                         ; preds = %lor.rhs
-  %idxprom.i20 = zext nneg i8 %21 to i64
+  %idxprom.i20 = zext nneg i8 %24 to i64
   %arrayidx.i21 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i20
-  %23 = load i8, ptr %arrayidx.i21, align 1
-  %.fr.i = freeze i8 %23
-  %conv6.i = zext i8 %.fr.i to i32
-  %and.i = and i32 %conv6.i, 1
-  %cmp7.not.i = icmp eq i32 %and.i, 0
-  br i1 %cmp7.not.i, label %switch.early.test.i, label %.thread
+  %26 = load i8, ptr %arrayidx.i21, align 1
+  %27 = and i8 %26, 1
+  %cmp7.i = icmp ne i8 %27, 0
+  %28 = and i8 %24, 125
+  %29 = icmp eq i8 %28, 61
+  %or.cond3.i = or i1 %29, %cmp7.i
+  %cmp19.i = icmp eq i8 %24, 95
+  %or.cond4.i = or i1 %cmp19.i, %or.cond3.i
+  br i1 %or.cond4.i, label %.thread, label %.thread35
 
-switch.early.test.i:                              ; preds = %if.end.i
-  switch i8 %21, label %if.end22.i [
-    i8 95, label %.thread
-    i8 63, label %.thread
-    i8 61, label %.thread
-  ]
+.thread:                                          ; preds = %while.body, %lor.rhs, %if.end.i
+  %mul1332 = mul nsw i32 %call7, 3
+  br label %.thread35
 
-if.end22.i:                                       ; preds = %switch.early.test.i
-  %and30.i = and i32 %conv6.i, 6
-  %cmp31.not.i = icmp eq i32 %and30.i, 0
-  br i1 %cmp31.not.i, label %switch.early.test21.i, label %.thread36
-
-switch.early.test21.i:                            ; preds = %if.end22.i
-  switch i8 %21, label %24 [
-    i8 45, label %.thread36
-    i8 43, label %.thread36
-    i8 42, label %.thread36
-    i8 33, label %.thread36
-    i8 47, label %.thread36
-  ]
-
-24:                                               ; preds = %switch.early.test21.i
-  %mul1339 = mul nsw i32 %call7, 3
-  br label %.thread36
-
-.thread:                                          ; preds = %while.body, %lor.rhs, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %if.end.i
-  %mul1333 = mul nsw i32 %call7, 3
-  br label %.thread36
-
-.thread36:                                        ; preds = %switch.early.test21.i, %switch.early.test21.i, %switch.early.test21.i, %switch.early.test21.i, %switch.early.test21.i, %.thread, %24, %if.end22.i
-  %25 = phi ptr [ @.str.44, %switch.early.test21.i ], [ @.str.44, %switch.early.test21.i ], [ @.str.44, %switch.early.test21.i ], [ @.str.44, %switch.early.test21.i ], [ @.str.44, %if.end22.i ], [ @.str.43, %.thread ], [ @.str.43, %24 ], [ @.str.44, %switch.early.test21.i ]
-  %26 = phi i32 [ 1, %switch.early.test21.i ], [ 1, %switch.early.test21.i ], [ 1, %switch.early.test21.i ], [ 1, %switch.early.test21.i ], [ 1, %if.end22.i ], [ %mul1333, %.thread ], [ %mul1339, %24 ], [ 1, %switch.early.test21.i ]
-  %add15 = add nsw i32 %26, %line_len.045
+.thread35:                                        ; preds = %if.end.i, %.thread
+  %30 = phi ptr [ @.str.43, %.thread ], [ @.str.44, %if.end.i ]
+  %31 = phi i32 [ %mul1332, %.thread ], [ 1, %if.end.i ]
+  %add15 = add nsw i32 %31, %line_len.045
   %cmp17 = icmp sgt i32 %add15, 74
   br i1 %cmp17, label %if.then, label %if.end
 
-if.then:                                          ; preds = %.thread36
+if.then:                                          ; preds = %.thread35
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull @.str.45, ptr noundef %encoding) #19
   %call19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %encoding) #20
-  %27 = trunc i64 %call19 to i32
-  %conv22 = add i32 %27, 6
+  %32 = trunc i64 %call19 to i32
+  %conv22 = add i32 %32, 6
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %.thread36
-  %line_len.1 = phi i32 [ %conv22, %if.then ], [ %line_len.045, %.thread36 ]
+if.end:                                           ; preds = %if.then, %.thread35
+  %line_len.1 = phi i32 [ %conv22, %if.then ], [ %line_len.045, %.thread35 ]
   %cmp2342 = icmp sgt i32 %call7, 0
   br i1 %cmp2342, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end
-  %wide.trip.count52 = zext nneg i32 %call7 to i64
+  %wide.trip.count = zext nneg i32 %call7 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv49 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next50, %for.body ]
-  %arrayidx = getelementptr inbounds i8, ptr %20, i64 %indvars.iv49
-  %28 = load i8, ptr %arrayidx, align 1
-  %conv25 = zext i8 %28 to i32
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull %25, i32 noundef %conv25) #19
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
-  br i1 %exitcond53.not, label %for.end, label %for.body, !llvm.loop !16
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds i8, ptr %23, i64 %indvars.iv
+  %33 = load i8, ptr %arrayidx, align 1
+  %conv25 = zext i8 %33 to i32
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull %30, i32 noundef %conv25) #19
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.body, %if.end
-  %add26 = add nsw i32 %line_len.1, %26
-  %29 = load i64, ptr %len.addr, align 8
-  %tobool.not = icmp eq i64 %29, 0
+  %add26 = add nsw i32 %line_len.1, %31
+  %34 = load i64, ptr %len.addr, align 8
+  %tobool.not = icmp eq i64 %34, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !15
 
-while.end:                                        ; preds = %for.end.us, %for.end, %last_line_length.exit
+while.end:                                        ; preds = %for.end, %for.end.us, %last_line_length.exit
   call void @strbuf_add(ptr noundef %sb, ptr noundef nonnull @.str.46, i64 noundef 2) #19
   ret void
 }
@@ -4197,7 +4192,7 @@ pp_utf8_width.exit.thread:                        ; preds = %while.body.i
   br label %while.end
 
 if.end.i:                                         ; preds = %while.body.i
-  %add.i = add nsw i32 %call.i, %width.04.i
+  %add.i = add nuw nsw i32 %call.i, %width.04.i
   %.pr.i = load i64, ptr %remain.i, align 8
   %tobool.not.i = icmp eq i64 %.pr.i, 0
   br i1 %tobool.not.i, label %pp_utf8_width.exit, label %while.body.i, !llvm.loop !31
@@ -4205,10 +4200,9 @@ if.end.i:                                         ; preds = %while.body.i
 pp_utf8_width.exit:                               ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %start.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %remain.i)
-  %cmp3 = icmp slt i32 %add.i, 0
-  br i1 %cmp3, label %while.end, label %if.end
+  br label %if.end
 
-if.end:                                           ; preds = %pp_utf8_width.exit.thread19, %pp_utf8_width.exit
+if.end:                                           ; preds = %pp_utf8_width.exit, %pp_utf8_width.exit.thread19
   %retval.0.i22 = phi i32 [ 0, %pp_utf8_width.exit.thread19 ], [ %add.i, %pp_utf8_width.exit ]
   call fastcc void @append_line_with_color(ptr noundef %sb, ptr noundef %opt, ptr noundef %line.addr.031, i64 noundef %sub.ptr.sub.i, i32 noundef %color, i32 noundef 1, i32 noundef 3)
   %rem = srem i32 %retval.0.i22, %tabwidth
@@ -4225,9 +4219,9 @@ if.end:                                           ; preds = %pp_utf8_width.exit.
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !32
 
-while.end:                                        ; preds = %if.end, %pp_utf8_width.exit, %entry, %pp_utf8_width.exit.thread
-  %line.addr.026 = phi ptr [ %line.addr.031, %pp_utf8_width.exit.thread ], [ %line, %entry ], [ %add.ptr, %if.end ], [ %line.addr.031, %pp_utf8_width.exit ]
-  %conv24 = phi i64 [ %conv32, %pp_utf8_width.exit.thread ], [ %conv27, %entry ], [ %conv, %if.end ], [ %conv32, %pp_utf8_width.exit ]
+while.end:                                        ; preds = %if.end, %entry, %pp_utf8_width.exit.thread
+  %line.addr.026 = phi ptr [ %line.addr.031, %pp_utf8_width.exit.thread ], [ %line, %entry ], [ %add.ptr, %if.end ]
+  %conv24 = phi i64 [ %conv32, %pp_utf8_width.exit.thread ], [ %conv27, %entry ], [ %conv, %if.end ]
   call fastcc void @append_line_with_color(ptr noundef %sb, ptr noundef %opt, ptr noundef %line.addr.026, i64 noundef %conv24, i32 noundef %color, i32 noundef 1, i32 noundef 3)
   ret void
 }

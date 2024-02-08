@@ -900,27 +900,18 @@ for.body:                                         ; preds = %for.body.preheader,
   %0 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call i64 @commit_graph_generation(ptr noundef %0) #11
   %cmp2 = icmp ult i64 %call1, 9223372036854775807
-  br i1 %cmp2, label %if.then3, label %for.cond
+  br i1 %cmp2, label %st_mult.exit.i, label %for.cond
 
-if.then3:                                         ; preds = %for.body
+st_mult.exit.i:                                   ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %stack.i)
-  %conv.i = sext i32 %cnt to i64
-  %mul.ov.i.i = icmp slt i32 %cnt, 0
-  br i1 %mul.ov.i.i, label %if.then.i.i, label %st_mult.exit.i
-
-if.then.i.i:                                      ; preds = %if.then3
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.3, i64 noundef 8, i64 noundef %conv.i) #12
-  unreachable
-
-st_mult.exit.i:                                   ; preds = %if.then3
-  %mul.i.i = shl nuw nsw i64 %conv.i, 3
+  %mul.i.i = shl nuw nsw i64 %wide.trip.count, 3
   %call2.i = tail call ptr @xmalloc(i64 noundef %mul.i.i) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call2.i, ptr nonnull align 1 %array, i64 %mul.i.i, i1 false)
   %cmp.i.not.i = icmp eq i32 %cnt, 1
   br i1 %cmp.i.not.i, label %st_mult.exit87.i, label %if.then.i82.i
 
 if.then.i82.i:                                    ; preds = %st_mult.exit.i
-  tail call void @qsort(ptr noundef %call2.i, i64 noundef %conv.i, i64 noundef 8, ptr noundef nonnull @compare_commits_by_gen) #11
+  tail call void @qsort(ptr noundef %call2.i, i64 noundef %wide.trip.count, i64 noundef 8, ptr noundef nonnull @compare_commits_by_gen) #11
   br label %st_mult.exit87.i
 
 st_mult.exit87.i:                                 ; preds = %if.then.i82.i, %st_mult.exit.i
@@ -931,7 +922,7 @@ st_mult.exit87.i:                                 ; preds = %if.then.i82.i, %st_
 
 for.body.i:                                       ; preds = %for.inc.i, %st_mult.exit87.i
   %indvars.iv.i = phi i64 [ 0, %st_mult.exit87.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %walk_start_alloc.0119.i = phi i64 [ %conv.i, %st_mult.exit87.i ], [ %walk_start_alloc.1.lcssa.i, %for.inc.i ]
+  %walk_start_alloc.0119.i = phi i64 [ %wide.trip.count, %st_mult.exit87.i ], [ %walk_start_alloc.1.lcssa.i, %for.inc.i ]
   %walk_start_nr.0118.i = phi i64 [ 0, %st_mult.exit87.i ], [ %walk_start_nr.1.lcssa.i, %for.inc.i ]
   %walk_start.0117.i = phi ptr [ %call6.i, %st_mult.exit87.i ], [ %walk_start.1.lcssa.i, %for.inc.i ]
   %arrayidx8.i = getelementptr inbounds ptr, ptr %array, i64 %indvars.iv.i

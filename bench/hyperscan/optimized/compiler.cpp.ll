@@ -2750,7 +2750,7 @@ if.end.i17:                                       ; preds = %call.i.noexc19
   %bytes.i18 = getelementptr inbounds i8, ptr %call.i20, i64 104
   %13 = ptrtoint ptr %bytes.i18 to i64
   %14 = trunc i64 %13 to i32
-  %15 = and i32 %14, 63
+  %15 = and i32 %14, 56
   %conv.i = sub nuw nsw i32 104, %15
   %bytecode.i = getelementptr inbounds i8, ptr %call.i20, i64 36
   store i32 %conv.i, ptr %bytecode.i, align 4

@@ -60133,7 +60133,7 @@ vector.scevcheck30:                               ; preds = %for.body48.i.i.i.pr
   br i1 %21, label %for.body48.i.i.i.preheader34, label %vector.ph41
 
 vector.ph41:                                      ; preds = %vector.scevcheck30
-  %n.vec43 = and i64 %2, -2
+  %n.vec43 = and i64 %2, 2305843009213693950
   br label %vector.body46
 
 vector.body46:                                    ; preds = %vector.body46, %vector.ph41
@@ -60520,7 +60520,7 @@ vector.scevcheck51:                               ; preds = %for.body14.us.i.i.i
   br i1 %111, label %for.body14.us.i.i.i.preheader31, label %vector.ph62
 
 vector.ph62:                                      ; preds = %vector.scevcheck51
-  %n.vec64 = and i64 %2, -2
+  %n.vec64 = and i64 %2, 2305843009213693950
   br label %vector.body67
 
 vector.body67:                                    ; preds = %vector.body67, %vector.ph62
@@ -60964,7 +60964,7 @@ vector.scevcheck30:                               ; preds = %for.body48.i.i.i.pr
   br i1 %22, label %for.body48.i.i.i.preheader34, label %vector.ph41
 
 vector.ph41:                                      ; preds = %vector.scevcheck30
-  %n.vec43 = and i64 %2, -2
+  %n.vec43 = and i64 %2, 2305843009213693950
   br label %vector.body46
 
 vector.body46:                                    ; preds = %vector.body46, %vector.ph41
@@ -61366,7 +61366,7 @@ vector.scevcheck51:                               ; preds = %for.body14.us.i.i.i
   br i1 %121, label %for.body14.us.i.i.i.preheader31, label %vector.ph62
 
 vector.ph62:                                      ; preds = %vector.scevcheck51
-  %n.vec64 = and i64 %2, -2
+  %n.vec64 = and i64 %2, 2305843009213693950
   br label %vector.body67
 
 vector.body67:                                    ; preds = %vector.body67, %vector.ph62

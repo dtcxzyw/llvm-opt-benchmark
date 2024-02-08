@@ -2489,11 +2489,11 @@ if.then15.i:                                      ; preds = %if.end10.i
   call void @strbuf_remove(ptr noundef nonnull %74, i64 noundef 0, i64 noundef 1) #14
   %.pre.i79 = load ptr, ptr %ptr.022.i, align 8
   %buf17.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i79, i64 16
-  %.pre37.i = load ptr, ptr %buf17.phi.trans.insert.i, align 8
+  %.pre36.i = load ptr, ptr %buf17.phi.trans.insert.i, align 8
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then15.i, %if.end10.i
-  %78 = phi ptr [ %.pre37.i, %if.then15.i ], [ %76, %if.end10.i ]
+  %78 = phi ptr [ %.pre36.i, %if.then15.i ], [ %76, %if.end10.i ]
   %choose.0.i = phi i32 [ 0, %if.then15.i ], [ 1, %if.end10.i ]
   br label %for.cond18.i
 
@@ -2705,17 +2705,16 @@ lor.lhs.false73.i:                                ; preds = %if.end68.i
 
 for.body92.preheader.i:                           ; preds = %lor.lhs.false73.i
   %98 = zext nneg i32 %bottom.0.i to i64
-  %99 = add nuw i32 %top.0.i, 1
   br label %for.body92.i
 
 if.then84.i:                                      ; preds = %if.then31.i.i, %if.then10.i.i, %lor.lhs.false73.i, %if.end68.i, %sw.bb21.i.i, %sw.bb.i.i
-  %100 = load i32, ptr @clean_use_color, align 4
-  %call.i.i.i64 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %100) #14
+  %99 = load i32, ptr @clean_use_color, align 4
+  %call.i.i.i64 = call i32 @want_color_fd(i32 noundef 1, i32 noundef %99) #14
   %tobool.not.i.i.i65 = icmp eq i32 %call.i.i.i64, 0
   %retval.0.i.i.i66 = select i1 %tobool.not.i.i.i65, ptr @.str.20, ptr getelementptr inbounds ([6 x [75 x i8]], ptr @clean_colors, i64 0, i64 5)
   %call1.i.i67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef nonnull %retval.0.i.i.i66)
-  %101 = load i32, ptr @git_gettext_enabled, align 4
-  %tobool1.not.i.i = icmp eq i32 %101, 0
+  %100 = load i32, ptr @git_gettext_enabled, align 4
+  %tobool1.not.i.i = icmp eq i32 %100, 0
   br i1 %tobool1.not.i.i, label %_.exit.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %if.then84.i
@@ -2724,12 +2723,12 @@ if.end3.i.i:                                      ; preds = %if.then84.i
 
 _.exit.i:                                         ; preds = %if.end3.i.i, %if.then84.i
   %retval.0.i.i68 = phi ptr [ %call.i51.i, %if.end3.i.i ], [ @.str.69, %if.then84.i ]
-  %102 = load ptr, ptr %ptr.022.i, align 8
-  %buf86.i = getelementptr inbounds i8, ptr %102, i64 16
-  %103 = load ptr, ptr %buf86.i, align 8
-  %call87.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %retval.0.i.i68, ptr noundef %103)
-  %104 = load i32, ptr @clean_use_color, align 4
-  %call.i.i52.i = call i32 @want_color_fd(i32 noundef 1, i32 noundef %104) #14
+  %101 = load ptr, ptr %ptr.022.i, align 8
+  %buf86.i = getelementptr inbounds i8, ptr %101, i64 16
+  %102 = load ptr, ptr %buf86.i, align 8
+  %call87.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %retval.0.i.i68, ptr noundef %102)
+  %103 = load i32, ptr @clean_use_color, align 4
+  %call.i.i52.i = call i32 @want_color_fd(i32 noundef 1, i32 noundef %103) #14
   %tobool.not.i.i53.i = icmp eq i32 %call.i.i52.i, 0
   %retval.0.i.i54.i = select i1 %tobool.not.i.i53.i, ptr @.str.20, ptr @clean_colors
   %call1.i55.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef nonnull %retval.0.i.i54.i)
@@ -2740,9 +2739,9 @@ for.body92.i:                                     ; preds = %for.body92.i, %for.
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv.i69
   store i32 %choose.0.i, ptr %gep, align 4
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next.i70 to i32
-  %exitcond.not.i = icmp eq i32 %99, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %for.inc97.i, label %for.body92.i, !llvm.loop !26
+  %104 = trunc i64 %indvars.iv.i69 to i32
+  %cmp90.not.not.i = icmp sgt i32 %top.0.i, %104
+  br i1 %cmp90.not.not.i, label %for.body92.i, label %for.inc97.i, !llvm.loop !26
 
 for.inc97.i:                                      ; preds = %for.body92.i, %_.exit.i, %for.body.i63
   %incdec.ptr98.i = getelementptr inbounds i8, ptr %ptr.022.i, i64 8
@@ -2767,8 +2766,8 @@ for.body104.i:                                    ; preds = %for.body104.i, %for
   %107 = load i32, ptr %arrayidx106.i, align 4
   %add.i = add nsw i32 %107, %nr.024.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
-  %exitcond36.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count.i
-  br i1 %exitcond36.not.i, label %parse_choice.exit, label %for.body104.i, !llvm.loop !28
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %parse_choice.exit, label %for.body104.i, !llvm.loop !28
 
 parse_choice.exit:                                ; preds = %for.body104.i
   %108 = load i32, ptr %flags, align 8

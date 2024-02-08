@@ -229,7 +229,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %or.cond.i, label %CRYPTO_get_ex_data.exit, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %for.body
-  %conv.i = and i64 %add, 4294967295
+  %conv.i = and i64 %add, 2147483647
   %call.i15 = call i64 @sk_num(ptr noundef nonnull %4) #7
   %cmp4.not.i = icmp ugt i64 %call.i15, %conv.i
   br i1 %cmp4.not.i, label %if.end.i, label %CRYPTO_get_ex_data.exit
@@ -343,7 +343,7 @@ if.then7:                                         ; preds = %for.body
   br i1 %or.cond.i, label %CRYPTO_get_ex_data.exit, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %if.then7
-  %conv.i = and i64 %add, 4294967295
+  %conv.i = and i64 %add, 2147483647
   %call.i14 = tail call i64 @sk_num(ptr noundef nonnull %5) #7
   %cmp4.not.i = icmp ugt i64 %call.i14, %conv.i
   br i1 %cmp4.not.i, label %if.end.i, label %CRYPTO_get_ex_data.exit

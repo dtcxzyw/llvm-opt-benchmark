@@ -4549,7 +4549,6 @@ for.body10.i:                                     ; preds = %for.body.i, %for.in
   %arrayidx12.i = getelementptr i8, ptr %aslide, i64 %indvars.iv67.i
   %2 = load i8, ptr %arrayidx12.i, align 1
   %tobool.not.i = icmp ne i8 %2, 0
-  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %cmp1647.i = icmp ult i64 %indvars.iv67.i, 255
   %or.cond.i = and i1 %cmp1647.i, %tobool.not.i
   br i1 %or.cond.i, label %for.body18.i, label %for.inc73.i
@@ -4615,6 +4614,7 @@ for.inc70.i:                                      ; preds = %if.end63.i, %if.the
   br i1 %8, label %for.body18.i, label %for.inc73.i, !llvm.loop !23
 
 for.inc73.i:                                      ; preds = %for.inc70.i, %if.else.i, %for.body10.i
+  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, 256
   br i1 %exitcond70.not.i, label %for.body.i17, label %for.body10.i, !llvm.loop !24
@@ -4635,16 +4635,15 @@ for.body.i17:                                     ; preds = %for.inc73.i, %for.b
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, 256
   br i1 %exitcond.not.i27, label %for.body10.i28, label %for.body.i17, !llvm.loop !21
 
-for.body10.i28:                                   ; preds = %for.body.i17, %for.inc73.i36
-  %indvars.iv67.i29 = phi i64 [ %indvars.iv.next68.i33, %for.inc73.i36 ], [ 0, %for.body.i17 ]
-  %indvars.iv54.i30 = phi i64 [ %indvars.iv.next55.i37, %for.inc73.i36 ], [ 1, %for.body.i17 ]
+for.body10.i28:                                   ; preds = %for.body.i17, %for.inc73.i35
+  %indvars.iv67.i29 = phi i64 [ %indvars.iv.next68.i36, %for.inc73.i35 ], [ 0, %for.body.i17 ]
+  %indvars.iv54.i30 = phi i64 [ %indvars.iv.next55.i37, %for.inc73.i35 ], [ 1, %for.body.i17 ]
   %arrayidx12.i31 = getelementptr i8, ptr %bslide, i64 %indvars.iv67.i29
   %11 = load i8, ptr %arrayidx12.i31, align 1
   %tobool.not.i32 = icmp ne i8 %11, 0
-  %indvars.iv.next68.i33 = add nuw nsw i64 %indvars.iv67.i29, 1
-  %cmp1647.i34 = icmp ult i64 %indvars.iv67.i29, 255
-  %or.cond.i35 = and i1 %cmp1647.i34, %tobool.not.i32
-  br i1 %or.cond.i35, label %for.body18.i39, label %for.inc73.i36
+  %cmp1647.i33 = icmp ult i64 %indvars.iv67.i29, 255
+  %or.cond.i34 = and i1 %cmp1647.i33, %tobool.not.i32
+  br i1 %or.cond.i34, label %for.body18.i39, label %for.inc73.i35
 
 for.body18.i39:                                   ; preds = %for.body10.i28, %for.inc70.i62
   %indvars.iv61.i40 = phi i64 [ %indvars.iv.next62.i63, %for.inc70.i62 ], [ 1, %for.body10.i28 ]
@@ -4673,7 +4672,7 @@ if.then35.i68:                                    ; preds = %if.end24.i44
 if.else.i50:                                      ; preds = %if.end24.i44
   %sub.i51 = sub i32 %conv31.i47, %shl.i46
   %cmp45.i52 = icmp slt i32 %sub.i51, -15
-  br i1 %cmp45.i52, label %for.inc73.i36, label %for.body56.preheader.i53
+  br i1 %cmp45.i52, label %for.inc73.i35, label %for.body56.preheader.i53
 
 for.body56.preheader.i53:                         ; preds = %if.else.i50
   %conv49.i54 = trunc i32 %sub.i51 to i8
@@ -4704,14 +4703,15 @@ for.inc70.i62:                                    ; preds = %if.end63.i59, %if.t
   %cmp16.i65 = icmp ult i64 %16, 256
   %17 = select i1 %cmp14.i64, i1 %cmp16.i65, i1 false
   %indvars.iv.next57.i66 = add nuw nsw i64 %indvars.iv56.i41, 1
-  br i1 %17, label %for.body18.i39, label %for.inc73.i36, !llvm.loop !23
+  br i1 %17, label %for.body18.i39, label %for.inc73.i35, !llvm.loop !23
 
-for.inc73.i36:                                    ; preds = %for.inc70.i62, %if.else.i50, %for.body10.i28
+for.inc73.i35:                                    ; preds = %for.inc70.i62, %if.else.i50, %for.body10.i28
+  %indvars.iv.next68.i36 = add nuw nsw i64 %indvars.iv67.i29, 1
   %indvars.iv.next55.i37 = add nuw nsw i64 %indvars.iv54.i30, 1
-  %exitcond70.not.i38 = icmp eq i64 %indvars.iv.next68.i33, 256
+  %exitcond70.not.i38 = icmp eq i64 %indvars.iv.next68.i36, 256
   br i1 %exitcond70.not.i38, label %slide_vartime.exit70, label %for.body10.i28, !llvm.loop !24
 
-slide_vartime.exit70:                             ; preds = %for.inc73.i36
+slide_vartime.exit70:                             ; preds = %for.inc73.i35
   %Y.i = getelementptr inbounds i8, ptr %A, i64 40
   %18 = load i64, ptr %Y.i, align 8
   %19 = load i64, ptr %A, align 8

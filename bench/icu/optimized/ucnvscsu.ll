@@ -1625,7 +1625,7 @@ if.else13.i:                                      ; preds = %if.else.i
   br i1 %or.cond1.i, label %if.then18.i, label %if.else95
 
 if.then18.i:                                      ; preds = %if.else13.i
-  %and19.i = and i32 %sub50, 2147483520
+  %and19.i = and i32 %sub50, 65408
   store i32 %and19.i, ptr %offset, align 4
   %sub20.i = add nsw i32 %add, -56657920
   %shr21.i = lshr i32 %sub20.i, 7
@@ -2289,7 +2289,7 @@ if.else13.i471:                                   ; preds = %if.else.i464
   br i1 %or.cond1.i473, label %if.then18.i475, label %if.else347
 
 if.then18.i475:                                   ; preds = %if.else13.i471
-  %and19.i476 = and i32 %sub296, 2147483520
+  %and19.i476 = and i32 %sub296, 65408
   store i32 %and19.i476, ptr %offset, align 4
   %sub20.i477 = add nsw i32 %add295, -56657920
   %shr21.i478 = lshr i32 %sub20.i477, 7
@@ -2836,7 +2836,7 @@ if.else13.i:                                      ; preds = %if.else.i
   br i1 %or.cond1.i, label %if.then18.i, label %if.else114
 
 if.then18.i:                                      ; preds = %if.else13.i
-  %and19.i = and i32 %sub65, 2147483520
+  %and19.i = and i32 %sub65, 65408
   store i32 %and19.i, ptr %offset, align 4
   %sub20.i = add nsw i32 %add, -56657920
   %shr21.i = lshr i32 %sub20.i, 7
@@ -3522,7 +3522,7 @@ if.else13.i525:                                   ; preds = %if.else.i518
   br i1 %or.cond1.i527, label %if.then18.i529, label %if.else377
 
 if.then18.i529:                                   ; preds = %if.else13.i525
-  %and19.i530 = and i32 %sub326, 2147483520
+  %and19.i530 = and i32 %sub326, 65408
   store i32 %and19.i530, ptr %offset, align 4
   %sub20.i531 = add nsw i32 %add325, -56657920
   %shr21.i532 = lshr i32 %sub20.i531, 7
@@ -4021,7 +4021,7 @@ if.else13:                                        ; preds = %if.else
   br i1 %or.cond1, label %if.then18, label %return
 
 if.then18:                                        ; preds = %if.else13
-  %and19 = and i32 %c, 2147483520
+  %and19 = and i32 %c, 65408
   store i32 %and19, ptr %pOffset, align 4
   %sub20 = add nsw i32 %c, -44032
   %shr21 = lshr i32 %sub20, 7

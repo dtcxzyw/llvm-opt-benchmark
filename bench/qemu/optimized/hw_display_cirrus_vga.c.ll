@@ -2416,7 +2416,7 @@ sw.bb79:                                          ; preds = %trace_vga_cirrus_wr
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %sw.bb79
-  %21 = and i8 %conv1, -20
+  %21 = and i8 %conv1, -24
   store i8 %21, ptr %arrayidx.i129, align 1
   %cirrus_srcptr.i.i = getelementptr inbounds i8, ptr %s, i64 78896
   %22 = load ptr, ptr %cirrus_srcptr.i.i, align 16

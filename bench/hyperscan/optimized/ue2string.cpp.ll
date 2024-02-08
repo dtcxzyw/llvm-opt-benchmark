@@ -893,7 +893,7 @@ for.body:                                         ; preds = %for.cond
 
 if.then:                                          ; preds = %for.body
   %arrayidx.i.le = getelementptr inbounds i8, ptr %1, i64 %sub
-  %add.i = add nuw nsw i8 %3, 32
+  %add.i = or disjoint i8 %3, 32
   store i8 %add.i, ptr %arrayidx.i.le, align 1
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load i64, ptr %_M_string_length.i.i, align 8

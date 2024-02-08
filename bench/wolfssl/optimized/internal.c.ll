@@ -8406,7 +8406,7 @@ if.then166:                                       ; preds = %if.then162
   br label %return
 
 do.end170:                                        ; preds = %if.then162
-  %bf.clear177 = and i64 %bf.load147, -1125899906844673
+  %bf.clear177 = and i64 %bf.load147, -1125899906844705
   store i64 %bf.clear177, ptr %startedETMRead180, align 8
   br label %if.end180
 

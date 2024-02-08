@@ -7781,7 +7781,7 @@ if.end36.i:                                       ; preds = %lor.lhs.false28.i
   store i64 %call13.i, ptr %arrayidx38.i, align 8
   %soft_limit_bytes.i = getelementptr inbounds i8, ptr %arrayidx38.i, i64 8
   store i64 %call17.i, ptr %soft_limit_bytes.i, align 8
-  %conv41.i = and i64 %call21.i, 4294967295
+  %conv41.i = and i64 %call21.i, 2147483647
   %soft_limit_seconds.i = getelementptr inbounds i8, ptr %arrayidx38.i, i64 16
   store i64 %conv41.i, ptr %soft_limit_seconds.i, align 8
   %arrayidx45.i = getelementptr inbounds [3 x i32], ptr %classes.i, i64 0, i64 %idxprom37.i

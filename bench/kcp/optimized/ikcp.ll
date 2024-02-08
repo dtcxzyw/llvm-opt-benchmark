@@ -1667,8 +1667,8 @@ ikcp_ack_push.exit:                               ; preds = %entry.if.end37_crit
   br i1 %cmp96, label %if.then98, label %if.end142
 
 if.then98:                                        ; preds = %ikcp_ack_push.exit
-  %conv.i194 = sext i32 %len.0.copyload to i64
-  %add.i195 = add nsw i64 %conv.i194, 72
+  %narrow = add nuw i32 %len.0.copyload, 72
+  %add.i195 = zext i32 %narrow to i64
   %59 = load ptr, ptr @ikcp_malloc_hook, align 8
   %tobool.not.i.i196 = icmp eq ptr %59, null
   br i1 %tobool.not.i.i196, label %if.end.i.i201, label %if.then.i.i197

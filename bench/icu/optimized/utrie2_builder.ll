@@ -1980,10 +1980,10 @@ for.body135:                                      ; preds = %for.body135.prehead
 
 if.end144:                                        ; preds = %for.body135, %for.end127, %for.end110
   %dest16.5 = phi ptr [ %incdec.ptr107, %for.end110 ], [ %dest16.3.lcssa, %for.end127 ], [ %incdec.ptr140, %for.body135 ]
-  %switch = icmp eq i32 %valueBits, 0
+  %trunc.not = icmp eq i32 %valueBits, 0
   %data16145 = getelementptr inbounds i8, ptr %trie, i64 8
   %data32 = getelementptr inbounds i8, ptr %trie, i64 16
-  br i1 %switch, label %sw.bb, label %sw.bb156
+  br i1 %trunc.not, label %sw.bb, label %sw.bb156
 
 sw.bb:                                            ; preds = %if.end144
   store ptr %dest16.5, ptr %data16145, align 8
@@ -2083,7 +2083,7 @@ if.then17:                                        ; preds = %if.end15
 
 if.end21:                                         ; preds = %if.then17
   %add22 = add nuw nsw i32 %start, 31
-  %and23 = and i32 %add22, -32
+  %and23 = and i32 %add22, 4194272
   %cmp24.not = icmp ugt i32 %and23, %add
   %data28 = getelementptr inbounds i8, ptr %1, i64 144128
   %4 = load ptr, ptr %data28, align 8
@@ -2166,7 +2166,7 @@ if.end.i98:                                       ; preds = %if.then7.i101, %whi
 if.end35:                                         ; preds = %while.body.i, %if.end.i, %if.end15
   %start.addr.0 = phi i32 [ %start, %if.end15 ], [ %and23, %if.end.i ], [ %and23, %while.body.i ]
   %and36 = and i32 %add, 31
-  %and37 = and i32 %add, -32
+  %and37 = and i32 %add, 4194272
   %initialValue38 = getelementptr inbounds i8, ptr %1, i64 144136
   %10 = load i32, ptr %initialValue38, align 8
   %cmp39 = icmp eq i32 %10, %value

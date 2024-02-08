@@ -100257,8 +100257,8 @@ if.else.i92:                                      ; preds = %deposit64.exit
   unreachable
 
 deposit64.exit93:                                 ; preds = %deposit64.exit
-  %or.cond.i97 = icmp ugt i32 %add, 63
-  br i1 %or.cond.i97, label %if.else.i104, label %deposit64.exit105
+  %cmp3.not.i96 = icmp sgt i32 %add, 63
+  br i1 %cmp3.not.i96, label %if.else.i104, label %deposit64.exit105
 
 if.else.i104:                                     ; preds = %deposit64.exit93
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 496, ptr noundef nonnull @__PRETTY_FUNCTION__.deposit64) #11

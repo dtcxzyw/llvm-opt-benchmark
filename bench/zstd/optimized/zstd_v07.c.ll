@@ -6492,8 +6492,8 @@ if.then20.i.i:                                    ; preds = %if.end18.i.i, %for.
   %cmp21.i.i = icmp eq i8 %DInfo.sroa.1.0.copyload.i.i.i, 0
   %cmp23.i.i = icmp ult i64 %offset.0117.i.i, 2
   %and47.i.i = and i1 %cmp21.i.i, %cmp23.i.i
-  %sub.i215.i = sub i64 1, %offset.0117.i.i
-  %spec.select.i.i = select i1 %and47.i.i, i64 %sub.i215.i, i64 %offset.0117.i.i
+  %sub.i215.i = zext i1 %and47.i.i to i64
+  %spec.select.i.i = xor i64 %offset.0117.i.i, %sub.i215.i
   %tobool28.not.i.i = icmp eq i64 %spec.select.i.i, 0
   br i1 %tobool28.not.i.i, label %if.else45.i.i, label %if.then29.i.i
 
@@ -7455,7 +7455,7 @@ if.end17:                                         ; preds = %if.end.i50, %if.end
 if.end22:                                         ; preds = %if.end17
   %sub.ptr.rhs.cast24 = ptrtoint ptr %op.0126 to i64
   %sub.ptr.sub25 = sub i64 %sub.ptr.lhs.cast33, %sub.ptr.rhs.cast24
-  switch i8 %8, label %default.unreachable [
+  switch i8 %8, label %default.unreachable142 [
     i8 0, label %if.end45
     i8 1, label %sw.bb27
     i8 2, label %sw.bb32
@@ -7516,7 +7516,7 @@ while.end:                                        ; preds = %if.end22.thread
   %sub.ptr.sub59 = sub i64 %sub.ptr.lhs.cast57, %sub.ptr.rhs.cast58
   br label %return
 
-default.unreachable:                              ; preds = %if.end22
+default.unreachable142:                           ; preds = %if.end22
   unreachable
 
 return:                                           ; preds = %if.end17, %if.end45, %sw.bb32, %sw.bb27, %if.end53, %if.end11, %land.lhs.true.i, %if.end22.thread, %ZSTDv07_decodeFrameHeader.exit, %if.end4, %if.end, %entry, %while.end

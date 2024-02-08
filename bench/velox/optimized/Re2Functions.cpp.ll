@@ -3319,13 +3319,13 @@ arraydestroy.body87:                              ; preds = %arraydestroy.body87
 
 ehcleanup:                                        ; preds = %arraydestroy.body87, %lpad78
   %.pn = phi { ptr, i32 } [ %51, %lpad78 ], [ %52, %arraydestroy.body87 ]
-  %cleanup.isactive.0 = phi i1 [ false, %lpad78 ], [ true, %arraydestroy.body87 ]
+  %53 = phi i1 [ false, %lpad78 ], [ true, %arraydestroy.body87 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74) #20
   br label %ehcleanup92
 
 ehcleanup92:                                      ; preds = %lpad76, %lpad.i120, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %50, %lpad76 ], [ %13, %lpad.i120 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %ehcleanup ], [ false, %lpad76 ], [ false, %lpad.i120 ]
+  %cleanup.isactive.1 = phi i1 [ %53, %ehcleanup ], [ false, %lpad76 ], [ false, %lpad.i120 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp75) #20
   br label %ehcleanup93
 
@@ -5357,13 +5357,13 @@ arraydestroy.body56:                              ; preds = %arraydestroy.body56
 
 ehcleanup:                                        ; preds = %arraydestroy.body56, %lpad47
   %.pn = phi { ptr, i32 } [ %38, %lpad47 ], [ %39, %arraydestroy.body56 ]
-  %cleanup.isactive.0 = phi i1 [ false, %lpad47 ], [ true, %arraydestroy.body56 ]
+  %40 = phi i1 [ false, %lpad47 ], [ true, %arraydestroy.body56 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #20
   br label %ehcleanup61
 
 ehcleanup61:                                      ; preds = %lpad45, %lpad.i69, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %37, %lpad45 ], [ %8, %lpad.i69 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %ehcleanup ], [ false, %lpad45 ], [ false, %lpad.i69 ]
+  %cleanup.isactive.1 = phi i1 [ %40, %ehcleanup ], [ false, %lpad45 ], [ false, %lpad.i69 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #20
   br label %ehcleanup62
 
@@ -6402,13 +6402,13 @@ arraydestroy.body87:                              ; preds = %arraydestroy.body87
 
 ehcleanup:                                        ; preds = %arraydestroy.body87, %lpad78
   %.pn = phi { ptr, i32 } [ %51, %lpad78 ], [ %52, %arraydestroy.body87 ]
-  %cleanup.isactive.0 = phi i1 [ false, %lpad78 ], [ true, %arraydestroy.body87 ]
+  %53 = phi i1 [ false, %lpad78 ], [ true, %arraydestroy.body87 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74) #20
   br label %ehcleanup92
 
 ehcleanup92:                                      ; preds = %lpad76, %lpad.i120, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %50, %lpad76 ], [ %13, %lpad.i120 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %ehcleanup ], [ false, %lpad76 ], [ false, %lpad.i120 ]
+  %cleanup.isactive.1 = phi i1 [ %53, %ehcleanup ], [ false, %lpad76 ], [ false, %lpad.i120 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp75) #20
   br label %ehcleanup93
 
@@ -9377,7 +9377,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE0EEELN9__gnu_cx
 
 declare void @_ZN8facebook5velox10BaseVector14ensureWritableERKNS0_17SelectivityVectorERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS5_IS1_EPNS0_10VectorPoolE(ptr noundef nonnull align 8 dereferenceable(38), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
@@ -15043,10 +15043,8 @@ if.then.i94:                                      ; preds = %if.then33
   unreachable
 
 try.cont49:                                       ; preds = %if.then33
-  %add = shl nuw i64 %226, 32
-  %sext = add i64 %add, 4294967296
-  %conv51 = ashr exact i64 %sext, 32
-  invoke void @_ZNSt6vectorIN3re211StringPieceESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, i64 noundef %conv51)
+  %add = add nuw nsw i64 %226, 1
+  invoke void @_ZNSt6vectorIN3re211StringPieceESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, i64 noundef %add)
           to label %invoke.cont52 unwind label %lpad17.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont52:                                    ; preds = %try.cont49
@@ -56356,10 +56354,8 @@ if.then.i186:                                     ; preds = %if.then42
   unreachable
 
 try.cont60:                                       ; preds = %if.then42
-  %add = shl nuw i64 %238, 32
-  %sext = add i64 %add, 4294967296
-  %conv62 = ashr exact i64 %sext, 32
-  invoke void @_ZNSt6vectorIN3re211StringPieceESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, i64 noundef %conv62)
+  %add = add nuw nsw i64 %238, 1
+  invoke void @_ZNSt6vectorIN3re211StringPieceESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i, i64 noundef %add)
           to label %invoke.cont63 unwind label %lpad32.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont63:                                    ; preds = %try.cont60
@@ -77044,7 +77040,7 @@ attributes #13 = { nofree nounwind }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #16 = { nofree nosync nounwind memory(none) }
-attributes #17 = { nofree nounwind memory(read) }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #20 = { nounwind }

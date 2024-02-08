@@ -48714,7 +48714,7 @@ land.lhs.true26.i329:                             ; preds = %if.else.i259
 
 if.then31.i334:                                   ; preds = %land.lhs.true26.i329
   %and33.i335 = shl nuw nsw i32 %conv.i257, 6
-  %shl.i336 = and i32 %and33.i335, 4032
+  %shl.i336 = and i32 %and33.i335, 1984
   %and36.i337 = and i32 %conv28.i331, 63
   %or.i338 = or disjoint i32 %and36.i337, %shl.i336
   %conv.i62.i = trunc i32 %or.i338 to i16
@@ -48794,7 +48794,7 @@ land.lhs.true88.i290:                             ; preds = %land.lhs.true83.i28
 
 if.then93.i295:                                   ; preds = %land.lhs.true88.i290
   %and95.i296 = shl nuw nsw i32 %conv.i257, 18
-  %shl96.i297 = and i32 %and95.i296, 3932160
+  %shl96.i297 = and i32 %and95.i296, 1835008
   %and99.i298 = shl nuw nsw i32 %conv80.i282, 12
   %shl100.i299 = and i32 %and99.i298, 258048
   %and104.i301 = shl nuw nsw i32 %conv85.i287, 6
@@ -48928,7 +48928,7 @@ land.lhs.true26.i:                                ; preds = %if.else.i249
 
 if.then31.i:                                      ; preds = %land.lhs.true26.i
   %and33.i = shl nuw nsw i32 %conv.i, 6
-  %shl.i = and i32 %and33.i, 4032
+  %shl.i = and i32 %and33.i, 1984
   %and36.i = and i32 %conv28.i, 63
   %or.i = or disjoint i32 %and36.i, %shl.i
   store i32 %or.i, ptr %result.addr.062.i.ptr, align 4
@@ -48962,7 +48962,7 @@ land.lhs.true51.i:                                ; preds = %land.lhs.true46.i
 
 if.then56.i:                                      ; preds = %land.lhs.true51.i
   %and58.i = shl nuw nsw i32 %conv.i, 12
-  %shl59.i = and i32 %and58.i, 126976
+  %shl59.i = and i32 %and58.i, 61440
   %and62.i = shl nuw nsw i32 %conv48.i, 6
   %shl63.i = and i32 %and62.i, 4032
   %or64.i = or disjoint i32 %shl63.i, %shl59.i
@@ -49007,7 +49007,7 @@ land.lhs.true88.i:                                ; preds = %land.lhs.true83.i
 
 if.then93.i:                                      ; preds = %land.lhs.true88.i
   %and95.i = shl nuw nsw i32 %conv.i, 18
-  %shl96.i = and i32 %and95.i, 3932160
+  %shl96.i = and i32 %and95.i, 1835008
   %and99.i = shl nuw nsw i32 %conv80.i, 12
   %shl100.i = and i32 %and99.i, 258048
   %or101.i = or disjoint i32 %shl100.i, %shl96.i
@@ -51584,7 +51584,7 @@ land.lhs.true26:                                  ; preds = %if.else
 
 if.then31:                                        ; preds = %land.lhs.true26
   %and33 = shl nuw nsw i32 %conv, 6
-  %shl = and i32 %and33, 4032
+  %shl = and i32 %and33, 1984
   %and36 = and i32 %conv28, 63
   %or = or disjoint i32 %and36, %shl
   %conv.i62 = trunc i32 %or to i16
@@ -51664,7 +51664,7 @@ land.lhs.true88:                                  ; preds = %land.lhs.true83
 
 if.then93:                                        ; preds = %land.lhs.true88
   %and95 = shl nuw nsw i32 %conv, 18
-  %shl96 = and i32 %and95, 3932160
+  %shl96 = and i32 %and95, 1835008
   %and99 = shl nuw nsw i32 %conv80, 12
   %shl100 = and i32 %and99, 258048
   %or101 = or disjoint i32 %shl96, %shl100
@@ -51782,7 +51782,7 @@ land.lhs.true26:                                  ; preds = %if.else
 
 if.then31:                                        ; preds = %land.lhs.true26
   %and33 = shl nuw nsw i32 %conv, 6
-  %shl = and i32 %and33, 4032
+  %shl = and i32 %and33, 1984
   %and36 = and i32 %conv28, 63
   %or = or disjoint i32 %and36, %shl
   store i32 %or, ptr %result.addr.062, align 4
@@ -51816,7 +51816,7 @@ land.lhs.true51:                                  ; preds = %land.lhs.true46
 
 if.then56:                                        ; preds = %land.lhs.true51
   %and58 = shl nuw nsw i32 %conv, 12
-  %shl59 = and i32 %and58, 126976
+  %shl59 = and i32 %and58, 61440
   %and62 = shl nuw nsw i32 %conv48, 6
   %shl63 = and i32 %and62, 4032
   %or64 = or disjoint i32 %shl63, %shl59
@@ -51861,7 +51861,7 @@ land.lhs.true88:                                  ; preds = %land.lhs.true83
 
 if.then93:                                        ; preds = %land.lhs.true88
   %and95 = shl nuw nsw i32 %conv, 18
-  %shl96 = and i32 %and95, 3932160
+  %shl96 = and i32 %and95, 1835008
   %and99 = shl nuw nsw i32 %conv80, 12
   %shl100 = and i32 %and99, 258048
   %or101 = or disjoint i32 %shl100, %shl96
@@ -51967,7 +51967,7 @@ land.lhs.true26:                                  ; preds = %if.else
 
 if.then31:                                        ; preds = %land.lhs.true26
   %and33 = shl nuw nsw i32 %conv, 6
-  %shl = and i32 %and33, 4032
+  %shl = and i32 %and33, 1984
   %and36 = and i32 %conv28, 63
   %or = or disjoint i32 %and36, %shl
   %cmp.i = icmp ugt i32 %or, 255
@@ -52004,7 +52004,7 @@ land.lhs.true51:                                  ; preds = %land.lhs.true46
 
 if.then56:                                        ; preds = %land.lhs.true51
   %and58 = shl nuw nsw i32 %conv, 12
-  %shl59 = and i32 %and58, 126976
+  %shl59 = and i32 %and58, 61440
   %and62 = shl nuw nsw i32 %conv48, 6
   %shl63 = and i32 %and62, 4032
   %or64 = or disjoint i32 %shl63, %shl59
@@ -61314,7 +61314,7 @@ declare noundef i64 @_ZNKSt6locale2id5_M_idEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: noreturn
 declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #15
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #21
 
 declare void @__cxa_bad_cast() local_unnamed_addr
@@ -86601,7 +86601,7 @@ attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nofree nounwind memory(read) }
+attributes #21 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #22 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

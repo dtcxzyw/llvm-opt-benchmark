@@ -1698,9 +1698,9 @@ if.end58:                                         ; preds = %if.end51
   %mul3.i79 = mul i64 %11, 6
   %charcnt.i81 = getelementptr inbounds i8, ptr %hdr, i64 16
   %16 = load i64, ptr %charcnt.i81, align 8
-  %add6.i82 = add i64 %mul3.i79, %13
-  %add9.i85 = add i64 %add6.i82, %14
-  %add11.i87 = add i64 %add9.i85, %mul.i77
+  %add4.i80 = add i64 %13, %mul3.i79
+  %add6.i82 = add i64 %add4.i80, %14
+  %add11.i87 = add i64 %add6.i82, %mul.i77
   %add13.i89 = add i64 %add11.i87, %16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
   invoke void @_ZNSt6vectorIcSaIcEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %tbuf, i64 noundef %add13.i89, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)

@@ -510,7 +510,7 @@ entry:
 
 if.end.thread:                                    ; preds = %entry
   %tobool.not.i = icmp ne i32 %v, 0
-  %and.i17 = and i64 %.val15, -2
+  %and.i17 = and i64 %.val15, 8589934590
   %masksel.i = zext i1 %tobool.not.i to i64
   %storemerge.i = or disjoint i64 %and.i17, %masksel.i
   store i64 %storemerge.i, ptr %0, align 8
@@ -1310,7 +1310,7 @@ if.then.i:                                        ; preds = %for.body
   br i1 %or.cond.i52, label %if.end.thread.i91, label %if.end.i53
 
 if.end.thread.i91:                                ; preds = %if.then.i
-  %and.i17.i92 = and i64 %.val15.i47, -2
+  %and.i17.i92 = and i64 %.val15.i47, 8589934590
   store i64 %and.i17.i92, ptr %25, align 8
   %.pre.i93 = load ptr, ptr %rlw.i, align 8
   %.val.pre.i94 = load i64, ptr %.pre.i93, align 8

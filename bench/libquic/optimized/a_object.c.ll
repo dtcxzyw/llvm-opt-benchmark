@@ -634,11 +634,7 @@ if.then43.thread:                                 ; preds = %if.end34
 lor.lhs.false39:                                  ; preds = %if.end34
   %9 = load i32, ptr %length4449, align 4
   %cmp41 = icmp slt i32 %9, %conv7
-  br i1 %cmp41, label %if.then47, label %lor.lhs.false39.if.end56_crit_edge
-
-lor.lhs.false39.if.end56_crit_edge:               ; preds = %lor.lhs.false39
-  %.pre = and i64 %len, 4294967295
-  br label %if.end56
+  br i1 %cmp41, label %if.then47, label %if.end56
 
 if.then47:                                        ; preds = %lor.lhs.false39
   store i32 0, ptr %length4449, align 4
@@ -646,8 +642,7 @@ if.then47:                                        ; preds = %lor.lhs.false39
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then43.thread, %if.then47
-  %conv49 = and i64 %len, 4294967295
-  %call50 = tail call noalias ptr @malloc(i64 noundef %conv49) #10
+  %call50 = tail call noalias ptr @malloc(i64 noundef %len) #10
   %cmp51 = icmp eq ptr %call50, null
   br i1 %cmp51, label %if.then53, label %if.end54
 
@@ -662,14 +657,12 @@ if.end54:                                         ; preds = %if.end48
   store i32 %or, ptr %flags55, align 8
   br label %if.end56
 
-if.end56:                                         ; preds = %lor.lhs.false39.if.end56_crit_edge, %if.end54
-  %conv57.pre-phi = phi i64 [ %.pre, %lor.lhs.false39.if.end56_crit_edge ], [ %conv49, %if.end54 ]
-  %data.0 = phi ptr [ %8, %lor.lhs.false39.if.end56_crit_edge ], [ %call50, %if.end54 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data.0, ptr nonnull align 1 %1, i64 %conv57.pre-phi, i1 false)
+if.end56:                                         ; preds = %if.end54, %lor.lhs.false39
+  %data.0 = phi ptr [ %call50, %if.end54 ], [ %8, %lor.lhs.false39 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data.0, ptr nonnull align 1 %1, i64 %len, i1 false)
   store ptr %data.0, ptr %data35, align 8
   %length59 = getelementptr inbounds i8, ptr %ret.0, i64 20
   store i32 %conv7, ptr %length59, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %conv57.pre-phi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ret.0, i8 0, i64 16, i1 false)
   br i1 %cmp21, label %if.end63, label %if.then62
 
@@ -678,7 +671,7 @@ if.then62:                                        ; preds = %if.end56
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then62, %if.end56
-  store ptr %add.ptr, ptr %pp, align 8
+  store ptr %2, ptr %pp, align 8
   br label %return
 
 lor.lhs.false69:                                  ; preds = %if.then53

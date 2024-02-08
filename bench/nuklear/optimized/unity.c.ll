@@ -78536,7 +78536,7 @@ while.body.lr.ph.preheader:                       ; preds = %for.inc.i.i, %nk_ut
   %18 = load ptr, ptr %font, align 8
   %call8 = tail call float %16(ptr %18, float noundef %17, ptr noundef nonnull %begin, i32 noundef %retval.0.i206) #51
   store i32 0, ptr %glyphs, align 4
-  %19 = sext i32 %byte_len to i64
+  %19 = zext nneg i32 %byte_len to i64
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.preheader, %nk_utf_decode.exit200

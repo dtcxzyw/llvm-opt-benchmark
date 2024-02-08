@@ -16471,7 +16471,7 @@ switch.lookup:                                    ; preds = %_ZNK3app13get_decl_
   br label %_ZNK3app13get_family_idEv.exit.thread.i12
 
 _ZNK3app13get_family_idEv.exit.thread.i12:        ; preds = %_ZNK3app13get_family_idEv.exit.thread.i, %_ZNK3app13get_decl_kindEv.exit.i, %switch.lookup, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit
-  %retval.0.i19 = phi i1 [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit ], [ %switch.masked, %switch.lookup ], [ true, %_ZNK3app13get_decl_kindEv.exit.i ], [ true, %_ZNK3app13get_family_idEv.exit.thread.i ]
+  %lnot19 = phi i1 [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit ], [ %switch.masked, %switch.lookup ], [ true, %_ZNK3app13get_decl_kindEv.exit.i ], [ true, %_ZNK3app13get_family_idEv.exit.thread.i ]
   %14 = load i32, ptr %8, align 8
   %m_id.i16.i = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load i32, ptr %m_id.i16.i, align 8
@@ -16487,9 +16487,9 @@ _ZNK3app13get_decl_kindEv.exit.i13:               ; preds = %_ZNK3app13get_famil
   br label %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit
 
 _ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit: ; preds = %if.end.i, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit, %_ZNK3app13get_family_idEv.exit.thread.i12, %_ZNK3app13get_decl_kindEv.exit.i13
-  %retval.0.i20 = phi i1 [ %retval.0.i19, %_ZNK3app13get_family_idEv.exit.thread.i12 ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit ], [ %retval.0.i19, %_ZNK3app13get_decl_kindEv.exit.i13 ], [ true, %if.end.i ]
+  %lnot20 = phi i1 [ %lnot19, %_ZNK3app13get_family_idEv.exit.thread.i12 ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit ], [ %lnot19, %_ZNK3app13get_decl_kindEv.exit.i13 ], [ true, %if.end.i ]
   %lnot.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12 ], [ true, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit ], [ %spec.select.i, %_ZNK3app13get_decl_kindEv.exit.i13 ], [ true, %if.end.i ]
-  %call7 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20, i1 noundef zeroext false, i1 noundef zeroext %lnot.i)
+  %call7 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull %n, i1 noundef zeroext %lnot20, i1 noundef zeroext false, i1 noundef zeroext %lnot.i)
   br label %return
 
 return:                                           ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit, %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit
@@ -18123,7 +18123,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i74 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i74 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %9, i64 4
   %17 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %17, 6
@@ -18132,9 +18132,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i74, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %lnot19.i74, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_6mi_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_6mi_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
@@ -19015,7 +19015,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i27 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i27 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %26, i64 4
   %34 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %34, 6
@@ -19024,9 +19024,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i27, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %lnot19.i27, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i15 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %18, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i15 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %18, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
           to label %invoke.cont9 unwind label %lpad.loopexit.split-lp
 
 invoke.cont9:                                     ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
@@ -19777,7 +19777,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i35 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i35 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %31, i64 4
   %39 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %39, 6
@@ -19786,9 +19786,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i35, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %lnot19.i35, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i22 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %23, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i22 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %23, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
           to label %invoke.cont19 unwind label %lpad.loopexit.split-lp
 
 invoke.cont19:                                    ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
@@ -19959,7 +19959,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i60 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i60 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %16, i64 4
   %24 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %24, 6
@@ -19968,9 +19968,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i60, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %lnot19.i60, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %8, ptr noundef nonnull %7, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %8, ptr noundef nonnull %7, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_6mi_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_6mi_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
@@ -20060,7 +20060,7 @@ switch.hole_check65:                              ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit68.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i27, label %_ZNK3app13get_decl_kindEv.exit.i13.i36
 
 _ZNK3app13get_decl_kindEv.exit.i13.i36:           ; preds = %switch.hole_check65, %_ZNK3app13get_family_idEv.exit.thread.i12.i27
-  %retval.0.i19.i2863 = phi i1 [ %tobool.i.not.i.i22, %_ZNK3app13get_family_idEv.exit.thread.i12.i27 ], [ false, %switch.hole_check65 ]
+  %lnot19.i2863 = phi i1 [ %tobool.i.not.i.i22, %_ZNK3app13get_family_idEv.exit.thread.i12.i27 ], [ false, %switch.hole_check65 ]
   %m_kind.i.i.i.i14.i37 = getelementptr inbounds i8, ptr %35, i64 4
   %43 = load i32, ptr %m_kind.i.i.i.i14.i37, align 4
   %cmp4.i.i38 = icmp ne i32 %43, 6
@@ -20069,9 +20069,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i36:           ; preds = %switch.hole_check65
   br label %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i31
 
 _ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i31: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i36, %_ZNK3app13get_family_idEv.exit.thread.i12.i27, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i26, %if.end.i.i40
-  %retval.0.i20.i32 = phi i1 [ %tobool.i.not.i.i22, %_ZNK3app13get_family_idEv.exit.thread.i12.i27 ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i26 ], [ %retval.0.i19.i2863, %_ZNK3app13get_decl_kindEv.exit.i13.i36 ], [ true, %if.end.i.i40 ]
+  %lnot20.i32 = phi i1 [ %tobool.i.not.i.i22, %_ZNK3app13get_family_idEv.exit.thread.i12.i27 ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i26 ], [ %lnot19.i2863, %_ZNK3app13get_decl_kindEv.exit.i13.i36 ], [ true, %if.end.i.i40 ]
   %lnot.i.i33 = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i27 ], [ true, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i26 ], [ %spec.select.i.i39, %_ZNK3app13get_decl_kindEv.exit.i13.i36 ], [ true, %if.end.i.i40 ]
-  %call7.i34 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %27, ptr noundef nonnull %t, i1 noundef zeroext %retval.0.i20.i32, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i33)
+  %call7.i34 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %27, ptr noundef nonnull %t, i1 noundef zeroext %lnot20.i32, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i33)
   br label %_ZN3smt12theory_arithINS_6mi_extEE8mk_enodeEP3app.exit52
 
 _ZN3smt12theory_arithINS_6mi_extEE8mk_enodeEP3app.exit52: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i47, %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i31
@@ -20442,7 +20442,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i62 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i62 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %46, i64 4
   %54 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %54, 6
@@ -20451,9 +20451,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i62, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %lnot19.i62, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i42 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %38, ptr noundef nonnull %m, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i42 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %38, ptr noundef nonnull %m, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
           to label %invoke.cont41 unwind label %lpad27
 
 invoke.cont41:                                    ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
@@ -20725,7 +20725,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i14 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i14 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %16, i64 4
   %24 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %24, 6
@@ -20734,9 +20734,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i14, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %lnot19.i14, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %8, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %8, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_6mi_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_6mi_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
@@ -23343,7 +23343,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i62 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i62 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %15, i64 4
   %23 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %23, 6
@@ -23352,9 +23352,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i62, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %lnot19.i62, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_6mi_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_6mi_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
@@ -23666,7 +23666,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i14 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i14 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %14, i64 4
   %22 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %22, 6
@@ -23675,9 +23675,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i14, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %lnot19.i14, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_6mi_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_6mi_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
@@ -24117,7 +24117,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i13 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i13 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %14, i64 4
   %22 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %22, 6
@@ -24126,9 +24126,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i13, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %lnot19.i13, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_6mi_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_6mi_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_6mi_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_6mi_extEE14enable_cgc_forEP3app.exit.i
@@ -46540,7 +46540,7 @@ if.end122:                                        ; preds = %invoke.cont119, %la
   br label %cleanup123
 
 cleanup123:                                       ; preds = %invoke.cont119, %if.end122
-  %switch105 = phi i1 [ false, %if.end122 ], [ true, %invoke.cont119 ]
+  %switch105.not = phi i1 [ false, %if.end122 ], [ true, %invoke.cont119 ]
   %133 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %133, ptr noundef nonnull align 8 dereferenceable(16) %m_second.i283)
           to label %.noexc.i.i285 unwind label %terminate.lpad.i.i284
@@ -46575,7 +46575,7 @@ terminate.lpad.i1.i288:                           ; preds = %.noexc.i2.i289, %_Z
 _ZN12inf_rationalD2Ev.exit291:                    ; preds = %.noexc.i2.i289
   %incdec.ptr.old = getelementptr inbounds i8, ptr %it.0364, i64 8
   %cmp.not.old = icmp eq ptr %incdec.ptr.old, %add.ptr.i.i
-  %or.cond366 = select i1 %switch105, i1 true, i1 %cmp.not.old
+  %or.cond366 = select i1 %switch105.not, i1 true, i1 %cmp.not.old
   br i1 %or.cond366, label %return, label %for.body.backedge
 
 if.else:                                          ; preds = %if.end60
@@ -46933,7 +46933,7 @@ if.end192:                                        ; preds = %invoke.cont189, %la
   br label %cleanup193
 
 cleanup193:                                       ; preds = %invoke.cont189, %if.end192
-  %switch107 = phi i1 [ false, %if.end192 ], [ true, %invoke.cont189 ]
+  %switch107.not = phi i1 [ false, %if.end192 ], [ true, %invoke.cont189 ]
   %192 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %192, ptr noundef nonnull align 8 dereferenceable(16) %m_second.i354)
           to label %.noexc.i.i356 unwind label %terminate.lpad.i.i355
@@ -46968,7 +46968,7 @@ terminate.lpad.i1.i359:                           ; preds = %.noexc.i2.i360, %_Z
 _ZN12inf_rationalD2Ev.exit362:                    ; preds = %.noexc.i2.i360
   %incdec.ptr = getelementptr inbounds i8, ptr %it.0364, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
-  %or.cond365 = select i1 %switch107, i1 true, i1 %cmp.not
+  %or.cond365 = select i1 %switch107.not, i1 true, i1 %cmp.not
   br i1 %or.cond365, label %return, label %for.body.backedge
 
 for.inc:                                          ; preds = %for.body, %if.end93, %if.end162, %_ZNK3smt12theory_arithINS_6mi_extEE13is_quasi_baseEi.exit, %if.then42
@@ -62117,7 +62117,7 @@ lpad112:                                          ; preds = %invoke.cont113, %if
   br label %ehcleanup118
 
 cleanup:                                          ; preds = %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i, %invoke.cont115, %call4.i.i.i.i.noexc194, %if.then.i.i.i.i192, %invoke.cont86
-  %retval.0.i.i255 = phi i1 [ true, %if.then.i.i.i.i192 ], [ true, %invoke.cont86 ], [ true, %call4.i.i.i.i.noexc194 ], [ false, %invoke.cont115 ], [ false, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i ]
+  %retval.0 = phi i1 [ true, %if.then.i.i.i.i192 ], [ true, %invoke.cont86 ], [ true, %call4.i.i.i.i.noexc194 ], [ false, %invoke.cont115 ], [ false, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i ]
   %128 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %128, ptr noundef nonnull align 8 dereferenceable(16) %u1)
           to label %.noexc.i227 unwind label %terminate.lpad.i226
@@ -62160,7 +62160,7 @@ ehcleanup120:                                     ; preds = %ehcleanup118, %lpad
   br label %ehcleanup122
 
 cleanup121:                                       ; preds = %.noexc.i232, %invoke.cont70
-  %retval.1 = phi i1 [ true, %invoke.cont70 ], [ %retval.0.i.i255, %.noexc.i232 ]
+  %retval.1 = phi i1 [ true, %invoke.cont70 ], [ %retval.0, %.noexc.i232 ]
   %134 = load ptr, ptr %ante, align 8
   %m_antecedents_index.i236 = getelementptr inbounds i8, ptr %134, i64 1224
   %135 = load i32, ptr %m_antecedents_index.i236, align 8
@@ -83449,7 +83449,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   br i1 %cmp13.not, label %cleanup, label %for.body
 
 cleanup:                                          ; preds = %for.inc, %if.then6.invoke
-  %cleanup.dest.slot.0 = phi i1 [ false, %if.then6.invoke ], [ true, %for.inc ]
+  %switch = phi i1 [ false, %if.then6.invoke ], [ true, %for.inc ]
   %var.addr.2 = phi ptr [ null, %if.then6.invoke ], [ %var.addr.1, %for.inc ]
   %6 = load ptr, ptr %varinfo, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %6, %0
@@ -83469,7 +83469,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   unreachable
 
 _ZN7sbufferISt4pairIP4exprjELj16EED2Ev.exit:      ; preds = %cleanup, %if.end.i.i.i.i.i
-  br i1 %cleanup.dest.slot.0, label %if.end18, label %return
+  br i1 %switch, label %if.end18, label %return
 
 if.end18:                                         ; preds = %_ZN7sbufferISt4pairIP4exprjELj16EED2Ev.exit, %entry
   %var.addr.3 = phi ptr [ %var.addr.2, %_ZN7sbufferISt4pairIP4exprjELj16EED2Ev.exit ], [ %var, %entry ]
@@ -120138,7 +120138,7 @@ switch.lookup:                                    ; preds = %_ZNK3app13get_decl_
   br label %_ZNK3app13get_family_idEv.exit.thread.i12
 
 _ZNK3app13get_family_idEv.exit.thread.i12:        ; preds = %_ZNK3app13get_family_idEv.exit.thread.i, %_ZNK3app13get_decl_kindEv.exit.i, %switch.lookup, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit
-  %retval.0.i19 = phi i1 [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit ], [ %switch.masked, %switch.lookup ], [ true, %_ZNK3app13get_decl_kindEv.exit.i ], [ true, %_ZNK3app13get_family_idEv.exit.thread.i ]
+  %lnot19 = phi i1 [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit ], [ %switch.masked, %switch.lookup ], [ true, %_ZNK3app13get_decl_kindEv.exit.i ], [ true, %_ZNK3app13get_family_idEv.exit.thread.i ]
   %14 = load i32, ptr %8, align 8
   %m_id.i16.i = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load i32, ptr %m_id.i16.i, align 8
@@ -120154,9 +120154,9 @@ _ZNK3app13get_decl_kindEv.exit.i13:               ; preds = %_ZNK3app13get_famil
   br label %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit
 
 _ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit: ; preds = %if.end.i, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit, %_ZNK3app13get_family_idEv.exit.thread.i12, %_ZNK3app13get_decl_kindEv.exit.i13
-  %retval.0.i20 = phi i1 [ %retval.0.i19, %_ZNK3app13get_family_idEv.exit.thread.i12 ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit ], [ %retval.0.i19, %_ZNK3app13get_decl_kindEv.exit.i13 ], [ true, %if.end.i ]
+  %lnot20 = phi i1 [ %lnot19, %_ZNK3app13get_family_idEv.exit.thread.i12 ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit ], [ %lnot19, %_ZNK3app13get_decl_kindEv.exit.i13 ], [ true, %if.end.i ]
   %lnot.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12 ], [ true, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit ], [ %spec.select.i, %_ZNK3app13get_decl_kindEv.exit.i13 ], [ true, %if.end.i ]
-  %call7 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20, i1 noundef zeroext false, i1 noundef zeroext %lnot.i)
+  %call7 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull %n, i1 noundef zeroext %lnot20, i1 noundef zeroext false, i1 noundef zeroext %lnot.i)
   br label %return
 
 return:                                           ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit, %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit
@@ -121604,7 +121604,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i92 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i92 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %9, i64 4
   %17 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %17, 6
@@ -121613,9 +121613,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i92, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %lnot19.i92, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_5i_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_5i_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
@@ -122561,7 +122561,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i27 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i27 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %26, i64 4
   %34 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %34, 6
@@ -122570,9 +122570,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i27, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %lnot19.i27, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i15 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %18, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i15 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %18, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
           to label %invoke.cont9 unwind label %lpad.loopexit.split-lp
 
 invoke.cont9:                                     ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
@@ -123323,7 +123323,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i35 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i35 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %31, i64 4
   %39 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %39, 6
@@ -123332,9 +123332,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i35, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %lnot19.i35, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i22 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %23, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i22 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %23, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
           to label %invoke.cont19 unwind label %lpad.loopexit.split-lp
 
 invoke.cont19:                                    ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
@@ -123500,7 +123500,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i60 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i60 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %16, i64 4
   %24 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %24, 6
@@ -123509,9 +123509,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i60, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %lnot19.i60, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %8, ptr noundef nonnull %7, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %8, ptr noundef nonnull %7, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_5i_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_5i_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
@@ -123601,7 +123601,7 @@ switch.hole_check65:                              ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit68.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i27, label %_ZNK3app13get_decl_kindEv.exit.i13.i36
 
 _ZNK3app13get_decl_kindEv.exit.i13.i36:           ; preds = %switch.hole_check65, %_ZNK3app13get_family_idEv.exit.thread.i12.i27
-  %retval.0.i19.i2863 = phi i1 [ %tobool.i.not.i.i22, %_ZNK3app13get_family_idEv.exit.thread.i12.i27 ], [ false, %switch.hole_check65 ]
+  %lnot19.i2863 = phi i1 [ %tobool.i.not.i.i22, %_ZNK3app13get_family_idEv.exit.thread.i12.i27 ], [ false, %switch.hole_check65 ]
   %m_kind.i.i.i.i14.i37 = getelementptr inbounds i8, ptr %35, i64 4
   %43 = load i32, ptr %m_kind.i.i.i.i14.i37, align 4
   %cmp4.i.i38 = icmp ne i32 %43, 6
@@ -123610,9 +123610,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i36:           ; preds = %switch.hole_check65
   br label %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i31
 
 _ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i31: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i36, %_ZNK3app13get_family_idEv.exit.thread.i12.i27, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i26, %if.end.i.i40
-  %retval.0.i20.i32 = phi i1 [ %tobool.i.not.i.i22, %_ZNK3app13get_family_idEv.exit.thread.i12.i27 ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i26 ], [ %retval.0.i19.i2863, %_ZNK3app13get_decl_kindEv.exit.i13.i36 ], [ true, %if.end.i.i40 ]
+  %lnot20.i32 = phi i1 [ %tobool.i.not.i.i22, %_ZNK3app13get_family_idEv.exit.thread.i12.i27 ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i26 ], [ %lnot19.i2863, %_ZNK3app13get_decl_kindEv.exit.i13.i36 ], [ true, %if.end.i.i40 ]
   %lnot.i.i33 = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i27 ], [ true, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i26 ], [ %spec.select.i.i39, %_ZNK3app13get_decl_kindEv.exit.i13.i36 ], [ true, %if.end.i.i40 ]
-  %call7.i34 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %27, ptr noundef nonnull %t, i1 noundef zeroext %retval.0.i20.i32, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i33)
+  %call7.i34 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %27, ptr noundef nonnull %t, i1 noundef zeroext %lnot20.i32, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i33)
   br label %_ZN3smt12theory_arithINS_5i_extEE8mk_enodeEP3app.exit52
 
 _ZN3smt12theory_arithINS_5i_extEE8mk_enodeEP3app.exit52: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i47, %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i31
@@ -123983,7 +123983,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i62 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i62 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %46, i64 4
   %54 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %54, 6
@@ -123992,9 +123992,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i62, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %lnot19.i62, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i42 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %38, ptr noundef nonnull %m, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i42 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %38, ptr noundef nonnull %m, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
           to label %invoke.cont41 unwind label %lpad27
 
 invoke.cont41:                                    ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
@@ -124266,7 +124266,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i14 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i14 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %16, i64 4
   %24 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %24, 6
@@ -124275,9 +124275,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i14, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %lnot19.i14, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %8, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %8, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_5i_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_5i_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
@@ -126882,7 +126882,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i62 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i62 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %15, i64 4
   %23 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %23, 6
@@ -126891,9 +126891,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i62, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %lnot19.i62, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_5i_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_5i_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
@@ -127205,7 +127205,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i14 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i14 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %14, i64 4
   %22 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %22, 6
@@ -127214,9 +127214,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i14, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %lnot19.i14, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_5i_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_5i_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
@@ -127656,7 +127656,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i13 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i13 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %14, i64 4
   %22 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %22, 6
@@ -127665,9 +127665,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i13, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %lnot19.i13, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_5i_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_5i_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_5i_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_5i_extEE14enable_cgc_forEP3app.exit.i
@@ -152148,7 +152148,7 @@ if.end122:                                        ; preds = %if.then.i.i.i.i534,
   br label %cleanup123
 
 cleanup123:                                       ; preds = %if.then.i.i16.i.i527, %invoke.cont119, %if.end122
-  %switch105 = phi i1 [ false, %if.end122 ], [ true, %invoke.cont119 ], [ true, %if.then.i.i16.i.i527 ]
+  %switch105.not = phi i1 [ false, %if.end122 ], [ true, %invoke.cont119 ], [ true, %if.then.i.i16.i.i527 ]
   %172 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %172, ptr noundef nonnull align 8 dereferenceable(16) %new_u)
           to label %.noexc.i540 unwind label %terminate.lpad.i539
@@ -152167,7 +152167,7 @@ terminate.lpad.i539:                              ; preds = %.noexc.i540, %clean
 _ZN8rationalD2Ev.exit542:                         ; preds = %.noexc.i540
   %incdec.ptr.old = getelementptr inbounds i8, ptr %it.0754, i64 8
   %cmp.not.old = icmp eq ptr %incdec.ptr.old, %add.ptr.i.i
-  %or.cond757 = select i1 %switch105, i1 true, i1 %cmp.not.old
+  %or.cond757 = select i1 %switch105.not, i1 true, i1 %cmp.not.old
   br i1 %or.cond757, label %return, label %for.body.backedge
 
 if.else:                                          ; preds = %if.end60
@@ -152649,7 +152649,7 @@ if.end192:                                        ; preds = %if.then.i.i.i.i744,
   br label %cleanup193
 
 cleanup193:                                       ; preds = %if.then.i.i16.i.i737, %invoke.cont189, %if.end192
-  %switch107 = phi i1 [ false, %if.end192 ], [ true, %invoke.cont189 ], [ true, %if.then.i.i16.i.i737 ]
+  %switch107.not = phi i1 [ false, %if.end192 ], [ true, %invoke.cont189 ], [ true, %if.then.i.i16.i.i737 ]
   %238 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %238, ptr noundef nonnull align 8 dereferenceable(16) %new_u165)
           to label %.noexc.i750 unwind label %terminate.lpad.i749
@@ -152668,7 +152668,7 @@ terminate.lpad.i749:                              ; preds = %.noexc.i750, %clean
 _ZN8rationalD2Ev.exit752:                         ; preds = %.noexc.i750
   %incdec.ptr = getelementptr inbounds i8, ptr %it.0754, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
-  %or.cond756 = select i1 %switch107, i1 true, i1 %cmp.not
+  %or.cond756 = select i1 %switch107.not, i1 true, i1 %cmp.not
   br i1 %or.cond756, label %return, label %for.body.backedge
 
 for.inc:                                          ; preds = %for.body, %if.end93, %if.end162, %_ZNK3smt12theory_arithINS_5i_extEE13is_quasi_baseEi.exit, %if.then42
@@ -166800,7 +166800,7 @@ lpad112:                                          ; preds = %invoke.cont113, %if
   br label %ehcleanup118
 
 cleanup:                                          ; preds = %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i, %invoke.cont115, %call4.i.i.i.i.noexc201, %if.then.i.i.i.i199, %invoke.cont86
-  %retval.0.i.i263 = phi i1 [ true, %if.then.i.i.i.i199 ], [ true, %invoke.cont86 ], [ true, %call4.i.i.i.i.noexc201 ], [ false, %invoke.cont115 ], [ false, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i ]
+  %retval.0 = phi i1 [ true, %if.then.i.i.i.i199 ], [ true, %invoke.cont86 ], [ true, %call4.i.i.i.i.noexc201 ], [ false, %invoke.cont115 ], [ false, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i ]
   %133 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %133, ptr noundef nonnull align 8 dereferenceable(16) %u1)
           to label %.noexc.i235 unwind label %terminate.lpad.i234
@@ -166843,7 +166843,7 @@ ehcleanup120:                                     ; preds = %ehcleanup118, %lpad
   br label %ehcleanup122
 
 cleanup121:                                       ; preds = %.noexc.i240, %invoke.cont70
-  %retval.1 = phi i1 [ true, %invoke.cont70 ], [ %retval.0.i.i263, %.noexc.i240 ]
+  %retval.1 = phi i1 [ true, %invoke.cont70 ], [ %retval.0, %.noexc.i240 ]
   %139 = load ptr, ptr %ante, align 8
   %m_antecedents_index.i244 = getelementptr inbounds i8, ptr %139, i64 1128
   %140 = load i32, ptr %m_antecedents_index.i244, align 8
@@ -177499,8 +177499,7 @@ if.then109:                                       ; preds = %invoke.cont107
 if.then.i.i.i.i512:                               ; preds = %if.then109
   %176 = load i32, ptr %max_inc, align 8
   store i32 %176, ptr %max_gain, align 8
-  %bf.clear.i.i.i.i515 = and i8 %bf.load.i.i.i.i.i.i491, -2
-  store i8 %bf.clear.i.i.i.i515, ptr %m_kind.i.i.i.i.i.i.i, align 4
+  store i8 %bf.load.i.i.i.i.i.i491, ptr %m_kind.i.i.i.i.i.i.i, align 4
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i501
 
 if.else.i.i.i.i500:                               ; preds = %if.then109
@@ -187138,7 +187137,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   br i1 %cmp13.not, label %cleanup, label %for.body
 
 cleanup:                                          ; preds = %for.inc, %if.then6.invoke
-  %cleanup.dest.slot.0 = phi i1 [ false, %if.then6.invoke ], [ true, %for.inc ]
+  %switch = phi i1 [ false, %if.then6.invoke ], [ true, %for.inc ]
   %var.addr.2 = phi ptr [ null, %if.then6.invoke ], [ %var.addr.1, %for.inc ]
   %6 = load ptr, ptr %varinfo, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %6, %0
@@ -187158,7 +187157,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   unreachable
 
 _ZN7sbufferISt4pairIP4exprjELj16EED2Ev.exit:      ; preds = %cleanup, %if.end.i.i.i.i.i
-  br i1 %cleanup.dest.slot.0, label %if.end18, label %return
+  br i1 %switch, label %if.end18, label %return
 
 if.end18:                                         ; preds = %_ZN7sbufferISt4pairIP4exprjELj16EED2Ev.exit, %entry
   %var.addr.3 = phi ptr [ %var.addr.2, %_ZN7sbufferISt4pairIP4exprjELj16EED2Ev.exit ], [ %var, %entry ]
@@ -222411,7 +222410,7 @@ switch.lookup:                                    ; preds = %_ZNK3app13get_decl_
   br label %_ZNK3app13get_family_idEv.exit.thread.i12
 
 _ZNK3app13get_family_idEv.exit.thread.i12:        ; preds = %_ZNK3app13get_family_idEv.exit.thread.i, %_ZNK3app13get_decl_kindEv.exit.i, %switch.lookup, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit
-  %retval.0.i19 = phi i1 [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit ], [ %switch.masked, %switch.lookup ], [ true, %_ZNK3app13get_decl_kindEv.exit.i ], [ true, %_ZNK3app13get_family_idEv.exit.thread.i ]
+  %lnot19 = phi i1 [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit ], [ %switch.masked, %switch.lookup ], [ true, %_ZNK3app13get_decl_kindEv.exit.i ], [ true, %_ZNK3app13get_family_idEv.exit.thread.i ]
   %14 = load i32, ptr %8, align 8
   %m_id.i16.i = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load i32, ptr %m_id.i16.i, align 8
@@ -222427,9 +222426,9 @@ _ZNK3app13get_decl_kindEv.exit.i13:               ; preds = %_ZNK3app13get_famil
   br label %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit
 
 _ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit: ; preds = %if.end.i, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit, %_ZNK3app13get_family_idEv.exit.thread.i12, %_ZNK3app13get_decl_kindEv.exit.i13
-  %retval.0.i20 = phi i1 [ %retval.0.i19, %_ZNK3app13get_family_idEv.exit.thread.i12 ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit ], [ %retval.0.i19, %_ZNK3app13get_decl_kindEv.exit.i13 ], [ true, %if.end.i ]
+  %lnot20 = phi i1 [ %lnot19, %_ZNK3app13get_family_idEv.exit.thread.i12 ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit ], [ %lnot19, %_ZNK3app13get_decl_kindEv.exit.i13 ], [ true, %if.end.i ]
   %lnot.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12 ], [ true, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit ], [ %spec.select.i, %_ZNK3app13get_decl_kindEv.exit.i13 ], [ true, %if.end.i ]
-  %call7 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20, i1 noundef zeroext false, i1 noundef zeroext %lnot.i)
+  %call7 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull %n, i1 noundef zeroext %lnot20, i1 noundef zeroext false, i1 noundef zeroext %lnot.i)
   br label %return
 
 return:                                           ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit, %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit
@@ -223878,7 +223877,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i72 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i72 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %9, i64 4
   %17 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %17, 6
@@ -223887,9 +223886,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i72, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %lnot19.i72, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_7inf_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_7inf_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
@@ -224813,7 +224812,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i27 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i27 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %26, i64 4
   %34 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %34, 6
@@ -224822,9 +224821,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i27, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %lnot19.i27, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i15 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %18, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i15 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %18, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
           to label %invoke.cont9 unwind label %lpad.loopexit.split-lp
 
 invoke.cont9:                                     ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
@@ -225575,7 +225574,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i35 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i35 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %31, i64 4
   %39 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %39, 6
@@ -225584,9 +225583,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i35, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %lnot19.i35, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i22 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %23, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i22 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %23, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
           to label %invoke.cont19 unwind label %lpad.loopexit.split-lp
 
 invoke.cont19:                                    ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
@@ -225752,7 +225751,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i60 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i60 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %16, i64 4
   %24 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %24, 6
@@ -225761,9 +225760,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i60, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %lnot19.i60, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %8, ptr noundef nonnull %7, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %8, ptr noundef nonnull %7, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_7inf_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_7inf_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
@@ -225853,7 +225852,7 @@ switch.hole_check65:                              ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit68.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i27, label %_ZNK3app13get_decl_kindEv.exit.i13.i36
 
 _ZNK3app13get_decl_kindEv.exit.i13.i36:           ; preds = %switch.hole_check65, %_ZNK3app13get_family_idEv.exit.thread.i12.i27
-  %retval.0.i19.i2863 = phi i1 [ %tobool.i.not.i.i22, %_ZNK3app13get_family_idEv.exit.thread.i12.i27 ], [ false, %switch.hole_check65 ]
+  %lnot19.i2863 = phi i1 [ %tobool.i.not.i.i22, %_ZNK3app13get_family_idEv.exit.thread.i12.i27 ], [ false, %switch.hole_check65 ]
   %m_kind.i.i.i.i14.i37 = getelementptr inbounds i8, ptr %35, i64 4
   %43 = load i32, ptr %m_kind.i.i.i.i14.i37, align 4
   %cmp4.i.i38 = icmp ne i32 %43, 6
@@ -225862,9 +225861,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i36:           ; preds = %switch.hole_check65
   br label %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i31
 
 _ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i31: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i36, %_ZNK3app13get_family_idEv.exit.thread.i12.i27, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i26, %if.end.i.i40
-  %retval.0.i20.i32 = phi i1 [ %tobool.i.not.i.i22, %_ZNK3app13get_family_idEv.exit.thread.i12.i27 ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i26 ], [ %retval.0.i19.i2863, %_ZNK3app13get_decl_kindEv.exit.i13.i36 ], [ true, %if.end.i.i40 ]
+  %lnot20.i32 = phi i1 [ %tobool.i.not.i.i22, %_ZNK3app13get_family_idEv.exit.thread.i12.i27 ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i26 ], [ %lnot19.i2863, %_ZNK3app13get_decl_kindEv.exit.i13.i36 ], [ true, %if.end.i.i40 ]
   %lnot.i.i33 = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i27 ], [ true, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i26 ], [ %spec.select.i.i39, %_ZNK3app13get_decl_kindEv.exit.i13.i36 ], [ true, %if.end.i.i40 ]
-  %call7.i34 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %27, ptr noundef nonnull %t, i1 noundef zeroext %retval.0.i20.i32, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i33)
+  %call7.i34 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %27, ptr noundef nonnull %t, i1 noundef zeroext %lnot20.i32, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i33)
   br label %_ZN3smt12theory_arithINS_7inf_extEE8mk_enodeEP3app.exit52
 
 _ZN3smt12theory_arithINS_7inf_extEE8mk_enodeEP3app.exit52: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i47, %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i31
@@ -226235,7 +226234,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i62 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i62 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %46, i64 4
   %54 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %54, 6
@@ -226244,9 +226243,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i62, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %lnot19.i62, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i42 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %38, ptr noundef nonnull %m, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i42 = invoke noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %38, ptr noundef nonnull %m, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
           to label %invoke.cont41 unwind label %lpad27
 
 invoke.cont41:                                    ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
@@ -226518,7 +226517,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i14 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i14 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %16, i64 4
   %24 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %24, 6
@@ -226527,9 +226526,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i14, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %lnot19.i14, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %8, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %8, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_7inf_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_7inf_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
@@ -229134,7 +229133,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i62 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i62 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %15, i64 4
   %23 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %23, 6
@@ -229143,9 +229142,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i62, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %lnot19.i62, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_7inf_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_7inf_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
@@ -229457,7 +229456,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i14 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i14 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %14, i64 4
   %22 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %22, 6
@@ -229466,9 +229465,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i14, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %lnot19.i14, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_7inf_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_7inf_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
@@ -229908,7 +229907,7 @@ switch.hole_check:                                ; preds = %_ZNK3app13get_decl_
   br i1 %switch.lobit.not, label %_ZNK3app13get_family_idEv.exit.thread.i12.i, label %_ZNK3app13get_decl_kindEv.exit.i13.i
 
 _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, %_ZNK3app13get_family_idEv.exit.thread.i12.i
-  %retval.0.i19.i13 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
+  %lnot19.i13 = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %switch.hole_check ]
   %m_kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %14, i64 4
   %22 = load i32, ptr %m_kind.i.i.i.i14.i, align 4
   %cmp4.i.i = icmp ne i32 %22, 6
@@ -229917,9 +229916,9 @@ _ZNK3app13get_decl_kindEv.exit.i13.i:             ; preds = %switch.hole_check, 
   br label %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
 
 _ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i: ; preds = %_ZNK3app13get_decl_kindEv.exit.i13.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i, %if.end.i.i
-  %retval.0.i20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %retval.0.i19.i13, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
+  %lnot20.i = phi i1 [ %tobool.i.not.i.i, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ false, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %lnot19.i13, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
   %lnot.i.i = phi i1 [ true, %_ZNK3app13get_family_idEv.exit.thread.i12.i ], [ true, %_ZNK3smt12theory_arithINS_7inf_extEE7reflectEP3app.exit.i ], [ %spec.select.i.i, %_ZNK3app13get_decl_kindEv.exit.i13.i ], [ true, %if.end.i.i ]
-  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %retval.0.i20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
+  %call7.i = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616) %6, ptr noundef nonnull %n, i1 noundef zeroext %lnot20.i, i1 noundef zeroext false, i1 noundef zeroext %lnot.i.i)
   br label %_ZN3smt12theory_arithINS_7inf_extEE8mk_enodeEP3app.exit
 
 _ZN3smt12theory_arithINS_7inf_extEE8mk_enodeEP3app.exit: ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit.i, %_ZNK3smt12theory_arithINS_7inf_extEE14enable_cgc_forEP3app.exit.i
@@ -267219,7 +267218,7 @@ lpad112:                                          ; preds = %invoke.cont113, %if
   br label %ehcleanup118
 
 cleanup:                                          ; preds = %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i, %invoke.cont115, %call4.i.i.i.i.noexc190, %if.then.i.i.i.i188, %invoke.cont86
-  %retval.0.i.i259 = phi i1 [ true, %if.then.i.i.i.i188 ], [ true, %invoke.cont86 ], [ true, %call4.i.i.i.i.noexc190 ], [ false, %invoke.cont115 ], [ false, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i ]
+  %retval.0 = phi i1 [ true, %if.then.i.i.i.i188 ], [ true, %invoke.cont86 ], [ true, %call4.i.i.i.i.noexc190 ], [ false, %invoke.cont115 ], [ false, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i.i.i ]
   %143 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %143, ptr noundef nonnull align 8 dereferenceable(16) %u1)
           to label %.noexc.i232 unwind label %terminate.lpad.i231
@@ -267262,7 +267261,7 @@ ehcleanup120:                                     ; preds = %ehcleanup118, %lpad
   br label %ehcleanup122
 
 cleanup121:                                       ; preds = %.noexc.i237, %invoke.cont70
-  %retval.1 = phi i1 [ true, %invoke.cont70 ], [ %retval.0.i.i259, %.noexc.i237 ]
+  %retval.1 = phi i1 [ true, %invoke.cont70 ], [ %retval.0, %.noexc.i237 ]
   %149 = load ptr, ptr %ante, align 8
   %m_antecedents_index.i241 = getelementptr inbounds i8, ptr %149, i64 1320
   %150 = load i32, ptr %m_antecedents_index.i241, align 8
@@ -288241,7 +288240,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   br i1 %cmp13.not, label %cleanup, label %for.body
 
 cleanup:                                          ; preds = %for.inc, %if.then6.invoke
-  %cleanup.dest.slot.0 = phi i1 [ false, %if.then6.invoke ], [ true, %for.inc ]
+  %switch = phi i1 [ false, %if.then6.invoke ], [ true, %for.inc ]
   %var.addr.2 = phi ptr [ null, %if.then6.invoke ], [ %var.addr.1, %for.inc ]
   %6 = load ptr, ptr %varinfo, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %6, %0
@@ -288261,7 +288260,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   unreachable
 
 _ZN7sbufferISt4pairIP4exprjELj16EED2Ev.exit:      ; preds = %cleanup, %if.end.i.i.i.i.i
-  br i1 %cleanup.dest.slot.0, label %if.end18, label %return
+  br i1 %switch, label %if.end18, label %return
 
 if.end18:                                         ; preds = %_ZN7sbufferISt4pairIP4exprjELj16EED2Ev.exit, %entry
   %var.addr.3 = phi ptr [ %var.addr.2, %_ZN7sbufferISt4pairIP4exprjELj16EED2Ev.exit ], [ %var, %entry ]

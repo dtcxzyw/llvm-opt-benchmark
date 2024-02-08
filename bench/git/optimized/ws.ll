@@ -1282,8 +1282,7 @@ for.inc152:                                       ; preds = %strbuf_addch.exit11
 
 for.end154:                                       ; preds = %for.inc152
   %sub155 = sub nsw i32 %len.addr.2299, %34
-  %idx.ext156 = sext i32 %34 to i64
-  %add.ptr157 = getelementptr inbounds i8, ptr %src, i64 %idx.ext156
+  %add.ptr157 = getelementptr inbounds i8, ptr %src, i64 %wide.trip.count277
   br label %if.end159
 
 if.end159.thread:                                 ; preds = %if.then3, %if.end45

@@ -5453,8 +5453,7 @@ if.end100.i:                                      ; preds = %if.then96.i, %land.
   br i1 %or.cond90.i, label %if.then107.i, label %if.else114.i
 
 if.then107.i:                                     ; preds = %if.end100.i
-  %and109.i = and i32 %67, 65535
-  %add110.i = or disjoint i32 %and109.i, -1879048192
+  %add110.i = and i32 %67, -1878982657
   store i32 %add110.i, ptr %arrayidx.i.i86, align 8
   br label %if.end133.i
 

@@ -1616,7 +1616,7 @@ if.then8.i:                                       ; preds = %required_blocks.exi
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then8.i, %required_blocks.exit.i
-  %and15.i = and i64 %c_len_, -16
+  %and15.i = and i64 %c_len_, 68719476720
   call fastcc void @gh_ad_blocks(ptr noundef nonnull %st_, ptr noundef nonnull %sth.i, ptr noundef nonnull %c, i64 noundef %and15.i)
   %and16.i = and i64 %c_len_, 15
   %cmp17.not.i = icmp eq i64 %and16.i, 0

@@ -111,10 +111,10 @@ define noundef i32 @ossl_qrl_enc_level_set_provide_secret(ptr noundef %els, ptr 
 entry:
   %ku_key = alloca [64 x i8], align 16
   %hpr_key = alloca [64 x i8], align 16
-  %cmp.i = icmp ugt i32 %enc_level, 3
+  %cmp.i = icmp ult i32 %enc_level, 4
   %idxprom.i = zext nneg i32 %enc_level to i64
   %arrayidx.i = getelementptr inbounds [4 x %struct.ossl_qrl_enc_level_st], ptr %els, i64 0, i64 %idxprom.i
-  %retval.0.i = select i1 %cmp.i, ptr null, ptr %arrayidx.i
+  %retval.0.i = select i1 %cmp.i, ptr %arrayidx.i, ptr null
   %call1 = tail call ptr @ossl_qrl_get_suite_md_name(i32 noundef %suite_id) #5
   %cmp = icmp eq ptr %retval.0.i, null
   %cmp2 = icmp eq ptr %call1, null
@@ -244,9 +244,8 @@ if.end79:                                         ; preds = %if.then68
   br i1 %tobool.not, label %if.then81, label %if.end97
 
 if.then81:                                        ; preds = %if.end79
-  %tobool82.not = icmp eq i8 %init_key_phase_bit, 0
-  %conv83 = zext i1 %tobool82.not to i64
-  %call85 = call fastcc i32 @el_setup_keyslot(ptr noundef %els, i32 noundef 3, i64 noundef %conv83, ptr noundef nonnull %ku_key, i64 noundef %secret_len)
+  %lnot.ext = xor i64 %conv, 1
+  %call85 = call fastcc i32 @el_setup_keyslot(ptr noundef %els, i32 noundef 3, i64 noundef %lnot.ext, ptr noundef nonnull %ku_key, i64 noundef %secret_len)
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %err, label %if.end88
 
@@ -280,7 +279,7 @@ err:                                              ; preds = %if.end97, %if.end88
   br i1 %tobool113.not, label %if.end115, label %if.then114
 
 if.then114:                                       ; preds = %err
-  br i1 %cmp.i, label %if.end122, label %ossl_qrl_enc_level_set_get.exit.i.i
+  br i1 %cmp.i, label %ossl_qrl_enc_level_set_get.exit.i.i, label %if.end122
 
 ossl_qrl_enc_level_set_get.exit.i.i:              ; preds = %if.then114
   %cmp.i12.i = icmp ne ptr %els, null
@@ -333,52 +332,56 @@ if.end115:                                        ; preds = %if.end7.i, %ossl_qr
   br i1 %tobool116.not, label %if.end122, label %if.then117
 
 if.then117:                                       ; preds = %if.end115
-  %tobool118.not = icmp eq i64 %cond, 0
-  %conv121 = zext i1 %tobool118.not to i64
-  %cmp.i12.i81.not = icmp eq ptr %els, null
-  %or.cond106 = or i1 %cmp.i, %cmp.i12.i81.not
-  br i1 %or.cond106, label %if.end122, label %if.end.i13.i82
+  %lnot.ext120 = xor i64 %cond, 1
+  br i1 %cmp.i, label %ossl_qrl_enc_level_set_get.exit.i.i78, label %if.end122
 
-if.end.i13.i82:                                   ; preds = %if.then117
-  %state15.i83 = getelementptr inbounds i8, ptr %arrayidx.i, i64 104
-  %8 = load i8, ptr %state15.i83, align 8
-  switch i8 %8, label %if.end122 [
-    i8 1, label %ossl_qrl_enc_level_set_has_keyslot.exit.i96
-    i8 2, label %ossl_qrl_enc_level_set_has_keyslot.exit.i96
-    i8 3, label %sw.bb9.i.i84
+ossl_qrl_enc_level_set_get.exit.i.i78:            ; preds = %if.then117
+  %cmp.i12.i81 = icmp ne ptr %els, null
+  %cmp1.i.i82 = icmp ult i64 %lnot.ext120, 2
+  %8 = and i1 %cmp.i12.i81, %cmp1.i.i82
+  br i1 %8, label %if.end.i13.i83, label %if.end122
+
+if.end.i13.i83:                                   ; preds = %ossl_qrl_enc_level_set_get.exit.i.i78
+  %state15.i84 = getelementptr inbounds i8, ptr %arrayidx.i, i64 104
+  %9 = load i8, ptr %state15.i84, align 8
+  switch i8 %9, label %if.end122 [
+    i8 1, label %ossl_qrl_enc_level_set_has_keyslot.exit.i97
+    i8 2, label %ossl_qrl_enc_level_set_has_keyslot.exit.i97
+    i8 3, label %sw.bb9.i.i85
   ]
 
-sw.bb9.i.i84:                                     ; preds = %if.end.i13.i82
-  %key_epoch.i.i85 = getelementptr inbounds [4 x %struct.ossl_qrl_enc_level_st], ptr %els, i64 0, i64 %idxprom.i, i32 5
-  %9 = load i64, ptr %key_epoch.i.i85, align 8
-  %10 = and i64 %9, 1
-  %11 = icmp eq i64 %10, 0
-  %cmp10.i.i87 = xor i1 %tobool118.not, %11
-  br i1 %cmp10.i.i87, label %if.end.i88, label %if.end122
+sw.bb9.i.i85:                                     ; preds = %if.end.i13.i83
+  %key_epoch.i.i86 = getelementptr inbounds [4 x %struct.ossl_qrl_enc_level_st], ptr %els, i64 0, i64 %idxprom.i, i32 5
+  %10 = load i64, ptr %key_epoch.i.i86, align 8
+  %and.i.i87 = and i64 %10, 1
+  %cmp10.i.i88 = icmp eq i64 %and.i.i87, %lnot.ext120
+  br i1 %cmp10.i.i88, label %if.end.i89, label %if.end122
 
-ossl_qrl_enc_level_set_has_keyslot.exit.i96:      ; preds = %if.end.i13.i82, %if.end.i13.i82
-  %.not = and i1 %cmp16, %tobool118.not
-  br i1 %.not, label %if.end122, label %if.end.i88
+ossl_qrl_enc_level_set_has_keyslot.exit.i97:      ; preds = %if.end.i13.i83, %if.end.i13.i83
+  %cmp5.i.i98 = icmp eq i32 %enc_level, 3
+  %cmp7.i.i99 = icmp eq i64 %lnot.ext120, 0
+  %11 = or i1 %cmp5.i.i98, %cmp7.i.i99
+  br i1 %11, label %if.end.i89, label %if.end122
 
-if.end.i88:                                       ; preds = %ossl_qrl_enc_level_set_has_keyslot.exit.i96, %sw.bb9.i.i84
-  %cctx.i89 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
-  %arrayidx.i90 = getelementptr inbounds [2 x ptr], ptr %cctx.i89, i64 0, i64 %conv121
-  %12 = load ptr, ptr %arrayidx.i90, align 8
-  %cmp.not.i91 = icmp eq ptr %12, null
-  br i1 %cmp.not.i91, label %if.end7.i93, label %if.then2.i92
+if.end.i89:                                       ; preds = %ossl_qrl_enc_level_set_has_keyslot.exit.i97, %sw.bb9.i.i85
+  %cctx.i90 = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
+  %arrayidx.i91 = getelementptr inbounds [2 x ptr], ptr %cctx.i90, i64 0, i64 %lnot.ext120
+  %12 = load ptr, ptr %arrayidx.i91, align 8
+  %cmp.not.i92 = icmp eq ptr %12, null
+  br i1 %cmp.not.i92, label %if.end7.i94, label %if.then2.i93
 
-if.then2.i92:                                     ; preds = %if.end.i88
+if.then2.i93:                                     ; preds = %if.end.i89
   call void @EVP_CIPHER_CTX_free(ptr noundef nonnull %12) #5
-  store ptr null, ptr %arrayidx.i90, align 8
-  br label %if.end7.i93
+  store ptr null, ptr %arrayidx.i91, align 8
+  br label %if.end7.i94
 
-if.end7.i93:                                      ; preds = %if.then2.i92, %if.end.i88
-  %iv.i94 = getelementptr inbounds i8, ptr %arrayidx.i, i64 106
-  %arrayidx8.i95 = getelementptr inbounds [2 x [16 x i8]], ptr %iv.i94, i64 0, i64 %conv121
-  call void @OPENSSL_cleanse(ptr noundef nonnull %arrayidx8.i95, i64 noundef 16) #5
+if.end7.i94:                                      ; preds = %if.then2.i93, %if.end.i89
+  %iv.i95 = getelementptr inbounds i8, ptr %arrayidx.i, i64 106
+  %arrayidx8.i96 = getelementptr inbounds [2 x [16 x i8]], ptr %iv.i95, i64 0, i64 %lnot.ext120
+  call void @OPENSSL_cleanse(ptr noundef nonnull %arrayidx8.i96, i64 noundef 16) #5
   br label %if.end122
 
-if.end122:                                        ; preds = %if.then114, %if.end7.i93, %ossl_qrl_enc_level_set_has_keyslot.exit.i96, %sw.bb9.i.i84, %if.end.i13.i82, %if.then117, %if.end115
+if.end122:                                        ; preds = %if.then114, %if.end7.i94, %ossl_qrl_enc_level_set_has_keyslot.exit.i97, %sw.bb9.i.i85, %if.end.i13.i83, %ossl_qrl_enc_level_set_get.exit.i.i78, %if.then117, %if.end115
   br i1 %cmp41.not, label %if.then124, label %return
 
 if.then124:                                       ; preds = %if.end122

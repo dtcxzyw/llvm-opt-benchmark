@@ -167716,7 +167716,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -169356,7 +169356,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -170809,7 +170809,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -172352,7 +172352,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -175408,7 +175408,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -178684,7 +178684,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -180806,7 +180806,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -182527,7 +182527,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -183840,7 +183840,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -186335,7 +186335,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -187935,7 +187935,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -189374,7 +189374,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -190701,7 +190701,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -192279,7 +192279,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -193857,7 +193857,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -195435,7 +195435,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -197235,7 +197235,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -198587,7 +198587,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -199939,7 +199939,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -201297,7 +201297,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -202655,7 +202655,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -204112,7 +204112,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -206099,7 +206099,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -207843,7 +207843,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -209923,7 +209923,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -212004,7 +212004,7 @@ vector.scevcheck:                                 ; preds = %for.body.preheader
   br i1 %4, label %for.body.preheader5, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.scevcheck
-  %n.vec = and i64 %length, -4
+  %n.vec = and i64 %length, 8589934588
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph

@@ -1694,9 +1694,8 @@ if.end.i:                                         ; preds = %if.end8
   br i1 %tobool.not.i, label %exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %add.i = or i64 %template.val.i, 1
   %chunks.i = getelementptr inbounds i8, ptr %call3.i, i64 24
-  store i64 %add.i, ptr %chunks.i, align 8
+  store i64 %template.val.i, ptr %chunks.i, align 8
   %ob_item.i = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %ob_item.i, align 8
   %9 = load ptr, ptr %8, align 8

@@ -1277,7 +1277,7 @@ if.then7.i:                                       ; preds = %if.then4.i
   store i32 %storemerge97.i, ptr %can_mask.i.i, align 4
   %call.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #9
   %tobool12.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool12.not.i, label %can_sja_accept_filter.exit.thread100, label %can_sja_accept_filter.exit.thread
+  br i1 %tobool12.not.i, label %can_sja_accept_filter.exit.thread99, label %can_sja_accept_filter.exit.thread
 
 if.else.i:                                        ; preds = %if.then4.i
   %shl51.i.i = shl nuw nsw i32 %conv17.i73.i, 3
@@ -1307,7 +1307,7 @@ if.else.i:                                        ; preds = %if.then4.i
   store i32 %storemerge99.i, ptr %can_mask69.i.i, align 4
   %call21.i = call i32 @can_bus_filter_match(ptr noundef nonnull %filter.i, i32 noundef %7) #9
   %tobool22.not.i = icmp eq i32 %call21.i, 0
-  br i1 %tobool22.not.i, label %can_sja_accept_filter.exit.thread100, label %if.end24.i
+  br i1 %tobool22.not.i, label %can_sja_accept_filter.exit.thread99, label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.else.i
   %31 = load i32, ptr %frames, align 8
@@ -1334,7 +1334,7 @@ if.end33.i:                                       ; preds = %if.end29.i
   %37 = zext i8 %36 to i32
   %38 = and i32 %37, %not.i
   %cmp47.not.i = icmp eq i32 %38, 0
-  br i1 %cmp47.not.i, label %if.end50.i, label %can_sja_accept_filter.exit.thread100
+  br i1 %cmp47.not.i, label %if.end50.i, label %can_sja_accept_filter.exit.thread99
 
 if.end50.i:                                       ; preds = %if.end33.i
   %cmp53.i = icmp eq i8 %32, 1
@@ -1469,7 +1469,7 @@ can_sja_accept_filter.exit.thread:                ; preds = %if.end24.i, %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filter.i)
   br label %if.end17
 
-can_sja_accept_filter.exit.thread100:             ; preds = %if.then7.i, %if.else.i, %if.end33.i
+can_sja_accept_filter.exit.thread99:              ; preds = %if.then7.i, %if.else.i, %if.end33.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filter.i)
   br label %if.then11
 
@@ -1507,7 +1507,7 @@ can_sja_accept_filter.exit:                       ; preds = %if.else105.if.end15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %filter.i)
   br i1 %tobool163.not.i.not, label %if.then11, label %if.end17
 
-if.then11:                                        ; preds = %if.end93.i, %if.end56.i, %can_sja_accept_filter.exit.thread100, %can_sja_accept_filter.exit
+if.then11:                                        ; preds = %if.end93.i, %if.end56.i, %can_sja_accept_filter.exit.thread99, %can_sja_accept_filter.exit
   %83 = load i8, ptr %status_pel, align 1
   %84 = and i8 %83, -17
   store i8 %84, ptr %status_pel, align 1
@@ -1694,17 +1694,16 @@ if.else:                                          ; preds = %if.end2
   store i8 %119, ptr %status_bas, align 1
   %can_dlc.i70 = getelementptr inbounds i8, ptr %frames, i64 4
   %120 = load i8, ptr %can_dlc.i70, align 4
-  %conv.i71 = zext i8 %120 to i32
   %121 = load i32, ptr %frames, align 8
   %122 = and i32 %121, -1610612736
-  %or.cond.i72 = icmp ne i32 %122, 0
-  %cmp.i73 = icmp ugt i8 %120, 8
-  %or.cond18.i = select i1 %or.cond.i72, i1 true, i1 %cmp.i73
+  %or.cond.i71 = icmp ne i32 %122, 0
+  %cmp.i72 = icmp ugt i8 %120, 8
+  %or.cond18.i = select i1 %or.cond.i71, i1 true, i1 %cmp.i72
   br i1 %or.cond18.i, label %if.then76, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.else
-  %shr.i.i74 = lshr i32 %121, 3
-  %conv8.i = trunc i32 %shr.i.i74 to i8
+  %shr.i.i73 = lshr i32 %121, 3
+  %conv8.i = trunc i32 %shr.i.i73 to i8
   store i8 %conv8.i, ptr @can_sja_receive.rcv, align 1
   %123 = load i32, ptr %frames, align 8
   %124 = trunc i32 %123 to i8
@@ -1713,28 +1712,29 @@ if.end6.i:                                        ; preds = %if.else
   %125 = trunc i32 %and14.i to i8
   %126 = and i8 %125, 16
   %127 = or disjoint i8 %126, %call10.tr.i
-  %or2617.i = or i8 %127, %120
+  %or2617.i = or disjoint i8 %127, %120
   store i8 %or2617.i, ptr getelementptr inbounds ([13 x i8], ptr @can_sja_receive.rcv, i64 0, i64 1), align 1
   %cmp281.not.i = icmp eq i8 %120, 0
-  br i1 %cmp281.not.i, label %if.end82, label %for.body.lr.ph.i76
+  br i1 %cmp281.not.i, label %if.end82, label %for.body.lr.ph.i75
 
-for.body.lr.ph.i76:                               ; preds = %if.end6.i
-  %data.i77 = getelementptr inbounds i8, ptr %frames, i64 8
-  %wide.trip.count.i78 = zext nneg i8 %120 to i64
-  br label %for.body.i79
+for.body.lr.ph.i75:                               ; preds = %if.end6.i
+  %data.i76 = getelementptr inbounds i8, ptr %frames, i64 8
+  %wide.trip.count.i77 = zext nneg i8 %120 to i64
+  br label %for.body.i78
 
-for.body.i79:                                     ; preds = %for.body.i79, %for.body.lr.ph.i76
-  %indvars.iv.i80 = phi i64 [ 0, %for.body.lr.ph.i76 ], [ %indvars.iv.next.i82, %for.body.i79 ]
-  %arrayidx30.i = getelementptr [64 x i8], ptr %data.i77, i64 0, i64 %indvars.iv.i80
+for.body.i78:                                     ; preds = %for.body.i78, %for.body.lr.ph.i75
+  %indvars.iv.i79 = phi i64 [ 0, %for.body.lr.ph.i75 ], [ %indvars.iv.next.i81, %for.body.i78 ]
+  %arrayidx30.i = getelementptr [64 x i8], ptr %data.i76, i64 0, i64 %indvars.iv.i79
   %128 = load i8, ptr %arrayidx30.i, align 1
-  %gep.i81 = getelementptr i8, ptr getelementptr inbounds ([13 x i8], ptr @can_sja_receive.rcv, i64 0, i64 2), i64 %indvars.iv.i80
-  store i8 %128, ptr %gep.i81, align 1
-  %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i80, 1
-  %exitcond.not.i83 = icmp eq i64 %indvars.iv.next.i82, %wide.trip.count.i78
-  br i1 %exitcond.not.i83, label %frame2buff_bas.exit, label %for.body.i79, !llvm.loop !12
+  %gep.i80 = getelementptr i8, ptr getelementptr inbounds ([13 x i8], ptr @can_sja_receive.rcv, i64 0, i64 2), i64 %indvars.iv.i79
+  store i8 %128, ptr %gep.i80, align 1
+  %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i79, 1
+  %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i77
+  br i1 %exitcond.not.i82, label %frame2buff_bas.exit, label %for.body.i78, !llvm.loop !12
 
-frame2buff_bas.exit:                              ; preds = %for.body.i79
-  %add33.i = add nuw nsw i32 %conv.i71, 2
+frame2buff_bas.exit:                              ; preds = %for.body.i78
+  %narrow.i = add nuw nsw i8 %120, 2
+  %add33.i = zext nneg i8 %narrow.i to i32
   br label %if.end82
 
 if.then76:                                        ; preds = %if.else
@@ -1762,12 +1762,12 @@ if.then87:                                        ; preds = %if.end82
   %control.i = getelementptr i8, ptr %client, i64 -52
   %136 = load i8, ptr %control.i, align 4
   %137 = lshr i8 %136, 1
-  %and4.i86 = and i8 %137, %135
-  %tobool.not.i87 = icmp ne i8 %and4.i86, 0
-  %irq2.i88 = getelementptr i8, ptr %client, i64 -8
-  %138 = load ptr, ptr %irq2.i88, align 8
-  %..i89 = zext i1 %tobool.not.i87 to i32
-  tail call void @qemu_set_irq(ptr noundef %138, i32 noundef %..i89) #9
+  %and4.i85 = and i8 %137, %135
+  %tobool.not.i86 = icmp ne i8 %and4.i85, 0
+  %irq2.i87 = getelementptr i8, ptr %client, i64 -8
+  %138 = load ptr, ptr %irq2.i87, align 8
+  %..i88 = zext i1 %tobool.not.i86 to i32
+  tail call void @qemu_set_irq(ptr noundef %138, i32 noundef %..i88) #9
   %conv99 = zext nneg i32 %add33.i113 to i64
   br label %return
 
@@ -1809,15 +1809,15 @@ for.end119:                                       ; preds = %for.body108
   %144 = load i8, ptr %interrupt_bas130, align 2
   %145 = or i8 %144, 1
   store i8 %145, ptr %interrupt_bas130, align 2
-  %control.i90 = getelementptr i8, ptr %client, i64 -52
-  %146 = load i8, ptr %control.i90, align 4
+  %control.i89 = getelementptr i8, ptr %client, i64 -52
+  %146 = load i8, ptr %control.i89, align 4
   %147 = lshr i8 %146, 1
-  %and4.i92 = and i8 %147, %145
-  %tobool.not.i93 = icmp ne i8 %and4.i92, 0
-  %irq2.i94 = getelementptr i8, ptr %client, i64 -8
-  %148 = load ptr, ptr %irq2.i94, align 8
-  %..i95 = zext i1 %tobool.not.i93 to i32
-  tail call void @qemu_set_irq(ptr noundef %148, i32 noundef %..i95) #9
+  %and4.i91 = and i8 %147, %145
+  %tobool.not.i92 = icmp ne i8 %and4.i91, 0
+  %irq2.i93 = getelementptr i8, ptr %client, i64 -8
+  %148 = load ptr, ptr %irq2.i93, align 8
+  %..i94 = zext i1 %tobool.not.i92 to i32
+  tail call void @qemu_set_irq(ptr noundef %148, i32 noundef %..i94) #9
   br label %return
 
 return:                                           ; preds = %for.end, %for.end119, %if.end, %entry, %if.then87, %if.then76, %if.then30, %if.then21, %if.then11

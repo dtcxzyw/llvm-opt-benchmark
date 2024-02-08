@@ -88,11 +88,10 @@ if.then.i:                                        ; preds = %entry
 if.then12.i:                                      ; preds = %if.then.i
   %shr13.i = lshr i32 %and8.i, 13
   %cmp16.i = icmp ult i32 %and8.i, 8192
-  %conv18.i = and i32 %shr.i, 32768
+  %or.i = and i32 %shr.i, 64512
   %conv19.i = select i1 %cmp16.i, i32 1, i32 %shr13.i
-  %or.i = or disjoint i32 %conv19.i, %conv18.i
-  %3 = trunc i32 %or.i to i16
-  %conv21.i = or disjoint i16 %3, 31744
+  %or20.i = or disjoint i32 %conv19.i, %or.i
+  %conv21.i = trunc i32 %or20.i to i16
   br label %_ZN5arrow4util12_GLOBAL__N_115BinaryConverterIjE10ToBinary16Ej.exit
 
 if.end22.i:                                       ; preds = %if.then.i

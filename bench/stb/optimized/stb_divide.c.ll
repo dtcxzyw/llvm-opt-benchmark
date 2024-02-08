@@ -34,9 +34,8 @@ if.then8:                                         ; preds = %if.then6
   br label %return
 
 if.else:                                          ; preds = %if.then6
-  %add = or i32 %v2, -2147483648
-  %add.nonneg = sub i32 0, %add
-  %div1316 = udiv i32 %add.nonneg, %v2
+  %add.neg = sub nuw i32 -2147483648, %v2
+  %div1316 = udiv i32 %add.neg, %v2
   %sub15 = xor i32 %div1316, -1
   br label %return
 
@@ -59,7 +58,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add = add nsw i32 %v2, 1
-  %add2 = or i32 %v1, -2147483648
+  %add2 = or disjoint i32 %v1, -2147483648
   %cmp3.not = icmp slt i32 %add, %add2
   br i1 %cmp3.not, label %if.else, label %if.then4
 
@@ -91,33 +90,32 @@ if.then15:                                        ; preds = %if.end
 
 if.then17:                                        ; preds = %if.then15
   %add18 = add nsw i32 %v1, 1
-  %add19 = or i32 %v2, -2147483648
+  %add19 = or disjoint i32 %v2, -2147483648
   %cmp20.not = icmp slt i32 %add18, %add19
   br i1 %cmp20.not, label %if.else27, label %if.then21
 
 if.then21:                                        ; preds = %if.then17
   %sub23.neg = sub i32 %v2, %add18
-  %div2540 = udiv i32 %sub23.neg, %v2
-  %sub26 = sub nsw i32 0, %div2540
+  %div2538 = udiv i32 %sub23.neg, %v2
+  %sub26 = sub nsw i32 0, %div2538
   br label %return
 
 if.else27:                                        ; preds = %if.then17
   %sub28 = sub nsw i32 0, %v1
   %div29 = udiv i32 %sub28, %v2
-  %rem3239 = urem i32 %sub28, %v2
-  %tobool33.not = icmp ne i32 %rem3239, 0
+  %rem3237 = urem i32 %sub28, %v2
+  %tobool33.not = icmp ne i32 %rem3237, 0
   %cond34 = sext i1 %tobool33.not to i32
   %add35 = sub nsw i32 %cond34, %div29
   br label %return
 
 if.else36:                                        ; preds = %if.then15
-  %add37 = or i32 %v2, -2147483648
-  %sub38 = sub nsw i32 0, %add37
-  %div3937 = udiv i32 %sub38, %v2
-  %rem4338 = urem i32 %sub38, %v2
-  %tobool44.not = icmp eq i32 %rem4338, 0
+  %add37.neg = sub nuw i32 -2147483648, %v2
+  %div39 = sdiv i32 %add37.neg, %v2
+  %rem43 = srem i32 %add37.neg, %v2
+  %tobool44.not = icmp eq i32 %rem43, 0
   %cond45 = select i1 %tobool44.not, i32 -1, i32 -2
-  %add46 = sub nuw i32 %cond45, %div3937
+  %add46 = sub i32 %cond45, %div39
   br label %return
 
 if.else47:                                        ; preds = %if.end
@@ -219,7 +217,7 @@ return:                                           ; preds = %if.else21, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i32 @stb_mod_trunc(i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #0 {
+define noundef i32 @stb_mod_trunc(i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #0 {
 entry:
   %retval.0 = srem i32 %v1, %v2
   ret i32 %retval.0
@@ -238,8 +236,8 @@ entry:
   ret i32 %spec.select10
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define i32 @stb_mod_eucl(i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define noundef i32 @stb_mod_eucl(i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #0 {
 entry:
   %rem = srem i32 %v1, %v2
   %cmp = icmp sgt i32 %rem, -1
@@ -256,11 +254,10 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #2
+declare i32 @llvm.abs.i32(i32, i1 immarg) #1
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

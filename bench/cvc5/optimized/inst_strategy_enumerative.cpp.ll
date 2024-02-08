@@ -723,6 +723,7 @@ ehcleanup192:                                     ; preds = %lpad172.split.us, %
   br label %eh.resume
 
 invoke.cont197:                                   ; preds = %if.end131
+  %inc211 = add nuw nsw i32 %r.0536, 1
   %exitcond548.not = icmp eq i32 %r.0536, %cond58
   %or.cond552 = select i1 %call198, i1 true, i1 %exitcond548.not
   br i1 %or.cond552, label %if.end282, label %for.body.backedge
@@ -732,7 +733,7 @@ for.inc210:                                       ; preds = %for.body
   br i1 %exitcond548.not.old, label %if.end282, label %for.body.backedge
 
 for.body.backedge:                                ; preds = %for.inc210, %invoke.cont197
-  %r.0536.be = add nuw nsw i32 %r.0536, 1
+  %r.0536.be = phi i32 [ 1, %for.inc210 ], [ %inc211, %invoke.cont197 ]
   br label %for.body, !llvm.loop !7
 
 if.end282:                                        ; preds = %invoke.cont197.us, %invoke.cont202.us, %for.inc210.us, %invoke.cont197, %for.inc210, %if.end49

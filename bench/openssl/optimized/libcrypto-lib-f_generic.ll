@@ -104,7 +104,7 @@ if.then6:                                         ; preds = %for.body
   %sh_prom = zext nneg i32 %fill.012 to i128
   %shl = shl nuw nsw i128 %conv8, %sh_prom
   %or = or i128 %shl, %buffer.013
-  %add = add nuw nsw i32 %fill.012, 56
+  %add = or disjoint i32 %fill.012, 56
   %inc = add nuw nsw i32 %j.011, 1
   br label %if.end9
 

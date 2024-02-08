@@ -1366,7 +1366,7 @@ if.end:                                           ; preds = %land.lhs.true, %if.
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.end, %entry
-  %cmp93 = phi i1 [ true, %entry ], [ true, %if.end ], [ false, %if.else ]
+  %cmp93.not = phi i1 [ true, %entry ], [ true, %if.end ], [ false, %if.else ]
   %cnid.0 = phi i32 [ 48, %entry ], [ 13, %if.end ], [ 0, %if.else ]
   %alt_type.0 = phi i32 [ 22, %entry ], [ 22, %if.end ], [ 4, %if.else ]
   %equal.0 = phi ptr [ @equal_email, %entry ], [ %equal_wildcard.equal_nocase, %if.end ], [ @equal_case, %if.else ]
@@ -1532,7 +1532,7 @@ if.end85:                                         ; preds = %for.inc.us, %for.in
 if.end92:                                         ; preds = %if.end85, %if.end17
   %and95 = and i32 %flags.addr.1, 32
   %tobool96.not = icmp eq i32 %and95, 0
-  %or.cond48 = and i1 %cmp93, %tobool96.not
+  %or.cond48 = and i1 %cmp93.not, %tobool96.not
   br i1 %or.cond48, label %if.end98, label %return
 
 if.end98:                                         ; preds = %if.end92
@@ -2423,7 +2423,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %or.cond51.i, label %if.end27.i, label %if.then5
 
 if.end27.i:                                       ; preds = %if.end.i
-  %and29.i = and i32 %state.059.i, -2
+  %and29.i = and i32 %state.059.i, -10
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i

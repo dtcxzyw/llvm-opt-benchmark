@@ -6769,9 +6769,9 @@ if.end26:                                         ; preds = %if.end14
   br i1 %or.cond, label %if.then39, label %if.else50
 
 if.then39:                                        ; preds = %if.end26
-  %shl = shl nuw i32 %conv34, 24
+  %shl = shl nuw nsw i32 %conv34, 24
   %9 = trunc i64 %div to i32
-  %conv44 = or i32 %shl, %9
+  %conv44 = or disjoint i32 %shl, %9
   %10 = tail call i32 @llvm.bswap.i32(i32 %conv44)
   store i32 %10, ptr %cdb, align 1
   %conv45 = trunc i32 %div33 to i8
@@ -6788,17 +6788,16 @@ if.else50:                                        ; preds = %if.end26
   %cmp54 = icmp ult i8 %8, 64
   %cmp57 = icmp ult i64 %div, 4294967296
   %or.cond1 = and i1 %cmp57, %cmp54
-  %arrayidx67 = getelementptr i8, ptr %req, i64 604
+  %arrayidx69 = getelementptr i8, ptr %req, i64 605
   br i1 %or.cond1, label %if.then59, label %if.else79
 
 if.then59:                                        ; preds = %if.else50
-  %and = and i8 %8, 31
-  %or62 = or disjoint i8 %and, 32
+  %or62 = or i8 %8, 32
   store i8 %or62, ptr %cdb, align 1
   %cdb1 = getelementptr inbounds i8, ptr %req, i64 601
   %12 = load i8, ptr %cdb1, align 1
+  %arrayidx67 = getelementptr i8, ptr %req, i64 604
   store i8 %12, ptr %arrayidx67, align 1
-  %arrayidx69 = getelementptr i8, ptr %req, i64 605
   %conv70 = trunc i64 %div to i32
   %13 = tail call i32 @llvm.bswap.i32(i32 %conv70)
   store i32 %13, ptr %arrayidx69, align 1
@@ -6822,17 +6821,17 @@ if.else79:                                        ; preds = %if.else50
   %or.cond2 = and i1 %cmp57, %cmp83
   %and91 = and i8 %8, 31
   %cdb196 = getelementptr inbounds i8, ptr %req, i64 601
-  %arrayidx100 = getelementptr i8, ptr %req, i64 605
+  %arrayidx98 = getelementptr i8, ptr %req, i64 604
   br i1 %or.cond2, label %if.then88, label %if.else110
 
 if.then88:                                        ; preds = %if.else79
   %or92 = or disjoint i8 %and91, -96
   store i8 %or92, ptr %cdb, align 1
   %16 = load i8, ptr %cdb196, align 1
-  store i8 %16, ptr %arrayidx67, align 1
+  store i8 %16, ptr %arrayidx98, align 1
   %conv101 = trunc i64 %div to i32
   %17 = tail call i32 @llvm.bswap.i32(i32 %conv101)
-  store i32 %17, ptr %arrayidx100, align 1
+  store i32 %17, ptr %arrayidx69, align 1
   %arrayidx103 = getelementptr i8, ptr %req, i64 609
   %18 = tail call i32 @llvm.bswap.i32(i32 %div33)
   store i32 %18, ptr %arrayidx103, align 1
@@ -6850,9 +6849,9 @@ if.else110:                                       ; preds = %if.else79
   %or114 = or disjoint i8 %and91, -128
   store i8 %or114, ptr %cdb, align 1
   %20 = load i8, ptr %cdb196, align 1
-  store i8 %20, ptr %arrayidx67, align 1
+  store i8 %20, ptr %arrayidx98, align 1
   %21 = tail call i64 @llvm.bswap.i64(i64 %div)
-  store i64 %21, ptr %arrayidx100, align 1
+  store i64 %21, ptr %arrayidx69, align 1
   %arrayidx124 = getelementptr i8, ptr %req, i64 613
   %22 = tail call i32 @llvm.bswap.i32(i32 %div33)
   store i32 %22, ptr %arrayidx124, align 1

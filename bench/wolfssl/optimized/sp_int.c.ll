@@ -913,7 +913,7 @@ for.end.thread:                                   ; preds = %if.then5
   %sh_prom22 = zext nneg i32 %and to i64
   %shl23 = shl nuw i64 1, %sh_prom22
   %dp724 = getelementptr inbounds i8, ptr %a, i64 8
-  %idxprom825 = zext i32 %shr to i64
+  %idxprom825 = zext nneg i32 %shr to i64
   %arrayidx926 = getelementptr inbounds [129 x i64], ptr %dp724, i64 0, i64 %idxprom825
   %2 = load i64, ptr %arrayidx926, align 8
   %or27 = or i64 %2, %shl23
@@ -937,7 +937,7 @@ for.end:                                          ; preds = %for.body
   %sh_prom = zext nneg i32 %and to i64
   %shl = shl nuw i64 1, %sh_prom
   %dp7 = getelementptr inbounds i8, ptr %a, i64 8
-  %idxprom8 = zext i32 %shr to i64
+  %idxprom8 = zext nneg i32 %shr to i64
   %arrayidx9 = getelementptr inbounds [129 x i64], ptr %dp7, i64 0, i64 %idxprom8
   %3 = load i64, ptr %arrayidx9, align 8
   %or = or i64 %3, %shl
@@ -974,7 +974,7 @@ lor.lhs.false2.i:                                 ; preds = %entry
 
 for.body.lr.ph.i:                                 ; preds = %lor.lhs.false2.i
   %1 = lshr i32 %e, 3
-  %2 = and i32 %1, 536870904
+  %2 = and i32 %1, 268435448
   %narrow = add nuw nsw i32 %2, 8
   %3 = zext nneg i32 %narrow to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %dp.i, i8 0, i64 %3, i1 false)
@@ -3213,7 +3213,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %sub44 = sub nuw nsw i32 64, %and
   %sh_prom45 = zext nneg i32 %sub44 to i64
   %dp46 = getelementptr inbounds i8, ptr %r, i64 8
-  %2 = zext i32 %shr to i64
+  %2 = zext nneg i32 %shr to i64
   br label %for.body
 
 if.then14:                                        ; preds = %if.then12
@@ -3223,7 +3223,7 @@ if.then14:                                        ; preds = %if.then12
 
 if.then19:                                        ; preds = %if.then14
   %dp = getelementptr inbounds i8, ptr %a, i64 8
-  %idx.ext = zext i32 %shr to i64
+  %idx.ext = zext nneg i32 %shr to i64
   %add.ptr = getelementptr inbounds i64, ptr %dp, i64 %idx.ext
   %mul = shl i32 %sub, 3
   %conv = zext i32 %mul to i64
@@ -3233,7 +3233,7 @@ if.then19:                                        ; preds = %if.then14
 if.else23:                                        ; preds = %if.then14
   %dp24 = getelementptr inbounds i8, ptr %r, i64 8
   %dp26 = getelementptr inbounds i8, ptr %a, i64 8
-  %idx.ext28 = zext i32 %shr to i64
+  %idx.ext28 = zext nneg i32 %shr to i64
   %add.ptr29 = getelementptr inbounds i64, ptr %dp26, i64 %idx.ext28
   %mul31 = shl i32 %sub, 3
   %conv32 = zext i32 %mul31 to i64
@@ -9434,7 +9434,7 @@ _sp_copy.exit.i48:                                ; preds = %if.else.i.i44, %if.
 
 land.lhs.true.i56:                                ; preds = %_sp_copy.exit.i48, %if.else
   %8 = phi i32 [ %7, %_sp_copy.exit.i48 ], [ %0, %if.else ]
-  %shr.i52 = ashr i32 %e, 6
+  %shr.i52 = lshr i32 %e, 6
   %cmp3.not.i = icmp ult i32 %shr.i52, %8
   br i1 %cmp3.not.i, label %land.lhs.true6.i, label %if.then4.i
 
@@ -9471,7 +9471,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   %sub44.i = sub nuw nsw i32 64, %and.i
   %sh_prom45.i = zext nneg i32 %sub44.i to i64
   %dp46.i = getelementptr inbounds i8, ptr %r, i64 8
-  %10 = zext i32 %shr.i52 to i64
+  %10 = zext nneg i32 %shr.i52 to i64
   br label %for.body.i
 
 if.then14.i:                                      ; preds = %if.then12.i
@@ -9481,7 +9481,7 @@ if.then14.i:                                      ; preds = %if.then12.i
 
 if.then19.i:                                      ; preds = %if.then14.i
   %dp.i65 = getelementptr inbounds i8, ptr %a, i64 8
-  %idx.ext.i = zext i32 %shr.i52 to i64
+  %idx.ext.i = zext nneg i32 %shr.i52 to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %dp.i65, i64 %idx.ext.i
   %mul.i66 = shl i32 %sub.i, 3
   %conv.i = zext i32 %mul.i66 to i64
@@ -9491,7 +9491,7 @@ if.then19.i:                                      ; preds = %if.then14.i
 if.else23.i:                                      ; preds = %if.then14.i
   %dp24.i = getelementptr inbounds i8, ptr %r, i64 8
   %dp26.i = getelementptr inbounds i8, ptr %a, i64 8
-  %idx.ext28.i = zext i32 %shr.i52 to i64
+  %idx.ext28.i = zext nneg i32 %shr.i52 to i64
   %add.ptr29.i = getelementptr inbounds i64, ptr %dp26.i, i64 %idx.ext28.i
   %mul31.i = shl i32 %sub.i, 3
   %conv32.i = zext i32 %mul31.i to i64
@@ -9546,7 +9546,7 @@ if.end17:                                         ; preds = %for.end.i, %if.else
   br i1 %cmp10.not, label %if.end40, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
-  %sub21 = add i32 %e, 63
+  %sub21 = add nuw i32 %e, 63
   %shr = lshr i32 %sub21, 6
   store i32 %shr, ptr %rem, align 8
   %and = and i32 %e, 63
@@ -15399,7 +15399,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   %sub44.i = sub nuw nsw i32 64, %and.i41
   %sh_prom45.i = zext nneg i32 %sub44.i to i64
   %dp46.i = getelementptr inbounds i8, ptr %r, i64 8
-  %14 = zext i32 %shr.i34 to i64
+  %14 = zext nneg i32 %shr.i34 to i64
   br label %for.body.i
 
 if.then14.i:                                      ; preds = %if.then12.i
@@ -15408,7 +15408,7 @@ if.then14.i:                                      ; preds = %if.then12.i
   br i1 %cmp18.i, label %if.then19.i, label %if.else23.i
 
 if.then19.i:                                      ; preds = %if.then14.i
-  %idx.ext.i = zext i32 %shr.i34 to i64
+  %idx.ext.i = zext nneg i32 %shr.i34 to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %dp, i64 %idx.ext.i
   %mul.i = shl i32 %sub.i, 3
   %conv.i = zext i32 %mul.i to i64
@@ -15417,7 +15417,7 @@ if.then19.i:                                      ; preds = %if.then14.i
 
 if.else23.i:                                      ; preds = %if.then14.i
   %dp24.i = getelementptr inbounds i8, ptr %r, i64 8
-  %idx.ext28.i = zext i32 %shr.i34 to i64
+  %idx.ext28.i = zext nneg i32 %shr.i34 to i64
   %add.ptr29.i = getelementptr inbounds i64, ptr %dp, i64 %idx.ext28.i
   %mul31.i = shl i32 %sub.i, 3
   %conv32.i = zext i32 %mul31.i to i64

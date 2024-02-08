@@ -10510,7 +10510,7 @@ if.end12.thread:                                  ; preds = %if.end8
   %and6.i = lshr i32 %6, 2
   %retflags.2.i = and i32 %and6.i, 24
   %retflags.3.i = or disjoint i32 %retflags.2.i, %retflags.1.i
-  %7 = or disjoint i32 %retflags.3.i, 1
+  %7 = or i32 %retflags.3.i, 1
   %ptr17 = getelementptr inbounds i8, ptr %ele, i64 8
   %8 = load ptr, ptr %ptr17, align 8
   %call1418 = call i32 @zsetAdd(ptr noundef nonnull %4, double noundef %score, ptr noundef %8, i32 noundef %7, ptr noundef nonnull %out_flags, ptr noundef %newscore) #32
@@ -14360,7 +14360,7 @@ if.end8:                                          ; preds = %for.body
 for.end:                                          ; preds = %if.end8
   %shl9 = shl i64 %or, 10
   %conv10 = zext nneg i32 %encver to i64
-  %or11 = add nuw nsw i64 %shl9, %conv10
+  %or11 = or disjoint i64 %shl9, %conv10
   br label %return
 
 return:                                           ; preds = %for.body, %entry, %for.end
@@ -14756,7 +14756,7 @@ if.end8.i:                                        ; preds = %for.body.i
 moduleTypeEncodeId.exit:                          ; preds = %if.end8.i
   %shl9.i = shl i64 %or.i, 10
   %conv10.i = zext nneg i32 %encver to i64
-  %or11.i = add nuw nsw i64 %shl9.i, %conv10.i
+  %or11.i = or disjoint i64 %shl9.i, %conv10.i
   %cmp = icmp eq i64 %or11.i, 0
   br i1 %cmp, label %return, label %if.end2
 

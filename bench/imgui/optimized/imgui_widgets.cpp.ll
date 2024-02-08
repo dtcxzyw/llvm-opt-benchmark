@@ -23867,7 +23867,7 @@ land.rhs:                                         ; preds = %while.cond
 if.end.i:                                         ; preds = %land.rhs
   %3 = load ptr, ptr %Data.i.i, align 8
   %idxprom.i.i = zext nneg i32 %idx.addr.0 to i64
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %3, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr i16, ptr %3, i64 %idxprom.i.i
   %4 = load i16, ptr %arrayidx.i.i, align 2
   %conv.i = zext i16 %4 to i32
   switch i16 %4, label %lor.rhs.i.i [
@@ -37251,7 +37251,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
 if.end.i.i:                                       ; preds = %land.rhs.i
   %6 = load ptr, ptr %Data.i.i.i6, align 8
   %idxprom.i.i.i = zext nneg i32 %idx.addr.0.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds i16, ptr %6, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr i16, ptr %6, i64 %idxprom.i.i.i
   %7 = load i16, ptr %arrayidx.i.i.i, align 2
   %conv.i.i = zext i16 %7 to i32
   switch i16 %7, label %lor.rhs.i.i.i [
@@ -37453,7 +37453,7 @@ _ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.
 if.end:                                           ; preds = %entry
   %y1 = getelementptr inbounds i8, ptr %find, i64 4
   store float 0.000000e+00, ptr %y1, align 4
-  %9 = sext i32 %str.val to i64
+  %9 = zext nneg i32 %str.val to i64
   %Data.i36 = getelementptr inbounds i8, ptr %str, i64 32
   %cmp9 = icmp sgt i32 %str.val, 0
   br label %for.cond

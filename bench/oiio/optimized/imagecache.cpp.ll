@@ -13257,8 +13257,7 @@ land.end93:                                       ; preds = %land.lhs.true80
   br i1 %77, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %land.end93
-  %sext = shl i64 %sub.ptr.sub.i.i, 25
-  %78 = ashr i64 %sext, 32
+  %78 = and i64 %sub.ptr.div.i.i, 4294967295
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit
@@ -13286,7 +13285,7 @@ _ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit:   ; preds = %for.body
   %87 = load i32, ptr %arraylen5.i.i, align 4, !noalias !173
   %cmp14.i = icmp eq i32 %87, %86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp103 = icmp slt i64 %indvars.iv.next, %78
+  %cmp103 = icmp ult i64 %indvars.iv.next, %78
   %88 = select i1 %cmp14.i, i1 %cmp103, i1 false
   br i1 %88, label %for.body, label %for.end, !llvm.loop !179
 
@@ -76384,7 +76383,7 @@ declare noundef i64 @_ZNKSt6locale2id5_M_idEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: noreturn
 declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #21
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #26
 
 declare void @__cxa_bad_cast() local_unnamed_addr
@@ -100518,7 +100517,7 @@ attributes #22 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #23 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #25 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { nofree nounwind memory(read) }
+attributes #26 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #27 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #28 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
