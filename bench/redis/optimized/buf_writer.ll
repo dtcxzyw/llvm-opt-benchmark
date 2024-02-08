@@ -73,16 +73,14 @@ if.end5.i.i:                                      ; preds = %if.end.i8.i
   %sub.i.i = add i64 %shl.i.i, -1
   %2 = tail call i64 @llvm.ctlz.i64(i64 %sub.i.i, i1 true), !range !5
   %3 = trunc i64 %2 to i32
-  %conv1.i.i.i.i.i = xor i32 %3, 63
-  %cond.i.i = tail call i32 @llvm.usub.sat.i32(i32 %conv1.i.i.i.i.i, i32 5)
-  %shl9.i.i = shl nuw nsw i32 %cond.i.i, 2
-  %cmp10.i.i = icmp ult i32 %conv1.i.i.i.i.i, 6
+  %conv1.i.i.i.i.i = shl nuw nsw i32 %3, 2
+  %sub8.i.i = xor i32 %conv1.i.i.i.i.i, 252
+  %shl9.i.i = add nsw i32 %sub8.i.i, -20
   %sub15.i.i = sub nuw nsw i64 60, %2
-  %sh_prom.i.i = select i1 %cmp10.i.i, i64 3, i64 %sub15.i.i
-  %shl18.i.i = shl nsw i64 -1, %sh_prom.i.i
+  %shl18.i.i = shl nsw i64 -1, %sub15.i.i
   %sub19.i.i = add nsw i64 %buf_len, -1
   %and.i.i = and i64 %shl18.i.i, %sub19.i.i
-  %shr.i112.i = lshr i64 %and.i.i, %sh_prom.i.i
+  %shr.i112.i = lshr i64 %and.i.i, %sub15.i.i
   %4 = trunc i64 %shr.i112.i to i32
   %conv22.i.i = and i32 %4, 3
   %add23.i.i = or disjoint i32 %conv22.i.i, %shl9.i.i
@@ -718,9 +716,6 @@ declare void @large_dalloc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6

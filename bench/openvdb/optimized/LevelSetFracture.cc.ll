@@ -5856,7 +5856,7 @@ if.end94:                                         ; preds = %if.then91, %if.end8
           to label %cleanup unwind label %lpad32
 
 cleanup:                                          ; preds = %if.end94, %invoke.cont84
-  %switch = phi i1 [ true, %invoke.cont84 ], [ false, %if.end94 ]
+  %switch.not = phi i1 [ true, %invoke.cont84 ], [ false, %if.end94 ]
   %94 = load ptr, ptr %_M_refcount3.i.i, align 8
   %cmp.not.i.i.i107 = icmp eq ptr %94, null
   br i1 %cmp.not.i.i.i107, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit137, label %if.then.i.i.i108
@@ -5933,7 +5933,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit137: ; preds = %clean
   call void @_ZN7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS2_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %instCutterGrid) #17
   %inc = add nuw i64 %p.0172, 1
   %exitcond.not = icmp eq i64 %inc, %umax
-  %or.cond = select i1 %switch, i1 true, i1 %exitcond.not
+  %or.cond = select i1 %switch.not, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %for.end, label %for.body, !llvm.loop !7
 
 ehcleanup:                                        ; preds = %lpad78, %lpad63, %lpad32
@@ -10329,7 +10329,7 @@ if.end94:                                         ; preds = %if.then91, %if.end8
           to label %cleanup unwind label %lpad32
 
 cleanup:                                          ; preds = %if.end94, %invoke.cont84
-  %switch = phi i1 [ true, %invoke.cont84 ], [ false, %if.end94 ]
+  %switch.not = phi i1 [ true, %invoke.cont84 ], [ false, %if.end94 ]
   %94 = load ptr, ptr %_M_refcount3.i.i, align 8
   %cmp.not.i.i.i107 = icmp eq ptr %94, null
   br i1 %cmp.not.i.i.i107, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit137, label %if.then.i.i.i108
@@ -10406,7 +10406,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit137: ; preds = %clean
   call void @_ZN7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS2_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %instCutterGrid) #17
   %inc = add nuw i64 %p.0172, 1
   %exitcond.not = icmp eq i64 %inc, %umax
-  %or.cond = select i1 %switch, i1 true, i1 %exitcond.not
+  %or.cond = select i1 %switch.not, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %for.end, label %for.body, !llvm.loop !45
 
 ehcleanup:                                        ; preds = %lpad78, %lpad63, %lpad32
@@ -24292,9 +24292,9 @@ entry:
   %or.i.i.i = or i64 %and, 1
   %1 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !38
   %xor.i.i.i.i.i = xor i64 %1, 63
-  %shl.i.i.i = shl nuw i64 1, %xor.i.i.i.i.i
-  %and.i.i.i = and i64 %shl.i.i.i, -2
-  %sub.i.i = sub i64 %and, %and.i.i.i
+  %shl.i.i.i = shl nuw nsw i64 1, %xor.i.i.i.i.i
+  %and.i.i.i = and i64 %shl.i.i.i, 9223372036854775806
+  %sub.i.i = sub nsw i64 %and, %and.i.i.i
   %my_table.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %arrayidx.i.i = getelementptr inbounds [64 x %"struct.std::atomic.31"], ptr %my_table.i.i, i64 0, i64 %xor.i.i.i.i.i
   %2 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
@@ -66208,7 +66208,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %arrayidx26 = getelementptr inbounds [4 x i32], ptr %log2Dim, i64 0, i64 %indvars.iv
   store i32 %add, ptr %arrayidx26, align 4
   %add29 = add i32 %add, %tableSize.0336
-  %shl32 = shl i32 2, %conv.i
+  %shl32 = shl nuw i32 2, %conv.i
   %add35 = add nsw i32 %shl32, %shr
   %shl36 = shl i32 %add35, 12
   %sub37 = add nsw i32 %shl36, -1
@@ -92215,9 +92215,9 @@ entry:
   %or.i.i.i = or i64 %and, 1
   %1 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !38
   %xor.i.i.i.i.i = xor i64 %1, 63
-  %shl.i.i.i = shl nuw i64 1, %xor.i.i.i.i.i
-  %and.i.i.i = and i64 %shl.i.i.i, -2
-  %sub.i.i = sub i64 %and, %and.i.i.i
+  %shl.i.i.i = shl nuw nsw i64 1, %xor.i.i.i.i.i
+  %and.i.i.i = and i64 %shl.i.i.i, 9223372036854775806
+  %sub.i.i = sub nsw i64 %and, %and.i.i.i
   %my_table.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %arrayidx.i.i = getelementptr inbounds [64 x %"struct.std::atomic.38"], ptr %my_table.i.i, i64 0, i64 %xor.i.i.i.i.i
   %2 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
@@ -145213,9 +145213,9 @@ entry:
   %or.i.i.i = or i64 %and, 1
   %1 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !38
   %xor.i.i.i.i.i = xor i64 %1, 63
-  %shl.i.i.i = shl nuw i64 1, %xor.i.i.i.i.i
-  %and.i.i.i = and i64 %shl.i.i.i, -2
-  %sub.i.i = sub i64 %and, %and.i.i.i
+  %shl.i.i.i = shl nuw nsw i64 1, %xor.i.i.i.i.i
+  %and.i.i.i = and i64 %shl.i.i.i, 9223372036854775806
+  %sub.i.i = sub nsw i64 %and, %and.i.i.i
   %my_table.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %arrayidx.i.i = getelementptr inbounds [64 x %"struct.std::atomic.84"], ptr %my_table.i.i, i64 0, i64 %xor.i.i.i.i.i
   %2 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
@@ -186544,7 +186544,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %arrayidx26 = getelementptr inbounds [4 x i32], ptr %log2Dim, i64 0, i64 %indvars.iv
   store i32 %add, ptr %arrayidx26, align 4
   %add29 = add i32 %add, %tableSize.0332
-  %shl32 = shl i32 2, %conv.i
+  %shl32 = shl nuw i32 2, %conv.i
   %add35 = add nsw i32 %shl32, %shr
   %shl36 = shl i32 %add35, 12
   %sub37 = add nsw i32 %shl36, -1
@@ -209151,9 +209151,9 @@ entry:
   %or.i.i.i = or i64 %and, 1
   %1 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !38
   %xor.i.i.i.i.i = xor i64 %1, 63
-  %shl.i.i.i = shl nuw i64 1, %xor.i.i.i.i.i
-  %and.i.i.i = and i64 %shl.i.i.i, -2
-  %sub.i.i = sub i64 %and, %and.i.i.i
+  %shl.i.i.i = shl nuw nsw i64 1, %xor.i.i.i.i.i
+  %and.i.i.i = and i64 %shl.i.i.i, 9223372036854775806
+  %sub.i.i = sub nsw i64 %and, %and.i.i.i
   %my_table.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %arrayidx.i.i = getelementptr inbounds [64 x %"struct.std::atomic.96"], ptr %my_table.i.i, i64 0, i64 %xor.i.i.i.i.i
   %2 = load atomic i64, ptr %arrayidx.i.i acquire, align 8

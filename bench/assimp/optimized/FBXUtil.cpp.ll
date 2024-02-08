@@ -615,17 +615,16 @@ call30.i.noexc41:                                 ; preds = %call27.i.noexc39
   %28 = load i8, ptr %arrayidx.i17.i35, align 1
   %add32.i36 = add nsw i64 %div, -1
   %call33.i43 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %add32.i36)
-          to label %_ZN6Assimp3FBX4Util15EncodeByteBlockEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit44 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
+          to label %for.body20.preheader unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
 
-_ZN6Assimp3FBX4Util15EncodeByteBlockEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit44: ; preds = %call30.i.noexc41
+for.body20.preheader:                             ; preds = %call30.i.noexc41
   store i8 %28, ptr %call33.i43, align 1
   %mul17 = shl nuw nsw i64 %sub, 2
   %div18 = udiv i64 %mul17, 3
-  %cmp1952.not = icmp eq i64 %sub, 0
-  br i1 %cmp1952.not, label %nrvo.skipdtor, label %for.body20
+  br label %for.body20
 
-for.body20:                                       ; preds = %_ZN6Assimp3FBX4Util15EncodeByteBlockEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit44, %invoke.cont23
-  %i.053 = phi i64 [ %inc25, %invoke.cont23 ], [ 0, %_ZN6Assimp3FBX4Util15EncodeByteBlockEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit44 ]
+for.body20:                                       ; preds = %for.body20.preheader, %invoke.cont23
+  %i.053 = phi i64 [ %inc25, %invoke.cont23 ], [ 0, %for.body20.preheader ]
   %29 = xor i64 %i.053, -1
   %sub22 = add nsw i64 %div, %29
   %call = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub22)
@@ -637,7 +636,7 @@ invoke.cont23:                                    ; preds = %for.body20
   %exitcond54.not = icmp eq i64 %inc25, %div18
   br i1 %exitcond54.not, label %nrvo.skipdtor, label %for.body20, !llvm.loop !7
 
-nrvo.skipdtor:                                    ; preds = %invoke.cont23, %_ZN6Assimp3FBX4Util15EncodeByteBlockEPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit44
+nrvo.skipdtor:                                    ; preds = %invoke.cont23
   ret void
 
 eh.resume:                                        ; preds = %lpad4, %lpad.body

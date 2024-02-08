@@ -968,12 +968,12 @@ for.body:                                         ; preds = %_ZN9grpc_core9Times
 
 cond.true.i:                                      ; preds = %for.body
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %queue_deadline_cap, align 8
-  switch i64 %agg.tmp.sroa.0.0.copyload.i, label %if.end11.i.i.i [
+  switch i64 %agg.tmp.sroa.0.0.copyload.i, label %if.end7.i.i.i.i [
     i64 9223372036854775807, label %_ZL20compute_min_deadlineP11timer_shard.exit
     i64 -9223372036854775808, label %cond.end.fold.split.i
   ]
 
-if.end11.i.i.i:                                   ; preds = %cond.true.i
+if.end7.i.i.i.i:                                  ; preds = %cond.true.i
   %add.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i, 1
   br label %_ZL20compute_min_deadlineP11timer_shard.exit
 
@@ -985,8 +985,8 @@ cond.false.i:                                     ; preds = %for.body
 cond.end.fold.split.i:                            ; preds = %cond.true.i
   br label %_ZL20compute_min_deadlineP11timer_shard.exit
 
-_ZL20compute_min_deadlineP11timer_shard.exit:     ; preds = %cond.true.i, %if.end11.i.i.i, %cond.false.i, %cond.end.fold.split.i
-  %retval.sroa.0.0.i = phi i64 [ %9, %cond.false.i ], [ %agg.tmp.sroa.0.0.copyload.i, %cond.true.i ], [ -9223372036854775808, %cond.end.fold.split.i ], [ %add.i.i.i.i, %if.end11.i.i.i ]
+_ZL20compute_min_deadlineP11timer_shard.exit:     ; preds = %cond.true.i, %if.end7.i.i.i.i, %cond.false.i, %cond.end.fold.split.i
+  %retval.sroa.0.0.i = phi i64 [ %9, %cond.false.i ], [ %agg.tmp.sroa.0.0.copyload.i, %cond.true.i ], [ %add.i.i.i.i, %if.end7.i.i.i.i ], [ -9223372036854775808, %cond.end.fold.split.i ]
   %min_deadline = getelementptr inbounds i8, ptr %arrayidx, i64 72
   store i64 %retval.sroa.0.0.i, ptr %min_deadline, align 8
   %10 = load ptr, ptr @_ZL13g_shard_queue, align 8
@@ -1614,12 +1614,12 @@ call.i.i.noexc:                                   ; preds = %while.end.i
 
 cond.true.i.i:                                    ; preds = %call.i.i.noexc
   %agg.tmp.sroa.0.0.copyload.i14.i = load i64, ptr %queue_deadline_cap.i.i, align 8
-  switch i64 %agg.tmp.sroa.0.0.copyload.i14.i, label %if.end11.i.i.i15.i [
+  switch i64 %agg.tmp.sroa.0.0.copyload.i14.i, label %if.end7.i.i.i.i15.i [
     i64 9223372036854775807, label %_ZL20compute_min_deadlineP11timer_shard.exit.i
     i64 -9223372036854775808, label %cond.end.fold.split.i.i
   ]
 
-if.end11.i.i.i15.i:                               ; preds = %cond.true.i.i
+if.end7.i.i.i.i15.i:                              ; preds = %cond.true.i.i
   %add.i.i.i.i16.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i14.i, 1
   br label %_ZL20compute_min_deadlineP11timer_shard.exit.i
 
@@ -1634,8 +1634,8 @@ call8.i.i.noexc:                                  ; preds = %cond.false.i.i
 cond.end.fold.split.i.i:                          ; preds = %cond.true.i.i
   br label %_ZL20compute_min_deadlineP11timer_shard.exit.i
 
-_ZL20compute_min_deadlineP11timer_shard.exit.i:   ; preds = %cond.end.fold.split.i.i, %call8.i.i.noexc, %if.end11.i.i.i15.i, %cond.true.i.i
-  %retval.sroa.0.0.i.i = phi i64 [ %43, %call8.i.i.noexc ], [ %agg.tmp.sroa.0.0.copyload.i14.i, %cond.true.i.i ], [ -9223372036854775808, %cond.end.fold.split.i.i ], [ %add.i.i.i.i16.i, %if.end11.i.i.i15.i ]
+_ZL20compute_min_deadlineP11timer_shard.exit.i:   ; preds = %cond.end.fold.split.i.i, %call8.i.i.noexc, %if.end7.i.i.i.i15.i, %cond.true.i.i
+  %retval.sroa.0.0.i.i = phi i64 [ %43, %call8.i.i.noexc ], [ %agg.tmp.sroa.0.0.copyload.i14.i, %cond.true.i.i ], [ %add.i.i.i.i16.i, %if.end7.i.i.i.i15.i ], [ -9223372036854775808, %cond.end.fold.split.i.i ]
   invoke void @gpr_mu_unlock(ptr noundef %12)
           to label %.noexc28 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 

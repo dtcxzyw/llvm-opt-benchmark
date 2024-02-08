@@ -8049,7 +8049,7 @@ eh.resume:                                        ; preds = %lpad3.body, %lpad.b
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
@@ -130872,9 +130872,9 @@ entry:
   %or.i.i.i = or i64 %and, 1
   %1 = tail call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i, i1 true), !range !682
   %xor.i.i.i.i.i = xor i64 %1, 63
-  %shl.i.i.i = shl nuw i64 1, %xor.i.i.i.i.i
-  %and.i.i.i = and i64 %shl.i.i.i, -2
-  %sub.i.i = sub i64 %and, %and.i.i.i
+  %shl.i.i.i = shl nuw nsw i64 1, %xor.i.i.i.i.i
+  %and.i.i.i = and i64 %shl.i.i.i, 9223372036854775806
+  %sub.i.i = sub nsw i64 %and, %and.i.i.i
   %my_table.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %arrayidx.i.i = getelementptr inbounds [64 x %"struct.std::atomic.595"], ptr %my_table.i.i, i64 0, i64 %xor.i.i.i.i.i
   %2 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
@@ -171604,7 +171604,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %arrayidx26 = getelementptr inbounds [4 x i32], ptr %log2Dim, i64 0, i64 %indvars.iv
   store i32 %add, ptr %arrayidx26, align 4
   %add29 = add i32 %add, %tableSize.0341
-  %shl32 = shl i32 2, %conv.i
+  %shl32 = shl nuw i32 2, %conv.i
   %add35 = add nsw i32 %shl32, %shr
   %shl36 = shl i32 %add35, 12
   %sub37 = add nsw i32 %shl36, -1
@@ -201872,7 +201872,7 @@ attributes #8 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind memory(read) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nounwind }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

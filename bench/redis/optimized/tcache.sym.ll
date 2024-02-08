@@ -1829,19 +1829,13 @@ if.end.i47:                                       ; preds = %if.then.i
 
 if.end5.i135:                                     ; preds = %if.end.i47
   %shl.i136 = shl nuw i64 %and.i, 1
-  %sub.i137 = add i64 %shl.i136, -1
+  %sub.i137 = add nsw i64 %shl.i136, -1
   %4 = tail call i64 @llvm.ctlz.i64(i64 %sub.i137, i1 true), !range !10
-  %5 = trunc i64 %4 to i32
-  %conv1.i.i.i = xor i32 %5, 63
-  %conv6.i139 = zext nneg i32 %conv1.i.i.i to i64
-  %cmp7.i140 = icmp ult i32 %conv1.i.i.i, 6
-  %sub10.i143 = add nsw i64 %conv6.i139, -3
+  %sub10.i143 = sub nuw nsw i64 60, %4
   %notmask = shl nsw i64 -1, %sub10.i143
-  %6 = xor i64 %notmask, -1
-  %sub12.i147 = select i1 %cmp7.i140, i64 7, i64 %6
-  %add.i148 = add nuw i64 %sub12.i147, %and.i
-  %not.i149 = xor i64 %sub12.i147, -1
-  %and.i150 = and i64 %add.i148, %not.i149
+  %sub12.i147 = xor i64 %notmask, -1
+  %add.i148 = add nuw nsw i64 %and.i, %sub12.i147
+  %and.i150 = and i64 %add.i148, %notmask
   br label %sz_s2u.exit
 
 sz_s2u.exit:                                      ; preds = %if.end5.i135, %if.then.i49
@@ -1864,18 +1858,12 @@ if.end.i57:                                       ; preds = %if.end9.i
 if.end5.i114:                                     ; preds = %if.end.i57
   %shl.i = shl nuw i64 %1, 1
   %sub.i115 = add i64 %shl.i, -1
-  %7 = tail call i64 @llvm.ctlz.i64(i64 %sub.i115, i1 true), !range !10
-  %8 = trunc i64 %7 to i32
-  %conv1.i.i.i69 = xor i32 %8, 63
-  %conv6.i = zext nneg i32 %conv1.i.i.i69 to i64
-  %cmp7.i = icmp ult i32 %conv1.i.i.i69, 6
-  %sub10.i = add nsw i64 %conv6.i, -3
+  %5 = tail call i64 @llvm.ctlz.i64(i64 %sub.i115, i1 true), !range !10
+  %sub10.i = sub nuw nsw i64 60, %5
   %notmask68 = shl nsw i64 -1, %sub10.i
-  %9 = xor i64 %notmask68, -1
-  %sub12.i = select i1 %cmp7.i, i64 7, i64 %9
-  %add.i117 = add nuw i64 %sub12.i, %1
-  %not.i118 = xor i64 %sub12.i, -1
-  %and.i119 = and i64 %add.i117, %not.i118
+  %sub12.i = xor i64 %notmask68, -1
+  %add.i117 = add nuw nsw i64 %1, %sub12.i
+  %and.i119 = and i64 %add.i117, %notmask68
   br label %sz_s2u.exit60
 
 sz_s2u.exit60:                                    ; preds = %if.end5.i114, %if.end.i57
@@ -1885,21 +1873,21 @@ sz_s2u.exit60:                                    ; preds = %if.end5.i114, %if.e
 
 if.end18.i:                                       ; preds = %sz_s2u.exit, %if.end9.i, %sz_s2u.exit60
   %usize.i.0 = phi i64 [ %retval.i106.0, %sz_s2u.exit60 ], [ 16384, %if.end9.i ], [ 16384, %sz_s2u.exit ]
-  %10 = load i64, ptr @sz_large_pad, align 8
+  %6 = load i64, ptr @sz_large_pad, align 8
   %add20.i = add nuw nsw i64 %0, 4095
   %and21.i = and i64 %add20.i, 9223372036854771712
   %add19.i = add nsw i64 %and21.i, -4096
   %add22.i = add i64 %add19.i, %usize.i.0
-  %sub23.i = add i64 %add22.i, %10
+  %sub23.i = add i64 %add22.i, %6
   %cmp24.i = icmp ult i64 %sub23.i, %usize.i.0
   %.usize.i.0 = select i1 %cmp24.i, i64 0, i64 %usize.i.0
   br label %sz_sa2u.exit
 
 sz_sa2u.exit:                                     ; preds = %if.end.i47, %if.end18.i, %sz_s2u.exit60, %if.end5.i, %sz_s2u.exit
   %retval.i.0 = phi i64 [ %retval.i41.0, %sz_s2u.exit ], [ 0, %if.end5.i ], [ 0, %sz_s2u.exit60 ], [ %.usize.i.0, %if.end18.i ], [ 0, %if.end.i47 ]
-  %11 = load atomic i64, ptr @arenas acquire, align 8
-  %12 = inttoptr i64 %11 to ptr
-  %cmp.i70 = icmp eq i64 %11, 0
+  %7 = load atomic i64, ptr @arenas acquire, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %cmp.i70 = icmp eq i64 %7, 0
   br i1 %cmp.i70, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %sz_sa2u.exit
@@ -1907,69 +1895,69 @@ if.then3.i:                                       ; preds = %sz_sa2u.exit
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %sz_sa2u.exit, %if.then3.i
-  %ret.0.i = phi ptr [ %call4.i, %if.then3.i ], [ %12, %sz_sa2u.exit ]
+  %ret.0.i = phi ptr [ %call4.i, %if.then3.i ], [ %8, %sz_sa2u.exit ]
   %call8.i = tail call ptr @arena_palloc(ptr noundef %tsd, ptr noundef %ret.0.i, i64 noundef %retval.i.0, i64 noundef %0, i1 noundef zeroext true, ptr noundef null) #13
   %cmp.i26.not = icmp eq ptr %call8.i, null
   br i1 %cmp.i26.not, label %return, label %if.then.i30
 
 if.then.i30:                                      ; preds = %arena_get.exit
   %cmp.i62 = icmp eq ptr %tsd, null
-  %13 = ptrtoint ptr %call8.i to i64
+  %9 = ptrtoint ptr %call8.i to i64
   br i1 %cmp.i62, label %if.then.i.i, label %if.end.i.i.split
 
 if.then.i.i:                                      ; preds = %if.then.i30
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #13
-  call fastcc void @rtree_read(ptr noalias nonnull align 8 %tmp.i, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i, i64 noundef %13)
-  %14 = load ptr, ptr %tmp.i, align 8
-  %.val79 = load i64, ptr %14, align 8
+  call fastcc void @rtree_read(ptr noalias nonnull align 8 %tmp.i, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i, i64 noundef %9)
+  %10 = load ptr, ptr %tmp.i, align 8
+  %.val79 = load i64, ptr %10, align 8
   %conv.i80 = and i64 %.val79, 4095
   %arrayidx.i82 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i80
-  %15 = load atomic i64, ptr %arrayidx.i82 monotonic, align 8
+  %11 = load atomic i64, ptr %arrayidx.i82 monotonic, align 8
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #13
-  %call1.i.i64 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i, i64 noundef %13)
+  %call1.i.i64 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i, i64 noundef %9)
   br label %if.end
 
 if.end.i.i.split:                                 ; preds = %if.then.i30
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i85 = getelementptr inbounds i8, ptr %tsd, i64 448
-  call fastcc void @rtree_read(ptr noalias nonnull align 8 %tmp.i, ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i85, i64 noundef %13)
-  %16 = load ptr, ptr %tmp.i, align 8
-  %.val = load i64, ptr %16, align 8
+  call fastcc void @rtree_read(ptr noalias nonnull align 8 %tmp.i, ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i85, i64 noundef %9)
+  %12 = load ptr, ptr %tmp.i, align 8
+  %.val = load i64, ptr %12, align 8
   %conv.i = and i64 %.val, 4095
   %arrayidx.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i
-  %17 = load atomic i64, ptr %arrayidx.i monotonic, align 8
-  %call1.i.i65 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i85, i64 noundef %13)
+  %13 = load atomic i64, ptr %arrayidx.i monotonic, align 8
+  %call1.i.i65 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i85, i64 noundef %9)
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i.i.split, %if.then.i.i
-  %.in = phi i64 [ %15, %if.then.i.i ], [ %17, %if.end.i.i.split ]
+  %.in = phi i64 [ %11, %if.then.i.i ], [ %13, %if.end.i.i.split ]
   %phi.call = phi { i64, i32 } [ %call1.i.i64, %if.then.i.i ], [ %call1.i.i65, %if.end.i.i.split ]
-  %18 = inttoptr i64 %.in to ptr
+  %14 = inttoptr i64 %.in to ptr
   %call1.i.i.fca.0.extract = extractvalue { i64, i32 } %phi.call, 0
   %idxprom.i.i = and i64 %call1.i.i.fca.0.extract, 4294967295
   %arrayidx.i.i = getelementptr inbounds [235 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i
-  %19 = load i64, ptr %arrayidx.i.i, align 8
-  %internal.i = getelementptr inbounds i8, ptr %18, i64 56
-  %20 = atomicrmw add ptr %internal.i, i64 %19 monotonic, align 8
+  %15 = load i64, ptr %arrayidx.i.i, align 8
+  %internal.i = getelementptr inbounds i8, ptr %14, i64 56
+  %16 = atomicrmw add ptr %internal.i, i64 %15 monotonic, align 8
   call fastcc void @tcache_init(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i, ptr noundef nonnull %call8.i)
   %arena = getelementptr inbounds i8, ptr %tsd, i64 296
   store ptr null, ptr %arena, align 8
-  %21 = load i32, ptr @malloc_init_state, align 4
-  %cmp.i35 = icmp eq i32 %21, 0
+  %17 = load i32, ptr @malloc_init_state, align 4
+  %cmp.i35 = icmp eq i32 %17, 0
   br i1 %cmp.i35, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %22 = load atomic i64, ptr @arenas acquire, align 8
-  %23 = inttoptr i64 %22 to ptr
+  %18 = load atomic i64, ptr @arenas acquire, align 8
+  %19 = inttoptr i64 %18 to ptr
   br label %return.sink.split
 
 if.else:                                          ; preds = %if.end
   %call.i = call fastcc ptr @arena_choose_impl(ptr noundef nonnull %tsd, i1 noundef zeroext false)
-  %24 = load ptr, ptr %arena, align 8
-  %cmp14 = icmp eq ptr %24, null
+  %20 = load ptr, ptr %arena, align 8
+  %cmp14 = icmp eq ptr %20, null
   br i1 %cmp14, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.else, %if.then8
-  %.sink = phi ptr [ %23, %if.then8 ], [ %call.i, %if.else ]
+  %.sink = phi ptr [ %19, %if.then8 ], [ %call.i, %if.else ]
   call void @tcache_arena_associate(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i, ptr noundef %.sink)
   br label %return
 
@@ -2113,19 +2101,13 @@ if.end.i32:                                       ; preds = %if.then.i
 
 if.end5.i120:                                     ; preds = %if.end.i32
   %shl.i121 = shl nuw i64 %and.i, 1
-  %sub.i122 = add i64 %shl.i121, -1
+  %sub.i122 = add nsw i64 %shl.i121, -1
   %4 = tail call i64 @llvm.ctlz.i64(i64 %sub.i122, i1 true), !range !10
-  %5 = trunc i64 %4 to i32
-  %conv1.i.i.i = xor i32 %5, 63
-  %conv6.i124 = zext nneg i32 %conv1.i.i.i to i64
-  %cmp7.i125 = icmp ult i32 %conv1.i.i.i, 6
-  %sub10.i128 = add nsw i64 %conv6.i124, -3
+  %sub10.i128 = sub nuw nsw i64 60, %4
   %notmask = shl nsw i64 -1, %sub10.i128
-  %6 = xor i64 %notmask, -1
-  %sub12.i132 = select i1 %cmp7.i125, i64 7, i64 %6
-  %add.i133 = add nuw i64 %sub12.i132, %and.i
-  %not.i134 = xor i64 %sub12.i132, -1
-  %and.i135 = and i64 %add.i133, %not.i134
+  %sub12.i132 = xor i64 %notmask, -1
+  %add.i133 = add nuw nsw i64 %and.i, %sub12.i132
+  %and.i135 = and i64 %add.i133, %notmask
   br label %sz_s2u.exit
 
 sz_s2u.exit:                                      ; preds = %if.end5.i120, %if.then.i34
@@ -2144,38 +2126,32 @@ if.end9.i:                                        ; preds = %if.end5.i
 if.end5.i99:                                      ; preds = %if.end9.i
   %shl.i = shl nuw nsw i64 %and, 1
   %sub.i100 = add nsw i64 %shl.i, -1
-  %7 = tail call i64 @llvm.ctlz.i64(i64 %sub.i100, i1 true), !range !10
-  %8 = trunc i64 %7 to i32
-  %conv1.i.i.i62 = xor i32 %8, 63
-  %conv6.i = zext nneg i32 %conv1.i.i.i62 to i64
-  %cmp7.i = icmp ult i32 %conv1.i.i.i62, 6
-  %sub10.i = add nsw i64 %conv6.i, -3
+  %5 = tail call i64 @llvm.ctlz.i64(i64 %sub.i100, i1 true), !range !10
+  %sub10.i = sub nuw nsw i64 60, %5
   %notmask61 = shl nsw i64 -1, %sub10.i
-  %9 = xor i64 %notmask61, -1
-  %sub12.i = select i1 %cmp7.i, i64 7, i64 %9
-  %add.i102 = add nuw i64 %sub12.i, %and
-  %not.i103 = xor i64 %sub12.i, -1
-  %and.i104 = and i64 %add.i102, %not.i103
+  %sub12.i = xor i64 %notmask61, -1
+  %add.i102 = add nuw nsw i64 %and, %sub12.i
+  %and.i104 = and i64 %add.i102, %notmask61
   %cmp14.i = icmp ult i64 %and.i104, %and
   br i1 %cmp14.i, label %sz_sa2u.exit, label %if.end18.i
 
 if.end18.i:                                       ; preds = %sz_s2u.exit, %if.end9.i, %if.end5.i99
   %usize.i.0 = phi i64 [ %and.i104, %if.end5.i99 ], [ 16384, %if.end9.i ], [ 16384, %sz_s2u.exit ]
-  %10 = load i64, ptr @sz_large_pad, align 8
+  %6 = load i64, ptr @sz_large_pad, align 8
   %add20.i = add nuw nsw i64 %1, 4095
   %and21.i = and i64 %add20.i, 9223372036854771712
   %add19.i = add nsw i64 %and21.i, -4096
-  %add22.i = add i64 %add19.i, %usize.i.0
-  %sub23.i = add i64 %add22.i, %10
+  %add22.i = add nsw i64 %add19.i, %usize.i.0
+  %sub23.i = add i64 %add22.i, %6
   %cmp24.i = icmp ult i64 %sub23.i, %usize.i.0
   %.usize.i.0 = select i1 %cmp24.i, i64 0, i64 %usize.i.0
   br label %sz_sa2u.exit
 
 sz_sa2u.exit:                                     ; preds = %if.end.i32, %if.end18.i, %if.end5.i99, %if.end5.i, %sz_s2u.exit
   %retval.i.0 = phi i64 [ %retval.i26.0, %sz_s2u.exit ], [ 0, %if.end5.i ], [ 0, %if.end5.i99 ], [ %.usize.i.0, %if.end18.i ], [ 0, %if.end.i32 ]
-  %11 = load atomic i64, ptr @arenas acquire, align 8
-  %12 = inttoptr i64 %11 to ptr
-  %cmp.i63 = icmp eq i64 %11, 0
+  %7 = load atomic i64, ptr @arenas acquire, align 8
+  %8 = inttoptr i64 %7 to ptr
+  %cmp.i63 = icmp eq i64 %7, 0
   br i1 %cmp.i63, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %sz_sa2u.exit
@@ -2183,7 +2159,7 @@ if.then3.i:                                       ; preds = %sz_sa2u.exit
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %sz_sa2u.exit, %if.then3.i
-  %ret.0.i = phi ptr [ %call4.i, %if.then3.i ], [ %12, %sz_sa2u.exit ]
+  %ret.0.i = phi ptr [ %call4.i, %if.then3.i ], [ %8, %sz_sa2u.exit ]
   %call8.i = tail call ptr @arena_palloc(ptr noundef %tsd, ptr noundef %ret.0.i, i64 noundef %retval.i.0, i64 noundef %1, i1 noundef zeroext true, ptr noundef null) #13
   %magicptr = ptrtoint ptr %call8.i to i64
   %cond = icmp eq ptr %call8.i, null
@@ -2196,11 +2172,11 @@ if.then.i19:                                      ; preds = %arena_get.exit
 if.then.i.i:                                      ; preds = %if.then.i19
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #13
   call fastcc void @rtree_read(ptr noalias nonnull align 8 %tmp.i, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i, i64 noundef %magicptr)
-  %13 = load ptr, ptr %tmp.i, align 8
-  %.val69 = load i64, ptr %13, align 8
+  %9 = load ptr, ptr %tmp.i, align 8
+  %.val69 = load i64, ptr %9, align 8
   %conv.i70 = and i64 %.val69, 4095
   %arrayidx.i72 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i70
-  %14 = load atomic i64, ptr %arrayidx.i72 monotonic, align 8
+  %10 = load atomic i64, ptr %arrayidx.i72 monotonic, align 8
   call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #13
   %call1.i.i59 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i, i64 noundef %magicptr)
   br label %isalloc.exit
@@ -2208,39 +2184,39 @@ if.then.i.i:                                      ; preds = %if.then.i19
 if.end.i.i.split:                                 ; preds = %if.then.i19
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i70 = getelementptr inbounds i8, ptr %tsd, i64 448
   call fastcc void @rtree_read(ptr noalias nonnull align 8 %tmp.i, ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i70, i64 noundef %magicptr)
-  %15 = load ptr, ptr %tmp.i, align 8
-  %.val = load i64, ptr %15, align 8
+  %11 = load ptr, ptr %tmp.i, align 8
+  %.val = load i64, ptr %11, align 8
   %conv.i = and i64 %.val, 4095
   %arrayidx.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i
-  %16 = load atomic i64, ptr %arrayidx.i monotonic, align 8
+  %12 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %call1.i.i60 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i70, i64 noundef %magicptr)
   br label %isalloc.exit
 
 isalloc.exit:                                     ; preds = %if.end.i.i.split, %if.then.i.i
-  %.in = phi i64 [ %14, %if.then.i.i ], [ %16, %if.end.i.i.split ]
+  %.in = phi i64 [ %10, %if.then.i.i ], [ %12, %if.end.i.i.split ]
   %phi.call = phi { i64, i32 } [ %call1.i.i59, %if.then.i.i ], [ %call1.i.i60, %if.end.i.i.split ]
-  %17 = inttoptr i64 %.in to ptr
+  %13 = inttoptr i64 %.in to ptr
   %call1.i.i.fca.0.extract = extractvalue { i64, i32 } %phi.call, 0
   %idxprom.i.i = and i64 %call1.i.i.fca.0.extract, 4294967295
   %arrayidx.i.i = getelementptr inbounds [235 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i
-  %18 = load i64, ptr %arrayidx.i.i, align 8
-  %internal.i = getelementptr inbounds i8, ptr %17, i64 56
-  %19 = atomicrmw add ptr %internal.i, i64 %18 monotonic, align 8
-  %20 = load i64, ptr @tcache_bin_alloc_size, align 8
-  %add6 = add i64 %20, %magicptr
-  %21 = inttoptr i64 %add6 to ptr
+  %14 = load i64, ptr %arrayidx.i.i, align 8
+  %internal.i = getelementptr inbounds i8, ptr %13, i64 56
+  %15 = atomicrmw add ptr %internal.i, i64 %14 monotonic, align 8
+  %16 = load i64, ptr @tcache_bin_alloc_size, align 8
+  %add6 = add i64 %16, %magicptr
+  %17 = inttoptr i64 %add6 to ptr
   %add8 = add i64 %add6, 1832
-  %22 = inttoptr i64 %add8 to ptr
-  call fastcc void @tcache_init(ptr noundef %22, ptr noundef %21, ptr noundef nonnull %call8.i)
+  %18 = inttoptr i64 %add8 to ptr
+  call fastcc void @tcache_init(ptr noundef %18, ptr noundef %17, ptr noundef nonnull %call8.i)
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 1
-  %23 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
-  %cmp1.i.i = icmp sgt i8 %23, 0
+  %19 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
+  %cmp1.i.i = icmp sgt i8 %19, 0
   br i1 %cmp1.i.i, label %if.then5.i.i, label %if.end8.i.i
 
 if.then5.i.i:                                     ; preds = %isalloc.exit
-  %24 = load atomic i64, ptr @arenas acquire, align 8
-  %25 = inttoptr i64 %24 to ptr
-  %cmp.i44.i.i = icmp eq i64 %24, 0
+  %20 = load atomic i64, ptr @arenas acquire, align 8
+  %21 = inttoptr i64 %20 to ptr
+  %cmp.i44.i.i = icmp eq i64 %20, 0
   br i1 %cmp.i44.i.i, label %if.then3.i.i.i, label %arena_ichoose.exit
 
 if.then3.i.i.i:                                   ; preds = %if.then5.i.i
@@ -2255,21 +2231,21 @@ if.end8.i.i:                                      ; preds = %isalloc.exit
 
 if.then21.i.i:                                    ; preds = %if.end8.i.i
   %call23.i.i = call ptr @arena_choose_hard(ptr noundef nonnull %tsd, i1 noundef zeroext true) #13
-  %26 = load i8, ptr %tsd, align 1
-  %27 = and i8 %26, 1
-  %tobool.i120.not.not.i.i = icmp eq i8 %27, 0
+  %22 = load i8, ptr %tsd, align 1
+  %23 = and i8 %22, 1
+  %tobool.i120.not.not.i.i = icmp eq i8 %23, 0
   br i1 %tobool.i120.not.not.i.i, label %arena_ichoose.exit, label %if.then25.i.i
 
 if.then25.i.i:                                    ; preds = %if.then21.i.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 256
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i.i.i = getelementptr inbounds i8, ptr %tsd, i64 872
   %arena28.i.i = getelementptr inbounds i8, ptr %tsd, i64 296
-  %28 = load ptr, ptr %arena28.i.i, align 8
-  %cmp29.not.i.i = icmp eq ptr %28, null
+  %24 = load ptr, ptr %arena28.i.i, align 8
+  %cmp29.not.i.i = icmp eq ptr %24, null
   br i1 %cmp29.not.i.i, label %if.end43.sink.split.i.i, label %do.end33.i.i
 
 do.end33.i.i:                                     ; preds = %if.then25.i.i
-  %cmp35.not.i.i = icmp eq ptr %28, %call23.i.i
+  %cmp35.not.i.i = icmp eq ptr %24, %call23.i.i
   br i1 %cmp35.not.i.i, label %arena_ichoose.exit, label %if.then37.i.i
 
 if.then37.i.i:                                    ; preds = %do.end33.i.i
@@ -2281,12 +2257,12 @@ if.end43.sink.split.i.i:                          ; preds = %if.then37.i.i, %if.
   br label %arena_ichoose.exit
 
 arena_ichoose.exit:                               ; preds = %if.then5.i.i, %if.then3.i.i.i, %if.end8.i.i, %if.then21.i.i, %do.end33.i.i, %if.end43.sink.split.i.i
-  %retval.0.i.i = phi ptr [ %call4.i.i.i, %if.then3.i.i.i ], [ %25, %if.then5.i.i ], [ %call23.i.i, %do.end33.i.i ], [ %call23.i.i, %if.then21.i.i ], [ %cond.i.i, %if.end8.i.i ], [ %call23.i.i, %if.end43.sink.split.i.i ]
-  call void @tcache_arena_associate(ptr noundef nonnull %tsd, ptr noundef %22, ptr noundef %21, ptr noundef %retval.0.i.i)
+  %retval.0.i.i = phi ptr [ %call4.i.i.i, %if.then3.i.i.i ], [ %21, %if.then5.i.i ], [ %call23.i.i, %do.end33.i.i ], [ %call23.i.i, %if.then21.i.i ], [ %cond.i.i, %if.end8.i.i ], [ %call23.i.i, %if.end43.sink.split.i.i ]
+  call void @tcache_arena_associate(ptr noundef nonnull %tsd, ptr noundef %18, ptr noundef %17, ptr noundef %retval.0.i.i)
   br label %return
 
 return:                                           ; preds = %arena_get.exit, %arena_ichoose.exit
-  %retval.0 = phi ptr [ %21, %arena_ichoose.exit ], [ null, %arena_get.exit ]
+  %retval.0 = phi ptr [ %17, %arena_ichoose.exit ], [ null, %arena_get.exit ]
   ret ptr %retval.0
 }
 
@@ -2846,17 +2822,11 @@ if.end5.i:                                        ; preds = %if.end.i
   %shl.i = shl nuw i64 %0, 1
   %sub.i = add i64 %shl.i, -1
   %3 = tail call i64 @llvm.ctlz.i64(i64 %sub.i, i1 true), !range !10
-  %4 = trunc i64 %3 to i32
-  %conv1.i.i.i = xor i32 %4, 63
-  %conv6.i = zext nneg i32 %conv1.i.i.i to i64
-  %cmp7.i = icmp ult i32 %conv1.i.i.i, 6
-  %sub10.i = add nsw i64 %conv6.i, -3
+  %sub10.i = sub nuw nsw i64 60, %3
   %notmask = shl nsw i64 -1, %sub10.i
-  %5 = xor i64 %notmask, -1
-  %sub12.i = select i1 %cmp7.i, i64 7, i64 %5
-  %add.i = add nuw i64 %sub12.i, %0
-  %not.i = xor i64 %sub12.i, -1
-  %and.i = and i64 %add.i, %not.i
+  %sub12.i = xor i64 %notmask, -1
+  %add.i = add nuw nsw i64 %0, %sub12.i
+  %and.i = and i64 %add.i, %notmask
   br label %sz_s2u.exit
 
 sz_s2u.exit:                                      ; preds = %if.end5.i, %if.then.i
@@ -2870,8 +2840,8 @@ if.then.i37:                                      ; preds = %sz_s2u.exit.thread,
   %sub.i57 = add nuw nsw i64 %retval.i.031, 7
   %shr.i = lshr i64 %sub.i57, 3
   %arrayidx.i = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i
-  %6 = load i8, ptr %arrayidx.i, align 1
-  %conv.i58 = zext i8 %6 to i32
+  %4 = load i8, ptr %arrayidx.i, align 1
+  %conv.i58 = zext i8 %4 to i32
   br label %sz_size2index.exit
 
 if.end.i35:                                       ; preds = %sz_s2u.exit
@@ -2881,20 +2851,18 @@ if.end.i35:                                       ; preds = %sz_s2u.exit
 if.end5.i18:                                      ; preds = %if.end.i35
   %shl.i19 = shl nuw i64 %retval.i.0, 1
   %sub.i20 = add i64 %shl.i19, -1
-  %7 = tail call i64 @llvm.ctlz.i64(i64 %sub.i20, i1 true), !range !10
-  %8 = trunc i64 %7 to i32
-  %conv1.i.i.i.i = xor i32 %8, 63
-  %cond.i = tail call i32 @llvm.usub.sat.i32(i32 %conv1.i.i.i.i, i32 5)
-  %shl9.i = shl nuw nsw i32 %cond.i, 2
-  %cmp10.i = icmp ult i32 %conv1.i.i.i.i, 6
-  %sub15.i = sub nuw nsw i64 60, %7
-  %sh_prom.i = select i1 %cmp10.i, i64 3, i64 %sub15.i
-  %shl18.i = shl nsw i64 -1, %sh_prom.i
+  %5 = tail call i64 @llvm.ctlz.i64(i64 %sub.i20, i1 true), !range !10
+  %6 = trunc i64 %5 to i32
+  %conv1.i.i.i.i = shl nuw nsw i32 %6, 2
+  %sub8.i = xor i32 %conv1.i.i.i.i, 252
+  %shl9.i = add nsw i32 %sub8.i, -20
+  %sub15.i = sub nuw nsw i64 60, %5
+  %shl18.i = shl nsw i64 -1, %sub15.i
   %sub19.i = add nsw i64 %retval.i.0, -1
   %and.i21 = and i64 %shl18.i, %sub19.i
-  %shr.i22 = lshr i64 %and.i21, %sh_prom.i
-  %9 = trunc i64 %shr.i22 to i32
-  %conv22.i = and i32 %9, 3
+  %shr.i22 = lshr i64 %and.i21, %sub15.i
+  %7 = trunc i64 %shr.i22 to i32
+  %conv22.i = and i32 %7, 3
   %add23.i = or disjoint i32 %conv22.i, %shl9.i
   br label %sz_size2index.exit
 
@@ -2906,9 +2874,9 @@ sz_size2index.exit:                               ; preds = %if.end5.i18, %if.en
   br i1 %call2, label %return, label %if.end
 
 if.end:                                           ; preds = %sz_size2index.exit
-  %10 = load i32, ptr @nhbins, align 4
-  %11 = tail call i32 @llvm.umax.i32(i32 %10, i32 39)
-  %conv6 = zext i32 %11 to i64
+  %8 = load i32, ptr @nhbins, align 4
+  %9 = tail call i32 @llvm.umax.i32(i32 %8, i32 39)
+  %conv6 = zext i32 %9 to i64
   %mul = shl nuw nsw i64 %conv6, 1
   %call7 = tail call ptr @base_alloc(ptr noundef %tsdn, ptr noundef %base, i64 noundef %mul, i64 noundef 64) #13
   store ptr %call7, ptr @tcache_bin_info, align 8
@@ -2916,17 +2884,17 @@ if.end:                                           ; preds = %sz_size2index.exit
   br i1 %cmp8, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %12 = load i32, ptr @nhbins, align 4
-  %cmp1232.not = icmp eq i32 %12, 0
+  %10 = load i32, ptr @nhbins, align 4
+  %cmp1232.not = icmp eq i32 %10, 0
   br i1 %cmp1232.not, label %for.body21.preheader, label %for.body
 
 for.cond17.preheader:                             ; preds = %tcache_ncached_max_compute.exit
-  %cmp1934 = icmp ult i32 %22, 39
+  %cmp1934 = icmp ult i32 %20, 39
   br i1 %cmp1934, label %for.body21.preheader, label %for.end28
 
 for.body21.preheader:                             ; preds = %for.cond.preheader, %for.cond17.preheader
-  %13 = phi i32 [ %22, %for.cond17.preheader ], [ 0, %for.cond.preheader ]
-  %14 = zext nneg i32 %13 to i64
+  %11 = phi i32 [ %20, %for.cond17.preheader ], [ 0, %for.cond.preheader ]
+  %12 = zext nneg i32 %11 to i64
   br label %for.body21
 
 for.body:                                         ; preds = %for.cond.preheader, %tcache_ncached_max_compute.exit
@@ -2935,28 +2903,28 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp.i23, label %do.end.i, label %if.end.i24
 
 do.end.i:                                         ; preds = %for.body
-  %15 = load i32, ptr @opt_tcache_nslots_large, align 4
+  %13 = load i32, ptr @opt_tcache_nslots_large, align 4
   br label %tcache_ncached_max_compute.exit
 
 if.end.i24:                                       ; preds = %for.body
   %nregs.i = getelementptr inbounds [39 x %struct.bin_info_s], ptr @bin_infos, i64 0, i64 %indvars.iv, i32 2
-  %16 = load i32, ptr %nregs.i, align 8
-  %17 = load i32, ptr @opt_tcache_nslots_small_min, align 4
-  %18 = load i32, ptr @opt_tcache_nslots_small_max, align 4
-  %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %18, i32 8191)
-  %rem.i = and i32 %17, 1
-  %spec.select.i = add i32 %rem.i, %17
+  %14 = load i32, ptr %nregs.i, align 8
+  %15 = load i32, ptr @opt_tcache_nslots_small_min, align 4
+  %16 = load i32, ptr @opt_tcache_nslots_small_max, align 4
+  %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %16, i32 8191)
+  %rem.i = and i32 %15, 1
+  %spec.select.i = add i32 %rem.i, %15
   %nslots_small_max.0.i = and i32 %spec.store.select.i, 8190
   %spec.store.select2.i = tail call i32 @llvm.umax.i32(i32 %nslots_small_max.0.i, i32 2)
   %cmp24.i = icmp ugt i32 %spec.select.i, %spec.store.select2.i
   %minmaxop.i = select i1 %cmp24.i, i32 %nslots_small_max.0.i, i32 %spec.select.i
   %nslots_small_min.1.i = tail call i32 @llvm.umax.i32(i32 %minmaxop.i, i32 2)
-  %19 = load i64, ptr @opt_lg_tcache_nslots_mul, align 8
-  %cmp28.i = icmp slt i64 %19, 0
-  %20 = trunc i64 %19 to i32
-  %sh_prom.i25 = sub i32 0, %20
-  %shr.i26 = lshr i32 %16, %sh_prom.i25
-  %shl.i27 = shl i32 %16, %20
+  %17 = load i64, ptr @opt_lg_tcache_nslots_mul, align 8
+  %cmp28.i = icmp slt i64 %17, 0
+  %18 = trunc i64 %17 to i32
+  %sh_prom.i25 = sub i32 0, %18
+  %shr.i26 = lshr i32 %14, %sh_prom.i25
+  %shl.i27 = shl i32 %14, %18
   %candidate.0.i = select i1 %cmp28.i, i32 %shr.i26, i32 %shl.i27
   %rem33.i = and i32 %candidate.0.i, 1
   %candidate.1.i = add i32 %rem33.i, %candidate.0.i
@@ -2968,25 +2936,25 @@ if.else42.i:                                      ; preds = %if.end.i24
   br label %tcache_ncached_max_compute.exit
 
 tcache_ncached_max_compute.exit:                  ; preds = %do.end.i, %if.end.i24, %if.else42.i
-  %retval.0.i28 = phi i32 [ %15, %do.end.i ], [ %nslots_small_min.1.i, %if.end.i24 ], [ %spec.store.select2.candidate.1.i, %if.else42.i ]
-  %21 = load ptr, ptr @tcache_bin_info, align 8
-  %arrayidx = getelementptr inbounds %struct.cache_bin_info_s, ptr %21, i64 %indvars.iv
+  %retval.0.i28 = phi i32 [ %13, %do.end.i ], [ %nslots_small_min.1.i, %if.end.i24 ], [ %spec.store.select2.candidate.1.i, %if.else42.i ]
+  %19 = load ptr, ptr @tcache_bin_info, align 8
+  %arrayidx = getelementptr inbounds %struct.cache_bin_info_s, ptr %19, i64 %indvars.iv
   %conv15 = trunc i32 %retval.0.i28 to i16
   tail call void @cache_bin_info_init(ptr noundef %arrayidx, i16 noundef zeroext %conv15) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = load i32, ptr @nhbins, align 4
-  %23 = zext i32 %22 to i64
-  %cmp12 = icmp ult i64 %indvars.iv.next, %23
+  %20 = load i32, ptr @nhbins, align 4
+  %21 = zext i32 %20 to i64
+  %cmp12 = icmp ult i64 %indvars.iv.next, %21
   br i1 %cmp12, label %for.body, label %for.cond17.preheader, !llvm.loop !15
 
 for.body21:                                       ; preds = %for.body21.preheader, %for.body21
-  %indvars.iv38 = phi i64 [ %14, %for.body21.preheader ], [ %indvars.iv.next39, %for.body21 ]
-  %24 = load ptr, ptr @tcache_bin_info, align 8
-  %arrayidx23 = getelementptr inbounds %struct.cache_bin_info_s, ptr %24, i64 %indvars.iv38
+  %indvars.iv38 = phi i64 [ %12, %for.body21.preheader ], [ %indvars.iv.next39, %for.body21 ]
+  %22 = load ptr, ptr @tcache_bin_info, align 8
+  %arrayidx23 = getelementptr inbounds %struct.cache_bin_info_s, ptr %22, i64 %indvars.iv38
   tail call void @cache_bin_info_init(ptr noundef %arrayidx23, i16 noundef zeroext 0) #13
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %25 = and i64 %indvars.iv.next39, 4294967295
-  %exitcond.not = icmp eq i64 %25, 39
+  %23 = and i64 %indvars.iv.next39, 4294967295
+  %exitcond.not = icmp eq i64 %23, 39
   br i1 %exitcond.not, label %for.end28.loopexit, label %for.body21, !llvm.loop !16
 
 for.end28.loopexit:                               ; preds = %for.body21
@@ -2994,9 +2962,9 @@ for.end28.loopexit:                               ; preds = %for.body21
   br label %for.end28
 
 for.end28:                                        ; preds = %for.end28.loopexit, %for.cond17.preheader
-  %26 = phi i32 [ %.pre, %for.end28.loopexit ], [ %22, %for.cond17.preheader ]
-  %27 = load ptr, ptr @tcache_bin_info, align 8
-  tail call void @cache_bin_info_compute_alloc(ptr noundef %27, i32 noundef %26, ptr noundef nonnull @tcache_bin_alloc_size, ptr noundef nonnull @tcache_bin_alloc_alignment) #13
+  %24 = phi i32 [ %.pre, %for.end28.loopexit ], [ %20, %for.cond17.preheader ]
+  %25 = load ptr, ptr @tcache_bin_info, align 8
+  tail call void @cache_bin_info_compute_alloc(ptr noundef %25, i32 noundef %24, ptr noundef nonnull @tcache_bin_alloc_size, ptr noundef nonnull @tcache_bin_alloc_alignment) #13
   br label %return
 
 return:                                           ; preds = %if.end, %sz_size2index.exit, %for.end28
@@ -3590,9 +3558,6 @@ declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11

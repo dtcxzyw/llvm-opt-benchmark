@@ -60,12 +60,12 @@ entry:
 cond.true:                                        ; preds = %entry
   %queue_deadline_cap = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %queue_deadline_cap, align 8
-  switch i64 %agg.tmp.sroa.0.0.copyload, label %if.end11.i.i [
+  switch i64 %agg.tmp.sroa.0.0.copyload, label %if.end7.i.i.i [
     i64 9223372036854775807, label %cond.end
     i64 -9223372036854775808, label %cond.end.fold.split
   ]
 
-if.end11.i.i:                                     ; preds = %cond.true
+if.end7.i.i.i:                                    ; preds = %cond.true
   %add.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload, 1
   br label %cond.end
 
@@ -77,8 +77,8 @@ cond.false:                                       ; preds = %entry
 cond.end.fold.split:                              ; preds = %cond.true
   br label %cond.end
 
-cond.end:                                         ; preds = %if.end11.i.i, %cond.true, %cond.end.fold.split, %cond.false
-  %retval.sroa.0.0 = phi i64 [ %0, %cond.false ], [ %agg.tmp.sroa.0.0.copyload, %cond.true ], [ -9223372036854775808, %cond.end.fold.split ], [ %add.i.i.i, %if.end11.i.i ]
+cond.end:                                         ; preds = %cond.true, %cond.end.fold.split, %if.end7.i.i.i, %cond.false
+  %retval.sroa.0.0 = phi i64 [ %0, %cond.false ], [ %agg.tmp.sroa.0.0.copyload, %cond.true ], [ %add.i.i.i, %if.end7.i.i.i ], [ -9223372036854775808, %cond.end.fold.split ]
   ret i64 %retval.sroa.0.0
 }
 
@@ -221,12 +221,12 @@ call.i.noexc:                                     ; preds = %invoke.cont27
 
 cond.true.i:                                      ; preds = %call.i.noexc
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %queue_deadline_cap, align 8
-  switch i64 %agg.tmp.sroa.0.0.copyload.i, label %if.end11.i.i.i [
+  switch i64 %agg.tmp.sroa.0.0.copyload.i, label %if.end7.i.i.i.i [
     i64 9223372036854775807, label %invoke.cont34
     i64 -9223372036854775808, label %cond.end.fold.split.i
   ]
 
-if.end11.i.i.i:                                   ; preds = %cond.true.i
+if.end7.i.i.i.i:                                  ; preds = %cond.true.i
   %add.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i, 1
   br label %invoke.cont34
 
@@ -241,8 +241,8 @@ call9.i.noexc:                                    ; preds = %cond.false.i
 cond.end.fold.split.i:                            ; preds = %cond.true.i
   br label %invoke.cont34
 
-invoke.cont34:                                    ; preds = %cond.end.fold.split.i, %call9.i.noexc, %if.end11.i.i.i, %cond.true.i
-  %retval.sroa.0.0.i = phi i64 [ %15, %call9.i.noexc ], [ %agg.tmp.sroa.0.0.copyload.i, %cond.true.i ], [ -9223372036854775808, %cond.end.fold.split.i ], [ %add.i.i.i.i, %if.end11.i.i.i ]
+invoke.cont34:                                    ; preds = %cond.end.fold.split.i, %call9.i.noexc, %if.end7.i.i.i.i, %cond.true.i
+  %retval.sroa.0.0.i = phi i64 [ %15, %call9.i.noexc ], [ %agg.tmp.sroa.0.0.copyload.i, %cond.true.i ], [ %add.i.i.i.i, %if.end7.i.i.i.i ], [ -9223372036854775808, %cond.end.fold.split.i ]
   %min_deadline = getelementptr inbounds i8, ptr %arrayidx.i, i64 72
   store i64 %retval.sroa.0.0.i, ptr %min_deadline, align 8
   %16 = load ptr, ptr %shard_queue_25, align 8
@@ -1166,12 +1166,12 @@ call.i.noexc12:                                   ; preds = %while.end
 
 cond.true.i:                                      ; preds = %call.i.noexc12
   %agg.tmp.sroa.0.0.copyload.i11 = load i64, ptr %queue_deadline_cap.i, align 8
-  switch i64 %agg.tmp.sroa.0.0.copyload.i11, label %if.end11.i.i.i [
+  switch i64 %agg.tmp.sroa.0.0.copyload.i11, label %if.end7.i.i.i.i [
     i64 9223372036854775807, label %invoke.cont4
     i64 -9223372036854775808, label %cond.end.fold.split.i
   ]
 
-if.end11.i.i.i:                                   ; preds = %cond.true.i
+if.end7.i.i.i.i:                                  ; preds = %cond.true.i
   %add.i.i.i.i = add nsw i64 %agg.tmp.sroa.0.0.copyload.i11, 1
   br label %invoke.cont4
 
@@ -1186,8 +1186,8 @@ call9.i.noexc:                                    ; preds = %cond.false.i
 cond.end.fold.split.i:                            ; preds = %cond.true.i
   br label %invoke.cont4
 
-invoke.cont4:                                     ; preds = %cond.end.fold.split.i, %call9.i.noexc, %if.end11.i.i.i, %cond.true.i
-  %retval.sroa.0.0.i = phi i64 [ %10, %call9.i.noexc ], [ %agg.tmp.sroa.0.0.copyload.i11, %cond.true.i ], [ -9223372036854775808, %cond.end.fold.split.i ], [ %add.i.i.i.i, %if.end11.i.i.i ]
+invoke.cont4:                                     ; preds = %cond.end.fold.split.i, %call9.i.noexc, %if.end7.i.i.i.i, %cond.true.i
+  %retval.sroa.0.0.i = phi i64 [ %10, %call9.i.noexc ], [ %agg.tmp.sroa.0.0.copyload.i11, %cond.true.i ], [ %add.i.i.i.i, %if.end7.i.i.i.i ], [ -9223372036854775808, %cond.end.fold.split.i ]
   store i64 %retval.sroa.0.0.i, ptr %new_min_deadline, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit16 unwind label %terminate.lpad.i15
