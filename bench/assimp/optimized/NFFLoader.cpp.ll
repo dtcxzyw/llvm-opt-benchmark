@@ -2804,7 +2804,7 @@ while.cond122:                                    ; preds = %while.cond122.backe
 
 while.cond.i446:                                  ; preds = %while.cond122, %while.cond.i446.backedge
   %incdec.ptr.i4574626 = phi ptr [ %incdec.ptr.i4574626.be, %while.cond.i446.backedge ], [ %buffer.promoted, %while.cond122 ]
-  %38 = phi i8 [ %.be6057, %while.cond.i446.backedge ], [ %37, %while.cond122 ]
+  %38 = phi i8 [ %.be6056, %while.cond.i446.backedge ], [ %37, %while.cond122 ]
   %_out.0.idx.i447 = phi i64 [ %_out.0.idx.i447.be, %while.cond.i446.backedge ], [ 0, %while.cond122 ]
   %_out.0.ptr.i448 = getelementptr inbounds i8, ptr %line, i64 %_out.0.idx.i447
   switch i8 %38, label %_ZN6Assimp9IsLineEndIcEEbT_.exit.i454 [
@@ -2829,7 +2829,7 @@ while.body.i456:                                  ; preds = %_ZN6Assimp9IsLineEn
 
 while.cond.i446.backedge:                         ; preds = %while.body.i456, %_ZN6Assimp9IsLineEndIcEEbT_.exit472
   %incdec.ptr.i4574626.be = phi ptr [ %incdec.ptr.i457, %while.body.i456 ], [ %incdec.ptr.i4574625, %_ZN6Assimp9IsLineEndIcEEbT_.exit472 ]
-  %.be6057 = phi i8 [ %.pre13.i460, %while.body.i456 ], [ %44, %_ZN6Assimp9IsLineEndIcEEbT_.exit472 ]
+  %.be6056 = phi i8 [ %.pre13.i460, %while.body.i456 ], [ %44, %_ZN6Assimp9IsLineEndIcEEbT_.exit472 ]
   %_out.0.idx.i447.be = phi i64 [ %_out.0.add.i458, %while.body.i456 ], [ 0, %_ZN6Assimp9IsLineEndIcEEbT_.exit472 ]
   br label %while.cond.i446, !llvm.loop !10
 
@@ -3151,7 +3151,7 @@ do.body212.preheader:                             ; preds = %do.body212.preheade
 
 while.cond.i580:                                  ; preds = %do.body212.preheader, %while.cond.i580.backedge
   %incdec.ptr.i5914632 = phi ptr [ %incdec.ptr.i5914632.be, %while.cond.i580.backedge ], [ %buffer.promoted4629, %do.body212.preheader ]
-  %62 = phi i8 [ %.be6056, %while.cond.i580.backedge ], [ %61, %do.body212.preheader ]
+  %62 = phi i8 [ %.be6055, %while.cond.i580.backedge ], [ %61, %do.body212.preheader ]
   %_out.0.idx.i581 = phi i64 [ %_out.0.idx.i581.be, %while.cond.i580.backedge ], [ 0, %do.body212.preheader ]
   %_out.0.ptr.i582 = getelementptr inbounds i8, ptr %line, i64 %_out.0.idx.i581
   switch i8 %62, label %_ZN6Assimp9IsLineEndIcEEbT_.exit.i588 [
@@ -3176,7 +3176,7 @@ while.body.i590:                                  ; preds = %_ZN6Assimp9IsLineEn
 
 while.cond.i580.backedge:                         ; preds = %while.body.i590, %_ZN6Assimp9IsLineEndIcEEbT_.exit606
   %incdec.ptr.i5914632.be = phi ptr [ %incdec.ptr.i591, %while.body.i590 ], [ %incdec.ptr.i5914631, %_ZN6Assimp9IsLineEndIcEEbT_.exit606 ]
-  %.be6056 = phi i8 [ %.pre13.i594, %while.body.i590 ], [ %66, %_ZN6Assimp9IsLineEndIcEEbT_.exit606 ]
+  %.be6055 = phi i8 [ %.pre13.i594, %while.body.i590 ], [ %66, %_ZN6Assimp9IsLineEndIcEEbT_.exit606 ]
   %_out.0.idx.i581.be = phi i64 [ %_out.0.add.i592, %while.body.i590 ], [ 0, %_ZN6Assimp9IsLineEndIcEEbT_.exit606 ]
   br label %while.cond.i580, !llvm.loop !14
 
@@ -4222,7 +4222,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorI9aiCol
 
 while.cond.i1032:                                 ; preds = %do.body359.preheader, %while.cond.i1032.backedge
   %incdec.ptr.i10434680 = phi ptr [ %incdec.ptr.i10434680.be, %while.cond.i1032.backedge ], [ %buffer.promoted4677, %do.body359.preheader ]
-  %107 = phi i8 [ %.be6059, %while.cond.i1032.backedge ], [ %60, %do.body359.preheader ]
+  %107 = phi i8 [ %.be6058, %while.cond.i1032.backedge ], [ %60, %do.body359.preheader ]
   %_out.0.idx.i1033 = phi i64 [ %_out.0.idx.i1033.be, %while.cond.i1032.backedge ], [ 0, %do.body359.preheader ]
   %_out.0.ptr.i1034 = getelementptr inbounds i8, ptr %line, i64 %_out.0.idx.i1033
   switch i8 %107, label %_ZN6Assimp9IsLineEndIcEEbT_.exit.i1040 [
@@ -4247,7 +4247,7 @@ while.body.i1042:                                 ; preds = %_ZN6Assimp9IsLineEn
 
 while.cond.i1032.backedge:                        ; preds = %while.body.i1042, %_ZN6Assimp9IsLineEndIcEEbT_.exit1058
   %incdec.ptr.i10434680.be = phi ptr [ %incdec.ptr.i1043, %while.body.i1042 ], [ %incdec.ptr.i10434679, %_ZN6Assimp9IsLineEndIcEEbT_.exit1058 ]
-  %.be6059 = phi i8 [ %.pre13.i1046, %while.body.i1042 ], [ %111, %_ZN6Assimp9IsLineEndIcEEbT_.exit1058 ]
+  %.be6058 = phi i8 [ %.pre13.i1046, %while.body.i1042 ], [ %111, %_ZN6Assimp9IsLineEndIcEEbT_.exit1058 ]
   %_out.0.idx.i1033.be = phi i64 [ %_out.0.add.i1044, %while.body.i1042 ], [ 0, %_ZN6Assimp9IsLineEndIcEEbT_.exit1058 ]
   br label %while.cond.i1032, !llvm.loop !48
 
@@ -4369,7 +4369,7 @@ do.body390.preheader.lr.ph:                       ; preds = %_ZNSt6vectorIjSaIjE
 
 do.body390.preheader:                             ; preds = %do.body390.preheader.lr.ph, %if.end679
   %subMeshIdx.04718 = phi i32 [ 0, %do.body390.preheader.lr.ph ], [ %subMeshIdx.2, %if.end679 ]
-  %hasColor.34717 = phi i8 [ %hasColor.0.lcssa, %do.body390.preheader.lr.ph ], [ %hasColor.4.ph.ph6054, %if.end679 ]
+  %hasColor.34717 = phi i8 [ %hasColor.0.lcssa, %do.body390.preheader.lr.ph ], [ %hasColor.4.ph.ph6053, %if.end679 ]
   %i386.04716 = phi i32 [ 0, %do.body390.preheader.lr.ph ], [ %inc682, %if.end679 ]
   %tempIdx.sroa.0.24715 = phi ptr [ %call5.i.i.i.i1087, %do.body390.preheader.lr.ph ], [ %tempIdx.sroa.0.6, %if.end679 ]
   %tempIdx.sroa.12.24714 = phi ptr [ %call5.i.i.i.i1087, %do.body390.preheader.lr.ph ], [ %tempIdx.sroa.12.5, %if.end679 ]
@@ -4709,11 +4709,11 @@ invoke.cont438:                                   ; preds = %if.end431, %_ZN6Ass
 
 while.cond445.outer.outer:                        ; preds = %if.end560, %invoke.cont438
   %matIdx.0.ph.ph = phi i32 [ %matIdx.1, %if.end560 ], [ 0, %invoke.cont438 ]
-  %hasColor.4.ph.ph = phi i8 [ %hasColor.4.ph.ph6054, %if.end560 ], [ %hasColor.34717, %invoke.cont438 ]
-  %.ph = phi <2 x float> [ %.ph6055, %if.end560 ], [ <float 1.000000e+00, float 1.000000e+00>, %invoke.cont438 ]
-  br label %while.cond445.outer.outer6053
+  %hasColor.4.ph.ph = phi i8 [ %hasColor.4.ph.ph6053, %if.end560 ], [ %hasColor.34717, %invoke.cont438 ]
+  %.ph = phi <2 x float> [ %.ph6054, %if.end560 ], [ <float 1.000000e+00, float 1.000000e+00>, %invoke.cont438 ]
+  br label %while.cond445.outer.outer6052
 
-while.cond445.outer:                              ; preds = %while.cond445.outer.backedge, %while.cond445.outer.outer6053
+while.cond445.outer:                              ; preds = %while.cond445.outer.backedge, %while.cond445.outer.outer6052
   br label %while.cond445
 
 while.cond445:                                    ; preds = %while.cond445.outer, %invoke.cont512
@@ -4755,13 +4755,13 @@ lpad440.loopexit.split-lp.loopexit:               ; preds = %for.body593
 lpad440.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit: ; preds = %invoke.cont512, %if.then511, %invoke.cont502, %sw.bb501
   %lpad.loopexit3953 = landingpad { ptr, i32 }
           cleanup
-  store <2 x float> %.ph6055, ptr %g.i1199, align 4
+  store <2 x float> %.ph6054, ptr %g.i1199, align 4
   br label %ehcleanup680
 
 lpad440.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %invoke.cont557, %if.then556
   %lpad.loopexit.split-lp3954 = landingpad { ptr, i32 }
           cleanup
-  store <2 x float> %.ph6055, ptr %g.i1199, align 4
+  store <2 x float> %.ph6054, ptr %g.i1199, align 4
   br label %ehcleanup680
 
 lpad440.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %cond.true.i.i.i.i, %call13.i.noexc, %if.end627, %if.then608
@@ -4862,15 +4862,15 @@ if.then464:                                       ; preds = %_ZN6Assimp9strtoul1
   %155 = and <2 x i32> %154, <i32 255, i32 255>
   %156 = uitofp <2 x i32> %155 to <2 x float>
   %157 = fdiv <2 x float> %156, <float 2.550000e+02, float 2.550000e+02>
-  br label %while.cond445.outer.outer6053.backedge
+  br label %while.cond445.outer.outer6052.backedge
 
-while.cond445.outer.outer6053.backedge:           ; preds = %if.then464, %if.else479
-  %.ph6055.be = phi <2 x float> [ %162, %if.else479 ], [ %157, %if.then464 ]
-  br label %while.cond445.outer.outer6053, !llvm.loop !51
+while.cond445.outer.outer6052.backedge:           ; preds = %if.then464, %if.else479
+  %.ph6054.be = phi <2 x float> [ %162, %if.else479 ], [ %157, %if.then464 ]
+  br label %while.cond445.outer.outer6052, !llvm.loop !51
 
-while.cond445.outer.outer6053:                    ; preds = %while.cond445.outer.outer6053.backedge, %while.cond445.outer.outer
-  %hasColor.4.ph.ph6054 = phi i8 [ %hasColor.4.ph.ph, %while.cond445.outer.outer ], [ 1, %while.cond445.outer.outer6053.backedge ]
-  %.ph6055 = phi <2 x float> [ %.ph, %while.cond445.outer.outer ], [ %.ph6055.be, %while.cond445.outer.outer6053.backedge ]
+while.cond445.outer.outer6052:                    ; preds = %while.cond445.outer.outer6052.backedge, %while.cond445.outer.outer
+  %hasColor.4.ph.ph6053 = phi i8 [ %hasColor.4.ph.ph, %while.cond445.outer.outer ], [ 1, %while.cond445.outer.outer6052.backedge ]
+  %.ph6054 = phi <2 x float> [ %.ph, %while.cond445.outer.outer ], [ %.ph6054.be, %while.cond445.outer.outer6052.backedge ]
   br label %while.cond445.outer
 
 if.else479:                                       ; preds = %_ZN6Assimp9strtoul16EPKcPS1_.exit1248
@@ -4885,7 +4885,7 @@ if.else479:                                       ; preds = %_ZN6Assimp9strtoul1
   %160 = and <2 x i32> %159, <i32 15, i32 15>
   %161 = uitofp <2 x i32> %160 to <2 x float>
   %162 = fmul <2 x float> %161, <float 6.250000e-02, float 6.250000e-02>
-  br label %while.cond445.outer.outer6053.backedge
+  br label %while.cond445.outer.outer6052.backedge
 
 if.else495:                                       ; preds = %if.end452, %land.lhs.true.i1216
   %cmp497 = icmp eq i8 %146, 95
@@ -4986,7 +4986,7 @@ while.cond445.outer.backedge:                     ; preds = %while.cond.i1315, %
 lpad534:                                          ; preds = %if.then530
   %168 = landingpad { ptr, i32 }
           cleanup
-  store <2 x float> %.ph6055, ptr %g.i1199, align 4
+  store <2 x float> %.ph6054, ptr %g.i1199, align 4
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp533) #23
   br label %ehcleanup680
 
@@ -5186,7 +5186,7 @@ while.body.i1318:                                 ; preds = %while.cond.i1315
   br label %while.cond.i1315, !llvm.loop !53
 
 while.end583:                                     ; preds = %while.end.i1206, %while.end.i1206, %while.end.i1206, %while.end.i1206
-  store <2 x float> %.ph6055, ptr %g.i1199, align 4
+  store <2 x float> %.ph6054, ptr %g.i1199, align 4
   %196 = load ptr, ptr %meshes, align 8
   %add.ptr.i1320 = getelementptr inbounds %"struct.Assimp::NFFImporter::MeshInfo", ptr %196, i64 %conv586
   %197 = load ptr, ptr %_M_finish.i, align 8
@@ -5440,7 +5440,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   br label %for.body648.lr.ph
 
 for.body648.lr.ph:                                ; preds = %if.then.i.i1357, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
-  %224 = and i8 %hasColor.4.ph.ph6054, 1
+  %224 = and i8 %hasColor.4.ph.ph6053, 1
   %tobool651.not = icmp eq i8 %224, 0
   %colors = getelementptr inbounds i8, ptr %mesh.2, i64 424
   %_M_finish.i1368 = getelementptr inbounds i8, ptr %mesh.2, i64 432
@@ -9936,7 +9936,7 @@ invoke.cont1895:                                  ; preds = %while.end.i.i3056, 
   %680 = call noundef float @llvm.fmuladd.f32(float %sub5.i, float %sub5.i, float %679)
   %sqrt.i = call noundef float @llvm.sqrt.f32(float %680)
   %cmp1897 = fcmp olt float %sqrt.i, 0x3F847AE140000000
-  br i1 %cmp1897, label %if.then1898, label %if.end1902
+  br i1 %cmp1897, label %if.then1898, label %if.end.i3085
 
 if.then1898:                                      ; preds = %invoke.cont1895
   %call1900 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
@@ -9946,13 +9946,9 @@ invoke.cont1899:                                  ; preds = %if.then1898
   invoke void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call1900, ptr noundef nonnull @.str.57)
           to label %while.cond707 unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, !llvm.loop !79
 
-if.end1902:                                       ; preds = %invoke.cont1895
-  %cmp.i3084 = fcmp oeq float %sqrt.i, 0.000000e+00
-  br i1 %cmp.i3084, label %_ZN10aiVector3tIfEdVEf.exit, label %if.end.i3085
-
-if.end.i3085:                                     ; preds = %if.end1902
-  %ref.tmp1880.sroa.2.0.dir.sroa_idx.le = getelementptr inbounds i8, ptr %652, i64 -264
+if.end.i3085:                                     ; preds = %invoke.cont1895
   %dir.le = getelementptr inbounds i8, ptr %652, i64 -272
+  %ref.tmp1880.sroa.2.0.dir.sroa_idx.le = getelementptr inbounds i8, ptr %652, i64 -264
   %div.i3086 = fdiv float 1.000000e+00, %sqrt.i
   %681 = insertelement <2 x float> poison, float %div.i3086, i64 0
   %682 = shufflevector <2 x float> %681, <2 x float> poison, <2 x i32> zeroinitializer
@@ -9960,24 +9956,21 @@ if.end.i3085:                                     ; preds = %if.end1902
   store <2 x float> %683, ptr %dir.le, align 4
   %mul3.i = fmul float %div.i3086, %sub5.i
   store float %mul3.i, ptr %ref.tmp1880.sroa.2.0.dir.sroa_idx.le, align 4
-  br label %_ZN10aiVector3tIfEdVEf.exit
-
-_ZN10aiVector3tIfEdVEf.exit:                      ; preds = %if.end1902, %if.end.i3085
   %684 = load float, ptr %radius1, align 4
   %685 = load float, ptr %radius2, align 4
   %cmp3.not.i = icmp eq i32 %iTesselation.0.ph, 0
   br i1 %cmp3.not.i, label %_ZN6Assimp11integer_powEjj.exit, label %for.body.i
 
-for.body.i:                                       ; preds = %_ZN10aiVector3tIfEdVEf.exit, %for.body.i
-  %i.05.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %_ZN10aiVector3tIfEdVEf.exit ]
-  %res.04.i = phi i32 [ %mul.i3090, %for.body.i ], [ 1, %_ZN10aiVector3tIfEdVEf.exit ]
+for.body.i:                                       ; preds = %if.end.i3085, %for.body.i
+  %i.05.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end.i3085 ]
+  %res.04.i = phi i32 [ %mul.i3090, %for.body.i ], [ 1, %if.end.i3085 ]
   %mul.i3090 = shl i32 %res.04.i, 2
   %inc.i = add nuw i32 %i.05.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %iTesselation.0.ph
   br i1 %exitcond.not.i, label %_ZN6Assimp11integer_powEjj.exit, label %for.body.i, !llvm.loop !80
 
-_ZN6Assimp11integer_powEjj.exit:                  ; preds = %for.body.i, %_ZN10aiVector3tIfEdVEf.exit
-  %res.0.lcssa.i = phi i32 [ 1, %_ZN10aiVector3tIfEdVEf.exit ], [ %mul.i3090, %for.body.i ]
+_ZN6Assimp11integer_powEjj.exit:                  ; preds = %for.body.i, %if.end.i3085
+  %res.0.lcssa.i = phi i32 [ 1, %if.end.i3085 ], [ %mul.i3090, %for.body.i ]
   %vertices1908 = getelementptr inbounds i8, ptr %652, i64 -128
   invoke void @_ZN6Assimp14StandardShapes8MakeConeEfffjRSt6vectorI10aiVector3tIfESaIS3_EEb(float noundef %sqrt.i, float noundef %684, float noundef %685, i32 noundef %res.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(24) %vertices1908, i1 noundef zeroext false)
           to label %invoke.cont1909 unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp

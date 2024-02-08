@@ -12912,22 +12912,19 @@ stbtt__GetGlyphShapeT2.exit.i:                    ; preds = %if.end7.i.i, %if.th
 
 stbtt_GetGlyphShape.exit:                         ; preds = %if.then.i, %stbtt__GetGlyphShapeT2.exit.i
   %retval.0.i = phi i32 [ %retval.0.i.i, %stbtt__GetGlyphShapeT2.exit.i ], [ %call.i, %if.then.i ]
-  %cmp = fcmp oeq float %scale_x, 0.000000e+00
-  %scale_x.addr.0 = select i1 %cmp, float %scale_y, float %scale_x
-  %cmp1 = fcmp oeq float %scale_y, 0.000000e+00
-  br i1 %cmp1, label %if.then2, label %if.end6
+  %cmp = fcmp une float %scale_x, 0.000000e+00
+  %cmp1 = fcmp une float %scale_y, 0.000000e+00
+  %brmerge = or i1 %cmp, %cmp1
+  %scale_x.addr.0 = select i1 %cmp, float %scale_x, float %scale_y
+  %scale_y.mux = select i1 %cmp1, float %scale_y, float %scale_x.addr.0
+  br i1 %brmerge, label %if.end6, label %if.then4
 
-if.then2:                                         ; preds = %stbtt_GetGlyphShape.exit
-  %cmp3 = fcmp oeq float %scale_x.addr.0, 0.000000e+00
-  br i1 %cmp3, label %if.then4, label %if.end6
-
-if.then4:                                         ; preds = %if.then2
+if.then4:                                         ; preds = %stbtt_GetGlyphShape.exit
   %3 = load ptr, ptr %vertices, align 8
   tail call void @free(ptr noundef %3) #34
   br label %return
 
-if.end6:                                          ; preds = %if.then2, %stbtt_GetGlyphShape.exit
-  %scale_y.addr.0 = phi float [ %scale_y, %stbtt_GetGlyphShape.exit ], [ %scale_x.addr.0, %if.then2 ]
+if.end6:                                          ; preds = %stbtt_GetGlyphShape.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %x0.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y0.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %x1.i)
@@ -12948,7 +12945,7 @@ if.else.i20:                                      ; preds = %if.end6
   %8 = insertelement <2 x i32> poison, i32 %sub.i, i64 0
   %9 = insertelement <2 x i32> %8, i32 %4, i64 1
   %10 = sitofp <2 x i32> %9 to <2 x float>
-  %11 = insertelement <2 x float> poison, float %scale_y.addr.0, i64 0
+  %11 = insertelement <2 x float> poison, float %scale_y.mux, i64 0
   %12 = insertelement <2 x float> %11, float %scale_x.addr.0, i64 1
   %13 = insertelement <2 x float> poison, float %shift_y, i64 0
   %14 = insertelement <2 x float> %13, float %shift_x, i64 1
@@ -13036,8 +13033,8 @@ if.then33:                                        ; preds = %if.then25
   store i32 %36, ptr %stride, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %winding_count.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %winding_lengths.i)
-  %cmp.i = fcmp ogt float %scale_x.addr.0, %scale_y.addr.0
-  %cond.i = select i1 %cmp.i, float %scale_y.addr.0, float %scale_x.addr.0
+  %cmp.i = fcmp ogt float %scale_x.addr.0, %scale_y.mux
+  %cond.i = select i1 %cmp.i, float %scale_y.mux, float %scale_x.addr.0
   store i32 0, ptr %winding_count.i, align 4
   store ptr null, ptr %winding_lengths.i, align 8
   %div.i = fdiv float 0x3FD6666660000000, %cond.i
@@ -13050,7 +13047,7 @@ if.then.i24:                                      ; preds = %if.then33
   %38 = load i32, ptr %winding_count.i, align 4
   %39 = extractelement <2 x i32> %25, i64 0
   %40 = extractelement <2 x i32> %25, i64 1
-  call void @stbtt__rasterize(ptr noundef nonnull %gbm, ptr noundef nonnull %call.i22, ptr noundef %37, i32 noundef %38, float noundef %scale_x.addr.0, float noundef %scale_y.addr.0, float noundef %shift_x, float noundef %shift_y, i32 noundef %40, i32 noundef %39, i32 noundef 1, ptr poison)
+  call void @stbtt__rasterize(ptr noundef nonnull %gbm, ptr noundef nonnull %call.i22, ptr noundef %37, i32 noundef %38, float noundef %scale_x.addr.0, float noundef %scale_y.mux, float noundef %shift_x, float noundef %shift_y, i32 noundef %40, i32 noundef %39, i32 noundef 1, ptr poison)
   call void @free(ptr noundef %37) #34
   call void @free(ptr noundef nonnull %call.i22) #34
   br label %stbtt_Rasterize.exit

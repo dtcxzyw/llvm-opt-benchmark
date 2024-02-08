@@ -15437,10 +15437,6 @@ _ZNK4pstd8optionalIN4pbrt11SampledGridIfEEEptEv.exit: ; preds = %if.then20
 
 if.then28:                                        ; preds = %_ZNK4pstd8optionalIN4pbrt11SampledGridIfEEEptEv.exit
   store float %mul, ptr %ref.tmp31, align 4
-  %cmp.i.i = fcmp ugt float %mul, 0.000000e+00
-  br i1 %cmp.i.i, label %if.end.i.i, label %_ZN4pbrt17BlackbodySpectrumC2Ef.exit
-
-if.end.i.i:                                       ; preds = %if.then28
   %div.i53 = fdiv float 0x3F67BD1180000000, %mul
   %mul.i54 = fmul float %div.i53, 1.000000e+09
   %mul.i.i = fmul float %mul.i54, 0x3E112E0BE0000000
@@ -15464,7 +15460,7 @@ if.end.i.i:                                       ; preds = %if.then28
   %cmp.i.i.i = icmp slt i32 %add.i.i.i, -126
   br i1 %cmp.i.i.i, label %_ZN4pbrt7FastExpEf.exit.i.i, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.end.i.i
+if.end.i.i.i:                                     ; preds = %if.then28
   %cmp3.i.i.i = icmp sgt i32 %add.i.i.i, 127
   br i1 %cmp3.i.i.i, label %_ZN4pbrt7FastExpEf.exit.i.i, label %if.end5.i.i.i
 
@@ -15477,8 +15473,8 @@ if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
   %35 = fadd float %34, -1.000000e+00
   br label %_ZN4pbrt7FastExpEf.exit.i.i
 
-_ZN4pbrt7FastExpEf.exit.i.i:                      ; preds = %if.end5.i.i.i, %if.end.i.i.i, %if.end.i.i
-  %retval.0.i.i.i = phi float [ %35, %if.end5.i.i.i ], [ -1.000000e+00, %if.end.i.i ], [ 0x7FF0000000000000, %if.end.i.i.i ]
+_ZN4pbrt7FastExpEf.exit.i.i:                      ; preds = %if.end5.i.i.i, %if.end.i.i.i, %if.then28
+  %retval.0.i.i.i = phi float [ %35, %if.end5.i.i.i ], [ -1.000000e+00, %if.then28 ], [ 0x7FF0000000000000, %if.end.i.i.i ]
   %mul4.i.i = fmul float %mul2.i.i.i, %retval.0.i.i.i
   %div5.i.i = fdiv float 0x3CA12A2C20000000, %mul4.i.i
   %36 = fcmp uno float %div5.i.i, 0.000000e+00
@@ -15488,9 +15484,8 @@ land.rhs.i.i55:                                   ; preds = %_ZN4pbrt7FastExpEf.
   tail call void @_ZN4pbrt8LogFatalIJRA11_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.28, i32 noundef 78, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(11) @.str.29) #24
   unreachable
 
-_ZN4pbrt17BlackbodySpectrumC2Ef.exit:             ; preds = %if.then28, %_ZN4pbrt7FastExpEf.exit.i.i
-  %retval.0.i.i = phi float [ 0.000000e+00, %if.then28 ], [ %div5.i.i, %_ZN4pbrt7FastExpEf.exit.i.i ]
-  %div3.i = fdiv float 1.000000e+00, %retval.0.i.i
+_ZN4pbrt17BlackbodySpectrumC2Ef.exit:             ; preds = %_ZN4pbrt7FastExpEf.exit.i.i
+  %div3.i = fdiv float 1.000000e+00, %div5.i.i
   %normalizationFactor.i = getelementptr inbounds i8, ptr %ref.tmp31, i64 4
   store float %div3.i, ptr %normalizationFactor.i, align 4
   %call32 = call { <2 x float>, <2 x float> } @_ZNK4pbrt17BlackbodySpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp31, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
@@ -21805,10 +21800,6 @@ if.end8:                                          ; preds = %if.end
   %LeScale = getelementptr inbounds i8, ptr %this, i64 392
   %21 = load float, ptr %LeScale, align 8
   store float %mul, ptr %ref.tmp10, align 4
-  %cmp.i.i = fcmp ugt float %mul, 0.000000e+00
-  br i1 %cmp.i.i, label %if.end.i.i, label %_ZN4pbrt17BlackbodySpectrumC2Ef.exit
-
-if.end.i.i:                                       ; preds = %if.end8
   %div.i = fdiv float 0x3F67BD1180000000, %mul
   %mul.i = fmul float %div.i, 1.000000e+09
   %mul.i.i = fmul float %mul.i, 0x3E112E0BE0000000
@@ -21832,7 +21823,7 @@ if.end.i.i:                                       ; preds = %if.end8
   %cmp.i.i.i = icmp slt i32 %add.i.i.i, -126
   br i1 %cmp.i.i.i, label %_ZN4pbrt7FastExpEf.exit.i.i, label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.end.i.i
+if.end.i.i.i:                                     ; preds = %if.end8
   %cmp3.i.i.i = icmp sgt i32 %add.i.i.i, 127
   br i1 %cmp3.i.i.i, label %_ZN4pbrt7FastExpEf.exit.i.i, label %if.end5.i.i.i
 
@@ -21845,8 +21836,8 @@ if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
   %28 = fadd float %27, -1.000000e+00
   br label %_ZN4pbrt7FastExpEf.exit.i.i
 
-_ZN4pbrt7FastExpEf.exit.i.i:                      ; preds = %if.end5.i.i.i, %if.end.i.i.i, %if.end.i.i
-  %retval.0.i.i.i = phi float [ %28, %if.end5.i.i.i ], [ -1.000000e+00, %if.end.i.i ], [ 0x7FF0000000000000, %if.end.i.i.i ]
+_ZN4pbrt7FastExpEf.exit.i.i:                      ; preds = %if.end5.i.i.i, %if.end.i.i.i, %if.end8
+  %retval.0.i.i.i = phi float [ %28, %if.end5.i.i.i ], [ -1.000000e+00, %if.end8 ], [ 0x7FF0000000000000, %if.end.i.i.i ]
   %mul4.i.i = fmul float %mul2.i.i.i, %retval.0.i.i.i
   %div5.i.i = fdiv float 0x3CA12A2C20000000, %mul4.i.i
   %29 = fcmp uno float %div5.i.i, 0.000000e+00
@@ -21856,9 +21847,8 @@ land.rhs.i.i:                                     ; preds = %_ZN4pbrt7FastExpEf.
   call void @_ZN4pbrt8LogFatalIJRA11_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.28, i32 noundef 78, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(11) @.str.29) #24
   unreachable
 
-_ZN4pbrt17BlackbodySpectrumC2Ef.exit:             ; preds = %if.end8, %_ZN4pbrt7FastExpEf.exit.i.i
-  %retval.0.i.i = phi float [ 0.000000e+00, %if.end8 ], [ %div5.i.i, %_ZN4pbrt7FastExpEf.exit.i.i ]
-  %div3.i = fdiv float 1.000000e+00, %retval.0.i.i
+_ZN4pbrt17BlackbodySpectrumC2Ef.exit:             ; preds = %_ZN4pbrt7FastExpEf.exit.i.i
+  %div3.i = fdiv float 1.000000e+00, %div5.i.i
   %normalizationFactor.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 4
   store float %div3.i, ptr %normalizationFactor.i, align 4
   %call11 = call { <2 x float>, <2 x float> } @_ZNK4pbrt17BlackbodySpectrum6SampleERKNS_18SampledWavelengthsE(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp10, ptr noundef nonnull align 4 dereferenceable(32) %lambda)

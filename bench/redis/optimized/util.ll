@@ -1621,10 +1621,8 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false5
   br i1 %cmp10, label %land.lhs.true, label %lor.lhs.false21
 
 land.lhs.true:                                    ; preds = %lor.lhs.false8
-  %or.cond9 = tail call i1 @llvm.is.fpclass.f64(double %call1, i32 612)
-  %6 = fcmp uno double %call1, 0.000000e+00
-  %or.cond = select i1 %or.cond9, i1 true, i1 %6
-  br i1 %or.cond, label %return, label %if.end
+  %or.cond8 = tail call i1 @llvm.is.fpclass.f64(double %call1, i32 615)
+  br i1 %or.cond8, label %return, label %if.end
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false8
   %.old = fcmp uno double %call1, 0.000000e+00
@@ -1910,7 +1908,7 @@ if.end42:                                         ; preds = %if.then40, %if.end3
   %idxprom43 = zext nneg i32 %integer_digits.0 to i64
   %arrayidx44 = getelementptr inbounds i8, ptr %dst.addr.0, i64 %idxprom43
   store i8 46, ptr %arrayidx44, align 1
-  %add45 = add nuw i32 %fractional_digits, 1
+  %add45 = add nuw nsw i32 %fractional_digits, 1
   %add46 = add nuw i32 %add45, %integer_digits.0
   %add.ptr48 = getelementptr inbounds i8, ptr %arrayidx44, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr48, i8 48, i64 %idxprom15, i1 false)

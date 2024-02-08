@@ -14788,7 +14788,7 @@ land.rhs.i:                                       ; preds = %for.body.i13, %for.
   %movePosition.015.i = phi ptr [ %incdec.ptr4.i, %for.body6.i ], [ %i.020.i.ptr, %for.body.i13 ]
   %incdec.ptr4.i = getelementptr i8, ptr %movePosition.015.i, i64 -4
   %10 = load float, ptr %incdec.ptr4.i, align 4
-  %brmerge.i.i = fcmp uno float %.fr24.i, %10
+  %brmerge.i.i = fcmp uno float %10, 0.000000e+00
   br i1 %brmerge.i.i, label %if.end.i.i, label %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i
 
 if.end.i.i:                                       ; preds = %land.rhs.i
@@ -14877,7 +14877,7 @@ for.cond1.i:                                      ; preds = %for.body.i14, %for.
   %end.0.i = phi ptr [ %incdec.ptr5.i, %for.body3.i ], [ %current.014.i, %for.body.i14 ]
   %incdec.ptr5.i = getelementptr i8, ptr %end.0.i, i64 -4
   %21 = load float, ptr %incdec.ptr5.i, align 4
-  %brmerge.i.i15 = fcmp uno float %.fr17.i, %21
+  %brmerge.i.i15 = fcmp uno float %21, 0.000000e+00
   br i1 %brmerge.i.i15, label %if.end.i.i20, label %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i16
 
 if.end.i.i20:                                     ; preds = %for.cond1.i
@@ -14967,7 +14967,7 @@ land.rhs.i40:                                     ; preds = %for.body.i37, %for.
   %movePosition.015.i41 = phi ptr [ %incdec.ptr4.i42, %for.body6.i50 ], [ %i.020.i38, %for.body.i37 ]
   %incdec.ptr4.i42 = getelementptr i8, ptr %movePosition.015.i41, i64 -4
   %32 = load float, ptr %incdec.ptr4.i42, align 4
-  %brmerge.i.i43 = fcmp uno float %.fr24.i39, %32
+  %brmerge.i.i43 = fcmp uno float %32, 0.000000e+00
   br i1 %brmerge.i.i43, label %if.end.i.i52, label %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i44
 
 if.end.i.i52:                                     ; preds = %land.rhs.i40
@@ -17963,21 +17963,21 @@ return:                                           ; preds = %_ZN10TestObjectaSER
 define linkonce_odr dso_local void @_ZN5eastl8Internal22quick_sort_impl_helperIP10TestObjectlKS2_EEvT_S5_T0_(ptr noundef %first, ptr noundef %last, i64 noundef %kRecursionCount) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %first to i64
-  %sub.ptr.lhs.cast17 = ptrtoint ptr %last to i64
-  %sub.ptr.sub18 = sub i64 %sub.ptr.lhs.cast17, %sub.ptr.rhs.cast
-  %cmp19 = icmp sgt i64 %sub.ptr.sub18, 672
-  %cmp120 = icmp sgt i64 %kRecursionCount, 0
-  %0 = and i1 %cmp120, %cmp19
+  %sub.ptr.lhs.cast16 = ptrtoint ptr %last to i64
+  %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast16, %sub.ptr.rhs.cast
+  %cmp18 = icmp sgt i64 %sub.ptr.sub17, 672
+  %cmp119 = icmp sgt i64 %kRecursionCount, 0
+  %0 = and i1 %cmp119, %cmp18
   br i1 %0, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %_ZN5eastl6medianI10TestObjectEEOT_S3_S3_S3_.exit
-  %sub.ptr.sub23 = phi i64 [ %sub.ptr.sub, %_ZN5eastl6medianI10TestObjectEEOT_S3_S3_S3_.exit ], [ %sub.ptr.sub18, %entry ]
-  %last.addr.022 = phi ptr [ %call11, %_ZN5eastl6medianI10TestObjectEEOT_S3_S3_S3_.exit ], [ %last, %entry ]
-  %kRecursionCount.addr.021 = phi i64 [ %dec, %_ZN5eastl6medianI10TestObjectEEOT_S3_S3_S3_.exit ], [ %kRecursionCount, %entry ]
-  %sub.ptr.div16 = udiv exact i64 %sub.ptr.sub23, 24
-  %div15 = lshr i64 %sub.ptr.div16, 1
+  %sub.ptr.sub22 = phi i64 [ %sub.ptr.sub, %_ZN5eastl6medianI10TestObjectEEOT_S3_S3_S3_.exit ], [ %sub.ptr.sub17, %entry ]
+  %last.addr.021 = phi ptr [ %call11, %_ZN5eastl6medianI10TestObjectEEOT_S3_S3_S3_.exit ], [ %last, %entry ]
+  %kRecursionCount.addr.020 = phi i64 [ %dec, %_ZN5eastl6medianI10TestObjectEEOT_S3_S3_S3_.exit ], [ %kRecursionCount, %entry ]
+  %sub.ptr.div = udiv exact i64 %sub.ptr.sub22, 24
+  %div15 = lshr i64 %sub.ptr.div, 1
   %add.ptr = getelementptr inbounds %struct.TestObject, ptr %first, i64 %div15
-  %add.ptr7 = getelementptr inbounds i8, ptr %last.addr.022, i64 -24
+  %add.ptr7 = getelementptr inbounds i8, ptr %last.addr.021, i64 -24
   %1 = load i32, ptr %first, align 8
   %2 = load i32, ptr %add.ptr, align 8
   %cmp.i.i.i = icmp slt i32 %1, %2
@@ -18004,20 +18004,20 @@ if.else13.i.i:                                    ; preds = %if.else9.i.i
 
 _ZN5eastl6medianI10TestObjectEEOT_S3_S3_S3_.exit: ; preds = %if.then.i.i, %if.else.i.i, %if.else9.i.i, %if.else13.i.i
   %retval.0.i.i = phi ptr [ %add.ptr, %if.then.i.i ], [ %first, %if.else9.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ %spec.select18.i.i, %if.else13.i.i ]
-  %call11 = tail call noundef ptr @_ZN5eastl13get_partitionIP10TestObjectS1_EET_S3_S3_RKT0_(ptr noundef nonnull %first, ptr noundef nonnull %last.addr.022, ptr noundef nonnull align 8 dereferenceable(20) %retval.0.i.i)
-  %dec = add nsw i64 %kRecursionCount.addr.021, -1
-  tail call void @_ZN5eastl8Internal22quick_sort_impl_helperIP10TestObjectlKS2_EEvT_S5_T0_(ptr noundef %call11, ptr noundef nonnull %last.addr.022, i64 noundef %dec)
+  %call11 = tail call noundef ptr @_ZN5eastl13get_partitionIP10TestObjectS1_EET_S3_S3_RKT0_(ptr noundef nonnull %first, ptr noundef nonnull %last.addr.021, ptr noundef nonnull align 8 dereferenceable(20) %retval.0.i.i)
+  %dec = add nsw i64 %kRecursionCount.addr.020, -1
+  tail call void @_ZN5eastl8Internal22quick_sort_impl_helperIP10TestObjectlKS2_EEvT_S5_T0_(ptr noundef %call11, ptr noundef nonnull %last.addr.021, i64 noundef %dec)
   %sub.ptr.lhs.cast = ptrtoint ptr %call11 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 672
-  %cmp1 = icmp sgt i64 %kRecursionCount.addr.021, 1
+  %cmp1 = icmp sgt i64 %kRecursionCount.addr.020, 1
   %4 = and i1 %cmp1, %cmp
   br i1 %4, label %while.body, label %while.end, !llvm.loop !390
 
 while.end:                                        ; preds = %_ZN5eastl6medianI10TestObjectEEOT_S3_S3_S3_.exit, %entry
   %kRecursionCount.addr.0.lcssa = phi i64 [ %kRecursionCount, %entry ], [ %dec, %_ZN5eastl6medianI10TestObjectEEOT_S3_S3_S3_.exit ]
   %last.addr.0.lcssa = phi ptr [ %last, %entry ], [ %call11, %_ZN5eastl6medianI10TestObjectEEOT_S3_S3_S3_.exit ]
-  %sub.ptr.sub.lcssa = phi i64 [ %sub.ptr.sub18, %entry ], [ %sub.ptr.sub, %_ZN5eastl6medianI10TestObjectEEOT_S3_S3_S3_.exit ]
+  %sub.ptr.sub.lcssa = phi i64 [ %sub.ptr.sub17, %entry ], [ %sub.ptr.sub, %_ZN5eastl6medianI10TestObjectEEOT_S3_S3_S3_.exit ]
   %cmp12 = icmp eq i64 %kRecursionCount.addr.0.lcssa, 0
   br i1 %cmp12, label %if.then, label %if.end
 
@@ -29977,7 +29977,7 @@ for.cond.split:                                   ; preds = %for.cond
 while.cond.us30:                                  ; preds = %for.cond.split, %while.body.us38
   %first.addr.1.us31 = phi ptr [ %incdec.ptr.us39, %while.body.us38 ], [ %first.addr.0, %for.cond.split ]
   %9 = load float, ptr %first.addr.1.us31, align 4
-  %brmerge.i.us32 = fcmp uno float %9, %.fr63
+  %brmerge.i.us32 = fcmp uno float %9, 0.000000e+00
   br i1 %brmerge.i.us32, label %if.end.i.us35, label %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us33
 
 _ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us33: ; preds = %while.cond.us30
@@ -29985,11 +29985,9 @@ _ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us33: ; preds = %while.cond.us30
   br i1 %cmp7.i.us34, label %while.body.us38, label %while.cond2.preheader
 
 if.end.i.us35:                                    ; preds = %while.cond.us30
-  %10 = fcmp ord float %9, 0.000000e+00
-  %11 = bitcast float %9 to i32
-  %cmp13.i.us = icmp slt i32 %11, 0
-  %or.cond60 = or i1 %10, %cmp13.i.us
-  br i1 %or.cond60, label %while.body.us38, label %while.cond2.preheader
+  %10 = bitcast float %9 to i32
+  %cmp13.i.us = icmp slt i32 %10, 0
+  br i1 %cmp13.i.us, label %while.body.us38, label %while.cond2.preheader
 
 while.body.us38:                                  ; preds = %if.end.i.us35, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us33
   %incdec.ptr.us39 = getelementptr inbounds i8, ptr %first.addr.1.us31, i64 4
@@ -29997,51 +29995,49 @@ while.body.us38:                                  ; preds = %if.end.i.us35, %_ZN
 
 while.cond:                                       ; preds = %for.cond.split, %while.body
   %first.addr.1 = phi ptr [ %incdec.ptr, %while.body ], [ %first.addr.0, %for.cond.split ]
-  %12 = load float, ptr %first.addr.1, align 4
-  %brmerge.i = fcmp uno float %12, %.fr63
+  %11 = load float, ptr %first.addr.1, align 4
+  %brmerge.i = fcmp uno float %11, 0.000000e+00
   br i1 %brmerge.i, label %if.end.i, label %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit
 
 if.end.i:                                         ; preds = %while.cond
-  %13 = fcmp uno float %12, 0.000000e+00
-  %14 = bitcast float %12 to i32
-  %cmp13.i = icmp slt i32 %14, 0
-  %or.cond62 = and i1 %13, %cmp13.i
-  br i1 %or.cond62, label %while.body, label %while.cond2.preheader
+  %12 = bitcast float %11 to i32
+  %cmp13.i = icmp slt i32 %12, 0
+  br i1 %cmp13.i, label %while.body, label %while.cond2.preheader
 
 while.cond2.preheader:                            ; preds = %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit, %if.end.i, %if.end.i.us35, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us33, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us, %if.end.i.us, %if.end.i.us.us, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us.us
   %.us-phi = phi ptr [ %first.addr.1.us.us, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us.us ], [ %first.addr.1.us.us, %if.end.i.us.us ], [ %first.addr.1.us, %if.end.i.us ], [ %first.addr.1.us, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us ], [ %first.addr.1.us31, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us33 ], [ %first.addr.1.us31, %if.end.i.us35 ], [ %first.addr.1, %if.end.i ], [ %first.addr.1, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit ]
-  %.us-phi27 = phi float [ %3, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us.us ], [ %3, %if.end.i.us.us ], [ %6, %if.end.i.us ], [ %6, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us ], [ %9, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us33 ], [ %9, %if.end.i.us35 ], [ %12, %if.end.i ], [ %12, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit ]
+  %.us-phi27 = phi float [ %3, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us.us ], [ %3, %if.end.i.us.us ], [ %6, %if.end.i.us ], [ %6, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us ], [ %9, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.us33 ], [ %9, %if.end.i.us35 ], [ %11, %if.end.i ], [ %11, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit ]
   %cmp13.i20 = icmp slt i32 %2, 0
   br i1 %1, label %while.cond2.us, label %while.cond2
 
 while.cond2.us:                                   ; preds = %while.cond2.preheader, %while.cond2.us.backedge
   %last.addr.0.pn.us = phi ptr [ %last.addr.1.us, %while.cond2.us.backedge ], [ %last.addr.0, %while.cond2.preheader ]
   %last.addr.1.us = getelementptr inbounds i8, ptr %last.addr.0.pn.us, i64 -4
-  %15 = load float, ptr %last.addr.1.us, align 4
-  %brmerge.i11.us = fcmp uno float %.fr63, %15
+  %13 = load float, ptr %last.addr.1.us, align 4
+  %brmerge.i11.us = fcmp uno float %.fr63, %13
   br i1 %brmerge.i11.us, label %if.end.i15.us, label %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit23.us
 
 _ZNK5eastl8Internal16SafeFloatCompareclEff.exit23.us: ; preds = %while.cond2.us
-  %cmp7.i13.us = fcmp olt float %.fr63, %15
+  %cmp7.i13.us = fcmp olt float %.fr63, %13
   br i1 %cmp7.i13.us, label %while.cond2.us.backedge, label %while.end6
 
 if.end.i15.us:                                    ; preds = %while.cond2.us
-  %16 = fcmp uno float %15, 0.000000e+00
-  br i1 %16, label %if.then11.i21.us, label %if.else.i19.us
+  %14 = fcmp uno float %13, 0.000000e+00
+  br i1 %14, label %if.then11.i21.us, label %if.else.i19.us
 
 if.else.i19.us:                                   ; preds = %if.end.i15.us
   br i1 %cmp13.i20, label %while.cond2.us.backedge, label %while.end6
 
 if.then11.i21.us:                                 ; preds = %if.end.i15.us
-  %17 = bitcast float %15 to i32
-  %cmp12.i22.us = icmp slt i32 %2, %17
+  %15 = bitcast float %13 to i32
+  %cmp12.i22.us = icmp slt i32 %2, %15
   br i1 %cmp12.i22.us, label %while.cond2.us.backedge, label %while.end6
 
 while.cond2.us.backedge:                          ; preds = %if.then11.i21.us, %if.else.i19.us, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit23.us
   br label %while.cond2.us, !llvm.loop !990
 
 _ZNK5eastl8Internal16SafeFloatCompareclEff.exit:  ; preds = %while.cond
-  %cmp7.i = fcmp olt float %12, %.fr63
+  %cmp7.i = fcmp olt float %11, %.fr63
   br i1 %cmp7.i, label %while.body, label %while.cond2.preheader
 
 while.body:                                       ; preds = %if.end.i, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit
@@ -30051,17 +30047,17 @@ while.body:                                       ; preds = %if.end.i, %_ZNK5eas
 while.cond2:                                      ; preds = %while.cond2.preheader, %while.cond2.backedge
   %last.addr.0.pn = phi ptr [ %last.addr.1, %while.cond2.backedge ], [ %last.addr.0, %while.cond2.preheader ]
   %last.addr.1 = getelementptr inbounds i8, ptr %last.addr.0.pn, i64 -4
-  %18 = load float, ptr %last.addr.1, align 4
-  %brmerge.i11 = fcmp uno float %.fr63, %18
+  %16 = load float, ptr %last.addr.1, align 4
+  %brmerge.i11 = fcmp uno float %16, 0.000000e+00
   br i1 %brmerge.i11, label %if.end.i15, label %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit23
 
 if.end.i15:                                       ; preds = %while.cond2
-  %19 = bitcast float %18 to i32
-  %cmp15.i17 = icmp sgt i32 %19, 0
+  %17 = bitcast float %16 to i32
+  %cmp15.i17 = icmp sgt i32 %17, 0
   br i1 %cmp15.i17, label %while.cond2.backedge, label %while.end6
 
 _ZNK5eastl8Internal16SafeFloatCompareclEff.exit23: ; preds = %while.cond2
-  %cmp7.i13 = fcmp olt float %.fr63, %18
+  %cmp7.i13 = fcmp olt float %.fr63, %16
   br i1 %cmp7.i13, label %while.cond2.backedge, label %while.end6
 
 while.cond2.backedge:                             ; preds = %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit23, %if.end.i15
@@ -30069,7 +30065,7 @@ while.cond2.backedge:                             ; preds = %_ZNK5eastl8Internal
 
 while.end6:                                       ; preds = %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit23, %if.end.i15, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit23.us, %if.else.i19.us, %if.then11.i21.us
   %.us-phi57 = phi ptr [ %last.addr.1.us, %if.then11.i21.us ], [ %last.addr.1.us, %if.else.i19.us ], [ %last.addr.1.us, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit23.us ], [ %last.addr.1, %if.end.i15 ], [ %last.addr.1, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit23 ]
-  %.us-phi58 = phi float [ %15, %if.then11.i21.us ], [ %15, %if.else.i19.us ], [ %15, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit23.us ], [ %18, %if.end.i15 ], [ %18, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit23 ]
+  %.us-phi58 = phi float [ %13, %if.then11.i21.us ], [ %13, %if.else.i19.us ], [ %13, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit23.us ], [ %16, %if.end.i15 ], [ %16, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit23 ]
   %cmp.not = icmp ult ptr %.us-phi, %.us-phi57
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -30136,8 +30132,7 @@ if.end.i18.thread69:                              ; preds = %if.then.thread67
 if.then.thread:                                   ; preds = %if.else.i
   %11 = load float, ptr %c, align 4
   %12 = fcmp uno float %11, 0.000000e+00
-  %brmerge.i1466 = fcmp uno float %1, %11
-  br i1 %brmerge.i1466, label %if.else14.i19, label %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit26
+  br i1 %12, label %if.else14.i19, label %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit26
 
 if.end.i18:                                       ; preds = %if.then
   br i1 %2, label %if.then9.i21, label %if.else14.i19
@@ -30161,13 +30156,13 @@ if.else.i22:                                      ; preds = %if.end.i18.thread69
 
 if.else14.i19:                                    ; preds = %if.then.thread, %if.end.i18
   %19 = phi float [ %7, %if.end.i18 ], [ %11, %if.then.thread ]
-  %20 = phi i1 [ %8, %if.end.i18 ], [ %12, %if.then.thread ]
+  %20 = phi i1 [ %8, %if.end.i18 ], [ true, %if.then.thread ]
   %21 = bitcast float %19 to i32
   %cmp15.i20 = icmp sgt i32 %21, 0
   br i1 %cmp15.i20, label %return, label %if.else
 
 _ZNK5eastl8Internal16SafeFloatCompareclEff.exit26: ; preds = %if.then, %if.then.thread, %if.then.thread67
-  %22 = phi i1 [ %12, %if.then.thread ], [ %8, %if.then ], [ %10, %if.then.thread67 ]
+  %22 = phi i1 [ false, %if.then.thread ], [ %8, %if.then ], [ %10, %if.then.thread67 ]
   %23 = phi float [ %11, %if.then.thread ], [ %7, %if.then ], [ %9, %if.then.thread67 ]
   %cmp7.i16 = fcmp olt float %1, %23
   br i1 %cmp7.i16, label %return, label %if.else
@@ -30417,33 +30412,26 @@ land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i.pr
   %parentPosition.015.i.i.i.i = ashr i64 %parentPosition.015.in.i.i.i.i, 1
   %add.ptr.i.i.i.i = getelementptr inbounds float, ptr %first, i64 %parentPosition.015.i.i.i.i
   %15 = load float, ptr %add.ptr.i.i.i.i, align 4
-  %brmerge.i.i.i.i.i = fcmp uno float %15, %.fr10
-  br i1 %brmerge.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i
+  %brmerge.i.i.i.i.i = fcmp uno float %15, 0.000000e+00
+  br i1 %brmerge.i.i.i.i.i, label %if.then9.i.i.i.i.i, label %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i
 
-if.end.i.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i
-  %16 = fcmp uno float %15, 0.000000e+00
-  br i1 %16, label %if.then9.i.i.i.i.i, label %if.else14.i.i.i.i.i
-
-if.then9.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %17 = bitcast float %15 to i32
-  %cmp13.i.i.i.i.i = icmp slt i32 %17, 0
+if.then9.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
+  %16 = bitcast float %15 to i32
+  %cmp13.i.i.i.i.i = icmp slt i32 %16, 0
   br i1 %cmp13.i.i.i.i.i, label %for.body.i.i.i.i, label %_ZN5eastl11adjust_heapIPflfNS_8Internal16SafeFloatCompareEEEvT_T0_S5_S5_OT1_T2_.exit
-
-if.else14.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
-  br i1 %cmp15.i.i.i.i.i, label %for.body.i.i.i.i, label %_ZN5eastl11adjust_heapIPflfNS_8Internal16SafeFloatCompareEEEvT_T0_S5_S5_OT1_T2_.exit
 
 _ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i: ; preds = %land.rhs.i.i.i.i
   %cmp7.i.i.i.i.i = fcmp olt float %15, %.fr10
   br i1 %cmp7.i.i.i.i.i, label %for.body.i.i.i.i, label %_ZN5eastl11adjust_heapIPflfNS_8Internal16SafeFloatCompareEEEvT_T0_S5_S5_OT1_T2_.exit
 
-for.body.i.i.i.i:                                 ; preds = %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i, %if.else14.i.i.i.i.i, %if.then9.i.i.i.i.i
+for.body.i.i.i.i:                                 ; preds = %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i, %if.then9.i.i.i.i.i
   %add.ptr3.i.i.i.i = getelementptr inbounds float, ptr %first, i64 %position.addr.014.i.i.i.i
   store float %15, ptr %add.ptr3.i.i.i.i, align 4
   %cmp.i.i.i.i.not = icmp slt i64 %parentPosition.015.i.i.i.i, %parentPosition.0
   br i1 %cmp.i.i.i.i.not, label %_ZN5eastl11adjust_heapIPflfNS_8Internal16SafeFloatCompareEEEvT_T0_S5_S5_OT1_T2_.exit, label %land.rhs.i.i.i.i, !llvm.loop !993
 
-_ZN5eastl11adjust_heapIPflfNS_8Internal16SafeFloatCompareEEEvT_T0_S5_S5_OT1_T2_.exit: ; preds = %for.body.i.i.i.i, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i, %if.else14.i.i.i.i.i, %if.then9.i.i.i.i.i, %for.body.i.i.i.i.us, %if.then9.i.i.i.i.i.us, %if.else14.i.i.i.i.i.us, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i.us, %if.end14.i.i
-  %position.addr.0.lcssa.i.i.i.i = phi i64 [ %position.addr.1.i.i, %if.end14.i.i ], [ %position.addr.014.i.i.i.i.us, %if.else14.i.i.i.i.i.us ], [ %position.addr.014.i.i.i.i.us, %if.then9.i.i.i.i.i.us ], [ %parentPosition.015.i.i.i.i.us, %for.body.i.i.i.i.us ], [ %position.addr.014.i.i.i.i.us, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i.us ], [ %position.addr.014.i.i.i.i, %if.else14.i.i.i.i.i ], [ %position.addr.014.i.i.i.i, %if.then9.i.i.i.i.i ], [ %parentPosition.015.i.i.i.i, %for.body.i.i.i.i ], [ %position.addr.014.i.i.i.i, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i ]
+_ZN5eastl11adjust_heapIPflfNS_8Internal16SafeFloatCompareEEEvT_T0_S5_S5_OT1_T2_.exit: ; preds = %for.body.i.i.i.i, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i, %if.then9.i.i.i.i.i, %for.body.i.i.i.i.us, %if.then9.i.i.i.i.i.us, %if.else14.i.i.i.i.i.us, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i.us, %if.end14.i.i
+  %position.addr.0.lcssa.i.i.i.i = phi i64 [ %position.addr.1.i.i, %if.end14.i.i ], [ %position.addr.014.i.i.i.i.us, %if.else14.i.i.i.i.i.us ], [ %position.addr.014.i.i.i.i.us, %if.then9.i.i.i.i.i.us ], [ %parentPosition.015.i.i.i.i.us, %for.body.i.i.i.i.us ], [ %position.addr.014.i.i.i.i.us, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i.us ], [ %position.addr.014.i.i.i.i, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i ], [ %parentPosition.015.i.i.i.i, %for.body.i.i.i.i ], [ %position.addr.014.i.i.i.i, %if.then9.i.i.i.i.i ]
   %add.ptr7.i.i.i.i = getelementptr inbounds float, ptr %first, i64 %position.addr.0.lcssa.i.i.i.i
   store float %.fr10, ptr %add.ptr7.i.i.i.i, align 4
   %cmp2.not = icmp eq i64 %dec, 0
@@ -30613,7 +30601,7 @@ land.rhs.i.i.i.i.us6:                             ; preds = %land.rhs.i.i.i.i.pr
   %parentPosition.015.i.i.i.i.us9 = lshr i64 %parentPosition.015.in.i.i.i.i.us8, 1
   %add.ptr.i.i.i.i.us10 = getelementptr inbounds float, ptr %first, i64 %parentPosition.015.i.i.i.i.us9
   %20 = load float, ptr %add.ptr.i.i.i.i.us10, align 4
-  %brmerge.i.i.i.i.i.us11 = fcmp uno float %20, %.fr29
+  %brmerge.i.i.i.i.i.us11 = fcmp uno float %20, 0.000000e+00
   br i1 %brmerge.i.i.i.i.i.us11, label %if.end.i.i.i.i.i.us14, label %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i.us12
 
 _ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i.us12: ; preds = %land.rhs.i.i.i.i.us6
@@ -30621,11 +30609,9 @@ _ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i.us12: ; preds = %land.rh
   br i1 %cmp7.i.i.i.i.i.us13, label %for.body.i.i.i.i.us17, label %_ZN5eastl11adjust_heapIPflfNS_8Internal16SafeFloatCompareEEEvT_T0_S5_S5_OT1_T2_.exit
 
 if.end.i.i.i.i.i.us14:                            ; preds = %land.rhs.i.i.i.i.us6
-  %21 = fcmp ord float %20, 0.000000e+00
-  %22 = bitcast float %20 to i32
-  %cmp13.i.i.i.i.i.us = icmp slt i32 %22, 0
-  %or.cond26 = or i1 %21, %cmp13.i.i.i.i.i.us
-  br i1 %or.cond26, label %for.body.i.i.i.i.us17, label %_ZN5eastl11adjust_heapIPflfNS_8Internal16SafeFloatCompareEEEvT_T0_S5_S5_OT1_T2_.exit
+  %21 = bitcast float %20 to i32
+  %cmp13.i.i.i.i.i.us = icmp slt i32 %21, 0
+  br i1 %cmp13.i.i.i.i.i.us, label %for.body.i.i.i.i.us17, label %_ZN5eastl11adjust_heapIPflfNS_8Internal16SafeFloatCompareEEEvT_T0_S5_S5_OT1_T2_.exit
 
 for.body.i.i.i.i.us17:                            ; preds = %if.end.i.i.i.i.i.us14, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i.us12
   %add.ptr3.i.i.i.i.us18 = getelementptr inbounds float, ptr %first, i64 %position.addr.014.i.i.i.i.us7
@@ -30638,24 +30624,22 @@ land.rhs.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i.pr
   %parentPosition.015.in.i.i.i.i = add nsw i64 %position.addr.014.i.i.i.i, -1
   %parentPosition.015.i.i.i.i = lshr i64 %parentPosition.015.in.i.i.i.i, 1
   %add.ptr.i.i.i.i = getelementptr inbounds float, ptr %first, i64 %parentPosition.015.i.i.i.i
-  %23 = load float, ptr %add.ptr.i.i.i.i, align 4
-  %brmerge.i.i.i.i.i = fcmp uno float %23, %.fr29
+  %22 = load float, ptr %add.ptr.i.i.i.i, align 4
+  %brmerge.i.i.i.i.i = fcmp uno float %22, 0.000000e+00
   br i1 %brmerge.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %land.rhs.i.i.i.i
-  %24 = fcmp uno float %23, 0.000000e+00
-  %25 = bitcast float %23 to i32
-  %cmp13.i.i.i.i.i = icmp slt i32 %25, 0
-  %or.cond28 = and i1 %24, %cmp13.i.i.i.i.i
-  br i1 %or.cond28, label %for.body.i.i.i.i, label %_ZN5eastl11adjust_heapIPflfNS_8Internal16SafeFloatCompareEEEvT_T0_S5_S5_OT1_T2_.exit
+  %23 = bitcast float %22 to i32
+  %cmp13.i.i.i.i.i = icmp slt i32 %23, 0
+  br i1 %cmp13.i.i.i.i.i, label %for.body.i.i.i.i, label %_ZN5eastl11adjust_heapIPflfNS_8Internal16SafeFloatCompareEEEvT_T0_S5_S5_OT1_T2_.exit
 
 _ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i: ; preds = %land.rhs.i.i.i.i
-  %cmp7.i.i.i.i.i = fcmp olt float %23, %.fr29
+  %cmp7.i.i.i.i.i = fcmp olt float %22, %.fr29
   br i1 %cmp7.i.i.i.i.i, label %for.body.i.i.i.i, label %_ZN5eastl11adjust_heapIPflfNS_8Internal16SafeFloatCompareEEEvT_T0_S5_S5_OT1_T2_.exit
 
 for.body.i.i.i.i:                                 ; preds = %if.end.i.i.i.i.i, %_ZNK5eastl8Internal16SafeFloatCompareclEff.exit.i.i.i.i
   %add.ptr3.i.i.i.i = getelementptr inbounds float, ptr %first, i64 %position.addr.014.i.i.i.i
-  store float %23, ptr %add.ptr3.i.i.i.i, align 4
+  store float %22, ptr %add.ptr3.i.i.i.i, align 4
   %cmp.i.i.i.i.not = icmp ult i64 %parentPosition.015.in.i.i.i.i, 2
   br i1 %cmp.i.i.i.i.not, label %_ZN5eastl11adjust_heapIPflfNS_8Internal16SafeFloatCompareEEEvT_T0_S5_S5_OT1_T2_.exit, label %land.rhs.i.i.i.i, !llvm.loop !993
 

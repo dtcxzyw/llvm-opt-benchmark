@@ -23486,16 +23486,14 @@ entry:
   %gbm = alloca %struct.stbtt__bitmap, align 8
   %vertices = alloca ptr, align 8
   %call = call i32 @stbtt_GetGlyphShape(ptr noundef %info, i32 noundef %glyph, ptr noundef nonnull %vertices)
-  %cmp = fcmp oeq float %scale_x, 0.000000e+00
-  %scale_x.addr.0 = select i1 %cmp, float %scale_y, float %scale_x
-  %cmp1 = fcmp oeq float %scale_y, 0.000000e+00
-  br i1 %cmp1, label %if.then2, label %if.end6
+  %cmp = fcmp une float %scale_x, 0.000000e+00
+  %cmp1 = fcmp une float %scale_y, 0.000000e+00
+  %brmerge = or i1 %cmp, %cmp1
+  %scale_x.addr.0 = select i1 %cmp, float %scale_x, float %scale_y
+  %scale_y.mux = select i1 %cmp1, float %scale_y, float %scale_x.addr.0
+  br i1 %brmerge, label %if.end6, label %if.then4
 
-if.then2:                                         ; preds = %entry
-  %cmp3 = fcmp oeq float %scale_x.addr.0, 0.000000e+00
-  br i1 %cmp3, label %if.then4, label %if.end6
-
-if.then4:                                         ; preds = %if.then2
+if.then4:                                         ; preds = %entry
   %0 = load ptr, ptr %vertices, align 8
   %1 = load ptr, ptr %info, align 8
   %.val24 = load ptr, ptr %1, align 8
@@ -23504,8 +23502,7 @@ if.then4:                                         ; preds = %if.then2
   tail call void %.val25(ptr %.val24, ptr noundef %0) #51
   br label %return
 
-if.end6:                                          ; preds = %if.then2, %entry
-  %scale_y.addr.0 = phi float [ %scale_y, %entry ], [ %scale_x.addr.0, %if.then2 ]
+if.end6:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %x0.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y0.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %x1.i)
@@ -23526,7 +23523,7 @@ if.else.i:                                        ; preds = %if.end6
   %7 = insertelement <2 x i32> poison, i32 %sub.i, i64 0
   %8 = insertelement <2 x i32> %7, i32 %3, i64 1
   %9 = sitofp <2 x i32> %8 to <2 x float>
-  %10 = insertelement <2 x float> poison, float %scale_y.addr.0, i64 0
+  %10 = insertelement <2 x float> poison, float %scale_y.mux, i64 0
   %11 = insertelement <2 x float> %10, float %scale_x.addr.0, i64 1
   %12 = insertelement <2 x float> poison, float %shift_y, i64 0
   %13 = insertelement <2 x float> %12, float %shift_x, i64 1
@@ -23619,7 +23616,7 @@ if.then33:                                        ; preds = %if.then25
   %38 = load ptr, ptr %info, align 8
   %39 = extractelement <2 x i32> %24, i64 0
   %40 = extractelement <2 x i32> %24, i64 1
-  call void @stbtt_Rasterize(ptr noundef nonnull %gbm, float noundef 0x3FD6666660000000, ptr noundef %.pre31, i32 noundef %call, float noundef %scale_x.addr.0, float noundef %scale_y.addr.0, float noundef %shift_x, float noundef %shift_y, i32 noundef %40, i32 noundef %39, i32 noundef 1, ptr noundef %38)
+  call void @stbtt_Rasterize(ptr noundef nonnull %gbm, float noundef 0x3FD6666660000000, ptr noundef %.pre31, i32 noundef %call, float noundef %scale_x.addr.0, float noundef %scale_y.mux, float noundef %shift_x, float noundef %shift_y, i32 noundef %40, i32 noundef %39, i32 noundef 1, ptr noundef %38)
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end20.if.end37_crit_edge, %if.then25, %if.then33
@@ -46757,23 +46754,21 @@ if.then16:                                        ; preds = %if.end
 
 if.end20:                                         ; preds = %if.then16
   %cmp21 = fcmp ogt float %ratio_or_width, 0.000000e+00
-  br i1 %cmp21, label %if.then22, label %if.else
+  br i1 %cmp21, label %cond.true25, label %if.else
 
-if.then22:                                        ; preds = %if.end20
+cond.true25:                                      ; preds = %if.end20
   %cmp23 = fcmp ogt float %ratio_or_width, 1.000000e+00
   %cond = select i1 %cmp23, float 1.000000e+00, float %ratio_or_width
-  %cmp24 = fcmp ogt float %cond, 0.000000e+00
-  %cond33 = select i1 %cmp24, float %cond, float 0.000000e+00
   br label %if.end43.sink.split
 
 if.else:                                          ; preds = %if.end20
   %sub = fsub float 1.000000e+00, %3
   br label %if.end43.sink.split
 
-if.end43.sink.split:                              ; preds = %if.end, %if.else, %if.then22
-  %cond33.sink = phi float [ %cond33, %if.then22 ], [ %sub, %if.else ], [ %ratio_or_width, %if.end ]
+if.end43.sink.split:                              ; preds = %if.end, %if.else, %cond.true25
+  %cond.sink = phi float [ %cond, %cond.true25 ], [ %sub, %if.else ], [ %ratio_or_width, %if.end ]
   %item_width = getelementptr inbounds i8, ptr %1, i64 144
-  store float %cond33.sink, ptr %item_width, align 8
+  store float %cond.sink, ptr %item_width, align 8
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end43.sink.split, %if.end, %if.then16, %entry, %lor.lhs.false, %lor.lhs.false2

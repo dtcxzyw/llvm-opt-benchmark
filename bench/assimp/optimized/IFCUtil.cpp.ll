@@ -4343,7 +4343,7 @@ for.end:                                          ; preds = %_ZN10aiVector3tIdEi
   %11 = tail call noundef double @llvm.fmuladd.f64(double %10, double %10, double %9)
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %11)
   %cmp5 = fcmp olt double %sqrt.i, 0x3EB0C6F7A0000000
-  br i1 %cmp5, label %if.then, label %if.end
+  br i1 %cmp5, label %if.then, label %if.end.i
 
 if.then:                                          ; preds = %for.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -4361,11 +4361,7 @@ _ZN6Assimp12LogFunctionsINS_11IFCImporterEE7LogWarnIJRA87_KcEEEvDpOT_.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   br label %return
 
-if.end:                                           ; preds = %for.end
-  %cmp.i = fcmp oeq double %sqrt.i, 0.000000e+00
-  br i1 %cmp.i, label %return, label %if.end.i
-
-if.end.i:                                         ; preds = %if.end
+if.end.i:                                         ; preds = %for.end
   %div.i = fdiv double 1.000000e+00, %sqrt.i
   %12 = insertelement <2 x double> poison, double %div.i, i64 0
   %13 = shufflevector <2 x double> %12, <2 x double> poison, <2 x i32> zeroinitializer
@@ -4375,7 +4371,7 @@ if.end.i:                                         ; preds = %if.end
   store double %mul3.i, ptr %z.i.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end.i, %if.end, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE7LogWarnIJRA87_KcEEEvDpOT_.exit
+return:                                           ; preds = %if.end.i, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE7LogWarnIJRA87_KcEEEvDpOT_.exit
   ret void
 }
 
@@ -7314,7 +7310,7 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
   br label %common.resume
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
@@ -7784,7 +7780,7 @@ attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #13 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind memory(read) }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

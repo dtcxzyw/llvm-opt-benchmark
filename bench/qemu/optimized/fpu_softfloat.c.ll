@@ -1086,7 +1086,7 @@ lor.lhs.false.i.i:                                ; preds = %float64_input_flush
   br i1 %iszero.i.i, label %land.rhs.i6.i, label %soft39.i
 
 fpclassify_not_nan.i.i:                           ; preds = %float64_input_flush2.exit.i
-  %or.cond13.i.i = tail call i1 @llvm.is.fpclass.f64(double %10, i32 267)
+  %or.cond13.i.i = tail call i1 @llvm.is.fpclass.f64(double %10, i32 264)
   br i1 %or.cond13.i.i, label %land.rhs.i6.i, label %soft39.i
 
 land.rhs.i6.i:                                    ; preds = %fpclassify_not_nan.i.i, %lor.lhs.false.i.i
@@ -1096,7 +1096,7 @@ land.rhs.i6.i:                                    ; preds = %fpclassify_not_nan.
   br i1 %or.cond10.i.i, label %f64_is_zon2.exit.i, label %fpclassify_not_nan18.i.i
 
 fpclassify_not_nan18.i.i:                         ; preds = %land.rhs.i6.i
-  %or.cond14.i.i = tail call i1 @llvm.is.fpclass.f64(double %11, i32 267)
+  %or.cond14.i.i = tail call i1 @llvm.is.fpclass.f64(double %11, i32 264)
   %brmerge.i = or i1 %or.cond14.i.i, %iszero15.i.i
   br i1 %brmerge.i, label %if.end14.i, label %soft39.i
 
@@ -1193,7 +1193,7 @@ lor.lhs.false.i.i:                                ; preds = %float64_input_flush
   br i1 %iszero.i.i, label %land.rhs.i6.i, label %soft39.i
 
 fpclassify_not_nan.i.i:                           ; preds = %float64_input_flush2.exit.i
-  %or.cond13.i.i = tail call i1 @llvm.is.fpclass.f64(double %10, i32 267)
+  %or.cond13.i.i = tail call i1 @llvm.is.fpclass.f64(double %10, i32 264)
   br i1 %or.cond13.i.i, label %land.rhs.i6.i, label %soft39.i
 
 land.rhs.i6.i:                                    ; preds = %fpclassify_not_nan.i.i, %lor.lhs.false.i.i
@@ -1203,7 +1203,7 @@ land.rhs.i6.i:                                    ; preds = %fpclassify_not_nan.
   br i1 %or.cond10.i.i, label %f64_is_zon2.exit.i, label %fpclassify_not_nan18.i.i
 
 fpclassify_not_nan18.i.i:                         ; preds = %land.rhs.i6.i
-  %or.cond14.i.i = tail call i1 @llvm.is.fpclass.f64(double %11, i32 267)
+  %or.cond14.i.i = tail call i1 @llvm.is.fpclass.f64(double %11, i32 264)
   %brmerge.i = or i1 %or.cond14.i.i, %iszero15.i.i
   br i1 %brmerge.i, label %if.end14.i, label %soft39.i
 
@@ -4132,7 +4132,7 @@ lor.lhs.false.i:                                  ; preds = %float64_input_flush
   br i1 %iszero.i, label %land.rhs.i8, label %soft39.i
 
 fpclassify_not_nan.i:                             ; preds = %float64_input_flush2.exit
-  %or.cond13.i = tail call i1 @llvm.is.fpclass.f64(double %11, i32 267)
+  %or.cond13.i = tail call i1 @llvm.is.fpclass.f64(double %11, i32 264)
   br i1 %or.cond13.i, label %land.rhs.i8, label %soft39.i
 
 land.rhs.i8:                                      ; preds = %fpclassify_not_nan.i, %lor.lhs.false.i
@@ -4142,7 +4142,7 @@ land.rhs.i8:                                      ; preds = %fpclassify_not_nan.
   br i1 %or.cond10.i, label %f64_is_zon2.exit, label %fpclassify_not_nan18.i
 
 fpclassify_not_nan18.i:                           ; preds = %land.rhs.i8
-  %or.cond14.i = tail call i1 @llvm.is.fpclass.f64(double %12, i32 267)
+  %or.cond14.i = tail call i1 @llvm.is.fpclass.f64(double %12, i32 264)
   %brmerge = or i1 %or.cond14.i, %iszero15.i
   br i1 %brmerge, label %if.end14.i, label %soft39.i
 
@@ -7427,7 +7427,7 @@ lor.lhs.false.i:                                  ; preds = %float64_input_flush
   br i1 %iszero.i, label %land.lhs.true.i, label %soft
 
 fpclassify_not_nan.i:                             ; preds = %float64_input_flush3.exit
-  %or.cond44 = tail call i1 @llvm.is.fpclass.f64(double %14, i32 267)
+  %or.cond44 = tail call i1 @llvm.is.fpclass.f64(double %14, i32 264)
   br i1 %or.cond44, label %land.lhs.true.i, label %soft
 
 land.lhs.true.i:                                  ; preds = %fpclassify_not_nan.i, %lor.lhs.false.i
@@ -7439,7 +7439,7 @@ lor.lhs.false24.i:                                ; preds = %land.lhs.true.i
   br i1 %iszero16.i, label %land.rhs.i107, label %soft
 
 fpclassify_not_nan19.i:                           ; preds = %land.lhs.true.i
-  %or.cond45 = tail call i1 @llvm.is.fpclass.f64(double %15, i32 267)
+  %or.cond45 = tail call i1 @llvm.is.fpclass.f64(double %15, i32 264)
   br i1 %or.cond45, label %land.rhs.i107, label %soft
 
 land.rhs.i107:                                    ; preds = %fpclassify_not_nan19.i, %lor.lhs.false24.i
@@ -7451,7 +7451,7 @@ lor.rhs.i:                                        ; preds = %land.rhs.i107
   br i1 %iszero37.i, label %if.end33, label %soft
 
 fpclassify_not_nan40.i:                           ; preds = %land.rhs.i107
-  %or.cond46 = tail call i1 @llvm.is.fpclass.f64(double %16, i32 267)
+  %or.cond46 = tail call i1 @llvm.is.fpclass.f64(double %16, i32 264)
   %brmerge = or i1 %or.cond46, %iszero37.i
   br i1 %brmerge, label %if.end33, label %soft
 
@@ -9914,7 +9914,7 @@ lor.lhs.false.i:                                  ; preds = %float64_input_flush
   br i1 %iszero.i, label %land.rhs.i8, label %soft39.i
 
 fpclassify_not_nan.i:                             ; preds = %float64_input_flush2.exit
-  %or.cond8.i = tail call i1 @llvm.is.fpclass.f64(double %11, i32 267)
+  %or.cond8.i = tail call i1 @llvm.is.fpclass.f64(double %11, i32 264)
   br i1 %or.cond8.i, label %land.rhs.i8, label %soft39.i
 
 land.rhs.i8:                                      ; preds = %fpclassify_not_nan.i, %lor.lhs.false.i
@@ -9923,7 +9923,7 @@ land.rhs.i8:                                      ; preds = %fpclassify_not_nan.
   br i1 %or.cond7.i, label %soft39.i, label %fpclassify_not_nan18.i
 
 fpclassify_not_nan18.i:                           ; preds = %land.rhs.i8
-  %or.cond = tail call i1 @llvm.is.fpclass.f64(double %12, i32 267)
+  %or.cond = tail call i1 @llvm.is.fpclass.f64(double %12, i32 264)
   br i1 %or.cond, label %if.end14.i, label %soft39.i
 
 if.end14.i:                                       ; preds = %fpclassify_not_nan18.i
@@ -28883,7 +28883,7 @@ lor.lhs.false:                                    ; preds = %float64_input_flush
   br i1 %or.cond22.not, label %if.end23, label %soft
 
 fpclassify_not_nan:                               ; preds = %float64_input_flush1.exit
-  %or.cond10 = tail call i1 @llvm.is.fpclass.f64(double %7, i32 267)
+  %or.cond10 = tail call i1 @llvm.is.fpclass.f64(double %7, i32 264)
   %brmerge = or i1 %or.cond10, %iszero
   %.old11 = icmp sgt i64 %ua.sroa.0.1, -1
   %or.cond21.not = and i1 %.old11, %brmerge

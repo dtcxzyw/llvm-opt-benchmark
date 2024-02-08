@@ -8713,8 +8713,8 @@ while.body76.lr.ph:                               ; preds = %while.body76.lr.ph.
   %x.0.ph239301 = phi float [ %x.0.ph235312, %while.body76.lr.ph.lr.ph ], [ %add180, %if.then179 ]
   %word_wrap_eol.0.ph238300 = phi ptr [ %word_wrap_eol.0.ph233310, %while.body76.lr.ph.lr.ph ], [ %.us-phi294, %if.then179 ]
   %s.3.ph237299 = phi ptr [ %s.3.ph232309, %while.body76.lr.ph.lr.ph ], [ %.us-phi293, %if.then179 ]
-  %sub = fsub float %x.0.ph239301, %conv3
-  %sub81 = fsub float %wrap_width, %sub
+  %20 = fsub float %conv3, %x.0.ph239301
+  %sub81 = fadd float %20, %wrap_width
   br i1 %cmp10, label %while.body76.us, label %while.body76
 
 while.body76.us:                                  ; preds = %while.body76.lr.ph, %while.cond74.backedge.us
@@ -8733,10 +8733,10 @@ if.end83.us:                                      ; preds = %if.then80.us, %whil
   br i1 %cmp84.not.us, label %if.end89.us, label %land.rhs.preheader.i219.split.us
 
 if.end89.us:                                      ; preds = %if.end83.us
-  %20 = load i8, ptr %s.3281.us, align 1
-  %conv90.us = sext i8 %20 to i32
+  %21 = load i8, ptr %s.3281.us, align 1
+  %conv90.us = sext i8 %21 to i32
   store i32 %conv90.us, ptr %c, align 4
-  %cmp91.us = icmp sgt i8 %20, -1
+  %cmp91.us = icmp sgt i8 %21, -1
   br i1 %cmp91.us, label %if.then92.us, label %if.else94.us
 
 if.else94.us:                                     ; preds = %if.end89.us
@@ -8751,47 +8751,47 @@ if.then92.us:                                     ; preds = %if.end89.us
   br label %if.end97.us
 
 if.end97.us:                                      ; preds = %if.then92.us, %if.else94.us
-  %21 = phi i32 [ %.pr.us, %if.else94.us ], [ %conv90.us, %if.then92.us ]
+  %22 = phi i32 [ %.pr.us, %if.else94.us ], [ %conv90.us, %if.then92.us ]
   %s.4.us = phi ptr [ %add.ptr96.us, %if.else94.us ], [ %add.ptr93.us, %if.then92.us ]
-  %cmp98.us = icmp ult i32 %21, 32
+  %cmp98.us = icmp ult i32 %22, 32
   br i1 %cmp98.us, label %if.then99.us, label %if.end111.us
 
 if.then99.us:                                     ; preds = %if.end97.us
-  switch i32 %21, label %if.end111.us [
+  switch i32 %22, label %if.end111.us [
     i32 10, label %if.then101
     i32 13, label %while.cond74.backedge.us
   ]
 
 if.end111.us:                                     ; preds = %if.then99.us, %if.end97.us
-  %22 = and i32 %21, 65535
-  %23 = load i32, ptr %IndexLookup.i, align 8
-  %cmp.not.i.us = icmp ult i32 %22, %23
+  %23 = and i32 %22, 65535
+  %24 = load i32, ptr %IndexLookup.i, align 8
+  %cmp.not.i.us = icmp ult i32 %23, %24
   br i1 %cmp.not.i.us, label %if.end.i.us, label %if.then.i.us
 
 if.then.i.us:                                     ; preds = %if.end111.us
-  %24 = load ptr, ptr %FallbackGlyph.i, align 8
+  %25 = load ptr, ptr %FallbackGlyph.i, align 8
   br label %_ZNK6ImFont9FindGlyphEt.exit.us
 
 if.end.i.us:                                      ; preds = %if.end111.us
-  %conv.i.us = zext nneg i32 %22 to i64
-  %25 = load ptr, ptr %Data.i, align 8
-  %arrayidx.i.us = getelementptr inbounds i16, ptr %25, i64 %conv.i.us
-  %26 = load i16, ptr %arrayidx.i.us, align 2
-  %cmp5.i.us = icmp eq i16 %26, -1
+  %conv.i.us = zext nneg i32 %23 to i64
+  %26 = load ptr, ptr %Data.i, align 8
+  %arrayidx.i.us = getelementptr inbounds i16, ptr %26, i64 %conv.i.us
+  %27 = load i16, ptr %arrayidx.i.us, align 2
+  %cmp5.i.us = icmp eq i16 %27, -1
   br i1 %cmp5.i.us, label %if.then6.i.us, label %if.end8.i.us
 
 if.end8.i.us:                                     ; preds = %if.end.i.us
-  %27 = load ptr, ptr %Data9.i, align 8
-  %idxprom10.i.us = zext i16 %26 to i64
-  %arrayidx11.i.us = getelementptr inbounds %struct.ImFontGlyph, ptr %27, i64 %idxprom10.i.us
+  %28 = load ptr, ptr %Data9.i, align 8
+  %idxprom10.i.us = zext i16 %27 to i64
+  %arrayidx11.i.us = getelementptr inbounds %struct.ImFontGlyph, ptr %28, i64 %idxprom10.i.us
   br label %_ZNK6ImFont9FindGlyphEt.exit.us
 
 if.then6.i.us:                                    ; preds = %if.end.i.us
-  %28 = load ptr, ptr %FallbackGlyph.i, align 8
+  %29 = load ptr, ptr %FallbackGlyph.i, align 8
   br label %_ZNK6ImFont9FindGlyphEt.exit.us
 
 _ZNK6ImFont9FindGlyphEt.exit.us:                  ; preds = %if.then6.i.us, %if.end8.i.us, %if.then.i.us
-  %retval.0.i.us = phi ptr [ %24, %if.then.i.us ], [ %28, %if.then6.i.us ], [ %arrayidx11.i.us, %if.end8.i.us ]
+  %retval.0.i.us = phi ptr [ %25, %if.then.i.us ], [ %29, %if.then6.i.us ], [ %arrayidx11.i.us, %if.end8.i.us ]
   %cmp114.us = icmp eq ptr %retval.0.i.us, null
   br i1 %cmp114.us, label %while.cond74.backedge.us, label %if.end116
 
@@ -8802,22 +8802,22 @@ while.cond74.backedge.us:                         ; preds = %_ZNK6ImFont9FindGly
 land.rhs.preheader.i219.split.us:                 ; preds = %if.end83.us
   %add86 = fadd float %mul, %y.2.ph234311
   %text10.i221 = ptrtoint ptr %s.3281.us to i64
-  %29 = sub i64 %sub.ptr.lhs.cast63, %text10.i221
-  %scevgep.i222 = getelementptr i8, ptr %s.3281.us, i64 %29
+  %30 = sub i64 %sub.ptr.lhs.cast63, %text10.i221
+  %scevgep.i222 = getelementptr i8, ptr %s.3281.us, i64 %30
   br label %land.rhs.i223
 
 while.body76:                                     ; preds = %while.body76.lr.ph, %while.cond74.backedge
   %s.3281 = phi ptr [ %s.4, %while.cond74.backedge ], [ %s.3.ph237299, %while.body76.lr.ph ]
-  %30 = load i8, ptr %s.3281, align 1
-  %conv90 = sext i8 %30 to i32
+  %31 = load i8, ptr %s.3281, align 1
+  %conv90 = sext i8 %31 to i32
   store i32 %conv90, ptr %c, align 4
-  %cmp91 = icmp sgt i8 %30, -1
+  %cmp91 = icmp sgt i8 %31, -1
   br i1 %cmp91, label %if.then92, label %if.else94
 
 land.rhs.i223:                                    ; preds = %while.body.i225, %land.rhs.preheader.i219.split.us
   %text.addr.07.i224 = phi ptr [ %incdec.ptr.i226, %while.body.i225 ], [ %s.3281.us, %land.rhs.preheader.i219.split.us ]
-  %31 = load i8, ptr %text.addr.07.i224, align 1
-  switch i8 %31, label %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit228 [
+  %32 = load i8, ptr %text.addr.07.i224, align 1
+  switch i8 %32, label %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit228 [
     i8 32, label %while.body.i225
     i8 9, label %while.body.i225
   ]
@@ -8832,9 +8832,9 @@ while.body.i225._ZL26CalcWordWrapNextLineStartAPKcS0_.exit228_crit_edge: ; preds
   br label %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit228
 
 _ZL26CalcWordWrapNextLineStartAPKcS0_.exit228:    ; preds = %land.rhs.i223, %while.body.i225._ZL26CalcWordWrapNextLineStartAPKcS0_.exit228_crit_edge
-  %32 = phi i8 [ %.pre, %while.body.i225._ZL26CalcWordWrapNextLineStartAPKcS0_.exit228_crit_edge ], [ %31, %land.rhs.i223 ]
+  %33 = phi i8 [ %.pre, %while.body.i225._ZL26CalcWordWrapNextLineStartAPKcS0_.exit228_crit_edge ], [ %32, %land.rhs.i223 ]
   %text.addr.0.lcssa.i215 = phi ptr [ %scevgep.i222, %while.body.i225._ZL26CalcWordWrapNextLineStartAPKcS0_.exit228_crit_edge ], [ %text.addr.07.i224, %land.rhs.i223 ]
-  %cmp1.i216 = icmp eq i8 %32, 10
+  %cmp1.i216 = icmp eq i8 %33, 10
   %spec.select.idx.i217 = zext i1 %cmp1.i216 to i64
   %spec.select.i218 = getelementptr inbounds i8, ptr %text.addr.0.lcssa.i215, i64 %spec.select.idx.i217
   br label %while.cond74.outer231.backedge
@@ -8858,13 +8858,13 @@ if.else94:                                        ; preds = %while.body76
   br label %if.end97
 
 if.end97:                                         ; preds = %if.else94, %if.then92
-  %33 = phi i32 [ %.pr, %if.else94 ], [ %conv90, %if.then92 ]
+  %34 = phi i32 [ %.pr, %if.else94 ], [ %conv90, %if.then92 ]
   %s.4 = phi ptr [ %add.ptr96, %if.else94 ], [ %add.ptr93, %if.then92 ]
-  %cmp98 = icmp ult i32 %33, 32
+  %cmp98 = icmp ult i32 %34, 32
   br i1 %cmp98, label %if.then99, label %if.end111
 
 if.then99:                                        ; preds = %if.end97
-  switch i32 %33, label %if.end111 [
+  switch i32 %34, label %if.end111 [
     i32 10, label %if.then101
     i32 13, label %while.cond74.backedge
   ]
@@ -8873,40 +8873,40 @@ if.then101:                                       ; preds = %if.then99, %if.then
   %.us-phi290 = phi ptr [ %s.4.us, %if.then99.us ], [ %s.4, %if.then99 ]
   %.us-phi291 = phi ptr [ %word_wrap_eol.1.us, %if.then99.us ], [ %word_wrap_eol.0.ph238300, %if.then99 ]
   %add102 = fadd float %mul, %y.2.ph234311
-  %34 = load float, ptr %w, align 4
-  %cmp104 = fcmp ogt float %add102, %34
+  %35 = load float, ptr %w, align 4
+  %cmp104 = fcmp ogt float %add102, %35
   br i1 %cmp104, label %while.end266, label %while.cond74.outer231.backedge
 
 if.end111:                                        ; preds = %if.then99, %if.end97
-  %35 = and i32 %33, 65535
-  %36 = load i32, ptr %IndexLookup.i, align 8
-  %cmp.not.i = icmp ult i32 %35, %36
+  %36 = and i32 %34, 65535
+  %37 = load i32, ptr %IndexLookup.i, align 8
+  %cmp.not.i = icmp ult i32 %36, %37
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end111
-  %37 = load ptr, ptr %FallbackGlyph.i, align 8
+  %38 = load ptr, ptr %FallbackGlyph.i, align 8
   br label %_ZNK6ImFont9FindGlyphEt.exit
 
 if.end.i:                                         ; preds = %if.end111
-  %conv.i = zext nneg i32 %35 to i64
-  %38 = load ptr, ptr %Data.i, align 8
-  %arrayidx.i = getelementptr inbounds i16, ptr %38, i64 %conv.i
-  %39 = load i16, ptr %arrayidx.i, align 2
-  %cmp5.i = icmp eq i16 %39, -1
+  %conv.i = zext nneg i32 %36 to i64
+  %39 = load ptr, ptr %Data.i, align 8
+  %arrayidx.i = getelementptr inbounds i16, ptr %39, i64 %conv.i
+  %40 = load i16, ptr %arrayidx.i, align 2
+  %cmp5.i = icmp eq i16 %40, -1
   br i1 %cmp5.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %40 = load ptr, ptr %FallbackGlyph.i, align 8
+  %41 = load ptr, ptr %FallbackGlyph.i, align 8
   br label %_ZNK6ImFont9FindGlyphEt.exit
 
 if.end8.i:                                        ; preds = %if.end.i
-  %41 = load ptr, ptr %Data9.i, align 8
-  %idxprom10.i = zext i16 %39 to i64
-  %arrayidx11.i = getelementptr inbounds %struct.ImFontGlyph, ptr %41, i64 %idxprom10.i
+  %42 = load ptr, ptr %Data9.i, align 8
+  %idxprom10.i = zext i16 %40 to i64
+  %arrayidx11.i = getelementptr inbounds %struct.ImFontGlyph, ptr %42, i64 %idxprom10.i
   br label %_ZNK6ImFont9FindGlyphEt.exit
 
 _ZNK6ImFont9FindGlyphEt.exit:                     ; preds = %if.then.i, %if.then6.i, %if.end8.i
-  %retval.0.i = phi ptr [ %37, %if.then.i ], [ %40, %if.then6.i ], [ %arrayidx11.i, %if.end8.i ]
+  %retval.0.i = phi ptr [ %38, %if.then.i ], [ %41, %if.then6.i ], [ %arrayidx11.i, %if.end8.i ]
   %cmp114 = icmp eq ptr %retval.0.i, null
   br i1 %cmp114, label %while.cond74.backedge, label %if.end116
 
@@ -8919,109 +8919,109 @@ if.end116:                                        ; preds = %_ZNK6ImFont9FindGly
   %.us-phi293 = phi ptr [ %s.4.us, %_ZNK6ImFont9FindGlyphEt.exit.us ], [ %s.4, %_ZNK6ImFont9FindGlyphEt.exit ]
   %.us-phi294 = phi ptr [ %word_wrap_eol.1.us, %_ZNK6ImFont9FindGlyphEt.exit.us ], [ %word_wrap_eol.0.ph238300, %_ZNK6ImFont9FindGlyphEt.exit ]
   %AdvanceX = getelementptr inbounds i8, ptr %.us-phi292, i64 4
-  %42 = load float, ptr %AdvanceX, align 4
-  %mul117 = fmul float %div, %42
+  %43 = load float, ptr %AdvanceX, align 4
+  %mul117 = fmul float %div, %43
   %bf.load = load i32, ptr %.us-phi292, align 4
-  %43 = and i32 %bf.load, 2
-  %tobool118.not = icmp eq i32 %43, 0
+  %44 = and i32 %bf.load, 2
+  %tobool118.not = icmp eq i32 %44, 0
   br i1 %tobool118.not, label %if.end264, label %if.then119
 
 if.then119:                                       ; preds = %if.end116
   %X0 = getelementptr inbounds i8, ptr %.us-phi292, i64 8
   %X1 = getelementptr inbounds i8, ptr %.us-phi292, i64 16
-  %44 = load <2 x float>, ptr %X0, align 4
-  %45 = insertelement <2 x float> poison, float %x.0.ph239301, i64 0
-  %46 = insertelement <2 x float> %45, float %y.2.ph234311, i64 1
-  %47 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %44, <2 x float> %19, <2 x float> %46)
-  %48 = load <2 x float>, ptr %X1, align 4
-  %49 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %48, <2 x float> %19, <2 x float> %46)
-  %50 = load float, ptr %z, align 4
-  %51 = extractelement <2 x float> %47, i64 0
-  %cmp125 = fcmp ugt float %51, %50
+  %45 = load <2 x float>, ptr %X0, align 4
+  %46 = insertelement <2 x float> poison, float %x.0.ph239301, i64 0
+  %47 = insertelement <2 x float> %46, float %y.2.ph234311, i64 1
+  %48 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %45, <2 x float> %19, <2 x float> %47)
+  %49 = load <2 x float>, ptr %X1, align 4
+  %50 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %49, <2 x float> %19, <2 x float> %47)
+  %51 = load float, ptr %z, align 4
+  %52 = extractelement <2 x float> %48, i64 0
+  %cmp125 = fcmp ugt float %52, %51
   br i1 %cmp125, label %if.end264, label %land.lhs.true126
 
 land.lhs.true126:                                 ; preds = %if.then119
-  %52 = load float, ptr %clip_rect, align 4
-  %53 = extractelement <2 x float> %49, i64 0
-  %cmp128 = fcmp ult float %53, %52
+  %53 = load float, ptr %clip_rect, align 4
+  %54 = extractelement <2 x float> %50, i64 0
+  %cmp128 = fcmp ult float %54, %53
   br i1 %cmp128, label %if.end264, label %if.then129
 
 if.then129:                                       ; preds = %land.lhs.true126
   %U0 = getelementptr inbounds i8, ptr %.us-phi292, i64 24
-  %54 = load float, ptr %U0, align 4
+  %55 = load float, ptr %U0, align 4
   %V0 = getelementptr inbounds i8, ptr %.us-phi292, i64 28
-  %55 = load float, ptr %V0, align 4
+  %56 = load float, ptr %V0, align 4
   %U1 = getelementptr inbounds i8, ptr %.us-phi292, i64 32
-  %56 = load float, ptr %U1, align 4
+  %57 = load float, ptr %U1, align 4
   %V1 = getelementptr inbounds i8, ptr %.us-phi292, i64 36
-  %57 = load float, ptr %V1, align 4
+  %58 = load float, ptr %V1, align 4
   br i1 %cpu_fine_clip, label %if.then131, label %if.end182
 
 if.then131:                                       ; preds = %if.then129
-  %cmp133 = fcmp olt float %51, %52
+  %cmp133 = fcmp olt float %52, %53
   br i1 %cmp133, label %if.then134, label %if.end143
 
 if.then134:                                       ; preds = %if.then131
-  %sub136 = fsub float %53, %52
-  %58 = fsub <2 x float> %49, %47
-  %sub137 = extractelement <2 x float> %58, i64 0
+  %sub136 = fsub float %54, %53
+  %59 = fsub <2 x float> %50, %48
+  %sub137 = extractelement <2 x float> %59, i64 0
   %div138 = fdiv float %sub136, %sub137
   %sub139 = fsub float 1.000000e+00, %div138
-  %sub140 = fsub float %56, %54
-  %59 = call float @llvm.fmuladd.f32(float %sub139, float %sub140, float %54)
+  %sub140 = fsub float %57, %55
+  %60 = call float @llvm.fmuladd.f32(float %sub139, float %sub140, float %55)
   br label %if.end143
 
 if.end143:                                        ; preds = %if.then134, %if.then131
-  %x1.0 = phi float [ %52, %if.then134 ], [ %51, %if.then131 ]
-  %u1.0 = phi float [ %59, %if.then134 ], [ %54, %if.then131 ]
-  %60 = load float, ptr %y12, align 4
-  %61 = extractelement <2 x float> %47, i64 1
-  %cmp145 = fcmp olt float %61, %60
+  %x1.0 = phi float [ %53, %if.then134 ], [ %52, %if.then131 ]
+  %u1.0 = phi float [ %60, %if.then134 ], [ %55, %if.then131 ]
+  %61 = load float, ptr %y12, align 4
+  %62 = extractelement <2 x float> %48, i64 1
+  %cmp145 = fcmp olt float %62, %61
   br i1 %cmp145, label %if.then146, label %if.end155
 
 if.then146:                                       ; preds = %if.end143
-  %62 = extractelement <2 x float> %49, i64 1
-  %sub148 = fsub float %62, %60
-  %sub149 = fsub float %62, %61
+  %63 = extractelement <2 x float> %50, i64 1
+  %sub148 = fsub float %63, %61
+  %sub149 = fsub float %63, %62
   %div150 = fdiv float %sub148, %sub149
   %sub151 = fsub float 1.000000e+00, %div150
-  %sub152 = fsub float %57, %55
-  %63 = call float @llvm.fmuladd.f32(float %sub151, float %sub152, float %55)
+  %sub152 = fsub float %58, %56
+  %64 = call float @llvm.fmuladd.f32(float %sub151, float %sub152, float %56)
   br label %if.end155
 
 if.end155:                                        ; preds = %if.then146, %if.end143
-  %y1.0 = phi float [ %60, %if.then146 ], [ %61, %if.end143 ]
-  %v1.0 = phi float [ %63, %if.then146 ], [ %55, %if.end143 ]
-  %cmp157 = fcmp ogt float %53, %50
+  %y1.0 = phi float [ %61, %if.then146 ], [ %62, %if.end143 ]
+  %v1.0 = phi float [ %64, %if.then146 ], [ %56, %if.end143 ]
+  %cmp157 = fcmp ogt float %54, %51
   br i1 %cmp157, label %if.then158, label %if.end166
 
 if.then158:                                       ; preds = %if.end155
-  %sub160 = fsub float %50, %x1.0
-  %sub161 = fsub float %53, %x1.0
+  %sub160 = fsub float %51, %x1.0
+  %sub161 = fsub float %54, %x1.0
   %div162 = fdiv float %sub160, %sub161
-  %sub163 = fsub float %56, %u1.0
-  %64 = call float @llvm.fmuladd.f32(float %div162, float %sub163, float %u1.0)
+  %sub163 = fsub float %57, %u1.0
+  %65 = call float @llvm.fmuladd.f32(float %div162, float %sub163, float %u1.0)
   br label %if.end166
 
 if.end166:                                        ; preds = %if.then158, %if.end155
-  %x2121.0 = phi float [ %50, %if.then158 ], [ %53, %if.end155 ]
-  %u2.0 = phi float [ %64, %if.then158 ], [ %56, %if.end155 ]
-  %65 = load float, ptr %w, align 4
-  %66 = extractelement <2 x float> %49, i64 1
-  %cmp168 = fcmp ogt float %66, %65
+  %x2121.0 = phi float [ %51, %if.then158 ], [ %54, %if.end155 ]
+  %u2.0 = phi float [ %65, %if.then158 ], [ %57, %if.end155 ]
+  %66 = load float, ptr %w, align 4
+  %67 = extractelement <2 x float> %50, i64 1
+  %cmp168 = fcmp ogt float %67, %66
   br i1 %cmp168, label %if.then169, label %if.end177
 
 if.then169:                                       ; preds = %if.end166
-  %sub171 = fsub float %65, %y1.0
-  %sub172 = fsub float %66, %y1.0
+  %sub171 = fsub float %66, %y1.0
+  %sub172 = fsub float %67, %y1.0
   %div173 = fdiv float %sub171, %sub172
-  %sub174 = fsub float %57, %v1.0
-  %67 = call float @llvm.fmuladd.f32(float %div173, float %sub174, float %v1.0)
+  %sub174 = fsub float %58, %v1.0
+  %68 = call float @llvm.fmuladd.f32(float %div173, float %sub174, float %v1.0)
   br label %if.end177
 
 if.end177:                                        ; preds = %if.then169, %if.end166
-  %y2.0 = phi float [ %65, %if.then169 ], [ %66, %if.end166 ]
-  %v2.0 = phi float [ %67, %if.then169 ], [ %57, %if.end166 ]
+  %y2.0 = phi float [ %66, %if.then169 ], [ %67, %if.end166 ]
+  %v2.0 = phi float [ %68, %if.then169 ], [ %58, %if.end166 ]
   %cmp178 = fcmp ult float %y1.0, %y2.0
   br i1 %cmp178, label %if.end182.split.loop.exit, label %if.then179
 
@@ -9031,24 +9031,24 @@ if.then179:                                       ; preds = %if.end177
   br i1 %cmp75280, label %while.body76.lr.ph, label %while.end266, !llvm.loop !33
 
 if.end182.split.loop.exit:                        ; preds = %if.end177
-  %68 = insertelement <2 x float> poison, float %x1.0, i64 0
-  %69 = insertelement <2 x float> %68, float %y1.0, i64 1
-  %70 = insertelement <2 x float> poison, float %x2121.0, i64 0
-  %71 = insertelement <2 x float> %70, float %y2.0, i64 1
+  %69 = insertelement <2 x float> poison, float %x1.0, i64 0
+  %70 = insertelement <2 x float> %69, float %y1.0, i64 1
+  %71 = insertelement <2 x float> poison, float %x2121.0, i64 0
+  %72 = insertelement <2 x float> %71, float %y2.0, i64 1
   br label %if.end182
 
 if.end182:                                        ; preds = %if.then129, %if.end182.split.loop.exit
   %x.0.ph239301.lcssa369 = phi float [ %x.0.ph239301, %if.end182.split.loop.exit ], [ %x.0.ph235312, %if.then129 ]
-  %u1.1 = phi float [ %u1.0, %if.end182.split.loop.exit ], [ %54, %if.then129 ]
-  %v1.1 = phi float [ %v1.0, %if.end182.split.loop.exit ], [ %55, %if.then129 ]
-  %u2.1 = phi float [ %u2.0, %if.end182.split.loop.exit ], [ %56, %if.then129 ]
-  %v2.1 = phi float [ %v2.0, %if.end182.split.loop.exit ], [ %57, %if.then129 ]
-  %72 = phi <2 x float> [ %69, %if.end182.split.loop.exit ], [ %47, %if.then129 ]
-  %73 = phi <2 x float> [ %71, %if.end182.split.loop.exit ], [ %49, %if.then129 ]
+  %u1.1 = phi float [ %u1.0, %if.end182.split.loop.exit ], [ %55, %if.then129 ]
+  %v1.1 = phi float [ %v1.0, %if.end182.split.loop.exit ], [ %56, %if.then129 ]
+  %u2.1 = phi float [ %u2.0, %if.end182.split.loop.exit ], [ %57, %if.then129 ]
+  %v2.1 = phi float [ %v2.0, %if.end182.split.loop.exit ], [ %58, %if.then129 ]
+  %73 = phi <2 x float> [ %70, %if.end182.split.loop.exit ], [ %48, %if.then129 ]
+  %74 = phi <2 x float> [ %72, %if.end182.split.loop.exit ], [ %50, %if.then129 ]
   %bf.clear184 = and i32 %bf.load, 1
   %tobool185.not = icmp eq i32 %bf.clear184, 0
   %cond189 = select i1 %tobool185.not, i32 %col, i32 %or
-  store <2 x float> %72, ptr %vtx_write.0.ph320, align 4
+  store <2 x float> %73, ptr %vtx_write.0.ph320, align 4
   %col196 = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 16
   store i32 %cond189, ptr %col196, align 4
   %uv = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 8
@@ -9056,11 +9056,11 @@ if.end182:                                        ; preds = %if.then129, %if.end
   %y201 = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 12
   store float %v1.1, ptr %y201, align 4
   %arrayidx202 = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 20
-  %74 = extractelement <2 x float> %73, i64 0
-  store float %74, ptr %arrayidx202, align 4
+  %75 = extractelement <2 x float> %74, i64 0
+  store float %75, ptr %arrayidx202, align 4
   %y207 = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 24
-  %75 = extractelement <2 x float> %72, i64 1
-  store float %75, ptr %y207, align 4
+  %76 = extractelement <2 x float> %73, i64 1
+  store float %76, ptr %y207, align 4
   %col209 = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 36
   store i32 %cond189, ptr %col209, align 4
   %uv211 = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 28
@@ -9068,7 +9068,7 @@ if.end182:                                        ; preds = %if.then129, %if.end
   %y215 = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 32
   store float %v1.1, ptr %y215, align 4
   %arrayidx216 = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 40
-  store <2 x float> %73, ptr %arrayidx216, align 4
+  store <2 x float> %74, ptr %arrayidx216, align 4
   %col223 = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 56
   store i32 %cond189, ptr %col223, align 4
   %uv225 = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 48
@@ -9076,11 +9076,11 @@ if.end182:                                        ; preds = %if.then129, %if.end
   %y229 = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 52
   store float %v2.1, ptr %y229, align 4
   %arrayidx230 = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 60
-  %76 = extractelement <2 x float> %72, i64 0
-  store float %76, ptr %arrayidx230, align 4
+  %77 = extractelement <2 x float> %73, i64 0
+  store float %77, ptr %arrayidx230, align 4
   %y235 = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 64
-  %77 = extractelement <2 x float> %73, i64 1
-  store float %77, ptr %y235, align 4
+  %78 = extractelement <2 x float> %74, i64 1
+  store float %78, ptr %y235, align 4
   %col237 = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 76
   store i32 %cond189, ptr %col237, align 4
   %uv239 = getelementptr inbounds i8, ptr %vtx_write.0.ph320, i64 68
@@ -9122,31 +9122,31 @@ while.end266:                                     ; preds = %if.end264, %if.then
   %vtx_index.0.ph263 = phi i32 [ %17, %if.end62 ], [ %vtx_index.0.ph322, %while.cond74.backedge.us ], [ %vtx_index.0.ph322, %while.cond74.backedge ], [ %vtx_index.0.ph322, %if.then179 ], [ %vtx_index.0.ph322, %while.cond74.outer231.backedge ], [ %vtx_index.0.ph322, %if.then101 ], [ %vtx_index.1, %if.end264 ]
   %VtxBuffer = getelementptr inbounds i8, ptr %draw_list, i64 32
   %Data = getelementptr inbounds i8, ptr %draw_list, i64 40
-  %78 = load ptr, ptr %Data, align 8
+  %79 = load ptr, ptr %Data, align 8
   %sub.ptr.lhs.cast267 = ptrtoint ptr %vtx_write.0.ph267 to i64
-  %sub.ptr.rhs.cast268 = ptrtoint ptr %78 to i64
+  %sub.ptr.rhs.cast268 = ptrtoint ptr %79 to i64
   %sub.ptr.sub269 = sub i64 %sub.ptr.lhs.cast267, %sub.ptr.rhs.cast268
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub269, 20
   %conv270 = trunc i64 %sub.ptr.div to i32
   store i32 %conv270, ptr %VtxBuffer, align 8
   %Data274 = getelementptr inbounds i8, ptr %draw_list, i64 24
-  %79 = load ptr, ptr %Data274, align 8
+  %80 = load ptr, ptr %Data274, align 8
   %sub.ptr.lhs.cast275 = ptrtoint ptr %idx_write.0.ph265 to i64
-  %sub.ptr.rhs.cast276 = ptrtoint ptr %79 to i64
+  %sub.ptr.rhs.cast276 = ptrtoint ptr %80 to i64
   %sub.ptr.sub277 = sub i64 %sub.ptr.lhs.cast275, %sub.ptr.rhs.cast276
   %sub.ptr.div278 = lshr exact i64 %sub.ptr.sub277, 1
   %conv279 = trunc i64 %sub.ptr.div278 to i32
   store i32 %conv279, ptr %IdxBuffer, align 8
-  %80 = add i32 %14, %mul72
-  %sub284.neg = sub i32 %conv279, %80
-  %81 = load i32, ptr %draw_list, align 8
+  %81 = add i32 %14, %mul72
+  %sub284.neg = sub i32 %conv279, %81
+  %82 = load i32, ptr %draw_list, align 8
   %Data.i229 = getelementptr inbounds i8, ptr %draw_list, i64 8
-  %82 = load ptr, ptr %Data.i229, align 8
-  %83 = sext i32 %81 to i64
-  %84 = getelementptr %struct.ImDrawCmd, ptr %82, i64 %83
-  %ElemCount = getelementptr i8, ptr %84, i64 -24
-  %85 = load i32, ptr %ElemCount, align 8
-  %sub289 = add i32 %sub284.neg, %85
+  %83 = load ptr, ptr %Data.i229, align 8
+  %84 = sext i32 %82 to i64
+  %85 = getelementptr %struct.ImDrawCmd, ptr %83, i64 %84
+  %ElemCount = getelementptr i8, ptr %85, i64 -24
+  %86 = load i32, ptr %ElemCount, align 8
+  %sub289 = add i32 %sub284.neg, %86
   store i32 %sub289, ptr %ElemCount, align 8
   store ptr %vtx_write.0.ph267, ptr %_VtxWritePtr, align 8
   store ptr %idx_write.0.ph265, ptr %_IdxWritePtr, align 8
