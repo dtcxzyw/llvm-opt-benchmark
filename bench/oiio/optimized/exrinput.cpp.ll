@@ -12105,11 +12105,12 @@ if.else.i:                                        ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %cmp6.i, label %if.then7.i, label %invoke.cont
 
 if.then7.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds float, ptr %cond.i.i.i.i58, i64 %conv
-  %tobool.not.i.i = icmp eq ptr %add.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i
+  %add.ptr.i.idx = shl nsw i64 %conv, 2
+  %tobool.not.i.i = icmp eq i64 %sub.ptr.sub.i.i, %add.ptr.i.idx
   br i1 %tobool.not.i.i, label %invoke.cont, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then7.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i.i58, i64 %add.ptr.i.idx
   store ptr %add.ptr.i, ptr %_M_finish.i.i.i59, align 8
   br label %invoke.cont
 
@@ -29696,7 +29697,7 @@ if.end42:                                         ; preds = %if.end15
 while.body.preheader.i:                           ; preds = %if.end42
   %value.coerce0.masked.numleadingzeros.i = tail call i64 @llvm.ctlz.i64(i64 %and.i.i, i1 true), !range !217
   %value.coerce0.masked.leadingonepos.i = xor i64 %value.coerce0.masked.numleadingzeros.i, 63
-  %while.body.tripcount.i = sub nsw i64 52, %value.coerce0.masked.leadingonepos.i
+  %while.body.tripcount.i = sub nuw nsw i64 52, %value.coerce0.masked.leadingonepos.i
   %shl.i80 = shl i64 %and.i.i, %while.body.tripcount.i
   %17 = trunc i64 %value.coerce0.masked.numleadingzeros.i to i32
   %18 = sub nuw nsw i32 -1063, %17
@@ -40606,7 +40607,7 @@ declare void @_ZNK18OpenImageIO_v2_6_010ImageInput4lockEv(ptr noundef nonnull al
 
 declare void @_ZNK18OpenImageIO_v2_6_010ImageInput6unlockEv(ptr noundef nonnull align 8 dereferenceable(184)) local_unnamed_addr #3
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -54596,7 +54597,7 @@ attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #19 = { nofree nounwind memory(read) }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

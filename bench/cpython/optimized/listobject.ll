@@ -2750,7 +2750,7 @@ if.end14:                                         ; preds = %if.else
   br i1 %cmp15285, label %for.body.preheader, label %if.end147
 
 for.body.preheader:                               ; preds = %if.else8, %if.end14
-  %keys.0323 = phi ptr [ %arrayidx, %if.end14 ], [ %call9, %if.else8 ]
+  %keys.0324 = phi ptr [ %arrayidx, %if.end14 ], [ %call9, %if.else8 ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc30
@@ -2758,7 +2758,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx16 = getelementptr ptr, ptr %1, i64 %i.0286
   %3 = load ptr, ptr %arrayidx16, align 8
   %call17 = tail call ptr @PyObject_CallOneArg(ptr noundef %keyfunc, ptr noundef %3) #10
-  %arrayidx18 = getelementptr ptr, ptr %keys.0323, i64 %i.0286
+  %arrayidx18 = getelementptr ptr, ptr %keys.0324, i64 %i.0286
   store ptr %call17, ptr %arrayidx18, align 8
   %cmp20 = icmp eq ptr %call17, null
   br i1 %cmp20, label %for.cond22.preheader, label %for.inc30
@@ -2770,7 +2770,7 @@ for.cond22.preheader:                             ; preds = %for.body
 for.body24:                                       ; preds = %for.cond22.preheader, %for.inc
   %i.1289.in = phi i64 [ %i.1289, %for.inc ], [ %i.0286, %for.cond22.preheader ]
   %i.1289 = add nsw i64 %i.1289.in, -1
-  %arrayidx25 = getelementptr ptr, ptr %keys.0323, i64 %i.1289
+  %arrayidx25 = getelementptr ptr, ptr %keys.0324, i64 %i.1289
   %4 = load ptr, ptr %arrayidx25, align 8
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2147483648
@@ -2796,7 +2796,7 @@ for.end:                                          ; preds = %for.inc, %for.cond2
   br i1 %cmp26, label %if.then27, label %keyfunc_fail
 
 if.then27:                                        ; preds = %for.end
-  call void @PyMem_Free(ptr noundef nonnull %keys.0323) #10
+  call void @PyMem_Free(ptr noundef nonnull %keys.0324) #10
   br label %keyfunc_fail
 
 for.inc30:                                        ; preds = %for.body
@@ -2806,8 +2806,8 @@ for.inc30:                                        ; preds = %for.body
 
 if.end34:                                         ; preds = %for.inc30, %entry
   %lo.sroa.18.0 = phi ptr [ null, %entry ], [ %1, %for.inc30 ]
-  %lo.sroa.0.0 = phi ptr [ %1, %entry ], [ %keys.0323, %for.inc30 ]
-  %keys.1 = phi ptr [ null, %entry ], [ %keys.0323, %for.inc30 ]
+  %lo.sroa.0.0 = phi ptr [ %1, %entry ], [ %keys.0324, %for.inc30 ]
+  %keys.1 = phi ptr [ null, %entry ], [ %keys.0324, %for.inc30 ]
   %cmp35 = icmp sgt i64 %self.val114, 1
   br i1 %cmp35, label %if.then36, label %if.end147
 
@@ -2825,8 +2825,8 @@ land.end:                                         ; preds = %if.then36
   br i1 %cmp43, label %for.body55.us.preheader, label %for.body55.preheader
 
 for.body55.preheader:                             ; preds = %land.end, %if.then36
-  %cmp88333 = icmp eq ptr %.val117, @PyLong_Type
-  %cmp96334 = icmp eq ptr %.val117, @PyUnicode_Type
+  %cmp88334 = icmp eq ptr %.val117, @PyLong_Type
+  %cmp96335 = icmp eq ptr %.val117, @PyUnicode_Type
   br label %for.body55.outer
 
 for.body55.us.preheader:                          ; preds = %land.end
@@ -2847,7 +2847,7 @@ for.body55.us.outer:                              ; preds = %for.body55.us.prehe
 
 for.body55.us:                                    ; preds = %for.body55.us.outer, %for.inc105.us.thread
   %keys_are_all_same_type.0292.us = phi i32 [ 0, %for.inc105.us.thread ], [ %keys_are_all_same_type.0292.us.ph, %for.body55.us.outer ]
-  %i.2291.us = phi i64 [ %inc106.us355, %for.inc105.us.thread ], [ %i.2291.us.ph, %for.body55.us.outer ]
+  %i.2291.us = phi i64 [ %inc106.us356, %for.inc105.us.thread ], [ %i.2291.us.ph, %for.body55.us.outer ]
   %arrayidx58.us = getelementptr ptr, ptr %lo.sroa.0.0, i64 %i.2291.us
   %12 = load ptr, ptr %arrayidx58.us, align 8
   %13 = getelementptr i8, ptr %12, i64 8
@@ -2867,8 +2867,8 @@ cond.true69.us:                                   ; preds = %land.lhs.true61.us
   %15 = getelementptr i8, ptr %cond78.us, i64 8
   %cond78.val.us = load ptr, ptr %15, align 8
   %cmp.i123.not.us = icmp ne ptr %cond78.val.us, %.val116
-  %tobool86.not.us425 = icmp eq i32 %keys_are_all_same_type.0292.us, 0
-  %tobool86.not.us = select i1 %cmp.i123.not.us, i1 true, i1 %tobool86.not.us425
+  %tobool86.not.us426 = icmp eq i32 %keys_are_all_same_type.0292.us, 0
+  %tobool86.not.us = select i1 %cmp.i123.not.us, i1 true, i1 %tobool86.not.us426
   br i1 %tobool86.not.us, label %for.inc105.us.thread, label %if.then87.us
 
 if.then87.us:                                     ; preds = %cond.true69.us
@@ -2904,13 +2904,13 @@ for.inc105.us:                                    ; preds = %land.lhs.true91.us,
   br i1 %exitcond319.not, label %for.end107, label %for.body55.us.outer, !llvm.loop !16
 
 for.inc105.us.thread:                             ; preds = %cond.true69.us
-  %inc106.us355 = add nuw nsw i64 %i.2291.us, 1
-  %exitcond319.not356 = icmp eq i64 %inc106.us355, %self.val114
-  br i1 %exitcond319.not356, label %if.then138, label %for.body55.us, !llvm.loop !16
+  %inc106.us356 = add nuw nsw i64 %i.2291.us, 1
+  %exitcond319.not357 = icmp eq i64 %inc106.us356, %self.val114
+  br i1 %exitcond319.not357, label %if.then138, label %for.body55.us, !llvm.loop !16
 
 if.then87:                                        ; preds = %for.body55.outer
   %tobool90 = icmp ne i32 %ints_are_bounded.0294.ph, 0
-  %or.cond = select i1 %cmp88333, i1 %tobool90, i1 false
+  %or.cond = select i1 %cmp88334, i1 %tobool90, i1 false
   br i1 %or.cond, label %land.lhs.true91, label %if.else95
 
 land.lhs.true91:                                  ; preds = %if.then87
@@ -2922,7 +2922,7 @@ land.lhs.true91:                                  ; preds = %if.then87
 
 if.else95:                                        ; preds = %if.then87
   %tobool98 = icmp ne i32 %strings_are_latin.0293.ph, 0
-  %or.cond1 = select i1 %cmp96334, i1 %tobool98, i1 false
+  %or.cond1 = select i1 %cmp96335, i1 %tobool98, i1 false
   br i1 %or.cond1, label %land.lhs.true99, label %for.inc105
 
 land.lhs.true99:                                  ; preds = %if.else95
@@ -2972,14 +2972,14 @@ if.then109:                                       ; preds = %for.end107
   br i1 %or.cond2, label %if.end144, label %if.else114
 
 if.then109.thread:                                ; preds = %for.inc105
-  %cmp110375 = icmp eq ptr %.val117, @PyUnicode_Type
-  %tobool112376 = icmp ne i32 %strings_are_latin.1, 0
-  %or.cond2377 = select i1 %cmp110375, i1 %tobool112376, i1 false
-  br i1 %or.cond2377, label %if.then113.thread, label %if.else114.thread
+  %cmp110376 = icmp eq ptr %.val117, @PyUnicode_Type
+  %tobool112377 = icmp ne i32 %strings_are_latin.1, 0
+  %or.cond2378 = select i1 %cmp110376, i1 %tobool112377, i1 false
+  br i1 %or.cond2378, label %if.then113.thread, label %if.else114.thread
 
 if.then113.thread:                                ; preds = %if.then109.thread
-  %key_compare380 = getelementptr inbounds i8, ptr %ms, i64 4152
-  store ptr @unsafe_latin_compare, ptr %key_compare380, align 8
+  %key_compare381 = getelementptr inbounds i8, ptr %ms, i64 4152
+  store ptr @unsafe_latin_compare, ptr %key_compare381, align 8
   br label %if.end147
 
 if.else114:                                       ; preds = %if.then109
@@ -2989,14 +2989,14 @@ if.else114:                                       ; preds = %if.then109
   br i1 %or.cond3, label %if.end144, label %if.else120
 
 if.else114.thread:                                ; preds = %if.then109.thread
-  %cmp115383 = icmp eq ptr %.val117, @PyLong_Type
-  %tobool117384 = icmp ne i32 %ints_are_bounded.1, 0
-  %or.cond3385 = select i1 %cmp115383, i1 %tobool117384, i1 false
-  br i1 %or.cond3385, label %if.then118.thread, label %if.else120.thread
+  %cmp115384 = icmp eq ptr %.val117, @PyLong_Type
+  %tobool117385 = icmp ne i32 %ints_are_bounded.1, 0
+  %or.cond3386 = select i1 %cmp115384, i1 %tobool117385, i1 false
+  br i1 %or.cond3386, label %if.then118.thread, label %if.else120.thread
 
 if.then118.thread:                                ; preds = %if.else114.thread
-  %key_compare119387 = getelementptr inbounds i8, ptr %ms, i64 4152
-  store ptr @unsafe_long_compare, ptr %key_compare119387, align 8
+  %key_compare119388 = getelementptr inbounds i8, ptr %ms, i64 4152
+  store ptr @unsafe_long_compare, ptr %key_compare119388, align 8
   br label %if.end147
 
 if.else120:                                       ; preds = %if.else114
@@ -3004,12 +3004,12 @@ if.else120:                                       ; preds = %if.else114
   br i1 %cmp121, label %if.end144, label %if.else124
 
 if.else120.thread:                                ; preds = %if.else114.thread
-  %cmp121389 = icmp eq ptr %.val117, @PyFloat_Type
-  br i1 %cmp121389, label %if.then122.thread, label %if.else124.thread
+  %cmp121390 = icmp eq ptr %.val117, @PyFloat_Type
+  br i1 %cmp121390, label %if.then122.thread, label %if.else124.thread
 
 if.then122.thread:                                ; preds = %if.else120.thread
-  %key_compare123391 = getelementptr inbounds i8, ptr %ms, i64 4152
-  store ptr @unsafe_float_compare, ptr %key_compare123391, align 8
+  %key_compare123392 = getelementptr inbounds i8, ptr %ms, i64 4152
+  store ptr @unsafe_float_compare, ptr %key_compare123392, align 8
   br label %if.end147
 
 if.else124:                                       ; preds = %if.else120
@@ -3022,13 +3022,13 @@ if.else124:                                       ; preds = %if.else120
   br label %if.then138
 
 if.else124.thread:                                ; preds = %if.else120.thread
-  %tp_richcompare393 = getelementptr inbounds i8, ptr %.val117, i64 200
-  %22 = load ptr, ptr %tp_richcompare393, align 8
-  %key_richcompare394 = getelementptr inbounds i8, ptr %ms, i64 4160
-  store ptr %22, ptr %key_richcompare394, align 8
-  %cmp125.not395 = icmp eq ptr %22, null
+  %tp_richcompare394 = getelementptr inbounds i8, ptr %.val117, i64 200
+  %22 = load ptr, ptr %tp_richcompare394, align 8
+  %key_richcompare395 = getelementptr inbounds i8, ptr %ms, i64 4160
+  store ptr %22, ptr %key_richcompare395, align 8
+  %cmp125.not396 = icmp eq ptr %22, null
   %key_compare129 = getelementptr inbounds i8, ptr %ms, i64 4152
-  br i1 %cmp125.not395, label %if.else128, label %if.then126.thread
+  br i1 %cmp125.not396, label %if.else128, label %if.then126.thread
 
 if.then126.thread:                                ; preds = %if.else124.thread
   store ptr @unsafe_object_compare, ptr %key_compare129, align 8
@@ -3041,11 +3041,11 @@ if.else128:                                       ; preds = %if.else124.thread
 if.then138:                                       ; preds = %for.inc105.us.thread, %for.end107, %if.else124
   %23 = phi ptr [ %safe_object_compare.unsafe_object_compare, %if.else124 ], [ @safe_object_compare, %for.end107 ], [ @safe_object_compare, %for.inc105.us.thread ]
   %cmp139 = icmp eq ptr %.val116, @PyTuple_Type
-  %spec.select424 = select i1 %cmp139, ptr @safe_object_compare, ptr %23
+  %spec.select425 = select i1 %cmp139, ptr @safe_object_compare, ptr %23
   br label %if.end144
 
 if.end144:                                        ; preds = %if.then138, %if.then109, %if.else114, %if.else120
-  %.sink = phi ptr [ @unsafe_latin_compare, %if.then109 ], [ @unsafe_long_compare, %if.else114 ], [ @unsafe_float_compare, %if.else120 ], [ %spec.select424, %if.then138 ]
+  %.sink = phi ptr [ @unsafe_latin_compare, %if.then109 ], [ @unsafe_long_compare, %if.else114 ], [ @unsafe_float_compare, %if.else120 ], [ %spec.select425, %if.then138 ]
   %tuple_elem_compare143 = getelementptr inbounds i8, ptr %ms, i64 4168
   store ptr %.sink, ptr %tuple_elem_compare143, align 8
   %key_compare145 = getelementptr inbounds i8, ptr %ms, i64 4152
@@ -3053,11 +3053,11 @@ if.end144:                                        ; preds = %if.then138, %if.the
   br label %if.end147
 
 if.end147:                                        ; preds = %if.else128, %if.then126.thread, %if.then122.thread, %if.then118.thread, %if.then113.thread, %if.end14, %for.end107.thread, %for.end107.thread.thread, %if.end144, %if.end34
-  %cmp35331 = phi i1 [ %cmp35, %for.end107.thread ], [ %cmp35, %for.end107.thread.thread ], [ %cmp35, %if.else128 ], [ %cmp35, %if.end144 ], [ false, %if.end34 ], [ false, %if.end14 ], [ %cmp35, %if.then113.thread ], [ %cmp35, %if.then118.thread ], [ %cmp35, %if.then122.thread ], [ %cmp35, %if.then126.thread ]
-  %keys.1330 = phi ptr [ %keys.1, %for.end107.thread ], [ %keys.1, %for.end107.thread.thread ], [ %keys.1, %if.else128 ], [ %keys.1, %if.end144 ], [ %keys.1, %if.end34 ], [ %arrayidx, %if.end14 ], [ %keys.1, %if.then113.thread ], [ %keys.1, %if.then118.thread ], [ %keys.1, %if.then122.thread ], [ %keys.1, %if.then126.thread ]
-  %lo.sroa.0.0329 = phi ptr [ %lo.sroa.0.0, %for.end107.thread ], [ %lo.sroa.0.0, %for.end107.thread.thread ], [ %lo.sroa.0.0, %if.else128 ], [ %lo.sroa.0.0, %if.end144 ], [ %lo.sroa.0.0, %if.end34 ], [ %arrayidx, %if.end14 ], [ %lo.sroa.0.0, %if.then113.thread ], [ %lo.sroa.0.0, %if.then118.thread ], [ %lo.sroa.0.0, %if.then122.thread ], [ %lo.sroa.0.0, %if.then126.thread ]
-  %lo.sroa.18.0328 = phi ptr [ %lo.sroa.18.0, %for.end107.thread ], [ %lo.sroa.18.0, %for.end107.thread.thread ], [ %lo.sroa.18.0, %if.else128 ], [ %lo.sroa.18.0, %if.end144 ], [ %lo.sroa.18.0, %if.end34 ], [ %1, %if.end14 ], [ %lo.sroa.18.0, %if.then113.thread ], [ %lo.sroa.18.0, %if.then118.thread ], [ %lo.sroa.18.0, %if.then122.thread ], [ %lo.sroa.18.0, %if.then126.thread ]
-  %cmp148 = icmp ne ptr %keys.1330, null
+  %cmp35332 = phi i1 [ %cmp35, %for.end107.thread ], [ %cmp35, %for.end107.thread.thread ], [ %cmp35, %if.else128 ], [ %cmp35, %if.end144 ], [ false, %if.end34 ], [ false, %if.end14 ], [ %cmp35, %if.then113.thread ], [ %cmp35, %if.then118.thread ], [ %cmp35, %if.then122.thread ], [ %cmp35, %if.then126.thread ]
+  %keys.1331 = phi ptr [ %keys.1, %for.end107.thread ], [ %keys.1, %for.end107.thread.thread ], [ %keys.1, %if.else128 ], [ %keys.1, %if.end144 ], [ %keys.1, %if.end34 ], [ %arrayidx, %if.end14 ], [ %keys.1, %if.then113.thread ], [ %keys.1, %if.then118.thread ], [ %keys.1, %if.then122.thread ], [ %keys.1, %if.then126.thread ]
+  %lo.sroa.0.0330 = phi ptr [ %lo.sroa.0.0, %for.end107.thread ], [ %lo.sroa.0.0, %for.end107.thread.thread ], [ %lo.sroa.0.0, %if.else128 ], [ %lo.sroa.0.0, %if.end144 ], [ %lo.sroa.0.0, %if.end34 ], [ %arrayidx, %if.end14 ], [ %lo.sroa.0.0, %if.then113.thread ], [ %lo.sroa.0.0, %if.then118.thread ], [ %lo.sroa.0.0, %if.then122.thread ], [ %lo.sroa.0.0, %if.then126.thread ]
+  %lo.sroa.18.0329 = phi ptr [ %lo.sroa.18.0, %for.end107.thread ], [ %lo.sroa.18.0, %for.end107.thread.thread ], [ %lo.sroa.18.0, %if.else128 ], [ %lo.sroa.18.0, %if.end144 ], [ %lo.sroa.18.0, %if.end34 ], [ %1, %if.end14 ], [ %lo.sroa.18.0, %if.then113.thread ], [ %lo.sroa.18.0, %if.then118.thread ], [ %lo.sroa.18.0, %if.then122.thread ], [ %lo.sroa.18.0, %if.then126.thread ]
+  %cmp148 = icmp ne ptr %keys.1331, null
   br i1 %cmp148, label %if.then.i, label %merge_init.exit
 
 if.then.i:                                        ; preds = %if.end147
@@ -3085,7 +3085,7 @@ merge_init.exit:                                  ; preds = %if.end147, %if.then
   %listlen.i = getelementptr inbounds i8, ptr %ms, i64 8
   store i64 %self.val114, ptr %listlen.i, align 8
   %basekeys.i = getelementptr inbounds i8, ptr %ms, i64 16
-  store ptr %lo.sroa.0.0329, ptr %basekeys.i, align 8
+  store ptr %lo.sroa.0.0330, ptr %basekeys.i, align 8
   %cmp149 = icmp slt i64 %self.val114, 2
   br i1 %cmp149, label %fail, label %if.end152
 
@@ -3094,15 +3094,15 @@ if.end152:                                        ; preds = %merge_init.exit
   br i1 %tobool153.not, label %if.end163, label %if.then154
 
 if.then154:                                       ; preds = %if.end152
-  %arrayidx159 = getelementptr ptr, ptr %keys.1330, i64 %self.val114
+  %arrayidx159 = getelementptr ptr, ptr %keys.1331, i64 %self.val114
   %hi.addr.08.i = getelementptr i8, ptr %arrayidx159, i64 -8
-  %cmp9.i = icmp ugt ptr %hi.addr.08.i, %keys.1330
+  %cmp9.i = icmp ugt ptr %hi.addr.08.i, %keys.1331
   %or.cond265 = select i1 %cmp148, i1 %cmp9.i, i1 false
   br i1 %or.cond265, label %while.body.i, label %if.end160
 
 while.body.i:                                     ; preds = %if.then154, %while.body.i
   %hi.addr.011.i = phi ptr [ %hi.addr.0.i, %while.body.i ], [ %hi.addr.08.i, %if.then154 ]
-  %lo.addr.010.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %keys.1330, %if.then154 ]
+  %lo.addr.010.i = phi ptr [ %incdec.ptr1.i, %while.body.i ], [ %keys.1331, %if.then154 ]
   %26 = load ptr, ptr %lo.addr.010.i, align 8
   %27 = load ptr, ptr %hi.addr.011.i, align 8
   store ptr %27, ptr %lo.addr.010.i, align 8
@@ -3152,16 +3152,17 @@ merge_compute_minrun.exit:                        ; preds = %while.body.i139, %i
   br label %do.body
 
 do.body:                                          ; preds = %if.end198, %merge_compute_minrun.exit
-  %lo.sroa.18.1 = phi ptr [ %lo.sroa.18.0328, %merge_compute_minrun.exit ], [ %spec.select266, %if.end198 ]
-  %lo.sroa.0.1 = phi ptr [ %lo.sroa.0.0329, %merge_compute_minrun.exit ], [ %add.ptr.i171, %if.end198 ]
+  %lo.sroa.18.1 = phi ptr [ %lo.sroa.18.0329, %merge_compute_minrun.exit ], [ %spec.select266, %if.end198 ]
+  %lo.sroa.0.1 = phi ptr [ %lo.sroa.0.0330, %merge_compute_minrun.exit ], [ %add.ptr.i171, %if.end198 ]
   %nremaining.0 = phi i64 [ %self.val114, %merge_compute_minrun.exit ], [ %sub207, %if.end198 ]
   %lo.coerce1.fr.i = freeze ptr %lo.sroa.18.1
-  %add.ptr = getelementptr ptr, ptr %lo.sroa.0.1, i64 %nremaining.0
-  %incdec.ptr.i = getelementptr i8, ptr %lo.sroa.0.1, i64 8
-  %cmp.i141 = icmp eq ptr %incdec.ptr.i, %add.ptr
+  %add.ptr.idx = shl i64 %nremaining.0, 3
+  %add.ptr = getelementptr i8, ptr %lo.sroa.0.1, i64 %add.ptr.idx
+  %cmp.i141 = icmp eq i64 %add.ptr.idx, 8
   br i1 %cmp.i141, label %if.end174, label %if.end.i142
 
 if.end.i142:                                      ; preds = %do.body
+  %incdec.ptr.i = getelementptr i8, ptr %lo.sroa.0.1, i64 8
   %30 = load ptr, ptr %key_compare.i, align 8
   %31 = load ptr, ptr %incdec.ptr.i, align 8
   %32 = load ptr, ptr %lo.sroa.0.1, align 8
@@ -3281,9 +3282,9 @@ if.then177:                                       ; preds = %if.end174
   %add.ptr187 = getelementptr ptr, ptr %lo.sroa.0.1, i64 %retval.0.i246258
   %add.ptr187.idx.mask = and i64 %retval.0.i246258, 2305843009213693951
   %cmp.i146 = icmp eq i64 %add.ptr187.idx.mask, 0
-  %spec.select.idx.i = select i1 %cmp.i146, i64 8, i64 0
-  %spec.select.i147 = getelementptr i8, ptr %add.ptr187, i64 %spec.select.idx.i
-  %cmp141.i = icmp ult ptr %spec.select.i147, %add.ptr185
+  %spec.select.idx.i.sroa.sel.idx.sroa.sel.idx = select i1 %cmp.i146, i64 8, i64 0
+  %spec.select.idx.i.sroa.sel.idx.sroa.sel = getelementptr i8, ptr %add.ptr187, i64 %spec.select.idx.i.sroa.sel.idx.sroa.sel.idx
+  %cmp141.i = icmp ult ptr %spec.select.idx.i.sroa.sel.idx.sroa.sel, %add.ptr185
   br i1 %cmp141.i, label %for.body.lr.ph.i, label %if.end193
 
 for.body.lr.ph.i:                                 ; preds = %if.then177
@@ -3295,7 +3296,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then177
   br i1 %cmp18.not.i, label %for.body.us.i, label %for.body.i150
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.end.us.i
-  %start.addr.142.us.i = phi ptr [ %incdec.ptr40.us.i, %for.end.us.i ], [ %spec.select.i147, %for.body.lr.ph.i ]
+  %start.addr.142.us.i = phi ptr [ %incdec.ptr40.us.i, %for.end.us.i ], [ %spec.select.idx.i.sroa.sel.idx.sroa.sel, %for.body.lr.ph.i ]
   %43 = load ptr, ptr %start.addr.142.us.i, align 8
   br label %do.body.us.i
 
@@ -3340,7 +3341,7 @@ for.cond12.preheader.us.i:                        ; preds = %if.end6.us.i
   br i1 %cmp1337.us.i, label %for.body15.us.i, label %for.end.us.i
 
 for.body.i150:                                    ; preds = %for.body.lr.ph.i, %for.end37.i
-  %start.addr.142.i = phi ptr [ %incdec.ptr40.i, %for.end37.i ], [ %spec.select.i147, %for.body.lr.ph.i ]
+  %start.addr.142.i = phi ptr [ %incdec.ptr40.i, %for.end37.i ], [ %spec.select.idx.i.sroa.sel.idx.sroa.sel, %for.body.lr.ph.i ]
   %47 = load ptr, ptr %start.addr.142.i, align 8
   br label %do.body.i
 
@@ -3525,12 +3526,12 @@ fail:                                             ; preds = %if.end.i142, %count
   %cmp237 = phi i1 [ true, %merge_init.exit ], [ %cmp.i179, %if.end.i187 ], [ %cmp.i179, %while.cond.i178 ], [ false, %do.body.us.i ], [ false, %do.body.i ], [ false, %while.body.i170 ], [ false, %for.body26.i ], [ false, %for.body.i ], [ false, %count_run.exit ], [ false, %if.end.i142 ]
   %result.0 = phi ptr [ @_Py_NoneStruct, %merge_init.exit ], [ @_Py_NoneStruct, %while.cond.i178 ], [ null, %if.end.i187 ], [ null, %do.body.us.i ], [ null, %do.body.i ], [ null, %while.body.i170 ], [ null, %for.body26.i ], [ null, %for.body.i ], [ null, %count_run.exit ], [ null, %if.end.i142 ]
   %cmp221299 = icmp sgt i64 %self.val114, 0
-  %or.cond423 = select i1 %cmp148, i1 %cmp221299, i1 false
-  br i1 %or.cond423, label %for.body223, label %if.end232
+  %or.cond424 = select i1 %cmp148, i1 %cmp221299, i1 false
+  br i1 %or.cond424, label %for.body223, label %if.end232
 
 for.body223:                                      ; preds = %fail, %for.inc225
   %i.3300 = phi i64 [ %inc226, %for.inc225 ], [ 0, %fail ]
-  %arrayidx224 = getelementptr ptr, ptr %keys.1330, i64 %i.3300
+  %arrayidx224 = getelementptr ptr, ptr %keys.1331, i64 %i.3300
   %65 = load ptr, ptr %arrayidx224, align 8
   %66 = load i64, ptr %65, align 8
   %67 = and i64 %66, 2147483648
@@ -3557,7 +3558,7 @@ for.end227:                                       ; preds = %for.inc225
   br i1 %cmp228, label %if.then230, label %if.end232
 
 if.then230:                                       ; preds = %for.end227
-  call void @PyMem_Free(ptr noundef nonnull %keys.1330) #10
+  call void @PyMem_Free(ptr noundef nonnull %keys.1331) #10
   br label %if.end232
 
 if.end232:                                        ; preds = %for.end227, %if.then230, %fail
@@ -3574,7 +3575,7 @@ if.then239:                                       ; preds = %if.end232
 if.end240:                                        ; preds = %if.then239, %if.end232
   %result.1 = phi ptr [ null, %if.then239 ], [ %result.0, %if.end232 ]
   %tobool241 = icmp ne i32 %reverse, 0
-  %or.cond5 = and i1 %tobool241, %cmp35331
+  %or.cond5 = and i1 %tobool241, %cmp35332
   %add.ptr246 = getelementptr ptr, ptr %1, i64 %self.val114
   %hi.addr.08.i190 = getelementptr i8, ptr %add.ptr246, i64 -8
   %cmp9.i191 = icmp ugt ptr %hi.addr.08.i190, %1

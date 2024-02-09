@@ -525,8 +525,7 @@ if.end.i5:                                        ; preds = %_ZNK6hermes2vm10Str
   br i1 %cmp1.i, label %if.then2.i, label %do.body.i
 
 if.then2.i:                                       ; preds = %if.end.i5
-  %incdec.ptr.i = getelementptr i8, ptr %add.ptr10.i, i64 1
-  %cmp3.i = icmp eq ptr %incdec.ptr.i, %add.ptr
+  %cmp3.i = icmp eq i64 %str.sroa.8.8.extract.shift, 1
   br i1 %cmp3.i, label %7, label %_ZN6hermes12toArrayIndexIPKcEENS_8OptValueIjEET_S5_.exit
 
 do.body.i:                                        ; preds = %if.end.i5, %if.end17.i
@@ -610,7 +609,8 @@ _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit: ; preds = %if.end, %if.then.
   %retval.0.i.sink.i20 = phi ptr [ %str.coerce0, %if.end ], [ %10, %if.then.i.i31 ], [ %add.ptr.i.i.i.i.i25, %if.then5.i.i24 ], [ %add.ptr.i.i.i4.i.i18, %if.then10.i.i17 ], [ %12, %if.else13.i.i26 ]
   %bf.clear8.i21 = and i64 %str.coerce1, 1073741823
   %add.ptr10.i23 = getelementptr inbounds i16, ptr %retval.0.i.sink.i20, i64 %bf.clear8.i21
-  %add.ptr6 = getelementptr inbounds i16, ptr %add.ptr10.i23, i64 %str.sroa.8.8.extract.shift
+  %add.ptr6.idx = shl nuw nsw i64 %str.sroa.8.8.extract.shift, 1
+  %add.ptr6 = getelementptr i8, ptr %add.ptr10.i23, i64 %add.ptr6.idx
   %cmp.i33 = icmp ult i64 %str.coerce1, 4294967296
   br i1 %cmp.i33, label %_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit, label %if.end.i34
 
@@ -620,8 +620,7 @@ if.end.i34:                                       ; preds = %_ZNK6hermes2vm10Str
   br i1 %cmp1.i35, label %if.then2.i56, label %do.body.i36
 
 if.then2.i56:                                     ; preds = %if.end.i34
-  %incdec.ptr.i57 = getelementptr i8, ptr %add.ptr10.i23, i64 2
-  %cmp3.i58 = icmp eq ptr %incdec.ptr.i57, %add.ptr6
+  %cmp3.i58 = icmp eq i64 %str.sroa.8.8.extract.shift, 1
   br i1 %cmp3.i58, label %17, label %_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit
 
 do.body.i36:                                      ; preds = %if.end.i34, %if.end17.i49

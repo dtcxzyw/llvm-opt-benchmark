@@ -1882,7 +1882,7 @@ _ZN3euf9ac_plugin10monomial_t3endEv.exit:         ; preds = %entry
   %1 = load i32, ptr %arrayidx.i.i.i, align 4
   %2 = zext i32 %1 to i64
   %add.ptr.i.i.idx = shl nuw nsw i64 %2, 3
-  %add.ptr.i.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.i.idx
+  %add.ptr.i.i = getelementptr i8, ptr %0, i64 %add.ptr.i.i.idx
   %cmp.not.i.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i.i, label %"_ZSt4sortIPPN3euf9ac_plugin4nodeEZNS1_4sortERNS1_10monomial_tEE3$_0EvT_S8_T0_.exit", label %if.then.i.i
 
@@ -1891,7 +1891,7 @@ if.then.i.i:                                      ; preds = %_ZN3euf9ac_plugin10
   %3 = tail call i64 @llvm.ctlz.i64(i64 %2, i1 true), !range !10
   %sub.i.i.i = shl nuw nsw i64 %3, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  tail call fastcc void @"_ZSt16__introsort_loopIPPN3euf9ac_plugin4nodeElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_T0_T1_"(ptr noundef nonnull %0, ptr noundef nonnull %add.ptr.i.i.ptr, i64 noundef %mul.i.i)
+  tail call fastcc void @"_ZSt16__introsort_loopIPPN3euf9ac_plugin4nodeElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_T0_T1_"(ptr noundef nonnull %0, ptr noundef nonnull %add.ptr.i.i, i64 noundef %mul.i.i)
   %cmp.i.i.i2 = icmp ugt i32 %1, 16
   %scevgep.i.i.i = getelementptr i8, ptr %0, i64 8
   br i1 %cmp.i.i.i2, label %for.body.i.i.i.i, label %if.else.i.i.i
@@ -2000,11 +2000,11 @@ while.body.i.i16.i.i.i:                           ; preds = %for.body.i9.i.i.i, 
   %__last.addr.0.lcssa.i.i.i.i.i = phi ptr [ %__i.04.i.i.i.i, %for.body.i9.i.i.i ], [ %__next.020.i.i18.i.i.i, %while.body.i.i16.i.i.i ]
   store ptr %8, ptr %__last.addr.0.lcssa.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.ptr
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i.i.i, label %"_ZSt4sortIPPN3euf9ac_plugin4nodeEZNS1_4sortERNS1_10monomial_tEE3$_0EvT_S8_T0_.exit", label %for.body.i9.i.i.i, !llvm.loop !13
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
-  %cmp1.not13.i.i.i.i = icmp eq ptr %scevgep.i.i.i, %add.ptr.i.i.ptr
+  %cmp1.not13.i.i.i.i = icmp eq i32 %1, 1
   br i1 %cmp1.not13.i.i.i.i, label %"_ZSt4sortIPPN3euf9ac_plugin4nodeEZNS1_4sortERNS1_10monomial_tEE3$_0EvT_S8_T0_.exit", label %for.body.i33.i.i.i
 
 for.body.i33.i.i.i:                               ; preds = %if.else.i.i.i, %for.inc.i54.i.i.i
@@ -2068,7 +2068,7 @@ for.inc.i54.i.i.i:                                ; preds = %while.body.i.i58.i.
   %__first.sink.i55.i.i.i = phi ptr [ %0, %if.then2.i73.i.i.i ], [ %__i.015.i34.i.i.i, %if.else.i47.i.i.i ], [ %__next.020.i.i60.i.i.i, %while.body.i.i58.i.i.i ]
   store ptr %__i.0.val.i36.i.i.i, ptr %__first.sink.i55.i.i.i, align 8
   %__i.0.i56.i.i.i = getelementptr inbounds i8, ptr %__i.015.i34.i.i.i, i64 8
-  %cmp1.not.i57.i.i.i = icmp eq ptr %__i.0.i56.i.i.i, %add.ptr.i.i.ptr
+  %cmp1.not.i57.i.i.i = icmp eq ptr %__i.0.i56.i.i.i, %add.ptr.i.i
   br i1 %cmp1.not.i57.i.i.i, label %"_ZSt4sortIPPN3euf9ac_plugin4nodeEZNS1_4sortERNS1_10monomial_tEE3$_0EvT_S8_T0_.exit", label %for.body.i33.i.i.i, !llvm.loop !12
 
 "_ZSt4sortIPPN3euf9ac_plugin4nodeEZNS1_4sortERNS1_10monomial_tEE3$_0EvT_S8_T0_.exit": ; preds = %for.inc.i54.i.i.i, %"_ZSt25__unguarded_linear_insertIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops14_Val_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_.exit.i.i.i.i", %entry, %_ZN3euf9ac_plugin10monomial_t3endEv.exit, %if.else.i.i.i

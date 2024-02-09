@@ -371,7 +371,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN3net18HpackHuff
   br i1 %cmp.i.not.i.i47, label %invoke.cont25, label %for.body.i3.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %.noexc20
-  %cmp.i1.not10.i16.i = icmp eq ptr %scevgep.i, %__first.addr.0.i.i.i.i.i241.ptr
+  %cmp.i1.not10.i16.i = icmp eq i64 %__first.addr.0.i.i.i.i.i241.idx, 8
   br i1 %cmp.i1.not10.i16.i, label %invoke.cont25, label %for.body.i19.i.preheader
 
 for.body.i19.i.preheader:                         ; preds = %if.else.i

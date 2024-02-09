@@ -50348,7 +50348,7 @@ if.end42:                                         ; preds = %if.end15
 while.body.preheader.i:                           ; preds = %if.end42
   %value.coerce0.masked.numleadingzeros.i = tail call i64 @llvm.ctlz.i64(i64 %and.i.i, i1 true), !range !328
   %value.coerce0.masked.leadingonepos.i = xor i64 %value.coerce0.masked.numleadingzeros.i, 63
-  %while.body.tripcount.i = sub nsw i64 52, %value.coerce0.masked.leadingonepos.i
+  %while.body.tripcount.i = sub nuw nsw i64 52, %value.coerce0.masked.leadingonepos.i
   %shl.i80 = shl i64 %and.i.i, %while.body.tripcount.i
   %17 = trunc i64 %value.coerce0.masked.numleadingzeros.i to i32
   %18 = sub nuw nsw i32 -1063, %17
@@ -71493,6 +71493,7 @@ for.body67.lr.ph:                                 ; preds = %if.then62
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom76 = sext i32 %div63 to i64
   br i1 %cmp.i.i, label %for.body67.us, label %for.body67
 
@@ -71500,8 +71501,8 @@ for.body67.us:                                    ; preds = %for.body67.lr.ph, %
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %invoke.cont79.loopexit.us ], [ 0, %for.body67.lr.ph ]
   %arrayidx69.us = getelementptr inbounds ptr, ptr %cond179, i64 %indvars.iv156
   %79 = load ptr, ptr %arrayidx69.us, align 8
-  %add.ptr72.ptr.us = getelementptr inbounds i8, ptr %79, i64 %add.ptr72.idx
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr72.ptr.us, i64 noundef %mul.i)
+  %add.ptr72.us = getelementptr i8, ptr %79, i64 %add.ptr72.idx
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr72.us, i64 noundef %mul.i)
           to label %.noexc118.us unwind label %lpad35.loopexit.split.us
 
 .noexc118.us:                                     ; preds = %for.body67.us
@@ -71569,7 +71570,7 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i.us = phi ptr [ %__i.04.i.i.i.us, %for.body.i7.i.i.us ], [ %__next.012.i.i10.i.i.us, %while.body.i.i9.i.i.us ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i.us, align 4
   %incdec.ptr.i.i.i.us = getelementptr inbounds i8, ptr %__i.04.i.i.i.us, i64 4
-  %cmp.not.i.i.i.us = icmp eq ptr %incdec.ptr.i.i.i.us, %add.ptr72.ptr.us
+  %cmp.not.i.i.i.us = icmp eq ptr %incdec.ptr.i.i.i.us, %add.ptr72.us
   br i1 %cmp.not.i.i.i.us, label %invoke.cont79.loopexit.us, label %for.body.i7.i.i.us, !llvm.loop !476
 
 invoke.cont79.loopexit.us:                        ; preds = %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.us
@@ -71592,19 +71593,21 @@ for.body67:                                       ; preds = %for.body67.lr.ph, %
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %invoke.cont79 ], [ 0, %for.body67.lr.ph ]
   %arrayidx69 = getelementptr inbounds ptr, ptr %cond179, i64 %indvars.iv151
   %92 = load ptr, ptr %arrayidx69, align 8
-  %add.ptr72.ptr = getelementptr inbounds i8, ptr %92, i64 %add.ptr72.idx
+  %add.ptr72 = getelementptr i8, ptr %92, i64 %add.ptr72.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %92 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %92, ptr noundef nonnull %add.ptr72.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %92, ptr noundef nonnull %add.ptr72, i64 noundef %mul.i)
           to label %.noexc118 unwind label %lpad35.loopexit.split
 
 .noexc118:                                        ; preds = %for.body67
-  %scevgep.i.i = getelementptr i8, ptr %92, i64 4
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr72.ptr
-  br i1 %cmp1.not13.i.i.i, label %invoke.cont79, label %for.body.i16.i.i
+  br i1 %cmp1.not13.i.i.i, label %invoke.cont79, label %for.body.i16.i.i.preheader
 
-for.body.i16.i.i:                                 ; preds = %.noexc118, %for.inc.i22.i.i
-  %__i.015.i17.i.i = phi ptr [ %__i.0.i24.i.i, %for.inc.i22.i.i ], [ %scevgep.i.i, %.noexc118 ]
-  %__first.pn14.i18.i.i = phi ptr [ %__i.015.i17.i.i, %for.inc.i22.i.i ], [ %92, %.noexc118 ]
+for.body.i16.i.i.preheader:                       ; preds = %.noexc118
+  %scevgep.i.i = getelementptr i8, ptr %92, i64 4
+  br label %for.body.i16.i.i
+
+for.body.i16.i.i:                                 ; preds = %for.body.i16.i.i.preheader, %for.inc.i22.i.i
+  %__i.015.i17.i.i = phi ptr [ %__i.0.i24.i.i, %for.inc.i22.i.i ], [ %scevgep.i.i, %for.body.i16.i.i.preheader ]
+  %__first.pn14.i18.i.i = phi ptr [ %__i.015.i17.i.i, %for.inc.i22.i.i ], [ %92, %for.body.i16.i.i.preheader ]
   %93 = load float, ptr %__i.015.i17.i.i, align 4
   %94 = load float, ptr %92, align 4
   %cmp.i.i19.i.i = fcmp olt float %93, %94
@@ -71639,7 +71642,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %92, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %93, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr72.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr72
   br i1 %cmp1.not.i25.i.i, label %invoke.cont79, label %for.body.i16.i.i, !llvm.loop !475
 
 invoke.cont79:                                    ; preds = %for.inc.i22.i.i, %.noexc118
@@ -72607,6 +72610,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -72614,9 +72618,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv152 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next153, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond175, i64 %indvars.iv152
   %79 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %79, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %79 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc119 unwind label %lpad35.loopexit
 
 .noexc119:                                        ; preds = %for.body66
@@ -72684,11 +72688,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %for.inc82, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc119
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %for.inc82, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -72728,7 +72731,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %79, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %89, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %for.inc82, label %for.body.i16.i.i, !llvm.loop !475
 
 for.inc82:                                        ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i
@@ -73283,6 +73286,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -73290,9 +73294,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv152 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next153, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond175, i64 %indvars.iv152
   %79 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %79, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %79 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc119 unwind label %lpad35.loopexit
 
 .noexc119:                                        ; preds = %for.body66
@@ -73360,11 +73364,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %for.inc82, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc119
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %for.inc82, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -73404,7 +73407,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %79, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %89, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %for.inc82, label %for.body.i16.i.i, !llvm.loop !475
 
 for.inc82:                                        ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i
@@ -73960,6 +73963,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %79, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -73967,9 +73971,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv155 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next156, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond178, i64 %indvars.iv155
   %80 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %80, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %80, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %80 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %80, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %80, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc122 unwind label %lpad35.loopexit
 
 .noexc122:                                        ; preds = %for.body66
@@ -74037,11 +74041,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %86, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %invoke.cont78, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc122
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %invoke.cont78, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -74081,7 +74084,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %80, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %90, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %invoke.cont78, label %for.body.i16.i.i, !llvm.loop !475
 
 invoke.cont78:                                    ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i
@@ -74661,6 +74664,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -74668,9 +74672,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv152 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next153, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond175, i64 %indvars.iv152
   %79 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %79, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %79 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc119 unwind label %lpad35.loopexit
 
 .noexc119:                                        ; preds = %for.body66
@@ -74738,11 +74742,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %for.inc82, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc119
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %for.inc82, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -74782,7 +74785,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %79, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %89, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %for.inc82, label %for.body.i16.i.i, !llvm.loop !475
 
 for.inc82:                                        ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i
@@ -75337,6 +75340,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -75344,9 +75348,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv152 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next153, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond175, i64 %indvars.iv152
   %79 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %79, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %79 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc119 unwind label %lpad35.loopexit
 
 .noexc119:                                        ; preds = %for.body66
@@ -75414,11 +75418,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %for.inc82, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc119
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %for.inc82, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -75458,7 +75461,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %79, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %89, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %for.inc82, label %for.body.i16.i.i, !llvm.loop !475
 
 for.inc82:                                        ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i
@@ -76013,6 +76016,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -76020,9 +76024,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv153 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next154, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond176, i64 %indvars.iv153
   %79 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %79, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %79 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc120 unwind label %lpad35.loopexit
 
 .noexc120:                                        ; preds = %for.body66
@@ -76090,11 +76094,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %for.inc82, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc120
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %for.inc82, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -76134,7 +76137,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %79, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %89, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %for.inc82, label %for.body.i16.i.i, !llvm.loop !475
 
 for.inc82:                                        ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i
@@ -76690,6 +76693,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -76697,9 +76701,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv153 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next154, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond176, i64 %indvars.iv153
   %79 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %79, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %79 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc120 unwind label %lpad35.loopexit
 
 .noexc120:                                        ; preds = %for.body66
@@ -76767,11 +76771,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %for.inc82, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc120
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %for.inc82, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -76811,7 +76814,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %79, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %89, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %for.inc82, label %for.body.i16.i.i, !llvm.loop !475
 
 for.inc82:                                        ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i
@@ -77367,6 +77370,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br i1 %cmp.i.i, label %for.body66.us, label %for.body66
 
@@ -77374,8 +77378,8 @@ for.body66.us:                                    ; preds = %for.body66.lr.ph, %
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %for.inc82.loopexit.us ], [ 0, %for.body66.lr.ph ]
   %arrayidx68.us = getelementptr inbounds ptr, ptr %cond179, i64 %indvars.iv156
   %79 = load ptr, ptr %arrayidx68.us, align 8
-  %add.ptr71.ptr.us = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr.us, i64 noundef %mul.i)
+  %add.ptr71.us = getelementptr i8, ptr %79, i64 %add.ptr71.idx
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.us, i64 noundef %mul.i)
           to label %.noexc118.us unwind label %lpad35.loopexit.split.us
 
 .noexc118.us:                                     ; preds = %for.body66.us
@@ -77443,7 +77447,7 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i.us = phi ptr [ %__i.04.i.i.i.us, %for.body.i7.i.i.us ], [ %__next.012.i.i10.i.i.us, %while.body.i.i9.i.i.us ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i.us, align 4
   %incdec.ptr.i.i.i.us = getelementptr inbounds i8, ptr %__i.04.i.i.i.us, i64 4
-  %cmp.not.i.i.i.us = icmp eq ptr %incdec.ptr.i.i.i.us, %add.ptr71.ptr.us
+  %cmp.not.i.i.i.us = icmp eq ptr %incdec.ptr.i.i.i.us, %add.ptr71.us
   br i1 %cmp.not.i.i.i.us, label %for.inc82.loopexit.us, label %for.body.i7.i.i.us, !llvm.loop !476
 
 for.inc82.loopexit.us:                            ; preds = %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.us
@@ -77467,19 +77471,21 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %for.inc82 ], [ 0, %for.body66.lr.ph ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond179, i64 %indvars.iv151
   %92 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %92, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %92, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %92 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %92, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %92, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc118 unwind label %lpad35.loopexit.split
 
 .noexc118:                                        ; preds = %for.body66
-  %scevgep.i.i = getelementptr i8, ptr %92, i64 4
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
-  br i1 %cmp1.not13.i.i.i, label %for.inc82, label %for.body.i16.i.i
+  br i1 %cmp1.not13.i.i.i, label %for.inc82, label %for.body.i16.i.i.preheader
 
-for.body.i16.i.i:                                 ; preds = %.noexc118, %for.inc.i22.i.i
-  %__i.015.i17.i.i = phi ptr [ %__i.0.i24.i.i, %for.inc.i22.i.i ], [ %scevgep.i.i, %.noexc118 ]
-  %__first.pn14.i18.i.i = phi ptr [ %__i.015.i17.i.i, %for.inc.i22.i.i ], [ %92, %.noexc118 ]
+for.body.i16.i.i.preheader:                       ; preds = %.noexc118
+  %scevgep.i.i = getelementptr i8, ptr %92, i64 4
+  br label %for.body.i16.i.i
+
+for.body.i16.i.i:                                 ; preds = %for.body.i16.i.i.preheader, %for.inc.i22.i.i
+  %__i.015.i17.i.i = phi ptr [ %__i.0.i24.i.i, %for.inc.i22.i.i ], [ %scevgep.i.i, %for.body.i16.i.i.preheader ]
+  %__first.pn14.i18.i.i = phi ptr [ %__i.015.i17.i.i, %for.inc.i22.i.i ], [ %92, %for.body.i16.i.i.preheader ]
   %93 = load float, ptr %__i.015.i17.i.i, align 4
   %94 = load float, ptr %92, align 4
   %cmp.i.i19.i.i = fcmp olt float %93, %94
@@ -77514,7 +77520,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %92, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %93, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %for.inc82, label %for.body.i16.i.i, !llvm.loop !475
 
 for.inc82:                                        ; preds = %for.inc.i22.i.i, %.noexc118
@@ -78062,6 +78068,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br i1 %cmp.i.i, label %for.body66.us, label %for.body66
 
@@ -78069,8 +78076,8 @@ for.body66.us:                                    ; preds = %for.body66.lr.ph, %
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %invoke.cont78.loopexit.us ], [ 0, %for.body66.lr.ph ]
   %arrayidx68.us = getelementptr inbounds ptr, ptr %cond179, i64 %indvars.iv156
   %79 = load ptr, ptr %arrayidx68.us, align 8
-  %add.ptr71.ptr.us = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr.us, i64 noundef %mul.i)
+  %add.ptr71.us = getelementptr i8, ptr %79, i64 %add.ptr71.idx
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.us, i64 noundef %mul.i)
           to label %.noexc118.us unwind label %lpad35.loopexit.split.us
 
 .noexc118.us:                                     ; preds = %for.body66.us
@@ -78138,7 +78145,7 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i.us = phi ptr [ %__i.04.i.i.i.us, %for.body.i7.i.i.us ], [ %__next.012.i.i10.i.i.us, %while.body.i.i9.i.i.us ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i.us, align 4
   %incdec.ptr.i.i.i.us = getelementptr inbounds i8, ptr %__i.04.i.i.i.us, i64 4
-  %cmp.not.i.i.i.us = icmp eq ptr %incdec.ptr.i.i.i.us, %add.ptr71.ptr.us
+  %cmp.not.i.i.i.us = icmp eq ptr %incdec.ptr.i.i.i.us, %add.ptr71.us
   br i1 %cmp.not.i.i.i.us, label %invoke.cont78.loopexit.us, label %for.body.i7.i.i.us, !llvm.loop !476
 
 invoke.cont78.loopexit.us:                        ; preds = %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.us
@@ -78161,19 +78168,21 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %invoke.cont78 ], [ 0, %for.body66.lr.ph ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond179, i64 %indvars.iv151
   %92 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %92, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %92, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %92 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %92, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %92, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc118 unwind label %lpad35.loopexit.split
 
 .noexc118:                                        ; preds = %for.body66
-  %scevgep.i.i = getelementptr i8, ptr %92, i64 4
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
-  br i1 %cmp1.not13.i.i.i, label %invoke.cont78, label %for.body.i16.i.i
+  br i1 %cmp1.not13.i.i.i, label %invoke.cont78, label %for.body.i16.i.i.preheader
 
-for.body.i16.i.i:                                 ; preds = %.noexc118, %for.inc.i22.i.i
-  %__i.015.i17.i.i = phi ptr [ %__i.0.i24.i.i, %for.inc.i22.i.i ], [ %scevgep.i.i, %.noexc118 ]
-  %__first.pn14.i18.i.i = phi ptr [ %__i.015.i17.i.i, %for.inc.i22.i.i ], [ %92, %.noexc118 ]
+for.body.i16.i.i.preheader:                       ; preds = %.noexc118
+  %scevgep.i.i = getelementptr i8, ptr %92, i64 4
+  br label %for.body.i16.i.i
+
+for.body.i16.i.i:                                 ; preds = %for.body.i16.i.i.preheader, %for.inc.i22.i.i
+  %__i.015.i17.i.i = phi ptr [ %__i.0.i24.i.i, %for.inc.i22.i.i ], [ %scevgep.i.i, %for.body.i16.i.i.preheader ]
+  %__first.pn14.i18.i.i = phi ptr [ %__i.015.i17.i.i, %for.inc.i22.i.i ], [ %92, %for.body.i16.i.i.preheader ]
   %93 = load float, ptr %__i.015.i17.i.i, align 4
   %94 = load float, ptr %92, align 4
   %cmp.i.i19.i.i = fcmp olt float %93, %94
@@ -78208,7 +78217,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %92, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %93, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %invoke.cont78, label %for.body.i16.i.i, !llvm.loop !475
 
 invoke.cont78:                                    ; preds = %for.inc.i22.i.i, %.noexc118
@@ -78756,6 +78765,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %79, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br i1 %cmp.i.i, label %for.body66.us, label %for.body66
 
@@ -78763,8 +78773,8 @@ for.body66.us:                                    ; preds = %for.body66.lr.ph, %
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %invoke.cont78.loopexit.us ], [ 0, %for.body66.lr.ph ]
   %arrayidx68.us = getelementptr inbounds ptr, ptr %cond179, i64 %indvars.iv156
   %80 = load ptr, ptr %arrayidx68.us, align 8
-  %add.ptr71.ptr.us = getelementptr inbounds i8, ptr %80, i64 %add.ptr71.idx
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %80, ptr noundef nonnull %add.ptr71.ptr.us, i64 noundef %mul.i)
+  %add.ptr71.us = getelementptr i8, ptr %80, i64 %add.ptr71.idx
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %80, ptr noundef nonnull %add.ptr71.us, i64 noundef %mul.i)
           to label %.noexc118.us unwind label %lpad35.loopexit.split.us
 
 .noexc118.us:                                     ; preds = %for.body66.us
@@ -78832,7 +78842,7 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i.us = phi ptr [ %__i.04.i.i.i.us, %for.body.i7.i.i.us ], [ %__next.012.i.i10.i.i.us, %while.body.i.i9.i.i.us ]
   store float %86, ptr %__last.addr.0.lcssa.i.i.i.i.us, align 4
   %incdec.ptr.i.i.i.us = getelementptr inbounds i8, ptr %__i.04.i.i.i.us, i64 4
-  %cmp.not.i.i.i.us = icmp eq ptr %incdec.ptr.i.i.i.us, %add.ptr71.ptr.us
+  %cmp.not.i.i.i.us = icmp eq ptr %incdec.ptr.i.i.i.us, %add.ptr71.us
   br i1 %cmp.not.i.i.i.us, label %invoke.cont78.loopexit.us, label %for.body.i7.i.i.us, !llvm.loop !476
 
 invoke.cont78.loopexit.us:                        ; preds = %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.us
@@ -78855,19 +78865,21 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %invoke.cont78 ], [ 0, %for.body66.lr.ph ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond179, i64 %indvars.iv151
   %93 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %93, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %93, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %93 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %93, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %93, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc118 unwind label %lpad35.loopexit.split
 
 .noexc118:                                        ; preds = %for.body66
-  %scevgep.i.i = getelementptr i8, ptr %93, i64 4
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
-  br i1 %cmp1.not13.i.i.i, label %invoke.cont78, label %for.body.i16.i.i
+  br i1 %cmp1.not13.i.i.i, label %invoke.cont78, label %for.body.i16.i.i.preheader
 
-for.body.i16.i.i:                                 ; preds = %.noexc118, %for.inc.i22.i.i
-  %__i.015.i17.i.i = phi ptr [ %__i.0.i24.i.i, %for.inc.i22.i.i ], [ %scevgep.i.i, %.noexc118 ]
-  %__first.pn14.i18.i.i = phi ptr [ %__i.015.i17.i.i, %for.inc.i22.i.i ], [ %93, %.noexc118 ]
+for.body.i16.i.i.preheader:                       ; preds = %.noexc118
+  %scevgep.i.i = getelementptr i8, ptr %93, i64 4
+  br label %for.body.i16.i.i
+
+for.body.i16.i.i:                                 ; preds = %for.body.i16.i.i.preheader, %for.inc.i22.i.i
+  %__i.015.i17.i.i = phi ptr [ %__i.0.i24.i.i, %for.inc.i22.i.i ], [ %scevgep.i.i, %for.body.i16.i.i.preheader ]
+  %__first.pn14.i18.i.i = phi ptr [ %__i.015.i17.i.i, %for.inc.i22.i.i ], [ %93, %for.body.i16.i.i.preheader ]
   %94 = load float, ptr %__i.015.i17.i.i, align 4
   %95 = load float, ptr %93, align 4
   %cmp.i.i19.i.i = fcmp olt float %94, %95
@@ -78902,7 +78914,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %93, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %94, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %invoke.cont78, label %for.body.i16.i.i, !llvm.loop !475
 
 invoke.cont78:                                    ; preds = %for.inc.i22.i.i, %.noexc118
@@ -79449,6 +79461,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br i1 %cmp.i.i, label %for.body66.us, label %for.body66
 
@@ -79456,8 +79469,8 @@ for.body66.us:                                    ; preds = %for.body66.lr.ph, %
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %invoke.cont78.loopexit.us ], [ 0, %for.body66.lr.ph ]
   %arrayidx68.us = getelementptr inbounds ptr, ptr %cond179, i64 %indvars.iv156
   %79 = load ptr, ptr %arrayidx68.us, align 8
-  %add.ptr71.ptr.us = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr.us, i64 noundef %mul.i)
+  %add.ptr71.us = getelementptr i8, ptr %79, i64 %add.ptr71.idx
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.us, i64 noundef %mul.i)
           to label %.noexc118.us unwind label %lpad35.loopexit.split.us
 
 .noexc118.us:                                     ; preds = %for.body66.us
@@ -79525,7 +79538,7 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i.us = phi ptr [ %__i.04.i.i.i.us, %for.body.i7.i.i.us ], [ %__next.012.i.i10.i.i.us, %while.body.i.i9.i.i.us ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i.us, align 4
   %incdec.ptr.i.i.i.us = getelementptr inbounds i8, ptr %__i.04.i.i.i.us, i64 4
-  %cmp.not.i.i.i.us = icmp eq ptr %incdec.ptr.i.i.i.us, %add.ptr71.ptr.us
+  %cmp.not.i.i.i.us = icmp eq ptr %incdec.ptr.i.i.i.us, %add.ptr71.us
   br i1 %cmp.not.i.i.i.us, label %invoke.cont78.loopexit.us, label %for.body.i7.i.i.us, !llvm.loop !476
 
 invoke.cont78.loopexit.us:                        ; preds = %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.us
@@ -79548,19 +79561,21 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %invoke.cont78 ], [ 0, %for.body66.lr.ph ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond179, i64 %indvars.iv151
   %92 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %92, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %92, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %92 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %92, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %92, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc118 unwind label %lpad35.loopexit.split
 
 .noexc118:                                        ; preds = %for.body66
-  %scevgep.i.i = getelementptr i8, ptr %92, i64 4
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
-  br i1 %cmp1.not13.i.i.i, label %invoke.cont78, label %for.body.i16.i.i
+  br i1 %cmp1.not13.i.i.i, label %invoke.cont78, label %for.body.i16.i.i.preheader
 
-for.body.i16.i.i:                                 ; preds = %.noexc118, %for.inc.i22.i.i
-  %__i.015.i17.i.i = phi ptr [ %__i.0.i24.i.i, %for.inc.i22.i.i ], [ %scevgep.i.i, %.noexc118 ]
-  %__first.pn14.i18.i.i = phi ptr [ %__i.015.i17.i.i, %for.inc.i22.i.i ], [ %92, %.noexc118 ]
+for.body.i16.i.i.preheader:                       ; preds = %.noexc118
+  %scevgep.i.i = getelementptr i8, ptr %92, i64 4
+  br label %for.body.i16.i.i
+
+for.body.i16.i.i:                                 ; preds = %for.body.i16.i.i.preheader, %for.inc.i22.i.i
+  %__i.015.i17.i.i = phi ptr [ %__i.0.i24.i.i, %for.inc.i22.i.i ], [ %scevgep.i.i, %for.body.i16.i.i.preheader ]
+  %__first.pn14.i18.i.i = phi ptr [ %__i.015.i17.i.i, %for.inc.i22.i.i ], [ %92, %for.body.i16.i.i.preheader ]
   %93 = load float, ptr %__i.015.i17.i.i, align 4
   %94 = load float, ptr %92, align 4
   %cmp.i.i19.i.i = fcmp olt float %93, %94
@@ -79595,7 +79610,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %92, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %93, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %invoke.cont78, label %for.body.i16.i.i, !llvm.loop !475
 
 invoke.cont78:                                    ; preds = %for.inc.i22.i.i, %.noexc118
@@ -80139,6 +80154,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -80146,9 +80162,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv151 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next152, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond174, i64 %indvars.iv151
   %79 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %79, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %79 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc118 unwind label %lpad35.loopexit
 
 .noexc118:                                        ; preds = %for.body66
@@ -80216,11 +80232,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %for.inc82, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc118
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %for.inc82, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -80260,7 +80275,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %79, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %89, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %for.inc82, label %for.body.i16.i.i, !llvm.loop !475
 
 for.inc82:                                        ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i
@@ -80816,6 +80831,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %79, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -80823,9 +80839,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv151 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next152, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond174, i64 %indvars.iv151
   %80 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %80, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %80, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %80 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %80, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %80, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc118 unwind label %lpad35.loopexit
 
 .noexc118:                                        ; preds = %for.body66
@@ -80893,11 +80909,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %86, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %for.inc82, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc118
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %for.inc82, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -80937,7 +80952,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %80, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %90, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %for.inc82, label %for.body.i16.i.i, !llvm.loop !475
 
 for.inc82:                                        ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i
@@ -81492,6 +81507,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -81499,9 +81515,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv152 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next153, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond175, i64 %indvars.iv152
   %79 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %79, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %79 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc119 unwind label %lpad35.loopexit
 
 .noexc119:                                        ; preds = %for.body66
@@ -81569,11 +81585,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %for.inc82, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc119
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %for.inc82, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -81613,7 +81628,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %79, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %89, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %for.inc82, label %for.body.i16.i.i, !llvm.loop !475
 
 for.inc82:                                        ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i
@@ -82166,6 +82181,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -82173,9 +82189,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv155 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next156, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond178, i64 %indvars.iv155
   %79 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %79, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %79 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc122 unwind label %lpad35.loopexit
 
 .noexc122:                                        ; preds = %for.body66
@@ -82243,11 +82259,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %invoke.cont78, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc122
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %invoke.cont78, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -82287,7 +82302,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %79, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %89, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %invoke.cont78, label %for.body.i16.i.i, !llvm.loop !475
 
 invoke.cont78:                                    ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i
@@ -82867,6 +82882,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -82874,9 +82890,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv155 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next156, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond178, i64 %indvars.iv155
   %79 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %79, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %79 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc122 unwind label %lpad35.loopexit
 
 .noexc122:                                        ; preds = %for.body66
@@ -82944,11 +82960,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %invoke.cont78, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc122
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %invoke.cont78, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -82988,7 +83003,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %79, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %89, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %invoke.cont78, label %for.body.i16.i.i, !llvm.loop !475
 
 invoke.cont78:                                    ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i
@@ -83568,6 +83583,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -83575,9 +83591,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv155 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next156, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond178, i64 %indvars.iv155
   %79 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %79, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %79 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc122 unwind label %lpad35.loopexit
 
 .noexc122:                                        ; preds = %for.body66
@@ -83645,11 +83661,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %invoke.cont78, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc122
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %invoke.cont78, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -83689,7 +83704,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %79, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %89, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %invoke.cont78, label %for.body.i16.i.i, !llvm.loop !475
 
 invoke.cont78:                                    ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i
@@ -84267,6 +84282,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -84274,9 +84290,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv151 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next152, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond174, i64 %indvars.iv151
   %79 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %79, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %79 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc118 unwind label %lpad35.loopexit
 
 .noexc118:                                        ; preds = %for.body66
@@ -84344,11 +84360,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %for.inc82, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc118
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %for.inc82, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -84388,7 +84403,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %79, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %89, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %for.inc82, label %for.body.i16.i.i, !llvm.loop !475
 
 for.inc82:                                        ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i
@@ -84943,6 +84958,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %78, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -84950,9 +84966,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv152 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next153, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond175, i64 %indvars.iv152
   %79 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %79, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %79, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %79 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %79, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc119 unwind label %lpad35.loopexit
 
 .noexc119:                                        ; preds = %for.body66
@@ -85020,11 +85036,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %85, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %for.inc82, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc119
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %for.inc82, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -85064,7 +85079,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %79, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %89, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %for.inc82, label %for.body.i16.i.i, !llvm.loop !475
 
 for.inc82:                                        ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i
@@ -85620,6 +85635,7 @@ for.body66.lr.ph:                                 ; preds = %if.then61
   %sub.i.i = shl nuw nsw i64 %79, 1
   %mul.i = xor i64 %sub.i.i, 126
   %cmp.i.i = icmp sgt i32 %n.0, 16
+  %cmp1.not13.i.i.i = icmp eq i32 %n.0, 1
   %idxprom75 = sext i32 %div62 to i64
   br label %for.body66
 
@@ -85627,9 +85643,9 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %indvars.iv151 = phi i64 [ 0, %for.body66.lr.ph ], [ %indvars.iv.next152, %for.inc82 ]
   %arrayidx68 = getelementptr inbounds ptr, ptr %cond174, i64 %indvars.iv151
   %80 = load ptr, ptr %arrayidx68, align 8
-  %add.ptr71.ptr = getelementptr inbounds i8, ptr %80, i64 %add.ptr71.idx
+  %add.ptr71 = getelementptr i8, ptr %80, i64 %add.ptr71.idx
   %sub.ptr.rhs.cast.i = ptrtoint ptr %80 to i64
-  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %80, ptr noundef nonnull %add.ptr71.ptr, i64 noundef %mul.i)
+  invoke void @_ZSt16__introsort_loopIPflN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_T0_T1_(ptr noundef %80, ptr noundef nonnull %add.ptr71, i64 noundef %mul.i)
           to label %.noexc118 unwind label %lpad35.loopexit
 
 .noexc118:                                        ; preds = %for.body66
@@ -85697,11 +85713,10 @@ _ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit
   %__last.addr.0.lcssa.i.i.i.i = phi ptr [ %__i.04.i.i.i, %for.body.i7.i.i ], [ %__next.012.i.i10.i.i, %while.body.i.i9.i.i ]
   store float %86, ptr %__last.addr.0.lcssa.i.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71.ptr
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr71
   br i1 %cmp.not.i.i.i, label %for.inc82, label %for.body.i7.i.i, !llvm.loop !476
 
 if.else.i.i:                                      ; preds = %.noexc118
-  %cmp1.not13.i.i.i = icmp eq ptr %scevgep.i.i, %add.ptr71.ptr
   br i1 %cmp1.not13.i.i.i, label %for.inc82, label %for.body.i16.i.i
 
 for.body.i16.i.i:                                 ; preds = %if.else.i.i, %for.inc.i22.i.i
@@ -85741,7 +85756,7 @@ for.inc.i22.i.i:                                  ; preds = %while.body.i.i26.i.
   %__first.sink.i23.i.i = phi ptr [ %80, %if.then2.i31.i.i ], [ %__i.015.i17.i.i, %if.else.i20.i.i ], [ %__next.012.i.i27.i.i, %while.body.i.i26.i.i ]
   store float %90, ptr %__first.sink.i23.i.i, align 4
   %__i.0.i24.i.i = getelementptr inbounds i8, ptr %__i.015.i17.i.i, i64 4
-  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71.ptr
+  %cmp1.not.i25.i.i = icmp eq ptr %__i.0.i24.i.i, %add.ptr71
   br i1 %cmp1.not.i25.i.i, label %for.inc82, label %for.body.i16.i.i, !llvm.loop !475
 
 for.inc82:                                        ; preds = %for.inc.i22.i.i, %_ZSt25__unguarded_linear_insertIPfN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i, %if.else.i.i

@@ -11192,24 +11192,24 @@ if.end9:                                          ; preds = %if.end, %entry
   %14 = load i64, ptr %arrayidx.i.i.i.i39, align 8
   %shl.i.i = shl nsw i64 -1, %rem.i.i
   %and.i.i = and i64 %shl.i.i, %14
-  %tobool.not13.i.i = icmp eq i64 %and.i.i, 0
-  %cmp14.i.i = icmp ult i64 %bucket.0, 256
-  %15 = and i1 %cmp14.i.i, %tobool.not13.i.i
+  %tobool.not12.i.i = icmp eq i64 %and.i.i, 0
+  %cmp13.i.i = icmp ult i64 %bucket.0, 256
+  %15 = and i1 %cmp13.i.i, %tobool.not12.i.i
   br i1 %15, label %while.body.i.i, label %_ZNK6hermes8BitArrayILm267ELm8EE18findNextSetBitFromEm.exit
 
 while.body.i.i:                                   ; preds = %if.end9, %while.body.i.i
-  %wordIdx.015.in.i.i = phi i64 [ %wordIdx.015.i.i, %while.body.i.i ], [ %div8.i.i, %if.end9 ]
-  %wordIdx.015.i.i = add nuw nsw i64 %wordIdx.015.in.i.i, 1
-  %arrayidx.i.i9.i.i = getelementptr inbounds [5 x i64], ptr %freelistBucketBitArray_, i64 0, i64 %wordIdx.015.i.i
+  %wordIdx.0.in14.i.i = phi i64 [ %wordIdx.0.i.i, %while.body.i.i ], [ %div8.i.i, %if.end9 ]
+  %wordIdx.0.i.i = add nuw nsw i64 %wordIdx.0.in14.i.i, 1
+  %arrayidx.i.i9.i.i = getelementptr inbounds [5 x i64], ptr %freelistBucketBitArray_, i64 0, i64 %wordIdx.0.i.i
   %16 = load i64, ptr %arrayidx.i.i9.i.i, align 8
   %tobool.not.i.i41 = icmp eq i64 %16, 0
-  %cmp.i.i = icmp ult i64 %wordIdx.015.in.i.i, 3
+  %cmp.i.i = icmp ult i64 %wordIdx.0.in14.i.i, 3
   %17 = and i1 %cmp.i.i, %tobool.not.i.i41
   br i1 %17, label %while.body.i.i, label %_ZNK6hermes8BitArrayILm267ELm8EE18findNextSetBitFromEm.exit, !llvm.loop !157
 
 _ZNK6hermes8BitArrayILm267ELm8EE18findNextSetBitFromEm.exit: ; preds = %while.body.i.i, %if.end9
   %currentWord.0.lcssa.i.i = phi i64 [ %and.i.i, %if.end9 ], [ %16, %while.body.i.i ]
-  %wordIdx.0.in.lcssa.i.i = phi i64 [ %div8.i.i, %if.end9 ], [ %wordIdx.015.i.i, %while.body.i.i ]
+  %wordIdx.0.in.lcssa.i.i = phi i64 [ %div8.i.i, %if.end9 ], [ %wordIdx.0.i.i, %while.body.i.i ]
   %mul.i.i = shl nuw nsw i64 %wordIdx.0.in.lcssa.i.i, 6
   %18 = tail call i64 @llvm.cttz.i64(i64 %currentWord.0.lcssa.i.i, i1 false), !range !158
   %add.i.i40 = add nuw nsw i64 %mul.i.i, %18
@@ -11763,24 +11763,24 @@ entry:
   %0 = load i64, ptr %arrayidx.i.i.i, align 8
   %shl.i = shl nsw i64 -1, %rem.i
   %and.i = and i64 %0, %shl.i
-  %tobool.not13.i = icmp eq i64 %and.i, 0
-  %cmp14.i = icmp ult i64 %idx, 256
-  %1 = and i1 %cmp14.i, %tobool.not13.i
+  %tobool.not12.i = icmp eq i64 %and.i, 0
+  %cmp13.i = icmp ult i64 %idx, 256
+  %1 = and i1 %cmp13.i, %tobool.not12.i
   br i1 %1, label %while.body.i, label %_ZNK6hermes8BitArrayILm267ELm8EE15findNextBitImplILb1EEEmm.exit
 
 while.body.i:                                     ; preds = %entry, %while.body.i
-  %wordIdx.015.in.i = phi i64 [ %wordIdx.015.i, %while.body.i ], [ %div8.i, %entry ]
-  %wordIdx.015.i = add nuw nsw i64 %wordIdx.015.in.i, 1
-  %arrayidx.i.i9.i = getelementptr inbounds [5 x i64], ptr %this, i64 0, i64 %wordIdx.015.i
+  %wordIdx.0.in14.i = phi i64 [ %wordIdx.0.i, %while.body.i ], [ %div8.i, %entry ]
+  %wordIdx.0.i = add nuw nsw i64 %wordIdx.0.in14.i, 1
+  %arrayidx.i.i9.i = getelementptr inbounds [5 x i64], ptr %this, i64 0, i64 %wordIdx.0.i
   %2 = load i64, ptr %arrayidx.i.i9.i, align 8
   %tobool.not.i = icmp eq i64 %2, 0
-  %cmp.i = icmp ult i64 %wordIdx.015.in.i, 3
+  %cmp.i = icmp ult i64 %wordIdx.0.in14.i, 3
   %3 = and i1 %cmp.i, %tobool.not.i
   br i1 %3, label %while.body.i, label %_ZNK6hermes8BitArrayILm267ELm8EE15findNextBitImplILb1EEEmm.exit, !llvm.loop !157
 
 _ZNK6hermes8BitArrayILm267ELm8EE15findNextBitImplILb1EEEmm.exit: ; preds = %while.body.i, %entry
   %currentWord.0.lcssa.i = phi i64 [ %and.i, %entry ], [ %2, %while.body.i ]
-  %wordIdx.0.in.lcssa.i = phi i64 [ %div8.i, %entry ], [ %wordIdx.015.i, %while.body.i ]
+  %wordIdx.0.in.lcssa.i = phi i64 [ %div8.i, %entry ], [ %wordIdx.0.i, %while.body.i ]
   %mul.i = shl i64 %wordIdx.0.in.lcssa.i, 6
   %4 = tail call i64 @llvm.cttz.i64(i64 %currentWord.0.lcssa.i, i1 false), !range !158
   %add.i = add i64 %mul.i, %4
@@ -16779,7 +16779,8 @@ _ZN4llvh15SmallVectorImplIPN6hermes2vm6GCCellEE7reserveEm.exit: ; preds = %if.en
   %7 = phi i32 [ %1, %if.end ], [ %.pre80, %if.then.i35 ]
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i35 ]
   %add.ptr7 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub
-  %add.ptr.i74 = getelementptr inbounds ptr, ptr %8, i64 %conv.i38.pre-phi
+  %add.ptr.i74.idx = shl nuw nsw i64 %conv.i38.pre-phi, 3
+  %add.ptr.i74 = getelementptr inbounds i8, ptr %8, i64 %add.ptr.i74.idx
   %sub.ptr.lhs.cast9 = ptrtoint ptr %add.ptr.i74 to i64
   %sub.ptr.rhs.cast10 = ptrtoint ptr %add.ptr7 to i64
   %sub.ptr.sub11 = sub i64 %sub.ptr.lhs.cast9, %sub.ptr.rhs.cast10
@@ -16846,7 +16847,7 @@ if.end25:                                         ; preds = %_ZN4llvh15SmallVect
   %13 = trunc i64 %sub.ptr.div.i.i.i to i32
   %conv.i66 = add i32 %7, %13
   store i32 %conv.i66, ptr %Size.i, align 8
-  %cmp.not.i.i69 = icmp eq ptr %add.ptr7, %add.ptr.i74
+  %cmp.not.i.i69 = icmp eq i64 %sub.ptr.sub, %add.ptr.i74.idx
   br i1 %cmp.not.i.i69, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end25

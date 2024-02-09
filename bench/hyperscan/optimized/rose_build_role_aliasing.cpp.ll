@@ -1031,7 +1031,8 @@ if.then.i.i65:                                    ; preds = %lor.rhs.i.i, %lor.l
   %46 = load ptr, ptr %vertices.i.i, align 8, !noalias !6
   %m_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i.i, i64 40
   %47 = load i64, ptr %m_size.i.i.i.i.i.i, align 8, !noalias !26
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %46, i64 %47
+  %add.ptr.i.i.i.i.i.i.idx = shl nsw i64 %47, 4
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 %add.ptr.i.i.i.i.i.i.idx
   %cmp.i.i.i.i.not.i727 = icmp eq i64 %47, 0
   br i1 %cmp.i.i.i.i.not.i727, label %invoke.cont9.i, label %if.then.i728
 

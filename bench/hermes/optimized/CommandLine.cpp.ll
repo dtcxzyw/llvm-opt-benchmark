@@ -4649,7 +4649,8 @@ _ZN4llvh15SmallVectorImplIPKcE7reserveEm.exit:    ; preds = %if.end, %if.then.i3
   %7 = phi i32 [ %1, %if.end ], [ %.pre80, %if.then.i35 ]
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i35 ]
   %add.ptr7 = getelementptr inbounds i8, ptr %8, i64 %sub.ptr.sub
-  %add.ptr.i74 = getelementptr inbounds ptr, ptr %8, i64 %conv.i38.pre-phi
+  %add.ptr.i74.idx = shl nuw nsw i64 %conv.i38.pre-phi, 3
+  %add.ptr.i74 = getelementptr inbounds i8, ptr %8, i64 %add.ptr.i74.idx
   %sub.ptr.lhs.cast9 = ptrtoint ptr %add.ptr.i74 to i64
   %sub.ptr.rhs.cast10 = ptrtoint ptr %add.ptr7 to i64
   %sub.ptr.sub11 = sub i64 %sub.ptr.lhs.cast9, %sub.ptr.rhs.cast10
@@ -4716,7 +4717,7 @@ if.end25:                                         ; preds = %_ZN4llvh15SmallVect
   %13 = trunc i64 %sub.ptr.div.i.i.i to i32
   %conv.i66 = add i32 %7, %13
   store i32 %conv.i66, ptr %Size.i, align 8
-  %cmp.not.i.i69 = icmp eq ptr %add.ptr7, %add.ptr.i74
+  %cmp.not.i.i69 = icmp eq i64 %sub.ptr.sub, %add.ptr.i74.idx
   br i1 %cmp.not.i.i69, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.end25

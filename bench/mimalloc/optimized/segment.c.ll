@@ -965,14 +965,16 @@ mi_segments_track_size.exit:                      ; preds = %if.end10.i, %if.the
   %slices.i = getelementptr inbounds i8, ptr %segment, i64 264
   %slice_entries.i.i = getelementptr inbounds i8, ptr %segment, i64 248
   %7 = load i64, ptr %slice_entries.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices.i, i64 0, i64 %7
+  %arrayidx.i.i.idx = mul nsw i64 %7, 80
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %slices.i, i64 %arrayidx.i.i.idx
   %8 = load i32, ptr %slices.i, align 8
   %idx.ext.i = zext i32 %8 to i64
-  %add.ptr.i = getelementptr inbounds %struct.mi_page_s, ptr %slices.i, i64 %idx.ext.i
-  %cmp332 = icmp ult ptr %add.ptr.i, %arrayidx.i.i
+  %add.ptr.i.idx = mul nuw nsw i64 %idx.ext.i, 80
+  %cmp332 = icmp slt i64 %add.ptr.i.idx, %arrayidx.i.i.idx
   br i1 %cmp332, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %mi_segments_track_size.exit
+  %add.ptr.i = getelementptr inbounds i8, ptr %slices.i, i64 %add.ptr.i.idx
   %abandoned = getelementptr inbounds i8, ptr %segment, i64 192
   %9 = ptrtoint ptr %heap to i64
   br i1 %cmp.not, label %while.body.us, label %while.body
@@ -1324,14 +1326,16 @@ entry:
   %slices.i = getelementptr inbounds i8, ptr %segment, i64 264
   %slice_entries.i.i = getelementptr inbounds i8, ptr %segment, i64 248
   %0 = load i64, ptr %slice_entries.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds [513 x %struct.mi_page_s], ptr %slices.i, i64 0, i64 %0
+  %arrayidx.i.i.idx = mul nsw i64 %0, 80
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %slices.i, i64 %arrayidx.i.i.idx
   %1 = load i32, ptr %slices.i, align 8
   %idx.ext.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds %struct.mi_page_s, ptr %slices.i, i64 %idx.ext.i
-  %cmp19 = icmp ult ptr %add.ptr.i, %arrayidx.i.i
+  %add.ptr.i.idx = mul nuw nsw i64 %idx.ext.i, 80
+  %cmp19 = icmp slt i64 %add.ptr.i.idx, %arrayidx.i.i.idx
   br i1 %cmp19, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
+  %add.ptr.i = getelementptr inbounds i8, ptr %slices.i, i64 %add.ptr.i.idx
   %stats = getelementptr inbounds i8, ptr %tld, i64 896
   %abandoned = getelementptr inbounds i8, ptr %segment, i64 192
   br label %while.body

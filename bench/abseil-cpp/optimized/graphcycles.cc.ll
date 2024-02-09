@@ -3294,7 +3294,7 @@ define internal fastcc void @_ZN4absl24synchronization_internalL4SortERKNS0_12_G
 entry:
   %idx.ext.i = zext i32 %delta.40.val to i64
   %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %delta.0.val, i64 %add.ptr.i.idx
+  %add.ptr.i = getelementptr i8, ptr %delta.0.val, i64 %add.ptr.i.idx
   %cmp.not.i.i = icmp eq i32 %delta.40.val, 0
   br i1 %cmp.not.i.i, label %_ZSt4sortIPiZN4absl24synchronization_internalL4SortERKNS2_12_GLOBAL__N_13VecIPNS3_4NodeEEEPNS4_IiEEE6ByRankEvT_SD_T0_.exit, label %if.then.i.i
 
@@ -3303,7 +3303,7 @@ if.then.i.i:                                      ; preds = %entry
   %0 = tail call i64 @llvm.ctlz.i64(i64 %idx.ext.i, i1 true), !range !25
   %sub.i.i.i = shl nuw nsw i64 %0, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  tail call fastcc void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_T0_T1_(ptr noundef %delta.0.val, ptr noundef nonnull %add.ptr.i.ptr, i64 noundef %mul.i.i, ptr nonnull %nodes)
+  tail call fastcc void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_T0_T1_(ptr noundef %delta.0.val, ptr noundef nonnull %add.ptr.i, i64 noundef %mul.i.i, ptr nonnull %nodes)
   %cmp.i.i.i = icmp ugt i32 %delta.40.val, 16
   %scevgep.i.i.i = getelementptr i8, ptr %delta.0.val, i64 4
   br i1 %cmp.i.i.i, label %for.body.i.i.i.i, label %if.else.i.i.i
@@ -3407,11 +3407,11 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl24syn
   %__last.addr.0.lcssa.i.i.i.i.i = phi ptr [ %__i.04.i.i.i.i, %for.body.i7.i.i.i ], [ %__next.017.i.i14.i.i.i, %while.body.i.i12.i.i.i ]
   store i32 %11, ptr %__last.addr.0.lcssa.i.i.i.i.i, align 4
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i.i, i64 4
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.ptr
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i
   br i1 %cmp.not.i.i.i.i, label %_ZSt4sortIPiZN4absl24synchronization_internalL4SortERKNS2_12_GLOBAL__N_13VecIPNS3_4NodeEEEPNS4_IiEEE6ByRankEvT_SD_T0_.exit, label %for.body.i7.i.i.i, !llvm.loop !28
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
-  %cmp2.not13.i.i.i.i = icmp eq ptr %scevgep.i.i.i, %add.ptr.i.ptr
+  %cmp2.not13.i.i.i.i = icmp eq i32 %delta.40.val, 1
   br i1 %cmp2.not13.i.i.i.i, label %_ZSt4sortIPiZN4absl24synchronization_internalL4SortERKNS2_12_GLOBAL__N_13VecIPNS3_4NodeEEEPNS4_IiEEE6ByRankEvT_SD_T0_.exit, label %for.body.i25.i.i.i
 
 for.body.i25.i.i.i:                               ; preds = %if.else.i.i.i, %for.inc.i41.i.i.i
@@ -3472,7 +3472,7 @@ for.inc.i41.i.i.i:                                ; preds = %while.body.i.i45.i.
   %__first.sink.i42.i.i.i = phi ptr [ %delta.0.val, %if.then3.i56.i.i.i ], [ %__i.015.i26.i.i.i, %if.else.i36.i.i.i ], [ %__next.017.i.i47.i.i.i, %while.body.i.i45.i.i.i ]
   store i32 %__i.0.val.i28.i.i.i, ptr %__first.sink.i42.i.i.i, align 4
   %__i.0.i43.i.i.i = getelementptr inbounds i8, ptr %__i.015.i26.i.i.i, i64 4
-  %cmp2.not.i44.i.i.i = icmp eq ptr %__i.0.i43.i.i.i, %add.ptr.i.ptr
+  %cmp2.not.i44.i.i.i = icmp eq ptr %__i.0.i43.i.i.i, %add.ptr.i
   br i1 %cmp2.not.i44.i.i.i, label %_ZSt4sortIPiZN4absl24synchronization_internalL4SortERKNS2_12_GLOBAL__N_13VecIPNS3_4NodeEEEPNS4_IiEEE6ByRankEvT_SD_T0_.exit, label %for.body.i25.i.i.i, !llvm.loop !27
 
 _ZSt4sortIPiZN4absl24synchronization_internalL4SortERKNS2_12_GLOBAL__N_13VecIPNS3_4NodeEEEPNS4_IiEEE6ByRankEvT_SD_T0_.exit: ; preds = %for.inc.i41.i.i.i, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_T0_.exit.i.i.i.i, %entry, %if.else.i.i.i

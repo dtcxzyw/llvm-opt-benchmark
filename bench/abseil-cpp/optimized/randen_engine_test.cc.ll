@@ -1709,15 +1709,19 @@ for.body.i23.us.preheader:                        ; preds = %for.body.i23.prehea
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
-  %add.ptr.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr i8, ptr %buffer, i64 %add.ptr.idx
+  %cond = icmp eq i64 %add.ptr.idx, 240
+  br i1 %cond, label %for.body.i.preheader, label %for.body.i.i.i.preheader
+
+for.body.i.i.i.preheader:                         ; preds = %if.then
   %2 = sub i64 236, %add.ptr.idx
   %3 = and i64 %2, -4
   %4 = add i64 %3, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr.ptr, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
   %cmp.not4.i = icmp eq i64 %add.ptr.idx, 0
   br i1 %cmp.not4.i, label %while.body.preheader, label %for.body.i.preheader
 
-for.body.i.preheader:                             ; preds = %if.then
+for.body.i.preheader:                             ; preds = %for.body.i.i.i.preheader, %if.then
   br i1 %cmp2, label %for.body.i.us.preheader, label %for.body.i
 
 for.body.i.us.preheader:                          ; preds = %for.body.i.preheader
@@ -1734,10 +1738,10 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %cmp6.not.i = icmp ult i64 %inc.i, %sub.ptr.div.i.i
   %spec.select.i = select i1 %cmp6.not.i, i64 %inc.i, i64 0
   %incdec.ptr.i = getelementptr inbounds i8, ptr %begin.addr.05.i, i64 4
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.ptr.ptr
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.ptr
   br i1 %cmp.not.i, label %while.body.preheader, label %for.body.i, !llvm.loop !44
 
-while.body.preheader:                             ; preds = %for.body.i, %for.body.i.us.preheader, %if.then
+while.body.preheader:                             ; preds = %for.body.i, %for.body.i.us.preheader, %for.body.i.i.i.preheader
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -2830,15 +2834,19 @@ for.body.i23.us.preheader:                        ; preds = %for.body.i23.prehea
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
-  %add.ptr.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr i8, ptr %buffer, i64 %add.ptr.idx
+  %cond = icmp eq i64 %add.ptr.idx, 240
+  br i1 %cond, label %for.body.i.preheader, label %for.body.i.i.i.preheader
+
+for.body.i.i.i.preheader:                         ; preds = %if.then
   %2 = sub i64 236, %add.ptr.idx
   %3 = and i64 %2, -4
   %4 = add i64 %3, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr.ptr, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
   %cmp.not4.i = icmp eq i64 %add.ptr.idx, 0
   br i1 %cmp.not4.i, label %while.body.preheader, label %for.body.i.preheader
 
-for.body.i.preheader:                             ; preds = %if.then
+for.body.i.preheader:                             ; preds = %for.body.i.i.i.preheader, %if.then
   br i1 %cmp2, label %for.body.i.us.preheader, label %for.body.i
 
 for.body.i.us.preheader:                          ; preds = %for.body.i.preheader
@@ -2855,10 +2863,10 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %cmp6.not.i = icmp ult i64 %inc.i, %sub.ptr.div.i.i
   %spec.select.i = select i1 %cmp6.not.i, i64 %inc.i, i64 0
   %incdec.ptr.i = getelementptr inbounds i8, ptr %begin.addr.05.i, i64 4
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.ptr.ptr
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.ptr
   br i1 %cmp.not.i, label %while.body.preheader, label %for.body.i, !llvm.loop !44
 
-while.body.preheader:                             ; preds = %for.body.i, %for.body.i.us.preheader, %if.then
+while.body.preheader:                             ; preds = %for.body.i, %for.body.i.us.preheader, %for.body.i.i.i.preheader
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -6237,12 +6245,12 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
-  %add.ptr.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
   %2 = sub nsw i64 236, %add.ptr.idx
   %3 = and i64 %2, -4
   %4 = add nsw i64 %3, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr.ptr, i8 0, i64 %4, i1 false)
-  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %seq, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr.ptr)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
+  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %seq, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr)
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %while.body
@@ -7936,12 +7944,12 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
-  %add.ptr.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
   %2 = sub nsw i64 236, %add.ptr.idx
   %3 = and i64 %2, -4
   %4 = add nsw i64 %3, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr.ptr, i8 0, i64 %4, i1 false)
-  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %seq, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr.ptr)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
+  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %seq, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr)
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %while.body
@@ -8779,12 +8787,12 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
-  %add.ptr.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
   %2 = sub nsw i64 236, %add.ptr.idx
   %3 = and i64 %2, -4
   %4 = add nsw i64 %3, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr.ptr, i8 0, i64 %4, i1 false)
-  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %seq, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr.ptr)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
+  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %seq, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr)
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %while.body
@@ -9620,12 +9628,12 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
-  %add.ptr.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
   %2 = sub nsw i64 236, %add.ptr.idx
   %3 = and i64 %2, -4
   %4 = add nsw i64 %3, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr.ptr, i8 0, i64 %4, i1 false)
-  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %seq, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr.ptr)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
+  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %seq, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr)
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %while.body
@@ -14802,15 +14810,19 @@ for.body.i23.us.preheader:                        ; preds = %for.body.i23.prehea
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
-  %add.ptr.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr i8, ptr %buffer, i64 %add.ptr.idx
+  %cond = icmp eq i64 %add.ptr.idx, 240
+  br i1 %cond, label %for.body.i.preheader, label %for.body.i.i.i.preheader
+
+for.body.i.i.i.preheader:                         ; preds = %if.then
   %2 = sub i64 236, %add.ptr.idx
   %3 = and i64 %2, -4
   %4 = add i64 %3, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr.ptr, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
   %cmp.not4.i = icmp eq i64 %add.ptr.idx, 0
   br i1 %cmp.not4.i, label %while.body.preheader, label %for.body.i.preheader
 
-for.body.i.preheader:                             ; preds = %if.then
+for.body.i.preheader:                             ; preds = %for.body.i.i.i.preheader, %if.then
   br i1 %cmp2, label %for.body.i.us.preheader, label %for.body.i
 
 for.body.i.us.preheader:                          ; preds = %for.body.i.preheader
@@ -14827,10 +14839,10 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %cmp6.not.i = icmp ult i64 %inc.i, %sub.ptr.div.i.i
   %spec.select.i = select i1 %cmp6.not.i, i64 %inc.i, i64 0
   %incdec.ptr.i = getelementptr inbounds i8, ptr %begin.addr.05.i, i64 4
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.ptr.ptr
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.ptr
   br i1 %cmp.not.i, label %while.body.preheader, label %for.body.i, !llvm.loop !44
 
-while.body.preheader:                             ; preds = %for.body.i, %for.body.i.us.preheader, %if.then
+while.body.preheader:                             ; preds = %for.body.i, %for.body.i.us.preheader, %for.body.i.i.i.preheader
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -15649,15 +15661,19 @@ for.body.i23.us.preheader:                        ; preds = %for.body.i23.prehea
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %0, %1
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i
-  %add.ptr.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr i8, ptr %buffer, i64 %add.ptr.idx
+  %cond = icmp eq i64 %add.ptr.idx, 240
+  br i1 %cond, label %for.body.i.preheader, label %for.body.i.i.i.preheader
+
+for.body.i.i.i.preheader:                         ; preds = %if.then
   %2 = sub i64 236, %add.ptr.idx
   %3 = and i64 %2, -4
   %4 = add i64 %3, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr.ptr, i8 0, i64 %4, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
   %cmp.not4.i = icmp eq i64 %add.ptr.idx, 0
   br i1 %cmp.not4.i, label %while.body.preheader, label %for.body.i.preheader
 
-for.body.i.preheader:                             ; preds = %if.then
+for.body.i.preheader:                             ; preds = %for.body.i.i.i.preheader, %if.then
   br i1 %cmp2, label %for.body.i.us.preheader, label %for.body.i
 
 for.body.i.us.preheader:                          ; preds = %for.body.i.preheader
@@ -15674,10 +15690,10 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   %cmp6.not.i = icmp ult i64 %inc.i, %sub.ptr.div.i.i
   %spec.select.i = select i1 %cmp6.not.i, i64 %inc.i, i64 0
   %incdec.ptr.i = getelementptr inbounds i8, ptr %begin.addr.05.i, i64 4
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.ptr.ptr
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.ptr
   br i1 %cmp.not.i, label %while.body.preheader, label %for.body.i, !llvm.loop !44
 
-while.body.preheader:                             ; preds = %for.body.i, %for.body.i.us.preheader, %if.then
+while.body.preheader:                             ; preds = %for.body.i, %for.body.i.us.preheader, %for.body.i.i.i.preheader
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body

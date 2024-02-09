@@ -2619,7 +2619,7 @@ _ZN6vectorIN3nla7nex_powELb1EjE3endEv.exit40:     ; preds = %for.end45
   %30 = load i32, ptr %arrayidx.i.i37, align 4
   %31 = zext i32 %30 to i64
   %add.ptr.i39.idx = shl nuw nsw i64 %31, 4
-  %add.ptr.i39.ptr = getelementptr inbounds i8, ptr %29, i64 %add.ptr.i39.idx
+  %add.ptr.i39 = getelementptr i8, ptr %29, i64 %add.ptr.i39.idx
   %cmp.not.i.i = icmp eq i32 %30, 0
   br i1 %cmp.not.i.i, label %invoke.cont51, label %if.then.i.i41
 
@@ -2628,7 +2628,7 @@ if.then.i.i41:                                    ; preds = %_ZN6vectorIN3nla7ne
   %32 = call i64 @llvm.ctlz.i64(i64 %31, i1 true), !range !16
   %sub.i.i.i = shl nuw nsw i64 %32, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke fastcc void @"_ZSt16__introsort_loopIPN3nla7nex_powElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_T0_T1_"(ptr noundef nonnull %29, ptr noundef nonnull %add.ptr.i39.ptr, i64 noundef %mul.i.i, ptr nonnull %this)
+  invoke fastcc void @"_ZSt16__introsort_loopIPN3nla7nex_powElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_T0_T1_"(ptr noundef nonnull %29, ptr noundef nonnull %add.ptr.i39, i64 noundef %mul.i.i, ptr nonnull %this)
           to label %.noexc45 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc45:                                         ; preds = %if.then.i.i41
@@ -2731,12 +2731,12 @@ call.i.i.i.i.i.i21.i.i.i.noexc:                   ; preds = %while.body.i.i16.i.
   %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i15.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.lcssa.i.i13.i.i.i, i64 8
   store i32 %__val.sroa.3.sroa.0.0.extract.trunc.i.i14.i.i.i, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i15.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i.i, i64 16
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i39.ptr
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i39
   br i1 %cmp.not.i.i.i.i, label %invoke.cont51, label %for.body.i7.i.i.i, !llvm.loop !19
 
 if.else.i.i.i:                                    ; preds = %.noexc45
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__val.i22.i.i.i)
-  %cmp2.not13.i.i.i.i = icmp eq ptr %scevgep.i.i.i, %add.ptr.i39.ptr
+  %cmp2.not13.i.i.i.i = icmp eq i32 %30, 1
   br i1 %cmp2.not13.i.i.i.i, label %"_ZSt16__insertion_sortIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_T0_.exit56.i.i.i", label %for.body.i25.i.i.i
 
 for.body.i25.i.i.i:                               ; preds = %if.else.i.i.i, %for.inc.i40.i.i.i
@@ -2795,7 +2795,7 @@ call.i.i.i.i.i.i48.i.i.i.noexc:                   ; preds = %while.body.i.i43.i.
 
 for.inc.i40.i.i.i:                                ; preds = %"_ZSt25__unguarded_linear_insertIPN3nla7nex_powEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_.exit.i36.i.i.i", %if.then3.i49.i.i.i
   %__i.0.i41.i.i.i = getelementptr inbounds i8, ptr %__i.015.i26.i.i.i, i64 16
-  %cmp2.not.i42.i.i.i = icmp eq ptr %__i.0.i41.i.i.i, %add.ptr.i39.ptr
+  %cmp2.not.i42.i.i.i = icmp eq ptr %__i.0.i41.i.i.i, %add.ptr.i39
   br i1 %cmp2.not.i42.i.i.i, label %"_ZSt16__insertion_sortIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_T0_.exit56.i.i.i", label %for.body.i25.i.i.i, !llvm.loop !18
 
 "_ZSt16__insertion_sortIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_T0_.exit56.i.i.i": ; preds = %for.inc.i40.i.i.i, %if.else.i.i.i
@@ -4900,8 +4900,8 @@ if.else:                                          ; preds = %_ZNSt3mapIPKN3nla3n
   br label %return
 
 return:                                           ; preds = %if.else.i.i7.i.i, %if.then.i.i8.i.i, %if.else
-  %cmp.i8 = phi i1 [ true, %if.else ], [ false, %if.then.i.i8.i.i ], [ false, %if.else.i.i7.i.i ]
-  ret i1 %cmp.i8
+  %retval.0 = phi i1 [ true, %if.else ], [ false, %if.then.i.i8.i.i ], [ false, %if.else.i.i7.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
