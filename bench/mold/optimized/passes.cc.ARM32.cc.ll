@@ -66,7 +66,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.310" = type { %"struct.std::_Tuple_impl.311" }
 %"struct.std::_Tuple_impl.311" = type { %"struct.std::_Head_base.314" }
 %"struct.std::_Head_base.314" = type { ptr }
-%"class.std::filesystem::__cxx11::path::iterator" = type <{ ptr, ptr, i8, [7 x i8] }>
 %class.anon.315 = type { ptr }
 %class.anon.349 = type { i8 }
 %"class.std::vector.198" = type { %"struct.std::_Vector_base.199" }
@@ -5947,7 +5946,6 @@ entry:
   %ref.tmp.i.i16 = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i5 = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
-  %__last = alloca %"class.std::filesystem::__cxx11::path::iterator", align 8
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp eq i64 %0, 0
@@ -6013,61 +6011,45 @@ if.then10:                                        ; preds = %if.then7
 if.end:                                           ; preds = %if.then7
   %conv.i.i3.i = and i64 %4, 3
   %cmp.i = icmp eq i64 %conv.i.i3.i, 0
-  br i1 %cmp.i, label %_ZNKSt10filesystem7__cxx114path3endEv.exit, label %.thread44
-
-.thread44:                                        ; preds = %if.end
-  store ptr %this, ptr %__last, align 8
-  br label %14
+  br i1 %cmp.i, label %_ZNKSt10filesystem7__cxx114path3endEv.exit, label %.thread
 
 _ZNKSt10filesystem7__cxx114path3endEv.exit:       ; preds = %if.end
   %call2.i = tail call noundef ptr @_ZNKSt10filesystem7__cxx114path5_List3endEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i1) #15, !noalias !24
   %.pre = load ptr, ptr %_M_cmpts.i1, align 8
   %.pre.fr = freeze ptr %.pre
-  %.pre21 = ptrtoint ptr %.pre.fr to i64
-  %.pre22 = and i64 %.pre21, 3
-  %11 = icmp eq i64 %.pre22, 0
-  br i1 %11, label %12, label %13
+  %.pre24 = ptrtoint ptr %.pre.fr to i64
+  %.pre25 = and i64 %.pre24, 3
+  %11 = icmp eq i64 %.pre25, 0
+  %spec.select36 = getelementptr inbounds i8, ptr %call2.i, i64 -48
+  %spec.select = select i1 %11, ptr %spec.select36, ptr %this
+  br label %.thread
 
-12:                                               ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit
-  %spec.select39 = getelementptr inbounds i8, ptr %call2.i, i64 -48
-  store ptr %this, ptr %__last, align 8
-  br label %14
-
-13:                                               ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit
-  store ptr %this, ptr %__last, align 8
-  br label %14
-
-14:                                               ; preds = %13, %.thread44, %12
-  %call2.i.sink = phi ptr [ %call2.i, %13 ], [ null, %.thread44 ], [ %spec.select39, %12 ]
-  %15 = phi i64 [ 0, %13 ], [ 0, %.thread44 ], [ 8, %12 ]
-  %ref.tmp.sroa.3.0.__last.sroa_idx50 = getelementptr inbounds i8, ptr %__last, i64 8
-  store ptr %call2.i.sink, ptr %ref.tmp.sroa.3.0.__last.sroa_idx50, align 8
-  %retval.0.in.i.i = getelementptr inbounds i8, ptr %__last, i64 %15
-  %retval.0.i.i = load ptr, ptr %retval.0.in.i.i, align 8
-  %_M_cmpts.i9 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 32
-  %16 = load ptr, ptr %_M_cmpts.i9, align 8
-  %17 = ptrtoint ptr %16 to i64
-  %conv.i.i1020 = and i64 %17, 3
-  %cmp14 = icmp eq i64 %conv.i.i1020, 3
+.thread:                                          ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit, %if.end
+  %12 = phi ptr [ %this, %if.end ], [ %spec.select, %_ZNKSt10filesystem7__cxx114path3endEv.exit ]
+  %_M_cmpts.i9 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = load ptr, ptr %_M_cmpts.i9, align 8
+  %14 = ptrtoint ptr %13 to i64
+  %conv.i.i1023 = and i64 %14, 3
+  %cmp14 = icmp eq i64 %conv.i.i1023, 3
   br i1 %cmp14, label %if.then15, label %if.end20
 
-if.then15:                                        ; preds = %14
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i.i)
+if.then15:                                        ; preds = %.thread
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %12)
   %_M_cmpts.i14 = getelementptr inbounds i8, ptr %agg.result, i64 32
   tail call void @_ZNSt10filesystem7__cxx114path5_ListC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i14, ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i9) #15
   br label %return
 
-if.end20:                                         ; preds = %if.else, %14
+if.end20:                                         ; preds = %if.else, %.thread
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i16)
-  %18 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %15 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i16) #15
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i16) #15
-  store ptr %18, ptr %agg.result, align 8
+  store ptr %15, ptr %agg.result, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i16) #15
   %_M_string_length.i.i.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i17, align 8
-  %19 = load ptr, ptr %agg.result, align 8
-  store i8 0, ptr %19, align 1
+  %16 = load ptr, ptr %agg.result, align 8
+  store i8 0, ptr %16, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i16)
   %_M_cmpts.i18 = getelementptr inbounds i8, ptr %agg.result, i64 32
   call void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i18) #15
@@ -57202,7 +57184,7 @@ declare noundef i64 @_ZNKSt6locale2id5_M_idEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: noreturn
 declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #13
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #27
 
 declare void @__cxa_bad_cast() local_unnamed_addr
@@ -94485,7 +94467,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 cleanup:                                          ; preds = %for.body44, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit33.thread, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i29
   %retval.1 = phi i64 [ %i38.057, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i29 ], [ %retval.059, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit33.thread ], [ %retval.059, %for.body44 ]
-  %cleanup.dest.slot.0 = phi i1 [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i29 ], [ true, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit33.thread ], [ true, %for.body44 ]
+  %switch = phi i1 [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i29 ], [ true, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit33.thread ], [ true, %for.body44 ]
   %cmp.i.i.i.i = icmp eq ptr %.pre, %10
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
@@ -94501,7 +94483,7 @@ if.then.i.i.i:                                    ; preds = %cleanup
 
 _ZN4mold3elf12SectionOrderD2Ev.exit:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %name.i) #15
-  br i1 %cleanup.dest.slot.0, label %for.cond39, label %return
+  br i1 %switch, label %for.cond39, label %return
 
 for.end61:                                        ; preds = %for.cond39, %_ZN4mold3elfL23get_section_order_groupINS0_5ARM32EEESt17basic_string_viewIcSt11char_traitsIcEERNS0_5ChunkIT_EE.exit
   %.lcssa = phi ptr [ %0, %_ZN4mold3elfL23get_section_order_groupINS0_5ARM32EEESt17basic_string_viewIcSt11char_traitsIcEERNS0_5ChunkIT_EE.exit ], [ %11, %for.cond39 ]
@@ -114115,7 +114097,7 @@ attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn mem
 attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
 attributes #25 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { nofree nounwind memory(read) }
+attributes #27 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #28 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #29 = { nobuiltin nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #30 = { nounwind "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -3544,10 +3544,10 @@ invoke.cont3:                                     ; preds = %invoke.cont3.prehea
   %tobool.not.i.i = icmp eq i8 %1, 0
   %2 = load ptr, ptr %m_ci.i.i, align 8
   %3 = load ptr, ptr %m_vi.i.i, align 8
-  %m_ci3.sink.v.i.i = select i1 %tobool.not.i.i, i64 48, i64 40
-  %m_ci3.sink.i.i = getelementptr inbounds i8, ptr %__end1, i64 %m_ci3.sink.v.i.i
+  %m_ci3.sink.v.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.i.i, i64 48, i64 40
+  %m_ci3.sink.v.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %__end1, i64 %m_ci3.sink.v.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   %.sink.i.i = select i1 %tobool.not.i.i, ptr %2, ptr %3
-  %4 = load ptr, ptr %m_ci3.sink.i.i, align 8
+  %4 = load ptr, ptr %m_ci3.sink.v.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %cmp.i.i.i.not = icmp eq ptr %.sink.i.i, %4
   br i1 %cmp.i.i.i.not, label %for.cond.cleanup, label %invoke.cont4
 
@@ -10901,10 +10901,10 @@ invoke.cont16:                                    ; preds = %.noexc.i.i42, %_ZNK
   %tobool.not.i.i = icmp eq i8 %12, 0
   %13 = load ptr, ptr %m_ci.i.i26, align 8
   %14 = load ptr, ptr %m_vi.i.i27, align 8
-  %m_ci3.sink.v.i.i = select i1 %tobool.not.i.i, i64 48, i64 40
-  %m_ci3.sink.i.i = getelementptr inbounds i8, ptr %__end4, i64 %m_ci3.sink.v.i.i
   %.sink.i.i = select i1 %tobool.not.i.i, ptr %13, ptr %14
-  %15 = load ptr, ptr %m_ci3.sink.i.i, align 8
+  %m_ci.i.i.val = load ptr, ptr %m_ci.i.i, align 8
+  %m_vi.i.i.val = load ptr, ptr %m_vi.i.i, align 8
+  %15 = select i1 %tobool.not.i.i, ptr %m_ci.i.i.val, ptr %m_vi.i.i.val
   %cmp.i.i.i.not = icmp eq ptr %.sink.i.i, %15
   br i1 %cmp.i.i.i.not, label %for.cond.cleanup, label %invoke.cont18
 

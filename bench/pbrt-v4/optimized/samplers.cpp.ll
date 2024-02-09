@@ -9,8 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.pbrt::Point2" = type { %"class.pbrt::Tuple2" }
-%"class.pbrt::Tuple2" = type { i32, i32 }
 %"class.pstd::pmr::polymorphic_allocator" = type { ptr }
 %"class.pbrt::Point2.14" = type { %"class.pbrt::Tuple2.15" }
 %"class.pbrt::Tuple2.15" = type { float, float }
@@ -737,8 +735,7 @@ entry:
   %y.i20 = alloca i64, align 8
   %x.i = alloca i64, align 8
   %y.i = alloca i64, align 8
-  %fullRes = alloca %"class.pbrt::Point2", align 8
-  store i64 %fullRes.coerce, ptr %fullRes, align 8
+  %fullRes.sroa.2.0.extract.shift = lshr i64 %fullRes.coerce, 32
   store i32 %samplesPerPixel, ptr %this, align 8
   %randomize4 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %randomize, ptr %randomize4, align 4
@@ -764,27 +761,27 @@ for.body.preheader:                               ; preds = %if.then, %entry
 for.body:                                         ; preds = %for.body.preheader, %while.end
   %cmp8 = phi i1 [ false, %while.end ], [ true, %for.body.preheader ]
   %cond = select i1 %cmp8, i32 2, i32 3
-  %cond-lvalue.idx.i = select i1 %cmp8, i64 0, i64 4
-  %cond-lvalue.i = getelementptr inbounds i8, ptr %fullRes, i64 %cond-lvalue.idx.i
-  %0 = load i32, ptr %cond-lvalue.i, align 4
+  %.v = select i1 %cmp8, i64 %fullRes.coerce, i64 %fullRes.sroa.2.0.extract.shift
+  %0 = trunc i64 %.v to i32
   %1 = tail call i32 @llvm.smin.i32(i32 %0, i32 128)
-  %cmp1124 = icmp sgt i32 %0, 1
-  br i1 %cmp1124, label %while.body, label %while.end
+  %cmp1125 = icmp sgt i32 %0, 1
+  br i1 %cmp1125, label %while.body, label %while.end
 
 while.body:                                       ; preds = %for.body, %while.body
-  %exp.026 = phi i32 [ %inc, %while.body ], [ 0, %for.body ]
-  %scale.025 = phi i32 [ %mul, %while.body ], [ 1, %for.body ]
-  %mul = mul nuw nsw i32 %scale.025, %cond
-  %inc = add nuw nsw i32 %exp.026, 1
+  %exp.027 = phi i32 [ %inc, %while.body ], [ 0, %for.body ]
+  %scale.026 = phi i32 [ %mul, %while.body ], [ 1, %for.body ]
+  %mul = mul nuw nsw i32 %scale.026, %cond
+  %inc = add nuw nsw i32 %exp.027, 1
   %cmp11 = icmp slt i32 %mul, %1
   br i1 %cmp11, label %while.body, label %while.end, !llvm.loop !47
 
 while.end:                                        ; preds = %while.body, %for.body
   %scale.0.lcssa = phi i32 [ 1, %for.body ], [ %mul, %while.body ]
   %exp.0.lcssa = phi i32 [ 0, %for.body ], [ %inc, %while.body ]
-  %cond-lvalue.i13 = getelementptr inbounds i8, ptr %baseScales, i64 %cond-lvalue.idx.i
+  %cond-lvalue.idx.i12 = select i1 %cmp8, i64 0, i64 4
+  %cond-lvalue.i13 = getelementptr inbounds i8, ptr %baseScales, i64 %cond-lvalue.idx.i12
   store i32 %scale.0.lcssa, ptr %cond-lvalue.i13, align 4
-  %cond-lvalue.i16 = getelementptr inbounds i8, ptr %baseExponents, i64 %cond-lvalue.idx.i
+  %cond-lvalue.i16 = getelementptr inbounds i8, ptr %baseExponents, i64 %cond-lvalue.idx.i12
   store i32 %exp.0.lcssa, ptr %cond-lvalue.i16, align 4
   br i1 %cmp8, label %for.body, label %for.end, !llvm.loop !49
 
@@ -1877,7 +1874,7 @@ _ZN4pbrt5ErrorIJRKiEEEvPKcDpOT_.exit:             ; preds = %_ZN4pbrt12StringPri
   br label %if.end5
 
 if.end5:                                          ; preds = %_ZN4pbrt5ErrorIJRKiEEEvPKcDpOT_.exit, %if.end
-  %shl.i26 = shl i32 4, %div123.i.i
+  %shl.i26 = shl nuw i32 4, %div123.i.i
   %cond.i = select i1 %cmp.i, i32 %samplesPerPixel, i32 %shl.i26
   %5 = call i32 @llvm.ctlz.i32(i32 %cond.i, i1 true), !range !50
   %div1.lhs.trunc.i = lshr i32 %5, 1

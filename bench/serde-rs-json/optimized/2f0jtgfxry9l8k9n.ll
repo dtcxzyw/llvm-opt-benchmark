@@ -1661,7 +1661,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
 
 18:                                               ; preds = %6
   invoke void @_ZN4core9panicking5panic17h195fc2a96298d4c3E(ptr nonnull align 1 @anon.bccee68beeaba2b90a2abc03586ade69.11, i64 53, ptr nonnull align 8 @anon.bccee68beeaba2b90a2abc03586ade69.12) #14
-          to label %24 unwind label %52
+          to label %24 unwind label %50
 
 19:                                               ; preds = %6
   %20 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
@@ -1685,7 +1685,7 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   call void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17h02da4af07330ef2fE"(ptr nonnull align 8 %1, ptr nonnull align 8 %13, ptr nonnull align 8 %12, ptr %4, i64 poison)
   %30 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 6, ptr %30, align 8
-  br label %51
+  br label %49
 
 31:                                               ; preds = %25
   switch i64 %27, label %32 [
@@ -1710,57 +1710,57 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   %38 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 %.0, ptr %38, align 8
   invoke void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h194d026e7d931511E"(ptr nonnull sret({ { { { { ptr, i64 }, i64 } }, { i8, [31 x i8] } }, { ptr, i64 }, { ptr, i64 } }) align 8 %10, ptr nonnull align 8 %11)
-          to label %39 unwind label %52
+          to label %39 unwind label %50
 
 39:                                               ; preds = %35
-  %. = select i1 %36, i64 56, i64 72
-  %.38 = select i1 %36, i64 64, i64 80
-  %40 = getelementptr inbounds i8, ptr %10, i64 %.
-  %41 = getelementptr inbounds i8, ptr %10, i64 %.38
-  %42 = load i64, ptr %41, align 8, !noundef !5
-  %43 = load ptr, ptr %40, align 8, !nonnull !5, !noundef !5
-  store ptr %43, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %42, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %9, i64 16
-  store i64 %.sroa.5.0, ptr %45, align 8
+  %..sroa.sel.v = select i1 %36, i64 56, i64 72
+  %..sroa.sel = getelementptr inbounds i8, ptr %10, i64 %..sroa.sel.v
+  %.38.sroa.sel.v = select i1 %36, i64 64, i64 80
+  %.38.sroa.sel = getelementptr inbounds i8, ptr %10, i64 %.38.sroa.sel.v
+  %40 = load i64, ptr %.38.sroa.sel, align 8, !noundef !5
+  %41 = load ptr, ptr %..sroa.sel, align 8, !nonnull !5, !noundef !5
+  store ptr %41, ptr %9, align 8
+  %42 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %40, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %9, i64 16
+  store i64 %.sroa.5.0, ptr %43, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   invoke void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$10insert_fit17h02da4af07330ef2fE"(ptr nonnull align 8 %9, ptr nonnull align 8 %8, ptr nonnull align 8 %7, ptr %4, i64 poison)
-          to label %48 unwind label %46
+          to label %46 unwind label %44
 
-46:                                               ; preds = %39
-  %47 = landingpad { ptr, i32 }
+44:                                               ; preds = %39
+  %45 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr173drop_in_place$LT$alloc..collections..btree..node..SplitResult$LT$alloc..string..String$C$serde_json..value..Value$C$alloc..collections..btree..node..marker..Internal$GT$$GT$17h71f28d01927aeb21E"(ptr nonnull align 8 %10) #15
-          to label %.critedge unwind label %49
+          to label %.critedge unwind label %47
 
-48:                                               ; preds = %39
+46:                                               ; preds = %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %10, i64 88, i1 false)
-  br label %51
+  br label %49
 
-49:                                               ; preds = %53, %52, %46
-  %50 = landingpad { ptr, i32 }
+47:                                               ; preds = %51, %50, %44
+  %48 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #16
   unreachable
 
-51:                                               ; preds = %48, %29
+49:                                               ; preds = %46, %29
   ret void
 
-52:                                               ; preds = %35, %18
+50:                                               ; preds = %35, %18
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h4e7830de5bafa218E"(ptr align 8 %3) #15
-          to label %53 unwind label %49
+          to label %51 unwind label %47
 
-.critedge:                                        ; preds = %46, %53
-  %.pn28 = phi { ptr, i32 } [ %lpad.thr_comm, %53 ], [ %47, %46 ]
+.critedge:                                        ; preds = %44, %51
+  %.pn28 = phi { ptr, i32 } [ %lpad.thr_comm, %51 ], [ %45, %44 ]
   resume { ptr, i32 } %.pn28
 
-53:                                               ; preds = %52
+51:                                               ; preds = %50
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd821f552b349cfc4E"(ptr align 8 %2) #15
-          to label %.critedge unwind label %49
+          to label %.critedge unwind label %47
 }
 
 ; Function Attrs: nonlazybind uwtable

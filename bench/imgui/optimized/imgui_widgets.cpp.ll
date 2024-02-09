@@ -27709,8 +27709,9 @@ if.end35:                                         ; preds = %if.then30, %if.end1
   %mul38 = select i1 %tobool37.not, i64 16, i64 12
   %14 = shl nuw nsw i32 %and36, 1
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr i8, ptr %previewing_ref_col, i64 %mul38
-  call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 %15, i1 false)
+  %mul38.sroa.sel.v = select i1 %tobool37.not, i64 16, i64 12
+  %mul38.sroa.sel = getelementptr inbounds i8, ptr %previewing_ref_col, i64 %mul38.sroa.sel.v
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %mul38.sroa.sel, i8 0, i64 %15, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %previewing_ref_col, ptr noundef nonnull align 4 dereferenceable(12) %ref_col, i64 %mul38, i1 false)
   %call40 = call noundef zeroext i1 @_ZN5ImGui12ColorPicker4EPKcPfiPKf(ptr noundef nonnull @.str.93, ptr noundef nonnull %previewing_ref_col, i32 noundef %picker_flags.1, ptr noundef null)
   call void @_ZN5ImGui5PopIDEv()
@@ -27724,23 +27725,23 @@ if.end42.thread:                                  ; preds = %if.end
   br i1 %1, label %if.end47, label %if.end50
 
 if.then46:                                        ; preds = %if.end42
-  %17 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i25 = getelementptr inbounds i8, ptr %17, i64 16392
-  %18 = load ptr, ptr %CurrentWindow.i25, align 8
-  %SkipItems.i26 = getelementptr inbounds i8, ptr %18, i64 195
-  %19 = load i8, ptr %SkipItems.i26, align 1
-  %20 = and i8 %19, 1
-  %tobool.not.i27 = icmp eq i8 %20, 0
+  %16 = load ptr, ptr @GImGui, align 8
+  %CurrentWindow.i25 = getelementptr inbounds i8, ptr %16, i64 16392
+  %17 = load ptr, ptr %CurrentWindow.i25, align 8
+  %SkipItems.i26 = getelementptr inbounds i8, ptr %17, i64 195
+  %18 = load i8, ptr %SkipItems.i26, align 1
+  %19 = and i8 %18, 1
+  %tobool.not.i27 = icmp eq i8 %19, 0
   br i1 %tobool.not.i27, label %if.end.i28, label %if.end47
 
 if.end.i28:                                       ; preds = %if.then46
-  %LayoutType.i29 = getelementptr inbounds i8, ptr %18, i64 452
-  %21 = load i32, ptr %LayoutType.i29, align 4
-  %cmp.i30 = icmp eq i32 %21, 0
+  %LayoutType.i29 = getelementptr inbounds i8, ptr %17, i64 452
+  %20 = load i32, ptr %LayoutType.i29, align 4
+  %cmp.i30 = icmp eq i32 %20, 0
   %cond.i31 = select i1 %cmp.i30, i32 2, i32 1
-  %CurrentColumns.i32 = getelementptr inbounds i8, ptr %18, i64 440
-  %22 = load ptr, ptr %CurrentColumns.i32, align 8
-  %tobool2.not.i33 = icmp eq ptr %22, null
+  %CurrentColumns.i32 = getelementptr inbounds i8, ptr %17, i64 440
+  %21 = load ptr, ptr %CurrentColumns.i32, align 8
+  %tobool2.not.i33 = icmp eq ptr %21, null
   %or.i34 = or disjoint i32 %cond.i31, 4
   %spec.select.i35 = select i1 %tobool2.not.i33, i32 %cond.i31, i32 %or.i34
   call void @_ZN5ImGui11SeparatorExEif(i32 noundef %spec.select.i35, float noundef 1.000000e+00)
@@ -27749,21 +27750,21 @@ if.end.i28:                                       ; preds = %if.then46
 if.end47:                                         ; preds = %if.end42.thread, %if.end.i28, %if.then46
   %ColorEditOptions48 = getelementptr inbounds i8, ptr %2, i64 24012
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %all_on.i.i)
-  %23 = load i32, ptr %ColorEditOptions48, align 4
-  %and.i.i = lshr i32 %23, 16
-  %24 = trunc i32 %and.i.i to i8
-  %frombool.i.i = and i8 %24, 1
+  %22 = load i32, ptr %ColorEditOptions48, align 4
+  %and.i.i = lshr i32 %22, 16
+  %23 = trunc i32 %and.i.i to i8
+  %frombool.i.i = and i8 %23, 1
   store i8 %frombool.i.i, ptr %all_on.i.i, align 1
   %call6.i.i = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.94, ptr noundef nonnull %all_on.i.i)
   br i1 %call6.i.i, label %if.then9.i.i, label %_ZN5ImGui13CheckboxFlagsEPKcPii.exit
 
 if.then9.i.i:                                     ; preds = %if.end47
-  %25 = load i8, ptr %all_on.i.i, align 1
-  %26 = and i8 %25, 1
-  %27 = load i32, ptr %ColorEditOptions48, align 4
-  %and14.i.i = and i32 %27, -65537
-  %28 = zext nneg i8 %26 to i32
-  %masksel = shl nuw nsw i32 %28, 16
+  %24 = load i8, ptr %all_on.i.i, align 1
+  %25 = and i8 %24, 1
+  %26 = load i32, ptr %ColorEditOptions48, align 4
+  %and14.i.i = and i32 %26, -65537
+  %27 = zext nneg i8 %25 to i32
+  %masksel = shl nuw nsw i32 %27, 16
   %or12.sink.i.i = or disjoint i32 %and14.i.i, %masksel
   store i32 %or12.sink.i.i, ptr %ColorEditOptions48, align 4
   br label %_ZN5ImGui13CheckboxFlagsEPKcPii.exit
@@ -27774,8 +27775,8 @@ _ZN5ImGui13CheckboxFlagsEPKcPii.exit:             ; preds = %if.end47, %if.then9
 
 if.end50:                                         ; preds = %if.end42.thread, %_ZN5ImGui13CheckboxFlagsEPKcPii.exit, %if.end42
   call void @_ZN5ImGui8EndPopupEv()
-  %29 = load i16, ptr %LockMarkEdited, align 2
-  %dec = add i16 %29, -1
+  %28 = load i16, ptr %LockMarkEdited, align 2
+  %dec = add i16 %28, -1
   store i16 %dec, ptr %LockMarkEdited, align 2
   br label %return
 

@@ -3910,13 +3910,14 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit753: ; preds = %_ZN4cvc58internal1
   store ptr %89, ptr %poly_approx_c, align 8
   %d_true = getelementptr inbounds i8, ptr %this, i64 48
   %frombool = zext i1 %cmp298.ph to i8
+  %.sroa.gep2131 = getelementptr inbounds i8, ptr %mvb, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1904, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit753
   %cmp182 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit753 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1904 ]
   %indvars.iv = phi i64 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit753 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1904 ]
-  %is_tangent.02120 = phi i8 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit753 ], [ %is_tangent.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1904 ]
-  %is_secant.02119 = phi i8 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit753 ], [ %is_secant.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1904 ]
+  %is_tangent.02121 = phi i8 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit753 ], [ %is_tangent.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1904 ]
+  %is_secant.02120 = phi i8 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit753 ], [ %is_secant.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1904 ]
   %arrayidx177 = getelementptr inbounds [2 x %"class.std::map.427"], ptr %poly_approx_bounds, i64 0, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i754)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i755)
@@ -3993,9 +3994,9 @@ if.then13.i.i788:                                 ; preds = %if.else.i.i786
           to label %invoke.cont181 unwind label %lpad178
 
 invoke.cont181:                                   ; preds = %if.else.i.i786, %if.then.i.i790, %if.then13.i.i788
-  %cond-lvalue.idx = select i1 %cmp182, i64 0, i64 8
-  %cond-lvalue = getelementptr inbounds i8, ptr %mvb, i64 %cond-lvalue.idx
-  %96 = load ptr, ptr %cond-lvalue, align 8
+  %mvb.val = load ptr, ptr %mvb, align 8
+  %.sroa.gep2131.val = load ptr, ptr %.sroa.gep2131, align 8
+  %96 = select i1 %cmp182, ptr %mvb.val, ptr %.sroa.gep2131.val
   store ptr %96, ptr %v_pab, align 8
   %bf.load.i.i797 = load i64, ptr %96, align 8
   %bf.lshr.i.i798 = lshr i64 %bf.load.i.i797, 40
@@ -4433,13 +4434,13 @@ if.then13.i4.i1275:                               ; preds = %if.else.i.i1272
           to label %cleanup.done322 unwind label %lpad248
 
 cleanup.done322.sink.split:                       ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1267, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1209
-  %bf.load.i2.i1210.sink2145 = phi i64 [ %bf.load.i2.i1210, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1209 ], [ %bf.load.i2.i1268, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1267 ]
+  %bf.load.i2.i1210.sink2164 = phi i64 [ %bf.load.i2.i1210, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1209 ], [ %bf.load.i2.i1268, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1267 ]
   %.sink = phi ptr [ %125, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1209 ], [ %143, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1267 ]
   %is_tangent.1.ph = phi i8 [ %frombool, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1209 ], [ %cmp296.ph, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1267 ]
   %storemerge.in.ph = phi i1 [ %cmp288.ph, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1209 ], [ %cmp298.ph, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i1267 ]
-  %bf.value.i6.i1220 = add i64 %bf.load.i2.i1210.sink2145, 1099511627776
+  %bf.value.i6.i1220 = add i64 %bf.load.i2.i1210.sink2164, 1099511627776
   %bf.shl.i7.i1221 = and i64 %bf.value.i6.i1220, 1152920405095219200
-  %bf.clear7.i8.i1222 = and i64 %bf.load.i2.i1210.sink2145, -1152920405095219201
+  %bf.clear7.i8.i1222 = and i64 %bf.load.i2.i1210.sink2164, -1152920405095219201
   %bf.set.i9.i1223 = or disjoint i64 %bf.shl.i7.i1221, %bf.clear7.i8.i1222
   store i64 %bf.set.i9.i1223, ptr %.sink, align 8
   br label %cleanup.done322
@@ -4516,8 +4517,8 @@ lpad454:                                          ; preds = %invoke.cont453
 
 cleanup:                                          ; preds = %invoke.cont455, %if.then.i.i1839, %if.then13.i.i1845, %cleanup.done322
   %spec.select = phi i32 [ 2, %cleanup.done322 ], [ 0, %if.then13.i.i1845 ], [ 0, %if.then.i.i1839 ], [ 0, %invoke.cont455 ]
-  %is_secant.1 = phi i8 [ %storemerge, %cleanup.done322 ], [ %is_secant.02119, %if.then13.i.i1845 ], [ %is_secant.02119, %if.then.i.i1839 ], [ %is_secant.02119, %invoke.cont455 ]
-  %is_tangent.2 = phi i8 [ %is_tangent.1, %cleanup.done322 ], [ %is_tangent.02120, %if.then13.i.i1845 ], [ %is_tangent.02120, %if.then.i.i1839 ], [ %is_tangent.02120, %invoke.cont455 ]
+  %is_secant.1 = phi i8 [ %storemerge, %cleanup.done322 ], [ %is_secant.02120, %if.then13.i.i1845 ], [ %is_secant.02120, %if.then.i.i1839 ], [ %is_secant.02120, %invoke.cont455 ]
+  %is_tangent.2 = phi i8 [ %is_tangent.1, %cleanup.done322 ], [ %is_tangent.02121, %if.then13.i.i1845 ], [ %is_tangent.02121, %if.then.i.i1839 ], [ %is_tangent.02121, %invoke.cont455 ]
   %151 = load ptr, ptr %compr, align 8
   %bf.load.i.i1861 = load i64, ptr %151, align 8
   %152 = and i64 %bf.load.i.i1861, 1152920405095219200
@@ -4582,8 +4583,8 @@ ehcleanup473:                                     ; preds = %ehcleanup471, %lpad
   br label %ehcleanup476
 
 cleanup475:                                       ; preds = %if.then13.i.i1880, %if.then.i.i1874, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1871, %invoke.cont190
-  %is_secant.3 = phi i8 [ %is_secant.02119, %invoke.cont190 ], [ %is_secant.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1871 ], [ %is_secant.1, %if.then.i.i1874 ], [ %is_secant.1, %if.then13.i.i1880 ]
-  %is_tangent.4 = phi i8 [ %is_tangent.02120, %invoke.cont190 ], [ %is_tangent.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1871 ], [ %is_tangent.2, %if.then.i.i1874 ], [ %is_tangent.2, %if.then13.i.i1880 ]
+  %is_secant.3 = phi i8 [ %is_secant.02120, %invoke.cont190 ], [ %is_secant.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1871 ], [ %is_secant.1, %if.then.i.i1874 ], [ %is_secant.1, %if.then13.i.i1880 ]
+  %is_tangent.4 = phi i8 [ %is_tangent.02121, %invoke.cont190 ], [ %is_tangent.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1871 ], [ %is_tangent.2, %if.then.i.i1874 ], [ %is_tangent.2, %if.then13.i.i1880 ]
   %cleanup.dest.slot.1 = phi i32 [ 0, %invoke.cont190 ], [ %spec.select, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1871 ], [ %spec.select, %if.then.i.i1874 ], [ %spec.select, %if.then13.i.i1880 ]
   %bf.load.i.i1883 = load i64, ptr %.pre, align 8
   %159 = and i64 %bf.load.i.i1883, 1152920405095219200
@@ -4653,6 +4654,7 @@ ehcleanup480:                                     ; preds = %ehcleanup476, %lpad
   br label %ehcleanup590
 
 for.end:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1904
+  %.sroa.gep2131.le = getelementptr inbounds i8, ptr %mvb, i64 8
   %166 = and i8 %is_tangent.4, 1
   %tobool.not = icmp ne i8 %166, 0
   %167 = and i8 %is_secant.3, 1
@@ -4777,8 +4779,7 @@ terminate.lpad.i1993:                             ; preds = %if.then13.i.i1992
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1994: ; preds = %cleanup589, %if.then.i.i1986, %if.then13.i.i1992
-  %second.i1995 = getelementptr inbounds i8, ptr %mvb, i64 8
-  %190 = load ptr, ptr %second.i1995, align 8
+  %190 = load ptr, ptr %.sroa.gep2131.le, align 8
   %bf.load.i.i.i1996 = load i64, ptr %190, align 8
   %191 = and i64 %bf.load.i.i.i1996, 1152920405095219200
   %cmp.not.i.i.i = icmp eq i64 %191, 1152920405095219200

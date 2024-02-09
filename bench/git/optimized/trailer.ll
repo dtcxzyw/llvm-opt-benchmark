@@ -340,11 +340,11 @@ for.body.lr.ph.i:                                 ; preds = %if.end
   %buf.i.i = getelementptr inbounds i8, ptr %val.i, i64 16
   %len.i.i = getelementptr inbounds i8, ptr %val.i, i64 8
   %8 = load ptr, ptr %trailers.i, align 8
-  %.pre176 = load i8, ptr @comment_line_char, align 1
+  %.pre177 = load i8, ptr @comment_line_char, align 1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %9 = phi i8 [ %.pre176, %for.body.lr.ph.i ], [ %24, %for.inc.i ]
+  %9 = phi i8 [ %.pre177, %for.body.lr.ph.i ], [ %24, %for.inc.i ]
   %i.026.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %8, i64 %i.026.i
   %10 = load ptr, ptr %arrayidx.i, align 8
@@ -496,8 +496,8 @@ if.end5:                                          ; preds = %parse_trailers.exit
   %trailer_block_start = getelementptr inbounds i8, ptr %info, i64 8
   %27 = load i64, ptr %trailer_block_start, align 8
   %call4 = call i64 @fwrite(ptr noundef %26, i64 noundef 1, i64 noundef %27, ptr noundef %outfile.0)
-  %.pre177 = load i32, ptr %only_trailers, align 8
-  %tobool7 = icmp ne i32 %.pre177, 0
+  %.pre178 = load i32, ptr %only_trailers, align 8
+  %tobool7 = icmp ne i32 %.pre178, 0
   %28 = load i32, ptr %info, align 8
   %tobool8 = icmp ne i32 %28, 0
   %or.cond = select i1 %tobool7, i1 true, i1 %tobool8
@@ -833,23 +833,23 @@ parse_trailers_from_command_line_args.exit:       ; preds = %for.inc.i53, %parse
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
   %60 = load ptr, ptr %config_head, align 8
   %cmp.not.i72 = icmp eq ptr %60, %config_head
-  %.pre178 = load ptr, ptr %arg_head, align 8
+  %.pre179 = load ptr, ptr %arg_head, align 8
   br i1 %cmp.not.i72, label %list_splice.exit, label %if.then.i73
 
 if.then.i73:                                      ; preds = %parse_trailers_from_command_line_args.exit
   %prev.i = getelementptr inbounds i8, ptr %60, i64 8
   store ptr %arg_head, ptr %prev.i, align 8
   %61 = load ptr, ptr %prev15, align 8
-  store ptr %.pre178, ptr %61, align 8
+  store ptr %.pre179, ptr %61, align 8
   %62 = load ptr, ptr %prev15, align 8
-  %prev7.i = getelementptr inbounds i8, ptr %.pre178, i64 8
+  %prev7.i = getelementptr inbounds i8, ptr %.pre179, i64 8
   store ptr %62, ptr %prev7.i, align 8
   %63 = load ptr, ptr %config_head, align 8
   store ptr %63, ptr %arg_head, align 8
   br label %list_splice.exit
 
 list_splice.exit:                                 ; preds = %parse_trailers_from_command_line_args.exit, %if.then.i73
-  %64 = phi ptr [ %.pre178, %parse_trailers_from_command_line_args.exit ], [ %63, %if.then.i73 ]
+  %64 = phi ptr [ %.pre179, %parse_trailers_from_command_line_args.exit ], [ %63, %if.then.i73 ]
   %cmp.not22.i = icmp eq ptr %64, %arg_head
   br i1 %cmp.not22.i, label %if.end18, label %for.body.i77
 
@@ -873,8 +873,8 @@ if.end.i.i78:                                     ; preds = %for.body.i77
   %70 = add i32 %66, -3
   %71 = icmp ult i32 %70, -2
   %cond.in.idx.i.i = select i1 %71, i64 0, i64 8
-  %cond.in.i.i = getelementptr inbounds i8, ptr %head, i64 %cond.in.idx.i.i
-  %cond.i.i = load ptr, ptr %cond.in.i.i, align 8
+  %prev.val = load ptr, ptr %prev, align 8
+  %cond.i.i = select i1 %71, ptr %69, ptr %prev.val
   %cmp12.not24.i.i = icmp eq ptr %cond.i.i, %head
   br i1 %cmp12.not24.i.i, label %if.then.i82, label %for.body.lr.ph.i.i
 
@@ -1258,12 +1258,12 @@ for.inc.i93:                                      ; preds = %for.cond.i.i.i, %if
   br i1 %cmp.not.i95, label %print_all.exit, label %for.body.i88, !llvm.loop !15
 
 print_all.exit:                                   ; preds = %for.inc.i93
-  %.pre179 = load ptr, ptr %head, align 8
-  %cmp.not7.i = icmp eq ptr %.pre179, %head
+  %.pre180 = load ptr, ptr %head, align 8
+  %cmp.not7.i = icmp eq ptr %.pre180, %head
   br i1 %cmp.not7.i, label %free_all.exit, label %for.body.i103
 
 for.body.i103:                                    ; preds = %print_all.exit, %for.body.i103
-  %pos.08.i104 = phi ptr [ %p.0.i, %for.body.i103 ], [ %.pre179, %print_all.exit ]
+  %pos.08.i104 = phi ptr [ %p.0.i, %for.body.i103 ], [ %.pre180, %print_all.exit ]
   %p.0.i = load ptr, ptr %pos.08.i104, align 8
   %135 = getelementptr i8, ptr %pos.08.i104, i64 8
   %pos.0.val6.i = load ptr, ptr %135, align 8
@@ -1284,20 +1284,20 @@ free_all.exit:                                    ; preds = %for.body.i103, %if.
   %138 = load i64, ptr %trailer_nr.i, align 8
   %cmp5.not.i = icmp eq i64 %138, 0
   %trailers1.i.phi.trans.insert = getelementptr inbounds i8, ptr %info, i64 24
-  %.pre180 = load ptr, ptr %trailers1.i.phi.trans.insert, align 8
+  %.pre181 = load ptr, ptr %trailers1.i.phi.trans.insert, align 8
   br i1 %cmp5.not.i, label %trailer_info_release.exit, label %for.body.i112
 
 for.body.i112:                                    ; preds = %free_all.exit, %for.body.i112
   %i.06.i = phi i64 [ %inc.i114, %for.body.i112 ], [ 0, %free_all.exit ]
-  %arrayidx.i113 = getelementptr inbounds ptr, ptr %.pre180, i64 %i.06.i
+  %arrayidx.i113 = getelementptr inbounds ptr, ptr %.pre181, i64 %i.06.i
   %139 = load ptr, ptr %arrayidx.i113, align 8
   call void @free(ptr noundef %139) #16
   %inc.i114 = add nuw i64 %i.06.i, 1
-  %exitcond175.not = icmp eq i64 %inc.i114, %138
-  br i1 %exitcond175.not, label %trailer_info_release.exit, label %for.body.i112, !llvm.loop !17
+  %exitcond176.not = icmp eq i64 %inc.i114, %138
+  br i1 %exitcond176.not, label %trailer_info_release.exit, label %for.body.i112, !llvm.loop !17
 
 trailer_info_release.exit:                        ; preds = %for.body.i112, %free_all.exit
-  call void @free(ptr noundef %.pre180) #16
+  call void @free(ptr noundef %.pre181) #16
   %140 = load i32, ptr %only_trailers, align 8
   %tobool20.not = icmp eq i32 %140, 0
   br i1 %tobool20.not, label %if.then21, label %if.end25

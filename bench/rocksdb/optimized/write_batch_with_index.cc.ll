@@ -3423,10 +3423,10 @@ invoke.cont31:                                    ; preds = %if.end29
   %columns_.i = getelementptr inbounds i8, ptr %existing, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %columns_.i, i8 0, i64 24, i1 false)
   %cmp33 = icmp eq i8 %call14, 3
-  %. = select i1 %cmp33, i64 16, i64 8
   %existing.pinnable_val = select i1 %cmp33, ptr %existing, ptr %pinnable_val
-  %value = getelementptr inbounds i8, ptr %get_impl_options, i64 %.
-  store ptr %existing.pinnable_val, ptr %value, align 8
+  %..sroa.sel.v = select i1 %cmp33, i64 16, i64 8
+  %..sroa.sel = getelementptr inbounds i8, ptr %get_impl_options, i64 %..sroa.sel.v
+  store ptr %existing.pinnable_val, ptr %..sroa.sel, align 8
   %callback36 = getelementptr inbounds i8, ptr %get_impl_options, i64 40
   store ptr %callback, ptr %callback36, align 8
   %vtable38 = load ptr, ptr %db, align 8

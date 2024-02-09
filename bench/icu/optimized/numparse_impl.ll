@@ -2036,8 +2036,8 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   %tobool.not.i = icmp ne i8 %4, 0
   %fValue.i = getelementptr inbounds i8, ptr %properties, i64 464
   %5 = load i32, ptr %fValue.i, align 8
-  %cmp223 = icmp eq i32 %5, 1
-  %cmp = select i1 %tobool.not.i, i1 true, i1 %cmp223
+  %cmp232 = icmp eq i32 %5, 1
+  %cmp = select i1 %tobool.not.i, i1 true, i1 %cmp232
   %call13 = invoke { i64, i32 } @_ZN6icu_756number4impl7Grouper13forPropertiesERKNS1_23DecimalFormatPropertiesE(ptr noundef nonnull align 8 dereferenceable(757) %properties)
           to label %invoke.cont12 unwind label %lpad8
 
@@ -2085,8 +2085,8 @@ invoke.cont39:                                    ; preds = %if.end18
   %17 = shl i8 %11, 4
   %18 = and i8 %17, 16
   %19 = or disjoint i8 %18, %16
-  %parseFlags.1224 = xor i8 %19, 1
-  %parseFlags.1 = zext nneg i8 %parseFlags.1224 to i32
+  %parseFlags.1233 = xor i8 %19, 1
+  %parseFlags.1 = zext nneg i8 %parseFlags.1233 to i32
   %parseFlags.2 = or disjoint i32 %15, %parseFlags.1
   %parseFlags.3.v = select i1 %cmp, i32 33548, i32 128
   %parseFlags.3 = or disjoint i32 %parseFlags.2, %parseFlags.3.v
@@ -2100,12 +2100,12 @@ invoke.cont46:                                    ; preds = %invoke.cont39
   %20 = load i8, ptr %fBogus.i.i, align 8
   %21 = and i8 %20, 1
   %tobool.i.not.i = icmp eq i8 %21, 0
-  %this.currencyPluralInfoAPP.idx.i = select i1 %tobool.i.not.i, i64 272, i64 0
-  %this.currencyPluralInfoAPP.i = getelementptr inbounds i8, ptr %affixProvider, i64 %this.currencyPluralInfoAPP.idx.i
-  %vtable = load ptr, ptr %this.currencyPluralInfoAPP.i, align 8
+  %this.currencyPluralInfoAPP.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %tobool.i.not.i, i64 272, i64 0
+  %this.currencyPluralInfoAPP.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %affixProvider, i64 %this.currencyPluralInfoAPP.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
+  %vtable = load ptr, ptr %this.currencyPluralInfoAPP.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %22 = load ptr, ptr %vfn, align 8
-  %call49 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %this.currencyPluralInfoAPP.i)
+  %call49 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %this.currencyPluralInfoAPP.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel)
           to label %invoke.cont48 unwind label %lpad8
 
 invoke.cont48:                                    ; preds = %invoke.cont46
@@ -2152,7 +2152,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
   %parseFlags75 = getelementptr inbounds i8, ptr %affixSetupData, i64 32
   store i32 %spec.select68, ptr %parseFlags75, align 8
   invoke void @_ZN6icu_758numparse4impl26AffixTokenMatcherWarehouseC1EPKNS1_26AffixTokenMatcherSetupDataE(ptr noundef nonnull align 8 dereferenceable(1288) %ref.tmp76, ptr noundef nonnull %affixSetupData)
-          to label %invoke.cont77 unwind label %ehcleanup371.thread220
+          to label %invoke.cont77 unwind label %ehcleanup371.thread229
 
 invoke.cont77:                                    ; preds = %invoke.cont62
   %affixTokenMatcherWarehouse = getelementptr inbounds i8, ptr %call57, i64 3856
@@ -2210,7 +2210,7 @@ invoke.cont77:                                    ; preds = %invoke.cont62
   call void @_ZSt4swapIN6icu_7515MaybeStackArrayIPNS0_8numparse4impl16CodePointMatcherELi8EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleISA_ESt18is_move_assignableISA_EEE5valueEvE4typeERSA_SJ_(ptr noundef nonnull align 8 dereferenceable(80) %fPool.i.i, ptr noundef nonnull align 8 dereferenceable(80) %fPool3.i.i) #16
   call void @_ZN6icu_758numparse4impl26AffixTokenMatcherWarehouseD2Ev(ptr noundef nonnull align 8 dereferenceable(1288) %ref.tmp76) #16
   invoke void @_ZN6icu_758numparse4impl21AffixMatcherWarehouseC1EPNS1_26AffixTokenMatcherWarehouseE(ptr noundef nonnull align 8 dereferenceable(1544) %ref.tmp83, ptr noundef nonnull %affixTokenMatcherWarehouse)
-          to label %invoke.cont88 unwind label %ehcleanup371.thread220
+          to label %invoke.cont88 unwind label %ehcleanup371.thread229
 
 invoke.cont88:                                    ; preds = %invoke.cont77
   %affixMatcherWarehouse = getelementptr inbounds i8, ptr %call57, i64 2312
@@ -2298,9 +2298,9 @@ invoke.cont98:                                    ; preds = %_ZN6icu_758numparse
   %44 = load i8, ptr %fBogus.i.i73, align 8
   %45 = and i8 %44, 1
   %tobool.i.not.i74 = icmp eq i8 %45, 0
-  %this.currencyPluralInfoAPP.idx.i75 = select i1 %tobool.i.not.i74, i64 272, i64 0
-  %this.currencyPluralInfoAPP.i76 = getelementptr inbounds i8, ptr %affixProvider, i64 %this.currencyPluralInfoAPP.idx.i75
-  invoke void @_ZN6icu_758numparse4impl21AffixMatcherWarehouse19createAffixMatchersERKNS_6number4impl20AffixPatternProviderERNS1_24MutableMatcherCollectionERKNS1_17IgnorablesMatcherEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1544) %affixMatcherWarehouse, ptr noundef nonnull align 8 dereferenceable(8) %this.currencyPluralInfoAPP.i76, ptr noundef nonnull align 8 dereferenceable(8) %call57, ptr noundef nonnull align 8 dereferenceable(80) %fLocalMatchers, i32 noundef %spec.select68, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %.sroa.gep216 = getelementptr inbounds i8, ptr %affixProvider, i64 272
+  %this.currencyPluralInfoAPP.idx.i75.sroa.sel = select i1 %tobool.i.not.i74, ptr %.sroa.gep216, ptr %affixProvider
+  invoke void @_ZN6icu_758numparse4impl21AffixMatcherWarehouse19createAffixMatchersERKNS_6number4impl20AffixPatternProviderERNS1_24MutableMatcherCollectionERKNS1_17IgnorablesMatcherEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1544) %affixMatcherWarehouse, ptr noundef nonnull align 8 dereferenceable(8) %this.currencyPluralInfoAPP.idx.i75.sroa.sel, ptr noundef nonnull align 8 dereferenceable(8) %call57, ptr noundef nonnull align 8 dereferenceable(80) %fLocalMatchers, i32 noundef %spec.select68, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont102 unwind label %ehcleanup371
 
 invoke.cont102:                                   ; preds = %invoke.cont98
@@ -2310,12 +2310,11 @@ invoke.cont105:                                   ; preds = %invoke.cont102
   %46 = load i8, ptr %fBogus.i.i73, align 8
   %47 = and i8 %46, 1
   %tobool.i.not.i78 = icmp eq i8 %47, 0
-  %this.currencyPluralInfoAPP.idx.i79 = select i1 %tobool.i.not.i78, i64 272, i64 0
-  %this.currencyPluralInfoAPP.i80 = getelementptr inbounds i8, ptr %affixProvider, i64 %this.currencyPluralInfoAPP.idx.i79
-  %vtable107 = load ptr, ptr %this.currencyPluralInfoAPP.i80, align 8
+  %this.currencyPluralInfoAPP.idx.i79.sroa.sel = select i1 %tobool.i.not.i78, ptr %.sroa.gep216, ptr %affixProvider
+  %vtable107 = load ptr, ptr %this.currencyPluralInfoAPP.idx.i79.sroa.sel, align 8
   %vfn108 = getelementptr inbounds i8, ptr %vtable107, i64 40
   %48 = load ptr, ptr %vfn108, align 8
-  %call110 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(8) %this.currencyPluralInfoAPP.i80)
+  %call110 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(8) %this.currencyPluralInfoAPP.idx.i79.sroa.sel)
           to label %invoke.cont109 unwind label %ehcleanup371
 
 invoke.cont109:                                   ; preds = %invoke.cont105
@@ -2378,12 +2377,11 @@ invoke.cont127:                                   ; preds = %if.end125
   %52 = load i8, ptr %fBogus.i.i73, align 8
   %53 = and i8 %52, 1
   %tobool.i.not.i87 = icmp eq i8 %53, 0
-  %this.currencyPluralInfoAPP.idx.i88 = select i1 %tobool.i.not.i87, i64 272, i64 0
-  %this.currencyPluralInfoAPP.i89 = getelementptr inbounds i8, ptr %affixProvider, i64 %this.currencyPluralInfoAPP.idx.i88
-  %vtable129 = load ptr, ptr %this.currencyPluralInfoAPP.i89, align 8
+  %this.currencyPluralInfoAPP.idx.i88.sroa.sel = select i1 %tobool.i.not.i87, ptr %.sroa.gep216, ptr %affixProvider
+  %vtable129 = load ptr, ptr %this.currencyPluralInfoAPP.idx.i88.sroa.sel, align 8
   %vfn130 = getelementptr inbounds i8, ptr %vtable129, i64 72
   %54 = load ptr, ptr %vfn130, align 8
-  %call132 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(8) %this.currencyPluralInfoAPP.i89, i32 noundef -4, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call132 = invoke noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(8) %this.currencyPluralInfoAPP.idx.i88.sroa.sel, i32 noundef -4, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont131 unwind label %ehcleanup371
 
 invoke.cont131:                                   ; preds = %invoke.cont127
@@ -2424,12 +2422,11 @@ invoke.cont149:                                   ; preds = %invoke.cont145, %in
   %58 = load i8, ptr %fBogus.i.i73, align 8
   %59 = and i8 %58, 1
   %tobool.i.not.i98 = icmp eq i8 %59, 0
-  %this.currencyPluralInfoAPP.idx.i99 = select i1 %tobool.i.not.i98, i64 272, i64 0
-  %this.currencyPluralInfoAPP.i100 = getelementptr inbounds i8, ptr %affixProvider, i64 %this.currencyPluralInfoAPP.idx.i99
-  %vtable151 = load ptr, ptr %this.currencyPluralInfoAPP.i100, align 8
+  %this.currencyPluralInfoAPP.idx.i99.sroa.sel = select i1 %tobool.i.not.i98, ptr %.sroa.gep216, ptr %affixProvider
+  %vtable151 = load ptr, ptr %this.currencyPluralInfoAPP.idx.i99.sroa.sel, align 8
   %vfn152 = getelementptr inbounds i8, ptr %vtable151, i64 72
   %60 = load ptr, ptr %vfn152, align 8
-  %call154 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(8) %this.currencyPluralInfoAPP.i100, i32 noundef -5, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call154 = invoke noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(8) %this.currencyPluralInfoAPP.idx.i99.sroa.sel, i32 noundef -5, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont153 unwind label %ehcleanup371
 
 invoke.cont153:                                   ; preds = %invoke.cont149
@@ -2494,7 +2491,7 @@ invoke.cont182:                                   ; preds = %invoke.cont174
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp173, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i109) #16
   invoke void @_ZN6icu_758numparse4impl16MinusSignMatcherC1ERKNS_20DecimalFormatSymbolsEb(ptr noundef nonnull align 8 dereferenceable(81) %ref.tmp185, ptr noundef nonnull align 8 dereferenceable(2883) %symbols, i1 noundef zeroext false)
-          to label %invoke.cont186 unwind label %ehcleanup371.thread220
+          to label %invoke.cont186 unwind label %ehcleanup371.thread229
 
 invoke.cont186:                                   ; preds = %invoke.cont182
   %minusSign = getelementptr inbounds i8, ptr %call57, i64 280
@@ -2558,7 +2555,7 @@ invoke.cont207:                                   ; preds = %invoke.cont199
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp198, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i125) #16
   invoke void @_ZN6icu_758numparse4impl15InfinityMatcherC1ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp210, ptr noundef nonnull align 8 dereferenceable(2883) %symbols)
-          to label %invoke.cont211 unwind label %ehcleanup371.thread220
+          to label %invoke.cont211 unwind label %ehcleanup371.thread229
 
 invoke.cont211:                                   ; preds = %invoke.cont207
   %infinity = getelementptr inbounds i8, ptr %call57, i64 200
@@ -2580,13 +2577,13 @@ invoke.cont219:                                   ; preds = %invoke.cont211
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i131) #16
   %padString220 = getelementptr inbounds i8, ptr %properties, i64 392
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %padString, ptr noundef nonnull align 8 dereferenceable(64) %padString220)
-          to label %invoke.cont221 unwind label %ehcleanup371.thread220
+          to label %invoke.cont221 unwind label %ehcleanup371.thread229
 
 invoke.cont221:                                   ; preds = %invoke.cont219
   %fUnion.i = getelementptr inbounds i8, ptr %padString, i64 8
   %78 = load i16, ptr %fUnion.i, align 8
-  %conv2.i225 = and i16 %78, 1
-  %tobool225.not = icmp eq i16 %conv2.i225, 0
+  %conv2.i234 = and i16 %78, 1
+  %tobool225.not = icmp eq i16 %conv2.i234, 0
   br i1 %tobool225.not, label %land.lhs.true226, label %if.end245
 
 land.lhs.true226:                                 ; preds = %invoke.cont221
@@ -2929,7 +2926,7 @@ ehcleanup370:                                     ; preds = %ehcleanup369, %lpad
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %padString) #16
   br label %delete.notnull.i167
 
-ehcleanup371.thread220:                           ; preds = %invoke.cont62, %invoke.cont77, %invoke.cont182, %invoke.cont207, %invoke.cont219
+ehcleanup371.thread229:                           ; preds = %invoke.cont62, %invoke.cont77, %invoke.cont182, %invoke.cont207, %invoke.cont219
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %delete.notnull.i167
@@ -2939,8 +2936,8 @@ ehcleanup371:                                     ; preds = %invoke.cont60, %inv
           cleanup
   br i1 %new.isnull, label %ehcleanup372, label %delete.notnull.i167
 
-delete.notnull.i167:                              ; preds = %lpad116, %lpad138, %lpad160, %lpad175, %lpad187, %lpad200, %lpad212, %ehcleanup370, %ehcleanup371.thread220, %ehcleanup371
-  %.pn.pn.pn.pn217 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %ehcleanup371 ], [ %lpad.thr_comm, %ehcleanup371.thread220 ], [ %51, %lpad116 ], [ %57, %lpad138 ], [ %63, %lpad160 ], [ %72, %lpad175 ], [ %73, %lpad187 ], [ %81, %lpad200 ], [ %82, %lpad212 ], [ %.pn.pn.pn, %ehcleanup370 ]
+delete.notnull.i167:                              ; preds = %lpad116, %lpad138, %lpad160, %lpad175, %lpad187, %lpad200, %lpad212, %ehcleanup370, %ehcleanup371.thread229, %ehcleanup371
+  %.pn.pn.pn.pn226 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %ehcleanup371 ], [ %lpad.thr_comm, %ehcleanup371.thread229 ], [ %51, %lpad116 ], [ %57, %lpad138 ], [ %63, %lpad160 ], [ %72, %lpad175 ], [ %73, %lpad187 ], [ %81, %lpad200 ], [ %82, %lpad212 ], [ %.pn.pn.pn, %ehcleanup370 ]
   %vtable.i168 = load ptr, ptr %call57, align 8
   %vfn.i169 = getelementptr inbounds i8, ptr %vtable.i168, i64 8
   %120 = load ptr, ptr %vfn.i169, align 8
@@ -2961,7 +2958,7 @@ cleanup:                                          ; preds = %invoke.cont12, %_ZN
   br label %cleanup375
 
 ehcleanup372:                                     ; preds = %delete.notnull.i167, %ehcleanup371, %lpad58, %lpad8
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9, %lpad8 ], [ %50, %lpad58 ], [ %lpad.thr_comm.split-lp, %ehcleanup371 ], [ %.pn.pn.pn.pn217, %delete.notnull.i167 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9, %lpad8 ], [ %50, %lpad58 ], [ %lpad.thr_comm.split-lp, %ehcleanup371 ], [ %.pn.pn.pn.pn226, %delete.notnull.i167 ]
   call void @_ZN6icu_756number4impl15CurrencySymbolsD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %currencySymbols) #16
   br label %ehcleanup374
 

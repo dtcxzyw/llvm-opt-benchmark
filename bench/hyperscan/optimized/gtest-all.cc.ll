@@ -32569,8 +32569,9 @@ if.end71:                                         ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %62, ptr noundef nonnull align 1 dereferenceable(3) %cond, i64 %call.i.i478, i1 false)
   %_M_string_length.i.i.i.i481 = getelementptr inbounds i8, ptr %ref.tmp76, i64 8
   store i64 %call.i.i478, ptr %_M_string_length.i.i.i.i481, align 8
-  %arrayidx.i.i.i482 = getelementptr inbounds i8, ptr %62, i64 %call.i.i478
-  store i8 0, ptr %arrayidx.i.i.i482, align 1
+  %call.i.i478.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.i.not, i64 22, i64 19
+  %call.i.i478.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %ref.tmp76, i64 %call.i.i478.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i8 0, ptr %call.i.i478.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel, align 1
   invoke void @_ZN7testing8internal24XmlUnitTestResultPrinter18OutputXmlAttributeEPSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_(ptr noundef nonnull %stream, ptr noundef nonnull align 8 dereferenceable(32) %kTestcase, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76)
           to label %invoke.cont84 unwind label %lpad83
 

@@ -105,7 +105,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.mold::elf::SectionOrder" = type { i32, %"class.std::__cxx11::basic_string", i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%"class.std::filesystem::__cxx11::path::iterator" = type <{ ptr, ptr, i8, [7 x i8] }>
 %"class.std::__detail::_Compiler" = type { i32, %"class.std::__detail::_Scanner", %"class.std::shared_ptr.306", %"class.std::__cxx11::basic_string", %"class.std::stack", ptr, ptr }
 %"class.std::__detail::_Scanner" = type { %"struct.std::__detail::_ScannerBase.base", ptr, ptr, ptr, %"class.std::__cxx11::basic_string", { i64, i64 } }
 %"struct.std::__detail::_ScannerBase.base" = type <{ [9 x %"struct.std::pair.302"], [8 x %"struct.std::pair.304"], [11 x %"struct.std::pair.304"], [2 x i8], ptr, ptr, ptr, i32, i32, i32, [4 x i8], ptr, ptr, i8 }>
@@ -14171,7 +14170,6 @@ entry:
   %ref.tmp.i.i16 = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i5 = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
-  %__last = alloca %"class.std::filesystem::__cxx11::path::iterator", align 8
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i.i.i, align 8
   %cmp.i.i = icmp eq i64 %0, 0
@@ -14237,61 +14235,45 @@ if.then10:                                        ; preds = %if.then7
 if.end:                                           ; preds = %if.then7
   %conv.i.i3.i = and i64 %4, 3
   %cmp.i = icmp eq i64 %conv.i.i3.i, 0
-  br i1 %cmp.i, label %_ZNKSt10filesystem7__cxx114path3endEv.exit, label %.thread44
-
-.thread44:                                        ; preds = %if.end
-  store ptr %this, ptr %__last, align 8
-  br label %14
+  br i1 %cmp.i, label %_ZNKSt10filesystem7__cxx114path3endEv.exit, label %.thread
 
 _ZNKSt10filesystem7__cxx114path3endEv.exit:       ; preds = %if.end
   %call2.i = tail call noundef ptr @_ZNKSt10filesystem7__cxx114path5_List3endEv(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i1) #21, !noalias !70
   %.pre = load ptr, ptr %_M_cmpts.i1, align 8
   %.pre.fr = freeze ptr %.pre
-  %.pre21 = ptrtoint ptr %.pre.fr to i64
-  %.pre22 = and i64 %.pre21, 3
-  %11 = icmp eq i64 %.pre22, 0
-  br i1 %11, label %12, label %13
+  %.pre24 = ptrtoint ptr %.pre.fr to i64
+  %.pre25 = and i64 %.pre24, 3
+  %11 = icmp eq i64 %.pre25, 0
+  %spec.select36 = getelementptr inbounds i8, ptr %call2.i, i64 -48
+  %spec.select = select i1 %11, ptr %spec.select36, ptr %this
+  br label %.thread
 
-12:                                               ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit
-  %spec.select39 = getelementptr inbounds i8, ptr %call2.i, i64 -48
-  store ptr %this, ptr %__last, align 8
-  br label %14
-
-13:                                               ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit
-  store ptr %this, ptr %__last, align 8
-  br label %14
-
-14:                                               ; preds = %13, %.thread44, %12
-  %call2.i.sink = phi ptr [ %call2.i, %13 ], [ null, %.thread44 ], [ %spec.select39, %12 ]
-  %15 = phi i64 [ 0, %13 ], [ 0, %.thread44 ], [ 8, %12 ]
-  %ref.tmp.sroa.3.0.__last.sroa_idx50 = getelementptr inbounds i8, ptr %__last, i64 8
-  store ptr %call2.i.sink, ptr %ref.tmp.sroa.3.0.__last.sroa_idx50, align 8
-  %retval.0.in.i.i = getelementptr inbounds i8, ptr %__last, i64 %15
-  %retval.0.i.i = load ptr, ptr %retval.0.in.i.i, align 8
-  %_M_cmpts.i9 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 32
-  %16 = load ptr, ptr %_M_cmpts.i9, align 8
-  %17 = ptrtoint ptr %16 to i64
-  %conv.i.i1020 = and i64 %17, 3
-  %cmp14 = icmp eq i64 %conv.i.i1020, 3
+.thread:                                          ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit, %if.end
+  %12 = phi ptr [ %this, %if.end ], [ %spec.select, %_ZNKSt10filesystem7__cxx114path3endEv.exit ]
+  %_M_cmpts.i9 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = load ptr, ptr %_M_cmpts.i9, align 8
+  %14 = ptrtoint ptr %13 to i64
+  %conv.i.i1023 = and i64 %14, 3
+  %cmp14 = icmp eq i64 %conv.i.i1023, 3
   br i1 %cmp14, label %if.then15, label %if.end20
 
-if.then15:                                        ; preds = %14
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %retval.0.i.i)
+if.then15:                                        ; preds = %.thread
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %12)
   %_M_cmpts.i14 = getelementptr inbounds i8, ptr %agg.result, i64 32
   tail call void @_ZNSt10filesystem7__cxx114path5_ListC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i14, ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i9) #21
   br label %return
 
-if.end20:                                         ; preds = %if.else, %14
+if.end20:                                         ; preds = %if.else, %.thread
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i16)
-  %18 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %15 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i16) #21
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i16) #21
-  store ptr %18, ptr %agg.result, align 8
+  store ptr %15, ptr %agg.result, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i16) #21
   %_M_string_length.i.i.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i17, align 8
-  %19 = load ptr, ptr %agg.result, align 8
-  store i8 0, ptr %19, align 1
+  %16 = load ptr, ptr %agg.result, align 8
+  store i8 0, ptr %16, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i16)
   %_M_cmpts.i18 = getelementptr inbounds i8, ptr %agg.result, i64 32
   call void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_cmpts.i18) #21
@@ -18598,7 +18580,7 @@ declare noundef i64 @_ZNKSt6locale2id5_M_idEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: noreturn
 declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #11
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #18
 
 declare void @__cxa_bad_cast() local_unnamed_addr
@@ -43519,7 +43501,7 @@ attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #15 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind memory(read) }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #19 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { nounwind }

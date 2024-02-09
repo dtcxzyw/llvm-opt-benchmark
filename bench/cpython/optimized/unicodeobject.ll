@@ -7890,9 +7890,10 @@ if.then23:                                        ; preds = %if.then10
   ]
 
 land.lhs.true33:                                  ; preds = %if.then23
-  %spec.select.sroa.sel91.v = select i1 %cmp25, i64 5, i64 4
-  %spec.select.sroa.sel91 = getelementptr inbounds i8, ptr %buflower, i64 %spec.select.sroa.sel91.v
-  %10 = load i8, ptr %spec.select.sroa.sel91, align 1
+  %.sroa.gep110 = getelementptr inbounds i8, ptr %buflower, i64 5
+  %.sroa.gep110.val = load i8, ptr %.sroa.gep110, align 1
+  %incdec.ptr.val116 = load i8, ptr %incdec.ptr, align 1
+  %10 = select i1 %cmp25, i8 %.sroa.gep110.val, i8 %incdec.ptr.val116
   %cmp36 = icmp eq i8 %10, 0
   br i1 %cmp36, label %if.then38, label %if.end106
 
@@ -7901,16 +7902,18 @@ if.then38:                                        ; preds = %land.lhs.true33
   br label %return
 
 land.lhs.true44:                                  ; preds = %if.then23
-  %spec.select.sroa.sel88.v = select i1 %cmp25, i64 5, i64 4
-  %spec.select.sroa.sel88 = getelementptr inbounds i8, ptr %buflower, i64 %spec.select.sroa.sel88.v
-  %11 = load i8, ptr %spec.select.sroa.sel88, align 1
+  %.sroa.gep106 = getelementptr inbounds i8, ptr %buflower, i64 5
+  %.sroa.gep106.val = load i8, ptr %.sroa.gep106, align 1
+  %incdec.ptr.val114 = load i8, ptr %incdec.ptr, align 1
+  %11 = select i1 %cmp25, i8 %.sroa.gep106.val, i8 %incdec.ptr.val114
   %cmp47 = icmp eq i8 %11, 54
   br i1 %cmp47, label %land.lhs.true49, label %if.end106
 
 land.lhs.true49:                                  ; preds = %land.lhs.true44
-  %spec.select.sroa.sel85.v = select i1 %cmp25, i64 6, i64 5
-  %spec.select.sroa.sel85 = getelementptr inbounds i8, ptr %buflower, i64 %spec.select.sroa.sel85.v
-  %12 = load i8, ptr %spec.select.sroa.sel85, align 1
+  %.sroa.gep108 = getelementptr inbounds i8, ptr %buflower, i64 6
+  %.sroa.gep108.val = load i8, ptr %.sroa.gep108, align 1
+  %.sroa.gep106.val115 = load i8, ptr %.sroa.gep106, align 1
+  %12 = select i1 %cmp25, i8 %.sroa.gep108.val, i8 %.sroa.gep106.val115
   %cmp52 = icmp eq i8 %12, 0
   br i1 %cmp52, label %if.then54, label %if.end106
 
@@ -7919,16 +7922,18 @@ if.then54:                                        ; preds = %land.lhs.true49
   br label %return
 
 land.lhs.true61:                                  ; preds = %if.then23
-  %spec.select.sroa.sel82.v = select i1 %cmp25, i64 5, i64 4
-  %spec.select.sroa.sel82 = getelementptr inbounds i8, ptr %buflower, i64 %spec.select.sroa.sel82.v
-  %13 = load i8, ptr %spec.select.sroa.sel82, align 1
+  %.sroa.gep = getelementptr inbounds i8, ptr %buflower, i64 5
+  %.sroa.gep.val = load i8, ptr %.sroa.gep, align 1
+  %incdec.ptr.val112 = load i8, ptr %incdec.ptr, align 1
+  %13 = select i1 %cmp25, i8 %.sroa.gep.val, i8 %incdec.ptr.val112
   %cmp64 = icmp eq i8 %13, 50
   br i1 %cmp64, label %land.lhs.true66, label %if.end106
 
 land.lhs.true66:                                  ; preds = %land.lhs.true61
-  %spec.select.sroa.sel.v = select i1 %cmp25, i64 6, i64 5
-  %spec.select.sroa.sel = getelementptr inbounds i8, ptr %buflower, i64 %spec.select.sroa.sel.v
-  %14 = load i8, ptr %spec.select.sroa.sel, align 1
+  %.sroa.gep104 = getelementptr inbounds i8, ptr %buflower, i64 6
+  %.sroa.gep104.val = load i8, ptr %.sroa.gep104, align 1
+  %.sroa.gep.val113 = load i8, ptr %.sroa.gep, align 1
+  %14 = select i1 %cmp25, i8 %.sroa.gep104.val, i8 %.sroa.gep.val113
   %cmp69 = icmp eq i8 %14, 0
   br i1 %cmp69, label %if.then71, label %if.end106
 
@@ -9658,9 +9663,10 @@ if.then25:                                        ; preds = %if.then12
   ]
 
 land.lhs.true35:                                  ; preds = %if.then25
-  %spec.select.sroa.sel104.v = select i1 %cmp27, i64 5, i64 4
-  %spec.select.sroa.sel104 = getelementptr inbounds i8, ptr %buflower, i64 %spec.select.sroa.sel104.v
-  %13 = load i8, ptr %spec.select.sroa.sel104, align 1
+  %.sroa.gep118 = getelementptr inbounds i8, ptr %buflower, i64 5
+  %.sroa.gep118.val = load i8, ptr %.sroa.gep118, align 1
+  %incdec.ptr.val124 = load i8, ptr %incdec.ptr, align 1
+  %13 = select i1 %cmp27, i8 %.sroa.gep118.val, i8 %incdec.ptr.val124
   %cmp38 = icmp eq i8 %13, 0
   br i1 %cmp38, label %if.then40, label %if.end108
 
@@ -9669,16 +9675,18 @@ if.then40:                                        ; preds = %land.lhs.true35
   br label %return
 
 land.lhs.true46:                                  ; preds = %if.then25
-  %spec.select.sroa.sel101.v = select i1 %cmp27, i64 5, i64 4
-  %spec.select.sroa.sel101 = getelementptr inbounds i8, ptr %buflower, i64 %spec.select.sroa.sel101.v
-  %14 = load i8, ptr %spec.select.sroa.sel101, align 1
+  %.sroa.gep114 = getelementptr inbounds i8, ptr %buflower, i64 5
+  %.sroa.gep114.val = load i8, ptr %.sroa.gep114, align 1
+  %incdec.ptr.val122 = load i8, ptr %incdec.ptr, align 1
+  %14 = select i1 %cmp27, i8 %.sroa.gep114.val, i8 %incdec.ptr.val122
   %cmp49 = icmp eq i8 %14, 54
   br i1 %cmp49, label %land.lhs.true51, label %if.end108
 
 land.lhs.true51:                                  ; preds = %land.lhs.true46
-  %spec.select.sroa.sel98.v = select i1 %cmp27, i64 6, i64 5
-  %spec.select.sroa.sel98 = getelementptr inbounds i8, ptr %buflower, i64 %spec.select.sroa.sel98.v
-  %15 = load i8, ptr %spec.select.sroa.sel98, align 1
+  %.sroa.gep116 = getelementptr inbounds i8, ptr %buflower, i64 6
+  %.sroa.gep116.val = load i8, ptr %.sroa.gep116, align 1
+  %.sroa.gep114.val123 = load i8, ptr %.sroa.gep114, align 1
+  %15 = select i1 %cmp27, i8 %.sroa.gep116.val, i8 %.sroa.gep114.val123
   %cmp54 = icmp eq i8 %15, 0
   br i1 %cmp54, label %if.then56, label %if.end108
 
@@ -9687,16 +9695,18 @@ if.then56:                                        ; preds = %land.lhs.true51
   br label %return
 
 land.lhs.true63:                                  ; preds = %if.then25
-  %spec.select.sroa.sel95.v = select i1 %cmp27, i64 5, i64 4
-  %spec.select.sroa.sel95 = getelementptr inbounds i8, ptr %buflower, i64 %spec.select.sroa.sel95.v
-  %16 = load i8, ptr %spec.select.sroa.sel95, align 1
+  %.sroa.gep = getelementptr inbounds i8, ptr %buflower, i64 5
+  %.sroa.gep.val = load i8, ptr %.sroa.gep, align 1
+  %incdec.ptr.val120 = load i8, ptr %incdec.ptr, align 1
+  %16 = select i1 %cmp27, i8 %.sroa.gep.val, i8 %incdec.ptr.val120
   %cmp66 = icmp eq i8 %16, 50
   br i1 %cmp66, label %land.lhs.true68, label %if.end108
 
 land.lhs.true68:                                  ; preds = %land.lhs.true63
-  %spec.select.sroa.sel.v = select i1 %cmp27, i64 6, i64 5
-  %spec.select.sroa.sel = getelementptr inbounds i8, ptr %buflower, i64 %spec.select.sroa.sel.v
-  %17 = load i8, ptr %spec.select.sroa.sel, align 1
+  %.sroa.gep112 = getelementptr inbounds i8, ptr %buflower, i64 6
+  %.sroa.gep112.val = load i8, ptr %.sroa.gep112, align 1
+  %.sroa.gep.val121 = load i8, ptr %.sroa.gep, align 1
+  %17 = select i1 %cmp27, i8 %.sroa.gep112.val, i8 %.sroa.gep.val121
   %cmp71 = icmp eq i8 %17, 0
   br i1 %cmp71, label %if.then73, label %if.end108
 
@@ -15046,7 +15056,7 @@ if.end13:                                         ; preds = %if.end.i.i
   br i1 %tobool.not.i, label %if.end.i, label %PyUnicode_MAX_CHAR_VALUE.exit
 
 if.end.i:                                         ; preds = %if.end13
-  %bf.lshr.i14 = lshr i32 %unicode.val10, 2
+  %bf.lshr.i14 = lshr exact i32 %unicode.val10, 2
   %bf.clear.i15 = and i32 %bf.lshr.i14, 7
   %switch.selectcmp.i = icmp eq i32 %bf.clear.i15, 2
   %switch.select.i = select i1 %switch.selectcmp.i, i32 65535, i32 1114111
@@ -15065,7 +15075,7 @@ if.then16:                                        ; preds = %PyUnicode_MAX_CHAR_
   br label %return
 
 PyUnicode_DATA.exit:                              ; preds = %PyUnicode_MAX_CHAR_VALUE.exit
-  %bf.lshr = lshr i32 %unicode.val10, 2
+  %bf.lshr = lshr exact i32 %unicode.val10, 2
   %bf.clear = and i32 %bf.lshr, 7
   %retval.0.v.i.i = select i1 %tobool.not.i, i64 56, i64 40
   %retval.0.i.i = getelementptr i8, ptr %unicode, i64 %retval.0.v.i.i
@@ -16650,7 +16660,7 @@ sw.bb2:                                           ; preds = %entry
 
 sw.epilog:                                        ; preds = %entry, %sw.bb2, %sw.bb1
   %tobool13.not = phi i1 [ true, %sw.bb2 ], [ false, %sw.bb1 ], [ true, %entry ]
-  %tobool17.not = phi i1 [ true, %sw.bb2 ], [ false, %sw.bb1 ], [ false, %entry ]
+  %tobool17.not.not = phi i1 [ true, %sw.bb2 ], [ false, %sw.bb1 ], [ false, %entry ]
   %cmp = icmp sgt i64 %size, 2305843009213693950
   br i1 %cmp, label %return, label %if.end
 
@@ -16672,7 +16682,7 @@ while.body.lr.ph:                                 ; preds = %if.end4
   br i1 %tobool13.not, label %while.body.lr.ph.split.us, label %while.body
 
 while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
-  br i1 %tobool17.not, label %while.body.us, label %while.body.us.us
+  br i1 %tobool17.not.not, label %while.body.us, label %while.body.us.us
 
 while.body.us.us:                                 ; preds = %while.body.lr.ph.split.us
   %call6.us.us = call fastcc i32 @ucs4lib_utf8_decode(ptr noundef nonnull %s.addr, ptr noundef nonnull %add.ptr, ptr noundef nonnull %call, ptr noundef nonnull %outpos), !range !92
@@ -28361,7 +28371,7 @@ if.end7:                                          ; preds = %if.end5
   br i1 %tobool.not.i, label %if.end.i, label %PyUnicode_MAX_CHAR_VALUE.exit
 
 if.end.i:                                         ; preds = %if.end7
-  %bf.lshr.i = lshr i32 %unicode.val5.i.i, 2
+  %bf.lshr.i = lshr exact i32 %unicode.val5.i.i, 2
   %bf.clear.i = and i32 %bf.lshr.i, 7
   %switch.selectcmp.i = icmp eq i32 %bf.clear.i, 2
   %switch.select.i = select i1 %switch.selectcmp.i, i32 65535, i32 1114111
@@ -28388,7 +28398,7 @@ if.end11:                                         ; preds = %PyUnicode_MAX_CHAR_
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
-  %bf.lshr.i16 = lshr i32 %unicode.val5.i.i, 2
+  %bf.lshr.i16 = lshr exact i32 %unicode.val5.i.i, 2
   %bf.clear.i17 = and i32 %bf.lshr.i16, 7
   %10 = and i32 %unicode.val5.i.i, 32
   %tobool.not.i.i18 = icmp eq i32 %10, 0
@@ -31210,7 +31220,7 @@ land.lhs.true36:                                  ; preds = %if.end3.i
   %bf.load = load i32, ptr %state, align 8
   %bf.lshr = lshr i32 %bf.load, 2
   %bf.clear = and i32 %bf.lshr, 7
-  %bf.lshr39 = lshr i32 %unicode.val5.i, 2
+  %bf.lshr39 = lshr exact i32 %unicode.val5.i, 2
   %bf.clear40 = and i32 %bf.lshr39, 7
   %cmp41.not = icmp ugt i32 %bf.clear, %bf.clear40
   br i1 %cmp41.not, label %if.else, label %land.lhs.true42

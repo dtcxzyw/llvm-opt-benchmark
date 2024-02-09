@@ -3177,7 +3177,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 655354
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3298,7 +3298,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 131066
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3338,7 +3338,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 655354
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3377,7 +3377,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 655354
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3417,7 +3417,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 655354
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3456,7 +3456,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 655354
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3494,7 +3494,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 655354
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3533,7 +3533,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 655354
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3573,7 +3573,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 655354
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3611,7 +3611,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 655354
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3650,7 +3650,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 655354
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3688,7 +3688,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 655354
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3719,7 +3719,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 655354
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3752,7 +3752,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 655354
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3786,7 +3786,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 654848
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3867,7 +3867,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 654848
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -3947,7 +3947,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 654848
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -4025,7 +4025,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 262148
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -4317,7 +4317,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 524292
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -4455,7 +4455,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 524292
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -4590,7 +4590,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 262148
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -4828,7 +4828,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 524292
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -4862,7 +4862,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %shl.i.i = shl i64 2, %0
+  %shl.i.i = shl nuw i64 2, %0
   %and.i = and i64 %shl.i.i, 524292
   %cmp.i.not = icmp eq i64 %and.i, 0
   br i1 %cmp.i.not, label %return, label %if.end10
@@ -5436,13 +5436,13 @@ do.end.i.i:                                       ; preds = %do.body.i.i
   br i1 %cmp.i.not.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_6int128E.exit, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %do.end.i.i
-  %spec.select.i.i.sroa.sel.v = select i1 %cmp.i5.i, i64 -2, i64 -3
-  %spec.select.i.i.sroa.sel = getelementptr inbounds i8, ptr %p.0.i.i, i64 %spec.select.i.i.sroa.sel.v
-  store i8 45, ptr %spec.select.i.i.sroa.sel, align 1
+  %.sroa.gep97 = getelementptr inbounds i8, ptr %p.0.i.i, i64 -3
+  %spec.select.i.i.sroa.sel.v.sroa.sel = select i1 %cmp.i5.i, ptr %add.ptr2.i.i, ptr %.sroa.gep97
+  store i8 45, ptr %spec.select.i.i.sroa.sel.v.sroa.sel, align 1
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_6int128E.exit
 
 _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_6int128E.exit: ; preds = %do.end.i.i, %if.then8.i.i
-  %p.2.i.i = phi ptr [ %spec.select.i.i.sroa.sel, %if.then8.i.i ], [ %spec.select.i.i, %do.end.i.i ]
+  %p.2.i.i = phi ptr [ %spec.select.i.i.sroa.sel.v.sroa.sel, %if.then8.i.i ], [ %spec.select.i.i, %do.end.i.i ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %p.2.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i

@@ -7533,20 +7533,20 @@ _ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit24:
   %u0 = alloca %"class.absl::random_internal::PoolURBG.43", align 8
   %u1 = alloca %"class.absl::random_internal::PoolURBG.43", align 8
   store i64 4, ptr %e, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %e, i64 24
-  call void @_ZN4absl15random_internal10RandenPoolIjE4FillENS_4SpanIjEE(ptr nonnull %add.ptr.i, i64 4)
+  %.sroa.gep29 = getelementptr inbounds i8, ptr %e, i64 24
+  call void @_ZN4absl15random_internal10RandenPoolIjE4FillENS_4SpanIjEE(ptr nonnull %.sroa.gep29, i64 4)
   %.pre.i = load i64, ptr %e, align 8
   %inc.i = add i64 %.pre.i, 1
   store i64 %inc.i, ptr %e, align 8
   store i64 4, ptr %u0, align 8
-  %add.ptr.i9 = getelementptr inbounds i8, ptr %u0, i64 24
-  call void @_ZN4absl15random_internal10RandenPoolIjE4FillENS_4SpanIjEE(ptr nonnull %add.ptr.i9, i64 4)
+  %.sroa.gep27 = getelementptr inbounds i8, ptr %u0, i64 24
+  call void @_ZN4absl15random_internal10RandenPoolIjE4FillENS_4SpanIjEE(ptr nonnull %.sroa.gep27, i64 4)
   %.pre.i11 = load i64, ptr %u0, align 8
   %inc.i3 = add i64 %.pre.i11, 1
   store i64 %inc.i3, ptr %u0, align 8
   store i64 4, ptr %u1, align 8
-  %add.ptr.i21 = getelementptr inbounds i8, ptr %u1, i64 24
-  call void @_ZN4absl15random_internal10RandenPoolIjE4FillENS_4SpanIjEE(ptr nonnull %add.ptr.i21, i64 4)
+  %.sroa.gep25 = getelementptr inbounds i8, ptr %u1, i64 24
+  call void @_ZN4absl15random_internal10RandenPoolIjE4FillENS_4SpanIjEE(ptr nonnull %.sroa.gep25, i64 4)
   ret void
 }
 
@@ -7603,20 +7603,20 @@ _ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit24:
   %u0 = alloca %"class.absl::random_internal::PoolURBG.47", align 8
   %u1 = alloca %"class.absl::random_internal::PoolURBG.47", align 8
   store i64 4, ptr %e, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %e, i64 40
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i, i64 4)
+  %.sroa.gep29 = getelementptr inbounds i8, ptr %e, i64 40
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %.sroa.gep29, i64 4)
   %.pre.i = load i64, ptr %e, align 8
   %inc.i = add i64 %.pre.i, 1
   store i64 %inc.i, ptr %e, align 8
   store i64 4, ptr %u0, align 8
-  %add.ptr.i9 = getelementptr inbounds i8, ptr %u0, i64 40
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i9, i64 4)
+  %.sroa.gep27 = getelementptr inbounds i8, ptr %u0, i64 40
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %.sroa.gep27, i64 4)
   %.pre.i11 = load i64, ptr %u0, align 8
   %inc.i3 = add i64 %.pre.i11, 1
   store i64 %inc.i3, ptr %u0, align 8
   store i64 4, ptr %u1, align 8
-  %add.ptr.i21 = getelementptr inbounds i8, ptr %u1, i64 40
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i21, i64 4)
+  %.sroa.gep25 = getelementptr inbounds i8, ptr %u1, i64 40
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %.sroa.gep25, i64 4)
   ret void
 }
 
@@ -7673,20 +7673,20 @@ _ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit24:
   %u0 = alloca %"class.absl::random_internal::PoolURBG.51", align 8
   %u1 = alloca %"class.absl::random_internal::PoolURBG.51", align 8
   store i64 2, ptr %e, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %e, i64 24
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i, i64 2)
+  %.sroa.gep29 = getelementptr inbounds i8, ptr %e, i64 24
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %.sroa.gep29, i64 2)
   %.pre.i = load i64, ptr %e, align 8
   %inc.i = add i64 %.pre.i, 1
   store i64 %inc.i, ptr %e, align 8
   store i64 2, ptr %u0, align 8
-  %add.ptr.i9 = getelementptr inbounds i8, ptr %u0, i64 24
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i9, i64 2)
+  %.sroa.gep27 = getelementptr inbounds i8, ptr %u0, i64 24
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %.sroa.gep27, i64 2)
   %.pre.i11 = load i64, ptr %u0, align 8
   %inc.i3 = add i64 %.pre.i11, 1
   store i64 %inc.i3, ptr %u0, align 8
   store i64 2, ptr %u1, align 8
-  %add.ptr.i21 = getelementptr inbounds i8, ptr %u1, i64 24
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i21, i64 2)
+  %.sroa.gep25 = getelementptr inbounds i8, ptr %u1, i64 24
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %.sroa.gep25, i64 2)
   ret void
 }
 
@@ -7743,20 +7743,20 @@ _ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit24:
   %u0 = alloca %"class.absl::random_internal::PoolURBG.55", align 8
   %u1 = alloca %"class.absl::random_internal::PoolURBG.55", align 8
   store i64 2, ptr %e, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %e, i64 24
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i, i64 2)
+  %.sroa.gep29 = getelementptr inbounds i8, ptr %e, i64 24
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %.sroa.gep29, i64 2)
   %.pre.i = load i64, ptr %e, align 8
   %inc.i = add i64 %.pre.i, 1
   store i64 %inc.i, ptr %e, align 8
   store i64 2, ptr %u0, align 8
-  %add.ptr.i9 = getelementptr inbounds i8, ptr %u0, i64 24
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i9, i64 2)
+  %.sroa.gep27 = getelementptr inbounds i8, ptr %u0, i64 24
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %.sroa.gep27, i64 2)
   %.pre.i11 = load i64, ptr %u0, align 8
   %inc.i3 = add i64 %.pre.i11, 1
   store i64 %inc.i3, ptr %u0, align 8
   store i64 2, ptr %u1, align 8
-  %add.ptr.i21 = getelementptr inbounds i8, ptr %u1, i64 24
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i21, i64 2)
+  %.sroa.gep25 = getelementptr inbounds i8, ptr %u1, i64 24
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %.sroa.gep25, i64 2)
   ret void
 }
 
@@ -16276,14 +16276,15 @@ _ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit:
   %ref.tmp98 = alloca %"class.testing::Message", align 8
   %ref.tmp101 = alloca %"class.testing::internal::AssertHelper", align 8
   store i64 4, ptr %rng, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %rng, i64 24
-  call void @_ZN4absl15random_internal10RandenPoolIjE4FillENS_4SpanIjEE(ptr nonnull %add.ptr.i, i64 4)
+  %.sroa.gep121 = getelementptr inbounds i8, ptr %rng, i64 24
+  call void @_ZN4absl15random_internal10RandenPoolIjE4FillENS_4SpanIjEE(ptr nonnull %.sroa.gep121, i64 4)
   %.pre.i = load i64, ptr %rng, align 8
   %inc.i = add i64 %.pre.i, 1
   store i64 %inc.i, ptr %rng, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %b, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %.sroa.gep1.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i.i, %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit
@@ -16297,9 +16298,9 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i
   %cmp3.not.i.i.i = icmp eq i64 %0, 8
   %cond.i.i.i = select i1 %cmp3.not.i.i.i, i64 0, i64 4
   store i64 %cond.i.i.i, ptr %agg.tmp.i, align 8
-  %add.ptr.i.i1.i = getelementptr inbounds i32, ptr %state_.i.i.i, i64 %cond.i.i.i
+  %cond.i.i.sroa.sel.i = select i1 %cmp3.not.i.i.i, ptr %state_.i.i.i, ptr %.sroa.gep1.i
   %sub.i.i.i = sub nuw nsw i64 8, %cond.i.i.i
-  call void @_ZN4absl15random_internal10RandenPoolIjE4FillENS_4SpanIjEE(ptr nonnull %add.ptr.i.i1.i, i64 %sub.i.i.i)
+  call void @_ZN4absl15random_internal10RandenPoolIjE4FillENS_4SpanIjEE(ptr nonnull %cond.i.i.sroa.sel.i, i64 %sub.i.i.i)
   %.pre.i.i.i = load i64, ptr %agg.tmp.i, align 8
   br label %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i.i
 
@@ -16317,6 +16318,7 @@ _ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i.i: ; preds = %if.then.i.i.i
 _ZN12_GLOBAL__N_16MyFillIN4absl15random_internal8PoolURBGIjLm8EEEjEENSt9enable_ifIXsr4absl8negationINS1_11disjunctionIJSt7is_sameIT_NS2_10RandenPoolIhEEES7_IS8_NS9_ItEEES7_IS8_NS9_IjEEES7_IS8_NS9_ImEEEEEEEE5valueEvE4typeERS8_NS1_4SpanIT0_EE.exit: ; preds = %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   %state_.i.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
+  %.sroa.gep119 = getelementptr inbounds i8, ptr %agg.tmp8, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i, %_ZN12_GLOBAL__N_16MyFillIN4absl15random_internal8PoolURBGIjLm8EEEjEENSt9enable_ifIXsr4absl8negationINS1_11disjunctionIJSt7is_sameIT_NS2_10RandenPoolIhEEES7_IS8_NS9_ItEEES7_IS8_NS9_IjEEES7_IS8_NS9_ImEEEEEEEE5valueEvE4typeERS8_NS1_4SpanIT0_EE.exit
@@ -16330,9 +16332,9 @@ if.then.i.i:                                      ; preds = %for.body.i
   %cmp3.not.i.i = icmp eq i64 %3, 8
   %cond.i.i = select i1 %cmp3.not.i.i, i64 0, i64 4
   store i64 %cond.i.i, ptr %agg.tmp8, align 8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %state_.i.i, i64 %cond.i.i
+  %cond.i.i.sroa.sel = select i1 %cmp3.not.i.i, ptr %state_.i.i, ptr %.sroa.gep119
   %sub.i.i = sub nuw nsw i64 8, %cond.i.i
-  call void @_ZN4absl15random_internal10RandenPoolIjE4FillENS_4SpanIjEE(ptr nonnull %add.ptr.i.i, i64 %sub.i.i)
+  call void @_ZN4absl15random_internal10RandenPoolIjE4FillENS_4SpanIjEE(ptr nonnull %cond.i.i.sroa.sel, i64 %sub.i.i)
   %.pre.i.i = load i64, ptr %agg.tmp8, align 8
   br label %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i
 
@@ -16348,37 +16350,37 @@ _ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i: ; preds = %if.then.i.i, %f
   br i1 %cmp.not.i, label %for.body, label %for.body.i, !llvm.loop !193
 
 for.body:                                         ; preds = %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i, %for.body
-  %unchanged_bits.0126 = phi i64 [ %add18, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i ]
-  %i.0125 = phi i64 [ %inc, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i ]
-  %total_set.0123 = phi i64 [ %add26, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i ]
-  %add119122 = phi i64 [ %add, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i ]
-  %add15120121 = phi i64 [ %add15, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i ]
-  %arrayidx = getelementptr inbounds [64 x i32], ptr %a, i64 0, i64 %i.0125
+  %unchanged_bits.0129 = phi i64 [ %add18, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i ]
+  %i.0128 = phi i64 [ %inc, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i ]
+  %total_set.0126 = phi i64 [ %add26, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i ]
+  %add122125 = phi i64 [ %add, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i ]
+  %add15123124 = phi i64 [ %add15, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIjLm8EEclEv.exit.i ]
+  %arrayidx = getelementptr inbounds [64 x i32], ptr %a, i64 0, i64 %i.0128
   %6 = load i32, ptr %arrayidx, align 4
-  %arrayidx9 = getelementptr inbounds [64 x i32], ptr %b, i64 0, i64 %i.0125
+  %arrayidx9 = getelementptr inbounds [64 x i32], ptr %b, i64 0, i64 %i.0128
   %7 = load i32, ptr %arrayidx9, align 4
   %cmp10 = icmp eq i32 %6, %7
   %conv = zext i1 %cmp10 to i64
-  %add = add i64 %add119122, %conv
+  %add = add i64 %add122125, %conv
   %xor = xor i32 %7, %6
   %8 = call i32 @llvm.ctpop.i32(i32 %xor), !range !162
   %9 = zext nneg i32 %8 to i64
-  %add15 = add i64 %add15120121, %9
-  %reass.sub = add i64 %unchanged_bits.0126, 32
+  %add15 = add i64 %add15123124, %9
+  %reass.sub = add i64 %unchanged_bits.0129, 32
   %add18 = sub i64 %reass.sub, %9
   %10 = call i32 @llvm.ctpop.i32(i32 %6), !range !162
   %11 = call i32 @llvm.ctpop.i32(i32 %7), !range !162
   %narrow = add nuw nsw i32 %11, %10
   %add25 = zext nneg i32 %narrow to i64
-  %add26 = add i64 %total_set.0123, %add25
-  %inc = add nuw nsw i64 %i.0125, 1
+  %add26 = add i64 %total_set.0126, %add25
+  %inc = add nuw nsw i64 %i.0128, 1
   %exitcond.not = icmp eq i64 %inc, 64
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !194
 
 for.end:                                          ; preds = %for.body
   store i64 %add, ptr %equal_count, align 8
   store i64 %add15, ptr %changed_bits, align 8
-  %add29 = add i64 %add15120121, %reass.sub
+  %add29 = add i64 %add15123124, %reass.sub
   %conv30 = uitofp i64 %add29 to double
   %mul = fmul double %conv30, 6.000000e-01
   store double %mul, ptr %ref.tmp28, align 8
@@ -16885,14 +16887,15 @@ _ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit:
   %ref.tmp95 = alloca %"class.testing::Message", align 8
   %ref.tmp98 = alloca %"class.testing::internal::AssertHelper", align 8
   store i64 4, ptr %rng, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %rng, i64 40
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i, i64 4)
+  %.sroa.gep119 = getelementptr inbounds i8, ptr %rng, i64 40
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %.sroa.gep119, i64 4)
   %.pre.i = load i64, ptr %rng, align 8
   %inc.i = add i64 %.pre.i, 1
   store i64 %inc.i, ptr %rng, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %b, i8 0, i64 512, i1 false)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %agg.tmp.i)
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %.sroa.gep1.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 40
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i.i, %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit
@@ -16906,9 +16909,9 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i
   %cmp3.not.i.i.i = icmp eq i64 %0, 8
   %cond.i.i.i = select i1 %cmp3.not.i.i.i, i64 0, i64 4
   store i64 %cond.i.i.i, ptr %agg.tmp.i, align 8
-  %add.ptr.i.i1.i = getelementptr inbounds i64, ptr %state_.i.i.i, i64 %cond.i.i.i
+  %cond.i.i.sroa.sel.i = select i1 %cmp3.not.i.i.i, ptr %state_.i.i.i, ptr %.sroa.gep1.i
   %sub.i.i.i = sub nuw nsw i64 8, %cond.i.i.i
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i.i1.i, i64 %sub.i.i.i)
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %cond.i.i.sroa.sel.i, i64 %sub.i.i.i)
   %.pre.i.i.i = load i64, ptr %agg.tmp.i, align 8
   br label %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i.i
 
@@ -16926,6 +16929,7 @@ _ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i.i: ; preds = %if.then.i.i.i
 _ZN12_GLOBAL__N_16MyFillIN4absl15random_internal8PoolURBGImLm8EEEmEENSt9enable_ifIXsr4absl8negationINS1_11disjunctionIJSt7is_sameIT_NS2_10RandenPoolIhEEES7_IS8_NS9_ItEEES7_IS8_NS9_IjEEES7_IS8_NS9_ImEEEEEEEE5valueEvE4typeERS8_NS1_4SpanIT0_EE.exit: ; preds = %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %agg.tmp.i)
   %state_.i.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
+  %.sroa.gep117 = getelementptr inbounds i8, ptr %agg.tmp8, i64 40
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i, %_ZN12_GLOBAL__N_16MyFillIN4absl15random_internal8PoolURBGImLm8EEEmEENSt9enable_ifIXsr4absl8negationINS1_11disjunctionIJSt7is_sameIT_NS2_10RandenPoolIhEEES7_IS8_NS9_ItEEES7_IS8_NS9_IjEEES7_IS8_NS9_ImEEEEEEEE5valueEvE4typeERS8_NS1_4SpanIT0_EE.exit
@@ -16939,9 +16943,9 @@ if.then.i.i:                                      ; preds = %for.body.i
   %cmp3.not.i.i = icmp eq i64 %3, 8
   %cond.i.i = select i1 %cmp3.not.i.i, i64 0, i64 4
   store i64 %cond.i.i, ptr %agg.tmp8, align 8
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %state_.i.i, i64 %cond.i.i
+  %cond.i.i.sroa.sel = select i1 %cmp3.not.i.i, ptr %state_.i.i, ptr %.sroa.gep117
   %sub.i.i = sub nuw nsw i64 8, %cond.i.i
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i.i, i64 %sub.i.i)
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %cond.i.i.sroa.sel, i64 %sub.i.i)
   %.pre.i.i = load i64, ptr %agg.tmp8, align 8
   br label %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i
 
@@ -16957,35 +16961,35 @@ _ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i: ; preds = %if.then.i.i, %f
   br i1 %cmp.not.i, label %for.body, label %for.body.i, !llvm.loop !195
 
 for.body:                                         ; preds = %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i, %for.body
-  %unchanged_bits.0124 = phi i64 [ %add17, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i ]
-  %i.0123 = phi i64 [ %inc, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i ]
-  %total_set.0121 = phi i64 [ %add23, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i ]
-  %add117120 = phi i64 [ %add, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i ]
-  %add14118119 = phi i64 [ %add14, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i ]
-  %arrayidx = getelementptr inbounds [64 x i64], ptr %a, i64 0, i64 %i.0123
+  %unchanged_bits.0127 = phi i64 [ %add17, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i ]
+  %i.0126 = phi i64 [ %inc, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i ]
+  %total_set.0124 = phi i64 [ %add23, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i ]
+  %add120123 = phi i64 [ %add, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i ]
+  %add14121122 = phi i64 [ %add14, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm8EEclEv.exit.i ]
+  %arrayidx = getelementptr inbounds [64 x i64], ptr %a, i64 0, i64 %i.0126
   %6 = load i64, ptr %arrayidx, align 8
-  %arrayidx9 = getelementptr inbounds [64 x i64], ptr %b, i64 0, i64 %i.0123
+  %arrayidx9 = getelementptr inbounds [64 x i64], ptr %b, i64 0, i64 %i.0126
   %7 = load i64, ptr %arrayidx9, align 8
   %cmp10 = icmp eq i64 %6, %7
   %conv = zext i1 %cmp10 to i64
-  %add = add i64 %add117120, %conv
+  %add = add i64 %add120123, %conv
   %xor = xor i64 %7, %6
   %8 = call noundef i64 @llvm.ctpop.i64(i64 %xor), !range !165
-  %add14 = add i64 %add14118119, %8
-  %reass.sub = add i64 %unchanged_bits.0124, 64
+  %add14 = add i64 %add14121122, %8
+  %reass.sub = add i64 %unchanged_bits.0127, 64
   %add17 = sub i64 %reass.sub, %8
   %9 = call noundef i64 @llvm.ctpop.i64(i64 %6), !range !165
   %10 = call noundef i64 @llvm.ctpop.i64(i64 %7), !range !165
-  %add22 = add i64 %9, %total_set.0121
+  %add22 = add i64 %9, %total_set.0124
   %add23 = add i64 %add22, %10
-  %inc = add nuw nsw i64 %i.0123, 1
+  %inc = add nuw nsw i64 %i.0126, 1
   %exitcond.not = icmp eq i64 %inc, 64
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !196
 
 for.end:                                          ; preds = %for.body
   store i64 %add, ptr %equal_count, align 8
   store i64 %add14, ptr %changed_bits, align 8
-  %add26 = add i64 %add14118119, %reass.sub
+  %add26 = add i64 %add14121122, %reass.sub
   %conv27 = uitofp i64 %add26 to double
   %mul = fmul double %conv27, 6.000000e-01
   store double %mul, ptr %ref.tmp25, align 8
@@ -17492,14 +17496,15 @@ _ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit:
   %ref.tmp95 = alloca %"class.testing::Message", align 8
   %ref.tmp98 = alloca %"class.testing::internal::AssertHelper", align 8
   store i64 2, ptr %rng, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %rng, i64 24
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i, i64 2)
+  %.sroa.gep119 = getelementptr inbounds i8, ptr %rng, i64 24
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %.sroa.gep119, i64 2)
   %.pre.i = load i64, ptr %rng, align 8
   %inc.i = add i64 %.pre.i, 1
   store i64 %inc.i, ptr %rng, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %b, i8 0, i64 512, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %.sroa.gep1.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i.i, %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit
@@ -17513,9 +17518,9 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i
   %cmp3.not.i.i.i = icmp eq i64 %0, 4
   %cond.i.i.i = select i1 %cmp3.not.i.i.i, i64 0, i64 2
   store i64 %cond.i.i.i, ptr %agg.tmp.i, align 8
-  %add.ptr.i.i1.i = getelementptr inbounds i64, ptr %state_.i.i.i, i64 %cond.i.i.i
+  %cond.i.i.sroa.sel.i = select i1 %cmp3.not.i.i.i, ptr %state_.i.i.i, ptr %.sroa.gep1.i
   %sub.i.i.i = sub nuw nsw i64 4, %cond.i.i.i
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i.i1.i, i64 %sub.i.i.i)
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %cond.i.i.sroa.sel.i, i64 %sub.i.i.i)
   %.pre.i.i.i = load i64, ptr %agg.tmp.i, align 8
   br label %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i.i
 
@@ -17533,6 +17538,7 @@ _ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i.i: ; preds = %if.then.i.i.i
 _ZN12_GLOBAL__N_16MyFillIN4absl15random_internal8PoolURBGImLm4EEEmEENSt9enable_ifIXsr4absl8negationINS1_11disjunctionIJSt7is_sameIT_NS2_10RandenPoolIhEEES7_IS8_NS9_ItEEES7_IS8_NS9_IjEEES7_IS8_NS9_ImEEEEEEEE5valueEvE4typeERS8_NS1_4SpanIT0_EE.exit: ; preds = %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   %state_.i.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
+  %.sroa.gep117 = getelementptr inbounds i8, ptr %agg.tmp8, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i, %_ZN12_GLOBAL__N_16MyFillIN4absl15random_internal8PoolURBGImLm4EEEmEENSt9enable_ifIXsr4absl8negationINS1_11disjunctionIJSt7is_sameIT_NS2_10RandenPoolIhEEES7_IS8_NS9_ItEEES7_IS8_NS9_IjEEES7_IS8_NS9_ImEEEEEEEE5valueEvE4typeERS8_NS1_4SpanIT0_EE.exit
@@ -17546,9 +17552,9 @@ if.then.i.i:                                      ; preds = %for.body.i
   %cmp3.not.i.i = icmp eq i64 %3, 4
   %cond.i.i = select i1 %cmp3.not.i.i, i64 0, i64 2
   store i64 %cond.i.i, ptr %agg.tmp8, align 8
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %state_.i.i, i64 %cond.i.i
+  %cond.i.i.sroa.sel = select i1 %cmp3.not.i.i, ptr %state_.i.i, ptr %.sroa.gep117
   %sub.i.i = sub nuw nsw i64 4, %cond.i.i
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i.i, i64 %sub.i.i)
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %cond.i.i.sroa.sel, i64 %sub.i.i)
   %.pre.i.i = load i64, ptr %agg.tmp8, align 8
   br label %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i
 
@@ -17564,35 +17570,35 @@ _ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i: ; preds = %if.then.i.i, %f
   br i1 %cmp.not.i, label %for.body, label %for.body.i, !llvm.loop !197
 
 for.body:                                         ; preds = %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i, %for.body
-  %unchanged_bits.0124 = phi i64 [ %add17, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i ]
-  %i.0123 = phi i64 [ %inc, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i ]
-  %total_set.0121 = phi i64 [ %add23, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i ]
-  %add117120 = phi i64 [ %add, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i ]
-  %add14118119 = phi i64 [ %add14, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i ]
-  %arrayidx = getelementptr inbounds [64 x i64], ptr %a, i64 0, i64 %i.0123
+  %unchanged_bits.0127 = phi i64 [ %add17, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i ]
+  %i.0126 = phi i64 [ %inc, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i ]
+  %total_set.0124 = phi i64 [ %add23, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i ]
+  %add120123 = phi i64 [ %add, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i ]
+  %add14121122 = phi i64 [ %add14, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGImLm4EEclEv.exit.i ]
+  %arrayidx = getelementptr inbounds [64 x i64], ptr %a, i64 0, i64 %i.0126
   %6 = load i64, ptr %arrayidx, align 8
-  %arrayidx9 = getelementptr inbounds [64 x i64], ptr %b, i64 0, i64 %i.0123
+  %arrayidx9 = getelementptr inbounds [64 x i64], ptr %b, i64 0, i64 %i.0126
   %7 = load i64, ptr %arrayidx9, align 8
   %cmp10 = icmp eq i64 %6, %7
   %conv = zext i1 %cmp10 to i64
-  %add = add i64 %add117120, %conv
+  %add = add i64 %add120123, %conv
   %xor = xor i64 %7, %6
   %8 = call noundef i64 @llvm.ctpop.i64(i64 %xor), !range !165
-  %add14 = add i64 %add14118119, %8
-  %reass.sub = add i64 %unchanged_bits.0124, 64
+  %add14 = add i64 %add14121122, %8
+  %reass.sub = add i64 %unchanged_bits.0127, 64
   %add17 = sub i64 %reass.sub, %8
   %9 = call noundef i64 @llvm.ctpop.i64(i64 %6), !range !165
   %10 = call noundef i64 @llvm.ctpop.i64(i64 %7), !range !165
-  %add22 = add i64 %9, %total_set.0121
+  %add22 = add i64 %9, %total_set.0124
   %add23 = add i64 %add22, %10
-  %inc = add nuw nsw i64 %i.0123, 1
+  %inc = add nuw nsw i64 %i.0126, 1
   %exitcond.not = icmp eq i64 %inc, 64
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !198
 
 for.end:                                          ; preds = %for.body
   store i64 %add, ptr %equal_count, align 8
   store i64 %add14, ptr %changed_bits, align 8
-  %add26 = add i64 %add14118119, %reass.sub
+  %add26 = add i64 %add14121122, %reass.sub
   %conv27 = uitofp i64 %add26 to double
   %mul = fmul double %conv27, 6.000000e-01
   store double %mul, ptr %ref.tmp25, align 8
@@ -18099,14 +18105,15 @@ _ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit:
   %ref.tmp95 = alloca %"class.testing::Message", align 8
   %ref.tmp98 = alloca %"class.testing::internal::AssertHelper", align 8
   store i64 2, ptr %rng, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %rng, i64 24
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i, i64 2)
+  %.sroa.gep119 = getelementptr inbounds i8, ptr %rng, i64 24
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %.sroa.gep119, i64 2)
   %.pre.i = load i64, ptr %rng, align 8
   %inc.i = add i64 %.pre.i, 1
   store i64 %inc.i, ptr %rng, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %b, i8 0, i64 512, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i)
   %state_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %.sroa.gep1.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i.i, %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit
@@ -18120,9 +18127,9 @@ if.then.i.i.i:                                    ; preds = %for.body.i.i
   %cmp3.not.i.i.i = icmp eq i64 %0, 4
   %cond.i.i.i = select i1 %cmp3.not.i.i.i, i64 0, i64 2
   store i64 %cond.i.i.i, ptr %agg.tmp.i, align 8
-  %add.ptr.i.i1.i = getelementptr inbounds i64, ptr %state_.i.i.i, i64 %cond.i.i.i
+  %cond.i.i.sroa.sel.i = select i1 %cmp3.not.i.i.i, ptr %state_.i.i.i, ptr %.sroa.gep1.i
   %sub.i.i.i = sub nuw nsw i64 4, %cond.i.i.i
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i.i1.i, i64 %sub.i.i.i)
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %cond.i.i.sroa.sel.i, i64 %sub.i.i.i)
   %.pre.i.i.i = load i64, ptr %agg.tmp.i, align 8
   br label %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i.i
 
@@ -18140,6 +18147,7 @@ _ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i.i: ; preds = %if.then.i.i.i
 _ZN12_GLOBAL__N_16MyFillIN4absl15random_internal8PoolURBGIyLm4EEEyEENSt9enable_ifIXsr4absl8negationINS1_11disjunctionIJSt7is_sameIT_NS2_10RandenPoolIhEEES7_IS8_NS9_ItEEES7_IS8_NS9_IjEEES7_IS8_NS9_ImEEEEEEEE5valueEvE4typeERS8_NS1_4SpanIT0_EE.exit: ; preds = %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i)
   %state_.i.i = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
+  %.sroa.gep117 = getelementptr inbounds i8, ptr %agg.tmp8, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i, %_ZN12_GLOBAL__N_16MyFillIN4absl15random_internal8PoolURBGIyLm4EEEyEENSt9enable_ifIXsr4absl8negationINS1_11disjunctionIJSt7is_sameIT_NS2_10RandenPoolIhEEES7_IS8_NS9_ItEEES7_IS8_NS9_IjEEES7_IS8_NS9_ImEEEEEEEE5valueEvE4typeERS8_NS1_4SpanIT0_EE.exit
@@ -18153,9 +18161,9 @@ if.then.i.i:                                      ; preds = %for.body.i
   %cmp3.not.i.i = icmp eq i64 %3, 4
   %cond.i.i = select i1 %cmp3.not.i.i, i64 0, i64 2
   store i64 %cond.i.i, ptr %agg.tmp8, align 8
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %state_.i.i, i64 %cond.i.i
+  %cond.i.i.sroa.sel = select i1 %cmp3.not.i.i, ptr %state_.i.i, ptr %.sroa.gep117
   %sub.i.i = sub nuw nsw i64 4, %cond.i.i
-  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %add.ptr.i.i, i64 %sub.i.i)
+  call void @_ZN4absl15random_internal10RandenPoolImE4FillENS_4SpanImEE(ptr nonnull %cond.i.i.sroa.sel, i64 %sub.i.i)
   %.pre.i.i = load i64, ptr %agg.tmp8, align 8
   br label %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i
 
@@ -18171,35 +18179,35 @@ _ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i: ; preds = %if.then.i.i, %f
   br i1 %cmp.not.i, label %for.body, label %for.body.i, !llvm.loop !199
 
 for.body:                                         ; preds = %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i, %for.body
-  %unchanged_bits.0124 = phi i64 [ %add17, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i ]
-  %i.0123 = phi i64 [ %inc, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i ]
-  %total_set.0121 = phi i64 [ %add23, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i ]
-  %add117120 = phi i64 [ %add, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i ]
-  %add14118119 = phi i64 [ %add14, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i ]
-  %arrayidx = getelementptr inbounds [64 x i64], ptr %a, i64 0, i64 %i.0123
+  %unchanged_bits.0127 = phi i64 [ %add17, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i ]
+  %i.0126 = phi i64 [ %inc, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i ]
+  %total_set.0124 = phi i64 [ %add23, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i ]
+  %add120123 = phi i64 [ %add, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i ]
+  %add14121122 = phi i64 [ %add14, %for.body ], [ 0, %_ZN4absl15random_internal8PoolURBGIyLm4EEclEv.exit.i ]
+  %arrayidx = getelementptr inbounds [64 x i64], ptr %a, i64 0, i64 %i.0126
   %6 = load i64, ptr %arrayidx, align 8
-  %arrayidx9 = getelementptr inbounds [64 x i64], ptr %b, i64 0, i64 %i.0123
+  %arrayidx9 = getelementptr inbounds [64 x i64], ptr %b, i64 0, i64 %i.0126
   %7 = load i64, ptr %arrayidx9, align 8
   %cmp10 = icmp eq i64 %6, %7
   %conv = zext i1 %cmp10 to i64
-  %add = add i64 %add117120, %conv
+  %add = add i64 %add120123, %conv
   %xor = xor i64 %7, %6
   %8 = call noundef i64 @llvm.ctpop.i64(i64 %xor), !range !165
-  %add14 = add i64 %add14118119, %8
-  %reass.sub = add i64 %unchanged_bits.0124, 64
+  %add14 = add i64 %add14121122, %8
+  %reass.sub = add i64 %unchanged_bits.0127, 64
   %add17 = sub i64 %reass.sub, %8
   %9 = call noundef i64 @llvm.ctpop.i64(i64 %6), !range !165
   %10 = call noundef i64 @llvm.ctpop.i64(i64 %7), !range !165
-  %add22 = add i64 %9, %total_set.0121
+  %add22 = add i64 %9, %total_set.0124
   %add23 = add i64 %add22, %10
-  %inc = add nuw nsw i64 %i.0123, 1
+  %inc = add nuw nsw i64 %i.0126, 1
   %exitcond.not = icmp eq i64 %inc, 64
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !200
 
 for.end:                                          ; preds = %for.body
   store i64 %add, ptr %equal_count, align 8
   store i64 %add14, ptr %changed_bits, align 8
-  %add26 = add i64 %add14118119, %reass.sub
+  %add26 = add i64 %add14121122, %reass.sub
   %conv27 = uitofp i64 %add26 to double
   %mul = fmul double %conv27, 6.000000e-01
   store double %mul, ptr %ref.tmp25, align 8

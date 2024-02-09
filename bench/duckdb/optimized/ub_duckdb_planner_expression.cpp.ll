@@ -22873,8 +22873,9 @@ sw.bb:                                            ; preds = %if.end, %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4) %58, ptr noundef nonnull align 1 dereferenceable(4) %cond, i64 %call.i.i, i1 false)
   %_M_string_length.i.i.i.i700 = getelementptr inbounds i8, ptr %op_type, i64 8
   store i64 %call.i.i, ptr %_M_string_length.i.i.i.i700, align 8, !tbaa !15
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %58, i64 %call.i.i
-  store i8 0, ptr %arrayidx.i.i.i, align 4, !tbaa !16
+  %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %cmp, i64 20, i64 24
+  %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %op_type, i64 %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i8 0, ptr %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %in_child) #23
   %children42 = getelementptr inbounds i8, ptr %entry1, i64 80
   %call45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6duckdb6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %children42, i64 noundef 0)

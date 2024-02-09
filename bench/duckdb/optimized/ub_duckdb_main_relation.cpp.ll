@@ -27488,8 +27488,9 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 1 dereferenceable(9) %cond, i64 %call.i.i, i1 false)
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %call.i.i, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !47
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 %call.i.i
-  store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !21
+  %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %auto_detect, i64 30, i64 25
+  %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %agg.tmp, i64 %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  store i8 0, ptr %call.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel, align 1, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp4) #24
   %1 = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
   store ptr %1, ptr %agg.tmp5, align 8, !tbaa !145
