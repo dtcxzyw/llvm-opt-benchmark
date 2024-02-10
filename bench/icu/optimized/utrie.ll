@@ -1358,8 +1358,8 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZL18_findSameDataBlockPKjiii.exit, !llvm.loop !20
 
 for.inc.i:                                        ; preds = %land.rhs.i.i
-  %indvars.iv.next.i74 = add i64 %indvars.iv.i73, %5
-  %cmp.not.i = icmp sgt i64 %indvars.iv.next.i74, %7
+  %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, %5
+  %cmp.not.i = icmp ugt i64 %indvars.iv.next.i74, %7
   br i1 %cmp.not.i, label %if.end24, label %for.body.i72, !llvm.loop !21
 
 _ZL18_findSameDataBlockPKjiii.exit:               ; preds = %while.body.i.i

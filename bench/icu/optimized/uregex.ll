@@ -3849,7 +3849,7 @@ if.then38:                                        ; preds = %if.end31
   br label %if.end67
 
 if.end40:                                         ; preds = %if.end31
-  %cmp41 = icmp slt i64 %indvars.iv94, %14
+  %cmp41 = icmp ult i64 %indvars.iv94, %14
   br i1 %cmp41, label %if.then42, label %if.else45
 
 if.then42:                                        ; preds = %if.end40
@@ -3871,8 +3871,8 @@ if.then48:                                        ; preds = %if.else45
 
 if.end51:                                         ; preds = %if.else45, %if.then42
   %22 = phi i32 [ %15, %if.else45 ], [ %.pre, %if.then42 ]
-  %indvars.iv.next = add i64 %indvars.iv, 1
-  %indvars.iv.next95 = add nuw i64 %indvars.iv94, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %23 = trunc i64 %indvars.iv.next to i32
   %cmp29 = icmp eq i32 %22, %23
   br i1 %cmp29, label %if.end67.loopexit, label %if.end31, !llvm.loop !10

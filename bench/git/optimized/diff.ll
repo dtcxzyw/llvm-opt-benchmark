@@ -1811,7 +1811,7 @@ _.exit29:                                         ; preds = %if.else66, %if.end3
 
 for.inc:                                          ; preds = %if.then5, %if.then17, %if.then30, %if.then62, %_.exit, %_.exit29, %if.then25, %if.then9
   %ret.1 = phi i32 [ %inc, %_.exit ], [ %ret.033, %if.then62 ], [ %inc68, %_.exit29 ], [ %ret.033, %if.then30 ], [ %ret.033, %if.then25 ], [ %ret.033, %if.then17 ], [ %ret.033, %if.then9 ], [ %ret.033, %if.then5 ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %19, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
@@ -7983,7 +7983,7 @@ if.else28:                                        ; preds = %if.end25
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then27, %if.else28
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds i8, ptr %optarg, i64 %indvars.iv.next
   %14 = load i8, ptr %arrayidx, align 1
   %cmp.not = icmp eq i8 %14, 0
@@ -9446,7 +9446,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx4.i = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.i
   %7 = load ptr, ptr %arrayidx4.i, align 8
   tail call void @free(ptr noundef %7) #31
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = load i64, ptr %ignore_regex_nr.i, align 8
   %cmp.i = icmp ugt i64 %8, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %diff_free_ignore_regex.exit, !llvm.loop !28
@@ -12744,7 +12744,7 @@ do.body.i.i.i:                                    ; preds = %if.end18.i.i.i, %do
   %pmb_alloc.027.i.i.i = phi i32 [ %pmb_alloc.0248.i.i, %do.body.lr.ph.i.i.i ], [ %pmb_alloc.2.i.i.i, %if.end18.i.i.i ]
   %pmb.026.i.i.i = phi ptr [ %pmb.0246.i.i, %do.body.lr.ph.i.i.i ], [ %pmb.1.i.i.i, %if.end18.i.i.i ]
   %match.addr.025.i.i.i = phi ptr [ %match.2174269282.i.i, %do.body.lr.ph.i.i.i ], [ %492, %if.end18.i.i.i ]
-  %indvars.iv.next.i94.i.i = add i64 %indvars.iv.i93.i.i, 1
+  %indvars.iv.next.i94.i.i = add nuw nsw i64 %indvars.iv.i93.i.i, 1
   %484 = sext i32 %pmb_alloc.027.i.i.i to i64
   %cmp.not.i.i.i = icmp slt i64 %indvars.iv.i93.i.i, %484
   br i1 %cmp.not.i.i.i, label %do.end.i.i.i, label %if.then.i95.i.i
@@ -12805,7 +12805,7 @@ if.end30.i.i:                                     ; preds = %if.end18.i.i.i
   %493 = trunc i64 %indvars.iv.next.i94.i.i to i32
   %tobool31.i.i = icmp ne i32 %retval.0.i90191.i.i, 0
   %tobool33.i.i = icmp ne i32 %493, 0
-  %or.cond2.i.i = and i1 %tobool31.i.i, %tobool33.i.i
+  %or.cond2.i.i = select i1 %tobool31.i.i, i1 %tobool33.i.i, i1 false
   br i1 %or.cond2.i.i, label %land.lhs.true34.i.i, label %if.end40.i58.i
 
 land.lhs.true34.i.i:                              ; preds = %if.end30.i.i
@@ -13276,7 +13276,7 @@ for.body.i.i362:                                  ; preds = %for.body.i.i362, %f
   %arrayidx4.i.i = getelementptr inbounds ptr, ptr %573, i64 %indvars.iv.i.i363
   %574 = load ptr, ptr %arrayidx4.i.i, align 8
   call void @free(ptr noundef %574) #31
-  %indvars.iv.next.i.i365 = add nuw i64 %indvars.iv.i.i363, 1
+  %indvars.iv.next.i.i365 = add nuw nsw i64 %indvars.iv.i.i363, 1
   %575 = load i64, ptr %ignore_regex_nr.i.i, align 8
   %cmp.i.i366 = icmp ugt i64 %575, %indvars.iv.next.i.i365
   br i1 %cmp.i.i366, label %for.body.i.i362, label %diff_free_ignore_regex.exit.i, !llvm.loop !28
@@ -17608,7 +17608,7 @@ add_formatted_header.exit.loopexit.i.i:           ; preds = %for.body.i.i.i
 
 add_formatted_header.exit.i.i:                    ; preds = %add_formatted_header.exit.loopexit.i.i, %for.body.i.i
   %26 = phi i64 [ %.pre.i.i, %add_formatted_header.exit.loopexit.i.i ], [ %20, %for.body.i.i ]
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %cmp.i.i = icmp ugt i64 %26, %indvars.iv.next.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %if.end15.i, !llvm.loop !72
 

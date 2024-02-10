@@ -1285,6 +1285,7 @@ if.end:                                           ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end53, %if.end
+  %bf.load59 = phi i8 [ %bf.set64, %if.end53 ], [ %bf.clear, %if.end ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end53 ], [ 0, %if.end ]
   %i.0 = phi i32 [ %i.1, %if.end53 ], [ 0, %if.end ]
   %j.0 = phi i32 [ %j.2, %if.end53 ], [ 0, %if.end ]
@@ -1339,11 +1340,10 @@ if.end53:                                         ; preds = %if.then20, %if.else
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %copy.0, i64 24, i1 false)
   %optional = getelementptr inbounds i8, ptr %copy.0, i64 12
   %bf.load56 = load i8, ptr %optional, align 4
-  %bf.load59 = load i8, ptr %has_optional, align 4
   %6 = and i8 %bf.load56, 1
   %bf.set64 = or i8 %6, %bf.load59
   store i8 %bf.set64, ptr %has_optional, align 4
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond, !llvm.loop !13
 
 for.end:                                          ; preds = %lor.rhs

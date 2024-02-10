@@ -968,7 +968,7 @@ while.body357:                                    ; preds = %if.then350, %while.
   store ptr %call358, ptr %arrayidx360, align 8
   %u364 = getelementptr inbounds i8, ptr %arrayidx360, i64 8
   store ptr null, ptr %u364, align 8
-  %indvars.iv.next512 = add nuw i64 %indvars.iv511, 1
+  %indvars.iv.next512 = add nuw nsw i64 %indvars.iv511, 1
   %call355 = call i32 @listTypeNext(ptr noundef %call352, ptr noundef nonnull %entry353) #12
   %tobool356.not = icmp eq i32 %call355, 0
   br i1 %tobool356.not, label %while.end369.loopexit, label %while.body357, !llvm.loop !8
@@ -1000,7 +1000,7 @@ while.body381:                                    ; preds = %if.then375, %while.
   store ptr %call382, ptr %arrayidx384, align 8
   %u388 = getelementptr inbounds i8, ptr %arrayidx384, i64 8
   store ptr null, ptr %u388, align 8
-  %indvars.iv.next509 = add nuw i64 %indvars.iv508, 1
+  %indvars.iv.next509 = add nuw nsw i64 %indvars.iv508, 1
   %call378 = call ptr @setTypeNextObject(ptr noundef %call376) #12
   %cmp379.not = icmp eq ptr %call378, null
   br i1 %cmp379.not, label %while.end393.loopexit, label %while.body381, !llvm.loop !9
@@ -1208,7 +1208,7 @@ sdslen.exit384:                                   ; preds = %while.body478, %sw.
   store ptr %call481, ptr %arrayidx483, align 8
   %u487 = getelementptr inbounds i8, ptr %arrayidx483, i64 8
   store ptr null, ptr %u487, align 8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %call475 = call ptr @dictNext(ptr noundef %call473) #12
   %cmp476.not = icmp eq ptr %call475, null
   br i1 %cmp476.not, label %while.end492.loopexit, label %while.body478, !llvm.loop !11
@@ -1467,9 +1467,9 @@ if.end670:                                        ; preds = %if.then654, %if.els
   br i1 %tobool643.not, label %for.inc672, label %while.body644, !llvm.loop !13
 
 for.inc672:                                       ; preds = %if.end670, %if.end640
-  %indvars.iv.next529 = add i64 %indvars.iv528, 1
-  %cmp630.not = icmp slt i64 %end.2, %indvars.iv.next529
-  br i1 %cmp630.not, label %if.end750, label %for.body632, !llvm.loop !14
+  %indvars.iv.next529 = add nsw i64 %indvars.iv528, 1
+  %cmp630.not.not = icmp sgt i64 %end.2, %indvars.iv528
+  br i1 %cmp630.not.not, label %for.body632, label %if.end750, !llvm.loop !14
 
 if.else675:                                       ; preds = %if.else622
   %call676 = call ptr @createQuicklistObject() #12
@@ -1486,9 +1486,9 @@ for.body682.us:                                   ; preds = %for.body682.lr.ph, 
   %arrayidx688.us = getelementptr inbounds %struct._redisSortObject, ptr %call303, i64 %indvars.iv525
   %96 = load ptr, ptr %arrayidx688.us, align 8
   call void @listTypePush(ptr noundef %call676, ptr noundef %96, i32 noundef 1) #12
-  %indvars.iv.next526 = add i64 %indvars.iv525, 1
-  %cmp680.not.us = icmp slt i64 %end.2, %indvars.iv.next526
-  br i1 %cmp680.not.us, label %for.end730, label %for.body682.us, !llvm.loop !15
+  %indvars.iv.next526 = add nsw i64 %indvars.iv525, 1
+  %cmp680.not.us.not = icmp sgt i64 %end.2, %indvars.iv525
+  br i1 %cmp680.not.us.not, label %for.body682.us, label %for.end730, !llvm.loop !15
 
 for.body682:                                      ; preds = %for.body682.lr.ph, %for.inc728.loopexit
   %indvars.iv522 = phi i64 [ %indvars.iv.next523, %for.inc728.loopexit ], [ %conv679485, %for.body682.lr.ph ]
@@ -1536,9 +1536,9 @@ cond.false723:                                    ; preds = %while.body694
   unreachable
 
 for.inc728.loopexit:                              ; preds = %if.end711, %for.body682
-  %indvars.iv.next523 = add i64 %indvars.iv522, 1
-  %cmp680.not = icmp slt i64 %end.2, %indvars.iv.next523
-  br i1 %cmp680.not, label %for.end730, label %for.body682, !llvm.loop !15
+  %indvars.iv.next523 = add nsw i64 %indvars.iv522, 1
+  %cmp680.not.not = icmp sgt i64 %end.2, %indvars.iv522
+  br i1 %cmp680.not.not, label %for.body682, label %for.end730, !llvm.loop !15
 
 for.end730:                                       ; preds = %for.inc728.loopexit, %for.body682.us, %if.else675
   %102 = and i64 %cond618, 4294967295

@@ -75,7 +75,7 @@ return.sink.split.i:                              ; preds = %for.body6, %if.end5
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %do.body.i.i, %return.sink.split.i
   %8 = phi i32 [ %inc11.i, %return.sink.split.i ], [ %2, %do.body.i.i ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx3 = getelementptr inbounds [16 x i8], ptr %str, i64 0, i64 %indvars.iv.next
   %9 = load i8, ptr %arrayidx3, align 1
   %cmp5.not = icmp eq i8 %9, 0
@@ -330,7 +330,7 @@ return.sink.split.i57:                            ; preds = %for.body15, %if.end
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit65:      ; preds = %do.body.i.i48, %return.sink.split.i57
   %19 = phi i32 [ %inc11.i63, %return.sink.split.i57 ], [ %13, %do.body.i.i48 ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx12 = getelementptr inbounds [5 x i8], ptr %str, i64 0, i64 %indvars.iv.next
   %20 = load i8, ptr %arrayidx12, align 1
   %cmp14.not = icmp eq i8 %20, 0
@@ -434,7 +434,7 @@ if.then4.i:                                       ; preds = %lor.lhs.false.i, %f
   %ref.tmp.sroa.0.0.insert.ext.i = zext i32 %cur_component_begin.0.i.ph to i64
   %ref.tmp.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp.sroa.2.0.insert.shift.i, %ref.tmp.sroa.0.0.insert.ext.i
   store i64 %ref.tmp.sroa.0.0.insert.insert.i, ptr %arrayidx6.i, align 4
-  %5 = add i64 %indvars.iv.i, 1
+  %5 = add nsw i64 %indvars.iv.i, 1
   %inc.i = add nuw nsw i32 %cur_component.0.i.ph, 1
   %cmp7.i = icmp eq i32 %cur_component_begin.0.i.ph, %4
   %cmp10.i = icmp eq i32 %cur_component.0.i.ph, 0
@@ -457,7 +457,7 @@ if.then17.i:                                      ; preds = %if.end15.i
   %7 = load i8, ptr %arrayidx19.i, align 1
   %cmp21.i = icmp eq i8 %7, 46
   %cmp24.i = icmp eq i32 %add.i.i, %6
-  %or.cond28.i = and i1 %cmp24.i, %cmp21.i
+  %or.cond28.i = select i1 %cmp21.i, i1 %cmp24.i, i1 false
   br label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIchEEbPKT_RKNS_9ComponentEPS5_.exit
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
@@ -540,7 +540,7 @@ if.then4.i:                                       ; preds = %lor.lhs.false.i, %f
   %ref.tmp.sroa.0.0.insert.ext.i = zext i32 %cur_component_begin.0.i.ph to i64
   %ref.tmp.sroa.0.0.insert.insert.i = or disjoint i64 %ref.tmp.sroa.2.0.insert.shift.i, %ref.tmp.sroa.0.0.insert.ext.i
   store i64 %ref.tmp.sroa.0.0.insert.insert.i, ptr %arrayidx6.i, align 4
-  %5 = add i64 %indvars.iv.i, 1
+  %5 = add nsw i64 %indvars.iv.i, 1
   %inc.i = add nuw nsw i32 %cur_component.0.i.ph, 1
   %cmp7.i = icmp eq i32 %cur_component_begin.0.i.ph, %4
   %cmp10.i = icmp eq i32 %cur_component.0.i.ph, 0
@@ -563,7 +563,7 @@ if.then17.i:                                      ; preds = %if.end15.i
   %7 = load i16, ptr %arrayidx19.i, align 2
   %cmp21.i = icmp eq i16 %7, 46
   %cmp24.i = icmp eq i32 %add.i.i, %6
-  %or.cond28.i = and i1 %cmp24.i, %cmp21.i
+  %or.cond28.i = select i1 %cmp21.i, i1 %cmp24.i, i1 false
   br label %_ZN3url12_GLOBAL__N_120DoFindIPv4ComponentsIttEEbPKT_RKNS_9ComponentEPS5_.exit
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
@@ -986,7 +986,7 @@ if.then4.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i
   %ref.tmp.sroa.0.0.insert.ext.i.i.i = zext i32 %cur_component_begin.0.i.i.i.ph to i64
   %ref.tmp.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %ref.tmp.sroa.2.0.insert.shift.i.i.i, %ref.tmp.sroa.0.0.insert.ext.i.i.i
   store i64 %ref.tmp.sroa.0.0.insert.insert.i.i.i, ptr %arrayidx6.i.i.i, align 8
-  %5 = add i64 %indvars.iv.i.i.i, 1
+  %5 = add nsw i64 %indvars.iv.i.i.i, 1
   %inc.i.i.i = add nuw nsw i32 %cur_component.0.i.i.i.ph, 1
   %cmp7.i.i.i = icmp eq i32 %cur_component_begin.0.i.i.i.ph, %4
   %cmp10.i.i.i = icmp eq i32 %cur_component.0.i.i.i.ph, 0
@@ -1009,7 +1009,7 @@ if.then17.i.i.i:                                  ; preds = %if.end15.i.i.i
   %7 = load i8, ptr %arrayidx19.i.i.i, align 1
   %cmp21.i.i.i = icmp eq i8 %7, 46
   %cmp24.i.i.i = icmp eq i32 %add.i.i.i.i, %6
-  %or.cond28.i.i.i = and i1 %cmp24.i.i.i, %cmp21.i.i.i
+  %or.cond28.i.i.i = select i1 %cmp21.i.i.i, i1 %cmp24.i.i.i, i1 false
   br i1 %or.cond28.i.i.i, label %for.body.i.preheader, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberIcEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
 
 if.else.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
@@ -1340,7 +1340,7 @@ if.then4.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i
   %ref.tmp.sroa.0.0.insert.ext.i.i.i = zext i32 %cur_component_begin.0.i.i.i.ph to i64
   %ref.tmp.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %ref.tmp.sroa.2.0.insert.shift.i.i.i, %ref.tmp.sroa.0.0.insert.ext.i.i.i
   store i64 %ref.tmp.sroa.0.0.insert.insert.i.i.i, ptr %arrayidx6.i.i.i, align 8
-  %5 = add i64 %indvars.iv.i.i.i, 1
+  %5 = add nsw i64 %indvars.iv.i.i.i, 1
   %inc.i.i.i = add nuw nsw i32 %cur_component.0.i.i.i.ph, 1
   %cmp7.i.i.i = icmp eq i32 %cur_component_begin.0.i.i.i.ph, %4
   %cmp10.i.i.i = icmp eq i32 %cur_component.0.i.i.i.ph, 0
@@ -1363,7 +1363,7 @@ if.then17.i.i.i:                                  ; preds = %if.end15.i.i.i
   %7 = load i16, ptr %arrayidx19.i.i.i, align 2
   %cmp21.i.i.i = icmp eq i16 %7, 46
   %cmp24.i.i.i = icmp eq i32 %add.i.i.i.i, %6
-  %or.cond28.i.i.i = and i1 %cmp24.i.i.i, %cmp21.i.i.i
+  %or.cond28.i.i.i = select i1 %cmp21.i.i.i, i1 %cmp24.i.i.i, i1 false
   br i1 %or.cond28.i.i.i, label %for.body.i.preheader, label %_ZN3url12_GLOBAL__N_121DoIPv4AddressToNumberItEENS_13CanonHostInfo6FamilyEPKT_RKNS_9ComponentEPhPi.exit
 
 if.else.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i

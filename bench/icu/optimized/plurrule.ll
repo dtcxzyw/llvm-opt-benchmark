@@ -4726,7 +4726,7 @@ _ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread: ; preds = %_ZNK6icu_7513Un
 
 if.end10:                                         ; preds = %if.end9.i
   store i32 4, ptr %type, align 8
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = trunc i64 %indvars.iv.next to i32
   store i32 %15, ptr %ruleIndex, align 8
   %16 = load i16, ptr %fUnion.i.i, align 8
@@ -6067,7 +6067,7 @@ invoke.cont189:                                   ; preds = %invoke.cont187
 
 invoke.cont198:                                   ; preds = %invoke.cont189
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp195) #26
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %126 = load ptr, ptr %rangeList74, align 8
   %count.i242 = getelementptr inbounds i8, ptr %126, i64 8
   %127 = load i32, ptr %count.i242, align 8
@@ -6582,7 +6582,7 @@ cond.true.i:                                      ; preds = %cond.true.i.lr.ph, 
 
 land.lhs.true26:                                  ; preds = %cond.true.i
   %11 = or disjoint i64 %indvars.iv, 1
-  %cmp5.i14 = icmp slt i64 %11, %8
+  %cmp5.i14 = icmp ult i64 %11, %8
   br i1 %cmp5.i14, label %cond.true.i17, label %_ZNK6icu_759UVector3210elementAtiEi.exit21
 
 cond.true.i17:                                    ; preds = %land.lhs.true26
@@ -6597,7 +6597,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit21:       ; preds = %land.lhs.true26, %c
   br i1 %cmp30, label %for.inc, label %do.end
 
 for.inc:                                          ; preds = %cond.true.i, %_ZNK6icu_759UVector3210elementAtiEi.exit21
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %13 = trunc i64 %indvars.iv.next to i32
   %cmp21 = icmp sgt i32 %6, %13
   br i1 %cmp21, label %cond.true.i, label %do.end, !llvm.loop !48
@@ -6883,7 +6883,7 @@ cond.true.i.i:                                    ; preds = %for.inc.i, %cond.tr
 
 land.lhs.true26.i:                                ; preds = %cond.true.i.i
   %11 = or disjoint i64 %indvars.iv.i, 1
-  %cmp5.i14.i = icmp slt i64 %11, %8
+  %cmp5.i14.i = icmp ult i64 %11, %8
   br i1 %cmp5.i14.i, label %cond.true.i17.i, label %_ZNK6icu_759UVector3210elementAtiEi.exit21.i
 
 cond.true.i17.i:                                  ; preds = %land.lhs.true26.i
@@ -6898,7 +6898,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit21.i:     ; preds = %cond.true.i17.i, %l
   br i1 %cmp30.i, label %for.inc.i, label %do.end.i
 
 for.inc.i:                                        ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit21.i, %cond.true.i.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %13 = trunc i64 %indvars.iv.next.i to i32
   %cmp21.i = icmp sgt i32 %6, %13
   br i1 %cmp21.i, label %cond.true.i.i, label %do.end.i, !llvm.loop !48

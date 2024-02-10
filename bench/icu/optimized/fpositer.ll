@@ -214,7 +214,7 @@ if.then23.thread:                                 ; preds = %if.else
   br label %delete.notnull25
 
 for.cond:                                         ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit29
-  %indvars.iv.next = add nuw i64 %indvars.iv, 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %5 = trunc i64 %indvars.iv.next to i32
   %cmp11 = icmp sgt i32 %1, %5
   br i1 %cmp11, label %cond.true.i, label %if.end20, !llvm.loop !4
@@ -224,7 +224,7 @@ cond.true.i:                                      ; preds = %cond.true.i.lr.ph, 
   %arrayidx.i = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx.i, align 4
   %7 = or disjoint i64 %indvars.iv, 1
-  %cmp5.i22 = icmp slt i64 %7, %4
+  %cmp5.i22 = icmp ult i64 %7, %4
   br i1 %cmp5.i22, label %cond.true.i25, label %_ZNK6icu_759UVector3210elementAtiEi.exit29
 
 cond.true.i25:                                    ; preds = %cond.true.i
