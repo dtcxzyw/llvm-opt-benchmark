@@ -57,14 +57,12 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body, %if.end
   %good.0.lcssa = phi i32 [ %not.i, %if.end ], [ %and15, %for.body ]
   %and16 = and i32 %good.0.lcssa, 255
-  %6 = icmp eq i32 %and16, 255
-  %shr.i.i.i = sext i1 %6 to i32
-  %add18 = add nuw nsw i32 %conv, 1
-  %and19 = and i32 %add18, %shr.i.i.i
-  %sub20 = sub i32 %in_len, %and19
+  %.not = icmp eq i32 %and16, 255
+  %add18.neg = xor i32 %conv, -1
+  %and19.neg = select i1 %.not, i32 %add18.neg, i32 0
+  %sub20 = add i32 %and19.neg, %in_len
   store i32 %sub20, ptr %out_len, align 4
-  %not.i.i23 = xor i32 %shr.i.i.i, -1
-  %or.i.i24 = or i32 %not.i.i23, 1
+  %or.i.i24 = select i1 %.not, i32 1, i32 -1
   br label %return
 
 return:                                           ; preds = %entry, %for.end

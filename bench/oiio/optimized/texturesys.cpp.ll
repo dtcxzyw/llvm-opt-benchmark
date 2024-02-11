@@ -1320,19 +1320,12 @@ entry:
   %0 = load <4 x i32>, ptr %coord_, align 16
   %1 = load <4 x i32>, ptr %origin, align 16
   %2 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %1, <4 x i32> %0)
-  %or.i = bitcast <4 x i32> %2 to <2 x i64>
   %3 = load <4 x i32>, ptr %width, align 16
   %add.i = add <4 x i32> %3, %1
   %sub.i = add <4 x i32> %add.i, <i32 -1, i32 -1, i32 -1, i32 -1>
-  %or.i14824 = icmp sge <4 x i32> %2, %add.i
-  %or.i148 = sext <4 x i1> %or.i14824 to <4 x i32>
-  %4 = bitcast <4 x i32> %or.i148 to <2 x i64>
-  %and.i12225 = and <4 x i32> %sub.i, %or.i148
-  %and.i122 = bitcast <4 x i32> %and.i12225 to <2 x i64>
-  %not.i132 = xor <2 x i64> %4, <i64 -1, i64 -1>
-  %and.i133 = and <2 x i64> %not.i132, %or.i
-  %or.i117 = or <2 x i64> %and.i133, %and.i122
-  store <2 x i64> %or.i117, ptr %coord_, align 16
+  %or.i14824 = icmp slt <4 x i32> %2, %add.i
+  %or.i11727 = select <4 x i1> %or.i14824, <4 x i32> %2, <4 x i32> %sub.i
+  store <4 x i32> %or.i11727, ptr %coord_, align 16
   store <4 x float> <float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000>, ptr %agg.result, align 16
   ret void
 }
@@ -11115,7 +11108,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit1525: ; preds = %for
   %arrayidx254 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv768, i64 %indvars.iv762
   store <4 x float> %mul.i3327, ptr %arrayidx254, align 16
   %indvars.iv.next763 = add nuw nsw i64 %indvars.iv762, 1
-  %indvars.iv.next761 = add i64 %indvars.iv760, %32
+  %indvars.iv.next761 = add nsw i64 %indvars.iv760, %32
   %exitcond767.not = icmp eq i64 %indvars.iv.next763, 4
   br i1 %exitcond767.not, label %for.inc258, label %_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112uchar2float4EPKh.exit1525, !llvm.loop !131
 
@@ -11156,7 +11149,7 @@ _ZN18OpenImageIO_v2_6_012_GLOBAL__N_113ushort2float4EPKt.exit1543: ; preds = %fo
   %arrayidx284 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv752, i64 %indvars.iv746
   store <4 x float> %mul.i3321, ptr %arrayidx284, align 16
   %indvars.iv.next747 = add nuw nsw i64 %indvars.iv746, 1
-  %indvars.iv.next745 = add i64 %indvars.iv744, %32
+  %indvars.iv.next745 = add nsw i64 %indvars.iv744, %32
   %exitcond751.not = icmp eq i64 %indvars.iv.next747, 4
   br i1 %exitcond751.not, label %for.inc291, label %for.body276, !llvm.loop !133
 
@@ -11206,7 +11199,7 @@ invoke.cont313:                                   ; preds = %for.body.i.i.i416
   %arrayidx317 = getelementptr inbounds [4 x [4 x %"class.OpenImageIO_v2_6_0::simd::vfloat4"]], ptr %texel_simd, i64 0, i64 %indvars.iv736, i64 %indvars.iv730
   store <4 x i32> %or.i.i, ptr %arrayidx317, align 16
   %indvars.iv.next731 = add nuw nsw i64 %indvars.iv730, 1
-  %indvars.iv.next729 = add i64 %indvars.iv728, %32
+  %indvars.iv.next729 = add nsw i64 %indvars.iv728, %32
   %exitcond735.not = icmp eq i64 %indvars.iv.next731, 4
   br i1 %exitcond735.not, label %for.inc324, label %for.body309, !llvm.loop !135
 
@@ -11229,7 +11222,7 @@ for.body340:                                      ; preds = %for.cond338.prehead
   %114 = load <4 x float>, ptr %add.ptr346, align 1
   store <4 x float> %114, ptr %arrayidx344, align 16
   %indvars.iv.next779 = add nuw nsw i64 %indvars.iv778, 1
-  %indvars.iv.next777 = add i64 %indvars.iv776, %32
+  %indvars.iv.next777 = add nsw i64 %indvars.iv776, %32
   %exitcond783.not = icmp eq i64 %indvars.iv.next779, 4
   br i1 %exitcond783.not, label %for.inc352, label %for.body340, !llvm.loop !137
 
@@ -30128,7 +30121,7 @@ invoke.cont70:                                    ; preds = %if.end22.i, %_ZZN3f
   %cmp75 = icmp sgt i32 %retval.0.i472, %invariant.op
   %141 = trunc i32 %call63 to i8
   %conv78 = add i8 %141, 48
-  %indvars.iv.next1004 = add nuw i64 %indvars.iv1003, 1
+  %indvars.iv.next1004 = add nuw nsw i64 %indvars.iv1003, 1
   %arrayidx = getelementptr inbounds i8, ptr %113, i64 %indvars.iv1003
   store i8 %conv78, ptr %arrayidx, align 1
   %brmerge = select i1 %cmp68, i1 true, i1 %cmp75
@@ -44714,7 +44707,7 @@ if.end42:                                         ; preds = %if.end15
 while.body.preheader.i:                           ; preds = %if.end42
   %value.coerce0.masked.numleadingzeros.i = tail call i64 @llvm.ctlz.i64(i64 %and.i.i, i1 true), !range !379
   %value.coerce0.masked.leadingonepos.i = xor i64 %value.coerce0.masked.numleadingzeros.i, 63
-  %while.body.tripcount.i = sub nsw i64 52, %value.coerce0.masked.leadingonepos.i
+  %while.body.tripcount.i = sub nuw nsw i64 52, %value.coerce0.masked.leadingonepos.i
   %shl.i80 = shl i64 %and.i.i, %while.body.tripcount.i
   %17 = trunc i64 %value.coerce0.masked.numleadingzeros.i to i32
   %18 = sub nuw nsw i32 -1063, %17

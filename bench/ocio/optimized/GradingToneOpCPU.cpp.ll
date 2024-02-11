@@ -544,7 +544,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %out.077 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
   %in.0.val = load <4 x float>, ptr %in.078, align 1
   %17 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mxbrkE, align 16
-  %18 = fcmp olt <4 x float> %17, %in.0.val
+  %18 = fcmp uge <4 x float> %17, %in.0.val
   %19 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mgainE, align 16
   %mul.i14.i = fmul <4 x float> %in.0.val, %19
   %add.i19.i = fadd <4 x float> %mul.i14.i, %16
@@ -574,7 +574,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %sub.i.i.i = sub <4 x i32> %26, %6
   %conv.i.i.i = sitofp <4 x i32> %sub.i.i.i to <4 x float>
   %add.i.i.i = fadd <4 x float> %add.i36.i.i, %conv.i.i.i
-  %or.i.v.i = select <4 x i1> %18, <4 x float> %add.i.i.i, <4 x float> %add.i19.i
+  %or.i.v.i = select <4 x i1> %18, <4 x float> %add.i19.i, <4 x float> %add.i.i.i
   store <4 x float> %or.i.v.i, ptr %out.077, align 1
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 0, ptr noundef nonnull %out.077)
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 1, ptr noundef nonnull %out.077)
@@ -600,7 +600,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPU9scontrastERKNS_11GradingToneERKNS_20GradingTonePreRenderEPf(double %call7.val, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, ptr noundef nonnull %out.077)
   %27 = load <4 x float>, ptr %out.077, align 1
   %28 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mybrkE, align 16
-  %29 = fcmp olt <4 x float> %28, %27
+  %29 = fcmp uge <4 x float> %28, %27
   %30 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5moffsE, align 16
   %sub.i28.i = fsub <4 x float> %27, %30
   %31 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants8mgainInvE, align 16
@@ -675,7 +675,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul.i.i74 = fmul <4 x float> %67, %66
   %68 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants6mshiftE, align 16
   %sub.i.i = fsub <4 x float> %mul.i.i74, %68
-  %or.i.v.i75 = select <4 x i1> %29, <4 x float> %sub.i.i, <4 x float> %mul.i14.i72
+  %or.i.v.i75 = select <4 x i1> %29, <4 x float> %mul.i14.i72, <4 x float> %sub.i.i
   store <4 x float> %or.i.v.i75, ptr %out.077, align 1
   %69 = shufflevector <4 x float> %or.i.v.i75, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %70 = fcmp ogt <2 x float> %69, <float 6.550400e+04, float 6.550400e+04>
@@ -3161,7 +3161,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %out.077 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr12, %for.body ]
   %in.0.val = load <4 x float>, ptr %in.078, align 1
   %17 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mxbrkE, align 16
-  %18 = fcmp olt <4 x float> %17, %in.0.val
+  %18 = fcmp uge <4 x float> %17, %in.0.val
   %19 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mgainE, align 16
   %mul.i14.i = fmul <4 x float> %in.0.val, %19
   %add.i19.i = fadd <4 x float> %mul.i14.i, %16
@@ -3191,7 +3191,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %sub.i.i.i = sub <4 x i32> %26, %6
   %conv.i.i.i = sitofp <4 x i32> %sub.i.i.i to <4 x float>
   %add.i.i.i = fadd <4 x float> %add.i36.i.i, %conv.i.i.i
-  %or.i.v.i = select <4 x i1> %18, <4 x float> %add.i.i.i, <4 x float> %add.i19.i
+  %or.i.v.i = select <4 x i1> %18, <4 x float> %add.i19.i, <4 x float> %add.i.i.i
   store <4 x float> %or.i.v.i, ptr %out.077, align 1
   %call7.val = load double, ptr %5, align 8
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU9scontrastERKNS_11GradingToneERKNS_20GradingTonePreRenderEPf(double %call7.val, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, ptr noundef nonnull %out.077)
@@ -3217,7 +3217,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPU4midsERKNS_11GradingToneERKNS_20GradingTonePreRenderENS_11RGBMChannelEPf(ptr noundef nonnull align 8 dereferenceable(248) %call7, ptr noundef nonnull align 8 dereferenceable(936) %m_preRenderValues.i, i32 noundef 2, ptr noundef nonnull %out.077)
   %27 = load <4 x float>, ptr %out.077, align 1
   %28 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5mybrkE, align 16
-  %29 = fcmp olt <4 x float> %28, %27
+  %29 = fcmp uge <4 x float> %28, %27
   %30 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants5moffsE, align 16
   %sub.i28.i = fsub <4 x float> %27, %30
   %31 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants8mgainInvE, align 16
@@ -3292,7 +3292,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul.i.i74 = fmul <4 x float> %67, %66
   %68 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115LogLinConstants6mshiftE, align 16
   %sub.i.i = fsub <4 x float> %mul.i.i74, %68
-  %or.i.v.i75 = select <4 x i1> %29, <4 x float> %sub.i.i, <4 x float> %mul.i14.i72
+  %or.i.v.i75 = select <4 x i1> %29, <4 x float> %mul.i14.i72, <4 x float> %sub.i.i
   store <4 x float> %or.i.v.i75, ptr %out.077, align 1
   %69 = shufflevector <4 x float> %or.i.v.i75, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %70 = fcmp ogt <2 x float> %69, <float 6.550400e+04, float 6.550400e+04>
