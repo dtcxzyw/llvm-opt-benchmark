@@ -6362,62 +6362,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
-  %2 = load i32, ptr %flags.i.i, align 8
-  %and.i.i = and i32 %2, 16
-  %tobool.not.i.i = icmp eq i32 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %if.end
-  %blocked_client.i.i = getelementptr inbounds i8, ptr %ctx, i64 24
-  %3 = load ptr, ptr %blocked_client.i.i, align 8
-  %tobool1.not.i.i = icmp eq ptr %3, null
-  br i1 %tobool1.not.i.i, label %return, label %moduleGetReplyClient.exit.i
-
-moduleGetReplyClient.exit.i:                      ; preds = %if.then.i.i
-  %reply_client.i.i = getelementptr inbounds i8, ptr %3, i64 72
-  %.pre = load ptr, ptr %reply_client.i.i, align 8
-  %cmp.i = icmp eq ptr %.pre, null
-  br i1 %cmp.i, label %return, label %if.end.i
-
-if.end.i:                                         ; preds = %if.end, %moduleGetReplyClient.exit.i
-  %4 = phi ptr [ %.pre, %moduleGetReplyClient.exit.i ], [ %0, %if.end ]
-  switch i64 %len, label %if.else20.i [
-    i64 -1, label %if.then2.i
-    i64 0, label %if.then11.i
-  ]
-
-if.then2.i:                                       ; preds = %if.end.i
-  %postponed_arrays.i = getelementptr inbounds i8, ptr %ctx, i64 56
-  %5 = load ptr, ptr %postponed_arrays.i, align 8
-  %postponed_arrays_count.i = getelementptr inbounds i8, ptr %ctx, i64 64
-  %6 = load i32, ptr %postponed_arrays_count.i, align 8
-  %add.i = add nsw i32 %6, 1
-  %conv.i = sext i32 %add.i to i64
-  %mul.i = shl nsw i64 %conv.i, 3
-  %call3.i = tail call ptr @zrealloc(ptr noundef %5, i64 noundef %mul.i) #34
-  store ptr %call3.i, ptr %postponed_arrays.i, align 8
-  %call5.i = tail call ptr @addReplyDeferredLen(ptr noundef nonnull %4) #32
-  %7 = load ptr, ptr %postponed_arrays.i, align 8
-  %8 = load i32, ptr %postponed_arrays_count.i, align 8
-  %idxprom.i = sext i32 %8 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom.i
-  store ptr %call5.i, ptr %arrayidx.i, align 8
-  %9 = load i32, ptr %postponed_arrays_count.i, align 8
-  %inc.i = add nsw i32 %9, 1
-  store i32 %inc.i, ptr %postponed_arrays_count.i, align 8
+  %call = tail call i32 @moduleReplyWithCollection(ptr noundef nonnull %ctx, i64 noundef %len, i32 noundef 4)
   br label %return
 
-if.then11.i:                                      ; preds = %if.end.i
-  tail call void @addReplyAttributeLen(ptr noundef nonnull %4, i64 noundef 0) #32
-  br label %return
-
-if.else20.i:                                      ; preds = %if.end.i
-  tail call void @addReplyAttributeLen(ptr noundef nonnull %4, i64 noundef %len) #32
-  br label %return
-
-return:                                           ; preds = %if.else20.i, %if.then11.i, %if.then2.i, %moduleGetReplyClient.exit.i, %if.then.i.i, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.then.i.i ], [ 0, %moduleGetReplyClient.exit.i ], [ 0, %if.then2.i ], [ 0, %if.then11.i ], [ 0, %if.else20.i ]
+return:                                           ; preds = %entry, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %entry ]
   ret i32 %retval.0
 }
 
@@ -7764,7 +7713,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %47 = load ptr, ptr %arrayidx122, align 8
   tail call void @incrRefCount(ptr noundef %47) #32
   %48 = load ptr, ptr %arrayidx122, align 8
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx126 = getelementptr inbounds ptr, ptr %call119, i64 %indvars.iv
   store ptr %48, ptr %arrayidx126, align 8
   %inc127 = add nuw i64 %i.086, 1
@@ -19164,7 +19113,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
   %1 = phi ptr [ %2, %for.body ], [ %0, %for.cond.preheader ]
   tail call void @zfree(ptr noundef nonnull %1) #32
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds ptr, ptr %ids, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %2, null
@@ -26523,7 +26472,7 @@ land.rhs:                                         ; preds = %for.end, %for.body2
 
 for.body29:                                       ; preds = %land.rhs
   tail call void @zfree(ptr noundef nonnull %14) #32
-  %indvars.iv.next68 = add nuw i64 %indvars.iv67, 1
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %15 = load ptr, ptr %tips, align 8
   %tobool24.not = icmp eq ptr %15, null
   br i1 %tobool24.not, label %for.end35, label %land.rhs, !llvm.loop !79
@@ -26550,7 +26499,7 @@ for.body46:                                       ; preds = %land.rhs40
   %changes = getelementptr inbounds %struct.commandHistory, ptr %19, i64 %indvars.iv70, i32 1
   %20 = load ptr, ptr %changes, align 8
   tail call void @zfree(ptr noundef %20) #32
-  %indvars.iv.next71 = add nuw i64 %indvars.iv70, 1
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %21 = load ptr, ptr %history, align 8
   %tobool39.not = icmp eq ptr %21, null
   br i1 %tobool39.not, label %for.end56, label %land.rhs40, !llvm.loop !80
@@ -26759,7 +26708,7 @@ if.then18:                                        ; preds = %if.end5
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %if.end5
-  %indvars.iv.next = add nuw i64 %indvars.iv, 3
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %12 = trunc i64 %indvars.iv.next to i32
   %cmp.not = icmp sgt i32 %1, %12
   br i1 %cmp.not, label %for.body, label %if.then37, !llvm.loop !83

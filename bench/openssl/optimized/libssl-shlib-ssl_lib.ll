@@ -3414,8 +3414,8 @@ SSL_get_rbio.exit:                                ; preds = %land.lhs.true.i, %i
   br i1 %cmp, label %cond.false.i21, label %if.end
 
 SSL_get_rbio.exit.thread:                         ; preds = %entry
-  %cmp142 = icmp eq ptr %rbio, null
-  br i1 %cmp142, label %SSL_get_wbio.exit, label %if.end
+  %cmp105 = icmp eq ptr %rbio, null
+  br i1 %cmp105, label %SSL_get_wbio.exit, label %if.end
 
 cond.false.i21:                                   ; preds = %SSL_get_rbio.exit
   %2 = load i32, ptr %s, align 8
@@ -3464,7 +3464,7 @@ if.then6:                                         ; preds = %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end
-  br i1 %cmp.i, label %return, label %cond.false.i30
+  br i1 %cmp.i, label %SSL_get_rbio.exit39.thread, label %cond.false.i30
 
 cond.false.i30:                                   ; preds = %if.end8
   %5 = load i32, ptr %s, align 8
@@ -3490,285 +3490,188 @@ if.end19.i34:                                     ; preds = %cond.false.i30
 SSL_get_rbio.exit39:                              ; preds = %land.lhs.true.i36, %if.then.i31, %if.end19.i34
   %retval.0.i33 = phi ptr [ %call.i32, %if.then.i31 ], [ %6, %if.end19.i34 ], [ null, %land.lhs.true.i36 ]
   %cmp10 = icmp eq ptr %retval.0.i33, %rbio
-  %7 = load i32, ptr %s, align 8
-  br i1 %cmp10, label %cond.false.i41, label %cond.false.i53
+  br i1 %cmp10, label %if.then11, label %cond.false.i41
+
+SSL_get_rbio.exit39.thread:                       ; preds = %if.end8
+  %cmp10107 = icmp eq ptr %rbio, null
+  br i1 %cmp10107, label %if.then11, label %SSL_set0_rbio.exit103
+
+if.then11:                                        ; preds = %SSL_get_rbio.exit39.thread, %SSL_get_rbio.exit39
+  tail call void @SSL_set0_wbio(ptr noundef %s, ptr noundef %wbio)
+  br label %return
 
 cond.false.i41:                                   ; preds = %SSL_get_rbio.exit39
-  switch i32 %7, label %land.lhs.true.i49 [
-    i32 0, label %if.end19.i43
+  %7 = load i32, ptr %s, align 8
+  switch i32 %7, label %land.lhs.true.i52 [
+    i32 0, label %if.end19.i45
     i32 1, label %if.then.i42
   ]
 
-land.lhs.true.i49:                                ; preds = %cond.false.i41
-  %.off.i50 = add i32 %7, -1
-  %switch.i51 = icmp ult i32 %.off.i50, 2
-  br i1 %switch.i51, label %if.then.i42, label %return
+land.lhs.true.i52:                                ; preds = %cond.false.i41
+  %.off.i53 = add i32 %7, -1
+  %switch.i54 = icmp ult i32 %.off.i53, 2
+  br i1 %switch.i54, label %if.then.i42, label %SSL_get_wbio.exit55
 
-if.then.i42:                                      ; preds = %land.lhs.true.i49, %cond.false.i41
-  tail call void @ossl_quic_conn_set0_net_wbio(ptr noundef nonnull %s, ptr noundef %wbio) #24
-  br label %return
+if.then.i42:                                      ; preds = %land.lhs.true.i52, %cond.false.i41
+  %call.i43 = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #24
+  br label %SSL_get_wbio.exit55
 
-if.end19.i43:                                     ; preds = %cond.false.i41
-  %bbio.i44 = getelementptr inbounds i8, ptr %s, i64 88
-  %8 = load ptr, ptr %bbio.i44, align 8
-  %cmp20.not.i45 = icmp eq ptr %8, null
-  %wbio25.phi.trans.insert.i = getelementptr inbounds i8, ptr %s, i64 80
-  %.pre.i = load ptr, ptr %wbio25.phi.trans.insert.i, align 8
-  br i1 %cmp20.not.i45, label %if.end24.i48, label %if.then21.i46
+if.end19.i45:                                     ; preds = %cond.false.i41
+  %bbio.i46 = getelementptr inbounds i8, ptr %s, i64 88
+  %8 = load ptr, ptr %bbio.i46, align 8
+  %cmp20.not.i47 = icmp eq ptr %8, null
+  br i1 %cmp20.not.i47, label %if.end24.i50, label %if.then21.i48
 
-if.then21.i46:                                    ; preds = %if.end19.i43
-  %call.i47 = tail call ptr @BIO_pop(ptr noundef %.pre.i) #24
-  store ptr %call.i47, ptr %wbio25.phi.trans.insert.i, align 8
-  br label %if.end24.i48
+if.then21.i48:                                    ; preds = %if.end19.i45
+  %call23.i49 = tail call ptr @BIO_next(ptr noundef nonnull %8) #24
+  br label %SSL_get_wbio.exit55
 
-if.end24.i48:                                     ; preds = %if.then21.i46, %if.end19.i43
-  %9 = phi ptr [ %call.i47, %if.then21.i46 ], [ %.pre.i, %if.end19.i43 ]
-  tail call void @BIO_free_all(ptr noundef %9) #24
-  store ptr %wbio, ptr %wbio25.phi.trans.insert.i, align 8
-  %10 = load ptr, ptr %bbio.i44, align 8
-  %cmp28.not.i = icmp eq ptr %10, null
-  br i1 %cmp28.not.i, label %if.end34.i, label %if.then29.i
+if.end24.i50:                                     ; preds = %if.end19.i45
+  %wbio.i51 = getelementptr inbounds i8, ptr %s, i64 80
+  %9 = load ptr, ptr %wbio.i51, align 8
+  br label %SSL_get_wbio.exit55
 
-if.then29.i:                                      ; preds = %if.end24.i48
-  %call32.i = tail call ptr @BIO_push(ptr noundef nonnull %10, ptr noundef %wbio) #24
-  store ptr %call32.i, ptr %wbio25.phi.trans.insert.i, align 8
-  br label %if.end34.i
-
-if.end34.i:                                       ; preds = %if.then29.i, %if.end24.i48
-  %11 = phi ptr [ %call32.i, %if.then29.i ], [ %wbio, %if.end24.i48 ]
-  %wrlmethod.i = getelementptr inbounds i8, ptr %s, i64 3032
-  %12 = load ptr, ptr %wrlmethod.i, align 8
-  %set1_bio.i = getelementptr inbounds i8, ptr %12, i64 88
-  %13 = load ptr, ptr %set1_bio.i, align 8
-  %wrl.i = getelementptr inbounds i8, ptr %s, i64 3048
-  %14 = load ptr, ptr %wrl.i, align 8
-  %call37.i = tail call i32 %13(ptr noundef %14, ptr noundef %11) #24
-  br label %return
-
-cond.false.i53:                                   ; preds = %SSL_get_rbio.exit39
-  switch i32 %7, label %land.lhs.true.i64 [
-    i32 0, label %if.end19.i57
-    i32 1, label %if.then.i54
-  ]
-
-land.lhs.true.i64:                                ; preds = %cond.false.i53
-  %.off.i65 = add i32 %7, -1
-  %switch.i66 = icmp ult i32 %.off.i65, 2
-  br i1 %switch.i66, label %if.then.i54, label %SSL_get_wbio.exit67
-
-if.then.i54:                                      ; preds = %land.lhs.true.i64, %cond.false.i53
-  %call.i55 = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #24
-  br label %SSL_get_wbio.exit67
-
-if.end19.i57:                                     ; preds = %cond.false.i53
-  %bbio.i58 = getelementptr inbounds i8, ptr %s, i64 88
-  %15 = load ptr, ptr %bbio.i58, align 8
-  %cmp20.not.i59 = icmp eq ptr %15, null
-  br i1 %cmp20.not.i59, label %if.end24.i62, label %if.then21.i60
-
-if.then21.i60:                                    ; preds = %if.end19.i57
-  %call23.i61 = tail call ptr @BIO_next(ptr noundef nonnull %15) #24
-  br label %SSL_get_wbio.exit67
-
-if.end24.i62:                                     ; preds = %if.end19.i57
-  %wbio.i63 = getelementptr inbounds i8, ptr %s, i64 80
-  %16 = load ptr, ptr %wbio.i63, align 8
-  br label %SSL_get_wbio.exit67
-
-SSL_get_wbio.exit67:                              ; preds = %land.lhs.true.i64, %if.then.i54, %if.then21.i60, %if.end24.i62
-  %retval.0.i56 = phi ptr [ %call.i55, %if.then.i54 ], [ %call23.i61, %if.then21.i60 ], [ %16, %if.end24.i62 ], [ null, %land.lhs.true.i64 ]
-  %cmp14 = icmp eq ptr %retval.0.i56, %wbio
+SSL_get_wbio.exit55:                              ; preds = %land.lhs.true.i52, %if.then.i42, %if.then21.i48, %if.end24.i50
+  %retval.0.i44 = phi ptr [ %call.i43, %if.then.i42 ], [ %call23.i49, %if.then21.i48 ], [ %9, %if.end24.i50 ], [ null, %land.lhs.true.i52 ]
+  %cmp14 = icmp eq ptr %retval.0.i44, %wbio
   br i1 %cmp14, label %land.lhs.true15, label %if.end20
 
-land.lhs.true15:                                  ; preds = %SSL_get_wbio.exit67
-  br i1 %cmp.i, label %return, label %cond.false.i69
+land.lhs.true15:                                  ; preds = %SSL_get_wbio.exit55
+  br i1 %cmp.i, label %SSL_set0_rbio.exit103, label %cond.false.i57
 
-cond.false.i69:                                   ; preds = %land.lhs.true15
-  %17 = load i32, ptr %s, align 8
-  switch i32 %17, label %land.lhs.true.i75 [
-    i32 0, label %cond.false.i80.thread
-    i32 1, label %if.then.i70
+cond.false.i57:                                   ; preds = %land.lhs.true15
+  %10 = load i32, ptr %s, align 8
+  switch i32 %10, label %land.lhs.true.i63 [
+    i32 0, label %cond.false.i68.thread
+    i32 1, label %if.then.i58
   ]
 
-land.lhs.true.i75:                                ; preds = %cond.false.i69
-  %.off.i76 = add i32 %17, -1
-  %switch.i77 = icmp ult i32 %.off.i76, 2
-  br i1 %switch.i77, label %if.then.i70, label %cond.false.i80
+land.lhs.true.i63:                                ; preds = %cond.false.i57
+  %.off.i64 = add i32 %10, -1
+  %switch.i65 = icmp ult i32 %.off.i64, 2
+  br i1 %switch.i65, label %if.then.i58, label %cond.false.i68
 
-if.then.i70:                                      ; preds = %land.lhs.true.i75, %cond.false.i69
-  %call.i71 = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #24
+if.then.i58:                                      ; preds = %land.lhs.true.i63, %cond.false.i57
+  %call.i59 = tail call ptr @ossl_quic_conn_get_net_rbio(ptr noundef nonnull %s) #24
   %.pr = load i32, ptr %s, align 8
-  br label %cond.false.i80
+  br label %cond.false.i68
 
-cond.false.i80.thread:                            ; preds = %cond.false.i69
-  %rbio.i74 = getelementptr inbounds i8, ptr %s, i64 72
-  %18 = load ptr, ptr %rbio.i74, align 8
-  br label %if.end19.i84
+cond.false.i68.thread:                            ; preds = %cond.false.i57
+  %rbio.i62 = getelementptr inbounds i8, ptr %s, i64 72
+  %11 = load ptr, ptr %rbio.i62, align 8
+  br label %if.end19.i72
 
-cond.false.i80:                                   ; preds = %land.lhs.true.i75, %if.then.i70
-  %19 = phi i32 [ %17, %land.lhs.true.i75 ], [ %.pr, %if.then.i70 ]
-  %retval.0.i72.ph = phi ptr [ null, %land.lhs.true.i75 ], [ %call.i71, %if.then.i70 ]
-  switch i32 %19, label %land.lhs.true.i91 [
-    i32 0, label %if.end19.i84
-    i32 1, label %if.then.i81
+cond.false.i68:                                   ; preds = %land.lhs.true.i63, %if.then.i58
+  %12 = phi i32 [ %10, %land.lhs.true.i63 ], [ %.pr, %if.then.i58 ]
+  %retval.0.i60.ph = phi ptr [ null, %land.lhs.true.i63 ], [ %call.i59, %if.then.i58 ]
+  switch i32 %12, label %land.lhs.true.i79 [
+    i32 0, label %if.end19.i72
+    i32 1, label %if.then.i69
   ]
 
-land.lhs.true.i91:                                ; preds = %cond.false.i80
-  %.off.i92 = add i32 %19, -1
-  %switch.i93 = icmp ult i32 %.off.i92, 2
-  br i1 %switch.i93, label %if.then.i81, label %SSL_get_wbio.exit94
+land.lhs.true.i79:                                ; preds = %cond.false.i68
+  %.off.i80 = add i32 %12, -1
+  %switch.i81 = icmp ult i32 %.off.i80, 2
+  br i1 %switch.i81, label %if.then.i69, label %SSL_get_wbio.exit82
 
-if.then.i81:                                      ; preds = %land.lhs.true.i91, %cond.false.i80
-  %call.i82 = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #24
-  br label %SSL_get_wbio.exit94
+if.then.i69:                                      ; preds = %land.lhs.true.i79, %cond.false.i68
+  %call.i70 = tail call ptr @ossl_quic_conn_get_net_wbio(ptr noundef nonnull %s) #24
+  br label %SSL_get_wbio.exit82
 
-if.end19.i84:                                     ; preds = %cond.false.i80.thread, %cond.false.i80
-  %retval.0.i72.ph149 = phi ptr [ %18, %cond.false.i80.thread ], [ %retval.0.i72.ph, %cond.false.i80 ]
-  %bbio.i85 = getelementptr inbounds i8, ptr %s, i64 88
-  %20 = load ptr, ptr %bbio.i85, align 8
-  %cmp20.not.i86 = icmp eq ptr %20, null
-  br i1 %cmp20.not.i86, label %if.end24.i89, label %if.then21.i87
+if.end19.i72:                                     ; preds = %cond.false.i68.thread, %cond.false.i68
+  %retval.0.i60.ph112 = phi ptr [ %11, %cond.false.i68.thread ], [ %retval.0.i60.ph, %cond.false.i68 ]
+  %bbio.i73 = getelementptr inbounds i8, ptr %s, i64 88
+  %13 = load ptr, ptr %bbio.i73, align 8
+  %cmp20.not.i74 = icmp eq ptr %13, null
+  br i1 %cmp20.not.i74, label %if.end24.i77, label %if.then21.i75
 
-if.then21.i87:                                    ; preds = %if.end19.i84
-  %call23.i88 = tail call ptr @BIO_next(ptr noundef nonnull %20) #24
-  br label %SSL_get_wbio.exit94
+if.then21.i75:                                    ; preds = %if.end19.i72
+  %call23.i76 = tail call ptr @BIO_next(ptr noundef nonnull %13) #24
+  br label %SSL_get_wbio.exit82
 
-if.end24.i89:                                     ; preds = %if.end19.i84
-  %wbio.i90 = getelementptr inbounds i8, ptr %s, i64 80
-  %21 = load ptr, ptr %wbio.i90, align 8
-  br label %SSL_get_wbio.exit94
+if.end24.i77:                                     ; preds = %if.end19.i72
+  %wbio.i78 = getelementptr inbounds i8, ptr %s, i64 80
+  %14 = load ptr, ptr %wbio.i78, align 8
+  br label %SSL_get_wbio.exit82
 
-SSL_get_wbio.exit94:                              ; preds = %land.lhs.true.i91, %if.then.i81, %if.then21.i87, %if.end24.i89
-  %retval.0.i72147 = phi ptr [ %retval.0.i72.ph, %if.then.i81 ], [ %retval.0.i72.ph149, %if.then21.i87 ], [ %retval.0.i72.ph149, %if.end24.i89 ], [ %retval.0.i72.ph, %land.lhs.true.i91 ]
-  %retval.0.i83 = phi ptr [ %call.i82, %if.then.i81 ], [ %call23.i88, %if.then21.i87 ], [ %21, %if.end24.i89 ], [ null, %land.lhs.true.i91 ]
-  %cmp18.not = icmp eq ptr %retval.0.i72147, %retval.0.i83
-  %.pre155 = load i32, ptr %s, align 8
-  br i1 %cmp18.not, label %cond.false.i105, label %cond.false.i96
+SSL_get_wbio.exit82:                              ; preds = %land.lhs.true.i79, %if.then.i69, %if.then21.i75, %if.end24.i77
+  %retval.0.i60110 = phi ptr [ %retval.0.i60.ph, %if.then.i69 ], [ %retval.0.i60.ph112, %if.then21.i75 ], [ %retval.0.i60.ph112, %if.end24.i77 ], [ %retval.0.i60.ph, %land.lhs.true.i79 ]
+  %retval.0.i71 = phi ptr [ %call.i70, %if.then.i69 ], [ %call23.i76, %if.then21.i75 ], [ %14, %if.end24.i77 ], [ null, %land.lhs.true.i79 ]
+  %cmp18.not = icmp eq ptr %retval.0.i60110, %retval.0.i71
+  %.pre117 = load i32, ptr %s, align 8
+  br i1 %cmp18.not, label %cond.false.i92, label %cond.false.i84
 
-cond.false.i96:                                   ; preds = %SSL_get_wbio.exit94
-  switch i32 %.pre155, label %land.lhs.true.i101 [
-    i32 0, label %if.end19.i98
-    i32 1, label %if.then.i97
+cond.false.i84:                                   ; preds = %SSL_get_wbio.exit82
+  switch i32 %.pre117, label %land.lhs.true.i88 [
+    i32 0, label %if.end19.i86
+    i32 1, label %if.then.i85
   ]
 
-land.lhs.true.i101:                               ; preds = %cond.false.i96
-  %.off.i102 = add i32 %.pre155, -1
-  %switch.i103 = icmp ult i32 %.off.i102, 2
-  br i1 %switch.i103, label %if.then.i97, label %return
+land.lhs.true.i88:                                ; preds = %cond.false.i84
+  %.off.i89 = add i32 %.pre117, -1
+  %switch.i90 = icmp ult i32 %.off.i89, 2
+  br i1 %switch.i90, label %if.then.i85, label %return
 
-if.then.i97:                                      ; preds = %land.lhs.true.i101, %cond.false.i96
+if.then.i85:                                      ; preds = %land.lhs.true.i88, %cond.false.i84
   tail call void @ossl_quic_conn_set0_net_rbio(ptr noundef nonnull %s, ptr noundef %rbio) #24
   br label %return
 
-if.end19.i98:                                     ; preds = %cond.false.i96
+if.end19.i86:                                     ; preds = %cond.false.i84
   %rbio20.i = getelementptr inbounds i8, ptr %s, i64 72
-  %22 = load ptr, ptr %rbio20.i, align 8
-  tail call void @BIO_free_all(ptr noundef %22) #24
+  %15 = load ptr, ptr %rbio20.i, align 8
+  tail call void @BIO_free_all(ptr noundef %15) #24
   store ptr %rbio, ptr %rbio20.i, align 8
   %rrlmethod.i = getelementptr inbounds i8, ptr %s, i64 3024
-  %23 = load ptr, ptr %rrlmethod.i, align 8
-  %set1_bio.i99 = getelementptr inbounds i8, ptr %23, i64 88
-  %24 = load ptr, ptr %set1_bio.i99, align 8
+  %16 = load ptr, ptr %rrlmethod.i, align 8
+  %set1_bio.i = getelementptr inbounds i8, ptr %16, i64 88
+  %17 = load ptr, ptr %set1_bio.i, align 8
   %rrl.i = getelementptr inbounds i8, ptr %s, i64 3040
-  %25 = load ptr, ptr %rrl.i, align 8
-  %call.i100 = tail call i32 %24(ptr noundef %25, ptr noundef %rbio) #24
+  %18 = load ptr, ptr %rrl.i, align 8
+  %call.i87 = tail call i32 %17(ptr noundef %18, ptr noundef %rbio) #24
   br label %return
 
-if.end20:                                         ; preds = %SSL_get_wbio.exit67
-  br i1 %cmp.i, label %return, label %if.end20.cond.false.i105_crit_edge
+if.end20:                                         ; preds = %SSL_get_wbio.exit55
+  br i1 %cmp.i, label %SSL_set0_rbio.exit103, label %if.end20.cond.false.i92_crit_edge
 
-if.end20.cond.false.i105_crit_edge:               ; preds = %if.end20
+if.end20.cond.false.i92_crit_edge:                ; preds = %if.end20
   %.pre = load i32, ptr %s, align 8
-  br label %cond.false.i105
+  br label %cond.false.i92
 
-cond.false.i105:                                  ; preds = %if.end20.cond.false.i105_crit_edge, %SSL_get_wbio.exit94
-  %26 = phi i32 [ %.pre, %if.end20.cond.false.i105_crit_edge ], [ %.pre155, %SSL_get_wbio.exit94 ]
-  switch i32 %26, label %land.lhs.true.i113 [
-    i32 0, label %if.end19.i107
-    i32 1, label %if.then.i106
+cond.false.i92:                                   ; preds = %if.end20.cond.false.i92_crit_edge, %SSL_get_wbio.exit82
+  %19 = phi i32 [ %.pre, %if.end20.cond.false.i92_crit_edge ], [ %.pre117, %SSL_get_wbio.exit82 ]
+  switch i32 %19, label %land.lhs.true.i100 [
+    i32 0, label %if.end19.i94
+    i32 1, label %if.then.i93
   ]
 
-land.lhs.true.i113:                               ; preds = %cond.false.i105
-  %.off.i114 = add i32 %26, -1
-  %switch.i115 = icmp ult i32 %.off.i114, 2
-  br i1 %switch.i115, label %if.then.i106, label %cond.false.i118
+land.lhs.true.i100:                               ; preds = %cond.false.i92
+  %.off.i101 = add i32 %19, -1
+  %switch.i102 = icmp ult i32 %.off.i101, 2
+  br i1 %switch.i102, label %if.then.i93, label %SSL_set0_rbio.exit103
 
-if.then.i106:                                     ; preds = %land.lhs.true.i113, %cond.false.i105
+if.then.i93:                                      ; preds = %land.lhs.true.i100, %cond.false.i92
   tail call void @ossl_quic_conn_set0_net_rbio(ptr noundef nonnull %s, ptr noundef %rbio) #24
-  br label %cond.false.i118thread-pre-split
+  br label %SSL_set0_rbio.exit103
 
-if.end19.i107:                                    ; preds = %cond.false.i105
-  %rbio20.i108 = getelementptr inbounds i8, ptr %s, i64 72
-  %27 = load ptr, ptr %rbio20.i108, align 8
-  tail call void @BIO_free_all(ptr noundef %27) #24
-  store ptr %rbio, ptr %rbio20.i108, align 8
-  %rrlmethod.i109 = getelementptr inbounds i8, ptr %s, i64 3024
-  %28 = load ptr, ptr %rrlmethod.i109, align 8
-  %set1_bio.i110 = getelementptr inbounds i8, ptr %28, i64 88
-  %29 = load ptr, ptr %set1_bio.i110, align 8
-  %rrl.i111 = getelementptr inbounds i8, ptr %s, i64 3040
-  %30 = load ptr, ptr %rrl.i111, align 8
-  %call.i112 = tail call i32 %29(ptr noundef %30, ptr noundef %rbio) #24
-  br label %cond.false.i118thread-pre-split
+if.end19.i94:                                     ; preds = %cond.false.i92
+  %rbio20.i95 = getelementptr inbounds i8, ptr %s, i64 72
+  %20 = load ptr, ptr %rbio20.i95, align 8
+  tail call void @BIO_free_all(ptr noundef %20) #24
+  store ptr %rbio, ptr %rbio20.i95, align 8
+  %rrlmethod.i96 = getelementptr inbounds i8, ptr %s, i64 3024
+  %21 = load ptr, ptr %rrlmethod.i96, align 8
+  %set1_bio.i97 = getelementptr inbounds i8, ptr %21, i64 88
+  %22 = load ptr, ptr %set1_bio.i97, align 8
+  %rrl.i98 = getelementptr inbounds i8, ptr %s, i64 3040
+  %23 = load ptr, ptr %rrl.i98, align 8
+  %call.i99 = tail call i32 %22(ptr noundef %23, ptr noundef %rbio) #24
+  br label %SSL_set0_rbio.exit103
 
-cond.false.i118thread-pre-split:                  ; preds = %if.end19.i107, %if.then.i106
-  %.pr154 = load i32, ptr %s, align 8
-  br label %cond.false.i118
-
-cond.false.i118:                                  ; preds = %cond.false.i118thread-pre-split, %land.lhs.true.i113
-  %31 = phi i32 [ %.pr154, %cond.false.i118thread-pre-split ], [ %26, %land.lhs.true.i113 ]
-  switch i32 %31, label %land.lhs.true.i137 [
-    i32 0, label %if.end19.i120
-    i32 1, label %if.then.i119
-  ]
-
-land.lhs.true.i137:                               ; preds = %cond.false.i118
-  %.off.i138 = add i32 %31, -1
-  %switch.i139 = icmp ult i32 %.off.i138, 2
-  br i1 %switch.i139, label %if.then.i119, label %return
-
-if.then.i119:                                     ; preds = %land.lhs.true.i137, %cond.false.i118
-  tail call void @ossl_quic_conn_set0_net_wbio(ptr noundef nonnull %s, ptr noundef %wbio) #24
+SSL_set0_rbio.exit103:                            ; preds = %SSL_get_rbio.exit39.thread, %land.lhs.true15, %if.end20, %land.lhs.true.i100, %if.then.i93, %if.end19.i94
+  tail call void @SSL_set0_wbio(ptr noundef %s, ptr noundef %wbio)
   br label %return
 
-if.end19.i120:                                    ; preds = %cond.false.i118
-  %bbio.i121 = getelementptr inbounds i8, ptr %s, i64 88
-  %32 = load ptr, ptr %bbio.i121, align 8
-  %cmp20.not.i122 = icmp eq ptr %32, null
-  %wbio25.phi.trans.insert.i123 = getelementptr inbounds i8, ptr %s, i64 80
-  %.pre.i124 = load ptr, ptr %wbio25.phi.trans.insert.i123, align 8
-  br i1 %cmp20.not.i122, label %if.end24.i127, label %if.then21.i125
-
-if.then21.i125:                                   ; preds = %if.end19.i120
-  %call.i126 = tail call ptr @BIO_pop(ptr noundef %.pre.i124) #24
-  store ptr %call.i126, ptr %wbio25.phi.trans.insert.i123, align 8
-  br label %if.end24.i127
-
-if.end24.i127:                                    ; preds = %if.then21.i125, %if.end19.i120
-  %33 = phi ptr [ %call.i126, %if.then21.i125 ], [ %.pre.i124, %if.end19.i120 ]
-  tail call void @BIO_free_all(ptr noundef %33) #24
-  store ptr %wbio, ptr %wbio25.phi.trans.insert.i123, align 8
-  %34 = load ptr, ptr %bbio.i121, align 8
-  %cmp28.not.i129 = icmp eq ptr %34, null
-  br i1 %cmp28.not.i129, label %if.end34.i132, label %if.then29.i130
-
-if.then29.i130:                                   ; preds = %if.end24.i127
-  %call32.i131 = tail call ptr @BIO_push(ptr noundef nonnull %34, ptr noundef %wbio) #24
-  store ptr %call32.i131, ptr %wbio25.phi.trans.insert.i123, align 8
-  br label %if.end34.i132
-
-if.end34.i132:                                    ; preds = %if.then29.i130, %if.end24.i127
-  %35 = phi ptr [ %call32.i131, %if.then29.i130 ], [ %wbio, %if.end24.i127 ]
-  %wrlmethod.i133 = getelementptr inbounds i8, ptr %s, i64 3032
-  %36 = load ptr, ptr %wrlmethod.i133, align 8
-  %set1_bio.i134 = getelementptr inbounds i8, ptr %36, i64 88
-  %37 = load ptr, ptr %set1_bio.i134, align 8
-  %wrl.i135 = getelementptr inbounds i8, ptr %s, i64 3048
-  %38 = load ptr, ptr %wrl.i135, align 8
-  %call37.i136 = tail call i32 %37(ptr noundef %38, ptr noundef %35) #24
-  br label %return
-
-return:                                           ; preds = %if.end8, %land.lhs.true15, %if.end34.i132, %if.then.i119, %land.lhs.true.i137, %if.end20, %if.end19.i98, %if.then.i97, %land.lhs.true.i101, %if.end34.i, %if.then.i42, %land.lhs.true.i49, %SSL_get_wbio.exit
+return:                                           ; preds = %if.end19.i86, %if.then.i85, %land.lhs.true.i88, %SSL_get_wbio.exit, %SSL_set0_rbio.exit103, %if.then11
   ret void
 }
 

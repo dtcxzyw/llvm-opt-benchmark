@@ -6851,72 +6851,8 @@ define dso_local i32 @helper_atomic_fetch_addl_be(ptr noundef %env, i64 noundef 
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 3
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !25
-  fence seq_cst
-  %5 = load atomic i32, ptr %3 monotonic, align 4
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i32 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i32 @llvm.bswap.i32(i32 %ldn.0.i)
-  %add.i = add i32 %6, %val
-  %7 = tail call i32 @llvm.bswap.i32(i32 %add.i)
-  %8 = cmpxchg ptr %3, i32 %ldn.0.i, i32 %7 seq_cst seq_cst, align 4
-  %9 = extractvalue { i32, i1 } %8, 0
-  %cmp.not.i = icmp eq i32 %ldn.0.i, %9
-  br i1 %cmp.not.i, label %cpu_atomic_fetch_addl_be_mmu.exit, label %do.body.i, !llvm.loop !26
-
-cpu_atomic_fetch_addl_be_mmu.exit:                ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %6
+  %call = tail call i32 @cpu_atomic_fetch_addl_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -7109,72 +7045,8 @@ define dso_local i64 @helper_atomic_fetch_addq_be(ptr noundef %env, i64 noundef 
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 7
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !27
-  fence seq_cst
-  %5 = load atomic i64, ptr %3 monotonic, align 8
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i64 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i64 @llvm.bswap.i64(i64 %ldn.0.i)
-  %add.i = add i64 %6, %val
-  %7 = tail call i64 @llvm.bswap.i64(i64 %add.i)
-  %8 = cmpxchg ptr %3, i64 %ldn.0.i, i64 %7 seq_cst seq_cst, align 8
-  %9 = extractvalue { i64, i1 } %8, 0
-  %cmp.not.i = icmp eq i64 %ldn.0.i, %9
-  br i1 %cmp.not.i, label %cpu_atomic_fetch_addq_be_mmu.exit, label %do.body.i, !llvm.loop !28
-
-cpu_atomic_fetch_addq_be_mmu.exit:                ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i64 %6
+  %call = tail call i64 @cpu_atomic_fetch_addq_be_mmu(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -9993,74 +9865,8 @@ define dso_local i32 @helper_atomic_fetch_sminw_le(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 1
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !34
-  fence seq_cst
-  %5 = load atomic i16, ptr %3 monotonic, align 2
-  %sext.i = shl i32 %val, 16
-  %conv3.i = ashr exact i32 %sext.i, 16
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %cmp.0.i = phi i16 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
-  %conv2.i = sext i16 %cmp.0.i to i32
-  %cond.i = tail call i32 @llvm.smin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
-  %6 = cmpxchg ptr %3, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
-  %7 = extractvalue { i16, i1 } %6, 0
-  %cmp10.not.i = extractvalue { i16, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_fetch_sminw_le_mmu.exit, label %do.body.i, !llvm.loop !35
-
-cpu_atomic_fetch_sminw_le_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %conv2.i
+  %call = tail call i32 @cpu_atomic_fetch_sminw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !31
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -10141,72 +9947,8 @@ define dso_local i32 @helper_atomic_fetch_sminl_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 3
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !36
-  fence seq_cst
-  %5 = load atomic i32, ptr %3 monotonic, align 4
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i32 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i32 @llvm.bswap.i32(i32 %ldn.0.i)
-  %cond.i = tail call i32 @llvm.smin.i32(i32 %6, i32 %val)
-  %7 = tail call i32 @llvm.bswap.i32(i32 %cond.i)
-  %8 = cmpxchg ptr %3, i32 %ldn.0.i, i32 %7 seq_cst seq_cst, align 4
-  %9 = extractvalue { i32, i1 } %8, 0
-  %cmp3.not.i = icmp eq i32 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_fetch_sminl_be_mmu.exit, label %do.body.i, !llvm.loop !37
-
-cpu_atomic_fetch_sminl_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %6
+  %call = tail call i32 @cpu_atomic_fetch_sminl_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -10425,72 +10167,8 @@ define dso_local i64 @helper_atomic_fetch_sminq_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 7
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !40
-  fence seq_cst
-  %5 = load atomic i64, ptr %3 monotonic, align 8
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i64 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i64 @llvm.bswap.i64(i64 %ldn.0.i)
-  %cond.i = tail call i64 @llvm.smin.i64(i64 %6, i64 %val)
-  %7 = tail call i64 @llvm.bswap.i64(i64 %cond.i)
-  %8 = cmpxchg ptr %3, i64 %ldn.0.i, i64 %7 seq_cst seq_cst, align 8
-  %9 = extractvalue { i64, i1 } %8, 0
-  %cmp3.not.i = icmp eq i64 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_fetch_sminq_be_mmu.exit, label %do.body.i, !llvm.loop !41
-
-cpu_atomic_fetch_sminq_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i64 %6
+  %call = tail call i64 @cpu_atomic_fetch_sminq_be_mmu(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -10920,73 +10598,8 @@ define dso_local i32 @helper_atomic_fetch_uminw_le(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 1
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !48
-  fence seq_cst
-  %5 = load atomic i16, ptr %3 monotonic, align 2
-  %conv3.i = and i32 %val, 65535
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %cmp.0.i = phi i16 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
-  %conv2.i = zext i16 %cmp.0.i to i32
-  %cond.i = tail call i32 @llvm.umin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
-  %6 = cmpxchg ptr %3, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
-  %7 = extractvalue { i16, i1 } %6, 0
-  %cmp10.not.i = extractvalue { i16, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_fetch_uminw_le_mmu.exit, label %do.body.i, !llvm.loop !49
-
-cpu_atomic_fetch_uminw_le_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %conv2.i
+  %call = tail call i32 @cpu_atomic_fetch_uminw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !22
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -11066,72 +10679,8 @@ define dso_local i32 @helper_atomic_fetch_uminl_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 3
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !50
-  fence seq_cst
-  %5 = load atomic i32, ptr %3 monotonic, align 4
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i32 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i32 @llvm.bswap.i32(i32 %ldn.0.i)
-  %cond.i = tail call i32 @llvm.umin.i32(i32 %6, i32 %val)
-  %7 = tail call i32 @llvm.bswap.i32(i32 %cond.i)
-  %8 = cmpxchg ptr %3, i32 %ldn.0.i, i32 %7 seq_cst seq_cst, align 4
-  %9 = extractvalue { i32, i1 } %8, 0
-  %cmp3.not.i = icmp eq i32 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_fetch_uminl_be_mmu.exit, label %do.body.i, !llvm.loop !51
-
-cpu_atomic_fetch_uminl_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %6
+  %call = tail call i32 @cpu_atomic_fetch_uminl_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -11350,72 +10899,8 @@ define dso_local i64 @helper_atomic_fetch_uminq_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 7
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !54
-  fence seq_cst
-  %5 = load atomic i64, ptr %3 monotonic, align 8
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i64 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i64 @llvm.bswap.i64(i64 %ldn.0.i)
-  %cond.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %val)
-  %7 = tail call i64 @llvm.bswap.i64(i64 %cond.i)
-  %8 = cmpxchg ptr %3, i64 %ldn.0.i, i64 %7 seq_cst seq_cst, align 8
-  %9 = extractvalue { i64, i1 } %8, 0
-  %cmp3.not.i = icmp eq i64 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_fetch_uminq_be_mmu.exit, label %do.body.i, !llvm.loop !55
-
-cpu_atomic_fetch_uminq_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i64 %6
+  %call = tail call i64 @cpu_atomic_fetch_uminq_be_mmu(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -11848,74 +11333,8 @@ define dso_local i32 @helper_atomic_fetch_smaxw_le(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 1
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !62
-  fence seq_cst
-  %5 = load atomic i16, ptr %3 monotonic, align 2
-  %sext.i = shl i32 %val, 16
-  %conv3.i = ashr exact i32 %sext.i, 16
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %cmp.0.i = phi i16 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
-  %conv2.i = sext i16 %cmp.0.i to i32
-  %cond.i = tail call i32 @llvm.smax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
-  %6 = cmpxchg ptr %3, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
-  %7 = extractvalue { i16, i1 } %6, 0
-  %cmp10.not.i = extractvalue { i16, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_fetch_smaxw_le_mmu.exit, label %do.body.i, !llvm.loop !63
-
-cpu_atomic_fetch_smaxw_le_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %conv2.i
+  %call = tail call i32 @cpu_atomic_fetch_smaxw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !31
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -11996,72 +11415,8 @@ define dso_local i32 @helper_atomic_fetch_smaxl_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 3
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !64
-  fence seq_cst
-  %5 = load atomic i32, ptr %3 monotonic, align 4
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i32 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i32 @llvm.bswap.i32(i32 %ldn.0.i)
-  %cond.i = tail call i32 @llvm.smax.i32(i32 %6, i32 %val)
-  %7 = tail call i32 @llvm.bswap.i32(i32 %cond.i)
-  %8 = cmpxchg ptr %3, i32 %ldn.0.i, i32 %7 seq_cst seq_cst, align 4
-  %9 = extractvalue { i32, i1 } %8, 0
-  %cmp3.not.i = icmp eq i32 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_fetch_smaxl_be_mmu.exit, label %do.body.i, !llvm.loop !65
-
-cpu_atomic_fetch_smaxl_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %6
+  %call = tail call i32 @cpu_atomic_fetch_smaxl_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -12280,72 +11635,8 @@ define dso_local i64 @helper_atomic_fetch_smaxq_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 7
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !68
-  fence seq_cst
-  %5 = load atomic i64, ptr %3 monotonic, align 8
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i64 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i64 @llvm.bswap.i64(i64 %ldn.0.i)
-  %cond.i = tail call i64 @llvm.smax.i64(i64 %6, i64 %val)
-  %7 = tail call i64 @llvm.bswap.i64(i64 %cond.i)
-  %8 = cmpxchg ptr %3, i64 %ldn.0.i, i64 %7 seq_cst seq_cst, align 8
-  %9 = extractvalue { i64, i1 } %8, 0
-  %cmp3.not.i = icmp eq i64 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_fetch_smaxq_be_mmu.exit, label %do.body.i, !llvm.loop !69
-
-cpu_atomic_fetch_smaxq_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i64 %6
+  %call = tail call i64 @cpu_atomic_fetch_smaxq_be_mmu(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -12775,73 +12066,8 @@ define dso_local i32 @helper_atomic_fetch_umaxw_le(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 1
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !76
-  fence seq_cst
-  %5 = load atomic i16, ptr %3 monotonic, align 2
-  %conv3.i = and i32 %val, 65535
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %cmp.0.i = phi i16 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
-  %conv2.i = zext i16 %cmp.0.i to i32
-  %cond.i = tail call i32 @llvm.umax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
-  %6 = cmpxchg ptr %3, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
-  %7 = extractvalue { i16, i1 } %6, 0
-  %cmp10.not.i = extractvalue { i16, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_fetch_umaxw_le_mmu.exit, label %do.body.i, !llvm.loop !77
-
-cpu_atomic_fetch_umaxw_le_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %conv2.i
+  %call = tail call i32 @cpu_atomic_fetch_umaxw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !22
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -12921,72 +12147,8 @@ define dso_local i32 @helper_atomic_fetch_umaxl_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 3
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !78
-  fence seq_cst
-  %5 = load atomic i32, ptr %3 monotonic, align 4
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i32 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i32 @llvm.bswap.i32(i32 %ldn.0.i)
-  %cond.i = tail call i32 @llvm.umax.i32(i32 %6, i32 %val)
-  %7 = tail call i32 @llvm.bswap.i32(i32 %cond.i)
-  %8 = cmpxchg ptr %3, i32 %ldn.0.i, i32 %7 seq_cst seq_cst, align 4
-  %9 = extractvalue { i32, i1 } %8, 0
-  %cmp3.not.i = icmp eq i32 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_fetch_umaxl_be_mmu.exit, label %do.body.i, !llvm.loop !79
-
-cpu_atomic_fetch_umaxl_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %6
+  %call = tail call i32 @cpu_atomic_fetch_umaxl_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -13205,72 +12367,8 @@ define dso_local i64 @helper_atomic_fetch_umaxq_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 7
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !82
-  fence seq_cst
-  %5 = load atomic i64, ptr %3 monotonic, align 8
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i64 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i64 @llvm.bswap.i64(i64 %ldn.0.i)
-  %cond.i = tail call i64 @llvm.umax.i64(i64 %6, i64 %val)
-  %7 = tail call i64 @llvm.bswap.i64(i64 %cond.i)
-  %8 = cmpxchg ptr %3, i64 %ldn.0.i, i64 %7 seq_cst seq_cst, align 8
-  %9 = extractvalue { i64, i1 } %8, 0
-  %cmp3.not.i = icmp eq i64 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_fetch_umaxq_be_mmu.exit, label %do.body.i, !llvm.loop !83
-
-cpu_atomic_fetch_umaxq_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i64 %6
+  %call = tail call i64 @cpu_atomic_fetch_umaxq_be_mmu(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -13793,72 +12891,8 @@ define dso_local i32 @helper_atomic_add_fetchl_be(ptr noundef %env, i64 noundef 
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 3
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !88
-  fence seq_cst
-  %5 = load atomic i32, ptr %3 monotonic, align 4
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i32 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i32 @llvm.bswap.i32(i32 %ldn.0.i)
-  %add.i = add i32 %6, %val
-  %7 = tail call i32 @llvm.bswap.i32(i32 %add.i)
-  %8 = cmpxchg ptr %3, i32 %ldn.0.i, i32 %7 seq_cst seq_cst, align 4
-  %9 = extractvalue { i32, i1 } %8, 0
-  %cmp.not.i = icmp eq i32 %ldn.0.i, %9
-  br i1 %cmp.not.i, label %cpu_atomic_add_fetchl_be_mmu.exit, label %do.body.i, !llvm.loop !89
-
-cpu_atomic_add_fetchl_be_mmu.exit:                ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %add.i
+  %call = tail call i32 @cpu_atomic_add_fetchl_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -14053,72 +13087,8 @@ define dso_local i64 @helper_atomic_add_fetchq_be(ptr noundef %env, i64 noundef 
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 7
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !90
-  fence seq_cst
-  %5 = load atomic i64, ptr %3 monotonic, align 8
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i64 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i64 @llvm.bswap.i64(i64 %ldn.0.i)
-  %add.i = add i64 %6, %val
-  %7 = tail call i64 @llvm.bswap.i64(i64 %add.i)
-  %8 = cmpxchg ptr %3, i64 %ldn.0.i, i64 %7 seq_cst seq_cst, align 8
-  %9 = extractvalue { i64, i1 } %8, 0
-  %cmp.not.i = icmp eq i64 %ldn.0.i, %9
-  br i1 %cmp.not.i, label %cpu_atomic_add_fetchq_be_mmu.exit, label %do.body.i, !llvm.loop !91
-
-cpu_atomic_add_fetchq_be_mmu.exit:                ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i64 %add.i
+  %call = tail call i64 @cpu_atomic_add_fetchq_be_mmu(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -16981,74 +15951,8 @@ define dso_local i32 @helper_atomic_smin_fetchw_le(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 1
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !96
-  fence seq_cst
-  %5 = load atomic i16, ptr %3 monotonic, align 2
-  %sext.i = shl i32 %val, 16
-  %conv3.i = ashr exact i32 %sext.i, 16
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %cmp.0.i = phi i16 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
-  %conv2.i = sext i16 %cmp.0.i to i32
-  %cond.i = tail call i32 @llvm.smin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
-  %6 = cmpxchg ptr %3, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
-  %7 = extractvalue { i16, i1 } %6, 0
-  %cmp10.not.i = extractvalue { i16, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_smin_fetchw_le_mmu.exit, label %do.body.i, !llvm.loop !97
-
-cpu_atomic_smin_fetchw_le_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %cond.i
+  %call = tail call i32 @cpu_atomic_smin_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !31
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -17129,72 +16033,8 @@ define dso_local i32 @helper_atomic_smin_fetchl_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 3
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !98
-  fence seq_cst
-  %5 = load atomic i32, ptr %3 monotonic, align 4
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i32 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i32 @llvm.bswap.i32(i32 %ldn.0.i)
-  %cond.i = tail call i32 @llvm.smin.i32(i32 %6, i32 %val)
-  %7 = tail call i32 @llvm.bswap.i32(i32 %cond.i)
-  %8 = cmpxchg ptr %3, i32 %ldn.0.i, i32 %7 seq_cst seq_cst, align 4
-  %9 = extractvalue { i32, i1 } %8, 0
-  %cmp3.not.i = icmp eq i32 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_smin_fetchl_be_mmu.exit, label %do.body.i, !llvm.loop !99
-
-cpu_atomic_smin_fetchl_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %cond.i
+  %call = tail call i32 @cpu_atomic_smin_fetchl_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -17413,72 +16253,8 @@ define dso_local i64 @helper_atomic_smin_fetchq_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 7
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !102
-  fence seq_cst
-  %5 = load atomic i64, ptr %3 monotonic, align 8
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i64 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i64 @llvm.bswap.i64(i64 %ldn.0.i)
-  %cond.i = tail call i64 @llvm.smin.i64(i64 %6, i64 %val)
-  %7 = tail call i64 @llvm.bswap.i64(i64 %cond.i)
-  %8 = cmpxchg ptr %3, i64 %ldn.0.i, i64 %7 seq_cst seq_cst, align 8
-  %9 = extractvalue { i64, i1 } %8, 0
-  %cmp3.not.i = icmp eq i64 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_smin_fetchq_be_mmu.exit, label %do.body.i, !llvm.loop !103
-
-cpu_atomic_smin_fetchq_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i64 %cond.i
+  %call = tail call i64 @cpu_atomic_smin_fetchq_be_mmu(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -17908,73 +16684,8 @@ define dso_local i32 @helper_atomic_umin_fetchw_le(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 1
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !110
-  fence seq_cst
-  %5 = load atomic i16, ptr %3 monotonic, align 2
-  %conv3.i = and i32 %val, 65535
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %cmp.0.i = phi i16 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
-  %conv2.i = zext i16 %cmp.0.i to i32
-  %cond.i = tail call i32 @llvm.umin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
-  %6 = cmpxchg ptr %3, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
-  %7 = extractvalue { i16, i1 } %6, 0
-  %cmp10.not.i = extractvalue { i16, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_umin_fetchw_le_mmu.exit, label %do.body.i, !llvm.loop !111
-
-cpu_atomic_umin_fetchw_le_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %cond.i
+  %call = tail call i32 @cpu_atomic_umin_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !22
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -18054,72 +16765,8 @@ define dso_local i32 @helper_atomic_umin_fetchl_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 3
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !112
-  fence seq_cst
-  %5 = load atomic i32, ptr %3 monotonic, align 4
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i32 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i32 @llvm.bswap.i32(i32 %ldn.0.i)
-  %cond.i = tail call i32 @llvm.umin.i32(i32 %6, i32 %val)
-  %7 = tail call i32 @llvm.bswap.i32(i32 %cond.i)
-  %8 = cmpxchg ptr %3, i32 %ldn.0.i, i32 %7 seq_cst seq_cst, align 4
-  %9 = extractvalue { i32, i1 } %8, 0
-  %cmp3.not.i = icmp eq i32 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_umin_fetchl_be_mmu.exit, label %do.body.i, !llvm.loop !113
-
-cpu_atomic_umin_fetchl_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %cond.i
+  %call = tail call i32 @cpu_atomic_umin_fetchl_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -18338,72 +16985,8 @@ define dso_local i64 @helper_atomic_umin_fetchq_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 7
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !116
-  fence seq_cst
-  %5 = load atomic i64, ptr %3 monotonic, align 8
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i64 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i64 @llvm.bswap.i64(i64 %ldn.0.i)
-  %cond.i = tail call i64 @llvm.umin.i64(i64 %6, i64 %val)
-  %7 = tail call i64 @llvm.bswap.i64(i64 %cond.i)
-  %8 = cmpxchg ptr %3, i64 %ldn.0.i, i64 %7 seq_cst seq_cst, align 8
-  %9 = extractvalue { i64, i1 } %8, 0
-  %cmp3.not.i = icmp eq i64 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_umin_fetchq_be_mmu.exit, label %do.body.i, !llvm.loop !117
-
-cpu_atomic_umin_fetchq_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i64 %cond.i
+  %call = tail call i64 @cpu_atomic_umin_fetchq_be_mmu(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -18836,74 +17419,8 @@ define dso_local i32 @helper_atomic_smax_fetchw_le(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 1
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !124
-  fence seq_cst
-  %5 = load atomic i16, ptr %3 monotonic, align 2
-  %sext.i = shl i32 %val, 16
-  %conv3.i = ashr exact i32 %sext.i, 16
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %cmp.0.i = phi i16 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
-  %conv2.i = sext i16 %cmp.0.i to i32
-  %cond.i = tail call i32 @llvm.smax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
-  %6 = cmpxchg ptr %3, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
-  %7 = extractvalue { i16, i1 } %6, 0
-  %cmp10.not.i = extractvalue { i16, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_smax_fetchw_le_mmu.exit, label %do.body.i, !llvm.loop !125
-
-cpu_atomic_smax_fetchw_le_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %cond.i
+  %call = tail call i32 @cpu_atomic_smax_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !31
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -18984,72 +17501,8 @@ define dso_local i32 @helper_atomic_smax_fetchl_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 3
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !126
-  fence seq_cst
-  %5 = load atomic i32, ptr %3 monotonic, align 4
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i32 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i32 @llvm.bswap.i32(i32 %ldn.0.i)
-  %cond.i = tail call i32 @llvm.smax.i32(i32 %6, i32 %val)
-  %7 = tail call i32 @llvm.bswap.i32(i32 %cond.i)
-  %8 = cmpxchg ptr %3, i32 %ldn.0.i, i32 %7 seq_cst seq_cst, align 4
-  %9 = extractvalue { i32, i1 } %8, 0
-  %cmp3.not.i = icmp eq i32 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_smax_fetchl_be_mmu.exit, label %do.body.i, !llvm.loop !127
-
-cpu_atomic_smax_fetchl_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %cond.i
+  %call = tail call i32 @cpu_atomic_smax_fetchl_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -19268,72 +17721,8 @@ define dso_local i64 @helper_atomic_smax_fetchq_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 7
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !130
-  fence seq_cst
-  %5 = load atomic i64, ptr %3 monotonic, align 8
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i64 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i64 @llvm.bswap.i64(i64 %ldn.0.i)
-  %cond.i = tail call i64 @llvm.smax.i64(i64 %6, i64 %val)
-  %7 = tail call i64 @llvm.bswap.i64(i64 %cond.i)
-  %8 = cmpxchg ptr %3, i64 %ldn.0.i, i64 %7 seq_cst seq_cst, align 8
-  %9 = extractvalue { i64, i1 } %8, 0
-  %cmp3.not.i = icmp eq i64 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_smax_fetchq_be_mmu.exit, label %do.body.i, !llvm.loop !131
-
-cpu_atomic_smax_fetchq_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i64 %cond.i
+  %call = tail call i64 @cpu_atomic_smax_fetchq_be_mmu(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -19763,73 +18152,8 @@ define dso_local i32 @helper_atomic_umax_fetchw_le(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 1
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !138
-  fence seq_cst
-  %5 = load atomic i16, ptr %3 monotonic, align 2
-  %conv3.i = and i32 %val, 65535
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %cmp.0.i = phi i16 [ %5, %atomic_mmu_lookup.exit.i ], [ %7, %do.body.i ]
-  %conv2.i = zext i16 %cmp.0.i to i32
-  %cond.i = tail call i32 @llvm.umax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
-  %6 = cmpxchg ptr %3, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
-  %7 = extractvalue { i16, i1 } %6, 0
-  %cmp10.not.i = extractvalue { i16, i1 } %6, 1
-  br i1 %cmp10.not.i, label %cpu_atomic_umax_fetchw_le_mmu.exit, label %do.body.i, !llvm.loop !139
-
-cpu_atomic_umax_fetchw_le_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %cond.i
+  %call = tail call i32 @cpu_atomic_umax_fetchw_le_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1), !range !22
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -19909,72 +18233,8 @@ define dso_local i32 @helper_atomic_umax_fetchl_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 3
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !140
-  fence seq_cst
-  %5 = load atomic i32, ptr %3 monotonic, align 4
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i32 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i32 @llvm.bswap.i32(i32 %ldn.0.i)
-  %cond.i = tail call i32 @llvm.umax.i32(i32 %6, i32 %val)
-  %7 = tail call i32 @llvm.bswap.i32(i32 %cond.i)
-  %8 = cmpxchg ptr %3, i32 %ldn.0.i, i32 %7 seq_cst seq_cst, align 4
-  %9 = extractvalue { i32, i1 } %8, 0
-  %cmp3.not.i = icmp eq i32 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_umax_fetchl_be_mmu.exit, label %do.body.i, !llvm.loop !141
-
-cpu_atomic_umax_fetchl_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i32 %cond.i
+  %call = tail call i32 @cpu_atomic_umax_fetchl_be_mmu(ptr noundef %env, i64 noundef %addr, i32 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -20193,72 +18453,8 @@ define dso_local i64 @helper_atomic_umax_fetchq_be(ptr noundef %env, i64 noundef
 entry:
   %0 = tail call ptr @llvm.returnaddress(i32 0)
   %1 = ptrtoint ptr %0 to i64
-  %add.ptr.i.i = getelementptr i8, ptr %env, i64 -10176
-  %shr.i.i.i = lshr i32 %oi, 4
-  %and.i.i.i = and i32 %shr.i.i.i, 224
-  %trunc.i.i.i = trunc i32 %and.i.i.i to i8
-  switch i8 %trunc.i.i.i, label %if.else4.i.i.i [
-    i8 0, label %get_alignment_bits.exit.i.i
-    i8 -32, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %entry
-  %and3.i.i.i = and i32 %shr.i.i.i, 7
-  br label %get_alignment_bits.exit.i.i
-
-if.else4.i.i.i:                                   ; preds = %entry
-  %shr.i8.i.i = lshr exact i32 %and.i.i.i, 5
-  br label %get_alignment_bits.exit.i.i
-
-get_alignment_bits.exit.i.i:                      ; preds = %if.else4.i.i.i, %if.then2.i.i.i, %entry
-  %a.0.i.i.i = phi i32 [ %and3.i.i.i, %if.then2.i.i.i ], [ %shr.i8.i.i, %if.else4.i.i.i ], [ 0, %entry ]
-  %notmask.i.i = shl nsw i32 -1, %a.0.i.i.i
-  %sub.i.i = xor i32 %notmask.i.i, -1
-  %conv.i.i = zext nneg i32 %sub.i.i to i64
-  %and.i.i = and i64 %conv.i.i, %addr
-  %tobool.not.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %get_alignment_bits.exit.i.i
-  tail call void @cpu_loop_exit_sigbus(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef 1, i64 noundef %1) #17
-  unreachable
-
-if.end.i.i:                                       ; preds = %get_alignment_bits.exit.i.i
-  %and7.i.i = and i64 %addr, 7
-  %tobool8.not.i.i = icmp eq i64 %and7.i.i, 0
-  br i1 %tobool8.not.i.i, label %atomic_mmu_lookup.exit.i, label %if.then15.i.i
-
-if.then15.i.i:                                    ; preds = %if.end.i.i
-  tail call void @cpu_loop_exit_atomic(ptr noundef %add.ptr.i.i, i64 noundef %1) #17
-  unreachable
-
-atomic_mmu_lookup.exit.i:                         ; preds = %if.end.i.i
-  %2 = load i64, ptr @guest_base, align 8
-  %add.i.i.i.i = add i64 %2, %addr
-  %3 = inttoptr i64 %add.i.i.i.i to ptr
-  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
-  store i64 %1, ptr %4, align 8
-  fence syncscope("singlethread") seq_cst
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !144
-  fence seq_cst
-  %5 = load atomic i64, ptr %3 monotonic, align 8
-  br label %do.body.i
-
-do.body.i:                                        ; preds = %do.body.i, %atomic_mmu_lookup.exit.i
-  %ldn.0.i = phi i64 [ %5, %atomic_mmu_lookup.exit.i ], [ %9, %do.body.i ]
-  %6 = tail call i64 @llvm.bswap.i64(i64 %ldn.0.i)
-  %cond.i = tail call i64 @llvm.umax.i64(i64 %6, i64 %val)
-  %7 = tail call i64 @llvm.bswap.i64(i64 %cond.i)
-  %8 = cmpxchg ptr %3, i64 %ldn.0.i, i64 %7 seq_cst seq_cst, align 8
-  %9 = extractvalue { i64, i1 } %8, 0
-  %cmp3.not.i = icmp eq i64 %ldn.0.i, %9
-  br i1 %cmp3.not.i, label %cpu_atomic_umax_fetchq_be_mmu.exit, label %do.body.i, !llvm.loop !145
-
-cpu_atomic_umax_fetchq_be_mmu.exit:               ; preds = %do.body.i
-  fence syncscope("singlethread") seq_cst
-  store i64 0, ptr %4, align 8
-  tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #16
-  ret i64 %cond.i
+  %call = tail call i64 @cpu_atomic_umax_fetchq_be_mmu(ptr noundef %env, i64 noundef %addr, i64 noundef %val, i32 noundef %oi, i64 noundef %1)
+  ret i64 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

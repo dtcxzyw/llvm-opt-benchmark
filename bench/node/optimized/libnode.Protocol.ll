@@ -10479,7 +10479,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
     i32 7, label %_ZNSt10unique_ptrIN4node9inspector8protocol11StringValueESt14default_deleteIS3_EED2Ev.exit88
     i32 8, label %_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit101
     i32 9, label %_ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteIS3_EED2Ev.exit
-    i32 10, label %_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit147
+    i32 10, label %_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit144
   ]
 
 sw.bb:                                            ; preds = %if.end3
@@ -10648,22 +10648,22 @@ _ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteI
   store ptr %24, ptr %agg.result, align 8
   br label %return
 
-_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit147: ; preds = %if.end3
+_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit144: ; preds = %if.end3
   %add62 = add nsw i32 %stack_depth, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   tail call void @_ZN4node9inspector8protocol4cbor13CBORTokenizer13ReadNextTokenEb(ptr noundef nonnull align 8 dereferenceable(64) %tokenizer, i1 noundef zeroext false), !noalias !211
-  %call.i143 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30, !noalias !214
-  %m_type.i.i.i144 = getelementptr inbounds i8, ptr %call.i143, i64 8
-  store i32 7, ptr %m_type.i.i.i144, align 8, !noalias !214
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol9ListValueE, i64 0, inrange i32 0, i64 2), ptr %call.i143, align 8, !noalias !214
-  %m_data.i.i = getelementptr inbounds i8, ptr %call.i143, i64 16
+  %call.i140 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30, !noalias !214
+  %m_type.i.i.i141 = getelementptr inbounds i8, ptr %call.i140, i64 8
+  store i32 7, ptr %m_type.i.i.i141, align 8, !noalias !214
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol9ListValueE, i64 0, inrange i32 0, i64 2), ptr %call.i140, align 8, !noalias !214
+  %m_data.i.i = getelementptr inbounds i8, ptr %call.i140, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_data.i.i, i8 0, i64 24, i1 false), !noalias !214
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %call.i143, i64 24
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %call.i143, i64 32
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %call.i140, i64 24
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %call.i140, i64 32
   br label %while.cond.i
 
-while.cond.i:                                     ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.exit, %_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit147
-  %25 = load i32, ptr %token_tag_.i, align 8
+while.cond.i:                                     ; preds = %_ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.exit, %_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit144
+  %25 = load i32, ptr %token_tag_.i, align 8, !noalias !211
   switch i32 %25, label %if.end6.i [
     i32 11, label %_ZN4node9inspector8protocol12_GLOBAL__N_110parseArrayEiPNS1_4cbor13CBORTokenizerE.exit
     i32 13, label %_ZNKSt14default_deleteIN4node9inspector8protocol9ListValueEEclEPS3_.exit.i121
@@ -10673,9 +10673,9 @@ while.cond.i:                                     ; preds = %_ZNSt10unique_ptrIN
 if.end6.i:                                        ; preds = %while.cond.i
   call fastcc void @_ZN4node9inspector8protocol12_GLOBAL__N_110parseValueEiPNS1_4cbor13CBORTokenizerE(ptr noalias nonnull align 8 %value.i, i32 noundef %add62, ptr noundef nonnull %tokenizer)
   %26 = load ptr, ptr %value.i, align 8
-  %cmp.i139.not = icmp eq ptr %26, null
+  %cmp.i136.not = icmp eq ptr %26, null
   %27 = ptrtoint ptr %26 to i64
-  br i1 %cmp.i139.not, label %_ZNKSt14default_deleteIN4node9inspector8protocol9ListValueEEclEPS3_.exit.i121, label %if.end9.i
+  br i1 %cmp.i136.not, label %_ZNKSt14default_deleteIN4node9inspector8protocol9ListValueEEclEPS3_.exit.i121, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end6.i
   %28 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -10759,20 +10759,20 @@ _ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.e
   br label %while.cond.i
 
 _ZN4node9inspector8protocol12_GLOBAL__N_110parseArrayEiPNS1_4cbor13CBORTokenizerE.exit: ; preds = %while.cond.i
-  tail call void @_ZN4node9inspector8protocol4cbor13CBORTokenizer13ReadNextTokenEb(ptr noundef nonnull align 8 dereferenceable(64) %tokenizer, i1 noundef zeroext false)
+  tail call void @_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv(ptr noundef nonnull align 8 dereferenceable(64) %tokenizer)
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol9ListValueESt14default_deleteIS3_EED2Ev.exit
 
 _ZNKSt14default_deleteIN4node9inspector8protocol9ListValueEEclEPS3_.exit.i121: ; preds = %while.cond.i, %while.cond.i, %if.end6.i
-  %vtable.i.i122 = load ptr, ptr %call.i143, align 8
+  %vtable.i.i122 = load ptr, ptr %call.i140, align 8
   %vfn.i.i123 = getelementptr inbounds i8, ptr %vtable.i.i122, i64 24
   %34 = load ptr, ptr %vfn.i.i123, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(40) %call.i143) #27
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(40) %call.i140) #27
   br label %_ZNSt10unique_ptrIN4node9inspector8protocol9ListValueESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4node9inspector8protocol9ListValueESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4node9inspector8protocol9ListValueEEclEPS3_.exit.i121, %_ZN4node9inspector8protocol12_GLOBAL__N_110parseArrayEiPNS1_4cbor13CBORTokenizerE.exit
-  %ref.tmp61.sroa.0.2169 = phi ptr [ %call.i143, %_ZN4node9inspector8protocol12_GLOBAL__N_110parseArrayEiPNS1_4cbor13CBORTokenizerE.exit ], [ null, %_ZNKSt14default_deleteIN4node9inspector8protocol9ListValueEEclEPS3_.exit.i121 ]
+  %ref.tmp61.sroa.0.2166 = phi ptr [ %call.i140, %_ZN4node9inspector8protocol12_GLOBAL__N_110parseArrayEiPNS1_4cbor13CBORTokenizerE.exit ], [ null, %_ZNKSt14default_deleteIN4node9inspector8protocol9ListValueEEclEPS3_.exit.i121 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
-  store ptr %ref.tmp61.sroa.0.2169, ptr %agg.result, align 8
+  store ptr %ref.tmp61.sroa.0.2166, ptr %agg.result, align 8
   br label %return
 
 sw.default:                                       ; preds = %if.end3
@@ -11300,7 +11300,7 @@ if.end4:                                          ; preds = %if.then3, %if.end
     i32 7, label %sw.bb36
     i32 8, label %sw.bb37
     i32 9, label %sw.bb42
-    i32 10, label %_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit99
+    i32 10, label %_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit96
   ]
 
 sw.bb:                                            ; preds = %if.end4
@@ -11488,7 +11488,7 @@ sw.bb42:                                          ; preds = %if.end4
   %call43 = tail call fastcc noundef zeroext i1 @_ZN4node9inspector8protocol4cbor12_GLOBAL__N_18ParseMapEiPNS2_13CBORTokenizerEPNS1_22StreamingParserHandlerE(i32 noundef %add, ptr noundef nonnull %tokenizer, ptr noundef %out)
   br label %return
 
-_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit99: ; preds = %if.end4
+_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit96: ; preds = %if.end4
   %add45 = add nsw i32 %stack_depth, 1
   tail call void @_ZN4node9inspector8protocol4cbor13CBORTokenizer13ReadNextTokenEb(ptr noundef nonnull align 8 dereferenceable(64) %tokenizer, i1 noundef zeroext false)
   %vtable.i68 = load ptr, ptr %out, align 8
@@ -11497,7 +11497,7 @@ _ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit99: ; preds = %if.end
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %out) #27
   br label %while.cond.i
 
-while.cond.i:                                     ; preds = %if.end13.i, %_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit99
+while.cond.i:                                     ; preds = %if.end13.i, %_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv.exit96
   %37 = load i32, ptr %token_tag_.i, align 8
   switch i32 %37, label %if.end13.i [
     i32 11, label %while.end.i
@@ -11506,23 +11506,23 @@ while.cond.i:                                     ; preds = %if.end13.i, %_ZN4no
   ]
 
 if.then.i:                                        ; preds = %while.cond.i
-  %retval.sroa.21.0.status_.sroa_idx.i91 = getelementptr inbounds i8, ptr %tokenizer, i64 32
-  %retval.sroa.21.0.copyload.i92 = load i64, ptr %retval.sroa.21.0.status_.sroa_idx.i91, align 8
+  %retval.sroa.21.0.status_.sroa_idx.i88 = getelementptr inbounds i8, ptr %tokenizer, i64 32
+  %retval.sroa.21.0.copyload.i89 = load i64, ptr %retval.sroa.21.0.status_.sroa_idx.i88, align 8
   %vtable4.i = load ptr, ptr %out, align 8
   %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 104
   %38 = load ptr, ptr %vfn5.i, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 24, i64 %retval.sroa.21.0.copyload.i92) #27
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 24, i64 %retval.sroa.21.0.copyload.i89) #27
   br label %return
 
 if.then8.i:                                       ; preds = %while.cond.i
-  %status_.i81 = getelementptr inbounds i8, ptr %tokenizer, i64 24
-  %retval.sroa.0.0.copyload.i82 = load i32, ptr %status_.i81, align 8
-  %retval.sroa.21.0.status_.sroa_idx.i83 = getelementptr inbounds i8, ptr %tokenizer, i64 32
-  %retval.sroa.21.0.copyload.i84 = load i64, ptr %retval.sroa.21.0.status_.sroa_idx.i83, align 8
+  %status_.i78 = getelementptr inbounds i8, ptr %tokenizer, i64 24
+  %retval.sroa.0.0.copyload.i79 = load i32, ptr %status_.i78, align 8
+  %retval.sroa.21.0.status_.sroa_idx.i80 = getelementptr inbounds i8, ptr %tokenizer, i64 32
+  %retval.sroa.21.0.copyload.i81 = load i64, ptr %retval.sroa.21.0.status_.sroa_idx.i80, align 8
   %vtable11.i = load ptr, ptr %out, align 8
   %vfn12.i = getelementptr inbounds i8, ptr %vtable11.i, i64 104
   %39 = load ptr, ptr %vfn12.i, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 %retval.sroa.0.0.copyload.i82, i64 %retval.sroa.21.0.copyload.i84) #27
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 %retval.sroa.0.0.copyload.i79, i64 %retval.sroa.21.0.copyload.i81) #27
   br label %return
 
 if.end13.i:                                       ; preds = %while.cond.i
@@ -11534,14 +11534,7 @@ while.end.i:                                      ; preds = %while.cond.i
   %vfn18.i = getelementptr inbounds i8, ptr %vtable17.i, i64 40
   %40 = load ptr, ptr %vfn18.i, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %out) #27
-  %41 = load i32, ptr %token_tag_.i, align 8
-  switch i32 %41, label %if.end.i79 [
-    i32 0, label %return
-    i32 13, label %return
-  ]
-
-if.end.i79:                                       ; preds = %while.end.i
-  tail call void @_ZN4node9inspector8protocol4cbor13CBORTokenizer13ReadNextTokenEb(ptr noundef nonnull align 8 dereferenceable(64) %tokenizer, i1 noundef zeroext false)
+  tail call void @_ZN4node9inspector8protocol4cbor13CBORTokenizer4NextEv(ptr noundef nonnull align 8 dereferenceable(64) %tokenizer)
   br label %return
 
 sw.default:                                       ; preds = %if.end4
@@ -11549,12 +11542,12 @@ sw.default:                                       ; preds = %if.end4
   %retval.sroa.21.0.copyload.i74 = load i64, ptr %retval.sroa.21.0.status_.sroa_idx.i73, align 8
   %vtable51 = load ptr, ptr %out, align 8
   %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 104
-  %42 = load ptr, ptr %vfn52, align 8
-  tail call void %42(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 20, i64 %retval.sroa.21.0.copyload.i74) #27
+  %41 = load ptr, ptr %vfn52, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 20, i64 %retval.sroa.21.0.copyload.i74) #27
   br label %return
 
-return:                                           ; preds = %if.end13.i, %if.then8.i, %if.then.i, %while.end.i, %while.end.i, %if.end.i79, %if.end.i66, %sw.bb37, %sw.bb37, %if.end.i.i, %sw.bb34, %sw.bb34, %if.end.i60, %_ZNK4node9inspector8protocol4cbor13CBORTokenizer9GetDoubleEv.exit, %_ZNK4node9inspector8protocol4cbor13CBORTokenizer9GetDoubleEv.exit, %if.end.i57, %sw.bb26, %sw.bb26, %if.end.i54, %sw.bb23, %sw.bb23, %if.end.i51, %sw.bb20, %sw.bb20, %if.end.i, %sw.bb17, %sw.bb17, %sw.default, %sw.bb42, %sw.bb36, %sw.bb10, %sw.bb, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %sw.default ], [ %call43, %sw.bb42 ], [ true, %sw.bb36 ], [ false, %sw.bb10 ], [ false, %sw.bb ], [ true, %sw.bb17 ], [ true, %sw.bb17 ], [ true, %if.end.i ], [ true, %sw.bb20 ], [ true, %sw.bb20 ], [ true, %if.end.i51 ], [ true, %sw.bb23 ], [ true, %sw.bb23 ], [ true, %if.end.i54 ], [ true, %sw.bb26 ], [ true, %sw.bb26 ], [ true, %if.end.i57 ], [ true, %_ZNK4node9inspector8protocol4cbor13CBORTokenizer9GetDoubleEv.exit ], [ true, %_ZNK4node9inspector8protocol4cbor13CBORTokenizer9GetDoubleEv.exit ], [ true, %if.end.i60 ], [ true, %sw.bb34 ], [ true, %sw.bb34 ], [ true, %if.end.i.i ], [ true, %sw.bb37 ], [ true, %sw.bb37 ], [ true, %if.end.i66 ], [ true, %if.end.i79 ], [ true, %while.end.i ], [ true, %while.end.i ], [ false, %if.then.i ], [ false, %if.then8.i ], [ false, %if.end13.i ]
+return:                                           ; preds = %if.end13.i, %while.end.i, %if.then8.i, %if.then.i, %if.end.i66, %sw.bb37, %sw.bb37, %if.end.i.i, %sw.bb34, %sw.bb34, %if.end.i60, %_ZNK4node9inspector8protocol4cbor13CBORTokenizer9GetDoubleEv.exit, %_ZNK4node9inspector8protocol4cbor13CBORTokenizer9GetDoubleEv.exit, %if.end.i57, %sw.bb26, %sw.bb26, %if.end.i54, %sw.bb23, %sw.bb23, %if.end.i51, %sw.bb20, %sw.bb20, %if.end.i, %sw.bb17, %sw.bb17, %sw.default, %sw.bb42, %sw.bb36, %sw.bb10, %sw.bb, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %sw.default ], [ %call43, %sw.bb42 ], [ true, %sw.bb36 ], [ false, %sw.bb10 ], [ false, %sw.bb ], [ true, %sw.bb17 ], [ true, %sw.bb17 ], [ true, %if.end.i ], [ true, %sw.bb20 ], [ true, %sw.bb20 ], [ true, %if.end.i51 ], [ true, %sw.bb23 ], [ true, %sw.bb23 ], [ true, %if.end.i54 ], [ true, %sw.bb26 ], [ true, %sw.bb26 ], [ true, %if.end.i57 ], [ true, %_ZNK4node9inspector8protocol4cbor13CBORTokenizer9GetDoubleEv.exit ], [ true, %_ZNK4node9inspector8protocol4cbor13CBORTokenizer9GetDoubleEv.exit ], [ true, %if.end.i60 ], [ true, %sw.bb34 ], [ true, %sw.bb34 ], [ true, %if.end.i.i ], [ true, %sw.bb37 ], [ true, %sw.bb37 ], [ true, %if.end.i66 ], [ false, %if.then.i ], [ false, %if.then8.i ], [ true, %while.end.i ], [ false, %if.end13.i ]
   ret i1 %retval.0
 }
 
@@ -23984,7 +23977,7 @@ cleanup112.sink.split:                            ; preds = %if.then.i112, %if.t
 
 cleanup112:                                       ; preds = %cleanup112.sink.split, %if.then109, %if.then105, %if.then93, %if.then83, %if.then102, %if.end99, %if.end94
   %token.4 = phi i32 [ 10, %if.end94 ], [ %call103, %if.then102 ], [ %call100, %if.end99 ], [ 4, %if.then83 ], [ %call91, %if.then93 ], [ 1, %if.then105 ], [ %call100, %if.then109 ], [ %token.4.ph, %cleanup112.sink.split ]
-  %cleanup.dest.slot.1 = phi i1 [ false, %if.end94 ], [ true, %if.then102 ], [ true, %if.end99 ], [ false, %if.then83 ], [ false, %if.then93 ], [ false, %if.then105 ], [ false, %if.then109 ], [ false, %cleanup112.sink.split ]
+  %switch34 = phi i1 [ false, %if.end94 ], [ true, %if.then102 ], [ true, %if.end99 ], [ false, %if.then83 ], [ false, %if.then93 ], [ false, %if.then105 ], [ false, %if.then109 ], [ false, %cleanup112.sink.split ]
   %113 = load ptr, ptr %key, align 8
   %tobool.not.i.i.i156 = icmp eq ptr %113, null
   br i1 %tobool.not.i.i.i156, label %_ZNSt6vectorItSaItEED2Ev.exit158, label %if.then.i.i.i157
@@ -23994,7 +23987,7 @@ if.then.i.i.i157:                                 ; preds = %cleanup112
   br label %_ZNSt6vectorItSaItEED2Ev.exit158
 
 _ZNSt6vectorItSaItEED2Ev.exit158:                 ; preds = %cleanup112, %if.then.i.i.i157
-  br i1 %cleanup.dest.slot.1, label %while.cond74, label %return
+  br i1 %switch34, label %while.cond74, label %return
 
 while.end114:                                     ; preds = %while.cond74
   %114 = load ptr, ptr %handler_70, align 8
@@ -25891,7 +25884,7 @@ cleanup112.sink.split:                            ; preds = %if.then.i127, %if.t
 
 cleanup112:                                       ; preds = %cleanup112.sink.split, %if.then109, %if.then105, %if.then93, %if.then83, %if.then102, %if.end99, %if.end94
   %token.4 = phi i32 [ 10, %if.end94 ], [ %call103, %if.then102 ], [ %call100, %if.end99 ], [ 4, %if.then83 ], [ %call91, %if.then93 ], [ 1, %if.then105 ], [ %call100, %if.then109 ], [ %token.4.ph, %cleanup112.sink.split ]
-  %cleanup.dest.slot.1 = phi i1 [ false, %if.end94 ], [ true, %if.then102 ], [ true, %if.end99 ], [ false, %if.then83 ], [ false, %if.then93 ], [ false, %if.then105 ], [ false, %if.then109 ], [ false, %cleanup112.sink.split ]
+  %switch34 = phi i1 [ false, %if.end94 ], [ true, %if.then102 ], [ true, %if.end99 ], [ false, %if.then83 ], [ false, %if.then93 ], [ false, %if.then105 ], [ false, %if.then109 ], [ false, %cleanup112.sink.split ]
   %114 = load ptr, ptr %key, align 8
   %tobool.not.i.i.i178 = icmp eq ptr %114, null
   br i1 %tobool.not.i.i.i178, label %_ZNSt6vectorItSaItEED2Ev.exit180, label %if.then.i.i.i179
@@ -25901,7 +25894,7 @@ if.then.i.i.i179:                                 ; preds = %cleanup112
   br label %_ZNSt6vectorItSaItEED2Ev.exit180
 
 _ZNSt6vectorItSaItEED2Ev.exit180:                 ; preds = %cleanup112, %if.then.i.i.i179
-  br i1 %cleanup.dest.slot.1, label %while.cond74, label %return
+  br i1 %switch34, label %while.cond74, label %return
 
 while.end114:                                     ; preds = %while.cond74
   %115 = load ptr, ptr %handler_70, align 8

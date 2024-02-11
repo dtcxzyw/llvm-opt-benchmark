@@ -6099,94 +6099,32 @@ if.then7:                                         ; preds = %if.end4
 if.end9:                                          ; preds = %if.end4
   %5 = load i32, ptr %week, align 4
   %6 = load i32, ptr %day, align 4
-  %7 = add i32 %5, -53
-  %or.cond.i = icmp ult i32 %7, -52
-  br i1 %or.cond.i, label %if.then.i, label %if.end13.i
-
-if.then.i:                                        ; preds = %if.end9
-  %cmp2.i = icmp eq i32 %5, 53
-  br i1 %cmp2.i, label %if.then3.i, label %if.then12
-
-if.then3.i:                                       ; preds = %if.then.i
-  %sub.i.i.i.i = add nsw i32 %2, -1
-  %mul.i.i.i.i = mul nuw nsw i32 %sub.i.i.i.i, 365
-  %div.i.i.i.i6721 = lshr i32 %sub.i.i.i.i, 2
-  %div1.neg.i.i.i.i8.lhs.trunc = trunc i32 %sub.i.i.i.i to i16
-  %div1.neg.i.i.i.i89 = udiv i16 %div1.neg.i.i.i.i8.lhs.trunc, 100
-  %div1.neg.i.i.i.i8.zext = zext nneg i16 %div1.neg.i.i.i.i89 to i32
-  %div3.i.i.i.i1011 = udiv i16 %div1.neg.i.i.i.i8.lhs.trunc, 400
-  %div3.i.i.i.i10.zext = zext nneg i16 %div3.i.i.i.i1011 to i32
-  %sub2.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i, 7
-  %add4.i.i.i.i = add nuw nsw i32 %sub2.i.i.i.i, %div.i.i.i.i6721
-  %add.i.i.i = sub nsw i32 %add4.i.i.i.i, %div1.neg.i.i.i.i8.zext
-  %add2.i.i.i = add nsw i32 %add.i.i.i, %div3.i.i.i.i10.zext
-  %rem.i.i = srem i32 %add2.i.i.i, 7
-  switch i32 %rem.i.i, label %if.then12 [
-    i32 3, label %if.end13.i
-    i32 2, label %land.lhs.true.i
+  %call10 = call fastcc i32 @iso_to_ymd(i32 noundef %2, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day), !range !8
+  switch i32 %call10, label %if.end18 [
+    i32 -2, label %if.then12
+    i32 -3, label %if.then16
   ]
 
-land.lhs.true.i:                                  ; preds = %if.then3.i
-  %rem.i10.i = and i32 %2, 3
-  %cmp.i.i = icmp eq i32 %rem.i10.i, 0
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %if.then12
-
-land.rhs.i.i:                                     ; preds = %land.lhs.true.i
-  %rem1.i.i.lhs.trunc = trunc i32 %2 to i16
-  %rem1.i.i19 = urem i16 %rem1.i.i.lhs.trunc, 100
-  %cmp2.not.i.i = icmp ne i16 %rem1.i.i19, 0
-  %rem3.i.i20 = urem i16 %rem1.i.i.lhs.trunc, 400
-  %cmp4.i.not.i = icmp eq i16 %rem3.i.i20, 0
-  %or.cond27.i = or i1 %cmp2.not.i.i, %cmp4.i.not.i
-  br i1 %or.cond27.i, label %if.end13.i, label %if.then12
-
-if.end13.i:                                       ; preds = %land.rhs.i.i, %if.then3.i, %if.end9
-  %8 = add i32 %6, -8
-  %or.cond1.i = icmp ult i32 %8, -7
-  br i1 %or.cond1.i, label %if.then16, label %if.end18
-
-if.then12:                                        ; preds = %if.then.i, %if.then3.i, %land.lhs.true.i, %land.rhs.i.i
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  %call13 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %9, ptr noundef nonnull @.str.99, i32 noundef %5) #15
+if.then12:                                        ; preds = %if.end9
+  %7 = load ptr, ptr @PyExc_ValueError, align 8
+  %call13 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.99, i32 noundef %5) #15
   br label %return
 
-if.then16:                                        ; preds = %if.end13.i
-  %10 = load ptr, ptr @PyExc_ValueError, align 8
-  %call17 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %10, ptr noundef nonnull @.str.100, i32 noundef %6) #15
+if.then16:                                        ; preds = %if.end9
+  %8 = load ptr, ptr @PyExc_ValueError, align 8
+  %9 = load i32, ptr %day, align 4
+  %call17 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.100, i32 noundef %9) #15
   br label %return
 
-if.end18:                                         ; preds = %if.end13.i
-  %sub.i.i.i11.i = add nsw i32 %2, -1
-  %mul.i.i.i12.i = mul nuw nsw i32 %sub.i.i.i11.i, 365
-  %div.i.i.i13.i121322 = lshr i32 %sub.i.i.i11.i, 2
-  %add.i.i.i14.i = add nuw nsw i32 %div.i.i.i13.i121322, %mul.i.i.i12.i
-  %div1.neg.i.i.i15.i15.lhs.trunc = trunc i32 %sub.i.i.i11.i to i16
-  %div1.neg.i.i.i15.i1516 = udiv i16 %div1.neg.i.i.i15.i15.lhs.trunc, 100
-  %div1.neg.i.i.i15.i15.zext = zext nneg i16 %div1.neg.i.i.i15.i1516 to i32
-  %sub2.i.i.i16.i = sub nsw i32 %add.i.i.i14.i, %div1.neg.i.i.i15.i15.zext
-  %div3.i.i.i17.i1718 = udiv i16 %div1.neg.i.i.i15.i15.lhs.trunc, 400
-  %div3.i.i.i17.i17.zext = zext nneg i16 %div3.i.i.i17.i1718 to i32
-  %add4.i.i.i18.i = add nsw i32 %sub2.i.i.i16.i, %div3.i.i.i17.i17.zext
-  %add.i.i19.i = add nsw i32 %add4.i.i.i18.i, 1
-  %add.i.i = add nsw i32 %add4.i.i.i18.i, 7
-  %rem.i20.i = srem i32 %add.i.i, 7
-  %sub.i.i = sub nsw i32 %add.i.i19.i, %rem.i20.i
-  %cmp.i21.i = icmp sgt i32 %rem.i20.i, 3
-  %add1.i.i = add nsw i32 %sub.i.i, 7
-  %spec.select.i.i = select i1 %cmp.i21.i, i32 %add1.i.i, i32 %sub.i.i
-  %11 = mul nuw nsw i32 %5, 7
-  %add.i = add nsw i32 %spec.select.i.i, -8
-  %sub20.i = add nsw i32 %add.i, %11
-  %add21.i = add nsw i32 %sub20.i, %6
-  call fastcc void @ord_to_ymd(i32 noundef %add21.i, ptr noundef nonnull %year, ptr noundef nonnull %month, ptr noundef nonnull %day)
-  %12 = load i32, ptr %year, align 4
-  %13 = load i32, ptr %month, align 4
-  %14 = load i32, ptr %day, align 4
+if.end18:                                         ; preds = %if.end9
+  %10 = load i32, ptr %year, align 4
+  %11 = load i32, ptr %month, align 4
+  %12 = load i32, ptr %day, align 4
   %cmp.i = icmp eq ptr %cls, @PyDateTime_DateType
-  br i1 %cmp.i, label %if.then.i2, label %if.else.i
+  br i1 %cmp.i, label %if.then.i, label %if.else.i
 
-if.then.i2:                                       ; preds = %if.end18
-  %call.i = call ptr @new_date_ex(i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @PyDateTime_DateType)
+if.then.i:                                        ; preds = %if.end18
+  %call.i = call ptr @new_date_ex(i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef nonnull @PyDateTime_DateType)
   br label %return
 
 if.else.i:                                        ; preds = %if.end18
@@ -6194,15 +6132,15 @@ if.else.i:                                        ; preds = %if.end18
   br i1 %cmp1.i, label %if.then2.i, label %if.else4.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  %call.i.i = call ptr @new_datetime_ex2(i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
+  %call.i.i = call ptr @new_datetime_ex2(i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
   br label %return
 
 if.else4.i:                                       ; preds = %if.else.i
-  %call5.i = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %cls, ptr noundef nonnull @.str.46, i32 noundef %12, i32 noundef %13, i32 noundef %14) #15
+  %call5.i = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %cls, ptr noundef nonnull @.str.46, i32 noundef %10, i32 noundef %11, i32 noundef %12) #15
   br label %return
 
-return:                                           ; preds = %if.else4.i, %if.then2.i, %if.then.i2, %if.then, %if.then2, %if.then16, %if.then12, %if.then7
-  %retval.0 = phi ptr [ null, %if.then7 ], [ null, %if.then12 ], [ null, %if.then16 ], [ null, %if.then2 ], [ null, %if.then ], [ %call.i, %if.then.i2 ], [ %call.i.i, %if.then2.i ], [ %call5.i, %if.else4.i ]
+return:                                           ; preds = %if.else4.i, %if.then2.i, %if.then.i, %if.then, %if.then2, %if.then16, %if.then12, %if.then7
+  %retval.0 = phi ptr [ null, %if.then7 ], [ null, %if.then12 ], [ null, %if.then16 ], [ null, %if.then2 ], [ null, %if.then ], [ %call.i, %if.then.i ], [ %call.i.i, %if.then2.i ], [ %call5.i, %if.else4.i ]
   ret ptr %retval.0
 }
 
@@ -6932,7 +6870,7 @@ declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr 
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @parse_isoformat_date(ptr noundef %dtstr, i64 noundef %len, ptr nocapture noundef %year, ptr nocapture noundef %month, ptr nocapture noundef %day) unnamed_addr #6 {
+define internal fastcc i32 @parse_isoformat_date(ptr noundef %dtstr, i64 noundef %len, ptr nocapture noundef %year, ptr nocapture noundef %month, ptr nocapture noundef %day) unnamed_addr #6 {
 entry:
   br label %for.body.i
 
@@ -6953,7 +6891,7 @@ if.end.i:                                         ; preds = %for.body.i
   store i32 %add.i, ptr %year, align 4
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 4
-  br i1 %exitcond.not.i, label %parse_digits.exit, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %parse_digits.exit, label %for.body.i, !llvm.loop !9
 
 parse_digits.exit:                                ; preds = %if.end.i
   %cmp = icmp eq ptr %incdec.ptr.i, null
@@ -6966,7 +6904,7 @@ if.end:                                           ; preds = %parse_digits.exit
   %spec.select = select i1 %cmp1, ptr %incdec.ptr, ptr %incdec.ptr.i
   %3 = load i8, ptr %spec.select, align 1
   %cmp7 = icmp eq i8 %3, 87
-  br i1 %cmp7, label %if.then9, label %for.body.i56
+  br i1 %cmp7, label %if.then9, label %for.body.i54
 
 if.then9:                                         ; preds = %if.end
   %scevgep = getelementptr i8, ptr %spec.select, i64 3
@@ -6988,7 +6926,7 @@ if.end.i32:                                       ; preds = %for.body.i26
   %add.i35 = add i32 %sub.i30, %mul.i34
   %inc.i36 = add nuw nsw i64 %i.07.i27, 1
   %exitcond.not.i37 = icmp eq i64 %inc.i36, 2
-  br i1 %exitcond.not.i37, label %parse_digits.exit39, label %for.body.i26, !llvm.loop !8
+  br i1 %exitcond.not.i37, label %parse_digits.exit39, label %for.body.i26, !llvm.loop !9
 
 parse_digits.exit39:                              ; preds = %if.end.i32
   %cmp12 = icmp eq ptr %scevgep, null
@@ -7016,141 +6954,155 @@ if.end26:                                         ; preds = %land.lhs.true, %if.
   %conv.i43 = sext i8 %6 to i32
   %sub.i44 = add nsw i32 %conv.i43, -48
   %cmp1.i45 = icmp ugt i32 %sub.i44, 9
-  %scevgep112 = getelementptr i8, ptr %p.1, i64 1
-  %cmp28 = icmp eq ptr %scevgep112, null
+  %scevgep107 = getelementptr i8, ptr %p.1, i64 1
+  %cmp28 = icmp eq ptr %scevgep107, null
   %or.cond = or i1 %cmp1.i45, %cmp28
   br i1 %or.cond, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.end26, %if.end15
   %iso_day.2 = phi i32 [ 1, %if.end15 ], [ %sub.i44, %if.end26 ]
-  %7 = add i32 %add.i35, -53
-  %or.cond.i = icmp ult i32 %7, -52
-  br i1 %or.cond.i, label %if.then.i, label %if.end13.i
-
-if.then.i:                                        ; preds = %if.end32
-  %cmp2.i = icmp eq i32 %add.i35, 53
-  br i1 %cmp2.i, label %if.then3.i, label %return
-
-if.then3.i:                                       ; preds = %if.then.i
-  %sub.i.i.i.i = add i32 %add.i, -1
-  %mul.i.i.i.i = mul i32 %sub.i.i.i.i, 365
-  %div.i.i.i.i = sdiv i32 %sub.i.i.i.i, 4
-  %div1.neg.i.i.i.i = sdiv i32 %sub.i.i.i.i, -100
-  %div3.i.i.i.i = sdiv i32 %sub.i.i.i.i, 400
-  %sub2.i.i.i.i = add nsw i32 %div.i.i.i.i, 7
-  %add4.i.i.i.i = add i32 %sub2.i.i.i.i, %mul.i.i.i.i
-  %add.i.i.i = add i32 %add4.i.i.i.i, %div1.neg.i.i.i.i
-  %add2.i.i.i = add i32 %add.i.i.i, %div3.i.i.i.i
-  %rem.i.i = srem i32 %add2.i.i.i, 7
-  switch i32 %rem.i.i, label %return [
-    i32 3, label %if.end13.i
-    i32 2, label %land.lhs.true.i
-  ]
-
-land.lhs.true.i:                                  ; preds = %if.then3.i
-  %rem.i10.i = and i32 %add.i, 3
-  %cmp.i.i = icmp eq i32 %rem.i10.i, 0
-  br i1 %cmp.i.i, label %land.rhs.i.i, label %return
-
-land.rhs.i.i:                                     ; preds = %land.lhs.true.i
-  %rem1.i.i = urem i32 %add.i, 100
-  %cmp2.not.i.i = icmp ne i32 %rem1.i.i, 0
-  %rem3.i.i = urem i32 %add.i, 400
-  %cmp4.i.not.i = icmp eq i32 %rem3.i.i, 0
-  %or.cond27.i = or i1 %cmp2.not.i.i, %cmp4.i.not.i
-  br i1 %or.cond27.i, label %if.end13.i, label %return
-
-if.end13.i:                                       ; preds = %land.rhs.i.i, %if.then3.i, %if.end32
-  %8 = add nsw i32 %iso_day.2, -8
-  %or.cond1.i = icmp ult i32 %8, -7
-  br i1 %or.cond1.i, label %return, label %9
-
-9:                                                ; preds = %if.end13.i
-  %sub.i.i.i11.i = add i32 %add.i, -1
-  %mul.i.i.i12.i = mul i32 %sub.i.i.i11.i, 365
-  %div.i.i.i13.i = sdiv i32 %sub.i.i.i11.i, 4
-  %add.i.i.i14.i = add i32 %mul.i.i.i12.i, %div.i.i.i13.i
-  %div1.neg.i.i.i15.i = sdiv i32 %sub.i.i.i11.i, -100
-  %sub2.i.i.i16.i = add i32 %add.i.i.i14.i, %div1.neg.i.i.i15.i
-  %div3.i.i.i17.i = sdiv i32 %sub.i.i.i11.i, 400
-  %add4.i.i.i18.i = add i32 %sub2.i.i.i16.i, %div3.i.i.i17.i
-  %add.i.i19.i = add i32 %add4.i.i.i18.i, 1
-  %add.i.i = add i32 %add4.i.i.i18.i, 7
-  %rem.i20.i = srem i32 %add.i.i, 7
-  %sub.i.i = sub i32 %add.i.i19.i, %rem.i20.i
-  %cmp.i21.i = icmp sgt i32 %rem.i20.i, 3
-  %add1.i.i = add i32 %sub.i.i, 7
-  %spec.select.i.i = select i1 %cmp.i21.i, i32 %add1.i.i, i32 %sub.i.i
-  %10 = mul nuw nsw i32 %add.i35, 7
-  %add.i54 = add nsw i32 %10, -8
-  %sub20.i = add nsw i32 %add.i54, %iso_day.2
-  %add21.i = add i32 %sub20.i, %spec.select.i.i
-  tail call fastcc void @ord_to_ymd(i32 noundef %add21.i, ptr noundef nonnull %year, ptr noundef %month, ptr noundef %day)
+  %call33 = tail call fastcc i32 @iso_to_ymd(i32 noundef %add.i, i32 noundef %add.i35, i32 noundef %iso_day.2, ptr noundef nonnull %year, ptr noundef %month, ptr noundef %day), !range !8
+  %tobool34.not = icmp eq i32 %call33, 0
+  %add = add nsw i32 %call33, -3
+  %spec.select25 = select i1 %tobool34.not, i32 0, i32 %add
   br label %return
 
-for.body.i56:                                     ; preds = %if.end, %if.end.i62
-  %i.07.i57 = phi i64 [ %inc.i66, %if.end.i62 ], [ 0, %if.end ]
-  %ptr.addr.06.i58 = phi ptr [ %incdec.ptr.i63, %if.end.i62 ], [ %spec.select, %if.end ]
-  %11 = load i8, ptr %ptr.addr.06.i58, align 1
-  %conv.i59 = sext i8 %11 to i32
-  %sub.i60 = add nsw i32 %conv.i59, -48
-  %cmp1.i61 = icmp ugt i32 %sub.i60, 9
-  br i1 %cmp1.i61, label %return, label %if.end.i62
+for.body.i54:                                     ; preds = %if.end, %if.end.i60
+  %i.07.i55 = phi i64 [ %inc.i64, %if.end.i60 ], [ 0, %if.end ]
+  %ptr.addr.06.i56 = phi ptr [ %incdec.ptr.i61, %if.end.i60 ], [ %spec.select, %if.end ]
+  %7 = load i8, ptr %ptr.addr.06.i56, align 1
+  %conv.i57 = sext i8 %7 to i32
+  %sub.i58 = add nsw i32 %conv.i57, -48
+  %cmp1.i59 = icmp ugt i32 %sub.i58, 9
+  br i1 %cmp1.i59, label %return, label %if.end.i60
 
-if.end.i62:                                       ; preds = %for.body.i56
-  %incdec.ptr.i63 = getelementptr i8, ptr %ptr.addr.06.i58, i64 1
-  %12 = load i32, ptr %month, align 4
-  %mul.i64 = mul i32 %12, 10
-  %add.i65 = add i32 %mul.i64, %sub.i60
-  store i32 %add.i65, ptr %month, align 4
-  %inc.i66 = add nuw nsw i64 %i.07.i57, 1
-  %exitcond.not.i67 = icmp eq i64 %inc.i66, 2
-  br i1 %exitcond.not.i67, label %parse_digits.exit69, label %for.body.i56, !llvm.loop !8
+if.end.i60:                                       ; preds = %for.body.i54
+  %incdec.ptr.i61 = getelementptr i8, ptr %ptr.addr.06.i56, i64 1
+  %8 = load i32, ptr %month, align 4
+  %mul.i62 = mul i32 %8, 10
+  %add.i63 = add i32 %mul.i62, %sub.i58
+  store i32 %add.i63, ptr %month, align 4
+  %inc.i64 = add nuw nsw i64 %i.07.i55, 1
+  %exitcond.not.i65 = icmp eq i64 %inc.i64, 2
+  br i1 %exitcond.not.i65, label %parse_digits.exit67, label %for.body.i54, !llvm.loop !9
 
-parse_digits.exit69:                              ; preds = %if.end.i62
-  %cmp39 = icmp eq ptr %incdec.ptr.i63, null
+parse_digits.exit67:                              ; preds = %if.end.i60
+  %cmp39 = icmp eq ptr %incdec.ptr.i61, null
   br i1 %cmp39, label %return, label %if.end42
 
-if.end42:                                         ; preds = %parse_digits.exit69
-  br i1 %cmp1, label %land.lhs.true45, label %for.body.i70.preheader
+if.end42:                                         ; preds = %parse_digits.exit67
+  br i1 %cmp1, label %land.lhs.true45, label %for.body.i68.preheader
 
 land.lhs.true45:                                  ; preds = %if.end42
-  %incdec.ptr46 = getelementptr i8, ptr %ptr.addr.06.i58, i64 2
-  %13 = load i8, ptr %incdec.ptr.i63, align 1
-  %cmp48.not = icmp eq i8 %13, 45
-  br i1 %cmp48.not, label %for.body.i70.preheader, label %return
+  %incdec.ptr46 = getelementptr i8, ptr %ptr.addr.06.i56, i64 2
+  %9 = load i8, ptr %incdec.ptr.i61, align 1
+  %cmp48.not = icmp eq i8 %9, 45
+  br i1 %cmp48.not, label %for.body.i68.preheader, label %return
 
-for.body.i70.preheader:                           ; preds = %land.lhs.true45, %if.end42
-  %ptr.addr.06.i72.ph = phi ptr [ %incdec.ptr.i63, %if.end42 ], [ %incdec.ptr46, %land.lhs.true45 ]
-  br label %for.body.i70
+for.body.i68.preheader:                           ; preds = %land.lhs.true45, %if.end42
+  %ptr.addr.06.i70.ph = phi ptr [ %incdec.ptr.i61, %if.end42 ], [ %incdec.ptr46, %land.lhs.true45 ]
+  br label %for.body.i68
 
-for.body.i70:                                     ; preds = %for.body.i70.preheader, %if.end.i76
-  %i.07.i71 = phi i64 [ %inc.i80, %if.end.i76 ], [ 0, %for.body.i70.preheader ]
-  %ptr.addr.06.i72 = phi ptr [ %incdec.ptr.i77, %if.end.i76 ], [ %ptr.addr.06.i72.ph, %for.body.i70.preheader ]
-  %14 = load i8, ptr %ptr.addr.06.i72, align 1
-  %conv.i73 = sext i8 %14 to i32
-  %sub.i74 = add nsw i32 %conv.i73, -48
-  %cmp1.i75 = icmp ugt i32 %sub.i74, 9
-  br i1 %cmp1.i75, label %parse_digits.exit83, label %if.end.i76
+for.body.i68:                                     ; preds = %for.body.i68.preheader, %if.end.i74
+  %i.07.i69 = phi i64 [ %inc.i78, %if.end.i74 ], [ 0, %for.body.i68.preheader ]
+  %ptr.addr.06.i70 = phi ptr [ %incdec.ptr.i75, %if.end.i74 ], [ %ptr.addr.06.i70.ph, %for.body.i68.preheader ]
+  %10 = load i8, ptr %ptr.addr.06.i70, align 1
+  %conv.i71 = sext i8 %10 to i32
+  %sub.i72 = add nsw i32 %conv.i71, -48
+  %cmp1.i73 = icmp ugt i32 %sub.i72, 9
+  br i1 %cmp1.i73, label %parse_digits.exit81, label %if.end.i74
 
-if.end.i76:                                       ; preds = %for.body.i70
-  %incdec.ptr.i77 = getelementptr i8, ptr %ptr.addr.06.i72, i64 1
-  %15 = load i32, ptr %day, align 4
-  %mul.i78 = mul i32 %15, 10
-  %add.i79 = add i32 %mul.i78, %sub.i74
-  store i32 %add.i79, ptr %day, align 4
-  %inc.i80 = add nuw nsw i64 %i.07.i71, 1
-  %exitcond.not.i81 = icmp eq i64 %inc.i80, 2
-  br i1 %exitcond.not.i81, label %parse_digits.exit83, label %for.body.i70, !llvm.loop !8
+if.end.i74:                                       ; preds = %for.body.i68
+  %incdec.ptr.i75 = getelementptr i8, ptr %ptr.addr.06.i70, i64 1
+  %11 = load i32, ptr %day, align 4
+  %mul.i76 = mul i32 %11, 10
+  %add.i77 = add i32 %mul.i76, %sub.i72
+  store i32 %add.i77, ptr %day, align 4
+  %inc.i78 = add nuw nsw i64 %i.07.i69, 1
+  %exitcond.not.i79 = icmp eq i64 %inc.i78, 2
+  br i1 %exitcond.not.i79, label %parse_digits.exit81, label %for.body.i68, !llvm.loop !9
 
-parse_digits.exit83:                              ; preds = %for.body.i70, %if.end.i76
-  %retval.0.i82 = phi ptr [ %incdec.ptr.i77, %if.end.i76 ], [ null, %for.body.i70 ]
-  %cmp53 = icmp eq ptr %retval.0.i82, null
+parse_digits.exit81:                              ; preds = %for.body.i68, %if.end.i74
+  %retval.0.i80 = phi ptr [ %incdec.ptr.i75, %if.end.i74 ], [ null, %for.body.i68 ]
+  %cmp53 = icmp eq ptr %retval.0.i80, null
   %. = sext i1 %cmp53 to i32
   br label %return
 
-return:                                           ; preds = %for.body.i, %for.body.i56, %for.body.i26, %if.end26, %land.rhs.i.i, %land.lhs.true.i, %if.end13.i, %if.then3.i, %if.then.i, %9, %parse_digits.exit83, %land.lhs.true45, %parse_digits.exit69, %land.lhs.true, %parse_digits.exit39, %parse_digits.exit
-  %retval.0 = phi i32 [ -1, %parse_digits.exit ], [ -3, %parse_digits.exit39 ], [ -2, %land.lhs.true ], [ -1, %parse_digits.exit69 ], [ -2, %land.lhs.true45 ], [ %., %parse_digits.exit83 ], [ 0, %9 ], [ -5, %land.rhs.i.i ], [ -5, %land.lhs.true.i ], [ -6, %if.end13.i ], [ -5, %if.then3.i ], [ -5, %if.then.i ], [ -4, %if.end26 ], [ -3, %for.body.i26 ], [ -1, %for.body.i56 ], [ -1, %for.body.i ]
+return:                                           ; preds = %for.body.i, %for.body.i54, %for.body.i26, %if.end26, %if.end32, %parse_digits.exit81, %land.lhs.true45, %parse_digits.exit67, %land.lhs.true, %parse_digits.exit39, %parse_digits.exit
+  %retval.0 = phi i32 [ -1, %parse_digits.exit ], [ -3, %parse_digits.exit39 ], [ -2, %land.lhs.true ], [ -1, %parse_digits.exit67 ], [ -2, %land.lhs.true45 ], [ %., %parse_digits.exit81 ], [ %spec.select25, %if.end32 ], [ -4, %if.end26 ], [ -3, %for.body.i26 ], [ -1, %for.body.i54 ], [ -1, %for.body.i ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal fastcc noundef i32 @iso_to_ymd(i32 noundef %iso_year, i32 noundef %iso_week, i32 noundef %iso_day, ptr nocapture noundef %year, ptr nocapture noundef writeonly %month, ptr nocapture noundef writeonly %day) unnamed_addr #4 {
+entry:
+  %0 = add i32 %iso_week, -53
+  %or.cond = icmp ult i32 %0, -52
+  br i1 %or.cond, label %if.then, label %if.end13
+
+if.then:                                          ; preds = %entry
+  %cmp2 = icmp eq i32 %iso_week, 53
+  br i1 %cmp2, label %if.then3, label %return
+
+if.then3:                                         ; preds = %if.then
+  %sub.i.i.i = add i32 %iso_year, -1
+  %mul.i.i.i = mul i32 %sub.i.i.i, 365
+  %div.i.i.i = sdiv i32 %sub.i.i.i, 4
+  %div1.neg.i.i.i = sdiv i32 %sub.i.i.i, -100
+  %div3.i.i.i = sdiv i32 %sub.i.i.i, 400
+  %sub2.i.i.i = add nsw i32 %div.i.i.i, 7
+  %add4.i.i.i = add i32 %sub2.i.i.i, %mul.i.i.i
+  %add.i.i = add i32 %add4.i.i.i, %div1.neg.i.i.i
+  %add2.i.i = add i32 %add.i.i, %div3.i.i.i
+  %rem.i = srem i32 %add2.i.i, 7
+  switch i32 %rem.i, label %return [
+    i32 3, label %if.end13
+    i32 2, label %land.lhs.true
+  ]
+
+land.lhs.true:                                    ; preds = %if.then3
+  %rem.i10 = and i32 %iso_year, 3
+  %cmp.i = icmp eq i32 %rem.i10, 0
+  br i1 %cmp.i, label %land.rhs.i, label %return
+
+land.rhs.i:                                       ; preds = %land.lhs.true
+  %rem1.i = urem i32 %iso_year, 100
+  %cmp2.not.i = icmp ne i32 %rem1.i, 0
+  %rem3.i = urem i32 %iso_year, 400
+  %cmp4.i.not = icmp eq i32 %rem3.i, 0
+  %or.cond27 = or i1 %cmp2.not.i, %cmp4.i.not
+  br i1 %or.cond27, label %if.end13, label %return
+
+if.end13:                                         ; preds = %land.rhs.i, %if.then3, %entry
+  %1 = add i32 %iso_day, -8
+  %or.cond1 = icmp ult i32 %1, -7
+  br i1 %or.cond1, label %return, label %if.end18
+
+if.end18:                                         ; preds = %if.end13
+  %sub.i.i.i11 = add i32 %iso_year, -1
+  %mul.i.i.i12 = mul i32 %sub.i.i.i11, 365
+  %div.i.i.i13 = sdiv i32 %sub.i.i.i11, 4
+  %add.i.i.i14 = add i32 %mul.i.i.i12, %div.i.i.i13
+  %div1.neg.i.i.i15 = sdiv i32 %sub.i.i.i11, -100
+  %sub2.i.i.i16 = add i32 %add.i.i.i14, %div1.neg.i.i.i15
+  %div3.i.i.i17 = sdiv i32 %sub.i.i.i11, 400
+  %add4.i.i.i18 = add i32 %sub2.i.i.i16, %div3.i.i.i17
+  %add.i.i19 = add i32 %add4.i.i.i18, 1
+  %add.i = add i32 %add4.i.i.i18, 7
+  %rem.i20 = srem i32 %add.i, 7
+  %sub.i = sub i32 %add.i.i19, %rem.i20
+  %cmp.i21 = icmp sgt i32 %rem.i20, 3
+  %add1.i = add i32 %sub.i, 7
+  %spec.select.i = select i1 %cmp.i21, i32 %add1.i, i32 %sub.i
+  %2 = mul nuw nsw i32 %iso_week, 7
+  %add = add nsw i32 %2, -8
+  %sub20 = add nsw i32 %add, %iso_day
+  %add21 = add i32 %sub20, %spec.select.i
+  tail call fastcc void @ord_to_ymd(i32 noundef %add21, ptr noundef %year, ptr noundef %month, ptr noundef %day)
+  br label %return
+
+return:                                           ; preds = %land.rhs.i, %land.lhs.true, %if.end13, %if.then3, %if.then, %if.end18
+  %retval.0 = phi i32 [ 0, %if.end18 ], [ -2, %if.then ], [ -2, %if.then3 ], [ -3, %if.end13 ], [ -2, %land.lhs.true ], [ -2, %land.rhs.i ]
   ret i32 %retval.0
 }
 
@@ -7321,7 +7273,7 @@ if.end102:                                        ; preds = %if.end102thread-pre
   %pin.2 = phi ptr [ %incdec.ptr15, %if.end102thread-pre-split ], [ %incdec.ptr46, %if.end57 ], [ %incdec.ptr15, %if.end92 ], [ %incdec.ptr15, %if.end35 ]
   %ptoappend.0 = phi ptr [ %call74, %if.end102thread-pre-split ], [ %ob_sval.i50, %if.end57 ], [ %ob_sval.i51, %if.end92 ], [ %ob_sval.i, %if.end35 ]
   %cmp103 = icmp eq i64 %7, 0
-  br i1 %cmp103, label %while.cond, label %while.cond107.preheader, !llvm.loop !9
+  br i1 %cmp103, label %while.cond, label %while.cond107.preheader, !llvm.loop !10
 
 while.cond107.preheader:                          ; preds = %if.end102, %if.then14, %if.else95, %if.then19
   %ptoappend.0188 = phi ptr [ %pin.0, %if.then19 ], [ %pin.0, %if.else95 ], [ %pin.0, %if.then14 ], [ %ptoappend.0, %if.end102 ]
@@ -7356,7 +7308,7 @@ if.end121:                                        ; preds = %if.end116
   %10 = load i64, ptr %ntoappend, align 8
   %add108 = add i64 %10, %usednew.0.ph
   %cmp109 = icmp ugt i64 %add108, %shl
-  br i1 %cmp109, label %while.body111, label %while.cond107.while.end_crit_edge, !llvm.loop !10
+  br i1 %cmp109, label %while.body111, label %while.cond107.while.end_crit_edge, !llvm.loop !11
 
 while.cond107.while.end_crit_edge:                ; preds = %if.end121
   %add.ptr123.le = getelementptr i8, ptr %call122, i64 %usednew.0.ph
@@ -7370,7 +7322,7 @@ while.end:                                        ; preds = %while.cond107.while
   %11 = load i64, ptr %ntoappend, align 8
   %add.ptr124 = getelementptr i8, ptr %pnew.1.lcssa, i64 %11
   %add125 = add i64 %11, %usednew.0.ph
-  br label %while.cond.outer, !llvm.loop !9
+  br label %while.cond.outer, !llvm.loop !10
 
 while.end126:                                     ; preds = %while.cond
   %call127 = call i32 @_PyBytes_Resize(ptr noundef nonnull %newfmt, i64 noundef %usednew.0.ph) #15
@@ -9036,7 +8988,7 @@ if.then48:                                        ; preds = %delta_cmp.exit, %if
   br i1 %or.cond1, label %if.then62, label %if.end71
 
 if.then62:                                        ; preds = %if.then48
-  %call63 = tail call fastcc i32 @pep495_eq_exception(ptr noundef nonnull %self, ptr noundef nonnull %other, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call.i.i76), !range !11
+  %call63 = tail call fastcc i32 @pep495_eq_exception(ptr noundef nonnull %self, ptr noundef nonnull %other, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call.i.i76), !range !12
   switch i32 %call63, label %if.then69 [
     i32 -1, label %done
     i32 0, label %if.end71
@@ -9139,7 +9091,7 @@ Py_DECREF.exit131:                                ; preds = %if.end87, %if.then1
   br i1 %or.cond4, label %if.then96, label %if.end106
 
 if.then96:                                        ; preds = %Py_DECREF.exit131
-  %call98 = tail call fastcc i32 @pep495_eq_exception(ptr noundef nonnull %self, ptr noundef nonnull %other, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call.i.i76), !range !11
+  %call98 = tail call fastcc i32 @pep495_eq_exception(ptr noundef nonnull %self, ptr noundef nonnull %other, ptr noundef nonnull %call.i.i, ptr noundef nonnull %call.i.i76), !range !12
   switch i32 %call98, label %if.then104 [
     i32 -1, label %done
     i32 0, label %if.end106
@@ -10454,7 +10406,7 @@ if.end.i:                                         ; preds = %if.end
   %1 = load i64, ptr %secs.i, align 8
   %2 = load i32, ptr %us.i, align 4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm.i)
-  %call.i1 = call i32 @_PyTime_gmtime(i64 noundef %1, ptr noundef nonnull %tm.i) #15, !callees !12
+  %call.i1 = call i32 @_PyTime_gmtime(i64 noundef %1, ptr noundef nonnull %tm.i) #15, !callees !13
   %cmp.not.i = icmp eq i32 %call.i1, 0
   br i1 %cmp.not.i, label %if.end.i3, label %datetime_from_timet_and_us.exit
 
@@ -10627,7 +10579,7 @@ if.end.i:                                         ; preds = %if.then3
   %3 = load i64, ptr %us.i, align 8
   %conv.i = trunc i64 %3 to i32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %tm.i)
-  %call.i1 = call i32 @_PyTime_gmtime(i64 noundef %2, ptr noundef nonnull %tm.i) #15, !callees !12
+  %call.i1 = call i32 @_PyTime_gmtime(i64 noundef %2, ptr noundef nonnull %tm.i) #15, !callees !13
   %cmp.not.i = icmp eq i32 %call.i1, 0
   br i1 %cmp.not.i, label %if.end.i3, label %datetime_from_timet_and_us.exit
 
@@ -10866,7 +10818,7 @@ for.body.us23.i:                                  ; preds = %PyUnicode_DATA.exit
 for.cond.us27.i:                                  ; preds = %if.end5.us30.i
   %inc.us34.i = add nuw nsw i64 %idx.021.us24.i, 1
   %exitcond.not.i = icmp eq i64 %inc.us34.i, 3
-  br i1 %exitcond.not.i, label %if.then11.i, label %for.body.us23.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %if.then11.i, label %for.body.us23.i, !llvm.loop !14
 
 if.end5.us30.i:                                   ; preds = %for.body.us23.i
   %arrayidx4.i.us.i = getelementptr i16, ptr %retval.0.i.i, i64 %8
@@ -10878,7 +10830,7 @@ if.end5.us30.i:                                   ; preds = %for.body.us23.i
 for.cond.i:                                       ; preds = %if.end5.i
   %inc.i = add nuw nsw i64 %idx.021.i, 1
   %exitcond42.not.i = icmp eq i64 %inc.i, 3
-  br i1 %exitcond42.not.i, label %if.then11.i, label %for.body.i, !llvm.loop !13
+  br i1 %exitcond42.not.i, label %if.then11.i, label %for.body.i, !llvm.loop !14
 
 for.body.i:                                       ; preds = %PyUnicode_DATA.exit.i, %for.cond.i
   %idx.021.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %PyUnicode_DATA.exit.i ]
@@ -11011,7 +10963,7 @@ for.body.i35:                                     ; preds = %for.cond.preheader.
 for.inc.i:                                        ; preds = %for.body.i35
   %inc.i37 = add nuw i64 %idx.021.i36, 1
   %exitcond.not.i38 = icmp eq i64 %inc.i37, %18
-  br i1 %exitcond.not.i38, label %for.end.i, label %for.body.i35, !llvm.loop !14
+  br i1 %exitcond.not.i38, label %for.end.i, label %for.body.i35, !llvm.loop !15
 
 for.end.i:                                        ; preds = %for.inc.i, %for.body.i35
   %idx.0.lcssa.i = phi i64 [ %18, %for.inc.i ], [ %idx.021.i36, %for.body.i35 ]
@@ -11066,7 +11018,7 @@ if.end31:                                         ; preds = %if.else21, %if.then
   %sub.ptr.sub.neg = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast
   %sub = add i64 %sub.ptr.sub.neg, %26
   store i64 %sub, ptr %len, align 8
-  %call30 = call fastcc i32 @parse_isoformat_time(ptr noundef %add.ptr20, i64 noundef %sub, ptr noundef nonnull %hour, ptr noundef nonnull %minute, ptr noundef nonnull %second, ptr noundef nonnull %microsecond, ptr noundef nonnull %tzoffset, ptr noundef nonnull %tzusec), !range !15
+  %call30 = call fastcc i32 @parse_isoformat_time(ptr noundef %add.ptr20, i64 noundef %sub, ptr noundef nonnull %hour, ptr noundef nonnull %minute, ptr noundef nonnull %second, ptr noundef nonnull %microsecond, ptr noundef nonnull %tzoffset, ptr noundef nonnull %tzusec), !range !16
   %cmp32 = icmp slt i32 %call30, 0
   br i1 %cmp32, label %error.thread63, label %if.end31.if.end35_crit_edge
 
@@ -11788,7 +11740,7 @@ if.then29:                                        ; preds = %if.then26
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i64 %given_spec.028, 1
   %exitcond.not = icmp eq i64 %inc, 5
-  br i1 %exitcond.not, label %if.then35, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %if.then35, label %for.body, !llvm.loop !17
 
 if.then35:                                        ; preds = %for.inc
   %5 = load ptr, ptr @PyExc_ValueError, align 8
@@ -12644,7 +12596,7 @@ declare i32 @_PyTime_AsTimevalTime_t(i64 noundef, ptr noundef, ptr noundef, i32 
 define internal fastcc ptr @datetime_from_timet_and_us(ptr noundef %cls, ptr noundef readonly %f, i64 noundef %timet, i32 noundef %us, ptr noundef %tzinfo) unnamed_addr #0 {
 entry:
   %tm = alloca %struct.tm, align 8
-  %call = call i32 %f(i64 noundef %timet, ptr noundef nonnull %tm) #15, !callees !12
+  %call = call i32 %f(i64 noundef %timet, ptr noundef nonnull %tm) #15, !callees !13
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -12745,7 +12697,7 @@ land.lhs.true9:                                   ; preds = %utc_to_seconds.exit
 if.end12:                                         ; preds = %land.lhs.true9, %utc_to_seconds.exit
   %retval.0.i22 = phi i64 [ -1, %land.lhs.true9 ], [ %add9.i, %utc_to_seconds.exit ]
   %sub = add i64 %timet, 62135596800
-  %call14 = call fastcc i64 @local(i64 noundef %sub), !range !17
+  %call14 = call fastcc i64 @local(i64 noundef %sub), !range !18
   %cmp15 = icmp eq i64 %call14, -1
   br i1 %cmp15, label %return, label %if.end17
 
@@ -12756,7 +12708,7 @@ if.end17:                                         ; preds = %if.end12
 
 if.then21:                                        ; preds = %if.end17
   %add23 = add i64 %sub, %sub18
-  %call24 = call fastcc i64 @local(i64 noundef %add23), !range !17
+  %call24 = call fastcc i64 @local(i64 noundef %add23), !range !18
   %cmp25 = icmp eq i64 %call24, -1
   br i1 %cmp25, label %return, label %if.end27
 
@@ -12907,11 +12859,11 @@ do.body:                                          ; preds = %do.cond, %entry
 do.cond:                                          ; preds = %do.body
   %incdec.ptr = getelementptr i8, ptr %tzinfo_pos.0, i64 1
   %cmp9 = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp9, label %do.body, label %do.end, !llvm.loop !18
+  br i1 %cmp9, label %do.body, label %do.end, !llvm.loop !19
 
 do.end:                                           ; preds = %do.body, %do.body, %do.body, %do.cond
   %tzinfo_pos.1 = phi ptr [ %tzinfo_pos.0, %do.body ], [ %incdec.ptr, %do.cond ], [ %tzinfo_pos.0, %do.body ], [ %tzinfo_pos.0, %do.body ]
-  %call = tail call fastcc i32 @parse_hh_mm_ss_ff(ptr noundef %dtstr, ptr noundef %tzinfo_pos.1, ptr noundef %hour, ptr noundef %minute, ptr noundef %second, ptr noundef %microsecond), !range !19
+  %call = tail call fastcc i32 @parse_hh_mm_ss_ff(ptr noundef %dtstr, ptr noundef %tzinfo_pos.1, ptr noundef %hour, ptr noundef %minute, ptr noundef %second, ptr noundef %microsecond), !range !20
   %cmp11 = icmp slt i32 %call, 0
   br i1 %cmp11, label %return, label %if.else
 
@@ -12944,7 +12896,7 @@ if.end33:                                         ; preds = %if.end22
   store i32 0, ptr %tzhour, align 4
   store i32 0, ptr %tzminute, align 4
   store i32 0, ptr %tzsecond, align 4
-  %call38 = call fastcc i32 @parse_hh_mm_ss_ff(ptr noundef %add.ptr27, ptr noundef %add.ptr, ptr noundef nonnull %tzhour, ptr noundef nonnull %tzminute, ptr noundef nonnull %tzsecond, ptr noundef %tzmicrosecond), !range !19
+  %call38 = call fastcc i32 @parse_hh_mm_ss_ff(ptr noundef %add.ptr27, ptr noundef %add.ptr, ptr noundef nonnull %tzhour, ptr noundef nonnull %tzminute, ptr noundef nonnull %tzsecond, ptr noundef %tzmicrosecond), !range !20
   %3 = load i32, ptr %tzhour, align 4
   %mul = mul i32 %3, 3600
   %4 = load i32, ptr %tzminute, align 4
@@ -13169,7 +13121,7 @@ if.end.i:                                         ; preds = %for.body.i
   store i32 %add.i, ptr %0, align 4
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 2
-  br i1 %exitcond.not.i, label %parse_digits.exit, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %parse_digits.exit, label %for.body.i, !llvm.loop !9
 
 parse_digits.exit:                                ; preds = %if.end.i
   %cmp2 = icmp eq ptr %incdec.ptr.i, null
@@ -13208,7 +13160,7 @@ for.inc:                                          ; preds = %if.else28, %if.else
   %p.1 = phi ptr [ %incdec.ptr, %if.else ], [ %incdec.ptr.i, %if.else28 ]
   %inc = add nuw nsw i64 %i.054, 1
   %exitcond.not = icmp eq i64 %inc, 3
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %if.else20, %for.inc
   %p.2 = phi ptr [ %incdec.ptr, %if.else20 ], [ %p.1, %for.inc ]
@@ -13236,7 +13188,7 @@ if.end.i35:                                       ; preds = %for.body.i29
   store i32 %add.i38, ptr %microsecond, align 4
   %inc.i39 = add nuw i64 %i.07.i30, 1
   %exitcond.not.i40 = icmp eq i64 %inc.i39, %spec.store.select
-  br i1 %exitcond.not.i40, label %parse_digits.exit42, label %for.body.i29, !llvm.loop !8
+  br i1 %exitcond.not.i40, label %parse_digits.exit42, label %for.body.i29, !llvm.loop !9
 
 parse_digits.exit42:                              ; preds = %if.end.i35, %for.end
   %retval.0.i41 = phi ptr [ %tstr_end, %for.end ], [ %incdec.ptr.i36, %if.end.i35 ]
@@ -13266,7 +13218,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   %10 = add nsw i32 %conv.i43, -58
   %cmp.i = icmp ult i32 %10, -10
   %incdec.ptr53 = getelementptr i8, ptr %p.3, i64 1
-  br i1 %cmp.i, label %while.end, label %while.cond, !llvm.loop !21
+  br i1 %cmp.i, label %while.end, label %while.cond, !llvm.loop !22
 
 while.end:                                        ; preds = %while.cond
   %cmp55 = icmp ne i8 %9, 0
@@ -13380,14 +13332,14 @@ ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.thread
 
 utc_to_seconds.exit:                              ; preds = %if.then.i, %ymd_to_ord.exit.i
   %retval.0.i = phi i64 [ -1, %if.then.i ], [ %add9.i, %ymd_to_ord.exit.i ]
-  %call1 = tail call fastcc i64 @local(i64 noundef %retval.0.i), !range !17
+  %call1 = tail call fastcc i64 @local(i64 noundef %retval.0.i), !range !18
   %cmp = icmp eq i64 %call1, -1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %utc_to_seconds.exit
   %sub = sub nsw i64 %call1, %retval.0.i
   %sub2 = sub nsw i64 %retval.0.i, %sub
-  %call3 = tail call fastcc i64 @local(i64 noundef %sub2), !range !17
+  %call3 = tail call fastcc i64 @local(i64 noundef %sub2), !range !18
   %cmp4 = icmp eq i64 %call3, -1
   br i1 %cmp4, label %return, label %if.end6
 
@@ -13399,7 +13351,7 @@ if.then8:                                         ; preds = %if.end6
   %tobool.not = icmp eq i32 %fold, 0
   %u2.0.v = select i1 %tobool.not, i64 -86400, i64 86400
   %u2.0 = add nsw i64 %sub2, %u2.0.v
-  %call12 = tail call fastcc i64 @local(i64 noundef %u2.0), !range !17
+  %call12 = tail call fastcc i64 @local(i64 noundef %u2.0), !range !18
   %cmp13 = icmp eq i64 %call12, -1
   br i1 %cmp13, label %return, label %if.end15
 
@@ -13415,7 +13367,7 @@ if.else20:                                        ; preds = %if.end6
 if.end22:                                         ; preds = %if.end15, %if.else20
   %b.0 = phi i64 [ %sub16, %if.end15 ], [ %sub21, %if.else20 ]
   %sub23 = sub nsw i64 %retval.0.i, %b.0
-  %call24 = tail call fastcc i64 @local(i64 noundef %sub23), !range !17
+  %call24 = tail call fastcc i64 @local(i64 noundef %sub23), !range !18
   %cmp25 = icmp eq i64 %call24, -1
   br i1 %cmp25, label %return, label %if.end27
 
@@ -15396,7 +15348,7 @@ if.then29:                                        ; preds = %if.then26
 for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i64 %given_spec.025, 1
   %exitcond.not = icmp eq i64 %inc, 5
-  br i1 %exitcond.not, label %if.then35, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %if.then35, label %for.body, !llvm.loop !23
 
 if.then35:                                        ; preds = %for.inc
   %5 = load ptr, ptr @PyExc_ValueError, align 8
@@ -15750,7 +15702,7 @@ if.end8:                                          ; preds = %if.then7, %if.end4
   store i32 0, ptr %microsecond, align 4
   store i32 0, ptr %tzoffset, align 4
   store i32 0, ptr %tzimicrosecond, align 4
-  %call9 = call fastcc i32 @parse_isoformat_time(ptr noundef %p.0, i64 noundef %5, ptr noundef nonnull %hour, ptr noundef nonnull %minute, ptr noundef nonnull %second, ptr noundef nonnull %microsecond, ptr noundef nonnull %tzoffset, ptr noundef nonnull %tzimicrosecond), !range !15
+  %call9 = call fastcc i32 @parse_isoformat_time(ptr noundef %p.0, i64 noundef %5, ptr noundef nonnull %hour, ptr noundef nonnull %minute, ptr noundef nonnull %second, ptr noundef nonnull %microsecond, ptr noundef nonnull %tzoffset, ptr noundef nonnull %tzimicrosecond), !range !16
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %invalid_string_error, label %if.end13
 
@@ -18451,18 +18403,19 @@ attributes #16 = { nounwind willreturn memory(read) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = !{i32 -1, i32 1}
 !7 = !{i32 -6, i32 1}
-!8 = distinct !{!8, !5}
+!8 = !{i32 -3, i32 1}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = !{i32 -1, i32 2}
-!12 = !{ptr @_PyTime_gmtime, ptr @_PyTime_localtime}
-!13 = distinct !{!13, !5}
+!11 = distinct !{!11, !5}
+!12 = !{i32 -1, i32 2}
+!13 = !{ptr @_PyTime_gmtime, ptr @_PyTime_localtime}
 !14 = distinct !{!14, !5}
-!15 = !{i32 -2147483648, i32 2}
-!16 = distinct !{!16, !5}
-!17 = !{i64 -193404524822528, i64 193404524732468}
-!18 = distinct !{!18, !5}
-!19 = !{i32 -4, i32 2}
-!20 = distinct !{!20, !5}
+!15 = distinct !{!15, !5}
+!16 = !{i32 -2147483648, i32 2}
+!17 = distinct !{!17, !5}
+!18 = !{i64 -193404524822528, i64 193404524732468}
+!19 = distinct !{!19, !5}
+!20 = !{i32 -4, i32 2}
 !21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}

@@ -1352,89 +1352,18 @@ return:                                           ; preds = %cleanup.action, %sw
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN3net13SpdyConstants23GetDataFrameMinimumSizeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN3net13SpdyConstants23GetDataFrameMinimumSizeENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 {
 entry:
-  %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i)
-  switch i32 %version, label %sw.epilog.i [
-    i32 1, label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
-    i32 2, label %sw.bb1.i
-  ]
-
-sw.bb1.i:                                         ; preds = %entry
-  br label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
-
-sw.epilog.i:                                      ; preds = %entry
-  %call.i = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  br i1 %call.i, label %cond.false.i, label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
-
-cond.false.i:                                     ; preds = %sw.epilog.i
-  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i, ptr noundef nonnull @.str, i32 noundef 701, i32 noundef 2)
-  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
-  %call5.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.13)
-          to label %invoke.cont4.i unwind label %lpad.i
-
-invoke.cont4.i:                                   ; preds = %cond.false.i
-  %call7.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call5.i, i32 noundef %version)
-          to label %cleanup.action.i unwind label %lpad.i
-
-cleanup.action.i:                                 ; preds = %invoke.cont4.i
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i) #15
-  br label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
-
-lpad.i:                                           ; preds = %invoke.cont4.i, %cond.false.i
-  %0 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i) #15
-  resume { ptr, i32 } %0
-
-_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit: ; preds = %entry, %sw.bb1.i, %sw.epilog.i, %cleanup.action.i
-  %retval.0.i = phi i64 [ 9, %sw.bb1.i ], [ 8, %entry ], [ 0, %sw.epilog.i ], [ 0, %cleanup.action.i ]
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i)
-  ret i64 %retval.0.i
+  %call = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %version), !range !6
+  ret i64 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN3net13SpdyConstants20GetMaxFrameSizeLimitENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i64 @_ZN3net13SpdyConstants20GetMaxFrameSizeLimitENS_16SpdyMajorVersionE(i32 noundef %version) local_unnamed_addr #0 align 2 {
 entry:
-  %ref.tmp2.i = alloca %"class.logging::LogMessage", align 8
-  call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp2.i)
-  switch i32 %version, label %sw.epilog.i [
-    i32 1, label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
-    i32 2, label %sw.bb1.i
-  ]
-
-sw.bb1.i:                                         ; preds = %entry
-  br label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
-
-sw.epilog.i:                                      ; preds = %entry
-  %call.i = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  br i1 %call.i, label %cond.false.i, label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
-
-cond.false.i:                                     ; preds = %sw.epilog.i
-  call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i, ptr noundef nonnull @.str, i32 noundef 701, i32 noundef 2)
-  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i, i64 8
-  %call5.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.13)
-          to label %invoke.cont4.i unwind label %lpad.i
-
-invoke.cont4.i:                                   ; preds = %cond.false.i
-  %call7.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call5.i, i32 noundef %version)
-          to label %cleanup.action.i unwind label %lpad.i
-
-cleanup.action.i:                                 ; preds = %invoke.cont4.i
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i) #15
-  br label %_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit
-
-lpad.i:                                           ; preds = %invoke.cont4.i, %cond.false.i
-  %0 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2.i) #15
-  resume { ptr, i32 } %0
-
-_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE.exit: ; preds = %entry, %sw.bb1.i, %sw.epilog.i, %cleanup.action.i
-  %retval.0.i = phi i64 [ 16777224, %sw.bb1.i ], [ 16777223, %entry ], [ 16777215, %sw.epilog.i ], [ 16777215, %cleanup.action.i ]
-  call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %ref.tmp2.i)
-  ret i64 %retval.0.i
+  %call = tail call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %version), !range !6
+  %add = add nuw nsw i64 %call, 16777215
+  ret i64 %add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1812,10 +1741,10 @@ entry:
   store i8 0, ptr %fin_.i, align 4
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %data_store_ = getelementptr inbounds i8, ptr %this, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %call.i2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call.i2, ptr noundef nonnull align 8 dereferenceable(32) %data) #15, !noalias !6
-  store ptr %call.i2, ptr %data_store_, align 8, !alias.scope !6
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %call.i2, ptr noundef nonnull align 8 dereferenceable(32) %data) #15, !noalias !7
+  store ptr %call.i2, ptr %data_store_, align 8, !alias.scope !7
   %data_ = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %data_, ptr noundef nonnull align 8 dereferenceable(32) %call.i2)
           to label %invoke.cont4 unwind label %lpad3
@@ -2232,7 +2161,7 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   tail call void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.04.i.i.i.i) #15
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 96
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !10
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   %.pr.i = load ptr, ptr %altsvc_vector_, align 8
@@ -2269,7 +2198,7 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %for.body.i.
   tail call void @_ZN3net20SpdyAltSvcWireFormat18AlternativeServiceD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %__first.addr.04.i.i.i.i.i) #15
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !10
 
 invoke.contthread-pre-split.i.i:                  ; preds = %for.body.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %altsvc_vector_.i, align 8
@@ -2498,7 +2427,7 @@ while.body:                                       ; preds = %entry, %while.body
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #18
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !11
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -2640,9 +2569,10 @@ attributes #18 = { builtin nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{i32 1, i32 257}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN4base10MakeUniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS6_EEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_: %agg.result"}
-!8 = distinct !{!8, !"_ZN4base10MakeUniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS6_EEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!6 = !{i64 0, i64 10}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN4base10MakeUniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS6_EEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_: %agg.result"}
+!9 = distinct !{!9, !"_ZN4base10MakeUniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS6_EEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_"}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}

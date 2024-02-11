@@ -1257,28 +1257,153 @@ declare void @qapi_free_VncInfo(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @qmp_query_vnc_servers(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
 entry:
-  %vd.042 = load ptr, ptr @vnc_displays, align 8
-  %tobool.not43 = icmp eq ptr %vd.042, null
-  br i1 %tobool.not43, label %for.end41, label %for.body
+  %err.i39 = alloca ptr, align 8
+  %err.i = alloca ptr, align 8
+  %vd.0109 = load ptr, ptr @vnc_displays, align 8
+  %tobool.not110 = icmp eq ptr %vd.0109, null
+  br i1 %tobool.not110, label %for.end41, label %for.body
 
 for.body:                                         ; preds = %entry, %do.body
-  %vd.045 = phi ptr [ %vd.0, %do.body ], [ %vd.042, %entry ]
-  %prev.044 = phi ptr [ %call38, %do.body ], [ null, %entry ]
-  %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #25
-  %id = getelementptr inbounds i8, ptr %vd.045, i64 284936
+  %vd.0112 = phi ptr [ %vd.0, %do.body ], [ %vd.0109, %entry ]
+  %prev.0111 = phi ptr [ %call38, %do.body ], [ null, %entry ]
+  %call = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #25
+  %id = getelementptr inbounds i8, ptr %vd.0112, i64 284936
   %0 = load ptr, ptr %id, align 8
-  %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #23
+  %call1 = call noalias ptr @g_strdup(ptr noundef %0) #23
   store ptr %call1, ptr %call, align 8
-  %call3 = tail call fastcc ptr @qmp_query_client_list(ptr noundef nonnull %vd.045)
+  %call3 = call fastcc ptr @qmp_query_client_list(ptr noundef nonnull %vd.0112)
   %clients = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call3, ptr %clients, align 8
-  %auth = getelementptr inbounds i8, ptr %vd.045, i64 284984
+  %auth = getelementptr inbounds i8, ptr %vd.0112, i64 284984
   %1 = load i32, ptr %auth, align 8
-  %subauth = getelementptr inbounds i8, ptr %vd.045, i64 284988
+  %subauth = getelementptr inbounds i8, ptr %vd.0112, i64 284988
+  %2 = load i32, ptr %subauth, align 4
   %auth4 = getelementptr inbounds i8, ptr %call, i64 24
   %vencrypt = getelementptr inbounds i8, ptr %call, i64 32
   %has_vencrypt = getelementptr inbounds i8, ptr %call, i64 28
-  switch i32 %1, label %sw.default18.i [
+  call fastcc void @qmp_query_auth(i32 noundef %1, i32 noundef %2, ptr noundef nonnull %auth4, ptr noundef nonnull %vencrypt, ptr noundef nonnull %has_vencrypt)
+  %con = getelementptr inbounds i8, ptr %vd.0112, i64 88
+  %3 = load ptr, ptr %con, align 8
+  %tobool5.not = icmp eq ptr %3, null
+  br i1 %tobool5.not, label %if.end, label %if.then
+
+if.then:                                          ; preds = %for.body
+  %call8 = call ptr @object_property_get_link(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef nonnull @error_abort) #23
+  %call.i = call ptr @object_dynamic_cast_assert(ptr noundef %call8, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.64, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %id10 = getelementptr inbounds i8, ptr %call.i, i64 40
+  %4 = load ptr, ptr %id10, align 8
+  %call11 = call noalias ptr @g_strdup(ptr noundef %4) #23
+  %display = getelementptr inbounds i8, ptr %call, i64 40
+  store ptr %call11, ptr %display, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.then, %for.body
+  %listener = getelementptr inbounds i8, ptr %vd.0112, i64 40
+  %5 = load ptr, ptr %listener, align 8
+  %cmp.not105 = icmp eq ptr %5, null
+  br i1 %cmp.not105, label %for.end, label %land.rhs.lr.ph
+
+land.rhs.lr.ph:                                   ; preds = %if.end
+  %server = getelementptr inbounds i8, ptr %call, i64 8
+  br label %land.rhs
+
+land.rhs:                                         ; preds = %land.rhs.lr.ph, %qmp_query_server_entry.exit
+  %6 = phi ptr [ %5, %land.rhs.lr.ph ], [ %21, %qmp_query_server_entry.exit ]
+  %i.0106 = phi i64 [ 0, %land.rhs.lr.ph ], [ %inc, %qmp_query_server_entry.exit ]
+  %nsioc = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = load i64, ptr %nsioc, align 8
+  %cmp14 = icmp ult i64 %i.0106, %7
+  br i1 %cmp14, label %for.body15, label %for.end
+
+for.body15:                                       ; preds = %land.rhs
+  %sioc = getelementptr inbounds i8, ptr %6, i64 48
+  %8 = load ptr, ptr %sioc, align 8
+  %arrayidx = getelementptr ptr, ptr %8, i64 %i.0106
+  %9 = load ptr, ptr %arrayidx, align 8
+  %10 = load i32, ptr %auth, align 8
+  %11 = load i32, ptr %subauth, align 4
+  %12 = load ptr, ptr %server, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
+  store ptr null, ptr %err.i, align 8
+  %call.i38 = call ptr @qio_channel_socket_get_local_address(ptr noundef %9, ptr noundef null) #23
+  %tobool.not.i = icmp eq ptr %call.i38, null
+  br i1 %tobool.not.i, label %qmp_query_server_entry.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %for.body15
+  %call1.i = call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #25
+  %13 = load i32, ptr %call.i38, align 8
+  switch i32 %13, label %sw.default.i61 [
+    i32 0, label %sw.bb.i58
+    i32 1, label %sw.bb6.i56
+    i32 2, label %sw.bb13.i55
+    i32 3, label %sw.bb13.i55
+  ]
+
+sw.bb.i58:                                        ; preds = %if.end.i
+  %u.i = getelementptr inbounds i8, ptr %call.i38, i64 8
+  %14 = load ptr, ptr %u.i, align 8
+  %call.i59 = call noalias ptr @g_strdup(ptr noundef %14) #23
+  store ptr %call.i59, ptr %call1.i, align 8
+  %port.i = getelementptr inbounds i8, ptr %call.i38, i64 16
+  %15 = load ptr, ptr %port.i, align 8
+  %call3.i = call noalias ptr @g_strdup(ptr noundef %15) #23
+  %service.i = getelementptr inbounds i8, ptr %call1.i, i64 8
+  store ptr %call3.i, ptr %service.i, align 8
+  %ipv6.i = getelementptr inbounds i8, ptr %call.i38, i64 33
+  %16 = load i8, ptr %ipv6.i, align 1
+  %17 = and i8 %16, 1
+  %tobool.not.i60 = icmp eq i8 %17, 0
+  %family5.i = getelementptr inbounds i8, ptr %call1.i, i64 16
+  br i1 %tobool.not.i60, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %sw.bb.i58
+  store i32 1, ptr %family5.i, align 8
+  br label %vnc_init_basic_info.exit
+
+if.else.i:                                        ; preds = %sw.bb.i58
+  store i32 0, ptr %family5.i, align 8
+  br label %vnc_init_basic_info.exit
+
+sw.bb6.i56:                                       ; preds = %if.end.i
+  %call7.i = call noalias ptr @g_strdup(ptr noundef nonnull @.str) #23
+  store ptr %call7.i, ptr %call1.i, align 8
+  %u9.i = getelementptr inbounds i8, ptr %call.i38, i64 8
+  %18 = load ptr, ptr %u9.i, align 8
+  %call10.i57 = call noalias ptr @g_strdup(ptr noundef %18) #23
+  %service11.i = getelementptr inbounds i8, ptr %call1.i, i64 8
+  store ptr %call10.i57, ptr %service11.i, align 8
+  %family12.i = getelementptr inbounds i8, ptr %call1.i, i64 16
+  store i32 2, ptr %family12.i, align 8
+  br label %vnc_init_basic_info.exit
+
+sw.bb13.i55:                                      ; preds = %if.end.i, %if.end.i
+  %call15.i = call ptr @qapi_enum_lookup(ptr noundef nonnull @SocketAddressType_lookup, i32 noundef %13) #23
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err.i, ptr noundef nonnull @.str.1, i32 noundef 144, ptr noundef nonnull @__func__.vnc_init_basic_info, ptr noundef nonnull @.str.2, ptr noundef %call15.i) #23
+  br label %vnc_init_basic_info.exit
+
+sw.default.i61:                                   ; preds = %if.end.i
+  call void @abort() #24
+  unreachable
+
+vnc_init_basic_info.exit:                         ; preds = %if.then.i, %if.else.i, %sw.bb6.i56, %sw.bb13.i55
+  call void @qapi_free_SocketAddress(ptr noundef nonnull %call.i38) #23
+  %19 = load ptr, ptr %err.i, align 8
+  %tobool3.not.i = icmp eq ptr %19, null
+  br i1 %tobool3.not.i, label %if.end5.i, label %if.then4.i
+
+if.then4.i:                                       ; preds = %vnc_init_basic_info.exit
+  call void @qapi_free_VncServerInfo2(ptr noundef %call1.i) #23
+  %20 = load ptr, ptr %err.i, align 8
+  call void @error_free(ptr noundef %20) #23
+  br label %qmp_query_server_entry.exit
+
+if.end5.i:                                        ; preds = %vnc_init_basic_info.exit
+  %websocket7.i = getelementptr inbounds i8, ptr %call1.i, i64 20
+  store i8 0, ptr %websocket7.i, align 4
+  %auth9.i = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %vencrypt.i = getelementptr inbounds i8, ptr %call1.i, i64 32
+  %has_vencrypt.i = getelementptr inbounds i8, ptr %call1.i, i64 28
+  switch i32 %10, label %sw.default18.i [
     i32 2, label %sw.bb.i
     i32 5, label %sw.bb1.i
     i32 6, label %sw.bb2.i
@@ -1289,35 +1414,34 @@ for.body:                                         ; preds = %entry, %do.body
     i32 20, label %sw.bb16.i
   ]
 
-sw.bb.i:                                          ; preds = %for.body
-  store i32 1, ptr %auth4, align 4
+sw.bb.i:                                          ; preds = %if.end5.i
+  store i32 1, ptr %auth9.i, align 4
   br label %qmp_query_auth.exit
 
-sw.bb1.i:                                         ; preds = %for.body
-  store i32 2, ptr %auth4, align 4
+sw.bb1.i:                                         ; preds = %if.end5.i
+  store i32 2, ptr %auth9.i, align 4
   br label %qmp_query_auth.exit
 
-sw.bb2.i:                                         ; preds = %for.body
-  store i32 3, ptr %auth4, align 4
+sw.bb2.i:                                         ; preds = %if.end5.i
+  store i32 3, ptr %auth9.i, align 4
   br label %qmp_query_auth.exit
 
-sw.bb3.i:                                         ; preds = %for.body
-  store i32 4, ptr %auth4, align 4
+sw.bb3.i:                                         ; preds = %if.end5.i
+  store i32 4, ptr %auth9.i, align 4
   br label %qmp_query_auth.exit
 
-sw.bb4.i:                                         ; preds = %for.body
-  store i32 5, ptr %auth4, align 4
+sw.bb4.i:                                         ; preds = %if.end5.i
+  store i32 5, ptr %auth9.i, align 4
   br label %qmp_query_auth.exit
 
-sw.bb5.i:                                         ; preds = %for.body
-  store i32 6, ptr %auth4, align 4
+sw.bb5.i:                                         ; preds = %if.end5.i
+  store i32 6, ptr %auth9.i, align 4
   br label %qmp_query_auth.exit
 
-sw.bb6.i:                                         ; preds = %for.body
-  %2 = load i32, ptr %subauth, align 4
-  store i32 7, ptr %auth4, align 4
-  store i8 1, ptr %has_vencrypt, align 1
-  switch i32 %2, label %sw.default.i [
+sw.bb6.i:                                         ; preds = %if.end5.i
+  store i32 7, ptr %auth9.i, align 4
+  store i8 1, ptr %has_vencrypt.i, align 1
+  switch i32 %11, label %sw.default.i [
     i32 256, label %sw.bb7.i
     i32 257, label %sw.bb8.i
     i32 258, label %sw.bb9.i
@@ -1330,143 +1454,297 @@ sw.bb6.i:                                         ; preds = %for.body
   ]
 
 sw.bb7.i:                                         ; preds = %sw.bb6.i
-  store i32 0, ptr %vencrypt, align 4
+  store i32 0, ptr %vencrypt.i, align 4
   br label %qmp_query_auth.exit
 
 sw.bb8.i:                                         ; preds = %sw.bb6.i
-  store i32 1, ptr %vencrypt, align 4
+  store i32 1, ptr %vencrypt.i, align 4
   br label %qmp_query_auth.exit
 
 sw.bb9.i:                                         ; preds = %sw.bb6.i
-  store i32 3, ptr %vencrypt, align 4
+  store i32 3, ptr %vencrypt.i, align 4
   br label %qmp_query_auth.exit
 
 sw.bb10.i:                                        ; preds = %sw.bb6.i
-  store i32 5, ptr %vencrypt, align 4
+  store i32 5, ptr %vencrypt.i, align 4
   br label %qmp_query_auth.exit
 
 sw.bb11.i:                                        ; preds = %sw.bb6.i
-  store i32 2, ptr %vencrypt, align 4
+  store i32 2, ptr %vencrypt.i, align 4
   br label %qmp_query_auth.exit
 
 sw.bb12.i:                                        ; preds = %sw.bb6.i
-  store i32 4, ptr %vencrypt, align 4
+  store i32 4, ptr %vencrypt.i, align 4
   br label %qmp_query_auth.exit
 
 sw.bb13.i:                                        ; preds = %sw.bb6.i
-  store i32 6, ptr %vencrypt, align 4
+  store i32 6, ptr %vencrypt.i, align 4
   br label %qmp_query_auth.exit
 
 sw.bb14.i:                                        ; preds = %sw.bb6.i
-  store i32 7, ptr %vencrypt, align 4
+  store i32 7, ptr %vencrypt.i, align 4
   br label %qmp_query_auth.exit
 
 sw.bb15.i:                                        ; preds = %sw.bb6.i
-  store i32 8, ptr %vencrypt, align 4
+  store i32 8, ptr %vencrypt.i, align 4
   br label %qmp_query_auth.exit
 
 sw.default.i:                                     ; preds = %sw.bb6.i
-  store i8 0, ptr %has_vencrypt, align 1
+  store i8 0, ptr %has_vencrypt.i, align 1
   br label %qmp_query_auth.exit
 
-sw.bb16.i:                                        ; preds = %for.body
-  store i32 8, ptr %auth4, align 4
+sw.bb16.i:                                        ; preds = %if.end5.i
+  store i32 8, ptr %auth9.i, align 4
   br label %qmp_query_auth.exit
 
-sw.default18.i:                                   ; preds = %for.body
-  store i32 0, ptr %auth4, align 4
+sw.default18.i:                                   ; preds = %if.end5.i
+  store i32 0, ptr %auth9.i, align 4
   br label %qmp_query_auth.exit
 
 qmp_query_auth.exit:                              ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb7.i, %sw.bb8.i, %sw.bb9.i, %sw.bb10.i, %sw.bb11.i, %sw.bb12.i, %sw.bb13.i, %sw.bb14.i, %sw.bb15.i, %sw.default.i, %sw.bb16.i, %sw.default18.i
-  %con = getelementptr inbounds i8, ptr %vd.045, i64 88
-  %3 = load ptr, ptr %con, align 8
-  %tobool5.not = icmp eq ptr %3, null
-  br i1 %tobool5.not, label %if.end, label %if.then
+  %call10.i = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #22
+  %value.i = getelementptr inbounds i8, ptr %call10.i, i64 8
+  store ptr %call1.i, ptr %value.i, align 8
+  store ptr %12, ptr %call10.i, align 8
+  br label %qmp_query_server_entry.exit
 
-if.then:                                          ; preds = %qmp_query_auth.exit
-  %call8 = tail call ptr @object_property_get_link(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef nonnull @error_abort) #23
-  %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call8, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.64, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %id10 = getelementptr inbounds i8, ptr %call.i, i64 40
-  %4 = load ptr, ptr %id10, align 8
-  %call11 = tail call noalias ptr @g_strdup(ptr noundef %4) #23
-  %display = getelementptr inbounds i8, ptr %call, i64 40
-  store ptr %call11, ptr %display, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %qmp_query_auth.exit
-  %listener = getelementptr inbounds i8, ptr %vd.045, i64 40
-  %5 = load ptr, ptr %listener, align 8
-  %cmp.not38 = icmp eq ptr %5, null
-  br i1 %cmp.not38, label %for.end, label %land.rhs.lr.ph
-
-land.rhs.lr.ph:                                   ; preds = %if.end
-  %server = getelementptr inbounds i8, ptr %call, i64 8
-  br label %land.rhs
-
-land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.body15
-  %6 = phi ptr [ %5, %land.rhs.lr.ph ], [ %13, %for.body15 ]
-  %i.039 = phi i64 [ 0, %land.rhs.lr.ph ], [ %inc, %for.body15 ]
-  %nsioc = getelementptr inbounds i8, ptr %6, i64 64
-  %7 = load i64, ptr %nsioc, align 8
-  %cmp14 = icmp ult i64 %i.039, %7
-  br i1 %cmp14, label %for.body15, label %for.end
-
-for.body15:                                       ; preds = %land.rhs
-  %sioc = getelementptr inbounds i8, ptr %6, i64 48
-  %8 = load ptr, ptr %sioc, align 8
-  %arrayidx = getelementptr ptr, ptr %8, i64 %i.039
-  %9 = load ptr, ptr %arrayidx, align 8
-  %10 = load i32, ptr %auth, align 8
-  %11 = load i32, ptr %subauth, align 4
-  %12 = load ptr, ptr %server, align 8
-  %call19 = tail call fastcc ptr @qmp_query_server_entry(ptr noundef %9, i1 noundef zeroext false, i32 noundef %10, i32 noundef %11, ptr noundef %12)
-  store ptr %call19, ptr %server, align 8
-  %inc = add nuw i64 %i.039, 1
-  %13 = load ptr, ptr %listener, align 8
-  %cmp.not = icmp eq ptr %13, null
+qmp_query_server_entry.exit:                      ; preds = %for.body15, %if.then4.i, %qmp_query_auth.exit
+  %retval.0.i = phi ptr [ %12, %if.then4.i ], [ %call10.i, %qmp_query_auth.exit ], [ %12, %for.body15 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
+  store ptr %retval.0.i, ptr %server, align 8
+  %inc = add nuw i64 %i.0106, 1
+  %21 = load ptr, ptr %listener, align 8
+  %cmp.not = icmp eq ptr %21, null
   br i1 %cmp.not, label %for.end, label %land.rhs, !llvm.loop !7
 
-for.end:                                          ; preds = %land.rhs, %for.body15, %if.end
-  %wslistener = getelementptr inbounds i8, ptr %vd.045, i64 48
-  %14 = load ptr, ptr %wslistener, align 8
-  %cmp22.not40 = icmp eq ptr %14, null
-  br i1 %cmp22.not40, label %do.body, label %land.rhs23.lr.ph
+for.end:                                          ; preds = %land.rhs, %qmp_query_server_entry.exit, %if.end
+  %wslistener = getelementptr inbounds i8, ptr %vd.0112, i64 48
+  %22 = load ptr, ptr %wslistener, align 8
+  %cmp22.not107 = icmp eq ptr %22, null
+  br i1 %cmp22.not107, label %do.body, label %land.rhs23.lr.ph
 
 land.rhs23.lr.ph:                                 ; preds = %for.end
-  %ws_auth = getelementptr inbounds i8, ptr %vd.045, i64 284992
-  %ws_subauth = getelementptr inbounds i8, ptr %vd.045, i64 284996
+  %ws_auth = getelementptr inbounds i8, ptr %vd.0112, i64 284992
+  %ws_subauth = getelementptr inbounds i8, ptr %vd.0112, i64 284996
   %server32 = getelementptr inbounds i8, ptr %call, i64 8
   br label %land.rhs23
 
-land.rhs23:                                       ; preds = %land.rhs23.lr.ph, %for.body28
-  %15 = phi ptr [ %14, %land.rhs23.lr.ph ], [ %22, %for.body28 ]
-  %i.141 = phi i64 [ 0, %land.rhs23.lr.ph ], [ %inc36, %for.body28 ]
-  %nsioc25 = getelementptr inbounds i8, ptr %15, i64 64
-  %16 = load i64, ptr %nsioc25, align 8
-  %cmp26 = icmp ult i64 %i.141, %16
+land.rhs23:                                       ; preds = %land.rhs23.lr.ph, %qmp_query_server_entry.exit54
+  %23 = phi ptr [ %22, %land.rhs23.lr.ph ], [ %38, %qmp_query_server_entry.exit54 ]
+  %i.1108 = phi i64 [ 0, %land.rhs23.lr.ph ], [ %inc36, %qmp_query_server_entry.exit54 ]
+  %nsioc25 = getelementptr inbounds i8, ptr %23, i64 64
+  %24 = load i64, ptr %nsioc25, align 8
+  %cmp26 = icmp ult i64 %i.1108, %24
   br i1 %cmp26, label %for.body28, label %do.body
 
 for.body28:                                       ; preds = %land.rhs23
-  %sioc30 = getelementptr inbounds i8, ptr %15, i64 48
-  %17 = load ptr, ptr %sioc30, align 8
-  %arrayidx31 = getelementptr ptr, ptr %17, i64 %i.141
-  %18 = load ptr, ptr %arrayidx31, align 8
-  %19 = load i32, ptr %ws_auth, align 8
-  %20 = load i32, ptr %ws_subauth, align 4
-  %21 = load ptr, ptr %server32, align 8
-  %call33 = tail call fastcc ptr @qmp_query_server_entry(ptr noundef %18, i1 noundef zeroext true, i32 noundef %19, i32 noundef %20, ptr noundef %21)
-  store ptr %call33, ptr %server32, align 8
-  %inc36 = add nuw i64 %i.141, 1
-  %22 = load ptr, ptr %wslistener, align 8
-  %cmp22.not = icmp eq ptr %22, null
+  %sioc30 = getelementptr inbounds i8, ptr %23, i64 48
+  %25 = load ptr, ptr %sioc30, align 8
+  %arrayidx31 = getelementptr ptr, ptr %25, i64 %i.1108
+  %26 = load ptr, ptr %arrayidx31, align 8
+  %27 = load i32, ptr %ws_auth, align 8
+  %28 = load i32, ptr %ws_subauth, align 4
+  %29 = load ptr, ptr %server32, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i39)
+  store ptr null, ptr %err.i39, align 8
+  %call.i40 = call ptr @qio_channel_socket_get_local_address(ptr noundef %26, ptr noundef null) #23
+  %tobool.not.i41 = icmp eq ptr %call.i40, null
+  br i1 %tobool.not.i41, label %qmp_query_server_entry.exit54, label %if.end.i42
+
+if.end.i42:                                       ; preds = %for.body28
+  %call1.i43 = call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #25
+  %30 = load i32, ptr %call.i40, align 8
+  switch i32 %30, label %sw.default.i101 [
+    i32 0, label %sw.bb.i90
+    i32 1, label %sw.bb6.i84
+    i32 2, label %sw.bb13.i82
+    i32 3, label %sw.bb13.i82
+  ]
+
+sw.bb.i90:                                        ; preds = %if.end.i42
+  %u.i91 = getelementptr inbounds i8, ptr %call.i40, i64 8
+  %31 = load ptr, ptr %u.i91, align 8
+  %call.i92 = call noalias ptr @g_strdup(ptr noundef %31) #23
+  store ptr %call.i92, ptr %call1.i43, align 8
+  %port.i93 = getelementptr inbounds i8, ptr %call.i40, i64 16
+  %32 = load ptr, ptr %port.i93, align 8
+  %call3.i94 = call noalias ptr @g_strdup(ptr noundef %32) #23
+  %service.i95 = getelementptr inbounds i8, ptr %call1.i43, i64 8
+  store ptr %call3.i94, ptr %service.i95, align 8
+  %ipv6.i96 = getelementptr inbounds i8, ptr %call.i40, i64 33
+  %33 = load i8, ptr %ipv6.i96, align 1
+  %34 = and i8 %33, 1
+  %tobool.not.i97 = icmp eq i8 %34, 0
+  %family5.i98 = getelementptr inbounds i8, ptr %call1.i43, i64 16
+  br i1 %tobool.not.i97, label %if.else.i100, label %if.then.i99
+
+if.then.i99:                                      ; preds = %sw.bb.i90
+  store i32 1, ptr %family5.i98, align 8
+  br label %vnc_init_basic_info.exit102
+
+if.else.i100:                                     ; preds = %sw.bb.i90
+  store i32 0, ptr %family5.i98, align 8
+  br label %vnc_init_basic_info.exit102
+
+sw.bb6.i84:                                       ; preds = %if.end.i42
+  %call7.i85 = call noalias ptr @g_strdup(ptr noundef nonnull @.str) #23
+  store ptr %call7.i85, ptr %call1.i43, align 8
+  %u9.i86 = getelementptr inbounds i8, ptr %call.i40, i64 8
+  %35 = load ptr, ptr %u9.i86, align 8
+  %call10.i87 = call noalias ptr @g_strdup(ptr noundef %35) #23
+  %service11.i88 = getelementptr inbounds i8, ptr %call1.i43, i64 8
+  store ptr %call10.i87, ptr %service11.i88, align 8
+  %family12.i89 = getelementptr inbounds i8, ptr %call1.i43, i64 16
+  store i32 2, ptr %family12.i89, align 8
+  br label %vnc_init_basic_info.exit102
+
+sw.bb13.i82:                                      ; preds = %if.end.i42, %if.end.i42
+  %call15.i83 = call ptr @qapi_enum_lookup(ptr noundef nonnull @SocketAddressType_lookup, i32 noundef %30) #23
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err.i39, ptr noundef nonnull @.str.1, i32 noundef 144, ptr noundef nonnull @__func__.vnc_init_basic_info, ptr noundef nonnull @.str.2, ptr noundef %call15.i83) #23
+  br label %vnc_init_basic_info.exit102
+
+sw.default.i101:                                  ; preds = %if.end.i42
+  call void @abort() #24
+  unreachable
+
+vnc_init_basic_info.exit102:                      ; preds = %if.then.i99, %if.else.i100, %sw.bb6.i84, %sw.bb13.i82
+  call void @qapi_free_SocketAddress(ptr noundef nonnull %call.i40) #23
+  %36 = load ptr, ptr %err.i39, align 8
+  %tobool3.not.i44 = icmp eq ptr %36, null
+  br i1 %tobool3.not.i44, label %if.end5.i47, label %if.then4.i45
+
+if.then4.i45:                                     ; preds = %vnc_init_basic_info.exit102
+  call void @qapi_free_VncServerInfo2(ptr noundef %call1.i43) #23
+  %37 = load ptr, ptr %err.i39, align 8
+  call void @error_free(ptr noundef %37) #23
+  br label %qmp_query_server_entry.exit54
+
+if.end5.i47:                                      ; preds = %vnc_init_basic_info.exit102
+  %websocket7.i48 = getelementptr inbounds i8, ptr %call1.i43, i64 20
+  store i8 1, ptr %websocket7.i48, align 4
+  %auth9.i49 = getelementptr inbounds i8, ptr %call1.i43, i64 24
+  %vencrypt.i50 = getelementptr inbounds i8, ptr %call1.i43, i64 32
+  %has_vencrypt.i51 = getelementptr inbounds i8, ptr %call1.i43, i64 28
+  switch i32 %27, label %sw.default18.i80 [
+    i32 2, label %sw.bb.i79
+    i32 5, label %sw.bb1.i78
+    i32 6, label %sw.bb2.i77
+    i32 16, label %sw.bb3.i76
+    i32 17, label %sw.bb4.i75
+    i32 18, label %sw.bb5.i74
+    i32 19, label %sw.bb6.i63
+    i32 20, label %sw.bb16.i62
+  ]
+
+sw.bb.i79:                                        ; preds = %if.end5.i47
+  store i32 1, ptr %auth9.i49, align 4
+  br label %qmp_query_auth.exit81
+
+sw.bb1.i78:                                       ; preds = %if.end5.i47
+  store i32 2, ptr %auth9.i49, align 4
+  br label %qmp_query_auth.exit81
+
+sw.bb2.i77:                                       ; preds = %if.end5.i47
+  store i32 3, ptr %auth9.i49, align 4
+  br label %qmp_query_auth.exit81
+
+sw.bb3.i76:                                       ; preds = %if.end5.i47
+  store i32 4, ptr %auth9.i49, align 4
+  br label %qmp_query_auth.exit81
+
+sw.bb4.i75:                                       ; preds = %if.end5.i47
+  store i32 5, ptr %auth9.i49, align 4
+  br label %qmp_query_auth.exit81
+
+sw.bb5.i74:                                       ; preds = %if.end5.i47
+  store i32 6, ptr %auth9.i49, align 4
+  br label %qmp_query_auth.exit81
+
+sw.bb6.i63:                                       ; preds = %if.end5.i47
+  store i32 7, ptr %auth9.i49, align 4
+  store i8 1, ptr %has_vencrypt.i51, align 1
+  switch i32 %28, label %sw.default.i73 [
+    i32 256, label %sw.bb7.i72
+    i32 257, label %sw.bb8.i71
+    i32 258, label %sw.bb9.i70
+    i32 259, label %sw.bb10.i69
+    i32 260, label %sw.bb11.i68
+    i32 261, label %sw.bb12.i67
+    i32 262, label %sw.bb13.i66
+    i32 264, label %sw.bb14.i65
+    i32 263, label %sw.bb15.i64
+  ]
+
+sw.bb7.i72:                                       ; preds = %sw.bb6.i63
+  store i32 0, ptr %vencrypt.i50, align 4
+  br label %qmp_query_auth.exit81
+
+sw.bb8.i71:                                       ; preds = %sw.bb6.i63
+  store i32 1, ptr %vencrypt.i50, align 4
+  br label %qmp_query_auth.exit81
+
+sw.bb9.i70:                                       ; preds = %sw.bb6.i63
+  store i32 3, ptr %vencrypt.i50, align 4
+  br label %qmp_query_auth.exit81
+
+sw.bb10.i69:                                      ; preds = %sw.bb6.i63
+  store i32 5, ptr %vencrypt.i50, align 4
+  br label %qmp_query_auth.exit81
+
+sw.bb11.i68:                                      ; preds = %sw.bb6.i63
+  store i32 2, ptr %vencrypt.i50, align 4
+  br label %qmp_query_auth.exit81
+
+sw.bb12.i67:                                      ; preds = %sw.bb6.i63
+  store i32 4, ptr %vencrypt.i50, align 4
+  br label %qmp_query_auth.exit81
+
+sw.bb13.i66:                                      ; preds = %sw.bb6.i63
+  store i32 6, ptr %vencrypt.i50, align 4
+  br label %qmp_query_auth.exit81
+
+sw.bb14.i65:                                      ; preds = %sw.bb6.i63
+  store i32 7, ptr %vencrypt.i50, align 4
+  br label %qmp_query_auth.exit81
+
+sw.bb15.i64:                                      ; preds = %sw.bb6.i63
+  store i32 8, ptr %vencrypt.i50, align 4
+  br label %qmp_query_auth.exit81
+
+sw.default.i73:                                   ; preds = %sw.bb6.i63
+  store i8 0, ptr %has_vencrypt.i51, align 1
+  br label %qmp_query_auth.exit81
+
+sw.bb16.i62:                                      ; preds = %if.end5.i47
+  store i32 8, ptr %auth9.i49, align 4
+  br label %qmp_query_auth.exit81
+
+sw.default18.i80:                                 ; preds = %if.end5.i47
+  store i32 0, ptr %auth9.i49, align 4
+  br label %qmp_query_auth.exit81
+
+qmp_query_auth.exit81:                            ; preds = %sw.bb.i79, %sw.bb1.i78, %sw.bb2.i77, %sw.bb3.i76, %sw.bb4.i75, %sw.bb5.i74, %sw.bb7.i72, %sw.bb8.i71, %sw.bb9.i70, %sw.bb10.i69, %sw.bb11.i68, %sw.bb12.i67, %sw.bb13.i66, %sw.bb14.i65, %sw.bb15.i64, %sw.default.i73, %sw.bb16.i62, %sw.default18.i80
+  %call10.i52 = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #22
+  %value.i53 = getelementptr inbounds i8, ptr %call10.i52, i64 8
+  store ptr %call1.i43, ptr %value.i53, align 8
+  store ptr %29, ptr %call10.i52, align 8
+  br label %qmp_query_server_entry.exit54
+
+qmp_query_server_entry.exit54:                    ; preds = %for.body28, %if.then4.i45, %qmp_query_auth.exit81
+  %retval.0.i46 = phi ptr [ %29, %if.then4.i45 ], [ %call10.i52, %qmp_query_auth.exit81 ], [ %29, %for.body28 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i39)
+  store ptr %retval.0.i46, ptr %server32, align 8
+  %inc36 = add nuw i64 %i.1108, 1
+  %38 = load ptr, ptr %wslistener, align 8
+  %cmp22.not = icmp eq ptr %38, null
   br i1 %cmp22.not, label %do.body, label %land.rhs23, !llvm.loop !8
 
-do.body:                                          ; preds = %for.body28, %land.rhs23, %for.end
-  %call38 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #22
+do.body:                                          ; preds = %qmp_query_server_entry.exit54, %land.rhs23, %for.end
+  %call38 = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #22
   %value = getelementptr inbounds i8, ptr %call38, i64 8
   store ptr %call, ptr %value, align 8
-  store ptr %prev.044, ptr %call38, align 8
-  %next40 = getelementptr inbounds i8, ptr %vd.045, i64 284944
+  store ptr %prev.0111, ptr %call38, align 8
+  %next40 = getelementptr inbounds i8, ptr %vd.0112, i64 284944
   %vd.0 = load ptr, ptr %next40, align 8
   %tobool.not = icmp eq ptr %vd.0, null
   br i1 %tobool.not, label %for.end41, label %for.body, !llvm.loop !9
@@ -1479,147 +1757,112 @@ for.end41:                                        ; preds = %do.body, %entry
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
-declare ptr @object_property_get_link(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @qmp_query_server_entry(ptr noundef %ioc, i1 noundef zeroext %websocket, i32 noundef %auth, i32 noundef %subauth, ptr noundef %prev) unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
+define internal fastcc void @qmp_query_auth(i32 noundef %auth, i32 noundef %subauth, ptr nocapture noundef writeonly %qmp_auth, ptr nocapture noundef writeonly %qmp_vencrypt, ptr nocapture noundef writeonly %qmp_has_vencrypt) unnamed_addr #5 {
 entry:
-  %err = alloca ptr, align 8
-  %frombool = zext i1 %websocket to i8
-  store ptr null, ptr %err, align 8
-  %call = tail call ptr @qio_channel_socket_get_local_address(ptr noundef %ioc, ptr noundef null) #23
-  %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %return, label %if.end
-
-if.end:                                           ; preds = %entry
-  %call1 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #25
-  call fastcc void @vnc_init_basic_info(ptr noundef nonnull %call, ptr noundef %call1, ptr noundef nonnull %err)
-  call void @qapi_free_SocketAddress(ptr noundef nonnull %call) #23
-  %0 = load ptr, ptr %err, align 8
-  %tobool3.not = icmp eq ptr %0, null
-  br i1 %tobool3.not, label %if.end5, label %if.then4
-
-if.then4:                                         ; preds = %if.end
-  call void @qapi_free_VncServerInfo2(ptr noundef %call1) #23
-  %1 = load ptr, ptr %err, align 8
-  call void @error_free(ptr noundef %1) #23
-  br label %return
-
-if.end5:                                          ; preds = %if.end
-  %websocket7 = getelementptr inbounds i8, ptr %call1, i64 20
-  store i8 %frombool, ptr %websocket7, align 4
-  %auth9 = getelementptr inbounds i8, ptr %call1, i64 24
-  %vencrypt = getelementptr inbounds i8, ptr %call1, i64 32
-  %has_vencrypt = getelementptr inbounds i8, ptr %call1, i64 28
-  switch i32 %auth, label %sw.default18.i [
-    i32 2, label %sw.bb.i
-    i32 5, label %sw.bb1.i
-    i32 6, label %sw.bb2.i
-    i32 16, label %sw.bb3.i
-    i32 17, label %sw.bb4.i
-    i32 18, label %sw.bb5.i
-    i32 19, label %sw.bb6.i
-    i32 20, label %sw.bb16.i
+  switch i32 %auth, label %sw.default18 [
+    i32 2, label %sw.bb
+    i32 5, label %sw.bb1
+    i32 6, label %sw.bb2
+    i32 16, label %sw.bb3
+    i32 17, label %sw.bb4
+    i32 18, label %sw.bb5
+    i32 19, label %sw.bb6
+    i32 20, label %sw.bb16
   ]
 
-sw.bb.i:                                          ; preds = %if.end5
-  store i32 1, ptr %auth9, align 4
-  br label %qmp_query_auth.exit
+sw.bb:                                            ; preds = %entry
+  store i32 1, ptr %qmp_auth, align 4
+  br label %sw.epilog19
 
-sw.bb1.i:                                         ; preds = %if.end5
-  store i32 2, ptr %auth9, align 4
-  br label %qmp_query_auth.exit
+sw.bb1:                                           ; preds = %entry
+  store i32 2, ptr %qmp_auth, align 4
+  br label %sw.epilog19
 
-sw.bb2.i:                                         ; preds = %if.end5
-  store i32 3, ptr %auth9, align 4
-  br label %qmp_query_auth.exit
+sw.bb2:                                           ; preds = %entry
+  store i32 3, ptr %qmp_auth, align 4
+  br label %sw.epilog19
 
-sw.bb3.i:                                         ; preds = %if.end5
-  store i32 4, ptr %auth9, align 4
-  br label %qmp_query_auth.exit
+sw.bb3:                                           ; preds = %entry
+  store i32 4, ptr %qmp_auth, align 4
+  br label %sw.epilog19
 
-sw.bb4.i:                                         ; preds = %if.end5
-  store i32 5, ptr %auth9, align 4
-  br label %qmp_query_auth.exit
+sw.bb4:                                           ; preds = %entry
+  store i32 5, ptr %qmp_auth, align 4
+  br label %sw.epilog19
 
-sw.bb5.i:                                         ; preds = %if.end5
-  store i32 6, ptr %auth9, align 4
-  br label %qmp_query_auth.exit
+sw.bb5:                                           ; preds = %entry
+  store i32 6, ptr %qmp_auth, align 4
+  br label %sw.epilog19
 
-sw.bb6.i:                                         ; preds = %if.end5
-  store i32 7, ptr %auth9, align 4
-  store i8 1, ptr %has_vencrypt, align 1
-  switch i32 %subauth, label %sw.default.i [
-    i32 256, label %sw.bb7.i
-    i32 257, label %sw.bb8.i
-    i32 258, label %sw.bb9.i
-    i32 259, label %sw.bb10.i
-    i32 260, label %sw.bb11.i
-    i32 261, label %sw.bb12.i
-    i32 262, label %sw.bb13.i
-    i32 264, label %sw.bb14.i
-    i32 263, label %sw.bb15.i
+sw.bb6:                                           ; preds = %entry
+  store i32 7, ptr %qmp_auth, align 4
+  store i8 1, ptr %qmp_has_vencrypt, align 1
+  switch i32 %subauth, label %sw.default [
+    i32 256, label %sw.bb7
+    i32 257, label %sw.bb8
+    i32 258, label %sw.bb9
+    i32 259, label %sw.bb10
+    i32 260, label %sw.bb11
+    i32 261, label %sw.bb12
+    i32 262, label %sw.bb13
+    i32 264, label %sw.bb14
+    i32 263, label %sw.bb15
   ]
 
-sw.bb7.i:                                         ; preds = %sw.bb6.i
-  store i32 0, ptr %vencrypt, align 4
-  br label %qmp_query_auth.exit
+sw.bb7:                                           ; preds = %sw.bb6
+  store i32 0, ptr %qmp_vencrypt, align 4
+  br label %sw.epilog19
 
-sw.bb8.i:                                         ; preds = %sw.bb6.i
-  store i32 1, ptr %vencrypt, align 4
-  br label %qmp_query_auth.exit
+sw.bb8:                                           ; preds = %sw.bb6
+  store i32 1, ptr %qmp_vencrypt, align 4
+  br label %sw.epilog19
 
-sw.bb9.i:                                         ; preds = %sw.bb6.i
-  store i32 3, ptr %vencrypt, align 4
-  br label %qmp_query_auth.exit
+sw.bb9:                                           ; preds = %sw.bb6
+  store i32 3, ptr %qmp_vencrypt, align 4
+  br label %sw.epilog19
 
-sw.bb10.i:                                        ; preds = %sw.bb6.i
-  store i32 5, ptr %vencrypt, align 4
-  br label %qmp_query_auth.exit
+sw.bb10:                                          ; preds = %sw.bb6
+  store i32 5, ptr %qmp_vencrypt, align 4
+  br label %sw.epilog19
 
-sw.bb11.i:                                        ; preds = %sw.bb6.i
-  store i32 2, ptr %vencrypt, align 4
-  br label %qmp_query_auth.exit
+sw.bb11:                                          ; preds = %sw.bb6
+  store i32 2, ptr %qmp_vencrypt, align 4
+  br label %sw.epilog19
 
-sw.bb12.i:                                        ; preds = %sw.bb6.i
-  store i32 4, ptr %vencrypt, align 4
-  br label %qmp_query_auth.exit
+sw.bb12:                                          ; preds = %sw.bb6
+  store i32 4, ptr %qmp_vencrypt, align 4
+  br label %sw.epilog19
 
-sw.bb13.i:                                        ; preds = %sw.bb6.i
-  store i32 6, ptr %vencrypt, align 4
-  br label %qmp_query_auth.exit
+sw.bb13:                                          ; preds = %sw.bb6
+  store i32 6, ptr %qmp_vencrypt, align 4
+  br label %sw.epilog19
 
-sw.bb14.i:                                        ; preds = %sw.bb6.i
-  store i32 7, ptr %vencrypt, align 4
-  br label %qmp_query_auth.exit
+sw.bb14:                                          ; preds = %sw.bb6
+  store i32 7, ptr %qmp_vencrypt, align 4
+  br label %sw.epilog19
 
-sw.bb15.i:                                        ; preds = %sw.bb6.i
-  store i32 8, ptr %vencrypt, align 4
-  br label %qmp_query_auth.exit
+sw.bb15:                                          ; preds = %sw.bb6
+  store i32 8, ptr %qmp_vencrypt, align 4
+  br label %sw.epilog19
 
-sw.default.i:                                     ; preds = %sw.bb6.i
-  store i8 0, ptr %has_vencrypt, align 1
-  br label %qmp_query_auth.exit
+sw.default:                                       ; preds = %sw.bb6
+  store i8 0, ptr %qmp_has_vencrypt, align 1
+  br label %sw.epilog19
 
-sw.bb16.i:                                        ; preds = %if.end5
-  store i32 8, ptr %auth9, align 4
-  br label %qmp_query_auth.exit
+sw.bb16:                                          ; preds = %entry
+  store i32 8, ptr %qmp_auth, align 4
+  br label %sw.epilog19
 
-sw.default18.i:                                   ; preds = %if.end5
-  store i32 0, ptr %auth9, align 4
-  br label %qmp_query_auth.exit
+sw.default18:                                     ; preds = %entry
+  store i32 0, ptr %qmp_auth, align 4
+  br label %sw.epilog19
 
-qmp_query_auth.exit:                              ; preds = %sw.bb.i, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb7.i, %sw.bb8.i, %sw.bb9.i, %sw.bb10.i, %sw.bb11.i, %sw.bb12.i, %sw.bb13.i, %sw.bb14.i, %sw.bb15.i, %sw.default.i, %sw.bb16.i, %sw.default18.i
-  %call10 = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #22
-  %value = getelementptr inbounds i8, ptr %call10, i64 8
-  store ptr %call1, ptr %value, align 8
-  store ptr %prev, ptr %call10, align 8
-  br label %return
-
-return:                                           ; preds = %entry, %qmp_query_auth.exit, %if.then4
-  %retval.0 = phi ptr [ %prev, %if.then4 ], [ %call10, %qmp_query_auth.exit ], [ %prev, %entry ]
-  ret ptr %retval.0
+sw.epilog19:                                      ; preds = %sw.bb7, %sw.bb8, %sw.bb9, %sw.bb10, %sw.bb11, %sw.bb12, %sw.bb13, %sw.bb14, %sw.bb15, %sw.default, %sw.default18, %sw.bb16, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
+  ret void
 }
+
+declare ptr @object_property_get_link(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
@@ -1825,7 +2068,7 @@ entry:
 declare ptr @pixman_image_get_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @vnc_convert_pixel(ptr nocapture noundef readonly %vs, ptr nocapture noundef writeonly %buf, i32 noundef %v) local_unnamed_addr #5 {
+define dso_local void @vnc_convert_pixel(ptr nocapture noundef readonly %vs, ptr nocapture noundef writeonly %buf, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %and = lshr i32 %v, 16
   %shr = and i32 %and, 255
@@ -2840,7 +3083,7 @@ entry:
 declare i64 @qio_channel_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @vnc_read_when(ptr nocapture noundef writeonly %vs, ptr noundef %func, i64 noundef %expecting) local_unnamed_addr #6 {
+define dso_local void @vnc_read_when(ptr nocapture noundef writeonly %vs, ptr noundef %func, i64 noundef %expecting) local_unnamed_addr #5 {
 entry:
   %read_handler = getelementptr inbounds i8, ptr %vs, i64 49480
   store ptr %func, ptr %read_handler, align 8
@@ -3420,7 +3663,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @start_client_init(ptr nocapture noundef writeonly %vs) local_unnamed_addr #6 {
+define dso_local void @start_client_init(ptr nocapture noundef writeonly %vs) local_unnamed_addr #5 {
 entry:
   %read_handler.i = getelementptr inbounds i8, ptr %vs, i64 49480
   store ptr @protocol_client_init, ptr %read_handler.i, align 8
@@ -12825,8 +13068,8 @@ attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

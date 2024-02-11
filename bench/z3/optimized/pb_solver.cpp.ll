@@ -13610,116 +13610,33 @@ _ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit:   ; preds = %if.then
   %8 = load i32, ptr %arrayidx.i.i, align 4
   %9 = zext i32 %8 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %9
-  %cmp10.not25 = icmp eq i32 %8, 0
-  br i1 %cmp10.not25, label %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit19, label %for.body
+  %cmp10.not23 = icmp eq i32 %8, 0
+  br i1 %cmp10.not23, label %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit18, label %for.body
 
-for.body:                                         ; preds = %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit, %_ZNK2pb6solver10update_psmERNS_10constraintE.exit
-  %__begin2.026 = phi ptr [ %incdec.ptr, %_ZNK2pb6solver10update_psmERNS_10constraintE.exit ], [ %0, %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit ]
-  %10 = load ptr, ptr %__begin2.026, align 8
-  %m_tag.i.i = getelementptr inbounds i8, ptr %10, i64 8
-  %11 = load i32, ptr %m_tag.i.i, align 8
-  switch i32 %11, label %_ZNK2pb6solver10update_psmERNS_10constraintE.exit [
-    i32 0, label %sw.bb.i
-    i32 1, label %sw.bb11.i
-  ]
-
-sw.bb.i:                                          ; preds = %for.body
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN2pb10constraint7to_cardEv(ptr noundef nonnull align 8 dereferenceable(64) %10)
-  %m_size.i.i = getelementptr inbounds i8, ptr %call2.i, i64 32
-  %12 = load i32, ptr %m_size.i.i, align 8
-  %idx.ext.i.i = zext i32 %12 to i64
-  %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 2
-  %13 = getelementptr i8, ptr %call2.i, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr i8, ptr %13, i64 64
-  %cmp.not28.i = icmp eq i32 %12, 0
-  br i1 %cmp.not28.i, label %_ZNK2pb6solver10update_psmERNS_10constraintE.exit, label %for.body.lr.ph.i
-
-for.body.lr.ph.i:                                 ; preds = %sw.bb.i
-  %m_lits.i.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 64
-  %14 = load ptr, ptr %m_solver.i, align 8
-  %m_phase.i = getelementptr inbounds i8, ptr %14, i64 3600
-  %15 = load ptr, ptr %m_phase.i, align 8
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
-  %r.030.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %spec.select.i, %for.body.i ]
-  %__begin2.029.i = phi ptr [ %m_lits.i.ptr.i, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.body.i ]
-  %16 = load i32, ptr %__begin2.029.i, align 4
-  %shr.i.i = lshr i32 %16, 1
-  %idxprom.i.i = zext nneg i32 %shr.i.i to i64
-  %arrayidx.i.i13 = getelementptr inbounds i8, ptr %15, i64 %idxprom.i.i
-  %17 = load i8, ptr %arrayidx.i.i13, align 1
-  %18 = and i32 %16, 1
-  %tobool.i.i = icmp ne i32 %18, 0
-  %19 = and i8 %17, 1
-  %20 = icmp ne i8 %19, 0
-  %cmp10.i = xor i1 %tobool.i.i, %20
-  %inc.i = zext i1 %cmp10.i to i32
-  %spec.select.i = add i32 %r.030.i, %inc.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.029.i, i64 4
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr.i
-  br i1 %cmp.not.i, label %_ZNK2pb6solver10update_psmERNS_10constraintE.exit, label %for.body.i
-
-sw.bb11.i:                                        ; preds = %for.body
-  %call13.i = tail call noundef nonnull align 8 dereferenceable(76) ptr @_ZN2pb10constraint5to_pbEv(ptr noundef nonnull align 8 dereferenceable(64) %10)
-  %m_size.i14.i = getelementptr inbounds i8, ptr %call13.i, i64 32
-  %21 = load i32, ptr %m_size.i14.i, align 8
-  %idx.ext.i15.i = zext i32 %21 to i64
-  %add.ptr.i16.idx.i = shl nuw nsw i64 %idx.ext.i15.i, 3
-  %22 = getelementptr i8, ptr %call13.i, i64 %add.ptr.i16.idx.i
-  %add.ptr.i16.ptr.i = getelementptr i8, ptr %22, i64 76
-  %cmp19.not25.i = icmp eq i32 %21, 0
-  br i1 %cmp19.not25.i, label %_ZNK2pb6solver10update_psmERNS_10constraintE.exit, label %for.body20.lr.ph.i
-
-for.body20.lr.ph.i:                               ; preds = %sw.bb11.i
-  %m_wlits.i.ptr.i = getelementptr inbounds i8, ptr %call13.i, i64 76
-  %23 = load ptr, ptr %m_solver.i, align 8
-  %m_phase23.i = getelementptr inbounds i8, ptr %23, i64 3600
-  %24 = load ptr, ptr %m_phase23.i, align 8
-  br label %for.body20.i
-
-for.body20.i:                                     ; preds = %for.body20.i, %for.body20.lr.ph.i
-  %r.227.i = phi i32 [ 0, %for.body20.lr.ph.i ], [ %spec.select12.i, %for.body20.i ]
-  %__begin214.026.i = phi ptr [ %m_wlits.i.ptr.i, %for.body20.lr.ph.i ], [ %incdec.ptr37.i, %for.body20.i ]
-  %25 = load i64, ptr %__begin214.026.i, align 4
-  %shr.i18.i = lshr i64 %25, 33
-  %arrayidx.i20.i = getelementptr inbounds i8, ptr %24, i64 %shr.i18.i
-  %26 = load i8, ptr %arrayidx.i20.i, align 1
-  %27 = and i64 %25, 4294967296
-  %tobool.i21.i = icmp ne i64 %27, 0
-  %28 = and i8 %26, 1
-  %29 = icmp ne i8 %28, 0
-  %cmp32.i = xor i1 %tobool.i21.i, %29
-  %inc34.i = zext i1 %cmp32.i to i32
-  %spec.select12.i = add i32 %r.227.i, %inc34.i
-  %incdec.ptr37.i = getelementptr inbounds i8, ptr %__begin214.026.i, i64 8
-  %cmp19.not.i = icmp eq ptr %incdec.ptr37.i, %add.ptr.i16.ptr.i
-  br i1 %cmp19.not.i, label %_ZNK2pb6solver10update_psmERNS_10constraintE.exit, label %for.body20.i
-
-_ZNK2pb6solver10update_psmERNS_10constraintE.exit: ; preds = %for.body20.i, %for.body.i, %for.body, %sw.bb.i, %sw.bb11.i
-  %r.4.i = phi i32 [ 0, %for.body ], [ 0, %sw.bb.i ], [ 0, %sw.bb11.i ], [ %spec.select.i, %for.body.i ], [ %spec.select12.i, %for.body20.i ]
-  %m_psm.i.i = getelementptr inbounds i8, ptr %10, i64 28
-  store i32 %r.4.i, ptr %m_psm.i.i, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.026, i64 8
+for.body:                                         ; preds = %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit, %for.body
+  %__begin2.024 = phi ptr [ %incdec.ptr, %for.body ], [ %0, %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit ]
+  %10 = load ptr, ptr %__begin2.024, align 8
+  tail call void @_ZNK2pb6solver10update_psmERNS_10constraintE(ptr noundef nonnull align 8 dereferenceable(1049) %this, ptr noundef nonnull align 8 dereferenceable(64) %10)
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.024, i64 8
   %cmp10.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp10.not, label %for.end, label %for.body
 
-for.end:                                          ; preds = %_ZNK2pb6solver10update_psmERNS_10constraintE.exit
+for.end:                                          ; preds = %for.body
   %.pre = load ptr, ptr %m_learned, align 8
-  %cmp.i.i14 = icmp eq ptr %.pre, null
-  br i1 %cmp.i.i14, label %_ZSt11stable_sortIPPN2pb10constraintENS0_22constraint_glue_psm_ltEEvT_S5_T0_.exit, label %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit19
+  %cmp.i.i13 = icmp eq ptr %.pre, null
+  br i1 %cmp.i.i13, label %_ZSt11stable_sortIPPN2pb10constraintENS0_22constraint_glue_psm_ltEEvT_S5_T0_.exit, label %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit18
 
-_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit19: ; preds = %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit, %for.end
-  %30 = phi ptr [ %.pre, %for.end ], [ %0, %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit ]
-  %arrayidx.i.i16 = getelementptr inbounds i8, ptr %30, i64 -4
-  %31 = load i32, ptr %arrayidx.i.i16, align 4
-  %32 = zext i32 %31 to i64
-  %add.ptr.i18 = getelementptr inbounds ptr, ptr %30, i64 %32
-  %cmp.i.i20 = icmp eq i32 %31, 0
-  br i1 %cmp.i.i20, label %_ZSt11stable_sortIPPN2pb10constraintENS0_22constraint_glue_psm_ltEEvT_S5_T0_.exit, label %while.body.i.i.i.i
+_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit18: ; preds = %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit, %for.end
+  %11 = phi ptr [ %.pre, %for.end ], [ %0, %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit ]
+  %arrayidx.i.i15 = getelementptr inbounds i8, ptr %11, i64 -4
+  %12 = load i32, ptr %arrayidx.i.i15, align 4
+  %13 = zext i32 %12 to i64
+  %add.ptr.i17 = getelementptr inbounds ptr, ptr %11, i64 %13
+  %cmp.i.i19 = icmp eq i32 %12, 0
+  br i1 %cmp.i.i19, label %_ZSt11stable_sortIPPN2pb10constraintENS0_22constraint_glue_psm_ltEEvT_S5_T0_.exit, label %while.body.i.i.i.i
 
-while.body.i.i.i.i:                               ; preds = %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit19, %if.end4.i.i.i.i
-  %storemerge27.i.i.in.in.i.i = phi i64 [ %storemerge27.i.i.i.i, %if.end4.i.i.i.i ], [ %32, %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit19 ]
+while.body.i.i.i.i:                               ; preds = %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit18, %if.end4.i.i.i.i
+  %storemerge27.i.i.in.in.i.i = phi i64 [ %storemerge27.i.i.i.i, %if.end4.i.i.i.i ], [ %13, %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit18 ]
   %storemerge27.i.i.in.i.i = add nuw nsw i64 %storemerge27.i.i.in.in.i.i, 1
   %storemerge27.i.i.i.i = lshr i64 %storemerge27.i.i.in.i.i, 1
   %mul.i.i.i.i = shl nuw nsw i64 %storemerge27.i.i.i.i, 3
@@ -13732,24 +13649,24 @@ if.end4.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   br i1 %cmp1.not.i.i.i.i, label %if.then2.i.i, label %while.body.i.i.i.i, !llvm.loop !101
 
 if.then2.i.i:                                     ; preds = %if.end4.i.i.i.i
-  invoke void @_ZSt21__inplace_stable_sortIPPN2pb10constraintEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_T0_(ptr noundef nonnull %30, ptr noundef nonnull %add.ptr.i18)
+  invoke void @_ZSt21__inplace_stable_sortIPPN2pb10constraintEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_T0_(ptr noundef nonnull %11, ptr noundef nonnull %add.ptr.i17)
           to label %if.end10.i.i unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %if.else.i.i, %if.then2.i.i
-  %33 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef %call.i.i.i.i) #28
-  resume { ptr, i32 } %33
+  resume { ptr, i32 } %14
 
 if.else.i.i:                                      ; preds = %while.body.i.i.i.i
-  invoke void @_ZSt22__stable_sort_adaptiveIPPN2pb10constraintES3_lN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_T0_T1_T2_(ptr noundef nonnull %30, ptr noundef nonnull %add.ptr.i18, ptr noundef nonnull %call.i.i.i.i, i64 noundef %storemerge27.i.i.i.i)
+  invoke void @_ZSt22__stable_sort_adaptiveIPPN2pb10constraintES3_lN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_T0_T1_T2_(ptr noundef nonnull %11, ptr noundef nonnull %add.ptr.i17, ptr noundef nonnull %call.i.i.i.i, i64 noundef %storemerge27.i.i.i.i)
           to label %if.end10.i.i unwind label %lpad.i.i
 
 if.end10.i.i:                                     ; preds = %if.else.i.i, %if.then2.i.i
   tail call void @_ZdlPv(ptr noundef %call.i.i.i.i) #28
   br label %_ZSt11stable_sortIPPN2pb10constraintENS0_22constraint_glue_psm_ltEEvT_S5_T0_.exit
 
-_ZSt11stable_sortIPPN2pb10constraintENS0_22constraint_glue_psm_ltEEvT_S5_T0_.exit: ; preds = %if.then, %for.end, %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit19, %if.end10.i.i
+_ZSt11stable_sortIPPN2pb10constraintENS0_22constraint_glue_psm_ltEEvT_S5_T0_.exit: ; preds = %if.then, %for.end, %_ZN6vectorIPN2pb10constraintELb0EjE3endEv.exit18, %if.end10.i.i
   tail call void @_ZN2pb6solver7gc_halfEPKc(ptr noundef nonnull align 8 dereferenceable(1049) %this, ptr noundef nonnull @.str.73)
   tail call void @_ZN2pb6solver19cleanup_constraintsER10ptr_vectorINS_10constraintEEb(ptr noundef nonnull align 8 dereferenceable(1049) %this, ptr noundef nonnull align 8 dereferenceable(8) %m_learned, i1 noundef zeroext true)
   br label %if.end
@@ -31700,7 +31617,7 @@ if.then17:                                        ; preds = %for.cond
 if.then19:                                        ; preds = %if.then17
   %2 = load ptr, ptr %__p.0, align 8
   %add.ptr21.idx58 = shl nsw i64 %__n.0, 3
-  %add.ptr21.ptr = getelementptr inbounds i8, ptr %__p.0, i64 %add.ptr21.idx58
+  %add.ptr21 = getelementptr inbounds i8, ptr %__p.0, i64 %add.ptr21.idx58
   %tobool.not.i.i.i.i.i = icmp eq i64 %__n.0, 1
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4moveIPPN2pb10constraintES3_ET0_T_S5_S4_.exit, label %if.then.i.i.i.i.i
 
@@ -31711,7 +31628,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then19
   br label %_ZSt4moveIPPN2pb10constraintES3_ET0_T_S5_S4_.exit
 
 _ZSt4moveIPPN2pb10constraintES3_ET0_T_S5_S4_.exit: ; preds = %if.then19, %if.then.i.i.i.i.i
-  %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr21.ptr, i64 -8
+  %add.ptr24 = getelementptr inbounds i8, ptr %add.ptr21, i64 -8
   store ptr %2, ptr %add.ptr24, align 8
   br label %return
 
@@ -32303,9 +32220,9 @@ while.body.lr.ph:                                 ; preds = %entry
   br i1 %or.cond, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.body.us
-  %__first.addr.070.us = phi ptr [ %add.ptr.ptr.us, %while.body.us ], [ %__first, %while.body.lr.ph ]
-  %add.ptr.ptr.us = getelementptr inbounds i8, ptr %__first.addr.070.us, i64 %add.ptr.idx
-  %sub.ptr.rhs.cast.us = ptrtoint ptr %add.ptr.ptr.us to i64
+  %__first.addr.070.us = phi ptr [ %add.ptr.us, %while.body.us ], [ %__first, %while.body.lr.ph ]
+  %add.ptr.us = getelementptr inbounds i8, ptr %__first.addr.070.us, i64 %add.ptr.idx
+  %sub.ptr.rhs.cast.us = ptrtoint ptr %add.ptr.us to i64
   %sub.ptr.sub.us = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.us
   %sub.ptr.div.us = ashr exact i64 %sub.ptr.sub.us, 3
   %cmp.not.us = icmp slt i64 %sub.ptr.div.us, %__chunk_size
@@ -32313,8 +32230,8 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZSt16__insertion_sortIPPN2pb10constraintEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_T0_.exit.loopexit
   %sub.ptr.rhs.cast71 = phi i64 [ %sub.ptr.rhs.cast, %_ZSt16__insertion_sortIPPN2pb10constraintEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_T0_.exit.loopexit ], [ %sub.ptr.rhs.cast66, %while.body.lr.ph ]
-  %__first.addr.070 = phi ptr [ %add.ptr.ptr, %_ZSt16__insertion_sortIPPN2pb10constraintEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_T0_.exit.loopexit ], [ %__first, %while.body.lr.ph ]
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %__first.addr.070, i64 %add.ptr.idx
+  %__first.addr.070 = phi ptr [ %add.ptr, %_ZSt16__insertion_sortIPPN2pb10constraintEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_T0_.exit.loopexit ], [ %__first, %while.body.lr.ph ]
+  %add.ptr = getelementptr inbounds i8, ptr %__first.addr.070, i64 %add.ptr.idx
   %__i.014.i = getelementptr inbounds i8, ptr %__first.addr.070, i64 8
   br label %for.body.i
 
@@ -32410,18 +32327,18 @@ for.inc.i:                                        ; preds = %_ZN9__gnu_cxx5__ops
   %__first.sink.i = phi ptr [ %__first.addr.070, %if.then2.i ], [ %__last.addr.0.i.i, %lor.rhs.i.i.i.i ], [ %__last.addr.0.i.i, %lor.rhs9.i.i.i.i ], [ %__last.addr.0.i.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN2pb22constraint_glue_psm_ltEEclIPNS2_10constraintEPS7_EEbRT_T0_.exit.i.i ]
   store ptr %0, ptr %__first.sink.i, align 8
   %__i.0.i = getelementptr inbounds i8, ptr %__i.017.i, i64 8
-  %cmp1.not.i = icmp eq ptr %__i.0.i, %add.ptr.ptr
+  %cmp1.not.i = icmp eq ptr %__i.0.i, %add.ptr
   br i1 %cmp1.not.i, label %_ZSt16__insertion_sortIPPN2pb10constraintEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_T0_.exit.loopexit, label %for.body.i, !llvm.loop !222
 
 _ZSt16__insertion_sortIPPN2pb10constraintEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_T0_.exit.loopexit: ; preds = %for.inc.i
-  %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr.ptr to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %cmp.not = icmp slt i64 %sub.ptr.div, %__chunk_size
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !232
 
 while.end:                                        ; preds = %_ZSt16__insertion_sortIPPN2pb10constraintEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_T0_.exit.loopexit, %while.body.us, %entry
-  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr.ptr.us, %while.body.us ], [ %add.ptr.ptr, %_ZSt16__insertion_sortIPPN2pb10constraintEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_T0_.exit.loopexit ]
+  %__first.addr.0.lcssa = phi ptr [ %__first, %entry ], [ %add.ptr.us, %while.body.us ], [ %add.ptr, %_ZSt16__insertion_sortIPPN2pb10constraintEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_T0_.exit.loopexit ]
   %sub.ptr.rhs.cast.lcssa = phi i64 [ %sub.ptr.rhs.cast66, %entry ], [ %sub.ptr.rhs.cast.us, %while.body.us ], [ %sub.ptr.rhs.cast, %_ZSt16__insertion_sortIPPN2pb10constraintEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_22constraint_glue_psm_ltEEEEvT_S9_T0_.exit.loopexit ]
   %cmp.i9 = icmp eq ptr %__first.addr.0.lcssa, %__last
   %__i.014.i11 = getelementptr inbounds i8, ptr %__first.addr.0.lcssa, i64 8

@@ -1050,14 +1050,12 @@ declare i32 @EVP_PKEY_eq(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @X509_chain_check_suiteb(ptr noundef writeonly %perror_depth, ptr noundef %x, ptr noundef %chain, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %curve_name.i83 = alloca [80 x i8], align 16
-  %curve_name_len.i84 = alloca i64, align 8
-  %curve_name.i61 = alloca [80 x i8], align 16
-  %curve_name_len.i62 = alloca i64, align 8
   %curve_name.i33 = alloca [80 x i8], align 16
   %curve_name_len.i34 = alloca i64, align 8
   %curve_name.i = alloca [80 x i8], align 16
   %curve_name_len.i = alloca i64, align 8
+  %tflags = alloca i64, align 8
+  store i64 %flags, ptr %tflags, align 8
   %and = and i64 %flags, 196608
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1072,17 +1070,17 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp.i, label %X509_get0_pubkey.exit.thread, label %X509_get0_pubkey.exit
 
 X509_get0_pubkey.exit:                            ; preds = %if.end3, %if.end
-  %i.0120 = phi i32 [ 1, %if.end3 ], [ 0, %if.end ]
-  %x.addr.0118 = phi ptr [ %call2, %if.end3 ], [ %x, %if.end ]
-  %key.i = getelementptr inbounds i8, ptr %x.addr.0118, i64 80
+  %i.066 = phi i32 [ 1, %if.end3 ], [ 0, %if.end ]
+  %x.addr.064 = phi ptr [ %call2, %if.end3 ], [ %x, %if.end ]
+  %key.i = getelementptr inbounds i8, ptr %x.addr.064, i64 80
   %0 = load ptr, ptr %key.i, align 8
   %call.i = tail call ptr @X509_PUBKEY_get0(ptr noundef %0) #8
   %cmp5 = icmp eq ptr %chain, null
   br i1 %cmp5, label %if.then6, label %if.end8
 
 X509_get0_pubkey.exit.thread:                     ; preds = %if.end3
-  %cmp5125 = icmp eq ptr %chain, null
-  br i1 %cmp5125, label %if.then6.thread, label %if.end8.thread
+  %cmp571 = icmp eq ptr %chain, null
+  br i1 %cmp571, label %if.then6.thread, label %if.end8.thread
 
 if.then6.thread:                                  ; preds = %X509_get0_pubkey.exit.thread
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %curve_name.i)
@@ -1132,14 +1130,14 @@ check_suite_b.exit:                               ; preds = %if.then6.thread, %i
   br label %return
 
 if.end8:                                          ; preds = %X509_get0_pubkey.exit
-  %call9 = tail call i64 @X509_get_version(ptr noundef nonnull %x.addr.0118) #8
+  %call9 = tail call i64 @X509_get_version(ptr noundef nonnull %x.addr.064) #8
   %cmp10.not = icmp eq i64 %call9, 2
   br i1 %cmp10.not, label %if.end12, label %if.then35.thread
 
 if.end8.thread:                                   ; preds = %X509_get0_pubkey.exit.thread
-  %call9135 = tail call i64 @X509_get_version(ptr noundef null) #8
-  %cmp10.not136 = icmp eq i64 %call9135, 2
-  br i1 %cmp10.not136, label %if.end12.thread, label %if.then35.thread
+  %call981 = tail call i64 @X509_get_version(ptr noundef null) #8
+  %cmp10.not82 = icmp eq i64 %call981, 2
+  br i1 %cmp10.not82, label %if.end12.thread, label %if.then35.thread
 
 if.end12.thread:                                  ; preds = %if.end8.thread
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %curve_name.i33)
@@ -1176,6 +1174,7 @@ if.then8.i49:                                     ; preds = %if.end4.i42
 
 if.end15.i52:                                     ; preds = %if.then8.i49
   %and16.i53 = and i64 %flags, -65537
+  store i64 %and16.i53, ptr %tflags, align 8
   br label %check_suite_b.exit54
 
 if.then18.i44:                                    ; preds = %if.end4.i42
@@ -1189,186 +1188,144 @@ check_suite_b.exit54.thread:                      ; preds = %lor.lhs.false.i36, 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %curve_name_len.i34)
   br label %if.then35
 
-check_suite_b.exit54:                             ; preds = %if.then18.i44, %if.end15.i52
-  %tflags.1 = phi i64 [ %and16.i53, %if.end15.i52 ], [ %flags, %if.then18.i44 ]
+check_suite_b.exit54:                             ; preds = %if.end15.i52, %if.then18.i44
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %curve_name.i33)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %curve_name_len.i34)
-  %call18187 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %chain) #8
-  %cmp19188 = icmp slt i32 %i.0120, %call18187
-  br i1 %cmp19188, label %for.body, label %lor.lhs.false.i86
+  %call18107 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %chain) #8
+  %cmp19108 = icmp slt i32 %i.066, %call18107
+  br i1 %cmp19108, label %for.body, label %end
 
 for.body:                                         ; preds = %check_suite_b.exit54, %for.inc
-  %i.1191 = phi i32 [ %inc, %for.inc ], [ %i.0120, %check_suite_b.exit54 ]
-  %x.addr.1190 = phi ptr [ %call22, %for.inc ], [ %x.addr.0118, %check_suite_b.exit54 ]
-  %tflags.2189 = phi i64 [ %tflags.4, %for.inc ], [ %tflags.1, %check_suite_b.exit54 ]
-  %call20 = call i32 @X509_get_signature_nid(ptr noundef nonnull %x.addr.1190) #8
-  %call22 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %chain, i32 noundef %i.1191) #8
+  %i.1110 = phi i32 [ %inc, %for.inc ], [ %i.066, %check_suite_b.exit54 ]
+  %x.addr.1109 = phi ptr [ %call22, %for.inc ], [ %x.addr.064, %check_suite_b.exit54 ]
+  %call20 = call i32 @X509_get_signature_nid(ptr noundef %x.addr.1109) #8
+  %call22 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %chain, i32 noundef %i.1110) #8
   %call23 = call i64 @X509_get_version(ptr noundef %call22) #8
   %cmp24.not = icmp eq i64 %call23, 2
   br i1 %cmp24.not, label %if.end26, label %if.then35.thread
 
 if.end26:                                         ; preds = %for.body
   %cmp.i55 = icmp eq ptr %call22, null
-  br i1 %cmp.i55, label %X509_get0_pubkey.exit60.thread, label %X509_get0_pubkey.exit60
+  br i1 %cmp.i55, label %X509_get0_pubkey.exit60, label %if.end.i56
 
-X509_get0_pubkey.exit60.thread:                   ; preds = %if.end26
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %curve_name.i61)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %curve_name_len.i62)
-  br label %check_suite_b.exit82.thread
-
-X509_get0_pubkey.exit60:                          ; preds = %if.end26
+if.end.i56:                                       ; preds = %if.end26
   %key.i57 = getelementptr inbounds i8, ptr %call22, i64 80
   %1 = load ptr, ptr %key.i57, align 8
   %call.i58 = call ptr @X509_PUBKEY_get0(ptr noundef %1) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %curve_name.i61)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %curve_name_len.i62)
-  %cmp.i63 = icmp eq ptr %call.i58, null
-  br i1 %cmp.i63, label %check_suite_b.exit82.thread, label %lor.lhs.false.i64
+  br label %X509_get0_pubkey.exit60
 
-lor.lhs.false.i64:                                ; preds = %X509_get0_pubkey.exit60
-  %call.i65 = call i32 @EVP_PKEY_is_a(ptr noundef nonnull %call.i58, ptr noundef nonnull @.str.4) #8
-  %tobool.not.i66 = icmp eq i32 %call.i65, 0
-  br i1 %tobool.not.i66, label %check_suite_b.exit82.thread, label %if.end.i67
+X509_get0_pubkey.exit60:                          ; preds = %if.end26, %if.end.i56
+  %retval.0.i59 = phi ptr [ %call.i58, %if.end.i56 ], [ null, %if.end26 ]
+  %call28 = call fastcc i32 @check_suite_b(ptr noundef %retval.0.i59, i32 noundef %call20, ptr noundef nonnull %tflags), !range !13
+  %cmp29.not = icmp eq i32 %call28, 0
+  br i1 %cmp29.not, label %for.inc, label %if.then35
 
-if.end.i67:                                       ; preds = %lor.lhs.false.i64
-  %call1.i68 = call i32 @EVP_PKEY_get_group_name(ptr noundef nonnull %call.i58, ptr noundef nonnull %curve_name.i61, i64 noundef 80, ptr noundef nonnull %curve_name_len.i62) #8
-  %tobool2.not.i69 = icmp eq i32 %call1.i68, 0
-  br i1 %tobool2.not.i69, label %check_suite_b.exit82.thread, label %if.end4.i70
-
-if.end4.i70:                                      ; preds = %if.end.i67
-  %call6.i71 = call i32 @OBJ_txt2nid(ptr noundef nonnull %curve_name.i61) #8
-  switch i32 %call6.i71, label %check_suite_b.exit82.thread [
-    i32 715, label %if.then8.i77
-    i32 415, label %if.then18.i72
-  ]
-
-if.then8.i77:                                     ; preds = %if.end4.i70
-  switch i32 %call20, label %check_suite_b.exit82.thread [
-    i32 -1, label %if.end12.i
-    i32 795, label %if.end12.i
-  ]
-
-if.end12.i:                                       ; preds = %if.then8.i77, %if.then8.i77
-  %and.i78 = and i64 %tflags.2189, 131072
-  %tobool13.not.i79 = icmp eq i64 %and.i78, 0
-  br i1 %tobool13.not.i79, label %check_suite_b.exit82.thread, label %if.end15.i80
-
-if.end15.i80:                                     ; preds = %if.end12.i
-  %and16.i81 = and i64 %tflags.2189, -65537
-  br label %for.inc
-
-if.then18.i72:                                    ; preds = %if.end4.i70
-  switch i32 %call20, label %check_suite_b.exit82.thread [
-    i32 -1, label %if.end23.i
-    i32 794, label %if.end23.i
-  ]
-
-if.end23.i:                                       ; preds = %if.then18.i72, %if.then18.i72
-  %and24.i73 = and i64 %tflags.2189, 65536
-  %tobool25.not.i74 = icmp eq i64 %and24.i73, 0
-  br i1 %tobool25.not.i74, label %check_suite_b.exit82.thread, label %for.inc
-
-check_suite_b.exit82.thread:                      ; preds = %lor.lhs.false.i64, %X509_get0_pubkey.exit60, %if.end.i67, %if.then8.i77, %if.end12.i, %if.then18.i72, %if.end23.i, %if.end4.i70, %X509_get0_pubkey.exit60.thread
-  %retval.0.i76.ph = phi i32 [ 57, %X509_get0_pubkey.exit60.thread ], [ 57, %lor.lhs.false.i64 ], [ 57, %X509_get0_pubkey.exit60 ], [ 58, %if.end.i67 ], [ 59, %if.then8.i77 ], [ 60, %if.end12.i ], [ 59, %if.then18.i72 ], [ 60, %if.end23.i ], [ 58, %if.end4.i70 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %curve_name.i61)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %curve_name_len.i62)
-  br label %if.then35
-
-for.inc:                                          ; preds = %if.end23.i, %if.end15.i80
-  %tflags.4 = phi i64 [ %and16.i81, %if.end15.i80 ], [ %tflags.2189, %if.end23.i ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %curve_name.i61)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %curve_name_len.i62)
-  %inc = add nuw nsw i32 %i.1191, 1
+for.inc:                                          ; preds = %X509_get0_pubkey.exit60
+  %inc = add nuw nsw i32 %i.1110, 1
   %call18 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %chain) #8
   %cmp19 = icmp slt i32 %inc, %call18
-  br i1 %cmp19, label %for.body, label %lor.lhs.false.i86, !llvm.loop !13
+  br i1 %cmp19, label %for.body, label %end, !llvm.loop !14
 
-lor.lhs.false.i86:                                ; preds = %for.inc, %check_suite_b.exit54
-  %tflags.2.lcssa = phi i64 [ %tflags.1, %check_suite_b.exit54 ], [ %tflags.4, %for.inc ]
-  %x.addr.1.lcssa = phi ptr [ %x.addr.0118, %check_suite_b.exit54 ], [ %call22, %for.inc ]
-  %i.1.lcssa = phi i32 [ %i.0120, %check_suite_b.exit54 ], [ %inc, %for.inc ]
-  %pk.0.lcssa = phi ptr [ %call.i, %check_suite_b.exit54 ], [ %call.i58, %for.inc ]
-  %call32 = call i32 @X509_get_signature_nid(ptr noundef nonnull %x.addr.1.lcssa) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %curve_name.i83)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %curve_name_len.i84)
-  %call.i87 = call i32 @EVP_PKEY_is_a(ptr noundef nonnull %pk.0.lcssa, ptr noundef nonnull @.str.4) #8
-  %tobool.not.i88 = icmp eq i32 %call.i87, 0
-  br i1 %tobool.not.i88, label %end.thread168, label %if.end.i89
+end:                                              ; preds = %for.inc, %check_suite_b.exit54
+  %x.addr.1.lcssa = phi ptr [ %x.addr.064, %check_suite_b.exit54 ], [ %call22, %for.inc ]
+  %i.1.lcssa = phi i32 [ %i.066, %check_suite_b.exit54 ], [ %inc, %for.inc ]
+  %pk.0.lcssa = phi ptr [ %call.i, %check_suite_b.exit54 ], [ %retval.0.i59, %for.inc ]
+  %call32 = call i32 @X509_get_signature_nid(ptr noundef %x.addr.1.lcssa) #8
+  %call33 = call fastcc i32 @check_suite_b(ptr noundef %pk.0.lcssa, i32 noundef %call32, ptr noundef nonnull %tflags), !range !13
+  %cmp34.not = icmp eq i32 %call33, 0
+  br i1 %cmp34.not, label %return, label %if.then35
 
-if.end.i89:                                       ; preds = %lor.lhs.false.i86
-  %call1.i90 = call i32 @EVP_PKEY_get_group_name(ptr noundef nonnull %pk.0.lcssa, ptr noundef nonnull %curve_name.i83, i64 noundef 80, ptr noundef nonnull %curve_name_len.i84) #8
-  %tobool2.not.i91 = icmp eq i32 %call1.i90, 0
-  br i1 %tobool2.not.i91, label %end.thread168, label %if.end4.i92
-
-if.end4.i92:                                      ; preds = %if.end.i89
-  %call6.i93 = call i32 @OBJ_txt2nid(ptr noundef nonnull %curve_name.i83) #8
-  switch i32 %call6.i93, label %end.thread168 [
-    i32 715, label %if.then8.i100
-    i32 415, label %if.then18.i94
-  ]
-
-if.then8.i100:                                    ; preds = %if.end4.i92
-  switch i32 %call32, label %end.thread168 [
-    i32 -1, label %if.end12.i101
-    i32 795, label %if.end12.i101
-  ]
-
-if.end12.i101:                                    ; preds = %if.then8.i100, %if.then8.i100
-  %and.i102 = and i64 %tflags.2.lcssa, 131072
-  %tobool13.not.i103 = icmp eq i64 %and.i102, 0
-  br i1 %tobool13.not.i103, label %end.thread168, label %end
-
-if.then18.i94:                                    ; preds = %if.end4.i92
-  switch i32 %call32, label %end.thread168 [
-    i32 -1, label %if.end23.i95
-    i32 794, label %if.end23.i95
-  ]
-
-if.end23.i95:                                     ; preds = %if.then18.i94, %if.then18.i94
-  %and24.i96 = and i64 %tflags.2.lcssa, 65536
-  %tobool25.not.i97 = icmp eq i64 %and24.i96, 0
-  br i1 %tobool25.not.i97, label %end.thread168, label %end
-
-end.thread168:                                    ; preds = %lor.lhs.false.i86, %if.end.i89, %if.then8.i100, %if.end12.i101, %if.then18.i94, %if.end23.i95, %if.end4.i92
-  %retval.0.i99.ph = phi i32 [ 58, %if.end4.i92 ], [ 60, %if.end23.i95 ], [ 59, %if.then18.i94 ], [ 60, %if.end12.i101 ], [ 59, %if.then8.i100 ], [ 58, %if.end.i89 ], [ 57, %lor.lhs.false.i86 ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %curve_name.i83)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %curve_name_len.i84)
-  br label %if.then35
-
-end:                                              ; preds = %if.end12.i101, %if.end23.i95
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %curve_name.i83)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %curve_name_len.i84)
-  br label %return
-
-if.then35:                                        ; preds = %check_suite_b.exit82.thread, %check_suite_b.exit54.thread, %end.thread168
-  %i.2166 = phi i32 [ %i.1.lcssa, %end.thread168 ], [ %i.1191, %check_suite_b.exit82.thread ], [ 0, %check_suite_b.exit54.thread ]
-  %rv.0165 = phi i32 [ %retval.0.i99.ph, %end.thread168 ], [ %retval.0.i76.ph, %check_suite_b.exit82.thread ], [ %retval.0.i48.ph, %check_suite_b.exit54.thread ]
-  %tflags.7164 = phi i64 [ %tflags.2.lcssa, %end.thread168 ], [ %tflags.2189, %check_suite_b.exit82.thread ], [ %flags, %check_suite_b.exit54.thread ]
-  %cmp37 = icmp eq i32 %rv.0165, 60
-  %cmp43.not = icmp eq i64 %tflags.7164, %flags
+if.then35:                                        ; preds = %X509_get0_pubkey.exit60, %check_suite_b.exit54.thread, %end
+  %i.2102 = phi i32 [ %i.1.lcssa, %end ], [ 0, %check_suite_b.exit54.thread ], [ %i.1110, %X509_get0_pubkey.exit60 ]
+  %rv.0101 = phi i32 [ %call33, %end ], [ %retval.0.i48.ph, %check_suite_b.exit54.thread ], [ %call28, %X509_get0_pubkey.exit60 ]
+  %cmp37 = icmp eq i32 %rv.0101, 60
+  %2 = load i64, ptr %tflags, align 8
+  %cmp43.not = icmp eq i64 %2, %flags
   %spec.select28 = select i1 %cmp43.not, i32 60, i32 61
-  %spec.select228 = select i1 %cmp37, i32 %spec.select28, i32 %rv.0165
-  %2 = add nsw i32 %rv.0165, -59
-  %3 = icmp ult i32 %2, 2
+  %spec.select129 = select i1 %cmp37, i32 %spec.select28, i32 %rv.0101
+  %3 = add nsw i32 %rv.0101, -59
+  %4 = icmp ult i32 %3, 2
   br label %if.then35.thread
 
 if.then35.thread:                                 ; preds = %for.body, %if.then35, %if.end8, %if.end8.thread
-  %rv.0165214 = phi i1 [ false, %if.end8.thread ], [ false, %if.end8 ], [ %3, %if.then35 ], [ false, %for.body ]
-  %i.2166213 = phi i32 [ 0, %if.end8.thread ], [ 0, %if.end8 ], [ %i.2166, %if.then35 ], [ %i.1191, %for.body ]
-  %4 = phi i32 [ 56, %if.end8.thread ], [ 56, %if.end8 ], [ %spec.select228, %if.then35 ], [ 56, %for.body ]
+  %rv.0101121 = phi i1 [ false, %if.end8.thread ], [ false, %if.end8 ], [ %4, %if.then35 ], [ false, %for.body ]
+  %i.2102120 = phi i32 [ 0, %if.end8.thread ], [ 0, %if.end8 ], [ %i.2102, %if.then35 ], [ %i.1110, %for.body ]
+  %5 = phi i32 [ 56, %if.end8.thread ], [ 56, %if.end8 ], [ %spec.select129, %if.then35 ], [ 56, %for.body ]
   %tobool46.not = icmp eq ptr %perror_depth, null
   br i1 %tobool46.not, label %return, label %if.then47
 
 if.then47:                                        ; preds = %if.then35.thread
-  %tobool38 = icmp ne i32 %i.2166213, 0
-  %or.cond1 = select i1 %rv.0165214, i1 %tobool38, i1 false
+  %tobool38 = icmp ne i32 %i.2102120, 0
+  %or.cond1 = select i1 %rv.0101121, i1 %tobool38, i1 false
   %dec = sext i1 %or.cond1 to i32
-  %spec.select = add nsw i32 %i.2166213, %dec
+  %spec.select = add nsw i32 %i.2102120, %dec
   store i32 %spec.select, ptr %perror_depth, align 4
   br label %return
 
 return:                                           ; preds = %end, %if.then47, %if.then35.thread, %entry, %check_suite_b.exit
-  %retval.0 = phi i32 [ %retval.0.i32, %check_suite_b.exit ], [ 0, %entry ], [ %4, %if.then47 ], [ %4, %if.then35.thread ], [ 0, %end ]
+  %retval.0 = phi i32 [ %retval.0.i32, %check_suite_b.exit ], [ 0, %entry ], [ %5, %if.then47 ], [ %5, %if.then35.thread ], [ 0, %end ]
+  ret i32 %retval.0
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc noundef i32 @check_suite_b(ptr noundef %pkey, i32 noundef %sign_nid, ptr nocapture noundef %pflags) unnamed_addr #0 {
+entry:
+  %curve_name = alloca [80 x i8], align 16
+  %curve_name_len = alloca i64, align 8
+  %cmp = icmp eq ptr %pkey, null
+  br i1 %cmp, label %return, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %entry
+  %call = tail call i32 @EVP_PKEY_is_a(ptr noundef nonnull %pkey, ptr noundef nonnull @.str.4) #8
+  %tobool.not = icmp eq i32 %call, 0
+  br i1 %tobool.not, label %return, label %if.end
+
+if.end:                                           ; preds = %lor.lhs.false
+  %call1 = call i32 @EVP_PKEY_get_group_name(ptr noundef nonnull %pkey, ptr noundef nonnull %curve_name, i64 noundef 80, ptr noundef nonnull %curve_name_len) #8
+  %tobool2.not = icmp eq i32 %call1, 0
+  br i1 %tobool2.not, label %return, label %if.end4
+
+if.end4:                                          ; preds = %if.end
+  %call6 = call i32 @OBJ_txt2nid(ptr noundef nonnull %curve_name) #8
+  switch i32 %call6, label %return [
+    i32 715, label %if.then8
+    i32 415, label %if.then18
+  ]
+
+if.then8:                                         ; preds = %if.end4
+  switch i32 %sign_nid, label %return [
+    i32 -1, label %if.end12
+    i32 795, label %if.end12
+  ]
+
+if.end12:                                         ; preds = %if.then8, %if.then8
+  %0 = load i64, ptr %pflags, align 8
+  %and = and i64 %0, 131072
+  %tobool13.not = icmp eq i64 %and, 0
+  br i1 %tobool13.not, label %return, label %if.end15
+
+if.end15:                                         ; preds = %if.end12
+  %and16 = and i64 %0, -65537
+  store i64 %and16, ptr %pflags, align 8
+  br label %if.end30
+
+if.then18:                                        ; preds = %if.end4
+  switch i32 %sign_nid, label %return [
+    i32 -1, label %if.end23
+    i32 794, label %if.end23
+  ]
+
+if.end23:                                         ; preds = %if.then18, %if.then18
+  %1 = load i64, ptr %pflags, align 8
+  %and24 = and i64 %1, 65536
+  %tobool25.not = icmp eq i64 %and24, 0
+  br i1 %tobool25.not, label %return, label %if.end30
+
+if.end30:                                         ; preds = %if.end23, %if.end15
+  br label %return
+
+return:                                           ; preds = %if.end4, %if.end23, %if.then18, %if.end12, %if.then8, %if.end, %entry, %lor.lhs.false, %if.end30
+  %retval.0 = phi i32 [ 0, %if.end30 ], [ 57, %lor.lhs.false ], [ 57, %entry ], [ 58, %if.end ], [ 59, %if.then8 ], [ 60, %if.end12 ], [ 59, %if.then18 ], [ 60, %if.end23 ], [ 58, %if.end4 ]
   ret i32 %retval.0
 }
 
@@ -1379,8 +1336,8 @@ declare i32 @X509_get_signature_nid(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noundef i32 @X509_CRL_check_suiteb(ptr nocapture noundef readonly %crl, ptr noundef %pk, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %curve_name.i = alloca [80 x i8], align 16
-  %curve_name_len.i = alloca i64, align 8
+  %flags.addr = alloca i64, align 8
+  store i64 %flags, ptr %flags.addr, align 8
   %and = and i64 %flags, 196608
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1389,61 +1346,11 @@ if.end:                                           ; preds = %entry
   %sig_alg = getelementptr inbounds i8, ptr %crl, i64 8
   %0 = load ptr, ptr %sig_alg, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %curve_name.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %curve_name_len.i)
-  %cmp.i = icmp eq ptr %pk, null
-  br i1 %cmp.i, label %check_suite_b.exit, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %if.end
-  %call.i = tail call i32 @EVP_PKEY_is_a(ptr noundef nonnull %pk, ptr noundef nonnull @.str.4) #8
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %check_suite_b.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %lor.lhs.false.i
-  %call1.i = call i32 @EVP_PKEY_get_group_name(ptr noundef nonnull %pk, ptr noundef nonnull %curve_name.i, i64 noundef 80, ptr noundef nonnull %curve_name_len.i) #8
-  %tobool2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool2.not.i, label %check_suite_b.exit, label %if.end4.i
-
-if.end4.i:                                        ; preds = %if.end.i
-  %call6.i = call i32 @OBJ_txt2nid(ptr noundef nonnull %curve_name.i) #8
-  switch i32 %call6.i, label %check_suite_b.exit [
-    i32 715, label %if.then8.i
-    i32 415, label %if.then18.i
-  ]
-
-if.then8.i:                                       ; preds = %if.end4.i
-  switch i32 %call, label %check_suite_b.exit [
-    i32 -1, label %if.end12.i
-    i32 795, label %if.end12.i
-  ]
-
-if.end12.i:                                       ; preds = %if.then8.i, %if.then8.i
-  %and.i = and i64 %flags, 131072
-  %tobool13.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool13.not.i, label %check_suite_b.exit, label %if.end30.i
-
-if.then18.i:                                      ; preds = %if.end4.i
-  switch i32 %call, label %check_suite_b.exit [
-    i32 -1, label %if.end23.i
-    i32 794, label %if.end23.i
-  ]
-
-if.end23.i:                                       ; preds = %if.then18.i, %if.then18.i
-  %and24.i = and i64 %flags, 65536
-  %tobool25.not.i = icmp eq i64 %and24.i, 0
-  br i1 %tobool25.not.i, label %check_suite_b.exit, label %if.end30.i
-
-if.end30.i:                                       ; preds = %if.end12.i, %if.end23.i
-  br label %check_suite_b.exit
-
-check_suite_b.exit:                               ; preds = %if.end, %lor.lhs.false.i, %if.end.i, %if.end4.i, %if.then8.i, %if.end12.i, %if.then18.i, %if.end23.i, %if.end30.i
-  %retval.0.i = phi i32 [ 0, %if.end30.i ], [ 57, %lor.lhs.false.i ], [ 57, %if.end ], [ 58, %if.end.i ], [ 59, %if.then8.i ], [ 60, %if.end12.i ], [ 59, %if.then18.i ], [ 60, %if.end23.i ], [ 58, %if.end4.i ]
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %curve_name.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %curve_name_len.i)
+  %call2 = call fastcc i32 @check_suite_b(ptr noundef %pk, i32 noundef %call, ptr noundef nonnull %flags.addr), !range !13
   br label %return
 
-return:                                           ; preds = %entry, %check_suite_b.exit
-  %retval.0 = phi i32 [ %retval.0.i, %check_suite_b.exit ], [ 0, %entry ]
+return:                                           ; preds = %entry, %if.end
+  %retval.0 = phi i32 [ %call2, %if.end ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -1476,7 +1383,7 @@ for.inc:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %i.013, 1
   %call3 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call1) #8
   %cmp4 = icmp slt i32 %inc, %call3
-  br i1 %cmp4, label %for.body, label %return, !llvm.loop !14
+  br i1 %cmp4, label %for.body, label %return, !llvm.loop !15
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %i.115 = phi i32 [ %dec, %while.body ], [ %i.013, %while.cond.preheader ]
@@ -1484,7 +1391,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %call12 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1, i32 noundef %dec) #8
   tail call void @X509_free(ptr noundef %call12) #8
   %cmp10 = icmp sgt i32 %i.115, 1
-  br i1 %cmp10, label %while.body, label %while.end, !llvm.loop !15
+  br i1 %cmp10, label %while.body, label %while.end, !llvm.loop !16
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   tail call void @OPENSSL_sk_free(ptr noundef nonnull %call1) #8
@@ -1539,6 +1446,7 @@ attributes #9 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
 !12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!13 = !{i32 0, i32 61}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}

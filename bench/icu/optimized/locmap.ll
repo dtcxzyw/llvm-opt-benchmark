@@ -1199,6 +1199,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @uprv_convertToLCID_75(ptr noundef readonly %langID, ptr noundef readonly %posixID, ptr nocapture noundef writeonly %status) local_unnamed_addr #9 {
 entry:
+  %myStatus = alloca i32, align 4
   %tobool = icmp ne ptr %langID, null
   %tobool1 = icmp ne ptr %posixID, null
   %or.cond = and i1 %tobool, %tobool1
@@ -1211,18 +1212,17 @@ lor.lhs.false2:                                   ; preds = %entry
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false2
   %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %posixID) #14
-  %call.fr.i = freeze i64 %call4
-  %cmp5 = icmp ult i64 %call.fr.i, 2
+  %cmp5 = icmp ult i64 %call4, 2
   br i1 %cmp5, label %return, label %while.body
 
 while.body:                                       ; preds = %lor.lhs.false3, %if.end21
-  %oldmid.031 = phi i32 [ %shr, %if.end21 ], [ 0, %lor.lhs.false3 ]
-  %low.030 = phi i32 [ %low.1, %if.end21 ], [ 0, %lor.lhs.false3 ]
-  %high.029 = phi i32 [ %high.1, %if.end21 ], [ 141, %lor.lhs.false3 ]
-  %add = add i32 %low.030, %high.029
+  %oldmid.023 = phi i32 [ %shr, %if.end21 ], [ 0, %lor.lhs.false3 ]
+  %low.022 = phi i32 [ %low.1, %if.end21 ], [ 0, %lor.lhs.false3 ]
+  %high.021 = phi i32 [ %high.1, %if.end21 ], [ 141, %lor.lhs.false3 ]
+  %add = add i32 %low.022, %high.021
   %shr = lshr i32 %add, 1
-  %cmp7 = icmp eq i32 %shr, %oldmid.031
-  br i1 %cmp7, label %while.end, label %if.end9
+  %cmp7 = icmp eq i32 %shr, %oldmid.023
+  br i1 %cmp7, label %for.body.preheader, label %if.end9
 
 if.end9:                                          ; preds = %while.body
   %idxprom = zext nneg i32 %shr to i64
@@ -1244,123 +1244,34 @@ if.else16:                                        ; preds = %if.else
   br label %return
 
 if.end21:                                         ; preds = %if.else, %if.end9
-  %high.1 = phi i32 [ %shr, %if.end9 ], [ %high.029, %if.else ]
-  %low.1 = phi i32 [ %low.030, %if.end9 ], [ %shr, %if.else ]
+  %high.1 = phi i32 [ %shr, %if.end9 ], [ %high.021, %if.else ]
+  %low.1 = phi i32 [ %low.022, %if.end9 ], [ %shr, %if.else ]
   %cmp6 = icmp ugt i32 %high.1, %low.1
-  br i1 %cmp6, label %while.body, label %while.end, !llvm.loop !7
+  br i1 %cmp6, label %while.body, label %for.body.preheader, !llvm.loop !7
 
-while.end:                                        ; preds = %while.body, %if.end21
-  %conv.i = trunc i64 %call.fr.i to i32
+for.body.preheader:                               ; preds = %while.body, %if.end21
   br label %for.body
 
-for.body:                                         ; preds = %while.end, %for.inc
-  %indvars.iv = phi i64 [ 0, %while.end ], [ %indvars.iv.next, %for.inc ]
-  %fallbackValue.032 = phi i32 [ -1, %while.end ], [ %fallbackValue.1, %for.inc ]
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body.preheader ]
+  %fallbackValue.024 = phi i32 [ %fallbackValue.1, %for.inc ], [ -1, %for.body.preheader ]
+  store i32 0, ptr %myStatus, align 4
   %arrayidx24 = getelementptr inbounds [141 x %struct.ILcidPosixMap], ptr @_ZL11gPosixIDmap, i64 0, i64 %indvars.iv
-  %2 = load i32, ptr %arrayidx24, align 16
-  %cmp25.not.i = icmp eq i32 %2, 0
-  br i1 %cmp25.not.i, label %for.end.i, label %for.body.lr.ph.i
-
-for.body.lr.ph.i:                                 ; preds = %for.body
-  %regionMaps.i = getelementptr inbounds i8, ptr %arrayidx24, i64 8
-  %3 = load ptr, ptr %regionMaps.i, align 8
-  %4 = load i8, ptr %posixID, align 1
-  %.fr.i = freeze i8 %4
-  %cmp3.not6.i.i = icmp eq i8 %.fr.i, 0
-  br i1 %cmp3.not6.i.i, label %for.end.i, label %for.body.preheader.i
-
-for.body.preheader.i:                             ; preds = %for.body.lr.ph.i
-  %wide.trip.count.i = zext i32 %2 to i64
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %bestIdx.027.i = phi i32 [ 0, %for.body.preheader.i ], [ %bestIdx.1.i, %for.inc.i ]
-  %bestIdxDiff.026.i = phi i32 [ 0, %for.body.preheader.i ], [ %bestIdxDiff.1.i, %for.inc.i ]
-  %posixID1.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %3, i64 %indvars.iv.i, i32 1
-  %5 = load ptr, ptr %posixID1.i, align 8
-  %6 = load i8, ptr %5, align 1
-  %cmp5.i.not.i = icmp eq i8 %.fr.i, %6
-  br i1 %cmp5.i.not.i, label %while.body.i.i, label %_ZL5idCmpPKcS0_.exit.i
-
-while.body.i.i:                                   ; preds = %for.body.i, %while.body.i.i
-  %diffIdx.010.i.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %for.body.i ]
-  %id2.addr.09.i.i = phi ptr [ %incdec.ptr4.i.i, %while.body.i.i ], [ %5, %for.body.i ]
-  %id1.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %posixID, %for.body.i ]
-  %inc.i.i = add nuw nsw i32 %diffIdx.010.i.i, 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %id1.addr.08.i.i, i64 1
-  %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %id2.addr.09.i.i, i64 1
-  %7 = load i8, ptr %incdec.ptr.i.i, align 1
-  %8 = load i8, ptr %incdec.ptr4.i.i, align 1
-  %cmp.i.i = icmp ne i8 %7, %8
-  %cmp3.not.i.i = icmp eq i8 %7, 0
-  %or.cond.i.i = or i1 %cmp3.not.i.i, %cmp.i.i
-  br i1 %or.cond.i.i, label %_ZL5idCmpPKcS0_.exit.i, label %while.body.i.i, !llvm.loop !8
-
-_ZL5idCmpPKcS0_.exit.i:                           ; preds = %while.body.i.i, %for.body.i
-  %diffIdx.0.lcssa.i.i = phi i32 [ 0, %for.body.i ], [ %inc.i.i, %while.body.i.i ]
-  %cmp3.i = icmp sgt i32 %diffIdx.0.lcssa.i.i, %bestIdxDiff.026.i
-  br i1 %cmp3.i, label %land.lhs.true.i, label %for.inc.i
-
-land.lhs.true.i:                                  ; preds = %_ZL5idCmpPKcS0_.exit.i
-  %idxprom8.i = zext nneg i32 %diffIdx.0.lcssa.i.i to i64
-  %arrayidx9.i = getelementptr inbounds i8, ptr %5, i64 %idxprom8.i
-  %9 = load i8, ptr %arrayidx9.i, align 1
-  %cmp11.i = icmp eq i8 %9, 0
-  br i1 %cmp11.i, label %if.then.i, label %for.inc.i
-
-if.then.i:                                        ; preds = %land.lhs.true.i
-  %cmp12.i = icmp eq i32 %diffIdx.0.lcssa.i.i, %conv.i
-  %10 = trunc i64 %indvars.iv.i to i32
-  br i1 %cmp12.i, label %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit.thread23, label %for.inc.i
-
-for.inc.i:                                        ; preds = %if.then.i, %land.lhs.true.i, %_ZL5idCmpPKcS0_.exit.i
-  %bestIdxDiff.1.i = phi i32 [ %bestIdxDiff.026.i, %land.lhs.true.i ], [ %bestIdxDiff.026.i, %_ZL5idCmpPKcS0_.exit.i ], [ %diffIdx.0.lcssa.i.i, %if.then.i ]
-  %bestIdx.1.i = phi i32 [ %bestIdx.027.i, %land.lhs.true.i ], [ %bestIdx.027.i, %_ZL5idCmpPKcS0_.exit.i ], [ %10, %if.then.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.loopexit37.i, label %for.body.i, !llvm.loop !9
-
-for.end.loopexit37.i:                             ; preds = %for.inc.i
-  %11 = zext nneg i32 %bestIdxDiff.1.i to i64
-  %12 = sext i32 %bestIdx.1.i to i64
-  br label %for.end.i
-
-for.end.i:                                        ; preds = %for.body.lr.ph.i, %for.end.loopexit37.i, %for.body
-  %bestIdxDiff.0.lcssa.i = phi i64 [ 0, %for.body ], [ %11, %for.end.loopexit37.i ], [ 0, %for.body.lr.ph.i ]
-  %bestIdx.0.lcssa.i = phi i64 [ 0, %for.body ], [ %12, %for.end.loopexit37.i ], [ 0, %for.body.lr.ph.i ]
-  %arrayidx19.i = getelementptr inbounds i8, ptr %posixID, i64 %bestIdxDiff.0.lcssa.i
-  %13 = load i8, ptr %arrayidx19.i, align 1
-  switch i8 %13, label %for.inc [
-    i8 95, label %land.lhs.true26.i
-    i8 64, label %land.lhs.true26.i
+  %call25 = call fastcc noundef i32 @_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode(ptr noundef nonnull %arrayidx24, ptr noundef nonnull %posixID, ptr noundef nonnull %myStatus)
+  %2 = load i32, ptr %myStatus, align 4
+  switch i32 %2, label %for.inc [
+    i32 0, label %return
+    i32 -128, label %if.then30
   ]
 
-land.lhs.true26.i:                                ; preds = %for.end.i, %for.end.i
-  %regionMaps27.i = getelementptr inbounds i8, ptr %arrayidx24, i64 8
-  %14 = load ptr, ptr %regionMaps27.i, align 8
-  %posixID30.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %14, i64 %bestIdx.0.lcssa.i, i32 1
-  %15 = load ptr, ptr %posixID30.i, align 8
-  %arrayidx32.i = getelementptr inbounds i8, ptr %15, i64 %bestIdxDiff.0.lcssa.i
-  %16 = load i8, ptr %arrayidx32.i, align 1
-  %cmp34.i = icmp eq i8 %16, 0
-  br i1 %cmp34.i, label %if.then30, label %for.inc
-
-_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit.thread23: ; preds = %if.then.i
-  %arrayidx6.le.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %3, i64 %indvars.iv.i
-  %retval.0.i26 = load i32, ptr %arrayidx6.le.i, align 8
-  br label %return
-
-if.then30:                                        ; preds = %land.lhs.true26.i
-  %arrayidx38.i = getelementptr inbounds %struct.ILcidPosixElement, ptr %14, i64 %bestIdx.0.lcssa.i
-  %retval.0.i = load i32, ptr %arrayidx38.i, align 8
+if.then30:                                        ; preds = %for.body
   br label %for.inc
 
-for.inc:                                          ; preds = %land.lhs.true26.i, %for.end.i, %if.then30
-  %fallbackValue.1 = phi i32 [ %retval.0.i, %if.then30 ], [ %fallbackValue.032, %for.end.i ], [ %fallbackValue.032, %land.lhs.true26.i ]
+for.inc:                                          ; preds = %for.body, %if.then30
+  %fallbackValue.1 = phi i32 [ %call25, %if.then30 ], [ %fallbackValue.024, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 141
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc
   %cmp33.not = icmp eq i32 %fallbackValue.1, -1
@@ -1374,8 +1285,8 @@ if.end35:                                         ; preds = %for.end
   store i32 1, ptr %status, align 4
   br label %return
 
-return:                                           ; preds = %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit.thread23, %entry, %lor.lhs.false2, %lor.lhs.false3, %if.end35, %if.then34, %if.else16
-  %retval.0 = phi i32 [ %fallbackValue.1, %if.then34 ], [ 0, %if.end35 ], [ %call19, %if.else16 ], [ 0, %lor.lhs.false3 ], [ 0, %lor.lhs.false2 ], [ 0, %entry ], [ %retval.0.i26, %_ZL9getHostIDPK13ILcidPosixMapPKcP10UErrorCode.exit.thread23 ]
+return:                                           ; preds = %for.body, %entry, %lor.lhs.false2, %lor.lhs.false3, %if.end35, %if.then34, %if.else16
+  %retval.0 = phi i32 [ %fallbackValue.1, %if.then34 ], [ 0, %if.end35 ], [ %call19, %if.else16 ], [ 0, %lor.lhs.false3 ], [ 0, %lor.lhs.false2 ], [ 0, %entry ], [ %call25, %for.body ]
   ret i32 %retval.0
 }
 
@@ -1426,7 +1337,7 @@ while.body.i:                                     ; preds = %for.body, %while.bo
   %cmp.i = icmp ne i8 %5, %6
   %cmp3.not.i = icmp eq i8 %5, 0
   %or.cond.i = or i1 %cmp3.not.i, %cmp.i
-  br i1 %or.cond.i, label %_ZL5idCmpPKcS0_.exit, label %while.body.i, !llvm.loop !8
+  br i1 %or.cond.i, label %_ZL5idCmpPKcS0_.exit, label %while.body.i, !llvm.loop !9
 
 _ZL5idCmpPKcS0_.exit:                             ; preds = %while.body.i, %for.body
   %diffIdx.0.lcssa.i = phi i32 [ 0, %for.body ], [ %inc.i, %while.body.i ]
@@ -1450,7 +1361,7 @@ for.inc:                                          ; preds = %if.then, %_ZL5idCmp
   %bestIdx.1 = phi i32 [ %bestIdx.027, %land.lhs.true ], [ %bestIdx.027, %_ZL5idCmpPKcS0_.exit ], [ %8, %if.then ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.loopexit37, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end.loopexit37, label %for.body, !llvm.loop !10
 
 for.end.loopexit37:                               ; preds = %for.inc
   %9 = zext nneg i32 %bestIdxDiff.1 to i64

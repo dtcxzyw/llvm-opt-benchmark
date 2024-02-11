@@ -346,75 +346,118 @@ if.end20:                                         ; preds = %if.then18, %if.end1
   %4 = load ptr, ptr %opaque22, align 8
   %call = tail call ptr %2(ptr noundef %4, i32 noundef 1, i32 noundef 7152) #9
   %cmp23 = icmp eq ptr %call, null
-  br i1 %cmp23, label %return, label %lor.lhs.false.i
+  br i1 %cmp23, label %return, label %if.end26
 
-lor.lhs.false.i:                                  ; preds = %if.end20
+if.end26:                                         ; preds = %if.end20
   %state27 = getelementptr inbounds i8, ptr %strm, i64 56
   store ptr %call, ptr %state27, align 8
   %window = getelementptr inbounds i8, ptr %call, i64 64
   store ptr null, ptr %window, align 8
-  %5 = load ptr, ptr %state27, align 8
-  %cmp2.i = icmp eq ptr %5, null
-  br i1 %cmp2.i, label %if.then31, label %if.end.i
+  %call28 = tail call i32 @MOZ_Z_inflateReset2(ptr noundef nonnull %strm, i32 noundef %windowBits), !range !5
+  %cmp29.not = icmp eq i32 %call28, 0
+  br i1 %cmp29.not, label %return, label %if.then31
+
+if.then31:                                        ; preds = %if.end26
+  %5 = load ptr, ptr %zfree, align 8
+  %6 = load ptr, ptr %opaque22, align 8
+  tail call void %5(ptr noundef %6, ptr noundef nonnull %call) #9
+  store ptr null, ptr %state27, align 8
+  br label %return
+
+return:                                           ; preds = %if.end26, %if.then31, %if.end20, %if.end, %entry, %lor.lhs.false
+  %retval.0 = phi i32 [ -6, %lor.lhs.false ], [ -6, %entry ], [ -2, %if.end ], [ -4, %if.end20 ], [ %call28, %if.then31 ], [ 0, %if.end26 ]
+  ret i32 %retval.0
+}
+
+declare ptr @MOZ_Z_zcalloc(ptr noundef, i32 noundef, i32 noundef) #2
+
+declare void @MOZ_Z_zcfree(ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind uwtable
+define dso_local noundef i32 @MOZ_Z_inflateInit_(ptr noundef %strm, ptr noundef readonly %version, i32 noundef %stream_size) local_unnamed_addr #1 {
+entry:
+  %cmp.i = icmp eq ptr %version, null
+  br i1 %cmp.i, label %MOZ_Z_inflateInit2_.exit, label %lor.lhs.false.i
+
+lor.lhs.false.i:                                  ; preds = %entry
+  %0 = load i8, ptr %version, align 1
+  %cmp2.i = icmp ne i8 %0, 49
+  %cmp5.i = icmp ne i32 %stream_size, 120
+  %or.cond.i = or i1 %cmp5.i, %cmp2.i
+  br i1 %or.cond.i, label %MOZ_Z_inflateInit2_.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %cmp4.i = icmp slt i32 %windowBits, 0
-  br i1 %cmp4.i, label %if.then5.i, label %if.else.i
+  %cmp7.i = icmp eq ptr %strm, null
+  br i1 %cmp7.i, label %MOZ_Z_inflateInit2_.exit, label %if.end10.i
 
-if.then5.i:                                       ; preds = %if.end.i
-  %sub.i = sub nsw i32 0, %windowBits
-  br label %if.end9.i
+if.end10.i:                                       ; preds = %if.end.i
+  %msg.i = getelementptr inbounds i8, ptr %strm, i64 48
+  store ptr null, ptr %msg.i, align 8
+  %zalloc.i = getelementptr inbounds i8, ptr %strm, i64 64
+  %1 = load ptr, ptr %zalloc.i, align 8
+  %cmp11.i = icmp eq ptr %1, null
+  br i1 %cmp11.i, label %if.then13.i, label %if.end15.i
 
-if.else.i:                                        ; preds = %if.end.i
-  %shr.i = lshr i32 %windowBits, 4
-  %add.i = add nuw nsw i32 %shr.i, 1
-  %cmp6.i = icmp ult i32 %windowBits, 48
-  %and.i = and i32 %windowBits, 15
-  %spec.select = select i1 %cmp6.i, i32 %and.i, i32 %windowBits
-  br label %if.end9.i
+if.then13.i:                                      ; preds = %if.end10.i
+  store ptr @MOZ_Z_zcalloc, ptr %zalloc.i, align 8
+  %opaque.i = getelementptr inbounds i8, ptr %strm, i64 80
+  store ptr null, ptr %opaque.i, align 8
+  br label %if.end15.i
 
-if.end9.i:                                        ; preds = %if.else.i, %if.then5.i
-  %windowBits.addr.0.i = phi i32 [ %sub.i, %if.then5.i ], [ %spec.select, %if.else.i ]
-  %wrap.0.i = phi i32 [ 0, %if.then5.i ], [ %add.i, %if.else.i ]
-  switch i32 %windowBits.addr.0.i, label %if.then31 [
-    i32 15, label %if.end14.i
-    i32 14, label %if.end14.i
-    i32 13, label %if.end14.i
-    i32 12, label %if.end14.i
-    i32 11, label %if.end14.i
-    i32 10, label %if.end14.i
-    i32 9, label %if.end14.i
-    i32 8, label %if.end14.i
-    i32 0, label %if.end14.i
-  ]
+if.end15.i:                                       ; preds = %if.then13.i, %if.end10.i
+  %2 = phi ptr [ @MOZ_Z_zcalloc, %if.then13.i ], [ %1, %if.end10.i ]
+  %zfree.i = getelementptr inbounds i8, ptr %strm, i64 72
+  %3 = load ptr, ptr %zfree.i, align 8
+  %cmp16.i = icmp eq ptr %3, null
+  br i1 %cmp16.i, label %if.then18.i, label %if.end20.i
 
-if.end14.i:                                       ; preds = %if.end9.i, %if.end9.i, %if.end9.i, %if.end9.i, %if.end9.i, %if.end9.i, %if.end9.i, %if.end9.i, %if.end9.i
-  %window.i = getelementptr inbounds i8, ptr %5, i64 64
-  %6 = load ptr, ptr %window.i, align 8
+if.then18.i:                                      ; preds = %if.end15.i
+  store ptr @MOZ_Z_zcfree, ptr %zfree.i, align 8
+  br label %if.end20.i
+
+if.end20.i:                                       ; preds = %if.then18.i, %if.end15.i
+  %opaque22.i = getelementptr inbounds i8, ptr %strm, i64 80
+  %4 = load ptr, ptr %opaque22.i, align 8
+  %call.i = tail call ptr %2(ptr noundef %4, i32 noundef 1, i32 noundef 7152) #9
+  %cmp23.i = icmp eq ptr %call.i, null
+  br i1 %cmp23.i, label %MOZ_Z_inflateInit2_.exit, label %lor.lhs.false.i2
+
+lor.lhs.false.i2:                                 ; preds = %if.end20.i
+  %state27.i = getelementptr inbounds i8, ptr %strm, i64 56
+  store ptr %call.i, ptr %state27.i, align 8
+  %window.i = getelementptr inbounds i8, ptr %call.i, i64 64
+  store ptr null, ptr %window.i, align 8
+  %5 = load ptr, ptr %state27.i, align 8
+  %cmp2.i3 = icmp eq ptr %5, null
+  br i1 %cmp2.i3, label %if.then31.i, label %if.end.i4
+
+if.end.i4:                                        ; preds = %lor.lhs.false.i2
+  %window.i5 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = load ptr, ptr %window.i5, align 8
   %cmp15.not.i = icmp eq ptr %6, null
   br i1 %cmp15.not.i, label %lor.lhs.false.i.i, label %land.lhs.true16.i
 
-land.lhs.true16.i:                                ; preds = %if.end14.i
+land.lhs.true16.i:                                ; preds = %if.end.i4
   %wbits.i = getelementptr inbounds i8, ptr %5, i64 48
   %7 = load i32, ptr %wbits.i, align 8
-  %cmp17.not.i = icmp eq i32 %7, %windowBits.addr.0.i
-  br i1 %cmp17.not.i, label %lor.lhs.false.i.i, label %if.then18.i
+  %cmp17.not.i = icmp eq i32 %7, 15
+  br i1 %cmp17.not.i, label %lor.lhs.false.i.i, label %if.then18.i6
 
-if.then18.i:                                      ; preds = %land.lhs.true16.i
-  %8 = load ptr, ptr %zfree, align 8
-  %9 = load ptr, ptr %opaque22, align 8
+if.then18.i6:                                     ; preds = %land.lhs.true16.i
+  %8 = load ptr, ptr %zfree.i, align 8
+  %9 = load ptr, ptr %opaque22.i, align 8
   tail call void %8(ptr noundef %9, ptr noundef nonnull %6) #9
-  store ptr null, ptr %window.i, align 8
+  store ptr null, ptr %window.i5, align 8
   br label %lor.lhs.false.i.i
 
-lor.lhs.false.i.i:                                ; preds = %if.then18.i, %land.lhs.true16.i, %if.end14.i
+lor.lhs.false.i.i:                                ; preds = %if.then18.i6, %land.lhs.true16.i, %if.end.i4
   %wrap22.i = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %wrap.0.i, ptr %wrap22.i, align 8
+  store i32 1, ptr %wrap22.i, align 8
   %wbits23.i = getelementptr inbounds i8, ptr %5, i64 48
-  store i32 %windowBits.addr.0.i, ptr %wbits23.i, align 8
-  %10 = load ptr, ptr %state27, align 8
+  store i32 15, ptr %wbits23.i, align 8
+  %10 = load ptr, ptr %state27.i, align 8
   %cmp2.i.i = icmp eq ptr %10, null
-  br i1 %cmp2.i.i, label %if.then31, label %lor.lhs.false.i.i.i
+  br i1 %cmp2.i.i, label %if.then31.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %lor.lhs.false.i.i
   %wsize.i.i = getelementptr inbounds i8, ptr %10, i64 52
@@ -423,9 +466,9 @@ lor.lhs.false.i.i.i:                              ; preds = %lor.lhs.false.i.i
   store i32 0, ptr %whave.i.i, align 8
   %wnext.i.i = getelementptr inbounds i8, ptr %10, i64 60
   store i32 0, ptr %wnext.i.i, align 4
-  %11 = load ptr, ptr %state27, align 8
+  %11 = load ptr, ptr %state27.i, align 8
   %cmp2.i.i.i = icmp eq ptr %11, null
-  br i1 %cmp2.i.i.i, label %if.then31, label %if.end.i.i.i
+  br i1 %cmp2.i.i.i, label %if.then31.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %lor.lhs.false.i.i.i
   %total.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
@@ -471,29 +514,18 @@ MOZ_Z_inflateReset2.exit:                         ; preds = %if.end.i.i.i, %if.t
   store i32 1, ptr %sane.i.i.i, align 8
   %back.i.i.i = getelementptr inbounds i8, ptr %11, i64 7140
   store i32 -1, ptr %back.i.i.i, align 4
-  br label %return
+  br label %MOZ_Z_inflateInit2_.exit
 
-if.then31:                                        ; preds = %lor.lhs.false.i, %if.end9.i, %lor.lhs.false.i.i, %lor.lhs.false.i.i.i
-  %13 = load ptr, ptr %zfree, align 8
-  %14 = load ptr, ptr %opaque22, align 8
-  tail call void %13(ptr noundef %14, ptr noundef nonnull %call) #9
-  store ptr null, ptr %state27, align 8
-  br label %return
+if.then31.i:                                      ; preds = %lor.lhs.false.i2, %lor.lhs.false.i.i, %lor.lhs.false.i.i.i
+  %13 = load ptr, ptr %zfree.i, align 8
+  %14 = load ptr, ptr %opaque22.i, align 8
+  tail call void %13(ptr noundef %14, ptr noundef nonnull %call.i) #9
+  store ptr null, ptr %state27.i, align 8
+  br label %MOZ_Z_inflateInit2_.exit
 
-return:                                           ; preds = %MOZ_Z_inflateReset2.exit, %if.then31, %if.end20, %if.end, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ -6, %lor.lhs.false ], [ -6, %entry ], [ -2, %if.end ], [ -4, %if.end20 ], [ -2, %if.then31 ], [ 0, %MOZ_Z_inflateReset2.exit ]
-  ret i32 %retval.0
-}
-
-declare ptr @MOZ_Z_zcalloc(ptr noundef, i32 noundef, i32 noundef) #2
-
-declare void @MOZ_Z_zcfree(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @MOZ_Z_inflateInit_(ptr noundef %strm, ptr noundef %version, i32 noundef %stream_size) local_unnamed_addr #1 {
-entry:
-  %call = tail call i32 @MOZ_Z_inflateInit2_(ptr noundef %strm, i32 noundef 15, ptr noundef %version, i32 noundef %stream_size), !range !5
-  ret i32 %call
+MOZ_Z_inflateInit2_.exit:                         ; preds = %MOZ_Z_inflateReset2.exit, %entry, %lor.lhs.false.i, %if.end.i, %if.end20.i, %if.then31.i
+  %retval.0.i = phi i32 [ -6, %lor.lhs.false.i ], [ -6, %entry ], [ -2, %if.end.i ], [ -4, %if.end20.i ], [ -2, %if.then31.i ], [ 0, %MOZ_Z_inflateReset2.exit ]
+  ret i32 %retval.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -4211,7 +4243,7 @@ attributes #9 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 -6, i32 1}
+!5 = !{i32 -2, i32 1}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}

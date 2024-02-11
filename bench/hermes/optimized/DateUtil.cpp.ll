@@ -1673,7 +1673,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef double @_ZN6hermes2vm9parseDateENS0_10StringViewE(ptr %str.coerce0, i64 %str.coerce1) local_unnamed_addr #0 {
 entry:
-  %ref.tmp.i178.i = alloca %"class.llvh::ArrayRef", align 8
+  %ref.tmp.i38.i = alloca %"class.llvh::ArrayRef", align 8
   %ref.tmp.i.i = alloca %"class.llvh::ArrayRef", align 8
   %str.i = alloca %"class.hermes::vm::StringView", align 8
   %tok.i = alloca %"class.hermes::vm::StringView", align 8
@@ -1691,6 +1691,7 @@ entry:
   %consumeSpaces.i = alloca %class.anon.78, align 8
   %ref.tmp.i = alloca %"class.llvh::ArrayRef", align 8
   %ref.tmp90.i = alloca %"class.llvh::ArrayRef", align 8
+  %u16str.i = alloca %"class.hermes::vm::StringView", align 8
   %it.i = alloca %"class.hermes::vm::StringView::const_iterator", align 8
   %y.i = alloca i32, align 4
   %m.i = alloca i32, align 4
@@ -1700,6 +1701,7 @@ entry:
   %s.i = alloca i32, align 4
   %tzh.i = alloca i32, align 4
   %tzm.i = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %u16str.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %it.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %m.i)
@@ -1709,198 +1711,18 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %s.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tzh.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tzm.i)
-  %u16str.sroa.5.8.extract.trunc.i = trunc i64 %str.coerce1 to i32
-  %u16str.sroa.10.8.extract.shift.i = lshr i64 %str.coerce1, 32
-  %tobool.i.i.i = icmp slt i32 %u16str.sroa.5.8.extract.trunc.i, 0
-  br i1 %tobool.i.i.i, label %if.then.i.i, label %if.end.i.i
-
-if.then.i.i:                                      ; preds = %entry
-  %0 = and i32 %u16str.sroa.5.8.extract.trunc.i, 1073741824
-  %tobool.not.i.i.i = icmp eq i32 %0, 0
-  br i1 %tobool.not.i.i.i, label %if.then.i64.i, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %if.then.i.i
-  %retval.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %str.coerce0, align 8
-  %and.i.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i, 281474976710655
-  %1 = inttoptr i64 %and.i.i.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i.i.i.i = load i32, ptr %1, align 4
-  %cmp.i.i.i.i.i = icmp ugt i32 %bf.load.i.i.i.i.i.i.i, 150994943
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %contents_.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
-  %call.i.i.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i, i64 noundef 0) #17
-  br label %if.end.i.i66.i
-
-if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i.i, label %if.else13.i.i.i.i [
-    i32 134217728, label %if.then5.i.i.i.i
-    i32 67108864, label %if.then10.i.i.i.i
-  ]
-
-if.then5.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
-  br label %if.end.i.i66.i
-
-if.then10.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %add.ptr.i.i.i4.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  br label %if.end.i.i66.i
-
-if.else13.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %concatBufferHV_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %concatBufferHV_.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i1.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i, 281474976710655
-  %2 = inttoptr i64 %and.i.i.i.i.i1.i.i.i to ptr
-  %contents_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %call.i.i.i.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i.i, i64 noundef 0) #17
-  br label %if.end.i.i66.i
-
-if.end.i.i:                                       ; preds = %entry
-  %tobool.not.i4.i.i = icmp ult i32 %u16str.sroa.5.8.extract.trunc.i, 1073741824
-  br i1 %tobool.not.i4.i.i, label %if.end.i35.i, label %if.end.i5.i.i
-
-if.end.i5.i.i:                                    ; preds = %if.end.i.i
-  %retval.sroa.0.0.copyload.i.i.i.i6.i.i = load i64, ptr %str.coerce0, align 8
-  %and.i.i.i.i.i.i7.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i6.i.i, 281474976710655
-  %3 = inttoptr i64 %and.i.i.i.i.i.i7.i.i to ptr
-  %bf.load.i.i.i.i.i8.i.i = load i32, ptr %3, align 4
-  %cmp.i.i.i9.i.i = icmp ugt i32 %bf.load.i.i.i.i.i8.i.i, 150994943
-  br i1 %cmp.i.i.i9.i.i, label %if.then.i.i25.i62.i, label %if.else.i.i10.i.i
-
-if.else.i.i10.i.i:                                ; preds = %if.end.i5.i.i
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i.i = and i32 %bf.load.i.i.i.i.i8.i.i, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i.i, label %if.else.i.i10.i42.i [
-    i32 117440512, label %if.else.i.i10.i42.i.thread
-    i32 50331648, label %if.else.i.i10.i42.i.thread549
-  ]
-
-if.else.i.i10.i42.i.thread:                       ; preds = %if.else.i.i10.i.i
-  %add.ptr.i.i.i.i.i19.i.i = getelementptr inbounds i8, ptr %3, i64 12
-  %bf.clear8.i15.i476529.i545 = and i64 %str.coerce1, 1073741823
-  %add.ptr10.i17.i478530.i546 = getelementptr inbounds i16, ptr %add.ptr.i.i.i.i.i19.i.i, i64 %bf.clear8.i15.i476529.i545
-  store ptr null, ptr %it.i, align 8
-  %4 = getelementptr inbounds i8, ptr %it.i, i64 8
-  store ptr %add.ptr10.i17.i478530.i546, ptr %4, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i46.i
-
-if.else.i.i10.i42.i.thread549:                    ; preds = %if.else.i.i10.i.i
-  %add.ptr.i.i.i4.i.i13.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %bf.clear8.i15.i476529.i551 = and i64 %str.coerce1, 1073741823
-  %add.ptr10.i17.i478530.i552 = getelementptr inbounds i16, ptr %add.ptr.i.i.i4.i.i13.i.i, i64 %bf.clear8.i15.i476529.i551
-  store ptr null, ptr %it.i, align 8
-  %5 = getelementptr inbounds i8, ptr %it.i, i64 8
-  store ptr %add.ptr10.i17.i478530.i552, ptr %5, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i46.i
-
-if.then.i64.i:                                    ; preds = %if.then.i.i
-  %bf.clear8.i.i.i = and i64 %str.coerce1, 1073741823
-  %add.ptr10.i.i.i = getelementptr inbounds i8, ptr %str.coerce0, i64 %bf.clear8.i.i.i
-  store ptr %add.ptr10.i.i.i, ptr %it.i, align 8
-  %6 = getelementptr inbounds i8, ptr %it.i, i64 8
-  store ptr null, ptr %6, align 8
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i78.i
-
-if.end.i.i66.i:                                   ; preds = %if.else13.i.i.i.i, %if.then10.i.i.i.i, %if.then5.i.i.i.i, %if.then.i.i.i.i
-  %retval.0.i.sink.i.i.ph.i = phi ptr [ %call.i.i.i.i.i.i, %if.else13.i.i.i.i ], [ %add.ptr.i.i.i4.i.i.i.i, %if.then10.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.then5.i.i.i.i ], [ %call.i.i.i.i.i, %if.then.i.i.i.i ]
-  %bf.clear8.i.i522.i = and i64 %str.coerce1, 1073741823
-  %add.ptr10.i.i523.i = getelementptr inbounds i8, ptr %retval.0.i.sink.i.i.ph.i, i64 %bf.clear8.i.i522.i
-  store ptr %add.ptr10.i.i523.i, ptr %it.i, align 8
-  %7 = getelementptr inbounds i8, ptr %it.i, i64 8
-  store ptr null, ptr %7, align 8
-  %retval.sroa.0.0.copyload.i.i.i.i.i67.i = load i64, ptr %str.coerce0, align 8
-  %and.i.i.i.i.i.i.i68.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i67.i, 281474976710655
-  %8 = inttoptr i64 %and.i.i.i.i.i.i.i68.i to ptr
-  %bf.load.i.i.i.i.i.i69.i = load i32, ptr %8, align 4
-  %cmp.i.i.i.i70.i = icmp ugt i32 %bf.load.i.i.i.i.i.i69.i, 150994943
-  br i1 %cmp.i.i.i.i70.i, label %if.then.i.i.i92.i, label %if.else.i.i.i71.i
-
-if.then.i.i.i92.i:                                ; preds = %if.end.i.i66.i
-  %contents_.i.i.i.i93.i = getelementptr inbounds i8, ptr %8, i64 16
-  %call.i.i.i.i94.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i93.i, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i78.i
-
-if.else.i.i.i71.i:                                ; preds = %if.end.i.i66.i
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i72.i = and i32 %bf.load.i.i.i.i.i.i69.i, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i72.i, label %if.else13.i.i.i86.i [
-    i32 134217728, label %if.then5.i.i.i84.i
-    i32 67108864, label %if.then10.i.i.i73.i
-  ]
-
-if.then5.i.i.i84.i:                               ; preds = %if.else.i.i.i71.i
-  %add.ptr.i.i.i.i.i.i85.i = getelementptr inbounds i8, ptr %8, i64 12
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i78.i
-
-if.then10.i.i.i73.i:                              ; preds = %if.else.i.i.i71.i
-  %add.ptr.i.i.i4.i.i.i74.i = getelementptr inbounds i8, ptr %8, i64 8
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i78.i
-
-if.else13.i.i.i86.i:                              ; preds = %if.else.i.i.i71.i
-  %concatBufferHV_.i.i.i.i.i87.i = getelementptr inbounds i8, ptr %8, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i88.i = load i64, ptr %concatBufferHV_.i.i.i.i.i87.i, align 8
-  %and.i.i.i.i.i1.i.i89.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i88.i, 281474976710655
-  %9 = inttoptr i64 %and.i.i.i.i.i1.i.i89.i to ptr
-  %contents_.i.i.i.i.i90.i = getelementptr inbounds i8, ptr %9, i64 16
-  %call.i.i.i.i.i91.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i90.i, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i78.i
-
-_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i78.i: ; preds = %if.else13.i.i.i86.i, %if.then10.i.i.i73.i, %if.then5.i.i.i84.i, %if.then.i.i.i92.i, %if.then.i64.i
-  %10 = phi ptr [ %6, %if.then.i64.i ], [ %7, %if.then.i.i.i92.i ], [ %7, %if.then5.i.i.i84.i ], [ %7, %if.then10.i.i.i73.i ], [ %7, %if.else13.i.i.i86.i ]
-  %add.ptr10.i.i527.i = phi ptr [ %add.ptr10.i.i.i, %if.then.i64.i ], [ %add.ptr10.i.i523.i, %if.then.i.i.i92.i ], [ %add.ptr10.i.i523.i, %if.then5.i.i.i84.i ], [ %add.ptr10.i.i523.i, %if.then10.i.i.i73.i ], [ %add.ptr10.i.i523.i, %if.else13.i.i.i86.i ]
-  %bf.clear8.i.i525.i = phi i64 [ %bf.clear8.i.i.i, %if.then.i64.i ], [ %bf.clear8.i.i522.i, %if.then.i.i.i92.i ], [ %bf.clear8.i.i522.i, %if.then5.i.i.i84.i ], [ %bf.clear8.i.i522.i, %if.then10.i.i.i73.i ], [ %bf.clear8.i.i522.i, %if.else13.i.i.i86.i ]
-  %retval.0.i.sink.i.i80.i = phi ptr [ %str.coerce0, %if.then.i64.i ], [ %call.i.i.i.i94.i, %if.then.i.i.i92.i ], [ %add.ptr.i.i.i.i.i.i85.i, %if.then5.i.i.i84.i ], [ %add.ptr.i.i.i4.i.i.i74.i, %if.then10.i.i.i73.i ], [ %call.i.i.i.i.i91.i, %if.else13.i.i.i86.i ]
-  %add.ptr10.i.i83.i = getelementptr inbounds i8, ptr %retval.0.i.sink.i.i80.i, i64 %bf.clear8.i.i525.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr10.i.i83.i, i64 %u16str.sroa.10.8.extract.shift.i
-  br label %_ZNK6hermes2vm10StringView3endEv.exit.i
-
-if.end.i35.i:                                     ; preds = %if.end.i.i
-  %idx.ext9.i16.i.i = and i64 %str.coerce1, 4294967295
-  %add.ptr10.i17.i.i = getelementptr inbounds i16, ptr %str.coerce0, i64 %idx.ext9.i16.i.i
-  store ptr null, ptr %it.i, align 8
-  %11 = getelementptr inbounds i8, ptr %it.i, i64 8
-  store ptr %add.ptr10.i17.i.i, ptr %11, align 8
-  %.pre520.i = and i64 %str.coerce1, 1073741823
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i46.i
-
-if.then.i.i25.i62.i:                              ; preds = %if.end.i5.i.i
-  %contents_.i.i.i26.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  %12 = load ptr, ptr %contents_.i.i.i26.i.i, align 8
-  %bf.clear8.i15.i476.i = and i64 %str.coerce1, 1073741823
-  %add.ptr10.i17.i478.i = getelementptr inbounds i16, ptr %12, i64 %bf.clear8.i15.i476.i
-  store ptr null, ptr %it.i, align 8
-  %13 = getelementptr inbounds i8, ptr %it.i, i64 8
-  store ptr %add.ptr10.i17.i478.i, ptr %13, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i46.i
-
-if.else.i.i10.i42.i:                              ; preds = %if.else.i.i10.i.i
-  %concatBufferHV_.i.i.i.i21.i.i = getelementptr inbounds i8, ptr %3, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i.i = load i64, ptr %concatBufferHV_.i.i.i.i21.i.i, align 8
-  %and.i.i.i.i.i1.i23.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i.i, 281474976710655
-  %14 = inttoptr i64 %and.i.i.i.i.i1.i23.i.i to ptr
-  %contents_.i.i.i.i24.i.i = getelementptr inbounds i8, ptr %14, i64 16
-  %15 = load ptr, ptr %contents_.i.i.i.i24.i.i, align 8
-  %bf.clear8.i15.i476529.i = and i64 %str.coerce1, 1073741823
-  %add.ptr10.i17.i478530.i = getelementptr inbounds i16, ptr %15, i64 %bf.clear8.i15.i476529.i
-  store ptr null, ptr %it.i, align 8
-  %16 = getelementptr inbounds i8, ptr %it.i, i64 8
-  store ptr %add.ptr10.i17.i478530.i, ptr %16, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i46.i
-
-_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i46.i: ; preds = %if.else.i.i10.i42.i, %if.else.i.i10.i42.i.thread549, %if.else.i.i10.i42.i.thread, %if.then.i.i25.i62.i, %if.end.i35.i
-  %bf.clear8.i15.i48.pre-phi.i = phi i64 [ %.pre520.i, %if.end.i35.i ], [ %bf.clear8.i15.i476529.i, %if.else.i.i10.i42.i ], [ %bf.clear8.i15.i476529.i551, %if.else.i.i10.i42.i.thread549 ], [ %bf.clear8.i15.i476529.i545, %if.else.i.i10.i42.i.thread ], [ %bf.clear8.i15.i476.i, %if.then.i.i25.i62.i ]
-  %17 = phi ptr [ %add.ptr10.i17.i.i, %if.end.i35.i ], [ %add.ptr10.i17.i478530.i, %if.else.i.i10.i42.i ], [ %add.ptr10.i17.i478530.i552, %if.else.i.i10.i42.i.thread549 ], [ %add.ptr10.i17.i478530.i546, %if.else.i.i10.i42.i.thread ], [ %add.ptr10.i17.i478.i, %if.then.i.i25.i62.i ]
-  %18 = phi ptr [ %11, %if.end.i35.i ], [ %16, %if.else.i.i10.i42.i ], [ %5, %if.else.i.i10.i42.i.thread549 ], [ %4, %if.else.i.i10.i42.i.thread ], [ %13, %if.then.i.i25.i62.i ]
-  %retval.0.i.sink.i14.i47.i = phi ptr [ %str.coerce0, %if.end.i35.i ], [ %15, %if.else.i.i10.i42.i ], [ %add.ptr.i.i.i4.i.i13.i.i, %if.else.i.i10.i42.i.thread549 ], [ %add.ptr.i.i.i.i.i19.i.i, %if.else.i.i10.i42.i.thread ], [ %12, %if.then.i.i25.i62.i ]
-  %add.ptr10.i17.i50.i = getelementptr inbounds i16, ptr %retval.0.i.sink.i14.i47.i, i64 %bf.clear8.i15.i48.pre-phi.i
-  %add.ptr6.i.i = getelementptr inbounds i16, ptr %add.ptr10.i17.i50.i, i64 %u16str.sroa.10.8.extract.shift.i
-  br label %_ZNK6hermes2vm10StringView3endEv.exit.i
-
-_ZNK6hermes2vm10StringView3endEv.exit.i:          ; preds = %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i46.i, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i78.i
-  %19 = phi ptr [ %add.ptr10.i.i527.i, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i78.i ], [ null, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i46.i ]
-  %20 = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i78.i ], [ %17, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i46.i ]
-  %21 = phi ptr [ %10, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i78.i ], [ %18, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i46.i ]
-  %retval.sroa.3.0.i51.i = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i78.i ], [ %add.ptr6.i.i, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i46.i ]
-  %retval.sroa.0.0.i52.i = phi ptr [ %add.ptr.i.i, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i78.i ], [ null, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i46.i ]
+  store ptr %str.coerce0, ptr %u16str.i, align 8
+  %0 = getelementptr inbounds i8, ptr %u16str.i, i64 8
+  store i64 %str.coerce1, ptr %0, align 8
+  %call.i = call { ptr, ptr } @_ZNK6hermes2vm10StringView5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %u16str.i)
+  %1 = extractvalue { ptr, ptr } %call.i, 0
+  store ptr %1, ptr %it.i, align 8
+  %2 = getelementptr inbounds i8, ptr %it.i, i64 8
+  %3 = extractvalue { ptr, ptr } %call.i, 1
+  store ptr %3, ptr %2, align 8
+  %call1.i = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %u16str.i)
+  %4 = extractvalue { ptr, ptr } %call1.i, 0
+  %5 = extractvalue { ptr, ptr } %call1.i, 1
   store i32 1, ptr %m.i, align 4
   store i32 1, ptr %d.i, align 4
   store i32 0, ptr %h.i, align 4
@@ -1908,583 +1730,584 @@ _ZNK6hermes2vm10StringView3endEv.exit.i:          ; preds = %_ZNK6hermes2vm10Str
   store i32 0, ptr %s.i, align 4
   store i32 0, ptr %tzh.i, align 4
   store i32 0, ptr %tzm.i, align 4
-  %tobool.not.i.i.i.i = icmp eq ptr %19, null
-  %.sink.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %20, ptr %19
-  %.sroa.speculated422.i = select i1 %tobool.not.i.i.i.i, ptr %retval.sroa.3.0.i51.i, ptr %retval.sroa.0.0.i52.i
-  %cmp5.i.i.not.i.i = icmp eq ptr %.sink.i.i.i.i, %.sroa.speculated422.i
+  %tobool.not.i.i.i.i = icmp eq ptr %1, null
+  %.sink.i.i.i.i = select i1 %tobool.not.i.i.i.i, ptr %3, ptr %1
+  %.sroa.speculated346.i = select i1 %tobool.not.i.i.i.i, ptr %5, ptr %4
+  %cmp5.i.i.not.i.i = icmp eq ptr %.sink.i.i.i.i, %.sroa.speculated346.i
   br i1 %cmp5.i.i.not.i.i, label %if.end5.i, label %land.lhs.true.i.i
 
-land.lhs.true.i.i:                                ; preds = %_ZNK6hermes2vm10StringView3endEv.exit.i
+land.lhs.true.i.i:                                ; preds = %entry
   br i1 %tobool.not.i.i.i.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i.i
 
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i: ; preds = %land.lhs.true.i.i
-  %22 = load i16, ptr %20, align 2
-  switch i16 %22, label %if.end5.i [
+  %6 = load i16, ptr %3, align 2
+  switch i16 %6, label %if.end5.i [
     i16 43, label %if.else.i.i.i
-    i16 45, label %if.else.i.i109.i
+    i16 45, label %if.else.i.i46.i
   ]
 
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i.i: ; preds = %land.lhs.true.i.i
-  %23 = load i8, ptr %19, align 1
-  switch i8 %23, label %if.end5.i [
+  %7 = load i8, ptr %1, align 1
+  switch i8 %7, label %if.end5.i [
     i8 43, label %if.then.i.i.i
-    i8 45, label %if.then.i.i105.i
+    i8 45, label %if.then.i.i42.i
   ]
 
 if.then.i.i.i:                                    ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %19, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 1
   store ptr %incdec.ptr.i.i.i, ptr %it.i, align 8
   br label %if.end5.i
 
 if.else.i.i.i:                                    ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i
-  %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %20, i64 2
-  store ptr %incdec.ptr3.i.i.i, ptr %21, align 8
+  %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %3, i64 2
+  store ptr %incdec.ptr3.i.i.i, ptr %2, align 8
   br label %if.end5.i
 
-if.then.i.i105.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i.i
-  %incdec.ptr.i.i106.i = getelementptr inbounds i8, ptr %19, i64 1
-  store ptr %incdec.ptr.i.i106.i, ptr %it.i, align 8
+if.then.i.i42.i:                                  ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i.i
+  %incdec.ptr.i.i43.i = getelementptr inbounds i8, ptr %1, i64 1
+  store ptr %incdec.ptr.i.i43.i, ptr %it.i, align 8
   br label %if.end5.i
 
-if.else.i.i109.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i
-  %incdec.ptr3.i.i110.i = getelementptr inbounds i8, ptr %20, i64 2
-  store ptr %incdec.ptr3.i.i110.i, ptr %21, align 8
+if.else.i.i46.i:                                  ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i
+  %incdec.ptr3.i.i47.i = getelementptr inbounds i8, ptr %3, i64 2
+  store ptr %incdec.ptr3.i.i47.i, ptr %2, align 8
   br label %if.end5.i
 
-if.end5.i:                                        ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i, %if.else.i.i109.i, %if.then.i.i105.i, %if.else.i.i.i, %if.then.i.i.i, %_ZNK6hermes2vm10StringView3endEv.exit.i
-  %sign.0.i = phi double [ 1.000000e+00, %if.then.i.i.i ], [ 1.000000e+00, %if.else.i.i.i ], [ -1.000000e+00, %if.else.i.i109.i ], [ -1.000000e+00, %if.then.i.i105.i ], [ 1.000000e+00, %_ZNK6hermes2vm10StringView3endEv.exit.i ], [ 1.000000e+00, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i ], [ 1.000000e+00, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i.i ]
-  %call6.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %retval.sroa.0.0.i52.i, ptr %retval.sroa.3.0.i51.i, ptr noundef nonnull align 4 dereferenceable(4) %y.i)
+if.end5.i:                                        ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i, %if.else.i.i46.i, %if.then.i.i42.i, %if.else.i.i.i, %if.then.i.i.i, %entry
+  %sign.0.i = phi double [ 1.000000e+00, %if.then.i.i.i ], [ 1.000000e+00, %if.else.i.i.i ], [ -1.000000e+00, %if.else.i.i46.i ], [ -1.000000e+00, %if.then.i.i42.i ], [ 1.000000e+00, %entry ], [ 1.000000e+00, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i ], [ 1.000000e+00, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i.i ]
+  %call6.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %4, ptr %5, ptr noundef nonnull align 4 dereferenceable(4) %y.i)
   br i1 %call6.i, label %if.end8.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
 
 if.end8.i:                                        ; preds = %if.end5.i
-  %24 = load i32, ptr %y.i, align 4
-  %conv.i = sitofp i32 %24 to double
+  %8 = load i32, ptr %y.i, align 4
+  %conv.i = sitofp i32 %8 to double
   %mul.i = fmul double %sign.0.i, %conv.i
   %conv9.i = fptosi double %mul.i to i32
   store i32 %conv9.i, ptr %y.i, align 4
-  %25 = load ptr, ptr %it.i, align 8
-  %tobool.not.i.i.i112.i = icmp eq ptr %25, null
-  %26 = load ptr, ptr %21, align 8
-  %.sink.i.i.i116.i = select i1 %tobool.not.i.i.i112.i, ptr %26, ptr %25
-  %.sroa.speculated428.i = select i1 %tobool.not.i.i.i112.i, ptr %retval.sroa.3.0.i51.i, ptr %retval.sroa.0.0.i52.i
-  %cmp5.i.i.not.i117.i = icmp eq ptr %.sink.i.i.i116.i, %.sroa.speculated428.i
-  br i1 %cmp5.i.i.not.i117.i, label %if.end23.i, label %land.lhs.true.i118.i
+  %9 = load ptr, ptr %it.i, align 8
+  %tobool.not.i.i.i49.i = icmp eq ptr %9, null
+  %10 = load ptr, ptr %2, align 8
+  %.sink.i.i.i53.i = select i1 %tobool.not.i.i.i49.i, ptr %10, ptr %9
+  %.sroa.speculated352.i = select i1 %tobool.not.i.i.i49.i, ptr %5, ptr %4
+  %cmp5.i.i.not.i54.i = icmp eq ptr %.sink.i.i.i53.i, %.sroa.speculated352.i
+  br i1 %cmp5.i.i.not.i54.i, label %if.end23.i, label %land.lhs.true.i55.i
 
-land.lhs.true.i118.i:                             ; preds = %if.end8.i
-  br i1 %tobool.not.i.i.i112.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i124.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i119.i
+land.lhs.true.i55.i:                              ; preds = %if.end8.i
+  br i1 %tobool.not.i.i.i49.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i61.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i56.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i124.i: ; preds = %land.lhs.true.i118.i
-  %27 = load i16, ptr %26, align 2
-  %cmp.i125.i = icmp eq i16 %27, 45
-  br i1 %cmp.i125.i, label %if.else.i.i126.i, label %if.end23.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i61.i: ; preds = %land.lhs.true.i55.i
+  %11 = load i16, ptr %10, align 2
+  %cmp.i62.i = icmp eq i16 %11, 45
+  br i1 %cmp.i62.i, label %if.else.i.i63.i, label %if.end23.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i119.i: ; preds = %land.lhs.true.i118.i
-  %28 = load i8, ptr %25, align 1
-  %cmp2.i120.i = icmp eq i8 %28, 45
-  br i1 %cmp2.i120.i, label %if.then.i.i122.i, label %if.end23.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i56.i: ; preds = %land.lhs.true.i55.i
+  %12 = load i8, ptr %9, align 1
+  %cmp2.i57.i = icmp eq i8 %12, 45
+  br i1 %cmp2.i57.i, label %if.then.i.i59.i, label %if.end23.i
 
-if.then.i.i122.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i119.i
-  %incdec.ptr.i.i123.i = getelementptr inbounds i8, ptr %25, i64 1
-  store ptr %incdec.ptr.i.i123.i, ptr %it.i, align 8
+if.then.i.i59.i:                                  ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i56.i
+  %incdec.ptr.i.i60.i = getelementptr inbounds i8, ptr %9, i64 1
+  store ptr %incdec.ptr.i.i60.i, ptr %it.i, align 8
   br label %if.then11.i
 
-if.else.i.i126.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i124.i
-  %incdec.ptr3.i.i127.i = getelementptr inbounds i8, ptr %26, i64 2
-  store ptr %incdec.ptr3.i.i127.i, ptr %21, align 8
+if.else.i.i63.i:                                  ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i61.i
+  %incdec.ptr3.i.i64.i = getelementptr inbounds i8, ptr %10, i64 2
+  store ptr %incdec.ptr3.i.i64.i, ptr %2, align 8
   br label %if.then11.i
 
-if.then11.i:                                      ; preds = %if.else.i.i126.i, %if.then.i.i122.i
-  %call13.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %retval.sroa.0.0.i52.i, ptr %retval.sroa.3.0.i51.i, ptr noundef nonnull align 4 dereferenceable(4) %m.i)
+if.then11.i:                                      ; preds = %if.else.i.i63.i, %if.then.i.i59.i
+  %call13.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %4, ptr %5, ptr noundef nonnull align 4 dereferenceable(4) %m.i)
   br i1 %call13.i, label %if.end15.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
 
 if.end15.i:                                       ; preds = %if.then11.i
-  %29 = load ptr, ptr %it.i, align 8
-  %tobool.not.i.i.i129.i = icmp eq ptr %29, null
-  %30 = load ptr, ptr %21, align 8
-  %.sink.i.i.i133.i = select i1 %tobool.not.i.i.i129.i, ptr %30, ptr %29
-  %.sroa.speculated431.i = select i1 %tobool.not.i.i.i129.i, ptr %retval.sroa.3.0.i51.i, ptr %retval.sroa.0.0.i52.i
-  %cmp5.i.i.not.i134.i = icmp eq ptr %.sink.i.i.i133.i, %.sroa.speculated431.i
-  br i1 %cmp5.i.i.not.i134.i, label %if.end23.i, label %land.lhs.true.i135.i
+  %13 = load ptr, ptr %it.i, align 8
+  %tobool.not.i.i.i66.i = icmp eq ptr %13, null
+  %14 = load ptr, ptr %2, align 8
+  %.sink.i.i.i70.i = select i1 %tobool.not.i.i.i66.i, ptr %14, ptr %13
+  %.sroa.speculated355.i = select i1 %tobool.not.i.i.i66.i, ptr %5, ptr %4
+  %cmp5.i.i.not.i71.i = icmp eq ptr %.sink.i.i.i70.i, %.sroa.speculated355.i
+  br i1 %cmp5.i.i.not.i71.i, label %if.end23.i, label %land.lhs.true.i72.i
 
-land.lhs.true.i135.i:                             ; preds = %if.end15.i
-  br i1 %tobool.not.i.i.i129.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i141.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i136.i
+land.lhs.true.i72.i:                              ; preds = %if.end15.i
+  br i1 %tobool.not.i.i.i66.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i78.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i73.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i141.i: ; preds = %land.lhs.true.i135.i
-  %31 = load i16, ptr %30, align 2
-  %cmp.i142.i = icmp eq i16 %31, 45
-  br i1 %cmp.i142.i, label %if.else.i.i143.i, label %if.end23.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i78.i: ; preds = %land.lhs.true.i72.i
+  %15 = load i16, ptr %14, align 2
+  %cmp.i79.i = icmp eq i16 %15, 45
+  br i1 %cmp.i79.i, label %if.else.i.i80.i, label %if.end23.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i136.i: ; preds = %land.lhs.true.i135.i
-  %32 = load i8, ptr %29, align 1
-  %cmp2.i137.i = icmp eq i8 %32, 45
-  br i1 %cmp2.i137.i, label %if.then.i.i139.i, label %if.end23.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i73.i: ; preds = %land.lhs.true.i72.i
+  %16 = load i8, ptr %13, align 1
+  %cmp2.i74.i = icmp eq i8 %16, 45
+  br i1 %cmp2.i74.i, label %if.then.i.i76.i, label %if.end23.i
 
-if.then.i.i139.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i136.i
-  %incdec.ptr.i.i140.i = getelementptr inbounds i8, ptr %29, i64 1
-  store ptr %incdec.ptr.i.i140.i, ptr %it.i, align 8
+if.then.i.i76.i:                                  ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i73.i
+  %incdec.ptr.i.i77.i = getelementptr inbounds i8, ptr %13, i64 1
+  store ptr %incdec.ptr.i.i77.i, ptr %it.i, align 8
   br label %if.then17.i
 
-if.else.i.i143.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i141.i
-  %incdec.ptr3.i.i144.i = getelementptr inbounds i8, ptr %30, i64 2
-  store ptr %incdec.ptr3.i.i144.i, ptr %21, align 8
+if.else.i.i80.i:                                  ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i78.i
+  %incdec.ptr3.i.i81.i = getelementptr inbounds i8, ptr %14, i64 2
+  store ptr %incdec.ptr3.i.i81.i, ptr %2, align 8
   br label %if.then17.i
 
-if.then17.i:                                      ; preds = %if.else.i.i143.i, %if.then.i.i139.i
-  %call19.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %retval.sroa.0.0.i52.i, ptr %retval.sroa.3.0.i51.i, ptr noundef nonnull align 4 dereferenceable(4) %d.i)
+if.then17.i:                                      ; preds = %if.else.i.i80.i, %if.then.i.i76.i
+  %call19.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %4, ptr %5, ptr noundef nonnull align 4 dereferenceable(4) %d.i)
   br i1 %call19.i, label %if.then17.if.end23_crit_edge.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
 
 if.then17.if.end23_crit_edge.i:                   ; preds = %if.then17.i
   %.pre.i = load ptr, ptr %it.i, align 8
-  %.pre514.i = load ptr, ptr %21, align 8
+  %.pre439.i = load ptr, ptr %2, align 8
   br label %if.end23.i
 
-if.end23.i:                                       ; preds = %if.then17.if.end23_crit_edge.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i136.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i141.i, %if.end15.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i119.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i124.i, %if.end8.i
-  %33 = phi ptr [ %.pre514.i, %if.then17.if.end23_crit_edge.i ], [ %30, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i136.i ], [ %30, %if.end15.i ], [ %30, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i141.i ], [ %26, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i119.i ], [ %26, %if.end8.i ], [ %26, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i124.i ]
-  %34 = phi ptr [ %.pre.i, %if.then17.if.end23_crit_edge.i ], [ %29, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i136.i ], [ %29, %if.end15.i ], [ null, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i141.i ], [ %25, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i119.i ], [ %25, %if.end8.i ], [ null, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i124.i ]
-  %tobool.not.i.i.i146.i = icmp eq ptr %34, null
-  %.sink.i.i.i150.i = select i1 %tobool.not.i.i.i146.i, ptr %33, ptr %34
-  %.sroa.speculated434.i = select i1 %tobool.not.i.i.i146.i, ptr %retval.sroa.3.0.i51.i, ptr %retval.sroa.0.0.i52.i
-  %cmp5.i.i.not.i151.i = icmp eq ptr %.sink.i.i.i150.i, %.sroa.speculated434.i
-  br i1 %cmp5.i.i.not.i151.i, label %if.end114.i, label %land.lhs.true.i152.i
+if.end23.i:                                       ; preds = %if.then17.if.end23_crit_edge.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i73.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i78.i, %if.end15.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i56.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i61.i, %if.end8.i
+  %17 = phi ptr [ %.pre439.i, %if.then17.if.end23_crit_edge.i ], [ %14, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i73.i ], [ %14, %if.end15.i ], [ %14, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i78.i ], [ %10, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i56.i ], [ %10, %if.end8.i ], [ %10, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i61.i ]
+  %18 = phi ptr [ %.pre.i, %if.then17.if.end23_crit_edge.i ], [ %13, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i73.i ], [ %13, %if.end15.i ], [ null, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i78.i ], [ %9, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i56.i ], [ %9, %if.end8.i ], [ null, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i61.i ]
+  %tobool.not.i.i.i83.i = icmp eq ptr %18, null
+  %.sink.i.i.i87.i = select i1 %tobool.not.i.i.i83.i, ptr %17, ptr %18
+  %.sroa.speculated358.i = select i1 %tobool.not.i.i.i83.i, ptr %5, ptr %4
+  %cmp5.i.i.not.i88.i = icmp eq ptr %.sink.i.i.i87.i, %.sroa.speculated358.i
+  br i1 %cmp5.i.i.not.i88.i, label %if.end114.i, label %land.lhs.true.i89.i
 
-land.lhs.true.i152.i:                             ; preds = %if.end23.i
-  br i1 %tobool.not.i.i.i146.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i158.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i153.i
+land.lhs.true.i89.i:                              ; preds = %if.end23.i
+  br i1 %tobool.not.i.i.i83.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i95.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i90.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i158.i: ; preds = %land.lhs.true.i152.i
-  %35 = load i16, ptr %33, align 2
-  switch i16 %35, label %if.end114.i [
-    i16 84, label %if.else.i.i160.i
-    i16 32, label %if.else.i.i177.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i95.i: ; preds = %land.lhs.true.i89.i
+  %19 = load i16, ptr %17, align 2
+  switch i16 %19, label %if.end114.i [
+    i16 84, label %if.else.i.i97.i
+    i16 32, label %if.else.i.i114.i
   ]
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i153.i: ; preds = %land.lhs.true.i152.i
-  %36 = load i8, ptr %34, align 1
-  switch i8 %36, label %if.end114.i [
-    i8 84, label %if.then.i.i156.i
-    i8 32, label %if.then.i.i173.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i90.i: ; preds = %land.lhs.true.i89.i
+  %20 = load i8, ptr %18, align 1
+  switch i8 %20, label %if.end114.i [
+    i8 84, label %if.then.i.i93.i
+    i8 32, label %if.then.i.i110.i
   ]
 
-if.then.i.i156.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i153.i
-  %incdec.ptr.i.i157.i = getelementptr inbounds i8, ptr %34, i64 1
-  store ptr %incdec.ptr.i.i157.i, ptr %it.i, align 8
+if.then.i.i93.i:                                  ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i90.i
+  %incdec.ptr.i.i94.i = getelementptr inbounds i8, ptr %18, i64 1
+  store ptr %incdec.ptr.i.i94.i, ptr %it.i, align 8
   br label %if.then26.i
 
-if.else.i.i160.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i158.i
-  %incdec.ptr3.i.i161.i = getelementptr inbounds i8, ptr %33, i64 2
-  store ptr %incdec.ptr3.i.i161.i, ptr %21, align 8
+if.else.i.i97.i:                                  ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i95.i
+  %incdec.ptr3.i.i98.i = getelementptr inbounds i8, ptr %17, i64 2
+  store ptr %incdec.ptr3.i.i98.i, ptr %2, align 8
   br label %if.then26.i
 
-if.then.i.i173.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i153.i
-  %incdec.ptr.i.i174.i = getelementptr inbounds i8, ptr %34, i64 1
-  store ptr %incdec.ptr.i.i174.i, ptr %it.i, align 8
+if.then.i.i110.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i90.i
+  %incdec.ptr.i.i111.i = getelementptr inbounds i8, ptr %18, i64 1
+  store ptr %incdec.ptr.i.i111.i, ptr %it.i, align 8
   br label %if.then26.i
 
-if.else.i.i177.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i158.i
-  %incdec.ptr3.i.i178.i = getelementptr inbounds i8, ptr %33, i64 2
-  store ptr %incdec.ptr3.i.i178.i, ptr %21, align 8
+if.else.i.i114.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i95.i
+  %incdec.ptr3.i.i115.i = getelementptr inbounds i8, ptr %17, i64 2
+  store ptr %incdec.ptr3.i.i115.i, ptr %2, align 8
   br label %if.then26.i
 
-if.then26.i:                                      ; preds = %if.else.i.i177.i, %if.then.i.i173.i, %if.else.i.i160.i, %if.then.i.i156.i
-  %call28.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %retval.sroa.0.0.i52.i, ptr %retval.sroa.3.0.i51.i, ptr noundef nonnull align 4 dereferenceable(4) %h.i)
+if.then26.i:                                      ; preds = %if.else.i.i114.i, %if.then.i.i110.i, %if.else.i.i97.i, %if.then.i.i93.i
+  %call28.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %4, ptr %5, ptr noundef nonnull align 4 dereferenceable(4) %h.i)
   br i1 %call28.i, label %if.end30.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
 
 if.end30.i:                                       ; preds = %if.then26.i
-  %37 = load ptr, ptr %it.i, align 8
-  %tobool.not.i.i.i180.i = icmp eq ptr %37, null
-  %38 = load ptr, ptr %21, align 8
-  %.sink.i.i.i184.i = select i1 %tobool.not.i.i.i180.i, ptr %38, ptr %37
-  %.sroa.speculated440.i = select i1 %tobool.not.i.i.i180.i, ptr %retval.sroa.3.0.i51.i, ptr %retval.sroa.0.0.i52.i
-  %cmp5.i.i.not.i185.i = icmp eq ptr %.sink.i.i.i184.i, %.sroa.speculated440.i
-  br i1 %cmp5.i.i.not.i185.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread, label %land.lhs.true.i186.i
+  %21 = load ptr, ptr %it.i, align 8
+  %tobool.not.i.i.i117.i = icmp eq ptr %21, null
+  %22 = load ptr, ptr %2, align 8
+  %.sink.i.i.i121.i = select i1 %tobool.not.i.i.i117.i, ptr %22, ptr %21
+  %.sroa.speculated364.i = select i1 %tobool.not.i.i.i117.i, ptr %5, ptr %4
+  %cmp5.i.i.not.i122.i = icmp eq ptr %.sink.i.i.i121.i, %.sroa.speculated364.i
+  br i1 %cmp5.i.i.not.i122.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread, label %land.lhs.true.i123.i
 
-land.lhs.true.i186.i:                             ; preds = %if.end30.i
-  br i1 %tobool.not.i.i.i180.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i192.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i187.i
+land.lhs.true.i123.i:                             ; preds = %if.end30.i
+  br i1 %tobool.not.i.i.i117.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i129.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i124.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i192.i: ; preds = %land.lhs.true.i186.i
-  %39 = load i16, ptr %38, align 2
-  %cmp.i193.i = icmp eq i16 %39, 58
-  br i1 %cmp.i193.i, label %if.else.i.i194.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i129.i: ; preds = %land.lhs.true.i123.i
+  %23 = load i16, ptr %22, align 2
+  %cmp.i130.i = icmp eq i16 %23, 58
+  br i1 %cmp.i130.i, label %if.else.i.i131.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i187.i: ; preds = %land.lhs.true.i186.i
-  %40 = load i8, ptr %37, align 1
-  %cmp2.i188.i = icmp eq i8 %40, 58
-  br i1 %cmp2.i188.i, label %if.then.i.i190.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i124.i: ; preds = %land.lhs.true.i123.i
+  %24 = load i8, ptr %21, align 1
+  %cmp2.i125.i = icmp eq i8 %24, 58
+  br i1 %cmp2.i125.i, label %if.then.i.i127.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
 
-if.then.i.i190.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i187.i
-  %incdec.ptr.i.i191.i = getelementptr inbounds i8, ptr %37, i64 1
-  store ptr %incdec.ptr.i.i191.i, ptr %it.i, align 8
+if.then.i.i127.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i124.i
+  %incdec.ptr.i.i128.i = getelementptr inbounds i8, ptr %21, i64 1
+  store ptr %incdec.ptr.i.i128.i, ptr %it.i, align 8
   br label %if.end33.i
 
-if.else.i.i194.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i192.i
-  %incdec.ptr3.i.i195.i = getelementptr inbounds i8, ptr %38, i64 2
-  store ptr %incdec.ptr3.i.i195.i, ptr %21, align 8
+if.else.i.i131.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i129.i
+  %incdec.ptr3.i.i132.i = getelementptr inbounds i8, ptr %22, i64 2
+  store ptr %incdec.ptr3.i.i132.i, ptr %2, align 8
   br label %if.end33.i
 
-if.end33.i:                                       ; preds = %if.else.i.i194.i, %if.then.i.i190.i
-  %call35.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %retval.sroa.0.0.i52.i, ptr %retval.sroa.3.0.i51.i, ptr noundef nonnull align 4 dereferenceable(4) %min.i)
+if.end33.i:                                       ; preds = %if.else.i.i131.i, %if.then.i.i127.i
+  %call35.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %4, ptr %5, ptr noundef nonnull align 4 dereferenceable(4) %min.i)
   br i1 %call35.i, label %if.end37.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
 
 if.end37.i:                                       ; preds = %if.end33.i
-  %41 = load ptr, ptr %it.i, align 8
-  %tobool.not.i.i.i197.i = icmp eq ptr %41, null
-  %42 = load ptr, ptr %21, align 8
-  %.sink.i.i.i201.i = select i1 %tobool.not.i.i.i197.i, ptr %42, ptr %41
-  %.sroa.speculated443.i = select i1 %tobool.not.i.i.i197.i, ptr %retval.sroa.3.0.i51.i, ptr %retval.sroa.0.0.i52.i
-  %cmp5.i.i.not.i202.i = icmp eq ptr %.sink.i.i.i201.i, %.sroa.speculated443.i
-  br i1 %cmp5.i.i.not.i202.i, label %if.end60.i, label %land.lhs.true.i203.i
+  %25 = load ptr, ptr %it.i, align 8
+  %tobool.not.i.i.i134.i = icmp eq ptr %25, null
+  %26 = load ptr, ptr %2, align 8
+  %.sink.i.i.i138.i = select i1 %tobool.not.i.i.i134.i, ptr %26, ptr %25
+  %.sroa.speculated367.i = select i1 %tobool.not.i.i.i134.i, ptr %5, ptr %4
+  %cmp5.i.i.not.i139.i = icmp eq ptr %.sink.i.i.i138.i, %.sroa.speculated367.i
+  br i1 %cmp5.i.i.not.i139.i, label %if.end60.i, label %land.lhs.true.i140.i
 
-land.lhs.true.i203.i:                             ; preds = %if.end37.i
-  br i1 %tobool.not.i.i.i197.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i209.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i204.i
+land.lhs.true.i140.i:                             ; preds = %if.end37.i
+  br i1 %tobool.not.i.i.i134.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i146.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i141.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i209.i: ; preds = %land.lhs.true.i203.i
-  %43 = load i16, ptr %42, align 2
-  %cmp.i210.i = icmp eq i16 %43, 58
-  br i1 %cmp.i210.i, label %if.else.i.i211.i, label %if.end60.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i146.i: ; preds = %land.lhs.true.i140.i
+  %27 = load i16, ptr %26, align 2
+  %cmp.i147.i = icmp eq i16 %27, 58
+  br i1 %cmp.i147.i, label %if.else.i.i148.i, label %if.end60.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i204.i: ; preds = %land.lhs.true.i203.i
-  %44 = load i8, ptr %41, align 1
-  %cmp2.i205.i = icmp eq i8 %44, 58
-  br i1 %cmp2.i205.i, label %if.then.i.i207.i, label %if.end60.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i141.i: ; preds = %land.lhs.true.i140.i
+  %28 = load i8, ptr %25, align 1
+  %cmp2.i142.i = icmp eq i8 %28, 58
+  br i1 %cmp2.i142.i, label %if.then.i.i144.i, label %if.end60.i
 
-if.then.i.i207.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i204.i
-  %incdec.ptr.i.i208.i = getelementptr inbounds i8, ptr %41, i64 1
-  store ptr %incdec.ptr.i.i208.i, ptr %it.i, align 8
+if.then.i.i144.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i141.i
+  %incdec.ptr.i.i145.i = getelementptr inbounds i8, ptr %25, i64 1
+  store ptr %incdec.ptr.i.i145.i, ptr %it.i, align 8
   br label %if.then39.i
 
-if.else.i.i211.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i209.i
-  %incdec.ptr3.i.i212.i = getelementptr inbounds i8, ptr %42, i64 2
-  store ptr %incdec.ptr3.i.i212.i, ptr %21, align 8
+if.else.i.i148.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i146.i
+  %incdec.ptr3.i.i149.i = getelementptr inbounds i8, ptr %26, i64 2
+  store ptr %incdec.ptr3.i.i149.i, ptr %2, align 8
   br label %if.then39.i
 
-if.then39.i:                                      ; preds = %if.else.i.i211.i, %if.then.i.i207.i
-  %call41.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %retval.sroa.0.0.i52.i, ptr %retval.sroa.3.0.i51.i, ptr noundef nonnull align 4 dereferenceable(4) %s.i)
+if.then39.i:                                      ; preds = %if.else.i.i148.i, %if.then.i.i144.i
+  %call41.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %4, ptr %5, ptr noundef nonnull align 4 dereferenceable(4) %s.i)
   br i1 %call41.i, label %if.end43.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
 
 if.end43.i:                                       ; preds = %if.then39.i
-  %45 = load ptr, ptr %it.i, align 8
-  %tobool.not.i.i.i214.i = icmp eq ptr %45, null
-  %46 = load ptr, ptr %21, align 8
-  %.sink.i.i.i218.i = select i1 %tobool.not.i.i.i214.i, ptr %46, ptr %45
-  %.sroa.speculated446.i = select i1 %tobool.not.i.i.i214.i, ptr %retval.sroa.3.0.i51.i, ptr %retval.sroa.0.0.i52.i
-  %cmp5.i.i.not.i219.i = icmp eq ptr %.sink.i.i.i218.i, %.sroa.speculated446.i
-  br i1 %cmp5.i.i.not.i219.i, label %if.end60.i, label %land.lhs.true.i220.i
+  %29 = load ptr, ptr %it.i, align 8
+  %tobool.not.i.i.i151.i = icmp eq ptr %29, null
+  %30 = load ptr, ptr %2, align 8
+  %.sink.i.i.i155.i = select i1 %tobool.not.i.i.i151.i, ptr %30, ptr %29
+  %.sroa.speculated370.i = select i1 %tobool.not.i.i.i151.i, ptr %5, ptr %4
+  %cmp5.i.i.not.i156.i = icmp eq ptr %.sink.i.i.i155.i, %.sroa.speculated370.i
+  br i1 %cmp5.i.i.not.i156.i, label %if.end60.i, label %land.lhs.true.i157.i
 
-land.lhs.true.i220.i:                             ; preds = %if.end43.i
-  br i1 %tobool.not.i.i.i214.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i226.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i221.i
+land.lhs.true.i157.i:                             ; preds = %if.end43.i
+  br i1 %tobool.not.i.i.i151.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i163.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i158.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i226.i: ; preds = %land.lhs.true.i220.i
-  %47 = load i16, ptr %46, align 2
-  %cmp.i227.i = icmp eq i16 %47, 46
-  br i1 %cmp.i227.i, label %if.else.i.i228.i, label %if.end60.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i163.i: ; preds = %land.lhs.true.i157.i
+  %31 = load i16, ptr %30, align 2
+  %cmp.i164.i = icmp eq i16 %31, 46
+  br i1 %cmp.i164.i, label %if.else.i.i165.i, label %if.end60.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i221.i: ; preds = %land.lhs.true.i220.i
-  %48 = load i8, ptr %45, align 1
-  %cmp2.i222.i = icmp eq i8 %48, 46
-  br i1 %cmp2.i222.i, label %if.then.i.i224.i, label %if.end60.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i158.i: ; preds = %land.lhs.true.i157.i
+  %32 = load i8, ptr %29, align 1
+  %cmp2.i159.i = icmp eq i8 %32, 46
+  br i1 %cmp2.i159.i, label %if.then.i.i161.i, label %if.end60.i
 
-if.then.i.i224.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i221.i
-  %incdec.ptr.i.i225.i = getelementptr inbounds i8, ptr %45, i64 1
-  store ptr %incdec.ptr.i.i225.i, ptr %it.i, align 8
-  %.pre515.i = load ptr, ptr %21, align 8
+if.then.i.i161.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i158.i
+  %incdec.ptr.i.i162.i = getelementptr inbounds i8, ptr %29, i64 1
+  store ptr %incdec.ptr.i.i162.i, ptr %it.i, align 8
   br label %if.then45.i
 
-if.else.i.i228.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i226.i
-  %incdec.ptr3.i.i229.i = getelementptr inbounds i8, ptr %46, i64 2
-  store ptr %incdec.ptr3.i.i229.i, ptr %21, align 8
-  %.pr.i = load ptr, ptr %it.i, align 8
+if.else.i.i165.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i163.i
+  %incdec.ptr3.i.i166.i = getelementptr inbounds i8, ptr %30, i64 2
+  store ptr %incdec.ptr3.i.i166.i, ptr %2, align 8
   br label %if.then45.i
 
-if.then45.i:                                      ; preds = %if.else.i.i228.i, %if.then.i.i224.i
-  %49 = phi ptr [ %incdec.ptr3.i.i229.i, %if.else.i.i228.i ], [ %.pre515.i, %if.then.i.i224.i ]
-  %50 = phi ptr [ %.pr.i, %if.else.i.i228.i ], [ %incdec.ptr.i.i225.i, %if.then.i.i224.i ]
-  %tobool.not.i.i = icmp eq ptr %50, null
-  %.sink.i.i = select i1 %tobool.not.i.i, ptr %49, ptr %50
-  %.sroa.speculated470.i = select i1 %tobool.not.i.i, ptr %retval.sroa.3.0.i51.i, ptr %retval.sroa.0.0.i52.i
-  %cmp5.i.i = icmp eq ptr %.sink.i.i, %.sroa.speculated470.i
+if.then45.i:                                      ; preds = %if.else.i.i165.i, %if.then.i.i161.i
+  %.promoted.i = phi ptr [ %incdec.ptr3.i.i166.i, %if.else.i.i165.i ], [ %30, %if.then.i.i161.i ]
+  %it.promoted.i = phi ptr [ null, %if.else.i.i165.i ], [ %incdec.ptr.i.i162.i, %if.then.i.i161.i ]
+  %tobool.not.i.i = icmp eq ptr %it.promoted.i, null
+  %.sink.i.i = select i1 %tobool.not.i.i, ptr %.promoted.i, ptr %it.promoted.i
+  %.sroa.speculated394.i = select i1 %tobool.not.i.i, ptr %5, ptr %4
+  %cmp5.i.i = icmp eq ptr %.sink.i.i, %.sroa.speculated394.i
   br i1 %cmp5.i.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread, label %lor.lhs.false47.i
 
 lor.lhs.false47.i:                                ; preds = %if.then45.i
   br i1 %tobool.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %lor.lhs.false47.i
-  %51 = load i8, ptr %50, align 1
-  %52 = sext i8 %51 to i16
+  %33 = load i8, ptr %it.promoted.i, align 1
+  %34 = sext i8 %33 to i16
   br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i
 
 cond.false.i.i:                                   ; preds = %lor.lhs.false47.i
-  %53 = load i16, ptr %49, align 2
+  %35 = load i16, ptr %.promoted.i, align 2
   br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i
 
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i: ; preds = %cond.false.i.i, %cond.true.i.i
-  %cond.i.i = phi i16 [ %52, %cond.true.i.i ], [ %53, %cond.false.i.i ]
-  %54 = add i16 %cond.i.i, -48
-  %55 = icmp ult i16 %54, 10
-  br i1 %55, label %land.rhs.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
+  %cond.i.i = phi i16 [ %34, %cond.true.i.i ], [ %35, %cond.false.i.i ]
+  %36 = add i16 %cond.i.i, -48
+  %37 = icmp ult i16 %36, 10
+  br i1 %37, label %land.rhs.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
 
 land.rhs.i:                                       ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i
-  %56 = phi ptr [ %66, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ %49, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i ]
-  %tobool.not.i.i233511.i = phi i1 [ %tobool.not.i.i233.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ %tobool.not.i.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i ]
-  %57 = phi ptr [ %67, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ %50, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i ]
-  %ms.0510.i = phi i32 [ %add498.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i ]
-  %pos.0509.i = phi i32 [ %div500.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ 100, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i ]
-  br i1 %tobool.not.i.i233511.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit239.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit239.thread.i
+  %tobool.not.i.i430.i = phi i1 [ %tobool.not.i.i.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ %tobool.not.i.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i ]
+  %ms.0429.i = phi i32 [ %add411.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i ]
+  %pos.0428.i = phi i32 [ %div413.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ 100, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i ]
+  %incdec.ptr.i419427.i = phi ptr [ %incdec.ptr.i418.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ %it.promoted.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i ]
+  %incdec.ptr3.i421426.i = phi ptr [ %incdec.ptr3.i420.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ %.promoted.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i ]
+  br i1 %tobool.not.i.i430.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit175.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit175.thread.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit239.i: ; preds = %land.rhs.i
-  %58 = load i16, ptr %56, align 2
-  %59 = add i16 %58, -48
-  %60 = icmp ult i16 %59, 10
-  br i1 %60, label %if.else.i.i, label %if.end60.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit175.i: ; preds = %land.rhs.i
+  %38 = load i16, ptr %incdec.ptr3.i421426.i, align 2
+  %39 = add i16 %38, -48
+  %40 = icmp ult i16 %39, 10
+  br i1 %40, label %if.else.i.i, label %if.end60.loopexit.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit239.thread.i: ; preds = %land.rhs.i
-  %61 = load i8, ptr %57, align 1
-  %62 = sext i8 %61 to i16
-  %63 = add nsw i16 %62, -48
-  %64 = icmp ult i16 %63, 10
-  br i1 %64, label %if.then.i247.i, label %if.end60.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit175.thread.i: ; preds = %land.rhs.i
+  %41 = load i8, ptr %incdec.ptr.i419427.i, align 1
+  %42 = sext i8 %41 to i16
+  %43 = add nsw i16 %42, -48
+  %44 = icmp ult i16 %43, 10
+  br i1 %44, label %if.then.i.i, label %if.end60.loopexit.i
 
-if.then.i247.i:                                   ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit239.thread.i
-  %65 = sext i8 %61 to i32
-  %conv56.i = and i32 %65, 65535
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %57, i64 1
-  store ptr %incdec.ptr.i.i, ptr %it.i, align 8
-  %.pre517.i = load ptr, ptr %21, align 8
+if.then.i.i:                                      ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit175.thread.i
+  %45 = sext i8 %41 to i32
+  %conv56.i = and i32 %45, 65535
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i419427.i, i64 1
   br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i
 
-if.else.i.i:                                      ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit239.i
-  %conv56493.i = zext nneg i16 %58 to i32
-  %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %56, i64 2
-  store ptr %incdec.ptr3.i.i, ptr %21, align 8
-  %.pre516.i = load ptr, ptr %it.i, align 8
+if.else.i.i:                                      ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit175.i
+  %conv56406.i = zext nneg i16 %38 to i32
+  %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %incdec.ptr3.i421426.i, i64 2
   br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i
 
-_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i: ; preds = %if.else.i.i, %if.then.i247.i
-  %66 = phi ptr [ %.pre517.i, %if.then.i247.i ], [ %incdec.ptr3.i.i, %if.else.i.i ]
-  %67 = phi ptr [ %incdec.ptr.i.i, %if.then.i247.i ], [ %.pre516.i, %if.else.i.i ]
-  %sub.pn.in.i = phi i32 [ %conv56.i, %if.then.i247.i ], [ %conv56493.i, %if.else.i.i ]
+_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i: ; preds = %if.else.i.i, %if.then.i.i
+  %incdec.ptr3.i420.i = phi ptr [ %incdec.ptr3.i421426.i, %if.then.i.i ], [ %incdec.ptr3.i.i, %if.else.i.i ]
+  %incdec.ptr.i418.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %incdec.ptr.i419427.i, %if.else.i.i ]
+  %sub.pn.in.i = phi i32 [ %conv56.i, %if.then.i.i ], [ %conv56406.i, %if.else.i.i ]
   %sub.pn.i = add nsw i32 %sub.pn.in.i, -48
-  %mul57.pn.i = mul nsw i32 %sub.pn.i, %pos.0509.i
-  %add498.i = add nsw i32 %mul57.pn.i, %ms.0510.i
-  %div500.i = sdiv i32 %pos.0509.i, 10
-  %tobool.not.i.i233.i = icmp eq ptr %67, null
-  %.sink.i.i.i = select i1 %tobool.not.i.i233.i, ptr %66, ptr %67
-  %.sroa.speculated467.i = select i1 %tobool.not.i.i233.i, ptr %retval.sroa.3.0.i51.i, ptr %retval.sroa.0.0.i52.i
-  %cmp5.i.i.not.i = icmp eq ptr %.sink.i.i.i, %.sroa.speculated467.i
-  br i1 %cmp5.i.i.not.i, label %if.end60.i, label %land.rhs.i, !llvm.loop !50
+  %mul57.pn.i = mul nsw i32 %sub.pn.i, %pos.0428.i
+  %add411.i = add nsw i32 %mul57.pn.i, %ms.0429.i
+  %div413.i = sdiv i32 %pos.0428.i, 10
+  %tobool.not.i.i.i = icmp eq ptr %incdec.ptr.i418.i, null
+  %.sink.i.i.i = select i1 %tobool.not.i.i.i, ptr %incdec.ptr3.i420.i, ptr %incdec.ptr.i418.i
+  %.sroa.speculated391.i = select i1 %tobool.not.i.i.i, ptr %5, ptr %4
+  %cmp5.i.i.not.i = icmp eq ptr %.sink.i.i.i, %.sroa.speculated391.i
+  br i1 %cmp5.i.i.not.i, label %if.end60.loopexit.i, label %land.rhs.i, !llvm.loop !50
 
-if.end60.i:                                       ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit239.thread.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit239.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i221.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i226.i, %if.end43.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i204.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i209.i, %if.end37.i
-  %68 = phi ptr [ %42, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i209.i ], [ %42, %if.end37.i ], [ %42, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i204.i ], [ %46, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i226.i ], [ %46, %if.end43.i ], [ %46, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i221.i ], [ %56, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit239.thread.i ], [ %66, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ %56, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit239.i ]
-  %69 = phi ptr [ null, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i209.i ], [ %41, %if.end37.i ], [ %41, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i204.i ], [ null, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i226.i ], [ %45, %if.end43.i ], [ %45, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i221.i ], [ %57, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit239.thread.i ], [ %67, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ %57, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit239.i ]
-  %ms.1.i = phi i32 [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i209.i ], [ 0, %if.end37.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i204.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i226.i ], [ 0, %if.end43.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i221.i ], [ %ms.0510.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit239.thread.i ], [ %add498.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ %ms.0510.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit239.i ]
-  %tobool.not.i250.i = icmp eq ptr %69, null
-  %.sink.i254.i = select i1 %tobool.not.i250.i, ptr %68, ptr %69
-  %.sroa.speculated464.i = select i1 %tobool.not.i250.i, ptr %retval.sroa.3.0.i51.i, ptr %retval.sroa.0.0.i52.i
-  %cmp5.i255.i = icmp eq ptr %.sink.i254.i, %.sroa.speculated464.i
-  br i1 %cmp5.i255.i, label %if.then62.i, label %land.lhs.true.i263.i
+if.end60.loopexit.i:                              ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit175.thread.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit175.i
+  %incdec.ptr3.i421.lcssa.ph.i = phi ptr [ %incdec.ptr3.i421426.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit175.thread.i ], [ %incdec.ptr3.i420.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ %incdec.ptr3.i421426.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit175.i ]
+  %incdec.ptr.i419.lcssa.ph.i = phi ptr [ %incdec.ptr.i419427.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit175.thread.i ], [ %incdec.ptr.i418.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ %incdec.ptr.i419427.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit175.i ]
+  %ms.0.lcssa.ph.i = phi i32 [ %ms.0429.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit175.thread.i ], [ %add411.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i ], [ %ms.0429.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit175.i ]
+  store ptr %incdec.ptr.i419.lcssa.ph.i, ptr %it.i, align 8
+  store ptr %incdec.ptr3.i421.lcssa.ph.i, ptr %2, align 8
+  br label %if.end60.i
+
+if.end60.i:                                       ; preds = %if.end60.loopexit.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i158.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i163.i, %if.end43.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i141.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i146.i, %if.end37.i
+  %46 = phi ptr [ %26, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i146.i ], [ %26, %if.end37.i ], [ %26, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i141.i ], [ %30, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i163.i ], [ %30, %if.end43.i ], [ %30, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i158.i ], [ %incdec.ptr3.i421.lcssa.ph.i, %if.end60.loopexit.i ]
+  %47 = phi ptr [ null, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i146.i ], [ %25, %if.end37.i ], [ %25, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i141.i ], [ null, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i163.i ], [ %29, %if.end43.i ], [ %29, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i158.i ], [ %incdec.ptr.i419.lcssa.ph.i, %if.end60.loopexit.i ]
+  %ms.1.i = phi i32 [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i146.i ], [ 0, %if.end37.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i141.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i163.i ], [ 0, %if.end43.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i158.i ], [ %ms.0.lcssa.ph.i, %if.end60.loopexit.i ]
+  %tobool.not.i184.i = icmp eq ptr %47, null
+  %.sink.i188.i = select i1 %tobool.not.i184.i, ptr %46, ptr %47
+  %.sroa.speculated388.i = select i1 %tobool.not.i184.i, ptr %5, ptr %4
+  %cmp5.i189.i = icmp eq ptr %.sink.i188.i, %.sroa.speculated388.i
+  br i1 %cmp5.i189.i, label %if.then62.i, label %land.lhs.true.i197.i
 
 if.then62.i:                                      ; preds = %if.end60.i
   %conv63.i = sitofp i32 %conv9.i to double
-  %70 = load i32, ptr %m.i, align 4
-  %sub64.i = add nsw i32 %70, -1
+  %48 = load i32, ptr %m.i, align 4
+  %sub64.i = add nsw i32 %48, -1
   %conv65.i = sitofp i32 %sub64.i to double
-  %71 = load i32, ptr %d.i, align 4
-  %conv66.i = sitofp i32 %71 to double
-  %call67.i = tail call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %conv63.i, double noundef %conv65.i, double noundef %conv66.i)
-  %72 = load i32, ptr %h.i, align 4
-  %conv68.i = sitofp i32 %72 to double
-  %73 = load i32, ptr %min.i, align 4
-  %conv69.i = sitofp i32 %73 to double
-  %74 = load i32, ptr %s.i, align 4
-  %conv70.i = sitofp i32 %74 to double
+  %49 = load i32, ptr %d.i, align 4
+  %conv66.i = sitofp i32 %49 to double
+  %call67.i = call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %conv63.i, double noundef %conv65.i, double noundef %conv66.i)
+  %50 = load i32, ptr %h.i, align 4
+  %conv68.i = sitofp i32 %50 to double
+  %51 = load i32, ptr %min.i, align 4
+  %conv69.i = sitofp i32 %51 to double
+  %52 = load i32, ptr %s.i, align 4
+  %conv70.i = sitofp i32 %52 to double
   %conv71.i = sitofp i32 %ms.1.i to double
-  %call72.i = tail call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef %conv68.i, double noundef %conv69.i, double noundef %conv70.i, double noundef %conv71.i)
-  %75 = tail call double @llvm.fabs.f64(double %call67.i)
-  %76 = fcmp one double %75, 0x7FF0000000000000
-  %77 = tail call double @llvm.fabs.f64(double %call72.i)
-  %78 = fcmp one double %77, 0x7FF0000000000000
-  %or.cond.i.i = and i1 %76, %78
+  %call72.i = call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef %conv68.i, double noundef %conv69.i, double noundef %conv70.i, double noundef %conv71.i)
+  %53 = call double @llvm.fabs.f64(double %call67.i)
+  %54 = fcmp one double %53, 0x7FF0000000000000
+  %55 = call double @llvm.fabs.f64(double %call72.i)
+  %56 = fcmp one double %55, 0x7FF0000000000000
+  %or.cond.i.i = and i1 %54, %56
   %mul.i.i = fmul double %call67.i, 8.640000e+07
   %add.i.i = fadd double %mul.i.i, %call72.i
-  %retval.0.i256.i = select i1 %or.cond.i.i, double %add.i.i, double 0x7FF8000000000000
-  %call74.i = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %retval.0.i256.i)
+  %retval.0.i190.i = select i1 %or.cond.i.i, double %add.i.i, double 0x7FF8000000000000
+  %call74.i = call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %retval.0.i190.i)
   br label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit
 
-land.lhs.true.i263.i:                             ; preds = %if.end60.i
-  br i1 %tobool.not.i250.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i269.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i264.i
+land.lhs.true.i197.i:                             ; preds = %if.end60.i
+  br i1 %tobool.not.i184.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i203.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i198.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i269.i: ; preds = %land.lhs.true.i263.i
-  %79 = load i16, ptr %68, align 2
-  switch i16 %79, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread [
-    i16 90, label %if.else.i.i271.i
-    i16 43, label %if.else.i.i288.i
-    i16 45, label %if.else.i.i305.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i203.i: ; preds = %land.lhs.true.i197.i
+  %57 = load i16, ptr %46, align 2
+  switch i16 %57, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread [
+    i16 90, label %if.else.i.i205.i
+    i16 43, label %if.else.i.i222.i
+    i16 45, label %if.else.i.i239.i
   ]
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i264.i: ; preds = %land.lhs.true.i263.i
-  %80 = load i8, ptr %69, align 1
-  switch i8 %80, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread [
-    i8 90, label %if.then.i.i267.i
-    i8 43, label %if.then.i.i284.i
-    i8 45, label %if.then.i.i301.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i198.i: ; preds = %land.lhs.true.i197.i
+  %58 = load i8, ptr %47, align 1
+  switch i8 %58, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread [
+    i8 90, label %if.then.i.i201.i
+    i8 43, label %if.then.i.i218.i
+    i8 45, label %if.then.i.i235.i
   ]
 
-if.then.i.i267.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i264.i
-  %incdec.ptr.i.i268.i = getelementptr inbounds i8, ptr %69, i64 1
-  store ptr %incdec.ptr.i.i268.i, ptr %it.i, align 8
+if.then.i.i201.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i198.i
+  %incdec.ptr.i.i202.i = getelementptr inbounds i8, ptr %47, i64 1
   br label %if.end114.i
 
-if.else.i.i271.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i269.i
-  %incdec.ptr3.i.i272.i = getelementptr inbounds i8, ptr %68, i64 2
-  store ptr %incdec.ptr3.i.i272.i, ptr %21, align 8
+if.else.i.i205.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i203.i
+  %incdec.ptr3.i.i206.i = getelementptr inbounds i8, ptr %46, i64 2
   br label %if.end114.i
 
-if.then.i.i284.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i264.i
-  %incdec.ptr.i.i285.i = getelementptr inbounds i8, ptr %69, i64 1
-  store ptr %incdec.ptr.i.i285.i, ptr %it.i, align 8
+if.then.i.i218.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i198.i
+  %incdec.ptr.i.i219.i = getelementptr inbounds i8, ptr %47, i64 1
+  store ptr %incdec.ptr.i.i219.i, ptr %it.i, align 8
   br label %if.end86.i
 
-if.else.i.i288.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i269.i
-  %incdec.ptr3.i.i289.i = getelementptr inbounds i8, ptr %68, i64 2
-  store ptr %incdec.ptr3.i.i289.i, ptr %21, align 8
+if.else.i.i222.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i203.i
+  %incdec.ptr3.i.i223.i = getelementptr inbounds i8, ptr %46, i64 2
+  store ptr %incdec.ptr3.i.i223.i, ptr %2, align 8
   br label %if.end86.i
 
-if.then.i.i301.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i264.i
-  %incdec.ptr.i.i302.i = getelementptr inbounds i8, ptr %69, i64 1
-  store ptr %incdec.ptr.i.i302.i, ptr %it.i, align 8
+if.then.i.i235.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i198.i
+  %incdec.ptr.i.i236.i = getelementptr inbounds i8, ptr %47, i64 1
+  store ptr %incdec.ptr.i.i236.i, ptr %it.i, align 8
   br label %if.end86.i
 
-if.else.i.i305.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i269.i
-  %incdec.ptr3.i.i306.i = getelementptr inbounds i8, ptr %68, i64 2
-  store ptr %incdec.ptr3.i.i306.i, ptr %21, align 8
+if.else.i.i239.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i203.i
+  %incdec.ptr3.i.i240.i = getelementptr inbounds i8, ptr %46, i64 2
+  store ptr %incdec.ptr3.i.i240.i, ptr %2, align 8
   br label %if.end86.i
 
-if.end86.i:                                       ; preds = %if.else.i.i305.i, %if.then.i.i301.i, %if.else.i.i288.i, %if.then.i.i284.i
-  %sign.1.i = phi double [ 1.000000e+00, %if.then.i.i284.i ], [ 1.000000e+00, %if.else.i.i288.i ], [ -1.000000e+00, %if.then.i.i301.i ], [ -1.000000e+00, %if.else.i.i305.i ]
-  %tobool.not.i308.i = icmp eq ptr %retval.sroa.0.0.i52.i, null
-  %add.ptr.i309.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i52.i, i64 -2
-  %retval.sroa.3.0.idx.i.i = select i1 %tobool.not.i308.i, i64 -2, i64 0
-  %retval.sroa.3.0.i310.i = getelementptr inbounds i16, ptr %retval.sroa.3.0.i51.i, i64 %retval.sroa.3.0.idx.i.i
-  %retval.sroa.0.0.i311.i = select i1 %tobool.not.i308.i, ptr null, ptr %add.ptr.i309.i
-  %81 = load ptr, ptr %it.i, align 8
-  %tobool.not.i314.i = icmp eq ptr %81, null
-  %82 = load ptr, ptr %21, align 8
-  %.sink.i318.i = select i1 %tobool.not.i314.i, ptr %82, ptr %81
-  %.sroa.speculated382.i = select i1 %tobool.not.i314.i, ptr %retval.sroa.3.0.i310.i, ptr %retval.sroa.0.0.i311.i
-  %cmp5.i319.i = icmp ugt ptr %.sink.i318.i, %.sroa.speculated382.i
-  br i1 %cmp5.i319.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread, label %if.end90.i
+if.end86.i:                                       ; preds = %if.else.i.i239.i, %if.then.i.i235.i, %if.else.i.i222.i, %if.then.i.i218.i
+  %59 = phi ptr [ %46, %if.then.i.i218.i ], [ %incdec.ptr3.i.i223.i, %if.else.i.i222.i ], [ %46, %if.then.i.i235.i ], [ %incdec.ptr3.i.i240.i, %if.else.i.i239.i ]
+  %60 = phi ptr [ %incdec.ptr.i.i219.i, %if.then.i.i218.i ], [ null, %if.else.i.i222.i ], [ %incdec.ptr.i.i236.i, %if.then.i.i235.i ], [ null, %if.else.i.i239.i ]
+  %sign.1.i = phi double [ 1.000000e+00, %if.then.i.i218.i ], [ 1.000000e+00, %if.else.i.i222.i ], [ -1.000000e+00, %if.then.i.i235.i ], [ -1.000000e+00, %if.else.i.i239.i ]
+  %tobool.not.i242.i = icmp eq ptr %4, null
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -2
+  %retval.sroa.3.0.idx.i.i = select i1 %tobool.not.i242.i, i64 -2, i64 0
+  %retval.sroa.3.0.i.i = getelementptr inbounds i16, ptr %5, i64 %retval.sroa.3.0.idx.i.i
+  %retval.sroa.0.0.i.i = select i1 %tobool.not.i242.i, ptr null, ptr %add.ptr.i.i
+  %tobool.not.i243.i = icmp eq ptr %60, null
+  %.sink.i247.i = select i1 %tobool.not.i243.i, ptr %59, ptr %60
+  %.sroa.speculated310.i = select i1 %tobool.not.i243.i, ptr %retval.sroa.3.0.i.i, ptr %retval.sroa.0.0.i.i
+  %cmp5.i248.i = icmp ugt ptr %.sink.i247.i, %.sroa.speculated310.i
+  br i1 %cmp5.i248.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread, label %if.end90.i
 
 if.end90.i:                                       ; preds = %if.end86.i
-  %add.ptr.i322.i = getelementptr inbounds i8, ptr %81, i64 2
-  %retval.sroa.3.0.idx.i323.i = select i1 %tobool.not.i314.i, i64 2, i64 0
-  %retval.sroa.3.0.i324.i = getelementptr inbounds i16, ptr %82, i64 %retval.sroa.3.0.idx.i323.i
-  %retval.sroa.0.0.i325.i = select i1 %tobool.not.i314.i, ptr null, ptr %add.ptr.i322.i
-  %call93.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %retval.sroa.0.0.i325.i, ptr %retval.sroa.3.0.i324.i, ptr noundef nonnull align 4 dereferenceable(4) %tzh.i)
+  %add.ptr.i251.i = getelementptr inbounds i8, ptr %60, i64 2
+  %retval.sroa.3.0.idx.i252.i = select i1 %tobool.not.i243.i, i64 2, i64 0
+  %retval.sroa.3.0.i253.i = getelementptr inbounds i16, ptr %59, i64 %retval.sroa.3.0.idx.i252.i
+  %retval.sroa.0.0.i254.i = select i1 %tobool.not.i243.i, ptr null, ptr %add.ptr.i251.i
+  %call93.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %retval.sroa.0.0.i254.i, ptr %retval.sroa.3.0.i253.i, ptr noundef nonnull align 4 dereferenceable(4) %tzh.i)
   br i1 %call93.i, label %if.end95.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
 
 if.end95.i:                                       ; preds = %if.end90.i
-  %83 = load i32, ptr %tzh.i, align 4
-  %conv96.i = sitofp i32 %83 to double
+  %61 = load i32, ptr %tzh.i, align 4
+  %conv96.i = sitofp i32 %61 to double
   %mul97.i = fmul double %sign.1.i, %conv96.i
   %conv98.i = fptosi double %mul97.i to i32
-  %84 = load ptr, ptr %it.i, align 8
-  %tobool.not.i.i.i328.i = icmp eq ptr %84, null
-  %85 = load ptr, ptr %21, align 8
-  %.sink.i.i.i332.i = select i1 %tobool.not.i.i.i328.i, ptr %85, ptr %84
-  %.sroa.speculated458.i = select i1 %tobool.not.i.i.i328.i, ptr %retval.sroa.3.0.i51.i, ptr %retval.sroa.0.0.i52.i
-  %cmp5.i.i.not.i333.i = icmp eq ptr %.sink.i.i.i332.i, %.sroa.speculated458.i
-  br i1 %cmp5.i.i.not.i333.i, label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i", label %land.lhs.true.i334.i
+  %62 = load ptr, ptr %it.i, align 8
+  %tobool.not.i.i.i257.i = icmp eq ptr %62, null
+  %63 = load ptr, ptr %2, align 8
+  %.sink.i.i.i261.i = select i1 %tobool.not.i.i.i257.i, ptr %63, ptr %62
+  %.sroa.speculated382.i = select i1 %tobool.not.i.i.i257.i, ptr %5, ptr %4
+  %cmp5.i.i.not.i262.i = icmp eq ptr %.sink.i.i.i261.i, %.sroa.speculated382.i
+  br i1 %cmp5.i.i.not.i262.i, label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit273.i", label %land.lhs.true.i263.i
 
-land.lhs.true.i334.i:                             ; preds = %if.end95.i
-  br i1 %tobool.not.i.i.i328.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i340.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i335.i
+land.lhs.true.i263.i:                             ; preds = %if.end95.i
+  br i1 %tobool.not.i.i.i257.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i269.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i264.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i340.i: ; preds = %land.lhs.true.i334.i
-  %86 = load i16, ptr %85, align 2
-  %cmp.i341.i = icmp eq i16 %86, 58
-  br i1 %cmp.i341.i, label %if.else.i.i342.i, label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i"
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i269.i: ; preds = %land.lhs.true.i263.i
+  %64 = load i16, ptr %63, align 2
+  %cmp.i270.i = icmp eq i16 %64, 58
+  br i1 %cmp.i270.i, label %if.else.i.i271.i, label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit273.i"
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i335.i: ; preds = %land.lhs.true.i334.i
-  %87 = load i8, ptr %84, align 1
-  %cmp2.i336.i = icmp eq i8 %87, 58
-  br i1 %cmp2.i336.i, label %if.then.i.i338.i, label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i"
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i264.i: ; preds = %land.lhs.true.i263.i
+  %65 = load i8, ptr %62, align 1
+  %cmp2.i265.i = icmp eq i8 %65, 58
+  br i1 %cmp2.i265.i, label %if.then.i.i267.i, label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit273.i"
 
-if.then.i.i338.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i335.i
-  %incdec.ptr.i.i339.i = getelementptr inbounds i8, ptr %84, i64 1
-  store ptr %incdec.ptr.i.i339.i, ptr %it.i, align 8
-  %.pre519.i = load ptr, ptr %21, align 8
-  br label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i"
+if.then.i.i267.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i264.i
+  %incdec.ptr.i.i268.i = getelementptr inbounds i8, ptr %62, i64 1
+  store ptr %incdec.ptr.i.i268.i, ptr %it.i, align 8
+  br label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit273.i"
 
-if.else.i.i342.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i340.i
-  %incdec.ptr3.i.i343.i = getelementptr inbounds i8, ptr %85, i64 2
-  store ptr %incdec.ptr3.i.i343.i, ptr %21, align 8
-  %.pre518.i = load ptr, ptr %it.i, align 8
-  br label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i"
+if.else.i.i271.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i269.i
+  %incdec.ptr3.i.i272.i = getelementptr inbounds i8, ptr %63, i64 2
+  store ptr %incdec.ptr3.i.i272.i, ptr %2, align 8
+  br label %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit273.i"
 
-"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i": ; preds = %if.else.i.i342.i, %if.then.i.i338.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i335.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i340.i, %if.end95.i
-  %88 = phi ptr [ %85, %if.end95.i ], [ %85, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i340.i ], [ %85, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i335.i ], [ %.pre519.i, %if.then.i.i338.i ], [ %incdec.ptr3.i.i343.i, %if.else.i.i342.i ]
-  %89 = phi ptr [ %84, %if.end95.i ], [ null, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i340.i ], [ %84, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i335.i ], [ %incdec.ptr.i.i339.i, %if.then.i.i338.i ], [ %.pre518.i, %if.else.i.i342.i ]
-  %tobool.not.i353.i = icmp eq ptr %89, null
-  %.sink.i357.i = select i1 %tobool.not.i353.i, ptr %88, ptr %89
-  %.sroa.speculated.i = select i1 %tobool.not.i353.i, ptr %retval.sroa.3.0.i310.i, ptr %retval.sroa.0.0.i311.i
-  %cmp5.i358.i = icmp ugt ptr %.sink.i357.i, %.sroa.speculated.i
-  br i1 %cmp5.i358.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread, label %if.end104.i
+"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit273.i": ; preds = %if.else.i.i271.i, %if.then.i.i267.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i264.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i269.i, %if.end95.i
+  %66 = phi ptr [ %63, %if.end95.i ], [ %63, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i269.i ], [ %63, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i264.i ], [ %63, %if.then.i.i267.i ], [ %incdec.ptr3.i.i272.i, %if.else.i.i271.i ]
+  %67 = phi ptr [ %62, %if.end95.i ], [ null, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i269.i ], [ %62, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i264.i ], [ %incdec.ptr.i.i268.i, %if.then.i.i267.i ], [ null, %if.else.i.i271.i ]
+  %tobool.not.i282.i = icmp eq ptr %67, null
+  %.sink.i286.i = select i1 %tobool.not.i282.i, ptr %66, ptr %67
+  %.sroa.speculated.i = select i1 %tobool.not.i282.i, ptr %retval.sroa.3.0.i.i, ptr %retval.sroa.0.0.i.i
+  %cmp5.i287.i = icmp ugt ptr %.sink.i286.i, %.sroa.speculated.i
+  br i1 %cmp5.i287.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread, label %if.end104.i
 
-if.end104.i:                                      ; preds = %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i"
-  %add.ptr.i361.i = getelementptr inbounds i8, ptr %89, i64 2
-  %retval.sroa.3.0.idx.i362.i = select i1 %tobool.not.i353.i, i64 2, i64 0
-  %retval.sroa.3.0.i363.i = getelementptr inbounds i16, ptr %88, i64 %retval.sroa.3.0.idx.i362.i
-  %retval.sroa.0.0.i364.i = select i1 %tobool.not.i353.i, ptr null, ptr %add.ptr.i361.i
-  %call107.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %retval.sroa.0.0.i364.i, ptr %retval.sroa.3.0.i363.i, ptr noundef nonnull align 4 dereferenceable(4) %tzm.i)
+if.end104.i:                                      ; preds = %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit273.i"
+  %add.ptr.i290.i = getelementptr inbounds i8, ptr %67, i64 2
+  %retval.sroa.3.0.idx.i291.i = select i1 %tobool.not.i282.i, i64 2, i64 0
+  %retval.sroa.3.0.i292.i = getelementptr inbounds i16, ptr %66, i64 %retval.sroa.3.0.idx.i291.i
+  %retval.sroa.0.0.i293.i = select i1 %tobool.not.i282.i, ptr null, ptr %add.ptr.i290.i
+  %call107.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i, ptr %retval.sroa.0.0.i293.i, ptr %retval.sroa.3.0.i292.i, ptr noundef nonnull align 4 dereferenceable(4) %tzm.i)
   br i1 %call107.i, label %if.end109.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
 
 if.end109.i:                                      ; preds = %if.end104.i
-  %90 = load i32, ptr %tzm.i, align 4
-  %conv110.i = sitofp i32 %90 to double
+  %68 = load i32, ptr %tzm.i, align 4
+  %conv110.i = sitofp i32 %68 to double
   %mul111.i = fmul double %sign.1.i, %conv110.i
   %conv112.i = fptosi double %mul111.i to i32
+  %.pre440.i = load ptr, ptr %it.i, align 8
+  %.pre441.i = load ptr, ptr %2, align 8
   br label %if.end114.i
 
-if.end114.i:                                      ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i153.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i158.i, %if.end109.i, %if.else.i.i271.i, %if.then.i.i267.i, %if.end23.i
-  %91 = phi i32 [ %conv112.i, %if.end109.i ], [ 0, %if.end23.i ], [ 0, %if.then.i.i267.i ], [ 0, %if.else.i.i271.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i158.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i153.i ]
-  %92 = phi i32 [ %conv98.i, %if.end109.i ], [ 0, %if.end23.i ], [ 0, %if.then.i.i267.i ], [ 0, %if.else.i.i271.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i158.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i153.i ]
-  %ms.2.i = phi i32 [ %ms.1.i, %if.end109.i ], [ 0, %if.end23.i ], [ %ms.1.i, %if.then.i.i267.i ], [ %ms.1.i, %if.else.i.i271.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i158.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i153.i ]
-  %93 = load ptr, ptr %it.i, align 8
-  %tobool.not.i.i367.i = icmp eq ptr %93, null
-  %94 = load ptr, ptr %21, align 8
-  %.sink.i.i371.i = select i1 %tobool.not.i.i367.i, ptr %94, ptr %93
-  %.sroa.speculated461.i = select i1 %tobool.not.i.i367.i, ptr %retval.sroa.3.0.i51.i, ptr %retval.sroa.0.0.i52.i
-  %cmp5.i.i372.not.i = icmp eq ptr %.sink.i.i371.i, %.sroa.speculated461.i
-  br i1 %cmp5.i.i372.not.i, label %if.end117.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
+if.end114.i:                                      ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i90.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i95.i, %if.end109.i, %if.else.i.i205.i, %if.then.i.i201.i, %if.end23.i
+  %69 = phi i32 [ %conv112.i, %if.end109.i ], [ 0, %if.end23.i ], [ 0, %if.then.i.i201.i ], [ 0, %if.else.i.i205.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i95.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i90.i ]
+  %70 = phi i32 [ %conv98.i, %if.end109.i ], [ 0, %if.end23.i ], [ 0, %if.then.i.i201.i ], [ 0, %if.else.i.i205.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i95.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i90.i ]
+  %71 = phi ptr [ %.pre441.i, %if.end109.i ], [ %17, %if.end23.i ], [ %46, %if.then.i.i201.i ], [ %incdec.ptr3.i.i206.i, %if.else.i.i205.i ], [ %17, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i95.i ], [ %17, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i90.i ]
+  %72 = phi ptr [ %.pre440.i, %if.end109.i ], [ %18, %if.end23.i ], [ %incdec.ptr.i.i202.i, %if.then.i.i201.i ], [ null, %if.else.i.i205.i ], [ null, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i95.i ], [ %18, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i90.i ]
+  %ms.2.i = phi i32 [ %ms.1.i, %if.end109.i ], [ 0, %if.end23.i ], [ %ms.1.i, %if.then.i.i201.i ], [ %ms.1.i, %if.else.i.i205.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i95.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i90.i ]
+  %tobool.not.i.i296.i = icmp eq ptr %72, null
+  %.sink.i.i300.i = select i1 %tobool.not.i.i296.i, ptr %71, ptr %72
+  %.sroa.speculated385.i = select i1 %tobool.not.i.i296.i, ptr %5, ptr %4
+  %cmp5.i.i301.not.i = icmp eq ptr %.sink.i.i300.i, %.sroa.speculated385.i
+  br i1 %cmp5.i.i301.not.i, label %if.end117.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
 
 if.end117.i:                                      ; preds = %if.end114.i
   %conv118.i = sitofp i32 %conv9.i to double
-  %95 = load i32, ptr %m.i, align 4
-  %sub119.i = add nsw i32 %95, -1
+  %73 = load i32, ptr %m.i, align 4
+  %sub119.i = add nsw i32 %73, -1
   %conv120.i = sitofp i32 %sub119.i to double
-  %96 = load i32, ptr %d.i, align 4
-  %conv121.i = sitofp i32 %96 to double
-  %call122.i = tail call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %conv118.i, double noundef %conv120.i, double noundef %conv121.i)
-  %97 = load i32, ptr %h.i, align 4
-  %sub123.i = sub nsw i32 %97, %92
+  %74 = load i32, ptr %d.i, align 4
+  %conv121.i = sitofp i32 %74 to double
+  %call122.i = call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %conv118.i, double noundef %conv120.i, double noundef %conv121.i)
+  %75 = load i32, ptr %h.i, align 4
+  %sub123.i = sub nsw i32 %75, %70
   %conv124.i = sitofp i32 %sub123.i to double
-  %98 = load i32, ptr %min.i, align 4
-  %sub125.i = sub nsw i32 %98, %91
+  %76 = load i32, ptr %min.i, align 4
+  %sub125.i = sub nsw i32 %76, %69
   %conv126.i = sitofp i32 %sub125.i to double
-  %99 = load i32, ptr %s.i, align 4
-  %conv127.i = sitofp i32 %99 to double
+  %77 = load i32, ptr %s.i, align 4
+  %conv127.i = sitofp i32 %77 to double
   %conv128.i = sitofp i32 %ms.2.i to double
   %mul7.i.i = fmul double %conv126.i, 6.000000e+04
-  %100 = tail call double @llvm.fmuladd.f64(double %conv124.i, double 3.600000e+06, double %mul7.i.i)
-  %101 = tail call double @llvm.fmuladd.f64(double %conv127.i, double 1.000000e+03, double %100)
-  %add.i374.i = fadd double %101, %conv128.i
-  %102 = tail call double @llvm.fabs.f64(double %call122.i)
-  %103 = fcmp one double %102, 0x7FF0000000000000
-  %104 = tail call double @llvm.fabs.f64(double %add.i374.i)
-  %105 = fcmp one double %104, 0x7FF0000000000000
-  %or.cond.i376.i = and i1 %103, %105
-  %mul.i377.i = fmul double %call122.i, 8.640000e+07
-  %add.i378.i = fadd double %mul.i377.i, %add.i374.i
-  br i1 %or.cond.i376.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
+  %78 = call double @llvm.fmuladd.f64(double %conv124.i, double 3.600000e+06, double %mul7.i.i)
+  %79 = call double @llvm.fmuladd.f64(double %conv127.i, double 1.000000e+03, double %78)
+  %add.i302.i = fadd double %79, %conv128.i
+  %80 = call double @llvm.fabs.f64(double %call122.i)
+  %81 = fcmp one double %80, 0x7FF0000000000000
+  %82 = call double @llvm.fabs.f64(double %add.i302.i)
+  %83 = fcmp one double %82, 0x7FF0000000000000
+  %or.cond.i304.i = and i1 %81, %83
+  %mul.i305.i = fmul double %call122.i, 8.640000e+07
+  %add.i306.i = fadd double %mul.i305.i, %add.i302.i
+  br i1 %or.cond.i304.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
 
-_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i264.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i269.i, %if.end117.i, %if.end5.i, %if.then11.i, %if.then17.i, %if.then26.i, %if.end33.i, %if.then39.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i, %if.then45.i, %if.end86.i, %if.end90.i, %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit344.i", %if.end104.i, %if.end114.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i192.i, %if.end30.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i187.i
+_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i198.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i203.i, %if.end117.i, %if.end5.i, %if.then11.i, %if.then17.i, %if.then26.i, %if.end33.i, %if.then39.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i, %if.then45.i, %if.end86.i, %if.end90.i, %"_ZZN6hermes2vmL12parseISODateENS0_10StringViewEENK3$_0clEDs.exit273.i", %if.end104.i, %if.end114.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i129.i, %if.end30.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i124.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %u16str.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %it.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %y.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %m.i)
@@ -2497,7 +2320,8 @@ _ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread: ; preds = %_ZNK6herm
   br label %if.end
 
 _ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit: ; preds = %if.end117.i, %if.then62.i
-  %retval.0.i = phi double [ %call74.i, %if.then62.i ], [ %add.i378.i, %if.end117.i ]
+  %retval.0.i = phi double [ %call74.i, %if.then62.i ], [ %add.i306.i, %if.end117.i ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %u16str.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %it.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %y.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %m.i)
@@ -2507,8 +2331,8 @@ _ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit: ; preds = %if.end117.i, %if
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %s.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tzh.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tzm.i)
-  %106 = fcmp uno double %retval.0.i, 0.000000e+00
-  br i1 %106, label %if.end, label %return
+  %84 = fcmp uno double %retval.0.i, 0.000000e+00
+  br i1 %84, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread, %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %str.i)
@@ -2528,8 +2352,8 @@ if.end:                                           ; preds = %_ZN6hermes2vmL12par
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp90.i)
   store ptr %str.coerce0, ptr %str.i, align 8
-  %107 = getelementptr inbounds i8, ptr %str.i, i64 8
-  store i64 %str.coerce1, ptr %107, align 8
+  %85 = getelementptr inbounds i8, ptr %str.i, i64 8
+  store i64 %str.coerce1, ptr %85, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tok.i, ptr noundef nonnull align 8 dereferenceable(16) %str.i, i64 16, i1 false)
   store i32 1, ptr %d.i4, align 4
   store i32 0, ptr %h.i5, align 4
@@ -2537,912 +2361,250 @@ if.end:                                           ; preds = %_ZN6hermes2vmL12par
   store i32 0, ptr %s.i7, align 4
   store i32 0, ptr %tzh.i8, align 4
   store i32 0, ptr %tzm.i9, align 4
-  %108 = trunc i64 %u16str.sroa.10.8.extract.shift.i to i32
-  br i1 %tobool.i.i.i, label %if.then.i.i78, label %if.end.i.i12
-
-if.then.i.i78:                                    ; preds = %if.end
-  %109 = and i32 %u16str.sroa.5.8.extract.trunc.i, 1073741824
-  %tobool.not.i.i.i79 = icmp eq i32 %109, 0
-  br i1 %tobool.not.i.i.i79, label %if.then.i51.i, label %if.end.i.i.i80
-
-if.end.i.i.i80:                                   ; preds = %if.then.i.i78
-  %retval.sroa.0.0.copyload.i.i.i.i.i.i81 = load i64, ptr %str.coerce0, align 8
-  %and.i.i.i.i.i.i.i.i82 = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i.i81, 281474976710655
-  %110 = inttoptr i64 %and.i.i.i.i.i.i.i.i82 to ptr
-  %bf.load.i.i.i.i.i.i.i83 = load i32, ptr %110, align 4
-  %cmp.i.i.i.i.i84 = icmp ugt i32 %bf.load.i.i.i.i.i.i.i83, 150994943
-  br i1 %cmp.i.i.i.i.i84, label %if.then.i.i.i.i100, label %if.else.i.i.i.i85
-
-if.then.i.i.i.i100:                               ; preds = %if.end.i.i.i80
-  %contents_.i.i.i.i.i101 = getelementptr inbounds i8, ptr %110, i64 16
-  %call.i.i.i.i.i102 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i101, i64 noundef 0) #17
-  br label %if.end.i.i53.i
-
-if.else.i.i.i.i85:                                ; preds = %if.end.i.i.i80
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i.i86 = and i32 %bf.load.i.i.i.i.i.i.i83, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i.i86, label %if.else13.i.i.i.i94 [
-    i32 134217728, label %if.then5.i.i.i.i92
-    i32 67108864, label %if.then10.i.i.i.i87
-  ]
-
-if.then5.i.i.i.i92:                               ; preds = %if.else.i.i.i.i85
-  %add.ptr.i.i.i.i.i.i.i93 = getelementptr inbounds i8, ptr %110, i64 12
-  br label %if.end.i.i53.i
-
-if.then10.i.i.i.i87:                              ; preds = %if.else.i.i.i.i85
-  %add.ptr.i.i.i4.i.i.i.i88 = getelementptr inbounds i8, ptr %110, i64 8
-  br label %if.end.i.i53.i
-
-if.else13.i.i.i.i94:                              ; preds = %if.else.i.i.i.i85
-  %concatBufferHV_.i.i.i.i.i.i95 = getelementptr inbounds i8, ptr %110, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i96 = load i64, ptr %concatBufferHV_.i.i.i.i.i.i95, align 8
-  %and.i.i.i.i.i1.i.i.i97 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i96, 281474976710655
-  %111 = inttoptr i64 %and.i.i.i.i.i1.i.i.i97 to ptr
-  %contents_.i.i.i.i.i.i98 = getelementptr inbounds i8, ptr %111, i64 16
-  %call.i.i.i.i.i.i99 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i.i98, i64 noundef 0) #17
-  br label %if.end.i.i53.i
-
-if.end.i.i12:                                     ; preds = %if.end
-  %tobool.not.i4.i.i13 = icmp ult i32 %u16str.sroa.5.8.extract.trunc.i, 1073741824
-  br i1 %tobool.not.i4.i.i13, label %if.end.i22.i, label %if.end.i5.i.i14
-
-if.end.i5.i.i14:                                  ; preds = %if.end.i.i12
-  %retval.sroa.0.0.copyload.i.i.i.i6.i.i15 = load i64, ptr %str.coerce0, align 8
-  %and.i.i.i.i.i.i7.i.i16 = and i64 %retval.sroa.0.0.copyload.i.i.i.i6.i.i15, 281474976710655
-  %112 = inttoptr i64 %and.i.i.i.i.i.i7.i.i16 to ptr
-  %bf.load.i.i.i.i.i8.i.i17 = load i32, ptr %112, align 4
-  %cmp.i.i.i9.i.i18 = icmp ugt i32 %bf.load.i.i.i.i.i8.i.i17, 150994943
-  br i1 %cmp.i.i.i9.i.i18, label %if.then.i.i25.i.i, label %if.else.i.i10.i.i19
-
-if.then.i.i25.i.i:                                ; preds = %if.end.i5.i.i14
-  %contents_.i.i.i26.i.i76 = getelementptr inbounds i8, ptr %112, i64 16
-  %113 = load ptr, ptr %contents_.i.i.i26.i.i76, align 8
-  br label %if.end.i5.i24.i
-
-if.else.i.i10.i.i19:                              ; preds = %if.end.i5.i.i14
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i.i20 = and i32 %bf.load.i.i.i.i.i8.i.i17, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i.i20, label %if.else13.i.i20.i.i71 [
-    i32 117440512, label %if.then5.i.i18.i.i69
-    i32 50331648, label %if.then10.i.i12.i.i21
-  ]
-
-if.then5.i.i18.i.i69:                             ; preds = %if.else.i.i10.i.i19
-  %add.ptr.i.i.i.i.i19.i.i70 = getelementptr inbounds i8, ptr %112, i64 12
-  br label %if.end.i5.i24.i
-
-if.then10.i.i12.i.i21:                            ; preds = %if.else.i.i10.i.i19
-  %add.ptr.i.i.i4.i.i13.i.i22 = getelementptr inbounds i8, ptr %112, i64 8
-  br label %if.end.i5.i24.i
-
-if.else13.i.i20.i.i71:                            ; preds = %if.else.i.i10.i.i19
-  %concatBufferHV_.i.i.i.i21.i.i72 = getelementptr inbounds i8, ptr %112, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i.i73 = load i64, ptr %concatBufferHV_.i.i.i.i21.i.i72, align 8
-  %and.i.i.i.i.i1.i23.i.i74 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i.i73, 281474976710655
-  %114 = inttoptr i64 %and.i.i.i.i.i1.i23.i.i74 to ptr
-  %contents_.i.i.i.i24.i.i75 = getelementptr inbounds i8, ptr %114, i64 16
-  %115 = load ptr, ptr %contents_.i.i.i.i24.i.i75, align 8
-  br label %if.end.i5.i24.i
-
-if.then.i51.i:                                    ; preds = %if.then.i.i78
-  %bf.clear8.i.i.i89 = and i64 %str.coerce1, 1073741823
-  %add.ptr10.i.i.i90 = getelementptr inbounds i8, ptr %str.coerce0, i64 %bf.clear8.i.i.i89
-  store ptr %add.ptr10.i.i.i90, ptr %it.i10, align 8
-  %116 = getelementptr inbounds i8, ptr %it.i10, i64 8
-  store ptr null, ptr %116, align 8
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i65.i
-
-if.end.i.i53.i:                                   ; preds = %if.else13.i.i.i.i94, %if.then10.i.i.i.i87, %if.then5.i.i.i.i92, %if.then.i.i.i.i100
-  %retval.0.i.sink.i.i.i.ph = phi ptr [ %call.i.i.i.i.i.i99, %if.else13.i.i.i.i94 ], [ %add.ptr.i.i.i4.i.i.i.i88, %if.then10.i.i.i.i87 ], [ %add.ptr.i.i.i.i.i.i.i93, %if.then5.i.i.i.i92 ], [ %call.i.i.i.i.i102, %if.then.i.i.i.i100 ]
-  %bf.clear8.i.i.i89557 = and i64 %str.coerce1, 1073741823
-  %add.ptr10.i.i.i90558 = getelementptr inbounds i8, ptr %retval.0.i.sink.i.i.i.ph, i64 %bf.clear8.i.i.i89557
-  store ptr %add.ptr10.i.i.i90558, ptr %it.i10, align 8
-  %117 = getelementptr inbounds i8, ptr %it.i10, i64 8
-  store ptr null, ptr %117, align 8
-  %retval.sroa.0.0.copyload.i.i.i.i.i54.i = load i64, ptr %str.coerce0, align 8
-  %and.i.i.i.i.i.i.i55.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i54.i, 281474976710655
-  %118 = inttoptr i64 %and.i.i.i.i.i.i.i55.i to ptr
-  %bf.load.i.i.i.i.i.i56.i = load i32, ptr %118, align 4
-  %cmp.i.i.i.i57.i = icmp ugt i32 %bf.load.i.i.i.i.i.i56.i, 150994943
-  br i1 %cmp.i.i.i.i57.i, label %if.then.i.i.i79.i, label %if.else.i.i.i58.i
-
-if.then.i.i.i79.i:                                ; preds = %if.end.i.i53.i
-  %contents_.i.i.i.i80.i = getelementptr inbounds i8, ptr %118, i64 16
-  %call.i.i.i.i81.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i80.i, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i65.i
-
-if.else.i.i.i58.i:                                ; preds = %if.end.i.i53.i
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i59.i = and i32 %bf.load.i.i.i.i.i.i56.i, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i59.i, label %if.else13.i.i.i73.i [
-    i32 134217728, label %if.then5.i.i.i71.i
-    i32 67108864, label %if.then10.i.i.i60.i
-  ]
-
-if.then5.i.i.i71.i:                               ; preds = %if.else.i.i.i58.i
-  %add.ptr.i.i.i.i.i.i72.i = getelementptr inbounds i8, ptr %118, i64 12
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i65.i
-
-if.then10.i.i.i60.i:                              ; preds = %if.else.i.i.i58.i
-  %add.ptr.i.i.i4.i.i.i61.i = getelementptr inbounds i8, ptr %118, i64 8
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i65.i
-
-if.else13.i.i.i73.i:                              ; preds = %if.else.i.i.i58.i
-  %concatBufferHV_.i.i.i.i.i74.i = getelementptr inbounds i8, ptr %118, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i75.i = load i64, ptr %concatBufferHV_.i.i.i.i.i74.i, align 8
-  %and.i.i.i.i.i1.i.i76.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i75.i, 281474976710655
-  %119 = inttoptr i64 %and.i.i.i.i.i1.i.i76.i to ptr
-  %contents_.i.i.i.i.i77.i = getelementptr inbounds i8, ptr %119, i64 16
-  %call.i.i.i.i.i78.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i77.i, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i65.i
-
-_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i65.i: ; preds = %if.then.i51.i, %if.else13.i.i.i73.i, %if.then10.i.i.i60.i, %if.then5.i.i.i71.i, %if.then.i.i.i79.i
-  %120 = phi ptr [ %116, %if.then.i51.i ], [ %117, %if.then.i.i.i79.i ], [ %117, %if.then5.i.i.i71.i ], [ %117, %if.then10.i.i.i60.i ], [ %117, %if.else13.i.i.i73.i ]
-  %add.ptr10.i.i.i90562 = phi ptr [ %add.ptr10.i.i.i90, %if.then.i51.i ], [ %add.ptr10.i.i.i90558, %if.then.i.i.i79.i ], [ %add.ptr10.i.i.i90558, %if.then5.i.i.i71.i ], [ %add.ptr10.i.i.i90558, %if.then10.i.i.i60.i ], [ %add.ptr10.i.i.i90558, %if.else13.i.i.i73.i ]
-  %bf.clear8.i.i.i89560 = phi i64 [ %bf.clear8.i.i.i89, %if.then.i51.i ], [ %bf.clear8.i.i.i89557, %if.then.i.i.i79.i ], [ %bf.clear8.i.i.i89557, %if.then5.i.i.i71.i ], [ %bf.clear8.i.i.i89557, %if.then10.i.i.i60.i ], [ %bf.clear8.i.i.i89557, %if.else13.i.i.i73.i ]
-  %retval.0.i.sink.i.i67.i = phi ptr [ %str.coerce0, %if.then.i51.i ], [ %call.i.i.i.i81.i, %if.then.i.i.i79.i ], [ %add.ptr.i.i.i.i.i.i72.i, %if.then5.i.i.i71.i ], [ %add.ptr.i.i.i4.i.i.i61.i, %if.then10.i.i.i60.i ], [ %call.i.i.i.i.i78.i, %if.else13.i.i.i73.i ]
-  %add.ptr10.i.i70.i = getelementptr inbounds i8, ptr %retval.0.i.sink.i.i67.i, i64 %bf.clear8.i.i.i89560
-  %add.ptr.i.i91 = getelementptr inbounds i8, ptr %add.ptr10.i.i70.i, i64 %u16str.sroa.10.8.extract.shift.i
-  br label %_ZNK6hermes2vm10StringView3endEv.exit.i24
-
-if.end.i22.i:                                     ; preds = %if.end.i.i12
-  %bf.clear8.i15.i.i = and i64 %str.coerce1, 1073741823
-  %add.ptr10.i17.i.i77 = getelementptr inbounds i16, ptr %str.coerce0, i64 %bf.clear8.i15.i.i
-  store ptr null, ptr %it.i10, align 8
-  %121 = getelementptr inbounds i8, ptr %it.i10, i64 8
-  store ptr %add.ptr10.i17.i.i77, ptr %121, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i33.i
-
-if.end.i5.i24.i:                                  ; preds = %if.else13.i.i20.i.i71, %if.then10.i.i12.i.i21, %if.then5.i.i18.i.i69, %if.then.i.i25.i.i
-  %retval.0.i.sink.i14.i.ph.i = phi ptr [ %115, %if.else13.i.i20.i.i71 ], [ %add.ptr.i.i.i4.i.i13.i.i22, %if.then10.i.i12.i.i21 ], [ %add.ptr.i.i.i.i.i19.i.i70, %if.then5.i.i18.i.i69 ], [ %113, %if.then.i.i25.i.i ]
-  %bf.clear8.i15.i470.i = and i64 %str.coerce1, 1073741823
-  %add.ptr10.i17.i471.i = getelementptr inbounds i16, ptr %retval.0.i.sink.i14.i.ph.i, i64 %bf.clear8.i15.i470.i
-  store ptr null, ptr %it.i10, align 8
-  %122 = getelementptr inbounds i8, ptr %it.i10, i64 8
-  store ptr %add.ptr10.i17.i471.i, ptr %122, align 8
-  %bf.load.i.i.i.i.i8.i27.i = load i32, ptr %112, align 4
-  %cmp.i.i.i9.i28.i = icmp ugt i32 %bf.load.i.i.i.i.i8.i27.i, 150994943
-  br i1 %cmp.i.i.i9.i28.i, label %if.then.i.i25.i49.i, label %if.else.i.i10.i29.i
-
-if.then.i.i25.i49.i:                              ; preds = %if.end.i5.i24.i
-  %contents_.i.i.i26.i50.i = getelementptr inbounds i8, ptr %112, i64 16
-  %123 = load ptr, ptr %contents_.i.i.i26.i50.i, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i33.i
-
-if.else.i.i10.i29.i:                              ; preds = %if.end.i5.i24.i
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i30.i = and i32 %bf.load.i.i.i.i.i8.i27.i, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i30.i, label %if.else13.i.i20.i44.i [
-    i32 117440512, label %if.then5.i.i18.i42.i
-    i32 50331648, label %if.then10.i.i12.i31.i
-  ]
-
-if.then5.i.i18.i42.i:                             ; preds = %if.else.i.i10.i29.i
-  %add.ptr.i.i.i.i.i19.i43.i = getelementptr inbounds i8, ptr %112, i64 12
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i33.i
-
-if.then10.i.i12.i31.i:                            ; preds = %if.else.i.i10.i29.i
-  %add.ptr.i.i.i4.i.i13.i32.i = getelementptr inbounds i8, ptr %112, i64 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i33.i
-
-if.else13.i.i20.i44.i:                            ; preds = %if.else.i.i10.i29.i
-  %concatBufferHV_.i.i.i.i21.i45.i = getelementptr inbounds i8, ptr %112, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i46.i = load i64, ptr %concatBufferHV_.i.i.i.i21.i45.i, align 8
-  %and.i.i.i.i.i1.i23.i47.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i46.i, 281474976710655
-  %124 = inttoptr i64 %and.i.i.i.i.i1.i23.i47.i to ptr
-  %contents_.i.i.i.i24.i48.i = getelementptr inbounds i8, ptr %124, i64 16
-  %125 = load ptr, ptr %contents_.i.i.i.i24.i48.i, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i33.i
-
-_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i33.i: ; preds = %if.else13.i.i20.i44.i, %if.then10.i.i12.i31.i, %if.then5.i.i18.i42.i, %if.then.i.i25.i49.i, %if.end.i22.i
-  %bf.clear8.i15.i35.i.pre-phi = phi i64 [ %bf.clear8.i15.i470.i, %if.else13.i.i20.i44.i ], [ %bf.clear8.i15.i470.i, %if.then10.i.i12.i31.i ], [ %bf.clear8.i15.i470.i, %if.then5.i.i18.i42.i ], [ %bf.clear8.i15.i470.i, %if.then.i.i25.i49.i ], [ %bf.clear8.i15.i.i, %if.end.i22.i ]
-  %126 = phi ptr [ %122, %if.else13.i.i20.i44.i ], [ %122, %if.then10.i.i12.i31.i ], [ %122, %if.then5.i.i18.i42.i ], [ %122, %if.then.i.i25.i49.i ], [ %121, %if.end.i22.i ]
-  %add.ptr10.i17.i474.i = phi ptr [ %add.ptr10.i17.i471.i, %if.else13.i.i20.i44.i ], [ %add.ptr10.i17.i471.i, %if.then10.i.i12.i31.i ], [ %add.ptr10.i17.i471.i, %if.then5.i.i18.i42.i ], [ %add.ptr10.i17.i471.i, %if.then.i.i25.i49.i ], [ %add.ptr10.i17.i.i77, %if.end.i22.i ]
-  %retval.0.i.sink.i14.i34.i = phi ptr [ %125, %if.else13.i.i20.i44.i ], [ %add.ptr.i.i.i4.i.i13.i32.i, %if.then10.i.i12.i31.i ], [ %add.ptr.i.i.i.i.i19.i43.i, %if.then5.i.i18.i42.i ], [ %123, %if.then.i.i25.i49.i ], [ %str.coerce0, %if.end.i22.i ]
-  %add.ptr10.i17.i37.i = getelementptr inbounds i16, ptr %retval.0.i.sink.i14.i34.i, i64 %bf.clear8.i15.i35.i.pre-phi
-  %add.ptr6.i.i23 = getelementptr inbounds i16, ptr %add.ptr10.i17.i37.i, i64 %u16str.sroa.10.8.extract.shift.i
-  br label %_ZNK6hermes2vm10StringView3endEv.exit.i24
-
-_ZNK6hermes2vm10StringView3endEv.exit.i24:        ; preds = %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i33.i, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i65.i
-  %127 = phi ptr [ %120, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i65.i ], [ %126, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i33.i ]
-  %128 = phi ptr [ %add.ptr10.i.i.i90562, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i65.i ], [ null, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i33.i ]
-  %129 = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i65.i ], [ %add.ptr10.i17.i474.i, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i33.i ]
-  %retval.sroa.3.0.i38.i = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i65.i ], [ %add.ptr6.i.i23, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i33.i ]
-  %retval.sroa.0.0.i39.i = phi ptr [ %add.ptr.i.i91, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i65.i ], [ null, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i33.i ]
+  %call.i11 = call { ptr, ptr } @_ZNK6hermes2vm10StringView5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
+  %86 = extractvalue { ptr, ptr } %call.i11, 0
+  store ptr %86, ptr %it.i10, align 8
+  %87 = getelementptr inbounds i8, ptr %it.i10, i64 8
+  %88 = extractvalue { ptr, ptr } %call.i11, 1
+  store ptr %88, ptr %87, align 8
+  %call1.i12 = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
+  %89 = extractvalue { ptr, ptr } %call1.i12, 0
+  %90 = extractvalue { ptr, ptr } %call1.i12, 1
   store ptr %str.i, ptr %scanStr.i, align 8
-  %130 = getelementptr inbounds i8, ptr %scanStr.i, i64 8
-  store ptr %tok.i, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %scanStr.i, i64 16
-  store ptr %it.i10, ptr %131, align 8
+  %91 = getelementptr inbounds i8, ptr %scanStr.i, i64 8
+  store ptr %tok.i, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %scanStr.i, i64 16
+  store ptr %it.i10, ptr %92, align 8
   store ptr %str.i, ptr %scanStrAndSkipWord.i, align 8
-  %132 = getelementptr inbounds i8, ptr %scanStrAndSkipWord.i, i64 8
-  store ptr %tok.i, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %scanStrAndSkipWord.i, i64 16
-  store ptr %it.i10, ptr %133, align 8
+  %93 = getelementptr inbounds i8, ptr %scanStrAndSkipWord.i, i64 8
+  store ptr %tok.i, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %scanStrAndSkipWord.i, i64 16
+  store ptr %it.i10, ptr %94, align 8
   store ptr %it.i10, ptr %consume.i, align 8
-  %134 = getelementptr inbounds i8, ptr %consume.i, i64 8
-  store ptr %str.i, ptr %134, align 8
+  %95 = getelementptr inbounds i8, ptr %consume.i, i64 8
+  store ptr %str.i, ptr %95, align 8
   store ptr %it.i10, ptr %consumeSpaces.i, align 8
-  %135 = getelementptr inbounds i8, ptr %consumeSpaces.i, i64 8
-  store ptr %str.i, ptr %135, align 8
-  %tobool.not.i.i82.i = icmp eq ptr %128, null
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %128, i64 3
-  %retval.sroa.3.0.idx.i.i.i = select i1 %tobool.not.i.i82.i, i64 3, i64 0
-  %retval.sroa.3.0.i.i.i = getelementptr inbounds i16, ptr %129, i64 %retval.sroa.3.0.idx.i.i.i
-  br i1 %tobool.i.i.i, label %if.then.i506, label %if.end.i474
+  %96 = getelementptr inbounds i8, ptr %consumeSpaces.i, i64 8
+  store ptr %str.i, ptr %96, align 8
+  %tobool.not.i.i.i13 = icmp eq ptr %86, null
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %86, i64 3
+  %retval.sroa.3.0.idx.i.i.i = select i1 %tobool.not.i.i.i13, i64 3, i64 0
+  %retval.sroa.3.0.i.i.i = getelementptr inbounds i16, ptr %88, i64 %retval.sroa.3.0.idx.i.i.i
+  %call3.i.i = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
+  %97 = extractvalue { ptr, ptr } %call3.i.i, 0
+  %98 = extractvalue { ptr, ptr } %call3.i.i, 1
+  %.sink.i.i.i14 = select i1 %tobool.not.i.i.i13, ptr %retval.sroa.3.0.i.i.i, ptr %add.ptr.i.i.i
+  %.sroa.speculated.i.i = select i1 %tobool.not.i.i.i13, ptr %98, ptr %97
+  %cmp5.i.i.not.i15 = icmp ugt ptr %.sink.i.i.i14, %.sroa.speculated.i.i
+  br i1 %cmp5.i.i.not.i15, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit, label %if.end.i.i
 
-if.then.i506:                                     ; preds = %_ZNK6hermes2vm10StringView3endEv.exit.i24
-  %136 = and i32 %u16str.sroa.5.8.extract.trunc.i, 1073741824
-  %tobool.not.i.i507 = icmp eq i32 %136, 0
-  br i1 %tobool.not.i.i507, label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i520, label %if.end.i.i508
-
-if.end.i.i508:                                    ; preds = %if.then.i506
-  %retval.sroa.0.0.copyload.i.i.i.i.i509 = load i64, ptr %str.coerce0, align 8
-  %and.i.i.i.i.i.i.i510 = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i509, 281474976710655
-  %137 = inttoptr i64 %and.i.i.i.i.i.i.i510 to ptr
-  %bf.load.i.i.i.i.i.i511 = load i32, ptr %137, align 4
-  %cmp.i.i.i.i512 = icmp ugt i32 %bf.load.i.i.i.i.i.i511, 150994943
-  br i1 %cmp.i.i.i.i512, label %if.then.i.i.i537, label %if.else.i.i.i513
-
-if.then.i.i.i537:                                 ; preds = %if.end.i.i508
-  %contents_.i.i.i.i538 = getelementptr inbounds i8, ptr %137, i64 16
-  %call.i.i.i.i539 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i538, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i517
-
-if.else.i.i.i513:                                 ; preds = %if.end.i.i508
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i514 = and i32 %bf.load.i.i.i.i.i.i511, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i514, label %if.else13.i.i.i531 [
-    i32 134217728, label %if.then5.i.i.i529
-    i32 67108864, label %if.then10.i.i.i515
-  ]
-
-if.then5.i.i.i529:                                ; preds = %if.else.i.i.i513
-  %add.ptr.i.i.i.i.i.i530 = getelementptr inbounds i8, ptr %137, i64 12
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i517
-
-if.then10.i.i.i515:                               ; preds = %if.else.i.i.i513
-  %add.ptr.i.i.i4.i.i.i516 = getelementptr inbounds i8, ptr %137, i64 8
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i517
-
-if.else13.i.i.i531:                               ; preds = %if.else.i.i.i513
-  %concatBufferHV_.i.i.i.i.i532 = getelementptr inbounds i8, ptr %137, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i533 = load i64, ptr %concatBufferHV_.i.i.i.i.i532, align 8
-  %and.i.i.i.i.i1.i.i534 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i533, 281474976710655
-  %138 = inttoptr i64 %and.i.i.i.i.i1.i.i534 to ptr
-  %contents_.i.i.i.i.i535 = getelementptr inbounds i8, ptr %138, i64 16
-  %call.i.i.i.i.i536 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i535, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i517
-
-_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i517: ; preds = %if.else13.i.i.i531, %if.then10.i.i.i515, %if.then5.i.i.i529, %if.then.i.i.i537
-  %retval.0.i.i.i518 = phi ptr [ %call.i.i.i.i539, %if.then.i.i.i537 ], [ %add.ptr.i.i.i.i.i.i530, %if.then5.i.i.i529 ], [ %add.ptr.i.i.i4.i.i.i516, %if.then10.i.i.i515 ], [ %call.i.i.i.i.i536, %if.else13.i.i.i531 ]
-  %bf.load7.i.i519 = load i32, ptr %107, align 8
-  %length_.i526.phi.trans.insert = getelementptr inbounds i8, ptr %str.i, i64 12
-  %.pre = load i32, ptr %length_.i526.phi.trans.insert, align 4
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i520
-
-_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i520: ; preds = %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i517, %if.then.i506
-  %bf.load.i.i409580 = phi i32 [ %bf.load7.i.i519, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i517 ], [ %u16str.sroa.5.8.extract.trunc.i, %if.then.i506 ]
-  %139 = phi i32 [ %.pre, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i517 ], [ %108, %if.then.i506 ]
-  %retval.0.i.sink.i.i522 = phi ptr [ %retval.0.i.i.i518, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i517 ], [ %str.coerce0, %if.then.i506 ]
-  %bf.clear8.i.i523 = and i32 %bf.load.i.i409580, 1073741823
-  %idx.ext9.i.i524 = zext nneg i32 %bf.clear8.i.i523 to i64
-  %add.ptr10.i.i525 = getelementptr inbounds i8, ptr %retval.0.i.sink.i.i522, i64 %idx.ext9.i.i524
-  %idx.ext.i527 = zext i32 %139 to i64
-  %add.ptr.i528 = getelementptr inbounds i8, ptr %add.ptr10.i.i525, i64 %idx.ext.i527
-  br label %_ZNK6hermes2vm10StringView3endEv.exit540
-
-if.end.i474:                                      ; preds = %_ZNK6hermes2vm10StringView3endEv.exit.i24
-  %tobool.not.i4.i475 = icmp ult i32 %u16str.sroa.5.8.extract.trunc.i, 1073741824
-  br i1 %tobool.not.i4.i475, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i485, label %if.end.i5.i476
-
-if.end.i5.i476:                                   ; preds = %if.end.i474
-  %retval.sroa.0.0.copyload.i.i.i.i6.i477 = load i64, ptr %str.coerce0, align 8
-  %and.i.i.i.i.i.i7.i478 = and i64 %retval.sroa.0.0.copyload.i.i.i.i6.i477, 281474976710655
-  %140 = inttoptr i64 %and.i.i.i.i.i.i7.i478 to ptr
-  %bf.load.i.i.i.i.i8.i479 = load i32, ptr %140, align 4
-  %cmp.i.i.i9.i480 = icmp ugt i32 %bf.load.i.i.i.i.i8.i479, 150994943
-  br i1 %cmp.i.i.i9.i480, label %if.then.i.i25.i504, label %if.else.i.i10.i481
-
-if.then.i.i25.i504:                               ; preds = %if.end.i5.i476
-  %contents_.i.i.i26.i505 = getelementptr inbounds i8, ptr %140, i64 16
-  %141 = load ptr, ptr %contents_.i.i.i26.i505, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i485
-
-if.else.i.i10.i481:                               ; preds = %if.end.i5.i476
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i482 = and i32 %bf.load.i.i.i.i.i8.i479, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i482, label %if.else13.i.i20.i499 [
-    i32 117440512, label %if.then5.i.i18.i497
-    i32 50331648, label %if.then10.i.i12.i483
-  ]
-
-if.then5.i.i18.i497:                              ; preds = %if.else.i.i10.i481
-  %add.ptr.i.i.i.i.i19.i498 = getelementptr inbounds i8, ptr %140, i64 12
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i485
-
-if.then10.i.i12.i483:                             ; preds = %if.else.i.i10.i481
-  %add.ptr.i.i.i4.i.i13.i484 = getelementptr inbounds i8, ptr %140, i64 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i485
-
-if.else13.i.i20.i499:                             ; preds = %if.else.i.i10.i481
-  %concatBufferHV_.i.i.i.i21.i500 = getelementptr inbounds i8, ptr %140, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i501 = load i64, ptr %concatBufferHV_.i.i.i.i21.i500, align 8
-  %and.i.i.i.i.i1.i23.i502 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i501, 281474976710655
-  %142 = inttoptr i64 %and.i.i.i.i.i1.i23.i502 to ptr
-  %contents_.i.i.i.i24.i503 = getelementptr inbounds i8, ptr %142, i64 16
-  %143 = load ptr, ptr %contents_.i.i.i.i24.i503, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i485
-
-_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i485: ; preds = %if.else13.i.i20.i499, %if.then10.i.i12.i483, %if.then5.i.i18.i497, %if.then.i.i25.i504, %if.end.i474
-  %retval.0.i.sink.i14.i486 = phi ptr [ %str.coerce0, %if.end.i474 ], [ %141, %if.then.i.i25.i504 ], [ %add.ptr.i.i.i.i.i19.i498, %if.then5.i.i18.i497 ], [ %add.ptr.i.i.i4.i.i13.i484, %if.then10.i.i12.i483 ], [ %143, %if.else13.i.i20.i499 ]
-  %bf.clear8.i15.i487 = and i64 %str.coerce1, 1073741823
-  %add.ptr10.i17.i489 = getelementptr inbounds i16, ptr %retval.0.i.sink.i14.i486, i64 %bf.clear8.i15.i487
-  %add.ptr6.i492 = getelementptr inbounds i16, ptr %add.ptr10.i17.i489, i64 %u16str.sroa.10.8.extract.shift.i
-  br label %_ZNK6hermes2vm10StringView3endEv.exit540
-
-_ZNK6hermes2vm10StringView3endEv.exit540:         ; preds = %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i520, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i485
-  %bf.load.i.i409 = phi i32 [ %bf.load.i.i409580, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i520 ], [ %u16str.sroa.5.8.extract.trunc.i, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i485 ]
-  %retval.sroa.3.0.i493 = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i520 ], [ %add.ptr6.i492, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i485 ]
-  %retval.sroa.0.0.i494 = phi ptr [ %add.ptr.i528, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i520 ], [ null, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i485 ]
-  %.sink.i.i.i25 = select i1 %tobool.not.i.i82.i, ptr %retval.sroa.3.0.i.i.i, ptr %add.ptr.i.i.i
-  %.sroa.speculated.i.i = select i1 %tobool.not.i.i82.i, ptr %retval.sroa.3.0.i493, ptr %retval.sroa.0.0.i494
-  %cmp5.i.i.not.i26 = icmp ugt ptr %.sink.i.i.i25, %.sroa.speculated.i.i
-  br i1 %cmp5.i.i.not.i26, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit, label %if.end.i83.i
-
-if.end.i83.i:                                     ; preds = %_ZNK6hermes2vm10StringView3endEv.exit540
+if.end.i.i:                                       ; preds = %if.end
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %it.i10, align 8
-  %agg.tmp.sroa.2.0.copyload.i.i = load ptr, ptr %127, align 8
-  %tobool.not.i4.i84.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i, null
+  %agg.tmp.sroa.2.0.copyload.i.i = load ptr, ptr %87, align 8
+  %tobool.not.i4.i.i = icmp eq ptr %agg.tmp.sroa.0.0.copyload.i.i, null
   %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, i64 3
-  %retval.sroa.0.0.i9.i.i = select i1 %tobool.not.i4.i84.i, ptr null, ptr %add.ptr.i6.i.i
-  %tobool.i.i410 = icmp slt i32 %bf.load.i.i409, 0
-  br i1 %tobool.i.i410, label %if.then.i440, label %if.end.i411
-
-if.then.i440:                                     ; preds = %if.end.i83.i
-  %144 = and i32 %bf.load.i.i409, 1073741824
-  %tobool.not.i.i441 = icmp eq i32 %144, 0
-  %145 = load ptr, ptr %str.i, align 8
-  br i1 %tobool.not.i.i441, label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i454, label %if.end.i.i442
-
-if.end.i.i442:                                    ; preds = %if.then.i440
-  %retval.sroa.0.0.copyload.i.i.i.i.i443 = load i64, ptr %145, align 8
-  %and.i.i.i.i.i.i.i444 = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i443, 281474976710655
-  %146 = inttoptr i64 %and.i.i.i.i.i.i.i444 to ptr
-  %bf.load.i.i.i.i.i.i445 = load i32, ptr %146, align 4
-  %cmp.i.i.i.i446 = icmp ugt i32 %bf.load.i.i.i.i.i.i445, 150994943
-  br i1 %cmp.i.i.i.i446, label %if.then.i.i.i468, label %if.else.i.i.i447
-
-if.then.i.i.i468:                                 ; preds = %if.end.i.i442
-  %contents_.i.i.i.i469 = getelementptr inbounds i8, ptr %146, i64 16
-  %call.i.i.i.i470 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i469, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i451
-
-if.else.i.i.i447:                                 ; preds = %if.end.i.i442
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i448 = and i32 %bf.load.i.i.i.i.i.i445, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i448, label %if.else13.i.i.i462 [
-    i32 134217728, label %if.then5.i.i.i460
-    i32 67108864, label %if.then10.i.i.i449
-  ]
-
-if.then5.i.i.i460:                                ; preds = %if.else.i.i.i447
-  %add.ptr.i.i.i.i.i.i461 = getelementptr inbounds i8, ptr %146, i64 12
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i451
-
-if.then10.i.i.i449:                               ; preds = %if.else.i.i.i447
-  %add.ptr.i.i.i4.i.i.i450 = getelementptr inbounds i8, ptr %146, i64 8
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i451
-
-if.else13.i.i.i462:                               ; preds = %if.else.i.i.i447
-  %concatBufferHV_.i.i.i.i.i463 = getelementptr inbounds i8, ptr %146, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i464 = load i64, ptr %concatBufferHV_.i.i.i.i.i463, align 8
-  %and.i.i.i.i.i1.i.i465 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i464, 281474976710655
-  %147 = inttoptr i64 %and.i.i.i.i.i1.i.i465 to ptr
-  %contents_.i.i.i.i.i466 = getelementptr inbounds i8, ptr %147, i64 16
-  %call.i.i.i.i.i467 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i466, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i451
-
-_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i451: ; preds = %if.else13.i.i.i462, %if.then10.i.i.i449, %if.then5.i.i.i460, %if.then.i.i.i468
-  %retval.0.i.i.i452 = phi ptr [ %call.i.i.i.i470, %if.then.i.i.i468 ], [ %add.ptr.i.i.i.i.i.i461, %if.then5.i.i.i460 ], [ %add.ptr.i.i.i4.i.i.i450, %if.then10.i.i.i449 ], [ %call.i.i.i.i.i467, %if.else13.i.i.i462 ]
-  %bf.load7.i.i453 = load i32, ptr %107, align 8
-  %retval.sroa.0.0.copyload.i.i.i.i.pre.pre = load ptr, ptr %str.i, align 8
-  %.pre582.pre = load ptr, ptr %it.i10, align 8
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i454
-
-_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i454: ; preds = %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i451, %if.then.i440
-  %.pre582 = phi ptr [ %.pre582.pre, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i451 ], [ %agg.tmp.sroa.0.0.copyload.i.i, %if.then.i440 ]
-  %retval.sroa.0.0.copyload.i.i.i.i.pre = phi ptr [ %retval.sroa.0.0.copyload.i.i.i.i.pre.pre, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i451 ], [ %145, %if.then.i440 ]
-  %bf.load7.sink.i.i455 = phi i32 [ %bf.load7.i.i453, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i451 ], [ %bf.load.i.i409, %if.then.i440 ]
-  %retval.0.i.sink.i.i456 = phi ptr [ %retval.0.i.i.i452, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i451 ], [ %145, %if.then.i440 ]
-  %bf.clear8.i.i457 = and i32 %bf.load7.sink.i.i455, 1073741823
-  %idx.ext9.i.i458 = zext nneg i32 %bf.clear8.i.i457 to i64
-  %add.ptr10.i.i459 = getelementptr inbounds i8, ptr %retval.0.i.sink.i.i456, i64 %idx.ext9.i.i458
-  br label %_ZNK6hermes2vm10StringView5beginEv.exit
-
-if.end.i411:                                      ; preds = %if.end.i83.i
-  %tobool.not.i4.i412 = icmp ult i32 %bf.load.i.i409, 1073741824
-  %148 = load ptr, ptr %str.i, align 8
-  br i1 %tobool.not.i4.i412, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i422, label %if.end.i5.i413
-
-if.end.i5.i413:                                   ; preds = %if.end.i411
-  %retval.sroa.0.0.copyload.i.i.i.i6.i414 = load i64, ptr %148, align 8
-  %and.i.i.i.i.i.i7.i415 = and i64 %retval.sroa.0.0.copyload.i.i.i.i6.i414, 281474976710655
-  %149 = inttoptr i64 %and.i.i.i.i.i.i7.i415 to ptr
-  %bf.load.i.i.i.i.i8.i416 = load i32, ptr %149, align 4
-  %cmp.i.i.i9.i417 = icmp ugt i32 %bf.load.i.i.i.i.i8.i416, 150994943
-  br i1 %cmp.i.i.i9.i417, label %if.then.i.i25.i438, label %if.else.i.i10.i418
-
-if.then.i.i25.i438:                               ; preds = %if.end.i5.i413
-  %contents_.i.i.i26.i439 = getelementptr inbounds i8, ptr %149, i64 16
-  %150 = load ptr, ptr %contents_.i.i.i26.i439, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i422
-
-if.else.i.i10.i418:                               ; preds = %if.end.i5.i413
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i419 = and i32 %bf.load.i.i.i.i.i8.i416, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i419, label %if.else13.i.i20.i433 [
-    i32 117440512, label %if.then5.i.i18.i431
-    i32 50331648, label %if.then10.i.i12.i420
-  ]
-
-if.then5.i.i18.i431:                              ; preds = %if.else.i.i10.i418
-  %add.ptr.i.i.i.i.i19.i432 = getelementptr inbounds i8, ptr %149, i64 12
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i422
-
-if.then10.i.i12.i420:                             ; preds = %if.else.i.i10.i418
-  %add.ptr.i.i.i4.i.i13.i421 = getelementptr inbounds i8, ptr %149, i64 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i422
-
-if.else13.i.i20.i433:                             ; preds = %if.else.i.i10.i418
-  %concatBufferHV_.i.i.i.i21.i434 = getelementptr inbounds i8, ptr %149, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i435 = load i64, ptr %concatBufferHV_.i.i.i.i21.i434, align 8
-  %and.i.i.i.i.i1.i23.i436 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i435, 281474976710655
-  %151 = inttoptr i64 %and.i.i.i.i.i1.i23.i436 to ptr
-  %contents_.i.i.i.i24.i437 = getelementptr inbounds i8, ptr %151, i64 16
-  %152 = load ptr, ptr %contents_.i.i.i.i24.i437, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i422
-
-_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i422: ; preds = %if.else13.i.i20.i433, %if.then10.i.i12.i420, %if.then5.i.i18.i431, %if.then.i.i25.i438, %if.end.i411
-  %retval.0.i.sink.i14.i423 = phi ptr [ %148, %if.end.i411 ], [ %150, %if.then.i.i25.i438 ], [ %add.ptr.i.i.i.i.i19.i432, %if.then5.i.i18.i431 ], [ %add.ptr.i.i.i4.i.i13.i421, %if.then10.i.i12.i420 ], [ %152, %if.else13.i.i20.i433 ]
-  %bf.clear8.i15.i424 = and i32 %bf.load.i.i409, 1073741823
-  %idx.ext9.i16.i425 = zext nneg i32 %bf.clear8.i15.i424 to i64
-  %add.ptr10.i17.i426 = getelementptr inbounds i16, ptr %retval.0.i.sink.i14.i423, i64 %idx.ext9.i16.i425
-  br label %_ZNK6hermes2vm10StringView5beginEv.exit
-
-_ZNK6hermes2vm10StringView5beginEv.exit:          ; preds = %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i454, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i422
-  %153 = phi ptr [ %.pre582, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i454 ], [ %agg.tmp.sroa.0.0.copyload.i.i, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i422 ]
-  %retval.sroa.0.0.copyload.i.i.i.i = phi ptr [ %retval.sroa.0.0.copyload.i.i.i.i.pre, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i454 ], [ %148, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i422 ]
-  %retval.sroa.3.0.i427 = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i454 ], [ %add.ptr10.i17.i426, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i422 ]
-  %retval.sroa.0.0.i428 = phi ptr [ %add.ptr10.i.i459, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i454 ], [ null, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i422 ]
+  %retval.sroa.0.0.i9.i.i = select i1 %tobool.not.i4.i.i, ptr null, ptr %add.ptr.i6.i.i
+  %call.i.i.i = call { ptr, ptr } @_ZNK6hermes2vm10StringView5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
+  %99 = extractvalue { ptr, ptr } %call.i.i.i, 0
+  %100 = extractvalue { ptr, ptr } %call.i.i.i, 1
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.copyload.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %retval.sroa.0.0.i428 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %99 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.lhs.cast5.i.i.i.i = ptrtoint ptr %agg.tmp.sroa.2.0.copyload.i.i to i64
-  %sub.ptr.rhs.cast6.i.i.i.i = ptrtoint ptr %retval.sroa.3.0.i427 to i64
+  %sub.ptr.rhs.cast6.i.i.i.i = ptrtoint ptr %100 to i64
   %sub.ptr.sub7.i.i.i.i = sub i64 %sub.ptr.lhs.cast5.i.i.i.i, %sub.ptr.rhs.cast6.i.i.i.i
   %sub.ptr.div.i.i.i.i = lshr exact i64 %sub.ptr.sub7.i.i.i.i, 1
-  %retval.0.i.i.i85.i = select i1 %tobool.not.i4.i84.i, i64 %sub.ptr.div.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
+  %retval.0.i.i.i.i = select i1 %tobool.not.i4.i.i, i64 %sub.ptr.div.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   %sub.ptr.lhs.cast.i3.i.i.i = ptrtoint ptr %retval.sroa.0.0.i9.i.i to i64
   %sub.ptr.sub.i5.i.i.i = sub i64 %sub.ptr.lhs.cast.i3.i.i.i, %sub.ptr.lhs.cast.i.i.i.i
-  %154 = shl i64 %sub.ptr.sub.i5.i.i.i, 32
-  %retval.sroa.2.0.copyload.i.i.i.i = load i64, ptr %107, align 8
-  %add.i.i.i.i = add i64 %retval.0.i.i.i85.i, %retval.sroa.2.0.copyload.i.i.i.i
+  %101 = shl i64 %sub.ptr.sub.i5.i.i.i, 32
+  %retval.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %str.i, align 8
+  %retval.sroa.2.0.copyload.i.i.i.i = load i64, ptr %85, align 8
+  %add.i.i.i.i = add i64 %retval.0.i.i.i.i, %retval.sroa.2.0.copyload.i.i.i.i
   %bf.value.i.i.i.i = and i64 %add.i.i.i.i, 1073741823
   %bf.clear3.i.i.i.i = and i64 %retval.sroa.2.0.copyload.i.i.i.i, 3221225472
-  %retval.sroa.2.12.insert.ext.i.i.i.i = select i1 %tobool.not.i4.i84.i, i64 12884901888, i64 %154
-  %bf.set.i.i.i.i = or disjoint i64 %bf.clear3.i.i.i.i, %retval.sroa.2.12.insert.ext.i.i.i.i
+  %retval.sroa.2.12.insert.ext.i.i.i.i = select i1 %tobool.not.i4.i.i, i64 12884901888, i64 %101
+  %bf.set.i.i.i.i = or disjoint i64 %retval.sroa.2.12.insert.ext.i.i.i.i, %bf.clear3.i.i.i.i
   %retval.sroa.2.12.insert.insert.i.i.i.i = or disjoint i64 %bf.set.i.i.i.i, %bf.value.i.i.i.i
   store ptr %retval.sroa.0.0.copyload.i.i.i.i, ptr %tok.i, align 8
   %ref.tmp5.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %tok.i, i64 8
   store i64 %retval.sroa.2.12.insert.insert.i.i.i.i, ptr %ref.tmp5.sroa.2.0..sroa_idx.i.i, align 8
-  %tobool.not.i12.i.i = icmp eq ptr %153, null
-  br i1 %tobool.not.i12.i.i, label %if.else.i.i.i68, label %if.then.i.i.i27
+  %102 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i12.i.i = icmp eq ptr %102, null
+  br i1 %tobool.not.i12.i.i, label %if.else.i.i.i56, label %if.then.i.i.i16
 
-if.then.i.i.i27:                                  ; preds = %_ZNK6hermes2vm10StringView5beginEv.exit
-  %add.ptr.i13.i.i = getelementptr inbounds i8, ptr %153, i64 3
+if.then.i.i.i16:                                  ; preds = %if.end.i.i
+  %add.ptr.i13.i.i = getelementptr inbounds i8, ptr %102, i64 3
   store ptr %add.ptr.i13.i.i, ptr %it.i10, align 8
   br label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_0clEi.exit.i"
 
-if.else.i.i.i68:                                  ; preds = %_ZNK6hermes2vm10StringView5beginEv.exit
-  %155 = load ptr, ptr %127, align 8
-  %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %155, i64 6
-  store ptr %add.ptr3.i.i.i, ptr %127, align 8
+if.else.i.i.i56:                                  ; preds = %if.end.i.i
+  %103 = load ptr, ptr %87, align 8
+  %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %103, i64 6
+  store ptr %add.ptr3.i.i.i, ptr %87, align 8
   br label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_0clEi.exit.i"
 
-"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_0clEi.exit.i": ; preds = %if.else.i.i.i68, %if.then.i.i.i27
-  %156 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_0clEi.exit.i": ; preds = %if.else.i.i.i56, %if.then.i.i.i16
+  %104 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
-  %__begin2.0.add.i = add nuw nsw i64 %__begin2.0.idx436.i, 8
+  %__begin2.0.add.i = add nuw nsw i64 %__begin2.0.idx293.i, 8
   %cmp.not.not.i = icmp eq i64 %__begin2.0.add.i, 56
   br i1 %cmp.not.not.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_0clEi.exit.i"
-  %__begin2.0.idx436.i = phi i64 [ 0, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_0clEi.exit.i" ], [ %__begin2.0.add.i, %for.cond.i ]
-  %__begin2.0.ptr.i = getelementptr inbounds i8, ptr @_ZN6hermes2vmL12weekdayNamesE, i64 %__begin2.0.idx436.i
-  %157 = load ptr, ptr %__begin2.0.ptr.i, align 8
-  %tobool.i.not.i = icmp eq ptr %157, null
+  %__begin2.0.idx293.i = phi i64 [ 0, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_0clEi.exit.i" ], [ %__begin2.0.add.i, %for.cond.i ]
+  %__begin2.0.ptr.i = getelementptr inbounds i8, ptr @_ZN6hermes2vmL12weekdayNamesE, i64 %__begin2.0.idx293.i
+  %105 = load ptr, ptr %__begin2.0.ptr.i, align 8
+  %tobool.i.not.i = icmp eq ptr %105, null
   br i1 %tobool.i.not.i, label %_ZN4llvh9StringRefC2EPKc.exit.i, label %cond.true.i.split.i
 
 cond.true.i.split.i:                              ; preds = %for.body.i
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %157) #18
-  %.fca.0.insert.i86.i = insertvalue { ptr, i64 } poison, ptr %157, 0
-  %.fca.1.insert.i87.i = insertvalue { ptr, i64 } %.fca.0.insert.i86.i, i64 %call.i.i, 1
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %105) #18
+  %.fca.0.insert.i.i = insertvalue { ptr, i64 } poison, ptr %105, 0
+  %.fca.1.insert.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i, i64 %call.i.i, 1
   br label %_ZN4llvh9StringRefC2EPKc.exit.i
 
 _ZN4llvh9StringRefC2EPKc.exit.i:                  ; preds = %cond.true.i.split.i, %for.body.i
-  %phi.call.i = phi { ptr, i64 } [ %.fca.1.insert.i87.i, %cond.true.i.split.i ], [ zeroinitializer, %for.body.i ]
-  %158 = extractvalue { ptr, i64 } %phi.call.i, 0
-  store ptr %158, ptr %ref.tmp.i, align 8
-  %159 = extractvalue { ptr, i64 } %phi.call.i, 1
-  store i64 %159, ptr %156, align 8
+  %phi.call.i = phi { ptr, i64 } [ %.fca.1.insert.i.i, %cond.true.i.split.i ], [ zeroinitializer, %for.body.i ]
+  %106 = extractvalue { ptr, i64 } %phi.call.i, 0
+  store ptr %106, ptr %ref.tmp.i, align 8
+  %107 = extractvalue { ptr, i64 } %phi.call.i, 1
+  store i64 %107, ptr %104, align 8
   %call4.i = call noundef zeroext i1 @_ZNK6hermes2vm10StringView6equalsIhEEbRKN4llvh8ArrayRefIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %tok.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   br i1 %call4.i, label %while.cond.outer.i, label %for.cond.i
 
-while.cond.i:                                     ; preds = %while.cond.i.backedge, %while.cond.outer.i
-  %bf.load.i.i89.i = load i32, ptr %107, align 8
-  %tobool.i.i90.i = icmp slt i32 %bf.load.i.i89.i, 0
-  br i1 %tobool.i.i90.i, label %if.then.i123.i, label %if.end.i91.i
+while.body.i:                                     ; preds = %while.cond.outer.i, %while.cond.backedge.i
+  %108 = phi ptr [ %169, %while.cond.backedge.i ], [ %148, %while.cond.outer.i ]
+  %tobool.not.i.i19305.i = phi i1 [ %tobool.not.i.i19.i, %while.cond.backedge.i ], [ %tobool.not.i.i19301.i, %while.cond.outer.i ]
+  %109 = phi ptr [ %168, %while.cond.backedge.i ], [ %147, %while.cond.outer.i ]
+  br i1 %tobool.not.i.i19305.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i53, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i
 
-if.then.i123.i:                                   ; preds = %while.cond.i
-  %160 = and i32 %bf.load.i.i89.i, 1073741824
-  %tobool.not.i.i124.i = icmp eq i32 %160, 0
-  %161 = load ptr, ptr %str.i, align 8
-  br i1 %tobool.not.i.i124.i, label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i137.i, label %if.end.i.i125.i
-
-if.end.i.i125.i:                                  ; preds = %if.then.i123.i
-  %retval.sroa.0.0.copyload.i.i.i.i.i126.i = load i64, ptr %161, align 8
-  %and.i.i.i.i.i.i.i127.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i126.i, 281474976710655
-  %162 = inttoptr i64 %and.i.i.i.i.i.i.i127.i to ptr
-  %bf.load.i.i.i.i.i.i128.i = load i32, ptr %162, align 4
-  %cmp.i.i.i.i129.i = icmp ugt i32 %bf.load.i.i.i.i.i.i128.i, 150994943
-  br i1 %cmp.i.i.i.i129.i, label %if.then.i.i.i154.i, label %if.else.i.i.i130.i
-
-if.then.i.i.i154.i:                               ; preds = %if.end.i.i125.i
-  %contents_.i.i.i.i155.i = getelementptr inbounds i8, ptr %162, i64 16
-  %call.i.i.i.i156.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i155.i, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i134.i
-
-if.else.i.i.i130.i:                               ; preds = %if.end.i.i125.i
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i131.i = and i32 %bf.load.i.i.i.i.i.i128.i, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i131.i, label %if.else13.i.i.i148.i [
-    i32 134217728, label %if.then5.i.i.i146.i
-    i32 67108864, label %if.then10.i.i.i132.i
-  ]
-
-if.then5.i.i.i146.i:                              ; preds = %if.else.i.i.i130.i
-  %add.ptr.i.i.i.i.i.i147.i = getelementptr inbounds i8, ptr %162, i64 12
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i134.i
-
-if.then10.i.i.i132.i:                             ; preds = %if.else.i.i.i130.i
-  %add.ptr.i.i.i4.i.i.i133.i = getelementptr inbounds i8, ptr %162, i64 8
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i134.i
-
-if.else13.i.i.i148.i:                             ; preds = %if.else.i.i.i130.i
-  %concatBufferHV_.i.i.i.i.i149.i = getelementptr inbounds i8, ptr %162, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i150.i = load i64, ptr %concatBufferHV_.i.i.i.i.i149.i, align 8
-  %and.i.i.i.i.i1.i.i151.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i150.i, 281474976710655
-  %163 = inttoptr i64 %and.i.i.i.i.i1.i.i151.i to ptr
-  %contents_.i.i.i.i.i152.i = getelementptr inbounds i8, ptr %163, i64 16
-  %call.i.i.i.i.i153.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i152.i, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i134.i
-
-_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i134.i: ; preds = %if.else13.i.i.i148.i, %if.then10.i.i.i132.i, %if.then5.i.i.i146.i, %if.then.i.i.i154.i
-  %retval.0.i.i.i135.i = phi ptr [ %call.i.i.i.i156.i, %if.then.i.i.i154.i ], [ %add.ptr.i.i.i.i.i.i147.i, %if.then5.i.i.i146.i ], [ %add.ptr.i.i.i4.i.i.i133.i, %if.then10.i.i.i132.i ], [ %call.i.i.i.i.i153.i, %if.else13.i.i.i148.i ]
-  %bf.load7.i.i136.i = load i32, ptr %107, align 8
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i137.i
-
-_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i137.i: ; preds = %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i134.i, %if.then.i123.i
-  %bf.load7.sink.i.i138.i = phi i32 [ %bf.load7.i.i136.i, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i134.i ], [ %bf.load.i.i89.i, %if.then.i123.i ]
-  %retval.0.i.sink.i.i139.i = phi ptr [ %retval.0.i.i.i135.i, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i134.i ], [ %161, %if.then.i123.i ]
-  %bf.clear8.i.i140.i = and i32 %bf.load7.sink.i.i138.i, 1073741823
-  %idx.ext9.i.i141.i = zext nneg i32 %bf.clear8.i.i140.i to i64
-  %add.ptr10.i.i142.i = getelementptr inbounds i8, ptr %retval.0.i.sink.i.i139.i, i64 %idx.ext9.i.i141.i
-  %164 = load i32, ptr %length_4.i107.i, align 4
-  %idx.ext.i144.i = zext i32 %164 to i64
-  %add.ptr.i145.i = getelementptr inbounds i8, ptr %add.ptr10.i.i142.i, i64 %idx.ext.i144.i
-  br label %_ZNK6hermes2vm10StringView3endEv.exit157.i
-
-if.end.i91.i:                                     ; preds = %while.cond.i
-  %tobool.not.i4.i92.i = icmp ult i32 %bf.load.i.i89.i, 1073741824
-  %165 = load ptr, ptr %str.i, align 8
-  br i1 %tobool.not.i4.i92.i, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i102.i, label %if.end.i5.i93.i
-
-if.end.i5.i93.i:                                  ; preds = %if.end.i91.i
-  %retval.sroa.0.0.copyload.i.i.i.i6.i94.i = load i64, ptr %165, align 8
-  %and.i.i.i.i.i.i7.i95.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i6.i94.i, 281474976710655
-  %166 = inttoptr i64 %and.i.i.i.i.i.i7.i95.i to ptr
-  %bf.load.i.i.i.i.i8.i96.i = load i32, ptr %166, align 4
-  %cmp.i.i.i9.i97.i = icmp ugt i32 %bf.load.i.i.i.i.i8.i96.i, 150994943
-  br i1 %cmp.i.i.i9.i97.i, label %if.then.i.i25.i121.i, label %if.else.i.i10.i98.i
-
-if.then.i.i25.i121.i:                             ; preds = %if.end.i5.i93.i
-  %contents_.i.i.i26.i122.i = getelementptr inbounds i8, ptr %166, i64 16
-  %167 = load ptr, ptr %contents_.i.i.i26.i122.i, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i102.i
-
-if.else.i.i10.i98.i:                              ; preds = %if.end.i5.i93.i
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i99.i = and i32 %bf.load.i.i.i.i.i8.i96.i, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i99.i, label %if.else13.i.i20.i116.i [
-    i32 117440512, label %if.then5.i.i18.i114.i
-    i32 50331648, label %if.then10.i.i12.i100.i
-  ]
-
-if.then5.i.i18.i114.i:                            ; preds = %if.else.i.i10.i98.i
-  %add.ptr.i.i.i.i.i19.i115.i = getelementptr inbounds i8, ptr %166, i64 12
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i102.i
-
-if.then10.i.i12.i100.i:                           ; preds = %if.else.i.i10.i98.i
-  %add.ptr.i.i.i4.i.i13.i101.i = getelementptr inbounds i8, ptr %166, i64 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i102.i
-
-if.else13.i.i20.i116.i:                           ; preds = %if.else.i.i10.i98.i
-  %concatBufferHV_.i.i.i.i21.i117.i = getelementptr inbounds i8, ptr %166, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i118.i = load i64, ptr %concatBufferHV_.i.i.i.i21.i117.i, align 8
-  %and.i.i.i.i.i1.i23.i119.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i118.i, 281474976710655
-  %168 = inttoptr i64 %and.i.i.i.i.i1.i23.i119.i to ptr
-  %contents_.i.i.i.i24.i120.i = getelementptr inbounds i8, ptr %168, i64 16
-  %169 = load ptr, ptr %contents_.i.i.i.i24.i120.i, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i102.i
-
-_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i102.i: ; preds = %if.else13.i.i20.i116.i, %if.then10.i.i12.i100.i, %if.then5.i.i18.i114.i, %if.then.i.i25.i121.i, %if.end.i91.i
-  %retval.0.i.sink.i14.i103.i = phi ptr [ %165, %if.end.i91.i ], [ %167, %if.then.i.i25.i121.i ], [ %add.ptr.i.i.i.i.i19.i115.i, %if.then5.i.i18.i114.i ], [ %add.ptr.i.i.i4.i.i13.i101.i, %if.then10.i.i12.i100.i ], [ %169, %if.else13.i.i20.i116.i ]
-  %bf.clear8.i15.i104.i = and i32 %bf.load.i.i89.i, 1073741823
-  %idx.ext9.i16.i105.i = zext nneg i32 %bf.clear8.i15.i104.i to i64
-  %add.ptr10.i17.i106.i = getelementptr inbounds i16, ptr %retval.0.i.sink.i14.i103.i, i64 %idx.ext9.i16.i105.i
-  %170 = load i32, ptr %length_4.i107.i, align 4
-  %idx.ext5.i108.i = zext i32 %170 to i64
-  %add.ptr6.i109.i = getelementptr inbounds i16, ptr %add.ptr10.i17.i106.i, i64 %idx.ext5.i108.i
-  br label %_ZNK6hermes2vm10StringView3endEv.exit157.i
-
-_ZNK6hermes2vm10StringView3endEv.exit157.i:       ; preds = %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i102.i, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i137.i
-  %retval.sroa.3.0.i110.i = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i137.i ], [ %add.ptr6.i109.i, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i102.i ]
-  %retval.sroa.0.0.i111.i = phi ptr [ %add.ptr.i145.i, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i137.i ], [ null, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i102.i ]
-  %171 = load ptr, ptr %it.i10, align 8
-  %tobool.not.i.i158.i = icmp eq ptr %171, null
-  %172 = load ptr, ptr %127, align 8
-  %.sink.i.i159.i = select i1 %tobool.not.i.i158.i, ptr %172, ptr %171
-  %.sroa.speculated382.i29 = select i1 %tobool.not.i.i158.i, ptr %retval.sroa.3.0.i110.i, ptr %retval.sroa.0.0.i111.i
-  %cmp5.i.i160.not.i = icmp eq ptr %.sink.i.i159.i, %.sroa.speculated382.i29
-  br i1 %cmp5.i.i160.not.i, label %while.end.i, label %while.body.i
-
-while.body.i:                                     ; preds = %_ZNK6hermes2vm10StringView3endEv.exit157.i
-  br i1 %tobool.not.i.i158.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i65, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i
-
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i65: ; preds = %while.body.i
-  %173 = load i16, ptr %172, align 2
-  %174 = add i16 %173, -48
-  %175 = icmp ult i16 %174, 10
-  br i1 %175, label %if.then14.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit177.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i53: ; preds = %while.body.i
+  %110 = load i16, ptr %108, align 2
+  %111 = add i16 %110, -48
+  %112 = icmp ult i16 %111, 10
+  br i1 %112, label %if.then14.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit37.i
 
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i: ; preds = %while.body.i
-  %176 = load i8, ptr %171, align 1
-  %177 = sext i8 %176 to i16
-  %178 = add nsw i16 %177, -48
-  %179 = icmp ult i16 %178, 10
-  br i1 %179, label %if.then14.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit177.thread.i
+  %113 = load i8, ptr %109, align 1
+  %114 = sext i8 %113 to i16
+  %115 = add nsw i16 %114, -48
+  %116 = icmp ult i16 %115, 10
+  br i1 %116, label %if.then14.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit37.thread.i
 
-if.then14.i:                                      ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i65
-  %call16.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %retval.sroa.0.0.i39.i, ptr %retval.sroa.3.0.i38.i, ptr noundef nonnull align 4 dereferenceable(4) %d.i4)
+if.then14.i:                                      ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i53
+  %call16.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %89, ptr %90, ptr noundef nonnull align 4 dereferenceable(4) %d.i4)
   %call10.i.i = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
-  %180 = extractvalue { ptr, ptr } %call10.i.i, 0
-  %181 = extractvalue { ptr, ptr } %call10.i.i, 1
-  %182 = load ptr, ptr %it.i10, align 8
-  %tobool.not.i.i11.i.i = icmp eq ptr %182, null
-  %183 = load ptr, ptr %127, align 8
-  %.sink.i.i13.i.i = select i1 %tobool.not.i.i11.i.i, ptr %183, ptr %182
-  %.sroa.speculated14.i.i = select i1 %tobool.not.i.i11.i.i, ptr %181, ptr %180
+  %117 = extractvalue { ptr, ptr } %call10.i.i, 0
+  %118 = extractvalue { ptr, ptr } %call10.i.i, 1
+  %119 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i.i11.i.i = icmp eq ptr %119, null
+  %120 = load ptr, ptr %87, align 8
+  %.sink.i.i13.i.i = select i1 %tobool.not.i.i11.i.i, ptr %120, ptr %119
+  %.sroa.speculated14.i.i = select i1 %tobool.not.i.i11.i.i, ptr %118, ptr %117
   %cmp5.i.i.not15.i.i = icmp eq ptr %.sink.i.i13.i.i, %.sroa.speculated14.i.i
   br i1 %cmp5.i.i.not15.i.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i", label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %if.then14.i, %_ZNK6hermes2vm10StringView3endEv.exit407
-  %184 = phi ptr [ %204, %_ZNK6hermes2vm10StringView3endEv.exit407 ], [ %183, %if.then14.i ]
-  %185 = phi ptr [ %203, %_ZNK6hermes2vm10StringView3endEv.exit407 ], [ %182, %if.then14.i ]
-  %first.016.i.i = phi i1 [ false, %_ZNK6hermes2vm10StringView3endEv.exit407 ], [ true, %if.then14.i ]
-  %tobool.not.i.i161.i = icmp eq ptr %185, null
-  br i1 %tobool.not.i.i161.i, label %cond.false.i.i.i, label %cond.true.i.i.i
+while.body.i.i:                                   ; preds = %if.then14.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i.i
+  %121 = phi ptr [ %132, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i.i ], [ %120, %if.then14.i ]
+  %122 = phi ptr [ %131, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i.i ], [ %119, %if.then14.i ]
+  %first.016.i.i = phi i1 [ false, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i.i ], [ true, %if.then14.i ]
+  %tobool.not.i.i22.i = icmp eq ptr %122, null
+  br i1 %tobool.not.i.i22.i, label %cond.false.i.i.i, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %while.body.i.i
-  %186 = load i8, ptr %185, align 1
-  %187 = sext i8 %186 to i16
-  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i57
+  %123 = load i8, ptr %122, align 1
+  %124 = sext i8 %123 to i16
+  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i44
 
 cond.false.i.i.i:                                 ; preds = %while.body.i.i
-  %188 = load i16, ptr %184, align 2
-  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i57
+  %125 = load i16, ptr %121, align 2
+  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i44
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i57: ; preds = %cond.false.i.i.i, %cond.true.i.i.i
-  %cond.i.i.i = phi i16 [ %187, %cond.true.i.i.i ], [ %188, %cond.false.i.i.i ]
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i44: ; preds = %cond.false.i.i.i, %cond.true.i.i.i
+  %cond.i.i.i = phi i16 [ %124, %cond.true.i.i.i ], [ %125, %cond.false.i.i.i ]
   %conv.i.i = zext i16 %cond.i.i.i to i32
   %call4.i.i = call i32 @isspace(i32 noundef %conv.i.i) #18
-  %tobool.not.i162.i = icmp eq i32 %call4.i.i, 0
-  br i1 %tobool.not.i162.i, label %lor.lhs.false.i.i, label %if.then.i163.i
+  %tobool.not.i23.i = icmp eq i32 %call4.i.i, 0
+  br i1 %tobool.not.i23.i, label %lor.lhs.false.i.i, label %if.then.i.i45
 
-lor.lhs.false.i.i:                                ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i57
-  br i1 %first.016.i.i, label %land.lhs.true.i.i63, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i"
+lor.lhs.false.i.i:                                ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i44
+  br i1 %first.016.i.i, label %land.lhs.true.i.i51, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i"
 
-land.lhs.true.i.i63:                              ; preds = %lor.lhs.false.i.i
-  br i1 %tobool.not.i.i161.i, label %cond.false.i4.i.i, label %cond.true.i2.i.i
+land.lhs.true.i.i51:                              ; preds = %lor.lhs.false.i.i
+  br i1 %tobool.not.i.i22.i, label %cond.false.i4.i.i, label %cond.true.i2.i.i
 
-cond.true.i2.i.i:                                 ; preds = %land.lhs.true.i.i63
-  %189 = load i8, ptr %185, align 1
-  %190 = sext i8 %189 to i16
+cond.true.i2.i.i:                                 ; preds = %land.lhs.true.i.i51
+  %126 = load i8, ptr %122, align 1
+  %127 = sext i8 %126 to i16
   br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i.i
 
-cond.false.i4.i.i:                                ; preds = %land.lhs.true.i.i63
-  %191 = load i16, ptr %184, align 2
+cond.false.i4.i.i:                                ; preds = %land.lhs.true.i.i51
+  %128 = load i16, ptr %121, align 2
   br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i.i
 
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i.i: ; preds = %cond.false.i4.i.i, %cond.true.i2.i.i
-  %cond.i3.i.i = phi i16 [ %190, %cond.true.i2.i.i ], [ %191, %cond.false.i4.i.i ]
-  %cmp.i.i64 = icmp eq i16 %cond.i3.i.i, 45
-  br i1 %cmp.i.i64, label %if.then.i163.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i"
+  %cond.i3.i.i = phi i16 [ %127, %cond.true.i2.i.i ], [ %128, %cond.false.i4.i.i ]
+  %cmp.i.i52 = icmp eq i16 %cond.i3.i.i, 45
+  br i1 %cmp.i.i52, label %if.then.i.i45, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i"
 
-if.then.i163.i:                                   ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i57
-  br i1 %tobool.not.i.i161.i, label %if.else.i.i167.i, label %if.then.i.i164.i
+if.then.i.i45:                                    ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i.i44
+  br i1 %tobool.not.i.i22.i, label %if.else.i.i27.i, label %if.then.i.i24.i
 
-if.then.i.i164.i:                                 ; preds = %if.then.i163.i
-  %incdec.ptr.i.i.i58 = getelementptr inbounds i8, ptr %185, i64 1
-  store ptr %incdec.ptr.i.i.i58, ptr %it.i10, align 8
+if.then.i.i24.i:                                  ; preds = %if.then.i.i45
+  %incdec.ptr.i.i.i46 = getelementptr inbounds i8, ptr %122, i64 1
+  store ptr %incdec.ptr.i.i.i46, ptr %it.i10, align 8
   br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i.i
 
-if.else.i.i167.i:                                 ; preds = %if.then.i163.i
-  %incdec.ptr3.i.i.i62 = getelementptr inbounds i8, ptr %184, i64 2
-  store ptr %incdec.ptr3.i.i.i62, ptr %127, align 8
+if.else.i.i27.i:                                  ; preds = %if.then.i.i45
+  %incdec.ptr3.i.i.i50 = getelementptr inbounds i8, ptr %121, i64 2
+  store ptr %incdec.ptr3.i.i.i50, ptr %87, align 8
   br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i.i
 
-_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i.i: ; preds = %if.else.i.i167.i, %if.then.i.i164.i
-  %bf.load.i.i339 = load i32, ptr %107, align 8
-  %tobool.i.i340 = icmp slt i32 %bf.load.i.i339, 0
-  br i1 %tobool.i.i340, label %if.then.i373, label %if.end.i341
+_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i.i: ; preds = %if.else.i.i27.i, %if.then.i.i24.i
+  %call.i25.i = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
+  %129 = extractvalue { ptr, ptr } %call.i25.i, 0
+  %130 = extractvalue { ptr, ptr } %call.i25.i, 1
+  %131 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i.i.i.i47 = icmp eq ptr %131, null
+  %132 = load ptr, ptr %87, align 8
+  %.sink.i.i.i.i48 = select i1 %tobool.not.i.i.i.i47, ptr %132, ptr %131
+  %.sroa.speculated.i26.i = select i1 %tobool.not.i.i.i.i47, ptr %130, ptr %129
+  %cmp5.i.i.not.i.i49 = icmp eq ptr %.sink.i.i.i.i48, %.sroa.speculated.i26.i
+  br i1 %cmp5.i.i.not.i.i49, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i", label %while.body.i.i, !llvm.loop !51
 
-if.then.i373:                                     ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i.i
-  %192 = and i32 %bf.load.i.i339, 1073741824
-  %tobool.not.i.i374 = icmp eq i32 %192, 0
-  %193 = load ptr, ptr %str.i, align 8
-  br i1 %tobool.not.i.i374, label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i387, label %if.end.i.i375
-
-if.end.i.i375:                                    ; preds = %if.then.i373
-  %retval.sroa.0.0.copyload.i.i.i.i.i376 = load i64, ptr %193, align 8
-  %and.i.i.i.i.i.i.i377 = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i376, 281474976710655
-  %194 = inttoptr i64 %and.i.i.i.i.i.i.i377 to ptr
-  %bf.load.i.i.i.i.i.i378 = load i32, ptr %194, align 4
-  %cmp.i.i.i.i379 = icmp ugt i32 %bf.load.i.i.i.i.i.i378, 150994943
-  br i1 %cmp.i.i.i.i379, label %if.then.i.i.i404, label %if.else.i.i.i380
-
-if.then.i.i.i404:                                 ; preds = %if.end.i.i375
-  %contents_.i.i.i.i405 = getelementptr inbounds i8, ptr %194, i64 16
-  %call.i.i.i.i406 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i405, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i384
-
-if.else.i.i.i380:                                 ; preds = %if.end.i.i375
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i381 = and i32 %bf.load.i.i.i.i.i.i378, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i381, label %if.else13.i.i.i398 [
-    i32 134217728, label %if.then5.i.i.i396
-    i32 67108864, label %if.then10.i.i.i382
-  ]
-
-if.then5.i.i.i396:                                ; preds = %if.else.i.i.i380
-  %add.ptr.i.i.i.i.i.i397 = getelementptr inbounds i8, ptr %194, i64 12
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i384
-
-if.then10.i.i.i382:                               ; preds = %if.else.i.i.i380
-  %add.ptr.i.i.i4.i.i.i383 = getelementptr inbounds i8, ptr %194, i64 8
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i384
-
-if.else13.i.i.i398:                               ; preds = %if.else.i.i.i380
-  %concatBufferHV_.i.i.i.i.i399 = getelementptr inbounds i8, ptr %194, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i400 = load i64, ptr %concatBufferHV_.i.i.i.i.i399, align 8
-  %and.i.i.i.i.i1.i.i401 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i400, 281474976710655
-  %195 = inttoptr i64 %and.i.i.i.i.i1.i.i401 to ptr
-  %contents_.i.i.i.i.i402 = getelementptr inbounds i8, ptr %195, i64 16
-  %call.i.i.i.i.i403 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i402, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i384
-
-_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i384: ; preds = %if.else13.i.i.i398, %if.then10.i.i.i382, %if.then5.i.i.i396, %if.then.i.i.i404
-  %retval.0.i.i.i385 = phi ptr [ %call.i.i.i.i406, %if.then.i.i.i404 ], [ %add.ptr.i.i.i.i.i.i397, %if.then5.i.i.i396 ], [ %add.ptr.i.i.i4.i.i.i383, %if.then10.i.i.i382 ], [ %call.i.i.i.i.i403, %if.else13.i.i.i398 ]
-  %bf.load7.i.i386 = load i32, ptr %107, align 8
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i387
-
-_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i387: ; preds = %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i384, %if.then.i373
-  %bf.load7.sink.i.i388 = phi i32 [ %bf.load7.i.i386, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i384 ], [ %bf.load.i.i339, %if.then.i373 ]
-  %retval.0.i.sink.i.i389 = phi ptr [ %retval.0.i.i.i385, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i384 ], [ %193, %if.then.i373 ]
-  %bf.clear8.i.i390 = and i32 %bf.load7.sink.i.i388, 1073741823
-  %idx.ext9.i.i391 = zext nneg i32 %bf.clear8.i.i390 to i64
-  %add.ptr10.i.i392 = getelementptr inbounds i8, ptr %retval.0.i.sink.i.i389, i64 %idx.ext9.i.i391
-  %196 = load i32, ptr %length_4.i107.i, align 4
-  %idx.ext.i394 = zext i32 %196 to i64
-  %add.ptr.i395 = getelementptr inbounds i8, ptr %add.ptr10.i.i392, i64 %idx.ext.i394
-  br label %_ZNK6hermes2vm10StringView3endEv.exit407
-
-if.end.i341:                                      ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i.i
-  %tobool.not.i4.i342 = icmp ult i32 %bf.load.i.i339, 1073741824
-  %197 = load ptr, ptr %str.i, align 8
-  br i1 %tobool.not.i4.i342, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i352, label %if.end.i5.i343
-
-if.end.i5.i343:                                   ; preds = %if.end.i341
-  %retval.sroa.0.0.copyload.i.i.i.i6.i344 = load i64, ptr %197, align 8
-  %and.i.i.i.i.i.i7.i345 = and i64 %retval.sroa.0.0.copyload.i.i.i.i6.i344, 281474976710655
-  %198 = inttoptr i64 %and.i.i.i.i.i.i7.i345 to ptr
-  %bf.load.i.i.i.i.i8.i346 = load i32, ptr %198, align 4
-  %cmp.i.i.i9.i347 = icmp ugt i32 %bf.load.i.i.i.i.i8.i346, 150994943
-  br i1 %cmp.i.i.i9.i347, label %if.then.i.i25.i371, label %if.else.i.i10.i348
-
-if.then.i.i25.i371:                               ; preds = %if.end.i5.i343
-  %contents_.i.i.i26.i372 = getelementptr inbounds i8, ptr %198, i64 16
-  %199 = load ptr, ptr %contents_.i.i.i26.i372, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i352
-
-if.else.i.i10.i348:                               ; preds = %if.end.i5.i343
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i349 = and i32 %bf.load.i.i.i.i.i8.i346, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i349, label %if.else13.i.i20.i366 [
-    i32 117440512, label %if.then5.i.i18.i364
-    i32 50331648, label %if.then10.i.i12.i350
-  ]
-
-if.then5.i.i18.i364:                              ; preds = %if.else.i.i10.i348
-  %add.ptr.i.i.i.i.i19.i365 = getelementptr inbounds i8, ptr %198, i64 12
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i352
-
-if.then10.i.i12.i350:                             ; preds = %if.else.i.i10.i348
-  %add.ptr.i.i.i4.i.i13.i351 = getelementptr inbounds i8, ptr %198, i64 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i352
-
-if.else13.i.i20.i366:                             ; preds = %if.else.i.i10.i348
-  %concatBufferHV_.i.i.i.i21.i367 = getelementptr inbounds i8, ptr %198, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i368 = load i64, ptr %concatBufferHV_.i.i.i.i21.i367, align 8
-  %and.i.i.i.i.i1.i23.i369 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i368, 281474976710655
-  %200 = inttoptr i64 %and.i.i.i.i.i1.i23.i369 to ptr
-  %contents_.i.i.i.i24.i370 = getelementptr inbounds i8, ptr %200, i64 16
-  %201 = load ptr, ptr %contents_.i.i.i.i24.i370, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i352
-
-_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i352: ; preds = %if.else13.i.i20.i366, %if.then10.i.i12.i350, %if.then5.i.i18.i364, %if.then.i.i25.i371, %if.end.i341
-  %retval.0.i.sink.i14.i353 = phi ptr [ %197, %if.end.i341 ], [ %199, %if.then.i.i25.i371 ], [ %add.ptr.i.i.i.i.i19.i365, %if.then5.i.i18.i364 ], [ %add.ptr.i.i.i4.i.i13.i351, %if.then10.i.i12.i350 ], [ %201, %if.else13.i.i20.i366 ]
-  %bf.clear8.i15.i354 = and i32 %bf.load.i.i339, 1073741823
-  %idx.ext9.i16.i355 = zext nneg i32 %bf.clear8.i15.i354 to i64
-  %add.ptr10.i17.i356 = getelementptr inbounds i16, ptr %retval.0.i.sink.i14.i353, i64 %idx.ext9.i16.i355
-  %202 = load i32, ptr %length_4.i107.i, align 4
-  %idx.ext5.i358 = zext i32 %202 to i64
-  %add.ptr6.i359 = getelementptr inbounds i16, ptr %add.ptr10.i17.i356, i64 %idx.ext5.i358
-  br label %_ZNK6hermes2vm10StringView3endEv.exit407
-
-_ZNK6hermes2vm10StringView3endEv.exit407:         ; preds = %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i387, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i352
-  %retval.sroa.3.0.i360 = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i387 ], [ %add.ptr6.i359, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i352 ]
-  %retval.sroa.0.0.i361 = phi ptr [ %add.ptr.i395, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i387 ], [ null, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i352 ]
-  %203 = load ptr, ptr %it.i10, align 8
-  %tobool.not.i.i.i.i59 = icmp eq ptr %203, null
-  %204 = load ptr, ptr %127, align 8
-  %.sink.i.i.i.i60 = select i1 %tobool.not.i.i.i.i59, ptr %204, ptr %203
-  %.sroa.speculated.i166.i = select i1 %tobool.not.i.i.i.i59, ptr %retval.sroa.3.0.i360, ptr %retval.sroa.0.0.i361
-  %cmp5.i.i.not.i.i61 = icmp eq ptr %.sink.i.i.i.i60, %.sroa.speculated.i166.i
-  br i1 %cmp5.i.i.not.i.i61, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i", label %while.body.i.i, !llvm.loop !51
-
-"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i": ; preds = %_ZNK6hermes2vm10StringView3endEv.exit407, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i.i, %lor.lhs.false.i.i, %if.then14.i
+"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i": ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i.i, %lor.lhs.false.i.i, %if.then14.i
   %call17.i = call fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_2clEi"(ptr noundef nonnull align 8 dereferenceable(24) %scanStrAndSkipWord.i)
   br i1 %call17.i, label %if.end19.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 if.end19.i:                                       ; preds = %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
-  %205 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %133 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store ptr @.str.16, ptr %ref.tmp.i.i, align 8
-  store i64 3, ptr %205, align 8
-  %call2.i444.i = call noundef zeroext i1 @_ZNK6hermes2vm10StringView6equalsIhEEbRKN4llvh8ArrayRefIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %tok.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  br i1 %call2.i444.i, label %if.then.i171.i, label %for.inc.i.i
+  store i64 3, ptr %133, align 8
+  %call2.i309.i = call noundef zeroext i1 @_ZNK6hermes2vm10StringView6equalsIhEEbRKN4llvh8ArrayRefIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %tok.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
+  br i1 %call2.i309.i, label %if.then.i31.i, label %for.inc.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i
   %arrayidx.i.i = getelementptr inbounds [12 x ptr], ptr @_ZN6hermes2vmL10monthNamesE, i64 0, i64 %indvars.iv.next.i.i
-  %206 = load ptr, ptr %arrayidx.i.i, align 8
-  %call.i.i169.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %206) #18
-  store ptr %206, ptr %ref.tmp.i.i, align 8
-  store i64 %call.i.i169.i, ptr %205, align 8
+  %134 = load ptr, ptr %arrayidx.i.i, align 8
+  %call.i.i29.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %134) #18
+  store ptr %134, ptr %ref.tmp.i.i, align 8
+  store i64 %call.i.i29.i, ptr %133, align 8
   %call2.i.i = call noundef zeroext i1 @_ZNK6hermes2vm10StringView6equalsIhEEbRKN4llvh8ArrayRefIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %tok.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
-  br i1 %call2.i.i, label %if.then.i171.i, label %for.inc.i.i, !llvm.loop !52
+  br i1 %call2.i.i, label %if.then.i31.i, label %for.inc.i.i, !llvm.loop !52
 
-if.then.i171.i:                                   ; preds = %for.body.i.i, %if.end19.i
+if.then.i31.i:                                    ; preds = %for.body.i.i, %if.end19.i
   %indvars.iv.i.lcssa.i = phi i64 [ 0, %if.end19.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %207 = trunc i64 %indvars.iv.i.lcssa.i to i32
+  %135 = trunc i64 %indvars.iv.i.lcssa.i to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   br label %while.end.i
 
 for.inc.i.i:                                      ; preds = %if.end19.i, %for.body.i.i
-  %indvars.iv.i445.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %if.end19.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i445.i, 1
+  %indvars.iv.i310.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %if.end19.i ]
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i310.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 12
   br i1 %exitcond.not.i.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_3clEv.exit.i", label %for.body.i.i, !llvm.loop !52
 
@@ -3450,791 +2612,347 @@ for.inc.i.i:                                      ; preds = %if.end19.i, %for.bo
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   br label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit177.i: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i65
-  %208 = or i16 %173, 32
-  %209 = add i16 %208, -97
-  %210 = icmp ult i16 %209, 26
-  br i1 %210, label %if.then26.i31, label %if.else.i.i66
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit37.i: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i53
+  %136 = or i16 %110, 32
+  %137 = add i16 %136, -97
+  %138 = icmp ult i16 %137, 26
+  br i1 %138, label %if.then26.i43, label %if.else.i.i54
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit177.thread.i: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i
-  %211 = or i8 %176, 32
-  %212 = sext i8 %211 to i16
-  %213 = add nsw i16 %212, -97
-  %214 = icmp ult i16 %213, 26
-  br i1 %214, label %if.then26.i31, label %if.then.i194.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit37.thread.i: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i
+  %139 = or i8 %113, 32
+  %140 = sext i8 %139 to i16
+  %141 = add nsw i16 %140, -97
+  %142 = icmp ult i16 %141, 26
+  br i1 %142, label %if.then26.i43, label %if.then.i54.i
 
-if.then26.i31:                                    ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit177.thread.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit177.i
+if.then26.i43:                                    ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit37.thread.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit37.i
   %call27.i = call fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_2clEi"(ptr noundef nonnull align 8 dereferenceable(24) %scanStrAndSkipWord.i)
   br i1 %call27.i, label %if.end29.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
-if.end29.i:                                       ; preds = %if.then26.i31
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i178.i)
-  store ptr @.str.16, ptr %ref.tmp.i178.i, align 8
-  store i64 3, ptr %216, align 8
-  %call2.i184438.i = call noundef zeroext i1 @_ZNK6hermes2vm10StringView6equalsIhEEbRKN4llvh8ArrayRefIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %tok.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i178.i)
-  br i1 %call2.i184438.i, label %if.then31.i, label %for.inc.i185.i
+if.end29.i:                                       ; preds = %if.then26.i43
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i38.i)
+  store ptr @.str.16, ptr %ref.tmp.i38.i, align 8
+  store i64 3, ptr %144, align 8
+  %call2.i44295.i = call noundef zeroext i1 @_ZNK6hermes2vm10StringView6equalsIhEEbRKN4llvh8ArrayRefIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %tok.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i38.i)
+  br i1 %call2.i44295.i, label %if.then31.i, label %for.inc.i45.i
 
-for.body.i179.i:                                  ; preds = %for.inc.i185.i
-  %arrayidx.i182.i = getelementptr inbounds [12 x ptr], ptr @_ZN6hermes2vmL10monthNamesE, i64 0, i64 %indvars.iv.next.i186.i
-  %215 = load ptr, ptr %arrayidx.i182.i, align 8
-  %call.i.i183.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %215) #18
-  store ptr %215, ptr %ref.tmp.i178.i, align 8
-  store i64 %call.i.i183.i, ptr %216, align 8
-  %call2.i184.i = call noundef zeroext i1 @_ZNK6hermes2vm10StringView6equalsIhEEbRKN4llvh8ArrayRefIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %tok.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i178.i)
-  br i1 %call2.i184.i, label %if.then31.i, label %for.inc.i185.i, !llvm.loop !52
+for.body.i39.i:                                   ; preds = %for.inc.i45.i
+  %arrayidx.i42.i = getelementptr inbounds [12 x ptr], ptr @_ZN6hermes2vmL10monthNamesE, i64 0, i64 %indvars.iv.next.i46.i
+  %143 = load ptr, ptr %arrayidx.i42.i, align 8
+  %call.i.i43.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %143) #18
+  store ptr %143, ptr %ref.tmp.i38.i, align 8
+  store i64 %call.i.i43.i, ptr %144, align 8
+  %call2.i44.i = call noundef zeroext i1 @_ZNK6hermes2vm10StringView6equalsIhEEbRKN4llvh8ArrayRefIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %tok.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i38.i)
+  br i1 %call2.i44.i, label %if.then31.i, label %for.inc.i45.i, !llvm.loop !52
 
 while.cond.outer.i:                               ; preds = %_ZN4llvh9StringRefC2EPKc.exit.i
-  %length_4.i107.i = getelementptr inbounds i8, ptr %str.i, i64 12
-  %216 = getelementptr inbounds i8, ptr %ref.tmp.i178.i, i64 8
-  br label %while.cond.i
+  %144 = getelementptr inbounds i8, ptr %ref.tmp.i38.i, i64 8
+  %call10300.i = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
+  %145 = extractvalue { ptr, ptr } %call10300.i, 0
+  %146 = extractvalue { ptr, ptr } %call10300.i, 1
+  %147 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i.i19301.i = icmp eq ptr %147, null
+  %148 = load ptr, ptr %87, align 8
+  %.sink.i.i20302.i = select i1 %tobool.not.i.i19301.i, ptr %148, ptr %147
+  %.sroa.speculated239303.i = select i1 %tobool.not.i.i19301.i, ptr %146, ptr %145
+  %cmp5.i.i21.not304.i = icmp eq ptr %.sink.i.i20302.i, %.sroa.speculated239303.i
+  br i1 %cmp5.i.i21.not304.i, label %while.end.i, label %while.body.i
 
-for.inc.i185.i:                                   ; preds = %if.end29.i, %for.body.i179.i
-  %indvars.iv.i180439.i = phi i64 [ %indvars.iv.next.i186.i, %for.body.i179.i ], [ 0, %if.end29.i ]
-  %indvars.iv.next.i186.i = add nuw nsw i64 %indvars.iv.i180439.i, 1
-  %exitcond.not.i188.i = icmp eq i64 %indvars.iv.next.i186.i, 12
-  br i1 %exitcond.not.i188.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_3clEv.exit192.i", label %for.body.i179.i, !llvm.loop !52
+for.inc.i45.i:                                    ; preds = %if.end29.i, %for.body.i39.i
+  %indvars.iv.i40296.i = phi i64 [ %indvars.iv.next.i46.i, %for.body.i39.i ], [ 0, %if.end29.i ]
+  %indvars.iv.next.i46.i = add nuw nsw i64 %indvars.iv.i40296.i, 1
+  %exitcond.not.i48.i = icmp eq i64 %indvars.iv.next.i46.i, 12
+  br i1 %exitcond.not.i48.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_3clEv.exit52.i", label %for.body.i39.i, !llvm.loop !52
 
-"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_3clEv.exit192.i": ; preds = %for.inc.i185.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i178.i)
-  br label %while.cond.i.backedge
+"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_3clEv.exit52.i": ; preds = %for.inc.i45.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i38.i)
+  br label %while.cond.backedge.i
 
-if.then31.i:                                      ; preds = %if.end29.i, %for.body.i179.i
-  %indvars.iv.i180.lcssa.i = phi i64 [ %indvars.iv.next.i186.i, %for.body.i179.i ], [ 0, %if.end29.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i178.i)
-  %217 = trunc i64 %indvars.iv.i180.lcssa.i to i32
-  %call10.i = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
-  %218 = extractvalue { ptr, ptr } %call10.i, 0
-  %219 = extractvalue { ptr, ptr } %call10.i, 1
-  %220 = load ptr, ptr %it.i10, align 8
-  %tobool.not.i.i11.i = icmp eq ptr %220, null
-  %char16Ptr_.i.i12.i = getelementptr inbounds i8, ptr %it.i10, i64 8
-  %221 = load ptr, ptr %char16Ptr_.i.i12.i, align 8
-  %.sink.i.i13.i = select i1 %tobool.not.i.i11.i, ptr %221, ptr %220
-  %.sroa.speculated14.i = select i1 %tobool.not.i.i11.i, ptr %219, ptr %218
+if.then31.i:                                      ; preds = %if.end29.i, %for.body.i39.i
+  %indvars.iv.i40.lcssa.i = phi i64 [ %indvars.iv.next.i46.i, %for.body.i39.i ], [ 0, %if.end29.i ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i38.i)
+  %149 = trunc i64 %indvars.iv.i40.lcssa.i to i32
+  %call10.i57 = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
+  %150 = extractvalue { ptr, ptr } %call10.i57, 0
+  %151 = extractvalue { ptr, ptr } %call10.i57, 1
+  %152 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i.i11.i = icmp eq ptr %152, null
+  %153 = load ptr, ptr %87, align 8
+  %.sink.i.i13.i = select i1 %tobool.not.i.i11.i, ptr %153, ptr %152
+  %.sroa.speculated14.i = select i1 %tobool.not.i.i11.i, ptr %151, ptr %150
   %cmp5.i.i.not15.i = icmp eq ptr %.sink.i.i13.i, %.sroa.speculated14.i
-  br i1 %cmp5.i.i.not15.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit", label %while.body.i319
+  br i1 %cmp5.i.i.not15.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit", label %while.body.i58
 
-while.body.i319:                                  ; preds = %if.then31.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i329
-  %222 = phi ptr [ %233, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i329 ], [ %221, %if.then31.i ]
-  %223 = phi ptr [ %232, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i329 ], [ %220, %if.then31.i ]
-  %first.016.i = phi i1 [ false, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i329 ], [ true, %if.then31.i ]
-  %tobool.not.i.i320 = icmp eq ptr %223, null
-  br i1 %tobool.not.i.i320, label %cond.false.i.i337, label %cond.true.i.i321
+while.body.i58:                                   ; preds = %if.then31.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i67
+  %154 = phi ptr [ %165, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i67 ], [ %153, %if.then31.i ]
+  %155 = phi ptr [ %164, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i67 ], [ %152, %if.then31.i ]
+  %first.016.i = phi i1 [ false, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i67 ], [ true, %if.then31.i ]
+  %tobool.not.i.i59 = icmp eq ptr %155, null
+  br i1 %tobool.not.i.i59, label %cond.false.i.i76, label %cond.true.i.i60
 
-cond.true.i.i321:                                 ; preds = %while.body.i319
-  %224 = load i8, ptr %223, align 1
-  %225 = sext i8 %224 to i16
-  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i322
+cond.true.i.i60:                                  ; preds = %while.body.i58
+  %156 = load i8, ptr %155, align 1
+  %157 = sext i8 %156 to i16
+  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i61
 
-cond.false.i.i337:                                ; preds = %while.body.i319
-  %226 = load i16, ptr %222, align 2
-  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i322
+cond.false.i.i76:                                 ; preds = %while.body.i58
+  %158 = load i16, ptr %154, align 2
+  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i61
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i322: ; preds = %cond.false.i.i337, %cond.true.i.i321
-  %cond.i.i323 = phi i16 [ %225, %cond.true.i.i321 ], [ %226, %cond.false.i.i337 ]
-  %conv.i324 = zext i16 %cond.i.i323 to i32
-  %call4.i325 = call i32 @isspace(i32 noundef %conv.i324) #18
-  %tobool.not.i = icmp eq i32 %call4.i325, 0
-  br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then.i326
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i61: ; preds = %cond.false.i.i76, %cond.true.i.i60
+  %cond.i.i62 = phi i16 [ %157, %cond.true.i.i60 ], [ %158, %cond.false.i.i76 ]
+  %conv.i63 = zext i16 %cond.i.i62 to i32
+  %call4.i64 = call i32 @isspace(i32 noundef %conv.i63) #18
+  %tobool.not.i = icmp eq i32 %call4.i64, 0
+  br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then.i
 
-lor.lhs.false.i:                                  ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i322
+lor.lhs.false.i:                                  ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i61
   br i1 %first.016.i, label %land.lhs.true.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit"
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
-  br i1 %tobool.not.i.i320, label %cond.false.i4.i, label %cond.true.i2.i
+  br i1 %tobool.not.i.i59, label %cond.false.i4.i, label %cond.true.i2.i
 
 cond.true.i2.i:                                   ; preds = %land.lhs.true.i
-  %227 = load i8, ptr %223, align 1
-  %228 = sext i8 %227 to i16
+  %159 = load i8, ptr %155, align 1
+  %160 = sext i8 %159 to i16
   br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i
 
 cond.false.i4.i:                                  ; preds = %land.lhs.true.i
-  %229 = load i16, ptr %222, align 2
+  %161 = load i16, ptr %154, align 2
   br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i
 
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i: ; preds = %cond.false.i4.i, %cond.true.i2.i
-  %cond.i3.i = phi i16 [ %228, %cond.true.i2.i ], [ %229, %cond.false.i4.i ]
+  %cond.i3.i = phi i16 [ %160, %cond.true.i2.i ], [ %161, %cond.false.i4.i ]
   %cmp.i = icmp eq i16 %cond.i3.i, 45
-  br i1 %cmp.i, label %if.then.i326, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit"
+  br i1 %cmp.i, label %if.then.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit"
 
-if.then.i326:                                     ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i322
-  br i1 %tobool.not.i.i320, label %if.else.i.i335, label %if.then.i.i327
+if.then.i:                                        ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i61
+  br i1 %tobool.not.i.i59, label %if.else.i.i74, label %if.then.i.i65
 
-if.then.i.i327:                                   ; preds = %if.then.i326
-  %incdec.ptr.i.i328 = getelementptr inbounds i8, ptr %223, i64 1
-  store ptr %incdec.ptr.i.i328, ptr %it.i10, align 8
-  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i329
+if.then.i.i65:                                    ; preds = %if.then.i
+  %incdec.ptr.i.i66 = getelementptr inbounds i8, ptr %155, i64 1
+  store ptr %incdec.ptr.i.i66, ptr %it.i10, align 8
+  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i67
 
-if.else.i.i335:                                   ; preds = %if.then.i326
-  %incdec.ptr3.i.i336 = getelementptr inbounds i8, ptr %222, i64 2
-  store ptr %incdec.ptr3.i.i336, ptr %char16Ptr_.i.i12.i, align 8
-  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i329
+if.else.i.i74:                                    ; preds = %if.then.i
+  %incdec.ptr3.i.i75 = getelementptr inbounds i8, ptr %154, i64 2
+  store ptr %incdec.ptr3.i.i75, ptr %87, align 8
+  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i67
 
-_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i329: ; preds = %if.else.i.i335, %if.then.i.i327
-  %call.i = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
-  %230 = extractvalue { ptr, ptr } %call.i, 0
-  %231 = extractvalue { ptr, ptr } %call.i, 1
-  %232 = load ptr, ptr %it.i10, align 8
-  %tobool.not.i.i.i330 = icmp eq ptr %232, null
-  %233 = load ptr, ptr %char16Ptr_.i.i12.i, align 8
-  %.sink.i.i.i331 = select i1 %tobool.not.i.i.i330, ptr %233, ptr %232
-  %.sroa.speculated.i332 = select i1 %tobool.not.i.i.i330, ptr %231, ptr %230
-  %cmp5.i.i.not.i333 = icmp eq ptr %.sink.i.i.i331, %.sroa.speculated.i332
-  br i1 %cmp5.i.i.not.i333, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit", label %while.body.i319, !llvm.loop !51
+_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i67: ; preds = %if.else.i.i74, %if.then.i.i65
+  %call.i68 = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
+  %162 = extractvalue { ptr, ptr } %call.i68, 0
+  %163 = extractvalue { ptr, ptr } %call.i68, 1
+  %164 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i.i.i69 = icmp eq ptr %164, null
+  %165 = load ptr, ptr %87, align 8
+  %.sink.i.i.i70 = select i1 %tobool.not.i.i.i69, ptr %165, ptr %164
+  %.sroa.speculated.i71 = select i1 %tobool.not.i.i.i69, ptr %163, ptr %162
+  %cmp5.i.i.not.i72 = icmp eq ptr %.sink.i.i.i70, %.sroa.speculated.i71
+  br i1 %cmp5.i.i.not.i72, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit", label %while.body.i58, !llvm.loop !51
 
-"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit": ; preds = %lor.lhs.false.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i329, %if.then31.i
-  %call33.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %retval.sroa.0.0.i39.i, ptr %retval.sroa.3.0.i38.i, ptr noundef nonnull align 4 dereferenceable(4) %d.i4)
+"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit": ; preds = %lor.lhs.false.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i67, %if.then31.i
+  %call33.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %89, ptr %90, ptr noundef nonnull align 4 dereferenceable(4) %d.i4)
   br i1 %call33.i, label %while.end.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
-if.then.i194.i:                                   ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit177.thread.i
-  %incdec.ptr.i.i30 = getelementptr inbounds i8, ptr %171, i64 1
-  store ptr %incdec.ptr.i.i30, ptr %it.i10, align 8
-  br label %while.cond.i.backedge
+if.then.i54.i:                                    ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit37.thread.i
+  %incdec.ptr.i.i18 = getelementptr inbounds i8, ptr %109, i64 1
+  store ptr %incdec.ptr.i.i18, ptr %it.i10, align 8
+  br label %while.cond.backedge.i
 
-if.else.i.i66:                                    ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit177.i
-  %incdec.ptr3.i.i67 = getelementptr inbounds i8, ptr %172, i64 2
-  store ptr %incdec.ptr3.i.i67, ptr %127, align 8
-  br label %while.cond.i.backedge
+if.else.i.i54:                                    ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit37.i
+  %incdec.ptr3.i.i55 = getelementptr inbounds i8, ptr %108, i64 2
+  store ptr %incdec.ptr3.i.i55, ptr %87, align 8
+  br label %while.cond.backedge.i
 
-while.cond.i.backedge:                            ; preds = %if.else.i.i66, %if.then.i194.i, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_3clEv.exit192.i"
-  br label %while.cond.i, !llvm.loop !53
+while.cond.backedge.i:                            ; preds = %if.else.i.i54, %if.then.i54.i, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_3clEv.exit52.i"
+  %call10.i = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
+  %166 = extractvalue { ptr, ptr } %call10.i, 0
+  %167 = extractvalue { ptr, ptr } %call10.i, 1
+  %168 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i.i19.i = icmp eq ptr %168, null
+  %169 = load ptr, ptr %87, align 8
+  %.sink.i.i20.i = select i1 %tobool.not.i.i19.i, ptr %169, ptr %168
+  %.sroa.speculated239.i = select i1 %tobool.not.i.i19.i, ptr %167, ptr %166
+  %cmp5.i.i21.not.i = icmp eq ptr %.sink.i.i20.i, %.sroa.speculated239.i
+  br i1 %cmp5.i.i21.not.i, label %while.end.i, label %while.body.i, !llvm.loop !53
 
-while.end.i:                                      ; preds = %_ZNK6hermes2vm10StringView3endEv.exit157.i, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit", %if.then.i171.i
-  %m.3.i = phi i32 [ %217, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit" ], [ %207, %if.then.i171.i ], [ 0, %_ZNK6hermes2vm10StringView3endEv.exit157.i ]
-  %bf.load.i.i250 = load i32, ptr %107, align 8
-  %tobool.i.i251 = icmp slt i32 %bf.load.i.i250, 0
-  br i1 %tobool.i.i251, label %if.then.i284, label %if.end.i252
+while.end.i:                                      ; preds = %while.cond.backedge.i, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit", %while.cond.outer.i, %if.then.i31.i
+  %m.3.i = phi i32 [ %149, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit" ], [ %135, %if.then.i31.i ], [ 0, %while.cond.outer.i ], [ 0, %while.cond.backedge.i ]
+  %call10.i57.i = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
+  %170 = extractvalue { ptr, ptr } %call10.i57.i, 0
+  %171 = extractvalue { ptr, ptr } %call10.i57.i, 1
+  %172 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i.i11.i58.i = icmp eq ptr %172, null
+  %173 = load ptr, ptr %87, align 8
+  %.sink.i.i13.i60.i = select i1 %tobool.not.i.i11.i58.i, ptr %173, ptr %172
+  %.sroa.speculated14.i61.i = select i1 %tobool.not.i.i11.i58.i, ptr %171, ptr %170
+  %cmp5.i.i.not15.i62.i = icmp eq ptr %.sink.i.i13.i60.i, %.sroa.speculated14.i61.i
+  br i1 %cmp5.i.i.not15.i62.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit95.i", label %while.body.i63.i
 
-if.then.i284:                                     ; preds = %while.end.i
-  %234 = and i32 %bf.load.i.i250, 1073741824
-  %tobool.not.i.i285 = icmp eq i32 %234, 0
-  %235 = load ptr, ptr %str.i, align 8
-  br i1 %tobool.not.i.i285, label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i298, label %if.end.i.i286
+while.body.i63.i:                                 ; preds = %while.end.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i75.i
+  %174 = phi ptr [ %185, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i75.i ], [ %173, %while.end.i ]
+  %175 = phi ptr [ %184, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i75.i ], [ %172, %while.end.i ]
+  %first.016.i64.i = phi i1 [ false, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i75.i ], [ true, %while.end.i ]
+  %tobool.not.i.i65.i = icmp eq ptr %175, null
+  br i1 %tobool.not.i.i65.i, label %cond.false.i.i93.i, label %cond.true.i.i66.i
 
-if.end.i.i286:                                    ; preds = %if.then.i284
-  %retval.sroa.0.0.copyload.i.i.i.i.i287 = load i64, ptr %235, align 8
-  %and.i.i.i.i.i.i.i288 = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i287, 281474976710655
-  %236 = inttoptr i64 %and.i.i.i.i.i.i.i288 to ptr
-  %bf.load.i.i.i.i.i.i289 = load i32, ptr %236, align 4
-  %cmp.i.i.i.i290 = icmp ugt i32 %bf.load.i.i.i.i.i.i289, 150994943
-  br i1 %cmp.i.i.i.i290, label %if.then.i.i.i315, label %if.else.i.i.i291
+cond.true.i.i66.i:                                ; preds = %while.body.i63.i
+  %176 = load i8, ptr %175, align 1
+  %177 = sext i8 %176 to i16
+  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i67.i
 
-if.then.i.i.i315:                                 ; preds = %if.end.i.i286
-  %contents_.i.i.i.i316 = getelementptr inbounds i8, ptr %236, i64 16
-  %call.i.i.i.i317 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i316, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i295
+cond.false.i.i93.i:                               ; preds = %while.body.i63.i
+  %178 = load i16, ptr %174, align 2
+  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i67.i
 
-if.else.i.i.i291:                                 ; preds = %if.end.i.i286
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i292 = and i32 %bf.load.i.i.i.i.i.i289, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i292, label %if.else13.i.i.i309 [
-    i32 134217728, label %if.then5.i.i.i307
-    i32 67108864, label %if.then10.i.i.i293
-  ]
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i67.i: ; preds = %cond.false.i.i93.i, %cond.true.i.i66.i
+  %cond.i.i68.i = phi i16 [ %177, %cond.true.i.i66.i ], [ %178, %cond.false.i.i93.i ]
+  %conv.i69.i = zext i16 %cond.i.i68.i to i32
+  %call4.i70.i = call i32 @isspace(i32 noundef %conv.i69.i) #18
+  %tobool.not.i71.i = icmp eq i32 %call4.i70.i, 0
+  br i1 %tobool.not.i71.i, label %lor.lhs.false.i85.i, label %if.then.i72.i
 
-if.then5.i.i.i307:                                ; preds = %if.else.i.i.i291
-  %add.ptr.i.i.i.i.i.i308 = getelementptr inbounds i8, ptr %236, i64 12
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i295
+lor.lhs.false.i85.i:                              ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i67.i
+  br i1 %first.016.i64.i, label %land.lhs.true.i86.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit95.i"
 
-if.then10.i.i.i293:                               ; preds = %if.else.i.i.i291
-  %add.ptr.i.i.i4.i.i.i294 = getelementptr inbounds i8, ptr %236, i64 8
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i295
+land.lhs.true.i86.i:                              ; preds = %lor.lhs.false.i85.i
+  br i1 %tobool.not.i.i65.i, label %cond.false.i4.i91.i, label %cond.true.i2.i87.i
 
-if.else13.i.i.i309:                               ; preds = %if.else.i.i.i291
-  %concatBufferHV_.i.i.i.i.i310 = getelementptr inbounds i8, ptr %236, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i311 = load i64, ptr %concatBufferHV_.i.i.i.i.i310, align 8
-  %and.i.i.i.i.i1.i.i312 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i311, 281474976710655
-  %237 = inttoptr i64 %and.i.i.i.i.i1.i.i312 to ptr
-  %contents_.i.i.i.i.i313 = getelementptr inbounds i8, ptr %237, i64 16
-  %call.i.i.i.i.i314 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i313, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i295
+cond.true.i2.i87.i:                               ; preds = %land.lhs.true.i86.i
+  %179 = load i8, ptr %175, align 1
+  %180 = sext i8 %179 to i16
+  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i88.i
 
-_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i295: ; preds = %if.else13.i.i.i309, %if.then10.i.i.i293, %if.then5.i.i.i307, %if.then.i.i.i315
-  %retval.0.i.i.i296 = phi ptr [ %call.i.i.i.i317, %if.then.i.i.i315 ], [ %add.ptr.i.i.i.i.i.i308, %if.then5.i.i.i307 ], [ %add.ptr.i.i.i4.i.i.i294, %if.then10.i.i.i293 ], [ %call.i.i.i.i.i314, %if.else13.i.i.i309 ]
-  %bf.load7.i.i297 = load i32, ptr %107, align 8
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i298
+cond.false.i4.i91.i:                              ; preds = %land.lhs.true.i86.i
+  %181 = load i16, ptr %174, align 2
+  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i88.i
 
-_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i298: ; preds = %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i295, %if.then.i284
-  %bf.load7.sink.i.i299 = phi i32 [ %bf.load7.i.i297, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i295 ], [ %bf.load.i.i250, %if.then.i284 ]
-  %retval.0.i.sink.i.i300 = phi ptr [ %retval.0.i.i.i296, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i295 ], [ %235, %if.then.i284 ]
-  %bf.clear8.i.i301 = and i32 %bf.load7.sink.i.i299, 1073741823
-  %idx.ext9.i.i302 = zext nneg i32 %bf.clear8.i.i301 to i64
-  %add.ptr10.i.i303 = getelementptr inbounds i8, ptr %retval.0.i.sink.i.i300, i64 %idx.ext9.i.i302
-  %238 = load i32, ptr %length_4.i107.i, align 4
-  %idx.ext.i305 = zext i32 %238 to i64
-  %add.ptr.i306 = getelementptr inbounds i8, ptr %add.ptr10.i.i303, i64 %idx.ext.i305
-  br label %_ZNK6hermes2vm10StringView3endEv.exit318
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i88.i: ; preds = %cond.false.i4.i91.i, %cond.true.i2.i87.i
+  %cond.i3.i89.i = phi i16 [ %180, %cond.true.i2.i87.i ], [ %181, %cond.false.i4.i91.i ]
+  %cmp.i90.i = icmp eq i16 %cond.i3.i89.i, 45
+  br i1 %cmp.i90.i, label %if.then.i72.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit95.i"
 
-if.end.i252:                                      ; preds = %while.end.i
-  %tobool.not.i4.i253 = icmp ult i32 %bf.load.i.i250, 1073741824
-  %239 = load ptr, ptr %str.i, align 8
-  br i1 %tobool.not.i4.i253, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i263, label %if.end.i5.i254
+if.then.i72.i:                                    ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i88.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i67.i
+  br i1 %tobool.not.i.i65.i, label %if.else.i.i82.i, label %if.then.i.i73.i
 
-if.end.i5.i254:                                   ; preds = %if.end.i252
-  %retval.sroa.0.0.copyload.i.i.i.i6.i255 = load i64, ptr %239, align 8
-  %and.i.i.i.i.i.i7.i256 = and i64 %retval.sroa.0.0.copyload.i.i.i.i6.i255, 281474976710655
-  %240 = inttoptr i64 %and.i.i.i.i.i.i7.i256 to ptr
-  %bf.load.i.i.i.i.i8.i257 = load i32, ptr %240, align 4
-  %cmp.i.i.i9.i258 = icmp ugt i32 %bf.load.i.i.i.i.i8.i257, 150994943
-  br i1 %cmp.i.i.i9.i258, label %if.then.i.i25.i282, label %if.else.i.i10.i259
+if.then.i.i73.i:                                  ; preds = %if.then.i72.i
+  %incdec.ptr.i.i74.i = getelementptr inbounds i8, ptr %175, i64 1
+  store ptr %incdec.ptr.i.i74.i, ptr %it.i10, align 8
+  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i75.i
 
-if.then.i.i25.i282:                               ; preds = %if.end.i5.i254
-  %contents_.i.i.i26.i283 = getelementptr inbounds i8, ptr %240, i64 16
-  %241 = load ptr, ptr %contents_.i.i.i26.i283, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i263
+if.else.i.i82.i:                                  ; preds = %if.then.i72.i
+  %incdec.ptr3.i.i84.i = getelementptr inbounds i8, ptr %174, i64 2
+  store ptr %incdec.ptr3.i.i84.i, ptr %87, align 8
+  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i75.i
 
-if.else.i.i10.i259:                               ; preds = %if.end.i5.i254
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i260 = and i32 %bf.load.i.i.i.i.i8.i257, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i260, label %if.else13.i.i20.i277 [
-    i32 117440512, label %if.then5.i.i18.i275
-    i32 50331648, label %if.then10.i.i12.i261
-  ]
+_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i75.i: ; preds = %if.else.i.i82.i, %if.then.i.i73.i
+  %call.i76.i = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
+  %182 = extractvalue { ptr, ptr } %call.i76.i, 0
+  %183 = extractvalue { ptr, ptr } %call.i76.i, 1
+  %184 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i.i.i77.i = icmp eq ptr %184, null
+  %185 = load ptr, ptr %87, align 8
+  %.sink.i.i.i79.i = select i1 %tobool.not.i.i.i77.i, ptr %185, ptr %184
+  %.sroa.speculated.i80.i = select i1 %tobool.not.i.i.i77.i, ptr %183, ptr %182
+  %cmp5.i.i.not.i81.i = icmp eq ptr %.sink.i.i.i79.i, %.sroa.speculated.i80.i
+  br i1 %cmp5.i.i.not.i81.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit95.i", label %while.body.i63.i, !llvm.loop !51
 
-if.then5.i.i18.i275:                              ; preds = %if.else.i.i10.i259
-  %add.ptr.i.i.i.i.i19.i276 = getelementptr inbounds i8, ptr %240, i64 12
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i263
-
-if.then10.i.i12.i261:                             ; preds = %if.else.i.i10.i259
-  %add.ptr.i.i.i4.i.i13.i262 = getelementptr inbounds i8, ptr %240, i64 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i263
-
-if.else13.i.i20.i277:                             ; preds = %if.else.i.i10.i259
-  %concatBufferHV_.i.i.i.i21.i278 = getelementptr inbounds i8, ptr %240, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i279 = load i64, ptr %concatBufferHV_.i.i.i.i21.i278, align 8
-  %and.i.i.i.i.i1.i23.i280 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i279, 281474976710655
-  %242 = inttoptr i64 %and.i.i.i.i.i1.i23.i280 to ptr
-  %contents_.i.i.i.i24.i281 = getelementptr inbounds i8, ptr %242, i64 16
-  %243 = load ptr, ptr %contents_.i.i.i.i24.i281, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i263
-
-_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i263: ; preds = %if.else13.i.i20.i277, %if.then10.i.i12.i261, %if.then5.i.i18.i275, %if.then.i.i25.i282, %if.end.i252
-  %retval.0.i.sink.i14.i264 = phi ptr [ %239, %if.end.i252 ], [ %241, %if.then.i.i25.i282 ], [ %add.ptr.i.i.i.i.i19.i276, %if.then5.i.i18.i275 ], [ %add.ptr.i.i.i4.i.i13.i262, %if.then10.i.i12.i261 ], [ %243, %if.else13.i.i20.i277 ]
-  %bf.clear8.i15.i265 = and i32 %bf.load.i.i250, 1073741823
-  %idx.ext9.i16.i266 = zext nneg i32 %bf.clear8.i15.i265 to i64
-  %add.ptr10.i17.i267 = getelementptr inbounds i16, ptr %retval.0.i.sink.i14.i264, i64 %idx.ext9.i16.i266
-  %244 = load i32, ptr %length_4.i107.i, align 4
-  %idx.ext5.i269 = zext i32 %244 to i64
-  %add.ptr6.i270 = getelementptr inbounds i16, ptr %add.ptr10.i17.i267, i64 %idx.ext5.i269
-  br label %_ZNK6hermes2vm10StringView3endEv.exit318
-
-_ZNK6hermes2vm10StringView3endEv.exit318:         ; preds = %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i298, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i263
-  %retval.sroa.3.0.i271 = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i298 ], [ %add.ptr6.i270, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i263 ]
-  %retval.sroa.0.0.i272 = phi ptr [ %add.ptr.i306, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i298 ], [ null, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i263 ]
-  %245 = load ptr, ptr %it.i10, align 8
-  %tobool.not.i.i11.i198.i = icmp eq ptr %245, null
-  %246 = load ptr, ptr %127, align 8
-  %.sink.i.i13.i200.i = select i1 %tobool.not.i.i11.i198.i, ptr %246, ptr %245
-  %.sroa.speculated14.i201.i = select i1 %tobool.not.i.i11.i198.i, ptr %retval.sroa.3.0.i271, ptr %retval.sroa.0.0.i272
-  %cmp5.i.i.not15.i202.i = icmp eq ptr %.sink.i.i13.i200.i, %.sroa.speculated14.i201.i
-  br i1 %cmp5.i.i.not15.i202.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit235.i", label %while.body.i203.i
-
-while.body.i203.i:                                ; preds = %_ZNK6hermes2vm10StringView3endEv.exit318, %_ZNK6hermes2vm10StringView3endEv.exit248
-  %247 = phi ptr [ %267, %_ZNK6hermes2vm10StringView3endEv.exit248 ], [ %246, %_ZNK6hermes2vm10StringView3endEv.exit318 ]
-  %248 = phi ptr [ %266, %_ZNK6hermes2vm10StringView3endEv.exit248 ], [ %245, %_ZNK6hermes2vm10StringView3endEv.exit318 ]
-  %first.016.i204.i = phi i1 [ false, %_ZNK6hermes2vm10StringView3endEv.exit248 ], [ true, %_ZNK6hermes2vm10StringView3endEv.exit318 ]
-  %tobool.not.i.i205.i = icmp eq ptr %248, null
-  br i1 %tobool.not.i.i205.i, label %cond.false.i.i233.i, label %cond.true.i.i206.i
-
-cond.true.i.i206.i:                               ; preds = %while.body.i203.i
-  %249 = load i8, ptr %248, align 1
-  %250 = sext i8 %249 to i16
-  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i207.i
-
-cond.false.i.i233.i:                              ; preds = %while.body.i203.i
-  %251 = load i16, ptr %247, align 2
-  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i207.i
-
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i207.i: ; preds = %cond.false.i.i233.i, %cond.true.i.i206.i
-  %cond.i.i208.i = phi i16 [ %250, %cond.true.i.i206.i ], [ %251, %cond.false.i.i233.i ]
-  %conv.i209.i = zext i16 %cond.i.i208.i to i32
-  %call4.i210.i = call i32 @isspace(i32 noundef %conv.i209.i) #18
-  %tobool.not.i211.i = icmp eq i32 %call4.i210.i, 0
-  br i1 %tobool.not.i211.i, label %lor.lhs.false.i225.i, label %if.then.i212.i
-
-lor.lhs.false.i225.i:                             ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i207.i
-  br i1 %first.016.i204.i, label %land.lhs.true.i226.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit235.i"
-
-land.lhs.true.i226.i:                             ; preds = %lor.lhs.false.i225.i
-  br i1 %tobool.not.i.i205.i, label %cond.false.i4.i231.i, label %cond.true.i2.i227.i
-
-cond.true.i2.i227.i:                              ; preds = %land.lhs.true.i226.i
-  %252 = load i8, ptr %248, align 1
-  %253 = sext i8 %252 to i16
-  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i228.i
-
-cond.false.i4.i231.i:                             ; preds = %land.lhs.true.i226.i
-  %254 = load i16, ptr %247, align 2
-  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i228.i
-
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i228.i: ; preds = %cond.false.i4.i231.i, %cond.true.i2.i227.i
-  %cond.i3.i229.i = phi i16 [ %253, %cond.true.i2.i227.i ], [ %254, %cond.false.i4.i231.i ]
-  %cmp.i230.i = icmp eq i16 %cond.i3.i229.i, 45
-  br i1 %cmp.i230.i, label %if.then.i212.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit235.i"
-
-if.then.i212.i:                                   ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i228.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i207.i
-  br i1 %tobool.not.i.i205.i, label %if.else.i.i222.i, label %if.then.i.i213.i
-
-if.then.i.i213.i:                                 ; preds = %if.then.i212.i
-  %incdec.ptr.i.i214.i = getelementptr inbounds i8, ptr %248, i64 1
-  store ptr %incdec.ptr.i.i214.i, ptr %it.i10, align 8
-  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i215.i
-
-if.else.i.i222.i:                                 ; preds = %if.then.i212.i
-  %incdec.ptr3.i.i224.i = getelementptr inbounds i8, ptr %247, i64 2
-  store ptr %incdec.ptr3.i.i224.i, ptr %127, align 8
-  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i215.i
-
-_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i215.i: ; preds = %if.else.i.i222.i, %if.then.i.i213.i
-  %bf.load.i.i180 = load i32, ptr %107, align 8
-  %tobool.i.i181 = icmp slt i32 %bf.load.i.i180, 0
-  br i1 %tobool.i.i181, label %if.then.i214, label %if.end.i182
-
-if.then.i214:                                     ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i215.i
-  %255 = and i32 %bf.load.i.i180, 1073741824
-  %tobool.not.i.i215 = icmp eq i32 %255, 0
-  %256 = load ptr, ptr %str.i, align 8
-  br i1 %tobool.not.i.i215, label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i228, label %if.end.i.i216
-
-if.end.i.i216:                                    ; preds = %if.then.i214
-  %retval.sroa.0.0.copyload.i.i.i.i.i217 = load i64, ptr %256, align 8
-  %and.i.i.i.i.i.i.i218 = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i217, 281474976710655
-  %257 = inttoptr i64 %and.i.i.i.i.i.i.i218 to ptr
-  %bf.load.i.i.i.i.i.i219 = load i32, ptr %257, align 4
-  %cmp.i.i.i.i220 = icmp ugt i32 %bf.load.i.i.i.i.i.i219, 150994943
-  br i1 %cmp.i.i.i.i220, label %if.then.i.i.i245, label %if.else.i.i.i221
-
-if.then.i.i.i245:                                 ; preds = %if.end.i.i216
-  %contents_.i.i.i.i246 = getelementptr inbounds i8, ptr %257, i64 16
-  %call.i.i.i.i247 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i246, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i225
-
-if.else.i.i.i221:                                 ; preds = %if.end.i.i216
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i222 = and i32 %bf.load.i.i.i.i.i.i219, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i222, label %if.else13.i.i.i239 [
-    i32 134217728, label %if.then5.i.i.i237
-    i32 67108864, label %if.then10.i.i.i223
-  ]
-
-if.then5.i.i.i237:                                ; preds = %if.else.i.i.i221
-  %add.ptr.i.i.i.i.i.i238 = getelementptr inbounds i8, ptr %257, i64 12
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i225
-
-if.then10.i.i.i223:                               ; preds = %if.else.i.i.i221
-  %add.ptr.i.i.i4.i.i.i224 = getelementptr inbounds i8, ptr %257, i64 8
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i225
-
-if.else13.i.i.i239:                               ; preds = %if.else.i.i.i221
-  %concatBufferHV_.i.i.i.i.i240 = getelementptr inbounds i8, ptr %257, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i241 = load i64, ptr %concatBufferHV_.i.i.i.i.i240, align 8
-  %and.i.i.i.i.i1.i.i242 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i241, 281474976710655
-  %258 = inttoptr i64 %and.i.i.i.i.i1.i.i242 to ptr
-  %contents_.i.i.i.i.i243 = getelementptr inbounds i8, ptr %258, i64 16
-  %call.i.i.i.i.i244 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i243, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i225
-
-_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i225: ; preds = %if.else13.i.i.i239, %if.then10.i.i.i223, %if.then5.i.i.i237, %if.then.i.i.i245
-  %retval.0.i.i.i226 = phi ptr [ %call.i.i.i.i247, %if.then.i.i.i245 ], [ %add.ptr.i.i.i.i.i.i238, %if.then5.i.i.i237 ], [ %add.ptr.i.i.i4.i.i.i224, %if.then10.i.i.i223 ], [ %call.i.i.i.i.i244, %if.else13.i.i.i239 ]
-  %bf.load7.i.i227 = load i32, ptr %107, align 8
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i228
-
-_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i228: ; preds = %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i225, %if.then.i214
-  %bf.load7.sink.i.i229 = phi i32 [ %bf.load7.i.i227, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i225 ], [ %bf.load.i.i180, %if.then.i214 ]
-  %retval.0.i.sink.i.i230 = phi ptr [ %retval.0.i.i.i226, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i225 ], [ %256, %if.then.i214 ]
-  %bf.clear8.i.i231 = and i32 %bf.load7.sink.i.i229, 1073741823
-  %idx.ext9.i.i232 = zext nneg i32 %bf.clear8.i.i231 to i64
-  %add.ptr10.i.i233 = getelementptr inbounds i8, ptr %retval.0.i.sink.i.i230, i64 %idx.ext9.i.i232
-  %259 = load i32, ptr %length_4.i107.i, align 4
-  %idx.ext.i235 = zext i32 %259 to i64
-  %add.ptr.i236 = getelementptr inbounds i8, ptr %add.ptr10.i.i233, i64 %idx.ext.i235
-  br label %_ZNK6hermes2vm10StringView3endEv.exit248
-
-if.end.i182:                                      ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i215.i
-  %tobool.not.i4.i183 = icmp ult i32 %bf.load.i.i180, 1073741824
-  %260 = load ptr, ptr %str.i, align 8
-  br i1 %tobool.not.i4.i183, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i193, label %if.end.i5.i184
-
-if.end.i5.i184:                                   ; preds = %if.end.i182
-  %retval.sroa.0.0.copyload.i.i.i.i6.i185 = load i64, ptr %260, align 8
-  %and.i.i.i.i.i.i7.i186 = and i64 %retval.sroa.0.0.copyload.i.i.i.i6.i185, 281474976710655
-  %261 = inttoptr i64 %and.i.i.i.i.i.i7.i186 to ptr
-  %bf.load.i.i.i.i.i8.i187 = load i32, ptr %261, align 4
-  %cmp.i.i.i9.i188 = icmp ugt i32 %bf.load.i.i.i.i.i8.i187, 150994943
-  br i1 %cmp.i.i.i9.i188, label %if.then.i.i25.i212, label %if.else.i.i10.i189
-
-if.then.i.i25.i212:                               ; preds = %if.end.i5.i184
-  %contents_.i.i.i26.i213 = getelementptr inbounds i8, ptr %261, i64 16
-  %262 = load ptr, ptr %contents_.i.i.i26.i213, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i193
-
-if.else.i.i10.i189:                               ; preds = %if.end.i5.i184
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i190 = and i32 %bf.load.i.i.i.i.i8.i187, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i190, label %if.else13.i.i20.i207 [
-    i32 117440512, label %if.then5.i.i18.i205
-    i32 50331648, label %if.then10.i.i12.i191
-  ]
-
-if.then5.i.i18.i205:                              ; preds = %if.else.i.i10.i189
-  %add.ptr.i.i.i.i.i19.i206 = getelementptr inbounds i8, ptr %261, i64 12
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i193
-
-if.then10.i.i12.i191:                             ; preds = %if.else.i.i10.i189
-  %add.ptr.i.i.i4.i.i13.i192 = getelementptr inbounds i8, ptr %261, i64 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i193
-
-if.else13.i.i20.i207:                             ; preds = %if.else.i.i10.i189
-  %concatBufferHV_.i.i.i.i21.i208 = getelementptr inbounds i8, ptr %261, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i209 = load i64, ptr %concatBufferHV_.i.i.i.i21.i208, align 8
-  %and.i.i.i.i.i1.i23.i210 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i209, 281474976710655
-  %263 = inttoptr i64 %and.i.i.i.i.i1.i23.i210 to ptr
-  %contents_.i.i.i.i24.i211 = getelementptr inbounds i8, ptr %263, i64 16
-  %264 = load ptr, ptr %contents_.i.i.i.i24.i211, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i193
-
-_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i193: ; preds = %if.else13.i.i20.i207, %if.then10.i.i12.i191, %if.then5.i.i18.i205, %if.then.i.i25.i212, %if.end.i182
-  %retval.0.i.sink.i14.i194 = phi ptr [ %260, %if.end.i182 ], [ %262, %if.then.i.i25.i212 ], [ %add.ptr.i.i.i.i.i19.i206, %if.then5.i.i18.i205 ], [ %add.ptr.i.i.i4.i.i13.i192, %if.then10.i.i12.i191 ], [ %264, %if.else13.i.i20.i207 ]
-  %bf.clear8.i15.i195 = and i32 %bf.load.i.i180, 1073741823
-  %idx.ext9.i16.i196 = zext nneg i32 %bf.clear8.i15.i195 to i64
-  %add.ptr10.i17.i197 = getelementptr inbounds i16, ptr %retval.0.i.sink.i14.i194, i64 %idx.ext9.i16.i196
-  %265 = load i32, ptr %length_4.i107.i, align 4
-  %idx.ext5.i199 = zext i32 %265 to i64
-  %add.ptr6.i200 = getelementptr inbounds i16, ptr %add.ptr10.i17.i197, i64 %idx.ext5.i199
-  br label %_ZNK6hermes2vm10StringView3endEv.exit248
-
-_ZNK6hermes2vm10StringView3endEv.exit248:         ; preds = %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i228, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i193
-  %retval.sroa.3.0.i201 = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i228 ], [ %add.ptr6.i200, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i193 ]
-  %retval.sroa.0.0.i202 = phi ptr [ %add.ptr.i236, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i228 ], [ null, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i193 ]
-  %266 = load ptr, ptr %it.i10, align 8
-  %tobool.not.i.i.i217.i = icmp eq ptr %266, null
-  %267 = load ptr, ptr %127, align 8
-  %.sink.i.i.i219.i = select i1 %tobool.not.i.i.i217.i, ptr %267, ptr %266
-  %.sroa.speculated.i220.i = select i1 %tobool.not.i.i.i217.i, ptr %retval.sroa.3.0.i201, ptr %retval.sroa.0.0.i202
-  %cmp5.i.i.not.i221.i = icmp eq ptr %.sink.i.i.i219.i, %.sroa.speculated.i220.i
-  br i1 %cmp5.i.i.not.i221.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit235.i", label %while.body.i203.i, !llvm.loop !51
-
-"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit235.i": ; preds = %_ZNK6hermes2vm10StringView3endEv.exit248, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i228.i, %lor.lhs.false.i225.i, %_ZNK6hermes2vm10StringView3endEv.exit318
-  %call40.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %retval.sroa.0.0.i39.i, ptr %retval.sroa.3.0.i38.i, ptr noundef nonnull align 4 dereferenceable(4) %y.i3)
+"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit95.i": ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i75.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i88.i, %lor.lhs.false.i85.i, %while.end.i
+  %call40.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %89, ptr %90, ptr noundef nonnull align 4 dereferenceable(4) %y.i3)
   br i1 %call40.i, label %if.end42.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
-if.end42.i:                                       ; preds = %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit235.i"
-  %bf.load.i.i110 = load i32, ptr %107, align 8
-  %tobool.i.i111 = icmp slt i32 %bf.load.i.i110, 0
-  br i1 %tobool.i.i111, label %if.then.i144, label %if.end.i112
+if.end42.i:                                       ; preds = %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit95.i"
+  %call10.i96.i = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
+  %186 = extractvalue { ptr, ptr } %call10.i96.i, 0
+  %187 = extractvalue { ptr, ptr } %call10.i96.i, 1
+  %188 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i.i11.i97.i = icmp eq ptr %188, null
+  %189 = load ptr, ptr %87, align 8
+  %.sink.i.i13.i99.i = select i1 %tobool.not.i.i11.i97.i, ptr %189, ptr %188
+  %.sroa.speculated14.i100.i = select i1 %tobool.not.i.i11.i97.i, ptr %187, ptr %186
+  %cmp5.i.i.not15.i101.i = icmp eq ptr %.sink.i.i13.i99.i, %.sroa.speculated14.i100.i
+  br i1 %cmp5.i.i.not15.i101.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit134.i", label %while.body.i102.i
 
-if.then.i144:                                     ; preds = %if.end42.i
-  %268 = and i32 %bf.load.i.i110, 1073741824
-  %tobool.not.i.i145 = icmp eq i32 %268, 0
-  %269 = load ptr, ptr %str.i, align 8
-  br i1 %tobool.not.i.i145, label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i158, label %if.end.i.i146
+while.body.i102.i:                                ; preds = %if.end42.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i114.i
+  %190 = phi ptr [ %201, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i114.i ], [ %189, %if.end42.i ]
+  %191 = phi ptr [ %200, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i114.i ], [ %188, %if.end42.i ]
+  %first.016.i103.i = phi i1 [ false, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i114.i ], [ true, %if.end42.i ]
+  %tobool.not.i.i104.i = icmp eq ptr %191, null
+  br i1 %tobool.not.i.i104.i, label %cond.false.i.i132.i, label %cond.true.i.i105.i
 
-if.end.i.i146:                                    ; preds = %if.then.i144
-  %retval.sroa.0.0.copyload.i.i.i.i.i147 = load i64, ptr %269, align 8
-  %and.i.i.i.i.i.i.i148 = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i147, 281474976710655
-  %270 = inttoptr i64 %and.i.i.i.i.i.i.i148 to ptr
-  %bf.load.i.i.i.i.i.i149 = load i32, ptr %270, align 4
-  %cmp.i.i.i.i150 = icmp ugt i32 %bf.load.i.i.i.i.i.i149, 150994943
-  br i1 %cmp.i.i.i.i150, label %if.then.i.i.i175, label %if.else.i.i.i151
+cond.true.i.i105.i:                               ; preds = %while.body.i102.i
+  %192 = load i8, ptr %191, align 1
+  %193 = sext i8 %192 to i16
+  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i106.i
 
-if.then.i.i.i175:                                 ; preds = %if.end.i.i146
-  %contents_.i.i.i.i176 = getelementptr inbounds i8, ptr %270, i64 16
-  %call.i.i.i.i177 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i176, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i155
+cond.false.i.i132.i:                              ; preds = %while.body.i102.i
+  %194 = load i16, ptr %190, align 2
+  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i106.i
 
-if.else.i.i.i151:                                 ; preds = %if.end.i.i146
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i152 = and i32 %bf.load.i.i.i.i.i.i149, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i152, label %if.else13.i.i.i169 [
-    i32 134217728, label %if.then5.i.i.i167
-    i32 67108864, label %if.then10.i.i.i153
-  ]
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i106.i: ; preds = %cond.false.i.i132.i, %cond.true.i.i105.i
+  %cond.i.i107.i = phi i16 [ %193, %cond.true.i.i105.i ], [ %194, %cond.false.i.i132.i ]
+  %conv.i108.i = zext i16 %cond.i.i107.i to i32
+  %call4.i109.i = call i32 @isspace(i32 noundef %conv.i108.i) #18
+  %tobool.not.i110.i = icmp eq i32 %call4.i109.i, 0
+  br i1 %tobool.not.i110.i, label %lor.lhs.false.i124.i, label %if.then.i111.i
 
-if.then5.i.i.i167:                                ; preds = %if.else.i.i.i151
-  %add.ptr.i.i.i.i.i.i168 = getelementptr inbounds i8, ptr %270, i64 12
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i155
+lor.lhs.false.i124.i:                             ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i106.i
+  br i1 %first.016.i103.i, label %land.lhs.true.i125.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit134.i"
 
-if.then10.i.i.i153:                               ; preds = %if.else.i.i.i151
-  %add.ptr.i.i.i4.i.i.i154 = getelementptr inbounds i8, ptr %270, i64 8
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i155
+land.lhs.true.i125.i:                             ; preds = %lor.lhs.false.i124.i
+  br i1 %tobool.not.i.i104.i, label %cond.false.i4.i130.i, label %cond.true.i2.i126.i
 
-if.else13.i.i.i169:                               ; preds = %if.else.i.i.i151
-  %concatBufferHV_.i.i.i.i.i170 = getelementptr inbounds i8, ptr %270, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i171 = load i64, ptr %concatBufferHV_.i.i.i.i.i170, align 8
-  %and.i.i.i.i.i1.i.i172 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i171, 281474976710655
-  %271 = inttoptr i64 %and.i.i.i.i.i1.i.i172 to ptr
-  %contents_.i.i.i.i.i173 = getelementptr inbounds i8, ptr %271, i64 16
-  %call.i.i.i.i.i174 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i173, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i155
+cond.true.i2.i126.i:                              ; preds = %land.lhs.true.i125.i
+  %195 = load i8, ptr %191, align 1
+  %196 = sext i8 %195 to i16
+  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i127.i
 
-_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i155: ; preds = %if.else13.i.i.i169, %if.then10.i.i.i153, %if.then5.i.i.i167, %if.then.i.i.i175
-  %retval.0.i.i.i156 = phi ptr [ %call.i.i.i.i177, %if.then.i.i.i175 ], [ %add.ptr.i.i.i.i.i.i168, %if.then5.i.i.i167 ], [ %add.ptr.i.i.i4.i.i.i154, %if.then10.i.i.i153 ], [ %call.i.i.i.i.i174, %if.else13.i.i.i169 ]
-  %bf.load7.i.i157 = load i32, ptr %107, align 8
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i158
+cond.false.i4.i130.i:                             ; preds = %land.lhs.true.i125.i
+  %197 = load i16, ptr %190, align 2
+  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i127.i
 
-_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i158: ; preds = %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i155, %if.then.i144
-  %bf.load7.sink.i.i159 = phi i32 [ %bf.load7.i.i157, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i155 ], [ %bf.load.i.i110, %if.then.i144 ]
-  %retval.0.i.sink.i.i160 = phi ptr [ %retval.0.i.i.i156, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i155 ], [ %269, %if.then.i144 ]
-  %bf.clear8.i.i161 = and i32 %bf.load7.sink.i.i159, 1073741823
-  %idx.ext9.i.i162 = zext nneg i32 %bf.clear8.i.i161 to i64
-  %add.ptr10.i.i163 = getelementptr inbounds i8, ptr %retval.0.i.sink.i.i160, i64 %idx.ext9.i.i162
-  %272 = load i32, ptr %length_4.i107.i, align 4
-  %idx.ext.i165 = zext i32 %272 to i64
-  %add.ptr.i166 = getelementptr inbounds i8, ptr %add.ptr10.i.i163, i64 %idx.ext.i165
-  br label %_ZNK6hermes2vm10StringView3endEv.exit178
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i127.i: ; preds = %cond.false.i4.i130.i, %cond.true.i2.i126.i
+  %cond.i3.i128.i = phi i16 [ %196, %cond.true.i2.i126.i ], [ %197, %cond.false.i4.i130.i ]
+  %cmp.i129.i = icmp eq i16 %cond.i3.i128.i, 45
+  br i1 %cmp.i129.i, label %if.then.i111.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit134.i"
 
-if.end.i112:                                      ; preds = %if.end42.i
-  %tobool.not.i4.i113 = icmp ult i32 %bf.load.i.i110, 1073741824
-  %273 = load ptr, ptr %str.i, align 8
-  br i1 %tobool.not.i4.i113, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i123, label %if.end.i5.i114
+if.then.i111.i:                                   ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i127.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i106.i
+  br i1 %tobool.not.i.i104.i, label %if.else.i.i121.i, label %if.then.i.i112.i
 
-if.end.i5.i114:                                   ; preds = %if.end.i112
-  %retval.sroa.0.0.copyload.i.i.i.i6.i115 = load i64, ptr %273, align 8
-  %and.i.i.i.i.i.i7.i116 = and i64 %retval.sroa.0.0.copyload.i.i.i.i6.i115, 281474976710655
-  %274 = inttoptr i64 %and.i.i.i.i.i.i7.i116 to ptr
-  %bf.load.i.i.i.i.i8.i117 = load i32, ptr %274, align 4
-  %cmp.i.i.i9.i118 = icmp ugt i32 %bf.load.i.i.i.i.i8.i117, 150994943
-  br i1 %cmp.i.i.i9.i118, label %if.then.i.i25.i142, label %if.else.i.i10.i119
+if.then.i.i112.i:                                 ; preds = %if.then.i111.i
+  %incdec.ptr.i.i113.i = getelementptr inbounds i8, ptr %191, i64 1
+  store ptr %incdec.ptr.i.i113.i, ptr %it.i10, align 8
+  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i114.i
 
-if.then.i.i25.i142:                               ; preds = %if.end.i5.i114
-  %contents_.i.i.i26.i143 = getelementptr inbounds i8, ptr %274, i64 16
-  %275 = load ptr, ptr %contents_.i.i.i26.i143, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i123
+if.else.i.i121.i:                                 ; preds = %if.then.i111.i
+  %incdec.ptr3.i.i123.i = getelementptr inbounds i8, ptr %190, i64 2
+  store ptr %incdec.ptr3.i.i123.i, ptr %87, align 8
+  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i114.i
 
-if.else.i.i10.i119:                               ; preds = %if.end.i5.i114
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i120 = and i32 %bf.load.i.i.i.i.i8.i117, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i120, label %if.else13.i.i20.i137 [
-    i32 117440512, label %if.then5.i.i18.i135
-    i32 50331648, label %if.then10.i.i12.i121
-  ]
+_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i114.i: ; preds = %if.else.i.i121.i, %if.then.i.i112.i
+  %call.i115.i = call { ptr, ptr } @_ZNK6hermes2vm10StringView3endEv(ptr noundef nonnull align 8 dereferenceable(16) %str.i)
+  %198 = extractvalue { ptr, ptr } %call.i115.i, 0
+  %199 = extractvalue { ptr, ptr } %call.i115.i, 1
+  %200 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i.i.i116.i = icmp eq ptr %200, null
+  %201 = load ptr, ptr %87, align 8
+  %.sink.i.i.i118.i = select i1 %tobool.not.i.i.i116.i, ptr %201, ptr %200
+  %.sroa.speculated.i119.i = select i1 %tobool.not.i.i.i116.i, ptr %199, ptr %198
+  %cmp5.i.i.not.i120.i = icmp eq ptr %.sink.i.i.i118.i, %.sroa.speculated.i119.i
+  br i1 %cmp5.i.i.not.i120.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit134.i", label %while.body.i102.i, !llvm.loop !51
 
-if.then5.i.i18.i135:                              ; preds = %if.else.i.i10.i119
-  %add.ptr.i.i.i.i.i19.i136 = getelementptr inbounds i8, ptr %274, i64 12
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i123
+"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit134.i": ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i114.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i127.i, %lor.lhs.false.i124.i, %if.end42.i
+  %202 = phi ptr [ %189, %if.end42.i ], [ %201, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i114.i ], [ %190, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i127.i ], [ %190, %lor.lhs.false.i124.i ]
+  %203 = phi ptr [ %188, %if.end42.i ], [ %200, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i114.i ], [ %191, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i127.i ], [ %191, %lor.lhs.false.i124.i ]
+  %tobool.not.i.i135.i = icmp eq ptr %203, null
+  %.sink.i.i139.i = select i1 %tobool.not.i.i135.i, ptr %202, ptr %203
+  %.sroa.speculated273.i = select i1 %tobool.not.i.i135.i, ptr %90, ptr %89
+  %cmp5.i.i140.not.i = icmp eq ptr %.sink.i.i139.i, %.sroa.speculated273.i
+  br i1 %cmp5.i.i140.not.i, label %if.end63.i, label %if.then44.i
 
-if.then10.i.i12.i121:                             ; preds = %if.else.i.i10.i119
-  %add.ptr.i.i.i4.i.i13.i122 = getelementptr inbounds i8, ptr %274, i64 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i123
-
-if.else13.i.i20.i137:                             ; preds = %if.else.i.i10.i119
-  %concatBufferHV_.i.i.i.i21.i138 = getelementptr inbounds i8, ptr %274, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i139 = load i64, ptr %concatBufferHV_.i.i.i.i21.i138, align 8
-  %and.i.i.i.i.i1.i23.i140 = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i139, 281474976710655
-  %276 = inttoptr i64 %and.i.i.i.i.i1.i23.i140 to ptr
-  %contents_.i.i.i.i24.i141 = getelementptr inbounds i8, ptr %276, i64 16
-  %277 = load ptr, ptr %contents_.i.i.i.i24.i141, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i123
-
-_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i123: ; preds = %if.else13.i.i20.i137, %if.then10.i.i12.i121, %if.then5.i.i18.i135, %if.then.i.i25.i142, %if.end.i112
-  %retval.0.i.sink.i14.i124 = phi ptr [ %273, %if.end.i112 ], [ %275, %if.then.i.i25.i142 ], [ %add.ptr.i.i.i.i.i19.i136, %if.then5.i.i18.i135 ], [ %add.ptr.i.i.i4.i.i13.i122, %if.then10.i.i12.i121 ], [ %277, %if.else13.i.i20.i137 ]
-  %bf.clear8.i15.i125 = and i32 %bf.load.i.i110, 1073741823
-  %idx.ext9.i16.i126 = zext nneg i32 %bf.clear8.i15.i125 to i64
-  %add.ptr10.i17.i127 = getelementptr inbounds i16, ptr %retval.0.i.sink.i14.i124, i64 %idx.ext9.i16.i126
-  %278 = load i32, ptr %length_4.i107.i, align 4
-  %idx.ext5.i129 = zext i32 %278 to i64
-  %add.ptr6.i130 = getelementptr inbounds i16, ptr %add.ptr10.i17.i127, i64 %idx.ext5.i129
-  br label %_ZNK6hermes2vm10StringView3endEv.exit178
-
-_ZNK6hermes2vm10StringView3endEv.exit178:         ; preds = %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i158, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i123
-  %retval.sroa.3.0.i131 = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i158 ], [ %add.ptr6.i130, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i123 ]
-  %retval.sroa.0.0.i132 = phi ptr [ %add.ptr.i166, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i158 ], [ null, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i123 ]
-  %279 = load ptr, ptr %it.i10, align 8
-  %tobool.not.i.i11.i237.i = icmp eq ptr %279, null
-  %280 = load ptr, ptr %127, align 8
-  %.sink.i.i13.i239.i = select i1 %tobool.not.i.i11.i237.i, ptr %280, ptr %279
-  %.sroa.speculated14.i240.i = select i1 %tobool.not.i.i11.i237.i, ptr %retval.sroa.3.0.i131, ptr %retval.sroa.0.0.i132
-  %cmp5.i.i.not15.i241.i = icmp eq ptr %.sink.i.i13.i239.i, %.sroa.speculated14.i240.i
-  br i1 %cmp5.i.i.not15.i241.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit274.i", label %while.body.i242.i
-
-while.body.i242.i:                                ; preds = %_ZNK6hermes2vm10StringView3endEv.exit178, %_ZNK6hermes2vm10StringView3endEv.exit
-  %281 = phi ptr [ %301, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %280, %_ZNK6hermes2vm10StringView3endEv.exit178 ]
-  %282 = phi ptr [ %300, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %279, %_ZNK6hermes2vm10StringView3endEv.exit178 ]
-  %first.016.i243.i = phi i1 [ false, %_ZNK6hermes2vm10StringView3endEv.exit ], [ true, %_ZNK6hermes2vm10StringView3endEv.exit178 ]
-  %tobool.not.i.i244.i = icmp eq ptr %282, null
-  br i1 %tobool.not.i.i244.i, label %cond.false.i.i272.i, label %cond.true.i.i245.i
-
-cond.true.i.i245.i:                               ; preds = %while.body.i242.i
-  %283 = load i8, ptr %282, align 1
-  %284 = sext i8 %283 to i16
-  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i246.i
-
-cond.false.i.i272.i:                              ; preds = %while.body.i242.i
-  %285 = load i16, ptr %281, align 2
-  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i246.i
-
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i246.i: ; preds = %cond.false.i.i272.i, %cond.true.i.i245.i
-  %cond.i.i247.i = phi i16 [ %284, %cond.true.i.i245.i ], [ %285, %cond.false.i.i272.i ]
-  %conv.i248.i = zext i16 %cond.i.i247.i to i32
-  %call4.i249.i = call i32 @isspace(i32 noundef %conv.i248.i) #18
-  %tobool.not.i250.i32 = icmp eq i32 %call4.i249.i, 0
-  br i1 %tobool.not.i250.i32, label %lor.lhs.false.i264.i, label %if.then.i251.i
-
-lor.lhs.false.i264.i:                             ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i246.i
-  br i1 %first.016.i243.i, label %land.lhs.true.i265.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit274.i"
-
-land.lhs.true.i265.i:                             ; preds = %lor.lhs.false.i264.i
-  br i1 %tobool.not.i.i244.i, label %cond.false.i4.i270.i, label %cond.true.i2.i266.i
-
-cond.true.i2.i266.i:                              ; preds = %land.lhs.true.i265.i
-  %286 = load i8, ptr %282, align 1
-  %287 = sext i8 %286 to i16
-  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i267.i
-
-cond.false.i4.i270.i:                             ; preds = %land.lhs.true.i265.i
-  %288 = load i16, ptr %281, align 2
-  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i267.i
-
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i267.i: ; preds = %cond.false.i4.i270.i, %cond.true.i2.i266.i
-  %cond.i3.i268.i = phi i16 [ %287, %cond.true.i2.i266.i ], [ %288, %cond.false.i4.i270.i ]
-  %cmp.i269.i = icmp eq i16 %cond.i3.i268.i, 45
-  br i1 %cmp.i269.i, label %if.then.i251.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit274.i"
-
-if.then.i251.i:                                   ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i267.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i246.i
-  br i1 %tobool.not.i.i244.i, label %if.else.i.i261.i, label %if.then.i.i252.i
-
-if.then.i.i252.i:                                 ; preds = %if.then.i251.i
-  %incdec.ptr.i.i253.i = getelementptr inbounds i8, ptr %282, i64 1
-  store ptr %incdec.ptr.i.i253.i, ptr %it.i10, align 8
-  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i254.i
-
-if.else.i.i261.i:                                 ; preds = %if.then.i251.i
-  %incdec.ptr3.i.i263.i = getelementptr inbounds i8, ptr %281, i64 2
-  store ptr %incdec.ptr3.i.i263.i, ptr %127, align 8
-  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i254.i
-
-_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i254.i: ; preds = %if.else.i.i261.i, %if.then.i.i252.i
-  %bf.load.i.i = load i32, ptr %107, align 8
-  %tobool.i.i = icmp slt i32 %bf.load.i.i, 0
-  br i1 %tobool.i.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i254.i
-  %289 = and i32 %bf.load.i.i, 1073741824
-  %tobool.not.i.i103 = icmp eq i32 %289, 0
-  %290 = load ptr, ptr %str.i, align 8
-  br i1 %tobool.not.i.i103, label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i, label %if.end.i.i104
-
-if.end.i.i104:                                    ; preds = %if.then.i
-  %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %290, align 8
-  %and.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i, 281474976710655
-  %291 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
-  %bf.load.i.i.i.i.i.i = load i32, ptr %291, align 4
-  %cmp.i.i.i.i = icmp ugt i32 %bf.load.i.i.i.i.i.i, 150994943
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i108, label %if.else.i.i.i105
-
-if.then.i.i.i108:                                 ; preds = %if.end.i.i104
-  %contents_.i.i.i.i = getelementptr inbounds i8, ptr %291, i64 16
-  %call.i.i.i.i = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i
-
-if.else.i.i.i105:                                 ; preds = %if.end.i.i104
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i.i, label %if.else13.i.i.i [
-    i32 134217728, label %if.then5.i.i.i
-    i32 67108864, label %if.then10.i.i.i
-  ]
-
-if.then5.i.i.i:                                   ; preds = %if.else.i.i.i105
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %291, i64 12
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i
-
-if.then10.i.i.i:                                  ; preds = %if.else.i.i.i105
-  %add.ptr.i.i.i4.i.i.i = getelementptr inbounds i8, ptr %291, i64 8
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i
-
-if.else13.i.i.i:                                  ; preds = %if.else.i.i.i105
-  %concatBufferHV_.i.i.i.i.i = getelementptr inbounds i8, ptr %291, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %concatBufferHV_.i.i.i.i.i, align 8
-  %and.i.i.i.i.i1.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i, 281474976710655
-  %292 = inttoptr i64 %and.i.i.i.i.i1.i.i to ptr
-  %contents_.i.i.i.i.i106 = getelementptr inbounds i8, ptr %292, i64 16
-  %call.i.i.i.i.i107 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i.i.i106, i64 noundef 0) #17
-  br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i
-
-_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i: ; preds = %if.else13.i.i.i, %if.then10.i.i.i, %if.then5.i.i.i, %if.then.i.i.i108
-  %retval.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i108 ], [ %add.ptr.i.i.i.i.i.i, %if.then5.i.i.i ], [ %add.ptr.i.i.i4.i.i.i, %if.then10.i.i.i ], [ %call.i.i.i.i.i107, %if.else13.i.i.i ]
-  %bf.load7.i.i = load i32, ptr %107, align 8
-  br label %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i
-
-_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i: ; preds = %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i, %if.then.i
-  %bf.load7.sink.i.i = phi i32 [ %bf.load7.i.i, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i ], [ %bf.load.i.i, %if.then.i ]
-  %retval.0.i.sink.i.i = phi ptr [ %retval.0.i.i.i, %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i.i ], [ %290, %if.then.i ]
-  %bf.clear8.i.i = and i32 %bf.load7.sink.i.i, 1073741823
-  %idx.ext9.i.i = zext nneg i32 %bf.clear8.i.i to i64
-  %add.ptr10.i.i = getelementptr inbounds i8, ptr %retval.0.i.sink.i.i, i64 %idx.ext9.i.i
-  %293 = load i32, ptr %length_4.i107.i, align 4
-  %idx.ext.i = zext i32 %293 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr10.i.i, i64 %idx.ext.i
-  br label %_ZNK6hermes2vm10StringView3endEv.exit
-
-if.end.i:                                         ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit.i254.i
-  %tobool.not.i4.i = icmp ult i32 %bf.load.i.i, 1073741824
-  %294 = load ptr, ptr %str.i, align 8
-  br i1 %tobool.not.i4.i, label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i, label %if.end.i5.i
-
-if.end.i5.i:                                      ; preds = %if.end.i
-  %retval.sroa.0.0.copyload.i.i.i.i6.i = load i64, ptr %294, align 8
-  %and.i.i.i.i.i.i7.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i6.i, 281474976710655
-  %295 = inttoptr i64 %and.i.i.i.i.i.i7.i to ptr
-  %bf.load.i.i.i.i.i8.i = load i32, ptr %295, align 4
-  %cmp.i.i.i9.i = icmp ugt i32 %bf.load.i.i.i.i.i8.i, 150994943
-  br i1 %cmp.i.i.i9.i, label %if.then.i.i25.i, label %if.else.i.i10.i
-
-if.then.i.i25.i:                                  ; preds = %if.end.i5.i
-  %contents_.i.i.i26.i = getelementptr inbounds i8, ptr %295, i64 16
-  %296 = load ptr, ptr %contents_.i.i.i26.i, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i
-
-if.else.i.i10.i:                                  ; preds = %if.end.i5.i
-  %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i = and i32 %bf.load.i.i.i.i.i8.i, 251658240
-  switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i, label %if.else13.i.i20.i [
-    i32 117440512, label %if.then5.i.i18.i
-    i32 50331648, label %if.then10.i.i12.i
-  ]
-
-if.then5.i.i18.i:                                 ; preds = %if.else.i.i10.i
-  %add.ptr.i.i.i.i.i19.i = getelementptr inbounds i8, ptr %295, i64 12
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i
-
-if.then10.i.i12.i:                                ; preds = %if.else.i.i10.i
-  %add.ptr.i.i.i4.i.i13.i = getelementptr inbounds i8, ptr %295, i64 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i
-
-if.else13.i.i20.i:                                ; preds = %if.else.i.i10.i
-  %concatBufferHV_.i.i.i.i21.i = getelementptr inbounds i8, ptr %295, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i = load i64, ptr %concatBufferHV_.i.i.i.i21.i, align 8
-  %and.i.i.i.i.i1.i23.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i22.i, 281474976710655
-  %297 = inttoptr i64 %and.i.i.i.i.i1.i23.i to ptr
-  %contents_.i.i.i.i24.i = getelementptr inbounds i8, ptr %297, i64 16
-  %298 = load ptr, ptr %contents_.i.i.i.i24.i, align 8
-  br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i
-
-_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i: ; preds = %if.else13.i.i20.i, %if.then10.i.i12.i, %if.then5.i.i18.i, %if.then.i.i25.i, %if.end.i
-  %retval.0.i.sink.i14.i = phi ptr [ %294, %if.end.i ], [ %296, %if.then.i.i25.i ], [ %add.ptr.i.i.i.i.i19.i, %if.then5.i.i18.i ], [ %add.ptr.i.i.i4.i.i13.i, %if.then10.i.i12.i ], [ %298, %if.else13.i.i20.i ]
-  %bf.clear8.i15.i = and i32 %bf.load.i.i, 1073741823
-  %idx.ext9.i16.i = zext nneg i32 %bf.clear8.i15.i to i64
-  %add.ptr10.i17.i = getelementptr inbounds i16, ptr %retval.0.i.sink.i14.i, i64 %idx.ext9.i16.i
-  %299 = load i32, ptr %length_4.i107.i, align 4
-  %idx.ext5.i = zext i32 %299 to i64
-  %add.ptr6.i = getelementptr inbounds i16, ptr %add.ptr10.i17.i, i64 %idx.ext5.i
-  br label %_ZNK6hermes2vm10StringView3endEv.exit
-
-_ZNK6hermes2vm10StringView3endEv.exit:            ; preds = %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i
-  %retval.sroa.3.0.i = phi ptr [ null, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i ], [ %add.ptr6.i, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i ]
-  %retval.sroa.0.0.i = phi ptr [ %add.ptr.i, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i ], [ null, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i ]
-  %300 = load ptr, ptr %it.i10, align 8
-  %tobool.not.i.i.i256.i = icmp eq ptr %300, null
-  %301 = load ptr, ptr %127, align 8
-  %.sink.i.i.i258.i = select i1 %tobool.not.i.i.i256.i, ptr %301, ptr %300
-  %.sroa.speculated.i259.i = select i1 %tobool.not.i.i.i256.i, ptr %retval.sroa.3.0.i, ptr %retval.sroa.0.0.i
-  %cmp5.i.i.not.i260.i = icmp eq ptr %.sink.i.i.i258.i, %.sroa.speculated.i259.i
-  br i1 %cmp5.i.i.not.i260.i, label %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit274.i", label %while.body.i242.i, !llvm.loop !51
-
-"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit274.i": ; preds = %_ZNK6hermes2vm10StringView3endEv.exit, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i267.i, %lor.lhs.false.i264.i, %_ZNK6hermes2vm10StringView3endEv.exit178
-  %302 = phi ptr [ %280, %_ZNK6hermes2vm10StringView3endEv.exit178 ], [ %301, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %281, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i267.i ], [ %281, %lor.lhs.false.i264.i ]
-  %303 = phi ptr [ %279, %_ZNK6hermes2vm10StringView3endEv.exit178 ], [ %300, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %282, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit6.i267.i ], [ %282, %lor.lhs.false.i264.i ]
-  %tobool.not.i.i275.i = icmp eq ptr %303, null
-  %.sink.i.i279.i = select i1 %tobool.not.i.i275.i, ptr %302, ptr %303
-  %.sroa.speculated416.i = select i1 %tobool.not.i.i275.i, ptr %retval.sroa.3.0.i38.i, ptr %retval.sroa.0.0.i39.i
-  %cmp5.i.i280.not.i = icmp eq ptr %.sink.i.i279.i, %.sroa.speculated416.i
-  br i1 %cmp5.i.i280.not.i, label %if.end63.i, label %if.then44.i
-
-if.then44.i:                                      ; preds = %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit274.i"
-  %call46.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %retval.sroa.0.0.i39.i, ptr %retval.sroa.3.0.i38.i, ptr noundef nonnull align 4 dereferenceable(4) %h.i5)
+if.then44.i:                                      ; preds = %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit134.i"
+  %call46.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %89, ptr %90, ptr noundef nonnull align 4 dereferenceable(4) %h.i5)
   br i1 %call46.i, label %if.end48.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 if.end48.i:                                       ; preds = %if.then44.i
@@ -4242,7 +2960,7 @@ if.end48.i:                                       ; preds = %if.then44.i
   br i1 %call49.i, label %if.end51.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 if.end51.i:                                       ; preds = %if.end48.i
-  %call53.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %retval.sroa.0.0.i39.i, ptr %retval.sroa.3.0.i38.i, ptr noundef nonnull align 4 dereferenceable(4) %min.i6)
+  %call53.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %89, ptr %90, ptr noundef nonnull align 4 dereferenceable(4) %min.i6)
   br i1 %call53.i, label %if.end55.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 if.end55.i:                                       ; preds = %if.end51.i
@@ -4250,123 +2968,123 @@ if.end55.i:                                       ; preds = %if.end51.i
   br i1 %call56.i, label %if.end58.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 if.end58.i:                                       ; preds = %if.end55.i
-  %call60.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %retval.sroa.0.0.i39.i, ptr %retval.sroa.3.0.i38.i, ptr noundef nonnull align 4 dereferenceable(4) %s.i7)
+  %call60.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %89, ptr %90, ptr noundef nonnull align 4 dereferenceable(4) %s.i7)
   br i1 %call60.i, label %if.end63.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
-if.end63.i:                                       ; preds = %if.end58.i, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit274.i"
+if.end63.i:                                       ; preds = %if.end58.i, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit134.i"
   call fastcc void @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_5clEv"(ptr noundef nonnull align 8 dereferenceable(16) %consumeSpaces.i)
-  %304 = load ptr, ptr %it.i10, align 8
-  %tobool.not.i281.i = icmp eq ptr %304, null
-  %305 = load ptr, ptr %127, align 8
-  %.sink.i.i33 = select i1 %tobool.not.i281.i, ptr %305, ptr %304
-  %.sroa.speculated413.i = select i1 %tobool.not.i281.i, ptr %retval.sroa.3.0.i38.i, ptr %retval.sroa.0.0.i39.i
-  %cmp5.i.i34 = icmp eq ptr %.sink.i.i33, %.sroa.speculated413.i
-  br i1 %cmp5.i.i34, label %if.then65.i, label %if.end76.i
+  %204 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i141.i = icmp eq ptr %204, null
+  %205 = load ptr, ptr %87, align 8
+  %.sink.i.i19 = select i1 %tobool.not.i141.i, ptr %205, ptr %204
+  %.sroa.speculated270.i = select i1 %tobool.not.i141.i, ptr %90, ptr %89
+  %cmp5.i.i20 = icmp eq ptr %.sink.i.i19, %.sroa.speculated270.i
+  br i1 %cmp5.i.i20, label %if.then65.i, label %if.end76.i
 
 if.then65.i:                                      ; preds = %if.end63.i
-  %306 = load i32, ptr %y.i3, align 4
-  %conv.i49 = sitofp i32 %306 to double
-  %conv66.i50 = sitofp i32 %m.3.i to double
-  %307 = load i32, ptr %d.i4, align 4
-  %conv67.i = sitofp i32 %307 to double
-  %call68.i = call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %conv.i49, double noundef %conv66.i50, double noundef %conv67.i)
-  %308 = load i32, ptr %h.i5, align 4
-  %conv69.i51 = sitofp i32 %308 to double
-  %309 = load i32, ptr %min.i6, align 4
-  %conv70.i52 = sitofp i32 %309 to double
-  %310 = load i32, ptr %s.i7, align 4
-  %conv71.i53 = sitofp i32 %310 to double
-  %mul7.i.i54 = fmul double %conv70.i52, 6.000000e+04
-  %311 = call double @llvm.fmuladd.f64(double %conv69.i51, double 3.600000e+06, double %mul7.i.i54)
-  %312 = call double @llvm.fmuladd.f64(double %conv71.i53, double 1.000000e+03, double %311)
-  %add.i284.i = fadd double %312, 0.000000e+00
-  %313 = call double @llvm.fabs.f64(double %call68.i)
-  %314 = fcmp one double %313, 0x7FF0000000000000
-  %315 = call double @llvm.fabs.f64(double %add.i284.i)
-  %316 = fcmp one double %315, 0x7FF0000000000000
-  %or.cond.i.i55 = and i1 %314, %316
-  %mul.i.i56 = fmul double %call68.i, 8.640000e+07
-  %add.i285.i = fadd double %mul.i.i56, %add.i284.i
-  %retval.0.i.i = select i1 %or.cond.i.i55, double %add.i285.i, double 0x7FF8000000000000
+  %206 = load i32, ptr %y.i3, align 4
+  %conv.i35 = sitofp i32 %206 to double
+  %conv66.i36 = sitofp i32 %m.3.i to double
+  %207 = load i32, ptr %d.i4, align 4
+  %conv67.i = sitofp i32 %207 to double
+  %call68.i = call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %conv.i35, double noundef %conv66.i36, double noundef %conv67.i)
+  %208 = load i32, ptr %h.i5, align 4
+  %conv69.i37 = sitofp i32 %208 to double
+  %209 = load i32, ptr %min.i6, align 4
+  %conv70.i38 = sitofp i32 %209 to double
+  %210 = load i32, ptr %s.i7, align 4
+  %conv71.i39 = sitofp i32 %210 to double
+  %mul7.i.i40 = fmul double %conv70.i38, 6.000000e+04
+  %211 = call double @llvm.fmuladd.f64(double %conv69.i37, double 3.600000e+06, double %mul7.i.i40)
+  %212 = call double @llvm.fmuladd.f64(double %conv71.i39, double 1.000000e+03, double %211)
+  %add.i144.i = fadd double %212, 0.000000e+00
+  %213 = call double @llvm.fabs.f64(double %call68.i)
+  %214 = fcmp one double %213, 0x7FF0000000000000
+  %215 = call double @llvm.fabs.f64(double %add.i144.i)
+  %216 = fcmp one double %215, 0x7FF0000000000000
+  %or.cond.i.i41 = and i1 %214, %216
+  %mul.i.i42 = fmul double %call68.i, 8.640000e+07
+  %add.i145.i = fadd double %mul.i.i42, %add.i144.i
+  %retval.0.i.i = select i1 %or.cond.i.i41, double %add.i145.i, double 0x7FF8000000000000
   %call75.i = call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %retval.0.i.i)
   br label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 if.end76.i:                                       ; preds = %if.end63.i
-  br i1 %tobool.not.i281.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit291.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit291.thread.i
+  br i1 %tobool.not.i141.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit151.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit151.thread.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit291.i: ; preds = %if.end76.i
-  %317 = load i16, ptr %305, align 2
-  %cmp79.i = icmp ugt i16 %317, 64
-  br i1 %cmp79.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit297.i, label %if.end100.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit151.i: ; preds = %if.end76.i
+  %217 = load i16, ptr %205, align 2
+  %cmp79.i = icmp ugt i16 %217, 64
+  br i1 %cmp79.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit157.i, label %if.end100.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit291.thread.i: ; preds = %if.end76.i
-  %318 = load i8, ptr %304, align 1
-  %cmp79422.i = icmp ugt i8 %318, 64
-  br i1 %cmp79422.i, label %cond.true.i293.i, label %if.end100.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit151.thread.i: ; preds = %if.end76.i
+  %218 = load i8, ptr %204, align 1
+  %cmp79279.i = icmp ugt i8 %218, 64
+  br i1 %cmp79279.i, label %cond.true.i153.i, label %if.end100.i
 
-cond.true.i293.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit291.thread.i
-  %319 = sext i8 %318 to i16
-  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit297.i
+cond.true.i153.i:                                 ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit151.thread.i
+  %219 = sext i8 %218 to i16
+  br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit157.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit297.i: ; preds = %cond.true.i293.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit291.i
-  %cond.i294.i = phi i16 [ %319, %cond.true.i293.i ], [ %317, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit291.i ]
-  %cmp82.i = icmp ult i16 %cond.i294.i, 91
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit157.i: ; preds = %cond.true.i153.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit151.i
+  %cond.i154.i = phi i16 [ %219, %cond.true.i153.i ], [ %217, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit151.i ]
+  %cmp82.i = icmp ult i16 %cond.i154.i, 91
   br i1 %cmp82.i, label %if.then83.i, label %if.end100.i
 
-if.then83.i:                                      ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit297.i
+if.then83.i:                                      ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit157.i
   %call84.i = call fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_0clEi"(ptr noundef nonnull align 8 dereferenceable(24) %scanStr.i)
   br i1 %call84.i, label %for.cond87.preheader.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 for.cond87.preheader.i:                           ; preds = %if.then83.i
-  %320 = getelementptr inbounds i8, ptr %ref.tmp90.i, i64 8
+  %220 = getelementptr inbounds i8, ptr %ref.tmp90.i, i64 8
   br label %for.body89.i
 
 for.cond87.i:                                     ; preds = %_ZN4llvh9StringRefC2EPKc.exit181.i
-  %__begin3.0.add.i = add nuw nsw i64 %__begin3.0.idx447.i, 16
+  %__begin3.0.add.i = add nuw nsw i64 %__begin3.0.idx312.i, 16
   %__begin3.0.ptr.i = getelementptr inbounds i8, ptr @_ZZN6hermes2vmL11parseESDateENS0_10StringViewEE8knownTZs, i64 %__begin3.0.add.i
   %cmp88.not.i = icmp eq i64 %__begin3.0.add.i, 144
   br i1 %cmp88.not.i, label %if.end100.i, label %for.body89.i
 
 for.body89.i:                                     ; preds = %for.cond87.i, %for.cond87.preheader.i
-  %__begin3.0.ptr448.i = phi ptr [ @_ZZN6hermes2vmL11parseESDateENS0_10StringViewEE8knownTZs, %for.cond87.preheader.i ], [ %__begin3.0.ptr.i, %for.cond87.i ]
-  %__begin3.0.idx447.i = phi i64 [ 0, %for.cond87.preheader.i ], [ %__begin3.0.add.i, %for.cond87.i ]
-  %321 = load ptr, ptr %__begin3.0.ptr448.i, align 8
-  %tobool.i176.not.i = icmp eq ptr %321, null
+  %__begin3.0.ptr313.i = phi ptr [ @_ZZN6hermes2vmL11parseESDateENS0_10StringViewEE8knownTZs, %for.cond87.preheader.i ], [ %__begin3.0.ptr.i, %for.cond87.i ]
+  %__begin3.0.idx312.i = phi i64 [ 0, %for.cond87.preheader.i ], [ %__begin3.0.add.i, %for.cond87.i ]
+  %221 = load ptr, ptr %__begin3.0.ptr313.i, align 8
+  %tobool.i176.not.i = icmp eq ptr %221, null
   br i1 %tobool.i176.not.i, label %_ZN4llvh9StringRefC2EPKc.exit181.i, label %cond.true.i179.split.i
 
 cond.true.i179.split.i:                           ; preds = %for.body89.i
-  %call.i180.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %321) #18
-  %.fca.0.insert.i298.i = insertvalue { ptr, i64 } poison, ptr %321, 0
-  %.fca.1.insert.i299.i = insertvalue { ptr, i64 } %.fca.0.insert.i298.i, i64 %call.i180.i, 1
+  %call.i180.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %221) #18
+  %.fca.0.insert.i158.i = insertvalue { ptr, i64 } poison, ptr %221, 0
+  %.fca.1.insert.i159.i = insertvalue { ptr, i64 } %.fca.0.insert.i158.i, i64 %call.i180.i, 1
   br label %_ZN4llvh9StringRefC2EPKc.exit181.i
 
 _ZN4llvh9StringRefC2EPKc.exit181.i:               ; preds = %cond.true.i179.split.i, %for.body89.i
-  %phi.call17.i = phi { ptr, i64 } [ %.fca.1.insert.i299.i, %cond.true.i179.split.i ], [ zeroinitializer, %for.body89.i ]
-  %322 = extractvalue { ptr, i64 } %phi.call17.i, 0
-  store ptr %322, ptr %ref.tmp90.i, align 8
-  %323 = extractvalue { ptr, i64 } %phi.call17.i, 1
-  store i64 %323, ptr %320, align 8
-  %call93.i48 = call noundef zeroext i1 @_ZNK6hermes2vm10StringView6equalsIhEEbRKN4llvh8ArrayRefIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %tok.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp90.i)
-  br i1 %call93.i48, label %if.then94.i, label %for.cond87.i
+  %phi.call17.i = phi { ptr, i64 } [ %.fca.1.insert.i159.i, %cond.true.i179.split.i ], [ zeroinitializer, %for.body89.i ]
+  %222 = extractvalue { ptr, i64 } %phi.call17.i, 0
+  store ptr %222, ptr %ref.tmp90.i, align 8
+  %223 = extractvalue { ptr, i64 } %phi.call17.i, 1
+  store i64 %223, ptr %220, align 8
+  %call93.i34 = call noundef zeroext i1 @_ZNK6hermes2vm10StringView6equalsIhEEbRKN4llvh8ArrayRefIT_EE(ptr noundef nonnull align 8 dereferenceable(16) %tok.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp90.i)
+  br i1 %call93.i34, label %if.then94.i, label %for.cond87.i
 
 if.then94.i:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit181.i
-  %tzh95.i = getelementptr inbounds i8, ptr %__begin3.0.ptr448.i, i64 8
-  %324 = load i32, ptr %tzh95.i, align 8
-  store i32 %324, ptr %tzh.i8, align 4
+  %tzh95.i = getelementptr inbounds i8, ptr %__begin3.0.ptr313.i, i64 8
+  %224 = load i32, ptr %tzh95.i, align 8
+  store i32 %224, ptr %tzh.i8, align 4
   br label %if.end100.i
 
-if.end100.i:                                      ; preds = %for.cond87.i, %if.then94.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit297.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit291.thread.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit291.i
-  %325 = phi i32 [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit291.thread.i ], [ %324, %if.then94.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit297.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit291.i ], [ 0, %for.cond87.i ]
-  %326 = load ptr, ptr %it.i10, align 8
-  %tobool.not.i300.i = icmp eq ptr %326, null
-  %327 = load ptr, ptr %127, align 8
-  %.sink.i304.i = select i1 %tobool.not.i300.i, ptr %327, ptr %326
-  %.sroa.speculated410.i = select i1 %tobool.not.i300.i, ptr %retval.sroa.3.0.i38.i, ptr %retval.sroa.0.0.i39.i
-  %cmp5.i305.i = icmp eq ptr %.sink.i304.i, %.sroa.speculated410.i
-  br i1 %cmp5.i305.i, label %complete.i, label %if.end103.i
+if.end100.i:                                      ; preds = %for.cond87.i, %if.then94.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit157.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit151.thread.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit151.i
+  %225 = phi i32 [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit151.thread.i ], [ %224, %if.then94.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit157.i ], [ 0, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit151.i ], [ 0, %for.cond87.i ]
+  %226 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i160.i = icmp eq ptr %226, null
+  %227 = load ptr, ptr %87, align 8
+  %.sink.i164.i = select i1 %tobool.not.i160.i, ptr %227, ptr %226
+  %.sroa.speculated267.i = select i1 %tobool.not.i160.i, ptr %90, ptr %89
+  %cmp5.i165.i = icmp eq ptr %.sink.i164.i, %.sroa.speculated267.i
+  br i1 %cmp5.i165.i, label %complete.i, label %if.end103.i
 
 if.end103.i:                                      ; preds = %if.end100.i
-  %cmp104.not.i = icmp eq i32 %325, 0
+  %cmp104.not.i = icmp eq i32 %225, 0
   br i1 %cmp104.not.i, label %if.end108.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 if.end108.i:                                      ; preds = %if.end103.i
@@ -4378,57 +3096,57 @@ if.else.i:                                        ; preds = %if.end108.i
   br i1 %call111.i, label %if.end115.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 if.end115.i:                                      ; preds = %if.else.i, %if.end108.i
-  %sign.0.i35 = phi double [ 1.000000e+00, %if.end108.i ], [ -1.000000e+00, %if.else.i ]
-  %tobool.not.i312.i = icmp eq ptr %retval.sroa.0.0.i39.i, null
-  %add.ptr.i313.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i39.i, i64 -4
-  %retval.sroa.3.0.idx.i.i36 = select i1 %tobool.not.i312.i, i64 -4, i64 0
-  %retval.sroa.3.0.i314.i = getelementptr inbounds i16, ptr %retval.sroa.3.0.i38.i, i64 %retval.sroa.3.0.idx.i.i36
-  %retval.sroa.0.0.i315.i = select i1 %tobool.not.i312.i, ptr null, ptr %add.ptr.i313.i
-  %328 = load ptr, ptr %it.i10, align 8
-  %tobool.not.i318.i = icmp eq ptr %328, null
-  %329 = load ptr, ptr %127, align 8
-  %.sink.i322.i = select i1 %tobool.not.i318.i, ptr %329, ptr %328
-  %.sroa.speculated.i37 = select i1 %tobool.not.i318.i, ptr %retval.sroa.3.0.i314.i, ptr %retval.sroa.0.0.i315.i
-  %cmp5.i323.i = icmp ugt ptr %.sink.i322.i, %.sroa.speculated.i37
-  br i1 %cmp5.i323.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit, label %if.end120.i
+  %sign.0.i21 = phi double [ 1.000000e+00, %if.end108.i ], [ -1.000000e+00, %if.else.i ]
+  %tobool.not.i172.i = icmp eq ptr %89, null
+  %add.ptr.i.i22 = getelementptr inbounds i8, ptr %89, i64 -4
+  %retval.sroa.3.0.idx.i.i23 = select i1 %tobool.not.i172.i, i64 -4, i64 0
+  %retval.sroa.3.0.i.i24 = getelementptr inbounds i16, ptr %90, i64 %retval.sroa.3.0.idx.i.i23
+  %retval.sroa.0.0.i.i25 = select i1 %tobool.not.i172.i, ptr null, ptr %add.ptr.i.i22
+  %228 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i175.i = icmp eq ptr %228, null
+  %229 = load ptr, ptr %87, align 8
+  %.sink.i179.i = select i1 %tobool.not.i175.i, ptr %229, ptr %228
+  %.sroa.speculated.i26 = select i1 %tobool.not.i175.i, ptr %retval.sroa.3.0.i.i24, ptr %retval.sroa.0.0.i.i25
+  %cmp5.i180.i = icmp ugt ptr %.sink.i179.i, %.sroa.speculated.i26
+  br i1 %cmp5.i180.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit, label %if.end120.i
 
 if.end120.i:                                      ; preds = %if.end115.i
-  %add.ptr.i326.i = getelementptr inbounds i8, ptr %328, i64 2
-  %retval.sroa.3.0.idx.i327.i = select i1 %tobool.not.i318.i, i64 2, i64 0
-  %retval.sroa.3.0.i328.i = getelementptr inbounds i16, ptr %329, i64 %retval.sroa.3.0.idx.i327.i
-  %retval.sroa.0.0.i329.i = select i1 %tobool.not.i318.i, ptr null, ptr %add.ptr.i326.i
-  %call123.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %retval.sroa.0.0.i329.i, ptr %retval.sroa.3.0.i328.i, ptr noundef nonnull align 4 dereferenceable(4) %tzh.i8)
+  %add.ptr.i183.i = getelementptr inbounds i8, ptr %228, i64 2
+  %retval.sroa.3.0.idx.i184.i = select i1 %tobool.not.i175.i, i64 2, i64 0
+  %retval.sroa.3.0.i185.i = getelementptr inbounds i16, ptr %229, i64 %retval.sroa.3.0.idx.i184.i
+  %retval.sroa.0.0.i186.i = select i1 %tobool.not.i175.i, ptr null, ptr %add.ptr.i183.i
+  %call123.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %retval.sroa.0.0.i186.i, ptr %retval.sroa.3.0.i185.i, ptr noundef nonnull align 4 dereferenceable(4) %tzh.i8)
   br i1 %call123.i, label %if.end125.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 if.end125.i:                                      ; preds = %if.end120.i
-  %330 = load i32, ptr %tzh.i8, align 4
-  %conv126.i38 = sitofp i32 %330 to double
-  %mul.i39 = fmul double %sign.0.i35, %conv126.i38
-  %conv127.i40 = fptosi double %mul.i39 to i32
-  store i32 %conv127.i40, ptr %tzh.i8, align 4
-  %331 = load ptr, ptr %it.i10, align 8
-  %tobool.not.i332.i = icmp eq ptr %331, null
-  %332 = load ptr, ptr %127, align 8
-  %add.ptr.i334.i = getelementptr inbounds i8, ptr %331, i64 2
-  %retval.sroa.3.0.idx.i335.i = select i1 %tobool.not.i332.i, i64 2, i64 0
-  %retval.sroa.3.0.i336.i = getelementptr inbounds i16, ptr %332, i64 %retval.sroa.3.0.idx.i335.i
-  %retval.sroa.0.0.i337.i = select i1 %tobool.not.i332.i, ptr null, ptr %add.ptr.i334.i
-  %call130.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %retval.sroa.0.0.i337.i, ptr %retval.sroa.3.0.i336.i, ptr noundef nonnull align 4 dereferenceable(4) %tzm.i9)
+  %230 = load i32, ptr %tzh.i8, align 4
+  %conv126.i27 = sitofp i32 %230 to double
+  %mul.i28 = fmul double %sign.0.i21, %conv126.i27
+  %conv127.i29 = fptosi double %mul.i28 to i32
+  store i32 %conv127.i29, ptr %tzh.i8, align 4
+  %231 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i189.i = icmp eq ptr %231, null
+  %232 = load ptr, ptr %87, align 8
+  %add.ptr.i191.i = getelementptr inbounds i8, ptr %231, i64 2
+  %retval.sroa.3.0.idx.i192.i = select i1 %tobool.not.i189.i, i64 2, i64 0
+  %retval.sroa.3.0.i193.i = getelementptr inbounds i16, ptr %232, i64 %retval.sroa.3.0.idx.i192.i
+  %retval.sroa.0.0.i194.i = select i1 %tobool.not.i189.i, ptr null, ptr %add.ptr.i191.i
+  %call130.i = call fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 dereferenceable(16) %it.i10, ptr %retval.sroa.0.0.i194.i, ptr %retval.sroa.3.0.i193.i, ptr noundef nonnull align 4 dereferenceable(4) %tzm.i9)
   br i1 %call130.i, label %if.end132.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 if.end132.i:                                      ; preds = %if.end125.i
-  %333 = load i32, ptr %tzm.i9, align 4
-  %conv133.i = sitofp i32 %333 to double
-  %mul134.i = fmul double %sign.0.i35, %conv133.i
+  %233 = load i32, ptr %tzm.i9, align 4
+  %conv133.i = sitofp i32 %233 to double
+  %mul134.i = fmul double %sign.0.i21, %conv133.i
   %conv135.i = fptosi double %mul134.i to i32
   store i32 %conv135.i, ptr %tzm.i9, align 4
-  %334 = load ptr, ptr %it.i10, align 8
-  %tobool.not.i.i340.i = icmp eq ptr %334, null
-  %335 = load ptr, ptr %127, align 8
-  %.sink.i.i344.i = select i1 %tobool.not.i.i340.i, ptr %335, ptr %334
-  %.sroa.speculated404.i = select i1 %tobool.not.i.i340.i, ptr %retval.sroa.3.0.i38.i, ptr %retval.sroa.0.0.i39.i
-  %cmp5.i.i345.not.i = icmp eq ptr %.sink.i.i344.i, %.sroa.speculated404.i
-  br i1 %cmp5.i.i345.not.i, label %if.end155.i, label %if.then137.i
+  %234 = load ptr, ptr %it.i10, align 8
+  %tobool.not.i.i197.i = icmp eq ptr %234, null
+  %235 = load ptr, ptr %87, align 8
+  %.sink.i.i201.i = select i1 %tobool.not.i.i197.i, ptr %235, ptr %234
+  %.sroa.speculated261.i = select i1 %tobool.not.i.i197.i, ptr %90, ptr %89
+  %cmp5.i.i202.not.i = icmp eq ptr %.sink.i.i201.i, %.sroa.speculated261.i
+  br i1 %cmp5.i.i202.not.i, label %if.end155.i, label %if.then137.i
 
 if.then137.i:                                     ; preds = %if.end132.i
   %call138.i = call fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_4clEDs"(ptr noundef nonnull align 8 dereferenceable(16) %consume.i, i16 noundef zeroext 32)
@@ -4439,100 +3157,100 @@ if.end140.i:                                      ; preds = %if.then137.i
   br i1 %call141.i, label %while.cond144.preheader.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 while.cond144.preheader.i:                        ; preds = %if.end140.i
-  %it.promoted.i = load ptr, ptr %it.i10, align 8
-  %.promoted.i = load ptr, ptr %127, align 8
-  %tobool.not.i.i346453.i = icmp eq ptr %it.promoted.i, null
-  %.sink.i.i350454.i = select i1 %tobool.not.i.i346453.i, ptr %.promoted.i, ptr %it.promoted.i
-  %.sroa.speculated401455.i = select i1 %tobool.not.i.i346453.i, ptr %retval.sroa.3.0.i38.i, ptr %retval.sroa.0.0.i39.i
-  %cmp5.i.i351.not456.i = icmp eq ptr %.sink.i.i350454.i, %.sroa.speculated401455.i
-  br i1 %cmp5.i.i351.not456.i, label %while.end151.i, label %land.rhs.i41
+  %it.promoted.i30 = load ptr, ptr %it.i10, align 8
+  %.promoted.i31 = load ptr, ptr %87, align 8
+  %tobool.not.i.i203318.i = icmp eq ptr %it.promoted.i30, null
+  %.sink.i.i207319.i = select i1 %tobool.not.i.i203318.i, ptr %.promoted.i31, ptr %it.promoted.i30
+  %.sroa.speculated258320.i = select i1 %tobool.not.i.i203318.i, ptr %90, ptr %89
+  %cmp5.i.i208.not321.i = icmp eq ptr %.sink.i.i207319.i, %.sroa.speculated258320.i
+  br i1 %cmp5.i.i208.not321.i, label %while.end151.i, label %land.rhs.i32
 
-land.rhs.i41:                                     ; preds = %while.cond144.preheader.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit365.i
-  %tobool.not.i.i346459.i = phi i1 [ %tobool.not.i.i346.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit365.i ], [ %tobool.not.i.i346453.i, %while.cond144.preheader.i ]
-  %incdec.ptr.i360450458.i = phi ptr [ %incdec.ptr.i360449.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit365.i ], [ %it.promoted.i, %while.cond144.preheader.i ]
-  %incdec.ptr3.i364452457.i = phi ptr [ %incdec.ptr3.i364451.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit365.i ], [ %.promoted.i, %while.cond144.preheader.i ]
-  br i1 %tobool.not.i.i346459.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit357.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit357.thread.i
+land.rhs.i32:                                     ; preds = %while.cond144.preheader.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit222.i
+  %tobool.not.i.i203324.i = phi i1 [ %tobool.not.i.i203.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit222.i ], [ %tobool.not.i.i203318.i, %while.cond144.preheader.i ]
+  %incdec.ptr.i217315323.i = phi ptr [ %incdec.ptr.i217314.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit222.i ], [ %it.promoted.i30, %while.cond144.preheader.i ]
+  %incdec.ptr3.i221317322.i = phi ptr [ %incdec.ptr3.i221316.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit222.i ], [ %.promoted.i31, %while.cond144.preheader.i ]
+  br i1 %tobool.not.i.i203324.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit214.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit214.thread.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit357.i: ; preds = %land.rhs.i41
-  %336 = load i16, ptr %incdec.ptr3.i364452457.i, align 2
-  %cmp148.not.i = icmp eq i16 %336, 41
-  br i1 %cmp148.not.i, label %while.end151.i, label %if.else.i362.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit214.i: ; preds = %land.rhs.i32
+  %236 = load i16, ptr %incdec.ptr3.i221317322.i, align 2
+  %cmp148.not.i = icmp eq i16 %236, 41
+  br i1 %cmp148.not.i, label %while.end151.i, label %if.else.i219.i
 
-_ZNK6hermes2vm10StringView14const_iteratordeEv.exit357.thread.i: ; preds = %land.rhs.i41
-  %337 = load i8, ptr %incdec.ptr.i360450458.i, align 1
-  %cmp148.not424.i = icmp eq i8 %337, 41
-  br i1 %cmp148.not424.i, label %while.end151.i, label %if.then.i359.i
+_ZNK6hermes2vm10StringView14const_iteratordeEv.exit214.thread.i: ; preds = %land.rhs.i32
+  %237 = load i8, ptr %incdec.ptr.i217315323.i, align 1
+  %cmp148.not281.i = icmp eq i8 %237, 41
+  br i1 %cmp148.not281.i, label %while.end151.i, label %if.then.i216.i
 
-if.then.i359.i:                                   ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit357.thread.i
-  %incdec.ptr.i360.i = getelementptr inbounds i8, ptr %incdec.ptr.i360450458.i, i64 1
-  store ptr %incdec.ptr.i360.i, ptr %it.i10, align 8
-  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit365.i
+if.then.i216.i:                                   ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit214.thread.i
+  %incdec.ptr.i217.i = getelementptr inbounds i8, ptr %incdec.ptr.i217315323.i, i64 1
+  store ptr %incdec.ptr.i217.i, ptr %it.i10, align 8
+  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit222.i
 
-if.else.i362.i:                                   ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit357.i
-  %incdec.ptr3.i364.i = getelementptr inbounds i8, ptr %incdec.ptr3.i364452457.i, i64 2
-  store ptr %incdec.ptr3.i364.i, ptr %127, align 8
-  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit365.i
+if.else.i219.i:                                   ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit214.i
+  %incdec.ptr3.i221.i = getelementptr inbounds i8, ptr %incdec.ptr3.i221317322.i, i64 2
+  store ptr %incdec.ptr3.i221.i, ptr %87, align 8
+  br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit222.i
 
-_ZN6hermes2vm10StringView14const_iteratorppEv.exit365.i: ; preds = %if.else.i362.i, %if.then.i359.i
-  %incdec.ptr3.i364451.i = phi ptr [ %incdec.ptr3.i364452457.i, %if.then.i359.i ], [ %incdec.ptr3.i364.i, %if.else.i362.i ]
-  %incdec.ptr.i360449.i = phi ptr [ %incdec.ptr.i360.i, %if.then.i359.i ], [ %incdec.ptr.i360450458.i, %if.else.i362.i ]
-  %tobool.not.i.i346.i = icmp eq ptr %incdec.ptr.i360449.i, null
-  %.sink.i.i350.i = select i1 %tobool.not.i.i346.i, ptr %incdec.ptr3.i364451.i, ptr %incdec.ptr.i360449.i
-  %.sroa.speculated401.i = select i1 %tobool.not.i.i346.i, ptr %retval.sroa.3.0.i38.i, ptr %retval.sroa.0.0.i39.i
-  %cmp5.i.i351.not.i = icmp eq ptr %.sink.i.i350.i, %.sroa.speculated401.i
-  br i1 %cmp5.i.i351.not.i, label %while.end151.i, label %land.rhs.i41, !llvm.loop !54
+_ZN6hermes2vm10StringView14const_iteratorppEv.exit222.i: ; preds = %if.else.i219.i, %if.then.i216.i
+  %incdec.ptr3.i221316.i = phi ptr [ %incdec.ptr3.i221317322.i, %if.then.i216.i ], [ %incdec.ptr3.i221.i, %if.else.i219.i ]
+  %incdec.ptr.i217314.i = phi ptr [ %incdec.ptr.i217.i, %if.then.i216.i ], [ %incdec.ptr.i217315323.i, %if.else.i219.i ]
+  %tobool.not.i.i203.i = icmp eq ptr %incdec.ptr.i217314.i, null
+  %.sink.i.i207.i = select i1 %tobool.not.i.i203.i, ptr %incdec.ptr3.i221316.i, ptr %incdec.ptr.i217314.i
+  %.sroa.speculated258.i = select i1 %tobool.not.i.i203.i, ptr %90, ptr %89
+  %cmp5.i.i208.not.i = icmp eq ptr %.sink.i.i207.i, %.sroa.speculated258.i
+  br i1 %cmp5.i.i208.not.i, label %while.end151.i, label %land.rhs.i32, !llvm.loop !54
 
-while.end151.i:                                   ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit365.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit357.thread.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit357.i, %while.cond144.preheader.i
+while.end151.i:                                   ; preds = %_ZN6hermes2vm10StringView14const_iteratorppEv.exit222.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit214.thread.i, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit214.i, %while.cond144.preheader.i
   %call152.i = call fastcc noundef zeroext i1 @"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_4clEDs"(ptr noundef nonnull align 8 dereferenceable(16) %consume.i, i16 noundef zeroext 41)
   br i1 %call152.i, label %while.end151.if.end155_crit_edge.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 while.end151.if.end155_crit_edge.i:               ; preds = %while.end151.i
-  %.pre.i42 = load ptr, ptr %it.i10, align 8
-  %.pre468.i = load ptr, ptr %127, align 8
+  %.pre.i33 = load ptr, ptr %it.i10, align 8
+  %.pre335.i = load ptr, ptr %87, align 8
   br label %if.end155.i
 
 if.end155.i:                                      ; preds = %while.end151.if.end155_crit_edge.i, %if.end132.i
-  %338 = phi ptr [ %.pre468.i, %while.end151.if.end155_crit_edge.i ], [ %335, %if.end132.i ]
-  %339 = phi ptr [ %.pre.i42, %while.end151.if.end155_crit_edge.i ], [ %334, %if.end132.i ]
-  %tobool.not.i.i366.i = icmp eq ptr %339, null
-  %.sink.i.i370.i = select i1 %tobool.not.i.i366.i, ptr %338, ptr %339
-  %.sroa.speculated398.i = select i1 %tobool.not.i.i366.i, ptr %retval.sroa.3.0.i38.i, ptr %retval.sroa.0.0.i39.i
-  %cmp5.i.i371.not.i = icmp eq ptr %.sink.i.i370.i, %.sroa.speculated398.i
-  br i1 %cmp5.i.i371.not.i, label %complete.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
+  %238 = phi ptr [ %.pre335.i, %while.end151.if.end155_crit_edge.i ], [ %235, %if.end132.i ]
+  %239 = phi ptr [ %.pre.i33, %while.end151.if.end155_crit_edge.i ], [ %234, %if.end132.i ]
+  %tobool.not.i.i223.i = icmp eq ptr %239, null
+  %.sink.i.i227.i = select i1 %tobool.not.i.i223.i, ptr %238, ptr %239
+  %.sroa.speculated255.i = select i1 %tobool.not.i.i223.i, ptr %90, ptr %89
+  %cmp5.i.i228.not.i = icmp eq ptr %.sink.i.i227.i, %.sroa.speculated255.i
+  br i1 %cmp5.i.i228.not.i, label %complete.i, label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
 complete.i:                                       ; preds = %if.end155.i, %if.end100.i
-  %340 = phi i32 [ %conv135.i, %if.end155.i ], [ 0, %if.end100.i ]
-  %341 = phi i32 [ %conv127.i40, %if.end155.i ], [ %325, %if.end100.i ]
-  %342 = load i32, ptr %y.i3, align 4
-  %conv159.i = sitofp i32 %342 to double
+  %240 = phi i32 [ %conv135.i, %if.end155.i ], [ 0, %if.end100.i ]
+  %241 = phi i32 [ %conv127.i29, %if.end155.i ], [ %225, %if.end100.i ]
+  %242 = load i32, ptr %y.i3, align 4
+  %conv159.i = sitofp i32 %242 to double
   %conv161.i = sitofp i32 %m.3.i to double
-  %343 = load i32, ptr %d.i4, align 4
-  %conv162.i = sitofp i32 %343 to double
+  %243 = load i32, ptr %d.i4, align 4
+  %conv162.i = sitofp i32 %243 to double
   %call163.i = call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %conv159.i, double noundef %conv161.i, double noundef %conv162.i)
-  %344 = load i32, ptr %h.i5, align 4
-  %sub164.i = sub nsw i32 %344, %341
+  %244 = load i32, ptr %h.i5, align 4
+  %sub164.i = sub nsw i32 %244, %241
   %conv165.i = sitofp i32 %sub164.i to double
-  %345 = load i32, ptr %min.i6, align 4
-  %sub166.i = sub nsw i32 %345, %340
+  %245 = load i32, ptr %min.i6, align 4
+  %sub166.i = sub nsw i32 %245, %240
   %conv167.i = sitofp i32 %sub166.i to double
-  %346 = load i32, ptr %s.i7, align 4
-  %conv168.i = sitofp i32 %346 to double
-  %mul7.i373.i = fmul double %conv167.i, 6.000000e+04
-  %347 = call double @llvm.fmuladd.f64(double %conv165.i, double 3.600000e+06, double %mul7.i373.i)
-  %348 = call double @llvm.fmuladd.f64(double %conv168.i, double 1.000000e+03, double %347)
-  %add.i374.i43 = fadd double %348, 0.000000e+00
-  %349 = call double @llvm.fabs.f64(double %call163.i)
-  %350 = fcmp one double %349, 0x7FF0000000000000
-  %351 = call double @llvm.fabs.f64(double %add.i374.i43)
-  %352 = fcmp one double %351, 0x7FF0000000000000
-  %or.cond.i376.i44 = and i1 %350, %352
-  %mul.i377.i45 = fmul double %call163.i, 8.640000e+07
-  %add.i378.i46 = fadd double %mul.i377.i45, %add.i374.i43
-  %retval.0.i379.i47 = select i1 %or.cond.i376.i44, double %add.i378.i46, double 0x7FF8000000000000
+  %246 = load i32, ptr %s.i7, align 4
+  %conv168.i = sitofp i32 %246 to double
+  %mul7.i230.i = fmul double %conv167.i, 6.000000e+04
+  %247 = call double @llvm.fmuladd.f64(double %conv165.i, double 3.600000e+06, double %mul7.i230.i)
+  %248 = call double @llvm.fmuladd.f64(double %conv168.i, double 1.000000e+03, double %247)
+  %add.i231.i = fadd double %248, 0.000000e+00
+  %249 = call double @llvm.fabs.f64(double %call163.i)
+  %250 = fcmp one double %249, 0x7FF0000000000000
+  %251 = call double @llvm.fabs.f64(double %add.i231.i)
+  %252 = fcmp one double %251, 0x7FF0000000000000
+  %or.cond.i233.i = and i1 %250, %252
+  %mul.i234.i = fmul double %call163.i, 8.640000e+07
+  %add.i235.i = fadd double %mul.i234.i, %add.i231.i
+  %retval.0.i236.i = select i1 %or.cond.i233.i, double %add.i235.i, double 0x7FF8000000000000
   br label %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
 
-_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit: ; preds = %for.cond.i, %if.then26.i31, %_ZNK6hermes2vm10StringView3endEv.exit540, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i", %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_3clEv.exit.i", %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit", %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit235.i", %if.then44.i, %if.end48.i, %if.end51.i, %if.end55.i, %if.end58.i, %if.then65.i, %if.then83.i, %if.end103.i, %if.else.i, %if.end115.i, %if.end120.i, %if.end125.i, %if.then137.i, %if.end140.i, %while.end151.i, %if.end155.i, %complete.i
-  %retval.0.i28 = phi double [ %call75.i, %if.then65.i ], [ %retval.0.i379.i47, %complete.i ], [ 0x7FF8000000000000, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i" ], [ 0x7FF8000000000000, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_3clEv.exit.i" ], [ 0x7FF8000000000000, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit" ], [ 0x7FF8000000000000, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit235.i" ], [ 0x7FF8000000000000, %if.then44.i ], [ 0x7FF8000000000000, %if.end48.i ], [ 0x7FF8000000000000, %if.end51.i ], [ 0x7FF8000000000000, %if.end55.i ], [ 0x7FF8000000000000, %if.end58.i ], [ 0x7FF8000000000000, %if.then83.i ], [ 0x7FF8000000000000, %if.else.i ], [ 0x7FF8000000000000, %if.end115.i ], [ 0x7FF8000000000000, %if.end120.i ], [ 0x7FF8000000000000, %if.end125.i ], [ 0x7FF8000000000000, %if.then137.i ], [ 0x7FF8000000000000, %if.end140.i ], [ 0x7FF8000000000000, %while.end151.i ], [ 0x7FF8000000000000, %if.end155.i ], [ 0x7FF8000000000000, %_ZNK6hermes2vm10StringView3endEv.exit540 ], [ 0x7FF8000000000000, %if.end103.i ], [ 0x7FF8000000000000, %if.then26.i31 ], [ 0x7FF8000000000000, %for.cond.i ]
+_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit: ; preds = %for.cond.i, %if.then26.i43, %if.end, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i", %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_3clEv.exit.i", %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit", %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit95.i", %if.then44.i, %if.end48.i, %if.end51.i, %if.end55.i, %if.end58.i, %if.then65.i, %if.then83.i, %if.end103.i, %if.else.i, %if.end115.i, %if.end120.i, %if.end125.i, %if.then137.i, %if.end140.i, %while.end151.i, %if.end155.i, %complete.i
+  %retval.0.i17 = phi double [ %call75.i, %if.then65.i ], [ %retval.0.i236.i, %complete.i ], [ 0x7FF8000000000000, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit.i" ], [ 0x7FF8000000000000, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_3clEv.exit.i" ], [ 0x7FF8000000000000, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit" ], [ 0x7FF8000000000000, %"_ZZN6hermes2vmL11parseESDateENS0_10StringViewEENK3$_1clEv.exit95.i" ], [ 0x7FF8000000000000, %if.then44.i ], [ 0x7FF8000000000000, %if.end48.i ], [ 0x7FF8000000000000, %if.end51.i ], [ 0x7FF8000000000000, %if.end55.i ], [ 0x7FF8000000000000, %if.end58.i ], [ 0x7FF8000000000000, %if.then83.i ], [ 0x7FF8000000000000, %if.else.i ], [ 0x7FF8000000000000, %if.end115.i ], [ 0x7FF8000000000000, %if.end120.i ], [ 0x7FF8000000000000, %if.end125.i ], [ 0x7FF8000000000000, %if.then137.i ], [ 0x7FF8000000000000, %if.end140.i ], [ 0x7FF8000000000000, %while.end151.i ], [ 0x7FF8000000000000, %if.end155.i ], [ 0x7FF8000000000000, %if.end ], [ 0x7FF8000000000000, %if.end103.i ], [ 0x7FF8000000000000, %if.then26.i43 ], [ 0x7FF8000000000000, %for.cond.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %str.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tok.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %y.i3)
@@ -4552,7 +3270,7 @@ _ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit: ; preds = %for.cond.i, %if.t
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit, %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit
-  %retval.0 = phi double [ %retval.0.i28, %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit ], [ %retval.0.i, %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit ]
+  %retval.0 = phi double [ %retval.0.i17, %_ZN6hermes2vmL11parseESDateENS0_10StringViewE.exit ], [ %retval.0.i, %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit ]
   ret double %retval.0
 }
 

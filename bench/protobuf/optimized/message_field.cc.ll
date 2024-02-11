@@ -141,8 +141,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__detail::__variant::_Variant_storage.base.319" = type <{ %"union.std::__detail::__variant::_Variadic_union.317", i8 }>
 %"union.std::__detail::__variant::_Variadic_union.317" = type { %"struct.std::__detail::__variant::_Uninitialized.318", [16 x i8] }
 %"struct.std::__detail::__variant::_Uninitialized.318" = type { %"class.std::basic_string_view" }
-%"class.std::allocator.235" = type { i8 }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
+%"class.std::allocator.235" = type { i8 }
 %"class.std::function.263" = type { %"class.std::_Function_base", ptr }
 %"class.std::allocator.244" = type { i8 }
 
@@ -291,6 +291,8 @@ $_ZNSt18bad_variant_accessD2Ev = comdat any
 $_ZNSt18bad_variant_accessD0Ev = comdat any
 
 $_ZNKSt18bad_variant_access4whatEv = comdat any
+
+$_ZNSt14_Function_base13_Base_managerIZN6google8protobuf2io7Printer8WithDefsEN4absl12lts_202308024SpanIKNS4_3SubEEEbEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
 
 $_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf2io7Printer9ValueImplILb1EEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SF_EEEC2ERKSN_RKSM_ = comdat any
 
@@ -8839,14 +8841,11 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEZNS4_8WithDefsEN4absl12lts_202308024SpanIKNS4_3SubEEEbEUlSB_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFSt8optionalIN6google8protobuf2io7Printer9ValueImplILb0EEEESt17basic_string_viewIcSt11char_traitsIcEEEZNS4_8WithDefsEN4absl12lts_202308024SpanIKNS4_3SubEEEbEUlSB_E_E10_M_managerERSt9_Any_dataRKSL_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #3 comdat align 2 {
 entry:
-  %ref.tmp.i.i.i.i.i.i.i = alloca %"class.std::allocator.235", align 1
-  switch i32 %__op, label %sw.epilog [
+  switch i32 %__op, label %sw.default [
     i32 0, label %sw.bb
     i32 1, label %sw.bb1
-    i32 3, label %sw.bb6.i
-    i32 2, label %sw.bb4.i
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -8858,35 +8857,11 @@ sw.bb1:                                           ; preds = %entry
   store ptr %0, ptr %__dest, align 8
   br label %sw.epilog
 
-sw.bb4.i:                                         ; preds = %entry
-  %1 = load ptr, ptr %__source, align 8
-  %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  invoke void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf2io7Printer9ValueImplILb1EEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SF_EEEC2ERKSN_RKSM_(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i)
-          to label %_ZNSt14_Function_base13_Base_managerIZN6google8protobuf2io7Printer8WithDefsEN4absl12lts_202308024SpanIKNS4_3SubEEEbEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i unwind label %lpad.i.i.i
-
-lpad.i.i.i:                                       ; preds = %sw.bb4.i
-  %2 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZdlPv(ptr noundef nonnull %call.i.i.i) #27
-  resume { ptr, i32 } %2
-
-_ZNSt14_Function_base13_Base_managerIZN6google8protobuf2io7Printer8WithDefsEN4absl12lts_202308024SpanIKNS4_3SubEEEbEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i: ; preds = %sw.bb4.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i)
-  store ptr %call.i.i.i, ptr %__dest, align 8
+sw.default:                                       ; preds = %entry
+  %call4 = tail call noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN6google8protobuf2io7Printer8WithDefsEN4absl12lts_202308024SpanIKNS4_3SubEEEbEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op)
   br label %sw.epilog
 
-sw.bb6.i:                                         ; preds = %entry
-  %3 = load ptr, ptr %__dest, align 8
-  %isnull.i.i = icmp eq ptr %3, null
-  br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
-
-delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  tail call void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf2io7Printer9ValueImplILb1EEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SF_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #27
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %entry, %delete.notnull.i.i, %sw.bb6.i, %_ZNSt14_Function_base13_Base_managerIZN6google8protobuf2io7Printer8WithDefsEN4absl12lts_202308024SpanIKNS4_3SubEEEbEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit.i, %sw.bb1, %sw.bb
+sw.epilog:                                        ; preds = %sw.default, %sw.bb1, %sw.bb
   ret i1 false
 }
 
@@ -9411,6 +9386,58 @@ entry:
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNSt14_Function_base13_Base_managerIZN6google8protobuf2io7Printer8WithDefsEN4absl12lts_202308024SpanIKNS4_3SubEEEbEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation(ptr noundef nonnull align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %ref.tmp.i.i.i.i.i.i = alloca %"class.std::allocator.235", align 1
+  switch i32 %__op, label %sw.epilog [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb1
+    i32 2, label %sw.bb4
+    i32 3, label %sw.bb6
+  ]
+
+sw.bb:                                            ; preds = %entry
+  store ptr @_ZTIZN6google8protobuf2io7Printer8WithDefsEN4absl12lts_202308024SpanIKNS2_3SubEEEbEUlSt17basic_string_viewIcSt11char_traitsIcEEE_, ptr %__dest, align 8
+  br label %sw.epilog
+
+sw.bb1:                                           ; preds = %entry
+  %0 = load ptr, ptr %__source, align 8
+  store ptr %0, ptr %__dest, align 8
+  br label %sw.epilog
+
+sw.bb4:                                           ; preds = %entry
+  %1 = load ptr, ptr %__source, align 8
+  %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i)
+  invoke void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf2io7Printer9ValueImplILb1EEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SF_EEEC2ERKSN_RKSM_(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i)
+          to label %_ZNSt14_Function_base13_Base_managerIZN6google8protobuf2io7Printer8WithDefsEN4absl12lts_202308024SpanIKNS4_3SubEEEbEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit unwind label %lpad.i.i
+
+lpad.i.i:                                         ; preds = %sw.bb4
+  %2 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZdlPv(ptr noundef nonnull %call.i.i) #27
+  resume { ptr, i32 } %2
+
+_ZNSt14_Function_base13_Base_managerIZN6google8protobuf2io7Printer8WithDefsEN4absl12lts_202308024SpanIKNS4_3SubEEEbEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit: ; preds = %sw.bb4
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i)
+  store ptr %call.i.i, ptr %__dest, align 8
+  br label %sw.epilog
+
+sw.bb6:                                           ; preds = %entry
+  %3 = load ptr, ptr %__dest, align 8
+  %isnull.i = icmp eq ptr %3, null
+  br i1 %isnull.i, label %sw.epilog, label %delete.notnull.i
+
+delete.notnull.i:                                 ; preds = %sw.bb6
+  tail call void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf2io7Printer9ValueImplILb1EEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SF_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #27
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %delete.notnull.i, %sw.bb6, %_ZNSt14_Function_base13_Base_managerIZN6google8protobuf2io7Printer8WithDefsEN4absl12lts_202308024SpanIKNS4_3SubEEEbEUlSt17basic_string_viewIcSt11char_traitsIcEEE_E15_M_init_functorIRKSF_EEvRSt9_Any_dataOT_.exit, %sw.bb1, %sw.bb, %entry
+  ret i1 false
+}
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf2io7Printer9ValueImplILb1EEEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SF_EEEC2ERKSN_RKSM_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %that, ptr noundef nonnull align 1 dereferenceable(1) %a) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11242,13 +11269,13 @@ arraydestroy.body27:                              ; preds = %arraydestroy.body27
 
 ehcleanup:                                        ; preds = %arraydestroy.body27, %lpad.body.i
   %.pn = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad.body.i ], [ %17, %arraydestroy.body27 ]
-  %cleanup.isactive.0 = phi i1 [ false, %lpad.body.i ], [ true, %arraydestroy.body27 ]
+  %19 = phi i1 [ false, %lpad.body.i ], [ true, %arraydestroy.body27 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp13) #26
   br label %ehcleanup32
 
 ehcleanup32:                                      ; preds = %lpad15, %lpad.i13, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %16, %lpad15 ], [ %5, %lpad.i13 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %ehcleanup ], [ false, %lpad15 ], [ false, %lpad.i13 ]
+  %cleanup.isactive.1 = phi i1 [ %19, %ehcleanup ], [ false, %lpad15 ], [ false, %lpad.i13 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #26
   br label %ehcleanup34
 
@@ -11280,14 +11307,14 @@ if.else:                                          ; preds = %arraydestroy.done25
 
 if.end:                                           ; preds = %if.else, %if.then
   %is_weak_.i = getelementptr inbounds i8, ptr %this, i64 75
-  %19 = load i8, ptr %is_weak_.i, align 1
-  %20 = and i8 %19, 1
-  %tobool.i33.not = icmp eq i8 %20, 0
+  %20 = load i8, ptr %is_weak_.i, align 1
+  %21 = and i8 %20, 1
+  %tobool.i33.not = icmp eq i8 %21, 0
   br i1 %tobool.i33.not, label %if.end58, label %if.then54
 
 if.then54:                                        ; preds = %if.end
-  %21 = load ptr, ptr %p.addr, align 8
-  call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %21, ptr null, i64 0, i64 301, ptr nonnull @.str.93)
+  %22 = load ptr, ptr %p.addr, align 8
+  call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %22, ptr null, i64 0, i64 301, ptr nonnull @.str.93)
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then54, %if.end

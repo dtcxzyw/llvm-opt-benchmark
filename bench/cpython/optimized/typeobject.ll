@@ -1774,68 +1774,19 @@ declare void @_PyObject_AssertFailed(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @PyDict_Contains(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyType_GetDocFromInternalDoc(ptr noundef readonly %name, ptr noundef %internal_doc) local_unnamed_addr #3 {
+define hidden ptr @_PyType_GetDocFromInternalDoc(ptr noundef %name, ptr noundef %internal_doc) local_unnamed_addr #3 {
 entry:
-  %tobool.not.i.i = icmp eq ptr %internal_doc, null
-  br i1 %tobool.not.i.i, label %return, label %if.end.i.i
+  %call = tail call fastcc ptr @_PyType_DocWithoutSignature(ptr noundef %name, ptr noundef %internal_doc)
+  %tobool.not = icmp eq ptr %call, null
+  br i1 %tobool.not, label %return, label %lor.lhs.false
 
-if.end.i.i:                                       ; preds = %entry
-  %call.i.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %name, i32 noundef 46) #22
-  %tobool1.not.i.i = icmp eq ptr %call.i.i, null
-  %add.ptr.i.i = getelementptr i8, ptr %call.i.i, i64 1
-  %spec.select.i.i = select i1 %tobool1.not.i.i, ptr %name, ptr %add.ptr.i.i
-  %call4.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i.i) #22
-  %call5.i.i = tail call i32 @strncmp(ptr noundef nonnull %internal_doc, ptr noundef %spec.select.i.i, i64 noundef %call4.i.i) #22
-  %tobool6.not.i.i = icmp eq i32 %call5.i.i, 0
-  br i1 %tobool6.not.i.i, label %if.end8.i.i, label %lor.lhs.false
-
-if.end8.i.i:                                      ; preds = %if.end.i.i
-  %add.ptr9.i.i = getelementptr i8, ptr %internal_doc, i64 %call4.i.i
-  %0 = load i8, ptr %add.ptr9.i.i, align 1
-  %cmp.not.i.not.i = icmp eq i8 %0, 40
-  br i1 %cmp.not.i.not.i, label %while.cond.i.i, label %lor.lhs.false
-
-while.cond.i.i:                                   ; preds = %if.end8.i.i, %if.end12.i.i
-  %1 = phi i8 [ %.pr.i, %if.end12.i.i ], [ 40, %if.end8.i.i ]
-  %doc.addr.0.i.i = phi ptr [ %incdec.ptr.i.i, %if.end12.i.i ], [ %add.ptr9.i.i, %if.end8.i.i ]
-  switch i8 %1, label %if.end12.i.i [
-    i8 0, label %_PyType_DocWithoutSignature.exit
-    i8 41, label %land.lhs.true.i.i
-    i8 10, label %land.lhs.true7.i.i
-  ]
-
-land.lhs.true.i.i:                                ; preds = %while.cond.i.i
-  %call.i6.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %doc.addr.0.i.i, ptr noundef nonnull dereferenceable(7) @.str.23, i64 noundef 6) #22
-  %tobool3.not.i.i = icmp eq i32 %call.i6.i, 0
-  br i1 %tobool3.not.i.i, label %skip_signature.exit.i, label %if.end12.i.i
-
-land.lhs.true7.i.i:                               ; preds = %while.cond.i.i
-  %arrayidx.i.i = getelementptr i8, ptr %doc.addr.0.i.i, i64 1
-  %2 = load i8, ptr %arrayidx.i.i, align 1
-  %cmp9.i.i = icmp eq i8 %2, 10
-  br i1 %cmp9.i.i, label %_PyType_DocWithoutSignature.exit, label %if.end12.i.i
-
-if.end12.i.i:                                     ; preds = %land.lhs.true7.i.i, %land.lhs.true.i.i, %while.cond.i.i
-  %incdec.ptr.i.i = getelementptr i8, ptr %doc.addr.0.i.i, i64 1
-  %.pr.i = load i8, ptr %incdec.ptr.i.i, align 1
-  br label %while.cond.i.i, !llvm.loop !7
-
-skip_signature.exit.i:                            ; preds = %land.lhs.true.i.i
-  %add.ptr.i7.i = getelementptr i8, ptr %doc.addr.0.i.i, i64 6
-  %tobool2.not.i = icmp eq ptr %add.ptr.i7.i, null
-  br i1 %tobool2.not.i, label %_PyType_DocWithoutSignature.exit, label %lor.lhs.false
-
-_PyType_DocWithoutSignature.exit:                 ; preds = %while.cond.i.i, %land.lhs.true7.i.i, %skip_signature.exit.i
-  br label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %_PyType_DocWithoutSignature.exit, %if.end8.i.i, %if.end.i.i, %skip_signature.exit.i
-  %retval.0.i5 = phi ptr [ %internal_doc, %_PyType_DocWithoutSignature.exit ], [ %add.ptr.i7.i, %skip_signature.exit.i ], [ %internal_doc, %if.end.i.i ], [ %internal_doc, %if.end8.i.i ]
-  %3 = load i8, ptr %retval.0.i5, align 1
-  %cmp = icmp eq i8 %3, 0
+lor.lhs.false:                                    ; preds = %entry
+  %0 = load i8, ptr %call, align 1
+  %cmp = icmp eq i8 %0, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call2 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %retval.0.i5) #20
+  %call2 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %call) #20
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -22205,41 +22156,51 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %tp_name = getelementptr inbounds i8, ptr %type, i64 24
   %2 = load ptr, ptr %tp_name, align 8
-  %call = tail call ptr @_PyType_GetDocFromInternalDoc(ptr noundef %2, ptr noundef nonnull %1)
+  %call.i = tail call fastcc ptr @_PyType_DocWithoutSignature(ptr noundef %2, ptr noundef nonnull %1)
+  %tobool.not.i = icmp eq ptr %call.i, null
+  br i1 %tobool.not.i, label %return, label %lor.lhs.false.i
+
+lor.lhs.false.i:                                  ; preds = %if.then
+  %3 = load i8, ptr %call.i, align 1
+  %cmp.i12 = icmp eq i8 %3, 0
+  br i1 %cmp.i12, label %return, label %if.end.i13
+
+if.end.i13:                                       ; preds = %lor.lhs.false.i
+  %call2.i = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %call.i) #20
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %and.i = and i64 %0, 2
-  %tobool.not.i = icmp eq i64 %and.i, 0
-  br i1 %tobool.not.i, label %if.end.i12, label %if.then.i
+  %tobool.not.i14 = icmp eq i64 %and.i, 0
+  br i1 %tobool.not.i14, label %if.end.i16, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %4 = load ptr, ptr %3, align 8
-  %interp.i.i = getelementptr inbounds i8, ptr %4, i64 16
-  %5 = load ptr, ptr %interp.i.i, align 8
-  %6 = getelementptr i8, ptr %type, i64 360
-  %self.val.i.i = load ptr, ptr %6, align 8
-  %builtins.i.i.i = getelementptr inbounds i8, ptr %5, i64 406888
-  %7 = ptrtoint ptr %self.val.i.i to i64
-  %sub.i.i.i.i = add i64 %7, -1
+  %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %5 = load ptr, ptr %4, align 8
+  %interp.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = load ptr, ptr %interp.i.i, align 8
+  %7 = getelementptr i8, ptr %type, i64 360
+  %self.val.i.i = load ptr, ptr %7, align 8
+  %builtins.i.i.i = getelementptr inbounds i8, ptr %6, i64 406888
+  %8 = ptrtoint ptr %self.val.i.i to i64
+  %sub.i.i.i.i = add i64 %8, -1
   %tp_dict.i = getelementptr [200 x %struct.static_builtin_state], ptr %builtins.i.i.i, i64 0, i64 %sub.i.i.i.i, i32 3
   br label %lookup_tp_dict.exit
 
-if.end.i12:                                       ; preds = %if.end
+if.end.i16:                                       ; preds = %if.end
   %tp_dict2.i = getelementptr inbounds i8, ptr %type, i64 264
   br label %lookup_tp_dict.exit
 
-lookup_tp_dict.exit:                              ; preds = %if.then.i, %if.end.i12
-  %retval.0.in.i = phi ptr [ %tp_dict.i, %if.then.i ], [ %tp_dict2.i, %if.end.i12 ]
-  %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
-  %call3 = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 51), ptr noundef nonnull %result) #20
+lookup_tp_dict.exit:                              ; preds = %if.then.i, %if.end.i16
+  %retval.0.in.i = phi ptr [ %tp_dict.i, %if.then.i ], [ %tp_dict2.i, %if.end.i16 ]
+  %retval.0.i15 = load ptr, ptr %retval.0.in.i, align 8
+  %call3 = call i32 @PyDict_GetItemRef(ptr noundef %retval.0.i15, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 51), ptr noundef nonnull %result) #20
   %cmp4 = icmp eq i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %lookup_tp_dict.exit
-  %8 = load i32, ptr @_Py_NoneStruct, align 8
-  %add.i.i = add i32 %8, 1
+  %9 = load i32, ptr @_Py_NoneStruct, align 8
+  %add.i.i = add i32 %9, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %_Py_NewRef.exit, label %if.end.i.i
 
@@ -22252,42 +22213,42 @@ _Py_NewRef.exit:                                  ; preds = %if.then5, %if.end.i
   br label %if.end15
 
 if.else:                                          ; preds = %lookup_tp_dict.exit
-  %9 = load ptr, ptr %result, align 8
-  %tobool7.not = icmp eq ptr %9, null
+  %10 = load ptr, ptr %result, align 8
+  %tobool7.not = icmp eq ptr %10, null
   br i1 %tobool7.not, label %if.end15, label %if.then8
 
 if.then8:                                         ; preds = %if.else
-  %10 = getelementptr i8, ptr %9, i64 8
-  %.val = load ptr, ptr %10, align 8
+  %11 = getelementptr i8, ptr %10, i64 8
+  %.val = load ptr, ptr %11, align 8
   %tp_descr_get = getelementptr inbounds i8, ptr %.val, i64 272
-  %11 = load ptr, ptr %tp_descr_get, align 8
-  %tobool10.not = icmp eq ptr %11, null
+  %12 = load ptr, ptr %tp_descr_get, align 8
+  %tobool10.not = icmp eq ptr %12, null
   br i1 %tobool10.not, label %if.end15, label %do.body
 
 do.body:                                          ; preds = %if.then8
-  %call12 = call ptr %11(ptr noundef nonnull %9, ptr noundef null, ptr noundef nonnull %type) #20
+  %call12 = call ptr %12(ptr noundef nonnull %10, ptr noundef null, ptr noundef nonnull %type) #20
   store ptr %call12, ptr %result, align 8
-  %12 = load i64, ptr %9, align 8
-  %13 = and i64 %12, 2147483648
-  %cmp.i17.not = icmp eq i64 %13, 0
+  %13 = load i64, ptr %10, align 8
+  %14 = and i64 %13, 2147483648
+  %cmp.i17.not = icmp eq i64 %14, 0
   br i1 %cmp.i17.not, label %if.end.i, label %if.end15
 
 if.end.i:                                         ; preds = %do.body
-  %dec.i = add i64 %12, -1
-  store i64 %dec.i, ptr %9, align 8
+  %dec.i = add i64 %13, -1
+  store i64 %dec.i, ptr %10, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %if.end15
 
 if.then1.i:                                       ; preds = %if.end.i
-  call void @_Py_Dealloc(ptr noundef nonnull %9) #20
+  call void @_Py_Dealloc(ptr noundef nonnull %10) #20
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %do.body, %if.then1.i, %if.end.i, %if.then8, %_Py_NewRef.exit
-  %14 = load ptr, ptr %result, align 8
+  %15 = load ptr, ptr %result, align 8
   br label %return
 
-return:                                           ; preds = %if.end15, %if.then
-  %retval.0 = phi ptr [ %14, %if.end15 ], [ %call, %if.then ]
+return:                                           ; preds = %if.end.i13, %lor.lhs.false.i, %if.then, %if.end15
+  %retval.0 = phi ptr [ %15, %if.end15 ], [ %call2.i, %if.end.i13 ], [ @_Py_NoneStruct, %lor.lhs.false.i ], [ @_Py_NoneStruct, %if.then ]
   ret ptr %retval.0
 }
 

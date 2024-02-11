@@ -174,141 +174,14 @@ declare hidden i32 @lj_vm_cpuid(i32 noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_jit_on(ptr noundef %L) #0 {
 entry:
-  %base.i = getelementptr inbounds i8, ptr %L, i64 32
-  %0 = load ptr, ptr %base.i, align 8
-  %top.i = getelementptr inbounds i8, ptr %L, i64 40
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp.i = icmp eq ptr %0, %1
-  br i1 %cmp.i, label %if.end47.i, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %entry
-  %2 = load i64, ptr %0, align 8
-  %cmp2.i = icmp eq i64 %2, -1
-  br i1 %cmp2.i, label %if.end47.i, label %if.else.i
-
-if.else.i:                                        ; preds = %lor.lhs.false.i
-  %shr.i = ashr i64 %2, 47
-  %conv.i = trunc i64 %shr.i to i32
-  switch i32 %conv.i, label %err.i [
-    i32 -9, label %if.end20.i
-    i32 -8, label %if.end20.i
-    i32 -3, label %if.end20.fold.split.i
-  ]
-
-if.end20.fold.split.i:                            ; preds = %if.else.i
-  br label %if.end20.i
-
-if.end20.i:                                       ; preds = %if.end20.fold.split.i, %if.else.i, %if.else.i
-  %idx.0.i = phi i32 [ 1, %if.else.i ], [ 1, %if.else.i ], [ 0, %if.end20.fold.split.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
-  %cmp23.i = icmp ult ptr %add.ptr.i, %1
-  br i1 %cmp23.i, label %land.lhs.true.i, label %if.end47.i
-
-land.lhs.true.i:                                  ; preds = %if.end20.i
-  %3 = load i64, ptr %add.ptr.i, align 8
-  %shr27.i = ashr i64 %3, 47
-  %conv28.i = trunc i64 %shr27.i to i32
-  %conv28.off.i = add nsw i32 %conv28.i, 3
-  %switch.i = icmp ult i32 %conv28.off.i, 2
-  br i1 %switch.i, label %if.then38.i, label %if.end47.i
-
-if.then38.i:                                      ; preds = %land.lhs.true.i
-  %4 = and i64 %shr27.i, 4294967295
-  %tobool.not.i = icmp eq i64 %4, 4294967294
-  %or43.i = select i1 %tobool.not.i, i32 260, i32 259
-  br label %if.end47.i
-
-if.end47.i:                                       ; preds = %if.end20.i, %land.lhs.true.i, %if.then38.i, %lor.lhs.false.i, %entry
-  %mode.addr.0.i = phi i32 [ %or43.i, %if.then38.i ], [ 256, %lor.lhs.false.i ], [ 256, %entry ], [ 258, %land.lhs.true.i ], [ 258, %if.end20.i ]
-  %idx.1.i = phi i32 [ %idx.0.i, %if.then38.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ %idx.0.i, %land.lhs.true.i ], [ %idx.0.i, %if.end20.i ]
-  %call.i = tail call i32 @luaJIT_setmode(ptr noundef nonnull %L, i32 noundef %idx.1.i, i32 noundef %mode.addr.0.i) #8
-  %cmp48.not.i = icmp eq i32 %call.i, 1
-  br i1 %cmp48.not.i, label %setjitmode.exit, label %if.then50.i
-
-if.then50.i:                                      ; preds = %if.end47.i
-  %and.i = and i32 %mode.addr.0.i, 7
-  %cmp51.i = icmp eq i32 %and.i, 0
-  br i1 %cmp51.i, label %if.then53.i, label %err.i
-
-if.then53.i:                                      ; preds = %if.then50.i
-  tail call void @lj_err_caller(ptr noundef nonnull %L, i32 noundef 2054) #9
-  unreachable
-
-err.i:                                            ; preds = %if.then50.i, %if.else.i
-  tail call void @lj_err_argt(ptr noundef nonnull %L, i32 noundef 1, i32 noundef 6) #9
-  unreachable
-
-setjitmode.exit:                                  ; preds = %if.end47.i
+  tail call fastcc void @setjitmode(ptr noundef %L, i32 noundef 256)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_jit_off(ptr noundef %L) #0 {
 entry:
-  %base.i = getelementptr inbounds i8, ptr %L, i64 32
-  %0 = load ptr, ptr %base.i, align 8
-  %top.i = getelementptr inbounds i8, ptr %L, i64 40
-  %1 = load ptr, ptr %top.i, align 8
-  %cmp.i = icmp eq ptr %0, %1
-  br i1 %cmp.i, label %if.end47.i, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %entry
-  %2 = load i64, ptr %0, align 8
-  %cmp2.i = icmp eq i64 %2, -1
-  br i1 %cmp2.i, label %if.end47.i, label %if.else.i
-
-if.else.i:                                        ; preds = %lor.lhs.false.i
-  %shr.i = ashr i64 %2, 47
-  %conv.i = trunc i64 %shr.i to i32
-  switch i32 %conv.i, label %err.i [
-    i32 -9, label %if.end20.i
-    i32 -8, label %if.end20.i
-    i32 -3, label %if.end20.fold.split.i
-  ]
-
-if.end20.fold.split.i:                            ; preds = %if.else.i
-  br label %if.end20.i
-
-if.end20.i:                                       ; preds = %if.end20.fold.split.i, %if.else.i, %if.else.i
-  %idx.0.i = phi i32 [ 1, %if.else.i ], [ 1, %if.else.i ], [ 0, %if.end20.fold.split.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
-  %cmp23.i = icmp ult ptr %add.ptr.i, %1
-  br i1 %cmp23.i, label %land.lhs.true.i, label %if.end47.i
-
-land.lhs.true.i:                                  ; preds = %if.end20.i
-  %3 = load i64, ptr %add.ptr.i, align 8
-  %shr27.i = ashr i64 %3, 47
-  %conv28.i = trunc i64 %shr27.i to i32
-  %conv28.off.i = add nsw i32 %conv28.i, 3
-  %switch.i = icmp ult i32 %conv28.off.i, 2
-  br i1 %switch.i, label %if.then38.i, label %if.end47.i
-
-if.then38.i:                                      ; preds = %land.lhs.true.i
-  %4 = and i64 %shr27.i, 4294967295
-  %tobool.not.i = icmp eq i64 %4, 4294967294
-  %cond.i = select i1 %tobool.not.i, i32 4, i32 3
-  br label %if.end47.i
-
-if.end47.i:                                       ; preds = %if.end20.i, %land.lhs.true.i, %if.then38.i, %lor.lhs.false.i, %entry
-  %mode.addr.0.i = phi i32 [ %cond.i, %if.then38.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ 2, %land.lhs.true.i ], [ 2, %if.end20.i ]
-  %idx.1.i = phi i32 [ %idx.0.i, %if.then38.i ], [ 0, %lor.lhs.false.i ], [ 0, %entry ], [ %idx.0.i, %land.lhs.true.i ], [ %idx.0.i, %if.end20.i ]
-  %call.i = tail call i32 @luaJIT_setmode(ptr noundef nonnull %L, i32 noundef %idx.1.i, i32 noundef %mode.addr.0.i) #8
-  %cmp48.not.i = icmp eq i32 %call.i, 1
-  br i1 %cmp48.not.i, label %setjitmode.exit, label %if.then50.i
-
-if.then50.i:                                      ; preds = %if.end47.i
-  %cmp51.i = icmp eq i32 %mode.addr.0.i, 0
-  br i1 %cmp51.i, label %if.then53.i, label %err.i
-
-if.then53.i:                                      ; preds = %if.then50.i
-  tail call void @lj_err_caller(ptr noundef nonnull %L, i32 noundef 2054) #9
-  unreachable
-
-err.i:                                            ; preds = %if.then50.i, %if.else.i
-  tail call void @lj_err_argt(ptr noundef nonnull %L, i32 noundef 1, i32 noundef 6) #9
-  unreachable
-
-setjitmode.exit:                                  ; preds = %if.end47.i
+  tail call fastcc void @setjitmode(ptr noundef %L, i32 noundef 0)
   ret i32 0
 }
 
@@ -335,67 +208,10 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %cmp.i = icmp eq ptr %0, %1
-  br i1 %cmp.i, label %if.end47.i, label %lor.lhs.false.i
+  tail call fastcc void @setjitmode(ptr noundef nonnull %L, i32 noundef 512)
+  br label %return
 
-lor.lhs.false.i:                                  ; preds = %if.end
-  %3 = load i64, ptr %0, align 8
-  %cmp2.i = icmp eq i64 %3, -1
-  br i1 %cmp2.i, label %if.end47.i, label %if.else.i
-
-if.else.i:                                        ; preds = %lor.lhs.false.i
-  %shr.i = ashr i64 %3, 47
-  %conv.i = trunc i64 %shr.i to i32
-  switch i32 %conv.i, label %err.i [
-    i32 -9, label %if.end20.i
-    i32 -8, label %if.end20.i
-    i32 -3, label %if.end20.fold.split.i
-  ]
-
-if.end20.fold.split.i:                            ; preds = %if.else.i
-  br label %if.end20.i
-
-if.end20.i:                                       ; preds = %if.end20.fold.split.i, %if.else.i, %if.else.i
-  %idx.0.i = phi i32 [ 1, %if.else.i ], [ 1, %if.else.i ], [ 0, %if.end20.fold.split.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 8
-  %cmp23.i = icmp ult ptr %add.ptr.i, %1
-  br i1 %cmp23.i, label %land.lhs.true.i, label %if.end47.i
-
-land.lhs.true.i:                                  ; preds = %if.end20.i
-  %4 = load i64, ptr %add.ptr.i, align 8
-  %shr27.i = ashr i64 %4, 47
-  %conv28.i = trunc i64 %shr27.i to i32
-  %conv28.off.i = add nsw i32 %conv28.i, 3
-  %switch.i = icmp ult i32 %conv28.off.i, 2
-  br i1 %switch.i, label %if.then38.i, label %if.end47.i
-
-if.then38.i:                                      ; preds = %land.lhs.true.i
-  %5 = and i64 %shr27.i, 4294967295
-  %tobool.not.i = icmp eq i64 %5, 4294967294
-  %or43.i = select i1 %tobool.not.i, i32 516, i32 515
-  br label %if.end47.i
-
-if.end47.i:                                       ; preds = %if.end20.i, %land.lhs.true.i, %if.then38.i, %lor.lhs.false.i, %if.end
-  %mode.addr.0.i = phi i32 [ %or43.i, %if.then38.i ], [ 512, %lor.lhs.false.i ], [ 512, %if.end ], [ 514, %land.lhs.true.i ], [ 514, %if.end20.i ]
-  %idx.1.i = phi i32 [ %idx.0.i, %if.then38.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.end ], [ %idx.0.i, %land.lhs.true.i ], [ %idx.0.i, %if.end20.i ]
-  %call.i = tail call i32 @luaJIT_setmode(ptr noundef nonnull %L, i32 noundef %idx.1.i, i32 noundef %mode.addr.0.i) #8
-  %cmp48.not.i = icmp eq i32 %call.i, 1
-  br i1 %cmp48.not.i, label %return, label %if.then50.i
-
-if.then50.i:                                      ; preds = %if.end47.i
-  %and.i = and i32 %mode.addr.0.i, 7
-  %cmp51.i = icmp eq i32 %and.i, 0
-  br i1 %cmp51.i, label %if.then53.i, label %err.i
-
-if.then53.i:                                      ; preds = %if.then50.i
-  tail call void @lj_err_caller(ptr noundef nonnull %L, i32 noundef 2054) #9
-  unreachable
-
-err.i:                                            ; preds = %if.then50.i, %if.else.i
-  tail call void @lj_err_argt(ptr noundef nonnull %L, i32 noundef 1, i32 noundef 6) #9
-  unreachable
-
-return:                                           ; preds = %if.end47.i, %if.then
+return:                                           ; preds = %if.end, %if.then
   ret i32 0
 }
 
@@ -598,6 +414,82 @@ if.end:                                           ; preds = %if.then19, %while.b
 
 if.end28:                                         ; preds = %if.end, %if.else, %while.end
   ret i32 0
+}
+
+; Function Attrs: nounwind uwtable
+define internal fastcc void @setjitmode(ptr noundef %L, i32 noundef %mode) unnamed_addr #0 {
+entry:
+  %base = getelementptr inbounds i8, ptr %L, i64 32
+  %0 = load ptr, ptr %base, align 8
+  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %1 = load ptr, ptr %top, align 8
+  %cmp = icmp eq ptr %0, %1
+  br i1 %cmp, label %if.end47, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %entry
+  %2 = load i64, ptr %0, align 8
+  %cmp2 = icmp eq i64 %2, -1
+  br i1 %cmp2, label %if.end47, label %if.else
+
+if.else:                                          ; preds = %lor.lhs.false
+  %shr = ashr i64 %2, 47
+  %conv = trunc i64 %shr to i32
+  switch i32 %conv, label %err [
+    i32 -9, label %if.end20
+    i32 -8, label %if.end20
+    i32 -3, label %if.end20.fold.split
+  ]
+
+if.end20.fold.split:                              ; preds = %if.else
+  br label %if.end20
+
+if.end20:                                         ; preds = %if.else, %if.else, %if.end20.fold.split
+  %idx.0 = phi i32 [ 1, %if.else ], [ 1, %if.else ], [ 0, %if.end20.fold.split ]
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 8
+  %cmp23 = icmp ult ptr %add.ptr, %1
+  br i1 %cmp23, label %land.lhs.true, label %if.else44
+
+land.lhs.true:                                    ; preds = %if.end20
+  %3 = load i64, ptr %add.ptr, align 8
+  %shr27 = ashr i64 %3, 47
+  %conv28 = trunc i64 %shr27 to i32
+  %conv28.off = add nsw i32 %conv28, 3
+  %switch = icmp ult i32 %conv28.off, 2
+  br i1 %switch, label %if.then38, label %if.else44
+
+if.then38:                                        ; preds = %land.lhs.true
+  %4 = and i64 %shr27, 4294967295
+  %tobool.not = icmp eq i64 %4, 4294967294
+  %cond = select i1 %tobool.not, i32 4, i32 3
+  %or43 = or i32 %cond, %mode
+  br label %if.end47
+
+if.else44:                                        ; preds = %land.lhs.true, %if.end20
+  %or45 = or i32 %mode, 2
+  br label %if.end47
+
+if.end47:                                         ; preds = %entry, %lor.lhs.false, %if.then38, %if.else44
+  %mode.addr.0 = phi i32 [ %or43, %if.then38 ], [ %or45, %if.else44 ], [ %mode, %lor.lhs.false ], [ %mode, %entry ]
+  %idx.1 = phi i32 [ %idx.0, %if.then38 ], [ %idx.0, %if.else44 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
+  %call = tail call i32 @luaJIT_setmode(ptr noundef nonnull %L, i32 noundef %idx.1, i32 noundef %mode.addr.0) #8
+  %cmp48.not = icmp eq i32 %call, 1
+  br i1 %cmp48.not, label %if.end55, label %if.then50
+
+if.then50:                                        ; preds = %if.end47
+  %and = and i32 %mode.addr.0, 255
+  %cmp51 = icmp eq i32 %and, 0
+  br i1 %cmp51, label %if.then53, label %err
+
+if.then53:                                        ; preds = %if.then50
+  tail call void @lj_err_caller(ptr noundef nonnull %L, i32 noundef 2054) #9
+  unreachable
+
+err:                                              ; preds = %if.else, %if.then50
+  tail call void @lj_err_argt(ptr noundef nonnull %L, i32 noundef 1, i32 noundef 6) #9
+  unreachable
+
+if.end55:                                         ; preds = %if.end47
+  ret void
 }
 
 declare i32 @luaJIT_setmode(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

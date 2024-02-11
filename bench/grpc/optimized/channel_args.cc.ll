@@ -2604,62 +2604,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK9grpc_core11ChannelArgs18ChannelArgsDeleterclEPK17grpc_channel_args(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr noundef %p) local_unnamed_addr #5 align 2 {
 entry:
-  %tobool.not.i.i = icmp eq ptr %p, null
-  br i1 %tobool.not.i.i, label %_Z25grpc_channel_args_destroyPK17grpc_channel_args.exit, label %for.cond.preheader.i.i
-
-for.cond.preheader.i.i:                           ; preds = %entry
-  %0 = load i64, ptr %p, align 8
-  %cmp15.not.i.i = icmp eq i64 %0, 0
-  br i1 %cmp15.not.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
-
-for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %args.i.i = getelementptr inbounds i8, ptr %p, i64 8
-  br label %for.body.i.i
-
-for.body.i.i:                                     ; preds = %sw.epilog.i.i, %for.body.lr.ph.i.i
-  %i.016.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %sw.epilog.i.i ]
-  %1 = load ptr, ptr %args.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %struct.grpc_arg, ptr %1, i64 %i.016.i.i
-  %2 = load i32, ptr %arrayidx.i.i, align 8
-  switch i32 %2, label %sw.epilog.i.i [
-    i32 0, label %sw.bb.i.i
-    i32 2, label %sw.bb4.i.i
-  ]
-
-sw.bb.i.i:                                        ; preds = %for.body.i.i
-  %value.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %3 = load ptr, ptr %value.i.i, align 8
-  tail call void @gpr_free(ptr noundef %3)
-  br label %sw.epilog.i.i
-
-sw.bb4.i.i:                                       ; preds = %for.body.i.i
-  %value7.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %vtable.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
-  %4 = load ptr, ptr %vtable.i.i, align 8
-  %destroy.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load ptr, ptr %destroy.i.i, align 8
-  %6 = load ptr, ptr %value7.i.i, align 8
-  tail call void %5(ptr noundef %6)
-  br label %sw.epilog.i.i
-
-sw.epilog.i.i:                                    ; preds = %sw.bb4.i.i, %sw.bb.i.i, %for.body.i.i
-  %7 = load ptr, ptr %args.i.i, align 8
-  %key.i.i = getelementptr inbounds %struct.grpc_arg, ptr %7, i64 %i.016.i.i, i32 1
-  %8 = load ptr, ptr %key.i.i, align 8
-  tail call void @gpr_free(ptr noundef %8)
-  %inc.i.i = add nuw i64 %i.016.i.i, 1
-  %9 = load i64, ptr %p, align 8
-  %cmp.i.i = icmp ult i64 %inc.i.i, %9
-  br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !65
-
-for.end.i.i:                                      ; preds = %sw.epilog.i.i, %for.cond.preheader.i.i
-  %args13.i.i = getelementptr inbounds i8, ptr %p, i64 8
-  %10 = load ptr, ptr %args13.i.i, align 8
-  tail call void @gpr_free(ptr noundef %10)
-  tail call void @gpr_free(ptr noundef nonnull %p)
-  br label %_Z25grpc_channel_args_destroyPK17grpc_channel_args.exit
-
-_Z25grpc_channel_args_destroyPK17grpc_channel_args.exit: ; preds = %entry, %for.end.i.i
+  tail call void @_Z25grpc_channel_args_destroyP17grpc_channel_args(ptr noundef %p)
   ret void
 }
 
@@ -2718,14 +2663,14 @@ for.cond.i:                                       ; preds = %for.body, %for.body
   %i.04.i70 = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body ]
   %inc.i = add nuw i64 %i.04.i70, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %num_to_remove
-  br i1 %exitcond.not.i, label %_ZL17should_remove_argPK8grpc_argPPKcm.exit.loopexit, label %for.body.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %_ZL17should_remove_argPK8grpc_argPPKcm.exit.loopexit, label %for.body.i, !llvm.loop !65
 
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i = getelementptr inbounds ptr, ptr %to_remove, i64 %inc.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #33
   %cmp1.i = icmp eq i32 %call.i, 0
-  br i1 %cmp1.i, label %_ZL17should_remove_argPK8grpc_argPPKcm.exit.loopexit, label %for.cond.i, !llvm.loop !66
+  br i1 %cmp1.i, label %_ZL17should_remove_argPK8grpc_argPPKcm.exit.loopexit, label %for.cond.i, !llvm.loop !65
 
 _ZL17should_remove_argPK8grpc_argPPKcm.exit.loopexit: ; preds = %for.cond.i, %for.body.i
   %cmp.i.le = icmp ult i64 %inc.i, %num_to_remove
@@ -2739,7 +2684,7 @@ _ZL17should_remove_argPK8grpc_argPPKcm.exit:      ; preds = %_ZL17should_remove_
   %spec.select = add i64 %num_args_to_copy.073, %inc
   %inc3 = add nuw i64 %i.074, 1
   %exitcond.not = icmp eq i64 %inc3, %0
-  br i1 %exitcond.not, label %if.end4, label %for.body, !llvm.loop !67
+  br i1 %exitcond.not, label %if.end4, label %for.body, !llvm.loop !66
 
 if.end4:                                          ; preds = %_ZL17should_remove_argPK8grpc_argPPKcm.exit, %for.body.lr.ph, %for.cond.preheader, %entry
   %num_args_to_copy.2 = phi i64 [ 0, %entry ], [ 0, %for.cond.preheader ], [ %0, %for.body.lr.ph ], [ %spec.select, %_ZL17should_remove_argPK8grpc_argPPKcm.exit ]
@@ -2793,22 +2738,22 @@ for.cond.i38:                                     ; preds = %for.body.lr.ph.i30,
   %i.04.i3478 = phi i64 [ %inc.i39, %for.body.i32 ], [ 0, %for.body.lr.ph.i30 ]
   %inc.i39 = add nuw i64 %i.04.i3478, 1
   %exitcond.not.i41 = icmp eq i64 %inc.i39, %num_to_remove
-  br i1 %exitcond.not.i41, label %_ZL17should_remove_argPK8grpc_argPPKcm.exit43, label %for.body.i32, !llvm.loop !66
+  br i1 %exitcond.not.i41, label %_ZL17should_remove_argPK8grpc_argPPKcm.exit43, label %for.body.i32, !llvm.loop !65
 
 for.body.i32:                                     ; preds = %for.cond.i38
   %arrayidx.i35 = getelementptr inbounds ptr, ptr %to_remove, i64 %inc.i39
   %9 = load ptr, ptr %arrayidx.i35, align 8
   %call.i36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre, ptr noundef nonnull dereferenceable(1) %9) #33
   %cmp1.i37 = icmp eq i32 %call.i36, 0
-  br i1 %cmp1.i37, label %_ZL17should_remove_argPK8grpc_argPPKcm.exit43, label %for.cond.i38, !llvm.loop !66
+  br i1 %cmp1.i37, label %_ZL17should_remove_argPK8grpc_argPPKcm.exit43, label %for.cond.i38, !llvm.loop !65
 
 _ZL17should_remove_argPK8grpc_argPPKcm.exit43:    ; preds = %for.body.i32, %for.cond.i38
   %cmp.i40.le = icmp ult i64 %inc.i39, %num_to_remove
   br i1 %cmp.i40.le, label %for.inc32, label %if.then25
 
 if.then25:                                        ; preds = %for.body21, %_ZL17should_remove_argPK8grpc_argPPKcm.exit43
-  %10 = load i32, ptr %arrayidx23, align 8, !noalias !68
-  %call.i45 = tail call ptr @gpr_strdup(ptr noundef %.pre), !noalias !68
+  %10 = load i32, ptr %arrayidx23, align 8, !noalias !67
+  %call.i45 = tail call ptr @gpr_strdup(ptr noundef %.pre), !noalias !67
   switch i32 %10, label %_ZL8copy_argPK8grpc_arg.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb6.i
@@ -2817,13 +2762,13 @@ if.then25:                                        ; preds = %for.body21, %_ZL17s
 
 sw.bb.i:                                          ; preds = %if.then25
   %value.i = getelementptr inbounds i8, ptr %arrayidx23, i64 16
-  %11 = load ptr, ptr %value.i, align 8, !noalias !68
-  %call4.i = tail call ptr @gpr_strdup(ptr noundef %11), !noalias !68
+  %11 = load ptr, ptr %value.i, align 8, !noalias !67
+  %call4.i = tail call ptr @gpr_strdup(ptr noundef %11), !noalias !67
   br label %_ZL8copy_argPK8grpc_arg.exit
 
 sw.bb6.i:                                         ; preds = %if.then25
   %value7.i = getelementptr inbounds i8, ptr %arrayidx23, i64 16
-  %12 = load i32, ptr %value7.i, align 8, !noalias !68
+  %12 = load i32, ptr %value7.i, align 8, !noalias !67
   %13 = ptrtoint ptr %ref.tmp.sroa.3.083 to i64
   %ref.tmp.sroa.3.0.insert.ext = zext i32 %12 to i64
   %ref.tmp.sroa.3.0.insert.mask = and i64 %13, -4294967296
@@ -2835,9 +2780,9 @@ sw.bb9.i:                                         ; preds = %if.then25
   %value10.i = getelementptr inbounds i8, ptr %arrayidx23, i64 16
   %ref.tmp.sroa.7.16.value10.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx23, i64 24
   %ref.tmp.sroa.7.16.copyload = load ptr, ptr %ref.tmp.sroa.7.16.value10.i.sroa_idx, align 8
-  %15 = load ptr, ptr %ref.tmp.sroa.7.16.copyload, align 8, !noalias !68
-  %16 = load ptr, ptr %value10.i, align 8, !noalias !68
-  %call14.i = tail call noundef ptr %15(ptr noundef %16), !noalias !68
+  %15 = load ptr, ptr %ref.tmp.sroa.7.16.copyload, align 8, !noalias !67
+  %16 = load ptr, ptr %value10.i, align 8, !noalias !67
+  %call14.i = tail call noundef ptr %15(ptr noundef %16), !noalias !67
   br label %_ZL8copy_argPK8grpc_arg.exit
 
 _ZL8copy_argPK8grpc_arg.exit:                     ; preds = %if.then25, %sw.bb.i, %sw.bb6.i, %sw.bb9.i
@@ -2863,7 +2808,7 @@ for.inc32:                                        ; preds = %for.body.lr.ph.i30,
   %dst_idx.1 = phi i64 [ %dst_idx.084, %_ZL17should_remove_argPK8grpc_argPPKcm.exit43 ], [ %inc29, %_ZL8copy_argPK8grpc_arg.exit ], [ %dst_idx.084, %for.body.lr.ph.i30 ]
   %inc33 = add nuw i64 %i17.085, 1
   %cmp20 = icmp ult i64 %inc33, %18
-  br i1 %cmp20, label %for.body21, label %if.end35, !llvm.loop !71
+  br i1 %cmp20, label %for.body21, label %if.end35, !llvm.loop !70
 
 if.end35:                                         ; preds = %for.inc32, %for.cond18.preheader, %if.end11
   %dst_idx.2 = phi i64 [ 0, %if.end11 ], [ 0, %for.cond18.preheader ], [ %dst_idx.1, %for.inc32 ]
@@ -2876,10 +2821,10 @@ for.body39:                                       ; preds = %if.end35, %_ZL8copy
   %ref.tmp40.sroa.3.089 = phi ptr [ %ref.tmp40.sroa.3.1, %_ZL8copy_argPK8grpc_arg.exit61 ], [ undef, %if.end35 ]
   %ref.tmp40.sroa.7.088 = phi ptr [ %ref.tmp40.sroa.7.1, %_ZL8copy_argPK8grpc_arg.exit61 ], [ undef, %if.end35 ]
   %arrayidx41 = getelementptr inbounds %struct.grpc_arg, ptr %to_add, i64 %i36.091
-  %19 = load i32, ptr %arrayidx41, align 8, !noalias !72
+  %19 = load i32, ptr %arrayidx41, align 8, !noalias !71
   %key.i46 = getelementptr inbounds i8, ptr %arrayidx41, i64 8
-  %20 = load ptr, ptr %key.i46, align 8, !noalias !72
-  %call.i47 = tail call ptr @gpr_strdup(ptr noundef %20), !noalias !72
+  %20 = load ptr, ptr %key.i46, align 8, !noalias !71
+  %call.i47 = tail call ptr @gpr_strdup(ptr noundef %20), !noalias !71
   switch i32 %19, label %_ZL8copy_argPK8grpc_arg.exit61 [
     i32 0, label %sw.bb.i57
     i32 1, label %sw.bb6.i54
@@ -2888,13 +2833,13 @@ for.body39:                                       ; preds = %if.end35, %_ZL8copy
 
 sw.bb.i57:                                        ; preds = %for.body39
   %value.i58 = getelementptr inbounds i8, ptr %arrayidx41, i64 16
-  %21 = load ptr, ptr %value.i58, align 8, !noalias !72
-  %call4.i59 = tail call ptr @gpr_strdup(ptr noundef %21), !noalias !72
+  %21 = load ptr, ptr %value.i58, align 8, !noalias !71
+  %call4.i59 = tail call ptr @gpr_strdup(ptr noundef %21), !noalias !71
   br label %_ZL8copy_argPK8grpc_arg.exit61
 
 sw.bb6.i54:                                       ; preds = %for.body39
   %value7.i55 = getelementptr inbounds i8, ptr %arrayidx41, i64 16
-  %22 = load i32, ptr %value7.i55, align 8, !noalias !72
+  %22 = load i32, ptr %value7.i55, align 8, !noalias !71
   %23 = ptrtoint ptr %ref.tmp40.sroa.3.089 to i64
   %ref.tmp40.sroa.3.0.insert.ext = zext i32 %22 to i64
   %ref.tmp40.sroa.3.0.insert.mask = and i64 %23, -4294967296
@@ -2906,9 +2851,9 @@ sw.bb9.i49:                                       ; preds = %for.body39
   %value10.i50 = getelementptr inbounds i8, ptr %arrayidx41, i64 16
   %ref.tmp40.sroa.7.16.value10.i50.sroa_idx = getelementptr inbounds i8, ptr %arrayidx41, i64 24
   %ref.tmp40.sroa.7.16.copyload = load ptr, ptr %ref.tmp40.sroa.7.16.value10.i50.sroa_idx, align 8
-  %25 = load ptr, ptr %ref.tmp40.sroa.7.16.copyload, align 8, !noalias !72
-  %26 = load ptr, ptr %value10.i50, align 8, !noalias !72
-  %call14.i53 = tail call noundef ptr %25(ptr noundef %26), !noalias !72
+  %25 = load ptr, ptr %ref.tmp40.sroa.7.16.copyload, align 8, !noalias !71
+  %26 = load ptr, ptr %value10.i50, align 8, !noalias !71
+  %call14.i53 = tail call noundef ptr %25(ptr noundef %26), !noalias !71
   br label %_ZL8copy_argPK8grpc_arg.exit61
 
 _ZL8copy_argPK8grpc_arg.exit61:                   ; preds = %for.body39, %sw.bb.i57, %sw.bb6.i54, %sw.bb9.i49
@@ -2926,7 +2871,7 @@ _ZL8copy_argPK8grpc_arg.exit61:                   ; preds = %for.body39, %sw.bb.
   store ptr %ref.tmp40.sroa.7.1, ptr %ref.tmp40.sroa.7.0.arrayidx44.sroa_idx, align 8
   %inc46 = add nuw i64 %i36.091, 1
   %exitcond94.not = icmp eq i64 %inc46, %num_to_add
-  br i1 %exitcond94.not, label %do.body, label %for.body39, !llvm.loop !75
+  br i1 %exitcond94.not, label %do.body, label %for.body39, !llvm.loop !74
 
 do.body:                                          ; preds = %_ZL8copy_argPK8grpc_arg.exit61, %if.end35
   %dst_idx.3.lcssa = phi i64 [ %dst_idx.2, %if.end35 ], [ %inc43, %_ZL8copy_argPK8grpc_arg.exit61 ]
@@ -3013,7 +2958,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i64 %i.027, 1
   %5 = load i64, ptr %a, align 8
   %cmp8 = icmp ult i64 %inc, %5
-  br i1 %cmp8, label %for.body, label %for.cond12.preheader, !llvm.loop !76
+  br i1 %cmp8, label %for.body, label %for.cond12.preheader, !llvm.loop !75
 
 for.cond.preheader.i:                             ; preds = %for.cond.preheader.i.lr.ph, %for.inc26
   %6 = phi i64 [ %3, %for.cond.preheader.i.lr.ph ], [ %12, %for.inc26 ]
@@ -3033,7 +2978,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %9
-  br i1 %exitcond.not.i, label %if.then20, label %for.body.i, !llvm.loop !77
+  br i1 %exitcond.not.i, label %if.then20, label %for.body.i, !llvm.loop !76
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
@@ -3056,7 +3001,7 @@ for.inc26:                                        ; preds = %for.body.i, %if.the
   %uniques_idx.1 = phi i64 [ %inc23, %if.then20 ], [ %uniques_idx.029, %for.body.i ]
   %inc27 = add nuw i64 %i11.030, 1
   %cmp14 = icmp ult i64 %inc27, %12
-  br i1 %cmp14, label %for.cond.preheader.i, label %for.end28, !llvm.loop !78
+  br i1 %cmp14, label %for.cond.preheader.i, label %for.end28, !llvm.loop !77
 
 for.end28:                                        ; preds = %for.inc26, %for.cond12.preheader
   %uniques_idx.0.lcssa = phi i64 [ %.lcssa, %for.cond12.preheader ], [ %uniques_idx.1, %for.inc26 ]
@@ -3088,7 +3033,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.cond:                                         ; preds = %for.body
   %inc = add nuw i64 %i.08, 1
   %exitcond.not = icmp eq i64 %inc, %0
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !77
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !76
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %i.08 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
@@ -3129,7 +3074,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i64 %i.022, 1
   %3 = load i64, ptr %src, align 8
   %cmp = icmp ult i64 %inc, %3
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !79
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !78
 
 for.end:                                          ; preds = %for.body
   %cmp5 = icmp ugt i64 %3, 1
@@ -3157,10 +3102,10 @@ for.body18:                                       ; preds = %if.end, %_ZL8copy_a
   %ref.tmp.sroa.7.024 = phi ptr [ %ref.tmp.sroa.7.1, %_ZL8copy_argPK8grpc_arg.exit ], [ undef, %if.end ]
   %arrayidx19 = getelementptr inbounds ptr, ptr %call, i64 %i14.026
   %6 = load ptr, ptr %arrayidx19, align 8
-  %7 = load i32, ptr %6, align 8, !noalias !80
+  %7 = load i32, ptr %6, align 8, !noalias !79
   %key.i = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = load ptr, ptr %key.i, align 8, !noalias !80
-  %call.i = tail call ptr @gpr_strdup(ptr noundef %8), !noalias !80
+  %8 = load ptr, ptr %key.i, align 8, !noalias !79
+  %call.i = tail call ptr @gpr_strdup(ptr noundef %8), !noalias !79
   switch i32 %7, label %_ZL8copy_argPK8grpc_arg.exit [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb6.i
@@ -3169,13 +3114,13 @@ for.body18:                                       ; preds = %if.end, %_ZL8copy_a
 
 sw.bb.i:                                          ; preds = %for.body18
   %value.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %value.i, align 8, !noalias !80
-  %call4.i = tail call ptr @gpr_strdup(ptr noundef %9), !noalias !80
+  %9 = load ptr, ptr %value.i, align 8, !noalias !79
+  %call4.i = tail call ptr @gpr_strdup(ptr noundef %9), !noalias !79
   br label %_ZL8copy_argPK8grpc_arg.exit
 
 sw.bb6.i:                                         ; preds = %for.body18
   %value7.i = getelementptr inbounds i8, ptr %6, i64 16
-  %10 = load i32, ptr %value7.i, align 8, !noalias !80
+  %10 = load i32, ptr %value7.i, align 8, !noalias !79
   %11 = ptrtoint ptr %ref.tmp.sroa.3.025 to i64
   %ref.tmp.sroa.3.0.insert.ext = zext i32 %10 to i64
   %ref.tmp.sroa.3.0.insert.mask = and i64 %11, -4294967296
@@ -3187,9 +3132,9 @@ sw.bb9.i:                                         ; preds = %for.body18
   %value10.i = getelementptr inbounds i8, ptr %6, i64 16
   %ref.tmp.sroa.7.16.value10.i.sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
   %ref.tmp.sroa.7.16.copyload = load ptr, ptr %ref.tmp.sroa.7.16.value10.i.sroa_idx, align 8
-  %13 = load ptr, ptr %ref.tmp.sroa.7.16.copyload, align 8, !noalias !80
-  %14 = load ptr, ptr %value10.i, align 8, !noalias !80
-  %call14.i = tail call noundef ptr %13(ptr noundef %14), !noalias !80
+  %13 = load ptr, ptr %ref.tmp.sroa.7.16.copyload, align 8, !noalias !79
+  %14 = load ptr, ptr %value10.i, align 8, !noalias !79
+  %call14.i = tail call noundef ptr %13(ptr noundef %14), !noalias !79
   br label %_ZL8copy_argPK8grpc_arg.exit
 
 _ZL8copy_argPK8grpc_arg.exit:                     ; preds = %for.body18, %sw.bb.i, %sw.bb6.i, %sw.bb9.i
@@ -3207,7 +3152,7 @@ _ZL8copy_argPK8grpc_arg.exit:                     ; preds = %for.body18, %sw.bb.
   %inc23 = add nuw i64 %i14.026, 1
   %16 = load i64, ptr %src, align 8
   %cmp17 = icmp ult i64 %inc23, %16
-  br i1 %cmp17, label %for.body18, label %for.end24, !llvm.loop !83
+  br i1 %cmp17, label %for.body18, label %for.end24, !llvm.loop !82
 
 for.end24:                                        ; preds = %_ZL8copy_argPK8grpc_arg.exit, %if.end
   tail call void @gpr_free(ptr noundef %call)
@@ -3285,7 +3230,7 @@ sw.epilog:                                        ; preds = %sw.bb4, %sw.bb, %fo
   %inc = add nuw i64 %i.016, 1
   %9 = load i64, ptr %a, align 8
   %cmp = icmp ult i64 %inc, %9
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !65
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !83
 
 for.end:                                          ; preds = %sw.epilog, %for.cond.preheader
   %args13 = getelementptr inbounds i8, ptr %a, i64 8
@@ -3502,7 +3447,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %0
-  br i1 %exitcond.not.i, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit.thread, label %for.body.i, !llvm.loop !77
+  br i1 %exitcond.not.i, label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit.thread, label %for.body.i, !llvm.loop !76
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
@@ -3598,7 +3543,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %0
-  br i1 %exitcond.not.i, label %_Z27grpc_channel_arg_get_stringPK8grpc_arg.exit, label %for.body.i, !llvm.loop !77
+  br i1 %exitcond.not.i, label %_Z27grpc_channel_arg_get_stringPK8grpc_arg.exit, label %for.body.i, !llvm.loop !76
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
@@ -3686,7 +3631,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %0
-  br i1 %exitcond.not.i, label %_Z25grpc_channel_arg_get_boolPK8grpc_argb.exit, label %for.body.i, !llvm.loop !77
+  br i1 %exitcond.not.i, label %_Z25grpc_channel_arg_get_boolPK8grpc_argb.exit, label %for.body.i, !llvm.loop !76
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
@@ -3745,7 +3690,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 for.cond.i:                                       ; preds = %for.body.i
   %inc.i = add nuw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %0
-  br i1 %exitcond.not.i, label %_Z25grpc_channel_arg_get_boolPK8grpc_argb.exit, label %for.body.i, !llvm.loop !77
+  br i1 %exitcond.not.i, label %_Z25grpc_channel_arg_get_boolPK8grpc_argb.exit, label %for.body.i, !llvm.loop !76
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
@@ -10817,22 +10762,22 @@ attributes #33 = { nounwind willreturn memory(read) }
 !64 = distinct !{!64, !14}
 !65 = distinct !{!65, !14}
 !66 = distinct !{!66, !14}
-!67 = distinct !{!67, !14}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZL8copy_argPK8grpc_arg: %agg.result"}
-!70 = distinct !{!70, !"_ZL8copy_argPK8grpc_arg"}
-!71 = distinct !{!71, !14}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZL8copy_argPK8grpc_arg: %agg.result"}
-!74 = distinct !{!74, !"_ZL8copy_argPK8grpc_arg"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZL8copy_argPK8grpc_arg: %agg.result"}
+!69 = distinct !{!69, !"_ZL8copy_argPK8grpc_arg"}
+!70 = distinct !{!70, !14}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZL8copy_argPK8grpc_arg: %agg.result"}
+!73 = distinct !{!73, !"_ZL8copy_argPK8grpc_arg"}
+!74 = distinct !{!74, !14}
 !75 = distinct !{!75, !14}
 !76 = distinct !{!76, !14}
 !77 = distinct !{!77, !14}
 !78 = distinct !{!78, !14}
-!79 = distinct !{!79, !14}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZL8copy_argPK8grpc_arg: %agg.result"}
-!82 = distinct !{!82, !"_ZL8copy_argPK8grpc_arg"}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZL8copy_argPK8grpc_arg: %agg.result"}
+!81 = distinct !{!81, !"_ZL8copy_argPK8grpc_arg"}
+!82 = distinct !{!82, !14}
 !83 = distinct !{!83, !14}
 !84 = distinct !{!84, !14}
 !85 = !{!86}

@@ -116,6 +116,8 @@ $_ZN10polynomial7manager3imp11const_coeffEPKNS_10polynomialEjjR3mpz = comdat any
 
 $_ZN10polynomial7manager3imp20newton_interpolationEjjPK3mpzPKPNS_10polynomialER7obj_refIS5_S0_E = comdat any
 
+$_ZN10polynomial7manager3imp2pwEPKNS_8monomialEj = comdat any
+
 $_ZN10polynomial7manager3imp8mk_constERK8rational = comdat any
 
 $_ZN10polynomial7manager3imp13mk_polynomialEjj = comdat any
@@ -5549,81 +5551,88 @@ _ZN10polynomial7manager3imp5unifyEPKNS_8monomialES4_RPS2_S6_.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN10polynomial7manager2pwEPKNS_8monomialEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef readonly %m, i32 noundef %k) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN10polynomial7manager2pwEPKNS_8monomialEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %m, i32 noundef %k) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_monomial_manager.i.i = getelementptr inbounds i8, ptr %0, i64 464
-  %1 = load ptr, ptr %m_monomial_manager.i.i, align 8
-  switch i32 %k, label %if.end4.i.i [
-    i32 0, label %if.then.i.i
-    i32 1, label %_ZN10polynomial7manager3imp2pwEPKNS_8monomialEj.exit
+  %call = tail call noundef ptr @_ZN10polynomial7manager3imp2pwEPKNS_8monomialEj(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef %m, i32 noundef %k)
+  ret ptr %call
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZN10polynomial7manager3imp2pwEPKNS_8monomialEj(ptr noundef nonnull align 8 dereferenceable(824) %this, ptr noundef %m, i32 noundef %k) local_unnamed_addr #4 comdat align 2 {
+entry:
+  %m_monomial_manager.i = getelementptr inbounds i8, ptr %this, i64 464
+  %0 = load ptr, ptr %m_monomial_manager.i, align 8
+  switch i32 %k, label %if.end4.i [
+    i32 0, label %if.then.i
+    i32 1, label %_ZN10polynomial16monomial_manager2pwEPKNS_8monomialEj.exit
   ]
 
-if.then.i.i:                                      ; preds = %entry
-  %m_unit.i.i = getelementptr inbounds i8, ptr %1, i64 112
-  %2 = load ptr, ptr %m_unit.i.i, align 8
-  br label %_ZN10polynomial7manager3imp2pwEPKNS_8monomialEj.exit
+if.then.i:                                        ; preds = %entry
+  %m_unit.i = getelementptr inbounds i8, ptr %0, i64 112
+  %1 = load ptr, ptr %m_unit.i, align 8
+  br label %_ZN10polynomial16monomial_manager2pwEPKNS_8monomialEj.exit
 
-if.end4.i.i:                                      ; preds = %entry
-  %m_size.i.i.i = getelementptr inbounds i8, ptr %m, i64 12
-  %3 = load i32, ptr %m_size.i.i.i, align 4
-  %m_tmp1.i.i = getelementptr inbounds i8, ptr %1, i64 136
-  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %1, i64 144
-  %4 = load i32, ptr %m_capacity.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i32 %4, %3
-  br i1 %cmp.i.i.i, label %_ZN10polynomial12tmp_monomial7reserveEj.exit.thread.i.i, label %_ZN10polynomial12tmp_monomial7reserveEj.exit.i.i
+if.end4.i:                                        ; preds = %entry
+  %m_size.i.i = getelementptr inbounds i8, ptr %m, i64 12
+  %2 = load i32, ptr %m_size.i.i, align 4
+  %m_tmp1.i = getelementptr inbounds i8, ptr %0, i64 136
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = load i32, ptr %m_capacity.i.i, align 8
+  %cmp.i.i = icmp ult i32 %3, %2
+  br i1 %cmp.i.i, label %_ZN10polynomial12tmp_monomial7reserveEj.exit.thread.i, label %_ZN10polynomial12tmp_monomial7reserveEj.exit.i
 
-_ZN10polynomial12tmp_monomial7reserveEj.exit.thread.i.i: ; preds = %if.end4.i.i
-  %mul.i.i.i = shl i32 %3, 1
-  %5 = load ptr, ptr %m_tmp1.i.i, align 8
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef %5)
-  %mul.i.i.i.i.i.i = shl i32 %3, 4
-  %add.i.i.i.i.i.i = add i32 %mul.i.i.i.i.i.i, 20
-  %conv.i.i.i.i.i = zext i32 %add.i.i.i.i.i.i to i64
-  %call2.i.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %conv.i.i.i.i.i)
-  store <4 x i32> <i32 0, i32 -1, i32 0, i32 0>, ptr %call2.i.i.i.i.i, align 4
-  %m_hash.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i.i.i, i64 16
-  store i32 0, ptr %m_hash.i.i.i.i.i.i, align 4
-  store ptr %call2.i.i.i.i.i, ptr %m_tmp1.i.i, align 8
-  store i32 %mul.i.i.i, ptr %m_capacity.i.i.i, align 8
-  br label %for.body.lr.ph.i.i
+_ZN10polynomial12tmp_monomial7reserveEj.exit.thread.i: ; preds = %if.end4.i
+  %mul.i.i = shl i32 %2, 1
+  %4 = load ptr, ptr %m_tmp1.i, align 8
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef %4)
+  %mul.i.i.i.i.i = shl i32 %2, 4
+  %add.i.i.i.i.i = add i32 %mul.i.i.i.i.i, 20
+  %conv.i.i.i.i = zext i32 %add.i.i.i.i.i to i64
+  %call2.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %conv.i.i.i.i)
+  store <4 x i32> <i32 0, i32 -1, i32 0, i32 0>, ptr %call2.i.i.i.i, align 4
+  %m_hash.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i.i, i64 16
+  store i32 0, ptr %m_hash.i.i.i.i.i, align 4
+  store ptr %call2.i.i.i.i, ptr %m_tmp1.i, align 8
+  store i32 %mul.i.i, ptr %m_capacity.i.i, align 8
+  br label %for.body.lr.ph.i
 
-_ZN10polynomial12tmp_monomial7reserveEj.exit.i.i: ; preds = %if.end4.i.i
-  %cmp519.not.i.i = icmp eq i32 %3, 0
-  br i1 %cmp519.not.i.i, label %for.end.i.i, label %for.body.lr.ph.i.i
+_ZN10polynomial12tmp_monomial7reserveEj.exit.i:   ; preds = %if.end4.i
+  %cmp519.not.i = icmp eq i32 %2, 0
+  br i1 %cmp519.not.i, label %for.end.i, label %for.body.lr.ph.i
 
-for.body.lr.ph.i.i:                               ; preds = %_ZN10polynomial12tmp_monomial7reserveEj.exit.i.i, %_ZN10polynomial12tmp_monomial7reserveEj.exit.thread.i.i
-  %m_powers.i.i.i.i = getelementptr inbounds i8, ptr %m, i64 20
-  %wide.trip.count.i.i = zext i32 %3 to i64
-  br label %for.body.i.i
+for.body.lr.ph.i:                                 ; preds = %_ZN10polynomial12tmp_monomial7reserveEj.exit.i, %_ZN10polynomial12tmp_monomial7reserveEj.exit.thread.i
+  %m_powers.i.i.i = getelementptr inbounds i8, ptr %m, i64 20
+  %wide.trip.count.i = zext i32 %2 to i64
+  br label %for.body.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds [0 x %"class.polynomial::power"], ptr %m_powers.i.i.i.i, i64 0, i64 %indvars.iv.i.i
-  %6 = load i32, ptr %arrayidx.i.i.i.i, align 4
-  %second.i.i.i.i = getelementptr inbounds [0 x %"class.polynomial::power"], ptr %m_powers.i.i.i.i, i64 0, i64 %indvars.iv.i.i, i32 0, i32 1
-  %7 = load i32, ptr %second.i.i.i.i, align 4
-  %mul.i.i = mul i32 %7, %k
-  %8 = load ptr, ptr %m_tmp1.i.i, align 8
-  %m_powers.i.i.i = getelementptr inbounds i8, ptr %8, i64 20
-  %arrayidx.i.i.i = getelementptr inbounds [0 x %"class.polynomial::power"], ptr %m_powers.i.i.i, i64 0, i64 %indvars.iv.i.i
-  store i32 %6, ptr %arrayidx.i.i.i, align 4
-  %second3.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
-  store i32 %mul.i.i, ptr %second3.i.i.i.i.i, align 4
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !30
+for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
+  %arrayidx.i.i.i = getelementptr inbounds [0 x %"class.polynomial::power"], ptr %m_powers.i.i.i, i64 0, i64 %indvars.iv.i
+  %5 = load i32, ptr %arrayidx.i.i.i, align 4
+  %second.i.i.i = getelementptr inbounds [0 x %"class.polynomial::power"], ptr %m_powers.i.i.i, i64 0, i64 %indvars.iv.i, i32 0, i32 1
+  %6 = load i32, ptr %second.i.i.i, align 4
+  %mul.i = mul i32 %6, %k
+  %7 = load ptr, ptr %m_tmp1.i, align 8
+  %m_powers.i.i = getelementptr inbounds i8, ptr %7, i64 20
+  %arrayidx.i.i = getelementptr inbounds [0 x %"class.polynomial::power"], ptr %m_powers.i.i, i64 0, i64 %indvars.iv.i
+  store i32 %5, ptr %arrayidx.i.i, align 4
+  %second3.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
+  store i32 %mul.i, ptr %second3.i.i.i.i, align 4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !30
 
-for.end.i.i:                                      ; preds = %for.body.i.i, %_ZN10polynomial12tmp_monomial7reserveEj.exit.i.i
-  %9 = load ptr, ptr %m_tmp1.i.i, align 8
-  %m_size.i18.i.i = getelementptr inbounds i8, ptr %9, i64 12
-  store i32 %3, ptr %m_size.i18.i.i, align 4
-  %call8.i.i = tail call noundef ptr @_ZN10polynomial16monomial_manager11mk_monomialERNS_12tmp_monomialE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(12) %m_tmp1.i.i)
-  br label %_ZN10polynomial7manager3imp2pwEPKNS_8monomialEj.exit
+for.end.i:                                        ; preds = %for.body.i, %_ZN10polynomial12tmp_monomial7reserveEj.exit.i
+  %8 = load ptr, ptr %m_tmp1.i, align 8
+  %m_size.i18.i = getelementptr inbounds i8, ptr %8, i64 12
+  store i32 %2, ptr %m_size.i18.i, align 4
+  %call8.i = tail call noundef ptr @_ZN10polynomial16monomial_manager11mk_monomialERNS_12tmp_monomialE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(12) %m_tmp1.i)
+  br label %_ZN10polynomial16monomial_manager2pwEPKNS_8monomialEj.exit
 
-_ZN10polynomial7manager3imp2pwEPKNS_8monomialEj.exit: ; preds = %entry, %if.then.i.i, %for.end.i.i
-  %retval.0.i.i = phi ptr [ %2, %if.then.i.i ], [ %call8.i.i, %for.end.i.i ], [ %m, %entry ]
-  ret ptr %retval.0.i.i
+_ZN10polynomial16monomial_manager2pwEPKNS_8monomialEj.exit: ; preds = %entry, %if.then.i, %for.end.i
+  %retval.0.i = phi ptr [ %1, %if.then.i ], [ %call8.i, %for.end.i ], [ %m, %entry ]
+  ret ptr %retval.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -57859,7 +57868,7 @@ invoke.cont9:                                     ; preds = %for.inc
   %.pre = load ptr, ptr %ms, align 8
   %idx.ext.i17 = zext i32 %inc.i to i64
   %add.ptr.i18.idx = shl nuw nsw i64 %idx.ext.i17, 3
-  %add.ptr.i18.ptr = getelementptr inbounds i8, ptr %.pre, i64 %add.ptr.i18.idx
+  %add.ptr.i18 = getelementptr inbounds i8, ptr %.pre, i64 %add.ptr.i18.idx
   %cmp.not.i.i = icmp eq i32 %inc.i, 0
   br i1 %cmp.not.i.i, label %_ZSt4sortIPPN10polynomial8monomialENS0_7lex_lt2EEvT_S5_T0_.exit, label %if.then.i.i
 
@@ -57867,7 +57876,7 @@ if.then.i.i:                                      ; preds = %invoke.cont9
   %10 = call i64 @llvm.ctlz.i64(i64 %idx.ext.i17, i1 true), !range !47
   %sub.i.i.i = shl nuw nsw i64 %10, 1
   %mul.i.i19 = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIPPN10polynomial8monomialElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7lex_lt2EEEEvT_S9_T0_T1_(ptr noundef %.pre, ptr noundef nonnull %add.ptr.i18.ptr, i64 noundef %mul.i.i19, i32 %x)
+  invoke void @_ZSt16__introsort_loopIPPN10polynomial8monomialElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7lex_lt2EEEEvT_S9_T0_T1_(ptr noundef %.pre, ptr noundef nonnull %add.ptr.i18, i64 noundef %mul.i.i19, i32 %x)
           to label %.noexc20 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc20:                                         ; preds = %if.then.i.i
@@ -57886,11 +57895,11 @@ for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %.no
 
 .noexc22:                                         ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__i.04.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i18.ptr
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i18
   br i1 %cmp.not.i.i.i.i, label %_ZSt4sortIPPN10polynomial8monomialENS0_7lex_lt2EEvT_S5_T0_.exit, label %for.body.i.i.i.i, !llvm.loop !267
 
 if.else.i.i.i:                                    ; preds = %.noexc20
-  invoke void @_ZSt16__insertion_sortIPPN10polynomial8monomialEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7lex_lt2EEEEvT_S9_T0_(ptr noundef %.pre, ptr noundef nonnull %add.ptr.i18.ptr, i32 %x)
+  invoke void @_ZSt16__insertion_sortIPPN10polynomial8monomialEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7lex_lt2EEEEvT_S9_T0_(ptr noundef %.pre, ptr noundef nonnull %add.ptr.i18, i32 %x)
           to label %_ZSt4sortIPPN10polynomial8monomialENS0_7lex_lt2EEvT_S5_T0_.exit unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZSt4sortIPPN10polynomial8monomialENS0_7lex_lt2EEvT_S5_T0_.exit: ; preds = %.noexc22, %if.else.i.i.i, %invoke.cont9

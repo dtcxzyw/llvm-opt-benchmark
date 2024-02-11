@@ -1345,76 +1345,50 @@ sw.default.i:                                     ; preds = %sw.bb2
   unreachable
 
 sw.bb3:                                           ; preds = %if.then
+  tail call void @freeZsetObject(ptr noundef nonnull %o)
+  br label %sw.epilog
+
+sw.bb4:                                           ; preds = %if.then
   %bf.lshr.i21 = lshr i32 %bf.load, 4
   %bf.clear.i22 = and i32 %bf.lshr.i21, 15
   switch i32 %bf.clear.i22, label %sw.default.i27 [
-    i32 7, label %sw.bb.i25
+    i32 2, label %sw.bb.i25
     i32 11, label %sw.bb1.i23
   ]
 
-sw.bb.i25:                                        ; preds = %sw.bb3
+sw.bb.i25:                                        ; preds = %sw.bb4
   %ptr.i26 = getelementptr inbounds i8, ptr %o, i64 8
   %7 = load ptr, ptr %ptr.i26, align 8
-  %8 = load ptr, ptr %7, align 8
-  tail call void @dictRelease(ptr noundef %8) #17
-  %zsl.i = getelementptr inbounds i8, ptr %7, i64 8
-  %9 = load ptr, ptr %zsl.i, align 8
-  tail call void @zslFree(ptr noundef %9) #17
-  tail call void @zfree(ptr noundef nonnull %7) #17
+  tail call void @dictRelease(ptr noundef %7) #17
   br label %sw.epilog
 
-sw.bb1.i23:                                       ; preds = %sw.bb3
+sw.bb1.i23:                                       ; preds = %sw.bb4
   %ptr2.i24 = getelementptr inbounds i8, ptr %o, i64 8
-  %10 = load ptr, ptr %ptr2.i24, align 8
-  tail call void @zfree(ptr noundef %10) #17
+  %8 = load ptr, ptr %ptr2.i24, align 8
+  tail call void @lpFree(ptr noundef %8) #17
   br label %sw.epilog
 
-sw.default.i27:                                   ; preds = %sw.bb3
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 352, ptr noundef nonnull @.str.6) #17
-  tail call void @abort() #18
-  unreachable
-
-sw.bb4:                                           ; preds = %if.then
-  %bf.lshr.i29 = lshr i32 %bf.load, 4
-  %bf.clear.i30 = and i32 %bf.lshr.i29, 15
-  switch i32 %bf.clear.i30, label %sw.default.i35 [
-    i32 2, label %sw.bb.i33
-    i32 11, label %sw.bb1.i31
-  ]
-
-sw.bb.i33:                                        ; preds = %sw.bb4
-  %ptr.i34 = getelementptr inbounds i8, ptr %o, i64 8
-  %11 = load ptr, ptr %ptr.i34, align 8
-  tail call void @dictRelease(ptr noundef %11) #17
-  br label %sw.epilog
-
-sw.bb1.i31:                                       ; preds = %sw.bb4
-  %ptr2.i32 = getelementptr inbounds i8, ptr %o, i64 8
-  %12 = load ptr, ptr %ptr2.i32, align 8
-  tail call void @lpFree(ptr noundef %12) #17
-  br label %sw.epilog
-
-sw.default.i35:                                   ; preds = %sw.bb4
+sw.default.i27:                                   ; preds = %sw.bb4
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 365, ptr noundef nonnull @.str.7) #17
   tail call void @abort() #18
   unreachable
 
 sw.bb5:                                           ; preds = %if.then
-  %ptr.i36 = getelementptr inbounds i8, ptr %o, i64 8
-  %13 = load ptr, ptr %ptr.i36, align 8
-  %14 = load ptr, ptr %13, align 8
-  %free.i = getelementptr inbounds i8, ptr %14, i64 56
-  %15 = load ptr, ptr %free.i, align 8
-  %value.i = getelementptr inbounds i8, ptr %13, i64 8
-  %16 = load ptr, ptr %value.i, align 8
-  tail call void %15(ptr noundef %16) #17
-  tail call void @zfree(ptr noundef nonnull %13) #17
+  %ptr.i28 = getelementptr inbounds i8, ptr %o, i64 8
+  %9 = load ptr, ptr %ptr.i28, align 8
+  %10 = load ptr, ptr %9, align 8
+  %free.i = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = load ptr, ptr %free.i, align 8
+  %value.i = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = load ptr, ptr %value.i, align 8
+  tail call void %11(ptr noundef %12) #17
+  tail call void @zfree(ptr noundef nonnull %9) #17
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.then
-  %ptr.i37 = getelementptr inbounds i8, ptr %o, i64 8
-  %17 = load ptr, ptr %ptr.i37, align 8
-  tail call void @freeStream(ptr noundef %17) #17
+  %ptr.i29 = getelementptr inbounds i8, ptr %o, i64 8
+  %13 = load ptr, ptr %ptr.i29, align 8
+  tail call void @freeStream(ptr noundef %13) #17
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.then
@@ -1422,7 +1396,7 @@ sw.default:                                       ; preds = %if.then
   tail call void @abort() #18
   unreachable
 
-sw.epilog:                                        ; preds = %sw.bb1.i31, %sw.bb.i33, %sw.bb1.i23, %sw.bb.i25, %sw.bb1.i, %sw.bb.i, %if.then5.i, %if.then.i14, %if.then.i, %sw.bb, %sw.bb6, %sw.bb5
+sw.epilog:                                        ; preds = %sw.bb1.i23, %sw.bb.i25, %sw.bb1.i, %sw.bb.i, %if.then5.i, %if.then.i14, %if.then.i, %sw.bb, %sw.bb6, %sw.bb5, %sw.bb3
   tail call void @zfree(ptr noundef nonnull %o) #17
   br label %if.end15
 

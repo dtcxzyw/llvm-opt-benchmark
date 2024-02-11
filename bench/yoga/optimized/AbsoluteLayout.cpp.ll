@@ -7,6 +7,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 $_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv = comdat any
 
+$_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf = comdat any
+
 @YGValueAuto = external local_unnamed_addr global %struct.YGValue, align 4
 @YGValueUndefined = external local_unnamed_addr global %struct.YGValue, align 4
 @.str = private unnamed_addr constant [22 x i8] c"Invalid FlexDirection\00", align 1
@@ -20,7 +22,7 @@ $_ZNK8facebook4yoga5Style23horizontalInsetsDefinedEv = comdat any
 @switch.table._ZN8facebook4yogaL24setFlexEndLayoutPositionEPKNS0_4NodeEPS1_NS0_9DirectionENS0_13FlexDirectionEf.16 = private unnamed_addr constant [4 x i64] [i64 1, i64 1, i64 0, i64 0], align 8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8facebook4yoga19layoutAbsoluteChildEPKNS0_4NodeES3_PS1_ffNS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjj(ptr noundef %containingNode, ptr nocapture noundef readonly %node, ptr noundef %child, float noundef %containingBlockWidth, float noundef %containingBlockHeight, i32 noundef %widthMode, i8 noundef zeroext %direction, ptr noundef nonnull align 4 dereferenceable(56) %layoutMarkerData, i32 noundef %depth, i32 noundef %generationCount) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook4yoga19layoutAbsoluteChildEPKNS0_4NodeES3_PS1_ffNS0_10SizingModeENS0_9DirectionERNS0_10LayoutDataEjj(ptr noundef %containingNode, ptr nocapture noundef readonly %node, ptr noundef %child, float noundef %containingBlockWidth, float noundef %containingBlockHeight, i32 noundef %widthMode, i8 noundef zeroext %direction, ptr noundef nonnull align 4 dereferenceable(56) %layoutMarkerData, i32 noundef %depth, i32 noundef %generationCount) local_unnamed_addr #0 {
 entry:
   %style_.i = getelementptr inbounds i8, ptr %node, i64 48
   %bf.load.i = load i8, ptr %style_.i, align 4
@@ -31,12 +33,12 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit
 
 if.then.i:                                        ; preds = %entry
-  switch i8 %bf.clear.i, label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread169 [
+  switch i8 %bf.clear.i, label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread153 [
     i8 2, label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
     i8 3, label %if.then4.i
   ]
 
-_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread169: ; preds = %if.then.i
+_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread153: ; preds = %if.then.i
   br label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -47,10 +49,10 @@ _ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit: ; 
   %spec.select = select i1 %0, i8 2, i8 0
   br label %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread
 
-_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread: ; preds = %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit, %if.then.i, %if.then4.i, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread169
-  %retval.0.i168 = phi i8 [ %bf.clear.i, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread169 ], [ 3, %if.then.i ], [ 2, %if.then4.i ], [ %bf.clear.i, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit ]
-  %1 = phi i8 [ 3, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread169 ], [ 0, %if.then.i ], [ 0, %if.then4.i ], [ %spec.select, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit ]
-  %2 = icmp ult i8 %retval.0.i168, 2
+_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread: ; preds = %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit, %if.then.i, %if.then4.i, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread153
+  %retval.0.i152 = phi i8 [ %bf.clear.i, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread153 ], [ 3, %if.then.i ], [ 2, %if.then4.i ], [ %bf.clear.i, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit ]
+  %1 = phi i8 [ 3, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread153 ], [ 0, %if.then.i ], [ 0, %if.then4.i ], [ %spec.select, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit ]
+  %2 = icmp ult i8 %retval.0.i152, 2
   %call5 = tail call noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 2, float noundef %containingBlockWidth)
   %call6 = tail call noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 0, float noundef %containingBlockWidth)
   %call7 = tail call noundef zeroext i1 @_ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 2, float noundef %containingBlockWidth)
@@ -100,133 +102,19 @@ if.then13:                                        ; preds = %land.lhs.true
   %call20 = tail call noundef float @_ZNK8facebook4yoga4Node18getFlexEndPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 2, i8 noundef zeroext %direction, float noundef %containingBlockWidth)
   %add21 = fadd float %call19, %call20
   %sub22 = fsub float %sub, %add21
-  %minDimensions_.i33.i = getelementptr inbounds i8, ptr %child, i64 232
-  %retval.sroa.0.0.copyload.i34.i = load i32, ptr %minDimensions_.i33.i, align 4
-  switch i32 %retval.sroa.0.0.copyload.i34.i, label %sw.epilog.i.i48.i [
-    i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43.i
-    i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i41.i
-    i32 2139156720, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i35.i
-  ]
-
-sw.epilog.i.i48.i:                                ; preds = %if.then13
-  %5 = bitcast i32 %retval.sroa.0.0.copyload.i34.i to float
-  %6 = fcmp uno float %5, 0.000000e+00
-  br i1 %6, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43.i, label %if.end.i.i49.i
-
-if.end.i.i49.i:                                   ; preds = %sw.epilog.i.i48.i
-  %and.i.i50.i = and i32 %retval.sroa.0.0.copyload.i34.i, -1073741825
-  %add.i.i51.i = add nuw nsw i32 %and.i.i50.i, 536870912
-  %and13.i.i52.i = and i32 %retval.sroa.0.0.copyload.i34.i, 1073741824
-  %tobool.not.i.i53.i = icmp eq i32 %and13.i.i52.i, 0
-  br i1 %tobool.not.i.i53.i, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i41.i, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i35.i
-
-_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i41.i: ; preds = %if.end.i.i49.i, %if.then13
-  %.ph.i42.i = phi i32 [ 0, %if.then13 ], [ %add.i.i51.i, %if.end.i.i49.i ]
-  %7 = bitcast i32 %.ph.i42.i to float
-  br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54.i
-
-_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i35.i: ; preds = %if.end.i.i49.i, %if.then13
-  %.ph8.i36.i = phi i32 [ %add.i.i51.i, %if.end.i.i49.i ], [ 0, %if.then13 ]
-  %8 = bitcast i32 %.ph8.i36.i to float
-  br label %sw.bb2.i.i37.i
-
-_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43.i: ; preds = %sw.epilog.i.i48.i, %if.then13
-  %.in.i44.i = phi ptr [ @YGValueAuto, %if.then13 ], [ @YGValueUndefined, %sw.epilog.i.i48.i ]
-  %retval.sroa.6.0.i.in.i45.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.then13 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i48.i ]
-  %retval.sroa.6.0.i.i46.i = load i32, ptr %retval.sroa.6.0.i.in.i45.i, align 4
-  %9 = load float, ptr %.in.i44.i, align 4
-  switch i32 %retval.sroa.6.0.i.i46.i, label %sw.default.i.i47.i [
-    i32 1, label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54.i
-    i32 2, label %sw.bb2.i.i37.i
-  ]
-
-sw.bb2.i.i37.i:                                   ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i35.i
-  %10 = phi float [ %8, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i35.i ], [ %9, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43.i ]
-  %mul.i.i38.i = fmul float %10, %containingBlockWidth
-  %mul4.i.i39.i = fmul float %mul.i.i38.i, 0x3F847AE140000000
-  br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54.i
-
-sw.default.i.i47.i:                               ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43.i
-  br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54.i
-
-_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54.i: ; preds = %sw.default.i.i47.i, %sw.bb2.i.i37.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i41.i
-  %retval.sroa.0.0.i.i40.i = phi float [ 0x7FF8000000000000, %sw.default.i.i47.i ], [ %mul4.i.i39.i, %sw.bb2.i.i37.i ], [ %9, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43.i ], [ %7, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i41.i ]
-  %maxDimensions_.i56.i = getelementptr inbounds i8, ptr %child, i64 240
-  %retval.sroa.0.0.copyload.i57.i = load i32, ptr %maxDimensions_.i56.i, align 4
-  switch i32 %retval.sroa.0.0.copyload.i57.i, label %sw.epilog.i.i71.i [
-    i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66.i
-    i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i64.i
-    i32 2139156720, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i58.i
-  ]
-
-sw.epilog.i.i71.i:                                ; preds = %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54.i
-  %11 = bitcast i32 %retval.sroa.0.0.copyload.i57.i to float
-  %12 = fcmp uno float %11, 0.000000e+00
-  br i1 %12, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66.i, label %if.end.i.i72.i
-
-if.end.i.i72.i:                                   ; preds = %sw.epilog.i.i71.i
-  %and.i.i73.i = and i32 %retval.sroa.0.0.copyload.i57.i, -1073741825
-  %add.i.i74.i = add nuw nsw i32 %and.i.i73.i, 536870912
-  %and13.i.i75.i = and i32 %retval.sroa.0.0.copyload.i57.i, 1073741824
-  %tobool.not.i.i76.i = icmp eq i32 %and13.i.i75.i, 0
-  br i1 %tobool.not.i.i76.i, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i64.i, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i58.i
-
-_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i64.i: ; preds = %if.end.i.i72.i, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54.i
-  %.ph.i65.i = phi i32 [ 0, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54.i ], [ %add.i.i74.i, %if.end.i.i72.i ]
-  %13 = bitcast i32 %.ph.i65.i to float
-  br label %if.end33.i
-
-_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i58.i: ; preds = %if.end.i.i72.i, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54.i
-  %.ph8.i59.i = phi i32 [ %add.i.i74.i, %if.end.i.i72.i ], [ 0, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54.i ]
-  %14 = bitcast i32 %.ph8.i59.i to float
-  br label %sw.bb2.i.i60.i
-
-_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66.i: ; preds = %sw.epilog.i.i71.i, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54.i
-  %.in.i67.i = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54.i ], [ @YGValueUndefined, %sw.epilog.i.i71.i ]
-  %retval.sroa.6.0.i.in.i68.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i71.i ]
-  %retval.sroa.6.0.i.i69.i = load i32, ptr %retval.sroa.6.0.i.in.i68.i, align 4
-  %15 = load float, ptr %.in.i67.i, align 4
-  switch i32 %retval.sroa.6.0.i.i69.i, label %if.end45.i [
-    i32 1, label %if.end33.i
-    i32 2, label %sw.bb2.i.i60.i
-  ]
-
-sw.bb2.i.i60.i:                                   ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i58.i
-  %16 = phi float [ %14, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i58.i ], [ %15, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66.i ]
-  %mul.i.i61.i = fmul float %16, %containingBlockWidth
-  %mul4.i.i62.i = fmul float %mul.i.i61.i, 0x3F847AE140000000
-  br label %if.end33.i
-
-if.end33.i:                                       ; preds = %sw.bb2.i.i60.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i64.i
-  %max.sroa.0.0.i = phi float [ %mul4.i.i62.i, %sw.bb2.i.i60.i ], [ %15, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66.i ], [ %13, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i64.i ]
-  %or.cond.i.i149 = fcmp oge float %max.sroa.0.0.i, 0.000000e+00
-  %cmp.i.i150 = fcmp olt float %max.sroa.0.0.i, %sub22
-  %or.cond.i = select i1 %or.cond.i.i149, i1 %cmp.i.i150, i1 false
-  br i1 %or.cond.i, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit, label %if.end45.i
-
-if.end45.i:                                       ; preds = %if.end33.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66.i
-  %or.cond.i78.i = fcmp oge float %retval.sroa.0.0.i.i40.i, 0.000000e+00
-  %cmp.i84.i = fcmp ogt float %retval.sroa.0.0.i.i40.i, %sub22
-  %or.cond105.i = select i1 %or.cond.i78.i, i1 %cmp.i84.i, i1 false
-  br i1 %or.cond105.i, label %if.then57.i, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit
-
-if.then57.i:                                      ; preds = %if.end45.i
-  br label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit
-
-_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit: ; preds = %if.end33.i, %if.end45.i, %if.then57.i
-  %retval.sroa.0.0.i151 = phi float [ %retval.sroa.0.0.i.i40.i, %if.then57.i ], [ %max.sroa.0.0.i, %if.end33.i ], [ %sub22, %if.end45.i ]
+  %call.i = tail call float @_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf(ptr noundef nonnull %child, i8 noundef zeroext 2, float %sub22, float noundef %containingBlockWidth)
   %call.i.i = tail call noundef float @_ZNK8facebook4yoga4Node30getInlineStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 2, i8 noundef zeroext 1, float noundef %containingBlockWidth)
   %call1.i.i = tail call noundef float @_ZNK8facebook4yoga4Node28getInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 2, i8 noundef zeroext 1, float noundef %containingBlockWidth)
   %add.i.i = fadd float %call.i.i, %call1.i.i
-  %or.cond.i.i = fcmp ord float %retval.sroa.0.0.i151, %add.i.i
-  %cmp.i2.i.i = fcmp uno float %retval.sroa.0.0.i151, 0.000000e+00
-  %cmp.i.i.i = fcmp olt float %retval.sroa.0.0.i151, %add.i.i
+  %or.cond.i.i = fcmp ord float %call.i, %add.i.i
+  %cmp.i2.i.i = fcmp uno float %call.i, 0.000000e+00
+  %cmp.i.i.i = fcmp olt float %call.i, %add.i.i
   %cmp.i2.sink.i.i = select i1 %or.cond.i.i, i1 %cmp.i.i.i, i1 %cmp.i2.i.i
-  %cond.i.i = select i1 %cmp.i2.sink.i.i, float %add.i.i, float %retval.sroa.0.0.i151
+  %cond.i.i = select i1 %cmp.i2.sink.i.i, float %add.i.i, float %call.i
   br label %if.end24
 
-if.end24:                                         ; preds = %if.else, %land.lhs.true, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit, %_ZN8facebook4yoga12resolveValueE7YGValuef.exit
-  %childWidth.0 = phi float [ %add, %_ZN8facebook4yoga12resolveValueE7YGValuef.exit ], [ %cond.i.i, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit ], [ 0x7FF8000000000000, %land.lhs.true ], [ 0x7FF8000000000000, %if.else ]
+if.end24:                                         ; preds = %if.else, %land.lhs.true, %if.then13, %_ZN8facebook4yoga12resolveValueE7YGValuef.exit
+  %childWidth.0 = phi float [ %add, %_ZN8facebook4yoga12resolveValueE7YGValuef.exit ], [ %cond.i.i, %if.then13 ], [ 0x7FF8000000000000, %land.lhs.true ], [ 0x7FF8000000000000, %if.else ]
   %call25 = tail call noundef zeroext i1 @_ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 0, float noundef %containingBlockHeight)
   br i1 %call25, label %if.then26, label %if.else34
 
@@ -234,7 +122,7 @@ if.then26:                                        ; preds = %if.end24
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %child, i64 632
   %retval.sroa.0.0.copyload.i105 = load i64, ptr %arrayidx.i.i.i, align 4
   %value.sroa.0.0.extract.trunc.i106 = trunc i64 %retval.sroa.0.0.copyload.i105 to i32
-  %17 = bitcast i32 %value.sroa.0.0.extract.trunc.i106 to float
+  %5 = bitcast i32 %value.sroa.0.0.extract.trunc.i106 to float
   %value.sroa.3.0.extract.shift.i107 = lshr i64 %retval.sroa.0.0.copyload.i105, 32
   %value.sroa.3.0.extract.trunc.i108 = trunc i64 %value.sroa.3.0.extract.shift.i107 to i32
   switch i32 %value.sroa.3.0.extract.trunc.i108, label %sw.default.i113 [
@@ -243,7 +131,7 @@ if.then26:                                        ; preds = %if.end24
   ]
 
 sw.bb2.i109:                                      ; preds = %if.then26
-  %mul.i110 = fmul float %17, %containingBlockHeight
+  %mul.i110 = fmul float %5, %containingBlockHeight
   %mul4.i111 = fmul float %mul.i110, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueE7YGValuef.exit114
 
@@ -251,7 +139,7 @@ sw.default.i113:                                  ; preds = %if.then26
   br label %_ZN8facebook4yoga12resolveValueE7YGValuef.exit114
 
 _ZN8facebook4yoga12resolveValueE7YGValuef.exit114: ; preds = %if.then26, %sw.bb2.i109, %sw.default.i113
-  %retval.sroa.0.0.i112 = phi float [ 0x7FF8000000000000, %sw.default.i113 ], [ %mul4.i111, %sw.bb2.i109 ], [ %17, %if.then26 ]
+  %retval.sroa.0.0.i112 = phi float [ 0x7FF8000000000000, %sw.default.i113 ], [ %mul4.i111, %sw.bb2.i109 ], [ %5, %if.then26 ]
   %add33 = fadd float %call6, %retval.sroa.0.0.i112
   br label %if.end51
 
@@ -265,146 +153,32 @@ land.lhs.true36:                                  ; preds = %if.else34
 
 if.then38:                                        ; preds = %land.lhs.true36
   %arrayidx.i.i.i117 = getelementptr inbounds i8, ptr %containingNode, i64 504
-  %18 = load float, ptr %arrayidx.i.i.i117, align 4
+  %6 = load float, ptr %arrayidx.i.i.i117, align 4
   %call41 = tail call noundef float @_ZNK8facebook4yoga4Node18getFlexStartBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %containingNode, i8 noundef zeroext 0, i8 noundef zeroext %direction)
   %call42 = tail call noundef float @_ZNK8facebook4yoga4Node16getFlexEndBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %containingNode, i8 noundef zeroext 0, i8 noundef zeroext %direction)
   %add43 = fadd float %call41, %call42
-  %sub44 = fsub float %18, %add43
+  %sub44 = fsub float %6, %add43
   %call45 = tail call noundef float @_ZNK8facebook4yoga4Node20getFlexStartPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 0, i8 noundef zeroext %direction, float noundef %containingBlockHeight)
   %call46 = tail call noundef float @_ZNK8facebook4yoga4Node18getFlexEndPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 0, i8 noundef zeroext %direction, float noundef %containingBlockHeight)
   %add47 = fadd float %call45, %call46
   %sub48 = fsub float %sub44, %add47
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %child, i64 236
-  %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i.i, align 4
-  switch i32 %retval.sroa.0.0.copyload.i.i, label %sw.epilog.i.i.i [
-    i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i
-    i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i.i
-    i32 2139156720, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i
-  ]
-
-sw.epilog.i.i.i:                                  ; preds = %if.then38
-  %19 = bitcast i32 %retval.sroa.0.0.copyload.i.i to float
-  %20 = fcmp uno float %19, 0.000000e+00
-  br i1 %20, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %sw.epilog.i.i.i
-  %and.i.i.i = and i32 %retval.sroa.0.0.copyload.i.i, -1073741825
-  %add.i.i.i = add nuw nsw i32 %and.i.i.i, 536870912
-  %and13.i.i.i = and i32 %retval.sroa.0.0.copyload.i.i, 1073741824
-  %tobool.not.i.i.i = icmp eq i32 %and13.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i.i, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i
-
-_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i.i: ; preds = %if.end.i.i.i, %if.then38
-  %.ph.i.i = phi i32 [ 0, %if.then38 ], [ %add.i.i.i, %if.end.i.i.i ]
-  %21 = bitcast i32 %.ph.i.i to float
-  br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i
-
-_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i: ; preds = %if.end.i.i.i, %if.then38
-  %.ph8.i.i = phi i32 [ %add.i.i.i, %if.end.i.i.i ], [ 0, %if.then38 ]
-  %22 = bitcast i32 %.ph8.i.i to float
-  br label %sw.bb2.i.i.i
-
-_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i: ; preds = %sw.epilog.i.i.i, %if.then38
-  %.in.i.i = phi ptr [ @YGValueAuto, %if.then38 ], [ @YGValueUndefined, %sw.epilog.i.i.i ]
-  %retval.sroa.6.0.i.in.i.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.then38 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i.i ]
-  %retval.sroa.6.0.i.i.i = load i32, ptr %retval.sroa.6.0.i.in.i.i, align 4
-  %23 = load float, ptr %.in.i.i, align 4
-  switch i32 %retval.sroa.6.0.i.i.i, label %sw.default.i.i.i [
-    i32 1, label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i
-    i32 2, label %sw.bb2.i.i.i
-  ]
-
-sw.bb2.i.i.i:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i
-  %24 = phi float [ %22, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i.i ], [ %23, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i ]
-  %mul.i.i.i = fmul float %24, %containingBlockHeight
-  %mul4.i.i.i = fmul float %mul.i.i.i, 0x3F847AE140000000
-  br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i
-
-sw.default.i.i.i:                                 ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i
-  br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i
-
-_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i: ; preds = %sw.default.i.i.i, %sw.bb2.i.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i.i
-  %retval.sroa.0.0.i.i.i = phi float [ 0x7FF8000000000000, %sw.default.i.i.i ], [ %mul4.i.i.i, %sw.bb2.i.i.i ], [ %23, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i.i ], [ %21, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i.i ]
-  %arrayidx.i.i.i10.i = getelementptr inbounds i8, ptr %child, i64 244
-  %retval.sroa.0.0.copyload.i11.i = load i32, ptr %arrayidx.i.i.i10.i, align 4
-  switch i32 %retval.sroa.0.0.copyload.i11.i, label %sw.epilog.i.i25.i [
-    i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i
-    i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18.i
-    i32 2139156720, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i
-  ]
-
-sw.epilog.i.i25.i:                                ; preds = %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i
-  %25 = bitcast i32 %retval.sroa.0.0.copyload.i11.i to float
-  %26 = fcmp uno float %25, 0.000000e+00
-  br i1 %26, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i, label %if.end.i.i26.i
-
-if.end.i.i26.i:                                   ; preds = %sw.epilog.i.i25.i
-  %and.i.i27.i = and i32 %retval.sroa.0.0.copyload.i11.i, -1073741825
-  %add.i.i28.i = add nuw nsw i32 %and.i.i27.i, 536870912
-  %and13.i.i29.i = and i32 %retval.sroa.0.0.copyload.i11.i, 1073741824
-  %tobool.not.i.i30.i = icmp eq i32 %and13.i.i29.i, 0
-  br i1 %tobool.not.i.i30.i, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18.i, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i
-
-_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18.i: ; preds = %if.end.i.i26.i, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i
-  %.ph.i19.i = phi i32 [ 0, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i ], [ %add.i.i28.i, %if.end.i.i26.i ]
-  %27 = bitcast i32 %.ph.i19.i to float
-  br label %if.end33.i153
-
-_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i: ; preds = %if.end.i.i26.i, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i
-  %.ph8.i13.i = phi i32 [ %add.i.i28.i, %if.end.i.i26.i ], [ 0, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i ]
-  %28 = bitcast i32 %.ph8.i13.i to float
-  br label %sw.bb2.i.i14.i
-
-_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i: ; preds = %sw.epilog.i.i25.i, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i
-  %.in.i21.i = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i ], [ @YGValueUndefined, %sw.epilog.i.i25.i ]
-  %retval.sroa.6.0.i.in.i22.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit.i ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i25.i ]
-  %retval.sroa.6.0.i.i23.i = load i32, ptr %retval.sroa.6.0.i.in.i22.i, align 4
-  %29 = load float, ptr %.in.i21.i, align 4
-  switch i32 %retval.sroa.6.0.i.i23.i, label %if.end45.i158 [
-    i32 1, label %if.end33.i153
-    i32 2, label %sw.bb2.i.i14.i
-  ]
-
-sw.bb2.i.i14.i:                                   ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i
-  %30 = phi float [ %28, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12.i ], [ %29, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i ]
-  %mul.i.i15.i = fmul float %30, %containingBlockHeight
-  %mul4.i.i16.i = fmul float %mul.i.i15.i, 0x3F847AE140000000
-  br label %if.end33.i153
-
-if.end33.i153:                                    ; preds = %sw.bb2.i.i14.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18.i
-  %max.sroa.0.0.i154 = phi float [ %mul4.i.i16.i, %sw.bb2.i.i14.i ], [ %29, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i ], [ %27, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18.i ]
-  %or.cond.i.i155 = fcmp oge float %max.sroa.0.0.i154, 0.000000e+00
-  %cmp.i.i156 = fcmp olt float %max.sroa.0.0.i154, %sub48
-  %or.cond.i157 = select i1 %or.cond.i.i155, i1 %cmp.i.i156, i1 false
-  br i1 %or.cond.i157, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit164, label %if.end45.i158
-
-if.end45.i158:                                    ; preds = %if.end33.i153, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20.i
-  %or.cond.i78.i159 = fcmp oge float %retval.sroa.0.0.i.i.i, 0.000000e+00
-  %cmp.i84.i160 = fcmp ogt float %retval.sroa.0.0.i.i.i, %sub48
-  %or.cond105.i161 = select i1 %or.cond.i78.i159, i1 %cmp.i84.i160, i1 false
-  br i1 %or.cond105.i161, label %if.then57.i163, label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit164
-
-if.then57.i163:                                   ; preds = %if.end45.i158
-  br label %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit164
-
-_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit164: ; preds = %if.end33.i153, %if.end45.i158, %if.then57.i163
-  %retval.sroa.0.0.i162 = phi float [ %retval.sroa.0.0.i.i.i, %if.then57.i163 ], [ %max.sroa.0.0.i154, %if.end33.i153 ], [ %sub48, %if.end45.i158 ]
+  %call.i118 = tail call float @_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf(ptr noundef nonnull %child, i8 noundef zeroext 0, float %sub48, float noundef %containingBlockHeight)
   %call.i.i119 = tail call noundef float @_ZNK8facebook4yoga4Node30getInlineStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 0, i8 noundef zeroext 1, float noundef %containingBlockWidth)
   %call1.i.i120 = tail call noundef float @_ZNK8facebook4yoga4Node28getInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 0, i8 noundef zeroext 1, float noundef %containingBlockWidth)
   %add.i.i121 = fadd float %call.i.i119, %call1.i.i120
-  %or.cond.i.i122 = fcmp ord float %retval.sroa.0.0.i162, %add.i.i121
-  %cmp.i2.i.i123 = fcmp uno float %retval.sroa.0.0.i162, 0.000000e+00
-  %cmp.i.i.i124 = fcmp olt float %retval.sroa.0.0.i162, %add.i.i121
+  %or.cond.i.i122 = fcmp ord float %call.i118, %add.i.i121
+  %cmp.i2.i.i123 = fcmp uno float %call.i118, 0.000000e+00
+  %cmp.i.i.i124 = fcmp olt float %call.i118, %add.i.i121
   %cmp.i2.sink.i.i125 = select i1 %or.cond.i.i122, i1 %cmp.i.i.i124, i1 %cmp.i2.i.i123
-  %cond.i.i126 = select i1 %cmp.i2.sink.i.i125, float %add.i.i121, float %retval.sroa.0.0.i162
+  %cond.i.i126 = select i1 %cmp.i2.sink.i.i125, float %add.i.i121, float %call.i118
   br label %if.end51
 
 if.end51.thr_comm:                                ; preds = %if.else34, %land.lhs.true36
-  %cmp.i128174 = fcmp uno float %childWidth.0, 0.000000e+00
-  br i1 %cmp.i128174, label %if.then84, label %if.then56.thread
+  %cmp.i128158 = fcmp uno float %childWidth.0, 0.000000e+00
+  br i1 %cmp.i128158, label %if.then84, label %if.then56.thread
 
-if.end51:                                         ; preds = %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit164, %_ZN8facebook4yoga12resolveValueE7YGValuef.exit114
-  %childHeight.0 = phi float [ %add33, %_ZN8facebook4yoga12resolveValueE7YGValuef.exit114 ], [ %cond.i.i126, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf.exit164 ]
+if.end51:                                         ; preds = %if.then38, %_ZN8facebook4yoga12resolveValueE7YGValuef.exit114
+  %childHeight.0 = phi float [ %add33, %_ZN8facebook4yoga12resolveValueE7YGValuef.exit114 ], [ %cond.i.i126, %if.then38 ]
   %cmp.i128 = fcmp uno float %childWidth.0, 0.000000e+00
   %cmp.i129 = fcmp uno float %childHeight.0, 0.000000e+00
   %xor103 = xor i1 %cmp.i128, %cmp.i129
@@ -417,76 +191,76 @@ if.then56:                                        ; preds = %if.end51
   br i1 %cmp.i.i.i131, label %if.then61, label %if.end81
 
 if.then56.thread:                                 ; preds = %if.end51.thr_comm
-  %aspectRatio_.i198 = getelementptr inbounds i8, ptr %child, i64 248
-  %retval.sroa.0.0.copyload.i130199 = load float, ptr %aspectRatio_.i198, align 4
-  %cmp.i.i.i131200 = fcmp ord float %retval.sroa.0.0.copyload.i130199, 0.000000e+00
-  br i1 %cmp.i.i.i131200, label %if.then71, label %if.end81.thread216
+  %aspectRatio_.i182 = getelementptr inbounds i8, ptr %child, i64 248
+  %retval.sroa.0.0.copyload.i130183 = load float, ptr %aspectRatio_.i182, align 4
+  %cmp.i.i.i131184 = fcmp ord float %retval.sroa.0.0.copyload.i130183, 0.000000e+00
+  br i1 %cmp.i.i.i131184, label %if.then71, label %if.end81.thread200
 
 if.then61:                                        ; preds = %if.then56
   br i1 %cmp.i128, label %if.then63, label %if.else69
 
 if.then63:                                        ; preds = %if.then61
   %sub64 = fsub float %childHeight.0, %call6
-  %31 = tail call float @llvm.fmuladd.f32(float %sub64, float %retval.sroa.0.0.copyload.i130, float %call5)
+  %7 = tail call float @llvm.fmuladd.f32(float %sub64, float %retval.sroa.0.0.copyload.i130, float %call5)
   br label %if.end81
 
 if.else69:                                        ; preds = %if.then61
   br i1 %cmp.i129, label %if.then71, label %if.end81
 
 if.then71:                                        ; preds = %if.then56.thread, %if.else69
-  %retval.sroa.0.0.copyload.i130204209215 = phi float [ %retval.sroa.0.0.copyload.i130, %if.else69 ], [ %retval.sroa.0.0.copyload.i130199, %if.then56.thread ]
+  %retval.sroa.0.0.copyload.i130188193199 = phi float [ %retval.sroa.0.0.copyload.i130, %if.else69 ], [ %retval.sroa.0.0.copyload.i130183, %if.then56.thread ]
   %sub72 = fsub float %childWidth.0, %call5
-  %div = fdiv float %sub72, %retval.sroa.0.0.copyload.i130204209215
+  %div = fdiv float %sub72, %retval.sroa.0.0.copyload.i130188193199
   %add77 = fadd float %call6, %div
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then56, %if.else69, %if.then71, %if.then63, %if.end51
   %childHeight.1 = phi float [ %childHeight.0, %if.then63 ], [ %add77, %if.then71 ], [ %childHeight.0, %if.else69 ], [ %childHeight.0, %if.then56 ], [ %childHeight.0, %if.end51 ]
-  %childWidth.1 = phi float [ %31, %if.then63 ], [ %childWidth.0, %if.then71 ], [ %childWidth.0, %if.else69 ], [ %childWidth.0, %if.then56 ], [ %childWidth.0, %if.end51 ]
+  %childWidth.1 = phi float [ %7, %if.then63 ], [ %childWidth.0, %if.then71 ], [ %childWidth.0, %if.else69 ], [ %childWidth.0, %if.then56 ], [ %childWidth.0, %if.end51 ]
   %cmp.i138 = fcmp uno float %childWidth.1, 0.000000e+00
   br i1 %cmp.i138, label %if.then84, label %lor.lhs.false
 
-if.end81.thread216:                               ; preds = %if.then56.thread
-  %cmp.i138219 = fcmp uno float %childWidth.0, 0.000000e+00
-  br i1 %cmp.i138219, label %if.then84, label %lor.lhs.false.thread
+if.end81.thread200:                               ; preds = %if.then56.thread
+  %cmp.i138203 = fcmp uno float %childWidth.0, 0.000000e+00
+  br i1 %cmp.i138203, label %if.then84, label %lor.lhs.false.thread
 
-lor.lhs.false.thread:                             ; preds = %if.end81.thread216
+lor.lhs.false.thread:                             ; preds = %if.end81.thread200
   br label %if.then84
 
 lor.lhs.false:                                    ; preds = %if.end81
   %cmp.i139 = fcmp uno float %childHeight.1, 0.000000e+00
   br i1 %cmp.i139, label %if.then84, label %if.end107
 
-if.then84:                                        ; preds = %lor.lhs.false.thread, %if.end81.thread216, %if.end51.thr_comm, %lor.lhs.false, %if.end81
-  %cmp.i138188 = phi i1 [ false, %lor.lhs.false ], [ true, %if.end81 ], [ true, %if.end51.thr_comm ], [ true, %if.end81.thread216 ], [ false, %lor.lhs.false.thread ]
-  %childWidth.1186 = phi float [ %childWidth.1, %lor.lhs.false ], [ %childWidth.1, %if.end81 ], [ %childWidth.0, %if.end51.thr_comm ], [ %childWidth.0, %if.end81.thread216 ], [ %childWidth.0, %lor.lhs.false.thread ]
-  %childHeight.1184 = phi float [ %childHeight.1, %lor.lhs.false ], [ %childHeight.1, %if.end81 ], [ 0x7FF8000000000000, %if.end51.thr_comm ], [ 0x7FF8000000000000, %if.end81.thread216 ], [ 0x7FF8000000000000, %lor.lhs.false.thread ]
-  %cond = zext i1 %cmp.i138188 to i32
-  %cmp.i141 = fcmp uno float %childHeight.1184, 0.000000e+00
+if.then84:                                        ; preds = %lor.lhs.false.thread, %if.end81.thread200, %if.end51.thr_comm, %lor.lhs.false, %if.end81
+  %cmp.i138172 = phi i1 [ false, %lor.lhs.false ], [ true, %if.end81 ], [ true, %if.end51.thr_comm ], [ true, %if.end81.thread200 ], [ false, %lor.lhs.false.thread ]
+  %childWidth.1170 = phi float [ %childWidth.1, %lor.lhs.false ], [ %childWidth.1, %if.end81 ], [ %childWidth.0, %if.end51.thr_comm ], [ %childWidth.0, %if.end81.thread200 ], [ %childWidth.0, %lor.lhs.false.thread ]
+  %childHeight.1168 = phi float [ %childHeight.1, %lor.lhs.false ], [ %childHeight.1, %if.end81 ], [ 0x7FF8000000000000, %if.end51.thr_comm ], [ 0x7FF8000000000000, %if.end81.thread200 ], [ 0x7FF8000000000000, %lor.lhs.false.thread ]
+  %cond = zext i1 %cmp.i138172 to i32
+  %cmp.i141 = fcmp uno float %childHeight.1168, 0.000000e+00
   %cond87 = zext i1 %cmp.i141 to i32
   %cmp = icmp ne i32 %widthMode, 1
-  %32 = and i1 %cmp, %2
-  %or.cond1 = fcmp ogt float %containingBlockWidth, 0.000000e+00
-  %33 = and i1 %32, %or.cond1
-  %or.cond194 = and i1 %33, %cmp.i138188
-  %childWidthSizingMode.0 = select i1 %or.cond194, i32 2, i32 %cond
-  %childWidth.2 = select i1 %or.cond194, float %containingBlockWidth, float %childWidth.1186
-  %call98 = tail call noundef zeroext i1 @_ZN8facebook4yoga23calculateLayoutInternalEPNS0_4NodeEffNS0_9DirectionENS0_10SizingModeES4_ffbNS0_16LayoutPassReasonERNS0_10LayoutDataEjj(ptr noundef nonnull %child, float noundef %childWidth.2, float noundef %childHeight.1184, i8 noundef zeroext %direction, i32 noundef %childWidthSizingMode.0, i32 noundef %cond87, float noundef %containingBlockWidth, float noundef %containingBlockHeight, i1 noundef zeroext false, i32 noundef 6, ptr noundef nonnull align 4 dereferenceable(56) %layoutMarkerData, i32 noundef %depth, i32 noundef %generationCount)
+  %8 = and i1 %cmp, %2
+  %cmp95 = fcmp ogt float %containingBlockWidth, 0.000000e+00
+  %9 = and i1 %8, %cmp95
+  %or.cond178 = and i1 %9, %cmp.i138172
+  %childWidthSizingMode.0 = select i1 %or.cond178, i32 2, i32 %cond
+  %childWidth.2 = select i1 %or.cond178, float %containingBlockWidth, float %childWidth.1170
+  %call98 = tail call noundef zeroext i1 @_ZN8facebook4yoga23calculateLayoutInternalEPNS0_4NodeEffNS0_9DirectionENS0_10SizingModeES4_ffbNS0_16LayoutPassReasonERNS0_10LayoutDataEjj(ptr noundef nonnull %child, float noundef %childWidth.2, float noundef %childHeight.1168, i8 noundef zeroext %direction, i32 noundef %childWidthSizingMode.0, i32 noundef %cond87, float noundef %containingBlockWidth, float noundef %containingBlockHeight, i1 noundef zeroext false, i32 noundef 6, ptr noundef nonnull align 4 dereferenceable(56) %layoutMarkerData, i32 noundef %depth, i32 noundef %generationCount)
   %measuredDimensions_.i145 = getelementptr inbounds i8, ptr %child, i64 500
-  %34 = load float, ptr %measuredDimensions_.i145, align 4
+  %10 = load float, ptr %measuredDimensions_.i145, align 4
   %call101 = tail call noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 2, float noundef %containingBlockWidth)
-  %add102 = fadd float %34, %call101
+  %add102 = fadd float %10, %call101
   %arrayidx.i.i.i148 = getelementptr inbounds i8, ptr %child, i64 504
-  %35 = load float, ptr %arrayidx.i.i.i148, align 4
+  %11 = load float, ptr %arrayidx.i.i.i148, align 4
   %call105 = tail call noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %child, i8 noundef zeroext 0, float noundef %containingBlockWidth)
-  %add106 = fadd float %35, %call105
+  %add106 = fadd float %11, %call105
   br label %if.end107
 
 if.end107:                                        ; preds = %if.then84, %lor.lhs.false
   %childHeight.2 = phi float [ %add106, %if.then84 ], [ %childHeight.1, %lor.lhs.false ]
   %childWidth.3 = phi float [ %add102, %if.then84 ], [ %childWidth.1, %lor.lhs.false ]
   %call108 = tail call noundef zeroext i1 @_ZN8facebook4yoga23calculateLayoutInternalEPNS0_4NodeEffNS0_9DirectionENS0_10SizingModeES4_ffbNS0_16LayoutPassReasonERNS0_10LayoutDataEjj(ptr noundef nonnull %child, float noundef %childWidth.3, float noundef %childHeight.2, i8 noundef zeroext %direction, i32 noundef 0, i32 noundef 0, float noundef %containingBlockWidth, float noundef %containingBlockHeight, i1 noundef zeroext true, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(56) %layoutMarkerData, i32 noundef %depth, i32 noundef %generationCount)
-  tail call fastcc void @_ZN8facebook4yogaL21positionAbsoluteChildEPKNS0_4NodeES3_PS1_NS0_9DirectionENS0_13FlexDirectionEbff(ptr noundef %containingNode, ptr noundef nonnull %node, ptr noundef nonnull %child, i8 noundef zeroext %direction, i8 noundef zeroext %retval.0.i168, i1 noundef zeroext true, float noundef %containingBlockWidth, float noundef %containingBlockHeight)
+  tail call fastcc void @_ZN8facebook4yogaL21positionAbsoluteChildEPKNS0_4NodeES3_PS1_NS0_9DirectionENS0_13FlexDirectionEbff(ptr noundef %containingNode, ptr noundef nonnull %node, ptr noundef nonnull %child, i8 noundef zeroext %direction, i8 noundef zeroext %retval.0.i152, i1 noundef zeroext true, float noundef %containingBlockWidth, float noundef %containingBlockHeight)
   tail call fastcc void @_ZN8facebook4yogaL21positionAbsoluteChildEPKNS0_4NodeES3_PS1_NS0_9DirectionENS0_13FlexDirectionEbff(ptr noundef %containingNode, ptr noundef nonnull %node, ptr noundef nonnull %child, i8 noundef zeroext %direction, i8 noundef zeroext %1, i1 noundef zeroext false, float noundef %containingBlockWidth, float noundef %containingBlockHeight)
   ret void
 }
@@ -1552,6 +1326,236 @@ lor.end:                                          ; preds = %lor.lhs.false14, %l
 declare void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull align 8 dereferenceable(640), float noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 declare noundef zeroext i8 @_ZN8facebook4yoga4Node16resolveDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640), i8 noundef zeroext) local_unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden float @_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf(ptr noundef %node, i8 noundef zeroext %axis, float %value.coerce, float noundef %axisSize) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
+entry:
+  %0 = icmp ult i8 %axis, 2
+  br i1 %0, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %node, i64 236
+  %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i.i.i, align 4
+  switch i32 %retval.sroa.0.0.copyload.i, label %sw.epilog.i.i [
+    i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i
+    i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i
+    i32 2139156720, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
+  ]
+
+sw.epilog.i.i:                                    ; preds = %if.then
+  %1 = bitcast i32 %retval.sroa.0.0.copyload.i to float
+  %2 = fcmp uno float %1, 0.000000e+00
+  br i1 %2, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %sw.epilog.i.i
+  %and.i.i = and i32 %retval.sroa.0.0.copyload.i, -1073741825
+  %add.i.i = add nuw nsw i32 %and.i.i, 536870912
+  %and13.i.i = and i32 %retval.sroa.0.0.copyload.i, 1073741824
+  %tobool.not.i.i = icmp eq i32 %and13.i.i, 0
+  br i1 %tobool.not.i.i, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
+
+_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i: ; preds = %if.end.i.i, %if.then
+  %.ph.i = phi i32 [ 0, %if.then ], [ %add.i.i, %if.end.i.i ]
+  %3 = bitcast i32 %.ph.i to float
+  br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
+
+_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i: ; preds = %if.end.i.i, %if.then
+  %.ph8.i = phi i32 [ %add.i.i, %if.end.i.i ], [ 0, %if.then ]
+  %4 = bitcast i32 %.ph8.i to float
+  br label %sw.bb2.i.i
+
+_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %if.then
+  %.in.i = phi ptr [ @YGValueAuto, %if.then ], [ @YGValueUndefined, %sw.epilog.i.i ]
+  %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.then ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i ]
+  %retval.sroa.6.0.i.i = load i32, ptr %retval.sroa.6.0.i.in.i, align 4
+  %5 = load float, ptr %.in.i, align 4
+  switch i32 %retval.sroa.6.0.i.i, label %sw.default.i.i [
+    i32 1, label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
+    i32 2, label %sw.bb2.i.i
+  ]
+
+sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
+  %6 = phi float [ %4, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %5, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
+  %mul.i.i = fmul float %6, %axisSize
+  %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
+  br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
+
+sw.default.i.i:                                   ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i
+  br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
+
+_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %sw.bb2.i.i, %sw.default.i.i
+  %retval.sroa.0.0.i.i = phi float [ 0x7FF8000000000000, %sw.default.i.i ], [ %mul4.i.i, %sw.bb2.i.i ], [ %5, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ], [ %3, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i ]
+  %arrayidx.i.i.i10 = getelementptr inbounds i8, ptr %node, i64 244
+  %retval.sroa.0.0.copyload.i11 = load i32, ptr %arrayidx.i.i.i10, align 4
+  switch i32 %retval.sroa.0.0.copyload.i11, label %sw.epilog.i.i25 [
+    i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20
+    i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18
+    i32 2139156720, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12
+  ]
+
+sw.epilog.i.i25:                                  ; preds = %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
+  %7 = bitcast i32 %retval.sroa.0.0.copyload.i11 to float
+  %8 = fcmp uno float %7, 0.000000e+00
+  br i1 %8, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20, label %if.end.i.i26
+
+if.end.i.i26:                                     ; preds = %sw.epilog.i.i25
+  %and.i.i27 = and i32 %retval.sroa.0.0.copyload.i11, -1073741825
+  %add.i.i28 = add nuw nsw i32 %and.i.i27, 536870912
+  %and13.i.i29 = and i32 %retval.sroa.0.0.copyload.i11, 1073741824
+  %tobool.not.i.i30 = icmp eq i32 %and13.i.i29, 0
+  br i1 %tobool.not.i.i30, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12
+
+_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18: ; preds = %if.end.i.i26, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
+  %.ph.i19 = phi i32 [ 0, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit ], [ %add.i.i28, %if.end.i.i26 ]
+  %9 = bitcast i32 %.ph.i19 to float
+  br label %if.end33
+
+_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12: ; preds = %if.end.i.i26, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
+  %.ph8.i13 = phi i32 [ %add.i.i28, %if.end.i.i26 ], [ 0, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit ]
+  %10 = bitcast i32 %.ph8.i13 to float
+  br label %sw.bb2.i.i14
+
+_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20: ; preds = %sw.epilog.i.i25, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
+  %.in.i21 = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit ], [ @YGValueUndefined, %sw.epilog.i.i25 ]
+  %retval.sroa.6.0.i.in.i22 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i25 ]
+  %retval.sroa.6.0.i.i23 = load i32, ptr %retval.sroa.6.0.i.in.i22, align 4
+  %11 = load float, ptr %.in.i21, align 4
+  switch i32 %retval.sroa.6.0.i.i23, label %if.end45 [
+    i32 1, label %if.end33
+    i32 2, label %sw.bb2.i.i14
+  ]
+
+sw.bb2.i.i14:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12
+  %12 = phi float [ %10, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i12 ], [ %11, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20 ]
+  %mul.i.i15 = fmul float %12, %axisSize
+  %mul4.i.i16 = fmul float %mul.i.i15, 0x3F847AE140000000
+  br label %if.end33
+
+if.else:                                          ; preds = %entry
+  %13 = and i8 %axis, -2
+  %14 = icmp eq i8 %13, 2
+  br i1 %14, label %if.then16, label %return
+
+if.then16:                                        ; preds = %if.else
+  %minDimensions_.i33 = getelementptr inbounds i8, ptr %node, i64 232
+  %retval.sroa.0.0.copyload.i34 = load i32, ptr %minDimensions_.i33, align 4
+  switch i32 %retval.sroa.0.0.copyload.i34, label %sw.epilog.i.i48 [
+    i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43
+    i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i41
+    i32 2139156720, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i35
+  ]
+
+sw.epilog.i.i48:                                  ; preds = %if.then16
+  %15 = bitcast i32 %retval.sroa.0.0.copyload.i34 to float
+  %16 = fcmp uno float %15, 0.000000e+00
+  br i1 %16, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43, label %if.end.i.i49
+
+if.end.i.i49:                                     ; preds = %sw.epilog.i.i48
+  %and.i.i50 = and i32 %retval.sroa.0.0.copyload.i34, -1073741825
+  %add.i.i51 = add nuw nsw i32 %and.i.i50, 536870912
+  %and13.i.i52 = and i32 %retval.sroa.0.0.copyload.i34, 1073741824
+  %tobool.not.i.i53 = icmp eq i32 %and13.i.i52, 0
+  br i1 %tobool.not.i.i53, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i41, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i35
+
+_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i41: ; preds = %if.end.i.i49, %if.then16
+  %.ph.i42 = phi i32 [ 0, %if.then16 ], [ %add.i.i51, %if.end.i.i49 ]
+  %17 = bitcast i32 %.ph.i42 to float
+  br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54
+
+_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i35: ; preds = %if.end.i.i49, %if.then16
+  %.ph8.i36 = phi i32 [ %add.i.i51, %if.end.i.i49 ], [ 0, %if.then16 ]
+  %18 = bitcast i32 %.ph8.i36 to float
+  br label %sw.bb2.i.i37
+
+_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43: ; preds = %sw.epilog.i.i48, %if.then16
+  %.in.i44 = phi ptr [ @YGValueAuto, %if.then16 ], [ @YGValueUndefined, %sw.epilog.i.i48 ]
+  %retval.sroa.6.0.i.in.i45 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %if.then16 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i48 ]
+  %retval.sroa.6.0.i.i46 = load i32, ptr %retval.sroa.6.0.i.in.i45, align 4
+  %19 = load float, ptr %.in.i44, align 4
+  switch i32 %retval.sroa.6.0.i.i46, label %sw.default.i.i47 [
+    i32 1, label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54
+    i32 2, label %sw.bb2.i.i37
+  ]
+
+sw.bb2.i.i37:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i35
+  %20 = phi float [ %18, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i35 ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43 ]
+  %mul.i.i38 = fmul float %20, %axisSize
+  %mul4.i.i39 = fmul float %mul.i.i38, 0x3F847AE140000000
+  br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54
+
+sw.default.i.i47:                                 ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43
+  br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54
+
+_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54: ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i41, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43, %sw.bb2.i.i37, %sw.default.i.i47
+  %retval.sroa.0.0.i.i40 = phi float [ 0x7FF8000000000000, %sw.default.i.i47 ], [ %mul4.i.i39, %sw.bb2.i.i37 ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43 ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i41 ]
+  %maxDimensions_.i56 = getelementptr inbounds i8, ptr %node, i64 240
+  %retval.sroa.0.0.copyload.i57 = load i32, ptr %maxDimensions_.i56, align 4
+  switch i32 %retval.sroa.0.0.copyload.i57, label %sw.epilog.i.i71 [
+    i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66
+    i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i64
+    i32 2139156720, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i58
+  ]
+
+sw.epilog.i.i71:                                  ; preds = %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54
+  %21 = bitcast i32 %retval.sroa.0.0.copyload.i57 to float
+  %22 = fcmp uno float %21, 0.000000e+00
+  br i1 %22, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66, label %if.end.i.i72
+
+if.end.i.i72:                                     ; preds = %sw.epilog.i.i71
+  %and.i.i73 = and i32 %retval.sroa.0.0.copyload.i57, -1073741825
+  %add.i.i74 = add nuw nsw i32 %and.i.i73, 536870912
+  %and13.i.i75 = and i32 %retval.sroa.0.0.copyload.i57, 1073741824
+  %tobool.not.i.i76 = icmp eq i32 %and13.i.i75, 0
+  br i1 %tobool.not.i.i76, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i64, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i58
+
+_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i64: ; preds = %if.end.i.i72, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54
+  %.ph.i65 = phi i32 [ 0, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54 ], [ %add.i.i74, %if.end.i.i72 ]
+  %23 = bitcast i32 %.ph.i65 to float
+  br label %if.end33
+
+_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i58: ; preds = %if.end.i.i72, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54
+  %.ph8.i59 = phi i32 [ %add.i.i74, %if.end.i.i72 ], [ 0, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54 ]
+  %24 = bitcast i32 %.ph8.i59 to float
+  br label %sw.bb2.i.i60
+
+_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66: ; preds = %sw.epilog.i.i71, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54
+  %.in.i67 = phi ptr [ @YGValueAuto, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54 ], [ @YGValueUndefined, %sw.epilog.i.i71 ]
+  %retval.sroa.6.0.i.in.i68 = phi ptr [ getelementptr inbounds (%struct.YGValue, ptr @YGValueAuto, i64 0, i32 1), %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54 ], [ getelementptr inbounds (%struct.YGValue, ptr @YGValueUndefined, i64 0, i32 1), %sw.epilog.i.i71 ]
+  %retval.sroa.6.0.i.i69 = load i32, ptr %retval.sroa.6.0.i.in.i68, align 4
+  %25 = load float, ptr %.in.i67, align 4
+  switch i32 %retval.sroa.6.0.i.i69, label %if.end45 [
+    i32 1, label %if.end33
+    i32 2, label %sw.bb2.i.i60
+  ]
+
+sw.bb2.i.i60:                                     ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i58
+  %26 = phi float [ %24, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i58 ], [ %25, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66 ]
+  %mul.i.i61 = fmul float %26, %axisSize
+  %mul4.i.i62 = fmul float %mul.i.i61, 0x3F847AE140000000
+  br label %if.end33
+
+if.end33:                                         ; preds = %sw.bb2.i.i60, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i64, %sw.bb2.i.i14, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18
+  %max.sroa.0.0 = phi float [ %mul4.i.i16, %sw.bb2.i.i14 ], [ %11, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20 ], [ %9, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18 ], [ %mul4.i.i62, %sw.bb2.i.i60 ], [ %25, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66 ], [ %23, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i64 ]
+  %min.sroa.0.0 = phi float [ %retval.sroa.0.0.i.i, %sw.bb2.i.i14 ], [ %retval.sroa.0.0.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20 ], [ %retval.sroa.0.0.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i18 ], [ %retval.sroa.0.0.i.i40, %sw.bb2.i.i60 ], [ %retval.sroa.0.0.i.i40, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66 ], [ %retval.sroa.0.0.i.i40, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i64 ]
+  %or.cond.i = fcmp oge float %max.sroa.0.0, 0.000000e+00
+  %cmp.i = fcmp olt float %max.sroa.0.0, %value.coerce
+  %or.cond = select i1 %or.cond.i, i1 %cmp.i, i1 false
+  br i1 %or.cond, label %return, label %if.end45
+
+if.end45:                                         ; preds = %if.end33, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66
+  %min.sroa.0.09099 = phi float [ %retval.sroa.0.0.i.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20 ], [ %retval.sroa.0.0.i.i40, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66 ], [ %min.sroa.0.0, %if.end33 ]
+  %or.cond.i78 = fcmp oge float %min.sroa.0.09099, 0.000000e+00
+  %cmp.i84 = fcmp ogt float %min.sroa.0.09099, %value.coerce
+  %or.cond105 = select i1 %or.cond.i78, i1 %cmp.i84, i1 false
+  br i1 %or.cond105, label %if.then57, label %return
+
+if.then57:                                        ; preds = %if.end45
+  br label %return
+
+return:                                           ; preds = %if.end45, %if.end33, %if.else, %if.then57
+  %retval.sroa.0.0 = phi float [ %min.sroa.0.09099, %if.then57 ], [ %value.coerce, %if.else ], [ %max.sroa.0.0, %if.end33 ], [ %value.coerce, %if.end45 ]
+  ret float %retval.sroa.0.0
+}
 
 declare i32 @__gxx_personality_v0(...)
 

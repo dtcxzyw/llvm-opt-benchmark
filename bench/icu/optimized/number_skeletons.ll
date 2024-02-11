@@ -4040,9 +4040,9 @@ if.then131:                                       ; preds = %do.body129
 
 if.end132:                                        ; preds = %do.body129
   store i8 1, ptr %unitWidth, align 1
-  %switch.tableidx138 = add nsw i32 %cond.i, -31
+  %switch.tableidx129 = add nsw i32 %cond.i, -31
   %unitWidth136 = getelementptr inbounds i8, ptr %macros, i64 152
-  store i32 %switch.tableidx138, ptr %unitWidth136, align 8
+  store i32 %switch.tableidx129, ptr %unitWidth136, align 8
   br label %return
 
 do.body138:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit
@@ -4058,9 +4058,9 @@ if.then140:                                       ; preds = %do.body138
 
 if.end141:                                        ; preds = %do.body138
   store i8 1, ptr %sign, align 1
-  %switch.tableidx139 = add nsw i32 %cond.i, -38
+  %call144 = tail call noundef i32 @_ZN6icu_756number4impl14stem_to_object11signDisplayENS1_8skeleton8StemEnumE(i32 noundef %cond.i), !range !12
   %sign145 = getelementptr inbounds i8, ptr %macros, i64 156
-  store i32 %switch.tableidx139, ptr %sign145, align 4
+  store i32 %call144, ptr %sign145, align 4
   br label %return
 
 do.body147:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit
@@ -4443,7 +4443,7 @@ if.then:                                          ; preds = %for.body
   %inc3 = add nuw nsw i32 %offset.034, 1
   %call = tail call noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %cmp = icmp slt i32 %inc3, %call
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %if.then, %for.body, %entry
   %offset.0.lcssa = phi i32 [ 1, %entry ], [ %offset.034, %for.body ], [ %inc3, %if.then ]
@@ -4475,7 +4475,7 @@ if.then19:                                        ; preds = %for.body15
   %inc24 = add nuw nsw i32 %offset.141, 1
   %call13 = tail call noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %cmp14 = icmp slt i32 %inc24, %call13
-  br i1 %cmp14, label %for.body15, label %if.end28, !llvm.loop !13
+  br i1 %cmp14, label %for.body15, label %if.end28, !llvm.loop !14
 
 if.end28:                                         ; preds = %if.then19, %for.body15, %for.cond12.preheader, %for.end
   %offset.2 = phi i32 [ %offset.0.lcssa, %for.end ], [ %offset.0.lcssa, %for.cond12.preheader ], [ %inc24, %if.then19 ], [ %offset.141, %for.body15 ]
@@ -4538,7 +4538,7 @@ if.then:                                          ; preds = %for.body
   %inc = add nuw nsw i32 %minSig.033, 1
   %call = tail call noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %cmp = icmp slt i32 %inc, %call
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
 
 for.end:                                          ; preds = %if.then, %for.body, %entry
   %offset.0.lcssa = phi i32 [ 0, %entry ], [ %minSig.033, %for.body ], [ %inc, %if.then ]
@@ -4569,7 +4569,7 @@ if.then19:                                        ; preds = %for.body15
   %inc24 = add nuw nsw i32 %offset.139, 1
   %call13 = tail call noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %cmp14 = icmp slt i32 %inc24, %call13
-  br i1 %cmp14, label %for.body15, label %if.end28, !llvm.loop !15
+  br i1 %cmp14, label %for.body15, label %if.end28, !llvm.loop !16
 
 if.end28:                                         ; preds = %if.then19, %for.body15, %for.cond12.preheader, %for.end
   %offset.2 = phi i32 [ %offset.0.lcssa, %for.end ], [ %offset.0.lcssa, %for.cond12.preheader ], [ %inc24, %if.then19 ], [ %offset.139, %for.body15 ]
@@ -4671,7 +4671,7 @@ if.end41:                                         ; preds = %for.body
   %inc43 = add nuw nsw i32 %offset.228, 1
   %call35 = tail call noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %cmp36 = icmp slt i32 %inc43, %call35
-  br i1 %cmp36, label %for.body, label %for.end, !llvm.loop !16
+  br i1 %cmp36, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %if.end41, %if.end34
   %minDigits.0.lcssa = phi i32 [ 0, %if.end34 ], [ %inc42, %if.end41 ]
@@ -4921,7 +4921,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %wh
 while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %if.then, label %land.rhs, !llvm.loop !17
+  br i1 %exitcond.not, label %if.then, label %land.rhs, !llvm.loop !18
 
 lpad:                                             ; preds = %if.end
   %6 = landingpad { ptr, i32 }
@@ -5165,7 +5165,7 @@ lpad60:                                           ; preds = %lpad60.loopexit.spl
 for.cond:                                         ; preds = %invoke.cont73
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
-  br i1 %exitcond77.not, label %cleanup.sink.split, label %for.body, !llvm.loop !18
+  br i1 %exitcond77.not, label %cleanup.sink.split, label %for.body, !llvm.loop !19
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv73 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next74, %for.cond ]
@@ -5555,7 +5555,7 @@ land.lhs.true.preheader:                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then6
   %call4 = tail call noundef zeroext i16 @_ZNK6icu_7513StringSegment6charAtEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef %inc10)
   %cmp5 = icmp eq i16 %call4, 35
-  br i1 %cmp5, label %if.then6, label %for.end, !llvm.loop !19
+  br i1 %cmp5, label %if.then6, label %for.end, !llvm.loop !20
 
 if.then6:                                         ; preds = %land.lhs.true.preheader, %land.lhs.true
   %maxInt.12948 = phi i32 [ %inc7, %land.lhs.true ], [ %., %land.lhs.true.preheader ]
@@ -5564,7 +5564,7 @@ if.then6:                                         ; preds = %land.lhs.true.prehe
   %inc10 = add nuw nsw i32 %offset.13047, 1
   %call2 = tail call noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %cmp = icmp slt i32 %inc10, %call2
-  br i1 %cmp, label %land.lhs.true, label %for.end, !llvm.loop !19
+  br i1 %cmp, label %land.lhs.true, label %for.end, !llvm.loop !20
 
 for.end:                                          ; preds = %land.lhs.true, %if.then6, %land.lhs.true.preheader, %entry
   %maxInt.1.lcssa = phi i32 [ %., %entry ], [ %., %land.lhs.true.preheader ], [ %inc7, %if.then6 ], [ %inc7, %land.lhs.true ]
@@ -5591,7 +5591,7 @@ if.then21:                                        ; preds = %for.body17
   %inc26 = add nuw nsw i32 %offset.240, 1
   %call15 = tail call noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %cmp16 = icmp slt i32 %inc26, %call15
-  br i1 %cmp16, label %for.body17, label %if.end28, !llvm.loop !20
+  br i1 %cmp16, label %for.body17, label %if.end28, !llvm.loop !21
 
 if.end28:                                         ; preds = %for.body17, %if.then21, %for.cond14.preheader, %for.end
   %minInt.1 = phi i32 [ 0, %for.end ], [ 0, %for.cond14.preheader ], [ %minInt.039, %for.body17 ], [ %inc22, %if.then21 ]
@@ -5983,7 +5983,7 @@ if.then5:                                         ; preds = %for.body
   %inc7 = add nuw nsw i32 %offset.012, 1
   %call2 = tail call noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %cmp = icmp slt i32 %inc7, %call2
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %if.then5, %for.body, %for.cond.preheader
   %minExp.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %minExp.011, %for.body ], [ %inc, %if.then5 ]
@@ -6202,7 +6202,7 @@ if.then6:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %minSig.063, 1
   %call1 = tail call noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %cmp2 = icmp slt i32 %inc, %call1
-  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !22
+  br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %if.then6, %for.body, %for.cond.preheader
   %offset.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %minSig.063, %for.body ], [ %inc, %if.then6 ]
@@ -6233,7 +6233,7 @@ if.then24:                                        ; preds = %for.body20
   %inc29 = add nuw nsw i32 %offset.169, 1
   %call18 = tail call noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %cmp19 = icmp slt i32 %inc29, %call18
-  br i1 %cmp19, label %for.body20, label %if.end33, !llvm.loop !23
+  br i1 %cmp19, label %for.body20, label %if.end33, !llvm.loop !24
 
 if.end33:                                         ; preds = %if.then24, %for.body20, %for.cond17.preheader, %for.end
   %offset.2 = phi i32 [ %offset.0.lcssa, %for.end ], [ %offset.0.lcssa, %for.cond17.preheader ], [ %inc29, %if.then24 ], [ %offset.169, %for.body20 ]
@@ -6448,7 +6448,7 @@ for.body.i.i:                                     ; preds = %if.then31, %for.bod
   %call.i2.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 101)
   %inc.i.i = add nuw nsw i32 %i.03.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %conv34
-  br i1 %exitcond.not.i.i, label %_ZN6icu_756number4impl17blueprint_helpers27generateExponentWidthOptionEiRNS_13UnicodeStringER10UErrorCode.exit, label %for.body.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %_ZN6icu_756number4impl17blueprint_helpers27generateExponentWidthOptionEiRNS_13UnicodeStringER10UErrorCode.exit, label %for.body.i.i, !llvm.loop !25
 
 _ZN6icu_756number4impl17blueprint_helpers27generateExponentWidthOptionEiRNS_13UnicodeStringER10UErrorCode.exit: ; preds = %for.body.i.i, %if.then31
   %9 = load i32, ptr %status, align 4
@@ -6846,7 +6846,7 @@ for.body.i.i:                                     ; preds = %if.then11, %for.bod
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 64)
   %inc.i.i = add nuw nsw i32 %i.03.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %conv15
-  br i1 %exitcond.not.i.i, label %_ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit.i, label %for.body.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %_ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit.i, label %for.body.i.i, !llvm.loop !25
 
 _ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit.i: ; preds = %for.body.i.i, %if.then11
   %cmp.i = icmp eq i16 %5, -1
@@ -6869,7 +6869,7 @@ for.body.i7.i:                                    ; preds = %if.else.i, %for.bod
   %call.i9.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 35)
   %inc.i10.i = add nuw nsw i32 %i.03.i8.i, 1
   %exitcond.not.i11.i = icmp eq i32 %inc.i10.i, %sub.i
-  br i1 %exitcond.not.i11.i, label %if.end98, label %for.body.i7.i, !llvm.loop !24
+  br i1 %exitcond.not.i11.i, label %if.end98, label %for.body.i7.i, !llvm.loop !25
 
 if.then21:                                        ; preds = %entry
   %fUnion24 = getelementptr inbounds i8, ptr %macros, i64 72
@@ -6907,7 +6907,7 @@ for.body.i.i53:                                   ; preds = %if.then32, %for.bod
   %call.i.i55 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 64)
   %inc.i.i56 = add nuw nsw i32 %i.03.i.i54, 1
   %exitcond.not.i.i57 = icmp eq i32 %inc.i.i56, %conv34
-  br i1 %exitcond.not.i.i57, label %_ZN6icu_756number4impl17blueprint_helpers18generateDigitsStemEiiRNS_13UnicodeStringER10UErrorCode.exit58, label %for.body.i.i53, !llvm.loop !24
+  br i1 %exitcond.not.i.i57, label %_ZN6icu_756number4impl17blueprint_helpers18generateDigitsStemEiiRNS_13UnicodeStringER10UErrorCode.exit58, label %for.body.i.i53, !llvm.loop !25
 
 _ZN6icu_756number4impl17blueprint_helpers18generateDigitsStemEiiRNS_13UnicodeStringER10UErrorCode.exit58: ; preds = %for.body.i.i53, %if.then32
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i.i48)
@@ -6942,7 +6942,7 @@ for.body.i7.i70:                                  ; preds = %for.body.i7.i70.pre
   %call.i9.i72 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 35)
   %inc.i10.i73 = add nuw nsw i32 %i.03.i8.i71, 1
   %exitcond.not.i11.i74 = icmp eq i32 %i.03.i8.i71, %12
-  br i1 %exitcond.not.i11.i74, label %if.end98, label %for.body.i7.i70, !llvm.loop !24
+  br i1 %exitcond.not.i11.i74, label %if.end98, label %for.body.i7.i70, !llvm.loop !25
 
 if.else38:                                        ; preds = %if.then21
   %fMinSig39 = getelementptr inbounds i8, ptr %macros, i64 76
@@ -6957,7 +6957,7 @@ for.body.i.i92:                                   ; preds = %if.else38, %for.bod
   %call.i.i94 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 64)
   %inc.i.i95 = add nuw nsw i32 %i.03.i.i93, 1
   %exitcond.not.i.i96 = icmp eq i32 %inc.i.i95, %conv40
-  br i1 %exitcond.not.i.i96, label %_ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit.i80, label %for.body.i.i92, !llvm.loop !24
+  br i1 %exitcond.not.i.i96, label %_ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit.i80, label %for.body.i.i92, !llvm.loop !25
 
 _ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit.i80: ; preds = %for.body.i.i92, %if.else38
   %cmp.i81 = icmp eq i16 %10, -1
@@ -6980,7 +6980,7 @@ for.body.i7.i85:                                  ; preds = %if.else.i82, %for.b
   %call.i9.i87 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 35)
   %inc.i10.i88 = add nuw nsw i32 %i.03.i8.i86, 1
   %exitcond.not.i11.i89 = icmp eq i32 %inc.i10.i88, %sub.i83
-  br i1 %exitcond.not.i11.i89, label %_ZN6icu_756number4impl17blueprint_helpers18generateDigitsStemEiiRNS_13UnicodeStringER10UErrorCode.exit97, label %for.body.i7.i85, !llvm.loop !24
+  br i1 %exitcond.not.i11.i89, label %_ZN6icu_756number4impl17blueprint_helpers18generateDigitsStemEiiRNS_13UnicodeStringER10UErrorCode.exit97, label %for.body.i7.i85, !llvm.loop !25
 
 _ZN6icu_756number4impl17blueprint_helpers18generateDigitsStemEiiRNS_13UnicodeStringER10UErrorCode.exit97: ; preds = %for.body.i7.i85, %if.then.i90, %if.else.i82
   %fPriority43 = getelementptr inbounds i8, ptr %macros, i64 80
@@ -7211,7 +7211,7 @@ for.body.i.i:                                     ; preds = %if.else.i, %for.bod
   %call.i5.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 35)
   %inc.i.i = add nuw nsw i32 %i.03.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %sub.i
-  br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %if.end.i, label %for.body.i.i, !llvm.loop !25
 
 if.end.i:                                         ; preds = %for.body.i.i, %if.else.i, %if.then.i
   %cmp2.i6.i = icmp sgt i16 %6, 0
@@ -7222,7 +7222,7 @@ for.body.i7.i:                                    ; preds = %if.end.i, %for.body
   %call.i9.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 48)
   %inc.i10.i = add nuw nsw i32 %i.03.i8.i, 1
   %exitcond.not.i11.i = icmp eq i32 %inc.i10.i, %conv16
-  br i1 %exitcond.not.i11.i, label %return, label %for.body.i7.i, !llvm.loop !24
+  br i1 %exitcond.not.i11.i, label %return, label %for.body.i7.i, !llvm.loop !25
 
 lpad12:                                           ; preds = %if.end10
   %8 = landingpad { ptr, i32 }
@@ -7492,7 +7492,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %call.i2 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 101)
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %minExponentDigits
-  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit, label %for.body.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit, label %for.body.i, !llvm.loop !25
 
 _ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit: ; preds = %for.body.i, %entry
   ret void
@@ -7589,7 +7589,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %call.i10 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 48)
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %minFrac
-  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit, label %for.body.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit, label %for.body.i, !llvm.loop !25
 
 _ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit: ; preds = %for.body.i, %if.end
   %cmp3 = icmp eq i32 %maxFrac, -1
@@ -7612,7 +7612,7 @@ for.body.i14:                                     ; preds = %if.else, %for.body.
   %call.i16 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 35)
   %inc.i17 = add nuw nsw i32 %i.03.i15, 1
   %exitcond.not.i18 = icmp eq i32 %inc.i17, %sub
-  br i1 %exitcond.not.i18, label %if.end6, label %for.body.i14, !llvm.loop !24
+  br i1 %exitcond.not.i18, label %if.end6, label %for.body.i14, !llvm.loop !25
 
 if.end6:                                          ; preds = %for.body.i14, %if.else, %if.then4, %invoke.cont
   ret void
@@ -7634,7 +7634,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %call.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 64)
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %minSig
-  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit, label %for.body.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit, label %for.body.i, !llvm.loop !25
 
 _ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit: ; preds = %for.body.i, %entry
   %cmp = icmp eq i32 %maxSig, -1
@@ -7657,7 +7657,7 @@ for.body.i7:                                      ; preds = %if.else, %for.body.
   %call.i9 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 35)
   %inc.i10 = add nuw nsw i32 %i.03.i8, 1
   %exitcond.not.i11 = icmp eq i32 %inc.i10, %sub
-  br i1 %exitcond.not.i11, label %if.end, label %for.body.i7, !llvm.loop !24
+  br i1 %exitcond.not.i11, label %if.end, label %for.body.i7, !llvm.loop !25
 
 if.end:                                           ; preds = %for.body.i7, %if.else, %if.then
   ret void
@@ -7771,7 +7771,7 @@ for.body.i:                                       ; preds = %if.else, %for.body.
   %call.i5 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 35)
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %sub
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !25
 
 if.end:                                           ; preds = %for.body.i, %if.else, %if.then
   %cmp2.i6 = icmp sgt i32 %minInt, 0
@@ -7782,7 +7782,7 @@ for.body.i7:                                      ; preds = %if.end, %for.body.i
   %call.i9 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64) %sb, i32 noundef 48)
   %inc.i10 = add nuw nsw i32 %i.03.i8, 1
   %exitcond.not.i11 = icmp eq i32 %inc.i10, %minInt
-  br i1 %exitcond.not.i11, label %_ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit12, label %for.body.i7, !llvm.loop !24
+  br i1 %exitcond.not.i11, label %_ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit12, label %for.body.i7, !llvm.loop !25
 
 _ZN12_GLOBAL__N_114appendMultipleERN6icu_7513UnicodeStringEii.exit12: ; preds = %for.body.i7, %if.end
   ret void
@@ -7970,9 +7970,9 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !25
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !26
   %fUnion2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !25
+  store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !26
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %return unwind label %lpad.i
 
@@ -8063,9 +8063,9 @@ lor.rhs.i:                                        ; preds = %lor.lhs.false16.i
 if.then3:                                         ; preds = %_ZNK6icu_756number8Notation11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_756number9Precision11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_756number4impl6Padder11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_756number12IntegerWidth11copyErrorToER10UErrorCode.exit.i, %lor.lhs.false10.i, %lor.lhs.false13.i, %lor.lhs.false16.i, %lor.rhs.i
   %.sink.i = phi i32 [ %10, %_ZNK6icu_756number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %7, %_ZNK6icu_756number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %5, %_ZNK6icu_756number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %3, %_ZNK6icu_756number8Notation11copyErrorToER10UErrorCode.exit.i ], [ 7, %lor.lhs.false10.i ], [ %15, %lor.lhs.false13.i ], [ %16, %lor.lhs.false16.i ], [ %17, %lor.rhs.i ]
   store i32 %.sink.i, ptr %status, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !28
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !29
   %fUnion2.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i16 2, ptr %fUnion2.i.i3, align 8, !alias.scope !28
+  store i16 2, ptr %fUnion2.i.i3, align 8, !alias.scope !29
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %return unwind label %lpad.i4
 
@@ -8075,36 +8075,36 @@ lpad.i4:                                          ; preds = %if.then3
   br label %common.resume
 
 if.end.i.i:                                       ; preds = %lor.rhs.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %19 = load atomic i32, ptr @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE acquire, align 4, !noalias !31
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  %19 = load atomic i32, ptr @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE acquire, align 4, !noalias !32
   %cmp.not.i.i = icmp eq i32 %19, 2
   br i1 %cmp.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %call2.i.i = tail call noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE), !noalias !31
+  %call2.i.i = tail call noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE), !noalias !32
   %tobool3.not.i.i = icmp eq i8 %call2.i.i, 0
   br i1 %tobool3.not.i.i, label %if.else.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
-  tail call fastcc void @_ZN12_GLOBAL__N_119initNumberSkeletonsER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !31
-  %20 = load i32, ptr %status, align 4, !noalias !31
-  store i32 %20, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE, i64 0, i32 1), align 4, !noalias !31
-  tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE), !noalias !31
+  tail call fastcc void @_ZN12_GLOBAL__N_119initNumberSkeletonsER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !32
+  %20 = load i32, ptr %status, align 4, !noalias !32
+  store i32 %20, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE, i64 0, i32 1), align 4, !noalias !32
+  tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE), !noalias !32
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i.i
-  %21 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE, i64 0, i32 1), align 4, !noalias !31
+  %21 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE, i64 0, i32 1), align 4, !noalias !32
   %cmp.i9.i.i = icmp slt i32 %21, 1
   br i1 %cmp.i9.i.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
-  store i32 %21, ptr %status, align 4, !noalias !31
+  store i32 %21, ptr %status, align 4, !noalias !32
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.i
 
 _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.i: ; preds = %if.then8.i.i, %if.else.i.i, %if.then4.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !31
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !32
   %fUnion2.i.i7 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i16 2, ptr %fUnion2.i.i7, align 8, !alias.scope !31
+  store i16 2, ptr %fUnion2.i.i7, align 8, !alias.scope !32
   invoke void @_ZN6icu_756number4impl16GeneratorHelpers16generateSkeletonERKNS1_10MacroPropsERNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %return unwind label %lpad.i8
 
@@ -8222,9 +8222,9 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !34
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !35
   %fUnion2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !34
+  store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !35
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %return unwind label %lpad.i
 
@@ -8315,9 +8315,9 @@ lor.rhs.i:                                        ; preds = %lor.lhs.false16.i
 if.then3:                                         ; preds = %_ZNK6icu_756number8Notation11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_756number9Precision11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_756number4impl6Padder11copyErrorToER10UErrorCode.exit.i, %_ZNK6icu_756number12IntegerWidth11copyErrorToER10UErrorCode.exit.i, %lor.lhs.false10.i, %lor.lhs.false13.i, %lor.lhs.false16.i, %lor.rhs.i
   %.sink.i = phi i32 [ %10, %_ZNK6icu_756number12IntegerWidth11copyErrorToER10UErrorCode.exit.i ], [ %7, %_ZNK6icu_756number4impl6Padder11copyErrorToER10UErrorCode.exit.i ], [ %5, %_ZNK6icu_756number9Precision11copyErrorToER10UErrorCode.exit.i ], [ %3, %_ZNK6icu_756number8Notation11copyErrorToER10UErrorCode.exit.i ], [ 7, %lor.lhs.false10.i ], [ %15, %lor.lhs.false13.i ], [ %16, %lor.lhs.false16.i ], [ %17, %lor.rhs.i ]
   store i32 %.sink.i, ptr %status, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !37
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !38
   %fUnion2.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i16 2, ptr %fUnion2.i.i3, align 8, !alias.scope !37
+  store i16 2, ptr %fUnion2.i.i3, align 8, !alias.scope !38
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %return unwind label %lpad.i4
 
@@ -8327,36 +8327,36 @@ lpad.i4:                                          ; preds = %if.then3
   br label %common.resume
 
 if.end.i.i:                                       ; preds = %lor.rhs.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  %19 = load atomic i32, ptr @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE acquire, align 4, !noalias !40
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  %19 = load atomic i32, ptr @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE acquire, align 4, !noalias !41
   %cmp.not.i.i = icmp eq i32 %19, 2
   br i1 %cmp.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %call2.i.i = tail call noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE), !noalias !40
+  %call2.i.i = tail call noundef signext i8 @_ZN6icu_7520umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE), !noalias !41
   %tobool3.not.i.i = icmp eq i8 %call2.i.i, 0
   br i1 %tobool3.not.i.i, label %if.else.i.i, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
-  tail call fastcc void @_ZN12_GLOBAL__N_119initNumberSkeletonsER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !40
-  %20 = load i32, ptr %status, align 4, !noalias !40
-  store i32 %20, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE, i64 0, i32 1), align 4, !noalias !40
-  tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE), !noalias !40
+  tail call fastcc void @_ZN12_GLOBAL__N_119initNumberSkeletonsER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !41
+  %20 = load i32, ptr %status, align 4, !noalias !41
+  store i32 %20, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE, i64 0, i32 1), align 4, !noalias !41
+  tail call void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE), !noalias !41
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i.i
-  %21 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE, i64 0, i32 1), align 4, !noalias !40
+  %21 = load i32, ptr getelementptr inbounds ({ { i32 }, i32 }, ptr @_ZN12_GLOBAL__N_124gNumberSkeletonsInitOnceE, i64 0, i32 1), align 4, !noalias !41
   %cmp.i9.i.i = icmp slt i32 %21, 1
   br i1 %cmp.i9.i.i, label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.else.i.i
-  store i32 %21, ptr %status, align 4, !noalias !40
+  store i32 %21, ptr %status, align 4, !noalias !41
   br label %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.i
 
 _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.i: ; preds = %if.then8.i.i, %if.else.i.i, %if.then4.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !40
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !41
   %fUnion2.i.i7 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i16 2, ptr %fUnion2.i.i7, align 8, !alias.scope !40
+  store i16 2, ptr %fUnion2.i.i7, align 8, !alias.scope !41
   invoke void @_ZN6icu_756number4impl16GeneratorHelpers16generateSkeletonERKNS1_10MacroPropsERNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %return unwind label %lpad.i8
 
@@ -8578,7 +8578,7 @@ attributes #17 = { nounwind willreturn memory(read) }
 !9 = !{i32 0, i32 4}
 !10 = distinct !{!10, !7}
 !11 = !{i32 0, i32 11}
-!12 = distinct !{!12, !7}
+!12 = !{i32 0, i32 10}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
@@ -8591,21 +8591,22 @@ attributes #17 = { nounwind willreturn memory(read) }
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv: %agg.result"}
-!27 = distinct !{!27, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv: %agg.result"}
-!30 = distinct !{!30, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN6icu_756number4impl8skeleton8generateERKNS1_10MacroPropsER10UErrorCode: %agg.result"}
-!33 = distinct !{!33, !"_ZN6icu_756number4impl8skeleton8generateERKNS1_10MacroPropsER10UErrorCode"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv: %agg.result"}
-!36 = distinct !{!36, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv: %agg.result"}
-!39 = distinct !{!39, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN6icu_756number4impl8skeleton8generateERKNS1_10MacroPropsER10UErrorCode: %agg.result"}
-!42 = distinct !{!42, !"_ZN6icu_756number4impl8skeleton8generateERKNS1_10MacroPropsER10UErrorCode"}
+!25 = distinct !{!25, !7}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv: %agg.result"}
+!28 = distinct !{!28, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv: %agg.result"}
+!31 = distinct !{!31, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN6icu_756number4impl8skeleton8generateERKNS1_10MacroPropsER10UErrorCode: %agg.result"}
+!34 = distinct !{!34, !"_ZN6icu_756number4impl8skeleton8generateERKNS1_10MacroPropsER10UErrorCode"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv: %agg.result"}
+!37 = distinct !{!37, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv: %agg.result"}
+!40 = distinct !{!40, !"_ZN6icu_7511ICU_Utility15makeBogusStringEv"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZN6icu_756number4impl8skeleton8generateERKNS1_10MacroPropsER10UErrorCode: %agg.result"}
+!43 = distinct !{!43, !"_ZN6icu_756number4impl8skeleton8generateERKNS1_10MacroPropsER10UErrorCode"}

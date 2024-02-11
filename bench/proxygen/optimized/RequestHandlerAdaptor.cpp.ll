@@ -97,7 +97,7 @@ $_ZN8proxygen15ResponseHandlerD0Ev = comdat any
 
 $_ZN8proxygen15ResponseHandler12newExMessageEPNS_16ExMessageHandlerEb = comdat any
 
-$_ZN8proxygen11HTTPMessage16setStatusMessageIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvOT_ = comdat any
+$_ZN8proxygen11HTTPMessage8responseEv = comdat any
 
 $_ZN8proxygen15ResponseBuilder6headerIA6_cEERS0_NS_14HTTPHeaderCodeERKT_ = comdat any
 
@@ -605,7 +605,9 @@ _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit: ; p
   %3 = load ptr, ptr %headers_, align 8
   tail call void @_ZN8proxygen11HTTPMessage13setStatusCodeEt(ptr noundef nonnull align 8 dereferenceable(616) %3, i16 noundef zeroext %code)
   %4 = load ptr, ptr %headers_, align 8
-  tail call void @_ZN8proxygen11HTTPMessage16setStatusMessageIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(616) %4, ptr noundef nonnull align 8 dereferenceable(32) %message)
+  %call.i1 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN8proxygen11HTTPMessage8responseEv(ptr noundef nonnull align 8 dereferenceable(616) %4)
+  %statusMsg_.i = getelementptr inbounds i8, ptr %call.i1, i64 40
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i, ptr noundef nonnull align 8 dereferenceable(32) %message)
   ret ptr %this
 }
 
@@ -2299,51 +2301,50 @@ declare void @_ZN8proxygen11HTTPMessage14setHTTPVersionEhh(ptr noundef nonnull a
 
 declare void @_ZN8proxygen11HTTPMessage13setStatusCodeEt(ptr noundef nonnull align 8 dereferenceable(616), i16 noundef zeroext) local_unnamed_addr #0
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN8proxygen11HTTPMessage16setStatusMessageIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull align 8 dereferenceable(32) %msg) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %fields_16.i = getelementptr inbounds i8, ptr %this, i64 168
-  %0 = load i8, ptr %fields_16.i, align 8
-  switch i8 %0, label %_ZN8proxygen11HTTPMessage8responseEv.exit [
-    i8 0, label %if.then.i
-    i8 1, label %if.then25.i
-  ]
-
-if.then.i:                                        ; preds = %entry
-  store i8 2, ptr %fields_16.i, align 8
-  %data_.i = getelementptr inbounds i8, ptr %this, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %data_.i, i8 0, i64 72, i1 false)
-  %statusStr_.i.i = getelementptr inbounds i8, ptr %this, i64 184
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i.i) #19
-  %statusMsg_.i.i = getelementptr inbounds i8, ptr %this, i64 216
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i.i) #19
-  br label %_ZN8proxygen11HTTPMessage8responseEv.exit
-
-if.then25.i:                                      ; preds = %entry
-  %exception.i = tail call ptr @__cxa_allocate_exception(i64 16) #19
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i, ptr noundef nonnull @.str.14)
-          to label %invoke.cont27.i unwind label %lpad26.i
-
-invoke.cont27.i:                                  ; preds = %if.then25.i
-  tail call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #24
-  unreachable
-
-lpad26.i:                                         ; preds = %if.then25.i
-  %1 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @__cxa_free_exception(ptr %exception.i) #19
-  resume { ptr, i32 } %1
-
-_ZN8proxygen11HTTPMessage8responseEv.exit:        ; preds = %entry, %if.then.i
-  %statusMsg_ = getelementptr inbounds i8, ptr %this, i64 216
-  %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_, ptr noundef nonnull align 8 dereferenceable(32) %msg)
-  ret void
-}
-
 declare void @_ZN8proxygen11HTTPMessageC1Ev(ptr noundef nonnull align 8 dereferenceable(616)) unnamed_addr #0
 
 ; Function Attrs: nounwind
 declare void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616)) unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(72) ptr @_ZN8proxygen11HTTPMessage8responseEv(ptr noundef nonnull align 8 dereferenceable(616) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+entry:
+  %fields_16 = getelementptr inbounds i8, ptr %this, i64 168
+  %0 = load i8, ptr %fields_16, align 8
+  switch i8 %0, label %if.end28 [
+    i8 0, label %if.then
+    i8 1, label %if.then25
+  ]
+
+if.then:                                          ; preds = %entry
+  store i8 2, ptr %fields_16, align 8
+  %data_ = getelementptr inbounds i8, ptr %this, i64 176
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %data_, i8 0, i64 72, i1 false)
+  %statusStr_.i = getelementptr inbounds i8, ptr %this, i64 184
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusStr_.i) #19
+  %statusMsg_.i = getelementptr inbounds i8, ptr %this, i64 216
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMsg_.i) #19
+  br label %if.end28
+
+if.then25:                                        ; preds = %entry
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #19
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.14)
+          to label %invoke.cont27 unwind label %lpad26
+
+invoke.cont27:                                    ; preds = %if.then25
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #24
+  unreachable
+
+lpad26:                                           ; preds = %if.then25
+  %1 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @__cxa_free_exception(ptr %exception) #19
+  resume { ptr, i32 } %1
+
+if.end28:                                         ; preds = %entry, %if.then
+  %data_30 = getelementptr inbounds i8, ptr %this, i64 176
+  ret ptr %data_30
+}
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
