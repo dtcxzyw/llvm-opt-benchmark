@@ -6266,7 +6266,7 @@ for.end310:                                       ; preds = %for.inc308, %if.end
   br i1 %cmp3121182, label %while.body, label %for.cond246.loopexit
 
 while.body:                                       ; preds = %for.end310, %for.end363
-  %751 = phi ptr [ %826, %for.end363 ], [ %750, %for.end310 ]
+  %751 = phi ptr [ %825, %for.end363 ], [ %750, %for.end310 ]
   %parent_idx.01188 = phi i32 [ %parent_idx.0, %for.end363 ], [ %parent_idx.01181, %for.end310 ]
   %child_idx.01187 = phi i32 [ %parent_idx.01188, %for.end363 ], [ %645, %for.end310 ]
   %body_eom_rot.sroa.16.01186 = phi <2 x float> [ %body_eom_rot.sroa.16.8.vec.insert, %for.end363 ], [ %retval.sroa.3.12.vec.insert.i790, %for.end310 ]
@@ -6469,30 +6469,29 @@ sw.bb19.i1009:                                    ; preds = %if.then352
 if.end354:                                        ; preds = %if.then347, %sw.bb19.i1009, %sw.bb15.i1012, %sw.bb11.i1015, %sw.bb7.i1018, %sw.bb3.i1021, %sw.bb.i1024, %if.then352, %if.end349
   %808 = load <4 x float>, ptr %Jac_JR337, align 16
   %809 = shufflevector <4 x float> %808, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %810 = load float, ptr %arrayidx.i14.i1005, align 4
+  %810 = shufflevector <4 x float> %808, <4 x float> poison, <2 x i32> <i32 1, i32 poison>
   %811 = shufflevector <4 x float> %808, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %812 = load float, ptr %Jac_JT339, align 8
   %813 = load float, ptr %arrayidx.i32.i1010, align 4
   %814 = load float, ptr %arrayidx.i33.i1011, align 8
-  %815 = insertelement <2 x float> poison, float %810, i64 0
-  %816 = insertelement <2 x float> %815, float %813, i64 1
-  %817 = fmul <2 x float> %801, %816
-  %818 = insertelement <2 x float> %809, float %812, i64 1
-  %819 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %818, <2 x float> %798, <2 x float> %817)
-  %820 = insertelement <2 x float> %811, float %814, i64 1
-  %821 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %820, <2 x float> %800, <2 x float> %819)
-  %shift = shufflevector <2 x float> %821, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %822 = fadd <2 x float> %821, %shift
-  %add358 = extractelement <2 x float> %822, i64 0
-  %823 = load i32, ptr %m_setElemOperations.i.i835, align 8
-  %inc.i.i1039 = add nsw i32 %823, 1
+  %815 = insertelement <2 x float> %810, float %813, i64 1
+  %816 = fmul <2 x float> %801, %815
+  %817 = insertelement <2 x float> %809, float %812, i64 1
+  %818 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %817, <2 x float> %798, <2 x float> %816)
+  %819 = insertelement <2 x float> %811, float %814, i64 1
+  %820 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %819, <2 x float> %800, <2 x float> %818)
+  %shift = shufflevector <2 x float> %820, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %821 = fadd <2 x float> %820, %shift
+  %add358 = extractelement <2 x float> %821, i64 0
+  %822 = load i32, ptr %m_setElemOperations.i.i835, align 8
+  %inc.i.i1039 = add nsw i32 %822, 1
   store i32 %inc.i.i1039, ptr %m_setElemOperations.i.i835, align 8
-  %824 = load i32, ptr %m_cols.i, align 4
-  %mul.i.i1041 = mul nsw i32 %824, %col.01192
+  %823 = load i32, ptr %m_cols.i, align 4
+  %mul.i.i1041 = mul nsw i32 %823, %col.01192
   %add.i.i1042 = add nsw i32 %mul.i.i1041, %row341.01180
-  %825 = load ptr, ptr %m_data.i.i.i840, align 8
+  %824 = load ptr, ptr %m_data.i.i.i840, align 8
   %idxprom.i.i.i1044 = sext i32 %add.i.i1042 to i64
-  %arrayidx.i.i.i1045 = getelementptr inbounds float, ptr %825, i64 %idxprom.i.i.i1044
+  %arrayidx.i.i.i1045 = getelementptr inbounds float, ptr %824, i64 %idxprom.i.i.i1044
   store float %add358, ptr %arrayidx.i.i.i1045, align 4
   %cmp343.not.not = icmp sgt i32 %row341.01180, %797
   br i1 %cmp343.not.not, label %for.body344, label %for.end363.loopexit, !llvm.loop !123
@@ -6502,15 +6501,15 @@ for.end363.loopexit:                              ; preds = %if.end354
   br label %for.end363
 
 for.end363:                                       ; preds = %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit999, %for.end363.loopexit
-  %826 = phi ptr [ %.pre1221, %for.end363.loopexit ], [ %751, %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit999 ]
-  %arrayidx.i1048 = getelementptr inbounds i32, ptr %826, i64 %idxprom.i914
+  %825 = phi ptr [ %.pre1221, %for.end363.loopexit ], [ %751, %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit999 ]
+  %arrayidx.i1048 = getelementptr inbounds i32, ptr %825, i64 %idxprom.i914
   %parent_idx.0 = load i32, ptr %arrayidx.i1048, align 4
   %cmp312 = icmp sgt i32 %parent_idx.0, -1
   br i1 %cmp312, label %while.body, label %for.cond246.loopexit, !llvm.loop !124
 
 for.end371:                                       ; preds = %for.cond235.loopexit, %if.end155, %for.end230
-  %827 = load i32, ptr %m_num_dofs, align 4
-  %cmp3771198 = icmp sgt i32 %827, 0
+  %826 = load i32, ptr %m_num_dofs, align 4
+  %cmp3771198 = icmp sgt i32 %826, 0
   %or.cond1200 = select i1 %set_lower_triangular_matrix, i1 %cmp3771198, i1 false
   br i1 %or.cond1200, label %for.cond380.preheader.lr.ph, label %return
 
@@ -6520,28 +6519,28 @@ for.cond380.preheader.lr.ph:                      ; preds = %for.end371
   br label %for.cond380.preheader
 
 for.cond380.preheader:                            ; preds = %for.cond380.preheader.lr.ph, %for.inc387
-  %828 = phi i32 [ %827, %for.cond380.preheader.lr.ph ], [ %833, %for.inc387 ]
+  %827 = phi i32 [ %826, %for.cond380.preheader.lr.ph ], [ %832, %for.inc387 ]
   %col374.01199 = phi i32 [ 0, %for.cond380.preheader.lr.ph ], [ %inc388, %for.inc387 ]
   %cmp3811196.not = icmp eq i32 %col374.01199, 0
   br i1 %cmp3811196.not, label %for.inc387, label %for.body382
 
 for.body382:                                      ; preds = %for.cond380.preheader, %for.body382
   %row379.01197 = phi i32 [ %inc385, %for.body382 ], [ 0, %for.cond380.preheader ]
-  %829 = load i32, ptr %m_cols.i, align 4
-  %mul.i1050 = mul nsw i32 %829, %col374.01199
+  %828 = load i32, ptr %m_cols.i, align 4
+  %mul.i1050 = mul nsw i32 %828, %col374.01199
   %add.i1051 = add nsw i32 %mul.i1050, %row379.01197
-  %830 = load ptr, ptr %m_data.i.i, align 8
+  %829 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %add.i1051 to i64
-  %arrayidx.i.i1052 = getelementptr inbounds float, ptr %830, i64 %idxprom.i.i
-  %831 = load float, ptr %arrayidx.i.i1052, align 4
-  %832 = load i32, ptr %m_setElemOperations.i.i1053, align 8
-  %inc.i.i1054 = add nsw i32 %832, 1
+  %arrayidx.i.i1052 = getelementptr inbounds float, ptr %829, i64 %idxprom.i.i
+  %830 = load float, ptr %arrayidx.i.i1052, align 4
+  %831 = load i32, ptr %m_setElemOperations.i.i1053, align 8
+  %inc.i.i1054 = add nsw i32 %831, 1
   store i32 %inc.i.i1054, ptr %m_setElemOperations.i.i1053, align 8
-  %mul.i.i1056 = mul nsw i32 %829, %row379.01197
+  %mul.i.i1056 = mul nsw i32 %828, %row379.01197
   %add.i.i1057 = add nsw i32 %mul.i.i1056, %col374.01199
   %idxprom.i.i.i1059 = sext i32 %add.i.i1057 to i64
-  %arrayidx.i.i.i1060 = getelementptr inbounds float, ptr %830, i64 %idxprom.i.i.i1059
-  store float %831, ptr %arrayidx.i.i.i1060, align 4
+  %arrayidx.i.i.i1060 = getelementptr inbounds float, ptr %829, i64 %idxprom.i.i.i1059
+  store float %830, ptr %arrayidx.i.i.i1060, align 4
   %inc385 = add nuw nsw i32 %row379.01197, 1
   %exitcond.not = icmp eq i32 %inc385, %col374.01199
   br i1 %exitcond.not, label %for.inc387.loopexit, label %for.body382, !llvm.loop !125
@@ -6551,9 +6550,9 @@ for.inc387.loopexit:                              ; preds = %for.body382
   br label %for.inc387
 
 for.inc387:                                       ; preds = %for.inc387.loopexit, %for.cond380.preheader
-  %833 = phi i32 [ %.pre1222, %for.inc387.loopexit ], [ %828, %for.cond380.preheader ]
+  %832 = phi i32 [ %.pre1222, %for.inc387.loopexit ], [ %827, %for.cond380.preheader ]
   %inc388 = add nuw nsw i32 %col374.01199, 1
-  %cmp377 = icmp slt i32 %inc388, %833
+  %cmp377 = icmp slt i32 %inc388, %832
   br i1 %cmp377, label %for.cond380.preheader, label %return, !llvm.loop !126
 
 return:                                           ; preds = %for.inc387, %for.end371, %do.body
