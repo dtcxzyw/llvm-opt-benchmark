@@ -5302,28 +5302,26 @@ invoke.cont9:                                     ; preds = %invoke.cont5
 
 invoke.cont13:                                    ; preds = %invoke.cont9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(65536) %call5.i.i.i.i1.i.i54, i8 0, i64 65536, i1 false)
-  %cmp124.not = icmp eq i32 %h, 0
-  br i1 %cmp124.not, label %for.end110, label %for.cond14.preheader.lr.ph
-
-for.cond14.preheader.lr.ph:                       ; preds = %invoke.cont13
+  %factor.op.mul124 = shl i32 %w, 3
+  %cmp125.not = icmp eq i32 %h, 0
   %cmp15122.not = icmp eq i32 %w, 0
-  %mul = shl i32 %w, 3
-  br i1 %cmp15122.not, label %for.end110, label %for.cond14.preheader.us.preheader
+  %or.cond = or i1 %cmp125.not, %cmp15122.not
+  br i1 %or.cond, label %for.end110, label %for.cond14.preheader.us.preheader
 
-for.cond14.preheader.us.preheader:                ; preds = %for.cond14.preheader.lr.ph
+for.cond14.preheader.us.preheader:                ; preds = %invoke.cont13
   %wide.trip.count = zext i32 %w to i64
   br label %for.cond14.preheader.us
 
 for.cond14.preheader.us:                          ; preds = %for.cond14.preheader.us.preheader, %for.cond14.for.inc108_crit_edge.us
-  %y.0125.us = phi i32 [ %inc109.us, %for.cond14.for.inc108_crit_edge.us ], [ 0, %for.cond14.preheader.us.preheader ]
-  %mul17.us = mul i32 %mul, %y.0125.us
+  %y.0126.us = phi i32 [ %inc109.us, %for.cond14.for.inc108_crit_edge.us ], [ 0, %for.cond14.preheader.us.preheader ]
+  %factor.op.mul.us = mul i32 %factor.op.mul124, %y.0126.us
   br label %invoke.cont94.us
 
 invoke.cont94.us:                                 ; preds = %for.cond14.preheader.us, %invoke.cont97.us
   %indvars.iv = phi i64 [ 0, %for.cond14.preheader.us ], [ %indvars.iv.next, %invoke.cont97.us ]
   %1 = trunc i64 %indvars.iv to i32
   %mul18.us = shl i32 %1, 3
-  %add.us = add i32 %mul18.us, %mul17.us
+  %add.us = add i32 %mul18.us, %factor.op.mul.us
   %conv.us = zext i32 %add.us to i64
   %2 = load ptr, ptr %image, align 8
   %add.ptr.i.us = getelementptr inbounds i8, ptr %2, i64 %conv.us
@@ -5578,9 +5576,9 @@ invoke.cont97.us:                                 ; preds = %if.then.i7.i.us, %c
   br i1 %exitcond.not, label %for.cond14.for.inc108_crit_edge.us, label %invoke.cont94.us, !llvm.loop !60
 
 for.cond14.for.inc108_crit_edge.us:               ; preds = %invoke.cont97.us
-  %inc109.us = add nuw i32 %y.0125.us, 1
-  %exitcond131.not = icmp eq i32 %inc109.us, %h
-  br i1 %exitcond131.not, label %for.end110, label %for.cond14.preheader.us, !llvm.loop !61
+  %inc109.us = add nuw i32 %y.0126.us, 1
+  %exitcond132.not = icmp eq i32 %inc109.us, %h
+  br i1 %exitcond132.not, label %for.end110, label %for.cond14.preheader.us, !llvm.loop !61
 
 lpad90.split.us:                                  ; preds = %if.then.i.us
   %35 = landingpad { ptr, i32 }
@@ -5618,7 +5616,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt8_Rb_treeISt4p
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i54) #24
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit93
 
-for.end110:                                       ; preds = %for.cond14.for.inc108_crit_edge.us, %for.cond14.preheader.lr.ph, %invoke.cont13
+for.end110:                                       ; preds = %for.cond14.for.inc108_crit_edge.us, %invoke.cont13
   store i64 0, ptr %ao, align 8
   store i64 0, ptr %bo, align 8
   store i64 0, ptr %go, align 8
@@ -5626,34 +5624,34 @@ for.end110:                                       ; preds = %for.cond14.for.inc1
   br label %for.body114
 
 for.body114:                                      ; preds = %for.end110, %for.body114
-  %i.0128 = phi i64 [ 0, %for.end110 ], [ %inc128, %for.body114 ]
-  %add.ptr.i75 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i40, i64 %i.0128
+  %i.0129 = phi i64 [ 0, %for.end110 ], [ %inc128, %for.body114 ]
+  %add.ptr.i75 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i40, i64 %i.0129
   %41 = load i8, ptr %add.ptr.i75, align 1
   %conv116 = zext i8 %41 to i64
   %42 = load i64, ptr %ro, align 8
   %add117 = add i64 %42, %conv116
   store i64 %add117, ptr %ro, align 8
-  %add.ptr.i76 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i44, i64 %i.0128
+  %add.ptr.i76 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i44, i64 %i.0129
   %43 = load i8, ptr %add.ptr.i76, align 1
   %conv119 = zext i8 %43 to i64
   %44 = load i64, ptr %go, align 8
   %add120 = add i64 %44, %conv119
   store i64 %add120, ptr %go, align 8
-  %add.ptr.i77 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i49, i64 %i.0128
+  %add.ptr.i77 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i49, i64 %i.0129
   %45 = load i8, ptr %add.ptr.i77, align 1
   %conv122 = zext i8 %45 to i64
   %46 = load i64, ptr %bo, align 8
   %add123 = add i64 %46, %conv122
   store i64 %add123, ptr %bo, align 8
-  %add.ptr.i78 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i54, i64 %i.0128
+  %add.ptr.i78 = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i54, i64 %i.0129
   %47 = load i8, ptr %add.ptr.i78, align 1
   %conv125 = zext i8 %47 to i64
   %48 = load i64, ptr %ao, align 8
   %add126 = add i64 %48, %conv125
   store i64 %add126, ptr %ao, align 8
-  %inc128 = add nuw nsw i64 %i.0128, 1
-  %exitcond132.not = icmp eq i64 %inc128, 65536
-  br i1 %exitcond132.not, label %_ZNSt6vectorIhSaIhEED2Ev.exit90, label %for.body114, !llvm.loop !62
+  %inc128 = add nuw nsw i64 %i.0129, 1
+  %exitcond133.not = icmp eq i64 %inc128, 65536
+  br i1 %exitcond133.not, label %_ZNSt6vectorIhSaIhEED2Ev.exit90, label %for.body114, !llvm.loop !62
 
 _ZNSt6vectorIhSaIhEED2Ev.exit90:                  ; preds = %for.body114
   %49 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8

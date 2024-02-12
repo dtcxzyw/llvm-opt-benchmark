@@ -13174,60 +13174,60 @@ for.cond.preheader:                               ; preds = %invoke.cont41
   br i1 %cmp43119, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %factor.op.mul = mul i64 %mul36, %conv19
   %pixeltype = getelementptr inbounds %"struct.OpenImageIO_v2_6_0::OpenEXRInput::PartInfo", ptr %5, i64 %conv, i32 10
   %mul61 = shl nsw i64 %conv19, 3
   %mul64 = mul i64 %mul61, %conv7
   %mul50 = mul nsw i32 %sub13, %xbegin
   %idx.ext51 = sext i32 %mul50 to i64
   %idx.neg52 = sub nsw i64 0, %idx.ext51
-  %17 = mul i64 %mul36, %conv19
-  %idx.neg58 = sub i64 0, %17
-  %18 = sext i32 %val.i.1 to i64
+  %mul57 = sub i64 0, %factor.op.mul
+  %17 = sext i32 %val.i.1 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %conv17, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %19 = load ptr, ptr %pixeltype, align 8
-  %add.ptr.i78 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
-  %20 = load i32, ptr %add.ptr.i78, align 4
-  %21 = load ptr, ptr %pointerbuf, align 8
+  %18 = load ptr, ptr %pixeltype, align 8
+  %add.ptr.i78 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
+  %19 = load i32, ptr %add.ptr.i78, align 4
+  %20 = load ptr, ptr %pointerbuf, align 8
   %call66 = invoke noundef i64 @_ZNK18OpenImageIO_v2_6_08DeepData10samplesizeEv(ptr noundef nonnull align 8 dereferenceable(20) %deepdata)
           to label %invoke.cont65 unwind label %lpad40.loopexit
 
 invoke.cont65:                                    ; preds = %for.body
-  %22 = sub nsw i64 %indvars.iv, %conv17
-  %add.ptr49 = getelementptr inbounds ptr, ptr %21, i64 %22
+  %21 = sub nsw i64 %indvars.iv, %conv17
+  %add.ptr49 = getelementptr inbounds ptr, ptr %20, i64 %21
   %add.ptr53 = getelementptr inbounds ptr, ptr %add.ptr49, i64 %idx.neg52
-  %add.ptr59 = getelementptr inbounds ptr, ptr %add.ptr53, i64 %idx.neg58
-  invoke void @_ZN7Imf_2_59DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %slice, i32 noundef %20, ptr noundef nonnull %add.ptr59, i64 noundef %mul61, i64 noundef %mul64, i64 noundef %call66, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
+  %add.ptr59 = getelementptr inbounds ptr, ptr %add.ptr53, i64 %mul57
+  invoke void @_ZN7Imf_2_59DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %slice, i32 noundef %19, ptr noundef nonnull %add.ptr59, i64 noundef %mul61, i64 noundef %mul64, i64 noundef %call66, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont67 unwind label %lpad40.loopexit
 
 invoke.cont67:                                    ; preds = %invoke.cont65
-  %23 = load ptr, ptr %channelnames, align 8
-  %add.ptr.i79 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %23, i64 %indvars.iv
+  %22 = load ptr, ptr %channelnames, align 8
+  %add.ptr.i79 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %22, i64 %indvars.iv
   %call72 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i79) #26
   invoke void @_ZN7Imf_2_515DeepFrameBuffer6insertEPKcRKNS_9DeepSliceE(ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer, ptr noundef %call72, ptr noundef nonnull align 8 dereferenceable(56) %slice)
           to label %for.inc unwind label %lpad40.loopexit
 
 for.inc:                                          ; preds = %invoke.cont67
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %cmp43 = icmp slt i64 %indvars.iv.next, %18
+  %cmp43 = icmp slt i64 %indvars.iv.next, %17
   br i1 %cmp43, label %for.body, label %for.end, !llvm.loop !101
 
 lpad15:                                           ; preds = %if.then.i.i, %if.end5, %invoke.cont16
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
   br label %ehcleanup119
 
 lpad25:                                           ; preds = %if.then.i.i.i.i.i, %if.then.i.i58
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
   br label %ehcleanup119
 
 lpad30:                                           ; preds = %if.then.i.i.i.i.i63, %if.then.i.i74
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
           catch ptr null
   br label %ehcleanup118
@@ -13250,38 +13250,38 @@ lpad40:                                           ; preds = %lpad40.loopexit.spl
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %27 = load ptr, ptr %m_deep_tiled_input_part, align 8
-  invoke void @_ZN7Imf_2_518DeepTiledInputPart14setFrameBufferERKNS_15DeepFrameBufferE(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer)
+  %26 = load ptr, ptr %m_deep_tiled_input_part, align 8
+  invoke void @_ZN7Imf_2_518DeepTiledInputPart14setFrameBufferERKNS_15DeepFrameBufferE(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(104) %frameBuffer)
           to label %invoke.cont75 unwind label %lpad40.loopexit.split-lp
 
 invoke.cont75:                                    ; preds = %for.end
   %tile_width = getelementptr inbounds i8, ptr %this, i64 56
-  %28 = load i32, ptr %tile_width, align 8
-  %conv.i80 = sext i32 %28 to i64
+  %27 = load i32, ptr %tile_width, align 8
+  %conv.i80 = sext i32 %27 to i64
   %sub.i = add nsw i64 %conv7, -1
   %add.i = add nsw i64 %sub.i, %conv.i80
   %div = udiv i64 %add.i, %conv.i80
   %conv82 = trunc i64 %div to i32
   %tile_height = getelementptr inbounds i8, ptr %this, i64 60
-  %29 = load i32, ptr %tile_height, align 4
-  %conv.i81 = sext i32 %29 to i64
+  %28 = load i32, ptr %tile_height, align 4
+  %conv.i81 = sext i32 %28 to i64
   %sub.i82 = add nsw i64 %conv9, -1
   %add.i83 = add nsw i64 %sub.i82, %conv.i81
   %div89 = udiv i64 %add.i83, %conv.i81
   %conv90 = trunc i64 %div89 to i32
-  %30 = load i32, ptr %m_spec, align 8
-  %sub92 = sub nsw i32 %xbegin, %30
-  %div95 = sdiv i32 %sub92, %28
+  %29 = load i32, ptr %m_spec, align 8
+  %sub92 = sub nsw i32 %xbegin, %29
+  %div95 = sdiv i32 %sub92, %27
   %y = getelementptr inbounds i8, ptr %this, i64 12
-  %31 = load i32, ptr %y, align 4
-  %sub97 = sub nsw i32 %ybegin, %31
-  %div100 = sdiv i32 %sub97, %29
-  %32 = load ptr, ptr %m_deep_tiled_input_part, align 8
+  %30 = load i32, ptr %y, align 4
+  %sub97 = sub nsw i32 %ybegin, %30
+  %div100 = sdiv i32 %sub97, %28
+  %31 = load ptr, ptr %m_deep_tiled_input_part, align 8
   %add102 = add i32 %conv82, -1
   %sub103 = add i32 %add102, %div95
   %add104 = add i32 %conv90, -1
   %sub105 = add i32 %add104, %div100
-  invoke void @_ZN7Imf_2_518DeepTiledInputPart21readPixelSampleCountsEiiiii(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %div95, i32 noundef %sub103, i32 noundef %div100, i32 noundef %sub105, i32 noundef 0)
+  invoke void @_ZN7Imf_2_518DeepTiledInputPart21readPixelSampleCountsEiiiii(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 noundef %div95, i32 noundef %sub103, i32 noundef %div100, i32 noundef %sub105, i32 noundef 0)
           to label %invoke.cont106 unwind label %lpad40.loopexit.split-lp
 
 invoke.cont106:                                   ; preds = %invoke.cont75
@@ -13299,31 +13299,31 @@ invoke.cont109:                                   ; preds = %invoke.cont106
           to label %invoke.cont110 unwind label %lpad40.loopexit.split-lp
 
 invoke.cont110:                                   ; preds = %invoke.cont109
-  %33 = load ptr, ptr %m_deep_tiled_input_part, align 8
+  %32 = load ptr, ptr %m_deep_tiled_input_part, align 8
   %m_miplevel = getelementptr inbounds i8, ptr %this, i64 280
-  %34 = load i32, ptr %m_miplevel, align 8
-  invoke void @_ZN7Imf_2_518DeepTiledInputPart9readTilesEiiiiii(ptr noundef nonnull align 8 dereferenceable(8) %33, i32 noundef %div95, i32 noundef %sub103, i32 noundef %div100, i32 noundef %sub105, i32 noundef %34, i32 noundef %34)
+  %33 = load i32, ptr %m_miplevel, align 8
+  invoke void @_ZN7Imf_2_518DeepTiledInputPart9readTilesEiiiiii(ptr noundef nonnull align 8 dereferenceable(8) %32, i32 noundef %div95, i32 noundef %sub103, i32 noundef %div100, i32 noundef %sub105, i32 noundef %33, i32 noundef %33)
           to label %invoke.cont117 unwind label %lpad40.loopexit.split-lp
 
 invoke.cont117:                                   ; preds = %invoke.cont110
-  %35 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  invoke void @_ZNSt8_Rb_treeIN7Imf_2_54NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %frameBuffer, ptr noundef %35)
+  %34 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  invoke void @_ZNSt8_Rb_treeIN7Imf_2_54NameESt4pairIKS1_NS0_9DeepSliceEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %frameBuffer, ptr noundef %34)
           to label %_ZN7Imf_2_515DeepFrameBufferD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %invoke.cont117
-  %36 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #29
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #29
   unreachable
 
 _ZN7Imf_2_515DeepFrameBufferD2Ev.exit:            ; preds = %invoke.cont117
-  %38 = load ptr, ptr %pointerbuf, align 8
-  %tobool.not.i.i.i94 = icmp eq ptr %38, null
+  %37 = load ptr, ptr %pointerbuf, align 8
+  %tobool.not.i.i.i94 = icmp eq ptr %37, null
   br i1 %tobool.not.i.i.i94, label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN7Imf_2_515DeepFrameBufferD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %38) #27
+  call void @_ZdlPv(ptr noundef nonnull %37) #27
   br label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit
 
 _ZNSt6vectorIPvSaIS0_EED2Ev.exit:                 ; preds = %_ZN7Imf_2_515DeepFrameBufferD2Ev.exit, %if.then.i.i.i
@@ -13335,26 +13335,26 @@ if.then.i.i.i96:                                  ; preds = %_ZNSt6vectorIPvSaIS
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIPvSaIS0_EED2Ev.exit, %if.then.i.i.i96
-  %39 = load ptr, ptr %channeltypes, align 8
-  %tobool.not.i.i.i97 = icmp eq ptr %39, null
+  %38 = load ptr, ptr %channeltypes, align 8
+  %tobool.not.i.i.i97 = icmp eq ptr %38, null
   br i1 %tobool.not.i.i.i97, label %cleanup, label %if.then.i.i.i98
 
 if.then.i.i.i98:                                  ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %39) #27
+  call void @_ZdlPv(ptr noundef nonnull %38) #27
   br label %cleanup
 
 ehcleanup:                                        ; preds = %lpad.i, %lpad40
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad40 ], [ %16, %lpad.i ]
-  %40 = load ptr, ptr %pointerbuf, align 8
-  %tobool.not.i.i.i99 = icmp eq ptr %40, null
+  %39 = load ptr, ptr %pointerbuf, align 8
+  %tobool.not.i.i.i99 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i99, label %ehcleanup118, label %if.then.i.i.i100
 
 if.then.i.i.i100:                                 ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %40) #27
+  call void @_ZdlPv(ptr noundef nonnull %39) #27
   br label %ehcleanup118
 
 ehcleanup118:                                     ; preds = %if.then.i.i.i100, %ehcleanup, %lpad30
-  %.pn.pn = phi { ptr, i32 } [ %26, %lpad30 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i100 ]
+  %.pn.pn = phi { ptr, i32 } [ %25, %lpad30 ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i.i.i100 ]
   %tobool.not.i.i.i102 = icmp eq ptr %all_samples.sroa.0.0, null
   br i1 %tobool.not.i.i.i102, label %ehcleanup119, label %if.then.i.i.i103
 
@@ -13363,28 +13363,28 @@ if.then.i.i.i103:                                 ; preds = %ehcleanup118
   br label %ehcleanup119
 
 ehcleanup119:                                     ; preds = %if.then.i.i.i103, %ehcleanup118, %lpad25, %lpad15
-  %.pn.pn.pn = phi { ptr, i32 } [ %25, %lpad25 ], [ %24, %lpad15 ], [ %.pn.pn, %ehcleanup118 ], [ %.pn.pn, %if.then.i.i.i103 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %24, %lpad25 ], [ %23, %lpad15 ], [ %.pn.pn, %ehcleanup118 ], [ %.pn.pn, %if.then.i.i.i103 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
-  %41 = load ptr, ptr %channeltypes, align 8
-  %tobool.not.i.i.i105 = icmp eq ptr %41, null
+  %40 = load ptr, ptr %channeltypes, align 8
+  %tobool.not.i.i.i105 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i105, label %_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EED2Ev.exit107, label %if.then.i.i.i106
 
 if.then.i.i.i106:                                 ; preds = %ehcleanup119
-  call void @_ZdlPv(ptr noundef nonnull %41) #27
+  call void @_ZdlPv(ptr noundef nonnull %40) #27
   br label %_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EED2Ev.exit107
 
 _ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EED2Ev.exit107: ; preds = %ehcleanup119, %if.then.i.i.i106
-  %42 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
-  %matches = icmp eq i32 %ehselector.slot.2, %42
-  %43 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #26
+  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %matches = icmp eq i32 %ehselector.slot.2, %41
+  %42 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #26
   br i1 %matches, label %catch125, label %catch
 
 catch125:                                         ; preds = %_ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EED2Ev.exit107
-  %vtable = load ptr, ptr %43, align 8
+  %vtable = load ptr, ptr %42, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %44 = load ptr, ptr %vfn, align 8
-  %call128 = call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(8) %43) #26
+  %43 = load ptr, ptr %vfn, align 8
+  %call128 = call noundef ptr %43(ptr noundef nonnull align 8 dereferenceable(8) %42) #26
   store ptr %call128, ptr %ref.tmp127, align 8
   invoke void @_ZNK18OpenImageIO_v2_6_010ImageInput6errorfIJPKcEEEvS3_DpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull @.str.125, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp127)
           to label %invoke.cont121.invoke unwind label %lpad129
@@ -13398,13 +13398,13 @@ invoke.cont121.invoke:                            ; preds = %catch, %catch125
           to label %cleanup unwind label %lpad
 
 lpad120:                                          ; preds = %catch
-  %45 = landingpad { ptr, i32 }
+  %44 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %ehcleanup134 unwind label %terminate.lpad
 
 lpad129:                                          ; preds = %catch125
-  %46 = landingpad { ptr, i32 }
+  %45 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %ehcleanup134 unwind label %terminate.lpad
@@ -13415,35 +13415,35 @@ cleanup:                                          ; preds = %invoke.cont121.invo
           to label %_ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup
-  %47 = landingpad { ptr, i32 }
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #29
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #29
   unreachable
 
 _ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit: ; preds = %cleanup
   ret i1 %retval.0
 
 ehcleanup134:                                     ; preds = %lpad129, %lpad120, %lpad
-  %.pn51 = phi { ptr, i32 } [ %2, %lpad ], [ %46, %lpad129 ], [ %45, %lpad120 ]
+  %.pn51 = phi { ptr, i32 } [ %2, %lpad ], [ %45, %lpad129 ], [ %44, %lpad120 ]
   invoke void @_ZNK18OpenImageIO_v2_6_010ImageInput6unlockEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %_ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit109 unwind label %terminate.lpad.i108
 
 terminate.lpad.i108:                              ; preds = %ehcleanup134
-  %49 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #29
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #29
   unreachable
 
 _ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit109: ; preds = %ehcleanup134
   resume { ptr, i32 } %.pn51
 
 terminate.lpad:                                   ; preds = %lpad129, %lpad120
-  %51 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #29
+  %51 = extractvalue { ptr, i32 } %50, 0
+  call void @__clang_call_terminate(ptr %51) #29
   unreachable
 }
 

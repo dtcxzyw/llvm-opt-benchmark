@@ -1818,8 +1818,8 @@ if.end:                                           ; preds = %_ZNSt3mapIjNSt7__cx
   br label %return
 
 return:                                           ; preds = %if.end, %invoke.cont
-  %cmp.i11 = phi i1 [ true, %if.end ], [ false, %invoke.cont ]
-  ret i1 %cmp.i11
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %invoke.cont ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13612,6 +13612,7 @@ for.cond47.preheader.lr.ph.split.us:              ; preds = %for.cond44.preheade
   %21 = zext nneg i32 %div to i64
   %22 = zext nneg i32 %div30 to i64
   %.pre.pre = load i32, ptr %17, align 8
+  %factor.op.mul = mul i32 %mul, %.pre.pre
   br label %for.cond47.preheader.us
 
 for.cond47.preheader.us:                          ; preds = %for.cond47.for.inc74_crit_edge.us, %for.cond47.preheader.lr.ph.split.us
@@ -13619,10 +13620,9 @@ for.cond47.preheader.us:                          ; preds = %for.cond47.for.inc7
   %23 = trunc i64 %indvars.iv72 to i32
   %24 = mul i32 %14, %23
   %25 = add i32 %24, %13
-  %mul64.us = mul i32 %25, %mul
+  %mul64.us = mul i32 %25, %factor.op.mul
   %26 = mul nsw i64 %indvars.iv72, %21
-  %mul65.us = mul i32 %mul64.us, %.pre.pre
-  %idx.ext.us = zext i32 %mul65.us to i64
+  %idx.ext.us = zext i32 %mul64.us to i64
   %add.ptr.us = getelementptr inbounds i8, ptr %call.i.i, i64 %idx.ext.us
   br label %for.body49.us
 
@@ -15516,7 +15516,7 @@ for.cond.i:                                       ; preds = %for.cond.i, %if.end
   %arrayidx.i = getelementptr inbounds [17 x i32], ptr %maxcode.i, i64 0, i64 %indvars.iv.i
   %8 = load i32, ptr %arrayidx.i, align 4
   %cmp.i14 = icmp sgt i32 %8, %or16.i.i.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %cmp.i14, label %for.end.i, label %for.cond.i, !llvm.loop !142
 
 for.end.i:                                        ; preds = %for.cond.i
