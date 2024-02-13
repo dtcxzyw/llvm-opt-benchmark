@@ -22138,7 +22138,12 @@ explist1.exit.i.thread:                           ; preds = %if.else.i30
 
 if.then9.i:                                       ; preds = %explist1.exit.i.thread, %explist1.exit.i
   %332 = phi i32 [ %330, %explist1.exit.i.thread ], [ %328, %explist1.exit.i ]
-  %switch = icmp eq i32 %332, 13
+  switch i32 %332, label %luaK_setreturns.exit.i [
+    i32 13, label %if.then.i16.i
+    i32 14, label %if.then10.i.i
+  ]
+
+if.then.i16.i:                                    ; preds = %if.then9.i
   %333 = load ptr, ptr %311, align 8
   %code.i.i = getelementptr inbounds i8, ptr %333, i64 24
   %334 = load ptr, ptr %code.i.i, align 8
@@ -22146,37 +22151,41 @@ if.then9.i:                                       ; preds = %explist1.exit.i.thr
   %idxprom.i.i = sext i32 %335 to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %334, i64 %idxprom.i.i
   %336 = load i32, ptr %arrayidx.i.i, align 4
-  br i1 %switch, label %if.then.i16.i, label %if.then10.i.i
-
-if.then.i16.i:                                    ; preds = %if.then9.i
   %and.i.i = and i32 %336, -8372225
   store i32 %and.i.i, ptr %arrayidx.i.i, align 4
   br label %luaK_setreturns.exit.i
 
 if.then10.i.i:                                    ; preds = %if.then9.i
-  %and17.i.i = and i32 %336, 8388607
-  store i32 %and17.i.i, ptr %arrayidx.i.i, align 4
   %337 = load ptr, ptr %311, align 8
-  %code29.i.i = getelementptr inbounds i8, ptr %337, i64 24
-  %338 = load ptr, ptr %code29.i.i, align 8
+  %code12.i.i = getelementptr inbounds i8, ptr %337, i64 24
+  %338 = load ptr, ptr %code12.i.i, align 8
   %339 = load i32, ptr %u.i.i424, align 8
-  %idxprom32.i.i = sext i32 %339 to i64
-  %arrayidx33.i.i = getelementptr inbounds i32, ptr %338, i64 %idxprom32.i.i
-  %340 = load i32, ptr %arrayidx33.i.i, align 4
-  %and34.i.i = and i32 %340, -16321
+  %idxprom15.i.i = sext i32 %339 to i64
+  %arrayidx16.i.i = getelementptr inbounds i32, ptr %338, i64 %idxprom15.i.i
+  %340 = load i32, ptr %arrayidx16.i.i, align 4
+  %and17.i.i = and i32 %340, 8388607
+  store i32 %and17.i.i, ptr %arrayidx16.i.i, align 4
+  %341 = load ptr, ptr %311, align 8
+  %code29.i.i = getelementptr inbounds i8, ptr %341, i64 24
+  %342 = load ptr, ptr %code29.i.i, align 8
+  %343 = load i32, ptr %u.i.i424, align 8
+  %idxprom32.i.i = sext i32 %343 to i64
+  %arrayidx33.i.i = getelementptr inbounds i32, ptr %342, i64 %idxprom32.i.i
+  %344 = load i32, ptr %arrayidx33.i.i, align 4
+  %and34.i.i = and i32 %344, -16321
   %freereg.i.i = getelementptr inbounds i8, ptr %311, i64 60
-  %341 = load i32, ptr %freereg.i.i, align 4
-  %shl35.i.i = shl i32 %341, 6
+  %345 = load i32, ptr %freereg.i.i, align 4
+  %shl35.i.i = shl i32 %345, 6
   %and36.i.i = and i32 %shl35.i.i, 16320
   %or37.i.i = or disjoint i32 %and36.i.i, %and34.i.i
   store i32 %or37.i.i, ptr %arrayidx33.i.i, align 4
-  %342 = load i32, ptr %freereg.i.i, align 4
-  %add.i.i.i.i = add nsw i32 %342, 1
-  %343 = load ptr, ptr %311, align 8
-  %maxstacksize.i.i.i.i = getelementptr inbounds i8, ptr %343, i64 115
-  %344 = load i8, ptr %maxstacksize.i.i.i.i, align 1
-  %conv.i.i.i.i = zext i8 %344 to i32
-  %cmp.i.i.not.i.i = icmp slt i32 %342, %conv.i.i.i.i
+  %346 = load i32, ptr %freereg.i.i, align 4
+  %add.i.i.i.i = add nsw i32 %346, 1
+  %347 = load ptr, ptr %311, align 8
+  %maxstacksize.i.i.i.i = getelementptr inbounds i8, ptr %347, i64 115
+  %348 = load i8, ptr %maxstacksize.i.i.i.i, align 1
+  %conv.i.i.i.i = zext i8 %348 to i32
+  %cmp.i.i.not.i.i = icmp slt i32 %346, %conv.i.i.i.i
   br i1 %cmp.i.i.not.i.i, label %luaK_reserveregs.exit.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then10.i.i
@@ -22185,10 +22194,10 @@ if.then.i.i.i.i:                                  ; preds = %if.then10.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %ls.i.i.i.i = getelementptr inbounds i8, ptr %311, i64 24
-  %345 = load ptr, ptr %ls.i.i.i.i, align 8
-  %t.i.i.i.i.i = getelementptr inbounds i8, ptr %345, i64 16
-  %346 = load i32, ptr %t.i.i.i.i.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef %345, ptr noundef nonnull @.str.150, i32 noundef %346)
+  %349 = load ptr, ptr %ls.i.i.i.i, align 8
+  %t.i.i.i.i.i = getelementptr inbounds i8, ptr %349, i64 16
+  %350 = load i32, ptr %t.i.i.i.i.i, align 8
+  call fastcc void @luaX_lexerror(ptr noundef %349, ptr noundef nonnull @.str.150, i32 noundef %350)
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
@@ -22203,29 +22212,29 @@ luaK_reserveregs.exit.i.i:                        ; preds = %if.end.i.i.i.i, %if
   store i32 %add.pre-phi.i.i.i, ptr %freereg.i.i, align 4
   br label %luaK_setreturns.exit.i
 
-luaK_setreturns.exit.i:                           ; preds = %luaK_reserveregs.exit.i.i, %if.then.i16.i
-  %347 = load i32, ptr %e.i, align 8
-  %cmp11.i = icmp eq i32 %347, 13
+luaK_setreturns.exit.i:                           ; preds = %luaK_reserveregs.exit.i.i, %if.then.i16.i, %if.then9.i
+  %351 = load i32, ptr %e.i, align 8
+  %cmp11.i = icmp eq i32 %351, 13
   %or.cond1.i = and i1 %cmp11.i, %cmp.i431865
   br i1 %or.cond1.i, label %if.then13.i, label %if.end.i
 
 if.then13.i:                                      ; preds = %luaK_setreturns.exit.i
-  %348 = load ptr, ptr %311, align 8
-  %code.i31 = getelementptr inbounds i8, ptr %348, i64 24
-  %349 = load ptr, ptr %code.i31, align 8
-  %350 = load i32, ptr %u.i.i424, align 8
-  %idxprom.i33 = sext i32 %350 to i64
-  %arrayidx.i34 = getelementptr inbounds i32, ptr %349, i64 %idxprom.i33
-  %351 = load i32, ptr %arrayidx.i34, align 4
-  %and.i35 = and i32 %351, -64
+  %352 = load ptr, ptr %311, align 8
+  %code.i31 = getelementptr inbounds i8, ptr %352, i64 24
+  %353 = load ptr, ptr %code.i31, align 8
+  %354 = load i32, ptr %u.i.i424, align 8
+  %idxprom.i33 = sext i32 %354 to i64
+  %arrayidx.i34 = getelementptr inbounds i32, ptr %353, i64 %idxprom.i33
+  %355 = load i32, ptr %arrayidx.i34, align 4
+  %and.i35 = and i32 %355, -64
   %or.i36 = or disjoint i32 %and.i35, 29
   store i32 %or.i36, ptr %arrayidx.i34, align 4
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then13.i, %luaK_setreturns.exit.i
   %nactvar.i = getelementptr inbounds i8, ptr %311, i64 74
-  %352 = load i8, ptr %nactvar.i, align 2
-  %conv.i = zext i8 %352 to i32
+  %356 = load i8, ptr %nactvar.i, align 2
+  %conv.i = zext i8 %356 to i32
   br label %retstat.exit
 
 if.then23.i:                                      ; preds = %explist1.exit.i.thread
@@ -22234,39 +22243,39 @@ if.then23.i:                                      ; preds = %explist1.exit.i.thr
 
 if.else25.i:                                      ; preds = %explist1.exit.i
   call fastcc void @luaK_dischargevars(ptr noundef %311, ptr noundef nonnull %e.i)
-  %353 = load i32, ptr %e.i, align 8
-  %cmp.i.i.i = icmp eq i32 %353, 12
+  %357 = load i32, ptr %e.i, align 8
+  %cmp.i.i.i = icmp eq i32 %357, 12
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %freeexp.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else25.i
-  %354 = load i32, ptr %u.i.i424, align 8
-  %and.i.i.i.i = and i32 %354, 256
+  %358 = load i32, ptr %u.i.i424, align 8
+  %and.i.i.i.i = and i32 %358, 256
   %tobool.not.i.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %land.lhs.true.i.i.i.i, label %freeexp.exit.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.then.i.i.i
   %nactvar.i.i.i.i = getelementptr inbounds i8, ptr %311, i64 74
-  %355 = load i8, ptr %nactvar.i.i.i.i, align 2
-  %conv.i.i.i30.i = zext i8 %355 to i32
-  %cmp.not.i.i.i.i = icmp slt i32 %354, %conv.i.i.i30.i
+  %359 = load i8, ptr %nactvar.i.i.i.i, align 2
+  %conv.i.i.i30.i = zext i8 %359 to i32
+  %cmp.not.i.i.i.i = icmp slt i32 %358, %conv.i.i.i30.i
   br i1 %cmp.not.i.i.i.i, label %freeexp.exit.i.i, label %if.then.i.i.i31.i
 
 if.then.i.i.i31.i:                                ; preds = %land.lhs.true.i.i.i.i
   %freereg.i.i.i.i = getelementptr inbounds i8, ptr %311, i64 60
-  %356 = load i32, ptr %freereg.i.i.i.i, align 4
-  %dec.i.i.i.i = add nsw i32 %356, -1
+  %360 = load i32, ptr %freereg.i.i.i.i, align 4
+  %dec.i.i.i.i = add nsw i32 %360, -1
   store i32 %dec.i.i.i.i, ptr %freereg.i.i.i.i, align 4
   br label %freeexp.exit.i.i
 
 freeexp.exit.i.i:                                 ; preds = %if.then.i.i.i31.i, %land.lhs.true.i.i.i.i, %if.then.i.i.i, %if.else25.i
   %freereg.i.i7.i.i = getelementptr inbounds i8, ptr %311, i64 60
-  %357 = load i32, ptr %freereg.i.i7.i.i, align 4
-  %add.i.i.i17.i = add nsw i32 %357, 1
-  %358 = load ptr, ptr %311, align 8
-  %maxstacksize.i.i.i18.i = getelementptr inbounds i8, ptr %358, i64 115
-  %359 = load i8, ptr %maxstacksize.i.i.i18.i, align 1
-  %conv.i.i8.i.i = zext i8 %359 to i32
-  %cmp.i.i.not.i19.i = icmp slt i32 %357, %conv.i.i8.i.i
+  %361 = load i32, ptr %freereg.i.i7.i.i, align 4
+  %add.i.i.i17.i = add nsw i32 %361, 1
+  %362 = load ptr, ptr %311, align 8
+  %maxstacksize.i.i.i18.i = getelementptr inbounds i8, ptr %362, i64 115
+  %363 = load i8, ptr %maxstacksize.i.i.i18.i, align 1
+  %conv.i.i8.i.i = zext i8 %363 to i32
+  %cmp.i.i.not.i19.i = icmp slt i32 %361, %conv.i.i8.i.i
   br i1 %cmp.i.i.not.i19.i, label %luaK_exp2nextreg.exit.i, label %if.then.i.i9.i.i
 
 if.then.i.i9.i.i:                                 ; preds = %freeexp.exit.i.i
@@ -22275,10 +22284,10 @@ if.then.i.i9.i.i:                                 ; preds = %freeexp.exit.i.i
 
 if.then4.i.i.i27.i:                               ; preds = %if.then.i.i9.i.i
   %ls.i.i.i28.i = getelementptr inbounds i8, ptr %311, i64 24
-  %360 = load ptr, ptr %ls.i.i.i28.i, align 8
-  %t.i.i.i.i29.i = getelementptr inbounds i8, ptr %360, i64 16
-  %361 = load i32, ptr %t.i.i.i.i29.i, align 8
-  call fastcc void @luaX_lexerror(ptr noundef %360, ptr noundef nonnull @.str.150, i32 noundef %361)
+  %364 = load ptr, ptr %ls.i.i.i28.i, align 8
+  %t.i.i.i.i29.i = getelementptr inbounds i8, ptr %364, i64 16
+  %365 = load i32, ptr %t.i.i.i.i29.i, align 8
+  call fastcc void @luaX_lexerror(ptr noundef %364, ptr noundef nonnull @.str.150, i32 noundef %365)
   unreachable
 
 if.end.i.i.i21.i:                                 ; preds = %if.then.i.i9.i.i
@@ -22294,8 +22303,8 @@ luaK_exp2nextreg.exit.i:                          ; preds = %if.end.i.i.i21.i, %
   %sub.i.i = add nsw i32 %add.pre-phi.i.i26.i, -1
   call fastcc void @exp2reg(ptr noundef nonnull %311, ptr noundef nonnull %e.i, i32 noundef %sub.i.i)
   %nactvar26.i = getelementptr inbounds i8, ptr %311, i64 74
-  %362 = load i8, ptr %nactvar26.i, align 2
-  %conv27.i = zext i8 %362 to i32
+  %366 = load i8, ptr %nactvar26.i, align 2
+  %conv27.i = zext i8 %366 to i32
   br label %retstat.exit
 
 retstat.exit:                                     ; preds = %luaX_next.exit.i, %luaX_next.exit.i, %luaX_next.exit.i, %luaX_next.exit.i, %luaX_next.exit.i, %luaX_next.exit.i, %if.end.i, %if.then23.i, %luaK_exp2nextreg.exit.i
@@ -22307,17 +22316,17 @@ retstat.exit:                                     ; preds = %luaX_next.exit.i, %
   %or.i.i.i = or i32 %shl1.i.i.i, %shl2.i.i.i
   %or3.i.i.i = or disjoint i32 %or.i.i.i, 30
   %ls.i.i.i = getelementptr inbounds i8, ptr %311, i64 24
-  %363 = load ptr, ptr %ls.i.i.i, align 8
-  %lastline.i.i.i = getelementptr inbounds i8, ptr %363, i64 8
-  %364 = load i32, ptr %lastline.i.i.i, align 8
-  %call.i.i.i = call fastcc i32 @luaK_code(ptr noundef %311, i32 noundef %or3.i.i.i, i32 noundef %364)
+  %367 = load ptr, ptr %ls.i.i.i, align 8
+  %lastline.i.i.i = getelementptr inbounds i8, ptr %367, i64 8
+  %368 = load i32, ptr %lastline.i.i.i, align 8
+  %call.i.i.i = call fastcc i32 @luaK_code(ptr noundef %311, i32 noundef %or3.i.i.i, i32 noundef %368)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %e.i)
   br label %statement.exit
 
 sw.bb8.i:                                         ; preds = %while.body
   store i32 %3, ptr %lastline.i, align 8
-  %365 = load i32, ptr %lookahead.i, align 8
-  %cmp.not.i = icmp eq i32 %365, 287
+  %369 = load i32, ptr %lookahead.i, align 8
+  %cmp.not.i = icmp eq i32 %369, 287
   br i1 %cmp.not.i, label %if.else.i19, label %if.then.i18
 
 if.then.i18:                                      ; preds = %sw.bb8.i
@@ -22336,21 +22345,21 @@ luaX_next.exit:                                   ; preds = %if.then.i18, %if.el
 
 sw.default.i9:                                    ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %v.i)
-  %366 = load ptr, ptr %fs1.i21, align 8
+  %370 = load ptr, ptr %fs1.i21, align 8
   call fastcc void @primaryexp(ptr noundef nonnull %ls, ptr noundef nonnull %v2.i)
-  %367 = load i32, ptr %v2.i, align 8
-  %cmp.i14 = icmp eq i32 %367, 13
+  %371 = load i32, ptr %v2.i, align 8
+  %cmp.i14 = icmp eq i32 %371, 13
   br i1 %cmp.i14, label %if.then.i16, label %if.else.i15
 
 if.then.i16:                                      ; preds = %sw.default.i9
-  %368 = load ptr, ptr %366, align 8
-  %code.i = getelementptr inbounds i8, ptr %368, i64 24
-  %369 = load ptr, ptr %code.i, align 8
-  %370 = load i32, ptr %u.i, align 8
-  %idxprom.i = sext i32 %370 to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %369, i64 %idxprom.i
-  %371 = load i32, ptr %arrayidx.i, align 4
-  %and.i = and i32 %371, -8372225
+  %372 = load ptr, ptr %370, align 8
+  %code.i = getelementptr inbounds i8, ptr %372, i64 24
+  %373 = load ptr, ptr %code.i, align 8
+  %374 = load i32, ptr %u.i, align 8
+  %idxprom.i = sext i32 %374 to i64
+  %arrayidx.i = getelementptr inbounds i32, ptr %373, i64 %idxprom.i
+  %375 = load i32, ptr %arrayidx.i, align 4
+  %and.i = and i32 %375, -8372225
   %or.i = or disjoint i32 %and.i, 16384
   store i32 %or.i, ptr %arrayidx.i, align 4
   br label %exprstat.exit
@@ -22366,15 +22375,15 @@ exprstat.exit:                                    ; preds = %if.then.i16, %if.el
 
 statement.exit:                                   ; preds = %ifstat.exit, %whilestat.exit, %luaX_next.exit234, %forstat.exit, %repeatstat.exit, %body.exit, %luaK_reserveregs.exit.i, %localstat.exit, %retstat.exit, %luaX_next.exit, %exprstat.exit
   %tobool.not = phi i1 [ true, %exprstat.exit ], [ false, %luaX_next.exit ], [ false, %retstat.exit ], [ true, %body.exit ], [ true, %repeatstat.exit ], [ true, %forstat.exit ], [ true, %luaX_next.exit234 ], [ true, %whilestat.exit ], [ true, %ifstat.exit ], [ true, %localstat.exit ], [ true, %luaK_reserveregs.exit.i ]
-  %372 = load i32, ptr %t, align 8
-  %cmp.i11 = icmp eq i32 %372, 59
+  %376 = load i32, ptr %t, align 8
+  %cmp.i11 = icmp eq i32 %376, 59
   br i1 %cmp.i11, label %if.then.i13, label %testnext.exit
 
 if.then.i13:                                      ; preds = %statement.exit
-  %373 = load i32, ptr %linenumber.i, align 4
-  store i32 %373, ptr %lastline.i, align 8
-  %374 = load i32, ptr %lookahead.i, align 8
-  %cmp.not.i.i = icmp eq i32 %374, 287
+  %377 = load i32, ptr %linenumber.i, align 4
+  store i32 %377, ptr %lastline.i, align 8
+  %378 = load i32, ptr %lookahead.i, align 8
+  %cmp.not.i.i = icmp eq i32 %378, 287
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i13
@@ -22388,19 +22397,19 @@ if.else.i.i:                                      ; preds = %if.then.i13
   br label %testnext.exit
 
 testnext.exit:                                    ; preds = %statement.exit, %if.then.i.i, %if.else.i.i
-  %375 = load ptr, ptr %fs1.i21, align 8
-  %nactvar = getelementptr inbounds i8, ptr %375, i64 74
-  %376 = load i8, ptr %nactvar, align 2
-  %conv = zext i8 %376 to i32
-  %freereg = getelementptr inbounds i8, ptr %375, i64 60
+  %379 = load ptr, ptr %fs1.i21, align 8
+  %nactvar = getelementptr inbounds i8, ptr %379, i64 74
+  %380 = load i8, ptr %nactvar, align 2
+  %conv = zext i8 %380 to i32
+  %freereg = getelementptr inbounds i8, ptr %379, i64 60
   store i32 %conv, ptr %freereg, align 4
   br i1 %tobool.not, label %land.rhs, label %while.end, !llvm.loop !101
 
 while.end:                                        ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %testnext.exit
-  %377 = load ptr, ptr %L.i, align 8
-  %nCcalls = getelementptr inbounds i8, ptr %377, i64 96
-  %378 = load i16, ptr %nCcalls, align 8
-  %dec = add i16 %378, -1
+  %381 = load ptr, ptr %L.i, align 8
+  %nCcalls = getelementptr inbounds i8, ptr %381, i64 96
+  %382 = load i16, ptr %nCcalls, align 8
+  %dec = add i16 %382, -1
   store i16 %dec, ptr %nCcalls, align 8
   ret void
 }
@@ -26564,7 +26573,7 @@ luaX_next.exit:                                   ; preds = %if.then.i22, %if.el
   store i32 5, ptr %e2.i, align 8
   %u.i = getelementptr inbounds i8, ptr %e2.i, i64 8
   store double 0.000000e+00, ptr %u.i, align 8
-  switch i32 %retval.0.i.ph, label %default.unreachable253 [
+  switch i32 %retval.0.i.ph, label %default.unreachable [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb2.i23
     i32 2, label %sw.bb3.i
@@ -26869,7 +26878,7 @@ sw.bb3.i:                                         ; preds = %luaX_next.exit
   call fastcc void @codearith(ptr noundef %5, i32 noundef 20, ptr noundef %v, ptr noundef nonnull %e2.i)
   br label %luaK_prefix.exit
 
-default.unreachable253:                           ; preds = %luaX_next.exit
+default.unreachable:                              ; preds = %luaX_next.exit
   unreachable
 
 luaK_prefix.exit:                                 ; preds = %patchtestreg.exit.i48.i.i, %if.end.i, %removevalues.exit.i.i, %sw.bb3.i

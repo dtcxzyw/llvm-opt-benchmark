@@ -68,18 +68,26 @@ entry:
 
 sw.bb:                                            ; preds = %entry, %entry, %entry, %entry
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.2)
-  %0 = sext i32 %s to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 0, i64 %0
+  %0 = icmp ult i32 %s, 4
+  br i1 %0, label %switch.lookup, label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i
+
+switch.lookup:                                    ; preds = %sw.bb
+  %1 = zext nneg i32 %s to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %switch.load)
+  br label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i
+
+_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i: ; preds = %sw.bb, %switch.lookup
+  %retval.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.10, %sw.bb ]
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %retval.0.i.i)
   br label %return
 
 sw.bb2:                                           ; preds = %entry
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.3)
   br label %return
 
-return:                                           ; preds = %sw.bb, %entry, %sw.bb2
-  %retval.0 = phi ptr [ %call3, %sw.bb2 ], [ %os, %entry ], [ %call2.i, %sw.bb ]
+return:                                           ; preds = %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i, %entry, %sw.bb2
+  %retval.0 = phi ptr [ %call3, %sw.bb2 ], [ %os, %entry ], [ %call2.i, %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i ]
   ret ptr %retval.0
 }
 
@@ -96,18 +104,26 @@ entry:
 
 sw.bb:                                            ; preds = %entry, %entry, %entry, %entry
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.4)
-  %0 = sext i32 %s to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 0, i64 %0
+  %0 = icmp ult i32 %s, 4
+  br i1 %0, label %switch.lookup, label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i
+
+switch.lookup:                                    ; preds = %sw.bb
+  %1 = zext nneg i32 %s to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %switch.load)
+  br label %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i
+
+_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i: ; preds = %sw.bb, %switch.lookup
+  %retval.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.10, %sw.bb ]
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %retval.0.i.i)
   br label %return
 
 sw.bb2:                                           ; preds = %entry
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.5)
   br label %return
 
-return:                                           ; preds = %sw.bb, %entry, %sw.bb2
-  %retval.0 = phi ptr [ %call3, %sw.bb2 ], [ %os, %entry ], [ %call2.i, %sw.bb ]
+return:                                           ; preds = %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i, %entry, %sw.bb2
+  %retval.0 = phi ptr [ %call3, %sw.bb2 ], [ %os, %entry ], [ %call2.i, %_ZN4absl15LogSeverityNameENS_11LogSeverityE.exit.i ]
   ret ptr %retval.0
 }
 

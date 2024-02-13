@@ -540,7 +540,7 @@ land.lhs.true:                                    ; preds = %trace_ide_ioport_wr
   br i1 %tobool.not, label %if.end, label %sw.epilog
 
 if.end:                                           ; preds = %land.lhs.true
-  switch i32 %and, label %default.unreachable [
+  switch i32 %and, label %sw.bb108 [
     i32 0, label %sw.epilog
     i32 1, label %sw.bb2
     i32 2, label %sw.bb20
@@ -657,10 +657,7 @@ sw.bb96:                                          ; preds = %if.end
   store i8 %conv107, ptr %unit.i, align 8
   br label %sw.epilog
 
-default.unreachable:                              ; preds = %if.end
-  unreachable
-
-sw.bb108:                                         ; preds = %trace_ide_ioport_write.exit
+sw.bb108:                                         ; preds = %trace_ide_ioport_write.exit, %if.end
   %cmd.i67 = getelementptr inbounds i8, ptr %opaque, i64 2129
   %35 = load i8, ptr %cmd.i67, align 1
   %36 = and i8 %35, 127

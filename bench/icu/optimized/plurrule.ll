@@ -9667,7 +9667,7 @@ lor.lhs.false3.i:                                 ; preds = %lor.lhs.false2.i
 
 if.end.i:                                         ; preds = %lor.lhs.false3.i
   %sub.i = fsub double %0, %4
-  switch i32 %3, label %default.unreachable [
+  switch i32 %3, label %sw.default.i [
     i32 1, label %sw.bb.i
     i32 2, label %sw.bb6.i
     i32 3, label %sw.bb8.i
@@ -9688,11 +9688,20 @@ sw.bb8.i:                                         ; preds = %if.end.i
   %conv9.i = fptosi double %7 to i64
   br label %_ZN6icu_7512FixedDecimal19getFractionalDigitsEdi.exit
 
-default.unreachable:                              ; preds = %if.end.i
-  unreachable
+sw.default.i:                                     ; preds = %if.end.i
+  %conv10.i = sitofp i32 %3 to double
+  %call11.i = tail call double @pow(double noundef 1.000000e+01, double noundef %conv10.i) #26
+  %8 = tail call double @llvm.fmuladd.f64(double %sub.i, double %call11.i, double 5.000000e-01)
+  %9 = tail call double @llvm.floor.f64(double %8)
+  %cmp12.i = fcmp ult double %9, 0x43E0000000000000
+  br i1 %cmp12.i, label %if.else.i, label %_ZN6icu_7512FixedDecimal19getFractionalDigitsEdi.exit
 
-_ZN6icu_7512FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %if.then3, %lor.lhs.false2.i, %lor.lhs.false3.i, %sw.bb.i, %sw.bb6.i, %sw.bb8.i
-  %retval.0.i = phi i64 [ %conv9.i, %sw.bb8.i ], [ %conv7.i, %sw.bb6.i ], [ %conv.i, %sw.bb.i ], [ 0, %lor.lhs.false3.i ], [ 0, %lor.lhs.false2.i ], [ 0, %if.then3 ]
+if.else.i:                                        ; preds = %sw.default.i
+  %conv14.i = fptosi double %9 to i64
+  br label %_ZN6icu_7512FixedDecimal19getFractionalDigitsEdi.exit
+
+_ZN6icu_7512FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %if.then3, %lor.lhs.false2.i, %lor.lhs.false3.i, %sw.bb.i, %sw.bb6.i, %sw.bb8.i, %sw.default.i, %if.else.i
+  %retval.0.i = phi i64 [ %conv14.i, %if.else.i ], [ %conv9.i, %sw.bb8.i ], [ %conv7.i, %sw.bb6.i ], [ %conv.i, %sw.bb.i ], [ 0, %lor.lhs.false3.i ], [ 0, %lor.lhs.false2.i ], [ 0, %if.then3 ], [ 9223372036854775807, %sw.default.i ]
   %isNegative.i.i.i = getelementptr inbounds i8, ptr %this, i64 61
   store i8 0, ptr %isNegative.i.i.i, align 1
   %source.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -9700,14 +9709,14 @@ _ZN6icu_7512FixedDecimal19getFractionalDigitsEdi.exit: ; preds = %if.then3, %lor
   %call.i.i.i = tail call signext i8 @uprv_isNaN_75(double noundef %0)
   %_isNaN.i.i.i = getelementptr inbounds i8, ptr %this, i64 62
   store i8 %call.i.i.i, ptr %_isNaN.i.i.i, align 2
-  %8 = load double, ptr %source.i.i.i, align 8
-  %call4.i.i.i = tail call signext i8 @uprv_isInfinite_75(double noundef %8)
+  %10 = load double, ptr %source.i.i.i, align 8
+  %call4.i.i.i = tail call signext i8 @uprv_isInfinite_75(double noundef %10)
   %_isInfinite.i.i.i = getelementptr inbounds i8, ptr %this, i64 63
   store i8 %call4.i.i.i, ptr %_isInfinite.i.i.i, align 1
   %exponent.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %exponent.i.i.i, align 8
-  %9 = load i8, ptr %_isNaN.i.i.i, align 2
-  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %11 = load i8, ptr %_isNaN.i.i.i, align 2
+  %tobool.not.i.i.i = icmp eq i8 %11, 0
   %tobool10.not.i.i.i = icmp eq i8 %call4.i.i.i, 0
   %or.cond.i.i.i = select i1 %tobool.not.i.i.i, i1 %tobool10.not.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.end21.i.i.i, label %if.end21.thread.i.i.i
@@ -9724,12 +9733,12 @@ if.end21.thread.i.i.i:                            ; preds = %_ZN6icu_7512FixedDe
   br label %_ZN6icu_7512FixedDecimal4initEdil.exit
 
 if.end21.i.i.i:                                   ; preds = %_ZN6icu_7512FixedDecimal19getFractionalDigitsEdi.exit
-  %10 = load double, ptr %source.i.i.i, align 8
-  %conv13.i.i.i = fptosi double %10 to i64
+  %12 = load double, ptr %source.i.i.i, align 8
+  %conv13.i.i.i = fptosi double %12 to i64
   %intValue14.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 %conv13.i.i.i, ptr %intValue14.i.i.i, align 8
   %conv17.i.i.i = sitofp i64 %conv13.i.i.i to double
-  %cmp18.i.i.i = fcmp oeq double %10, %conv17.i.i.i
+  %cmp18.i.i.i = fcmp oeq double %12, %conv17.i.i.i
   %conv19.i.i.i = zext i1 %cmp18.i.i.i to i8
   %_hasIntegerValue20.i.i.i = getelementptr inbounds i8, ptr %this, i64 60
   store i8 %conv19.i.i.i, ptr %_hasIntegerValue20.i.i.i, align 4

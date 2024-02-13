@@ -8865,12 +8865,12 @@ if.end41:                                         ; preds = %if.then32
   %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 347), align 8
   %9 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 348), align 4
   tail call void @quicklistSetOptions(ptr noundef %7, i32 noundef %8, i32 noundef %9) #21
-  %tobool44.not973 = icmp eq i64 %6, 0
-  br i1 %tobool44.not973, label %while.end, label %while.body
+  %tobool44.not970 = icmp eq i64 %6, 0
+  br i1 %tobool44.not970, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end41, %sdslen.exit
-  %dec43974.in = phi i64 [ %dec43974, %sdslen.exit ], [ %6, %if.end41 ]
-  %dec43974 = add i64 %dec43974.in, -1
+  %dec43971.in = phi i64 [ %dec43971, %sdslen.exit ], [ %6, %if.end41 ]
+  %dec43971 = add i64 %dec43971.in, -1
   %call.i531 = tail call ptr @rdbGenericLoadStringObject(ptr noundef %rdb, i32 noundef 1, ptr noundef null)
   %cmp46 = icmp eq ptr %call.i531, null
   br i1 %cmp46, label %if.then48, label %if.end49
@@ -8929,7 +8929,7 @@ sdslen.exit:                                      ; preds = %if.end49, %sw.bb.i,
   %call56 = tail call i32 @quicklistPushTail(ptr noundef %16, ptr noundef nonnull %10, i64 noundef %retval.0.i532) #21
   tail call void @decrRefCount(ptr noundef nonnull %call50) #21
   tail call void @decrRefCount(ptr noundef nonnull %call.i531) #21
-  %tobool44.not = icmp eq i64 %dec43974, 0
+  %tobool44.not = icmp eq i64 %dec43971, 0
   br i1 %tobool44.not, label %while.end, label %while.body, !llvm.loop !23
 
 while.end:                                        ; preds = %sdslen.exit, %if.end41
@@ -8981,9 +8981,9 @@ for.body.lr.ph:                                   ; preds = %if.else87, %land.lh
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0971 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %maxelelen.0970 = phi i64 [ 0, %for.body.lr.ph ], [ %spec.select, %for.inc ]
-  %sumelelen.0969 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.inc ]
+  %i.0968 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %maxelelen.0967 = phi i64 [ 0, %for.body.lr.ph ], [ %spec.select, %for.inc ]
+  %sumelelen.0966 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.inc ]
   %call93 = call ptr @rdbGenericLoadStringObject(ptr noundef %rdb, i32 noundef 4, ptr noundef null)
   %cmp94 = icmp eq ptr %call93, null
   br i1 %cmp94, label %if.then96, label %if.end97
@@ -9035,8 +9035,8 @@ sw.bb13.i540:                                     ; preds = %if.end97
 
 sdslen.exit555:                                   ; preds = %if.end97, %sw.bb.i552, %sw.bb3.i549, %sw.bb5.i546, %sw.bb9.i543, %sw.bb13.i540
   %retval.0.i542 = phi i64 [ %24, %sw.bb13.i540 ], [ %conv12.i545, %sw.bb9.i543 ], [ %conv8.i548, %sw.bb5.i546 ], [ %conv4.i551, %sw.bb3.i549 ], [ %conv2.i554, %sw.bb.i552 ], [ 0, %if.end97 ]
-  %add = add i64 %retval.0.i542, %sumelelen.0969
-  %spec.select = call i64 @llvm.umax.i64(i64 %retval.0.i542, i64 %maxelelen.0970)
+  %add = add i64 %retval.0.i542, %sumelelen.0966
+  %spec.select = call i64 @llvm.umax.i64(i64 %retval.0.i542, i64 %maxelelen.0967)
   %bf.load = load i32, ptr %o.0, align 8
   %25 = and i32 %bf.load, 240
   %cmp103 = icmp eq i32 %25, 96
@@ -9119,7 +9119,7 @@ if.then152:                                       ; preds = %land.lhs.true148
   br i1 %tobool155.not, label %if.then152.if.end162_crit_edge, label %land.lhs.true156
 
 if.then152.if.end162_crit_edge:                   ; preds = %if.then152
-  %.pre1082 = trunc i64 %retval.0.i542 to i32
+  %.pre1076 = trunc i64 %retval.0.i542 to i32
   br label %if.end162
 
 land.lhs.true156:                                 ; preds = %if.then152
@@ -9136,7 +9136,7 @@ if.then161:                                       ; preds = %land.lhs.true156
   br label %return
 
 if.end162:                                        ; preds = %if.then152.if.end162_crit_edge, %land.lhs.true156
-  %conv164.pre-phi = phi i32 [ %.pre1082, %if.then152.if.end162_crit_edge ], [ %conv158, %land.lhs.true156 ]
+  %conv164.pre-phi = phi i32 [ %.pre1076, %if.then152.if.end162_crit_edge ], [ %conv158, %land.lhs.true156 ]
   %37 = load ptr, ptr %ptr110, align 8
   %call165 = call ptr @lpAppend(ptr noundef %37, ptr noundef nonnull %call93, i32 noundef %conv164.pre-phi) #21
   store ptr %call165, ptr %ptr110, align 8
@@ -9176,7 +9176,7 @@ if.else187:                                       ; preds = %if.end174
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else187, %if.then180
-  %inc = add i32 %i.0971, 1
+  %inc = add i32 %i.0968, 1
   %conv90 = zext i32 %inc to i64
   %cmp91 = icmp ugt i64 %retval.0.i536, %conv90
   br i1 %cmp91, label %for.body, label %if.end1109, !llvm.loop !24
@@ -9320,7 +9320,7 @@ if.end241:                                        ; preds = %if.end239
   %52 = load i8, ptr %arrayidx.i560, align 1
   %conv.i561 = zext i8 %52 to i32
   %and.i562 = and i32 %conv.i561, 7
-  switch i32 %and.i562, label %sdslen.exit616 [
+  switch i32 %and.i562, label %if.end247 [
     i32 0, label %sw.bb.i575
     i32 1, label %sw.bb3.i572
     i32 2, label %sw.bb5.i569
@@ -9362,7 +9362,7 @@ sdslen.exit578:                                   ; preds = %sw.bb.i575, %sw.bb3
   br i1 %cmp243, label %if.then245, label %if.end247
 
 if.then245:                                       ; preds = %sdslen.exit578
-  switch i32 %and.i562, label %default.unreachable [
+  switch i32 %and.i562, label %if.end247 [
     i32 0, label %if.end247.thread
     i32 1, label %if.end247.thread860
     i32 2, label %if.end247.thread863
@@ -9398,11 +9398,9 @@ if.end247.thread869:                              ; preds = %if.then245
   %60 = load i64, ptr %add.ptr14.i583, align 1
   br label %sdslen.exit616
 
-default.unreachable:                              ; preds = %if.then245
-  unreachable
-
-if.end247:                                        ; preds = %sdslen.exit578
-  switch i32 %and.i562, label %default.unreachable1085 [
+if.end247:                                        ; preds = %if.end241, %if.then245, %sdslen.exit578
+  %maxelelen195.1 = phi i64 [ %maxelelen195.0, %sdslen.exit578 ], [ 0, %if.then245 ], [ %maxelelen195.0, %if.end241 ]
+  switch i32 %and.i562, label %sdslen.exit616 [
     i32 0, label %if.end247.sw.bb.i613_crit_edge
     i32 1, label %if.end247.sw.bb3.i610_crit_edge
     i32 2, label %if.end247.sw.bb5.i607_crit_edge
@@ -9411,26 +9409,26 @@ if.end247:                                        ; preds = %sdslen.exit578
   ]
 
 if.end247.sw.bb.i613_crit_edge:                   ; preds = %if.end247
-  %.pre1080 = lshr i32 %conv.i561, 3
-  %.pre1081 = zext nneg i32 %.pre1080 to i64
+  %.pre1074 = lshr i32 %conv.i561, 3
+  %.pre1075 = zext nneg i32 %.pre1074 to i64
   br label %sdslen.exit616
 
 if.end247.sw.bb3.i610_crit_edge:                  ; preds = %if.end247
   %add.ptr.i611.phi.trans.insert = getelementptr inbounds i8, ptr %call220, i64 -3
-  %.pre1075 = load i8, ptr %add.ptr.i611.phi.trans.insert, align 1
-  %.pre1077 = zext i8 %.pre1075 to i64
+  %.pre1069 = load i8, ptr %add.ptr.i611.phi.trans.insert, align 1
+  %.pre1071 = zext i8 %.pre1069 to i64
   br label %sdslen.exit616
 
 if.end247.sw.bb5.i607_crit_edge:                  ; preds = %if.end247
   %add.ptr6.i608.phi.trans.insert = getelementptr inbounds i8, ptr %call220, i64 -5
-  %.pre1074 = load i16, ptr %add.ptr6.i608.phi.trans.insert, align 1
-  %.pre1078 = zext i16 %.pre1074 to i64
+  %.pre1068 = load i16, ptr %add.ptr6.i608.phi.trans.insert, align 1
+  %.pre1072 = zext i16 %.pre1068 to i64
   br label %sdslen.exit616
 
 if.end247.sw.bb9.i604_crit_edge:                  ; preds = %if.end247
   %add.ptr10.i605.phi.trans.insert = getelementptr inbounds i8, ptr %call220, i64 -9
-  %.pre1073 = load i32, ptr %add.ptr10.i605.phi.trans.insert, align 1
-  %.pre1079 = zext i32 %.pre1073 to i64
+  %.pre1067 = load i32, ptr %add.ptr10.i605.phi.trans.insert, align 1
+  %.pre1073 = zext i32 %.pre1067 to i64
   br label %sdslen.exit616
 
 if.end247.sw.bb13.i601_crit_edge:                 ; preds = %if.end247
@@ -9438,12 +9436,9 @@ if.end247.sw.bb13.i601_crit_edge:                 ; preds = %if.end247
   %.pre = load i64, ptr %add.ptr14.i602.phi.trans.insert, align 1
   br label %sdslen.exit616
 
-default.unreachable1085:                          ; preds = %if.end247
-  unreachable
-
-sdslen.exit616:                                   ; preds = %if.end247.thread869, %if.end247.sw.bb13.i601_crit_edge, %if.end247.thread866, %if.end247.sw.bb9.i604_crit_edge, %if.end247.thread863, %if.end247.sw.bb5.i607_crit_edge, %if.end247.thread860, %if.end247.sw.bb3.i610_crit_edge, %if.end247.thread, %if.end247.sw.bb.i613_crit_edge, %if.end241
-  %maxelelen195.1859 = phi i64 [ %maxelelen195.0, %if.end241 ], [ %maxelelen195.0, %if.end247.sw.bb.i613_crit_edge ], [ %conv2.i596, %if.end247.thread ], [ %maxelelen195.0, %if.end247.sw.bb3.i610_crit_edge ], [ %conv4.i593, %if.end247.thread860 ], [ %maxelelen195.0, %if.end247.sw.bb5.i607_crit_edge ], [ %conv8.i590, %if.end247.thread863 ], [ %maxelelen195.0, %if.end247.sw.bb9.i604_crit_edge ], [ %conv12.i587, %if.end247.thread866 ], [ %60, %if.end247.thread869 ], [ %maxelelen195.0, %if.end247.sw.bb13.i601_crit_edge ]
-  %retval.0.i603 = phi i64 [ 0, %if.end241 ], [ %.pre1081, %if.end247.sw.bb.i613_crit_edge ], [ %conv2.i596, %if.end247.thread ], [ %.pre1077, %if.end247.sw.bb3.i610_crit_edge ], [ %conv4.i593, %if.end247.thread860 ], [ %.pre1078, %if.end247.sw.bb5.i607_crit_edge ], [ %conv8.i590, %if.end247.thread863 ], [ %.pre1079, %if.end247.sw.bb9.i604_crit_edge ], [ %conv12.i587, %if.end247.thread866 ], [ %60, %if.end247.thread869 ], [ %.pre, %if.end247.sw.bb13.i601_crit_edge ]
+sdslen.exit616:                                   ; preds = %if.end247.thread869, %if.end247.sw.bb13.i601_crit_edge, %if.end247.thread866, %if.end247.sw.bb9.i604_crit_edge, %if.end247.thread863, %if.end247.sw.bb5.i607_crit_edge, %if.end247.thread860, %if.end247.sw.bb3.i610_crit_edge, %if.end247.thread, %if.end247.sw.bb.i613_crit_edge, %if.end247
+  %maxelelen195.1859 = phi i64 [ %maxelelen195.1, %if.end247 ], [ %maxelelen195.1, %if.end247.sw.bb.i613_crit_edge ], [ %conv2.i596, %if.end247.thread ], [ %maxelelen195.1, %if.end247.sw.bb3.i610_crit_edge ], [ %conv4.i593, %if.end247.thread860 ], [ %maxelelen195.1, %if.end247.sw.bb5.i607_crit_edge ], [ %conv8.i590, %if.end247.thread863 ], [ %maxelelen195.1, %if.end247.sw.bb9.i604_crit_edge ], [ %conv12.i587, %if.end247.thread866 ], [ %60, %if.end247.thread869 ], [ %maxelelen195.1, %if.end247.sw.bb13.i601_crit_edge ]
+  %retval.0.i603 = phi i64 [ 0, %if.end247 ], [ %.pre1075, %if.end247.sw.bb.i613_crit_edge ], [ %conv2.i596, %if.end247.thread ], [ %.pre1071, %if.end247.sw.bb3.i610_crit_edge ], [ %conv4.i593, %if.end247.thread860 ], [ %.pre1072, %if.end247.sw.bb5.i607_crit_edge ], [ %conv8.i590, %if.end247.thread863 ], [ %.pre1073, %if.end247.sw.bb9.i604_crit_edge ], [ %conv12.i587, %if.end247.thread866 ], [ %60, %if.end247.thread869 ], [ %.pre, %if.end247.sw.bb13.i601_crit_edge ]
   %add249 = add i64 %retval.0.i603, %totelelen.0
   %61 = load ptr, ptr %zsl, align 8
   %call250 = call ptr @zslInsert(ptr noundef %61, double noundef %50, ptr noundef nonnull %call220) #21
@@ -9508,11 +9503,11 @@ if.then290:                                       ; preds = %if.else288
 
 if.end293:                                        ; preds = %if.else288, %if.then290, %if.then287
   %dupSearchDict.0 = phi ptr [ null, %if.then287 ], [ %call291, %if.then290 ], [ null, %if.else288 ]
-  %bf.load295975 = load i32, ptr %call284, align 8
-  %67 = and i32 %bf.load295975, 240
-  %cmp298976 = icmp eq i32 %67, 176
-  %cmp301977 = icmp ne i64 %65, 0
-  %68 = select i1 %cmp298976, i1 %cmp301977, i1 false
+  %bf.load295972 = load i32, ptr %call284, align 8
+  %67 = and i32 %bf.load295972, 240
+  %cmp298973 = icmp eq i32 %67, 176
+  %cmp301974 = icmp ne i64 %65, 0
+  %68 = select i1 %cmp298973, i1 %cmp301974, i1 false
   br i1 %68, label %while.body304.lr.ph, label %while.end366
 
 while.body304.lr.ph:                              ; preds = %if.end293
@@ -9521,8 +9516,8 @@ while.body304.lr.ph:                              ; preds = %if.end293
   br label %while.body304
 
 while.body304:                                    ; preds = %while.body304.lr.ph, %sdslen.exit734
-  %len274.0978 = phi i64 [ %65, %while.body304.lr.ph ], [ %dec305, %sdslen.exit734 ]
-  %dec305 = add i64 %len274.0978, -1
+  %len274.0975 = phi i64 [ %65, %while.body304.lr.ph ], [ %dec305, %sdslen.exit734 ]
+  %dec305 = add i64 %len274.0975, -1
   %call306 = tail call ptr @rdbGenericLoadStringObject(ptr noundef %rdb, i32 noundef 4, ptr noundef null)
   %cmp307 = icmp eq ptr %call306, null
   br i1 %cmp307, label %if.then309, label %if.end313
@@ -9991,17 +9986,17 @@ if.end438:                                        ; preds = %if.then429
   %112 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 347), align 8
   %113 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 348), align 4
   tail call void @quicklistSetOptions(ptr noundef %111, i32 noundef %112, i32 noundef %113) #21
-  %tobool443.not993 = icmp eq i64 %110, 0
-  br i1 %tobool443.not993, label %while.end500, label %while.body444.lr.ph
+  %tobool443.not990 = icmp eq i64 %110, 0
+  br i1 %tobool443.not990, label %while.end500, label %while.body444.lr.ph
 
 while.body444.lr.ph:                              ; preds = %if.end438
   %tobool477.not = icmp eq i32 %deep_integrity_validation.0, 0
   br label %while.body444
 
 while.body444:                                    ; preds = %while.body444.lr.ph, %while.cond441.backedge
-  %dec442995.in = phi i64 [ %110, %while.body444.lr.ph ], [ %dec442995, %while.cond441.backedge ]
-  %container.0994 = phi i64 [ 2, %while.body444.lr.ph ], [ %container.1, %while.cond441.backedge ]
-  %dec442995 = add i64 %dec442995.in, -1
+  %dec442992.in = phi i64 [ %110, %while.body444.lr.ph ], [ %dec442992, %while.cond441.backedge ]
+  %container.0991 = phi i64 [ 2, %while.body444.lr.ph ], [ %container.1, %while.cond441.backedge ]
+  %dec442992 = add i64 %dec442992.in, -1
   br i1 %cmp427, label %if.then447, label %if.end460
 
 if.then447:                                       ; preds = %while.body444
@@ -10029,7 +10024,7 @@ if.then458:                                       ; preds = %if.end452
   br label %return
 
 if.end460:                                        ; preds = %if.end452, %while.body444
-  %container.1 = phi i64 [ %114, %if.end452 ], [ %container.0994, %while.body444 ]
+  %container.1 = phi i64 [ %114, %if.end452 ], [ %container.0991, %while.body444 ]
   %call461 = call ptr @rdbGenericLoadStringObject(ptr noundef %rdb, i32 noundef 2, ptr noundef nonnull %encoded_len)
   %cmp462 = icmp eq ptr %call461, null
   %116 = load i64, ptr %encoded_len, align 8
@@ -10052,7 +10047,7 @@ if.then471:                                       ; preds = %if.end468
   br label %while.cond441.backedge
 
 while.cond441.backedge:                           ; preds = %if.then471, %if.then496, %if.else497
-  %tobool443.not = icmp eq i64 %dec442995, 0
+  %tobool443.not = icmp eq i64 %dec442992, 0
   br i1 %tobool443.not, label %while.end500, label %while.body444, !llvm.loop !28
 
 if.end473:                                        ; preds = %if.end468
@@ -10074,7 +10069,7 @@ if.end480:                                        ; preds = %if.then478, %if.the
   br i1 %tobool482.not, label %if.then483, label %if.end480.if.end492_crit_edge
 
 if.end480.if.end492_crit_edge:                    ; preds = %if.end480
-  %.pre1076 = load ptr, ptr %lp, align 8
+  %.pre1070 = load ptr, ptr %lp, align 8
   br label %if.end492
 
 if.then483:                                       ; preds = %if.end480
@@ -10108,7 +10103,7 @@ if.end490:                                        ; preds = %if.else485
   br label %if.end492
 
 if.end492:                                        ; preds = %if.end480.if.end492_crit_edge, %if.end490
-  %123 = phi ptr [ %.pre1076, %if.end480.if.end492_crit_edge ], [ %call491, %if.end490 ]
+  %123 = phi ptr [ %.pre1070, %if.end480.if.end492_crit_edge ], [ %call491, %if.end490 ]
   %call493 = call i64 @lpLength(ptr noundef %123) #21
   %cmp494 = icmp eq i64 %call493, 0
   br i1 %cmp494, label %if.then496, label %if.else497
@@ -10176,16 +10171,16 @@ if.end543:                                        ; preds = %sw.bb
   %129 = load ptr, ptr %ptr546, align 8
   %call547 = call ptr @zipmapRewind(ptr noundef %129) #21
   %call549 = call ptr @dictCreate(ptr noundef nonnull @hashDictType) #21
-  %call551985 = call ptr @zipmapNext(ptr noundef %call547, ptr noundef nonnull %fstr, ptr noundef nonnull %flen, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen) #21
-  %cmp552.not986 = icmp eq ptr %call551985, null
-  br i1 %cmp552.not986, label %while.end582, label %while.body554
+  %call551982 = call ptr @zipmapNext(ptr noundef %call547, ptr noundef nonnull %fstr, ptr noundef nonnull %flen, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen) #21
+  %cmp552.not983 = icmp eq ptr %call551982, null
+  br i1 %cmp552.not983, label %while.end582, label %while.body554
 
 while.body554:                                    ; preds = %if.end543, %if.end579
-  %call551989 = phi ptr [ %call551, %if.end579 ], [ %call551985, %if.end543 ]
-  %lp544.0988 = phi ptr [ %call581, %if.end579 ], [ %call545, %if.end543 ]
-  %maxlen.0987 = phi i32 [ %maxlen.2, %if.end579 ], [ 0, %if.end543 ]
+  %call551986 = phi ptr [ %call551, %if.end579 ], [ %call551982, %if.end543 ]
+  %lp544.0985 = phi ptr [ %call581, %if.end579 ], [ %call545, %if.end543 ]
+  %maxlen.0984 = phi i32 [ %maxlen.2, %if.end579 ], [ 0, %if.end543 ]
   %130 = load i32, ptr %flen, align 4
-  %spec.select522 = call i32 @llvm.umax.i32(i32 %130, i32 %maxlen.0987)
+  %spec.select522 = call i32 @llvm.umax.i32(i32 %130, i32 %maxlen.0984)
   %131 = load i32, ptr %vlen, align 4
   %maxlen.2 = call i32 @llvm.umax.i32(i32 %131, i32 %spec.select522)
   %132 = load ptr, ptr %fstr, align 8
@@ -10205,7 +10200,7 @@ lor.lhs.false571:                                 ; preds = %lor.lhs.false567
   %134 = load i32, ptr %vlen, align 4
   %conv573 = zext i32 %134 to i64
   %add574 = add nuw nsw i64 %conv573, %conv572
-  %call575 = call i32 @lpSafeToAdd(ptr noundef %lp544.0988, i64 noundef %add574) #21
+  %call575 = call i32 @lpSafeToAdd(ptr noundef %lp544.0985, i64 noundef %add574) #21
   %tobool576.not = icmp eq i32 %call575, 0
   br i1 %tobool576.not, label %if.then577, label %if.end579
 
@@ -10222,11 +10217,11 @@ if.then577:                                       ; preds = %lor.lhs.false571, %
 if.end579:                                        ; preds = %lor.lhs.false571
   %136 = load ptr, ptr %fstr, align 8
   %137 = load i32, ptr %flen, align 4
-  %call580 = call ptr @lpAppend(ptr noundef %lp544.0988, ptr noundef %136, i32 noundef %137) #21
+  %call580 = call ptr @lpAppend(ptr noundef %lp544.0985, ptr noundef %136, i32 noundef %137) #21
   %138 = load ptr, ptr %vstr, align 8
   %139 = load i32, ptr %vlen, align 4
   %call581 = call ptr @lpAppend(ptr noundef %call580, ptr noundef %138, i32 noundef %139) #21
-  %call551 = call ptr @zipmapNext(ptr noundef nonnull %call551989, ptr noundef nonnull %fstr, ptr noundef nonnull %flen, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen) #21
+  %call551 = call ptr @zipmapNext(ptr noundef nonnull %call551986, ptr noundef nonnull %fstr, ptr noundef nonnull %flen, ptr noundef nonnull %vstr, ptr noundef nonnull %vlen) #21
   %cmp552.not = icmp eq ptr %call551, null
   br i1 %cmp552.not, label %while.end582.loopexit, label %while.body554, !llvm.loop !29
 
@@ -10878,8 +10873,8 @@ if.end875:                                        ; preds = %land.lhs.true870, %
   br i1 %cmp877, label %if.then879, label %while.cond881.preheader
 
 while.cond881.preheader:                          ; preds = %if.end875
-  %tobool883.not983 = icmp eq i64 %200, 0
-  br i1 %tobool883.not983, label %if.end1109, label %while.body884.lr.ph
+  %tobool883.not980 = icmp eq i64 %200, 0
+  br i1 %tobool883.not980, label %if.end1109, label %while.body884.lr.ph
 
 while.body884.lr.ph:                              ; preds = %while.cond881.preheader
   %seq893 = getelementptr inbounds i8, ptr %cg_id, i64 8
@@ -10893,8 +10888,8 @@ if.then879:                                       ; preds = %if.end875
   br label %return
 
 while.body884:                                    ; preds = %while.body884.lr.ph, %if.end1024
-  %dec882984.in = phi i64 [ %200, %while.body884.lr.ph ], [ %dec882984, %if.end1024 ]
-  %dec882984 = add i64 %dec882984.in, -1
+  %dec882981.in = phi i64 [ %200, %while.body884.lr.ph ], [ %dec882981, %if.end1024 ]
+  %dec882981 = add i64 %dec882981.in, -1
   %call885 = call ptr @rdbGenericLoadStringObject(ptr noundef %rdb, i32 noundef 4, ptr noundef null)
   %cmp886 = icmp eq ptr %call885, null
   br i1 %cmp886, label %if.then888, label %if.end889
@@ -11050,8 +11045,8 @@ while.end941:                                     ; preds = %while.cond920
   br i1 %cmp943, label %if.then945, label %while.cond947.preheader
 
 while.cond947.preheader:                          ; preds = %while.end941
-  %tobool949.not980 = icmp eq i64 %207, 0
-  br i1 %tobool949.not980, label %while.end1008, label %while.body950
+  %tobool949.not977 = icmp eq i64 %207, 0
+  br i1 %tobool949.not977, label %while.end1008, label %while.body950
 
 if.then945:                                       ; preds = %while.end941
   call void (i32, i32, ptr, ...) @rdbReportError(i32 noundef 0, i32 noundef 2697, ptr noundef nonnull @.str.92)
@@ -11059,12 +11054,12 @@ if.then945:                                       ; preds = %while.end941
   br label %return
 
 while.cond947.loopexit:                           ; preds = %while.cond982
-  %tobool949.not = icmp eq i64 %dec948981, 0
+  %tobool949.not = icmp eq i64 %dec948978, 0
   br i1 %tobool949.not, label %while.end1008, label %while.body950, !llvm.loop !33
 
 while.body950:                                    ; preds = %while.cond947.preheader, %while.cond947.loopexit
-  %dec948981.in = phi i64 [ %dec948981, %while.cond947.loopexit ], [ %207, %while.cond947.preheader ]
-  %dec948981 = add i64 %dec948981.in, -1
+  %dec948978.in = phi i64 [ %dec948978, %while.cond947.loopexit ], [ %207, %while.cond947.preheader ]
+  %dec948978 = add i64 %dec948978.in, -1
   %call951 = call ptr @rdbGenericLoadStringObject(ptr noundef %rdb, i32 noundef 4, ptr noundef null)
   %cmp952 = icmp eq ptr %call951, null
   br i1 %cmp952, label %if.then954, label %if.end955
@@ -11213,7 +11208,7 @@ while.end1023:                                    ; preds = %while.cond1013
   br label %if.end1024
 
 if.end1024:                                       ; preds = %while.end1023, %while.end1008
-  %tobool883.not = icmp eq i64 %dec882984, 0
+  %tobool883.not = icmp eq i64 %dec882981, 0
   br i1 %tobool883.not, label %if.end1109, label %while.body884, !llvm.loop !36
 
 if.then1029:                                      ; preds = %if.else423
@@ -13413,13 +13408,13 @@ if.then42:                                        ; preds = %if.end40
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then31, %if.then42, %if.end40
-  %retval32.017 = phi i32 [ 0, %if.then42 ], [ 1, %if.end40 ], [ 1, %if.then31 ]
+  %not.retval32.0 = phi i32 [ 0, %if.then42 ], [ 1, %if.end40 ], [ 1, %if.then31 ]
   call void @rioFreeFd(ptr noundef nonnull %rdb) #21
   %call44 = call i32 @close(i32 noundef %2) #21
   %18 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 238), align 4
   %call45 = call i32 @close(i32 noundef %18) #21
   %call47 = call i64 @read(i32 noundef %4, ptr noundef nonnull %pipefds, i64 noundef 1) #21
-  call void @exitFromChild(i32 noundef %retval32.017) #21
+  call void @exitFromChild(i32 noundef %not.retval32.0) #21
   br label %return
 
 if.else:                                          ; preds = %while.end

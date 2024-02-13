@@ -3999,8 +3999,9 @@ if.then110:                                       ; preds = %do.body108
 
 if.end111:                                        ; preds = %do.body108
   store i8 1, ptr %grouper, align 1
-  %switch.tableidx = add nsw i32 %cond.i, -25
-  %call116 = tail call { i64, i32 } @_ZN6icu_756number4impl7Grouper11forStrategyE23UNumberGroupingStrategy(i32 noundef %switch.tableidx)
+  %switch.tableidx = add i32 %cond.i, -25
+  %switch.tableidx. = tail call i32 @llvm.umin.i32(i32 %switch.tableidx, i32 5)
+  %call116 = tail call { i64, i32 } @_ZN6icu_756number4impl7Grouper11forStrategyE23UNumberGroupingStrategy(i32 noundef %switch.tableidx.)
   %call116.fca.0.extract = extractvalue { i64, i32 } %call116, 0
   %call116.fca.1.extract = extractvalue { i64, i32 } %call116, 1
   %grouper118 = getelementptr inbounds i8, ptr %macros, i64 100
@@ -4040,9 +4041,10 @@ if.then131:                                       ; preds = %do.body129
 
 if.end132:                                        ; preds = %do.body129
   store i8 1, ptr %unitWidth, align 1
-  %switch.tableidx129 = add nsw i32 %cond.i, -31
+  %switch.tableidx128 = add i32 %cond.i, -31
+  %switch.tableidx128. = tail call i32 @llvm.umin.i32(i32 %switch.tableidx128, i32 7)
   %unitWidth136 = getelementptr inbounds i8, ptr %macros, i64 152
-  store i32 %switch.tableidx129, ptr %unitWidth136, align 8
+  store i32 %switch.tableidx128., ptr %unitWidth136, align 8
   br label %return
 
 do.body138:                                       ; preds = %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit, %_ZNK6icu_7510UCharsTrie8getValueEv.exit

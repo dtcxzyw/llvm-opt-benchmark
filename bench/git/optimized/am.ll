@@ -329,6 +329,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.show_patch.sb = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 @__const.show_patch.cmd = private unnamed_addr constant { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i8, i8, ptr } { %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, i32 0, i32 0, i64 0, ptr null, ptr null, i32 0, i32 0, i32 0, ptr null, i8 0, i8 0, ptr null }, align 8
 @.str.268 = private unnamed_addr constant [5 x i8] c"show\00", align 1
+@.str.269 = private unnamed_addr constant [38 x i8] c"invalid mode for --show-current-patch\00", align 1
 @.str.270 = private unnamed_addr constant [20 x i8] c"failed to read '%s'\00", align 1
 @switch.table.cmd_am = private unnamed_addr constant [3 x ptr] [ptr @.str.118, ptr @.str.114, ptr @.str.116], align 8
 @switch.table.cmd_am.10 = private unnamed_addr constant [4 x ptr] [ptr @.str.70, ptr @.str.131, ptr @.str.132, ptr @.str.133], align 8
@@ -2443,8 +2444,10 @@ if.then.i137:                                     ; preds = %is_null_oid.exit.i
   br label %show_patch.exit
 
 if.end.i141:                                      ; preds = %is_null_oid.exit.i
-  %switch = icmp eq i32 %83, 6
-  br i1 %switch, label %sw.bb.i, label %sw.bb6.i
+  switch i32 %83, label %sw.default.i149 [
+    i32 6, label %sw.bb.i
+    i32 7, label %sw.bb6.i
+  ]
 
 sw.bb.i:                                          ; preds = %if.end.i141
   store i64 0, ptr getelementptr inbounds (%struct.strbuf, ptr @msgnum.sb, i64 0, i32 1), align 8
@@ -2470,6 +2473,10 @@ sw.bb6.i:                                         ; preds = %if.end.i141
   %state.val6.i = load ptr, ptr %state, align 8
   %call.i8.i = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.82, ptr noundef %state.val6.i, ptr noundef nonnull @.str.187) #22
   br label %sw.epilog.i142
+
+sw.default.i149:                                  ; preds = %if.end.i141
+  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.84, i32 noundef 2220, ptr noundef nonnull @.str.269) #21
+  unreachable
 
 sw.epilog.i142:                                   ; preds = %sw.bb6.i, %msgnum.exit.i
   %patch_path.0.i = phi ptr [ %call.i8.i, %sw.bb6.i ], [ %call.i7.i, %msgnum.exit.i ]

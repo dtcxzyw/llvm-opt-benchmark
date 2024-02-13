@@ -6147,8 +6147,10 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %if
   br i1 %9, label %while.body, label %if.then73
 
 while.body:                                       ; preds = %land.rhs
-  %switch = icmp eq i16 %id.0324, -12015
-  br i1 %switch, label %if.then8, label %if.then28
+  switch i16 %id.0324, label %if.end66 [
+    i16 -12015, label %if.then8
+    i16 -12014, label %if.then28
+  ]
 
 if.then8:                                         ; preds = %while.body
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffer.i, i8 0, i64 16, i1 false)
@@ -6858,9 +6860,9 @@ if.then.i.i.i.i181:                               ; preds = %invoke.cont63
   call void @_ZdlPv(ptr noundef nonnull %103) #22
   br label %if.end66
 
-if.end66:                                         ; preds = %if.then.i.i.i.i181, %invoke.cont63, %if.end8.sink.split.i.i.i.i.i70, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i67, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i57, %invoke.cont25
-  %pr.sroa.0.3 = phi i32 [ %pr.sroa.0.0323, %invoke.cont25 ], [ %pr.sroa.0.0323, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i57 ], [ %pr.sroa.0.0323, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i67 ], [ %pr.sroa.0.0323, %if.end8.sink.split.i.i.i.i.i70 ], [ %pr.sroa.0.2, %invoke.cont63 ], [ %pr.sroa.0.2, %if.then.i.i.i.i181 ]
-  %id.4 = phi i16 [ -12015, %invoke.cont25 ], [ -12015, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i57 ], [ -12015, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i67 ], [ -12015, %if.end8.sink.split.i.i.i.i.i70 ], [ %id.3, %invoke.cont63 ], [ %id.3, %if.then.i.i.i.i181 ]
+if.end66:                                         ; preds = %if.then.i.i.i.i181, %invoke.cont63, %if.end8.sink.split.i.i.i.i.i70, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i67, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i57, %invoke.cont25, %while.body
+  %pr.sroa.0.3 = phi i32 [ %pr.sroa.0.0323, %while.body ], [ %pr.sroa.0.0323, %invoke.cont25 ], [ %pr.sroa.0.0323, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i57 ], [ %pr.sroa.0.0323, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i67 ], [ %pr.sroa.0.0323, %if.end8.sink.split.i.i.i.i.i70 ], [ %pr.sroa.0.2, %invoke.cont63 ], [ %pr.sroa.0.2, %if.then.i.i.i.i181 ]
+  %id.4 = phi i16 [ %id.0324, %while.body ], [ -12015, %invoke.cont25 ], [ -12015, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i57 ], [ -12015, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i67 ], [ -12015, %if.end8.sink.split.i.i.i.i.i70 ], [ %id.3, %invoke.cont63 ], [ %id.3, %if.then.i.i.i.i181 ]
   %104 = load ptr, ptr %m_reader.i, align 8
   %mEnd.i.i184 = getelementptr inbounds i8, ptr %104, i64 32
   %105 = load ptr, ptr %mEnd.i.i184, align 8

@@ -5522,7 +5522,7 @@ lor.lhs.false13:                                  ; preds = %while.body
   br i1 %or.cond4, label %if.end30, label %return.sink.split
 
 if.end30:                                         ; preds = %lor.lhs.false13, %while.body
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds i8, ptr %val, i64 %indvars.iv.next
   %7 = load i8, ptr %arrayidx, align 1
   %tobool.not = icmp eq i8 %7, 0
@@ -6433,7 +6433,7 @@ sdslen.exit.i:                                    ; preds = %sw.bb13.i.i, %sw.bb
   br i1 %cmp.i, label %land.lhs.true9.i, label %if.end23.i
 
 land.lhs.true9.i:                                 ; preds = %sdslen.exit.i
-  switch i32 %and.i.i, label %default.unreachable.i [
+  switch i32 %and.i.i, label %sdslen.exit43.i [
     i32 0, label %sw.bb.i40.i
     i32 1, label %sw.bb3.i37.i
     i32 2, label %sw.bb5.i34.i
@@ -6469,11 +6469,8 @@ sw.bb13.i28.i:                                    ; preds = %land.lhs.true9.i
   %12 = load i64, ptr %add.ptr14.i29.i, align 1
   br label %sdslen.exit43.i
 
-default.unreachable.i:                            ; preds = %land.lhs.true9.i
-  unreachable
-
-sdslen.exit43.i:                                  ; preds = %sw.bb13.i28.i, %sw.bb9.i31.i, %sw.bb5.i34.i, %sw.bb3.i37.i, %sw.bb.i40.i
-  %retval.0.i30.i = phi i64 [ %12, %sw.bb13.i28.i ], [ %conv12.i33.i, %sw.bb9.i31.i ], [ %conv8.i36.i, %sw.bb5.i34.i ], [ %conv4.i39.i, %sw.bb3.i37.i ], [ %conv2.i42.i, %sw.bb.i40.i ]
+sdslen.exit43.i:                                  ; preds = %sw.bb13.i28.i, %sw.bb9.i31.i, %sw.bb5.i34.i, %sw.bb3.i37.i, %sw.bb.i40.i, %land.lhs.true9.i
+  %retval.0.i30.i = phi i64 [ %12, %sw.bb13.i28.i ], [ %conv12.i33.i, %sw.bb9.i31.i ], [ %conv8.i36.i, %sw.bb5.i34.i ], [ %conv4.i39.i, %sw.bb3.i37.i ], [ %conv2.i42.i, %sw.bb.i40.i ], [ 0, %land.lhs.true9.i ]
   %13 = getelementptr i8, ptr %0, i64 %retval.0.i30.i
   %arrayidx.i = getelementptr i8, ptr %13, i64 -1
   %14 = load i8, ptr %arrayidx.i, align 1
@@ -6481,7 +6478,7 @@ sdslen.exit43.i:                                  ; preds = %sw.bb13.i28.i, %sw.
   br i1 %cmp11.i, label %land.lhs.true13.i, label %if.end23.i
 
 land.lhs.true13.i:                                ; preds = %sdslen.exit43.i
-  switch i32 %and.i.i, label %default.unreachable84.i [
+  switch i32 %and.i.i, label %sdslen.exit62.i [
     i32 0, label %sw.bb.i59.i
     i32 1, label %sw.bb3.i56.i
     i32 2, label %sw.bb5.i53.i
@@ -6517,11 +6514,8 @@ sw.bb13.i47.i:                                    ; preds = %land.lhs.true13.i
   %18 = load i64, ptr %add.ptr14.i48.i, align 1
   br label %sdslen.exit62.i
 
-default.unreachable84.i:                          ; preds = %land.lhs.true13.i
-  unreachable
-
-sdslen.exit62.i:                                  ; preds = %sw.bb13.i47.i, %sw.bb9.i50.i, %sw.bb5.i53.i, %sw.bb3.i56.i, %sw.bb.i59.i
-  %retval.0.i49.i = phi i64 [ %18, %sw.bb13.i47.i ], [ %conv12.i52.i, %sw.bb9.i50.i ], [ %conv8.i55.i, %sw.bb5.i53.i ], [ %conv4.i58.i, %sw.bb3.i56.i ], [ %conv2.i61.i, %sw.bb.i59.i ]
+sdslen.exit62.i:                                  ; preds = %sw.bb13.i47.i, %sw.bb9.i50.i, %sw.bb5.i53.i, %sw.bb3.i56.i, %sw.bb.i59.i, %land.lhs.true13.i
+  %retval.0.i49.i = phi i64 [ %18, %sw.bb13.i47.i ], [ %conv12.i52.i, %sw.bb9.i50.i ], [ %conv8.i55.i, %sw.bb5.i53.i ], [ %conv4.i58.i, %sw.bb3.i56.i ], [ %conv2.i61.i, %sw.bb.i59.i ], [ 0, %land.lhs.true13.i ]
   %sub15.i = add i64 %retval.0.i49.i, -1
   %call16.i = call i32 @string2ll(ptr noundef nonnull %0, i64 noundef %sub15.i, ptr noundef nonnull %ll) #24
   %tobool17.not.i = icmp eq i32 %call16.i, 0
@@ -6619,11 +6613,11 @@ sdslen.exit81.i.if.end_crit_edge:                 ; preds = %sdslen.exit81.i
   br label %if.end
 
 sdslen.exit81.if.end49_crit_edge.i:               ; preds = %sdslen.exit81.i
-  %.pre85.i = load i32, ptr %flags.i, align 8
+  %.pre84.i = load i32, ptr %flags.i, align 8
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %sdslen.exit81.if.end49_crit_edge.i, %if.end40.i
-  %30 = phi i32 [ %.pre85.i, %sdslen.exit81.if.end49_crit_edge.i ], [ %24, %if.end40.i ]
+  %30 = phi i32 [ %.pre84.i, %sdslen.exit81.if.end49_crit_edge.i ], [ %24, %if.end40.i ]
   %31 = and i32 %30, 3
   %or.cond.not.i = icmp eq i32 %31, 3
   br i1 %or.cond.not.i, label %numericParseString.exit.thread, label %if.else.i
@@ -7647,7 +7641,7 @@ for.body34:                                       ; preds = %if.end30, %for.body
   %15 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
   %inc.i = add nsw i32 %15, 1
   store i32 %inc.i, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 224), align 8
-  %indvars.iv.next28 = add nuw i64 %indvars.iv27, 2
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 2
   %16 = trunc i64 %indvars.iv.next28 to i32
   %cmp32 = icmp sgt i32 %argc.addr.03437, %16
   br i1 %cmp32, label %for.body34, label %return, !llvm.loop !50
@@ -7786,7 +7780,7 @@ if.end36.i:                                       ; preds = %lor.lhs.false28.i
   store i64 %conv41.i, ptr %soft_limit_seconds.i, align 8
   %arrayidx45.i = getelementptr inbounds [3 x i32], ptr %classes.i, i64 0, i64 %idxprom37.i
   store i32 1, ptr %arrayidx45.i, align 4
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %13 = trunc i64 %indvars.iv.next.i to i32
   %cmp.i = icmp slt i32 %13, %argc
   br i1 %cmp.i, label %for.body.i, label %for.body50.i.preheader, !llvm.loop !52

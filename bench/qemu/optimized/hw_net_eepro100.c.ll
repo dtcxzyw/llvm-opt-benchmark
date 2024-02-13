@@ -1703,8 +1703,10 @@ if.else22:                                        ; preds = %if.else
   br i1 %cmp24, label %e100_write_reg4.exit, label %if.else27
 
 if.else27:                                        ; preds = %if.else22
-  %switch = icmp eq i32 %conv4, 1
-  br i1 %switch, label %if.then31, label %if.then74
+  switch i32 %conv4, label %if.end107 [
+    i32 1, label %if.then31
+    i32 2, label %if.then74
+  ]
 
 if.then31:                                        ; preds = %if.else27
   switch i32 %conv23, label %sw.default [
@@ -1815,8 +1817,8 @@ sw.epilog102:                                     ; preds = %sw.bb76, %if.then80
   %15 = load i16, ptr %arrayidx105, align 2
   br label %if.end107
 
-if.end107:                                        ; preds = %sw.epilog102, %sw.epilog
-  %data.1 = phi i16 [ %data.0, %sw.epilog ], [ %15, %sw.epilog102 ]
+if.end107:                                        ; preds = %if.else27, %sw.epilog102, %sw.epilog
+  %data.1 = phi i16 [ %data.0, %sw.epilog ], [ %15, %sw.epilog102 ], [ %conv12, %if.else27 ]
   %arrayidx108 = getelementptr i8, ptr %s, i64 11889
   %16 = load i8, ptr %arrayidx108, align 1
   %17 = or i8 %16, 8

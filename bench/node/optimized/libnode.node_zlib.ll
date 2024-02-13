@@ -9255,25 +9255,33 @@ if.then.i:                                        ; preds = %sw.bb.i
   %this.val7.i = load ptr, ptr %3, align 8, !noalias !51
   %cmp.not.i.i = icmp eq ptr %this.val7.i, null
   %spec.select.i.i = select i1 %cmp.not.i.i, ptr @.str.183, ptr %this.val7.i
-  %switch.tableidx = add nsw i32 %0, 5
-  %4 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv, i64 0, i64 %4
+  %switch.tableidx = add i32 %0, 5
+  %4 = icmp ult i32 %switch.tableidx, 6
+  br i1 %4, label %switch.lookup, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i
+
+switch.lookup:                                    ; preds = %if.then.i
+  %5 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
+  br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i
+
+_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i: ; preds = %if.then.i, %switch.lookup
+  %retval.0.i.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.174, %if.then.i ]
   store ptr %spec.select.i.i, ptr %err, align 8, !alias.scope !54
   %code3.i.i.i = getelementptr inbounds i8, ptr %err, i64 8
-  store ptr %switch.load, ptr %code3.i.i.i, align 8, !alias.scope !54
+  store ptr %retval.0.i.i.i, ptr %code3.i.i.i, align 8, !alias.scope !54
   %err4.i.i.i = getelementptr inbounds i8, ptr %err, i64 16
   store i32 %0, ptr %err4.i.i.i, align 8, !alias.scope !54
   br label %if.end
 
 sw.bb4.i:                                         ; preds = %entry
   %dictionary_.i = getelementptr inbounds i8, ptr %this, i64 328
-  %5 = load ptr, ptr %dictionary_.i, align 8, !noalias !51
+  %6 = load ptr, ptr %dictionary_.i, align 8, !noalias !51
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 336
-  %6 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !51
-  %cmp.i.i.i = icmp eq ptr %5, %6
-  %7 = getelementptr inbounds i8, ptr %this, i64 400
-  %this.val5.i = load ptr, ptr %7, align 8, !noalias !51
+  %7 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !51
+  %cmp.i.i.i = icmp eq ptr %6, %7
+  %8 = getelementptr inbounds i8, ptr %this, i64 400
+  %this.val5.i = load ptr, ptr %8, align 8, !noalias !51
   %cmp.not.i8.i = icmp eq ptr %this.val5.i, null
   %code3.i.i12.i = getelementptr inbounds i8, ptr %err, i64 8
   %err4.i.i13.i = getelementptr inbounds i8, ptr %err, i64 16
@@ -9294,22 +9302,22 @@ _ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit37.i: ; preds = %s
   br label %if.end
 
 sw.default.i:                                     ; preds = %entry
-  %8 = getelementptr inbounds i8, ptr %this, i64 400
-  %this.val1.i = load ptr, ptr %8, align 8, !noalias !51
+  %9 = getelementptr inbounds i8, ptr %this, i64 400
+  %this.val1.i = load ptr, ptr %9, align 8, !noalias !51
   %cmp.not.i38.i = icmp eq ptr %this.val1.i, null
   %spec.select.i39.i = select i1 %cmp.not.i38.i, ptr @.str.186, ptr %this.val1.i
-  %9 = icmp ugt i32 %0, -7
-  br i1 %9, label %switch.lookup, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
+  %10 = icmp ugt i32 %0, -7
+  br i1 %10, label %switch.lookup5, label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
 
-switch.lookup:                                    ; preds = %sw.default.i
-  %switch.tableidx5 = add nsw i32 %0, 6
-  %10 = sext i32 %switch.tableidx5 to i64
-  %switch.gep6 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.28, i64 0, i64 %10
-  %switch.load7 = load ptr, ptr %switch.gep6, align 8
+switch.lookup5:                                   ; preds = %sw.default.i
+  %switch.tableidx6 = add nsw i32 %0, 6
+  %11 = sext i32 %switch.tableidx6 to i64
+  %switch.gep7 = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE10CheckErrorEv.28, i64 0, i64 %11
+  %switch.load8 = load ptr, ptr %switch.gep7, align 8
   br label %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
 
-_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i: ; preds = %sw.default.i, %switch.lookup
-  %retval.0.i.i41.i = phi ptr [ %switch.load7, %switch.lookup ], [ @.str.174, %sw.default.i ]
+_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i: ; preds = %sw.default.i, %switch.lookup5
+  %retval.0.i.i41.i = phi ptr [ %switch.load8, %switch.lookup5 ], [ @.str.174, %sw.default.i ]
   store ptr %spec.select.i39.i, ptr %err, align 8, !alias.scope !63
   %code3.i.i42.i = getelementptr inbounds i8, ptr %err, i64 8
   store ptr %retval.0.i.i41.i, ptr %code3.i.i42.i, align 8, !alias.scope !63
@@ -9317,7 +9325,7 @@ _ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i: ; preds = %s
   store i32 %0, ptr %err4.i.i43.i, align 8, !alias.scope !63
   br label %if.end
 
-if.end:                                           ; preds = %if.then.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit22.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit37.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
+if.end:                                           ; preds = %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit22.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit37.i, %_ZNK4node12_GLOBAL__N_111ZlibContext15ErrorForMessageEPKc.exit52.i
   call fastcc void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE9EmitErrorERKNS0_16CompressionErrorE(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull align 8 dereferenceable(20) %err)
   br label %return
 

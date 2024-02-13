@@ -1323,32 +1323,33 @@ if.end57:                                         ; preds = %if.end53
 
 for.cond.preheader:                               ; preds = %if.end57
   %14 = load ptr, ptr %prime_infos, align 8
-  %call.i5760 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #6
-  %cmp6461 = icmp sgt i32 %call.i5760, 0
-  br i1 %cmp6461, label %for.body, label %if.end99
+  %call.i5761 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #6
+  %cmp6462 = icmp sgt i32 %call.i5761, 0
+  br i1 %cmp6462, label %for.body, label %if.end99
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc96
-  %i.062 = phi i32 [ %inc97, %for.inc96 ], [ 0, %for.cond.preheader ]
+  %i.063 = phi i32 [ %inc97, %for.inc96 ], [ 0, %for.cond.preheader ]
   %15 = load ptr, ptr %prime_infos, align 8
-  %call.i58 = tail call ptr @OPENSSL_sk_value(ptr noundef %15, i32 noundef %i.062) #6
-  %add87 = add nuw nsw i32 %i.062, 3
+  %call.i58 = tail call ptr @OPENSSL_sk_value(ptr noundef %15, i32 noundef %i.063) #6
+  %add87 = add nuw nsw i32 %i.063, 3
   %t = getelementptr inbounds i8, ptr %call.i58, i64 16
   %d85 = getelementptr inbounds i8, ptr %call.i58, i64 8
   br label %for.body69
 
 for.cond67:                                       ; preds = %sw.epilog
-  %inc = add nuw nsw i32 %j.059, 1
+  %inc = add nuw nsw i32 %j.060, 1
   %exitcond.not = icmp eq i32 %inc, 3
   br i1 %exitcond.not, label %for.inc96, label %for.body69, !llvm.loop !6
 
 for.body69:                                       ; preds = %for.body, %for.cond67
-  %j.059 = phi i32 [ 0, %for.body ], [ %inc, %for.cond67 ]
+  %j.060 = phi i32 [ 0, %for.body ], [ %inc, %for.cond67 ]
+  %bn.059 = phi ptr [ null, %for.body ], [ %bn.1, %for.cond67 ]
   %call70 = tail call i32 @BIO_indent(ptr noundef %bp, i32 noundef %off, i32 noundef 128) #6
   %tobool71.not = icmp eq i32 %call70, 0
   br i1 %tobool71.not, label %err, label %if.end73
 
 if.end73:                                         ; preds = %for.body69
-  switch i32 %j.059, label %default.unreachable [
+  switch i32 %j.060, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb79
     i32 2, label %sw.bb86
@@ -1357,45 +1358,46 @@ if.end73:                                         ; preds = %for.body69
 sw.bb:                                            ; preds = %if.end73
   %call75 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.18, i32 noundef %add87) #6
   %cmp76 = icmp slt i32 %call75, 1
-  br i1 %cmp76, label %err, label %sw.epilog
+  br i1 %cmp76, label %err, label %sw.epilog.sink.split
 
 sw.bb79:                                          ; preds = %if.end73
   %call81 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.19, i32 noundef %add87) #6
   %cmp82 = icmp slt i32 %call81, 1
-  br i1 %cmp82, label %err, label %sw.epilog
+  br i1 %cmp82, label %err, label %sw.epilog.sink.split
 
 sw.bb86:                                          ; preds = %if.end73
   %call88 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.20, i32 noundef %add87) #6
   %cmp89 = icmp slt i32 %call88, 1
-  br i1 %cmp89, label %err, label %sw.epilog
+  br i1 %cmp89, label %err, label %sw.epilog.sink.split
 
-default.unreachable:                              ; preds = %if.end73
-  unreachable
+sw.epilog.sink.split:                             ; preds = %sw.bb86, %sw.bb79, %sw.bb
+  %t.sink = phi ptr [ %call.i58, %sw.bb ], [ %d85, %sw.bb79 ], [ %t, %sw.bb86 ]
+  %16 = load ptr, ptr %t.sink, align 8
+  br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb86, %sw.bb79, %sw.bb
-  %bn.1.in = phi ptr [ %call.i58, %sw.bb ], [ %d85, %sw.bb79 ], [ %t, %sw.bb86 ]
-  %bn.1 = load ptr, ptr %bn.1.in, align 8
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end73
+  %bn.1 = phi ptr [ %bn.059, %if.end73 ], [ %16, %sw.epilog.sink.split ]
   %call92 = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.21, ptr noundef %bn.1, ptr noundef null, i32 noundef %off) #6
   %tobool93.not = icmp eq i32 %call92, 0
   br i1 %tobool93.not, label %err, label %for.cond67
 
 for.inc96:                                        ; preds = %for.cond67
-  %inc97 = add nuw nsw i32 %i.062, 1
-  %16 = load ptr, ptr %prime_infos, align 8
-  %call.i57 = tail call i32 @OPENSSL_sk_num(ptr noundef %16) #6
+  %inc97 = add nuw nsw i32 %i.063, 1
+  %17 = load ptr, ptr %prime_infos, align 8
+  %call.i57 = tail call i32 @OPENSSL_sk_num(ptr noundef %17) #6
   %cmp64 = icmp slt i32 %inc97, %call.i57
   br i1 %cmp64, label %for.body, label %if.end99, !llvm.loop !8
 
 if.end99:                                         ; preds = %for.inc96, %for.cond.preheader, %if.end34
-  %17 = load ptr, ptr %ameth, align 8
-  %18 = load i32, ptr %17, align 8
-  %cmp102 = icmp eq i32 %18, 912
+  %18 = load ptr, ptr %ameth, align 8
+  %19 = load i32, ptr %18, align 8
+  %cmp102 = icmp eq i32 %19, 912
   br i1 %cmp102, label %land.lhs.true103, label %if.end107
 
 land.lhs.true103:                                 ; preds = %if.end99
   %pss = getelementptr inbounds i8, ptr %0, i64 128
-  %19 = load ptr, ptr %pss, align 8
-  %call104 = tail call fastcc i32 @rsa_pss_param_print(ptr noundef %bp, i32 noundef 1, ptr noundef %19, i32 noundef %off), !range !4
+  %20 = load ptr, ptr %pss, align 8
+  %call104 = tail call fastcc i32 @rsa_pss_param_print(ptr noundef %bp, i32 noundef 1, ptr noundef %20, i32 noundef %off), !range !4
   %tobool105.not = icmp eq i32 %call104, 0
   br i1 %tobool105.not, label %err, label %if.end107
 

@@ -104,6 +104,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.9 = private unnamed_addr constant [6 x i8] c"green\00", align 1
 @.str.10 = private unnamed_addr constant [5 x i8] c"blue\00", align 1
 @.str.11 = private unnamed_addr constant [7 x i8] c"master\00", align 1
+@.str.12 = private unnamed_addr constant [8 x i8] c"invalid\00", align 1
 @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr hidden unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTSSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr hidden constant [108 x i8] c"St23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [52 x i8] c"St16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
@@ -1831,7 +1832,7 @@ arraydestroy.done9:                               ; preds = %arraydestroy.body
   resume { ptr, i32 } %28
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
@@ -1978,17 +1979,25 @@ catch:                                            ; preds = %lpad
 
 invoke.cont3:                                     ; preds = %catch
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %oss, ptr noundef nonnull @.str.4)
-          to label %switch.lookup unwind label %lpad4
+          to label %invoke.cont5 unwind label %lpad4
 
-switch.lookup:                                    ; preds = %invoke.cont3
-  %sext = shl i64 %indvars.iv, 32
-  %7 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_4dev19GradingRGBCurveImpl8validateEv, i64 0, i64 %7
+invoke.cont5:                                     ; preds = %invoke.cont3
+  %7 = and i64 %indvars.iv, 4294967292
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %switch.lookup, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19CurveTypeEi.exit
+
+switch.lookup:                                    ; preds = %invoke.cont5
+  %9 = and i64 %indvars.iv, 3
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_4dev19GradingRGBCurveImpl8validateEv, i64 0, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull %switch.load)
+  br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19CurveTypeEi.exit
+
+_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19CurveTypeEi.exit: ; preds = %invoke.cont5, %switch.lookup
+  %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.12, %invoke.cont5 ]
+  %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull %retval.0.i)
           to label %invoke.cont9 unwind label %lpad4
 
-invoke.cont9:                                     ; preds = %switch.lookup
+invoke.cont9:                                     ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19CurveTypeEi.exit
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef nonnull @.str.5)
           to label %invoke.cont11 unwind label %lpad4
 
@@ -1999,8 +2008,8 @@ invoke.cont11:                                    ; preds = %invoke.cont9
 invoke.cont13:                                    ; preds = %invoke.cont11
   %vtable15 = load ptr, ptr %6, align 8
   %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 16
-  %8 = load ptr, ptr %vfn16, align 8
-  %call17 = call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %10 = load ptr, ptr %vfn16, align 8
+  %call17 = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
   %call19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call14, ptr noundef %call17)
           to label %invoke.cont18 unwind label %lpad4
 
@@ -2015,7 +2024,7 @@ invoke.cont21:                                    ; preds = %invoke.cont18
           to label %invoke.cont24 unwind label %ehcleanup.thread11
 
 ehcleanup.thread11:                               ; preds = %invoke.cont21
-  %9 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   br label %cleanup.action
@@ -2025,38 +2034,38 @@ invoke.cont24:                                    ; preds = %invoke.cont21
           to label %unreachable unwind label %ehcleanup
 
 lpad2:                                            ; preds = %catch
-  %10 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup26
 
-lpad4:                                            ; preds = %invoke.cont13, %invoke.cont11, %invoke.cont9, %switch.lookup, %invoke.cont3
-  %11 = landingpad { ptr, i32 }
+lpad4:                                            ; preds = %invoke.cont13, %invoke.cont11, %invoke.cont9, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19CurveTypeEi.exit, %invoke.cont3
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup25
 
 ehcleanup.thread:                                 ; preds = %invoke.cont18
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action
 
 ehcleanup:                                        ; preds = %invoke.cont24
-  %13 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   br label %ehcleanup25
 
 cleanup.action:                                   ; preds = %ehcleanup.thread11, %ehcleanup.thread
-  %.pn10 = phi { ptr, i32 } [ %12, %ehcleanup.thread ], [ %9, %ehcleanup.thread11 ]
+  %.pn10 = phi { ptr, i32 } [ %14, %ehcleanup.thread ], [ %11, %ehcleanup.thread11 ]
   call void @__cxa_free_exception(ptr %exception) #14
   br label %ehcleanup25
 
 ehcleanup25:                                      ; preds = %ehcleanup, %cleanup.action, %lpad4
-  %.pn.pn = phi { ptr, i32 } [ %.pn10, %cleanup.action ], [ %13, %ehcleanup ], [ %11, %lpad4 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn10, %cleanup.action ], [ %15, %ehcleanup ], [ %13, %lpad4 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %oss) #14
   br label %ehcleanup26
 
 ehcleanup26:                                      ; preds = %ehcleanup25, %lpad2
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup25 ], [ %10, %lpad2 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup25 ], [ %12, %lpad2 ]
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
@@ -2073,10 +2082,10 @@ eh.resume:                                        ; preds = %ehcleanup26, %lpad
   resume { ptr, i32 } %lpad.val30.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup26
-  %14 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #17
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #17
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont24
@@ -4248,7 +4257,7 @@ attributes #1 = { nofree nounwind }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind memory(read) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #6 = { nofree nosync nounwind memory(none) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

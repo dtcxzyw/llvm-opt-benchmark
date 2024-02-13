@@ -5131,7 +5131,7 @@ sdslen.exit:                                      ; preds = %sw.bb3.i, %sw.bb5.i
   br i1 %cmp21, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %sdslen.exit
-  switch i32 %and.i, label %default.unreachable [
+  switch i32 %and.i, label %cond.end [
     i32 4, label %sw.bb13.i26
     i32 1, label %sw.bb3.i35
     i32 2, label %sw.bb5.i32
@@ -5166,11 +5166,8 @@ sw.bb13.i26:                                      ; preds = %cond.true
   %16 = load i64, ptr %add.ptr14.i27, align 1
   br label %cond.end
 
-default.unreachable:                              ; preds = %cond.true
-  unreachable
-
-cond.end:                                         ; preds = %for.body, %sw.bb13.i26, %sw.bb9.i29, %sw.bb5.i32, %sw.bb3.i35, %sw.bb.i38, %sdslen.exit
-  %cond = phi i64 [ 128, %sdslen.exit ], [ %16, %sw.bb13.i26 ], [ %conv12.i31, %sw.bb9.i29 ], [ %conv8.i34, %sw.bb5.i32 ], [ %conv4.i37, %sw.bb3.i35 ], [ %conv2.i40, %sw.bb.i38 ], [ 0, %for.body ]
+cond.end:                                         ; preds = %for.body, %sw.bb13.i26, %sw.bb9.i29, %sw.bb5.i32, %sw.bb3.i35, %sw.bb.i38, %cond.true, %sdslen.exit
+  %cond = phi i64 [ 128, %sdslen.exit ], [ %16, %sw.bb13.i26 ], [ %conv12.i31, %sw.bb9.i29 ], [ %conv8.i34, %sw.bb5.i32 ], [ %conv4.i37, %sw.bb3.i35 ], [ %conv2.i40, %sw.bb.i38 ], [ 0, %cond.true ], [ 0, %for.body ]
   %call24 = tail call ptr @sdscatrepr(ptr noundef %call18, ptr noundef nonnull %7, i64 noundef %cond) #22
   %17 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
   %cmp26 = icmp sgt i32 %17, 3
@@ -5377,7 +5374,7 @@ if.end32:                                         ; preds = %if.end28
   %call42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %logbuf, i64 noundef 1024, ptr noundef nonnull @.str.276, i64 noundef %call33, i64 noundef %sub) #22
   %call45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %logbuf) #24
   %call46 = call i64 @write(i32 noundef %cond.i40, ptr noundef nonnull %logbuf, i64 noundef %call45) #22
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %call541 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1024, ptr noundef nonnull %call1)
   %cmp.not42 = icmp eq ptr %call541, null
   br i1 %cmp.not42, label %for.cond.preheader, label %while.body.lr.ph, !llvm.loop !36

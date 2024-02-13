@@ -1485,8 +1485,10 @@ _ZN13poly_rewriterI16bv_rewriter_coreE11mk_add_coreEjPKP4exprR7obj_refIS2_11ast_
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN13poly_rewriterI16bv_rewriter_coreE11mk_add_coreEjPKP4exprR7obj_refIS2_11ast_managerE.exit
-  %switch = icmp eq i32 %retval.0.i, 5
-  br i1 %switch, label %if.end18, label %if.end.land.lhs.true6_crit_edge
+  switch i32 %retval.0.i, label %return [
+    i32 5, label %if.end18
+    i32 4, label %if.end.land.lhs.true6_crit_edge
+  ]
 
 if.end.land.lhs.true6_crit_edge:                  ; preds = %if.end
   %.pre = load ptr, ptr %result, align 8
@@ -1526,7 +1528,7 @@ if.then9:                                         ; preds = %_ZNK13poly_rewriter
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end, %if.then9
-  %retval.0.i2528 = phi i32 [ 4, %if.then9 ], [ 5, %if.end ]
+  %retval.0.i2528 = phi i32 [ 4, %if.then9 ], [ %retval.0.i, %if.end ]
   %_num_args.0 = phi i32 [ %15, %if.then9 ], [ %num_args, %if.end ]
   %_args.0 = phi ptr [ %m_args.i, %if.then9 ], [ %args, %if.end ]
   %cmp19 = icmp ult i32 %_num_args.0, 2
@@ -1597,8 +1599,8 @@ for.end35:                                        ; preds = %for.inc33, %_ZNK11b
   %call38 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN7obj_refI4expr11ast_managerEaSEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef %call37)
   br label %return
 
-return:                                           ; preds = %if.then29, %land.rhs.i.i, %land.lhs.true6, %if.end18, %_ZNK13poly_rewriterI16bv_rewriter_coreE6is_addEP4expr.exit, %_ZN13poly_rewriterI16bv_rewriter_coreE11mk_add_coreEjPKP4exprR7obj_refIS2_11ast_managerE.exit, %for.end35
-  %retval.0 = phi i32 [ 0, %for.end35 ], [ %retval.0.i, %_ZN13poly_rewriterI16bv_rewriter_coreE11mk_add_coreEjPKP4exprR7obj_refIS2_11ast_managerE.exit ], [ 4, %_ZNK13poly_rewriterI16bv_rewriter_coreE6is_addEP4expr.exit ], [ %retval.0.i2528, %if.end18 ], [ 4, %land.lhs.true6 ], [ 4, %land.rhs.i.i ], [ %retval.0.i2528, %if.then29 ]
+return:                                           ; preds = %if.then29, %land.rhs.i.i, %land.lhs.true6, %if.end18, %_ZNK13poly_rewriterI16bv_rewriter_coreE6is_addEP4expr.exit, %if.end, %_ZN13poly_rewriterI16bv_rewriter_coreE11mk_add_coreEjPKP4exprR7obj_refIS2_11ast_managerE.exit, %for.end35
+  %retval.0 = phi i32 [ 0, %for.end35 ], [ %retval.0.i, %_ZN13poly_rewriterI16bv_rewriter_coreE11mk_add_coreEjPKP4exprR7obj_refIS2_11ast_managerE.exit ], [ %retval.0.i, %if.end ], [ 4, %_ZNK13poly_rewriterI16bv_rewriter_coreE6is_addEP4expr.exit ], [ %retval.0.i2528, %if.end18 ], [ 4, %land.lhs.true6 ], [ 4, %land.rhs.i.i ], [ %retval.0.i2528, %if.then29 ]
   ret i32 %retval.0
 }
 
@@ -1883,7 +1885,7 @@ lpad:                                             ; preds = %if.then2.i.i.i, %in
   resume { ptr, i32 } %39
 
 cleanup:                                          ; preds = %land.lhs.true52, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit, %invoke.cont, %invoke.cont53
-  %cleanup.dest.slot.0 = phi i1 [ false, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ true, %invoke.cont53 ], [ true, %invoke.cont ], [ true, %land.lhs.true52 ]
+  %switch = phi i1 [ false, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ true, %invoke.cont53 ], [ true, %invoke.cont ], [ true, %land.lhs.true52 ]
   %40 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %40, ptr noundef nonnull align 8 dereferenceable(16) %v)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -1900,7 +1902,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %cleanup
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
-  br i1 %cleanup.dest.slot.0, label %if.end67, label %return
+  br i1 %switch, label %if.end67, label %return
 
 if.end67:                                         ; preds = %_ZN8rationalD2Ev.exit, %if.end49
   br label %return
@@ -8746,7 +8748,7 @@ if.then29:                                        ; preds = %for.end25
   br label %invoke.cont37
 
 invoke.cont37:                                    ; preds = %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit, %if.then29, %for.end25
-  %flattened.0 = phi i1 [ false, %if.then29 ], [ true, %for.end25 ], [ true, %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit ]
+  %flattened.0.not = phi i1 [ false, %if.then29 ], [ true, %for.end25 ], [ true, %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit ]
   %args.addr.0 = phi ptr [ %36, %if.then29 ], [ %args, %for.end25 ], [ %args, %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit ]
   %num.addr.0 = phi i32 [ %35, %if.then29 ], [ %num, %for.end25 ], [ %num, %_ZNK11bv_rewriter11get_bv_sizeEP4expr.exit ]
   %m_initial_buffer.i.i128 = getelementptr inbounds i8, ptr %new_args, i64 16
@@ -10707,7 +10709,7 @@ if.end314:                                        ; preds = %invoke.cont229.thre
   %269 = phi i32 [ %187, %invoke.cont229.thread ], [ %189, %invoke.cont229 ]
   %270 = and i8 %merged.0.lcssa, 1
   %tobool317.not = icmp eq i8 %270, 0
-  %or.cond86 = select i1 %flattened.0, i1 %tobool317.not, i1 false
+  %or.cond86 = select i1 %flattened.0.not, i1 %tobool317.not, i1 false
   br i1 %or.cond86, label %land.lhs.true318, label %invoke.cont331
 
 land.lhs.true318:                                 ; preds = %if.end314
@@ -24357,7 +24359,7 @@ ehcleanup166:                                     ; preds = %ehcleanup57, %clean
   br label %ehcleanup169
 
 cleanup168:                                       ; preds = %.noexc.i173, %invoke.cont14, %invoke.cont19
-  %cleanup.dest.slot.1 = phi i1 [ true, %invoke.cont19 ], [ true, %invoke.cont14 ], [ false, %.noexc.i173 ]
+  %switch = phi i1 [ true, %invoke.cont19 ], [ true, %invoke.cont14 ], [ false, %.noexc.i173 ]
   %retval.1 = phi i32 [ undef, %invoke.cont19 ], [ undef, %invoke.cont14 ], [ %retval.0, %.noexc.i173 ]
   %72 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %72, ptr noundef nonnull align 8 dereferenceable(16) %bf)
@@ -24391,7 +24393,7 @@ terminate.lpad.i180:                              ; preds = %.noexc.i181, %_ZN8r
   unreachable
 
 _ZN8rationalD2Ev.exit183:                         ; preds = %.noexc.i181
-  br i1 %cleanup.dest.slot.1, label %if.end172, label %return
+  br i1 %switch, label %if.end172, label %return
 
 ehcleanup169:                                     ; preds = %ehcleanup, %cleanup.action34, %ehcleanup166, %lpad11
   %.pn68.pn.pn = phi { ptr, i32 } [ %.pn68.pn, %ehcleanup166 ], [ %.pn, %cleanup.action34 ], [ %.pn, %ehcleanup ], [ %31, %lpad11 ]
@@ -36899,7 +36901,7 @@ ehcleanup:                                        ; preds = %lpad60, %lpad58
 
 cleanup:                                          ; preds = %_ZNK14bv_recognizers10is_bv_uremEPK4expr.exit.i, %land.rhs.i.i.i85, %invoke.cont, %invoke.cont38, %invoke.cont41, %invoke.cont61, %invoke.cont65, %if.then49
   %retval.0 = phi i32 [ 4, %if.then49 ], [ 1, %invoke.cont65 ], [ undef, %invoke.cont61 ], [ undef, %invoke.cont41 ], [ undef, %invoke.cont38 ], [ undef, %invoke.cont ], [ undef, %land.rhs.i.i.i85 ], [ undef, %_ZNK14bv_recognizers10is_bv_uremEPK4expr.exit.i ]
-  %cleanup.dest.slot.0 = phi i1 [ false, %if.then49 ], [ false, %invoke.cont65 ], [ true, %invoke.cont61 ], [ true, %invoke.cont41 ], [ true, %invoke.cont38 ], [ true, %invoke.cont ], [ true, %land.rhs.i.i.i85 ], [ true, %_ZNK14bv_recognizers10is_bv_uremEPK4expr.exit.i ]
+  %switch = phi i1 [ false, %if.then49 ], [ false, %invoke.cont65 ], [ true, %invoke.cont61 ], [ true, %invoke.cont41 ], [ true, %invoke.cont38 ], [ true, %invoke.cont ], [ true, %land.rhs.i.i.i85 ], [ true, %_ZNK14bv_recognizers10is_bv_uremEPK4expr.exit.i ]
   %47 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %47, ptr noundef nonnull align 8 dereferenceable(16) %rhs_val)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -36932,7 +36934,7 @@ terminate.lpad.i101:                              ; preds = %.noexc.i102, %_ZN8r
   unreachable
 
 _ZN8rationalD2Ev.exit104:                         ; preds = %.noexc.i102
-  br i1 %cleanup.dest.slot.0, label %cleanup.cont, label %return
+  br i1 %switch, label %cleanup.cont, label %return
 
 cleanup.cont:                                     ; preds = %_ZN8rationalD2Ev.exit104
   %53 = load ptr, ptr %this, align 8
@@ -39053,7 +39055,7 @@ if.then229:                                       ; preds = %if.then227
   %226 = load i32, ptr %m_pos.i.i334, align 8
   %idx.ext.i752 = zext i32 %226 to i64
   %add.ptr.i753.idx = shl nuw nsw i64 %idx.ext.i752, 3
-  %add.ptr.i753.ptr = getelementptr inbounds i8, ptr %225, i64 %add.ptr.i753.idx
+  %add.ptr.i753 = getelementptr inbounds i8, ptr %225, i64 %add.ptr.i753.idx
   %cmp.not.i.i754 = icmp eq i32 %226, 1
   br i1 %cmp.not.i.i754, label %if.then250, label %if.then.i.i755
 
@@ -39063,7 +39065,7 @@ if.then.i.i755:                                   ; preds = %if.then229
   %227 = call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i, i1 true), !range !59
   %sub.i.i.i756 = shl nuw nsw i64 %227, 1
   %mul.i.i757 = xor i64 %sub.i.i.i756, 126
-  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_T1_(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr.i753.ptr, i64 noundef %mul.i.i757, ptr nonnull %this)
+  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_T1_(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr.i753, i64 noundef %mul.i.i757, ptr nonnull %this)
           to label %.noexc761 unwind label %lpad181.loopexit.split-lp
 
 .noexc761:                                        ; preds = %if.then.i.i755
@@ -39076,11 +39078,11 @@ if.then.i.i.i759:                                 ; preds = %.noexc761
           to label %.noexc762 unwind label %lpad181.loopexit.split-lp
 
 .noexc762:                                        ; preds = %if.then.i.i.i759
-  invoke void @_ZSt26__unguarded_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %add.ptr.i.i.i760, ptr noundef nonnull %add.ptr.i753.ptr, ptr nonnull %this)
+  invoke void @_ZSt26__unguarded_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %add.ptr.i.i.i760, ptr noundef nonnull %add.ptr.i753, ptr nonnull %this)
           to label %if.then250 unwind label %lpad181.loopexit.split-lp
 
 if.else.i.i.i:                                    ; preds = %.noexc761
-  invoke void @_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr.i753.ptr, ptr nonnull %this)
+  invoke void @_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr.i753, ptr nonnull %this)
           to label %if.then250 unwind label %lpad181.loopexit.split-lp
 
 if.else236:                                       ; preds = %for.end225
@@ -40195,11 +40197,11 @@ invoke.cont141.invoke:                            ; preds = %if.then138.invoke, 
 
 cleanup:                                          ; preds = %invoke.cont141.invoke, %invoke.cont92, %invoke.cont89, %invoke.cont104, %land.lhs.true135, %land.lhs.true122, %invoke.cont101, %invoke.cont120, %invoke.cont123, %invoke.cont69, %invoke.cont72, %invoke.cont75, %invoke.cont136, %invoke.cont130, %cond.end
   %retval.0 = phi i32 [ 0, %cond.end ], [ undef, %invoke.cont130 ], [ undef, %invoke.cont136 ], [ undef, %invoke.cont75 ], [ undef, %invoke.cont72 ], [ undef, %invoke.cont69 ], [ undef, %invoke.cont123 ], [ undef, %invoke.cont120 ], [ undef, %invoke.cont101 ], [ undef, %land.lhs.true122 ], [ undef, %land.lhs.true135 ], [ undef, %invoke.cont104 ], [ undef, %invoke.cont89 ], [ undef, %invoke.cont92 ], [ %78, %invoke.cont141.invoke ]
-  %cleanup.dest.slot.0 = phi i1 [ false, %cond.end ], [ true, %invoke.cont130 ], [ true, %invoke.cont136 ], [ true, %invoke.cont75 ], [ true, %invoke.cont72 ], [ true, %invoke.cont69 ], [ true, %invoke.cont123 ], [ true, %invoke.cont120 ], [ true, %invoke.cont101 ], [ true, %land.lhs.true122 ], [ true, %land.lhs.true135 ], [ true, %invoke.cont104 ], [ true, %invoke.cont89 ], [ true, %invoke.cont92 ], [ false, %invoke.cont141.invoke ]
+  %switch = phi i1 [ false, %cond.end ], [ true, %invoke.cont130 ], [ true, %invoke.cont136 ], [ true, %invoke.cont75 ], [ true, %invoke.cont72 ], [ true, %invoke.cont69 ], [ true, %invoke.cont123 ], [ true, %invoke.cont120 ], [ true, %invoke.cont101 ], [ true, %land.lhs.true122 ], [ true, %land.lhs.true135 ], [ true, %invoke.cont104 ], [ true, %invoke.cont89 ], [ true, %invoke.cont92 ], [ false, %invoke.cont141.invoke ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %t_n) #19
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %e_n) #19
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %rhs_n) #19
-  br i1 %cleanup.dest.slot.0, label %if.end152, label %return
+  br i1 %switch, label %if.end152, label %return
 
 if.end152:                                        ; preds = %land.rhs.i.i57, %land.lhs.true32, %cleanup, %if.then39, %if.end61, %land.lhs.true37, %land.lhs.true35, %_ZNK11ast_manager5is_eqEPK4expr.exit, %if.end31
   br label %return
@@ -45903,7 +45905,7 @@ if.then.i.i.i418:                                 ; preds = %.noexc420
 
 .noexc421.invoke:                                 ; preds = %if.then.i.i.i437, %if.then.i.i.i418
   %138 = phi ptr [ %add.ptr.i.i.i419, %if.then.i.i.i418 ], [ %add.ptr.i.i.i438, %if.then.i.i.i437 ]
-  %139 = phi ptr [ %add.ptr, %if.then.i.i.i418 ], [ %add.ptr146.ptr, %if.then.i.i.i437 ]
+  %139 = phi ptr [ %add.ptr, %if.then.i.i.i418 ], [ %add.ptr146, %if.then.i.i.i437 ]
   invoke void @_ZSt26__unguarded_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %138, ptr noundef nonnull %139, ptr nonnull %this)
           to label %invoke.cont155 unwind label %lpad70.loopexit.split-lp
 
@@ -45916,7 +45918,7 @@ invoke.cont143:                                   ; preds = %invoke.cont126
   %140 = load i32, ptr %m_pos.i.i.i.i, align 8
   %idx.ext145 = zext i32 %140 to i64
   %add.ptr146.idx = shl nuw nsw i64 %idx.ext145, 3
-  %add.ptr146.ptr = getelementptr inbounds i8, ptr %135, i64 %add.ptr146.idx
+  %add.ptr146 = getelementptr inbounds i8, ptr %135, i64 %add.ptr146.idx
   %cmp.not.i.i427 = icmp eq i32 %140, 1
   br i1 %cmp.not.i.i427, label %invoke.cont155, label %if.then.i.i428
 
@@ -45926,7 +45928,7 @@ if.then.i.i428:                                   ; preds = %invoke.cont143
   %141 = call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i432, i1 true), !range !59
   %sub.i.i.i433 = shl nuw nsw i64 %141, 1
   %mul.i.i434 = xor i64 %sub.i.i.i433, 126
-  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_T1_(ptr noundef nonnull %add.ptr140, ptr noundef %add.ptr146.ptr, i64 noundef %mul.i.i434, ptr nonnull %this)
+  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_T1_(ptr noundef nonnull %add.ptr140, ptr noundef %add.ptr146, i64 noundef %mul.i.i434, ptr nonnull %this)
           to label %.noexc439 unwind label %lpad70.loopexit.split-lp
 
 .noexc439:                                        ; preds = %if.then.i.i428
@@ -45939,7 +45941,7 @@ if.then.i.i.i437:                                 ; preds = %.noexc439
           to label %.noexc421.invoke unwind label %lpad70.loopexit.split-lp
 
 if.else.i.i.i436:                                 ; preds = %.noexc439
-  invoke void @_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %add.ptr140, ptr noundef %add.ptr146.ptr, ptr nonnull %this)
+  invoke void @_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %add.ptr140, ptr noundef %add.ptr146, ptr nonnull %this)
           to label %invoke.cont155 unwind label %lpad70.loopexit.split-lp
 
 invoke.cont155:                                   ; preds = %.noexc421.invoke, %invoke.cont143, %if.else.i.i.i436, %invoke.cont133, %if.else.i.i.i, %for.end122
@@ -46419,7 +46421,7 @@ if.then.i.i.i595:                                 ; preds = %.noexc597
 
 .noexc598.invoke:                                 ; preds = %if.then.i.i.i615, %if.then.i.i.i595
   %207 = phi ptr [ %add.ptr.i.i.i596, %if.then.i.i.i595 ], [ %add.ptr.i.i.i616, %if.then.i.i.i615 ]
-  %208 = phi ptr [ %add.ptr229, %if.then.i.i.i595 ], [ %add.ptr242.ptr, %if.then.i.i.i615 ]
+  %208 = phi ptr [ %add.ptr229, %if.then.i.i.i595 ], [ %add.ptr242, %if.then.i.i.i615 ]
   %209 = phi ptr [ %agg.tmp230.sroa.0.0.copyload, %if.then.i.i.i595 ], [ %agg.tmp243.sroa.0.0.copyload, %if.then.i.i.i615 ]
   invoke void @_ZSt26__unguarded_insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %207, ptr noundef nonnull %208, ptr %209)
           to label %invoke.cont250 unwind label %lpad194.loopexit.split-lp
@@ -46432,7 +46434,7 @@ invoke.cont239:                                   ; preds = %invoke.cont219
   %add.ptr236 = getelementptr inbounds i8, ptr %205, i64 8
   %idx.ext241 = zext i32 %203 to i64
   %add.ptr242.idx = shl nuw nsw i64 %idx.ext241, 3
-  %add.ptr242.ptr = getelementptr inbounds i8, ptr %205, i64 %add.ptr242.idx
+  %add.ptr242 = getelementptr inbounds i8, ptr %205, i64 %add.ptr242.idx
   %agg.tmp243.sroa.0.0.copyload = load ptr, ptr %lt, align 8
   %cmp.not.i.i605 = icmp eq i32 %203, 1
   br i1 %cmp.not.i.i605, label %invoke.cont250, label %if.then.i.i606
@@ -46443,7 +46445,7 @@ if.then.i.i606:                                   ; preds = %invoke.cont239
   %210 = call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i610, i1 true), !range !59
   %sub.i.i.i611 = shl nuw nsw i64 %210, 1
   %mul.i.i612 = xor i64 %sub.i.i.i611, 126
-  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_T1_(ptr noundef nonnull %add.ptr236, ptr noundef %add.ptr242.ptr, i64 noundef %mul.i.i612, ptr %agg.tmp243.sroa.0.0.copyload)
+  invoke void @_ZSt16__introsort_loopIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_T1_(ptr noundef nonnull %add.ptr236, ptr noundef %add.ptr242, i64 noundef %mul.i.i612, ptr %agg.tmp243.sroa.0.0.copyload)
           to label %.noexc617 unwind label %lpad194.loopexit.split-lp
 
 .noexc617:                                        ; preds = %if.then.i.i606
@@ -46456,7 +46458,7 @@ if.then.i.i.i615:                                 ; preds = %.noexc617
           to label %.noexc598.invoke unwind label %lpad194.loopexit.split-lp
 
 if.else.i.i.i614:                                 ; preds = %.noexc617
-  invoke void @_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %add.ptr236, ptr noundef %add.ptr242.ptr, ptr %agg.tmp243.sroa.0.0.copyload)
+  invoke void @_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI16bv_rewriter_coreE6mon_ltEEEEvT_SB_T0_(ptr noundef nonnull %add.ptr236, ptr noundef %add.ptr242, ptr %agg.tmp243.sroa.0.0.copyload)
           to label %invoke.cont250 unwind label %lpad194.loopexit.split-lp
 
 invoke.cont250:                                   ; preds = %.noexc598.invoke, %invoke.cont239, %if.else.i.i.i614, %invoke.cont226, %if.else.i.i.i594, %for.end216

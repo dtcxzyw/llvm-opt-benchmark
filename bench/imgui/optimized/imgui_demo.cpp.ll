@@ -4192,7 +4192,7 @@ for.body376.i:                                    ; preds = %if.end372.i, %for.b
   %350 = fadd <2 x float> %303, %349
   store <2 x float> %350, ptr %ref.tmp386.i, align 8
   call void @_ZN10ImDrawList7AddLineERK6ImVec2S2_jf(ptr noundef nonnull align 8 dereferenceable(196) %call266.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp377.i, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp386.i, i32 noundef -16711681, float noundef 2.000000e+00)
-  %indvars.iv.next.i63 = add nuw i64 %indvars.iv.i62, 2
+  %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 2
   %351 = load i32, ptr @_ZZL29ShowExampleAppCustomRenderingPbE6points, align 8
   %352 = trunc i64 %indvars.iv.next.i63 to i32
   %cmp375.i = icmp sgt i32 %351, %352
@@ -16096,7 +16096,7 @@ if.end813:                                        ; preds = %if.end810
   %166 = fadd <2 x float> %163, %165
   store <2 x float> %166, ptr %text_pos, align 8
   %call820 = call noundef ptr @_ZN5ImGui17GetWindowDrawListEv()
-  switch i32 %n791.0317, label %default.unreachable [
+  switch i32 %n791.0317, label %for.inc829 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb821
     i32 2, label %for.inc829.thread
@@ -16127,10 +16127,7 @@ for.inc829.thread:                                ; preds = %if.end813
   call void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4(ptr noundef nonnull align 8 dereferenceable(196) %call820, ptr noundef %call827, float noundef %call828, ptr noundef nonnull align 4 dereferenceable(8) %text_pos, i32 noundef -1, ptr noundef nonnull @.str.1142, ptr noundef null, float noundef 0.000000e+00, ptr noundef nonnull %clip_rect)
   br label %for.end831
 
-default.unreachable:                              ; preds = %if.end813
-  unreachable
-
-for.inc829:                                       ; preds = %sw.bb, %sw.bb821, %if.end810
+for.inc829:                                       ; preds = %if.end813, %sw.bb, %sw.bb821, %if.end810
   %inc830 = add nuw nsw i32 %n791.0317, 1
   %exitcond340.not = icmp eq i32 %inc830, 3
   br i1 %exitcond340.not, label %for.end831, label %for.body794, !llvm.loop !91
@@ -24698,7 +24695,7 @@ for.inc83.us:                                     ; preds = %if.then64.us, %lor.
   br i1 %cmp61.us, label %for.body62.us, label %for.cond59.for.end85_crit_edge.us, !llvm.loop !188
 
 for.cond59.for.end85_crit_edge.us:                ; preds = %for.inc83.us
-  %indvars.iv.next107 = add i64 %indvars.iv106, 1
+  %indvars.iv.next107 = add nsw i64 %indvars.iv106, 1
   br label %for.cond56.us, !llvm.loop !189
 
 for.end90:                                        ; preds = %if.else70.us, %lor.lhs.false72.us

@@ -29,6 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.replay_save_event = private unnamed_addr constant [18 x i8] c"replay_save_event\00", align 1
 @.str.5 = private unnamed_addr constant [39 x i8] c"event->event_kind < REPLAY_ASYNC_COUNT\00", align 1
 @.str.6 = private unnamed_addr constant [31 x i8] c"Unknown ID %ld of replay event\00", align 1
+@.str.7 = private unnamed_addr constant [30 x i8] c"Unknown ID %d of replay event\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @replay_enable_events() local_unnamed_addr #0 {
@@ -519,7 +520,7 @@ if.else:                                          ; preds = %entry
 while.body:                                       ; preds = %while.cond.preheader, %if.end4
   %3 = phi i32 [ %15, %if.end4 ], [ %1, %while.cond.preheader ]
   %4 = phi i32 [ %14, %if.end4 ], [ %0, %while.cond.preheader ]
-  switch i32 %4, label %default.unreachable [
+  switch i32 %4, label %sw.default.i [
     i32 3, label %sw.bb.i
     i32 4, label %sw.bb.i
     i32 5, label %sw.bb1.i
@@ -570,7 +571,9 @@ sw.bb19.i:                                        ; preds = %while.body
   store ptr %call22.i, ptr %opaque23.i, align 8
   br label %if.end4
 
-default.unreachable:                              ; preds = %while.body
+sw.default.i:                                     ; preds = %while.body
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.7, i32 noundef %3) #9
+  tail call void @exit(i32 noundef 1) #10
   unreachable
 
 sw.epilog.sink.split.i:                           ; preds = %sw.bb14.i, %sw.bb.i

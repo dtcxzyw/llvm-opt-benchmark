@@ -174,7 +174,7 @@ if.then21:                                        ; preds = %hi_sdslen.exit36
   br label %return
 
 if.end26:                                         ; preds = %hi_sdslen.exit36
-  switch i32 %and.i20, label %default.unreachable [
+  switch i32 %and.i20, label %hi_sdslen.exit55 [
     i32 0, label %sw.bb.i52
     i32 1, label %sw.bb3.i49
     i32 2, label %sw.bb5.i46
@@ -210,11 +210,8 @@ sw.bb13.i40:                                      ; preds = %if.end26
   %18 = load i64, ptr %add.ptr14.i41, align 1
   br label %hi_sdslen.exit55
 
-default.unreachable:                              ; preds = %if.end26
-  unreachable
-
-hi_sdslen.exit55:                                 ; preds = %if.end17, %sw.bb.i52, %sw.bb3.i49, %sw.bb5.i46, %sw.bb9.i43, %sw.bb13.i40
-  %retval.0.i42 = phi i64 [ %18, %sw.bb13.i40 ], [ %conv12.i45, %sw.bb9.i43 ], [ %conv8.i48, %sw.bb5.i46 ], [ %conv4.i51, %sw.bb3.i49 ], [ %conv2.i54, %sw.bb.i52 ], [ 0, %if.end17 ]
+hi_sdslen.exit55:                                 ; preds = %if.end17, %if.end26, %sw.bb.i52, %sw.bb3.i49, %sw.bb5.i46, %sw.bb9.i43, %sw.bb13.i40
+  %retval.0.i42 = phi i64 [ %18, %sw.bb13.i40 ], [ %conv12.i45, %sw.bb9.i43 ], [ %conv8.i48, %sw.bb5.i46 ], [ %conv4.i51, %sw.bb3.i49 ], [ %conv2.i54, %sw.bb.i52 ], [ 0, %if.end26 ], [ 0, %if.end17 ]
   call void @hi_sdsclear(ptr noundef nonnull %9) #11
   %sub30 = sub i64 %buf_len, %retval.0.i42
   br label %return

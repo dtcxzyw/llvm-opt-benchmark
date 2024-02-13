@@ -5082,7 +5082,7 @@ if.end92:                                         ; preds = %if.else
   br i1 %or.cond3, label %sw.bb110, label %if.end100
 
 if.end100:                                        ; preds = %if.end92
-  switch i32 %prealloc, label %default.unreachable [
+  switch i32 %prealloc, label %do.body [
     i32 0, label %sw.bb
     i32 1, label %sw.bb110
     i32 2, label %sw.bb116
@@ -5232,14 +5232,14 @@ if.end212:                                        ; preds = %if.end196
   br i1 %cmp206, label %if.end218, label %while.cond.preheader
 
 if.end218:                                        ; preds = %if.end212, %if.end196
-  %subclusters_need_allocation.0252 = phi i8 [ %spec.select, %if.end212 ], [ 1, %if.end196 ]
+  %lnot252 = phi i8 [ %spec.select, %if.end212 ], [ 1, %if.end196 ]
   %31 = load ptr, ptr %17, align 8
   %call217 = tail call i32 @bdrv_co_truncate(ptr noundef %31, i64 noundef %add200, i1 noundef zeroext false, i32 noundef %prealloc, i32 noundef 0, ptr noundef %errp) #22
   %cmp219 = icmp slt i32 %call217, 0
   br i1 %cmp219, label %if.then221, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end212, %if.end218
-  %subclusters_need_allocation.0251271 = phi i8 [ %subclusters_need_allocation.0252, %if.end218 ], [ %spec.select, %if.end212 ]
+  %lnot251271 = phi i8 [ %lnot252, %if.end218 ], [ %spec.select, %if.end212 ]
   %flags.addr.0253270 = phi i32 [ %flags, %if.end218 ], [ 0, %if.end212 ]
   %tobool226.not258 = icmp eq i64 %shr, 0
   br i1 %tobool226.not258, label %sw.epilog, label %while.body.lr.ph
@@ -5307,7 +5307,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i32 %conv242, ptr %.compoundliteral.sroa.8.0.allocation.sroa_idx, align 8
   store i32 0, ptr %.compoundliteral.sroa.9.0.allocation.sroa_idx, align 4
   store i8 0, ptr %.compoundliteral.sroa.10.0.allocation.sroa_idx, align 8
-  store i8 %subclusters_need_allocation.0251271, ptr %.compoundliteral.sroa.11.0.allocation.sroa_idx, align 1
+  store i8 %lnot251271, ptr %.compoundliteral.sroa.11.0.allocation.sroa_idx, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.compoundliteral.sroa.1215.0.allocation.sroa_idx, i8 0, i64 24, i1 false)
   call void @qemu_co_queue_init(ptr noundef nonnull %dependent_requests247) #22
   %call248 = call i32 @qcow2_alloc_cluster_link_l2(ptr noundef %bs, ptr noundef nonnull %allocation) #22
@@ -5333,7 +5333,8 @@ if.end256:                                        ; preds = %while.body
   %tobool226.not = icmp eq i64 %sub265, 0
   br i1 %tobool226.not, label %sw.epilog, label %while.body, !llvm.loop !22
 
-default.unreachable:                              ; preds = %if.end100
+do.body:                                          ; preds = %if.end100
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 4583, ptr noundef nonnull @__func__.qcow2_co_truncate, ptr noundef null) #21
   unreachable
 
 sw.epilog:                                        ; preds = %if.end256, %while.cond.preheader, %if.then120, %sw.bb110, %sw.bb, %if.then102

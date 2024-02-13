@@ -4154,7 +4154,7 @@ cond.end:                                         ; preds = %switch.lookup, %con
   br i1 %tobool6.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %cond.end
-  switch i32 %reason, label %default.unreachable [
+  switch i32 %reason, label %sw.default [
     i32 1, label %sw.bb
     i32 2, label %sw.bb10
     i32 4, label %sw.bb13
@@ -4163,54 +4163,62 @@ if.else:                                          ; preds = %cond.end
 
 sw.bb:                                            ; preds = %if.else
   %cmd = getelementptr inbounds i8, ptr %c, i64 128
-  br label %if.end.sink.split
+  %6 = load ptr, ptr %cmd, align 8
+  %fullname = getelementptr inbounds i8, ptr %6, i64 216
+  %7 = load ptr, ptr %fullname, align 8
+  %call8 = tail call ptr @sdsdup(ptr noundef %7) #23
+  br label %if.end
 
 sw.bb10:                                          ; preds = %if.else
   %argv = getelementptr inbounds i8, ptr %c, i64 96
-  %6 = load ptr, ptr %argv, align 8
+  %8 = load ptr, ptr %argv, align 8
   %idxprom = sext i32 %argpos to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
-  br label %if.end.sink.split
+  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %idxprom
+  %9 = load ptr, ptr %arrayidx, align 8
+  %ptr = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %ptr, align 8
+  %call11 = tail call ptr @sdsdup(ptr noundef %10) #23
+  br label %if.end
 
 sw.bb13:                                          ; preds = %if.else
   %argv14 = getelementptr inbounds i8, ptr %c, i64 96
-  %7 = load ptr, ptr %argv14, align 8
+  %11 = load ptr, ptr %argv14, align 8
   %idxprom15 = sext i32 %argpos to i64
-  %arrayidx16 = getelementptr inbounds ptr, ptr %7, i64 %idxprom15
-  br label %if.end.sink.split
+  %arrayidx16 = getelementptr inbounds ptr, ptr %11, i64 %idxprom15
+  %12 = load ptr, ptr %arrayidx16, align 8
+  %ptr17 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load ptr, ptr %ptr17, align 8
+  %call18 = tail call ptr @sdsdup(ptr noundef %13) #23
+  br label %if.end
 
 sw.bb20:                                          ; preds = %if.else
   %argv21 = getelementptr inbounds i8, ptr %c, i64 96
-  %8 = load ptr, ptr %argv21, align 8
-  br label %if.end.sink.split
-
-default.unreachable:                              ; preds = %if.else
-  unreachable
-
-if.end.sink.split:                                ; preds = %sw.bb20, %sw.bb13, %sw.bb10, %sw.bb
-  %cmd.sink = phi ptr [ %cmd, %sw.bb ], [ %arrayidx, %sw.bb10 ], [ %arrayidx16, %sw.bb13 ], [ %8, %sw.bb20 ]
-  %.sink48 = phi i64 [ 216, %sw.bb ], [ 8, %sw.bb10 ], [ 8, %sw.bb13 ], [ 8, %sw.bb20 ]
-  %9 = load ptr, ptr %cmd.sink, align 8
-  %fullname = getelementptr inbounds i8, ptr %9, i64 %.sink48
-  %10 = load ptr, ptr %fullname, align 8
-  %call8 = tail call ptr @sdsdup(ptr noundef %10) #23
+  %14 = load ptr, ptr %argv21, align 8
+  %15 = load ptr, ptr %14, align 8
+  %ptr23 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load ptr, ptr %ptr23, align 8
+  %call24 = tail call ptr @sdsdup(ptr noundef %16) #23
   br label %if.end
 
-if.end:                                           ; preds = %if.end.sink.split, %cond.end
-  %call8.sink = phi ptr [ %object, %cond.end ], [ %call8, %if.end.sink.split ]
+sw.default:                                       ; preds = %if.else
+  %call26 = tail call ptr @sdsempty() #23
+  br label %if.end
+
+if.end:                                           ; preds = %cond.end, %sw.bb, %sw.bb10, %sw.bb13, %sw.bb20, %sw.default
+  %call8.sink = phi ptr [ %call8, %sw.bb ], [ %call11, %sw.bb10 ], [ %call18, %sw.bb13 ], [ %call24, %sw.bb20 ], [ %call26, %sw.default ], [ %object, %cond.end ]
   %object9 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call8.sink, ptr %object9, align 8
-  %11 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
-  %tobool28.not = icmp eq ptr %11, null
-  %cond32 = select i1 %tobool28.not, ptr %c, ptr %11
+  %17 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
+  %tobool28.not = icmp eq ptr %17, null
+  %cond32 = select i1 %tobool28.not, ptr %c, ptr %17
   %call33 = tail call ptr @sdsempty() #23
   %call34 = tail call ptr @catClientInfoString(ptr noundef %call33, ptr noundef %cond32) #23
   %cinfo = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call34, ptr %cinfo, align 8
   %context35 = getelementptr inbounds i8, ptr %call, i64 12
   store i32 %context, ptr %context35, align 4
-  %12 = load ptr, ptr @ACLLog, align 8
-  call void @listRewind(ptr noundef %12, ptr noundef nonnull %li) #23
+  %18 = load ptr, ptr @ACLLog, align 8
+  call void @listRewind(ptr noundef %18, ptr noundef nonnull %li) #23
   %object14.i = getelementptr inbounds i8, ptr %call, i64 16
   br label %while.cond
 
@@ -4227,42 +4235,42 @@ land.rhs:                                         ; preds = %while.cond
 
 while.body:                                       ; preds = %land.rhs
   %value = getelementptr inbounds i8, ptr %call37, i64 16
-  %13 = load ptr, ptr %value, align 8
-  %reason.i = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load i32, ptr %reason.i, align 8
-  %15 = load i32, ptr %reason1, align 8
-  %cmp.not.i = icmp eq i32 %14, %15
+  %19 = load ptr, ptr %value, align 8
+  %reason.i = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load i32, ptr %reason.i, align 8
+  %21 = load i32, ptr %reason1, align 8
+  %cmp.not.i = icmp eq i32 %20, %21
   br i1 %cmp.not.i, label %if.end.i, label %ACLLogMatchEntry.exit
 
 if.end.i:                                         ; preds = %while.body
-  %context.i = getelementptr inbounds i8, ptr %13, i64 12
-  %16 = load i32, ptr %context.i, align 4
-  %17 = load i32, ptr %context35, align 4
-  %cmp3.not.i = icmp eq i32 %16, %17
+  %context.i = getelementptr inbounds i8, ptr %19, i64 12
+  %22 = load i32, ptr %context.i, align 4
+  %23 = load i32, ptr %context35, align 4
+  %cmp3.not.i = icmp eq i32 %22, %23
   br i1 %cmp3.not.i, label %if.end5.i, label %ACLLogMatchEntry.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %ctime.i = getelementptr inbounds i8, ptr %13, i64 32
-  %18 = load i64, ptr %ctime.i, align 8
-  %19 = load i64, ptr %ctime, align 8
-  %sub.i = sub nsw i64 %18, %19
+  %ctime.i = getelementptr inbounds i8, ptr %19, i64 32
+  %24 = load i64, ptr %ctime.i, align 8
+  %25 = load i64, ptr %ctime, align 8
+  %sub.i = sub nsw i64 %24, %25
   %spec.select.i = call i64 @llvm.abs.i64(i64 %sub.i, i1 true)
   %cmp11.i = icmp ugt i64 %spec.select.i, 60000
   br i1 %cmp11.i, label %ACLLogMatchEntry.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end5.i
-  %object.i = getelementptr inbounds i8, ptr %13, i64 16
-  %20 = load ptr, ptr %object.i, align 8
-  %21 = load ptr, ptr %object14.i, align 8
-  %call.i = call i32 @sdscmp(ptr noundef %20, ptr noundef %21) #23
+  %object.i = getelementptr inbounds i8, ptr %19, i64 16
+  %26 = load ptr, ptr %object.i, align 8
+  %27 = load ptr, ptr %object14.i, align 8
+  %call.i = call i32 @sdscmp(ptr noundef %26, ptr noundef %27) #23
   %cmp15.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp15.not.i, label %if.end17.i, label %ACLLogMatchEntry.exit
 
 if.end17.i:                                       ; preds = %if.end13.i
-  %username.i = getelementptr inbounds i8, ptr %13, i64 24
-  %22 = load ptr, ptr %username.i, align 8
-  %23 = load ptr, ptr %username3, align 8
-  %call19.i = call i32 @sdscmp(ptr noundef %22, ptr noundef %23) #23
+  %username.i = getelementptr inbounds i8, ptr %19, i64 24
+  %28 = load ptr, ptr %username.i, align 8
+  %29 = load ptr, ptr %username3, align 8
+  %call19.i = call i32 @sdscmp(ptr noundef %28, ptr noundef %29) #23
   %cmp20.not.i = icmp eq i32 %call19.i, 0
   %..i = zext i1 %cmp20.not.i to i32
   br label %ACLLogMatchEntry.exit
@@ -4273,67 +4281,67 @@ ACLLogMatchEntry.exit:                            ; preds = %while.body, %if.end
   br i1 %tobool39.not, label %while.cond, label %if.then44, !llvm.loop !39
 
 if.then44:                                        ; preds = %ACLLogMatchEntry.exit
-  %24 = load ptr, ptr @ACLLog, align 8
-  call void @listDelNode(ptr noundef %24, ptr noundef nonnull %call37) #23
-  %25 = load ptr, ptr @ACLLog, align 8
-  %call41 = call ptr @listAddNodeHead(ptr noundef %25, ptr noundef nonnull %13) #23
-  %cinfo45 = getelementptr inbounds i8, ptr %13, i64 40
-  %26 = load ptr, ptr %cinfo45, align 8
-  call void @sdsfree(ptr noundef %26) #23
-  %27 = load ptr, ptr %cinfo, align 8
-  store ptr %27, ptr %cinfo45, align 8
-  %28 = load i64, ptr %ctime, align 8
-  %ctime49 = getelementptr inbounds i8, ptr %13, i64 32
-  store i64 %28, ptr %ctime49, align 8
-  %29 = load i64, ptr %13, align 8
-  %inc = add i64 %29, 1
-  store i64 %inc, ptr %13, align 8
-  store ptr null, ptr %cinfo, align 8
-  %30 = load ptr, ptr %object14.i, align 8
-  call void @sdsfree(ptr noundef %30) #23
-  %31 = load ptr, ptr %username3, align 8
-  call void @sdsfree(ptr noundef %31) #23
-  %32 = load ptr, ptr %cinfo, align 8
+  %30 = load ptr, ptr @ACLLog, align 8
+  call void @listDelNode(ptr noundef %30, ptr noundef nonnull %call37) #23
+  %31 = load ptr, ptr @ACLLog, align 8
+  %call41 = call ptr @listAddNodeHead(ptr noundef %31, ptr noundef nonnull %19) #23
+  %cinfo45 = getelementptr inbounds i8, ptr %19, i64 40
+  %32 = load ptr, ptr %cinfo45, align 8
   call void @sdsfree(ptr noundef %32) #23
+  %33 = load ptr, ptr %cinfo, align 8
+  store ptr %33, ptr %cinfo45, align 8
+  %34 = load i64, ptr %ctime, align 8
+  %ctime49 = getelementptr inbounds i8, ptr %19, i64 32
+  store i64 %34, ptr %ctime49, align 8
+  %35 = load i64, ptr %19, align 8
+  %inc = add i64 %35, 1
+  store i64 %inc, ptr %19, align 8
+  store ptr null, ptr %cinfo, align 8
+  %36 = load ptr, ptr %object14.i, align 8
+  call void @sdsfree(ptr noundef %36) #23
+  %37 = load ptr, ptr %username3, align 8
+  call void @sdsfree(ptr noundef %37) #23
+  %38 = load ptr, ptr %cinfo, align 8
+  call void @sdsfree(ptr noundef %38) #23
   call void @zfree(ptr noundef nonnull %call) #23
   br label %if.end62
 
 if.else52:                                        ; preds = %land.rhs, %while.cond
-  %33 = load i64, ptr @ACLLogEntryCount, align 8
-  %inc53 = add nsw i64 %33, 1
+  %39 = load i64, ptr @ACLLogEntryCount, align 8
+  %inc53 = add nsw i64 %39, 1
   store i64 %inc53, ptr @ACLLogEntryCount, align 8
-  %34 = load ptr, ptr @ACLLog, align 8
-  %call54 = call ptr @listAddNodeHead(ptr noundef %34, ptr noundef nonnull %call) #23
-  %35 = load ptr, ptr @ACLLog, align 8
-  %len46 = getelementptr inbounds i8, ptr %35, i64 40
-  %36 = load i64, ptr %len46, align 8
-  %37 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 396), align 8
-  %cmp5647 = icmp ugt i64 %36, %37
+  %40 = load ptr, ptr @ACLLog, align 8
+  %call54 = call ptr @listAddNodeHead(ptr noundef %40, ptr noundef nonnull %call) #23
+  %41 = load ptr, ptr @ACLLog, align 8
+  %len46 = getelementptr inbounds i8, ptr %41, i64 40
+  %42 = load i64, ptr %len46, align 8
+  %43 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 396), align 8
+  %cmp5647 = icmp ugt i64 %42, %43
   br i1 %cmp5647, label %while.body57, label %if.end62
 
 while.body57:                                     ; preds = %if.else52, %while.body57
-  %38 = phi ptr [ %45, %while.body57 ], [ %35, %if.else52 ]
-  %tail = getelementptr inbounds i8, ptr %38, i64 8
-  %39 = load ptr, ptr %tail, align 8
-  %value60 = getelementptr inbounds i8, ptr %39, i64 16
-  %40 = load ptr, ptr %value60, align 8
-  %object.i41 = getelementptr inbounds i8, ptr %40, i64 16
-  %41 = load ptr, ptr %object.i41, align 8
-  call void @sdsfree(ptr noundef %41) #23
-  %username.i42 = getelementptr inbounds i8, ptr %40, i64 24
-  %42 = load ptr, ptr %username.i42, align 8
-  call void @sdsfree(ptr noundef %42) #23
-  %cinfo.i43 = getelementptr inbounds i8, ptr %40, i64 40
-  %43 = load ptr, ptr %cinfo.i43, align 8
-  call void @sdsfree(ptr noundef %43) #23
-  call void @zfree(ptr noundef %40) #23
-  %44 = load ptr, ptr @ACLLog, align 8
-  call void @listDelNode(ptr noundef %44, ptr noundef %39) #23
-  %45 = load ptr, ptr @ACLLog, align 8
-  %len = getelementptr inbounds i8, ptr %45, i64 40
-  %46 = load i64, ptr %len, align 8
-  %47 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 396), align 8
-  %cmp56 = icmp ugt i64 %46, %47
+  %44 = phi ptr [ %51, %while.body57 ], [ %41, %if.else52 ]
+  %tail = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = load ptr, ptr %tail, align 8
+  %value60 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = load ptr, ptr %value60, align 8
+  %object.i41 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = load ptr, ptr %object.i41, align 8
+  call void @sdsfree(ptr noundef %47) #23
+  %username.i42 = getelementptr inbounds i8, ptr %46, i64 24
+  %48 = load ptr, ptr %username.i42, align 8
+  call void @sdsfree(ptr noundef %48) #23
+  %cinfo.i43 = getelementptr inbounds i8, ptr %46, i64 40
+  %49 = load ptr, ptr %cinfo.i43, align 8
+  call void @sdsfree(ptr noundef %49) #23
+  call void @zfree(ptr noundef %46) #23
+  %50 = load ptr, ptr @ACLLog, align 8
+  call void @listDelNode(ptr noundef %50, ptr noundef %45) #23
+  %51 = load ptr, ptr @ACLLog, align 8
+  %len = getelementptr inbounds i8, ptr %51, i64 40
+  %52 = load i64, ptr %len, align 8
+  %53 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 396), align 8
+  %cmp56 = icmp ugt i64 %52, %53
   br i1 %cmp56, label %while.body57, label %if.end62, !llvm.loop !40
 
 if.end62:                                         ; preds = %while.body57, %if.else52, %if.then44

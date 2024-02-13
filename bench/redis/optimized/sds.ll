@@ -106,19 +106,19 @@ if.end36:                                         ; preds = %if.end26, %if.else,
 
 switch.lookup:                                    ; preds = %if.end36
   %5 = zext nneg i8 %spec.store.select to i64
-  %switch.gep63 = getelementptr inbounds [4 x i64], ptr @switch.table._sdsnewlen.2, i64 0, i64 %5
-  %switch.load64 = load i64, ptr %switch.gep63, align 8
-  %cmp41 = icmp ugt i64 %sub39, %switch.load64
-  br i1 %cmp41, label %switch.lookup65, label %if.end45
+  %switch.gep61 = getelementptr inbounds [4 x i64], ptr @switch.table._sdsnewlen.2, i64 0, i64 %5
+  %switch.load62 = load i64, ptr %switch.gep61, align 8
+  %cmp41 = icmp ugt i64 %sub39, %switch.load62
+  br i1 %cmp41, label %switch.lookup63, label %if.end45
 
-switch.lookup65:                                  ; preds = %switch.lookup
+switch.lookup63:                                  ; preds = %switch.lookup
   %6 = zext nneg i8 %spec.store.select to i64
-  %switch.gep66 = getelementptr inbounds [4 x i64], ptr @switch.table._sdsnewlen.2, i64 0, i64 %6
-  %switch.load67 = load i64, ptr %switch.gep66, align 8
-  store i64 %switch.load67, ptr %usable, align 8
+  %switch.gep64 = getelementptr inbounds [4 x i64], ptr @switch.table._sdsnewlen.2, i64 0, i64 %6
+  %switch.load65 = load i64, ptr %switch.gep64, align 8
+  store i64 %switch.load65, ptr %usable, align 8
   br label %if.end45
 
-if.end45:                                         ; preds = %switch.lookup65, %switch.lookup
+if.end45:                                         ; preds = %switch.lookup63, %switch.lookup
   switch i8 %spec.store.select, label %default.unreachable [
     i8 0, label %sw.bb
     i8 1, label %sw.bb49
@@ -638,14 +638,14 @@ sdsReqType.exit:                                  ; preds = %if.end17, %if.end.i
   %spec.store.select = tail call i8 @llvm.umax.i8(i8 %retval.0.i46, i8 1)
   %switch.tableidx = add nsw i8 %spec.store.select, -1
   %16 = sext i8 %switch.tableidx to i64
-  %switch.gep103 = getelementptr inbounds [4 x i64], ptr @switch.table._sdsMakeRoomFor.3, i64 0, i64 %16
-  %switch.load104 = load i64, ptr %switch.gep103, align 8
+  %switch.gep100 = getelementptr inbounds [4 x i64], ptr @switch.table._sdsMakeRoomFor.3, i64 0, i64 %16
+  %switch.load101 = load i64, ptr %switch.gep100, align 8
   %add26 = add i64 %newlen.0, 1
-  %add27 = add i64 %add26, %switch.load104
+  %add27 = add i64 %add26, %switch.load101
   %cmp28 = icmp ugt i64 %add27, %add
   br i1 %cmp28, label %cond.end38, label %cond.false37
 
-default.unreachable83:                            ; preds = %if.end62
+default.unreachable:                              ; preds = %if.end62
   unreachable
 
 cond.false37:                                     ; preds = %sdsReqType.exit
@@ -668,62 +668,62 @@ if.else54:                                        ; preds = %cond.end38
   br i1 %cmp59, label %return, label %if.end62
 
 if.end62:                                         ; preds = %if.else54
-  %add.ptr64 = getelementptr inbounds i8, ptr %call58, i64 %switch.load104
+  %add.ptr64 = getelementptr inbounds i8, ptr %call58, i64 %switch.load101
   %add65 = add nuw i64 %retval.0.i39, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr64, ptr noundef nonnull align 1 dereferenceable(1) %s, i64 %add65, i1 false)
   call void @zfree(ptr noundef %add.ptr) #25
   %arrayidx68 = getelementptr inbounds i8, ptr %add.ptr64, i64 -1
   store i8 %spec.store.select, ptr %arrayidx68, align 1
-  switch i8 %spec.store.select, label %default.unreachable83 [
+  switch i8 %spec.store.select, label %default.unreachable [
     i8 4, label %if.end69.thread
-    i8 1, label %if.end69.thread94
-    i8 2, label %if.end69.thread97
-    i8 3, label %if.end69.thread87
+    i8 1, label %if.end69.thread91
+    i8 2, label %if.end69.thread94
+    i8 3, label %if.end69.thread84
   ]
 
-if.end69.thread94:                                ; preds = %if.end62
+if.end69.thread91:                                ; preds = %if.end62
   %conv3.i62 = trunc i64 %retval.0.i39 to i8
   %add.ptr4.i = getelementptr inbounds i8, ptr %add.ptr64, i64 -3
   store i8 %conv3.i62, ptr %add.ptr4.i, align 1
   %17 = load i64, ptr %usable, align 8
-  %18 = xor i64 %switch.load104, -1
-  %sub7196 = add i64 %17, %18
-  store i64 %sub7196, ptr %usable, align 8
+  %18 = xor i64 %switch.load101, -1
+  %sub7193 = add i64 %17, %18
+  store i64 %sub7193, ptr %usable, align 8
   br label %sdsTypeMaxSize.exit
 
-if.end69.thread97:                                ; preds = %if.end62
+if.end69.thread94:                                ; preds = %if.end62
   %conv6.i = trunc i64 %retval.0.i39 to i16
   %add.ptr7.i60 = getelementptr inbounds i8, ptr %add.ptr64, i64 -5
   store i16 %conv6.i, ptr %add.ptr7.i60, align 1
   %19 = load i64, ptr %usable, align 8
-  %20 = xor i64 %switch.load104, -1
-  %sub7199 = add i64 %19, %20
-  store i64 %sub7199, ptr %usable, align 8
+  %20 = xor i64 %switch.load101, -1
+  %sub7196 = add i64 %19, %20
+  store i64 %sub7196, ptr %usable, align 8
   br label %sdsTypeMaxSize.exit
 
-if.end69.thread87:                                ; preds = %if.end62
+if.end69.thread84:                                ; preds = %if.end62
   %conv10.i = trunc i64 %retval.0.i39 to i32
   %add.ptr11.i = getelementptr inbounds i8, ptr %add.ptr64, i64 -9
   store i32 %conv10.i, ptr %add.ptr11.i, align 1
   %21 = load i64, ptr %usable, align 8
-  %22 = xor i64 %switch.load104, -1
-  %sub7189 = add i64 %21, %22
-  store i64 %sub7189, ptr %usable, align 8
+  %22 = xor i64 %switch.load101, -1
+  %sub7186 = add i64 %21, %22
+  store i64 %sub7186, ptr %usable, align 8
   br label %sdsTypeMaxSize.exit
 
 if.end69.thread:                                  ; preds = %if.end62
   %add.ptr14.i56 = getelementptr inbounds i8, ptr %add.ptr64, i64 -17
   store i64 %retval.0.i39, ptr %add.ptr14.i56, align 1
   %23 = load i64, ptr %usable, align 8
-  %24 = xor i64 %switch.load104, -1
-  %sub7185 = add i64 %23, %24
-  store i64 %sub7185, ptr %usable, align 8
+  %24 = xor i64 %switch.load101, -1
+  %sub7182 = add i64 %23, %24
+  store i64 %sub7182, ptr %usable, align 8
   br label %if.end77
 
 if.end69:                                         ; preds = %if.then43
-  %add.ptr53 = getelementptr inbounds i8, ptr %call47, i64 %switch.load104
+  %add.ptr53 = getelementptr inbounds i8, ptr %call47, i64 %switch.load101
   %25 = load i64, ptr %usable, align 8
-  %26 = xor i64 %switch.load104, -1
+  %26 = xor i64 %switch.load101, -1
   %sub71 = add i64 %25, %26
   store i64 %sub71, ptr %usable, align 8
   switch i8 %spec.store.select, label %if.end77 [
@@ -738,28 +738,36 @@ if.then10.i:                                      ; preds = %if.end69
 if.then15.i:                                      ; preds = %if.end69
   br label %sdsTypeMaxSize.exit
 
-sdsTypeMaxSize.exit:                              ; preds = %if.end69.thread87, %if.end69.thread97, %if.end69.thread94, %if.end69, %if.then10.i, %if.then15.i
-  %sub7192 = phi i64 [ %sub71, %if.end69 ], [ %sub7196, %if.end69.thread94 ], [ %sub7199, %if.end69.thread97 ], [ %sub71, %if.then10.i ], [ %sub7189, %if.end69.thread87 ], [ %sub71, %if.then15.i ]
-  %s.addr.090 = phi ptr [ %add.ptr53, %if.end69 ], [ %add.ptr64, %if.end69.thread94 ], [ %add.ptr64, %if.end69.thread97 ], [ %add.ptr53, %if.then10.i ], [ %add.ptr64, %if.end69.thread87 ], [ %add.ptr53, %if.then15.i ]
-  %retval.0.i64 = phi i64 [ 255, %if.end69 ], [ 255, %if.end69.thread94 ], [ 65535, %if.end69.thread97 ], [ 65535, %if.then10.i ], [ 4294967295, %if.end69.thread87 ], [ 4294967295, %if.then15.i ]
-  %cmp73 = icmp ugt i64 %sub7192, %retval.0.i64
+sdsTypeMaxSize.exit:                              ; preds = %if.end69.thread84, %if.end69.thread94, %if.end69.thread91, %if.end69, %if.then10.i, %if.then15.i
+  %sub7189 = phi i64 [ %sub71, %if.end69 ], [ %sub7193, %if.end69.thread91 ], [ %sub7196, %if.end69.thread94 ], [ %sub71, %if.then10.i ], [ %sub7186, %if.end69.thread84 ], [ %sub71, %if.then15.i ]
+  %s.addr.087 = phi ptr [ %add.ptr53, %if.end69 ], [ %add.ptr64, %if.end69.thread91 ], [ %add.ptr64, %if.end69.thread94 ], [ %add.ptr53, %if.then10.i ], [ %add.ptr64, %if.end69.thread84 ], [ %add.ptr53, %if.then15.i ]
+  %retval.0.i64 = phi i64 [ 255, %if.end69 ], [ 255, %if.end69.thread91 ], [ 65535, %if.end69.thread94 ], [ 65535, %if.then10.i ], [ 4294967295, %if.end69.thread84 ], [ 4294967295, %if.then15.i ]
+  %cmp73 = icmp ugt i64 %sub7189, %retval.0.i64
   br i1 %cmp73, label %if.then75, label %if.end77
 
 if.then75:                                        ; preds = %sdsTypeMaxSize.exit
-  %switch.tableidx106 = add nsw i8 %spec.store.select, -1
-  %27 = sext i8 %switch.tableidx106 to i64
-  %switch.gep107 = getelementptr inbounds [3 x i64], ptr @switch.table._sdsMakeRoomFor.4, i64 0, i64 %27
-  %switch.load108 = load i64, ptr %switch.gep107, align 8
-  store i64 %switch.load108, ptr %usable, align 8
+  %27 = icmp ult i8 %retval.0.i46, 4
+  br i1 %27, label %switch.lookup102, label %sdsTypeMaxSize.exit70
+
+switch.lookup102:                                 ; preds = %if.then75
+  %switch.tableidx103 = add nsw i8 %spec.store.select, -1
+  %28 = sext i8 %switch.tableidx103 to i64
+  %switch.gep104 = getelementptr inbounds [3 x i64], ptr @switch.table._sdsMakeRoomFor.4, i64 0, i64 %28
+  %switch.load105 = load i64, ptr %switch.gep104, align 8
+  br label %sdsTypeMaxSize.exit70
+
+sdsTypeMaxSize.exit70:                            ; preds = %if.then75, %switch.lookup102
+  %retval.0.i66 = phi i64 [ %switch.load105, %switch.lookup102 ], [ -1, %if.then75 ]
+  store i64 %retval.0.i66, ptr %usable, align 8
   br label %if.end77
 
-if.end77:                                         ; preds = %if.end69.thread, %if.end69, %if.then75, %sdsTypeMaxSize.exit
-  %s.addr.086 = phi ptr [ %add.ptr53, %if.end69 ], [ %s.addr.090, %if.then75 ], [ %s.addr.090, %sdsTypeMaxSize.exit ], [ %add.ptr64, %if.end69.thread ]
-  %28 = phi i64 [ %sub71, %if.end69 ], [ %switch.load108, %if.then75 ], [ %sub7192, %sdsTypeMaxSize.exit ], [ %sub7185, %if.end69.thread ]
-  %arrayidx.i71 = getelementptr inbounds i8, ptr %s.addr.086, i64 -1
-  %29 = load i8, ptr %arrayidx.i71, align 1
-  %30 = and i8 %29, 7
-  switch i8 %30, label %return [
+if.end77:                                         ; preds = %if.end69.thread, %if.end69, %sdsTypeMaxSize.exit70, %sdsTypeMaxSize.exit
+  %s.addr.083 = phi ptr [ %add.ptr53, %if.end69 ], [ %s.addr.087, %sdsTypeMaxSize.exit70 ], [ %s.addr.087, %sdsTypeMaxSize.exit ], [ %add.ptr64, %if.end69.thread ]
+  %29 = phi i64 [ %sub71, %if.end69 ], [ %retval.0.i66, %sdsTypeMaxSize.exit70 ], [ %sub7189, %sdsTypeMaxSize.exit ], [ %sub7182, %if.end69.thread ]
+  %arrayidx.i71 = getelementptr inbounds i8, ptr %s.addr.083, i64 -1
+  %30 = load i8, ptr %arrayidx.i71, align 1
+  %31 = and i8 %30, 7
+  switch i8 %31, label %return [
     i8 4, label %sw.bb11.i
     i8 1, label %sw.bb1.i76
     i8 2, label %sw.bb3.i74
@@ -767,30 +775,30 @@ if.end77:                                         ; preds = %if.end69.thread, %i
   ]
 
 sw.bb1.i76:                                       ; preds = %if.end77
-  %conv2.i77 = trunc i64 %28 to i8
-  %alloc.i78 = getelementptr inbounds i8, ptr %s.addr.086, i64 -2
+  %conv2.i77 = trunc i64 %29 to i8
+  %alloc.i78 = getelementptr inbounds i8, ptr %s.addr.083, i64 -2
   store i8 %conv2.i77, ptr %alloc.i78, align 1
   br label %return
 
 sw.bb3.i74:                                       ; preds = %if.end77
-  %conv4.i75 = trunc i64 %28 to i16
-  %alloc6.i = getelementptr inbounds i8, ptr %s.addr.086, i64 -3
+  %conv4.i75 = trunc i64 %29 to i16
+  %alloc6.i = getelementptr inbounds i8, ptr %s.addr.083, i64 -3
   store i16 %conv4.i75, ptr %alloc6.i, align 1
   br label %return
 
 sw.bb7.i:                                         ; preds = %if.end77
-  %conv8.i72 = trunc i64 %28 to i32
-  %alloc10.i = getelementptr inbounds i8, ptr %s.addr.086, i64 -5
+  %conv8.i72 = trunc i64 %29 to i32
+  %alloc10.i = getelementptr inbounds i8, ptr %s.addr.083, i64 -5
   store i32 %conv8.i72, ptr %alloc10.i, align 1
   br label %return
 
 sw.bb11.i:                                        ; preds = %if.end77
-  %alloc13.i = getelementptr inbounds i8, ptr %s.addr.086, i64 -9
-  store i64 %28, ptr %alloc13.i, align 1
+  %alloc13.i = getelementptr inbounds i8, ptr %s.addr.083, i64 -9
+  store i64 %29, ptr %alloc13.i, align 1
   br label %return
 
 return:                                           ; preds = %sw.bb11.i, %sw.bb7.i, %sw.bb3.i74, %sw.bb1.i76, %if.end77, %if.else54, %if.then43, %sdsavail.exit
-  %retval.0 = phi ptr [ %s, %sdsavail.exit ], [ null, %if.then43 ], [ null, %if.else54 ], [ %s.addr.086, %if.end77 ], [ %s.addr.086, %sw.bb1.i76 ], [ %s.addr.086, %sw.bb3.i74 ], [ %s.addr.086, %sw.bb7.i ], [ %s.addr.086, %sw.bb11.i ]
+  %retval.0 = phi ptr [ %s, %sdsavail.exit ], [ null, %if.then43 ], [ null, %if.else54 ], [ %s.addr.083, %if.end77 ], [ %s.addr.083, %sw.bb1.i76 ], [ %s.addr.083, %sw.bb3.i74 ], [ %s.addr.083, %sw.bb7.i ], [ %s.addr.083, %sw.bb11.i ]
   ret ptr %retval.0
 }
 
@@ -971,14 +979,14 @@ sdsReqType.exit:                                  ; preds = %if.end, %if.end.i, 
   %spec.store.select = tail call i8 @llvm.umax.i8(i8 %retval.0.i57, i8 1)
   %type.0 = select i1 %tobool.not, i8 %retval.0.i57, i8 %spec.store.select
   %12 = zext nneg i8 %type.0 to i64
-  %switch.gep130 = getelementptr inbounds [5 x i64], ptr @switch.table.sdsAllocSize, i64 0, i64 %12
-  %switch.load131 = load i64, ptr %switch.gep130, align 8
+  %switch.gep129 = getelementptr inbounds [5 x i64], ptr @switch.table.sdsAllocSize, i64 0, i64 %12
+  %switch.load130 = load i64, ptr %switch.gep129, align 8
   %cmp20 = icmp eq i8 %1, %type.0
   %cmp24 = icmp ult i8 %type.0, %1
   %cmp27 = icmp ugt i8 %type.0, 1
   %13 = and i1 %cmp24, %cmp27
   %14 = or i1 %cmp20, %13
-  %15 = select i1 %14, i64 %retval.0.i, i64 %switch.load131
+  %15 = select i1 %14, i64 %retval.0.i, i64 %switch.load130
   %cond.in = add i64 %size, 1
   %cond = add i64 %cond.in, %15
   %call35 = tail call i64 @je_nallocx(i64 noundef %cond, i32 noundef 0) #27
@@ -1005,7 +1013,7 @@ if.then50:                                        ; preds = %if.else
   br i1 %cmp52, label %return, label %if.end55
 
 if.end55:                                         ; preds = %if.then50
-  %add.ptr57 = getelementptr inbounds i8, ptr %call51, i64 %switch.load131
+  %add.ptr57 = getelementptr inbounds i8, ptr %call51, i64 %switch.load130
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr57, ptr nonnull align 1 %s, i64 %spec.select, i1 false)
   tail call void @zfree(ptr noundef %add.ptr90) #25
   %arrayidx60 = getelementptr inbounds i8, ptr %add.ptr57, i64 -1

@@ -3979,7 +3979,7 @@ if.end78:                                         ; preds = %if.else75, %if.then
   %cmp83 = icmp ult i32 %spec.store.select14, 6
   %sub85 = add nsw i32 %spec.store.select14, -4
   %spec.select = select i1 %cmp83, i32 %spec.store.select14, i32 %sub85
-  switch i32 %spec.select, label %default.unreachable [
+  switch i32 %spec.select, label %sw.epilog [
     i32 0, label %land.lhs.true.i.i
     i32 1, label %land.lhs.true.i.i
     i32 2, label %sw.bb87
@@ -4006,16 +4006,13 @@ sw.bb93:                                          ; preds = %sw.bb92, %if.end78
   %spec.store.select2 = tail call i32 @llvm.smax.i32(i32 %add95, i32 1)
   br label %sw.epilog
 
-default.unreachable:                              ; preds = %if.end78
-  unreachable
-
-sw.epilog:                                        ; preds = %sw.bb93, %sw.bb88
-  %ilim.0 = phi i32 [ %add95, %sw.bb93 ], [ %spec.store.select, %sw.bb88 ]
-  %i.1 = phi i32 [ %spec.store.select2, %sw.bb93 ], [ %spec.store.select, %sw.bb88 ]
-  %ilim1.0 = phi i32 [ %add94, %sw.bb93 ], [ %spec.store.select, %sw.bb88 ]
-  %leftright.2 = phi i32 [ %leftright.1, %sw.bb93 ], [ %leftright.0, %sw.bb88 ]
-  %ndigits.addr.0 = phi i32 [ %ndigits, %sw.bb93 ], [ %spec.store.select, %sw.bb88 ]
-  %conv1.i = zext nneg i32 %i.1 to i64
+sw.epilog:                                        ; preds = %sw.bb93, %sw.bb88, %if.end78
+  %ilim.0 = phi i32 [ -1, %if.end78 ], [ %add95, %sw.bb93 ], [ %spec.store.select, %sw.bb88 ]
+  %i.1 = phi i32 [ %i.0, %if.end78 ], [ %spec.store.select2, %sw.bb93 ], [ %spec.store.select, %sw.bb88 ]
+  %ilim1.0 = phi i32 [ -1, %if.end78 ], [ %add94, %sw.bb93 ], [ %spec.store.select, %sw.bb88 ]
+  %leftright.2 = phi i32 [ 1, %if.end78 ], [ %leftright.1, %sw.bb93 ], [ %leftright.0, %sw.bb88 ]
+  %ndigits.addr.0 = phi i32 [ %ndigits, %if.end78 ], [ %ndigits, %sw.bb93 ], [ %spec.store.select, %sw.bb88 ]
+  %conv1.i = sext i32 %i.1 to i64
   %cmp.not5.i = icmp ult i32 %i.1, 28
   br i1 %cmp.not5.i, label %land.lhs.true.i.i, label %for.body.i395
 

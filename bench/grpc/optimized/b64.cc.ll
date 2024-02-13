@@ -17,6 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [21 x i8] c"Invalid character %c\00", align 1
 @.str.5 = private unnamed_addr constant [15 x i8] c"num_codes <= 4\00", align 1
 @.str.6 = private unnamed_addr constant [41 x i8] c"Invalid group. Must be at least 2 bytes.\00", align 1
+@.str.7 = private unnamed_addr constant [15 x i8] c"num_codes == 4\00", align 1
 @.str.8 = private unnamed_addr constant [26 x i8] c"Invalid padding detected.\00", align 1
 
 ; Function Attrs: mustprogress uwtable
@@ -506,7 +507,7 @@ if.then.i:                                        ; preds = %land.lhs.true43
   unreachable
 
 do.end.i:                                         ; preds = %land.lhs.true43
-  switch i64 %num_codes.0.ph.ph, label %default.unreachable [
+  switch i64 %num_codes.0.ph.ph, label %if.then13.i [
     i64 1, label %if.then2.i
     i64 2, label %if.then5.i
     i64 3, label %if.then8.i
@@ -549,7 +550,8 @@ if.then8.i:                                       ; preds = %do.end.i
   store i8 %conv10.i.i, ptr %arrayidx12.i.i, align 1
   br label %if.end48
 
-default.unreachable:                              ; preds = %do.end.i
+if.then13.i:                                      ; preds = %do.end.i
+  call void @gpr_assertion_failed(ptr noundef nonnull @.str, i32 noundef 165, ptr noundef nonnull @.str.7) #6
   unreachable
 
 do.end15.i:                                       ; preds = %do.end.i

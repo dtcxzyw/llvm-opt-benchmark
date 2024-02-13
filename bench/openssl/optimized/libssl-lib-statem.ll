@@ -672,8 +672,10 @@ SSL_in_init.exit:                                 ; preds = %cond.false.i, %cond
   br i1 %tobool.not, label %if.then6, label %cond.false.i77
 
 cond.false.i77:                                   ; preds = %SSL_in_init.exit
-  %switch = icmp eq i32 %5, 0
-  br i1 %switch, label %if.end.i81, label %cond.end10.i78
+  switch i32 %5, label %if.end12 [
+    i32 0, label %if.end.i81
+    i32 1, label %cond.end10.i78
+  ]
 
 cond.end10.i78:                                   ; preds = %cond.false.i77
   %tls.i79 = getelementptr inbounds i8, ptr %s, i64 64
@@ -681,7 +683,7 @@ cond.end10.i78:                                   ; preds = %cond.false.i77
   %cmp12.i80 = icmp eq ptr %8, null
   br i1 %cmp12.i80, label %if.end12, label %if.end.i81
 
-if.end.i81:                                       ; preds = %cond.false.i77, %cond.end10.i78
+if.end.i81:                                       ; preds = %cond.end10.i78, %cond.false.i77
   %cond1112.i = phi ptr [ %8, %cond.end10.i78 ], [ %s, %cond.false.i77 ]
   %hand_state.i = getelementptr inbounds i8, ptr %cond1112.i, i64 164
   %9 = load i32, ptr %hand_state.i, align 4
@@ -706,7 +708,7 @@ land.lhs.true:                                    ; preds = %if.then6
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %if.end12
 
-if.end12:                                         ; preds = %if.end.i81, %cond.end10.i78, %if.then6, %land.lhs.true, %SSL_in_before.exit
+if.end12:                                         ; preds = %cond.false.i77, %if.end.i81, %cond.end10.i78, %if.then6, %land.lhs.true, %SSL_in_before.exit
   %12 = load i32, ptr %statem, align 8
   switch i32 %12, label %if.end115 [
     i32 0, label %if.then21

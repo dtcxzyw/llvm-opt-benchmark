@@ -1171,8 +1171,14 @@ usrc_writeUCPTrieArrays.exit:                     ; preds = %sw.epilog, %cond.fa
   %dataLength.i = getelementptr inbounds i8, ptr %pTrie, i64 20
   %5 = load i32, ptr %dataLength.i, align 4
   call void @usrc_writeArray(ptr noundef %f, ptr noundef nonnull %line2, ptr noundef %4, i32 noundef %cond13.i, i32 noundef %5, ptr noundef nonnull %cond.i, ptr noundef nonnull %line3)
-  %switch = icmp eq i32 %syntax, 0
-  br i1 %switch, label %if.then2.i, label %sw.epilog40
+  switch i32 %syntax, label %sw.default39 [
+    i32 0, label %if.then2.i
+    i32 1, label %sw.epilog40
+  ]
+
+sw.default39:                                     ; preds = %usrc_writeUCPTrieArrays.exit
+  call void @abort() #20
+  unreachable
 
 sw.epilog40:                                      ; preds = %usrc_writeUCPTrieArrays.exit
   store i8 0, ptr %line, align 16

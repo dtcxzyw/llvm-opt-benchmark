@@ -1453,11 +1453,14 @@ if.end3.i:                                        ; preds = %entry
   br i1 %or.cond.i, label %if.then7.i, label %if.end10.i
 
 if.then7.i:                                       ; preds = %if.end3.i
-  switch i16 %and.i2.i.i, label %default.unreachable.i [
-    i16 1, label %if.end10.i
+  switch i16 %and.i2.i.i, label %if.end10.i [
+    i16 1, label %sw.bb.i
     i16 2, label %sw.bb8.i
     i16 3, label %sw.bb9.i
   ]
+
+sw.bb.i:                                          ; preds = %if.then7.i
+  br label %if.end10.i
 
 sw.bb8.i:                                         ; preds = %if.then7.i
   br label %if.end10.i
@@ -1465,12 +1468,9 @@ sw.bb8.i:                                         ; preds = %if.then7.i
 sw.bb9.i:                                         ; preds = %if.then7.i
   br label %if.end10.i
 
-default.unreachable.i:                            ; preds = %if.then7.i
-  unreachable
-
-if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %if.then7.i, %if.end3.i
-  %cmp22.i = phi i1 [ true, %sw.bb9.i ], [ false, %sw.bb8.i ], [ false, %if.end3.i ], [ false, %if.then7.i ]
-  %base.0.i = phi i32 [ 16, %sw.bb9.i ], [ 8, %sw.bb8.i ], [ 10, %if.end3.i ], [ 2, %if.then7.i ]
+if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %sw.bb.i, %if.then7.i, %if.end3.i
+  %cmp22.i = phi i1 [ false, %if.then7.i ], [ true, %sw.bb9.i ], [ false, %sw.bb8.i ], [ false, %sw.bb.i ], [ false, %if.end3.i ]
+  %base.0.i = phi i32 [ 10, %if.then7.i ], [ 16, %sw.bb9.i ], [ 8, %sw.bb8.i ], [ 2, %sw.bb.i ], [ 10, %if.end3.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 8
   %call.i.i = call { ptr, i32 } @_ZSt12__to_chars_iIaENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i(ptr noundef nonnull %buf.i, ptr noundef nonnull %add.ptr.i, i8 noundef signext %val, i32 noundef %base.0.i)
   %0 = extractvalue { ptr, i32 } %call.i.i, 0
@@ -1545,11 +1545,14 @@ if.end3.i:                                        ; preds = %entry
   br i1 %or.cond.i, label %if.then7.i, label %if.end10.i
 
 if.then7.i:                                       ; preds = %if.end3.i
-  switch i16 %and.i2.i.i, label %default.unreachable.i [
-    i16 1, label %if.end10.i
+  switch i16 %and.i2.i.i, label %if.end10.i [
+    i16 1, label %sw.bb.i
     i16 2, label %sw.bb8.i
     i16 3, label %sw.bb9.i
   ]
+
+sw.bb.i:                                          ; preds = %if.then7.i
+  br label %if.end10.i
 
 sw.bb8.i:                                         ; preds = %if.then7.i
   br label %if.end10.i
@@ -1557,12 +1560,9 @@ sw.bb8.i:                                         ; preds = %if.then7.i
 sw.bb9.i:                                         ; preds = %if.then7.i
   br label %if.end10.i
 
-default.unreachable.i:                            ; preds = %if.then7.i
-  unreachable
-
-if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %if.then7.i, %if.end3.i
-  %cmp22.i = phi i1 [ true, %sw.bb9.i ], [ false, %sw.bb8.i ], [ false, %if.end3.i ], [ false, %if.then7.i ]
-  %base.0.i = phi i32 [ 16, %sw.bb9.i ], [ 8, %sw.bb8.i ], [ 10, %if.end3.i ], [ 2, %if.then7.i ]
+if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %sw.bb.i, %if.then7.i, %if.end3.i
+  %cmp22.i = phi i1 [ false, %if.then7.i ], [ true, %sw.bb9.i ], [ false, %sw.bb8.i ], [ false, %sw.bb.i ], [ false, %if.end3.i ]
+  %base.0.i = phi i32 [ 10, %if.then7.i ], [ 16, %sw.bb9.i ], [ 8, %sw.bb8.i ], [ 2, %sw.bb.i ], [ 10, %if.end3.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %call.i.i = call { ptr, i32 } @_ZSt12__to_chars_iIsENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i(ptr noundef nonnull %buf.i, ptr noundef nonnull %add.ptr.i, i16 noundef signext %val, i32 noundef %base.0.i)
   %0 = extractvalue { ptr, i32 } %call.i.i, 0
@@ -1637,11 +1637,14 @@ if.end3.i:                                        ; preds = %entry
   br i1 %or.cond.i, label %if.then7.i, label %if.end10.i
 
 if.then7.i:                                       ; preds = %if.end3.i
-  switch i16 %and.i2.i.i, label %default.unreachable.i [
-    i16 1, label %if.end10.i
+  switch i16 %and.i2.i.i, label %if.end10.i [
+    i16 1, label %sw.bb.i
     i16 2, label %sw.bb8.i
     i16 3, label %sw.bb9.i
   ]
+
+sw.bb.i:                                          ; preds = %if.then7.i
+  br label %if.end10.i
 
 sw.bb8.i:                                         ; preds = %if.then7.i
   br label %if.end10.i
@@ -1649,12 +1652,9 @@ sw.bb8.i:                                         ; preds = %if.then7.i
 sw.bb9.i:                                         ; preds = %if.then7.i
   br label %if.end10.i
 
-default.unreachable.i:                            ; preds = %if.then7.i
-  unreachable
-
-if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %if.then7.i, %if.end3.i
-  %cmp22.i = phi i1 [ true, %sw.bb9.i ], [ false, %sw.bb8.i ], [ false, %if.end3.i ], [ false, %if.then7.i ]
-  %base.0.i = phi i32 [ 16, %sw.bb9.i ], [ 8, %sw.bb8.i ], [ 10, %if.end3.i ], [ 2, %if.then7.i ]
+if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %sw.bb.i, %if.then7.i, %if.end3.i
+  %cmp22.i = phi i1 [ false, %if.then7.i ], [ true, %sw.bb9.i ], [ false, %sw.bb8.i ], [ false, %sw.bb.i ], [ false, %if.end3.i ]
+  %base.0.i = phi i32 [ 10, %if.then7.i ], [ 16, %sw.bb9.i ], [ 8, %sw.bb8.i ], [ 2, %sw.bb.i ], [ 10, %if.end3.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 32
   %call.i.i = call { ptr, i32 } @_ZSt12__to_chars_iIiENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i(ptr noundef nonnull %buf.i, ptr noundef nonnull %add.ptr.i, i32 noundef %val, i32 noundef %base.0.i)
   %0 = extractvalue { ptr, i32 } %call.i.i, 0
@@ -1729,11 +1729,14 @@ if.end3.i:                                        ; preds = %entry
   br i1 %or.cond.i, label %if.then7.i, label %if.end10.i
 
 if.then7.i:                                       ; preds = %if.end3.i
-  switch i16 %and.i2.i.i, label %default.unreachable.i [
-    i16 1, label %if.end10.i
+  switch i16 %and.i2.i.i, label %if.end10.i [
+    i16 1, label %sw.bb.i
     i16 2, label %sw.bb8.i
     i16 3, label %sw.bb9.i
   ]
+
+sw.bb.i:                                          ; preds = %if.then7.i
+  br label %if.end10.i
 
 sw.bb8.i:                                         ; preds = %if.then7.i
   br label %if.end10.i
@@ -1741,12 +1744,9 @@ sw.bb8.i:                                         ; preds = %if.then7.i
 sw.bb9.i:                                         ; preds = %if.then7.i
   br label %if.end10.i
 
-default.unreachable.i:                            ; preds = %if.then7.i
-  unreachable
-
-if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %if.then7.i, %if.end3.i
-  %cmp22.i = phi i1 [ true, %sw.bb9.i ], [ false, %sw.bb8.i ], [ false, %if.end3.i ], [ false, %if.then7.i ]
-  %base.0.i = phi i32 [ 16, %sw.bb9.i ], [ 8, %sw.bb8.i ], [ 10, %if.end3.i ], [ 2, %if.then7.i ]
+if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %sw.bb.i, %if.then7.i, %if.end3.i
+  %cmp22.i = phi i1 [ false, %if.then7.i ], [ true, %sw.bb9.i ], [ false, %sw.bb8.i ], [ false, %sw.bb.i ], [ false, %if.end3.i ]
+  %base.0.i = phi i32 [ 10, %if.then7.i ], [ 16, %sw.bb9.i ], [ 8, %sw.bb8.i ], [ 2, %sw.bb.i ], [ 10, %if.end3.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 64
   %call.i.i = call { ptr, i32 } @_ZSt12__to_chars_iIlENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i(ptr noundef nonnull %buf.i, ptr noundef nonnull %add.ptr.i, i64 noundef %val, i32 noundef %base.0.i)
   %0 = extractvalue { ptr, i32 } %call.i.i, 0
@@ -1821,11 +1821,14 @@ if.end3.i:                                        ; preds = %entry
   br i1 %or.cond.i, label %if.then7.i, label %if.end10.i
 
 if.then7.i:                                       ; preds = %if.end3.i
-  switch i16 %and.i2.i.i, label %default.unreachable.i [
-    i16 1, label %if.end10.i
+  switch i16 %and.i2.i.i, label %if.end10.i [
+    i16 1, label %sw.bb.i
     i16 2, label %sw.bb8.i
     i16 3, label %sw.bb9.i
   ]
+
+sw.bb.i:                                          ; preds = %if.then7.i
+  br label %if.end10.i
 
 sw.bb8.i:                                         ; preds = %if.then7.i
   br label %if.end10.i
@@ -1833,12 +1836,9 @@ sw.bb8.i:                                         ; preds = %if.then7.i
 sw.bb9.i:                                         ; preds = %if.then7.i
   br label %if.end10.i
 
-default.unreachable.i:                            ; preds = %if.then7.i
-  unreachable
-
-if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %if.then7.i, %if.end3.i
-  %cmp22.i = phi i1 [ true, %sw.bb9.i ], [ false, %sw.bb8.i ], [ false, %if.end3.i ], [ false, %if.then7.i ]
-  %base.0.i = phi i32 [ 16, %sw.bb9.i ], [ 8, %sw.bb8.i ], [ 10, %if.end3.i ], [ 2, %if.then7.i ]
+if.end10.i:                                       ; preds = %sw.bb9.i, %sw.bb8.i, %sw.bb.i, %if.then7.i, %if.end3.i
+  %cmp22.i = phi i1 [ false, %if.then7.i ], [ true, %sw.bb9.i ], [ false, %sw.bb8.i ], [ false, %sw.bb.i ], [ false, %if.end3.i ]
+  %base.0.i = phi i32 [ 10, %if.then7.i ], [ 16, %sw.bb9.i ], [ 8, %sw.bb8.i ], [ 2, %sw.bb.i ], [ 10, %if.end3.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 64
   %call.i.i = call { ptr, i32 } @_ZSt12__to_chars_iIxENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i(ptr noundef nonnull %buf.i, ptr noundef nonnull %add.ptr.i, i64 noundef %val, i32 noundef %base.0.i)
   %0 = extractvalue { ptr, i32 } %call.i.i, 0

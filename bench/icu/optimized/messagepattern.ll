@@ -2039,7 +2039,7 @@ switch.early.test16.i:                            ; preds = %lor.lhs.false.i
   ]
 
 if.end.i59:                                       ; preds = %switch.early.test16.i, %switch.early.test16.i, %switch.early.test16.i, %lor.lhs.false.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.i60 = icmp slt i64 %indvars.iv.next.i, %27
   %29 = trunc i64 %indvars.iv.next.i to i32
   %cmp.i.i17.i = icmp ugt i32 %cond.i.i58188, %29
@@ -2519,7 +2519,7 @@ switch.early.test16.i:                            ; preds = %lor.lhs.false.i
   ]
 
 if.end.i:                                         ; preds = %switch.early.test16.i, %switch.early.test16.i, %switch.early.test16.i, %lor.lhs.false.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp.i107 = icmp slt i64 %indvars.iv.next.i, %19
   %21 = trunc i64 %indvars.iv.next.i to i32
   %cmp.i.i17.i = icmp ugt i32 %cond.i, %21
@@ -2740,7 +2740,7 @@ switch.early.test16.i196:                         ; preds = %lor.lhs.false.i189
   ]
 
 if.end.i191:                                      ; preds = %switch.early.test16.i196, %switch.early.test16.i196, %switch.early.test16.i196, %lor.lhs.false.i189, %switch.early.test.i198, %switch.early.test.i198, %switch.early.test.i198
-  %indvars.iv.next.i192 = add nsw i64 %indvars.iv.i186, 1
+  %indvars.iv.next.i192 = add nuw nsw i64 %indvars.iv.i186, 1
   %cmp.i193 = icmp slt i64 %indvars.iv.next.i192, %48
   %50 = trunc i64 %indvars.iv.next.i192 to i32
   %cmp.i.i17.i194 = icmp ugt i32 %cond.i.i175, %50
@@ -3483,8 +3483,10 @@ entry:
   br i1 %.not, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %switch = icmp eq i32 %1, 12
-  br i1 %switch, label %if.then.i, label %if.then4.i
+  switch i32 %1, label %return [
+    i32 12, label %if.then.i
+    i32 13, label %if.then4.i
+  ]
 
 if.then.i:                                        ; preds = %if.then
   %value.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 10
@@ -3502,8 +3504,8 @@ if.then4.i:                                       ; preds = %if.then
   %6 = load double, ptr %arrayidx.i3, align 8
   br label %return
 
-return:                                           ; preds = %if.then4.i, %if.then.i, %entry
-  %retval.0 = phi double [ 0.000000e+00, %entry ], [ %conv.i4, %if.then.i ], [ %6, %if.then4.i ]
+return:                                           ; preds = %if.then4.i, %if.then.i, %if.then, %entry
+  %retval.0 = phi double [ 0.000000e+00, %entry ], [ %conv.i4, %if.then.i ], [ %6, %if.then4.i ], [ 0xC19D6F3454000000, %if.then ]
   ret double %retval.0
 }
 
@@ -4245,7 +4247,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit257:      ; preds = %_ZNK6icu_7513Unicod
   br i1 %narrow.i, label %while.end.loopexit.split.loop.exit382, label %while.body
 
 while.body:                                       ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit257
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp43 = icmp slt i64 %indvars.iv.next, %77
   %82 = trunc i64 %indvars.iv.next to i32
   %cmp.i.i248 = icmp ugt i32 %cond.i242, %82
@@ -5464,7 +5466,7 @@ switch.early.test16:                              ; preds = %lor.lhs.false
   ]
 
 if.end:                                           ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test16, %switch.early.test16, %switch.early.test16, %lor.lhs.false
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp slt i64 %indvars.iv.next, %6
   %8 = trunc i64 %indvars.iv.next to i32
   %cmp.i.i17 = icmp ugt i32 %cond.i, %8

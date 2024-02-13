@@ -4776,7 +4776,7 @@ sdslen.exit:                                      ; preds = %sw.bb3.i, %sw.bb5.i
   br i1 %cmp, label %invalid, label %if.end
 
 if.end:                                           ; preds = %sdslen.exit
-  switch i32 %and.i, label %default.unreachable [
+  switch i32 %and.i, label %sdslen.exit39 [
     i32 4, label %sw.bb13.i24
     i32 1, label %sw.bb3.i33
     i32 2, label %sw.bb5.i30
@@ -4811,11 +4811,8 @@ sw.bb13.i24:                                      ; preds = %if.end
   %9 = load i64, ptr %add.ptr14.i25, align 1
   br label %sdslen.exit39
 
-default.unreachable:                              ; preds = %if.end
-  unreachable
-
-sdslen.exit39:                                    ; preds = %entry, %sw.bb.i36, %sw.bb3.i33, %sw.bb5.i30, %sw.bb9.i27, %sw.bb13.i24
-  %retval.0.i26 = phi i64 [ %9, %sw.bb13.i24 ], [ %conv12.i29, %sw.bb9.i27 ], [ %conv8.i32, %sw.bb5.i30 ], [ %conv4.i35, %sw.bb3.i33 ], [ %conv2.i38, %sw.bb.i36 ], [ 0, %entry ]
+sdslen.exit39:                                    ; preds = %entry, %if.end, %sw.bb.i36, %sw.bb3.i33, %sw.bb5.i30, %sw.bb9.i27, %sw.bb13.i24
+  %retval.0.i26 = phi i64 [ %9, %sw.bb13.i24 ], [ %conv12.i29, %sw.bb9.i27 ], [ %conv8.i32, %sw.bb5.i30 ], [ %conv4.i35, %sw.bb3.i33 ], [ %conv2.i38, %sw.bb.i36 ], [ 0, %if.end ], [ 0, %entry ]
   %add = add i64 %retval.0.i26, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 1 %0, i64 %add, i1 false)
   %tobool.not = icmp eq i32 %strict, 0
@@ -5932,7 +5929,7 @@ if.then48:                                        ; preds = %if.end46
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then48, %if.end46
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = load i32, ptr %argc, align 8
   %18 = trunc i64 %indvars.iv.next to i32
   %cmp30 = icmp sgt i32 %17, %18
@@ -10045,7 +10042,7 @@ createObjectFromStreamID.exit:                    ; preds = %if.then99, %sw.bb.i
   %67 = load i64, ptr %key_len, align 8
   %call113 = call i32 @raxRemove(ptr noundef %65, ptr noundef %66, i64 noundef %67, ptr noundef null) #16
   call void @zfree(ptr noundef %45) #16
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx116 = getelementptr inbounds %struct.streamID, ptr %call63, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx116, ptr noundef nonnull align 8 dereferenceable(16) %id95, i64 16, i1 false)
   %68 = load ptr, ptr %key, align 8

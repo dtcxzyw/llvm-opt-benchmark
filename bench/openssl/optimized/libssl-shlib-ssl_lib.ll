@@ -1822,8 +1822,10 @@ if.end22:                                         ; preds = %if.end18
   br i1 %cmp23, label %cond.false.i, label %if.end28
 
 cond.false.i:                                     ; preds = %if.end22
-  %switch = icmp eq i32 %0, 0
-  br i1 %switch, label %ossl_ctrl_internal.exit, label %cond.end10.i
+  switch i32 %0, label %return.sink.split [
+    i32 0, label %ossl_ctrl_internal.exit
+    i32 1, label %cond.end10.i
+  ]
 
 cond.end10.i:                                     ; preds = %cond.false.i
   %tls.i = getelementptr inbounds i8, ptr %s, i64 64
@@ -1860,10 +1862,10 @@ if.end32:                                         ; preds = %if.end28
   %cmp38 = icmp eq ptr %call.i17, null
   br i1 %cmp38, label %return.sink.split, label %return
 
-return.sink.split:                                ; preds = %if.end32, %if.end28, %ossl_ctrl_internal.exit, %cond.end10.i, %if.end18, %if.end
-  %.sink30 = phi i32 [ 1220, %if.end ], [ 1224, %if.end18 ], [ 1235, %cond.end10.i ], [ 1235, %ossl_ctrl_internal.exit ], [ 1242, %if.end28 ], [ 1252, %if.end32 ]
-  %.sink = phi i32 [ 167, %if.end ], [ 172, %if.end18 ], [ 204, %cond.end10.i ], [ 204, %ossl_ctrl_internal.exit ], [ 204, %if.end28 ], [ 524303, %if.end32 ]
-  %retval.0.ph = phi i32 [ 0, %if.end ], [ 0, %if.end18 ], [ -1, %cond.end10.i ], [ -1, %ossl_ctrl_internal.exit ], [ -1, %if.end28 ], [ -1, %if.end32 ]
+return.sink.split:                                ; preds = %if.end32, %if.end28, %ossl_ctrl_internal.exit, %cond.end10.i, %cond.false.i, %if.end18, %if.end
+  %.sink30 = phi i32 [ 1220, %if.end ], [ 1224, %if.end18 ], [ 1235, %cond.false.i ], [ 1235, %cond.end10.i ], [ 1235, %ossl_ctrl_internal.exit ], [ 1242, %if.end28 ], [ 1252, %if.end32 ]
+  %.sink = phi i32 [ 167, %if.end ], [ 172, %if.end18 ], [ 204, %cond.false.i ], [ 204, %cond.end10.i ], [ 204, %ossl_ctrl_internal.exit ], [ 204, %if.end28 ], [ 524303, %if.end32 ]
+  %retval.0.ph = phi i32 [ 0, %if.end ], [ 0, %if.end18 ], [ -1, %cond.false.i ], [ -1, %cond.end10.i ], [ -1, %ossl_ctrl_internal.exit ], [ -1, %if.end28 ], [ -1, %if.end32 ]
   tail call void @ERR_new() #24
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink30, ptr noundef nonnull @__func__.SSL_dane_enable) #24
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #24
@@ -8248,8 +8250,10 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %or.cond, label %return, label %cond.false.i
 
 cond.false.i:                                     ; preds = %lor.lhs.false
-  %switch = icmp eq i32 %0, 0
-  br i1 %switch, label %if.then.i, label %cond.end10.i
+  switch i32 %0, label %return [
+    i32 0, label %if.then.i
+    i32 1, label %cond.end10.i
+  ]
 
 cond.end10.i:                                     ; preds = %cond.false.i
   %tls.i = getelementptr inbounds i8, ptr %s, i64 64
@@ -8257,7 +8261,7 @@ cond.end10.i:                                     ; preds = %cond.false.i
   %cmp12.not.i = icmp eq ptr %4, null
   br i1 %cmp12.not.i, label %return, label %if.then.i
 
-if.then.i:                                        ; preds = %cond.false.i, %cond.end10.i
+if.then.i:                                        ; preds = %cond.end10.i, %cond.false.i
   %cond1118.i = phi ptr [ %4, %cond.end10.i ], [ %s, %cond.false.i ]
   %cipher_list.i = getelementptr inbounds i8, ptr %cond1118.i, i64 1248
   %5 = load ptr, ptr %cipher_list.i, align 8
@@ -8346,8 +8350,8 @@ return.sink.split:                                ; preds = %if.then48, %for.end
   store i8 0, ptr %arrayidx.sink, align 1
   br label %return
 
-return:                                           ; preds = %return.sink.split, %cond.false, %entry, %land.lhs.true.i, %if.else.i, %cond.end10.i, %if.end23, %lor.lhs.false27, %if.end, %lor.lhs.false, %cond.end10
-  %retval.0 = phi ptr [ null, %cond.end10 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %lor.lhs.false27 ], [ null, %if.end23 ], [ null, %cond.end10.i ], [ null, %if.else.i ], [ null, %land.lhs.true.i ], [ null, %entry ], [ null, %cond.false ], [ %buf, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %cond.false, %entry, %land.lhs.true.i, %if.else.i, %cond.end10.i, %cond.false.i, %if.end23, %lor.lhs.false27, %if.end, %lor.lhs.false, %cond.end10
+  %retval.0 = phi ptr [ null, %cond.end10 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %lor.lhs.false27 ], [ null, %if.end23 ], [ null, %cond.false.i ], [ null, %cond.end10.i ], [ null, %if.else.i ], [ null, %land.lhs.true.i ], [ null, %entry ], [ null, %cond.false ], [ %buf, %return.sink.split ]
   ret ptr %retval.0
 }
 

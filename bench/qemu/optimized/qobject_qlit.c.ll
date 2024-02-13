@@ -39,7 +39,7 @@ qobject_type.exit:                                ; preds = %lor.lhs.false
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %qobject_type.exit
-  switch i32 %0, label %default.unreachable [
+  switch i32 %0, label %sw.epilog [
     i32 6, label %qobject_check_type.exit
     i32 2, label %qobject_check_type.exit18
     i32 3, label %qobject_check_type.exit24
@@ -144,11 +144,11 @@ land.end.i:                                       ; preds = %land.end.i.loopexit
   %cmp.i48 = icmp eq i32 %16, 0
   br label %return
 
-default.unreachable:                              ; preds = %if.end
-  unreachable
+sw.epilog:                                        ; preds = %if.end
+  br label %return
 
-return:                                           ; preds = %for.body.i41, %for.body.i, %land.end.i, %for.end.i, %if.end, %entry, %qobject_type.exit, %qobject_check_type.exit24, %qobject_check_type.exit18, %qobject_check_type.exit
-  %retval.0 = phi i1 [ %cmp19, %qobject_check_type.exit24 ], [ %cmp12, %qobject_check_type.exit18 ], [ %cmp6, %qobject_check_type.exit ], [ false, %qobject_type.exit ], [ false, %entry ], [ true, %if.end ], [ %cmp.not.i, %for.end.i ], [ %cmp.i48, %land.end.i ], [ false, %for.body.i ], [ false, %for.body.i41 ]
+return:                                           ; preds = %for.body.i41, %for.body.i, %land.end.i, %for.end.i, %if.end, %entry, %qobject_type.exit, %sw.epilog, %qobject_check_type.exit24, %qobject_check_type.exit18, %qobject_check_type.exit
+  %retval.0 = phi i1 [ false, %sw.epilog ], [ %cmp19, %qobject_check_type.exit24 ], [ %cmp12, %qobject_check_type.exit18 ], [ %cmp6, %qobject_check_type.exit ], [ false, %qobject_type.exit ], [ false, %entry ], [ true, %if.end ], [ %cmp.not.i, %for.end.i ], [ %cmp.i48, %land.end.i ], [ false, %for.body.i ], [ false, %for.body.i41 ]
   ret i1 %retval.0
 }
 

@@ -143,8 +143,10 @@ cond.true50:                                      ; preds = %land.lhs.true38
 
 if.then54:                                        ; preds = %cond.true43, %cond.true50
   %n2.0 = phi double [ %10, %cond.true43 ], [ %conv52, %cond.true50 ]
-  %switch = icmp eq i32 %op, 4
-  br i1 %switch, label %sw.bb4.i, label %sw.bb3.i
+  switch i32 %op, label %numarith.exit [
+    i32 4, label %sw.bb4.i
+    i32 5, label %sw.bb3.i
+  ]
 
 sw.bb3.i:                                         ; preds = %if.then54
   %div.i = fdiv double %n1.0, %n2.0
@@ -162,8 +164,8 @@ cond.false.i:                                     ; preds = %sw.bb4.i
   %call.i = tail call double @pow(double noundef %n1.0, double noundef %n2.0) #18
   br label %numarith.exit
 
-numarith.exit:                                    ; preds = %sw.bb3.i, %cond.true.i, %cond.false.i
-  %retval.0.i = phi double [ %div.i, %sw.bb3.i ], [ %mul5.i, %cond.true.i ], [ %call.i, %cond.false.i ]
+numarith.exit:                                    ; preds = %if.then54, %sw.bb3.i, %cond.true.i, %cond.false.i
+  %retval.0.i = phi double [ %div.i, %sw.bb3.i ], [ %mul5.i, %cond.true.i ], [ %call.i, %cond.false.i ], [ 0.000000e+00, %if.then54 ]
   store double %retval.0.i, ptr %res, align 8
   br label %return.sink.split
 
@@ -685,7 +687,7 @@ do.body:                                          ; preds = %entry, %do.body
   %0 = trunc i64 %x.addr.0 to i8
   %1 = and i8 %0, 63
   %conv1 = or disjoint i8 %1, -128
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = sub nsw i64 8, %indvars.iv
   %arrayidx2 = getelementptr inbounds i8, ptr %buff, i64 %2
   store i8 %conv1, ptr %arrayidx2, align 1
@@ -1090,7 +1092,7 @@ do.body.i:                                        ; preds = %vaarg.end87, %do.bo
   %48 = trunc i64 %x.addr.0.i to i8
   %49 = and i8 %48, 63
   %conv1.i = or disjoint i8 %49, -128
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %50 = sub nsw i64 8, %indvars.iv.i
   %arrayidx2.i = getelementptr inbounds i8, ptr %bf76, i64 %50
   store i8 %conv1.i, ptr %arrayidx2.i, align 1

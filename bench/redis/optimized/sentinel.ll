@@ -6189,7 +6189,7 @@ land.lhs.true113:                                 ; preds = %sdslen.exit233
   br i1 %tobool115.not, label %for.inc, label %if.else117
 
 if.else117:                                       ; preds = %land.lhs.true113, %sdslen.exit233
-  switch i32 %and.i217, label %default.unreachable [
+  switch i32 %and.i217, label %if.end126 [
     i32 0, label %sw.bb.i249
     i32 1, label %sw.bb3.i246
     i32 2, label %sw.bb5.i243
@@ -6237,10 +6237,7 @@ land.lhs.true121:                                 ; preds = %sdslen.exit252
   %or.cond477 = select i1 %tobool123.not, i1 true, i1 %cmp127
   br i1 %or.cond477, label %if.then129, label %for.inc
 
-default.unreachable:                              ; preds = %if.else117
-  unreachable
-
-if.end126:                                        ; preds = %if.end109, %sdslen.exit252
+if.end126:                                        ; preds = %if.end109, %if.else117, %sdslen.exit252
   %cmp127.old = icmp eq i32 %role.0479, 2
   br i1 %cmp127.old, label %if.then129, label %for.inc
 

@@ -6201,7 +6201,7 @@ cond.false:                                       ; preds = %if.end5
   unreachable
 
 for.inc:                                          ; preds = %if.end5, %if.end
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add.ptr = getelementptr inbounds %struct.redisCommand, ptr @redisCommandTable, i64 %indvars.iv.next
   %7 = load ptr, ptr %add.ptr, align 8
   %cmp = icmp eq ptr %7, null
@@ -8224,7 +8224,7 @@ cond.false.i:                                     ; preds = %if.end.i20
   unreachable
 
 for.inc:                                          ; preds = %if.end.i20, %for.body
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load ptr, ptr %subcommands, align 8
   %arrayidx = getelementptr inbounds %struct.redisCommand, ptr %20, i64 %indvars.iv.next
   %21 = load ptr, ptr %arrayidx, align 8
@@ -9962,7 +9962,7 @@ sdslen.exit:                                      ; preds = %sw.bb3.i, %sw.bb5.i
   br i1 %cmp18, label %for.body, label %for.end
 
 for.body:                                         ; preds = %sdslen.exit
-  switch i32 %and.i, label %default.unreachable [
+  switch i32 %and.i, label %sdslen.exit40 [
     i32 4, label %sw.bb13.i25
     i32 1, label %sw.bb3.i34
     i32 2, label %sw.bb5.i31
@@ -9997,11 +9997,8 @@ sw.bb13.i25:                                      ; preds = %for.body
   %21 = load i64, ptr %add.ptr14.i26, align 1
   br label %sdslen.exit40
 
-default.unreachable:                              ; preds = %for.body
-  unreachable
-
-sdslen.exit40:                                    ; preds = %land.rhs, %sw.bb.i37, %sw.bb3.i34, %sw.bb5.i31, %sw.bb9.i28, %sw.bb13.i25
-  %retval.0.i27 = phi i64 [ %21, %sw.bb13.i25 ], [ %conv12.i30, %sw.bb9.i28 ], [ %conv8.i33, %sw.bb5.i31 ], [ %conv4.i36, %sw.bb3.i34 ], [ %conv2.i39, %sw.bb.i37 ], [ 0, %land.rhs ]
+sdslen.exit40:                                    ; preds = %land.rhs, %for.body, %sw.bb.i37, %sw.bb3.i34, %sw.bb5.i31, %sw.bb9.i28, %sw.bb13.i25
+  %retval.0.i27 = phi i64 [ %21, %sw.bb13.i25 ], [ %conv12.i30, %sw.bb9.i28 ], [ %conv8.i33, %sw.bb5.i31 ], [ %conv4.i36, %sw.bb3.i34 ], [ %conv2.i39, %sw.bb.i37 ], [ 0, %for.body ], [ 0, %land.rhs ]
   %conv = trunc i64 %retval.0.i27 to i32
   %sub = sub nsw i32 128, %conv
   %22 = load ptr, ptr %argv, align 8
@@ -11600,7 +11597,7 @@ if.then16:                                        ; preds = %while.body10
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then16, %while.body10
-  %indvars.iv.next25 = add nuw i64 %indvars.iv24, 1
+  %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %arrayidx7 = getelementptr inbounds %struct.replyFlagNames, ptr %replyFlags, i64 %indvars.iv.next25
   %name8 = getelementptr inbounds i8, ptr %arrayidx7, i64 8
   %7 = load ptr, ptr %name8, align 8
@@ -13514,7 +13511,7 @@ if.else20:                                        ; preds = %if.else15
 
 if.end22:                                         ; preds = %if.else15, %if.else, %if.then
   %9 = phi i32 [ 0, %if.then ], [ 1, %if.else ], [ 2, %if.else15 ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 3
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %10 = trunc i64 %indvars.iv.next to i32
   %cmp = icmp sgt i32 %0, %10
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !62

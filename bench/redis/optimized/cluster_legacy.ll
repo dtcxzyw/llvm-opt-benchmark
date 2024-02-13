@@ -966,7 +966,7 @@ if.end76:                                         ; preds = %do.body72
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then56, %if.end76, %do.body72, %if.then66
-  %indvars.iv.next732 = add nuw i64 %indvars.iv731, 2
+  %indvars.iv.next732 = add nuw nsw i64 %indvars.iv731, 2
   %15 = load i32, ptr %argc, align 4
   %16 = trunc i64 %indvars.iv.next732 to i32
   %cmp50 = icmp sgt i32 %15, %16
@@ -3431,7 +3431,7 @@ if.then9:                                         ; preds = %land.lhs.true
   br label %if.end20
 
 if.else13:                                        ; preds = %sdslen.exit
-  switch i32 %and.i, label %default.unreachable [
+  switch i32 %and.i, label %if.end20 [
     i32 0, label %sw.bb.i25
     i32 1, label %sw.bb3.i22
     i32 2, label %sw.bb5.i19
@@ -3476,10 +3476,7 @@ if.then17:                                        ; preds = %sdslen.exit28
   tail call void @sdsclear(ptr noundef nonnull %0) #32
   br label %if.end20
 
-default.unreachable:                              ; preds = %if.else13
-  unreachable
-
-if.end20:                                         ; preds = %sdslen.exit28, %if.then17, %if.then9
+if.end20:                                         ; preds = %if.else13, %sdslen.exit28, %if.then17, %if.then9
   %10 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %todo_before_sleep.i = getelementptr inbounds i8, ptr %10, i64 393352
   %11 = load i32, ptr %todo_before_sleep.i, align 8
@@ -3572,7 +3569,7 @@ if.then9:                                         ; preds = %land.lhs.true
   br label %if.end20
 
 if.else13:                                        ; preds = %sdslen.exit
-  switch i32 %and.i, label %default.unreachable [
+  switch i32 %and.i, label %if.end20 [
     i32 0, label %sw.bb.i25
     i32 1, label %sw.bb3.i22
     i32 2, label %sw.bb5.i19
@@ -3617,10 +3614,7 @@ if.then17:                                        ; preds = %sdslen.exit28
   tail call void @sdsclear(ptr noundef nonnull %0) #32
   br label %if.end20
 
-default.unreachable:                              ; preds = %if.else13
-  unreachable
-
-if.end20:                                         ; preds = %sdslen.exit28, %if.then17, %if.then9
+if.end20:                                         ; preds = %if.else13, %sdslen.exit28, %if.then17, %if.then9
   %10 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %todo_before_sleep.i = getelementptr inbounds i8, ptr %10, i64 393352
   %11 = load i32, ptr %todo_before_sleep.i, align 8
@@ -7873,7 +7867,7 @@ sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i,
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sdslen.exit
-  switch i32 %and.i, label %default.unreachable [
+  switch i32 %and.i, label %sdslen.exit19 [
     i32 0, label %sw.bb.i16
     i32 1, label %sw.bb3.i13
     i32 2, label %sw.bb5.i10
@@ -7909,11 +7903,8 @@ sw.bb13.i4:                                       ; preds = %if.end
   %10 = load i64, ptr %add.ptr14.i5, align 1
   br label %sdslen.exit19
 
-default.unreachable:                              ; preds = %if.end
-  unreachable
-
-sdslen.exit19:                                    ; preds = %sw.bb.i16, %sw.bb3.i13, %sw.bb5.i10, %sw.bb9.i7, %sw.bb13.i4
-  %retval.0.i6 = phi i64 [ %10, %sw.bb13.i4 ], [ %conv12.i9, %sw.bb9.i7 ], [ %conv8.i12, %sw.bb5.i10 ], [ %conv4.i15, %sw.bb3.i13 ], [ %conv2.i18, %sw.bb.i16 ]
+sdslen.exit19:                                    ; preds = %if.end, %sw.bb.i16, %sw.bb3.i13, %sw.bb5.i10, %sw.bb9.i7, %sw.bb13.i4
+  %retval.0.i6 = phi i64 [ %10, %sw.bb13.i4 ], [ %conv12.i9, %sw.bb9.i7 ], [ %conv8.i12, %sw.bb5.i10 ], [ %conv4.i15, %sw.bb3.i13 ], [ %conv2.i18, %sw.bb.i16 ], [ 0, %if.end ]
   %11 = trunc i64 %retval.0.i6 to i32
   %12 = and i32 %11, -8
   %add1.i = add i32 %12, 16
@@ -7976,7 +7967,7 @@ sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i,
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %sdslen.exit
-  switch i32 %and.i, label %default.unreachable [
+  switch i32 %and.i, label %sdslen.exit19 [
     i32 0, label %sw.bb.i16
     i32 1, label %sw.bb3.i13
     i32 2, label %sw.bb5.i10
@@ -8012,11 +8003,8 @@ sw.bb13.i4:                                       ; preds = %if.end
   %10 = load i64, ptr %add.ptr14.i5, align 1
   br label %sdslen.exit19
 
-default.unreachable:                              ; preds = %if.end
-  unreachable
-
-sdslen.exit19:                                    ; preds = %sw.bb.i16, %sw.bb3.i13, %sw.bb5.i10, %sw.bb9.i7, %sw.bb13.i4
-  %retval.0.i6 = phi i64 [ %10, %sw.bb13.i4 ], [ %conv12.i9, %sw.bb9.i7 ], [ %conv8.i12, %sw.bb5.i10 ], [ %conv4.i15, %sw.bb3.i13 ], [ %conv2.i18, %sw.bb.i16 ]
+sdslen.exit19:                                    ; preds = %if.end, %sw.bb.i16, %sw.bb3.i13, %sw.bb5.i10, %sw.bb9.i7, %sw.bb13.i4
+  %retval.0.i6 = phi i64 [ %10, %sw.bb13.i4 ], [ %conv12.i9, %sw.bb9.i7 ], [ %conv8.i12, %sw.bb5.i10 ], [ %conv4.i15, %sw.bb3.i13 ], [ %conv2.i18, %sw.bb.i16 ], [ 0, %if.end ]
   %11 = trunc i64 %retval.0.i6 to i32
   %12 = and i32 %11, -8
   %add1.i = add i32 %12, 16
@@ -8127,7 +8115,7 @@ if.then3:                                         ; preds = %sdslen.exit
   br i1 %cmp.not, label %if.end13, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
-  switch i32 %and.i, label %default.unreachable239 [
+  switch i32 %and.i, label %getHostnamePingExtSize.exit [
     i32 0, label %sw.bb.i.i
     i32 1, label %sw.bb3.i.i
     i32 2, label %sw.bb5.i.i
@@ -8169,7 +8157,7 @@ sdslen.exit.i:                                    ; preds = %sw.bb13.i.i, %sw.bb
   br i1 %cmp.i, label %getHostnamePingExtSize.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sdslen.exit.i
-  switch i32 %and.i, label %default.unreachable.i [
+  switch i32 %and.i, label %sdslen.exit19.i [
     i32 0, label %sw.bb.i16.i
     i32 1, label %sw.bb3.i13.i
     i32 2, label %sw.bb5.i10.i
@@ -8205,21 +8193,15 @@ sw.bb13.i4.i:                                     ; preds = %if.end.i
   %14 = load i64, ptr %add.ptr14.i5.i, align 1
   br label %sdslen.exit19.i
 
-default.unreachable.i:                            ; preds = %if.end.i
-  unreachable
-
-sdslen.exit19.i:                                  ; preds = %sw.bb13.i4.i, %sw.bb9.i7.i, %sw.bb5.i10.i, %sw.bb3.i13.i, %sw.bb.i16.i
-  %retval.0.i6.i = phi i64 [ %14, %sw.bb13.i4.i ], [ %conv12.i9.i, %sw.bb9.i7.i ], [ %conv8.i12.i, %sw.bb5.i10.i ], [ %conv4.i15.i, %sw.bb3.i13.i ], [ %conv2.i18.i, %sw.bb.i16.i ]
+sdslen.exit19.i:                                  ; preds = %sw.bb13.i4.i, %sw.bb9.i7.i, %sw.bb5.i10.i, %sw.bb3.i13.i, %sw.bb.i16.i, %if.end.i
+  %retval.0.i6.i = phi i64 [ %14, %sw.bb13.i4.i ], [ %conv12.i9.i, %sw.bb9.i7.i ], [ %conv8.i12.i, %sw.bb5.i10.i ], [ %conv4.i15.i, %sw.bb3.i13.i ], [ %conv2.i18.i, %sw.bb.i16.i ], [ 0, %if.end.i ]
   %15 = trunc i64 %retval.0.i6.i to i32
   %16 = and i32 %15, -8
   %add1.i.i = add i32 %16, 16
   br label %getHostnamePingExtSize.exit
 
-default.unreachable239:                           ; preds = %if.then5
-  unreachable
-
-getHostnamePingExtSize.exit:                      ; preds = %sdslen.exit.i, %sdslen.exit19.i
-  %retval.0.i30 = phi i32 [ %add1.i.i, %sdslen.exit19.i ], [ 0, %sdslen.exit.i ]
+getHostnamePingExtSize.exit:                      ; preds = %if.then5, %sdslen.exit.i, %sdslen.exit19.i
+  %retval.0.i30 = phi i32 [ %add1.i.i, %sdslen.exit19.i ], [ 0, %sdslen.exit.i ], [ 0, %if.then5 ]
   %call.i = tail call zeroext i16 @htons(i16 noundef zeroext 0) #35
   %type1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i16 %call.i, ptr %type1.i, align 4
@@ -8277,45 +8259,45 @@ sdslen.exit49:                                    ; preds = %getHostnamePingExtS
   %add.ptr.i51 = getelementptr inbounds i8, ptr %arrayidx.i, i64 %idx.ext.i
   %.pre = load ptr, ptr %hostname9, align 8
   %arrayidx.i.i53.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 -1
-  %.pre252 = load i8, ptr %arrayidx.i.i53.phi.trans.insert, align 1
-  %.pre256 = zext i8 %.pre252 to i32
+  %.pre248 = load i8, ptr %arrayidx.i.i53.phi.trans.insert, align 1
+  %.pre252 = zext i8 %.pre248 to i32
   br label %if.end13
 
 if.end13:                                         ; preds = %sdslen.exit49, %if.then3
-  %conv.i.i54.pre-phi = phi i32 [ %.pre256, %sdslen.exit49 ], [ %conv.i, %if.then3 ]
+  %conv.i.i54.pre-phi = phi i32 [ %.pre252, %sdslen.exit49 ], [ %conv.i, %if.then3 ]
   %24 = phi ptr [ %.pre, %sdslen.exit49 ], [ %1, %if.then3 ]
   %25 = phi ptr [ %17, %sdslen.exit49 ], [ %0, %if.then3 ]
   %cursor.1 = phi ptr [ %add.ptr.i51, %sdslen.exit49 ], [ null, %if.then3 ]
   %and.i.i55 = and i32 %conv.i.i54.pre-phi, 7
   switch i32 %and.i.i55, label %if.end15 [
-    i32 0, label %sw.bb.i.i90
-    i32 1, label %sw.bb3.i.i87
-    i32 2, label %sw.bb5.i.i84
-    i32 3, label %sw.bb9.i.i81
+    i32 0, label %sw.bb.i.i89
+    i32 1, label %sw.bb3.i.i86
+    i32 2, label %sw.bb5.i.i83
+    i32 3, label %sw.bb9.i.i80
     i32 4, label %sw.bb13.i.i56
   ]
 
-sw.bb.i.i90:                                      ; preds = %if.end13
-  %shr.i.i91 = lshr i32 %conv.i.i54.pre-phi, 3
-  %conv2.i.i92 = zext nneg i32 %shr.i.i91 to i64
+sw.bb.i.i89:                                      ; preds = %if.end13
+  %shr.i.i90 = lshr i32 %conv.i.i54.pre-phi, 3
+  %conv2.i.i91 = zext nneg i32 %shr.i.i90 to i64
   br label %sdslen.exit.i58
 
-sw.bb3.i.i87:                                     ; preds = %if.end13
-  %add.ptr.i.i88 = getelementptr inbounds i8, ptr %24, i64 -3
-  %26 = load i8, ptr %add.ptr.i.i88, align 1
-  %conv4.i.i89 = zext i8 %26 to i64
+sw.bb3.i.i86:                                     ; preds = %if.end13
+  %add.ptr.i.i87 = getelementptr inbounds i8, ptr %24, i64 -3
+  %26 = load i8, ptr %add.ptr.i.i87, align 1
+  %conv4.i.i88 = zext i8 %26 to i64
   br label %sdslen.exit.i58
 
-sw.bb5.i.i84:                                     ; preds = %if.end13
-  %add.ptr6.i.i85 = getelementptr inbounds i8, ptr %24, i64 -5
-  %27 = load i16, ptr %add.ptr6.i.i85, align 1
-  %conv8.i.i86 = zext i16 %27 to i64
+sw.bb5.i.i83:                                     ; preds = %if.end13
+  %add.ptr6.i.i84 = getelementptr inbounds i8, ptr %24, i64 -5
+  %27 = load i16, ptr %add.ptr6.i.i84, align 1
+  %conv8.i.i85 = zext i16 %27 to i64
   br label %sdslen.exit.i58
 
-sw.bb9.i.i81:                                     ; preds = %if.end13
-  %add.ptr10.i.i82 = getelementptr inbounds i8, ptr %24, i64 -9
-  %28 = load i32, ptr %add.ptr10.i.i82, align 1
-  %conv12.i.i83 = zext i32 %28 to i64
+sw.bb9.i.i80:                                     ; preds = %if.end13
+  %add.ptr10.i.i81 = getelementptr inbounds i8, ptr %24, i64 -9
+  %28 = load i32, ptr %add.ptr10.i.i81, align 1
+  %conv12.i.i82 = zext i32 %28 to i64
   br label %sdslen.exit.i58
 
 sw.bb13.i.i56:                                    ; preds = %if.end13
@@ -8323,13 +8305,13 @@ sw.bb13.i.i56:                                    ; preds = %if.end13
   %29 = load i64, ptr %add.ptr14.i.i57, align 1
   br label %sdslen.exit.i58
 
-sdslen.exit.i58:                                  ; preds = %sw.bb13.i.i56, %sw.bb9.i.i81, %sw.bb5.i.i84, %sw.bb3.i.i87, %sw.bb.i.i90
-  %retval.0.i.i59 = phi i64 [ %29, %sw.bb13.i.i56 ], [ %conv12.i.i83, %sw.bb9.i.i81 ], [ %conv8.i.i86, %sw.bb5.i.i84 ], [ %conv4.i.i89, %sw.bb3.i.i87 ], [ %conv2.i.i92, %sw.bb.i.i90 ]
+sdslen.exit.i58:                                  ; preds = %sw.bb13.i.i56, %sw.bb9.i.i80, %sw.bb5.i.i83, %sw.bb3.i.i86, %sw.bb.i.i89
+  %retval.0.i.i59 = phi i64 [ %29, %sw.bb13.i.i56 ], [ %conv12.i.i82, %sw.bb9.i.i80 ], [ %conv8.i.i85, %sw.bb5.i.i83 ], [ %conv4.i.i88, %sw.bb3.i.i86 ], [ %conv2.i.i91, %sw.bb.i.i89 ]
   %cmp.i60 = icmp eq i64 %retval.0.i.i59, 0
   br i1 %cmp.i60, label %if.end15, label %if.end.i61
 
 if.end.i61:                                       ; preds = %sdslen.exit.i58
-  switch i32 %and.i.i55, label %default.unreachable.i80 [
+  switch i32 %and.i.i55, label %sdslen.exit19.i64 [
     i32 0, label %sw.bb.i16.i77
     i32 1, label %sw.bb3.i13.i74
     i32 2, label %sw.bb5.i10.i71
@@ -8365,11 +8347,8 @@ sw.bb13.i4.i62:                                   ; preds = %if.end.i61
   %33 = load i64, ptr %add.ptr14.i5.i63, align 1
   br label %sdslen.exit19.i64
 
-default.unreachable.i80:                          ; preds = %if.end.i61
-  unreachable
-
-sdslen.exit19.i64:                                ; preds = %sw.bb13.i4.i62, %sw.bb9.i7.i68, %sw.bb5.i10.i71, %sw.bb3.i13.i74, %sw.bb.i16.i77
-  %retval.0.i6.i65 = phi i64 [ %33, %sw.bb13.i4.i62 ], [ %conv12.i9.i70, %sw.bb9.i7.i68 ], [ %conv8.i12.i73, %sw.bb5.i10.i71 ], [ %conv4.i15.i76, %sw.bb3.i13.i74 ], [ %conv2.i18.i79, %sw.bb.i16.i77 ]
+sdslen.exit19.i64:                                ; preds = %sw.bb13.i4.i62, %sw.bb9.i7.i68, %sw.bb5.i10.i71, %sw.bb3.i13.i74, %sw.bb.i16.i77, %if.end.i61
+  %retval.0.i6.i65 = phi i64 [ %33, %sw.bb13.i4.i62 ], [ %conv12.i9.i70, %sw.bb9.i7.i68 ], [ %conv8.i12.i73, %sw.bb5.i10.i71 ], [ %conv4.i15.i76, %sw.bb3.i13.i74 ], [ %conv2.i18.i79, %sw.bb.i16.i77 ], [ 0, %if.end.i61 ]
   %34 = trunc i64 %retval.0.i6.i65 to i32
   %35 = and i32 %34, -8
   %add1.i.i66 = add i32 %35, 16
@@ -8382,313 +8361,304 @@ if.end15:                                         ; preds = %entry, %sdslen.exit
   %extensions.0 = phi i16 [ 0, %sdslen.exit ], [ 1, %if.end13 ], [ 1, %sdslen.exit.i58 ], [ 1, %sdslen.exit19.i64 ], [ 0, %entry ]
   %human_nodename = getelementptr inbounds i8, ptr %36, i64 2320
   %37 = load ptr, ptr %human_nodename, align 8
-  %arrayidx.i94 = getelementptr inbounds i8, ptr %37, i64 -1
-  %38 = load i8, ptr %arrayidx.i94, align 1
-  %conv.i95 = zext i8 %38 to i32
-  %and.i96 = and i32 %conv.i95, 7
-  switch i32 %and.i96, label %if.end34 [
-    i32 0, label %sw.bb.i109
-    i32 1, label %sw.bb3.i106
-    i32 2, label %sw.bb5.i103
-    i32 3, label %sw.bb9.i100
-    i32 4, label %sw.bb13.i97
+  %arrayidx.i93 = getelementptr inbounds i8, ptr %37, i64 -1
+  %38 = load i8, ptr %arrayidx.i93, align 1
+  %conv.i94 = zext i8 %38 to i32
+  %and.i95 = and i32 %conv.i94, 7
+  switch i32 %and.i95, label %if.end34 [
+    i32 0, label %sw.bb.i108
+    i32 1, label %sw.bb3.i105
+    i32 2, label %sw.bb5.i102
+    i32 3, label %sw.bb9.i99
+    i32 4, label %sw.bb13.i96
   ]
 
-sw.bb.i109:                                       ; preds = %if.end15
-  %shr.i110 = lshr i32 %conv.i95, 3
-  %conv2.i111 = zext nneg i32 %shr.i110 to i64
-  br label %sdslen.exit112
+sw.bb.i108:                                       ; preds = %if.end15
+  %shr.i109 = lshr i32 %conv.i94, 3
+  %conv2.i110 = zext nneg i32 %shr.i109 to i64
+  br label %sdslen.exit111
 
-sw.bb3.i106:                                      ; preds = %if.end15
-  %add.ptr.i107 = getelementptr inbounds i8, ptr %37, i64 -3
-  %39 = load i8, ptr %add.ptr.i107, align 1
-  %conv4.i108 = zext i8 %39 to i64
-  br label %sdslen.exit112
+sw.bb3.i105:                                      ; preds = %if.end15
+  %add.ptr.i106 = getelementptr inbounds i8, ptr %37, i64 -3
+  %39 = load i8, ptr %add.ptr.i106, align 1
+  %conv4.i107 = zext i8 %39 to i64
+  br label %sdslen.exit111
 
-sw.bb5.i103:                                      ; preds = %if.end15
-  %add.ptr6.i104 = getelementptr inbounds i8, ptr %37, i64 -5
-  %40 = load i16, ptr %add.ptr6.i104, align 1
-  %conv8.i105 = zext i16 %40 to i64
-  br label %sdslen.exit112
+sw.bb5.i102:                                      ; preds = %if.end15
+  %add.ptr6.i103 = getelementptr inbounds i8, ptr %37, i64 -5
+  %40 = load i16, ptr %add.ptr6.i103, align 1
+  %conv8.i104 = zext i16 %40 to i64
+  br label %sdslen.exit111
 
-sw.bb9.i100:                                      ; preds = %if.end15
-  %add.ptr10.i101 = getelementptr inbounds i8, ptr %37, i64 -9
-  %41 = load i32, ptr %add.ptr10.i101, align 1
-  %conv12.i102 = zext i32 %41 to i64
-  br label %sdslen.exit112
+sw.bb9.i99:                                       ; preds = %if.end15
+  %add.ptr10.i100 = getelementptr inbounds i8, ptr %37, i64 -9
+  %41 = load i32, ptr %add.ptr10.i100, align 1
+  %conv12.i101 = zext i32 %41 to i64
+  br label %sdslen.exit111
 
-sw.bb13.i97:                                      ; preds = %if.end15
-  %add.ptr14.i98 = getelementptr inbounds i8, ptr %37, i64 -17
-  %42 = load i64, ptr %add.ptr14.i98, align 1
-  br label %sdslen.exit112
+sw.bb13.i96:                                      ; preds = %if.end15
+  %add.ptr14.i97 = getelementptr inbounds i8, ptr %37, i64 -17
+  %42 = load i64, ptr %add.ptr14.i97, align 1
+  br label %sdslen.exit111
 
-sdslen.exit112:                                   ; preds = %sw.bb.i109, %sw.bb3.i106, %sw.bb5.i103, %sw.bb9.i100, %sw.bb13.i97
-  %retval.0.i99 = phi i64 [ %42, %sw.bb13.i97 ], [ %conv12.i102, %sw.bb9.i100 ], [ %conv8.i105, %sw.bb5.i103 ], [ %conv4.i108, %sw.bb3.i106 ], [ %conv2.i111, %sw.bb.i109 ]
-  %cmp17.not = icmp eq i64 %retval.0.i99, 0
+sdslen.exit111:                                   ; preds = %sw.bb.i108, %sw.bb3.i105, %sw.bb5.i102, %sw.bb9.i99, %sw.bb13.i96
+  %retval.0.i98 = phi i64 [ %42, %sw.bb13.i96 ], [ %conv12.i101, %sw.bb9.i99 ], [ %conv8.i104, %sw.bb5.i102 ], [ %conv4.i107, %sw.bb3.i105 ], [ %conv2.i110, %sw.bb.i108 ]
+  %cmp17.not = icmp eq i64 %retval.0.i98, 0
   br i1 %cmp17.not, label %if.end34, label %if.then18
 
-if.then18:                                        ; preds = %sdslen.exit112
+if.then18:                                        ; preds = %sdslen.exit111
   %cmp19.not = icmp eq ptr %cursor.2, null
   br i1 %cmp19.not, label %if.end30, label %if.then20
 
 if.then20:                                        ; preds = %if.then18
-  switch i32 %and.i96, label %default.unreachable [
-    i32 0, label %sw.bb.i.i150
-    i32 1, label %sw.bb3.i.i147
-    i32 2, label %sw.bb5.i.i144
-    i32 3, label %sw.bb9.i.i141
-    i32 4, label %sw.bb13.i.i116
+  switch i32 %and.i95, label %getHumanNodenamePingExtSize.exit [
+    i32 0, label %sw.bb.i.i148
+    i32 1, label %sw.bb3.i.i145
+    i32 2, label %sw.bb5.i.i142
+    i32 3, label %sw.bb9.i.i139
+    i32 4, label %sw.bb13.i.i115
   ]
 
-sw.bb.i.i150:                                     ; preds = %if.then20
-  %shr.i.i151 = lshr i32 %conv.i95, 3
-  %conv2.i.i152 = zext nneg i32 %shr.i.i151 to i64
-  br label %sdslen.exit.i118
+sw.bb.i.i148:                                     ; preds = %if.then20
+  %shr.i.i149 = lshr i32 %conv.i94, 3
+  %conv2.i.i150 = zext nneg i32 %shr.i.i149 to i64
+  br label %sdslen.exit.i117
 
-sw.bb3.i.i147:                                    ; preds = %if.then20
-  %add.ptr.i.i148 = getelementptr inbounds i8, ptr %37, i64 -3
-  %43 = load i8, ptr %add.ptr.i.i148, align 1
-  %conv4.i.i149 = zext i8 %43 to i64
-  br label %sdslen.exit.i118
+sw.bb3.i.i145:                                    ; preds = %if.then20
+  %add.ptr.i.i146 = getelementptr inbounds i8, ptr %37, i64 -3
+  %43 = load i8, ptr %add.ptr.i.i146, align 1
+  %conv4.i.i147 = zext i8 %43 to i64
+  br label %sdslen.exit.i117
 
-sw.bb5.i.i144:                                    ; preds = %if.then20
-  %add.ptr6.i.i145 = getelementptr inbounds i8, ptr %37, i64 -5
-  %44 = load i16, ptr %add.ptr6.i.i145, align 1
-  %conv8.i.i146 = zext i16 %44 to i64
-  br label %sdslen.exit.i118
+sw.bb5.i.i142:                                    ; preds = %if.then20
+  %add.ptr6.i.i143 = getelementptr inbounds i8, ptr %37, i64 -5
+  %44 = load i16, ptr %add.ptr6.i.i143, align 1
+  %conv8.i.i144 = zext i16 %44 to i64
+  br label %sdslen.exit.i117
 
-sw.bb9.i.i141:                                    ; preds = %if.then20
-  %add.ptr10.i.i142 = getelementptr inbounds i8, ptr %37, i64 -9
-  %45 = load i32, ptr %add.ptr10.i.i142, align 1
-  %conv12.i.i143 = zext i32 %45 to i64
-  br label %sdslen.exit.i118
+sw.bb9.i.i139:                                    ; preds = %if.then20
+  %add.ptr10.i.i140 = getelementptr inbounds i8, ptr %37, i64 -9
+  %45 = load i32, ptr %add.ptr10.i.i140, align 1
+  %conv12.i.i141 = zext i32 %45 to i64
+  br label %sdslen.exit.i117
 
-sw.bb13.i.i116:                                   ; preds = %if.then20
-  %add.ptr14.i.i117 = getelementptr inbounds i8, ptr %37, i64 -17
-  %46 = load i64, ptr %add.ptr14.i.i117, align 1
-  br label %sdslen.exit.i118
+sw.bb13.i.i115:                                   ; preds = %if.then20
+  %add.ptr14.i.i116 = getelementptr inbounds i8, ptr %37, i64 -17
+  %46 = load i64, ptr %add.ptr14.i.i116, align 1
+  br label %sdslen.exit.i117
 
-sdslen.exit.i118:                                 ; preds = %sw.bb13.i.i116, %sw.bb9.i.i141, %sw.bb5.i.i144, %sw.bb3.i.i147, %sw.bb.i.i150
-  %retval.0.i.i119 = phi i64 [ %46, %sw.bb13.i.i116 ], [ %conv12.i.i143, %sw.bb9.i.i141 ], [ %conv8.i.i146, %sw.bb5.i.i144 ], [ %conv4.i.i149, %sw.bb3.i.i147 ], [ %conv2.i.i152, %sw.bb.i.i150 ]
-  %cmp.i120 = icmp eq i64 %retval.0.i.i119, 0
-  br i1 %cmp.i120, label %getHumanNodenamePingExtSize.exit, label %if.end.i121
+sdslen.exit.i117:                                 ; preds = %sw.bb13.i.i115, %sw.bb9.i.i139, %sw.bb5.i.i142, %sw.bb3.i.i145, %sw.bb.i.i148
+  %retval.0.i.i118 = phi i64 [ %46, %sw.bb13.i.i115 ], [ %conv12.i.i141, %sw.bb9.i.i139 ], [ %conv8.i.i144, %sw.bb5.i.i142 ], [ %conv4.i.i147, %sw.bb3.i.i145 ], [ %conv2.i.i150, %sw.bb.i.i148 ]
+  %cmp.i119 = icmp eq i64 %retval.0.i.i118, 0
+  br i1 %cmp.i119, label %getHumanNodenamePingExtSize.exit, label %if.end.i120
 
-if.end.i121:                                      ; preds = %sdslen.exit.i118
-  switch i32 %and.i96, label %default.unreachable.i140 [
-    i32 0, label %sw.bb.i16.i137
-    i32 1, label %sw.bb3.i13.i134
-    i32 2, label %sw.bb5.i10.i131
-    i32 3, label %sw.bb9.i7.i128
-    i32 4, label %sw.bb13.i4.i122
+if.end.i120:                                      ; preds = %sdslen.exit.i117
+  switch i32 %and.i95, label %sdslen.exit19.i123 [
+    i32 0, label %sw.bb.i16.i136
+    i32 1, label %sw.bb3.i13.i133
+    i32 2, label %sw.bb5.i10.i130
+    i32 3, label %sw.bb9.i7.i127
+    i32 4, label %sw.bb13.i4.i121
   ]
 
-sw.bb.i16.i137:                                   ; preds = %if.end.i121
-  %shr.i17.i138 = lshr i32 %conv.i95, 3
-  %conv2.i18.i139 = zext nneg i32 %shr.i17.i138 to i64
-  br label %sdslen.exit19.i124
+sw.bb.i16.i136:                                   ; preds = %if.end.i120
+  %shr.i17.i137 = lshr i32 %conv.i94, 3
+  %conv2.i18.i138 = zext nneg i32 %shr.i17.i137 to i64
+  br label %sdslen.exit19.i123
 
-sw.bb3.i13.i134:                                  ; preds = %if.end.i121
-  %add.ptr.i14.i135 = getelementptr inbounds i8, ptr %37, i64 -3
-  %47 = load i8, ptr %add.ptr.i14.i135, align 1
-  %conv4.i15.i136 = zext i8 %47 to i64
-  br label %sdslen.exit19.i124
+sw.bb3.i13.i133:                                  ; preds = %if.end.i120
+  %add.ptr.i14.i134 = getelementptr inbounds i8, ptr %37, i64 -3
+  %47 = load i8, ptr %add.ptr.i14.i134, align 1
+  %conv4.i15.i135 = zext i8 %47 to i64
+  br label %sdslen.exit19.i123
 
-sw.bb5.i10.i131:                                  ; preds = %if.end.i121
-  %add.ptr6.i11.i132 = getelementptr inbounds i8, ptr %37, i64 -5
-  %48 = load i16, ptr %add.ptr6.i11.i132, align 1
-  %conv8.i12.i133 = zext i16 %48 to i64
-  br label %sdslen.exit19.i124
+sw.bb5.i10.i130:                                  ; preds = %if.end.i120
+  %add.ptr6.i11.i131 = getelementptr inbounds i8, ptr %37, i64 -5
+  %48 = load i16, ptr %add.ptr6.i11.i131, align 1
+  %conv8.i12.i132 = zext i16 %48 to i64
+  br label %sdslen.exit19.i123
 
-sw.bb9.i7.i128:                                   ; preds = %if.end.i121
-  %add.ptr10.i8.i129 = getelementptr inbounds i8, ptr %37, i64 -9
-  %49 = load i32, ptr %add.ptr10.i8.i129, align 1
-  %conv12.i9.i130 = zext i32 %49 to i64
-  br label %sdslen.exit19.i124
+sw.bb9.i7.i127:                                   ; preds = %if.end.i120
+  %add.ptr10.i8.i128 = getelementptr inbounds i8, ptr %37, i64 -9
+  %49 = load i32, ptr %add.ptr10.i8.i128, align 1
+  %conv12.i9.i129 = zext i32 %49 to i64
+  br label %sdslen.exit19.i123
 
-sw.bb13.i4.i122:                                  ; preds = %if.end.i121
-  %add.ptr14.i5.i123 = getelementptr inbounds i8, ptr %37, i64 -17
-  %50 = load i64, ptr %add.ptr14.i5.i123, align 1
-  br label %sdslen.exit19.i124
+sw.bb13.i4.i121:                                  ; preds = %if.end.i120
+  %add.ptr14.i5.i122 = getelementptr inbounds i8, ptr %37, i64 -17
+  %50 = load i64, ptr %add.ptr14.i5.i122, align 1
+  br label %sdslen.exit19.i123
 
-default.unreachable.i140:                         ; preds = %if.end.i121
-  unreachable
-
-sdslen.exit19.i124:                               ; preds = %sw.bb13.i4.i122, %sw.bb9.i7.i128, %sw.bb5.i10.i131, %sw.bb3.i13.i134, %sw.bb.i16.i137
-  %retval.0.i6.i125 = phi i64 [ %50, %sw.bb13.i4.i122 ], [ %conv12.i9.i130, %sw.bb9.i7.i128 ], [ %conv8.i12.i133, %sw.bb5.i10.i131 ], [ %conv4.i15.i136, %sw.bb3.i13.i134 ], [ %conv2.i18.i139, %sw.bb.i16.i137 ]
-  %51 = trunc i64 %retval.0.i6.i125 to i32
+sdslen.exit19.i123:                               ; preds = %sw.bb13.i4.i121, %sw.bb9.i7.i127, %sw.bb5.i10.i130, %sw.bb3.i13.i133, %sw.bb.i16.i136, %if.end.i120
+  %retval.0.i6.i124 = phi i64 [ %50, %sw.bb13.i4.i121 ], [ %conv12.i9.i129, %sw.bb9.i7.i127 ], [ %conv8.i12.i132, %sw.bb5.i10.i130 ], [ %conv4.i15.i135, %sw.bb3.i13.i133 ], [ %conv2.i18.i138, %sw.bb.i16.i136 ], [ 0, %if.end.i120 ]
+  %51 = trunc i64 %retval.0.i6.i124 to i32
   %52 = and i32 %51, -8
-  %add1.i.i126 = add i32 %52, 16
+  %add1.i.i125 = add i32 %52, 16
   br label %getHumanNodenamePingExtSize.exit
 
-default.unreachable:                              ; preds = %if.then20
-  unreachable
-
-getHumanNodenamePingExtSize.exit:                 ; preds = %sdslen.exit.i118, %sdslen.exit19.i124
-  %retval.0.i127 = phi i32 [ %add1.i.i126, %sdslen.exit19.i124 ], [ 0, %sdslen.exit.i118 ]
-  %call.i153 = tail call zeroext i16 @htons(i16 noundef zeroext 1) #35
-  %type1.i154 = getelementptr inbounds i8, ptr %cursor.2, i64 4
-  store i16 %call.i153, ptr %type1.i154, align 4
-  %call2.i155 = tail call i32 @htonl(i32 noundef %retval.0.i127) #35
-  store i32 %call2.i155, ptr %cursor.2, align 8
-  %ext4.i156 = getelementptr inbounds i8, ptr %cursor.2, i64 8
+getHumanNodenamePingExtSize.exit:                 ; preds = %if.then20, %sdslen.exit.i117, %sdslen.exit19.i123
+  %retval.0.i126 = phi i32 [ %add1.i.i125, %sdslen.exit19.i123 ], [ 0, %sdslen.exit.i117 ], [ 0, %if.then20 ]
+  %call.i151 = tail call zeroext i16 @htons(i16 noundef zeroext 1) #35
+  %type1.i152 = getelementptr inbounds i8, ptr %cursor.2, i64 4
+  store i16 %call.i151, ptr %type1.i152, align 4
+  %call2.i153 = tail call i32 @htonl(i32 noundef %retval.0.i126) #35
+  store i32 %call2.i153, ptr %cursor.2, align 8
+  %ext4.i154 = getelementptr inbounds i8, ptr %cursor.2, i64 8
   %53 = load ptr, ptr @myself, align 8
   %human_nodename26 = getelementptr inbounds i8, ptr %53, i64 2320
   %54 = load ptr, ptr %human_nodename26, align 8
-  %arrayidx.i157 = getelementptr inbounds i8, ptr %54, i64 -1
-  %55 = load i8, ptr %arrayidx.i157, align 1
-  %conv.i158 = zext i8 %55 to i32
-  %and.i159 = and i32 %conv.i158, 7
-  switch i32 %and.i159, label %sdslen.exit175 [
-    i32 0, label %sw.bb.i172
-    i32 1, label %sw.bb3.i169
-    i32 2, label %sw.bb5.i166
-    i32 3, label %sw.bb9.i163
-    i32 4, label %sw.bb13.i160
+  %arrayidx.i155 = getelementptr inbounds i8, ptr %54, i64 -1
+  %55 = load i8, ptr %arrayidx.i155, align 1
+  %conv.i156 = zext i8 %55 to i32
+  %and.i157 = and i32 %conv.i156, 7
+  switch i32 %and.i157, label %sdslen.exit173 [
+    i32 0, label %sw.bb.i170
+    i32 1, label %sw.bb3.i167
+    i32 2, label %sw.bb5.i164
+    i32 3, label %sw.bb9.i161
+    i32 4, label %sw.bb13.i158
   ]
 
-sw.bb.i172:                                       ; preds = %getHumanNodenamePingExtSize.exit
-  %shr.i173 = lshr i32 %conv.i158, 3
-  %conv2.i174 = zext nneg i32 %shr.i173 to i64
-  br label %sdslen.exit175
+sw.bb.i170:                                       ; preds = %getHumanNodenamePingExtSize.exit
+  %shr.i171 = lshr i32 %conv.i156, 3
+  %conv2.i172 = zext nneg i32 %shr.i171 to i64
+  br label %sdslen.exit173
 
-sw.bb3.i169:                                      ; preds = %getHumanNodenamePingExtSize.exit
-  %add.ptr.i170 = getelementptr inbounds i8, ptr %54, i64 -3
-  %56 = load i8, ptr %add.ptr.i170, align 1
-  %conv4.i171 = zext i8 %56 to i64
-  br label %sdslen.exit175
+sw.bb3.i167:                                      ; preds = %getHumanNodenamePingExtSize.exit
+  %add.ptr.i168 = getelementptr inbounds i8, ptr %54, i64 -3
+  %56 = load i8, ptr %add.ptr.i168, align 1
+  %conv4.i169 = zext i8 %56 to i64
+  br label %sdslen.exit173
 
-sw.bb5.i166:                                      ; preds = %getHumanNodenamePingExtSize.exit
-  %add.ptr6.i167 = getelementptr inbounds i8, ptr %54, i64 -5
-  %57 = load i16, ptr %add.ptr6.i167, align 1
-  %conv8.i168 = zext i16 %57 to i64
-  br label %sdslen.exit175
+sw.bb5.i164:                                      ; preds = %getHumanNodenamePingExtSize.exit
+  %add.ptr6.i165 = getelementptr inbounds i8, ptr %54, i64 -5
+  %57 = load i16, ptr %add.ptr6.i165, align 1
+  %conv8.i166 = zext i16 %57 to i64
+  br label %sdslen.exit173
 
-sw.bb9.i163:                                      ; preds = %getHumanNodenamePingExtSize.exit
-  %add.ptr10.i164 = getelementptr inbounds i8, ptr %54, i64 -9
-  %58 = load i32, ptr %add.ptr10.i164, align 1
-  %conv12.i165 = zext i32 %58 to i64
-  br label %sdslen.exit175
+sw.bb9.i161:                                      ; preds = %getHumanNodenamePingExtSize.exit
+  %add.ptr10.i162 = getelementptr inbounds i8, ptr %54, i64 -9
+  %58 = load i32, ptr %add.ptr10.i162, align 1
+  %conv12.i163 = zext i32 %58 to i64
+  br label %sdslen.exit173
 
-sw.bb13.i160:                                     ; preds = %getHumanNodenamePingExtSize.exit
-  %add.ptr14.i161 = getelementptr inbounds i8, ptr %54, i64 -17
-  %59 = load i64, ptr %add.ptr14.i161, align 1
-  br label %sdslen.exit175
+sw.bb13.i158:                                     ; preds = %getHumanNodenamePingExtSize.exit
+  %add.ptr14.i159 = getelementptr inbounds i8, ptr %54, i64 -17
+  %59 = load i64, ptr %add.ptr14.i159, align 1
+  br label %sdslen.exit173
 
-sdslen.exit175:                                   ; preds = %getHumanNodenamePingExtSize.exit, %sw.bb.i172, %sw.bb3.i169, %sw.bb5.i166, %sw.bb9.i163, %sw.bb13.i160
-  %retval.0.i162 = phi i64 [ %59, %sw.bb13.i160 ], [ %conv12.i165, %sw.bb9.i163 ], [ %conv8.i168, %sw.bb5.i166 ], [ %conv4.i171, %sw.bb3.i169 ], [ %conv2.i174, %sw.bb.i172 ], [ 0, %getHumanNodenamePingExtSize.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %ext4.i156, ptr nonnull align 1 %54, i64 %retval.0.i162, i1 false)
-  %call.i176 = tail call i32 @ntohl(i32 noundef %call2.i155) #35
-  %idx.ext.i177 = zext i32 %call.i176 to i64
-  %add.ptr.i178 = getelementptr inbounds i8, ptr %cursor.2, i64 %idx.ext.i177
-  %.pre253 = load ptr, ptr %human_nodename26, align 8
-  %arrayidx.i.i180.phi.trans.insert = getelementptr inbounds i8, ptr %.pre253, i64 -1
-  %.pre254 = load i8, ptr %arrayidx.i.i180.phi.trans.insert, align 1
-  %.pre255 = zext i8 %.pre254 to i32
+sdslen.exit173:                                   ; preds = %getHumanNodenamePingExtSize.exit, %sw.bb.i170, %sw.bb3.i167, %sw.bb5.i164, %sw.bb9.i161, %sw.bb13.i158
+  %retval.0.i160 = phi i64 [ %59, %sw.bb13.i158 ], [ %conv12.i163, %sw.bb9.i161 ], [ %conv8.i166, %sw.bb5.i164 ], [ %conv4.i169, %sw.bb3.i167 ], [ %conv2.i172, %sw.bb.i170 ], [ 0, %getHumanNodenamePingExtSize.exit ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %ext4.i154, ptr nonnull align 1 %54, i64 %retval.0.i160, i1 false)
+  %call.i174 = tail call i32 @ntohl(i32 noundef %call2.i153) #35
+  %idx.ext.i175 = zext i32 %call.i174 to i64
+  %add.ptr.i176 = getelementptr inbounds i8, ptr %cursor.2, i64 %idx.ext.i175
+  %.pre249 = load ptr, ptr %human_nodename26, align 8
+  %arrayidx.i.i178.phi.trans.insert = getelementptr inbounds i8, ptr %.pre249, i64 -1
+  %.pre250 = load i8, ptr %arrayidx.i.i178.phi.trans.insert, align 1
+  %.pre251 = zext i8 %.pre250 to i32
   br label %if.end30
 
-if.end30:                                         ; preds = %sdslen.exit175, %if.then18
-  %conv.i.i181.pre-phi = phi i32 [ %.pre255, %sdslen.exit175 ], [ %conv.i95, %if.then18 ]
-  %60 = phi ptr [ %.pre253, %sdslen.exit175 ], [ %37, %if.then18 ]
-  %cursor.3 = phi ptr [ %add.ptr.i178, %sdslen.exit175 ], [ null, %if.then18 ]
-  %and.i.i182 = and i32 %conv.i.i181.pre-phi, 7
-  switch i32 %and.i.i182, label %getHumanNodenamePingExtSize.exit220 [
-    i32 0, label %sw.bb.i.i217
-    i32 1, label %sw.bb3.i.i214
-    i32 2, label %sw.bb5.i.i211
-    i32 3, label %sw.bb9.i.i208
-    i32 4, label %sw.bb13.i.i183
+if.end30:                                         ; preds = %sdslen.exit173, %if.then18
+  %conv.i.i179.pre-phi = phi i32 [ %.pre251, %sdslen.exit173 ], [ %conv.i94, %if.then18 ]
+  %60 = phi ptr [ %.pre249, %sdslen.exit173 ], [ %37, %if.then18 ]
+  %cursor.3 = phi ptr [ %add.ptr.i176, %sdslen.exit173 ], [ null, %if.then18 ]
+  %and.i.i180 = and i32 %conv.i.i179.pre-phi, 7
+  switch i32 %and.i.i180, label %getHumanNodenamePingExtSize.exit217 [
+    i32 0, label %sw.bb.i.i214
+    i32 1, label %sw.bb3.i.i211
+    i32 2, label %sw.bb5.i.i208
+    i32 3, label %sw.bb9.i.i205
+    i32 4, label %sw.bb13.i.i181
   ]
 
-sw.bb.i.i217:                                     ; preds = %if.end30
-  %shr.i.i218 = lshr i32 %conv.i.i181.pre-phi, 3
-  %conv2.i.i219 = zext nneg i32 %shr.i.i218 to i64
-  br label %sdslen.exit.i185
+sw.bb.i.i214:                                     ; preds = %if.end30
+  %shr.i.i215 = lshr i32 %conv.i.i179.pre-phi, 3
+  %conv2.i.i216 = zext nneg i32 %shr.i.i215 to i64
+  br label %sdslen.exit.i183
 
-sw.bb3.i.i214:                                    ; preds = %if.end30
-  %add.ptr.i.i215 = getelementptr inbounds i8, ptr %60, i64 -3
-  %61 = load i8, ptr %add.ptr.i.i215, align 1
-  %conv4.i.i216 = zext i8 %61 to i64
-  br label %sdslen.exit.i185
+sw.bb3.i.i211:                                    ; preds = %if.end30
+  %add.ptr.i.i212 = getelementptr inbounds i8, ptr %60, i64 -3
+  %61 = load i8, ptr %add.ptr.i.i212, align 1
+  %conv4.i.i213 = zext i8 %61 to i64
+  br label %sdslen.exit.i183
 
-sw.bb5.i.i211:                                    ; preds = %if.end30
-  %add.ptr6.i.i212 = getelementptr inbounds i8, ptr %60, i64 -5
-  %62 = load i16, ptr %add.ptr6.i.i212, align 1
-  %conv8.i.i213 = zext i16 %62 to i64
-  br label %sdslen.exit.i185
+sw.bb5.i.i208:                                    ; preds = %if.end30
+  %add.ptr6.i.i209 = getelementptr inbounds i8, ptr %60, i64 -5
+  %62 = load i16, ptr %add.ptr6.i.i209, align 1
+  %conv8.i.i210 = zext i16 %62 to i64
+  br label %sdslen.exit.i183
 
-sw.bb9.i.i208:                                    ; preds = %if.end30
-  %add.ptr10.i.i209 = getelementptr inbounds i8, ptr %60, i64 -9
-  %63 = load i32, ptr %add.ptr10.i.i209, align 1
-  %conv12.i.i210 = zext i32 %63 to i64
-  br label %sdslen.exit.i185
+sw.bb9.i.i205:                                    ; preds = %if.end30
+  %add.ptr10.i.i206 = getelementptr inbounds i8, ptr %60, i64 -9
+  %63 = load i32, ptr %add.ptr10.i.i206, align 1
+  %conv12.i.i207 = zext i32 %63 to i64
+  br label %sdslen.exit.i183
 
-sw.bb13.i.i183:                                   ; preds = %if.end30
-  %add.ptr14.i.i184 = getelementptr inbounds i8, ptr %60, i64 -17
-  %64 = load i64, ptr %add.ptr14.i.i184, align 1
-  br label %sdslen.exit.i185
+sw.bb13.i.i181:                                   ; preds = %if.end30
+  %add.ptr14.i.i182 = getelementptr inbounds i8, ptr %60, i64 -17
+  %64 = load i64, ptr %add.ptr14.i.i182, align 1
+  br label %sdslen.exit.i183
 
-sdslen.exit.i185:                                 ; preds = %sw.bb13.i.i183, %sw.bb9.i.i208, %sw.bb5.i.i211, %sw.bb3.i.i214, %sw.bb.i.i217
-  %retval.0.i.i186 = phi i64 [ %64, %sw.bb13.i.i183 ], [ %conv12.i.i210, %sw.bb9.i.i208 ], [ %conv8.i.i213, %sw.bb5.i.i211 ], [ %conv4.i.i216, %sw.bb3.i.i214 ], [ %conv2.i.i219, %sw.bb.i.i217 ]
-  %cmp.i187 = icmp eq i64 %retval.0.i.i186, 0
-  br i1 %cmp.i187, label %getHumanNodenamePingExtSize.exit220, label %if.end.i188
+sdslen.exit.i183:                                 ; preds = %sw.bb13.i.i181, %sw.bb9.i.i205, %sw.bb5.i.i208, %sw.bb3.i.i211, %sw.bb.i.i214
+  %retval.0.i.i184 = phi i64 [ %64, %sw.bb13.i.i181 ], [ %conv12.i.i207, %sw.bb9.i.i205 ], [ %conv8.i.i210, %sw.bb5.i.i208 ], [ %conv4.i.i213, %sw.bb3.i.i211 ], [ %conv2.i.i216, %sw.bb.i.i214 ]
+  %cmp.i185 = icmp eq i64 %retval.0.i.i184, 0
+  br i1 %cmp.i185, label %getHumanNodenamePingExtSize.exit217, label %if.end.i186
 
-if.end.i188:                                      ; preds = %sdslen.exit.i185
-  switch i32 %and.i.i182, label %default.unreachable.i207 [
-    i32 0, label %sw.bb.i16.i204
-    i32 1, label %sw.bb3.i13.i201
-    i32 2, label %sw.bb5.i10.i198
-    i32 3, label %sw.bb9.i7.i195
-    i32 4, label %sw.bb13.i4.i189
+if.end.i186:                                      ; preds = %sdslen.exit.i183
+  switch i32 %and.i.i180, label %sdslen.exit19.i189 [
+    i32 0, label %sw.bb.i16.i202
+    i32 1, label %sw.bb3.i13.i199
+    i32 2, label %sw.bb5.i10.i196
+    i32 3, label %sw.bb9.i7.i193
+    i32 4, label %sw.bb13.i4.i187
   ]
 
-sw.bb.i16.i204:                                   ; preds = %if.end.i188
-  %shr.i17.i205 = lshr i32 %conv.i.i181.pre-phi, 3
-  %conv2.i18.i206 = zext nneg i32 %shr.i17.i205 to i64
-  br label %sdslen.exit19.i191
+sw.bb.i16.i202:                                   ; preds = %if.end.i186
+  %shr.i17.i203 = lshr i32 %conv.i.i179.pre-phi, 3
+  %conv2.i18.i204 = zext nneg i32 %shr.i17.i203 to i64
+  br label %sdslen.exit19.i189
 
-sw.bb3.i13.i201:                                  ; preds = %if.end.i188
-  %add.ptr.i14.i202 = getelementptr inbounds i8, ptr %60, i64 -3
-  %65 = load i8, ptr %add.ptr.i14.i202, align 1
-  %conv4.i15.i203 = zext i8 %65 to i64
-  br label %sdslen.exit19.i191
+sw.bb3.i13.i199:                                  ; preds = %if.end.i186
+  %add.ptr.i14.i200 = getelementptr inbounds i8, ptr %60, i64 -3
+  %65 = load i8, ptr %add.ptr.i14.i200, align 1
+  %conv4.i15.i201 = zext i8 %65 to i64
+  br label %sdslen.exit19.i189
 
-sw.bb5.i10.i198:                                  ; preds = %if.end.i188
-  %add.ptr6.i11.i199 = getelementptr inbounds i8, ptr %60, i64 -5
-  %66 = load i16, ptr %add.ptr6.i11.i199, align 1
-  %conv8.i12.i200 = zext i16 %66 to i64
-  br label %sdslen.exit19.i191
+sw.bb5.i10.i196:                                  ; preds = %if.end.i186
+  %add.ptr6.i11.i197 = getelementptr inbounds i8, ptr %60, i64 -5
+  %66 = load i16, ptr %add.ptr6.i11.i197, align 1
+  %conv8.i12.i198 = zext i16 %66 to i64
+  br label %sdslen.exit19.i189
 
-sw.bb9.i7.i195:                                   ; preds = %if.end.i188
-  %add.ptr10.i8.i196 = getelementptr inbounds i8, ptr %60, i64 -9
-  %67 = load i32, ptr %add.ptr10.i8.i196, align 1
-  %conv12.i9.i197 = zext i32 %67 to i64
-  br label %sdslen.exit19.i191
+sw.bb9.i7.i193:                                   ; preds = %if.end.i186
+  %add.ptr10.i8.i194 = getelementptr inbounds i8, ptr %60, i64 -9
+  %67 = load i32, ptr %add.ptr10.i8.i194, align 1
+  %conv12.i9.i195 = zext i32 %67 to i64
+  br label %sdslen.exit19.i189
 
-sw.bb13.i4.i189:                                  ; preds = %if.end.i188
-  %add.ptr14.i5.i190 = getelementptr inbounds i8, ptr %60, i64 -17
-  %68 = load i64, ptr %add.ptr14.i5.i190, align 1
-  br label %sdslen.exit19.i191
+sw.bb13.i4.i187:                                  ; preds = %if.end.i186
+  %add.ptr14.i5.i188 = getelementptr inbounds i8, ptr %60, i64 -17
+  %68 = load i64, ptr %add.ptr14.i5.i188, align 1
+  br label %sdslen.exit19.i189
 
-default.unreachable.i207:                         ; preds = %if.end.i188
-  unreachable
-
-sdslen.exit19.i191:                               ; preds = %sw.bb13.i4.i189, %sw.bb9.i7.i195, %sw.bb5.i10.i198, %sw.bb3.i13.i201, %sw.bb.i16.i204
-  %retval.0.i6.i192 = phi i64 [ %68, %sw.bb13.i4.i189 ], [ %conv12.i9.i197, %sw.bb9.i7.i195 ], [ %conv8.i12.i200, %sw.bb5.i10.i198 ], [ %conv4.i15.i203, %sw.bb3.i13.i201 ], [ %conv2.i18.i206, %sw.bb.i16.i204 ]
-  %69 = trunc i64 %retval.0.i6.i192 to i32
+sdslen.exit19.i189:                               ; preds = %sw.bb13.i4.i187, %sw.bb9.i7.i193, %sw.bb5.i10.i196, %sw.bb3.i13.i199, %sw.bb.i16.i202, %if.end.i186
+  %retval.0.i6.i190 = phi i64 [ %68, %sw.bb13.i4.i187 ], [ %conv12.i9.i195, %sw.bb9.i7.i193 ], [ %conv8.i12.i198, %sw.bb5.i10.i196 ], [ %conv4.i15.i201, %sw.bb3.i13.i199 ], [ %conv2.i18.i204, %sw.bb.i16.i202 ], [ 0, %if.end.i186 ]
+  %69 = trunc i64 %retval.0.i6.i190 to i32
   %70 = and i32 %69, -8
-  %add1.i.i193 = add i32 %70, 16
-  br label %getHumanNodenamePingExtSize.exit220
+  %add1.i.i191 = add i32 %70, 16
+  br label %getHumanNodenamePingExtSize.exit217
 
-getHumanNodenamePingExtSize.exit220:              ; preds = %if.end30, %sdslen.exit.i185, %sdslen.exit19.i191
-  %retval.0.i194 = phi i32 [ %add1.i.i193, %sdslen.exit19.i191 ], [ 0, %sdslen.exit.i185 ], [ 0, %if.end30 ]
-  %add32 = add i32 %retval.0.i194, %totlen.0
+getHumanNodenamePingExtSize.exit217:              ; preds = %if.end30, %sdslen.exit.i183, %sdslen.exit19.i189
+  %retval.0.i192 = phi i32 [ %add1.i.i191, %sdslen.exit19.i189 ], [ 0, %sdslen.exit.i183 ], [ 0, %if.end30 ]
+  %add32 = add i32 %retval.0.i192, %totlen.0
   %inc33 = add nuw nsw i16 %extensions.0, 1
   br label %if.end34
 
-if.end34:                                         ; preds = %if.end15, %getHumanNodenamePingExtSize.exit220, %sdslen.exit112
-  %cursor.4 = phi ptr [ %cursor.3, %getHumanNodenamePingExtSize.exit220 ], [ %cursor.2, %sdslen.exit112 ], [ %cursor.2, %if.end15 ]
-  %totlen.1 = phi i32 [ %add32, %getHumanNodenamePingExtSize.exit220 ], [ %totlen.0, %sdslen.exit112 ], [ %totlen.0, %if.end15 ]
-  %extensions.1 = phi i16 [ %inc33, %getHumanNodenamePingExtSize.exit220 ], [ %extensions.0, %sdslen.exit112 ], [ %extensions.0, %if.end15 ]
+if.end34:                                         ; preds = %if.end15, %getHumanNodenamePingExtSize.exit217, %sdslen.exit111
+  %cursor.4 = phi ptr [ %cursor.3, %getHumanNodenamePingExtSize.exit217 ], [ %cursor.2, %sdslen.exit111 ], [ %cursor.2, %if.end15 ]
+  %totlen.1 = phi i32 [ %add32, %getHumanNodenamePingExtSize.exit217 ], [ %totlen.0, %sdslen.exit111 ], [ %totlen.0, %if.end15 ]
+  %extensions.1 = phi i16 [ %inc33, %getHumanNodenamePingExtSize.exit217 ], [ %extensions.0, %sdslen.exit111 ], [ %extensions.0, %if.end15 ]
   %71 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   %nodes_black_list = getelementptr inbounds i8, ptr %71, i64 40
   %72 = load ptr, ptr %nodes_black_list, align 8
@@ -8731,25 +8701,25 @@ while.body:                                       ; preds = %while.cond
 if.end50:                                         ; preds = %while.body
   %atomic-load51 = load atomic i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 349) seq_cst, align 8
   %sub = sub i64 %call47, %atomic-load51
-  %call.i221 = tail call zeroext i16 @htons(i16 noundef zeroext 2) #35
-  %type1.i222 = getelementptr inbounds i8, ptr %cursor.5.ph.fr, i64 4
-  store i16 %call.i221, ptr %type1.i222, align 4
-  %call2.i223 = tail call i32 @htonl(i32 noundef 56) #35
-  store i32 %call2.i223, ptr %cursor.5.ph.fr, align 8
-  %ext4.i224 = getelementptr inbounds i8, ptr %cursor.5.ph.fr, i64 8
+  %call.i218 = tail call zeroext i16 @htons(i16 noundef zeroext 2) #35
+  %type1.i219 = getelementptr inbounds i8, ptr %cursor.5.ph.fr, i64 4
+  store i16 %call.i218, ptr %type1.i219, align 4
+  %call2.i220 = tail call i32 @htonl(i32 noundef 56) #35
+  store i32 %call2.i220, ptr %cursor.5.ph.fr, align 8
+  %ext4.i221 = getelementptr inbounds i8, ptr %cursor.5.ph.fr, i64 8
   %call56 = tail call ptr @dictGetKey(ptr noundef nonnull %call43) #32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ext4.i224, ptr noundef nonnull align 1 dereferenceable(40) %call56, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ext4.i221, ptr noundef nonnull align 1 dereferenceable(40) %call56, i64 40, i1 false)
   %call57 = tail call i64 @intrev64(i64 noundef %sub) #32
   %ttl58 = getelementptr inbounds i8, ptr %cursor.5.ph.fr, i64 48
   store i64 %call57, ptr %ttl58, align 8
   %75 = load i32, ptr %cursor.5.ph.fr, align 8
-  %call.i225 = tail call i32 @ntohl(i32 noundef %75) #35
-  %idx.ext.i226 = zext i32 %call.i225 to i64
-  %add.ptr.i227 = getelementptr inbounds i8, ptr %cursor.5.ph.fr, i64 %idx.ext.i226
+  %call.i222 = tail call i32 @ntohl(i32 noundef %75) #35
+  %idx.ext.i223 = zext i32 %call.i222 to i64
+  %add.ptr.i224 = getelementptr inbounds i8, ptr %cursor.5.ph.fr, i64 %idx.ext.i223
   br label %if.end60
 
 if.end60:                                         ; preds = %while.cond.outer.split.us, %if.end50
-  %cursor.6 = phi ptr [ %add.ptr.i227, %if.end50 ], [ null, %while.cond.outer.split.us ]
+  %cursor.6 = phi ptr [ %add.ptr.i224, %if.end50 ], [ null, %while.cond.outer.split.us ]
   %add62 = add i32 %totlen.2.ph, 56
   %inc63 = add i16 %extensions.2.ph, 1
   br label %while.cond.outer, !llvm.loop !42
@@ -8766,15 +8736,15 @@ if.end64:                                         ; preds = %while.end, %if.end3
   br i1 %cmp65.not, label %if.end74, label %if.then66
 
 if.then66:                                        ; preds = %if.end64
-  %call.i228 = tail call zeroext i16 @htons(i16 noundef zeroext 3) #35
-  %type1.i229 = getelementptr inbounds i8, ptr %cursor.7, i64 4
-  store i16 %call.i228, ptr %type1.i229, align 4
-  %call2.i230 = tail call i32 @htonl(i32 noundef 48) #35
-  store i32 %call2.i230, ptr %cursor.7, align 8
-  %ext4.i231 = getelementptr inbounds i8, ptr %cursor.7, i64 8
+  %call.i225 = tail call zeroext i16 @htons(i16 noundef zeroext 3) #35
+  %type1.i226 = getelementptr inbounds i8, ptr %cursor.7, i64 4
+  store i16 %call.i225, ptr %type1.i226, align 4
+  %call2.i227 = tail call i32 @htonl(i32 noundef 48) #35
+  store i32 %call2.i227, ptr %cursor.7, align 8
+  %ext4.i228 = getelementptr inbounds i8, ptr %cursor.7, i64 8
   %76 = load ptr, ptr @myself, align 8
   %shard_id71 = getelementptr inbounds i8, ptr %76, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %ext4.i231, ptr noundef nonnull align 8 dereferenceable(40) %shard_id71, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %ext4.i228, ptr noundef nonnull align 8 dereferenceable(40) %shard_id71, i64 40, i1 false)
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then66, %if.end64
@@ -14894,7 +14864,7 @@ if.end22:                                         ; preds = %lor.lhs.false
   %7 = load i64, ptr %key_len, align 8
   %sub = add i64 %7, -2
   %call24 = call ptr @createStringObject(ptr noundef nonnull %add.ptr, i64 noundef %sub) #32
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx25 = getelementptr inbounds ptr, ptr %call1, i64 %indvars.iv
   store ptr %call24, ptr %arrayidx25, align 8
   %call7 = call i32 @raxNext(ptr noundef nonnull %iter) #32
@@ -15092,7 +15062,7 @@ if.else:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %if.then, %if.else
   %ci.addr.1 = phi ptr [ %call, %if.then ], [ %call6, %if.else ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %3 = trunc i64 %indvars.iv.next to i32
   %cmp = icmp slt i32 %3, %slot_info_pairs_count
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !68
@@ -15349,7 +15319,7 @@ if.else.i:                                        ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then.i
   %ci.addr.1.i = phi ptr [ %call.i, %if.then.i ], [ %call6.i, %if.else.i ]
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %31 = trunc i64 %indvars.iv.next.i to i32
   %cmp.i = icmp sgt i32 %27, %31
   br i1 %cmp.i, label %for.body.i, label %if.end107, !llvm.loop !68
@@ -15554,7 +15524,7 @@ for.inc.sink.split:                               ; preds = %if.end35, %if.then
 for.inc:                                          ; preds = %for.inc.sink.split, %lor.lhs.false
   %n.1 = phi ptr [ %n.0, %lor.lhs.false ], [ %13, %for.inc.sink.split ]
   %start.1 = phi i32 [ %start.0, %lor.lhs.false ], [ %0, %for.inc.sink.split ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.body, !llvm.loop !72
 
 for.end:                                          ; preds = %if.end35, %if.then
@@ -16355,17 +16325,17 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %slots_assigned.051 = phi i32 [ 0, %entry ], [ %slots_assigned.1, %for.inc ]
-  %slots_fail.050 = phi i32 [ 0, %entry ], [ %slots_fail.1, %for.inc ]
-  %slots_pfail.049 = phi i32 [ 0, %entry ], [ %slots_pfail.1, %for.inc ]
-  %slots_ok.048 = phi i32 [ 0, %entry ], [ %slots_ok.1, %for.inc ]
+  %slots_assigned.046 = phi i32 [ 0, %entry ], [ %slots_assigned.1, %for.inc ]
+  %slots_fail.045 = phi i32 [ 0, %entry ], [ %slots_fail.1, %for.inc ]
+  %slots_pfail.044 = phi i32 [ 0, %entry ], [ %slots_pfail.1, %for.inc ]
+  %slots_ok.043 = phi i32 [ 0, %entry ], [ %slots_ok.1, %for.inc ]
   %arrayidx = getelementptr inbounds [16384 x ptr], ptr %slots, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %inc = add nsw i32 %slots_assigned.051, 1
+  %inc = add nsw i32 %slots_assigned.046, 1
   %flags = getelementptr inbounds i8, ptr %1, i64 88
   %2 = load i32, ptr %flags, align 8
   %and = and i32 %2, 8
@@ -16373,7 +16343,7 @@ if.end:                                           ; preds = %for.body
   br i1 %tobool.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %inc3 = add nsw i32 %slots_fail.050, 1
+  %inc3 = add nsw i32 %slots_fail.045, 1
   br label %for.inc
 
 if.else:                                          ; preds = %if.end
@@ -16382,18 +16352,18 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool6.not, label %if.else9, label %if.then7
 
 if.then7:                                         ; preds = %if.else
-  %inc8 = add nsw i32 %slots_pfail.049, 1
+  %inc8 = add nsw i32 %slots_pfail.044, 1
   br label %for.inc
 
 if.else9:                                         ; preds = %if.else
-  %inc10 = add nsw i32 %slots_ok.048, 1
+  %inc10 = add nsw i32 %slots_ok.043, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then2, %if.else9, %if.then7, %for.body
-  %slots_ok.1 = phi i32 [ %slots_ok.048, %for.body ], [ %slots_ok.048, %if.then2 ], [ %slots_ok.048, %if.then7 ], [ %inc10, %if.else9 ]
-  %slots_pfail.1 = phi i32 [ %slots_pfail.049, %for.body ], [ %slots_pfail.049, %if.then2 ], [ %inc8, %if.then7 ], [ %slots_pfail.049, %if.else9 ]
-  %slots_fail.1 = phi i32 [ %slots_fail.050, %for.body ], [ %inc3, %if.then2 ], [ %slots_fail.050, %if.then7 ], [ %slots_fail.050, %if.else9 ]
-  %slots_assigned.1 = phi i32 [ %slots_assigned.051, %for.body ], [ %inc, %if.then2 ], [ %inc, %if.then7 ], [ %inc, %if.else9 ]
+  %slots_ok.1 = phi i32 [ %slots_ok.043, %for.body ], [ %slots_ok.043, %if.then2 ], [ %slots_ok.043, %if.then7 ], [ %inc10, %if.else9 ]
+  %slots_pfail.1 = phi i32 [ %slots_pfail.044, %for.body ], [ %slots_pfail.044, %if.then2 ], [ %inc8, %if.then7 ], [ %slots_pfail.044, %if.else9 ]
+  %slots_fail.1 = phi i32 [ %slots_fail.045, %for.body ], [ %inc3, %if.then2 ], [ %slots_fail.045, %if.then7 ], [ %slots_fail.045, %if.else9 ]
+  %slots_assigned.1 = phi i32 [ %slots_assigned.046, %for.body ], [ %inc, %if.then2 ], [ %inc, %if.then7 ], [ %inc, %if.else9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16384
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !80
@@ -16436,78 +16406,94 @@ cond.end:                                         ; preds = %land.lhs.true, %con
   %currentEpoch = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %currentEpoch, align 8
   %call26 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call, ptr noundef nonnull @.str.199, ptr noundef %7, i32 noundef %slots_assigned.1, i32 noundef %slots_ok.1, i32 noundef %slots_pfail.1, i32 noundef %slots_fail.1, i64 noundef %add, i32 noundef %11, i64 noundef %12, i64 noundef %cond) #32
-  %.pre68 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
+  %.pre63 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   br label %for.body29
 
 for.body29:                                       ; preds = %cond.end, %for.inc44
-  %13 = phi ptr [ %.pre68, %cond.end ], [ %16, %for.inc44 ]
-  %indvars.iv60 = phi i64 [ 0, %cond.end ], [ %indvars.iv.next61, %for.inc44 ]
-  %tot_msg_sent.054 = phi i64 [ 0, %cond.end ], [ %tot_msg_sent.1, %for.inc44 ]
-  %info.053 = phi ptr [ %call26, %cond.end ], [ %info.1, %for.inc44 ]
+  %13 = phi ptr [ %.pre63, %cond.end ], [ %18, %for.inc44 ]
+  %indvars.iv55 = phi i64 [ 0, %cond.end ], [ %indvars.iv.next56, %for.inc44 ]
+  %tot_msg_sent.049 = phi i64 [ 0, %cond.end ], [ %tot_msg_sent.1, %for.inc44 ]
+  %info.048 = phi ptr [ %call26, %cond.end ], [ %info.1, %for.inc44 ]
   %stats_bus_messages_sent = getelementptr inbounds i8, ptr %13, i64 393360
-  %arrayidx31 = getelementptr inbounds [11 x i64], ptr %stats_bus_messages_sent, i64 0, i64 %indvars.iv60
+  %arrayidx31 = getelementptr inbounds [11 x i64], ptr %stats_bus_messages_sent, i64 0, i64 %indvars.iv55
   %14 = load i64, ptr %arrayidx31, align 8
   %cmp32 = icmp eq i64 %14, 0
   br i1 %cmp32, label %for.inc44, label %if.end34
 
 if.end34:                                         ; preds = %for.body29
-  %add38 = add nsw i64 %14, %tot_msg_sent.054
-  %sext = shl i64 %indvars.iv60, 32
-  %15 = ashr exact i64 %sext, 32
-  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.15, i64 0, i64 %15
+  %add38 = add nsw i64 %14, %tot_msg_sent.049
+  %15 = trunc i64 %indvars.iv55 to i32
+  %16 = icmp ult i32 %15, 11
+  br i1 %16, label %switch.lookup, label %clusterGetMessageTypeString.exit
+
+switch.lookup:                                    ; preds = %if.end34
+  %17 = and i64 %indvars.iv55, 4294967295
+  %switch.gep = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.15, i64 0, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %call43 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.053, ptr noundef nonnull @.str.200, ptr noundef nonnull %switch.load, i64 noundef %14) #32
+  br label %clusterGetMessageTypeString.exit
+
+clusterGetMessageTypeString.exit:                 ; preds = %if.end34, %switch.lookup
+  %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.179, %if.end34 ]
+  %call43 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.048, ptr noundef nonnull @.str.200, ptr noundef nonnull %retval.0.i, i64 noundef %14) #32
   %.pre = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   br label %for.inc44
 
-for.inc44:                                        ; preds = %for.body29, %if.end34
-  %16 = phi ptr [ %13, %for.body29 ], [ %.pre, %if.end34 ]
-  %info.1 = phi ptr [ %info.053, %for.body29 ], [ %call43, %if.end34 ]
-  %tot_msg_sent.1 = phi i64 [ %tot_msg_sent.054, %for.body29 ], [ %add38, %if.end34 ]
-  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next61, 11
-  br i1 %exitcond63.not, label %for.end46, label %for.body29, !llvm.loop !81
+for.inc44:                                        ; preds = %for.body29, %clusterGetMessageTypeString.exit
+  %18 = phi ptr [ %13, %for.body29 ], [ %.pre, %clusterGetMessageTypeString.exit ]
+  %info.1 = phi ptr [ %info.048, %for.body29 ], [ %call43, %clusterGetMessageTypeString.exit ]
+  %tot_msg_sent.1 = phi i64 [ %tot_msg_sent.049, %for.body29 ], [ %add38, %clusterGetMessageTypeString.exit ]
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+  %exitcond58.not = icmp eq i64 %indvars.iv.next56, 11
+  br i1 %exitcond58.not, label %for.end46, label %for.body29, !llvm.loop !81
 
 for.end46:                                        ; preds = %for.inc44
   %call47 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.1, ptr noundef nonnull @.str.201, i64 noundef %tot_msg_sent.1) #32
-  %.pre70 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
+  %.pre65 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   br label %for.body51
 
 for.body51:                                       ; preds = %for.end46, %for.inc66
-  %17 = phi ptr [ %.pre70, %for.end46 ], [ %20, %for.inc66 ]
-  %indvars.iv64 = phi i64 [ 0, %for.end46 ], [ %indvars.iv.next65, %for.inc66 ]
-  %tot_msg_received.057 = phi i64 [ 0, %for.end46 ], [ %tot_msg_received.1, %for.inc66 ]
-  %info.256 = phi ptr [ %call47, %for.end46 ], [ %info.3, %for.inc66 ]
-  %stats_bus_messages_received = getelementptr inbounds i8, ptr %17, i64 393448
-  %arrayidx53 = getelementptr inbounds [11 x i64], ptr %stats_bus_messages_received, i64 0, i64 %indvars.iv64
-  %18 = load i64, ptr %arrayidx53, align 8
-  %cmp54 = icmp eq i64 %18, 0
+  %19 = phi ptr [ %.pre65, %for.end46 ], [ %24, %for.inc66 ]
+  %indvars.iv59 = phi i64 [ 0, %for.end46 ], [ %indvars.iv.next60, %for.inc66 ]
+  %tot_msg_received.052 = phi i64 [ 0, %for.end46 ], [ %tot_msg_received.1, %for.inc66 ]
+  %info.251 = phi ptr [ %call47, %for.end46 ], [ %info.3, %for.inc66 ]
+  %stats_bus_messages_received = getelementptr inbounds i8, ptr %19, i64 393448
+  %arrayidx53 = getelementptr inbounds [11 x i64], ptr %stats_bus_messages_received, i64 0, i64 %indvars.iv59
+  %20 = load i64, ptr %arrayidx53, align 8
+  %cmp54 = icmp eq i64 %20, 0
   br i1 %cmp54, label %for.inc66, label %if.end56
 
 if.end56:                                         ; preds = %for.body51
-  %add60 = add nsw i64 %18, %tot_msg_received.057
-  %sext73 = shl i64 %indvars.iv64, 32
-  %19 = ashr exact i64 %sext73, 32
-  %switch.gep71 = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.15, i64 0, i64 %19
-  %switch.load72 = load ptr, ptr %switch.gep71, align 8
-  %call65 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.256, ptr noundef nonnull @.str.202, ptr noundef nonnull %switch.load72, i64 noundef %18) #32
-  %.pre69 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
+  %add60 = add nsw i64 %20, %tot_msg_received.052
+  %21 = trunc i64 %indvars.iv59 to i32
+  %22 = icmp ult i32 %21, 11
+  br i1 %22, label %switch.lookup66, label %clusterGetMessageTypeString.exit42
+
+switch.lookup66:                                  ; preds = %if.end56
+  %23 = and i64 %indvars.iv59, 4294967295
+  %switch.gep67 = getelementptr inbounds [11 x ptr], ptr @switch.table.genClusterInfoString.15, i64 0, i64 %23
+  %switch.load68 = load ptr, ptr %switch.gep67, align 8
+  br label %clusterGetMessageTypeString.exit42
+
+clusterGetMessageTypeString.exit42:               ; preds = %if.end56, %switch.lookup66
+  %retval.0.i31 = phi ptr [ %switch.load68, %switch.lookup66 ], [ @.str.179, %if.end56 ]
+  %call65 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.251, ptr noundef nonnull @.str.202, ptr noundef nonnull %retval.0.i31, i64 noundef %20) #32
+  %.pre64 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
   br label %for.inc66
 
-for.inc66:                                        ; preds = %for.body51, %if.end56
-  %20 = phi ptr [ %17, %for.body51 ], [ %.pre69, %if.end56 ]
-  %info.3 = phi ptr [ %info.256, %for.body51 ], [ %call65, %if.end56 ]
-  %tot_msg_received.1 = phi i64 [ %tot_msg_received.057, %for.body51 ], [ %add60, %if.end56 ]
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond67.not = icmp eq i64 %indvars.iv.next65, 11
-  br i1 %exitcond67.not, label %for.end68, label %for.body51, !llvm.loop !82
+for.inc66:                                        ; preds = %for.body51, %clusterGetMessageTypeString.exit42
+  %24 = phi ptr [ %19, %for.body51 ], [ %.pre64, %clusterGetMessageTypeString.exit42 ]
+  %info.3 = phi ptr [ %info.251, %for.body51 ], [ %call65, %clusterGetMessageTypeString.exit42 ]
+  %tot_msg_received.1 = phi i64 [ %tot_msg_received.052, %for.body51 ], [ %add60, %clusterGetMessageTypeString.exit42 ]
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next60, 11
+  br i1 %exitcond62.not, label %for.end68, label %for.body51, !llvm.loop !82
 
 for.end68:                                        ; preds = %for.inc66
   %call69 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %info.3, ptr noundef nonnull @.str.203, i64 noundef %tot_msg_received.1) #32
-  %21 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
-  %stat_cluster_links_buffer_limit_exceeded = getelementptr inbounds i8, ptr %21, i64 393544
-  %22 = load i64, ptr %stat_cluster_links_buffer_limit_exceeded, align 8
-  %call70 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call69, ptr noundef nonnull @.str.204, i64 noundef %22) #32
+  %25 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 367), align 8
+  %stat_cluster_links_buffer_limit_exceeded = getelementptr inbounds i8, ptr %25, i64 393544
+  %26 = load i64, ptr %stat_cluster_links_buffer_limit_exceeded, align 8
+  %call70 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call69, ptr noundef nonnull @.str.204, i64 noundef %26) #32
   ret ptr %call70
 }
 
@@ -16820,7 +16806,7 @@ if.end:                                           ; preds = %while.body
   store ptr %call9, ptr %arrayidx10, align 8
   %name = getelementptr inbounds i8, ptr %call8, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %call9, ptr noundef nonnull align 8 dereferenceable(40) %name, i64 40, i1 false)
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %while.cond.outer, !llvm.loop !84
 
 while.end:                                        ; preds = %while.cond
@@ -17626,7 +17612,7 @@ if.then174:                                       ; preds = %if.end10.us.i303, %
   br label %return
 
 for.inc176:                                       ; preds = %for.inc.us.i307, %for.inc.i289
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %96 = load i32, ptr %argc125, align 8
   %97 = trunc i64 %indvars.iv.next to i32
   %cmp147 = icmp sgt i32 %96, %97

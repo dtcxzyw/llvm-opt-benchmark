@@ -2017,7 +2017,7 @@ return:                                           ; preds = %for.end.i.i.i.i, %_
   ret ptr %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
@@ -2838,8 +2838,10 @@ if.then259:                                       ; preds = %if.then164
   %conv.i220 = sitofp i32 %64 to double
   %div.i221 = fmul double %conv.i220, 0x3EF0000000000000
   %conv1.i222 = fptrunc double %div.i221 to float
-  %switch = icmp eq i16 %type, 4
-  br i1 %switch, label %land.lhs.true314, label %land.lhs.true292
+  switch i16 %type, label %if.then368 [
+    i16 4, label %land.lhs.true314
+    i16 3, label %land.lhs.true292
+  ]
 
 land.lhs.true292:                                 ; preds = %if.then259
   %ldexpf.i234 = invoke float @ldexpf(float 1.000000e+00, i32 8)
@@ -3010,7 +3012,7 @@ if.then368.sink.split:                            ; preds = %invoke.cont329, %in
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp327.sink) #28
   br label %if.then368
 
-if.then368:                                       ; preds = %if.then368.sink.split, %invoke.cont322, %invoke.cont299
+if.then368:                                       ; preds = %if.then368.sink.split, %invoke.cont322, %if.then259, %invoke.cont299
   %78 = load i32, ptr %arrayidx51, align 4
   %arrayidx373 = getelementptr inbounds i8, ptr %params, i64 8
   %79 = load i32, ptr %arrayidx373, align 4
@@ -8140,7 +8142,7 @@ attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind memory(read) }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #12 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

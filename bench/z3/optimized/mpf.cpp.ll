@@ -8256,8 +8256,10 @@ invoke.cont201:                                   ; preds = %invoke.cont195
   br i1 %call190, label %if.then205, label %if.else220
 
 if.then205:                                       ; preds = %invoke.cont201
-  %switch = icmp eq i32 %rm, 0
-  br i1 %switch, label %invoke.cont211, label %if.then214
+  switch i32 %rm, label %sw.epilog [
+    i32 0, label %invoke.cont211
+    i32 1, label %if.then214
+  ]
 
 invoke.cont211:                                   ; preds = %if.then205
   %bf.load.i.i.i240 = load i8, ptr %m_kind.i.i226, align 4
@@ -8350,7 +8352,7 @@ _ZN11mpz_managerILb0EE3incER3mpz.exit268:         ; preds = %if.then255
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i264)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZN11mpz_managerILb0EE3incER3mpz.exit268, %_ZN11mpz_managerILb0EE3incER3mpz.exit260, %_ZN11mpz_managerILb0EE3incER3mpz.exit252, %_ZN11mpz_managerILb0EE3incER3mpz.exit, %invoke.cont184, %invoke.cont249, %invoke.cont233, %invoke.cont211, %if.else220
+sw.epilog:                                        ; preds = %_ZN11mpz_managerILb0EE3incER3mpz.exit268, %_ZN11mpz_managerILb0EE3incER3mpz.exit260, %_ZN11mpz_managerILb0EE3incER3mpz.exit252, %_ZN11mpz_managerILb0EE3incER3mpz.exit, %if.then205, %invoke.cont184, %invoke.cont249, %invoke.cont233, %invoke.cont211, %if.else220
   %43 = load ptr, ptr %m_mpz_manager.i.i.i, align 8
   %bf.load.i.i.i271 = load i8, ptr %m_kind.i.i226, align 4
   %bf.clear.i.i.i272 = and i8 %bf.load.i.i.i271, 1

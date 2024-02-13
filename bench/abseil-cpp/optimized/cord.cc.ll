@@ -8625,7 +8625,7 @@ if.end31:                                         ; preds = %if.end26
   %add.ptr = getelementptr inbounds i8, ptr %storage.i51, i64 %15
   %add = add i64 %.sroa.speculated, %15
   store i64 %add, ptr %11, align 8
-  switch i8 %0, label %default.unreachable [
+  switch i8 %0, label %sw.epilog49 [
     i8 3, label %sw.bb37
     i8 2, label %sw.bb40
     i8 1, label %sw.bb43
@@ -8656,10 +8656,7 @@ sw.bb46:                                          ; preds = %sw.bb43, %if.end31
   store i64 %add48, ptr %tree.2, align 8
   br label %return
 
-default.unreachable:                              ; preds = %if.end31
-  unreachable
-
-sw.epilog49:                                      ; preds = %entry
+sw.epilog49:                                      ; preds = %if.end31, %entry
   %call50 = tail call { ptr, i64 } @_ZN4absl13cord_internal12CordRepBtree19GetAppendBufferSlowEm(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %size)
   %20 = extractvalue { ptr, i64 } %call50, 0
   %21 = extractvalue { ptr, i64 } %call50, 1

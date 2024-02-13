@@ -3762,10 +3762,10 @@ skip_optional:                                    ; preds = %if.end4
   br i1 %cmp.i, label %if.then.i, label %if.end2.i
 
 skip_optional.thread:                             ; preds = %if.end
-  %ok.i42 = getelementptr inbounds i8, ptr %self, i64 24
-  %2 = load i32, ptr %ok.i42, align 8
-  %cmp.i43 = icmp slt i32 %2, 1
-  br i1 %cmp.i43, label %if.then.i, label %if.end5.i
+  %ok.i50 = getelementptr inbounds i8, ptr %self, i64 24
+  %2 = load i32, ptr %ok.i50, align 8
+  %cmp.i51 = icmp slt i32 %2, 1
+  br i1 %cmp.i51, label %if.then.i, label %if.end5.i
 
 if.then.i:                                        ; preds = %skip_optional.thread, %skip_optional
   %detached.i = getelementptr inbounds i8, ptr %self, i64 28
@@ -4365,11 +4365,11 @@ land.lhs.true3.i58.i:                             ; preds = %land.lhs.true48.i
   %read_end.i59.i = getelementptr inbounds i8, ptr %self, i64 80
   %78 = load i64, ptr %read_end.i59.i, align 8
   %cmp.not.i60.i = icmp eq i64 %78, -1
-  br i1 %cmp.not.i60.i, label %cond.end.i105.i, label %cond.end.thread178.i.i
+  br i1 %cmp.not.i60.i, label %cond.end.i106.i, label %cond.end.thread178.i.i
 
-cond.end.i105.i:                                  ; preds = %land.lhs.true3.i58.i
-  %cmp5.not.i106.not.i = icmp eq i64 %6, 0
-  br i1 %cmp5.not.i106.not.i, label %cond.end.i.i65.i, label %if.end.i70.i
+cond.end.i106.i:                                  ; preds = %land.lhs.true3.i58.i
+  %cmp5.not.i107.not.i = icmp eq i64 %6, 0
+  br i1 %cmp5.not.i107.not.i, label %cond.end.i.i65.i, label %if.end.i70.i
 
 cond.end.thread178.i.i:                           ; preds = %land.lhs.true3.i58.i
   %pos.i61.i = getelementptr inbounds i8, ptr %self, i64 64
@@ -4382,8 +4382,8 @@ cond.end.thread.i.i:                              ; preds = %land.lhs.true48.i
   %cmp5.not122.i.not.i = icmp eq i64 %6, 0
   br i1 %cmp5.not122.i.not.i, label %cond.end.i.i65.i, label %if.end.i70.i
 
-cond.end.i.i65.i:                                 ; preds = %cond.end.thread.i.i, %cond.end.thread178.i.i, %cond.end.i105.i
-  %cond.i.i.i = phi i64 [ 0, %cond.end.thread.i.i ], [ 0, %cond.end.i105.i ], [ %sub.i62.i, %cond.end.thread178.i.i ]
+cond.end.i.i65.i:                                 ; preds = %cond.end.thread.i.i, %cond.end.thread178.i.i, %cond.end.i106.i
+  %cond.i.i.i = phi i64 [ 0, %cond.end.thread.i.i ], [ 0, %cond.end.i106.i ], [ %sub.i62.i, %cond.end.thread178.i.i ]
   %cmp5.not.i.i.i = icmp ult i64 %cond.i.i.i, %6
   br i1 %cmp5.not.i.i.i, label %_bufferedreader_read_generic.exit.i, label %if.then.i.i66.i
 
@@ -4402,8 +4402,8 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i66.i
   store i64 %add.i.i.i, ptr %pos6.i.i.i, align 8
   br label %_bufferedreader_read_generic.exit.i
 
-if.end.i70.i:                                     ; preds = %cond.end.thread.i.i, %cond.end.thread178.i.i, %cond.end.i105.i
-  %cond123.i.i = phi i64 [ 0, %cond.end.thread.i.i ], [ 0, %cond.end.i105.i ], [ %sub.i62.i, %cond.end.thread178.i.i ]
+if.end.i70.i:                                     ; preds = %cond.end.thread.i.i, %cond.end.thread178.i.i, %cond.end.i106.i
+  %cond123.i.i = phi i64 [ 0, %cond.end.thread.i.i ], [ 0, %cond.end.i106.i ], [ %sub.i62.i, %cond.end.thread178.i.i ]
   %call6.i71.i = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %6) #10
   store ptr %call6.i71.i, ptr %res.i.i, align 8
   %cmp7.i72.i = icmp eq ptr %call6.i71.i, null
@@ -4412,23 +4412,23 @@ if.end.i70.i:                                     ; preds = %cond.end.thread.i.i
 if.end9.i.i:                                      ; preds = %if.end.i70.i
   %ob_sval.i.i.i = getelementptr inbounds i8, ptr %call6.i71.i, i64 32
   %cmp11.i.i = icmp sgt i64 %cond123.i.i, 0
-  br i1 %cmp11.i.i, label %if.then12.i102.i, label %if.end17.i.i
+  br i1 %cmp11.i.i, label %if.then12.i103.i, label %if.end17.i.i
 
-if.then12.i102.i:                                 ; preds = %if.end9.i.i
+if.then12.i103.i:                                 ; preds = %if.end9.i.i
   %83 = load ptr, ptr %buffer.i, align 8
   %pos13.i.i = getelementptr inbounds i8, ptr %self, i64 64
   %84 = load i64, ptr %pos13.i.i, align 8
-  %add.ptr.i104.i = getelementptr i8, ptr %83, i64 %84
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %ob_sval.i.i.i, ptr align 1 %add.ptr.i104.i, i64 %cond123.i.i, i1 false)
+  %add.ptr.i105.i = getelementptr i8, ptr %83, i64 %84
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %ob_sval.i.i.i, ptr align 1 %add.ptr.i105.i, i64 %cond123.i.i, i1 false)
   %sub14.i.i = sub nsw i64 %6, %cond123.i.i
   %85 = load i64, ptr %pos13.i.i, align 8
   %add16.i.i = add i64 %85, %cond123.i.i
   store i64 %add16.i.i, ptr %pos13.i.i, align 8
   br label %if.end17.i.i
 
-if.end17.i.i:                                     ; preds = %if.then12.i102.i, %if.end9.i.i
-  %written.0.i.i = phi i64 [ %cond123.i.i, %if.then12.i102.i ], [ 0, %if.end9.i.i ]
-  %remaining.0.i.i = phi i64 [ %sub14.i.i, %if.then12.i102.i ], [ %6, %if.end9.i.i ]
+if.end17.i.i:                                     ; preds = %if.then12.i103.i, %if.end9.i.i
+  %written.0.i.i = phi i64 [ %cond123.i.i, %if.then12.i103.i ], [ 0, %if.end9.i.i ]
+  %remaining.0.i.i = phi i64 [ %sub14.i.i, %if.then12.i103.i ], [ %6, %if.end9.i.i ]
   %writable.i73.i = getelementptr inbounds i8, ptr %self, i64 36
   %86 = load i32, ptr %writable.i73.i, align 4
   %tobool18.not.i.i = icmp eq i32 %86, 0
@@ -4443,19 +4443,19 @@ if.end.i92.i.i:                                   ; preds = %if.then19.i.i
   %87 = load i64, ptr %call.i90.i.i, align 8
   %88 = and i64 %87, 2147483648
   %cmp.i18.not.i.i74.i = icmp eq i64 %88, 0
-  br i1 %cmp.i18.not.i.i74.i, label %if.end.i.i.i98.i, label %Py_DECREF.exit.i.i75.i
+  br i1 %cmp.i18.not.i.i74.i, label %if.end.i.i.i99.i, label %Py_DECREF.exit.i.i75.i
 
-if.end.i.i.i98.i:                                 ; preds = %if.end.i92.i.i
-  %dec.i.i.i99.i = add i64 %87, -1
-  store i64 %dec.i.i.i99.i, ptr %call.i90.i.i, align 8
-  %cmp.i.i.i100.i = icmp eq i64 %dec.i.i.i99.i, 0
-  br i1 %cmp.i.i.i100.i, label %if.then1.i.i.i101.i, label %Py_DECREF.exit.i.i75.i
+if.end.i.i.i99.i:                                 ; preds = %if.end.i92.i.i
+  %dec.i.i.i100.i = add i64 %87, -1
+  store i64 %dec.i.i.i100.i, ptr %call.i90.i.i, align 8
+  %cmp.i.i.i101.i = icmp eq i64 %dec.i.i.i100.i, 0
+  br i1 %cmp.i.i.i101.i, label %if.then1.i.i.i102.i, label %Py_DECREF.exit.i.i75.i
 
-if.then1.i.i.i101.i:                              ; preds = %if.end.i.i.i98.i
+if.then1.i.i.i102.i:                              ; preds = %if.end.i.i.i99.i
   call void @_Py_Dealloc(ptr noundef nonnull %call.i90.i.i) #10
   br label %Py_DECREF.exit.i.i75.i
 
-Py_DECREF.exit.i.i75.i:                           ; preds = %if.then1.i.i.i101.i, %if.end.i.i.i98.i, %if.end.i92.i.i
+Py_DECREF.exit.i.i75.i:                           ; preds = %if.then1.i.i.i102.i, %if.end.i.i.i99.i, %if.end.i92.i.i
   %89 = load i32, ptr %readable.i42.i, align 8
   %tobool.not.i94.i.i = icmp eq i32 %89, 0
   br i1 %tobool.not.i94.i.i, label %if.end23.i.i, label %land.lhs.true.i.i76.i
@@ -4464,20 +4464,20 @@ land.lhs.true.i.i76.i:                            ; preds = %Py_DECREF.exit.i.i7
   %read_end.i95.i.i = getelementptr inbounds i8, ptr %self, i64 80
   %90 = load i64, ptr %read_end.i95.i.i, align 8
   %cmp4.not.i.i77.i = icmp eq i64 %90, -1
-  br i1 %cmp4.not.i.i77.i, label %lor.lhs.false.i.i94.i, label %land.lhs.true8.i.i78.i
+  br i1 %cmp4.not.i.i77.i, label %lor.lhs.false.i.i95.i, label %land.lhs.true8.i.i78.i
 
-lor.lhs.false.i.i94.i:                            ; preds = %land.lhs.true.i.i76.i
+lor.lhs.false.i.i95.i:                            ; preds = %land.lhs.true.i.i76.i
   %91 = load i32, ptr %writable.i73.i, align 4
-  %tobool5.not.i.i95.i = icmp eq i32 %91, 0
-  br i1 %tobool5.not.i.i95.i, label %cond.end.i96.i.i, label %land.lhs.true6.i.i96.i
+  %tobool5.not.i.i96.i = icmp eq i32 %91, 0
+  br i1 %tobool5.not.i.i96.i, label %cond.end.i96.i.i, label %land.lhs.true6.i.i97.i
 
-land.lhs.true6.i.i96.i:                           ; preds = %lor.lhs.false.i.i94.i
-  %write_end.i.i97.i = getelementptr inbounds i8, ptr %self, i64 96
-  %92 = load i64, ptr %write_end.i.i97.i, align 8
+land.lhs.true6.i.i97.i:                           ; preds = %lor.lhs.false.i.i95.i
+  %write_end.i.i98.i = getelementptr inbounds i8, ptr %self, i64 96
+  %92 = load i64, ptr %write_end.i.i98.i, align 8
   %cmp7.not.i100.i.i = icmp eq i64 %92, -1
   br i1 %cmp7.not.i100.i.i, label %cond.end.i96.i.i, label %land.lhs.true8.i.i78.i
 
-land.lhs.true8.i.i78.i:                           ; preds = %land.lhs.true6.i.i96.i, %land.lhs.true.i.i76.i
+land.lhs.true8.i.i78.i:                           ; preds = %land.lhs.true6.i.i97.i, %land.lhs.true.i.i76.i
   %raw_pos.i.i79.i = getelementptr inbounds i8, ptr %self, i64 72
   %93 = load i64, ptr %raw_pos.i.i79.i, align 8
   %cmp9.i.i80.i = icmp sgt i64 %93, -1
@@ -4486,11 +4486,11 @@ land.lhs.true8.i.i78.i:                           ; preds = %land.lhs.true6.i.i9
 cond.true.i98.i.i:                                ; preds = %land.lhs.true8.i.i78.i
   %pos.i99.i.i = getelementptr inbounds i8, ptr %self, i64 64
   %94 = load i64, ptr %pos.i99.i.i, align 8
-  %sub.neg.i.i93.i = sub i64 %94, %93
+  %sub.neg.i.i94.i = sub i64 %94, %93
   br label %cond.end.i96.i.i
 
-cond.end.i96.i.i:                                 ; preds = %cond.true.i98.i.i, %land.lhs.true8.i.i78.i, %land.lhs.true6.i.i96.i, %lor.lhs.false.i.i94.i
-  %cond.neg.i.i81.i = phi i64 [ %sub.neg.i.i93.i, %cond.true.i98.i.i ], [ 0, %land.lhs.true8.i.i78.i ], [ 0, %land.lhs.true6.i.i96.i ], [ 0, %lor.lhs.false.i.i94.i ]
+cond.end.i96.i.i:                                 ; preds = %cond.true.i98.i.i, %land.lhs.true8.i.i78.i, %land.lhs.true6.i.i97.i, %lor.lhs.false.i.i95.i
+  %cond.neg.i.i81.i = phi i64 [ %sub.neg.i.i94.i, %cond.true.i98.i.i ], [ 0, %land.lhs.true8.i.i78.i ], [ 0, %land.lhs.true6.i.i97.i ], [ 0, %lor.lhs.false.i.i95.i ]
   %call12.i.i82.i = call fastcc i64 @_buffered_raw_seek(ptr noundef nonnull %self, i64 noundef %cond.neg.i.i81.i, i32 noundef 1), !range !7
   store i64 -1, ptr %read_end.i95.i.i, align 8
   %cmp13.i.i83.i = icmp eq i64 %call12.i.i82.i, -1
@@ -4609,16 +4609,16 @@ while.end.i.i:                                    ; preds = %cond.end32.i.i
 
 land.rhsthread-pre-split.i.i:                     ; preds = %if.end104.i.i
   %written.3.i.i = add i64 %call.i111.i.i, %written.2158.i.i
-  %.pr.i87.i = load i64, ptr %read_end.i101.i.i, align 8
+  %.pr.i88.i = load i64, ptr %read_end.i101.i.i, align 8
   %105 = load i64, ptr %buffer_size.i.i, align 8
-  %cmp63.i.i = icmp slt i64 %.pr.i87.i, %105
+  %cmp63.i.i = icmp slt i64 %.pr.i88.i, %105
   br i1 %cmp63.i.i, label %while.body64.i.i, label %while.end108.i.i
 
 while.body64.i.i:                                 ; preds = %while.end.i.i, %land.rhsthread-pre-split.i.i
   %106 = phi i64 [ %105, %land.rhsthread-pre-split.i.i ], [ %104, %while.end.i.i ]
   %remaining.2159.i.i = phi i64 [ %sub93.i.i, %land.rhsthread-pre-split.i.i ], [ %remaining.1.fr156.i.i, %while.end.i.i ]
   %written.2158.i.i = phi i64 [ %written.3.i.i, %land.rhsthread-pre-split.i.i ], [ %written.1155.i.i, %while.end.i.i ]
-  %107 = phi i64 [ %.pr.i87.i, %land.rhsthread-pre-split.i.i ], [ 0, %while.end.i.i ]
+  %107 = phi i64 [ %.pr.i88.i, %land.rhsthread-pre-split.i.i ], [ 0, %while.end.i.i ]
   %108 = load i32, ptr %readable.i42.i, align 8
   %tobool.not.i103.i.i = icmp eq i32 %108, 0
   %cmp.not.i106.i.i = icmp eq i64 %107, -1
@@ -4635,57 +4635,63 @@ _bufferedreader_fill_buffer.exit.thread.i.i:      ; preds = %while.body64.i.i
   %add.i112.i.i = add i64 %start.0.i.i.i, %call.i111.i.i
   store i64 %add.i112.i.i, ptr %read_end.i101.i.i, align 8
   store i64 %add.i112.i.i, ptr %raw_pos.i.i, align 8
-  %cmp84.i.i = icmp sgt i64 %remaining.2159.i.i, %call.i111.i.i
-  %add.ptr86.i.i = getelementptr i8, ptr %ob_sval.i.i.i, i64 %written.2158.i.i
-  %110 = load ptr, ptr %buffer.i, align 8
-  %111 = load i64, ptr %pos57.i.i, align 8
-  %add.ptr89.i.i = getelementptr i8, ptr %110, i64 %111
-  br i1 %cmp84.i.i, label %if.end104.i.i, label %if.end104.thread.i.i
+  br label %if.end83.i87.i
 
 _bufferedreader_fill_buffer.exit.i.i:             ; preds = %while.body64.i.i
-  %switch.i.i = icmp eq i64 %call.i111.i.i, -1
-  br i1 %switch.i.i, label %error.i.i, label %if.then73.i88.i
+  switch i64 %call.i111.i.i, label %if.end83.i87.i [
+    i64 -1, label %error.i.i
+    i64 -2, label %if.then73.i89.i
+    i64 0, label %if.then73.i89.i
+  ]
 
-if.then73.i88.i:                                  ; preds = %_bufferedreader_fill_buffer.exit.i.i
+if.then73.i89.i:                                  ; preds = %_bufferedreader_fill_buffer.exit.i.i, %_bufferedreader_fill_buffer.exit.i.i
   %cmp70.i.i = icmp eq i64 %call.i111.i.i, 0
   %cmp76.i.i = icmp sgt i64 %written.2158.i.i, 0
   %or.cond3.i.i = select i1 %cmp70.i.i, i1 true, i1 %cmp76.i.i
   br i1 %or.cond3.i.i, label %if.then77.i.i, label %if.end82.i.i
 
-if.then77.i.i:                                    ; preds = %if.then73.i88.i
+if.then77.i.i:                                    ; preds = %if.then73.i89.i
   %call78.i.i = call i32 @_PyBytes_Resize(ptr noundef nonnull %res.i.i, i64 noundef %written.2158.i.i) #10
   %tobool79.not.i.i = icmp eq i32 %call78.i.i, 0
   br i1 %tobool79.not.i.i, label %if.end81.i.i, label %error.i.i
 
 if.end81.i.i:                                     ; preds = %if.then77.i.i
-  %112 = load ptr, ptr %res.i.i, align 8
+  %110 = load ptr, ptr %res.i.i, align 8
   br label %_bufferedreader_read_generic.exit.i
 
-if.end82.i.i:                                     ; preds = %if.then73.i88.i
-  %113 = load ptr, ptr %res.i.i, align 8
-  %114 = load i64, ptr %113, align 8
-  %115 = and i64 %114, 2147483648
-  %cmp.i135.not.i.i = icmp eq i64 %115, 0
-  br i1 %cmp.i135.not.i.i, label %if.end.i.i89.i, label %_bufferedreader_read_generic.exit.i
+if.end82.i.i:                                     ; preds = %if.then73.i89.i
+  %111 = load ptr, ptr %res.i.i, align 8
+  %112 = load i64, ptr %111, align 8
+  %113 = and i64 %112, 2147483648
+  %cmp.i135.not.i.i = icmp eq i64 %113, 0
+  br i1 %cmp.i135.not.i.i, label %if.end.i.i90.i, label %_bufferedreader_read_generic.exit.i
 
-if.end.i.i89.i:                                   ; preds = %if.end82.i.i
-  %dec.i.i90.i = add i64 %114, -1
-  store i64 %dec.i.i90.i, ptr %113, align 8
-  %cmp.i.i91.i = icmp eq i64 %dec.i.i90.i, 0
-  br i1 %cmp.i.i91.i, label %if.then1.i.i92.i, label %_bufferedreader_read_generic.exit.i
+if.end.i.i90.i:                                   ; preds = %if.end82.i.i
+  %dec.i.i91.i = add i64 %112, -1
+  store i64 %dec.i.i91.i, ptr %111, align 8
+  %cmp.i.i92.i = icmp eq i64 %dec.i.i91.i, 0
+  br i1 %cmp.i.i92.i, label %if.then1.i.i93.i, label %_bufferedreader_read_generic.exit.i
 
-if.then1.i.i92.i:                                 ; preds = %if.end.i.i89.i
-  call void @_Py_Dealloc(ptr noundef nonnull %113) #10
+if.then1.i.i93.i:                                 ; preds = %if.end.i.i90.i
+  call void @_Py_Dealloc(ptr noundef nonnull %111) #10
   br label %_bufferedreader_read_generic.exit.i
 
-if.end104.thread.i.i:                             ; preds = %_bufferedreader_fill_buffer.exit.thread.i.i
+if.end83.i87.i:                                   ; preds = %_bufferedreader_fill_buffer.exit.i.i, %_bufferedreader_fill_buffer.exit.thread.i.i
+  %cmp84.i.i = icmp sgt i64 %remaining.2159.i.i, %call.i111.i.i
+  %add.ptr86.i.i = getelementptr i8, ptr %ob_sval.i.i.i, i64 %written.2158.i.i
+  %114 = load ptr, ptr %buffer.i, align 8
+  %115 = load i64, ptr %pos57.i.i, align 8
+  %add.ptr89.i.i = getelementptr i8, ptr %114, i64 %115
+  br i1 %cmp84.i.i, label %if.end104.i.i, label %if.end104.thread.i.i
+
+if.end104.thread.i.i:                             ; preds = %if.end83.i87.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr86.i.i, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr89.i.i, i64 %remaining.2159.i.i, i1 false)
   %116 = load i64, ptr %pos57.i.i, align 8
   %add102.i.i = add i64 %116, %remaining.2159.i.i
   store i64 %add102.i.i, ptr %pos57.i.i, align 8
   br label %while.end108.i.i
 
-if.end104.i.i:                                    ; preds = %_bufferedreader_fill_buffer.exit.thread.i.i
+if.end104.i.i:                                    ; preds = %if.end83.i87.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr86.i.i, ptr align 1 %add.ptr89.i.i, i64 %call.i111.i.i, i1 false)
   %117 = load i64, ptr %pos57.i.i, align 8
   %add92.i.i = add i64 %117, %call.i111.i.i
@@ -4698,7 +4704,7 @@ while.end108.i.i:                                 ; preds = %if.end104.i.i, %lan
   %118 = load ptr, ptr %res.i.i, align 8
   br label %_bufferedreader_read_generic.exit.i
 
-error.i.i:                                        ; preds = %if.end36.i.i, %if.then77.i.i, %_bufferedreader_fill_buffer.exit.i.i, %if.then48.i.i, %cond.end.i96.i.i, %if.then19.i.i
+error.i.i:                                        ; preds = %if.end36.i.i, %_bufferedreader_fill_buffer.exit.i.i, %if.then77.i.i, %if.then48.i.i, %cond.end.i96.i.i, %if.then19.i.i
   %.pr133.i.i = load ptr, ptr %res.i.i, align 8
   %cmp.not.i114.i.i = icmp eq ptr %.pr133.i.i, null
   br i1 %cmp.not.i114.i.i, label %_bufferedreader_read_generic.exit.i, label %if.then.i115.i.i
@@ -4719,8 +4725,8 @@ if.then1.i.i120.i.i:                              ; preds = %if.end.i.i117.i.i
   call void @_Py_Dealloc(ptr noundef nonnull %.pr133.i.i) #10
   br label %_bufferedreader_read_generic.exit.i
 
-_bufferedreader_read_generic.exit.i:              ; preds = %if.then1.i.i120.i.i, %if.end.i.i117.i.i, %if.then.i115.i.i, %error.i.i, %while.end108.i.i, %if.then1.i.i92.i, %if.end.i.i89.i, %if.end82.i.i, %if.end81.i.i, %if.then1.i115.i.i, %if.end.i112.i.i, %if.end53.i.i, %if.end52.i.i, %if.end.i70.i, %if.then8.i.i.i, %if.then.i.i66.i, %cond.end.i.i65.i
-  %retval.0.i69.i = phi ptr [ %112, %if.end81.i.i ], [ %118, %while.end108.i.i ], [ %100, %if.end52.i.i ], [ @_Py_NoneStruct, %if.end53.i.i ], [ @_Py_NoneStruct, %if.then1.i115.i.i ], [ @_Py_NoneStruct, %if.end.i112.i.i ], [ @_Py_NoneStruct, %if.end82.i.i ], [ @_Py_NoneStruct, %if.then1.i.i92.i ], [ @_Py_NoneStruct, %if.end.i.i89.i ], [ %call.i.i67.i, %if.then8.i.i.i ], [ null, %if.then.i.i66.i ], [ @_Py_NoneStruct, %cond.end.i.i65.i ], [ null, %error.i.i ], [ null, %if.then.i115.i.i ], [ null, %if.end.i.i117.i.i ], [ null, %if.then1.i.i120.i.i ], [ null, %if.end.i70.i ]
+_bufferedreader_read_generic.exit.i:              ; preds = %if.then1.i.i120.i.i, %if.end.i.i117.i.i, %if.then.i115.i.i, %error.i.i, %while.end108.i.i, %if.then1.i.i93.i, %if.end.i.i90.i, %if.end82.i.i, %if.end81.i.i, %if.then1.i115.i.i, %if.end.i112.i.i, %if.end53.i.i, %if.end52.i.i, %if.end.i70.i, %if.then8.i.i.i, %if.then.i.i66.i, %cond.end.i.i65.i
+  %retval.0.i69.i = phi ptr [ %110, %if.end81.i.i ], [ %118, %while.end108.i.i ], [ %100, %if.end52.i.i ], [ @_Py_NoneStruct, %if.end53.i.i ], [ @_Py_NoneStruct, %if.then1.i115.i.i ], [ @_Py_NoneStruct, %if.end.i112.i.i ], [ @_Py_NoneStruct, %if.end82.i.i ], [ @_Py_NoneStruct, %if.then1.i.i93.i ], [ @_Py_NoneStruct, %if.end.i.i90.i ], [ %call.i.i67.i, %if.then8.i.i.i ], [ null, %if.then.i.i66.i ], [ @_Py_NoneStruct, %cond.end.i.i65.i ], [ null, %error.i.i ], [ null, %if.then.i115.i.i ], [ null, %if.end.i.i117.i.i ], [ null, %if.then1.i.i120.i.i ], [ null, %if.end.i70.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %res.i.i)
   br label %do.body.i
 
