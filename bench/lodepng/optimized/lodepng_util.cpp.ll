@@ -3949,22 +3949,11 @@ if.then15.i.i:                                    ; preds = %if.then11.i.i
   br label %cond.end66.i
 
 if.end16.i.i:                                     ; preds = %if.then11.i.i
-  br i1 %cmp5.i.i, label %if.then18.i.i, label %if.else.i.i
+  br i1 %cmp5.i.i, label %if.then18.i.i, label %cond.end66.i
 
 if.then18.i.i:                                    ; preds = %if.end16.i.i
   %cmp19.i.i = fcmp ogt float %div64.i, 0x47EFFFFFE0000000
   br i1 %cmp19.i.i, label %cond.end66.i, label %if.end119.i.i
-
-if.else.i.i:                                      ; preds = %if.end16.i.i
-  %cmp33.i.i = fcmp olt float %div64.i, 0xC7EFFFFFE0000000
-  br i1 %cmp33.i.i, label %cond.end66.i, label %cond.false40.i.i
-
-cond.false40.i.i:                                 ; preds = %if.else.i.i
-  %cmp41.i.i = fcmp oeq float %div64.i, 0.000000e+00
-  br i1 %cmp41.i.i, label %cond.true42.i.i, label %cond.end66.i
-
-cond.true42.i.i:                                  ; preds = %cond.false40.i.i
-  br label %cond.end66.i
 
 if.end119.i.i:                                    ; preds = %if.then18.i.i, %if.end.i.i
   %cmp12099.i.i = fcmp olt float %div64.i, 0x3EF0000000000000
@@ -4098,8 +4087,8 @@ cond.false185.i.i:                                ; preds = %while.body175.i.i, 
   %div189.i.i = fdiv float %mul188.i.i, %27
   br label %cond.end66.i
 
-cond.end66.i:                                     ; preds = %cond.false185.i.i, %cond.true180.i.i, %if.then148.i.i, %cond.true42.i.i, %cond.false40.i.i, %if.else.i.i, %if.then18.i.i, %if.then15.i.i, %cond.false62.i, %cond.true60.i
-  %cond67.i = phi float [ %div61.i, %cond.true60.i ], [ %cond157.i.i, %if.then148.i.i ], [ %add.i.i, %if.then15.i.i ], [ 1.000000e+00, %cond.false62.i ], [ 0.000000e+00, %cond.true42.i.i ], [ 0x7FF8000000000000, %cond.false40.i.i ], [ %div184.i.i, %cond.true180.i.i ], [ %div189.i.i, %cond.false185.i.i ], [ %div64.i, %if.then18.i.i ], [ 0x7FF0000000000000, %if.else.i.i ]
+cond.end66.i:                                     ; preds = %cond.false185.i.i, %cond.true180.i.i, %if.then148.i.i, %if.then18.i.i, %if.end16.i.i, %if.then15.i.i, %cond.false62.i, %cond.true60.i
+  %cond67.i = phi float [ %div61.i, %cond.true60.i ], [ %cond157.i.i, %if.then148.i.i ], [ %add.i.i, %if.then15.i.i ], [ 1.000000e+00, %cond.false62.i ], [ %div184.i.i, %cond.true180.i.i ], [ %div189.i.i, %cond.false185.i.i ], [ %div64.i, %if.then18.i.i ], [ 0.000000e+00, %if.end16.i.i ]
   %arrayidx70.i = getelementptr inbounds float, ptr %out, i64 %add57.i
   store float %cond67.i, ptr %arrayidx70.i, align 4
   %inc72.i = add nuw nsw i64 %c.257.i, 1
@@ -4877,22 +4866,11 @@ if.then15.i:                                      ; preds = %if.then11.i39
   br label %_ZN7lodepngL12lodepng_powfEff.exit
 
 if.end16.i:                                       ; preds = %if.then11.i39
-  br i1 %cmp5.i, label %if.then18.i, label %if.else.i
+  br i1 %cmp5.i, label %if.then18.i, label %_ZN7lodepngL12lodepng_powfEff.exit
 
 if.then18.i:                                      ; preds = %if.end16.i
   %cmp19.i40 = fcmp ogt float %39, 0x47EFFFFFE0000000
   br i1 %cmp19.i40, label %_ZN7lodepngL12lodepng_powfEff.exit, label %if.end119.i
-
-if.else.i:                                        ; preds = %if.end16.i
-  %cmp33.i = fcmp olt float %39, 0xC7EFFFFFE0000000
-  br i1 %cmp33.i, label %_ZN7lodepngL12lodepng_powfEff.exit, label %cond.false40.i
-
-cond.false40.i:                                   ; preds = %if.else.i
-  %cmp41.i = fcmp oeq float %39, 0.000000e+00
-  br i1 %cmp41.i, label %cond.true42.i, label %_ZN7lodepngL12lodepng_powfEff.exit
-
-cond.true42.i:                                    ; preds = %cond.false40.i
-  br label %_ZN7lodepngL12lodepng_powfEff.exit
 
 if.end119.i:                                      ; preds = %if.then18.i, %if.end.i
   %cmp12099.i = fcmp olt float %39, 0x3EF0000000000000
@@ -5026,8 +5004,8 @@ cond.false185.i:                                  ; preds = %while.body175.i, %w
   %div189.i = fdiv float %mul188.i, %53
   br label %_ZN7lodepngL12lodepng_powfEff.exit
 
-_ZN7lodepngL12lodepng_powfEff.exit:               ; preds = %if.else.i, %if.then18.i, %cond.false, %if.then15.i, %cond.false40.i, %cond.true42.i, %if.then148.i, %cond.true180.i, %cond.false185.i
-  %common.ret.op.i = phi float [ %cond157.i, %if.then148.i ], [ %add.i43, %if.then15.i ], [ 1.000000e+00, %cond.false ], [ 0.000000e+00, %cond.true42.i ], [ 0x7FF8000000000000, %cond.false40.i ], [ %div184.i, %cond.true180.i ], [ %div189.i, %cond.false185.i ], [ %39, %if.then18.i ], [ 0x7FF0000000000000, %if.else.i ]
+_ZN7lodepngL12lodepng_powfEff.exit:               ; preds = %if.end16.i, %if.then18.i, %cond.false, %if.then15.i, %if.then148.i, %cond.true180.i, %cond.false185.i
+  %common.ret.op.i = phi float [ %cond157.i, %if.then148.i ], [ %add.i43, %if.then15.i ], [ 1.000000e+00, %cond.false ], [ %div184.i, %cond.true180.i ], [ %div189.i, %cond.false185.i ], [ %39, %if.then18.i ], [ 0x7FF8000000000000, %if.end16.i ]
   %54 = tail call float @llvm.fmuladd.f32(float %common.ret.op.i, float 0x3FF0E147A0000000, float 0xBFAC28F5C0000000)
   br label %cond.end
 

@@ -7838,7 +7838,7 @@ if.then22.i:                                      ; preds = %land.lhs.true7.i.if
   %StartPosY.i = getelementptr inbounds i8, ptr %this, i64 24
   store float %17, ptr %StartPosY.i, align 8
   %cmp23.i = fcmp ugt float %16, 0.000000e+00
-  br i1 %cmp23.i, label %if.end70.i, label %if.then24.i
+  br i1 %cmp23.i, label %if.end41.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.then22.i
   %Ranges.i = getelementptr inbounds i8, ptr %3, i64 24
@@ -7927,46 +7927,46 @@ _ZN8ImVectorI21ImGuiListClipperRangeE10push_frontERKS0_.exit.i: ; preds = %if.th
   store i32 1, ptr %StepNo.i, align 4
   br label %land.lhs.true
 
+if.end41.i:                                       ; preds = %if.then22.i
+  %DisplayEnd71.i = getelementptr inbounds i8, ptr %this, i64 12
+  %31 = load i32, ptr %DisplayEnd71.i, align 4
+  br label %if.then73.i
+
 if.end41.thread.i:                                ; preds = %if.end19.i
   %cmp43289.i = fcmp ugt float %.pre11, 0.000000e+00
   br i1 %cmp43289.i, label %if.end70.if.end203_crit_edge.i, label %if.then44.i
 
 if.then44.i:                                      ; preds = %if.end41.thread.i
   %y50.i = getelementptr inbounds i8, ptr %2, i64 276
-  %31 = load float, ptr %y50.i, align 4
+  %32 = load float, ptr %y50.i, align 4
   %StartPosY51.i = getelementptr inbounds i8, ptr %this, i64 24
-  %32 = load float, ptr %StartPosY51.i, align 8
-  %sub.i = fsub float %31, %32
+  %33 = load float, ptr %StartPosY51.i, align 8
+  %sub.i = fsub float %32, %33
   %DisplayEnd52.i = getelementptr inbounds i8, ptr %this, i64 12
-  %33 = load i32, ptr %DisplayEnd52.i, align 4
+  %34 = load i32, ptr %DisplayEnd52.i, align 4
   %DisplayStart53.i = getelementptr inbounds i8, ptr %this, i64 8
-  %34 = load i32, ptr %DisplayStart53.i, align 8
-  %sub54.i = sub nsw i32 %33, %34
+  %35 = load i32, ptr %DisplayStart53.i, align 8
+  %sub54.i = sub nsw i32 %34, %35
   %conv.i = sitofp i32 %sub54.i to float
   %div.i = fdiv float %sub.i, %conv.i
   store float %div.i, ptr %ItemsHeight, align 4
-  %35 = tail call float @llvm.fabs.f32(float %32)
-  %36 = fcmp ult float %35, 0x4170000000000000
-  br i1 %36, label %lor.rhs.i, label %if.then63.i
+  %36 = tail call float @llvm.fabs.f32(float %33)
+  %37 = fcmp ult float %36, 0x4170000000000000
+  br i1 %37, label %lor.rhs.i, label %if.then63.i
 
 lor.rhs.i:                                        ; preds = %if.then44.i
-  %37 = load float, ptr %y50.i, align 4
-  %38 = tail call float @llvm.fabs.f32(float %37)
-  %39 = fcmp ult float %38, 0x4170000000000000
-  br i1 %39, label %if.then73.i, label %if.then63.i
+  %38 = load float, ptr %y50.i, align 4
+  %39 = tail call float @llvm.fabs.f32(float %38)
+  %40 = fcmp ult float %39, 0x4170000000000000
+  br i1 %40, label %if.then73.i, label %if.then63.i
 
 if.then63.i:                                      ; preds = %lor.rhs.i, %if.then44.i
   %y65.i = getelementptr inbounds i8, ptr %2, i64 324
-  %40 = load float, ptr %y65.i, align 4
+  %41 = load float, ptr %y65.i, align 4
   %y66.i = getelementptr inbounds i8, ptr %0, i64 14656
-  %41 = load float, ptr %y66.i, align 4
-  %add67.i = fadd float %40, %41
+  %42 = load float, ptr %y66.i, align 4
+  %add67.i = fadd float %41, %42
   store float %add67.i, ptr %ItemsHeight, align 4
-  br label %if.then73.i
-
-if.end70.i:                                       ; preds = %if.then22.i
-  %DisplayEnd71.i = getelementptr inbounds i8, ptr %this, i64 12
-  %42 = load i32, ptr %DisplayEnd71.i, align 4
   br label %if.then73.i
 
 if.end70.if.end203_crit_edge.i:                   ; preds = %if.end41.thread.i
@@ -7976,9 +7976,9 @@ if.end70.if.end203_crit_edge.i:                   ; preds = %if.end41.thread.i
   %.pre285.pre.i = load i32, ptr %Ranges205.phi.trans.insert.i, align 8
   br label %if.end203.i
 
-if.then73.i:                                      ; preds = %if.end70.i, %if.then63.i, %lor.rhs.i
-  %44 = phi i32 [ %42, %if.end70.i ], [ %33, %if.then63.i ], [ %33, %lor.rhs.i ]
-  %DisplayEnd71277.i = phi ptr [ %DisplayEnd71.i, %if.end70.i ], [ %DisplayEnd52.i, %if.then63.i ], [ %DisplayEnd52.i, %lor.rhs.i ]
+if.then73.i:                                      ; preds = %if.end41.i, %if.then63.i, %lor.rhs.i
+  %44 = phi i32 [ %31, %if.end41.i ], [ %34, %if.then63.i ], [ %34, %lor.rhs.i ]
+  %DisplayEnd71277.i = phi ptr [ %DisplayEnd71.i, %if.end41.i ], [ %DisplayEnd52.i, %if.then63.i ], [ %DisplayEnd52.i, %lor.rhs.i ]
   %LogEnabled.i = getelementptr inbounds i8, ptr %0, i64 24488
   %45 = load i8, ptr %LogEnabled.i, align 8
   %46 = and i8 %45, 1
@@ -32177,15 +32177,15 @@ cond.false.i.i639:                                ; preds = %if.end11.i
   %mul.i.i.i642 = fmul float %405, %406
   %407 = load ptr, ptr %ParentWindow.i.i, align 8
   %tobool.not.i.i.i644 = icmp eq ptr %407, null
-  br i1 %tobool.not.i.i.i644, label %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i648, label %if.then.i.i.i645
+  br i1 %tobool.not.i.i.i644, label %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i648, label %if.then.i.i.i645
 
 if.then.i.i.i645:                                 ; preds = %cond.false.i.i639
   %FontWindowScale3.i.i.i646 = getelementptr inbounds i8, ptr %407, i64 672
   %408 = load float, ptr %FontWindowScale3.i.i.i646, align 8
   %mul4.i.i.i647 = fmul float %mul.i.i.i642, %408
-  br label %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i648
+  br label %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i648
 
-_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i648:    ; preds = %if.then.i.i.i645, %cond.false.i.i639
+_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i648:    ; preds = %if.then.i.i.i645, %cond.false.i.i639
   %scale.0.i.i.i649 = phi float [ %mul4.i.i.i647, %if.then.i.i.i645 ], [ %mul.i.i.i642, %cond.false.i.i639 ]
   %y.i.i650 = getelementptr inbounds i8, ptr %404, i64 14640
   %409 = load float, ptr %y.i.i650, align 4
@@ -32193,8 +32193,8 @@ _ZNK11ImGuiWindow14TitleBarHeightEv.exit.i648:    ; preds = %if.then.i.i.i645, %
   %sub.i651 = fsub float %403, %410
   br label %if.end28.i
 
-if.end28.i:                                       ; preds = %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i648, %if.end11.i
-  %clamp_rect.sroa.4.0.i = phi float [ %sub.i651, %_ZNK11ImGuiWindow14TitleBarHeightEv.exit.i648 ], [ %403, %if.end11.i ]
+if.end28.i:                                       ; preds = %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i648, %if.end11.i
+  %clamp_rect.sroa.4.0.i = phi float [ %sub.i651, %_ZNK11ImGuiWindow12CalcFontSizeEv.exit.i.i648 ], [ %403, %if.end11.i ]
   %y.i226.i = getelementptr inbounds i8, ptr %size_target.i, i64 4
   store <2 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, ptr %size_target.i, align 8
   %NavLayerCurrent.i = getelementptr inbounds i8, ptr %window.0, i64 360
@@ -42816,8 +42816,7 @@ if.then13.us.us:                                  ; preds = %if.then.us.us
   %arrayidx.i42.us.us = getelementptr inbounds float, ptr %decoration_size, i64 %indvars.iv62
   %15 = load float, ptr %arrayidx.i42.us.us, align 4
   %sub.us.us = fsub float %add18.us.us, %15
-  %add.i.us.us = fadd float %12, 0.000000e+00
-  %cmp.i.us.us = fcmp ult float %add.i.us.us, %10
+  %cmp.i.us.us = fcmp ult float %12, %10
   br i1 %cmp.i.us.us, label %if.end.i.us.us, label %if.then.i.us.us
 
 if.then.i.us.us:                                  ; preds = %if.then13.us.us
@@ -42895,8 +42894,7 @@ if.then13.us:                                     ; preds = %if.then.us
   %arrayidx.i42.us = getelementptr inbounds float, ptr %decoration_size, i64 %indvars.iv59
   %28 = load float, ptr %arrayidx.i42.us, align 4
   %sub.us = fsub float %add18.us, %28
-  %add.i.us = fadd float %25, 0.000000e+00
-  %cmp.i.us = fcmp ult float %add.i.us, %23
+  %cmp.i.us = fcmp ult float %25, %23
   br i1 %cmp.i.us, label %if.end.i.us, label %if.then.i.us
 
 if.then.i.us:                                     ; preds = %if.then13.us
@@ -42970,8 +42968,7 @@ if.then13:                                        ; preds = %if.then
   %arrayidx.i42 = getelementptr inbounds float, ptr %decoration_size, i64 %indvars.iv
   %40 = load float, ptr %arrayidx.i42, align 4
   %sub = fsub float %add18, %40
-  %add.i = fadd float %37, 0.000000e+00
-  %cmp.i = fcmp ult float %add.i, %35
+  %cmp.i = fcmp ult float %37, %35
   br i1 %cmp.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then13

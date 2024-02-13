@@ -2956,7 +2956,7 @@ if.end6:                                          ; preds = %if.else, %if.then
 
 lor.lhs.false.i:                                  ; preds = %if.end6.thread, %if.end6
   %x.06 = phi double [ -1.000000e+00, %if.end6.thread ], [ %x.0, %if.end6 ]
-  %or.cond.i = tail call i1 @llvm.is.fpclass.f64(double %x.06, i32 411)
+  %or.cond.i = tail call i1 @llvm.is.fpclass.f64(double %x.06, i32 408)
   br i1 %or.cond.i, label %if.else.i, label %math_frexp_impl.exit
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
@@ -4952,30 +4952,28 @@ if.else48.i:                                      ; preds = %if.end31
 
 if.then51.i:                                      ; preds = %if.else48.i
   %16 = fcmp uno double %call50.i, 0.000000e+00
-  br i1 %16, label %if.then.i.sink.split.i, label %if.else54.i
-
-if.else54.i:                                      ; preds = %if.then51.i
-  %isinf55.i = fcmp oeq double %14, 0x7FF0000000000000
-  br i1 %isinf55.i, label %if.then57.i, label %if.end67.i
-
-if.then57.i:                                      ; preds = %if.else54.i
   %cmp58.i = fcmp oeq double %x.0, 0.000000e+00
-  br i1 %cmp58.i, label %if.then.i.sink.split.i, label %if.then3.i.i.thread
+  %or.cond13.i = or i1 %cmp58.i, %16
+  br i1 %or.cond13.i, label %if.then.i.sink.split.i, label %if.end67.thread9.i
 
-if.then3.i.i.thread:                              ; preds = %if.then57.i
+if.end67.thread9.i:                               ; preds = %if.then51.i
   store i32 34, ptr %call.i, align 4
-  br label %if.else6.i.i
+  br label %if.then3.i.i
 
-if.end67.i:                                       ; preds = %if.else54.i, %if.else48.i, %if.then40.i, %if.else36.i, %if.else32.i, %if.else29.i, %if.else22.i, %if.else19.i, %if.then13.i, %if.then2.i
-  %r.0.ph.i = phi double [ %cond7.i, %if.then2.i ], [ %fneg.i, %if.then40.i ], [ %cond18.i, %if.then13.i ], [ %cond27.i, %if.else22.i ], [ %call50.i, %if.else54.i ], [ %call50.i, %if.else48.i ], [ 1.000000e+00, %if.else19.i ], [ 1.000000e+00, %if.else29.i ], [ %y.0, %if.else32.i ], [ 0.000000e+00, %if.else36.i ]
+if.end67.i:                                       ; preds = %if.else48.i, %if.then40.i, %if.else36.i, %if.else32.i, %if.else29.i, %if.else22.i, %if.else19.i, %if.then13.i, %if.then2.i
+  %r.0.ph.i = phi double [ %cond7.i, %if.then2.i ], [ %fneg.i, %if.then40.i ], [ %cond18.i, %if.then13.i ], [ %cond27.i, %if.else22.i ], [ %call50.i, %if.else48.i ], [ 1.000000e+00, %if.else19.i ], [ 1.000000e+00, %if.else29.i ], [ %y.0, %if.else32.i ], [ 0.000000e+00, %if.else36.i ]
   %.pr.i = load i32, ptr %call.i, align 4
   switch i32 %.pr.i, label %if.else7.i.i [
     i32 0, label %if.else74.i
     i32 33, label %if.then.i.i
-    i32 34, label %if.then3.i.i
+    i32 34, label %if.end67.i.if.then3.i.i_crit_edge
   ]
 
-if.then.i.sink.split.i:                           ; preds = %if.then57.i, %if.then51.i
+if.end67.i.if.then3.i.i_crit_edge:                ; preds = %if.end67.i
+  %.pre = tail call double @llvm.fabs.f64(double %r.0.ph.i)
+  br label %if.then3.i.i
+
+if.then.i.sink.split.i:                           ; preds = %if.then51.i
   store i32 33, ptr %call.i, align 4
   br label %if.then.i.i
 
@@ -4984,23 +4982,24 @@ if.then.i.i:                                      ; preds = %if.then.i.sink.spli
   tail call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull @.str.57) #15
   br label %exit
 
-if.then3.i.i:                                     ; preds = %if.end67.i
-  %.pre = tail call double @llvm.fabs.f64(double %r.0.ph.i)
-  %18 = fcmp olt double %.pre, 1.500000e+00
-  br i1 %18, label %if.else74.i, label %if.else6.i.i
+if.then3.i.i:                                     ; preds = %if.end67.i.if.then3.i.i_crit_edge, %if.end67.thread9.i
+  %.pre-phi = phi double [ %.pre, %if.end67.i.if.then3.i.i_crit_edge ], [ %14, %if.end67.thread9.i ]
+  %r.012.i = phi double [ %r.0.ph.i, %if.end67.i.if.then3.i.i_crit_edge ], [ %call50.i, %if.end67.thread9.i ]
+  %cmp4.i.i = fcmp olt double %.pre-phi, 1.500000e+00
+  br i1 %cmp4.i.i, label %if.else74.i, label %if.else6.i.i
 
-if.else6.i.i:                                     ; preds = %if.then3.i.i.thread, %if.then3.i.i
-  %19 = load ptr, ptr @PyExc_OverflowError, align 8
-  tail call void @PyErr_SetString(ptr noundef %19, ptr noundef nonnull @.str.58) #15
+if.else6.i.i:                                     ; preds = %if.then3.i.i
+  %18 = load ptr, ptr @PyExc_OverflowError, align 8
+  tail call void @PyErr_SetString(ptr noundef %18, ptr noundef nonnull @.str.58) #15
   br label %exit
 
 if.else7.i.i:                                     ; preds = %if.end67.i
-  %20 = load ptr, ptr @PyExc_ValueError, align 8
-  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %20) #15
+  %19 = load ptr, ptr @PyExc_ValueError, align 8
+  %call8.i.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %19) #15
   br label %exit
 
 if.else74.i:                                      ; preds = %if.then3.i.i, %if.end67.i, %if.end67.thread5.i
-  %r.08.i = phi double [ %cond.i, %if.end67.thread5.i ], [ %r.0.ph.i, %if.end67.i ], [ %r.0.ph.i, %if.then3.i.i ]
+  %r.08.i = phi double [ %cond.i, %if.end67.thread5.i ], [ %r.0.ph.i, %if.end67.i ], [ %r.012.i, %if.then3.i.i ]
   %call75.i = tail call ptr @PyFloat_FromDouble(double noundef %r.08.i) #15
   br label %exit
 

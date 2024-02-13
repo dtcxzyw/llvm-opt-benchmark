@@ -51054,11 +51054,9 @@ lpad10.loopexit.split-lp.i.i.i:                   ; preds = %for.end.i.i.i, %inv
 
 invoke.cont17.i.i.i:                              ; preds = %invoke.cont12.i.i.i
   %call13.fca.0.extract.i.i.i = extractvalue { <2 x float>, float } %call13.i.i.i, 0
-  %cmp.i.i.i.i.i.i = fcmp olt float %call13.fca.1.extract.i.i.i, -1.000000e+00
   %cmp3.i.i.i.i.i.i = fcmp ogt float %call13.fca.1.extract.i.i.i, 1.000000e+00
   %conv2.val.i.i.i.i.i.i = select i1 %cmp3.i.i.i.i.i.i, float 1.000000e+00, float %call13.fca.1.extract.i.i.i
-  %retval.0.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, float -1.000000e+00, float %conv2.val.i.i.i.i.i.i
-  %call.i.i.i.i.i.i = call noundef float @acosf(float noundef %retval.0.i.i.i.i.i.i) #32
+  %call.i.i.i.i.i.i = call noundef float @acosf(float noundef %conv2.val.i.i.i.i.i.i) #32
   %16 = load ptr, ptr %5, align 8
   %agg.tmp20.sroa.0.0.copyload.i.i.i = load <2 x float>, ptr %16, align 4
   %agg.tmp20.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %16, i64 8

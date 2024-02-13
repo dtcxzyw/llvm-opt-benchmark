@@ -1621,10 +1621,8 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false5
   br i1 %cmp10, label %land.lhs.true, label %lor.lhs.false21
 
 land.lhs.true:                                    ; preds = %lor.lhs.false8
-  %or.cond9 = tail call i1 @llvm.is.fpclass.f64(double %call1, i32 612)
-  %6 = fcmp uno double %call1, 0.000000e+00
-  %or.cond = select i1 %or.cond9, i1 true, i1 %6
-  br i1 %or.cond, label %return, label %if.end
+  %or.cond8 = tail call i1 @llvm.is.fpclass.f64(double %call1, i32 615)
+  br i1 %or.cond8, label %return, label %if.end
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false8
   %.old = fcmp uno double %call1, 0.000000e+00
@@ -1910,7 +1908,7 @@ if.end42:                                         ; preds = %if.then40, %if.end3
   %idxprom43 = zext nneg i32 %integer_digits.0 to i64
   %arrayidx44 = getelementptr inbounds i8, ptr %dst.addr.0, i64 %idxprom43
   store i8 46, ptr %arrayidx44, align 1
-  %add45 = add nuw i32 %fractional_digits, 1
+  %add45 = add nuw nsw i32 %fractional_digits, 1
   %add46 = add nuw i32 %add45, %integer_digits.0
   %add.ptr48 = getelementptr inbounds i8, ptr %arrayidx44, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr48, i8 48, i64 %idxprom15, i1 false)
@@ -3044,21 +3042,21 @@ check_longlong_async_signal_safe.exit.if.else_crit_edge: ; preds = %check_longlo
 
 if.end13:                                         ; preds = %check_longlong_async_signal_safe.exit, %check_longlong_async_signal_safe.exit, %check_longlong_async_signal_safe.exit, %check_longlong_async_signal_safe.exit
   %cmp17 = icmp eq i8 %4, 117
-  %gp_offset21.pre63 = load i32, ptr %ap, align 8
+  %gp_offset21.pre64 = load i32, ptr %ap, align 8
   br i1 %cmp.i.not, label %if.then15, label %if.else32
 
 if.then15:                                        ; preds = %if.end13
   br i1 %cmp17, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.then15
-  %fits_in_gp = icmp ult i32 %gp_offset21.pre63, 41
+  %fits_in_gp = icmp ult i32 %gp_offset21.pre64, 41
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
 
 vaarg.in_reg:                                     ; preds = %if.then19
   %reg_save_area = load ptr, ptr %0, align 8
-  %5 = zext nneg i32 %gp_offset21.pre63 to i64
+  %5 = zext nneg i32 %gp_offset21.pre64 to i64
   %6 = getelementptr i8, ptr %reg_save_area, i64 %5
-  %7 = add nuw nsw i32 %gp_offset21.pre63, 8
+  %7 = add nuw nsw i32 %gp_offset21.pre64, 8
   store i32 %7, ptr %ap, align 8
   br label %vaarg.end
 
@@ -3074,7 +3072,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   br label %if.end63
 
 if.else:                                          ; preds = %check_longlong_async_signal_safe.exit.if.else_crit_edge, %if.then15
-  %gp_offset21 = phi i32 [ %gp_offset21.pre, %check_longlong_async_signal_safe.exit.if.else_crit_edge ], [ %gp_offset21.pre63, %if.then15 ]
+  %gp_offset21 = phi i32 [ %gp_offset21.pre, %check_longlong_async_signal_safe.exit.if.else_crit_edge ], [ %gp_offset21.pre64, %if.then15 ]
   %fits_in_gp22 = icmp ult i32 %gp_offset21, 41
   br i1 %fits_in_gp22, label %vaarg.in_reg23, label %vaarg.in_mem25
 
@@ -3098,7 +3096,7 @@ vaarg.end29:                                      ; preds = %vaarg.in_mem25, %va
   br label %if.end63
 
 if.else32:                                        ; preds = %if.end13
-  %fits_in_gp39 = icmp ult i32 %gp_offset21.pre63, 41
+  %fits_in_gp39 = icmp ult i32 %gp_offset21.pre64, 41
   br i1 %cmp17, label %if.then36, label %if.else49
 
 if.then36:                                        ; preds = %if.else32
@@ -3106,9 +3104,9 @@ if.then36:                                        ; preds = %if.else32
 
 vaarg.in_reg40:                                   ; preds = %if.then36
   %reg_save_area41 = load ptr, ptr %0, align 8
-  %13 = zext nneg i32 %gp_offset21.pre63 to i64
+  %13 = zext nneg i32 %gp_offset21.pre64 to i64
   %14 = getelementptr i8, ptr %reg_save_area41, i64 %13
-  %15 = add nuw nsw i32 %gp_offset21.pre63, 8
+  %15 = add nuw nsw i32 %gp_offset21.pre64, 8
   store i32 %15, ptr %ap, align 8
   br label %vaarg.end46
 
@@ -3129,9 +3127,9 @@ if.else49:                                        ; preds = %if.else32
 
 vaarg.in_reg53:                                   ; preds = %if.else49
   %reg_save_area54 = load ptr, ptr %0, align 8
-  %17 = zext nneg i32 %gp_offset21.pre63 to i64
+  %17 = zext nneg i32 %gp_offset21.pre64 to i64
   %18 = getelementptr i8, ptr %reg_save_area54, i64 %17
-  %19 = add nuw nsw i32 %gp_offset21.pre63, 8
+  %19 = add nuw nsw i32 %gp_offset21.pre64, 8
   store i32 %19, ptr %ap, align 8
   br label %vaarg.end59
 
@@ -3307,9 +3305,9 @@ cond.end:                                         ; preds = %do.body.i, %i2strin
   %or.cond.not36 = and i1 %tobool14.not47, %cmp78
   %cmp82 = icmp slt i64 %ival.0, 0
   %or.cond1 = select i1 %or.cond.not36, i1 %cmp82, i1 false
-  %spec.select37.idx = select i1 %or.cond1, i64 8, i64 0
-  %spec.select37 = getelementptr inbounds i8, ptr %cond76, i64 %spec.select37.idx
-  %27 = load i8, ptr %spec.select37, align 1
+  %spec.select37.idx.sroa.sel.idx.sroa.sel.idx = select i1 %or.cond1, i64 8, i64 0
+  %spec.select37.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %cond76, i64 %spec.select37.idx.sroa.sel.idx.sroa.sel.idx
+  %27 = load i8, ptr %spec.select37.idx.sroa.sel.idx.sroa.sel, align 1
   %tobool8853 = icmp ne i8 %27, 0
   %cmp8954 = icmp ult ptr %to.addr.0, %add.ptr1
   %28 = select i1 %tobool8853, i1 %cmp8954, i1 false
@@ -3317,7 +3315,7 @@ cond.end:                                         ; preds = %do.body.i, %i2strin
 
 while.body:                                       ; preds = %cond.end, %while.body
   %29 = phi i8 [ %30, %while.body ], [ %27, %cond.end ]
-  %val_as_str.156 = phi ptr [ %incdec.ptr91, %while.body ], [ %spec.select37, %cond.end ]
+  %val_as_str.156 = phi ptr [ %incdec.ptr91, %while.body ], [ %spec.select37.idx.sroa.sel.idx.sroa.sel, %cond.end ]
   %to.addr.155 = phi ptr [ %incdec.ptr92, %while.body ], [ %to.addr.0, %cond.end ]
   %incdec.ptr91 = getelementptr inbounds i8, ptr %val_as_str.156, i64 1
   %incdec.ptr92 = getelementptr inbounds i8, ptr %to.addr.155, i64 1

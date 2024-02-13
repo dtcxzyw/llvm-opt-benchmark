@@ -1280,15 +1280,15 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %__begin3.sroa.0.08, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i12 = icmp eq ptr %8, null
-  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %if.else
+dynamic_cast.end.i:                               ; preds = %if.else
   %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_120BetaDistributionTestEEE, i64 0) #31
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %if.else
-  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %if.else
+  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i13 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %10)
   br i1 %call.i13, label %for.end, label %if.else.i
 
@@ -7149,7 +7149,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -21387,7 +21387,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %or.cond.i, label %invoke.cont, label %fpclassify_not_nan.i.i
 
 fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f32(float %.pre7.i, i32 783)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f32(float %.pre7.i, i32 780)
   br i1 %or.cond6.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
@@ -21458,7 +21458,7 @@ lor.lhs.false.i22:                                ; preds = %land.lhs.true.i20
   br i1 %or.cond.i23, label %invoke.cont5, label %fpclassify_not_nan.i.i24
 
 fpclassify_not_nan.i.i24:                         ; preds = %lor.lhs.false.i22
-  %or.cond6.i25 = call i1 @llvm.is.fpclass.f32(float %.pre7.i19, i32 783)
+  %or.cond6.i25 = call i1 @llvm.is.fpclass.f32(float %.pre7.i19, i32 780)
   br i1 %or.cond6.i25, label %invoke.cont5, label %if.then.i26
 
 if.then.i26:                                      ; preds = %fpclassify_not_nan.i.i24, %land.lhs.true.i20
@@ -25978,7 +25978,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %or.cond.i, label %invoke.cont, label %fpclassify_not_nan.i.i
 
 fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 783)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
   br i1 %or.cond6.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
@@ -26049,7 +26049,7 @@ lor.lhs.false.i22:                                ; preds = %land.lhs.true.i20
   br i1 %or.cond.i23, label %invoke.cont5, label %fpclassify_not_nan.i.i24
 
 fpclassify_not_nan.i.i24:                         ; preds = %lor.lhs.false.i22
-  %or.cond6.i25 = call i1 @llvm.is.fpclass.f64(double %.pre7.i19, i32 783)
+  %or.cond6.i25 = call i1 @llvm.is.fpclass.f64(double %.pre7.i19, i32 780)
   br i1 %or.cond6.i25, label %invoke.cont5, label %if.then.i26
 
 if.then.i26:                                      ; preds = %fpclassify_not_nan.i.i24, %land.lhs.true.i20
@@ -37847,7 +37847,7 @@ attributes #17 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-p
 attributes #18 = { cold nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nofree nounwind memory(read) }
+attributes #21 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #22 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { mustprogress nofree nounwind willreturn memory(argmem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

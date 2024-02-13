@@ -29448,12 +29448,11 @@ if.end3.i25:                                      ; preds = %if.else
 
 sw.bb.i28:                                        ; preds = %if.end3.i25
   %cmp.i12.i29 = fcmp ogt float %3, 0.000000e+00
-  %cmp130.not.i.i = icmp eq i64 %frameCount, 0
   br i1 %cmp.i12.i29, label %if.then.i.i32, label %if.else.i.i
 
 if.then.i.i32:                                    ; preds = %sw.bb.i28
   %sub.i.i33 = fsub float 1.000000e+00, %3
-  %add.i.i = fadd float %3, 0.000000e+00
+  %cmp130.not.i.i = icmp eq i64 %frameCount, 0
   br i1 %cmp130.not.i.i, label %return, label %for.body.i.i34
 
 for.body.i.i34:                                   ; preds = %if.then.i.i32, %for.body.i.i34
@@ -29465,7 +29464,7 @@ for.body.i.i34:                                   ; preds = %if.then.i.i32, %for
   %add9.i.i = or disjoint i64 %mul.i14.i, 1
   %arrayidx10.i.i = getelementptr inbounds float, ptr %pFramesIn, i64 %add9.i.i
   %14 = load float, ptr %arrayidx10.i.i, align 4
-  %15 = tail call float @llvm.fmuladd.f32(float %13, float %add.i.i, float %14)
+  %15 = tail call float @llvm.fmuladd.f32(float %13, float %3, float %14)
   %arrayidx13.i.i = getelementptr inbounds float, ptr %pFramesOut, i64 %mul.i14.i
   store float %mul3.i.i, ptr %arrayidx13.i.i, align 4
   %arrayidx16.i.i = getelementptr inbounds float, ptr %pFramesOut, i64 %add9.i.i
@@ -29477,7 +29476,8 @@ for.body.i.i34:                                   ; preds = %if.then.i.i32, %for
 if.else.i.i:                                      ; preds = %sw.bb.i28
   %sub18.i.i = fsub float 0.000000e+00, %3
   %add19.i.i = fadd float %3, 1.000000e+00
-  br i1 %cmp130.not.i.i, label %return, label %for.body22.i.i
+  %cmp2128.not.i.i = icmp eq i64 %frameCount, 0
+  br i1 %cmp2128.not.i.i, label %return, label %for.body22.i.i
 
 for.body22.i.i:                                   ; preds = %if.else.i.i, %for.body22.i.i
   %iFrame.129.i.i = phi i64 [ %add43.i.i, %for.body22.i.i ], [ 0, %if.else.i.i ]
@@ -31951,10 +31951,6 @@ if.end62:                                         ; preds = %sw.epilog
   %div = fdiv float 1.000000e+00, %sqrt.i
   %relativePosNormalized.sroa.8.0.copyload = load float, ptr %relativePos.coerce.sroa.2.0.relativePos.sroa_idx, align 8
   %mul57 = fmul float %div, %relativePosNormalized.sroa.8.0.copyload
-  %cmp63 = fcmp ogt float %sqrt.i, 0.000000e+00
-  br i1 %cmp63, label %ma_spatializer_get_cone.exit, label %ma_spatializer_get_max_gain.exit
-
-ma_spatializer_get_cone.exit:                     ; preds = %if.end62
   %relativePosNormalized.sroa.0.0.copyload = load <2 x float>, ptr %relativePos, align 8
   %relativePosNormalized.sroa.0.0.vec.extract = extractelement <2 x float> %relativePosNormalized.sroa.0.0.copyload, i64 0
   %mul = fmul float %div, %relativePosNormalized.sroa.0.0.vec.extract
@@ -31971,7 +31967,7 @@ ma_spatializer_get_cone.exit:                     ; preds = %if.end62
   %cmp.i212 = fcmp olt float %37, 0x401921FB40000000
   br i1 %cmp.i212, label %if.then.i, label %land.lhs.true
 
-if.then.i:                                        ; preds = %ma_spatializer_get_cone.exit
+if.then.i:                                        ; preds = %if.end62
   %relativeDir.coerce.sroa.2.0.relativeDir.sroa_idx = getelementptr inbounds i8, ptr %relativeDir, i64 8
   %relativeDir.coerce.sroa.2.0.copyload = load float, ptr %relativeDir.coerce.sroa.2.0.relativeDir.sroa_idx, align 8
   %relativeDir.coerce.sroa.0.0.copyload = load <2 x float>, ptr %relativeDir, align 8
@@ -32009,8 +32005,8 @@ if.then13.i:                                      ; preds = %if.else.i
   %44 = call float @llvm.fmuladd.f32(float %40, float %sub.i.i218, float %div.i217)
   br label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %if.then13.i, %if.else.i, %if.then.i, %ma_spatializer_get_cone.exit
-  %retval.0.i213 = phi float [ %44, %if.then13.i ], [ 1.000000e+00, %if.then.i ], [ %40, %if.else.i ], [ 1.000000e+00, %ma_spatializer_get_cone.exit ]
+land.lhs.true:                                    ; preds = %if.then13.i, %if.else.i, %if.then.i, %if.end62
+  %retval.0.i213 = phi float [ %44, %if.then13.i ], [ 1.000000e+00, %if.then.i ], [ %40, %if.else.i ], [ 1.000000e+00, %if.end62 ]
   %mul68 = fmul float %gain.0, %retval.0.i213
   %coneInnerAngleInRadians = getelementptr inbounds i8, ptr %pListener, i64 20
   %45 = load float, ptr %coneInnerAngleInRadians, align 4
@@ -32063,10 +32059,9 @@ ma_calculate_angular_gain.exit245:                ; preds = %if.then72, %if.else
   %mul90 = fmul float %mul68, %retval.0.i220
   br label %ma_spatializer_get_max_gain.exit
 
-ma_spatializer_get_max_gain.exit:                 ; preds = %sw.epilog, %if.end62, %land.lhs.true, %ma_calculate_angular_gain.exit245
-  %cmp63395 = phi i1 [ true, %ma_calculate_angular_gain.exit245 ], [ true, %land.lhs.true ], [ false, %if.end62 ], [ false, %sw.epilog ]
-  %distance.0394 = phi float [ %sqrt.i, %ma_calculate_angular_gain.exit245 ], [ %sqrt.i, %land.lhs.true ], [ %sqrt.i, %if.end62 ], [ 0.000000e+00, %sw.epilog ]
-  %gain.1 = phi float [ %mul90, %ma_calculate_angular_gain.exit245 ], [ %mul68, %land.lhs.true ], [ %gain.0, %if.end62 ], [ %gain.0, %sw.epilog ]
+ma_spatializer_get_max_gain.exit:                 ; preds = %sw.epilog, %land.lhs.true, %ma_calculate_angular_gain.exit245
+  %distance.0394 = phi float [ %sqrt.i, %ma_calculate_angular_gain.exit245 ], [ %sqrt.i, %land.lhs.true ], [ 0.000000e+00, %sw.epilog ]
+  %gain.1 = phi float [ %mul90, %ma_calculate_angular_gain.exit245 ], [ %mul68, %land.lhs.true ], [ %gain.0, %sw.epilog ]
   %minGain.i = getelementptr inbounds i8, ptr %pSpatializer, i64 28
   %52 = load atomic volatile i32, ptr %minGain.i seq_cst, align 4
   %53 = bitcast i32 %52 to float
@@ -32153,7 +32148,7 @@ ma_zero_memory_default.exit.i.i288:               ; preds = %if.then2.i.i.i287, 
   br i1 %cmp.i.not.i291, label %if.end117, label %while.body.i.i282, !llvm.loop !43
 
 if.end117:                                        ; preds = %ma_zero_memory_default.exit.i.i288, %if.else115, %if.then114
-  br i1 %cmp63395, label %if.then119, label %if.end158
+  br i1 %cmp54, label %if.then119, label %if.end158
 
 if.then119:                                       ; preds = %if.end117
   %unitPos.sroa.0.0.copyload = load <2 x float>, ptr %relativePos, align 8

@@ -6627,7 +6627,7 @@ for.body142:                                      ; preds = %sw.bb133, %for.body
   %77 = extractelement <2 x float> %70, i64 1
   %conv14.i224 = fptosi float %77 to i32
   tail call void @stbtt__csctx_v(ptr noundef %c, i8 noundef zeroext 4, i32 noundef %conv.i219, i32 noundef %conv10.i220, i32 noundef %conv11.i221, i32 noundef %conv12.i222, i32 noundef %conv13.i223, i32 noundef %conv14.i224)
-  %indvars.iv.next492 = add nuw i64 %indvars.iv491, 6
+  %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 6
   %78 = trunc i64 %indvars.iv491 to i32
   %79 = add i32 %78, 11
   %cmp140 = icmp slt i32 %79, %sp.0449
@@ -6669,7 +6669,7 @@ for.body173:                                      ; preds = %for.body173.prehead
   %94 = extractelement <2 x float> %87, i64 1
   %conv14.i238 = fptosi float %94 to i32
   tail call void @stbtt__csctx_v(ptr noundef %c, i8 noundef zeroext 4, i32 noundef %conv.i233, i32 noundef %conv10.i234, i32 noundef %conv11.i235, i32 noundef %conv12.i236, i32 noundef %conv13.i237, i32 noundef %conv14.i238)
-  %indvars.iv.next480 = add nuw i64 %indvars.iv479, 6
+  %indvars.iv.next480 = add nuw nsw i64 %indvars.iv479, 6
   %95 = trunc i64 %indvars.iv479 to i32
   %96 = add i32 %95, 11
   %cmp171 = icmp slt i32 %96, %sub170
@@ -6815,7 +6815,7 @@ for.body260.us:                                   ; preds = %for.body260.lr.ph, 
   %143 = extractelement <2 x float> %135, i64 1
   %conv14.i266.us = fptosi float %143 to i32
   tail call void @stbtt__csctx_v(ptr noundef %c, i8 noundef zeroext 4, i32 noundef %conv.i261.us, i32 noundef %conv10.i262.us, i32 noundef %conv11.i263.us, i32 noundef %conv12.i264.us, i32 noundef %conv13.i265.us, i32 noundef %conv14.i266.us)
-  %indvars.iv.next464 = add nuw i64 %indvars.iv463, 4
+  %indvars.iv.next464 = add nuw nsw i64 %indvars.iv463, 4
   %144 = trunc i64 %indvars.iv463 to i32
   %145 = add i32 %144, 7
   %cmp258.us = icmp slt i32 %145, %sp.0449
@@ -6854,7 +6854,7 @@ for.body260:                                      ; preds = %for.body260.lr.ph, 
   %162 = extractelement <2 x float> %154, i64 1
   %conv14.i280 = fptosi float %162 to i32
   tail call void @stbtt__csctx_v(ptr noundef %c, i8 noundef zeroext 4, i32 noundef %conv.i275, i32 noundef %conv10.i276, i32 noundef %conv11.i277, i32 noundef %conv12.i278, i32 noundef %conv13.i279, i32 noundef %conv14.i280)
-  %indvars.iv.next = add nuw i64 %indvars.iv, 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %163 = trunc i64 %indvars.iv to i32
   %164 = add i32 %163, 7
   %cmp258 = icmp slt i32 %164, %sp.0449
@@ -12013,7 +12013,7 @@ for.cond40:                                       ; preds = %for.cond40, %for.co
   %y043 = getelementptr inbounds i8, ptr %arrayidx42, i64 4
   %7 = load float, ptr %y043, align 4
   %cmp46 = fcmp olt float %7, %5
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %cmp46, label %for.cond40, label %for.cond50.preheader
 
 for.cond50.preheader:                             ; preds = %for.cond40
@@ -12026,7 +12026,7 @@ for.cond50:                                       ; preds = %for.cond50, %for.co
   %y055 = getelementptr inbounds i8, ptr %arrayidx54, i64 4
   %9 = load float, ptr %y055, align 4
   %cmp56 = fcmp olt float %5, %9
-  %indvars.iv.next63 = add i64 %indvars.iv62, -1
+  %indvars.iv.next63 = add nsw i64 %indvars.iv62, -1
   br i1 %cmp56, label %for.cond50, label %for.end61
 
 for.end61:                                        ; preds = %for.cond50
@@ -12912,22 +12912,19 @@ stbtt__GetGlyphShapeT2.exit.i:                    ; preds = %if.end7.i.i, %if.th
 
 stbtt_GetGlyphShape.exit:                         ; preds = %if.then.i, %stbtt__GetGlyphShapeT2.exit.i
   %retval.0.i = phi i32 [ %retval.0.i.i, %stbtt__GetGlyphShapeT2.exit.i ], [ %call.i, %if.then.i ]
-  %cmp = fcmp oeq float %scale_x, 0.000000e+00
-  %scale_x.addr.0 = select i1 %cmp, float %scale_y, float %scale_x
-  %cmp1 = fcmp oeq float %scale_y, 0.000000e+00
-  br i1 %cmp1, label %if.then2, label %if.end6
+  %cmp = fcmp une float %scale_x, 0.000000e+00
+  %cmp1 = fcmp une float %scale_y, 0.000000e+00
+  %brmerge = or i1 %cmp, %cmp1
+  %scale_x.addr.0 = select i1 %cmp, float %scale_x, float %scale_y
+  %scale_y.mux = select i1 %cmp1, float %scale_y, float %scale_x.addr.0
+  br i1 %brmerge, label %if.end6, label %if.then4
 
-if.then2:                                         ; preds = %stbtt_GetGlyphShape.exit
-  %cmp3 = fcmp oeq float %scale_x.addr.0, 0.000000e+00
-  br i1 %cmp3, label %if.then4, label %if.end6
-
-if.then4:                                         ; preds = %if.then2
+if.then4:                                         ; preds = %stbtt_GetGlyphShape.exit
   %3 = load ptr, ptr %vertices, align 8
   tail call void @free(ptr noundef %3) #34
   br label %return
 
-if.end6:                                          ; preds = %if.then2, %stbtt_GetGlyphShape.exit
-  %scale_y.addr.0 = phi float [ %scale_y, %stbtt_GetGlyphShape.exit ], [ %scale_x.addr.0, %if.then2 ]
+if.end6:                                          ; preds = %stbtt_GetGlyphShape.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %x0.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y0.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %x1.i)
@@ -12948,7 +12945,7 @@ if.else.i20:                                      ; preds = %if.end6
   %8 = insertelement <2 x i32> poison, i32 %sub.i, i64 0
   %9 = insertelement <2 x i32> %8, i32 %4, i64 1
   %10 = sitofp <2 x i32> %9 to <2 x float>
-  %11 = insertelement <2 x float> poison, float %scale_y.addr.0, i64 0
+  %11 = insertelement <2 x float> poison, float %scale_y.mux, i64 0
   %12 = insertelement <2 x float> %11, float %scale_x.addr.0, i64 1
   %13 = insertelement <2 x float> poison, float %shift_y, i64 0
   %14 = insertelement <2 x float> %13, float %shift_x, i64 1
@@ -13036,8 +13033,8 @@ if.then33:                                        ; preds = %if.then25
   store i32 %36, ptr %stride, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %winding_count.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %winding_lengths.i)
-  %cmp.i = fcmp ogt float %scale_x.addr.0, %scale_y.addr.0
-  %cond.i = select i1 %cmp.i, float %scale_y.addr.0, float %scale_x.addr.0
+  %cmp.i = fcmp ogt float %scale_x.addr.0, %scale_y.mux
+  %cond.i = select i1 %cmp.i, float %scale_y.mux, float %scale_x.addr.0
   store i32 0, ptr %winding_count.i, align 4
   store ptr null, ptr %winding_lengths.i, align 8
   %div.i = fdiv float 0x3FD6666660000000, %cond.i
@@ -13050,7 +13047,7 @@ if.then.i24:                                      ; preds = %if.then33
   %38 = load i32, ptr %winding_count.i, align 4
   %39 = extractelement <2 x i32> %25, i64 0
   %40 = extractelement <2 x i32> %25, i64 1
-  call void @stbtt__rasterize(ptr noundef nonnull %gbm, ptr noundef nonnull %call.i22, ptr noundef %37, i32 noundef %38, float noundef %scale_x.addr.0, float noundef %scale_y.addr.0, float noundef %shift_x, float noundef %shift_y, i32 noundef %40, i32 noundef %39, i32 noundef 1, ptr poison)
+  call void @stbtt__rasterize(ptr noundef nonnull %gbm, ptr noundef nonnull %call.i22, ptr noundef %37, i32 noundef %38, float noundef %scale_x.addr.0, float noundef %scale_y.mux, float noundef %shift_x, float noundef %shift_y, i32 noundef %40, i32 noundef %39, i32 noundef 1, ptr poison)
   call void @free(ptr noundef %37) #34
   call void @free(ptr noundef nonnull %call.i22) #34
   br label %stbtt_Rasterize.exit

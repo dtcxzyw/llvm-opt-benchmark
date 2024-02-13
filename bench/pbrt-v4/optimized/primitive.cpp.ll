@@ -2905,9 +2905,7 @@ if.end.i.i.i488:                                  ; preds = %if.then5.i485
   %cmp1.i.i.i489 = fcmp oeq float %mul.i.i486, 0.000000e+00
   %v.addr.0.i.i.i490 = select i1 %cmp1.i.i.i489, float 0.000000e+00, float %mul.i.i486
   %144 = bitcast float %v.addr.0.i.i.i490 to i32
-  %cmp5.i.i.i491 = fcmp ult float %v.addr.0.i.i.i490, 0.000000e+00
-  %ui.0.v.i.i.i492 = select i1 %cmp5.i.i.i491, i32 -1, i32 1
-  %ui.0.i.i.i493 = add i32 %ui.0.v.i.i.i492, %144
+  %ui.0.i.i.i493 = add i32 %144, 1
   %145 = bitcast i32 %ui.0.i.i.i493 to float
   br label %_ZN4pbrt10MulRoundUpEff.exit.i494
 
@@ -7227,9 +7225,7 @@ if.end.i.i.i299:                                  ; preds = %if.then5.i296
   %cmp1.i.i.i300 = fcmp oeq float %mul.i.i297, 0.000000e+00
   %v.addr.0.i.i.i301 = select i1 %cmp1.i.i.i300, float 0.000000e+00, float %mul.i.i297
   %98 = bitcast float %v.addr.0.i.i.i301 to i32
-  %cmp5.i.i.i302 = fcmp ult float %v.addr.0.i.i.i301, 0.000000e+00
-  %ui.0.v.i.i.i303 = select i1 %cmp5.i.i.i302, i32 -1, i32 1
-  %ui.0.i.i.i304 = add i32 %ui.0.v.i.i.i303, %98
+  %ui.0.i.i.i304 = add i32 %98, 1
   %99 = bitcast i32 %ui.0.i.i.i304 to float
   br label %_ZN4pbrt10MulRoundUpEff.exit.i305
 

@@ -194,7 +194,7 @@ if.then56.thread:                                 ; preds = %if.end51.thr_comm
   %aspectRatio_.i182 = getelementptr inbounds i8, ptr %child, i64 248
   %retval.sroa.0.0.copyload.i130183 = load float, ptr %aspectRatio_.i182, align 4
   %cmp.i.i.i131184 = fcmp ord float %retval.sroa.0.0.copyload.i130183, 0.000000e+00
-  br i1 %cmp.i.i.i131184, label %if.then71, label %if.end81.thread200
+  br i1 %cmp.i.i.i131184, label %if.then71, label %if.then84
 
 if.then61:                                        ; preds = %if.then56
   br i1 %cmp.i128, label %if.then63, label %if.else69
@@ -220,28 +220,21 @@ if.end81:                                         ; preds = %if.then56, %if.else
   %cmp.i138 = fcmp uno float %childWidth.1, 0.000000e+00
   br i1 %cmp.i138, label %if.then84, label %lor.lhs.false
 
-if.end81.thread200:                               ; preds = %if.then56.thread
-  %cmp.i138203 = fcmp uno float %childWidth.0, 0.000000e+00
-  br i1 %cmp.i138203, label %if.then84, label %lor.lhs.false.thread
-
-lor.lhs.false.thread:                             ; preds = %if.end81.thread200
-  br label %if.then84
-
 lor.lhs.false:                                    ; preds = %if.end81
   %cmp.i139 = fcmp uno float %childHeight.1, 0.000000e+00
   br i1 %cmp.i139, label %if.then84, label %if.end107
 
-if.then84:                                        ; preds = %lor.lhs.false.thread, %if.end81.thread200, %if.end51.thr_comm, %lor.lhs.false, %if.end81
-  %cmp.i138172 = phi i1 [ false, %lor.lhs.false ], [ true, %if.end81 ], [ true, %if.end51.thr_comm ], [ true, %if.end81.thread200 ], [ false, %lor.lhs.false.thread ]
-  %childWidth.1170 = phi float [ %childWidth.1, %lor.lhs.false ], [ %childWidth.1, %if.end81 ], [ %childWidth.0, %if.end51.thr_comm ], [ %childWidth.0, %if.end81.thread200 ], [ %childWidth.0, %lor.lhs.false.thread ]
-  %childHeight.1168 = phi float [ %childHeight.1, %lor.lhs.false ], [ %childHeight.1, %if.end81 ], [ 0x7FF8000000000000, %if.end51.thr_comm ], [ 0x7FF8000000000000, %if.end81.thread200 ], [ 0x7FF8000000000000, %lor.lhs.false.thread ]
+if.then84:                                        ; preds = %if.then56.thread, %if.end51.thr_comm, %lor.lhs.false, %if.end81
+  %cmp.i138172 = phi i1 [ false, %lor.lhs.false ], [ true, %if.end81 ], [ true, %if.end51.thr_comm ], [ false, %if.then56.thread ]
+  %childWidth.1170 = phi float [ %childWidth.1, %lor.lhs.false ], [ %childWidth.1, %if.end81 ], [ %childWidth.0, %if.end51.thr_comm ], [ %childWidth.0, %if.then56.thread ]
+  %childHeight.1168 = phi float [ %childHeight.1, %lor.lhs.false ], [ %childHeight.1, %if.end81 ], [ 0x7FF8000000000000, %if.end51.thr_comm ], [ 0x7FF8000000000000, %if.then56.thread ]
   %cond = zext i1 %cmp.i138172 to i32
   %cmp.i141 = fcmp uno float %childHeight.1168, 0.000000e+00
   %cond87 = zext i1 %cmp.i141 to i32
   %cmp = icmp ne i32 %widthMode, 1
   %8 = and i1 %cmp, %2
   %cmp95 = fcmp ogt float %containingBlockWidth, 0.000000e+00
-  %9 = and i1 %8, %cmp95
+  %9 = and i1 %cmp95, %8
   %or.cond178 = and i1 %9, %cmp.i138172
   %childWidthSizingMode.0 = select i1 %or.cond178, i32 2, i32 %cond
   %childWidth.2 = select i1 %or.cond178, float %containingBlockWidth, float %childWidth.1170

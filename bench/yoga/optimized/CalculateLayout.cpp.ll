@@ -5065,8 +5065,8 @@ cond.false18:                                     ; preds = %_ZN8facebook4yoga12
 
 cond.end21:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i21, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit32, %cond.false18
   %cond22 = phi float [ %sub20, %cond.false18 ], [ 0x47EFFFFFE0000000, %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit32 ], [ 0x47EFFFFFE0000000, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i21 ]
-  %cmp.i2.sink.i = fcmp ogt float %sub, %cond22
-  %cond.i = select i1 %cmp.i2.sink.i, float %cond22, float %sub
+  %cmp.i.i34 = fcmp olt float %cond22, %sub
+  %cond.i = select i1 %cmp.i.i34, float %cond22, float %sub
   %or.cond.i35 = fcmp ord float %cond.i, %cond
   %cmp.i2.i36 = fcmp uno float %cond.i, 0.000000e+00
   %cmp.i.i37 = fcmp olt float %cond.i, %cond

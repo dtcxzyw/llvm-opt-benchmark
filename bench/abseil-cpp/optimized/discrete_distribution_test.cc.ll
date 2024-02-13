@@ -18904,7 +18904,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
 
 fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 783)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
 if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
@@ -23969,7 +23969,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
 
 fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 783)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
 if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
@@ -26519,7 +26519,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
 
 fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 783)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
 if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
@@ -29069,7 +29069,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
 
 fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 783)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
 if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
@@ -31483,7 +31483,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
 
 fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 783)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
 if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
@@ -31582,7 +31582,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIdSaIdE
   %p.sroa.15.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %p.sroa.15.166, %if.then.i20 ]
   %p.sroa.0.3 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %p.sroa.0.267, %if.then.i20 ]
   %p.sroa.8.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i64, ptr %n, align 8
   %cmp7 = icmp ugt i64 %5, %indvars.iv.next
   br i1 %cmp7, label %land.rhs, label %if.end25, !llvm.loop !909
@@ -33884,7 +33884,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
 
 fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 783)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
 if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
@@ -36384,7 +36384,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
 
 fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 783)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
 if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
@@ -38785,7 +38785,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
   br i1 %or.cond.i, label %invoke.cont14, label %fpclassify_not_nan.i.i
 
 fpclassify_not_nan.i.i:                           ; preds = %lor.lhs.false.i
-  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 783)
+  %or.cond6.i = call i1 @llvm.is.fpclass.f64(double %.pre7.i, i32 780)
   br i1 %or.cond6.i, label %invoke.cont14, label %if.then.i15
 
 if.then.i15:                                      ; preds = %fpclassify_not_nan.i.i, %land.lhs.true.i
