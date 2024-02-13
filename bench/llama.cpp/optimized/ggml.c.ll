@@ -48590,22 +48590,22 @@ do.end132.i:                                      ; preds = %do.body125.i
 if.end142.i:                                      ; preds = %do.end132.i
   %data.i = getelementptr inbounds i8, ptr %dst, i64 280
   %34 = load ptr, ptr %data.i, align 8
-  %cmp143162.i = icmp sgt i64 %cond.i, 0
-  br i1 %cmp143162.i, label %for.cond145.preheader.lr.ph.i, label %ggml_compute_forward_im2col_f16.exit
+  %cmp143156.i = icmp sgt i64 %cond.i, 0
+  br i1 %cmp143156.i, label %for.cond145.preheader.lr.ph.i, label %ggml_compute_forward_im2col_f16.exit
 
 for.cond145.preheader.lr.ph.i:                    ; preds = %if.end142.i
-  %factor.op.mul161.i = mul i64 %cond99.i, %7
-  %factor.op.mul140.i = mul i64 %factor.op.mul161.i, %cond89.i
-  %cmp146141.i = icmp slt i64 %cond104.i, 1
+  %cmp146136.i = icmp slt i64 %cond104.i, 1
   %conv153.i = sext i32 %26 to i64
-  %cmp155118.i = icmp sle i64 %cond89.i, %conv153.i
+  %cmp155114.i = icmp sle i64 %cond89.i, %conv153.i
+  %mul161.i = mul i64 %cond99.i, %7
+  %mul162.i = mul i64 %mul161.i, %cond89.i
   %data164.i = getelementptr inbounds i8, ptr %src1, i64 280
   %sext.i = shl i64 %cond109.i, 32
   %conv165.i = ashr exact i64 %sext.i, 32
   %sext89.i = shl i64 %cond115.i, 32
   %conv168.i = ashr exact i64 %sext89.i, 32
-  %cmp172106.i = icmp slt i64 %cond99.i, 1
-  %cmp17693.i = icmp slt i64 %7, 1
+  %cmp172103.i = icmp slt i64 %cond99.i, 1
+  %cmp17692.i = icmp slt i64 %7, 1
   %conv179.i = sext i32 %19 to i64
   %conv181.i = sext i32 %23 to i64
   %conv184.i = sext i32 %21 to i64
@@ -48613,16 +48613,16 @@ for.cond145.preheader.lr.ph.i:                    ; preds = %if.end142.i
   %conv187.i = sext i32 %24 to i64
   %conv190.i = sext i32 %22 to i64
   %conv226.i = sext i32 %27 to i64
-  %cmp150126.i = icmp slt i64 %17, 1
-  %or.cond.not202.i = select i1 %cmp146141.i, i1 true, i1 %cmp150126.i
-  %brmerge.i = select i1 %or.cond.not202.i, i1 true, i1 %cmp155118.i
-  %brmerge200.i = select i1 %brmerge.i, i1 true, i1 %cmp172106.i
-  %brmerge201.i = select i1 %brmerge200.i, i1 true, i1 %cmp17693.i
-  br i1 %brmerge201.i, label %ggml_compute_forward_im2col_f16.exit, label %for.cond145.preheader.us.us.us.us.us.preheader.i
+  %cmp150122.i = icmp slt i64 %17, 1
+  %or.cond.not196.i = select i1 %cmp146136.i, i1 true, i1 %cmp150122.i
+  %brmerge.i = select i1 %or.cond.not196.i, i1 true, i1 %cmp155114.i
+  %brmerge194.i = select i1 %brmerge.i, i1 true, i1 %cmp172103.i
+  %brmerge195.i = select i1 %brmerge194.i, i1 true, i1 %cmp17692.i
+  br i1 %brmerge195.i, label %ggml_compute_forward_im2col_f16.exit, label %for.cond145.preheader.us.us.us.us.us.preheader.i
 
 for.cond145.preheader.us.us.us.us.us.preheader.i: ; preds = %for.cond145.preheader.lr.ph.i
   %35 = shl nsw i64 %conv153.i, 1
-  %36 = mul i64 %35, %factor.op.mul161.i
+  %36 = mul i64 %35, %mul161.i
   %37 = mul i64 %cond89.i, %cond99.i
   %38 = mul i64 %37, %7
   %39 = shl i64 %38, 1
@@ -48634,74 +48634,74 @@ for.cond145.preheader.us.us.us.us.us.preheader.i: ; preds = %for.cond145.prehead
   %45 = shl nuw i64 %17, 1
   %46 = mul i64 %45, %38
   %47 = shl nsw i64 %conv226.i, 1
-  %48 = mul i64 %47, %factor.op.mul161.i
+  %48 = mul i64 %47, %mul161.i
   br label %for.cond145.preheader.us.us.us.us.us.i
 
 for.cond145.preheader.us.us.us.us.us.i:           ; preds = %for.cond145.for.inc235_crit_edge.split.us.split.us.split.us.split.us.us.us.us.us.us.i, %for.cond145.preheader.us.us.us.us.us.preheader.i
-  %in.0163.us.us.us.us.us.i = phi i64 [ %inc236.us.us.us.us.us.i, %for.cond145.for.inc235_crit_edge.split.us.split.us.split.us.split.us.us.us.us.us.us.i ], [ 0, %for.cond145.preheader.us.us.us.us.us.preheader.i ]
-  %49 = mul i64 %44, %in.0163.us.us.us.us.us.i
-  %mul.us.us.us.us.us.i = mul nsw i64 %in.0163.us.us.us.us.us.i, %cond104.i
-  %mul166.us.us.us.us.us.i = mul nsw i64 %in.0163.us.us.us.us.us.i, %conv165.i
+  %in.0157.us.us.us.us.us.i = phi i64 [ %inc236.us.us.us.us.us.i, %for.cond145.for.inc235_crit_edge.split.us.split.us.split.us.split.us.us.us.us.us.us.i ], [ 0, %for.cond145.preheader.us.us.us.us.us.preheader.i ]
+  %49 = mul i64 %44, %in.0157.us.us.us.us.us.i
+  %mul.us.us.us.us.us.i = mul nsw i64 %in.0157.us.us.us.us.us.i, %cond104.i
+  %mul166.us.us.us.us.us.i = mul nsw i64 %in.0157.us.us.us.us.us.i, %conv165.i
   %50 = getelementptr i8, ptr %41, i64 %49
   br label %for.cond149.preheader.us.us.us.us.us.us.us.us.us.i
 
 for.cond149.preheader.us.us.us.us.us.us.us.us.us.i: ; preds = %for.cond149.for.inc232_crit_edge.split.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i, %for.cond145.preheader.us.us.us.us.us.i
-  %ioh.0142.us.us.us.us.us.us.us.us.us.i = phi i64 [ 0, %for.cond145.preheader.us.us.us.us.us.i ], [ %inc233.us.us.us.us.us.us.us.us.us.i, %for.cond149.for.inc232_crit_edge.split.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i ]
-  %51 = mul i64 %46, %ioh.0142.us.us.us.us.us.us.us.us.us.i
-  %mul15888.us.us.us.us.us.us.us.us.us.i = add nuw i64 %ioh.0142.us.us.us.us.us.us.us.us.us.i, %mul.us.us.us.us.us.i
+  %ioh.0137.us.us.us.us.us.us.us.us.us.i = phi i64 [ 0, %for.cond145.preheader.us.us.us.us.us.i ], [ %inc233.us.us.us.us.us.us.us.us.us.i, %for.cond149.for.inc232_crit_edge.split.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i ]
+  %51 = mul i64 %46, %ioh.0137.us.us.us.us.us.us.us.us.us.i
+  %mul15888.us.us.us.us.us.us.us.us.us.i = add nuw i64 %ioh.0137.us.us.us.us.us.us.us.us.us.i, %mul.us.us.us.us.us.i
   %add.us.us.us.us.us.us.us.us.us.i = mul i64 %mul15888.us.us.us.us.us.us.us.us.us.i, %17
-  %mul186.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %ioh.0142.us.us.us.us.us.us.us.us.us.i, %conv185.i
+  %mul186.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %ioh.0137.us.us.us.us.us.us.us.us.us.i, %conv185.i
   %add189.us.us.us.us.us.us.us.us.us.i = sub i64 %mul186.us.us.us.us.us.us.us.us.us.i, %conv190.i
   %52 = getelementptr i8, ptr %50, i64 %51
   br label %for.body152.us.us.us.us.us.us.us.us.us.us.us.us.i
 
 for.body152.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.cond154.for.inc229_crit_edge.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.cond149.preheader.us.us.us.us.us.us.us.us.us.i
-  %iow.0127.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i64 [ 0, %for.cond149.preheader.us.us.us.us.us.us.us.us.us.i ], [ %inc230.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.cond154.for.inc229_crit_edge.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
-  %53 = mul i64 %39, %iow.0127.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %add160.us.us.us.us.us.us.us.us.us.us.us.us.i = add nsw i64 %iow.0127.us.us.us.us.us.us.us.us.us.us.us.us.i, %add.us.us.us.us.us.us.us.us.us.i
-  %mul163.us.us.us.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %factor.op.mul140.i, %add160.us.us.us.us.us.us.us.us.us.us.us.us.i
+  %iow.0123.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i64 [ 0, %for.cond149.preheader.us.us.us.us.us.us.us.us.us.i ], [ %inc230.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.cond154.for.inc229_crit_edge.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
+  %53 = mul i64 %39, %iow.0123.us.us.us.us.us.us.us.us.us.us.us.us.i
+  %add160.us.us.us.us.us.us.us.us.us.us.us.us.i = add nsw i64 %iow.0123.us.us.us.us.us.us.us.us.us.us.us.us.i, %add.us.us.us.us.us.us.us.us.us.i
+  %mul163.us.us.us.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %mul162.i, %add160.us.us.us.us.us.us.us.us.us.us.us.us.i
   %add.ptr.us.us.us.us.us.us.us.us.us.us.us.us.i = getelementptr inbounds i16, ptr %34, i64 %mul163.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %mul180.us.us.us.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %iow.0127.us.us.us.us.us.us.us.us.us.us.us.us.i, %conv179.i
+  %mul180.us.us.us.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %iow.0123.us.us.us.us.us.us.us.us.us.us.us.us.i, %conv179.i
   %add183.us.us.us.us.us.us.us.us.us.us.us.us.i = sub i64 %mul180.us.us.us.us.us.us.us.us.us.us.us.us.i, %conv184.i
   %54 = getelementptr i8, ptr %52, i64 %53
   br label %for.body157.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
 
 for.body157.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.cond171.for.inc225_crit_edge.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.body152.us.us.us.us.us.us.us.us.us.us.us.us.i
   %indvar.i = phi i64 [ %indvar.next.i, %for.cond171.for.inc225_crit_edge.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ 0, %for.body152.us.us.us.us.us.us.us.us.us.us.us.us.i ]
-  %iic.0119.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i64 [ %add227.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.cond171.for.inc225_crit_edge.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ %conv153.i, %for.body152.us.us.us.us.us.us.us.us.us.us.us.us.i ]
+  %iic.0115.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i64 [ %add227.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.cond171.for.inc225_crit_edge.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ %conv153.i, %for.body152.us.us.us.us.us.us.us.us.us.us.us.us.i ]
   %55 = mul i64 %48, %indvar.i
   %56 = load ptr, ptr %data164.i, align 8
   %add.ptr167.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = getelementptr inbounds i8, ptr %56, i64 %mul166.us.us.us.us.us.i
-  %mul169.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %iic.0119.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %conv168.i
+  %mul169.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %iic.0115.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %conv168.i
   %add.ptr170.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = getelementptr inbounds i8, ptr %add.ptr167.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, i64 %mul169.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %factor.op.mul.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = mul i64 %iic.0119.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %factor.op.mul161.i
-  %57 = getelementptr i16, ptr %add.ptr.us.us.us.us.us.us.us.us.us.us.us.us.i, i64 %factor.op.mul.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
+  %mul216.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %iic.0115.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %mul161.i
+  %57 = getelementptr i16, ptr %add.ptr.us.us.us.us.us.us.us.us.us.us.us.us.i, i64 %mul216.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   %58 = getelementptr i8, ptr %54, i64 %55
   br label %for.cond175.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
 
 for.cond175.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.cond175.for.inc222_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.body157.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %ikh.0107.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i64 [ 0, %for.body157.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ %inc223.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.cond175.for.inc222_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
-  %59 = mul i64 %ikh.0107.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %40
-  %scevgep195.i = getelementptr i8, ptr %58, i64 %59
-  %mul188.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %ikh.0107.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %conv187.i
+  %ikh.0104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i64 [ 0, %for.body157.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ %inc223.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.cond175.for.inc222_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
+  %59 = mul i64 %ikh.0104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %40
+  %scevgep189.i = getelementptr i8, ptr %58, i64 %59
+  %mul188.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %ikh.0104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %conv187.i
   %sub191.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = add i64 %mul188.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %add189.us.us.us.us.us.us.us.us.us.i
   %cmp192.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = icmp slt i64 %sub191.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, 0
   %mul209.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %sub191.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %10
   %60 = getelementptr float, ptr %add.ptr170.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, i64 %mul209.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %mul217.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %ikh.0107.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %7
+  %mul217.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %ikh.0104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %7
   %61 = getelementptr i16, ptr %57, i64 %mul217.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  br i1 %cmp192.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %for.cond175.for.inc222_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.sink.split.i, label %for.body178.lr.ph.split.us114.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
+  br i1 %cmp192.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %for.cond175.for.inc222_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.sink.split.i, label %for.body178.lr.ph.split.us111.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
 
-for.body178.us108.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.body178.lr.ph.split.us114.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.inc.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %ikw.094.us109.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i64 [ %inc.us111.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.inc.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ 0, %for.body178.lr.ph.split.us114.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
-  %mul182.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %ikw.094.us109.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %conv181.i
+for.body178.us105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.body178.lr.ph.split.us111.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.inc.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
+  %ikw.093.us106.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = phi i64 [ %inc.us108.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.inc.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ 0, %for.body178.lr.ph.split.us111.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
+  %mul182.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = mul nsw i64 %ikw.093.us106.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %conv181.i
   %sub.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = add i64 %mul182.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %add183.us.us.us.us.us.us.us.us.us.us.us.us.i
   %cmp197.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = icmp sgt i64 %sub.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, -1
   %cmp200.not.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = icmp slt i64 %sub.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %10
   %or.cond90.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = select i1 %cmp197.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, i1 %cmp200.not.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, i1 false
   br i1 %or.cond90.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %if.else.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %for.inc.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
 
-if.else.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.body178.us108.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
+if.else.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.body178.us105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   %arrayidx211.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = getelementptr float, ptr %60, i64 %sub.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   %62 = load float, ptr %arrayidx211.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, align 4
   %vecinit214.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %62, i64 0
@@ -48709,48 +48709,48 @@ if.else.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.body178.u
   %vecext.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = extractelement <8 x i16> %63, i64 0
   br label %for.inc.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
 
-for.inc.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %if.else.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.body178.us108.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %.sink.i = phi i16 [ %vecext.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %if.else.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ 0, %for.body178.us108.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
-  %arrayidx208.us110.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = getelementptr i16, ptr %61, i64 %ikw.094.us109.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  store i16 %.sink.i, ptr %arrayidx208.us110.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, align 2
-  %inc.us111.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = add nuw nsw i64 %ikw.094.us109.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.us111.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %7
-  br i1 %exitcond.not.i, label %for.cond175.for.inc222_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %for.body178.us108.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !598
+for.inc.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %if.else.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.body178.us105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
+  %.sink.i = phi i16 [ %vecext.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %if.else.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ], [ 0, %for.body178.us105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i ]
+  %arrayidx208.us107.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = getelementptr i16, ptr %61, i64 %ikw.093.us106.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
+  store i16 %.sink.i, ptr %arrayidx208.us107.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, align 2
+  %inc.us108.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = add nuw nsw i64 %ikw.093.us106.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.us108.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %7
+  br i1 %exitcond.not.i, label %for.cond175.for.inc222_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %for.body178.us105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !598
 
-for.body178.lr.ph.split.us114.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.cond175.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
+for.body178.lr.ph.split.us111.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.cond175.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   %cmp194.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = icmp slt i64 %sub191.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %cond94.i
   %cmp194.fr.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = freeze i1 %cmp194.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  br i1 %cmp194.fr.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %for.body178.us108.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %for.cond175.for.inc222_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.sink.split.i
+  br i1 %cmp194.fr.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %for.body178.us105.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %for.cond175.for.inc222_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.sink.split.i
 
-for.cond175.for.inc222_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.sink.split.i: ; preds = %for.body178.lr.ph.split.us114.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.cond175.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  tail call void @llvm.memset.p0.i64(ptr align 2 %scevgep195.i, i8 0, i64 %40, i1 false)
+for.cond175.for.inc222_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.sink.split.i: ; preds = %for.body178.lr.ph.split.us111.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.cond175.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
+  tail call void @llvm.memset.p0.i64(ptr align 2 %scevgep189.i, i8 0, i64 %40, i1 false)
   br label %for.cond175.for.inc222_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
 
 for.cond175.for.inc222_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.inc.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %for.cond175.for.inc222_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.sink.split.i
-  %inc223.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = add nuw nsw i64 %ikh.0107.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, 1
-  %exitcond196.not.i = icmp eq i64 %inc223.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %cond99.i
-  br i1 %exitcond196.not.i, label %for.cond171.for.inc225_crit_edge.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %for.cond175.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !599
+  %inc223.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = add nuw nsw i64 %ikh.0104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, 1
+  %exitcond190.not.i = icmp eq i64 %inc223.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %cond99.i
+  br i1 %exitcond190.not.i, label %for.cond171.for.inc225_crit_edge.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %for.cond175.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !599
 
 for.cond171.for.inc225_crit_edge.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.cond175.for.inc222_crit_edge.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %add227.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = add nsw i64 %iic.0119.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %conv226.i
+  %add227.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = add nsw i64 %iic.0115.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %conv226.i
   %cmp155.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i = icmp slt i64 %add227.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, %cond89.i
   %indvar.next.i = add i64 %indvar.i, 1
   br i1 %cmp155.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %for.body157.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %for.cond154.for.inc229_crit_edge.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !600
 
 for.cond154.for.inc229_crit_edge.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.cond171.for.inc225_crit_edge.split.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %inc230.us.us.us.us.us.us.us.us.us.us.us.us.i = add nuw nsw i64 %iow.0127.us.us.us.us.us.us.us.us.us.us.us.us.i, 1
-  %exitcond197.not.i = icmp eq i64 %inc230.us.us.us.us.us.us.us.us.us.us.us.us.i, %17
-  br i1 %exitcond197.not.i, label %for.cond149.for.inc232_crit_edge.split.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i, label %for.body152.us.us.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !601
+  %inc230.us.us.us.us.us.us.us.us.us.us.us.us.i = add nuw nsw i64 %iow.0123.us.us.us.us.us.us.us.us.us.us.us.us.i, 1
+  %exitcond191.not.i = icmp eq i64 %inc230.us.us.us.us.us.us.us.us.us.us.us.us.i, %17
+  br i1 %exitcond191.not.i, label %for.cond149.for.inc232_crit_edge.split.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i, label %for.body152.us.us.us.us.us.us.us.us.us.us.us.us.i, !llvm.loop !601
 
 for.cond149.for.inc232_crit_edge.split.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i: ; preds = %for.cond154.for.inc229_crit_edge.split.us.split.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %inc233.us.us.us.us.us.us.us.us.us.i = add nuw nsw i64 %ioh.0142.us.us.us.us.us.us.us.us.us.i, 1
-  %exitcond198.not.i = icmp eq i64 %inc233.us.us.us.us.us.us.us.us.us.i, %cond104.i
-  br i1 %exitcond198.not.i, label %for.cond145.for.inc235_crit_edge.split.us.split.us.split.us.split.us.us.us.us.us.us.i, label %for.cond149.preheader.us.us.us.us.us.us.us.us.us.i, !llvm.loop !602
+  %inc233.us.us.us.us.us.us.us.us.us.i = add nuw nsw i64 %ioh.0137.us.us.us.us.us.us.us.us.us.i, 1
+  %exitcond192.not.i = icmp eq i64 %inc233.us.us.us.us.us.us.us.us.us.i, %cond104.i
+  br i1 %exitcond192.not.i, label %for.cond145.for.inc235_crit_edge.split.us.split.us.split.us.split.us.us.us.us.us.us.i, label %for.cond149.preheader.us.us.us.us.us.us.us.us.us.i, !llvm.loop !602
 
 for.cond145.for.inc235_crit_edge.split.us.split.us.split.us.split.us.us.us.us.us.us.i: ; preds = %for.cond149.for.inc232_crit_edge.split.us.split.us.split.us.us.us.us.us.us.us.us.us.us.i
-  %inc236.us.us.us.us.us.i = add nuw nsw i64 %in.0163.us.us.us.us.us.i, 1
-  %exitcond199.not.i = icmp eq i64 %inc236.us.us.us.us.us.i, %cond.i
-  br i1 %exitcond199.not.i, label %ggml_compute_forward_im2col_f16.exit, label %for.cond145.preheader.us.us.us.us.us.i, !llvm.loop !603
+  %inc236.us.us.us.us.us.i = add nuw nsw i64 %in.0157.us.us.us.us.us.i, 1
+  %exitcond193.not.i = icmp eq i64 %inc236.us.us.us.us.us.i, %cond.i
+  br i1 %exitcond193.not.i, label %ggml_compute_forward_im2col_f16.exit, label %for.cond145.preheader.us.us.us.us.us.i, !llvm.loop !603
 
 ggml_compute_forward_im2col_f16.exit:             ; preds = %for.cond145.for.inc235_crit_edge.split.us.split.us.split.us.split.us.us.us.us.us.us.i, %do.end132.i, %do.end132.i, %if.end142.i, %for.cond145.preheader.lr.ph.i
   ret void
@@ -48898,22 +48898,22 @@ if.then86:                                        ; preds = %do.end82
   %33 = load i64, ptr %wsize, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %32, i8 0, i64 %33, i1 false)
   %34 = load ptr, ptr %wdata, align 8
-  %cmp89144 = icmp sgt i64 %12, 0
-  br i1 %cmp89144, label %for.cond91.preheader.lr.ph, label %for.end127
+  %cmp89143 = icmp sgt i64 %12, 0
+  br i1 %cmp89143, label %for.cond91.preheader.lr.ph, label %for.end127
 
 for.cond91.preheader.lr.ph:                       ; preds = %if.then86
   %cmp92134 = icmp slt i64 %11, 1
   %data = getelementptr inbounds i8, ptr %src0, i64 280
   %cmp108129 = icmp slt i64 %9, 1
   %cmp104131 = icmp slt i64 %10, 1
-  %or.cond.not477 = select i1 %cmp92134, i1 true, i1 %cmp104131
-  %brmerge = select i1 %or.cond.not477, i1 true, i1 %cmp108129
+  %or.cond.not471 = select i1 %cmp92134, i1 true, i1 %cmp104131
+  %brmerge = select i1 %or.cond.not471, i1 true, i1 %cmp108129
   br i1 %brmerge, label %for.end127, label %for.cond91.preheader.us.us.us
 
 for.cond91.preheader.us.us.us:                    ; preds = %for.cond91.preheader.lr.ph, %for.cond91.for.inc125_crit_edge.split.us.split.us.us.us.us
-  %i03.0145.us.us.us = phi i64 [ %inc126.us.us.us, %for.cond91.for.inc125_crit_edge.split.us.split.us.us.us.us ], [ 0, %for.cond91.preheader.lr.ph ]
-  %invariant.gep133.us.us.us = getelementptr i16, ptr %34, i64 %i03.0145.us.us.us
-  %mul95.us.us.us = mul i64 %i03.0145.us.us.us, %15
+  %i03.0144.us.us.us = phi i64 [ %inc126.us.us.us, %for.cond91.for.inc125_crit_edge.split.us.split.us.us.us.us ], [ 0, %for.cond91.preheader.lr.ph ]
+  %invariant.gep133.us.us.us = getelementptr i16, ptr %34, i64 %i03.0144.us.us.us
+  %mul95.us.us.us = mul i64 %i03.0144.us.us.us, %15
   br label %for.body94.us.us.us.us.us
 
 for.body94.us.us.us.us.us:                        ; preds = %for.cond103.for.inc122_crit_edge.split.us.us.us.us.us.us, %for.cond91.preheader.us.us.us
@@ -48946,18 +48946,18 @@ for.body110.us.us.us.us.us.us:                    ; preds = %for.body110.us.us.u
 
 for.cond107.for.inc119_crit_edge.us.us.us.us.us.us: ; preds = %for.body110.us.us.us.us.us.us
   %inc120.us.us.us.us.us.us = add nuw nsw i64 %i01.0132.us.us.us.us.us.us, 1
-  %exitcond355.not = icmp eq i64 %inc120.us.us.us.us.us.us, %10
-  br i1 %exitcond355.not, label %for.cond103.for.inc122_crit_edge.split.us.us.us.us.us.us, label %for.cond107.preheader.us.us.us.us.us.us, !llvm.loop !605
+  %exitcond349.not = icmp eq i64 %inc120.us.us.us.us.us.us, %10
+  br i1 %exitcond349.not, label %for.cond103.for.inc122_crit_edge.split.us.us.us.us.us.us, label %for.cond107.preheader.us.us.us.us.us.us, !llvm.loop !605
 
 for.cond103.for.inc122_crit_edge.split.us.us.us.us.us.us: ; preds = %for.cond107.for.inc119_crit_edge.us.us.us.us.us.us
   %inc123.us.us.us.us.us = add nuw nsw i64 %i02.0135.us.us.us.us.us, 1
-  %exitcond356.not = icmp eq i64 %inc123.us.us.us.us.us, %11
-  br i1 %exitcond356.not, label %for.cond91.for.inc125_crit_edge.split.us.split.us.us.us.us, label %for.body94.us.us.us.us.us, !llvm.loop !606
+  %exitcond350.not = icmp eq i64 %inc123.us.us.us.us.us, %11
+  br i1 %exitcond350.not, label %for.cond91.for.inc125_crit_edge.split.us.split.us.us.us.us, label %for.body94.us.us.us.us.us, !llvm.loop !606
 
 for.cond91.for.inc125_crit_edge.split.us.split.us.us.us.us: ; preds = %for.cond103.for.inc122_crit_edge.split.us.us.us.us.us.us
-  %inc126.us.us.us = add nuw nsw i64 %i03.0145.us.us.us, 1
-  %exitcond357.not = icmp eq i64 %inc126.us.us.us, %12
-  br i1 %exitcond357.not, label %for.end127.loopexit, label %for.cond91.preheader.us.us.us, !llvm.loop !607
+  %inc126.us.us.us = add nuw nsw i64 %i03.0144.us.us.us, 1
+  %exitcond351.not = icmp eq i64 %inc126.us.us.us, %12
+  br i1 %exitcond351.not, label %for.end127.loopexit, label %for.cond91.preheader.us.us.us, !llvm.loop !607
 
 for.end127.loopexit:                              ; preds = %for.cond91.for.inc125_crit_edge.split.us.split.us.us.us.us
   %.pre = load ptr, ptr %wdata, align 8
@@ -48968,31 +48968,31 @@ for.end127:                                       ; preds = %for.cond91.preheade
   %sext119 = shl i64 %mul66, 32
   %idx.ext = ashr exact i64 %sext119, 32
   %add.ptr130 = getelementptr inbounds i16, ptr %38, i64 %idx.ext
-  %cmp133166 = icmp sgt i64 %18, 0
-  br i1 %cmp133166, label %for.cond136.preheader.lr.ph, label %for.end176
+  %cmp133165 = icmp sgt i64 %18, 0
+  br i1 %cmp133165, label %for.cond136.preheader.lr.ph, label %for.end176
 
 for.cond136.preheader.lr.ph:                      ; preds = %for.end127
-  %cmp138163 = icmp sgt i64 %17, 0
+  %cmp138162 = icmp sgt i64 %17, 0
   %data142 = getelementptr inbounds i8, ptr %src1, i64 280
   %mul151 = mul i64 %18, %16
-  %cmp156158 = icmp sgt i64 %16, 0
-  %or.cond473 = select i1 %cmp138163, i1 %cmp156158, i1 false
-  br i1 %or.cond473, label %for.cond136.preheader.us.us, label %for.end176
+  %cmp156157 = icmp sgt i64 %16, 0
+  %or.cond467 = select i1 %cmp138162, i1 %cmp156157, i1 false
+  br i1 %or.cond467, label %for.cond136.preheader.us.us, label %for.end176
 
 for.cond136.preheader.us.us:                      ; preds = %for.cond136.preheader.lr.ph, %for.cond136.for.inc174_crit_edge.split.us.us.us
-  %indvars.iv367 = phi i64 [ %indvars.iv.next368, %for.cond136.for.inc174_crit_edge.split.us.us.us ], [ 0, %for.cond136.preheader.lr.ph ]
-  %invariant.gep161.us.us = getelementptr i16, ptr %add.ptr130, i64 %indvars.iv367
-  %mul144.us.us = mul i64 %indvars.iv367, %20
+  %indvars.iv361 = phi i64 [ %indvars.iv.next362, %for.cond136.for.inc174_crit_edge.split.us.us.us ], [ 0, %for.cond136.preheader.lr.ph ]
+  %invariant.gep160.us.us = getelementptr i16, ptr %add.ptr130, i64 %indvars.iv361
+  %mul144.us.us = mul i64 %indvars.iv361, %20
   br label %for.body140.us.us.us
 
 for.body140.us.us.us:                             ; preds = %for.cond154.for.inc171_crit_edge.us.us.us, %for.cond136.preheader.us.us
-  %indvars.iv363 = phi i64 [ %indvars.iv.next364, %for.cond154.for.inc171_crit_edge.us.us.us ], [ 0, %for.cond136.preheader.us.us ]
+  %indvars.iv357 = phi i64 [ %indvars.iv.next358, %for.cond154.for.inc171_crit_edge.us.us.us ], [ 0, %for.cond136.preheader.us.us ]
   %39 = load ptr, ptr %data142, align 8
   %add.ptr145.us.us.us = getelementptr inbounds i8, ptr %39, i64 %mul144.us.us
-  %mul147.us.us.us = mul i64 %indvars.iv363, %19
+  %mul147.us.us.us = mul i64 %indvars.iv357, %19
   %add.ptr148.us.us.us = getelementptr inbounds i8, ptr %add.ptr145.us.us.us, i64 %mul147.us.us.us
-  %mul152.us.us.us = mul i64 %mul151, %indvars.iv363
-  %gep162.us.us.us = getelementptr i16, ptr %invariant.gep161.us.us, i64 %mul152.us.us.us
+  %mul152.us.us.us = mul i64 %mul151, %indvars.iv357
+  %gep161.us.us.us = getelementptr i16, ptr %invariant.gep160.us.us, i64 %mul152.us.us.us
   br label %for.body158.us.us.us
 
 for.body158.us.us.us:                             ; preds = %for.body158.us.us.us, %for.body140.us.us.us
@@ -49003,21 +49003,21 @@ for.body158.us.us.us:                             ; preds = %for.body158.us.us.u
   %41 = tail call <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float> %vecinit162.us.us.us, i32 0)
   %vecext.us.us.us = extractelement <8 x i16> %41, i64 0
   %mul164.us.us.us = mul nsw i64 %indvars.iv, %18
-  %gep.us.us.us = getelementptr i16, ptr %gep162.us.us.us, i64 %mul164.us.us.us
+  %gep.us.us.us = getelementptr i16, ptr %gep161.us.us.us, i64 %mul164.us.us.us
   store i16 %vecext.us.us.us, ptr %gep.us.us.us, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond362.not = icmp eq i64 %indvars.iv.next, %16
-  br i1 %exitcond362.not, label %for.cond154.for.inc171_crit_edge.us.us.us, label %for.body158.us.us.us, !llvm.loop !608
+  %exitcond356.not = icmp eq i64 %indvars.iv.next, %16
+  br i1 %exitcond356.not, label %for.cond154.for.inc171_crit_edge.us.us.us, label %for.body158.us.us.us, !llvm.loop !608
 
 for.cond154.for.inc171_crit_edge.us.us.us:        ; preds = %for.body158.us.us.us
-  %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
-  %exitcond366.not = icmp eq i64 %indvars.iv.next364, %17
-  br i1 %exitcond366.not, label %for.cond136.for.inc174_crit_edge.split.us.us.us, label %for.body140.us.us.us, !llvm.loop !609
+  %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
+  %exitcond360.not = icmp eq i64 %indvars.iv.next358, %17
+  br i1 %exitcond360.not, label %for.cond136.for.inc174_crit_edge.split.us.us.us, label %for.body140.us.us.us, !llvm.loop !609
 
 for.cond136.for.inc174_crit_edge.split.us.us.us:  ; preds = %for.cond154.for.inc171_crit_edge.us.us.us
-  %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
-  %exitcond370.not = icmp eq i64 %indvars.iv.next368, %18
-  br i1 %exitcond370.not, label %for.end176, label %for.cond136.preheader.us.us, !llvm.loop !610
+  %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
+  %exitcond364.not = icmp eq i64 %indvars.iv.next362, %18
+  br i1 %exitcond364.not, label %for.end176, label %for.cond136.preheader.us.us, !llvm.loop !610
 
 for.end176:                                       ; preds = %for.cond136.for.inc174_crit_edge.split.us.us.us, %for.cond136.preheader.lr.ph, %for.end127
   %data177 = getelementptr inbounds i8, ptr %dst, i64 280
@@ -49091,21 +49091,19 @@ if.end184:                                        ; preds = %do.end82
   %sext = shl i64 %mul66, 32
   %idx.ext196 = ashr exact i64 %sext, 32
   %add.ptr197 = getelementptr inbounds i16, ptr %53, i64 %idx.ext196
-  %cmp199341 = icmp slt i32 %mul188, %cond
-  br i1 %cmp199341, label %for.body201.lr.ph, label %for.end278
+  %cmp199335 = icmp slt i32 %mul188, %cond
+  br i1 %cmp199335, label %for.body201.lr.ph, label %for.end278
 
 for.body201.lr.ph:                                ; preds = %if.end184
   %op_params.i = getelementptr inbounds i8, ptr %dst, i64 84
   %54 = load i32, ptr %op_params.i, align 4
-  %factor.op.mul340 = mul i64 %12, %10
   %data203 = getelementptr inbounds i8, ptr %dst, i64 280
-  %mul208 = mul i64 %factor.op.mul340, %9
-  %cmp215288 = icmp slt i64 %17, 1
-  %cmp221226 = icmp slt i64 %16, 1
-  %factor.op.mul181 = shl i64 %18, 32
-  %cmp234183 = icmp slt i64 %10, 1
-  %cmp240178 = icmp slt i64 %9, 1
+  %cmp215283 = icmp slt i64 %17, 1
+  %cmp221221 = icmp slt i64 %16, 1
+  %cmp234178 = icmp slt i64 %10, 1
+  %cmp240175 = icmp slt i64 %9, 1
   %conv243 = trunc i64 %12 to i32
+  %add229 = shl i64 %18, 32
   %and.i = and i32 %conv243, -32
   %cmp46.i = icmp sgt i32 %and.i, 0
   %55 = and i64 %12, 4294967264
@@ -49119,19 +49117,19 @@ for.body201.lr.ph:                                ; preds = %if.end184
   %57 = sext i32 %54 to i64
   %58 = sext i32 %mul188 to i64
   %wide.trip.count = sext i32 %cond to i64
-  %brmerge474 = select i1 %cmp215288, i1 true, i1 %cmp221226
-  %brmerge475 = select i1 %brmerge474, i1 true, i1 %cmp234183
-  %brmerge476 = select i1 %brmerge475, i1 true, i1 %cmp240178
+  %brmerge468 = select i1 %cmp215283, i1 true, i1 %cmp221221
+  %brmerge469 = select i1 %brmerge468, i1 true, i1 %cmp234178
+  %brmerge470 = select i1 %brmerge469, i1 true, i1 %cmp240175
   br label %for.body201
 
 for.body201:                                      ; preds = %for.body201.lr.ph, %for.inc276
-  %indvars.iv465 = phi i64 [ %58, %for.body201.lr.ph ], [ %indvars.iv.next466, %for.inc276 ]
+  %indvars.iv459 = phi i64 [ %58, %for.body201.lr.ph ], [ %indvars.iv.next460, %for.inc276 ]
   %59 = load ptr, ptr %data203, align 8
-  %mul205 = mul i64 %23, %indvars.iv465
+  %mul205 = mul i64 %23, %indvars.iv459
   %add.ptr206 = getelementptr inbounds i8, ptr %59, i64 %mul205
-  %mul210 = mul i64 %mul208, %indvars.iv465
+  %mul210 = mul i64 %mul65, %indvars.iv459
   %add.ptr211 = getelementptr inbounds i16, ptr %53, i64 %mul210
-  br i1 %brmerge476, label %for.inc276, label %for.cond219.preheader.lr.ph.split.us.split.us.split.us
+  br i1 %brmerge470, label %for.inc276, label %for.cond219.preheader.lr.ph.split.us.split.us.split.us
 
 for.cond219.preheader.lr.ph.split.us.split.us.split.us: ; preds = %for.body201
   br i1 %cmp46.i, label %for.cond219.preheader.lr.ph.split.us.split.us.split.us.split.us, label %for.cond219.preheader.lr.ph.split.us.split.us.split.us.split
@@ -49140,33 +49138,33 @@ for.cond219.preheader.lr.ph.split.us.split.us.split.us.split.us: ; preds = %for.
   br i1 %cmp8349.i, label %for.cond219.preheader.us.us.us.us.us, label %for.cond219.preheader.us.us.us.us
 
 for.cond219.preheader.us.us.us.us.us:             ; preds = %for.cond219.preheader.lr.ph.split.us.split.us.split.us.split.us, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us.us.us.us
-  %indvars.iv460 = phi i64 [ %indvars.iv.next461, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us.us.us.us ], [ 0, %for.cond219.preheader.lr.ph.split.us.split.us.split.us.split.us ]
-  %mul225.us.us.us.us.us = mul nsw i64 %indvars.iv460, %16
-  %60 = mul nsw i64 %indvars.iv460, %57
+  %indvars.iv454 = phi i64 [ %indvars.iv.next455, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us.us.us.us ], [ 0, %for.cond219.preheader.lr.ph.split.us.split.us.split.us.split.us ]
+  %mul225.us.us.us.us.us = mul nsw i64 %indvars.iv454, %16
+  %60 = mul nsw i64 %indvars.iv454, %57
   br label %for.body223.us.us.us.us.us.us.us.us.us
 
 for.body223.us.us.us.us.us.us.us.us.us:           ; preds = %for.cond232.for.inc270_crit_edge.split.us.split.us.split.us.us.us.us.us.us.us.us.us.us, %for.cond219.preheader.us.us.us.us.us
-  %indvars.iv455 = phi i64 [ %indvars.iv.next456, %for.cond232.for.inc270_crit_edge.split.us.split.us.split.us.us.us.us.us.us.us.us.us.us ], [ 0, %for.cond219.preheader.us.us.us.us.us ]
-  %mul226117.us.us.us.us.us.us.us.us.us = add nuw i64 %indvars.iv455, %mul225.us.us.us.us.us
-  %factor.op.mul176.us.us.us.us.us.us.us.us.us = mul i64 %factor.op.mul181, %mul226117.us.us.us.us.us.us.us.us.us
-  %idx.ext244.us.us.us.us.us.us.us.us.us = ashr exact i64 %factor.op.mul176.us.us.us.us.us.us.us.us.us, 32
+  %indvars.iv449 = phi i64 [ %indvars.iv.next450, %for.cond232.for.inc270_crit_edge.split.us.split.us.split.us.us.us.us.us.us.us.us.us.us ], [ 0, %for.cond219.preheader.us.us.us.us.us ]
+  %mul226117.us.us.us.us.us.us.us.us.us = add nuw i64 %indvars.iv449, %mul225.us.us.us.us.us
+  %sext118.us.us.us.us.us.us.us.us.us = mul i64 %add229, %mul226117.us.us.us.us.us.us.us.us.us
+  %idx.ext244.us.us.us.us.us.us.us.us.us = ashr exact i64 %sext118.us.us.us.us.us.us.us.us.us, 32
   %add.ptr245.us.us.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr197, i64 %idx.ext244.us.us.us.us.us.us.us.us.us
-  %61 = mul nsw i64 %indvars.iv455, %57
+  %61 = mul nsw i64 %indvars.iv449, %57
   %invariant.gep.us.us.us.us.us.us.us.us.us = getelementptr float, ptr %add.ptr206, i64 %61
   br label %for.cond238.preheader.us.us.us.us.us.us.us.us.us.us.us.us
 
 for.cond238.preheader.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us.us.us.us.us, %for.body223.us.us.us.us.us.us.us.us.us
-  %indvars.iv450 = phi i64 [ %indvars.iv.next451, %for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us.us.us.us.us ], [ 0, %for.body223.us.us.us.us.us.us.us.us.us ]
-  %factor.op.mul177.us.us.us.us.us.us.us.us.us.us.us.us = mul i64 %mul, %indvars.iv450
-  %add.ptr249.us.us.us.us.us.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr211, i64 %factor.op.mul177.us.us.us.us.us.us.us.us.us.us.us.us
-  %62 = add nsw i64 %indvars.iv450, %60
+  %indvars.iv444 = phi i64 [ %indvars.iv.next445, %for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us.us.us.us.us ], [ 0, %for.body223.us.us.us.us.us.us.us.us.us ]
+  %mul248.us.us.us.us.us.us.us.us.us.us.us.us = mul i64 %mul, %indvars.iv444
+  %add.ptr249.us.us.us.us.us.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr211, i64 %mul248.us.us.us.us.us.us.us.us.us.us.us.us
+  %62 = add nsw i64 %indvars.iv444, %60
   %mul256.us.us.us.us.us.us.us.us.us.us.us.us = mul nsw i64 %21, %62
-  %gep.us.us.us225.us.us.us.us.us.us.us.us.us = getelementptr float, ptr %invariant.gep.us.us.us.us.us.us.us.us.us, i64 %mul256.us.us.us.us.us.us.us.us.us.us.us.us
+  %gep.us.us.us220.us.us.us.us.us.us.us.us.us = getelementptr float, ptr %invariant.gep.us.us.us.us.us.us.us.us.us, i64 %mul256.us.us.us.us.us.us.us.us.us.us.us.us
   br label %for.body242.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
 for.body242.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %for.end97.loopexit.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %for.cond238.preheader.us.us.us.us.us.us.us.us.us.us.us.us
-  %indvars.iv446 = phi i64 [ %indvars.iv.next447, %for.end97.loopexit.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ 0, %for.cond238.preheader.us.us.us.us.us.us.us.us.us.us.us.us ]
-  %mul251.us.us.us.us.us.us.us.us.us.us.us.us.us.us = mul nsw i64 %indvars.iv446, %12
+  %indvars.iv440 = phi i64 [ %indvars.iv.next441, %for.end97.loopexit.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ 0, %for.cond238.preheader.us.us.us.us.us.us.us.us.us.us.us.us ]
+  %mul251.us.us.us.us.us.us.us.us.us.us.us.us.us.us = mul nsw i64 %indvars.iv440, %12
   %add.ptr252.us.us.us.us.us.us.us.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr249.us.us.us.us.us.us.us.us.us.us.us.us, i64 %mul251.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !611)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !614)
@@ -49225,13 +49223,13 @@ for.body85.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %for.cond29.pr
 for.end97.loopexit.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %for.body85.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %72 = fptrunc double %add94.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us to float
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %sum.i)
-  %arrayidx262.us.us.us.us.us.us.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep.us.us.us225.us.us.us.us.us.us.us.us.us, i64 %indvars.iv446
+  %arrayidx262.us.us.us.us.us.us.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep.us.us.us220.us.us.us.us.us.us.us.us.us, i64 %indvars.iv440
   %73 = load float, ptr %arrayidx262.us.us.us.us.us.us.us.us.us.us.us.us.us.us, align 4
   %add263.us.us.us.us.us.us.us.us.us.us.us.us.us.us = fadd float %73, %72
   store float %add263.us.us.us.us.us.us.us.us.us.us.us.us.us.us, ptr %arrayidx262.us.us.us.us.us.us.us.us.us.us.us.us.us.us, align 4
-  %indvars.iv.next447 = add nuw nsw i64 %indvars.iv446, 1
-  %exitcond449.not = icmp eq i64 %indvars.iv.next447, %9
-  br i1 %exitcond449.not, label %for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us.us.us.us.us, label %for.body242.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !620
+  %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
+  %exitcond443.not = icmp eq i64 %indvars.iv.next441, %9
+  br i1 %exitcond443.not, label %for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us.us.us.us.us, label %for.body242.us.us.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !620
 
 for.cond29.preheader.i.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; preds = %for.inc26.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %74 = load <8 x float>, ptr %sum.i, align 32, !noalias !616
@@ -49251,49 +49249,49 @@ for.cond29.preheader.i.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us: ; pre
   br label %for.body85.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us
 
 for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us.us.us.us.us: ; preds = %for.end97.loopexit.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %indvars.iv.next451 = add nuw nsw i64 %indvars.iv450, 1
-  %exitcond454.not = icmp eq i64 %indvars.iv.next451, %10
-  br i1 %exitcond454.not, label %for.cond232.for.inc270_crit_edge.split.us.split.us.split.us.us.us.us.us.us.us.us.us.us, label %for.cond238.preheader.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !621
+  %indvars.iv.next445 = add nuw nsw i64 %indvars.iv444, 1
+  %exitcond448.not = icmp eq i64 %indvars.iv.next445, %10
+  br i1 %exitcond448.not, label %for.cond232.for.inc270_crit_edge.split.us.split.us.split.us.us.us.us.us.us.us.us.us.us, label %for.cond238.preheader.us.us.us.us.us.us.us.us.us.us.us.us, !llvm.loop !621
 
 for.cond232.for.inc270_crit_edge.split.us.split.us.split.us.us.us.us.us.us.us.us.us.us: ; preds = %for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us.us.us.us.us
-  %indvars.iv.next456 = add nuw nsw i64 %indvars.iv455, 1
-  %exitcond459.not = icmp eq i64 %indvars.iv.next456, %16
-  br i1 %exitcond459.not, label %for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us.us.us.us, label %for.body223.us.us.us.us.us.us.us.us.us, !llvm.loop !622
+  %indvars.iv.next450 = add nuw nsw i64 %indvars.iv449, 1
+  %exitcond453.not = icmp eq i64 %indvars.iv.next450, %16
+  br i1 %exitcond453.not, label %for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us.us.us.us, label %for.body223.us.us.us.us.us.us.us.us.us, !llvm.loop !622
 
 for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us.us.us.us: ; preds = %for.cond232.for.inc270_crit_edge.split.us.split.us.split.us.us.us.us.us.us.us.us.us.us
-  %indvars.iv.next461 = add nuw nsw i64 %indvars.iv460, 1
-  %exitcond464.not = icmp eq i64 %indvars.iv.next461, %17
-  br i1 %exitcond464.not, label %for.inc276, label %for.cond219.preheader.us.us.us.us.us, !llvm.loop !623
+  %indvars.iv.next455 = add nuw nsw i64 %indvars.iv454, 1
+  %exitcond458.not = icmp eq i64 %indvars.iv.next455, %17
+  br i1 %exitcond458.not, label %for.inc276, label %for.cond219.preheader.us.us.us.us.us, !llvm.loop !623
 
-for.cond219.preheader.us.us.us.us:                ; preds = %for.cond219.preheader.lr.ph.split.us.split.us.split.us.split.us, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us330.us
-  %indvars.iv441 = phi i64 [ %indvars.iv.next442, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us330.us ], [ 0, %for.cond219.preheader.lr.ph.split.us.split.us.split.us.split.us ]
-  %mul225.us.us.us.us = mul nsw i64 %indvars.iv441, %16
-  %80 = mul nsw i64 %indvars.iv441, %57
-  br label %for.body223.us.us.us.us.us.us317.us
+for.cond219.preheader.us.us.us.us:                ; preds = %for.cond219.preheader.lr.ph.split.us.split.us.split.us.split.us, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us325.us
+  %indvars.iv435 = phi i64 [ %indvars.iv.next436, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us325.us ], [ 0, %for.cond219.preheader.lr.ph.split.us.split.us.split.us.split.us ]
+  %mul225.us.us.us.us = mul nsw i64 %indvars.iv435, %16
+  %80 = mul nsw i64 %indvars.iv435, %57
+  br label %for.body223.us.us.us.us.us.us312.us
 
-for.body223.us.us.us.us.us.us317.us:              ; preds = %for.cond219.preheader.us.us.us.us, %for.cond232.for.inc270_crit_edge.split.us.split.us.split.us262.us.us.us.us.us.us
-  %indvars.iv436 = phi i64 [ 0, %for.cond219.preheader.us.us.us.us ], [ %indvars.iv.next437, %for.cond232.for.inc270_crit_edge.split.us.split.us.split.us262.us.us.us.us.us.us ]
-  %mul226117.us.us.us.us.us.us320.us = add nuw i64 %indvars.iv436, %mul225.us.us.us.us
-  %factor.op.mul176.us.us.us.us.us.us321.us = mul i64 %factor.op.mul181, %mul226117.us.us.us.us.us.us320.us
-  %idx.ext244.us.us.us.us.us.us322.us = ashr exact i64 %factor.op.mul176.us.us.us.us.us.us321.us, 32
-  %add.ptr245.us.us.us.us.us.us323.us = getelementptr inbounds i16, ptr %add.ptr197, i64 %idx.ext244.us.us.us.us.us.us322.us
-  %81 = mul nsw i64 %indvars.iv436, %57
-  %invariant.gep.us.us.us.us.us.us326.us = getelementptr float, ptr %add.ptr206, i64 %81
-  br label %for.cond238.preheader.us.us.us250.us.us.us.us.us.us
+for.body223.us.us.us.us.us.us312.us:              ; preds = %for.cond219.preheader.us.us.us.us, %for.cond232.for.inc270_crit_edge.split.us.split.us.split.us257.us.us.us.us.us.us
+  %indvars.iv430 = phi i64 [ 0, %for.cond219.preheader.us.us.us.us ], [ %indvars.iv.next431, %for.cond232.for.inc270_crit_edge.split.us.split.us.split.us257.us.us.us.us.us.us ]
+  %mul226117.us.us.us.us.us.us315.us = add nuw i64 %indvars.iv430, %mul225.us.us.us.us
+  %sext118.us.us.us.us.us.us316.us = mul i64 %add229, %mul226117.us.us.us.us.us.us315.us
+  %idx.ext244.us.us.us.us.us.us317.us = ashr exact i64 %sext118.us.us.us.us.us.us316.us, 32
+  %add.ptr245.us.us.us.us.us.us318.us = getelementptr inbounds i16, ptr %add.ptr197, i64 %idx.ext244.us.us.us.us.us.us317.us
+  %81 = mul nsw i64 %indvars.iv430, %57
+  %invariant.gep.us.us.us.us.us.us321.us = getelementptr float, ptr %add.ptr206, i64 %81
+  br label %for.cond238.preheader.us.us.us245.us.us.us.us.us.us
 
-for.cond238.preheader.us.us.us250.us.us.us.us.us.us: ; preds = %for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us, %for.body223.us.us.us.us.us.us317.us
-  %indvars.iv431 = phi i64 [ %indvars.iv.next432, %for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us ], [ 0, %for.body223.us.us.us.us.us.us317.us ]
-  %factor.op.mul177.us.us.us253.us.us.us.us.us.us = mul i64 %mul, %indvars.iv431
-  %add.ptr249.us.us.us254.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr211, i64 %factor.op.mul177.us.us.us253.us.us.us.us.us.us
-  %82 = add nsw i64 %indvars.iv431, %80
-  %mul256.us.us.us257.us.us.us.us.us.us = mul nsw i64 %21, %82
-  %gep.us.us.us258.us.us.us.us.us.us = getelementptr float, ptr %invariant.gep.us.us.us.us.us.us326.us, i64 %mul256.us.us.us257.us.us.us.us.us.us
+for.cond238.preheader.us.us.us245.us.us.us.us.us.us: ; preds = %for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us, %for.body223.us.us.us.us.us.us312.us
+  %indvars.iv425 = phi i64 [ %indvars.iv.next426, %for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us ], [ 0, %for.body223.us.us.us.us.us.us312.us ]
+  %mul248.us.us.us248.us.us.us.us.us.us = mul i64 %mul, %indvars.iv425
+  %add.ptr249.us.us.us249.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr211, i64 %mul248.us.us.us248.us.us.us.us.us.us
+  %82 = add nsw i64 %indvars.iv425, %80
+  %mul256.us.us.us252.us.us.us.us.us.us = mul nsw i64 %21, %82
+  %gep.us.us.us253.us.us.us.us.us.us = getelementptr float, ptr %invariant.gep.us.us.us.us.us.us321.us, i64 %mul256.us.us.us252.us.us.us.us.us.us
   br label %for.body242.us.us.us.us.us.us.us.us.us.us
 
-for.body242.us.us.us.us.us.us.us.us.us.us:        ; preds = %for.cond29.preheader.i.loopexit.us.us.us.us.us.us.us.us.us.us, %for.cond238.preheader.us.us.us250.us.us.us.us.us.us
-  %indvars.iv427 = phi i64 [ %indvars.iv.next428, %for.cond29.preheader.i.loopexit.us.us.us.us.us.us.us.us.us.us ], [ 0, %for.cond238.preheader.us.us.us250.us.us.us.us.us.us ]
-  %mul251.us.us.us.us.us.us.us.us.us.us = mul nsw i64 %indvars.iv427, %12
-  %add.ptr252.us.us.us.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr249.us.us.us254.us.us.us.us.us.us, i64 %mul251.us.us.us.us.us.us.us.us.us.us
+for.body242.us.us.us.us.us.us.us.us.us.us:        ; preds = %for.cond29.preheader.i.loopexit.us.us.us.us.us.us.us.us.us.us, %for.cond238.preheader.us.us.us245.us.us.us.us.us.us
+  %indvars.iv421 = phi i64 [ %indvars.iv.next422, %for.cond29.preheader.i.loopexit.us.us.us.us.us.us.us.us.us.us ], [ 0, %for.cond238.preheader.us.us.us245.us.us.us.us.us.us ]
+  %mul251.us.us.us.us.us.us.us.us.us.us = mul nsw i64 %indvars.iv421, %12
+  %add.ptr252.us.us.us.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr249.us.us.us249.us.us.us.us.us.us, i64 %mul251.us.us.us.us.us.us.us.us.us.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !611)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !614)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %sum.i)
@@ -49302,7 +49300,7 @@ for.body242.us.us.us.us.us.us.us.us.us.us:        ; preds = %for.cond29.preheade
 
 for.cond1.preheader.i.us.us.us.us.us.us.us.us.us.us: ; preds = %for.inc26.i.us.us.us.us.us.us.us.us.us.us, %for.body242.us.us.us.us.us.us.us.us.us.us
   %indvars.iv54.i.us.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %for.body242.us.us.us.us.us.us.us.us.us.us ], [ %indvars.iv.next55.i.us.us.us.us.us.us.us.us.us.us, %for.inc26.i.us.us.us.us.us.us.us.us.us.us ]
-  %add.ptr.i.us.us.us.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr245.us.us.us.us.us.us323.us, i64 %indvars.iv54.i.us.us.us.us.us.us.us.us.us.us
+  %add.ptr.i.us.us.us.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr245.us.us.us.us.us.us318.us, i64 %indvars.iv54.i.us.us.us.us.us.us.us.us.us.us
   %add.ptr9.i.us.us.us.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr252.us.us.us.us.us.us.us.us.us.us, i64 %indvars.iv54.i.us.us.us.us.us.us.us.us.us.us
   br label %for.body3.i.us.us.us.us.us.us.us.us.us.us
 
@@ -49343,168 +49341,168 @@ for.cond29.preheader.i.loopexit.us.us.us.us.us.us.us.us.us.us: ; preds = %for.in
   %93 = tail call <4 x float> @llvm.x86.sse3.hadd.ps(<4 x float> %92, <4 x float> %92)
   %vecext.i.i.us.us.us.us.us.us.us.us.us.us = extractelement <4 x float> %93, i64 0
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %sum.i)
-  %arrayidx262.us.us.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep.us.us.us258.us.us.us.us.us.us, i64 %indvars.iv427
+  %arrayidx262.us.us.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep.us.us.us253.us.us.us.us.us.us, i64 %indvars.iv421
   %94 = load float, ptr %arrayidx262.us.us.us.us.us.us.us.us.us.us, align 4
   %add263.us.us.us.us.us.us.us.us.us.us = fadd float %vecext.i.i.us.us.us.us.us.us.us.us.us.us, %94
   store float %add263.us.us.us.us.us.us.us.us.us.us, ptr %arrayidx262.us.us.us.us.us.us.us.us.us.us, align 4
-  %indvars.iv.next428 = add nuw nsw i64 %indvars.iv427, 1
-  %exitcond430.not = icmp eq i64 %indvars.iv.next428, %9
-  br i1 %exitcond430.not, label %for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us, label %for.body242.us.us.us.us.us.us.us.us.us.us, !llvm.loop !620
+  %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1
+  %exitcond424.not = icmp eq i64 %indvars.iv.next422, %9
+  br i1 %exitcond424.not, label %for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us, label %for.body242.us.us.us.us.us.us.us.us.us.us, !llvm.loop !620
 
 for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us: ; preds = %for.cond29.preheader.i.loopexit.us.us.us.us.us.us.us.us.us.us
-  %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
-  %exitcond435.not = icmp eq i64 %indvars.iv.next432, %10
-  br i1 %exitcond435.not, label %for.cond232.for.inc270_crit_edge.split.us.split.us.split.us262.us.us.us.us.us.us, label %for.cond238.preheader.us.us.us250.us.us.us.us.us.us, !llvm.loop !621
+  %indvars.iv.next426 = add nuw nsw i64 %indvars.iv425, 1
+  %exitcond429.not = icmp eq i64 %indvars.iv.next426, %10
+  br i1 %exitcond429.not, label %for.cond232.for.inc270_crit_edge.split.us.split.us.split.us257.us.us.us.us.us.us, label %for.cond238.preheader.us.us.us245.us.us.us.us.us.us, !llvm.loop !621
 
-for.cond232.for.inc270_crit_edge.split.us.split.us.split.us262.us.us.us.us.us.us: ; preds = %for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us
-  %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
-  %exitcond440.not = icmp eq i64 %indvars.iv.next437, %16
-  br i1 %exitcond440.not, label %for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us330.us, label %for.body223.us.us.us.us.us.us317.us, !llvm.loop !622
+for.cond232.for.inc270_crit_edge.split.us.split.us.split.us257.us.us.us.us.us.us: ; preds = %for.cond238.for.inc267_crit_edge.split.us.us.us.split.us.us.us.us.us.us.us
+  %indvars.iv.next431 = add nuw nsw i64 %indvars.iv430, 1
+  %exitcond434.not = icmp eq i64 %indvars.iv.next431, %16
+  br i1 %exitcond434.not, label %for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us325.us, label %for.body223.us.us.us.us.us.us312.us, !llvm.loop !622
 
-for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us330.us: ; preds = %for.cond232.for.inc270_crit_edge.split.us.split.us.split.us262.us.us.us.us.us.us
-  %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 1
-  %exitcond445.not = icmp eq i64 %indvars.iv.next442, %17
-  br i1 %exitcond445.not, label %for.inc276, label %for.cond219.preheader.us.us.us.us, !llvm.loop !623
+for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us325.us: ; preds = %for.cond232.for.inc270_crit_edge.split.us.split.us.split.us257.us.us.us.us.us.us
+  %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
+  %exitcond439.not = icmp eq i64 %indvars.iv.next436, %17
+  br i1 %exitcond439.not, label %for.inc276, label %for.cond219.preheader.us.us.us.us, !llvm.loop !623
 
 for.cond219.preheader.lr.ph.split.us.split.us.split.us.split: ; preds = %for.cond219.preheader.lr.ph.split.us.split.us.split.us
   %95 = tail call <4 x float> @llvm.x86.sse3.hadd.ps(<4 x float> zeroinitializer, <4 x float> zeroinitializer)
   %96 = tail call <4 x float> @llvm.x86.sse3.hadd.ps(<4 x float> %95, <4 x float> %95)
-  %vecext.i.i.us197.us.us.us.us.us.us.us.us.us = extractelement <4 x float> %96, i64 0
-  br i1 %cmp8349.i, label %for.cond219.preheader.us.us.us.us332.preheader, label %for.cond219.preheader.us.us.us
+  %vecext.i.i.us192.us.us.us.us.us.us.us.us.us = extractelement <4 x float> %96, i64 0
+  br i1 %cmp8349.i, label %for.cond219.preheader.us.us.us.us327.preheader, label %for.cond219.preheader.us.us.us
 
-for.cond219.preheader.us.us.us.us332.preheader:   ; preds = %for.cond219.preheader.lr.ph.split.us.split.us.split.us.split
-  %conv.i121.us199.us.us.us.us.us.us.us.us.us = fpext float %vecext.i.i.us197.us.us.us.us.us.us.us.us.us to double
-  br label %for.cond219.preheader.us.us.us.us332
+for.cond219.preheader.us.us.us.us327.preheader:   ; preds = %for.cond219.preheader.lr.ph.split.us.split.us.split.us.split
+  %conv.i121.us194.us.us.us.us.us.us.us.us.us = fpext float %vecext.i.i.us192.us.us.us.us.us.us.us.us.us to double
+  br label %for.cond219.preheader.us.us.us.us327
 
-for.cond219.preheader.us.us.us.us332:             ; preds = %for.cond219.preheader.us.us.us.us332.preheader, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us.us.us.us.us
-  %indvars.iv422 = phi i64 [ 0, %for.cond219.preheader.us.us.us.us332.preheader ], [ %indvars.iv.next423, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us.us.us.us.us ]
-  %mul225.us.us.us.us335 = mul nsw i64 %indvars.iv422, %16
-  %97 = mul nsw i64 %indvars.iv422, %57
-  br label %for.body223.us.us.us275.us.us.us.us
+for.cond219.preheader.us.us.us.us327:             ; preds = %for.cond219.preheader.us.us.us.us327.preheader, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us.us.us.us.us
+  %indvars.iv416 = phi i64 [ 0, %for.cond219.preheader.us.us.us.us327.preheader ], [ %indvars.iv.next417, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us.us.us.us.us ]
+  %mul225.us.us.us.us330 = mul nsw i64 %indvars.iv416, %16
+  %97 = mul nsw i64 %indvars.iv416, %57
+  br label %for.body223.us.us.us270.us.us.us.us
 
-for.body223.us.us.us275.us.us.us.us:              ; preds = %for.cond232.for.inc270_crit_edge.split.us.split.us248.split.us.us.us.us.us.us.us, %for.cond219.preheader.us.us.us.us332
-  %indvars.iv417 = phi i64 [ %indvars.iv.next418, %for.cond232.for.inc270_crit_edge.split.us.split.us248.split.us.us.us.us.us.us.us ], [ 0, %for.cond219.preheader.us.us.us.us332 ]
-  %mul226117.us.us.us278.us.us.us.us = add nuw i64 %indvars.iv417, %mul225.us.us.us.us335
-  %factor.op.mul176.us.us.us279.us.us.us.us = mul i64 %factor.op.mul181, %mul226117.us.us.us278.us.us.us.us
-  %idx.ext244.us.us.us280.us.us.us.us = ashr exact i64 %factor.op.mul176.us.us.us279.us.us.us.us, 32
-  %add.ptr245.us.us.us281.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr197, i64 %idx.ext244.us.us.us280.us.us.us.us
-  %98 = mul nsw i64 %indvars.iv417, %57
-  %invariant.gep.us.us.us284.us.us.us.us = getelementptr float, ptr %add.ptr206, i64 %98
-  br label %for.cond238.preheader.us.us236.us.us.us.us.us.us.us
+for.body223.us.us.us270.us.us.us.us:              ; preds = %for.cond232.for.inc270_crit_edge.split.us.split.us243.split.us.us.us.us.us.us.us, %for.cond219.preheader.us.us.us.us327
+  %indvars.iv411 = phi i64 [ %indvars.iv.next412, %for.cond232.for.inc270_crit_edge.split.us.split.us243.split.us.us.us.us.us.us.us ], [ 0, %for.cond219.preheader.us.us.us.us327 ]
+  %mul226117.us.us.us273.us.us.us.us = add nuw i64 %indvars.iv411, %mul225.us.us.us.us330
+  %sext118.us.us.us274.us.us.us.us = mul i64 %add229, %mul226117.us.us.us273.us.us.us.us
+  %idx.ext244.us.us.us275.us.us.us.us = ashr exact i64 %sext118.us.us.us274.us.us.us.us, 32
+  %add.ptr245.us.us.us276.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr197, i64 %idx.ext244.us.us.us275.us.us.us.us
+  %98 = mul nsw i64 %indvars.iv411, %57
+  %invariant.gep.us.us.us279.us.us.us.us = getelementptr float, ptr %add.ptr206, i64 %98
+  br label %for.cond238.preheader.us.us231.us.us.us.us.us.us.us
 
-for.cond238.preheader.us.us236.us.us.us.us.us.us.us: ; preds = %for.cond238.for.inc267_crit_edge.split.us223.us.split.us.us.us.us.us.us.us.us, %for.body223.us.us.us275.us.us.us.us
-  %indvars.iv412 = phi i64 [ %indvars.iv.next413, %for.cond238.for.inc267_crit_edge.split.us223.us.split.us.us.us.us.us.us.us.us ], [ 0, %for.body223.us.us.us275.us.us.us.us ]
-  %factor.op.mul177.us.us239.us.us.us.us.us.us.us = mul i64 %mul, %indvars.iv412
-  %add.ptr249.us.us240.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr211, i64 %factor.op.mul177.us.us239.us.us.us.us.us.us.us
-  %99 = add nsw i64 %indvars.iv412, %97
-  %mul256.us.us243.us.us.us.us.us.us.us = mul nsw i64 %21, %99
-  %gep.us.us244.us.us.us.us.us.us.us = getelementptr float, ptr %invariant.gep.us.us.us284.us.us.us.us, i64 %mul256.us.us243.us.us.us.us.us.us.us
-  br label %for.body242.us186.us.us.us.us.us.us.us.us.us
+for.cond238.preheader.us.us231.us.us.us.us.us.us.us: ; preds = %for.cond238.for.inc267_crit_edge.split.us218.us.split.us.us.us.us.us.us.us.us, %for.body223.us.us.us270.us.us.us.us
+  %indvars.iv406 = phi i64 [ %indvars.iv.next407, %for.cond238.for.inc267_crit_edge.split.us218.us.split.us.us.us.us.us.us.us.us ], [ 0, %for.body223.us.us.us270.us.us.us.us ]
+  %mul248.us.us234.us.us.us.us.us.us.us = mul i64 %mul, %indvars.iv406
+  %add.ptr249.us.us235.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr211, i64 %mul248.us.us234.us.us.us.us.us.us.us
+  %99 = add nsw i64 %indvars.iv406, %97
+  %mul256.us.us238.us.us.us.us.us.us.us = mul nsw i64 %21, %99
+  %gep.us.us239.us.us.us.us.us.us.us = getelementptr float, ptr %invariant.gep.us.us.us279.us.us.us.us, i64 %mul256.us.us238.us.us.us.us.us.us.us
+  br label %for.body242.us181.us.us.us.us.us.us.us.us.us
 
-for.body242.us186.us.us.us.us.us.us.us.us.us:     ; preds = %for.end97.loopexit.i.us214.us.us.us.us.us.us.us.us.us, %for.cond238.preheader.us.us236.us.us.us.us.us.us.us
-  %indvars.iv408 = phi i64 [ %indvars.iv.next409, %for.end97.loopexit.i.us214.us.us.us.us.us.us.us.us.us ], [ 0, %for.cond238.preheader.us.us236.us.us.us.us.us.us.us ]
-  %mul251.us189.us.us.us.us.us.us.us.us.us = mul nsw i64 %indvars.iv408, %12
-  %add.ptr252.us190.us.us.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr249.us.us240.us.us.us.us.us.us.us, i64 %mul251.us189.us.us.us.us.us.us.us.us.us
+for.body242.us181.us.us.us.us.us.us.us.us.us:     ; preds = %for.end97.loopexit.i.us209.us.us.us.us.us.us.us.us.us, %for.cond238.preheader.us.us231.us.us.us.us.us.us.us
+  %indvars.iv402 = phi i64 [ %indvars.iv.next403, %for.end97.loopexit.i.us209.us.us.us.us.us.us.us.us.us ], [ 0, %for.cond238.preheader.us.us231.us.us.us.us.us.us.us ]
+  %mul251.us184.us.us.us.us.us.us.us.us.us = mul nsw i64 %indvars.iv402, %12
+  %add.ptr252.us185.us.us.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr249.us.us235.us.us.us.us.us.us.us, i64 %mul251.us184.us.us.us.us.us.us.us.us.us
   tail call void @llvm.experimental.noalias.scope.decl(metadata !611)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !614)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %sum.i)
-  br label %for.body85.i.us200.us.us.us.us.us.us.us.us.us
+  br label %for.body85.i.us195.us.us.us.us.us.us.us.us.us
 
-for.body85.i.us200.us.us.us.us.us.us.us.us.us:    ; preds = %for.body85.i.us200.us.us.us.us.us.us.us.us.us, %for.body242.us186.us.us.us.us.us.us.us.us.us
-  %indvars.iv61.i.us201.us.us.us.us.us.us.us.us.us = phi i64 [ %56, %for.body242.us186.us.us.us.us.us.us.us.us.us ], [ %indvars.iv.next62.i.us212.us.us.us.us.us.us.us.us.us, %for.body85.i.us200.us.us.us.us.us.us.us.us.us ]
-  %sumf.050.i.us202.us.us.us.us.us.us.us.us.us = phi double [ %conv.i121.us199.us.us.us.us.us.us.us.us.us, %for.body242.us186.us.us.us.us.us.us.us.us.us ], [ %add94.i.us211.us.us.us.us.us.us.us.us.us, %for.body85.i.us200.us.us.us.us.us.us.us.us.us ]
-  %arrayidx87.i.us203.us.us.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr245.us.us.us281.us.us.us.us, i64 %indvars.iv61.i.us201.us.us.us.us.us.us.us.us.us
-  %100 = load i16, ptr %arrayidx87.i.us203.us.us.us.us.us.us.us.us.us, align 2, !alias.scope !611, !noalias !618
-  %idxprom.i.i122.us204.us.us.us.us.us.us.us.us.us = zext i16 %100 to i64
-  %arrayidx.i.i.us205.us.us.us.us.us.us.us.us.us = getelementptr inbounds [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %idxprom.i.i122.us204.us.us.us.us.us.us.us.us.us
-  %101 = load float, ptr %arrayidx.i.i.us205.us.us.us.us.us.us.us.us.us, align 4, !noalias !616
-  %arrayidx90.i.us206.us.us.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr252.us190.us.us.us.us.us.us.us.us.us, i64 %indvars.iv61.i.us201.us.us.us.us.us.us.us.us.us
-  %102 = load i16, ptr %arrayidx90.i.us206.us.us.us.us.us.us.us.us.us, align 2, !alias.scope !614, !noalias !619
-  %idxprom.i43.i.us207.us.us.us.us.us.us.us.us.us = zext i16 %102 to i64
-  %arrayidx.i44.i.us208.us.us.us.us.us.us.us.us.us = getelementptr inbounds [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %idxprom.i43.i.us207.us.us.us.us.us.us.us.us.us
-  %103 = load float, ptr %arrayidx.i44.i.us208.us.us.us.us.us.us.us.us.us, align 4, !noalias !616
-  %mul92.i.us209.us.us.us.us.us.us.us.us.us = fmul float %101, %103
-  %conv93.i.us210.us.us.us.us.us.us.us.us.us = fpext float %mul92.i.us209.us.us.us.us.us.us.us.us.us to double
-  %add94.i.us211.us.us.us.us.us.us.us.us.us = fadd double %sumf.050.i.us202.us.us.us.us.us.us.us.us.us, %conv93.i.us210.us.us.us.us.us.us.us.us.us
-  %indvars.iv.next62.i.us212.us.us.us.us.us.us.us.us.us = add nsw i64 %indvars.iv61.i.us201.us.us.us.us.us.us.us.us.us, 1
-  %exitcond64.not.i.us213.us.us.us.us.us.us.us.us.us = icmp eq i64 %indvars.iv.next62.i.us212.us.us.us.us.us.us.us.us.us, %wide.trip.count.i
-  br i1 %exitcond64.not.i.us213.us.us.us.us.us.us.us.us.us, label %for.end97.loopexit.i.us214.us.us.us.us.us.us.us.us.us, label %for.body85.i.us200.us.us.us.us.us.us.us.us.us, !llvm.loop !298
+for.body85.i.us195.us.us.us.us.us.us.us.us.us:    ; preds = %for.body85.i.us195.us.us.us.us.us.us.us.us.us, %for.body242.us181.us.us.us.us.us.us.us.us.us
+  %indvars.iv61.i.us196.us.us.us.us.us.us.us.us.us = phi i64 [ %56, %for.body242.us181.us.us.us.us.us.us.us.us.us ], [ %indvars.iv.next62.i.us207.us.us.us.us.us.us.us.us.us, %for.body85.i.us195.us.us.us.us.us.us.us.us.us ]
+  %sumf.050.i.us197.us.us.us.us.us.us.us.us.us = phi double [ %conv.i121.us194.us.us.us.us.us.us.us.us.us, %for.body242.us181.us.us.us.us.us.us.us.us.us ], [ %add94.i.us206.us.us.us.us.us.us.us.us.us, %for.body85.i.us195.us.us.us.us.us.us.us.us.us ]
+  %arrayidx87.i.us198.us.us.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr245.us.us.us276.us.us.us.us, i64 %indvars.iv61.i.us196.us.us.us.us.us.us.us.us.us
+  %100 = load i16, ptr %arrayidx87.i.us198.us.us.us.us.us.us.us.us.us, align 2, !alias.scope !611, !noalias !618
+  %idxprom.i.i122.us199.us.us.us.us.us.us.us.us.us = zext i16 %100 to i64
+  %arrayidx.i.i.us200.us.us.us.us.us.us.us.us.us = getelementptr inbounds [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %idxprom.i.i122.us199.us.us.us.us.us.us.us.us.us
+  %101 = load float, ptr %arrayidx.i.i.us200.us.us.us.us.us.us.us.us.us, align 4, !noalias !616
+  %arrayidx90.i.us201.us.us.us.us.us.us.us.us.us = getelementptr inbounds i16, ptr %add.ptr252.us185.us.us.us.us.us.us.us.us.us, i64 %indvars.iv61.i.us196.us.us.us.us.us.us.us.us.us
+  %102 = load i16, ptr %arrayidx90.i.us201.us.us.us.us.us.us.us.us.us, align 2, !alias.scope !614, !noalias !619
+  %idxprom.i43.i.us202.us.us.us.us.us.us.us.us.us = zext i16 %102 to i64
+  %arrayidx.i44.i.us203.us.us.us.us.us.us.us.us.us = getelementptr inbounds [65536 x float], ptr @ggml_table_f32_f16, i64 0, i64 %idxprom.i43.i.us202.us.us.us.us.us.us.us.us.us
+  %103 = load float, ptr %arrayidx.i44.i.us203.us.us.us.us.us.us.us.us.us, align 4, !noalias !616
+  %mul92.i.us204.us.us.us.us.us.us.us.us.us = fmul float %101, %103
+  %conv93.i.us205.us.us.us.us.us.us.us.us.us = fpext float %mul92.i.us204.us.us.us.us.us.us.us.us.us to double
+  %add94.i.us206.us.us.us.us.us.us.us.us.us = fadd double %sumf.050.i.us197.us.us.us.us.us.us.us.us.us, %conv93.i.us205.us.us.us.us.us.us.us.us.us
+  %indvars.iv.next62.i.us207.us.us.us.us.us.us.us.us.us = add nsw i64 %indvars.iv61.i.us196.us.us.us.us.us.us.us.us.us, 1
+  %exitcond64.not.i.us208.us.us.us.us.us.us.us.us.us = icmp eq i64 %indvars.iv.next62.i.us207.us.us.us.us.us.us.us.us.us, %wide.trip.count.i
+  br i1 %exitcond64.not.i.us208.us.us.us.us.us.us.us.us.us, label %for.end97.loopexit.i.us209.us.us.us.us.us.us.us.us.us, label %for.body85.i.us195.us.us.us.us.us.us.us.us.us, !llvm.loop !298
 
-for.end97.loopexit.i.us214.us.us.us.us.us.us.us.us.us: ; preds = %for.body85.i.us200.us.us.us.us.us.us.us.us.us
-  %104 = fptrunc double %add94.i.us211.us.us.us.us.us.us.us.us.us to float
+for.end97.loopexit.i.us209.us.us.us.us.us.us.us.us.us: ; preds = %for.body85.i.us195.us.us.us.us.us.us.us.us.us
+  %104 = fptrunc double %add94.i.us206.us.us.us.us.us.us.us.us.us to float
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %sum.i)
-  %arrayidx262.us218.us.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep.us.us244.us.us.us.us.us.us.us, i64 %indvars.iv408
-  %105 = load float, ptr %arrayidx262.us218.us.us.us.us.us.us.us.us.us, align 4
-  %add263.us219.us.us.us.us.us.us.us.us.us = fadd float %105, %104
-  store float %add263.us219.us.us.us.us.us.us.us.us.us, ptr %arrayidx262.us218.us.us.us.us.us.us.us.us.us, align 4
-  %indvars.iv.next409 = add nuw nsw i64 %indvars.iv408, 1
-  %exitcond411.not = icmp eq i64 %indvars.iv.next409, %9
-  br i1 %exitcond411.not, label %for.cond238.for.inc267_crit_edge.split.us223.us.split.us.us.us.us.us.us.us.us, label %for.body242.us186.us.us.us.us.us.us.us.us.us, !llvm.loop !620
+  %arrayidx262.us213.us.us.us.us.us.us.us.us.us = getelementptr float, ptr %gep.us.us239.us.us.us.us.us.us.us, i64 %indvars.iv402
+  %105 = load float, ptr %arrayidx262.us213.us.us.us.us.us.us.us.us.us, align 4
+  %add263.us214.us.us.us.us.us.us.us.us.us = fadd float %105, %104
+  store float %add263.us214.us.us.us.us.us.us.us.us.us, ptr %arrayidx262.us213.us.us.us.us.us.us.us.us.us, align 4
+  %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402, 1
+  %exitcond405.not = icmp eq i64 %indvars.iv.next403, %9
+  br i1 %exitcond405.not, label %for.cond238.for.inc267_crit_edge.split.us218.us.split.us.us.us.us.us.us.us.us, label %for.body242.us181.us.us.us.us.us.us.us.us.us, !llvm.loop !620
 
-for.cond238.for.inc267_crit_edge.split.us223.us.split.us.us.us.us.us.us.us.us: ; preds = %for.end97.loopexit.i.us214.us.us.us.us.us.us.us.us.us
-  %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
-  %exitcond416.not = icmp eq i64 %indvars.iv.next413, %10
-  br i1 %exitcond416.not, label %for.cond232.for.inc270_crit_edge.split.us.split.us248.split.us.us.us.us.us.us.us, label %for.cond238.preheader.us.us236.us.us.us.us.us.us.us, !llvm.loop !621
+for.cond238.for.inc267_crit_edge.split.us218.us.split.us.us.us.us.us.us.us.us: ; preds = %for.end97.loopexit.i.us209.us.us.us.us.us.us.us.us.us
+  %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
+  %exitcond410.not = icmp eq i64 %indvars.iv.next407, %10
+  br i1 %exitcond410.not, label %for.cond232.for.inc270_crit_edge.split.us.split.us243.split.us.us.us.us.us.us.us, label %for.cond238.preheader.us.us231.us.us.us.us.us.us.us, !llvm.loop !621
 
-for.cond232.for.inc270_crit_edge.split.us.split.us248.split.us.us.us.us.us.us.us: ; preds = %for.cond238.for.inc267_crit_edge.split.us223.us.split.us.us.us.us.us.us.us.us
-  %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 1
-  %exitcond421.not = icmp eq i64 %indvars.iv.next418, %16
-  br i1 %exitcond421.not, label %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us.us.us.us.us, label %for.body223.us.us.us275.us.us.us.us, !llvm.loop !622
+for.cond232.for.inc270_crit_edge.split.us.split.us243.split.us.us.us.us.us.us.us: ; preds = %for.cond238.for.inc267_crit_edge.split.us218.us.split.us.us.us.us.us.us.us.us
+  %indvars.iv.next412 = add nuw nsw i64 %indvars.iv411, 1
+  %exitcond415.not = icmp eq i64 %indvars.iv.next412, %16
+  br i1 %exitcond415.not, label %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us.us.us.us.us, label %for.body223.us.us.us270.us.us.us.us, !llvm.loop !622
 
-for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us.us.us.us.us: ; preds = %for.cond232.for.inc270_crit_edge.split.us.split.us248.split.us.us.us.us.us.us.us
-  %indvars.iv.next423 = add nuw nsw i64 %indvars.iv422, 1
-  %exitcond426.not = icmp eq i64 %indvars.iv.next423, %17
-  br i1 %exitcond426.not, label %for.inc276, label %for.cond219.preheader.us.us.us.us332, !llvm.loop !623
+for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us.us.us.us.us: ; preds = %for.cond232.for.inc270_crit_edge.split.us.split.us243.split.us.us.us.us.us.us.us
+  %indvars.iv.next417 = add nuw nsw i64 %indvars.iv416, 1
+  %exitcond420.not = icmp eq i64 %indvars.iv.next417, %17
+  br i1 %exitcond420.not, label %for.inc276, label %for.cond219.preheader.us.us.us.us327, !llvm.loop !623
 
-for.cond219.preheader.us.us.us:                   ; preds = %for.cond219.preheader.lr.ph.split.us.split.us.split.us.split, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us313.us.us
-  %indvars.iv403 = phi i64 [ %indvars.iv.next404, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us313.us.us ], [ 0, %for.cond219.preheader.lr.ph.split.us.split.us.split.us.split ]
-  %106 = mul nsw i64 %indvars.iv403, %57
-  br label %for.body223.us.us.us305.us.us
+for.cond219.preheader.us.us.us:                   ; preds = %for.cond219.preheader.lr.ph.split.us.split.us.split.us.split, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us308.us.us
+  %indvars.iv397 = phi i64 [ %indvars.iv.next398, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us308.us.us ], [ 0, %for.cond219.preheader.lr.ph.split.us.split.us.split.us.split ]
+  %106 = mul nsw i64 %indvars.iv397, %57
+  br label %for.body223.us.us.us300.us.us
 
-for.body223.us.us.us305.us.us:                    ; preds = %for.cond219.preheader.us.us.us, %for.cond232.for.inc270_crit_edge.split.us.split.us248.split.us273.us.us.us
-  %indvars.iv398 = phi i64 [ 0, %for.cond219.preheader.us.us.us ], [ %indvars.iv.next399, %for.cond232.for.inc270_crit_edge.split.us.split.us248.split.us273.us.us.us ]
-  %107 = mul nsw i64 %indvars.iv398, %57
-  %invariant.gep.us.us.us309.us.us = getelementptr float, ptr %add.ptr206, i64 %107
-  br label %for.cond238.preheader.us.us236.us264.us.us.us
+for.body223.us.us.us300.us.us:                    ; preds = %for.cond219.preheader.us.us.us, %for.cond232.for.inc270_crit_edge.split.us.split.us243.split.us268.us.us.us
+  %indvars.iv392 = phi i64 [ 0, %for.cond219.preheader.us.us.us ], [ %indvars.iv.next393, %for.cond232.for.inc270_crit_edge.split.us.split.us243.split.us268.us.us.us ]
+  %107 = mul nsw i64 %indvars.iv392, %57
+  %invariant.gep.us.us.us304.us.us = getelementptr float, ptr %add.ptr206, i64 %107
+  br label %for.cond238.preheader.us.us231.us259.us.us.us
 
-for.cond238.preheader.us.us236.us264.us.us.us:    ; preds = %for.cond238.for.inc267_crit_edge.split.us223.us.split.us.us.us.us, %for.body223.us.us.us305.us.us
-  %indvars.iv393 = phi i64 [ %indvars.iv.next394, %for.cond238.for.inc267_crit_edge.split.us223.us.split.us.us.us.us ], [ 0, %for.body223.us.us.us305.us.us ]
-  %108 = add nsw i64 %indvars.iv393, %106
-  %mul256.us.us243.us268.us.us.us = mul nsw i64 %21, %108
-  %gep.us.us244.us269.us.us.us = getelementptr float, ptr %invariant.gep.us.us.us309.us.us, i64 %mul256.us.us243.us268.us.us.us
-  br label %for.body242.us186.us.us.us.us.us
+for.cond238.preheader.us.us231.us259.us.us.us:    ; preds = %for.cond238.for.inc267_crit_edge.split.us218.us.split.us.us.us.us, %for.body223.us.us.us300.us.us
+  %indvars.iv387 = phi i64 [ %indvars.iv.next388, %for.cond238.for.inc267_crit_edge.split.us218.us.split.us.us.us.us ], [ 0, %for.body223.us.us.us300.us.us ]
+  %108 = add nsw i64 %indvars.iv387, %106
+  %mul256.us.us238.us263.us.us.us = mul nsw i64 %21, %108
+  %gep.us.us239.us264.us.us.us = getelementptr float, ptr %invariant.gep.us.us.us304.us.us, i64 %mul256.us.us238.us263.us.us.us
+  br label %for.body242.us181.us.us.us.us.us
 
-for.body242.us186.us.us.us.us.us:                 ; preds = %for.body242.us186.us.us.us.us.us, %for.cond238.preheader.us.us236.us264.us.us.us
-  %indvars.iv389 = phi i64 [ %indvars.iv.next390, %for.body242.us186.us.us.us.us.us ], [ 0, %for.cond238.preheader.us.us236.us264.us.us.us ]
+for.body242.us181.us.us.us.us.us:                 ; preds = %for.body242.us181.us.us.us.us.us, %for.cond238.preheader.us.us231.us259.us.us.us
+  %indvars.iv383 = phi i64 [ %indvars.iv.next384, %for.body242.us181.us.us.us.us.us ], [ 0, %for.cond238.preheader.us.us231.us259.us.us.us ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !611)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !614)
-  %arrayidx262.us218.us.us.us.us.us = getelementptr float, ptr %gep.us.us244.us269.us.us.us, i64 %indvars.iv389
-  %109 = load float, ptr %arrayidx262.us218.us.us.us.us.us, align 4
-  %add263.us219.us.us.us.us.us = fadd float %vecext.i.i.us197.us.us.us.us.us.us.us.us.us, %109
-  store float %add263.us219.us.us.us.us.us, ptr %arrayidx262.us218.us.us.us.us.us, align 4
-  %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
-  %exitcond392.not = icmp eq i64 %indvars.iv.next390, %9
-  br i1 %exitcond392.not, label %for.cond238.for.inc267_crit_edge.split.us223.us.split.us.us.us.us, label %for.body242.us186.us.us.us.us.us, !llvm.loop !620
+  %arrayidx262.us213.us.us.us.us.us = getelementptr float, ptr %gep.us.us239.us264.us.us.us, i64 %indvars.iv383
+  %109 = load float, ptr %arrayidx262.us213.us.us.us.us.us, align 4
+  %add263.us214.us.us.us.us.us = fadd float %vecext.i.i.us192.us.us.us.us.us.us.us.us.us, %109
+  store float %add263.us214.us.us.us.us.us, ptr %arrayidx262.us213.us.us.us.us.us, align 4
+  %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
+  %exitcond386.not = icmp eq i64 %indvars.iv.next384, %9
+  br i1 %exitcond386.not, label %for.cond238.for.inc267_crit_edge.split.us218.us.split.us.us.us.us, label %for.body242.us181.us.us.us.us.us, !llvm.loop !620
 
-for.cond238.for.inc267_crit_edge.split.us223.us.split.us.us.us.us: ; preds = %for.body242.us186.us.us.us.us.us
-  %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
-  %exitcond397.not = icmp eq i64 %indvars.iv.next394, %10
-  br i1 %exitcond397.not, label %for.cond232.for.inc270_crit_edge.split.us.split.us248.split.us273.us.us.us, label %for.cond238.preheader.us.us236.us264.us.us.us, !llvm.loop !621
+for.cond238.for.inc267_crit_edge.split.us218.us.split.us.us.us.us: ; preds = %for.body242.us181.us.us.us.us.us
+  %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
+  %exitcond391.not = icmp eq i64 %indvars.iv.next388, %10
+  br i1 %exitcond391.not, label %for.cond232.for.inc270_crit_edge.split.us.split.us243.split.us268.us.us.us, label %for.cond238.preheader.us.us231.us259.us.us.us, !llvm.loop !621
 
-for.cond232.for.inc270_crit_edge.split.us.split.us248.split.us273.us.us.us: ; preds = %for.cond238.for.inc267_crit_edge.split.us223.us.split.us.us.us.us
-  %indvars.iv.next399 = add nuw nsw i64 %indvars.iv398, 1
-  %exitcond402.not = icmp eq i64 %indvars.iv.next399, %16
-  br i1 %exitcond402.not, label %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us313.us.us, label %for.body223.us.us.us305.us.us, !llvm.loop !622
+for.cond232.for.inc270_crit_edge.split.us.split.us243.split.us268.us.us.us: ; preds = %for.cond238.for.inc267_crit_edge.split.us218.us.split.us.us.us.us
+  %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
+  %exitcond396.not = icmp eq i64 %indvars.iv.next393, %16
+  br i1 %exitcond396.not, label %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us308.us.us, label %for.body223.us.us.us300.us.us, !llvm.loop !622
 
-for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us313.us.us: ; preds = %for.cond232.for.inc270_crit_edge.split.us.split.us248.split.us273.us.us.us
-  %indvars.iv.next404 = add nuw nsw i64 %indvars.iv403, 1
-  %exitcond407.not = icmp eq i64 %indvars.iv.next404, %17
-  br i1 %exitcond407.not, label %for.inc276, label %for.cond219.preheader.us.us.us, !llvm.loop !623
+for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us308.us.us: ; preds = %for.cond232.for.inc270_crit_edge.split.us.split.us243.split.us268.us.us.us
+  %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
+  %exitcond401.not = icmp eq i64 %indvars.iv.next398, %17
+  br i1 %exitcond401.not, label %for.inc276, label %for.cond219.preheader.us.us.us, !llvm.loop !623
 
-for.inc276:                                       ; preds = %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us313.us.us, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us.us.us.us.us, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us330.us, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us.us.us.us, %for.body201
-  %indvars.iv.next466 = add nsw i64 %indvars.iv465, 1
-  %exitcond468.not = icmp eq i64 %indvars.iv.next466, %wide.trip.count
-  br i1 %exitcond468.not, label %for.end278, label %for.body201, !llvm.loop !624
+for.inc276:                                       ; preds = %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us308.us.us, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.split.us.us.us.us.us, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us325.us, %for.cond219.for.inc273_crit_edge.split.us.split.us.split.us.us.us.split.us.us.us.us, %for.body201
+  %indvars.iv.next460 = add nsw i64 %indvars.iv459, 1
+  %exitcond462.not = icmp eq i64 %indvars.iv.next460, %wide.trip.count
+  br i1 %exitcond462.not, label %for.end278, label %for.body201, !llvm.loop !624
 
 for.end278:                                       ; preds = %for.inc276, %if.end184, %do.end82, %ggml_nbytes.exit
   ret void

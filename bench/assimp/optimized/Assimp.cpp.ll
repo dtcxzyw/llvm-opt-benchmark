@@ -13612,7 +13612,6 @@ for.cond47.preheader.lr.ph.split.us:              ; preds = %for.cond44.preheade
   %21 = zext nneg i32 %div to i64
   %22 = zext nneg i32 %div30 to i64
   %.pre.pre = load i32, ptr %17, align 8
-  %factor.op.mul = mul i32 %mul, %.pre.pre
   br label %for.cond47.preheader.us
 
 for.cond47.preheader.us:                          ; preds = %for.cond47.for.inc74_crit_edge.us, %for.cond47.preheader.lr.ph.split.us
@@ -13620,9 +13619,10 @@ for.cond47.preheader.us:                          ; preds = %for.cond47.for.inc7
   %23 = trunc i64 %indvars.iv72 to i32
   %24 = mul i32 %14, %23
   %25 = add i32 %24, %13
-  %mul64.us = mul i32 %25, %factor.op.mul
+  %mul64.us = mul i32 %25, %mul
   %26 = mul nsw i64 %indvars.iv72, %21
-  %idx.ext.us = zext i32 %mul64.us to i64
+  %mul65.us = mul i32 %mul64.us, %.pre.pre
+  %idx.ext.us = zext i32 %mul65.us to i64
   %add.ptr.us = getelementptr inbounds i8, ptr %call.i.i, i64 %idx.ext.us
   br label %for.body49.us
 
