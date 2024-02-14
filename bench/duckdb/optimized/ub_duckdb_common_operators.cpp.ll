@@ -95362,17 +95362,16 @@ if.else:                                          ; preds = %entry
 if.end19:                                         ; preds = %if.else, %if.then
   %fspecs.sroa.8.0 = phi i32 [ %bf.set9, %if.then ], [ %spec.select, %if.else ]
   %value.addr.0 = phi float [ %fneg, %if.then ], [ %value, %if.else ]
-  %3 = call float @llvm.fabs.f32(float %value.addr.0)
-  %4 = fcmp ueq float %3, 0x7FF0000000000000
-  br i1 %4, label %if.then21, label %if.end47
+  %3 = fcmp ueq float %value.addr.0, 0x7FF0000000000000
+  br i1 %3, label %if.then21, label %if.end47
 
 if.then21:                                        ; preds = %if.end19
-  %5 = fcmp oeq float %3, 0x7FF0000000000000
-  %6 = and i32 %fspecs.sroa.8.0, 65536
-  %bf.cast26.not = icmp eq i32 %6, 0
+  %4 = fcmp oeq float %value.addr.0, 0x7FF0000000000000
+  %5 = and i32 %fspecs.sroa.8.0, 65536
+  %bf.cast26.not = icmp eq i32 %5, 0
   %.str.34..str.17 = select i1 %bf.cast26.not, ptr @.str.17, ptr @.str.34
   %.str.35..str.16 = select i1 %bf.cast26.not, ptr @.str.16, ptr @.str.35
-  %cond-lvalue39 = select i1 %5, ptr %.str.34..str.17, ptr %.str.35..str.16
+  %cond-lvalue39 = select i1 %4, ptr %.str.34..str.17, ptr %.str.35..str.16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp40) #24
   %bf.lshr44 = lshr i32 %fspecs.sroa.8.0, 8
   %bf.clear45 = and i32 %bf.lshr44, 255
@@ -95399,35 +95398,35 @@ if.then63:                                        ; preds = %if.end47
 if.then68:                                        ; preds = %if.then63
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %this, align 8
   %size_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, i64 16
-  %7 = load i64, ptr %size_.i.i.i, align 8, !tbaa !883
-  %add.i.i = add i64 %7, 1
+  %6 = load i64, ptr %size_.i.i.i, align 8, !tbaa !883
+  %add.i.i = add i64 %6, 1
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, i64 24
-  %8 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !863
-  %cmp.i.i.i.i = icmp ult i64 %8, %add.i.i
+  %7 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !863
+  %cmp.i.i.i.i = icmp ult i64 %7, %add.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then68
   %vtable.i.i.i.i = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8, !tbaa !859
-  %9 = load ptr, ptr %vtable.i.i.i.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i, i64 noundef %add.i.i)
+  %8 = load ptr, ptr %vtable.i.i.i.i, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i, i64 noundef %add.i.i)
   br label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
 
 _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit: ; preds = %if.then.i.i.i.i, %if.then68
   store i64 %add.i.i, ptr %size_.i.i.i, align 8, !tbaa !883
   %ptr_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, i64 8
-  %10 = load ptr, ptr %ptr_.i.i.i.i, align 8, !tbaa !861
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 %7
+  %9 = load ptr, ptr %ptr_.i.i.i.i, align 8, !tbaa !861
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %6
   %idxprom = zext nneg i32 %bf.clear67 to i64
   %arrayidx = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE5signsE, i64 0, i64 %idxprom
-  %11 = load i8, ptr %arrayidx, align 1, !tbaa !7
-  store i8 %11, ptr %add.ptr.i.i, align 1, !tbaa !7
+  %10 = load i8, ptr %arrayidx, align 1, !tbaa !7
+  store i8 %10, ptr %add.ptr.i.i, align 1, !tbaa !7
   %bf.clear77 = and i32 %fspecs.sroa.8.0, -65281
-  %12 = load i32, ptr %specs, align 8, !tbaa !906
-  %cmp79.not = icmp eq i32 %12, 0
+  %11 = load i32, ptr %specs, align 8, !tbaa !906
+  %cmp79.not = icmp eq i32 %11, 0
   br i1 %cmp79.not, label %if.end83, label %if.then80
 
 if.then80:                                        ; preds = %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
-  %dec = add nsw i32 %12, -1
+  %dec = add nsw i32 %11, -1
   store i32 %dec, ptr %specs, align 8, !tbaa !906
   br label %if.end83
 
@@ -95449,8 +95448,8 @@ if.end89:                                         ; preds = %if.end89.sink.split
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %buffer) #24
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
-  %13 = getelementptr inbounds i8, ptr %buffer, i64 16
-  store i64 0, ptr %13, align 8
+  %12 = getelementptr inbounds i8, ptr %buffer, i64 16
+  store i64 0, ptr %12, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8, !tbaa !861
@@ -95468,34 +95467,34 @@ if.then95:                                        ; preds = %if.end89
 _ZN10duckdb_fmt2v68internal6bufferIcE9push_backERKc.exit: ; preds = %if.then95
   %idxprom106 = zext nneg i32 %bf.clear99 to i64
   %arrayidx107 = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE5signsE, i64 0, i64 %idxprom106
-  %14 = load i8, ptr %arrayidx107, align 1, !tbaa !7
-  store i64 1, ptr %13, align 8, !tbaa !883
-  store i8 %14, ptr %store_.i, align 8, !tbaa !7
+  %13 = load i8, ptr %arrayidx107, align 1, !tbaa !7
+  store i64 1, ptr %12, align 8, !tbaa !883
+  store i8 %13, ptr %store_.i, align 8, !tbaa !7
   br label %if.end110
 
 lpad108:                                          ; preds = %if.end110
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup205
 
 if.end110:                                        ; preds = %_ZN10duckdb_fmt2v68internal6bufferIcE9push_backERKc.exit, %if.then95
   %conv.i = fpext float %value.addr.0 to double
   %precision = getelementptr inbounds i8, ptr %specs, i64 4
-  %16 = load i32, ptr %precision, align 4, !tbaa !911
+  %15 = load i32, ptr %precision, align 4, !tbaa !911
   %fspecs.sroa.8.0.insert.ext224 = zext i32 %fspecs.sroa.8.2 to i64
   %fspecs.sroa.8.0.insert.shift225 = shl nuw i64 %fspecs.sroa.8.0.insert.ext224, 32
   %fspecs.sroa.0.0.insert.ext217 = and i64 %call, 4294967295
   %fspecs.sroa.0.0.insert.insert219 = or disjoint i64 %fspecs.sroa.8.0.insert.shift225, %fspecs.sroa.0.0.insert.ext217
-  %call114 = invoke noundef i32 @_ZN10duckdb_fmt2v68internal14snprintf_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEE(double noundef %conv.i, i32 noundef %16, i64 %fspecs.sroa.0.0.insert.insert219, ptr noundef nonnull align 8 dereferenceable(32) %buffer)
+  %call114 = invoke noundef i32 @_ZN10duckdb_fmt2v68internal14snprintf_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEE(double noundef %conv.i, i32 noundef %15, i64 %fspecs.sroa.0.0.insert.insert219, ptr noundef nonnull align 8 dereferenceable(32) %buffer)
           to label %invoke.cont113 unwind label %lpad108
 
 invoke.cont113:                                   ; preds = %if.end110
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp115) #24
-  %17 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
-  store ptr %17, ptr %ref.tmp115, align 8, !tbaa !969
+  %16 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
+  store ptr %16, ptr %ref.tmp115, align 8, !tbaa !969
   %size_ = getelementptr inbounds i8, ptr %ref.tmp115, i64 8
-  %18 = load i64, ptr %13, align 8, !tbaa !883
-  store i64 %18, ptr %size_, align 8, !tbaa !971
+  %17 = load i64, ptr %12, align 8, !tbaa !883
+  store i64 %17, ptr %size_, align 8, !tbaa !971
   invoke void @_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE12write_paddedINS5_10str_writerIcEEEEvRKNS0_18basic_format_specsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(17) %specs, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp115)
           to label %invoke.cont119 unwind label %lpad118
 
@@ -95504,20 +95503,20 @@ invoke.cont119:                                   ; preds = %invoke.cont113
   br label %cleanup
 
 lpad118:                                          ; preds = %invoke.cont113
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp115) #24
   br label %ehcleanup205
 
 if.end120:                                        ; preds = %if.end89
   %precision122 = getelementptr inbounds i8, ptr %specs, i64 4
-  %20 = load i32, ptr %precision122, align 4
-  %cmp123 = icmp slt i32 %20, 0
+  %19 = load i32, ptr %precision122, align 4
+  %cmp123 = icmp slt i32 %19, 0
   %type = getelementptr inbounds i8, ptr %specs, i64 8
-  %21 = load i8, ptr %type, align 8
-  %tobool124 = icmp ne i8 %21, 0
+  %20 = load i8, ptr %type, align 8
+  %tobool124 = icmp ne i8 %20, 0
   %or.cond = select i1 %cmp123, i1 %tobool124, i1 false
-  %cond = select i1 %or.cond, i32 6, i32 %20
+  %cond = select i1 %or.cond, i32 6, i32 %19
   %cmp133 = icmp eq i8 %bf.cast93, 1
   %inc = zext i1 %cmp133 to i32
   %spec.select238 = add nsw i32 %cond, %inc
@@ -95531,13 +95530,13 @@ if.end120:                                        ; preds = %if.end89
           to label %if.end182 unwind label %lpad162
 
 lpad162:                                          ; preds = %if.end120
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup205
 
 if.end182:                                        ; preds = %if.end120
-  %23 = and i32 %fspecs.sroa.8.2, 131072
-  %bf.cast187.not = icmp eq i32 %23, 0
+  %22 = and i32 %fspecs.sroa.8.2, 131072
+  %bf.cast187.not = icmp eq i32 %22, 0
   br i1 %bf.cast187.not, label %cond.end194, label %cond.true188
 
 cond.true188:                                     ; preds = %if.end182
@@ -95549,10 +95548,10 @@ cond.true188:                                     ; preds = %if.end182
 cond.end194:                                      ; preds = %cond.true188, %if.end182
   %cond195 = phi i8 [ 46, %if.end182 ], [ %call.i258, %cond.true188 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp196) #24
-  %24 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
-  %25 = load i64, ptr %13, align 8, !tbaa !883
-  %conv = trunc i64 %25 to i32
-  store ptr %24, ptr %ref.tmp196, align 8, !tbaa !1765
+  %23 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
+  %24 = load i64, ptr %12, align 8, !tbaa !883
+  %conv = trunc i64 %24 to i32
+  store ptr %23, ptr %ref.tmp196, align 8, !tbaa !1765
   %num_digits_.i = getelementptr inbounds i8, ptr %ref.tmp196, i64 8
   store i32 %conv, ptr %num_digits_.i, align 8, !tbaa !1769
   %exp_.i = getelementptr inbounds i8, ptr %ref.tmp196, i64 12
@@ -95563,8 +95562,8 @@ cond.end194:                                      ; preds = %cond.true188, %if.e
   store i32 %bf.set152, ptr %specs.sroa.4.0.specs_.sroa_idx.i, align 4, !tbaa.struct !1773
   %decimal_point_.i = getelementptr inbounds i8, ptr %ref.tmp196, i64 32
   store i8 %cond195, ptr %decimal_point_.i, align 8, !tbaa !1774
-  %26 = and i32 %fspecs.sroa.8.2, 255
-  %cmp5.i = icmp eq i32 %26, 0
+  %25 = and i32 %fspecs.sroa.8.2, 255
+  %cmp5.i = icmp eq i32 %25, 0
   br i1 %cmp5.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %cond.end194
@@ -95587,8 +95586,8 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
 
 invoke.cont201:                                   ; preds = %if.end.i
   %size_.i261 = getelementptr inbounds i8, ptr %ref.tmp196, i64 16
-  %27 = and i32 %fspecs.sroa.8.2, 65280
-  %tobool.not.i = icmp ne i32 %27, 0
+  %26 = and i32 %fspecs.sroa.8.2, 65280
+  %tobool.not.i = icmp ne i32 %26, 0
   %conv.i262 = zext i1 %tobool.not.i to i64
   %add19.i = add i64 %call.i264, %conv.i262
   store i64 %add19.i, ptr %size_.i261, align 8, !tbaa !1775
@@ -95601,12 +95600,12 @@ invoke.cont202:                                   ; preds = %invoke.cont201
 
 cleanup:                                          ; preds = %invoke.cont202, %invoke.cont119
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
-  %28 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
-  %cmp.not.i.i = icmp eq ptr %28, %store_.i
+  %27 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
+  %cmp.not.i.i = icmp eq ptr %27, %store_.i
   br i1 %cmp.not.i.i, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i265
 
 if.then.i.i265:                                   ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef %28) #26
+  call void @_ZdlPv(ptr noundef %27) #26
   br label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %if.then.i.i265, %cleanup
@@ -95617,25 +95616,25 @@ cleanup208:                                       ; preds = %_ZN10duckdb_fmt2v61
   ret void
 
 lpad190:                                          ; preds = %cond.true188
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup205
 
 lpad200:                                          ; preds = %invoke.cont201, %if.end.i
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp196) #24
   br label %ehcleanup205
 
 ehcleanup205:                                     ; preds = %lpad200, %lpad190, %lpad162, %lpad118, %lpad108
-  %.pn236 = phi { ptr, i32 } [ %19, %lpad118 ], [ %15, %lpad108 ], [ %22, %lpad162 ], [ %30, %lpad200 ], [ %29, %lpad190 ]
+  %.pn236 = phi { ptr, i32 } [ %18, %lpad118 ], [ %14, %lpad108 ], [ %21, %lpad162 ], [ %29, %lpad200 ], [ %28, %lpad190 ]
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
-  %31 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
-  %cmp.not.i.i268 = icmp eq ptr %31, %store_.i
+  %30 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
+  %cmp.not.i.i268 = icmp eq ptr %30, %store_.i
   br i1 %cmp.not.i.i268, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit270, label %if.then.i.i269
 
 if.then.i.i269:                                   ; preds = %ehcleanup205
-  call void @_ZdlPv(ptr noundef %31) #26
+  call void @_ZdlPv(ptr noundef %30) #26
   br label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit270
 
 _ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit270: ; preds = %if.then.i.i269, %ehcleanup205
@@ -97488,17 +97487,16 @@ if.else:                                          ; preds = %entry
 if.end19:                                         ; preds = %if.else, %if.then
   %fspecs.sroa.8.0 = phi i32 [ %bf.set9, %if.then ], [ %spec.select, %if.else ]
   %value.addr.0 = phi double [ %fneg, %if.then ], [ %value, %if.else ]
-  %3 = call double @llvm.fabs.f64(double %value.addr.0)
-  %4 = fcmp ueq double %3, 0x7FF0000000000000
-  br i1 %4, label %if.then21, label %if.end47
+  %3 = fcmp ueq double %value.addr.0, 0x7FF0000000000000
+  br i1 %3, label %if.then21, label %if.end47
 
 if.then21:                                        ; preds = %if.end19
-  %5 = fcmp oeq double %3, 0x7FF0000000000000
-  %6 = and i32 %fspecs.sroa.8.0, 65536
-  %bf.cast26.not = icmp eq i32 %6, 0
+  %4 = fcmp oeq double %value.addr.0, 0x7FF0000000000000
+  %5 = and i32 %fspecs.sroa.8.0, 65536
+  %bf.cast26.not = icmp eq i32 %5, 0
   %.str.34..str.17 = select i1 %bf.cast26.not, ptr @.str.17, ptr @.str.34
   %.str.35..str.16 = select i1 %bf.cast26.not, ptr @.str.16, ptr @.str.35
-  %cond-lvalue39 = select i1 %5, ptr %.str.34..str.17, ptr %.str.35..str.16
+  %cond-lvalue39 = select i1 %4, ptr %.str.34..str.17, ptr %.str.35..str.16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp40) #24
   %bf.lshr44 = lshr i32 %fspecs.sroa.8.0, 8
   %bf.clear45 = and i32 %bf.lshr44, 255
@@ -97525,35 +97523,35 @@ if.then63:                                        ; preds = %if.end47
 if.then68:                                        ; preds = %if.then63
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %this, align 8
   %size_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, i64 16
-  %7 = load i64, ptr %size_.i.i.i, align 8, !tbaa !883
-  %add.i.i = add i64 %7, 1
+  %6 = load i64, ptr %size_.i.i.i, align 8, !tbaa !883
+  %add.i.i = add i64 %6, 1
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, i64 24
-  %8 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !863
-  %cmp.i.i.i.i = icmp ult i64 %8, %add.i.i
+  %7 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !863
+  %cmp.i.i.i.i = icmp ult i64 %7, %add.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then68
   %vtable.i.i.i.i = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8, !tbaa !859
-  %9 = load ptr, ptr %vtable.i.i.i.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i, i64 noundef %add.i.i)
+  %8 = load ptr, ptr %vtable.i.i.i.i, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i, i64 noundef %add.i.i)
   br label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
 
 _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit: ; preds = %if.then.i.i.i.i, %if.then68
   store i64 %add.i.i, ptr %size_.i.i.i, align 8, !tbaa !883
   %ptr_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, i64 8
-  %10 = load ptr, ptr %ptr_.i.i.i.i, align 8, !tbaa !861
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 %7
+  %9 = load ptr, ptr %ptr_.i.i.i.i, align 8, !tbaa !861
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %6
   %idxprom = zext nneg i32 %bf.clear67 to i64
   %arrayidx = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE5signsE, i64 0, i64 %idxprom
-  %11 = load i8, ptr %arrayidx, align 1, !tbaa !7
-  store i8 %11, ptr %add.ptr.i.i, align 1, !tbaa !7
+  %10 = load i8, ptr %arrayidx, align 1, !tbaa !7
+  store i8 %10, ptr %add.ptr.i.i, align 1, !tbaa !7
   %bf.clear77 = and i32 %fspecs.sroa.8.0, -65281
-  %12 = load i32, ptr %specs, align 8, !tbaa !906
-  %cmp79.not = icmp eq i32 %12, 0
+  %11 = load i32, ptr %specs, align 8, !tbaa !906
+  %cmp79.not = icmp eq i32 %11, 0
   br i1 %cmp79.not, label %if.end83, label %if.then80
 
 if.then80:                                        ; preds = %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
-  %dec = add nsw i32 %12, -1
+  %dec = add nsw i32 %11, -1
   store i32 %dec, ptr %specs, align 8, !tbaa !906
   br label %if.end83
 
@@ -97575,8 +97573,8 @@ if.end89:                                         ; preds = %if.end89.sink.split
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %buffer) #24
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
-  %13 = getelementptr inbounds i8, ptr %buffer, i64 16
-  store i64 0, ptr %13, align 8
+  %12 = getelementptr inbounds i8, ptr %buffer, i64 16
+  store i64 0, ptr %12, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8, !tbaa !861
@@ -97594,33 +97592,33 @@ if.then95:                                        ; preds = %if.end89
 _ZN10duckdb_fmt2v68internal6bufferIcE9push_backERKc.exit: ; preds = %if.then95
   %idxprom106 = zext nneg i32 %bf.clear99 to i64
   %arrayidx107 = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE5signsE, i64 0, i64 %idxprom106
-  %14 = load i8, ptr %arrayidx107, align 1, !tbaa !7
-  store i64 1, ptr %13, align 8, !tbaa !883
-  store i8 %14, ptr %store_.i, align 8, !tbaa !7
+  %13 = load i8, ptr %arrayidx107, align 1, !tbaa !7
+  store i64 1, ptr %12, align 8, !tbaa !883
+  store i8 %13, ptr %store_.i, align 8, !tbaa !7
   br label %if.end110
 
 lpad108:                                          ; preds = %if.end110
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup203
 
 if.end110:                                        ; preds = %_ZN10duckdb_fmt2v68internal6bufferIcE9push_backERKc.exit, %if.then95
   %precision = getelementptr inbounds i8, ptr %specs, i64 4
-  %16 = load i32, ptr %precision, align 4, !tbaa !911
+  %15 = load i32, ptr %precision, align 4, !tbaa !911
   %fspecs.sroa.8.0.insert.ext222 = zext i32 %fspecs.sroa.8.2 to i64
   %fspecs.sroa.8.0.insert.shift223 = shl nuw i64 %fspecs.sroa.8.0.insert.ext222, 32
   %fspecs.sroa.0.0.insert.ext215 = and i64 %call, 4294967295
   %fspecs.sroa.0.0.insert.insert217 = or disjoint i64 %fspecs.sroa.8.0.insert.shift223, %fspecs.sroa.0.0.insert.ext215
-  %call114 = invoke noundef i32 @_ZN10duckdb_fmt2v68internal14snprintf_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEE(double noundef %value.addr.0, i32 noundef %16, i64 %fspecs.sroa.0.0.insert.insert217, ptr noundef nonnull align 8 dereferenceable(32) %buffer)
+  %call114 = invoke noundef i32 @_ZN10duckdb_fmt2v68internal14snprintf_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEE(double noundef %value.addr.0, i32 noundef %15, i64 %fspecs.sroa.0.0.insert.insert217, ptr noundef nonnull align 8 dereferenceable(32) %buffer)
           to label %invoke.cont113 unwind label %lpad108
 
 invoke.cont113:                                   ; preds = %if.end110
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp115) #24
-  %17 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
-  store ptr %17, ptr %ref.tmp115, align 8, !tbaa !969
+  %16 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
+  store ptr %16, ptr %ref.tmp115, align 8, !tbaa !969
   %size_ = getelementptr inbounds i8, ptr %ref.tmp115, i64 8
-  %18 = load i64, ptr %13, align 8, !tbaa !883
-  store i64 %18, ptr %size_, align 8, !tbaa !971
+  %17 = load i64, ptr %12, align 8, !tbaa !883
+  store i64 %17, ptr %size_, align 8, !tbaa !971
   invoke void @_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE12write_paddedINS5_10str_writerIcEEEEvRKNS0_18basic_format_specsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(17) %specs, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp115)
           to label %invoke.cont119 unwind label %lpad118
 
@@ -97629,20 +97627,20 @@ invoke.cont119:                                   ; preds = %invoke.cont113
   br label %cleanup
 
 lpad118:                                          ; preds = %invoke.cont113
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp115) #24
   br label %ehcleanup203
 
 if.end120:                                        ; preds = %if.end89
   %precision122 = getelementptr inbounds i8, ptr %specs, i64 4
-  %20 = load i32, ptr %precision122, align 4
-  %cmp123 = icmp slt i32 %20, 0
+  %19 = load i32, ptr %precision122, align 4
+  %cmp123 = icmp slt i32 %19, 0
   %type = getelementptr inbounds i8, ptr %specs, i64 8
-  %21 = load i8, ptr %type, align 8
-  %tobool124 = icmp ne i8 %21, 0
+  %20 = load i8, ptr %type, align 8
+  %tobool124 = icmp ne i8 %20, 0
   %or.cond = select i1 %cmp123, i1 %tobool124, i1 false
-  %cond = select i1 %or.cond, i32 6, i32 %20
+  %cond = select i1 %or.cond, i32 6, i32 %19
   %cmp133 = icmp eq i8 %bf.cast93, 1
   %inc = zext i1 %cmp133 to i32
   %spec.select236 = add nsw i32 %cond, %inc
@@ -97655,13 +97653,13 @@ if.end120:                                        ; preds = %if.end89
           to label %if.end180 unwind label %lpad161
 
 lpad161:                                          ; preds = %if.end120
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup203
 
 if.end180:                                        ; preds = %if.end120
-  %23 = and i32 %fspecs.sroa.8.2, 131072
-  %bf.cast185.not = icmp eq i32 %23, 0
+  %22 = and i32 %fspecs.sroa.8.2, 131072
+  %bf.cast185.not = icmp eq i32 %22, 0
   br i1 %bf.cast185.not, label %cond.end192, label %cond.true186
 
 cond.true186:                                     ; preds = %if.end180
@@ -97673,10 +97671,10 @@ cond.true186:                                     ; preds = %if.end180
 cond.end192:                                      ; preds = %cond.true186, %if.end180
   %cond193 = phi i8 [ 46, %if.end180 ], [ %call.i255, %cond.true186 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp194) #24
-  %24 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
-  %25 = load i64, ptr %13, align 8, !tbaa !883
-  %conv = trunc i64 %25 to i32
-  store ptr %24, ptr %ref.tmp194, align 8, !tbaa !1765
+  %23 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
+  %24 = load i64, ptr %12, align 8, !tbaa !883
+  %conv = trunc i64 %24 to i32
+  store ptr %23, ptr %ref.tmp194, align 8, !tbaa !1765
   %num_digits_.i = getelementptr inbounds i8, ptr %ref.tmp194, i64 8
   store i32 %conv, ptr %num_digits_.i, align 8, !tbaa !1769
   %exp_.i = getelementptr inbounds i8, ptr %ref.tmp194, i64 12
@@ -97687,8 +97685,8 @@ cond.end192:                                      ; preds = %cond.true186, %if.e
   store i32 %bf.set152, ptr %specs.sroa.4.0.specs_.sroa_idx.i, align 4, !tbaa.struct !1773
   %decimal_point_.i = getelementptr inbounds i8, ptr %ref.tmp194, i64 32
   store i8 %cond193, ptr %decimal_point_.i, align 8, !tbaa !1774
-  %26 = and i32 %fspecs.sroa.8.2, 255
-  %cmp5.i = icmp eq i32 %26, 0
+  %25 = and i32 %fspecs.sroa.8.2, 255
+  %cmp5.i = icmp eq i32 %25, 0
   br i1 %cmp5.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %cond.end192
@@ -97711,8 +97709,8 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
 
 invoke.cont199:                                   ; preds = %if.end.i
   %size_.i258 = getelementptr inbounds i8, ptr %ref.tmp194, i64 16
-  %27 = and i32 %fspecs.sroa.8.2, 65280
-  %tobool.not.i = icmp ne i32 %27, 0
+  %26 = and i32 %fspecs.sroa.8.2, 65280
+  %tobool.not.i = icmp ne i32 %26, 0
   %conv.i = zext i1 %tobool.not.i to i64
   %add19.i = add i64 %call.i260, %conv.i
   store i64 %add19.i, ptr %size_.i258, align 8, !tbaa !1775
@@ -97725,12 +97723,12 @@ invoke.cont200:                                   ; preds = %invoke.cont199
 
 cleanup:                                          ; preds = %invoke.cont200, %invoke.cont119
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
-  %28 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
-  %cmp.not.i.i = icmp eq ptr %28, %store_.i
+  %27 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
+  %cmp.not.i.i = icmp eq ptr %27, %store_.i
   br i1 %cmp.not.i.i, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i261
 
 if.then.i.i261:                                   ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef %28) #26
+  call void @_ZdlPv(ptr noundef %27) #26
   br label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %if.then.i.i261, %cleanup
@@ -97741,25 +97739,25 @@ cleanup206:                                       ; preds = %_ZN10duckdb_fmt2v61
   ret void
 
 lpad188:                                          ; preds = %cond.true186
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup203
 
 lpad198:                                          ; preds = %invoke.cont199, %if.end.i
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp194) #24
   br label %ehcleanup203
 
 ehcleanup203:                                     ; preds = %lpad198, %lpad188, %lpad161, %lpad118, %lpad108
-  %.pn234 = phi { ptr, i32 } [ %19, %lpad118 ], [ %15, %lpad108 ], [ %22, %lpad161 ], [ %30, %lpad198 ], [ %29, %lpad188 ]
+  %.pn234 = phi { ptr, i32 } [ %18, %lpad118 ], [ %14, %lpad108 ], [ %21, %lpad161 ], [ %29, %lpad198 ], [ %28, %lpad188 ]
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
-  %31 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
-  %cmp.not.i.i264 = icmp eq ptr %31, %store_.i
+  %30 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
+  %cmp.not.i.i264 = icmp eq ptr %30, %store_.i
   br i1 %cmp.not.i.i264, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit266, label %if.then.i.i265
 
 if.then.i.i265:                                   ; preds = %ehcleanup203
-  call void @_ZdlPv(ptr noundef %31) #26
+  call void @_ZdlPv(ptr noundef %30) #26
   br label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit266
 
 _ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit266: ; preds = %if.then.i.i265, %ehcleanup203
@@ -97805,17 +97803,16 @@ if.else:                                          ; preds = %entry
 if.end19:                                         ; preds = %if.else, %if.then
   %fspecs.sroa.8.0 = phi i32 [ %bf.set9, %if.then ], [ %spec.select, %if.else ]
   %value.addr.0 = phi x86_fp80 [ %fneg, %if.then ], [ %value, %if.else ]
-  %3 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %value.addr.0)
-  %4 = fcmp ueq x86_fp80 %3, 0xK7FFF8000000000000000
-  br i1 %4, label %if.then21, label %if.end47
+  %3 = fcmp ueq x86_fp80 %value.addr.0, 0xK7FFF8000000000000000
+  br i1 %3, label %if.then21, label %if.end47
 
 if.then21:                                        ; preds = %if.end19
-  %5 = fcmp oeq x86_fp80 %3, 0xK7FFF8000000000000000
-  %6 = and i32 %fspecs.sroa.8.0, 65536
-  %bf.cast26.not = icmp eq i32 %6, 0
+  %4 = fcmp oeq x86_fp80 %value.addr.0, 0xK7FFF8000000000000000
+  %5 = and i32 %fspecs.sroa.8.0, 65536
+  %bf.cast26.not = icmp eq i32 %5, 0
   %.str.34..str.17 = select i1 %bf.cast26.not, ptr @.str.17, ptr @.str.34
   %.str.35..str.16 = select i1 %bf.cast26.not, ptr @.str.16, ptr @.str.35
-  %cond-lvalue39 = select i1 %5, ptr %.str.34..str.17, ptr %.str.35..str.16
+  %cond-lvalue39 = select i1 %4, ptr %.str.34..str.17, ptr %.str.35..str.16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp40) #24
   %bf.lshr44 = lshr i32 %fspecs.sroa.8.0, 8
   %bf.clear45 = and i32 %bf.lshr44, 255
@@ -97842,35 +97839,35 @@ if.then63:                                        ; preds = %if.end47
 if.then68:                                        ; preds = %if.then63
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %this, align 8
   %size_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, i64 16
-  %7 = load i64, ptr %size_.i.i.i, align 8, !tbaa !883
-  %add.i.i = add i64 %7, 1
+  %6 = load i64, ptr %size_.i.i.i, align 8, !tbaa !883
+  %add.i.i = add i64 %6, 1
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, i64 24
-  %8 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !863
-  %cmp.i.i.i.i = icmp ult i64 %8, %add.i.i
+  %7 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !863
+  %cmp.i.i.i.i = icmp ult i64 %7, %add.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then68
   %vtable.i.i.i.i = load ptr, ptr %agg.tmp.sroa.0.0.copyload.i.i, align 8, !tbaa !859
-  %9 = load ptr, ptr %vtable.i.i.i.i, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i, i64 noundef %add.i.i)
+  %8 = load ptr, ptr %vtable.i.i.i.i, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.sroa.0.0.copyload.i.i, i64 noundef %add.i.i)
   br label %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
 
 _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit: ; preds = %if.then.i.i.i.i, %if.then68
   store i64 %add.i.i, ptr %size_.i.i.i, align 8, !tbaa !883
   %ptr_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, i64 8
-  %10 = load ptr, ptr %ptr_.i.i.i.i, align 8, !tbaa !861
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 %7
+  %9 = load ptr, ptr %ptr_.i.i.i.i, align 8, !tbaa !861
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %9, i64 %6
   %idxprom = zext nneg i32 %bf.clear67 to i64
   %arrayidx = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE5signsE, i64 0, i64 %idxprom
-  %11 = load i8, ptr %arrayidx, align 1, !tbaa !7
-  store i8 %11, ptr %add.ptr.i.i, align 1, !tbaa !7
+  %10 = load i8, ptr %arrayidx, align 1, !tbaa !7
+  store i8 %10, ptr %add.ptr.i.i, align 1, !tbaa !7
   %bf.clear77 = and i32 %fspecs.sroa.8.0, -65281
-  %12 = load i32, ptr %specs, align 8, !tbaa !906
-  %cmp79.not = icmp eq i32 %12, 0
+  %11 = load i32, ptr %specs, align 8, !tbaa !906
+  %cmp79.not = icmp eq i32 %11, 0
   br i1 %cmp79.not, label %if.end83, label %if.then80
 
 if.then80:                                        ; preds = %_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
-  %dec = add nsw i32 %12, -1
+  %dec = add nsw i32 %11, -1
   store i32 %dec, ptr %specs, align 8, !tbaa !906
   br label %if.end83
 
@@ -97892,8 +97889,8 @@ if.end89:                                         ; preds = %if.end89.sink.split
   call void @llvm.lifetime.start.p0(i64 536, ptr nonnull %buffer) #24
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
-  %13 = getelementptr inbounds i8, ptr %buffer, i64 16
-  store i64 0, ptr %13, align 8
+  %12 = getelementptr inbounds i8, ptr %buffer, i64 16
+  store i64 0, ptr %12, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8, !tbaa !861
@@ -97911,33 +97908,33 @@ if.then95:                                        ; preds = %if.end89
 _ZN10duckdb_fmt2v68internal6bufferIcE9push_backERKc.exit: ; preds = %if.then95
   %idxprom106 = zext nneg i32 %bf.clear99 to i64
   %arrayidx107 = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE5signsE, i64 0, i64 %idxprom106
-  %14 = load i8, ptr %arrayidx107, align 1, !tbaa !7
-  store i64 1, ptr %13, align 8, !tbaa !883
-  store i8 %14, ptr %store_.i, align 8, !tbaa !7
+  %13 = load i8, ptr %arrayidx107, align 1, !tbaa !7
+  store i64 1, ptr %12, align 8, !tbaa !883
+  store i8 %13, ptr %store_.i, align 8, !tbaa !7
   br label %if.end110
 
 lpad108:                                          ; preds = %if.end110
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup203
 
 if.end110:                                        ; preds = %_ZN10duckdb_fmt2v68internal6bufferIcE9push_backERKc.exit, %if.then95
   %precision = getelementptr inbounds i8, ptr %specs, i64 4
-  %16 = load i32, ptr %precision, align 4, !tbaa !911
+  %15 = load i32, ptr %precision, align 4, !tbaa !911
   %fspecs.sroa.8.0.insert.ext222 = zext i32 %fspecs.sroa.8.2 to i64
   %fspecs.sroa.8.0.insert.shift223 = shl nuw i64 %fspecs.sroa.8.0.insert.ext222, 32
   %fspecs.sroa.0.0.insert.ext215 = and i64 %call, 4294967295
   %fspecs.sroa.0.0.insert.insert217 = or disjoint i64 %fspecs.sroa.8.0.insert.shift223, %fspecs.sroa.0.0.insert.ext215
-  %call114 = invoke noundef i32 @_ZN10duckdb_fmt2v68internal14snprintf_floatIeEEiT_iNS1_11float_specsERNS1_6bufferIcEE(x86_fp80 noundef %value.addr.0, i32 noundef %16, i64 %fspecs.sroa.0.0.insert.insert217, ptr noundef nonnull align 8 dereferenceable(32) %buffer)
+  %call114 = invoke noundef i32 @_ZN10duckdb_fmt2v68internal14snprintf_floatIeEEiT_iNS1_11float_specsERNS1_6bufferIcEE(x86_fp80 noundef %value.addr.0, i32 noundef %15, i64 %fspecs.sroa.0.0.insert.insert217, ptr noundef nonnull align 8 dereferenceable(32) %buffer)
           to label %invoke.cont113 unwind label %lpad108
 
 invoke.cont113:                                   ; preds = %if.end110
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp115) #24
-  %17 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
-  store ptr %17, ptr %ref.tmp115, align 8, !tbaa !969
+  %16 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
+  store ptr %16, ptr %ref.tmp115, align 8, !tbaa !969
   %size_ = getelementptr inbounds i8, ptr %ref.tmp115, i64 8
-  %18 = load i64, ptr %13, align 8, !tbaa !883
-  store i64 %18, ptr %size_, align 8, !tbaa !971
+  %17 = load i64, ptr %12, align 8, !tbaa !883
+  store i64 %17, ptr %size_, align 8, !tbaa !971
   invoke void @_ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE12write_paddedINS5_10str_writerIcEEEEvRKNS0_18basic_format_specsIcEEOT_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(17) %specs, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp115)
           to label %invoke.cont119 unwind label %lpad118
 
@@ -97946,20 +97943,20 @@ invoke.cont119:                                   ; preds = %invoke.cont113
   br label %cleanup
 
 lpad118:                                          ; preds = %invoke.cont113
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp115) #24
   br label %ehcleanup203
 
 if.end120:                                        ; preds = %if.end89
   %precision122 = getelementptr inbounds i8, ptr %specs, i64 4
-  %20 = load i32, ptr %precision122, align 4
-  %cmp123 = icmp slt i32 %20, 0
+  %19 = load i32, ptr %precision122, align 4
+  %cmp123 = icmp slt i32 %19, 0
   %type = getelementptr inbounds i8, ptr %specs, i64 8
-  %21 = load i8, ptr %type, align 8
-  %tobool124 = icmp ne i8 %21, 0
+  %20 = load i8, ptr %type, align 8
+  %tobool124 = icmp ne i8 %20, 0
   %or.cond = select i1 %cmp123, i1 %tobool124, i1 false
-  %cond = select i1 %or.cond, i32 6, i32 %20
+  %cond = select i1 %or.cond, i32 6, i32 %19
   %cmp133 = icmp eq i8 %bf.cast93, 1
   %inc = zext i1 %cmp133 to i32
   %spec.select236 = add nsw i32 %cond, %inc
@@ -97972,13 +97969,13 @@ if.end120:                                        ; preds = %if.end89
           to label %if.end180 unwind label %lpad161
 
 lpad161:                                          ; preds = %if.end120
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup203
 
 if.end180:                                        ; preds = %if.end120
-  %23 = and i32 %fspecs.sroa.8.2, 131072
-  %bf.cast185.not = icmp eq i32 %23, 0
+  %22 = and i32 %fspecs.sroa.8.2, 131072
+  %bf.cast185.not = icmp eq i32 %22, 0
   br i1 %bf.cast185.not, label %cond.end192, label %cond.true186
 
 cond.true186:                                     ; preds = %if.end180
@@ -97990,10 +97987,10 @@ cond.true186:                                     ; preds = %if.end180
 cond.end192:                                      ; preds = %cond.true186, %if.end180
   %cond193 = phi i8 [ 46, %if.end180 ], [ %call.i255, %cond.true186 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp194) #24
-  %24 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
-  %25 = load i64, ptr %13, align 8, !tbaa !883
-  %conv = trunc i64 %25 to i32
-  store ptr %24, ptr %ref.tmp194, align 8, !tbaa !1765
+  %23 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
+  %24 = load i64, ptr %12, align 8, !tbaa !883
+  %conv = trunc i64 %24 to i32
+  store ptr %23, ptr %ref.tmp194, align 8, !tbaa !1765
   %num_digits_.i = getelementptr inbounds i8, ptr %ref.tmp194, i64 8
   store i32 %conv, ptr %num_digits_.i, align 8, !tbaa !1769
   %exp_.i = getelementptr inbounds i8, ptr %ref.tmp194, i64 12
@@ -98004,8 +98001,8 @@ cond.end192:                                      ; preds = %cond.true186, %if.e
   store i32 %bf.clear151, ptr %specs.sroa.4.0.specs_.sroa_idx.i, align 4, !tbaa.struct !1773
   %decimal_point_.i = getelementptr inbounds i8, ptr %ref.tmp194, i64 32
   store i8 %cond193, ptr %decimal_point_.i, align 8, !tbaa !1774
-  %26 = and i32 %fspecs.sroa.8.2, 255
-  %cmp5.i = icmp eq i32 %26, 0
+  %25 = and i32 %fspecs.sroa.8.2, 255
+  %cmp5.i = icmp eq i32 %25, 0
   br i1 %cmp5.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %cond.end192
@@ -98028,8 +98025,8 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
 
 invoke.cont199:                                   ; preds = %if.end.i
   %size_.i258 = getelementptr inbounds i8, ptr %ref.tmp194, i64 16
-  %27 = and i32 %fspecs.sroa.8.2, 65280
-  %tobool.not.i = icmp ne i32 %27, 0
+  %26 = and i32 %fspecs.sroa.8.2, 65280
+  %tobool.not.i = icmp ne i32 %26, 0
   %conv.i = zext i1 %tobool.not.i to i64
   %add19.i = add i64 %call.i260, %conv.i
   store i64 %add19.i, ptr %size_.i258, align 8, !tbaa !1775
@@ -98042,12 +98039,12 @@ invoke.cont200:                                   ; preds = %invoke.cont199
 
 cleanup:                                          ; preds = %invoke.cont200, %invoke.cont119
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
-  %28 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
-  %cmp.not.i.i = icmp eq ptr %28, %store_.i
+  %27 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
+  %cmp.not.i.i = icmp eq ptr %27, %store_.i
   br i1 %cmp.not.i.i, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i261
 
 if.then.i.i261:                                   ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef %28) #26
+  call void @_ZdlPv(ptr noundef %27) #26
   br label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit
 
 _ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %if.then.i.i261, %cleanup
@@ -98058,25 +98055,25 @@ cleanup206:                                       ; preds = %_ZN10duckdb_fmt2v61
   ret void
 
 lpad188:                                          ; preds = %cond.true186
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup203
 
 lpad198:                                          ; preds = %invoke.cont199, %if.end.i
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp194) #24
   br label %ehcleanup203
 
 ehcleanup203:                                     ; preds = %lpad198, %lpad188, %lpad161, %lpad118, %lpad108
-  %.pn234 = phi { ptr, i32 } [ %19, %lpad118 ], [ %15, %lpad108 ], [ %22, %lpad161 ], [ %30, %lpad198 ], [ %29, %lpad188 ]
+  %.pn234 = phi { ptr, i32 } [ %18, %lpad118 ], [ %14, %lpad108 ], [ %21, %lpad161 ], [ %29, %lpad198 ], [ %28, %lpad188 ]
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
-  %31 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
-  %cmp.not.i.i264 = icmp eq ptr %31, %store_.i
+  %30 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
+  %cmp.not.i.i264 = icmp eq ptr %30, %store_.i
   br i1 %cmp.not.i.i264, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit266, label %if.then.i.i265
 
 if.then.i.i265:                                   ; preds = %ehcleanup203
-  call void @_ZdlPv(ptr noundef %31) #26
+  call void @_ZdlPv(ptr noundef %30) #26
   br label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit266
 
 _ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit266: ; preds = %if.then.i.i265, %ehcleanup203
@@ -117339,15 +117336,6 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare x86_fp80 @llvm.fabs.f80(x86_fp80) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
