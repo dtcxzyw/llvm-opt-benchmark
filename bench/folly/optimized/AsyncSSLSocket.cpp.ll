@@ -1334,7 +1334,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread: ; pr
   call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %6, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %5, i64 %add.i.i, i1 false), !noalias !171
-  store ptr %5, ptr %cn, align 8, !tbaa !174, !noalias !171
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !175, !noalias !171
   store i8 0, ptr %5, align 8, !tbaa !176, !noalias !171
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly3ssl25BasicTransportCertificateE, i64 0, inrange i32 0, i64 5), ptr %call.i25, align 8, !tbaa !15, !noalias !171
@@ -1545,7 +1544,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread: ; pr
   call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %6, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(1) %5, i64 %add.i.i, i1 false), !noalias !177
-  store ptr %5, ptr %cn, align 8, !tbaa !174, !noalias !177
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !175, !noalias !177
   store i8 0, ptr %5, align 8, !tbaa !176, !noalias !177
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly3ssl25BasicTransportCertificateE, i64 0, inrange i32 0, i64 5), ptr %call.i27, align 8, !tbaa !15, !noalias !177

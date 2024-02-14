@@ -11294,7 +11294,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -15554,7 +15553,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -19809,7 +19807,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math8internal4halfESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math8internal4halfESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math8internal4halfESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -24203,7 +24200,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -28293,7 +28289,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_tSt14default_deleteIS0_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_tSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_tSt14default_deleteIS0_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -32335,7 +32330,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_aSt14default_deleteIS0_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_aSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_aSt14default_deleteIS0_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -36399,7 +36393,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_sSt14default_deleteIS0_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_sSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_sSt14default_deleteIS0_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -40464,7 +40457,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -44529,7 +44521,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -48596,7 +48587,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IiEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IiEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IiEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -52676,7 +52666,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IfEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IfEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IfEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -56789,7 +56778,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IdEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IdEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IdEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -61134,7 +61122,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3INS2_8internal4halfEEESt14default_deleteIS7_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3INS2_8internal4halfEEESt14default_deleteIS7_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3INS2_8internal4halfEEESt14default_deleteIS7_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -65677,7 +65664,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IhEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IhEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IhEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -69999,7 +69985,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3ItEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3ItEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3ItEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -74274,7 +74259,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IhEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IhEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IhEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -78491,7 +78475,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3ItEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3ItEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3ItEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -82710,7 +82693,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_tSt14default_deleteIS0_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_tSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_tSt14default_deleteIS0_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -86973,7 +86955,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Mat3IfEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Mat3IfEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Mat3IfEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -91076,7 +91057,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Mat3IdEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Mat3IdEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Mat3IdEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -95179,7 +95159,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Mat4IfEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Mat4IfEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Mat4IfEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -99282,7 +99261,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Mat4IdEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Mat4IdEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Mat4IdEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -103389,7 +103367,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4QuatIfEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4QuatIfEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4QuatIfEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -107518,7 +107495,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4QuatIdEESt14default_deleteIS5_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4QuatIdEESt14default_deleteIS5_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4QuatIdEESt14default_deleteIS5_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -111569,7 +111545,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -115633,7 +115608,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 
@@ -119660,7 +119634,6 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_bSt14default_deleteIS0_EED2Ev.exit.thread: ; preds = %lpad
-  store ptr null, ptr %mData, align 8
   store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN7openvdb5v11_06points14AttributeArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   br label %_ZN7openvdb5v11_06points14AttributeArrayD2Ev.exit
 

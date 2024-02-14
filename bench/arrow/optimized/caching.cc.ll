@@ -7692,11 +7692,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
   store ptr null, ptr %agg.tmp, align 8
   %38 = load ptr, ptr %res, align 8
   %cmp.i.i52 = icmp eq ptr %38, null
-  br i1 %cmp.i.i52, label %_ZN5arrow6StatusaSEOS0_.exit.i, label %if.then.i.i
-
-_ZN5arrow6StatusaSEOS0_.exit.i:                   ; preds = %if.end
-  store ptr null, ptr %res, align 8
-  br label %_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit
+  br i1 %cmp.i.i52, label %_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %res)
@@ -7709,7 +7705,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   call void @__clang_call_terminate(ptr %40) #21
   unreachable
 
-_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit: ; preds = %_ZN5arrow6StatusaSEOS0_.exit.i, %if.then.i.i
+_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit: ; preds = %if.end, %if.then.i.i
   %call.i54 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17
           to label %call.i.noexc unwind label %lpad13
 
@@ -7717,11 +7713,7 @@ call.i.noexc:                                     ; preds = %_ZN5arrow6ResultINS
   store ptr null, ptr %call.i54, align 8
   %41 = load ptr, ptr %agg.tmp, align 8
   %cmp.i.i.i = icmp eq ptr %41, null
-  br i1 %cmp.i.i.i, label %_ZN5arrow6StatusaSEOS0_.exit.i.i, label %if.then.i.i.i
-
-_ZN5arrow6StatusaSEOS0_.exit.i.i:                 ; preds = %call.i.noexc
-  store ptr null, ptr %agg.tmp, align 8
-  br label %_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit.i
+  br i1 %cmp.i.i.i, label %_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %call.i.noexc
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %call.i54, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp)
@@ -7734,7 +7726,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %43) #21
   unreachable
 
-_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit.i: ; preds = %if.then.i.i.i, %_ZN5arrow6StatusaSEOS0_.exit.i.i
+_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit.i: ; preds = %if.then.i.i.i, %call.i.noexc
   %44 = load ptr, ptr %this, align 8
   %result_.i = getelementptr inbounds i8, ptr %44, i64 32
   %add.ptr.i.i.i.i.i2.i.i.i.i = getelementptr inbounds i8, ptr %44, i64 40

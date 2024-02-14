@@ -8260,52 +8260,45 @@ _ZN21hb_sanitize_context_tD2Ev.exit44:            ; preds = %_ZN21hb_sanitize_co
   %div3817 = lshr exact i32 %sub, 1
   %add = add i32 %12, %div3817
   %storemerge60 = select i1 %cmp35, i32 %add, i32 %spec.store.select19
-  store i32 %storemerge60, ptr %num_bearings, align 4
   %tobool47.not = icmp eq i32 %12, 0
-  br i1 %tobool47.not, label %if.then48, label %if.end51
-
-if.then48:                                        ; preds = %_ZN21hb_sanitize_context_tD2Ev.exit44
-  store i32 0, ptr %this, align 8
-  store i32 0, ptr %num_bearings, align 4
-  br label %if.end51
-
-if.end51:                                         ; preds = %if.then48, %_ZN21hb_sanitize_context_tD2Ev.exit44
-  %13 = phi i32 [ 0, %if.then48 ], [ %storemerge60, %_ZN21hb_sanitize_context_tD2Ev.exit44 ]
-  %14 = sub i32 %add, %storemerge60
-  %div5318 = and i32 %14, 2147483647
-  %add54 = add i32 %13, %div5318
+  %spec.store.select61 = select i1 %tobool47.not, i32 0, i32 %storemerge60
+  store i32 %spec.store.select61, ptr %num_bearings, align 4
+  %spec.select62 = select i1 %tobool47.not, i32 0, i32 %storemerge60
+  %13 = sub i32 %add, %storemerge60
+  %div5318 = and i32 %13, 2147483647
+  %add54 = add i32 %spec.select62, %div5318
   %num_advances = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %add54, ptr %num_advances, align 8
   %num_glyphs.i51 = getelementptr inbounds i8, ptr %face, i64 48
-  %15 = load atomic i32, ptr %num_glyphs.i51 monotonic, align 4
-  %cmp.i = icmp eq i32 %15, -1
+  %14 = load atomic i32, ptr %num_glyphs.i51 monotonic, align 4
+  %cmp.i = icmp eq i32 %14, -1
   br i1 %cmp.i, label %if.then.i52, label %_ZNK9hb_face_t14get_num_glyphsEv.exit
 
-if.then.i52:                                      ; preds = %if.end51
+if.then.i52:                                      ; preds = %_ZN21hb_sanitize_context_tD2Ev.exit44
   %call.i.i.i.i.i = call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %maxp)
   %data.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
-  %16 = load ptr, ptr %data.i.i.i.i.i.i.i.i, align 8
+  %15 = load ptr, ptr %data.i.i.i.i.i.i.i.i, align 8
   %length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 24
-  %17 = load i32, ptr %length.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i32 %17, 6
-  %spec.select.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr @_hb_NullPool, ptr %16
+  %16 = load i32, ptr %length.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp ult i32 %16, 6
+  %spec.select.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr @_hb_NullPool, ptr %15
   %numGlyphs.i.i.i.i = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i.i.i.i, i64 4
-  %18 = load i8, ptr %numGlyphs.i.i.i.i, align 1
-  %conv.i.i.i.i.i.i = zext i8 %18 to i32
+  %17 = load i8, ptr %numGlyphs.i.i.i.i, align 1
+  %conv.i.i.i.i.i.i = zext i8 %17 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i, 8
   %arrayidx3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i.i.i.i, i64 5
-  %19 = load i8, ptr %arrayidx3.i.i.i.i.i.i, align 1
-  %conv4.i.i.i.i.i.i = zext i8 %19 to i32
+  %18 = load i8, ptr %arrayidx3.i.i.i.i.i.i, align 1
+  %conv4.i.i.i.i.i.i = zext i8 %18 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %conv4.i.i.i.i.i.i
   store atomic i32 %add.i.i.i.i.i.i, ptr %num_glyphs.i51 monotonic, align 4
   %.pre = load i32, ptr %num_advances, align 8
   br label %_ZNK9hb_face_t14get_num_glyphsEv.exit
 
-_ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %if.end51, %if.then.i52
-  %20 = phi i32 [ %.pre, %if.then.i52 ], [ %add54, %if.end51 ]
-  %retval.0.i = phi i32 [ %add.i.i.i.i.i.i, %if.then.i52 ], [ %15, %if.end51 ]
+_ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %_ZN21hb_sanitize_context_tD2Ev.exit44, %if.then.i52
+  %19 = phi i32 [ %.pre, %if.then.i52 ], [ %add54, %_ZN21hb_sanitize_context_tD2Ev.exit44 ]
+  %retval.0.i = phi i32 [ %add.i.i.i.i.i.i, %if.then.i52 ], [ %14, %_ZN21hb_sanitize_context_tD2Ev.exit44 ]
   %num_glyphs = getelementptr inbounds i8, ptr %this, i64 12
-  %spec.store.select = call i32 @llvm.umax.i32(i32 %retval.0.i, i32 %20)
+  %spec.store.select = call i32 @llvm.umax.i32(i32 %retval.0.i, i32 %19)
   store i32 %spec.store.select, ptr %num_glyphs, align 4
   ret void
 }
@@ -9596,52 +9589,45 @@ _ZN21hb_sanitize_context_tD2Ev.exit43:            ; preds = %_ZN21hb_sanitize_co
   %div3716 = lshr exact i32 %sub, 1
   %add = add i32 %12, %div3716
   %storemerge59 = select i1 %cmp34, i32 %add, i32 %spec.store.select18
-  store i32 %storemerge59, ptr %num_bearings, align 4
   %tobool46.not = icmp eq i32 %12, 0
-  br i1 %tobool46.not, label %if.then47, label %if.end50
-
-if.then47:                                        ; preds = %_ZN21hb_sanitize_context_tD2Ev.exit43
-  store i32 0, ptr %this, align 8
-  store i32 0, ptr %num_bearings, align 4
-  br label %if.end50
-
-if.end50:                                         ; preds = %if.then47, %_ZN21hb_sanitize_context_tD2Ev.exit43
-  %13 = phi i32 [ 0, %if.then47 ], [ %storemerge59, %_ZN21hb_sanitize_context_tD2Ev.exit43 ]
-  %14 = sub i32 %add, %storemerge59
-  %div5217 = and i32 %14, 2147483647
-  %add53 = add i32 %13, %div5217
+  %spec.store.select60 = select i1 %tobool46.not, i32 0, i32 %storemerge59
+  store i32 %spec.store.select60, ptr %num_bearings, align 4
+  %spec.select61 = select i1 %tobool46.not, i32 0, i32 %storemerge59
+  %13 = sub i32 %add, %storemerge59
+  %div5217 = and i32 %13, 2147483647
+  %add53 = add i32 %spec.select61, %div5217
   %num_advances = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %add53, ptr %num_advances, align 8
   %num_glyphs.i50 = getelementptr inbounds i8, ptr %face, i64 48
-  %15 = load atomic i32, ptr %num_glyphs.i50 monotonic, align 4
-  %cmp.i = icmp eq i32 %15, -1
+  %14 = load atomic i32, ptr %num_glyphs.i50 monotonic, align 4
+  %cmp.i = icmp eq i32 %14, -1
   br i1 %cmp.i, label %if.then.i51, label %_ZNK9hb_face_t14get_num_glyphsEv.exit
 
-if.then.i51:                                      ; preds = %if.end50
+if.then.i51:                                      ; preds = %_ZN21hb_sanitize_context_tD2Ev.exit43
   %call.i.i.i.i.i = call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %maxp)
   %data.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
-  %16 = load ptr, ptr %data.i.i.i.i.i.i.i.i, align 8
+  %15 = load ptr, ptr %data.i.i.i.i.i.i.i.i, align 8
   %length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 24
-  %17 = load i32, ptr %length.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp ult i32 %17, 6
-  %spec.select.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr @_hb_NullPool, ptr %16
+  %16 = load i32, ptr %length.i.i.i.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i.i.i = icmp ult i32 %16, 6
+  %spec.select.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr @_hb_NullPool, ptr %15
   %numGlyphs.i.i.i.i = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i.i.i.i, i64 4
-  %18 = load i8, ptr %numGlyphs.i.i.i.i, align 1
-  %conv.i.i.i.i.i.i = zext i8 %18 to i32
+  %17 = load i8, ptr %numGlyphs.i.i.i.i, align 1
+  %conv.i.i.i.i.i.i = zext i8 %17 to i32
   %shl.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i, 8
   %arrayidx3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.i.i.i.i, i64 5
-  %19 = load i8, ptr %arrayidx3.i.i.i.i.i.i, align 1
-  %conv4.i.i.i.i.i.i = zext i8 %19 to i32
+  %18 = load i8, ptr %arrayidx3.i.i.i.i.i.i, align 1
+  %conv4.i.i.i.i.i.i = zext i8 %18 to i32
   %add.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i.i, %conv4.i.i.i.i.i.i
   store atomic i32 %add.i.i.i.i.i.i, ptr %num_glyphs.i50 monotonic, align 4
   %.pre = load i32, ptr %num_advances, align 8
   br label %_ZNK9hb_face_t14get_num_glyphsEv.exit
 
-_ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %if.end50, %if.then.i51
-  %20 = phi i32 [ %.pre, %if.then.i51 ], [ %add53, %if.end50 ]
-  %retval.0.i = phi i32 [ %add.i.i.i.i.i.i, %if.then.i51 ], [ %15, %if.end50 ]
+_ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %_ZN21hb_sanitize_context_tD2Ev.exit43, %if.then.i51
+  %19 = phi i32 [ %.pre, %if.then.i51 ], [ %add53, %_ZN21hb_sanitize_context_tD2Ev.exit43 ]
+  %retval.0.i = phi i32 [ %add.i.i.i.i.i.i, %if.then.i51 ], [ %14, %_ZN21hb_sanitize_context_tD2Ev.exit43 ]
   %num_glyphs = getelementptr inbounds i8, ptr %this, i64 12
-  %spec.store.select = call i32 @llvm.umax.i32(i32 %retval.0.i, i32 %20)
+  %spec.store.select = call i32 @llvm.umax.i32(i32 %retval.0.i, i32 %19)
   store i32 %spec.store.select, ptr %num_glyphs, align 4
   ret void
 }

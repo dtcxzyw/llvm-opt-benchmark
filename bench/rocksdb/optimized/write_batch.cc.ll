@@ -18394,7 +18394,6 @@ if.end.thread:                                    ; preds = %if.then
 if.end:                                           ; preds = %entry
   %_M_parent.i.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 32
   %.pre = load ptr, ptr %_M_parent.i.i.i.i.i.phi.trans.insert, align 8
-  store i64 %seq, ptr %this, align 8
   %keys_3 = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)

@@ -6994,7 +6994,6 @@ lpad47.body:                                      ; preds = %if.end.i.i.i.i258, 
   br label %ehcleanup
 
 _ZN3ue212bytecode_ptrI3NFAED2Ev.exit:             ; preds = %invoke.cont46
-  store ptr null, ptr %agg.result, align 8
   %incdec.ptr.i244 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0519, i64 8
   %cmp.i116.not = icmp eq ptr %incdec.ptr.i244, %scores.sroa.10.4358
   br i1 %cmp.i116.not, label %do.end63, label %for.body44

@@ -2551,7 +2551,6 @@ _ZN6duckdb9CSVOptionIbE3SetEbb.exit:              ; preds = %entry
   %89 = load i8, ptr %value.i205, align 1, !tbaa !137, !range !135, !noundef !136
   %value.i207 = getelementptr inbounds i8, ptr %original, i64 1
   store i8 %89, ptr %value.i207, align 1, !tbaa !137
-  store i8 0, ptr %original, align 1, !tbaa !133
   br label %if.end34
 
 if.end34:                                         ; preds = %_ZN6duckdb9CSVOptionIbE3SetEbb.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit162, %if.then
@@ -3183,7 +3182,6 @@ _ZN6duckdb9CSVOptionINS_17NewLineIdentifierEE3SetES1_b.exit: ; preds = %entry
   %93 = load i8, ptr %value.i198, align 1, !tbaa !115
   %value.i199 = getelementptr inbounds i8, ptr %original, i64 1
   store i8 %93, ptr %value.i199, align 1, !tbaa !115
-  store i8 0, ptr %original, align 1, !tbaa !165
   br label %if.end34
 
 if.end34:                                         ; preds = %_ZN6duckdb9CSVOptionINS_17NewLineIdentifierEE3SetES1_b.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit155, %if.then
@@ -4009,7 +4007,6 @@ _ZN6duckdb9CSVOptionImE3SetEmb.exit:              ; preds = %entry
   %106 = load i64, ptr %value.i258, align 8, !tbaa !180
   %value.i259 = getelementptr inbounds i8, ptr %original, i64 8
   store i64 %106, ptr %value.i259, align 8, !tbaa !180
-  store i8 0, ptr %original, align 8, !tbaa !178
   br label %if.end34
 
 if.end34:                                         ; preds = %_ZN6duckdb9CSVOptionImE3SetEmb.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit215, %if.then
@@ -4622,7 +4619,6 @@ _ZN6duckdb9CSVOptionIcE3SetEcb.exit:              ; preds = %entry
   %87 = load i8, ptr %value.i200, align 1, !tbaa !219
   %value.i201 = getelementptr inbounds i8, ptr %original, i64 1
   store i8 %87, ptr %value.i201, align 1, !tbaa !219
-  store i8 0, ptr %original, align 1, !tbaa !217
   br label %if.end34
 
 if.end34:                                         ; preds = %_ZN6duckdb9CSVOptionIcE3SetEcb.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit157, %if.then
@@ -11159,7 +11155,6 @@ if.then.i1225:                                    ; preds = %invoke.cont318
   %add324 = add i64 %337, %true_line_start.116002201
   %value.i1226 = getelementptr inbounds i8, ptr %call316, i64 224
   store i64 %add324, ptr %value.i1226, align 8, !tbaa !180
-  store i8 0, ptr %skip_rows, align 8, !tbaa !178
   br label %if.end326
 
 lpad314:                                          ; preds = %invoke.cont357, %invoke.cont354, %for.cond.cleanup336, %if.end.i.i, %invoke.cont315, %if.then313

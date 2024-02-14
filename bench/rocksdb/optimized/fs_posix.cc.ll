@@ -5351,7 +5351,6 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br i1 %cmp.i30, label %if.end31, label %if.then21
 
 _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %invoke.cont19
-  store ptr null, ptr %state_.i, align 8
   br i1 %cmp.i30, label %if.end31, label %if.then21
 
 if.then21:                                        ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i, %invoke.cont19.thread, %_ZN7rocksdb8IOStatusD2Ev.exit
@@ -7774,9 +7773,9 @@ if.end:                                           ; preds = %entry
   %call8 = tail call i32 @geteuid() #29
   %tobool.not = icmp eq i32 %call8, 0
   %6 = load i64, ptr %sbuf, align 8
-  %. = select i1 %tobool.not, i64 24, i64 32
-  %f_bfree = getelementptr inbounds i8, ptr %sbuf, i64 %.
-  %7 = load i64, ptr %f_bfree, align 8
+  %..sroa.sel.v = select i1 %tobool.not, i64 24, i64 32
+  %..sroa.sel = getelementptr inbounds i8, ptr %sbuf, i64 %..sroa.sel.v
+  %7 = load i64, ptr %..sroa.sel, align 8
   %mul11 = mul i64 %7, %6
   store i64 %mul11, ptr %free_space, align 8
   store i8 0, ptr %agg.result, align 8, !alias.scope !121

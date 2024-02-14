@@ -2988,7 +2988,7 @@ lpad75:                                           ; preds = %lpad75.loopexit.spl
   br label %ehcleanup83
 
 cleanup:                                          ; preds = %for.inc.i, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit.i, %if.then78, %call4.i.i.i.i.noexc174, %if.then.i.i.i.i172, %invoke.cont76
-  %retval.0.i.i161203 = phi i1 [ true, %if.then.i.i.i.i172 ], [ true, %invoke.cont76 ], [ true, %call4.i.i.i.i.noexc174 ], [ false, %if.then78 ], [ false, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit.i ], [ false, %for.inc.i ]
+  %retval.0 = phi i1 [ true, %if.then.i.i.i.i172 ], [ true, %invoke.cont76 ], [ true, %call4.i.i.i.i.noexc174 ], [ false, %if.then78 ], [ false, %_ZNK6vectorIN2lp8row_cellI8rationalEELb1EjE3endEv.exit.i ], [ false, %for.inc.i ]
   %78 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %78, ptr noundef nonnull align 8 dereferenceable(16) %u1)
           to label %.noexc.i180 unwind label %terminate.lpad.i179
@@ -3026,7 +3026,7 @@ ehcleanup83:                                      ; preds = %lpad75, %lpad.i152,
   br label %ehcleanup85
 
 cleanup84:                                        ; preds = %.noexc.i184, %invoke.cont60
-  %retval.1 = phi i1 [ true, %invoke.cont60 ], [ %retval.0.i.i161203, %.noexc.i184 ]
+  %retval.1 = phi i1 [ true, %invoke.cont60 ], [ %retval.0, %.noexc.i184 ]
   %84 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %84, ptr noundef nonnull align 8 dereferenceable(16) %a)
           to label %.noexc.i188 unwind label %terminate.lpad.i187
@@ -6003,8 +6003,6 @@ land.lhs.true:                                    ; preds = %if.then9
 
 if.then14:                                        ; preds = %land.lhs.true
   %m_state.i.le = getelementptr inbounds i8, ptr %curr.062, i64 4
-  %m_data.i.le = getelementptr inbounds i8, ptr %curr.062, i64 8
-  store i32 %4, ptr %m_data.i.le, align 4
   store i32 2, ptr %m_state.i.le, align 4
   br label %return
 
@@ -6061,8 +6059,6 @@ land.lhs.true34:                                  ; preds = %if.then31
 
 if.then37:                                        ; preds = %land.lhs.true34
   %m_state.i40.le = getelementptr inbounds i8, ptr %curr.166, i64 4
-  %m_data.i42.le = getelementptr inbounds i8, ptr %curr.166, i64 8
-  store i32 %4, ptr %m_data.i42.le, align 4
   store i32 2, ptr %m_state.i40.le, align 4
   br label %return
 

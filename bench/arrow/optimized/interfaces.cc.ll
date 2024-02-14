@@ -11144,11 +11144,7 @@ entry:
   store ptr null, ptr %agg.tmp, align 8
   %0 = load ptr, ptr %res, align 8
   %cmp.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.i, label %_ZN5arrow6StatusaSEOS0_.exit.i, label %if.then.i.i
-
-_ZN5arrow6StatusaSEOS0_.exit.i:                   ; preds = %entry
-  store ptr null, ptr %res, align 8
-  br label %_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit
+  br i1 %cmp.i.i, label %_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %res)
@@ -11161,7 +11157,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   call void @__clang_call_terminate(ptr %2) #29
   unreachable
 
-_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit: ; preds = %_ZN5arrow6StatusaSEOS0_.exit.i, %if.then.i.i
+_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit: ; preds = %entry, %if.then.i.i
   %call.i1 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
           to label %call.i.noexc unwind label %lpad
 
@@ -11169,11 +11165,7 @@ call.i.noexc:                                     ; preds = %_ZN5arrow6ResultINS
   store ptr null, ptr %call.i1, align 8
   %3 = load ptr, ptr %agg.tmp, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp.i.i.i, label %_ZN5arrow6StatusaSEOS0_.exit.i.i, label %if.then.i.i.i
-
-_ZN5arrow6StatusaSEOS0_.exit.i.i:                 ; preds = %call.i.noexc
-  store ptr null, ptr %agg.tmp, align 8
-  br label %_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit.i
+  br i1 %cmp.i.i.i, label %_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %call.i.noexc
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %call.i1, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp)
@@ -11186,7 +11178,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %5) #29
   unreachable
 
-_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit.i: ; preds = %if.then.i.i.i, %_ZN5arrow6StatusaSEOS0_.exit.i.i
+_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit.i: ; preds = %if.then.i.i.i, %call.i.noexc
   %6 = load ptr, ptr %this, align 8
   %result_.i = getelementptr inbounds i8, ptr %6, i64 32
   %add.ptr.i.i.i.i.i2.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
@@ -12266,11 +12258,7 @@ entry:
   store ptr null, ptr %agg.tmp, align 8
   %0 = load ptr, ptr %res, align 8
   %cmp.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.i, label %_ZN5arrow6StatusaSEOS0_.exit.i, label %if.then.i.i
-
-_ZN5arrow6StatusaSEOS0_.exit.i:                   ; preds = %entry
-  store ptr null, ptr %res, align 8
-  br label %_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit
+  br i1 %cmp.i.i, label %_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %res)
@@ -12283,7 +12271,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   call void @__clang_call_terminate(ptr %2) #29
   unreachable
 
-_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit: ; preds = %_ZN5arrow6StatusaSEOS0_.exit.i, %if.then.i.i
+_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit: ; preds = %entry, %if.then.i.i
   invoke void @_ZN5arrow6FutureINS_8internal5EmptyEE20InitializeFromResultENS_6ResultIS2_EE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -12627,11 +12615,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
   store ptr null, ptr %agg.tmp, align 8
   %37 = load ptr, ptr %res, align 8
   %cmp.i.i52 = icmp eq ptr %37, null
-  br i1 %cmp.i.i52, label %_ZN5arrow6StatusaSEOS0_.exit.i, label %if.then.i.i
-
-_ZN5arrow6StatusaSEOS0_.exit.i:                   ; preds = %if.end
-  store ptr null, ptr %res, align 8
-  br label %_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit
+  br i1 %cmp.i.i52, label %_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %res)
@@ -12644,7 +12628,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
   call void @__clang_call_terminate(ptr %39) #29
   unreachable
 
-_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit: ; preds = %_ZN5arrow6StatusaSEOS0_.exit.i, %if.then.i.i
+_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit: ; preds = %if.end, %if.then.i.i
   %call.i54 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
           to label %call.i.noexc unwind label %lpad9
 
@@ -12652,11 +12636,7 @@ call.i.noexc:                                     ; preds = %_ZN5arrow6ResultINS
   store ptr null, ptr %call.i54, align 8
   %40 = load ptr, ptr %agg.tmp, align 8
   %cmp.i.i.i = icmp eq ptr %40, null
-  br i1 %cmp.i.i.i, label %_ZN5arrow6StatusaSEOS0_.exit.i.i, label %if.then.i.i.i
-
-_ZN5arrow6StatusaSEOS0_.exit.i.i:                 ; preds = %call.i.noexc
-  store ptr null, ptr %agg.tmp, align 8
-  br label %_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit.i
+  br i1 %cmp.i.i.i, label %_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %call.i.noexc
   invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %call.i54, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp)
@@ -12669,7 +12649,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %42) #29
   unreachable
 
-_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit.i: ; preds = %if.then.i.i.i, %_ZN5arrow6StatusaSEOS0_.exit.i.i
+_ZN5arrow6ResultINS_8internal5EmptyEEC2IS2_vEEONS0_IT_EE.exit.i: ; preds = %if.then.i.i.i, %call.i.noexc
   %43 = load ptr, ptr %this, align 8
   %result_.i = getelementptr inbounds i8, ptr %43, i64 32
   %add.ptr.i.i.i.i.i2.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 40
@@ -12851,7 +12831,7 @@ declare void @_ZNSt12bad_weak_ptrD1Ev(ptr noundef nonnull align 8 dereferenceabl
 
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13292,7 +13272,6 @@ _ZN5arrow6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEC2ERKS5_.exit.i.i.i.i: 
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit.i.i.i.i.i.i.i, label %if.then.i.i.i.i1.i.i.i.i
 
 _ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %.noexc.i.i.i.i
-  store ptr null, ptr %agg.tmp.i.i.i.i.i, align 8
   %storage_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 8
   %storage_.i4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i, i64 8
   %7 = load <2 x ptr>, ptr %storage_.i.i.i.i.i.i.i.i, align 8, !noalias !238
@@ -13596,7 +13575,6 @@ entry:
   br i1 %cmp.i.i, label %_ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit.i, label %if.then.i.i
 
 _ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit.i: ; preds = %entry
-  store ptr null, ptr %res, align 8
   %storage_.i.i = getelementptr inbounds i8, ptr %res, i64 8
   %storage_.i4.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i, align 8, !noalias !241
@@ -13626,7 +13604,6 @@ call.i.noexc:                                     ; preds = %_ZN5arrow6ResultISt
   br i1 %cmp.i.i.i, label %_ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit.i.i, label %if.then.i.i.i
 
 _ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit.i.i: ; preds = %call.i.noexc
-  store ptr null, ptr %agg.tmp, align 8
   %storage_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %storage_.i4.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
   %5 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !244
@@ -13854,7 +13831,6 @@ if.then.i:                                        ; preds = %_ZN5arrow10WeakFutu
   br i1 %cmp.i.i.i1.i, label %_ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit.i.i.i, label %if.then.i.i.i.i
 
 _ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit.i.i.i: ; preds = %if.then.i
-  store ptr null, ptr %agg.tmp.i, align 8
   %storage_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %storage_.i4.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   %8 = load <2 x ptr>, ptr %storage_.i.i.i.i, align 8, !noalias !253
@@ -14119,7 +14095,6 @@ entry:
   br i1 %cmp.i.i, label %_ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit.i, label %if.then.i.i
 
 _ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit.i: ; preds = %entry
-  store ptr null, ptr %res, align 8
   %storage_.i.i = getelementptr inbounds i8, ptr %res, i64 8
   %storage_.i4.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i, align 8, !noalias !259
@@ -14401,7 +14376,6 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp.i.i52, label %_ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit.i, label %if.then.i.i
 
 _ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit.i: ; preds = %if.end
-  store ptr null, ptr %res, align 8
   %storage_.i.i = getelementptr inbounds i8, ptr %res, i64 8
   %storage_.i4.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %38 = load <2 x ptr>, ptr %storage_.i.i, align 8, !noalias !262
@@ -14431,7 +14405,6 @@ call.i.noexc:                                     ; preds = %_ZN5arrow6ResultISt
   br i1 %cmp.i.i.i, label %_ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit.i.i, label %if.then.i.i.i
 
 _ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit.i.i: ; preds = %call.i.noexc
-  store ptr null, ptr %agg.tmp, align 8
   %storage_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %storage_.i4.i.i = getelementptr inbounds i8, ptr %call.i54, i64 8
   %42 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !265
@@ -15204,7 +15177,6 @@ _ZN5arrow6FutureISt10shared_ptrINS_6BufferEEEC2ERKS4_.exit.i.i.i.i: ; preds = %i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i.i.i.i.i.i.i, label %if.then.i.i.i.i1.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i.i.i.i.i.i.i: ; preds = %.noexc.i.i.i.i
-  store ptr null, ptr %agg.tmp.i.i.i.i.i, align 8
   %storage_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i, i64 8
   %storage_.i4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i, i64 8
   %12 = load <2 x ptr>, ptr %storage_.i.i.i.i.i.i.i.i, align 8, !noalias !285
@@ -15336,7 +15308,6 @@ entry:
   br i1 %cmp.i.i, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i, label %if.then.i.i
 
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i:    ; preds = %entry
-  store ptr null, ptr %res, align 8
   %storage_.i.i = getelementptr inbounds i8, ptr %res, i64 8
   %storage_.i4.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i, align 8, !noalias !288
@@ -15366,7 +15337,6 @@ call.i.noexc:                                     ; preds = %_ZN5arrow6ResultISt
   br i1 %cmp.i.i.i, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i.i, label %if.then.i.i.i
 
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i.i:  ; preds = %call.i.noexc
-  store ptr null, ptr %agg.tmp, align 8
   %storage_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %storage_.i4.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
   %5 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !291
@@ -15594,7 +15564,6 @@ if.then.i:                                        ; preds = %_ZN5arrow10WeakFutu
   br i1 %cmp.i.i.i1.i, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i.i.i, label %if.then.i.i.i.i
 
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i.i.i: ; preds = %if.then.i
-  store ptr null, ptr %agg.tmp.i, align 8
   %storage_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %storage_.i4.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   %8 = load <2 x ptr>, ptr %storage_.i.i.i.i, align 8, !noalias !300
@@ -15723,7 +15692,6 @@ entry:
   br i1 %cmp.i.i, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i, label %if.then.i.i
 
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i:    ; preds = %entry
-  store ptr null, ptr %res, align 8
   %storage_.i.i = getelementptr inbounds i8, ptr %res, i64 8
   %storage_.i4.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %1 = load <2 x ptr>, ptr %storage_.i.i, align 8, !noalias !303
@@ -16005,7 +15973,6 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp.i.i52, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i, label %if.then.i.i
 
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i:    ; preds = %if.end
-  store ptr null, ptr %res, align 8
   %storage_.i.i = getelementptr inbounds i8, ptr %res, i64 8
   %storage_.i4.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %38 = load <2 x ptr>, ptr %storage_.i.i, align 8, !noalias !306
@@ -16035,7 +16002,6 @@ call.i.noexc:                                     ; preds = %_ZN5arrow6ResultISt
   br i1 %cmp.i.i.i, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i.i, label %if.then.i.i.i
 
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit.i.i:  ; preds = %call.i.noexc
-  store ptr null, ptr %agg.tmp, align 8
   %storage_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %storage_.i4.i.i = getelementptr inbounds i8, ptr %call.i54, i64 8
   %42 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !309
@@ -17909,7 +17875,7 @@ attributes #18 = { mustprogress nofree nosync nounwind willreturn memory(none) "
 attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nofree nounwind memory(read) }
+attributes #22 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #23 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

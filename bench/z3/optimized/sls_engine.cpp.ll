@@ -5592,8 +5592,6 @@ land.lhs.true.i:                                  ; preds = %if.then9.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
   %m_state.i.i.le = getelementptr inbounds i8, ptr %curr.062.i, i64 4
-  %m_data.i.i.le = getelementptr inbounds i8, ptr %curr.062.i, i64 8
-  store i32 %j14.0289, ptr %m_data.i.i.le, align 8
   %ref.tmp.i.i194.sroa.8231.0.m_data.i.le.i.sroa_idx = getelementptr inbounds i8, ptr %curr.062.i, i64 16
   store ptr %call5.i, ptr %ref.tmp.i.i194.sroa.8231.0.m_data.i.le.i.sroa_idx, align 8
   store i32 2, ptr %m_state.i.i.le, align 4
@@ -5651,8 +5649,6 @@ land.lhs.true34.i:                                ; preds = %if.then31.i
 
 if.then37.i:                                      ; preds = %land.lhs.true34.i
   %m_state.i40.i.le = getelementptr inbounds i8, ptr %curr.166.i, i64 4
-  %m_data.i42.i.le = getelementptr inbounds i8, ptr %curr.166.i, i64 8
-  store i32 %j14.0289, ptr %m_data.i42.i.le, align 8
   %ref.tmp.i.i194.sroa.8231.0.m_data.i42.le.i.sroa_idx = getelementptr inbounds i8, ptr %curr.166.i, i64 16
   store ptr %call5.i, ptr %ref.tmp.i.i194.sroa.8231.0.m_data.i42.le.i.sroa_idx, align 8
   store i32 2, ptr %m_state.i40.i.le, align 4
@@ -6682,8 +6678,6 @@ land.lhs.true.i:                                  ; preds = %if.then9.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
   %m_state.i.i.le = getelementptr inbounds i8, ptr %curr.062.i, i64 4
-  %m_data.i.i.le = getelementptr inbounds i8, ptr %curr.062.i, i64 8
-  store i32 %j18.0512, ptr %m_data.i.i.le, align 8
   %ref.tmp.i.i.sroa.8391.0.m_data.i.le.i.sroa_idx = getelementptr inbounds i8, ptr %curr.062.i, i64 16
   store ptr %call5.i, ptr %ref.tmp.i.i.sroa.8391.0.m_data.i.le.i.sroa_idx, align 8
   store i32 2, ptr %m_state.i.i.le, align 4
@@ -6741,8 +6735,6 @@ land.lhs.true34.i:                                ; preds = %if.then31.i
 
 if.then37.i:                                      ; preds = %land.lhs.true34.i
   %m_state.i40.i.le = getelementptr inbounds i8, ptr %curr.166.i, i64 4
-  %m_data.i42.i.le = getelementptr inbounds i8, ptr %curr.166.i, i64 8
-  store i32 %j18.0512, ptr %m_data.i42.i.le, align 8
   %ref.tmp.i.i.sroa.8391.0.m_data.i42.le.i.sroa_idx = getelementptr inbounds i8, ptr %curr.166.i, i64 16
   store ptr %call5.i, ptr %ref.tmp.i.i.sroa.8391.0.m_data.i42.le.i.sroa_idx, align 8
   store i32 2, ptr %m_state.i40.i.le, align 4
@@ -7239,8 +7231,6 @@ land.lhs.true.i317:                               ; preds = %if.then9.i282
 
 if.then14.i320:                                   ; preds = %land.lhs.true.i317
   %m_state.i.i272.le = getelementptr inbounds i8, ptr %curr.062.i271, i64 4
-  %m_data.i.i318.le = getelementptr inbounds i8, ptr %curr.062.i271, i64 8
-  store i32 %k.0.lcssa, ptr %m_data.i.i318.le, align 8
   %ref.tmp.i.i189.sroa.8401.0.m_data.i.le.i322.sroa_idx = getelementptr inbounds i8, ptr %curr.062.i271, i64 16
   store ptr %call5.i202, ptr %ref.tmp.i.i189.sroa.8401.0.m_data.i.le.i322.sroa_idx, align 8
   store i32 2, ptr %m_state.i.i272.le, align 4
@@ -7298,8 +7288,6 @@ land.lhs.true34.i311:                             ; preds = %if.then31.i304
 
 if.then37.i314:                                   ; preds = %land.lhs.true34.i311
   %m_state.i40.i294.le = getelementptr inbounds i8, ptr %curr.166.i293, i64 4
-  %m_data.i42.i312.le = getelementptr inbounds i8, ptr %curr.166.i293, i64 8
-  store i32 %k.0.lcssa, ptr %m_data.i42.i312.le, align 8
   %ref.tmp.i.i189.sroa.8401.0.m_data.i42.le.i316.sroa_idx = getelementptr inbounds i8, ptr %curr.166.i293, i64 16
   store ptr %call5.i202, ptr %ref.tmp.i.i189.sroa.8401.0.m_data.i42.le.i316.sroa_idx, align 8
   store i32 2, ptr %m_state.i40.i294.le, align 4
@@ -27713,7 +27701,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %26 = load ptr, ptr %arrayidx.i18, align 8
   %bf.load.i19 = load i32, ptr %26, align 8
   %bf.lshr.i20 = lshr i32 %bf.load.i19, 30
-  switch i32 %bf.lshr.i20, label %default.unreachable70 [
+  switch i32 %bf.lshr.i20, label %default.unreachable [
     i32 0, label %sw.bb
     i32 2, label %sw.bb8
     i32 1, label %sw.bb9
@@ -27873,7 +27861,7 @@ sw.bb11:                                          ; preds = %for.body
   tail call void @exit(i32 noundef 114) #23
   unreachable
 
-default.unreachable70:                            ; preds = %for.body
+default.unreachable:                              ; preds = %for.body
   unreachable
 
 sw.epilog:                                        ; preds = %if.then2.i.i.i35, %if.then.i.i.i31, %sw.bb8, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit
@@ -27901,7 +27889,7 @@ while.body:                                       ; preds = %if.end, %entry
   %bf.load.i = phi i32 [ %bf.load.i.pre, %entry ], [ %bf.set, %if.end ]
   %c.addr.0 = phi ptr [ %c, %entry ], [ %next.0, %if.end ]
   %bf.lshr.i = lshr i32 %bf.load.i, 30
-  switch i32 %bf.lshr.i, label %default.unreachable25 [
+  switch i32 %bf.lshr.i, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb
     i32 2, label %sw.epilog
@@ -27982,7 +27970,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i:
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %12, i64 noundef %add.i, ptr noundef nonnull %arrayidx.i.i)
   br label %sw.epilog.thread
 
-default.unreachable25:                            ; preds = %while.body
+default.unreachable:                              ; preds = %while.body
   unreachable
 
 sw.epilog.thread:                                 ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE7dec_refEjPP4expr.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i

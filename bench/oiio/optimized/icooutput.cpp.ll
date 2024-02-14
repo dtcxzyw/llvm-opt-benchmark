@@ -870,7 +870,6 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store ptr null, ptr %m_file, align 8
   %m_png.i = getelementptr inbounds i8, ptr %this, i64 304
   %m_pngtext.i = getelementptr inbounds i8, ptr %this, i64 320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_png.i, i8 0, i64 16, i1 false)

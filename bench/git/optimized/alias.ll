@@ -289,7 +289,6 @@ entry:
   br i1 %tobool.not79, label %do.body90.thread, label %for.body
 
 do.body90.thread:                                 ; preds = %entry
-  store i8 0, ptr %cmdline, align 1
   %.pre88104 = load ptr, ptr %argv, align 8
   br label %do.end111
 

@@ -6524,12 +6524,12 @@ _ZNK6vectorIPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dep
   %11 = load i32, ptr %arrayidx.i.i11, align 4
   %12 = zext i32 %11 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %10, i64 %12
-  %cmp19.not54 = icmp eq i32 %11, 0
-  br i1 %cmp19.not54, label %return, label %for.body
+  %cmp19.not52 = icmp eq i32 %11, 0
+  br i1 %cmp19.not52, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK6vectorIPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyELb0EjE3endEv.exit, %for.inc29
-  %__begin2.055 = phi ptr [ %incdec.ptr30, %for.inc29 ], [ %10, %_ZNK6vectorIPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyELb0EjE3endEv.exit ]
-  %13 = load ptr, ptr %__begin2.055, align 8
+  %__begin2.053 = phi ptr [ %incdec.ptr30, %for.inc29 ], [ %10, %_ZNK6vectorIPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyELb0EjE3endEv.exit ]
+  %13 = load ptr, ptr %__begin2.053, align 8
   %14 = load ptr, ptr %this, align 8
   %15 = load ptr, ptr %14, align 8
   %m_tmp_dependencies.i = getelementptr inbounds i8, ptr %15, i64 1440
@@ -6601,12 +6601,12 @@ _ZNK6vectorIjLb0EjE3endEv.exit:                   ; preds = %_ZN2lp10lar_solver7
   %26 = load i32, ptr %arrayidx.i.i16, align 4
   %27 = zext i32 %26 to i64
   %add.ptr.i18 = getelementptr inbounds i32, ptr %25, i64 %27
-  %cmp25.not52 = icmp eq i32 %26, 0
-  br i1 %cmp25.not52, label %for.inc29, label %for.body26
+  %cmp25.not50 = icmp eq i32 %26, 0
+  br i1 %cmp25.not50, label %for.inc29, label %for.body26
 
 for.body26:                                       ; preds = %_ZNK6vectorIjLb0EjE3endEv.exit, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE6insertEOj.exit
-  %__begin3.053 = phi ptr [ %incdec.ptr, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE6insertEOj.exit ], [ %25, %_ZNK6vectorIjLb0EjE3endEv.exit ]
-  %28 = load i32, ptr %__begin3.053, align 4
+  %__begin3.051 = phi ptr [ %incdec.ptr, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE6insertEOj.exit ], [ %25, %_ZNK6vectorIjLb0EjE3endEv.exit ]
+  %28 = load i32, ptr %__begin3.051, align 4
   %29 = load ptr, ptr %this, align 8
   %m_ex28 = getelementptr inbounds i8, ptr %29, i64 264
   %30 = load ptr, ptr %m_ex28, align 8
@@ -6625,8 +6625,8 @@ for.body26:                                       ; preds = %_ZNK6vectorIjLb0EjE
 
 for.body26.if.end.i_crit_edge:                    ; preds = %for.body26
   %.pre = load ptr, ptr %m_set.i, align 8
-  %.pre69 = add i32 %33, -1
-  %.pre70 = zext i32 %33 to i64
+  %.pre67 = add i32 %33, -1
+  %.pre68 = zext i32 %33 to i64
   br label %if.end.i
 
 if.then.i:                                        ; preds = %for.body26
@@ -6729,8 +6729,8 @@ _ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE12expand_tableEv.exit: ;
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.body26.if.end.i_crit_edge, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE12expand_tableEv.exit
-  %idx.ext5.i.pre-phi = phi i64 [ %.pre70, %for.body26.if.end.i_crit_edge ], [ %conv.i.i.i, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE12expand_tableEv.exit ]
-  %sub.i.pre-phi = phi i32 [ %.pre69, %for.body26.if.end.i_crit_edge ], [ %sub.i.i, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE12expand_tableEv.exit ]
+  %idx.ext5.i.pre-phi = phi i64 [ %.pre68, %for.body26.if.end.i_crit_edge ], [ %conv.i.i.i, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE12expand_tableEv.exit ]
+  %sub.i.pre-phi = phi i32 [ %.pre67, %for.body26.if.end.i_crit_edge ], [ %sub.i.i, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE12expand_tableEv.exit ]
   %41 = phi i32 [ %32, %for.body26.if.end.i_crit_edge ], [ 0, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE12expand_tableEv.exit ]
   %42 = phi ptr [ %.pre, %for.body26.if.end.i_crit_edge ], [ %call.i.i.i, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE12expand_tableEv.exit ]
   %43 = phi i32 [ %33, %for.body26.if.end.i_crit_edge ], [ %shl.i24, %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE12expand_tableEv.exit ]
@@ -6769,8 +6769,6 @@ land.lhs.true.i:                                  ; preds = %if.then9.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
   %m_state.i.i.le = getelementptr inbounds i8, ptr %curr.062.i, i64 4
-  %m_data.i.i.le = getelementptr inbounds i8, ptr %curr.062.i, i64 8
-  store i32 %28, ptr %m_data.i.i.le, align 4
   store i32 2, ptr %m_state.i.i.le, align 4
   br label %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE6insertEOj.exit
 
@@ -6824,8 +6822,6 @@ land.lhs.true34.i:                                ; preds = %if.then31.i
 
 if.then37.i:                                      ; preds = %land.lhs.true34.i
   %m_state.i40.i.le = getelementptr inbounds i8, ptr %curr.166.i, i64 4
-  %m_data.i42.i.le = getelementptr inbounds i8, ptr %curr.166.i, i64 8
-  store i32 %28, ptr %m_data.i42.i.le, align 4
   store i32 2, ptr %m_state.i40.i.le, align 4
   br label %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE6insertEOj.exit
 
@@ -6862,12 +6858,12 @@ for.end56.i:                                      ; preds = %for.cond27.preheade
   unreachable
 
 _ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE6insertEOj.exit: ; preds = %if.then14.i, %if.end21.i, %if.then37.i, %if.end48.i
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.053, i64 4
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.051, i64 4
   %cmp25.not = icmp eq ptr %incdec.ptr, %add.ptr.i18
   br i1 %cmp25.not, label %for.inc29, label %for.body26
 
 for.inc29:                                        ; preds = %_ZN14core_hashtableI18default_hash_entryIjE6u_hash4u_eqE6insertEOj.exit, %_ZN2lp10lar_solver7flattenEPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyE.exit, %_ZNK6vectorIjLb0EjE3endEv.exit
-  %incdec.ptr30 = getelementptr inbounds i8, ptr %__begin2.055, i64 8
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %__begin2.053, i64 8
   %cmp19.not = icmp eq ptr %incdec.ptr30, %add.ptr.i
   br i1 %cmp19.not, label %return, label %for.body
 
@@ -8677,8 +8673,6 @@ land.lhs.true:                                    ; preds = %if.then9
 
 if.then14:                                        ; preds = %land.lhs.true
   %m_state.i.le = getelementptr inbounds i8, ptr %curr.0200, i64 4
-  %m_data.i.le = getelementptr inbounds i8, ptr %curr.0200, i64 8
-  store i32 %4, ptr %m_data.i.le, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %curr.0200, i64 16
   %m_value3.i.i = getelementptr inbounds i8, ptr %e, i64 8
   %9 = load i32, ptr %m_value.i.i, align 4
@@ -8875,8 +8869,6 @@ land.lhs.true34:                                  ; preds = %if.then31
 
 if.then37:                                        ; preds = %land.lhs.true34
   %m_state.i86.le = getelementptr inbounds i8, ptr %curr.1204, i64 4
-  %m_data.i88.le = getelementptr inbounds i8, ptr %curr.1204, i64 8
-  store i32 %4, ptr %m_data.i88.le, align 8
   %m_value.i.i91 = getelementptr inbounds i8, ptr %curr.1204, i64 16
   %m_value3.i.i92 = getelementptr inbounds i8, ptr %e, i64 8
   %31 = load i32, ptr %m_value.i.i91, align 4

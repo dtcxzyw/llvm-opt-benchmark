@@ -4278,8 +4278,8 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
 
 _ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit: ; preds = %land.rhs.i.i.i, %entry
   %retval.sroa.0.1.i = phi ptr [ %1, %entry ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
-  %cmp.i.not209 = icmp eq ptr %retval.sroa.0.1.i, %add.ptr.i
-  br i1 %cmp.i.not209, label %for.end24, label %for.body.lr.ph
+  %cmp.i.not207 = icmp eq ptr %retval.sroa.0.1.i, %add.ptr.i
+  br i1 %cmp.i.not207, label %for.end24, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit
   %m_body2rules = getelementptr inbounds i8, ptr %this, i64 96
@@ -4291,8 +4291,8 @@ for.body.lr.ph:                                   ; preds = %_ZNK14core_hashtabl
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit
-  %__begin2.sroa.0.0211 = phi ptr [ %retval.sroa.0.1.i, %for.body.lr.ph ], [ %__begin2.sroa.0.1, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ]
-  %m_data.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0211, i64 8
+  %__begin2.sroa.0.0209 = phi ptr [ %retval.sroa.0.1.i, %for.body.lr.ph ], [ %__begin2.sroa.0.1, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ]
+  %m_data.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0209, i64 8
   %4 = load ptr, ptr %m_data.i.i, align 8
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   %5 = load i32, ptr %m_hash.i.i.i.i.i.i.i, align 4
@@ -4368,12 +4368,12 @@ _ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit:     ; preds = %if.end
   %14 = load i32, ptr %arrayidx.i.i, align 4
   %15 = zext i32 %14 to i64
   %add.ptr.i14 = getelementptr inbounds ptr, ptr %13, i64 %15
-  %cmp.not207 = icmp eq i32 %14, 0
-  br i1 %cmp.not207, label %for.inc22, label %for.body9
+  %cmp.not205 = icmp eq i32 %14, 0
+  br i1 %cmp.not205, label %for.inc22, label %for.body9
 
 for.body9:                                        ; preds = %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit, %for.inc
-  %__begin3.0208 = phi ptr [ %incdec.ptr, %for.inc ], [ %13, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit ]
-  %16 = load ptr, ptr %__begin3.0208, align 8
+  %__begin3.0206 = phi ptr [ %incdec.ptr, %for.inc ], [ %13, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit ]
+  %16 = load ptr, ptr %__begin3.0206, align 8
   %m_head.i = getelementptr inbounds i8, ptr %16, i64 40
   %17 = load ptr, ptr %m_head.i, align 8
   %m_decl.i = getelementptr inbounds i8, ptr %17, i64 16
@@ -4389,8 +4389,8 @@ for.body9:                                        ; preds = %_ZN6vectorIPN7datal
 
 for.body9.if.end.i33_crit_edge:                   ; preds = %for.body9
   %.pre = load ptr, ptr %m_facts, align 8
-  %.pre254 = add i32 %21, -1
-  %.pre255 = zext i32 %21 to i64
+  %.pre252 = add i32 %21, -1
+  %.pre253 = zext i32 %21 to i64
   br label %if.end.i33
 
 if.then.i45:                                      ; preds = %for.body9
@@ -4493,8 +4493,8 @@ _ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoE
   br label %if.end.i33
 
 if.end.i33:                                       ; preds = %for.body9.if.end.i33_crit_edge, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit
-  %idx.ext5.i.pre-phi = phi i64 [ %.pre255, %for.body9.if.end.i33_crit_edge ], [ %conv.i.i.i94, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
-  %sub.i.pre-phi = phi i32 [ %.pre254, %for.body9.if.end.i33_crit_edge ], [ %sub.i.i, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
+  %idx.ext5.i.pre-phi = phi i64 [ %.pre253, %for.body9.if.end.i33_crit_edge ], [ %conv.i.i.i94, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
+  %sub.i.pre-phi = phi i32 [ %.pre252, %for.body9.if.end.i33_crit_edge ], [ %sub.i.i, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
   %29 = phi i32 [ %20, %for.body9.if.end.i33_crit_edge ], [ 0, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
   %30 = phi ptr [ %.pre, %for.body9.if.end.i33_crit_edge ], [ %call.i.i.i, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
   %31 = phi i32 [ %21, %for.body9.if.end.i33_crit_edge ], [ %shl.i93, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
@@ -4730,9 +4730,9 @@ if.then15:                                        ; preds = %for.cond.i, %for.co
   br i1 %cmp.i53, label %if.then.i90, label %if.then15.if.end.i54_crit_edge
 
 if.then15.if.end.i54_crit_edge:                   ; preds = %if.then15
-  %.pre250 = load ptr, ptr %arrayidx20, align 8
-  %.pre256 = add i32 %61, -1
-  %.pre257 = zext i32 %61 to i64
+  %.pre248 = load ptr, ptr %arrayidx20, align 8
+  %.pre254 = add i32 %61, -1
+  %.pre255 = zext i32 %61 to i64
   br label %if.end.i54
 
 if.then.i90:                                      ; preds = %if.then15
@@ -4835,10 +4835,10 @@ _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqI
   br label %if.end.i54
 
 if.end.i54:                                       ; preds = %if.then15.if.end.i54_crit_edge, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit
-  %idx.ext5.i59.pre-phi = phi i64 [ %.pre257, %if.then15.if.end.i54_crit_edge ], [ %conv.i.i.i107, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
-  %sub.i55.pre-phi = phi i32 [ %.pre256, %if.then15.if.end.i54_crit_edge ], [ %sub.i.i113, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
+  %idx.ext5.i59.pre-phi = phi i64 [ %.pre255, %if.then15.if.end.i54_crit_edge ], [ %conv.i.i.i107, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
+  %sub.i55.pre-phi = phi i32 [ %.pre254, %if.then15.if.end.i54_crit_edge ], [ %sub.i.i113, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
   %69 = phi i32 [ %60, %if.then15.if.end.i54_crit_edge ], [ 0, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
-  %70 = phi ptr [ %.pre250, %if.then15.if.end.i54_crit_edge ], [ %call.i.i.i109, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
+  %70 = phi ptr [ %.pre248, %if.then15.if.end.i54_crit_edge ], [ %call.i.i.i109, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
   %71 = phi i32 [ %61, %if.then15.if.end.i54_crit_edge ], [ %shl.i106, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
   %72 = load i32, ptr %m_hash.i.i.i.i.i, align 4
   %and.i56 = and i32 %sub.i55.pre-phi, %72
@@ -4876,8 +4876,6 @@ land.lhs.true.i87:                                ; preds = %if.then9.i66
 
 if.then14.i:                                      ; preds = %land.lhs.true.i87
   %m_state.i.i62.le = getelementptr inbounds i8, ptr %curr.062.i, i64 4
-  %m_data.i.i88.le = getelementptr inbounds i8, ptr %curr.062.i, i64 8
-  store ptr %18, ptr %m_data.i.i88.le, align 8
   store i32 2, ptr %m_state.i.i62.le, align 4
   br label %for.inc
 
@@ -4931,8 +4929,6 @@ land.lhs.true34.i86:                              ; preds = %if.then31.i79
 
 if.then37.i:                                      ; preds = %land.lhs.true34.i86
   %m_state.i40.i.le = getelementptr inbounds i8, ptr %curr.166.i, i64 4
-  %m_data.i42.i.le = getelementptr inbounds i8, ptr %curr.166.i, i64 8
-  store ptr %18, ptr %m_data.i42.i.le, align 8
   store i32 2, ptr %m_state.i40.i.le, align 4
   br label %for.inc
 
@@ -4969,12 +4965,12 @@ for.end56.i85:                                    ; preds = %for.cond27.preheade
   unreachable
 
 for.inc:                                          ; preds = %_ZNK7datalog11fact_readerINS_17reachability_infoEE3getEj.exit.i, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit, %if.end48.i, %if.then37.i, %if.end21.i, %if.then14.i
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.0208, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.0206, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i14
   br i1 %cmp.not, label %for.inc22, label %for.body9
 
 for.inc22:                                        ; preds = %for.body.i.i.i, %for.inc36.i.i.i, %for.body20.i.i.i, %for.inc, %if.end, %_ZN6vectorIPN7datalog4ruleELb0EjE3endEv.exit, %for.cond18.preheader.i.i.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0211, i64 16
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0209, i64 16
   %cmp.not2.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not2.i.i, label %for.end24.loopexit, label %land.rhs.i.i
 
@@ -4995,13 +4991,13 @@ _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqI
   br i1 %cmp.i.not, label %for.end24.loopexit, label %for.body
 
 for.end24.loopexit:                               ; preds = %for.inc22, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit, %while.body.i.i
-  %.pre251 = load i32, ptr %m_todo_idx, align 8
-  %.pre253 = zext i32 %.pre251 to i64
+  %.pre249 = load i32, ptr %m_todo_idx, align 8
+  %.pre251 = zext i32 %.pre249 to i64
   br label %for.end24
 
 for.end24:                                        ; preds = %while.body.i.i.i, %for.end24.loopexit, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit
-  %idxprom27.pre-phi = phi i64 [ %.pre253, %for.end24.loopexit ], [ %idxprom, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ], [ %idxprom, %while.body.i.i.i ]
-  %82 = phi i32 [ %.pre251, %for.end24.loopexit ], [ %0, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ], [ %0, %while.body.i.i.i ]
+  %idxprom27.pre-phi = phi i64 [ %.pre251, %for.end24.loopexit ], [ %idxprom, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ], [ %idxprom, %while.body.i.i.i ]
+  %82 = phi i32 [ %.pre249, %for.end24.loopexit ], [ %0, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ], [ %0, %while.body.i.i.i ]
   %arrayidx28 = getelementptr inbounds [2 x %class.hashtable], ptr %m_todo, i64 0, i64 %idxprom27.pre-phi
   %m_size.i = getelementptr inbounds i8, ptr %arrayidx28, i64 12
   %83 = load i32, ptr %m_size.i, align 4
@@ -5084,11 +5080,11 @@ _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqI
 if.end18.i:                                       ; preds = %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE11alloc_tableEj.exit.i, %for.end.i25, %if.end.i
   store i32 0, ptr %m_size.i, align 4
   store i32 0, ptr %m_num_deleted.i, align 8
-  %.pre252 = load i32, ptr %m_todo_idx, align 8
+  %.pre250 = load i32, ptr %m_todo_idx, align 8
   br label %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5resetEv.exit
 
 _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5resetEv.exit: ; preds = %for.end24, %if.end18.i
-  %91 = phi i32 [ %82, %for.end24 ], [ %.pre252, %if.end18.i ]
+  %91 = phi i32 [ %82, %for.end24 ], [ %.pre250, %if.end18.i ]
   %tobool30.not = icmp eq i32 %91, 0
   %conv = zext i1 %tobool30.not to i32
   store i32 %conv, ptr %m_todo_idx, align 8
@@ -5396,8 +5392,6 @@ land.lhs.true:                                    ; preds = %if.then9
 
 if.then14:                                        ; preds = %land.lhs.true
   %m_state.i.le = getelementptr inbounds i8, ptr %curr.062, i64 4
-  %m_data.i.le = getelementptr inbounds i8, ptr %curr.062, i64 8
-  store ptr %4, ptr %m_data.i.le, align 8
   store i32 2, ptr %m_state.i.le, align 4
   br label %return
 
@@ -5454,8 +5448,6 @@ land.lhs.true34:                                  ; preds = %if.then31
 
 if.then37:                                        ; preds = %land.lhs.true34
   %m_state.i40.le = getelementptr inbounds i8, ptr %curr.166, i64 4
-  %m_data.i42.le = getelementptr inbounds i8, ptr %curr.166, i64 8
-  store ptr %4, ptr %m_data.i42.le, align 8
   store i32 2, ptr %m_state.i40.le, align 4
   br label %return
 
@@ -5787,8 +5779,8 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
 
 _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit: ; preds = %land.rhs.i.i.i, %entry
   %retval.sroa.0.1.i = phi ptr [ %1, %entry ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
-  %cmp.i.not153 = icmp eq ptr %retval.sroa.0.1.i, %add.ptr.i
-  br i1 %cmp.i.not153, label %for.end15, label %for.body.lr.ph
+  %cmp.i.not151 = icmp eq ptr %retval.sroa.0.1.i, %add.ptr.i
+  br i1 %cmp.i.not151, label %for.end15, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit
   %m_facts = getelementptr inbounds i8, ptr %this, i64 8
@@ -5800,8 +5792,8 @@ for.body.lr.ph:                                   ; preds = %_ZNK14core_hashtabl
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit
-  %__begin2.sroa.0.0154 = phi ptr [ %retval.sroa.0.1.i, %for.body.lr.ph ], [ %__begin2.sroa.0.1, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ]
-  %4 = load ptr, ptr %__begin2.sroa.0.0154, align 8
+  %__begin2.sroa.0.0152 = phi ptr [ %retval.sroa.0.1.i, %for.body.lr.ph ], [ %__begin2.sroa.0.1, %_ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ]
+  %4 = load ptr, ptr %__begin2.sroa.0.0152, align 8
   %5 = load ptr, ptr %this, align 8
   %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7datalog8rule_set19get_predicate_rulesEP9func_decl(ptr noundef nonnull align 8 dereferenceable(248) %5, ptr noundef %4)
   %6 = load ptr, ptr %call7, align 8
@@ -5813,15 +5805,15 @@ _ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit:    ; preds = %for.body
   %7 = load i32, ptr %arrayidx.i.i, align 4
   %8 = zext i32 %7 to i64
   %add.ptr.i10 = getelementptr inbounds ptr, ptr %6, i64 %8
-  %cmp.not151 = icmp eq i32 %7, 0
-  br i1 %cmp.not151, label %for.inc13, label %for.body11.lr.ph
+  %cmp.not149 = icmp eq i32 %7, 0
+  br i1 %cmp.not149, label %for.inc13, label %for.body11.lr.ph
 
 for.body11.lr.ph:                                 ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit
   %m_hash.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 12
   br label %for.body11
 
 for.body11:                                       ; preds = %for.body11.lr.ph, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOS2_.exit
-  %__begin3.0152 = phi ptr [ %6, %for.body11.lr.ph ], [ %incdec.ptr, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOS2_.exit ]
+  %__begin3.0150 = phi ptr [ %6, %for.body11.lr.ph ], [ %incdec.ptr, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOS2_.exit ]
   %9 = load i32, ptr %m_size.i, align 4
   %10 = load i32, ptr %m_num_deleted.i, align 8
   %add.i = add i32 %10, %9
@@ -5833,8 +5825,8 @@ for.body11:                                       ; preds = %for.body11.lr.ph, %
 
 for.body11.if.end.i_crit_edge:                    ; preds = %for.body11
   %.pre = load ptr, ptr %m_facts, align 8
-  %.pre183 = add i32 %11, -1
-  %.pre184 = zext i32 %11 to i64
+  %.pre181 = add i32 %11, -1
+  %.pre182 = zext i32 %11 to i64
   br label %if.end.i
 
 if.then.i:                                        ; preds = %for.body11
@@ -5937,8 +5929,8 @@ _ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoE
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.body11.if.end.i_crit_edge, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit
-  %idx.ext5.i.pre-phi = phi i64 [ %.pre184, %for.body11.if.end.i_crit_edge ], [ %conv.i.i.i, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
-  %sub.i.pre-phi = phi i32 [ %.pre183, %for.body11.if.end.i_crit_edge ], [ %sub.i.i, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
+  %idx.ext5.i.pre-phi = phi i64 [ %.pre182, %for.body11.if.end.i_crit_edge ], [ %conv.i.i.i, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
+  %sub.i.pre-phi = phi i32 [ %.pre181, %for.body11.if.end.i_crit_edge ], [ %sub.i.i, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
   %19 = phi i32 [ %10, %for.body11.if.end.i_crit_edge ], [ 0, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
   %20 = phi ptr [ %.pre, %for.body11.if.end.i_crit_edge ], [ %call.i.i.i, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
   %21 = phi i32 [ %11, %for.body11.if.end.i_crit_edge ], [ %shl.i60, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
@@ -6062,9 +6054,9 @@ _ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoE
   br i1 %cmp.i22, label %if.then.i57, label %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit.if.end.i23_crit_edge
 
 _ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit.if.end.i23_crit_edge: ; preds = %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit
-  %.pre182 = load ptr, ptr %arrayidx, align 8
-  %.pre185 = add i32 %33, -1
-  %.pre186 = zext i32 %33 to i64
+  %.pre180 = load ptr, ptr %arrayidx, align 8
+  %.pre183 = add i32 %33, -1
+  %.pre184 = zext i32 %33 to i64
   br label %if.end.i23
 
 if.then.i57:                                      ; preds = %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit
@@ -6167,10 +6159,10 @@ _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqI
   br label %if.end.i23
 
 if.end.i23:                                       ; preds = %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit.if.end.i23_crit_edge, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit
-  %idx.ext5.i28.pre-phi = phi i64 [ %.pre186, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit.if.end.i23_crit_edge ], [ %conv.i.i.i68, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
-  %sub.i24.pre-phi = phi i32 [ %.pre185, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit.if.end.i23_crit_edge ], [ %sub.i.i73, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
+  %idx.ext5.i28.pre-phi = phi i64 [ %.pre184, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit.if.end.i23_crit_edge ], [ %conv.i.i.i68, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
+  %sub.i24.pre-phi = phi i32 [ %.pre183, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit.if.end.i23_crit_edge ], [ %sub.i.i73, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
   %41 = phi i32 [ %32, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit.if.end.i23_crit_edge ], [ 0, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
-  %42 = phi ptr [ %.pre182, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit.if.end.i23_crit_edge ], [ %call.i.i.i70, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
+  %42 = phi ptr [ %.pre180, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit.if.end.i23_crit_edge ], [ %call.i.i.i70, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
   %43 = phi i32 [ %33, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE24insert_if_not_there_coreEO9_key_dataIS2_S4_ERPS5_.exit.if.end.i23_crit_edge ], [ %shl.i67, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
   %44 = load i32, ptr %m_hash.i.i.i.i.i, align 4
   %and.i25 = and i32 %sub.i24.pre-phi, %44
@@ -6208,8 +6200,6 @@ land.lhs.true.i55:                                ; preds = %if.then9.i34
 
 if.then14.i:                                      ; preds = %land.lhs.true.i55
   %m_state.i.i31.le = getelementptr inbounds i8, ptr %curr.062.i, i64 4
-  %m_data.i.i56.le = getelementptr inbounds i8, ptr %curr.062.i, i64 8
-  store ptr %4, ptr %m_data.i.i56.le, align 8
   store i32 2, ptr %m_state.i.i31.le, align 4
   br label %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOS2_.exit
 
@@ -6263,8 +6253,6 @@ land.lhs.true34.i54:                              ; preds = %if.then31.i47
 
 if.then37.i:                                      ; preds = %land.lhs.true34.i54
   %m_state.i40.i.le = getelementptr inbounds i8, ptr %curr.166.i, i64 4
-  %m_data.i42.i.le = getelementptr inbounds i8, ptr %curr.166.i, i64 8
-  store ptr %4, ptr %m_data.i42.i.le, align 8
   store i32 2, ptr %m_state.i40.i.le, align 4
   br label %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOS2_.exit
 
@@ -6301,12 +6289,12 @@ for.end56.i53:                                    ; preds = %for.cond27.preheade
   unreachable
 
 _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOS2_.exit: ; preds = %if.then14.i, %if.end21.i, %if.then37.i, %if.end48.i
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.0152, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.0150, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i10
   br i1 %cmp.not, label %for.inc13, label %for.body11
 
 for.inc13:                                        ; preds = %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOS2_.exit, %for.body, %_ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0154, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0152, i64 8
   %cmp.not2.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not2.i.i, label %for.end15, label %land.rhs.i.i
 
@@ -6359,8 +6347,8 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
 
 _ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit: ; preds = %land.rhs.i.i.i, %entry
   %retval.sroa.0.1.i = phi ptr [ %1, %entry ], [ %retval.sroa.0.0.i, %land.rhs.i.i.i ]
-  %cmp.i.not195 = icmp eq ptr %retval.sroa.0.1.i, %add.ptr.i
-  br i1 %cmp.i.not195, label %for.end18, label %for.body.lr.ph
+  %cmp.i.not193 = icmp eq ptr %retval.sroa.0.1.i, %add.ptr.i
+  br i1 %cmp.i.not193, label %for.end18, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit
   %m_facts = getelementptr inbounds i8, ptr %this, i64 8
@@ -6370,8 +6358,8 @@ for.body.lr.ph:                                   ; preds = %_ZNK14core_hashtabl
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit
-  %__begin2.sroa.0.0196 = phi ptr [ %retval.sroa.0.1.i, %for.body.lr.ph ], [ %__begin2.sroa.0.1, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ]
-  %m_data.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0196, i64 8
+  %__begin2.sroa.0.0194 = phi ptr [ %retval.sroa.0.1.i, %for.body.lr.ph ], [ %__begin2.sroa.0.1, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ]
+  %m_data.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0194, i64 8
   %4 = load ptr, ptr %m_data.i.i, align 8
   %5 = load ptr, ptr %this, align 8
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7datalog8rule_set19get_predicate_rulesEP9func_decl(ptr noundef nonnull align 8 dereferenceable(248) %5, ptr noundef %4)
@@ -6384,12 +6372,12 @@ _ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit:    ; preds = %for.body
   %7 = load i32, ptr %arrayidx.i.i, align 4
   %8 = zext i32 %7 to i64
   %add.ptr.i14 = getelementptr inbounds ptr, ptr %6, i64 %8
-  %cmp.not193 = icmp eq i32 %7, 0
-  br i1 %cmp.not193, label %for.inc16, label %for.body10
+  %cmp.not191 = icmp eq i32 %7, 0
+  br i1 %cmp.not191, label %for.inc16, label %for.body10
 
 for.body10:                                       ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit, %_ZNK7datalog17reachability_info14propagate_downERK11ast_managerPKNS_4ruleERNS_11fact_writerIS0_EE.exit
-  %__begin3.0194 = phi ptr [ %incdec.ptr, %_ZNK7datalog17reachability_info14propagate_downERK11ast_managerPKNS_4ruleERNS_11fact_writerIS0_EE.exit ], [ %6, %_ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit ]
-  %9 = load ptr, ptr %__begin3.0194, align 8
+  %__begin3.0192 = phi ptr [ %incdec.ptr, %_ZNK7datalog17reachability_info14propagate_downERK11ast_managerPKNS_4ruleERNS_11fact_writerIS0_EE.exit ], [ %6, %_ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit ]
+  %9 = load ptr, ptr %__begin3.0192, align 8
   %10 = load i32, ptr %m_todo_idx, align 8
   %tobool.not = icmp eq i32 %10, 0
   %idxprom14 = zext i1 %tobool.not to i64
@@ -6426,8 +6414,8 @@ for.body.i:                                       ; preds = %for.body.i.preheade
 
 for.body.i.if.end.i52_crit_edge:                  ; preds = %for.body.i
   %.pre = load ptr, ptr %m_facts, align 8
-  %.pre229 = add i32 %18, -1
-  %.pre230 = zext i32 %18 to i64
+  %.pre227 = add i32 %18, -1
+  %.pre228 = zext i32 %18 to i64
   br label %if.end.i52
 
 if.then.i88:                                      ; preds = %for.body.i
@@ -6530,8 +6518,8 @@ _ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoE
   br label %if.end.i52
 
 if.end.i52:                                       ; preds = %for.body.i.if.end.i52_crit_edge, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit
-  %idx.ext5.i57.pre-phi = phi i64 [ %.pre230, %for.body.i.if.end.i52_crit_edge ], [ %conv.i.i.i108, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
-  %sub.i53.pre-phi = phi i32 [ %.pre229, %for.body.i.if.end.i52_crit_edge ], [ %sub.i.i113, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
+  %idx.ext5.i57.pre-phi = phi i64 [ %.pre228, %for.body.i.if.end.i52_crit_edge ], [ %conv.i.i.i108, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
+  %sub.i53.pre-phi = phi i32 [ %.pre227, %for.body.i.if.end.i52_crit_edge ], [ %sub.i.i113, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
   %26 = phi i32 [ %17, %for.body.i.if.end.i52_crit_edge ], [ 0, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
   %27 = phi ptr [ %.pre, %for.body.i.if.end.i52_crit_edge ], [ %call.i.i.i110, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
   %28 = phi i32 [ %18, %for.body.i.if.end.i52_crit_edge ], [ %shl.i107, %_ZN14core_hashtableI17default_map_entryIP9func_declN7datalog17reachability_infoEEN9table2mapIS5_12obj_ptr_hashIS1_E6ptr_eqIS1_EE15entry_hash_procENSB_13entry_eq_procEE12expand_tableEv.exit ]
@@ -6662,9 +6650,9 @@ if.then.i16:                                      ; preds = %_ZN14core_hashtable
   br i1 %cmp.i30, label %if.then.i43, label %if.then.i16.if.end.i31_crit_edge
 
 if.then.i16.if.end.i31_crit_edge:                 ; preds = %if.then.i16
-  %.pre225 = load ptr, ptr %arrayidx15, align 8
-  %.pre231 = add i32 %45, -1
-  %.pre232 = zext i32 %45 to i64
+  %.pre223 = load ptr, ptr %arrayidx15, align 8
+  %.pre229 = add i32 %45, -1
+  %.pre230 = zext i32 %45 to i64
   br label %if.end.i31
 
 if.then.i43:                                      ; preds = %if.then.i16
@@ -6767,10 +6755,10 @@ _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqI
   br label %if.end.i31
 
 if.end.i31:                                       ; preds = %if.then.i16.if.end.i31_crit_edge, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit
-  %idx.ext5.i.pre-phi = phi i64 [ %.pre232, %if.then.i16.if.end.i31_crit_edge ], [ %conv.i.i.i92, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
-  %sub.i.pre-phi = phi i32 [ %.pre231, %if.then.i16.if.end.i31_crit_edge ], [ %sub.i.i, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
+  %idx.ext5.i.pre-phi = phi i64 [ %.pre230, %if.then.i16.if.end.i31_crit_edge ], [ %conv.i.i.i92, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
+  %sub.i.pre-phi = phi i32 [ %.pre229, %if.then.i16.if.end.i31_crit_edge ], [ %sub.i.i, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
   %53 = phi i32 [ %44, %if.then.i16.if.end.i31_crit_edge ], [ 0, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
-  %54 = phi ptr [ %.pre225, %if.then.i16.if.end.i31_crit_edge ], [ %call.i.i.i94, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
+  %54 = phi ptr [ %.pre223, %if.then.i16.if.end.i31_crit_edge ], [ %call.i.i.i94, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
   %55 = phi i32 [ %45, %if.then.i16.if.end.i31_crit_edge ], [ %shl.i91, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE12expand_tableEv.exit ]
   %m_hash.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 12
   %56 = load i32, ptr %m_hash.i.i.i.i, align 4
@@ -6809,8 +6797,6 @@ land.lhs.true.i:                                  ; preds = %if.then9.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
   %m_state.i.i35.le = getelementptr inbounds i8, ptr %curr.062.i, i64 4
-  %m_data.i.i41.le = getelementptr inbounds i8, ptr %curr.062.i, i64 8
-  store ptr %42, ptr %m_data.i.i41.le, align 8
   store i32 2, ptr %m_state.i.i35.le, align 4
   br label %for.inc.i
 
@@ -6864,8 +6850,6 @@ land.lhs.true34.i:                                ; preds = %if.then31.i
 
 if.then37.i:                                      ; preds = %land.lhs.true34.i
   %m_state.i40.i.le = getelementptr inbounds i8, ptr %curr.166.i, i64 4
-  %m_data.i42.i.le = getelementptr inbounds i8, ptr %curr.166.i, i64 8
-  store ptr %42, ptr %m_data.i42.i.le, align 8
   store i32 2, ptr %m_state.i40.i.le, align 4
   br label %for.inc.i
 
@@ -6909,12 +6893,12 @@ for.inc.i:                                        ; preds = %if.end48.i, %if.the
   br i1 %cmp.i15, label %for.body.i, label %_ZNK7datalog17reachability_info14propagate_downERK11ast_managerPKNS_4ruleERNS_11fact_writerIS0_EE.exit, !llvm.loop !54
 
 _ZNK7datalog17reachability_info14propagate_downERK11ast_managerPKNS_4ruleERNS_11fact_writerIS0_EE.exit: ; preds = %for.inc.i, %for.body10
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.0194, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.0192, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i14
   br i1 %cmp.not, label %for.inc16, label %for.body10
 
 for.inc16:                                        ; preds = %_ZNK7datalog17reachability_info14propagate_downERK11ast_managerPKNS_4ruleERNS_11fact_writerIS0_EE.exit, %for.body, %_ZNK6vectorIPN7datalog4ruleELb0EjE3endEv.exit
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0196, i64 16
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0194, i64 16
   %cmp.not2.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not2.i.i, label %for.end18.loopexit, label %land.rhs.i.i
 
@@ -6935,13 +6919,13 @@ _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqI
   br i1 %cmp.i.not, label %for.end18.loopexit, label %for.body
 
 for.end18.loopexit:                               ; preds = %for.inc16, %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit, %while.body.i.i
-  %.pre226 = load i32, ptr %m_todo_idx, align 8
-  %.pre228 = zext i32 %.pre226 to i64
+  %.pre224 = load i32, ptr %m_todo_idx, align 8
+  %.pre226 = zext i32 %.pre224 to i64
   br label %for.end18
 
 for.end18:                                        ; preds = %while.body.i.i.i, %for.end18.loopexit, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit
-  %idxprom21.pre-phi = phi i64 [ %.pre228, %for.end18.loopexit ], [ %idxprom, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ], [ %idxprom, %while.body.i.i.i ]
-  %68 = phi i32 [ %.pre226, %for.end18.loopexit ], [ %0, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ], [ %0, %while.body.i.i.i ]
+  %idxprom21.pre-phi = phi i64 [ %.pre226, %for.end18.loopexit ], [ %idxprom, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ], [ %idxprom, %while.body.i.i.i ]
+  %68 = phi i32 [ %.pre224, %for.end18.loopexit ], [ %0, %_ZNK14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ], [ %0, %while.body.i.i.i ]
   %arrayidx22 = getelementptr inbounds [2 x %class.hashtable], ptr %m_todo, i64 0, i64 %idxprom21.pre-phi
   %m_size.i = getelementptr inbounds i8, ptr %arrayidx22, i64 12
   %69 = load i32, ptr %m_size.i, align 4
@@ -7024,11 +7008,11 @@ _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqI
 if.end18.i:                                       ; preds = %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE11alloc_tableEj.exit.i, %for.end.i, %if.end.i
   store i32 0, ptr %m_size.i, align 4
   store i32 0, ptr %m_num_deleted.i, align 8
-  %.pre227 = load i32, ptr %m_todo_idx, align 8
+  %.pre225 = load i32, ptr %m_todo_idx, align 8
   br label %_ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5resetEv.exit
 
 _ZN14core_hashtableI18default_hash_entryIP9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5resetEv.exit: ; preds = %for.end18, %if.end18.i
-  %77 = phi i32 [ %68, %for.end18 ], [ %.pre227, %if.end18.i ]
+  %77 = phi i32 [ %68, %for.end18 ], [ %.pre225, %if.end18.i ]
   %tobool24.not = icmp eq i32 %77, 0
   %conv = zext i1 %tobool24.not to i32
   store i32 %conv, ptr %m_todo_idx, align 8

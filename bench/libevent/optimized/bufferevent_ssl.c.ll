@@ -2227,7 +2227,6 @@ if.end37.us:                                      ; preds = %if.then30.us, %if.t
   br i1 %cmp44.not.us, label %if.else.split.us, label %for.cond.us, !llvm.loop !11
 
 if.else.split.us:                                 ; preds = %if.end37.us
-  store i64 %add.us, ptr %iov_len101, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds [2 x %struct.iovec], ptr %space, i64 0, i64 %indvars.iv.next
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

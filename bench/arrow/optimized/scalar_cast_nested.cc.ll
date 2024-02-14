@@ -37356,7 +37356,7 @@ if.then.i:                                        ; preds = %entry
   %storage_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %storage_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEE7DestroyEv.exit
+  br i1 %cmp.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEE7DestroyEv.exit
 
 _ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEE7DestroyEv.exit: ; preds = %if.then.i
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
@@ -37447,14 +37447,10 @@ _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.
   %msg.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %3) #16
-  br label %_ZN5arrow6StatusD2Ev.exit.sink.split
-
-_ZN5arrow6StatusD2Ev.exit.sink.split:             ; preds = %if.then.i, %_ZN5arrow6Status11DeleteStateEv.exit.i
-  %storage_.i.sink = phi ptr [ %this, %_ZN5arrow6Status11DeleteStateEv.exit.i ], [ %storage_.i, %if.then.i ]
-  store ptr null, ptr %storage_.i.sink, align 8
+  store ptr null, ptr %this, align 8
   br label %_ZN5arrow6StatusD2Ev.exit
 
-_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2Ev.exit.sink.split, %_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEE7DestroyEv.exit
+_ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then.i, %_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEE7DestroyEv.exit, %_ZN5arrow6Status11DeleteStateEv.exit.i
   ret void
 }
 
@@ -38624,7 +38620,7 @@ if.then.i:                                        ; preds = %entry
   %storage_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %storage_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit
+  br i1 %cmp.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit
 
 _ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit: ; preds = %if.then.i
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
@@ -38715,14 +38711,10 @@ _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.
   %msg.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %3) #16
-  br label %_ZN5arrow6StatusD2Ev.exit.sink.split
-
-_ZN5arrow6StatusD2Ev.exit.sink.split:             ; preds = %if.then.i, %_ZN5arrow6Status11DeleteStateEv.exit.i
-  %storage_.i.sink = phi ptr [ %this, %_ZN5arrow6Status11DeleteStateEv.exit.i ], [ %storage_.i, %if.then.i ]
-  store ptr null, ptr %storage_.i.sink, align 8
+  store ptr null, ptr %this, align 8
   br label %_ZN5arrow6StatusD2Ev.exit
 
-_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2Ev.exit.sink.split, %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit
+_ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then.i, %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit, %_ZN5arrow6Status11DeleteStateEv.exit.i
   ret void
 }
 
@@ -42198,7 +42190,7 @@ _ZNK5arrow7compute10ExecResult10array_dataEv.exit.i123: ; preds = %_ZNSt10shared
 invoke.cont105:                                   ; preds = %_ZNK5arrow7compute10ExecResult10array_dataEv.exit.i123, %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit
   %retval.0.in.i124 = phi ptr [ %81, %_ZNK5arrow7compute10ExecResult10array_dataEv.exit.i123 ], [ %out, %_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit ]
   %retval.0.i125 = load ptr, ptr %retval.0.in.i124, align 8
-  %indvars.iv.next380 = add nuw i64 %indvars.iv379, 1
+  %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1
   %children_.i135 = getelementptr inbounds i8, ptr %retval.0.i125, i64 48
   %82 = load ptr, ptr %children_.i135, align 8
   %add.ptr.i.i137 = getelementptr inbounds %"class.std::shared_ptr.129", ptr %82, i64 %indvars.iv379

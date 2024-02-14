@@ -305,11 +305,7 @@ entry:
   %read_index_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %read_index_.i.i, align 8
   %cmp.i.i = icmp eq i64 %0, %1
-  br i1 %cmp.i.i, label %_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.thread.i, label %_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.i
-
-_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.thread.i: ; preds = %entry
-  store i64 %0, ptr %read_index_.i.i, align 8
-  br label %_ZN4base14PickleIterator15ReadBuiltinTypeIbEEbPT_.exit
+  br i1 %cmp.i.i, label %_ZN4base14PickleIterator15ReadBuiltinTypeIbEEbPT_.exit, label %_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.i
 
 _ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.i: ; preds = %entry
   %2 = load ptr, ptr %this, align 8
@@ -328,8 +324,8 @@ if.end.i:                                         ; preds = %_ZN4base14PickleIte
   store i8 %4, ptr %result, align 1
   br label %_ZN4base14PickleIterator15ReadBuiltinTypeIbEEbPT_.exit
 
-_ZN4base14PickleIterator15ReadBuiltinTypeIbEEbPT_.exit: ; preds = %_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.thread.i, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.i, %if.end.i
-  %tobool.not5.i = phi i1 [ false, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.thread.i ], [ false, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.i ], [ true, %if.end.i ]
+_ZN4base14PickleIterator15ReadBuiltinTypeIbEEbPT_.exit: ; preds = %entry, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.i, %if.end.i
+  %tobool.not5.i = phi i1 [ false, %_ZN4base14PickleIterator24GetReadPointerAndAdvanceIbEEPKcv.exit.i ], [ true, %if.end.i ], [ false, %entry ]
   ret i1 %tobool.not5.i
 }
 

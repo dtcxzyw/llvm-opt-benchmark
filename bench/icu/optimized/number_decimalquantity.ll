@@ -1565,7 +1565,6 @@ for.cond31.preheader:                             ; preds = %if.else25
   br i1 %cmp33102, label %if.else.i52, label %for.end41
 
 _ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv.exit44: ; preds = %if.else25
-  store i64 0, ptr %fBCD26, align 8
   %scale.i38 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %scale.i38, align 4
   %precision.i39 = getelementptr inbounds i8, ptr %this, i64 16
@@ -3414,7 +3413,7 @@ for.body:                                         ; preds = %_ZN6icu_756number4i
   %arrayidx = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
   store i8 %conv, ptr %arrayidx, align 1
   %div = sdiv i64 %n.addr.017, 10
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %n.addr.017.off = add i64 %n.addr.017, 9
   %cmp2.not = icmp ult i64 %n.addr.017.off, 19
   br i1 %cmp2.not, label %for.end, label %for.body, !llvm.loop !18

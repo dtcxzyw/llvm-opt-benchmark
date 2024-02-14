@@ -1016,7 +1016,6 @@ if.end19.i:                                       ; preds = %if.end7.i.i, %if.en
 
 ZSTDMT_expandCCtxPool.exit.thread.i:              ; preds = %if.end19.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %cMem.i25.i)
-  store ptr null, ptr %cctxPool.i, align 8
   br label %return
 
 if.end.i27.i:                                     ; preds = %if.end19.i

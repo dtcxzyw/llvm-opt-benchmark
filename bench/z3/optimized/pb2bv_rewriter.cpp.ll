@@ -16392,13 +16392,13 @@ land.rhs.i:                                       ; preds = %if.end31
   br i1 %cmp.not.i.i, label %if.then8.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.rhs.i
-  %add4.i.i = add i32 %.pre60.i.i, %add
+  %add4.i.i = add nuw nsw i32 %.pre60.i.i, %add
   %cmp7.not.i.i = icmp eq i32 %1, 0
   br i1 %cmp7.not.i.i, label %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %land.rhs.i, %if.end.i.i
   %retval.sroa.6.057.i.i = phi i32 [ %add4.i.i, %if.end.i.i ], [ 0, %land.rhs.i ]
-  %add4.i15.i.i = add i32 %retval.sroa.6.057.i.i, %.pre60.i.i
+  %add4.i15.i.i = add nsw i32 %retval.sroa.6.057.i.i, %.pre60.i.i
   br label %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit
 
 _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit: ; preds = %if.end.i.i, %if.then8.i.i
@@ -16407,7 +16407,7 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit: ; 
   %ref.tmp3.i.sroa.0.0.extract.trunc = trunc i64 %call4.i to i32
   %ref.tmp3.i.sroa.4.0.extract.shift = lshr i64 %call4.i, 32
   %ref.tmp3.i.sroa.4.0.extract.trunc = trunc i64 %ref.tmp3.i.sroa.4.0.extract.shift to i32
-  %mul.i.i.i = mul i32 %add, 5
+  %mul.i.i.i = mul nuw nsw i32 %add, 5
   %add.i.i.i = add i32 %retval.sroa.6.1.i.i, %mul.i.i.i
   %mul.i1.i.i = mul i32 %ref.tmp3.i.sroa.0.0.extract.trunc, 5
   %add.i3.i.i = add i32 %mul.i1.i.i, %ref.tmp3.i.sroa.4.0.extract.trunc
@@ -16420,13 +16420,13 @@ if.then33:                                        ; preds = %_ZN8psort_nwIN14pb2
   br i1 %cmp.not.i, label %if.then8.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then33
-  %add4.i43 = add i32 %.pre60.i.i, %add
+  %add4.i43 = add nuw nsw i32 %.pre60.i.i, %add
   %cmp7.not.i = icmp eq i32 %2, 0
   br i1 %cmp7.not.i, label %return, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then33, %if.end.i
   %retval.sroa.6.057.i = phi i32 [ %add4.i43, %if.end.i ], [ 0, %if.then33 ]
-  %add4.i15.i = add i32 %retval.sroa.6.057.i, %.pre60.i.i
+  %add4.i15.i = add nsw i32 %retval.sroa.6.057.i, %.pre60.i.i
   br label %return
 
 if.end35:                                         ; preds = %if.end31, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit
@@ -16537,13 +16537,13 @@ land.rhs.i:                                       ; preds = %if.else6
   br i1 %cmp.not.i.i, label %if.then8.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.rhs.i
-  %add4.i.i = add i32 %.pre60.i.i, %add
+  %add4.i.i = add nuw nsw i32 %.pre60.i.i, %add
   %cmp7.not.i.i = icmp eq i32 %1, 0
   br i1 %cmp7.not.i.i, label %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %land.rhs.i, %if.end.i.i
   %retval.sroa.6.057.i.i = phi i32 [ %add4.i.i, %if.end.i.i ], [ 0, %land.rhs.i ]
-  %add4.i15.i.i = add i32 %retval.sroa.6.057.i.i, %.pre60.i.i
+  %add4.i15.i.i = add nsw i32 %retval.sroa.6.057.i.i, %.pre60.i.i
   br label %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit
 
 _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit: ; preds = %if.end.i.i, %if.then8.i.i
@@ -16557,15 +16557,15 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit: ; 
   %and.i.i = and i32 %add, 1
   %cmp.i.i24 = icmp ne i32 %and.i.i, 0
   %div13.i = lshr i32 %add, 1
-  %add.i = add nuw i32 %div13.i, 1
-  %add8.i = add i32 %add, 1
+  %add.i = add nuw nsw i32 %div13.i, 1
+  %add8.i = add nuw nsw i32 %add, 1
   %div912.i = lshr i32 %add8.i, 1
   %cond.i = select i1 %cmp.i.i24, i32 %div912.i, i32 %add.i
   %call10.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %add.i.i, i32 noundef %add.i18.i, i32 noundef %cond.i)
   %ref.tmp5.sroa.2.0.extract.shift.i = lshr i64 %call10.i, 32
   %ref.tmp5.sroa.2.0.extract.trunc.i = trunc i64 %ref.tmp5.sroa.2.0.extract.shift.i to i32
   %sub.i = sext i1 %cmp.i.i24 to i32
-  %cond20.in.i = add i32 %add, %sub.i
+  %cond20.in.i = add nsw i32 %add, %sub.i
   %cond20.i = lshr i32 %cond20.in.i, 1
   %call21.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %div2.i.i, i32 noundef %div2.i16.i, i32 noundef %cond20.i)
   %ref.tmp11.sroa.2.0.extract.shift.i = lshr i64 %call21.i, 32
@@ -16590,7 +16590,7 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit: ; 
   %ref.tmp4.sroa.0.0.extract.trunc.i = trunc i64 %add.i22.i to i32
   %add.i31.i = or disjoint i32 %mul.i.i.i27, 1
   %add.i40.i = add i32 %add.i31.i, %ref.tmp4.sroa.0.0.extract.trunc.i
-  %mul.i.i.i = mul i32 %add, 5
+  %mul.i.i.i = mul nuw nsw i32 %add, 5
   %add.i.i.i = add i32 %retval.sroa.6.1.i.i, %mul.i.i.i
   %mul.i1.i.i = mul i32 %add.i40.i, 5
   %add4.i63.i = add i32 %mul.i1.i.i, %spec.select.i
@@ -16606,13 +16606,13 @@ if.then8:                                         ; preds = %_ZN8psort_nwIN14pb2
   br i1 %cmp.not.i26, label %if.then8.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then8
-  %add4.i = add i32 %.pre60.i, %add
+  %add4.i = add nuw nsw i32 %.pre60.i, %add
   %cmp7.not.i = icmp eq i32 %2, 0
   br i1 %cmp7.not.i, label %return, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.then8, %if.end.i
   %retval.sroa.6.057.i = phi i32 [ %add4.i, %if.end.i ], [ 0, %if.then8 ]
-  %add4.i15.i = add i32 %retval.sroa.6.057.i, %.pre60.i
+  %add4.i15.i = add nsw i32 %retval.sroa.6.057.i, %.pre60.i
   br label %return
 
 if.else11:                                        ; preds = %if.else6.if.else11_crit_edge, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit
@@ -22698,11 +22698,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
 if.then.i177:                                     ; preds = %invoke.cont64
   %102 = load ptr, ptr %m_manager3.i29.i, align 8, !noalias !104
   %tobool.not.i.i.i = icmp eq ptr %101, null
-  br i1 %tobool.not.i.i.i, label %invoke.cont67.thread, label %return.sink.split.i
-
-invoke.cont67.thread:                             ; preds = %if.then.i177
-  store ptr null, ptr %result, align 8
-  br label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
+  br i1 %tobool.not.i.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %return.sink.split.i
 
 if.end.i175:                                      ; preds = %invoke.cont64
   %cmp.i10.i = icmp eq ptr %100, %101
@@ -22778,7 +22774,7 @@ terminate.lpad.i184:                              ; preds = %if.then2.i.i.i.i
   call void @__clang_call_terminate(ptr %111) #21
   unreachable
 
-_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.then2.i.i.i.i, %if.then.i.i.i.i181, %invoke.cont67, %invoke.cont67.thread
+_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.then.i177, %if.then2.i.i.i.i, %if.then.i.i.i.i181, %invoke.cont67
   %112 = load ptr, ptr %m, align 8, !noalias !107
   %113 = load ptr, ptr %gt, align 8, !noalias !107
   %m_true.i.i193 = getelementptr inbounds i8, ptr %112, i64 856

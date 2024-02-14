@@ -76081,11 +76081,7 @@ invoke.cont:                                      ; preds = %if.then.i.i23, %_ZN
   store ptr null, ptr %m_nodes.i.i28, align 8
   %25 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i.i31 = icmp eq ptr %25, null
-  br i1 %cmp.i.i.i31, label %for.end26.thread, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit36
-
-for.end26.thread:                                 ; preds = %invoke.cont
-  store ptr null, ptr %m_nodes.i, align 8
-  br label %if.end27
+  br i1 %cmp.i.i.i31, label %if.end27, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit36
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit36: ; preds = %invoke.cont
   %arrayidx.i.i.i33 = getelementptr inbounds i8, ptr %25, i64 -4
@@ -76187,7 +76183,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.
   call void @__clang_call_terminate(ptr %40) #25
   unreachable
 
-if.end27:                                         ; preds = %entry, %for.end26.thread, %if.then.i.i23, %if.then.i.i.i.i.i44, %invoke.cont8.i.i, %for.end26, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6shrinkEj.exit
+if.end27:                                         ; preds = %invoke.cont, %entry, %if.then.i.i23, %if.then.i.i.i.i.i44, %invoke.cont8.i.i, %for.end26, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE6shrinkEj.exit
   ret void
 }
 

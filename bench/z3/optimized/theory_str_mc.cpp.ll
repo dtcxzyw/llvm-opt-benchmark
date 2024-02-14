@@ -12414,8 +12414,6 @@ land.lhs.true.i1028:                              ; preds = %if.then9.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i1028
   %m_state.i.i.le = getelementptr inbounds i8, ptr %curr.062.i, i64 4
-  %m_data.i.i1029.le = getelementptr inbounds i8, ptr %curr.062.i, i64 8
-  store i32 %101, ptr %m_data.i.i1029.le, align 8
   %ref.tmp.i.i.sroa.81437.0.m_data.i.le.i.sroa_idx = getelementptr inbounds i8, ptr %curr.062.i, i64 16
   store ptr %cond.addr.0.i, ptr %ref.tmp.i.i.sroa.81437.0.m_data.i.le.i.sroa_idx, align 8
   store i32 2, ptr %m_state.i.i.le, align 4
@@ -12473,8 +12471,6 @@ land.lhs.true34.i:                                ; preds = %if.then31.i
 
 if.then37.i:                                      ; preds = %land.lhs.true34.i
   %m_state.i40.i.le = getelementptr inbounds i8, ptr %curr.166.i, i64 4
-  %m_data.i42.i.le = getelementptr inbounds i8, ptr %curr.166.i, i64 8
-  store i32 %101, ptr %m_data.i42.i.le, align 8
   %ref.tmp.i.i.sroa.81437.0.m_data.i42.le.i.sroa_idx = getelementptr inbounds i8, ptr %curr.166.i, i64 16
   store ptr %cond.addr.0.i, ptr %ref.tmp.i.i.sroa.81437.0.m_data.i42.le.i.sroa_idx, align 8
   store i32 2, ptr %m_state.i40.i.le, align 4
@@ -12959,8 +12955,6 @@ land.lhs.true.i1110:                              ; preds = %if.then9.i1075
 
 if.then14.i1113:                                  ; preds = %land.lhs.true.i1110
   %m_state.i.i1065.le = getelementptr inbounds i8, ptr %curr.062.i1064, i64 4
-  %m_data.i.i1111.le = getelementptr inbounds i8, ptr %curr.062.i1064, i64 8
-  store i32 %150, ptr %m_data.i.i1111.le, align 8
   %ref.tmp.i.i219.sroa.81447.0.m_data.i.le.i1115.sroa_idx = getelementptr inbounds i8, ptr %curr.062.i1064, i64 16
   store ptr %cond.addr.0.i236, ptr %ref.tmp.i.i219.sroa.81447.0.m_data.i.le.i1115.sroa_idx, align 8
   store i32 2, ptr %m_state.i.i1065.le, align 4
@@ -13018,8 +13012,6 @@ land.lhs.true34.i1104:                            ; preds = %if.then31.i1097
 
 if.then37.i1107:                                  ; preds = %land.lhs.true34.i1104
   %m_state.i40.i1087.le = getelementptr inbounds i8, ptr %curr.166.i1086, i64 4
-  %m_data.i42.i1105.le = getelementptr inbounds i8, ptr %curr.166.i1086, i64 8
-  store i32 %150, ptr %m_data.i42.i1105.le, align 8
   %ref.tmp.i.i219.sroa.81447.0.m_data.i42.le.i1109.sroa_idx = getelementptr inbounds i8, ptr %curr.166.i1086, i64 16
   store ptr %cond.addr.0.i236, ptr %ref.tmp.i.i219.sroa.81447.0.m_data.i42.le.i1109.sroa_idx, align 8
   store i32 2, ptr %m_state.i40.i1087.le, align 4
@@ -13457,8 +13449,6 @@ land.lhs.true.i1221:                              ; preds = %if.then9.i1186
 
 if.then14.i1224:                                  ; preds = %land.lhs.true.i1221
   %m_state.i.i1176.le = getelementptr inbounds i8, ptr %curr.062.i1175, i64 4
-  %m_data.i.i1222.le = getelementptr inbounds i8, ptr %curr.062.i1175, i64 8
-  store i32 %191, ptr %m_data.i.i1222.le, align 8
   %ref.tmp.i.i303.sroa.81457.0.m_data.i.le.i1226.sroa_idx = getelementptr inbounds i8, ptr %curr.062.i1175, i64 16
   store ptr %cond.addr.0.i320, ptr %ref.tmp.i.i303.sroa.81457.0.m_data.i.le.i1226.sroa_idx, align 8
   store i32 2, ptr %m_state.i.i1176.le, align 4
@@ -13516,8 +13506,6 @@ land.lhs.true34.i1215:                            ; preds = %if.then31.i1208
 
 if.then37.i1218:                                  ; preds = %land.lhs.true34.i1215
   %m_state.i40.i1198.le = getelementptr inbounds i8, ptr %curr.166.i1197, i64 4
-  %m_data.i42.i1216.le = getelementptr inbounds i8, ptr %curr.166.i1197, i64 8
-  store i32 %191, ptr %m_data.i42.i1216.le, align 8
   %ref.tmp.i.i303.sroa.81457.0.m_data.i42.le.i1220.sroa_idx = getelementptr inbounds i8, ptr %curr.166.i1197, i64 16
   store ptr %cond.addr.0.i320, ptr %ref.tmp.i.i303.sroa.81457.0.m_data.i42.le.i1220.sroa_idx, align 8
   store i32 2, ptr %m_state.i40.i1198.le, align 4

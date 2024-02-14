@@ -608,7 +608,6 @@ pvscsi_reset_adapter.exit:                        ; preds = %trace_pvscsi_state.
   store i8 0, ptr %rings_info_valid.i.i, align 4
   %msg_ring_info_valid.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3629
   store i8 0, ptr %msg_ring_info_valid.i.i, align 1
-  store ptr null, ptr %pending_queue.i, align 8
   %tql_prev.i.i = getelementptr inbounds i8, ptr %call.i1, i64 3040
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %reg_command_status.i.i, i8 0, i64 20, i1 false)
   store ptr %pending_queue.i, ptr %tql_prev.i.i, align 8
@@ -2191,7 +2190,6 @@ pvscsi_reset_adapter.exit:                        ; preds = %trace_pvscsi_on_cmd
   store i8 0, ptr %rings_info_valid.i.i, align 4
   %msg_ring_info_valid.i.i = getelementptr inbounds i8, ptr %s, i64 3629
   store i8 0, ptr %msg_ring_info_valid.i.i, align 1
-  store ptr null, ptr %pending_queue.i, align 8
   %tql_prev.i.i = getelementptr inbounds i8, ptr %s, i64 3040
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %reg_command_status.i.i, i8 0, i64 20, i1 false)
   store ptr %pending_queue.i, ptr %tql_prev.i.i, align 8
@@ -3596,9 +3594,9 @@ trace_pvscsi_command_complete_sense_len.exit:     ; preds = %if.then9, %land.lhs
   %27 = load i8, ptr %sense, align 16
   %28 = and i8 %27, 2
   %tobool.not.i = icmp eq i8 %28, 0
-  %idxprom.i = select i1 %tobool.not.i, i64 2, i64 1
-  %arrayidx4.i = getelementptr i8, ptr %sense, i64 %idxprom.i
-  %29 = load i8, ptr %arrayidx4.i, align 1
+  %idxprom.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %tobool.not.i, i64 2, i64 1
+  %idxprom.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %sense, i64 %idxprom.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %29 = load i8, ptr %idxprom.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 1
   %sense_key.i = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %29, ptr %sense_key.i, align 8
   %senseAddr.i = getelementptr inbounds i8, ptr %0, i64 112

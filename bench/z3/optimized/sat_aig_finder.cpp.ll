@@ -1335,10 +1335,8 @@ if.then14.i23:                                    ; preds = %_ZNK14core_hashtabl
   %28 = getelementptr i8, ptr %curr.088.i, i64 4
   %m_data.i.i.le = getelementptr inbounds i8, ptr %curr.088.i, i64 8
   %y.i.i39.i.le = getelementptr inbounds i8, ptr %curr.088.i, i64 12
-  %z.i.i40.i.le = getelementptr inbounds i8, ptr %curr.088.i, i64 16
   store i32 %ref.tmp.sroa.0.1, ptr %m_data.i.i.le, align 8
   store i32 %ref.tmp.sroa.8.2, ptr %y.i.i39.i.le, align 4
-  store i32 %ref.tmp.sroa.13.0, ptr %z.i.i40.i.le, align 8
   %ref.tmp.sroa.1652.0.m_data.i.le.i.sroa_idx = getelementptr inbounds i8, ptr %curr.088.i, i64 24
   store ptr %c, ptr %ref.tmp.sroa.1652.0.m_data.i.le.i.sroa_idx, align 8
   store i32 2, ptr %28, align 4
@@ -1413,10 +1411,8 @@ if.then37.i:                                      ; preds = %_ZNK14core_hashtabl
   %34 = getelementptr i8, ptr %curr.192.i, i64 4
   %m_data.i46.i.le = getelementptr inbounds i8, ptr %curr.192.i, i64 8
   %y.i.i49.i.le = getelementptr inbounds i8, ptr %curr.192.i, i64 12
-  %z.i.i53.i.le = getelementptr inbounds i8, ptr %curr.192.i, i64 16
   store i32 %ref.tmp.sroa.0.1, ptr %m_data.i46.i.le, align 8
   store i32 %ref.tmp.sroa.8.2, ptr %y.i.i49.i.le, align 4
-  store i32 %ref.tmp.sroa.13.0, ptr %z.i.i53.i.le, align 8
   %ref.tmp.sroa.1652.0.m_data.i46.le.i.sroa_idx = getelementptr inbounds i8, ptr %curr.192.i, i64 24
   store ptr %c, ptr %ref.tmp.sroa.1652.0.m_data.i46.le.i.sroa_idx, align 8
   store i32 2, ptr %34, align 4

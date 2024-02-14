@@ -7038,11 +7038,7 @@ call.i.i.i.noexc88:                               ; preds = %call7.i.noexc
 
 if.else.i86:                                      ; preds = %invoke.cont69
   %tobool.not.i.i4.i = icmp eq ptr %48, null
-  br i1 %tobool.not.i.i4.i, label %invoke.cont71.thread, label %return.sink.split.i85
-
-invoke.cont71.thread:                             ; preds = %if.else.i86
-  store ptr null, ptr %t, align 8
-  br label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
+  br i1 %tobool.not.i.i4.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %return.sink.split.i85
 
 return.sink.split.i85:                            ; preds = %if.else.i86, %call.i.i.i.noexc88
   %ref.tmp.sroa.0.0 = phi ptr [ %48, %if.else.i86 ], [ %call.i.i.i89, %call.i.i.i.noexc88 ]
@@ -7077,8 +7073,8 @@ terminate.lpad.i94:                               ; preds = %if.then2.i.i.i.i
   call void @__clang_call_terminate(ptr %57) #18
   unreachable
 
-_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont71.thread, %if.then2.i.i.i.i, %if.then.i.i.i.i91, %invoke.cont71
-  %58 = phi ptr [ null, %invoke.cont71.thread ], [ %54, %if.then2.i.i.i.i ], [ %54, %if.then.i.i.i.i91 ], [ %54, %invoke.cont71 ]
+_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.else.i86, %if.then2.i.i.i.i, %if.then.i.i.i.i91, %invoke.cont71
+  %58 = phi ptr [ %54, %if.then2.i.i.i.i ], [ %54, %if.then.i.i.i.i91 ], [ %54, %invoke.cont71 ], [ null, %if.else.i86 ]
   %m_coeff.i99 = getelementptr inbounds i8, ptr %x_t, i64 24
   invoke void @_ZmlRK8rationalS1_(ptr nonnull sret(%class.rational) align 8 %ref.tmp73, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr noundef nonnull align 8 dereferenceable(32) %m_coeff.i99)
           to label %invoke.cont74 unwind label %lpad63
@@ -19341,11 +19337,7 @@ call.i.i.i.noexc:                                 ; preds = %call7.i.noexc
 
 if.else.i:                                        ; preds = %invoke.cont38
   %tobool.not.i.i4.i = icmp eq ptr %25, null
-  br i1 %tobool.not.i.i4.i, label %invoke.cont41.thread, label %return.sink.split.i
-
-invoke.cont41.thread:                             ; preds = %if.else.i
-  store ptr null, ptr %s, align 8
-  br label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
+  br i1 %tobool.not.i.i4.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.else.i, %call.i.i.i.noexc
   %ref.tmp.sroa.0.0 = phi ptr [ %25, %if.else.i ], [ %call.i.i.i37, %call.i.i.i.noexc ]
@@ -19380,8 +19372,8 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i.i
   call void @__clang_call_terminate(ptr %34) #18
   unreachable
 
-_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %invoke.cont41.thread, %if.then2.i.i.i.i, %if.then.i.i.i.i39, %invoke.cont41
-  %35 = phi ptr [ null, %invoke.cont41.thread ], [ %31, %if.then2.i.i.i.i ], [ %31, %if.then.i.i.i.i39 ], [ %31, %invoke.cont41 ]
+_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %if.else.i, %if.then2.i.i.i.i, %if.then.i.i.i.i39, %invoke.cont41
+  %35 = phi ptr [ %31, %if.then2.i.i.i.i ], [ %31, %if.then.i.i.i.i39 ], [ %31, %invoke.cont41 ], [ null, %if.else.i ]
   invoke void @_ZmlRK8rationalS1_(ptr nonnull sret(%class.rational) align 8 %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %m_coeff.i)
           to label %invoke.cont44 unwind label %lpad40
 

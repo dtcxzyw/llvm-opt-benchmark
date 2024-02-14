@@ -712,11 +712,7 @@ xstrdup_or_null.exit:                             ; preds = %if.end381, %cond.tr
   store ptr %cond.i80, ptr %gpg_sign, align 8
   %28 = load ptr, ptr %strategy, align 8
   %tobool.not.i81 = icmp eq ptr %28, null
-  br i1 %tobool.not.i81, label %xstrdup_or_null.exit85.thread, label %xstrdup_or_null.exit85
-
-xstrdup_or_null.exit85.thread:                    ; preds = %xstrdup_or_null.exit
-  store ptr null, ptr %strategy, align 8
-  br label %land.lhs.true390
+  br i1 %tobool.not.i81, label %land.lhs.true390, label %xstrdup_or_null.exit85
 
 xstrdup_or_null.exit85:                           ; preds = %xstrdup_or_null.exit
   %call.i83 = call ptr @xstrdup(ptr noundef nonnull %28) #12
@@ -724,7 +720,7 @@ xstrdup_or_null.exit85:                           ; preds = %xstrdup_or_null.exi
   %tobool389.not = icmp eq ptr %call.i83, null
   br i1 %tobool389.not, label %land.lhs.true390, label %if.end397
 
-land.lhs.true390:                                 ; preds = %xstrdup_or_null.exit85.thread, %xstrdup_or_null.exit85
+land.lhs.true390:                                 ; preds = %xstrdup_or_null.exit, %xstrdup_or_null.exit85
   %call391 = call ptr @getenv(ptr noundef nonnull @.str.61) #12
   %tobool392.not = icmp eq ptr %call391, null
   br i1 %tobool392.not, label %if.end397, label %if.then393

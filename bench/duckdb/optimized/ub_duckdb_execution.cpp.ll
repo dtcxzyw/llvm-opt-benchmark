@@ -23273,7 +23273,7 @@ for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %f
   br i1 %13, label %_ZN6duckdb13JoinHashTable13ScanStructure17ResolvePredicatesERNS_9DataChunkERNS_15SelectionVectorEPS4_.exit, label %for.body.i
 
 for.body.us.i.preheader:                          ; preds = %for.body.lr.ph.i
-  br i1 %min.iters.check, label %for.body.us.i.preheader29, label %vector.ph
+  br i1 %min.iters.check, label %for.body.us.i.preheader27, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.us.i.preheader
   %n.vec = and i64 %0, -8
@@ -23294,14 +23294,14 @@ vector.body:                                      ; preds = %vector.body, %vecto
 
 middle.block:                                     ; preds = %vector.body
   %cmp.n = icmp eq i64 %0, %n.vec
-  br i1 %cmp.n, label %_ZN6duckdb13JoinHashTable13ScanStructure17ResolvePredicatesERNS_9DataChunkERNS_15SelectionVectorEPS4_.exit, label %for.body.us.i.preheader29
+  br i1 %cmp.n, label %_ZN6duckdb13JoinHashTable13ScanStructure17ResolvePredicatesERNS_9DataChunkERNS_15SelectionVectorEPS4_.exit, label %for.body.us.i.preheader27
 
-for.body.us.i.preheader29:                        ; preds = %middle.block, %for.body.us.i.preheader
+for.body.us.i.preheader27:                        ; preds = %middle.block, %for.body.us.i.preheader
   %i.014.us.i.ph = phi i64 [ %n.vec, %middle.block ], [ 0, %for.body.us.i.preheader ]
   br label %for.body.us.i
 
-for.body.us.i:                                    ; preds = %for.body.us.i.preheader29, %for.body.us.i
-  %i.014.us.i = phi i64 [ %inc.us.i, %for.body.us.i ], [ %i.014.us.i.ph, %for.body.us.i.preheader29 ]
+for.body.us.i:                                    ; preds = %for.body.us.i.preheader27, %for.body.us.i
+  %i.014.us.i = phi i64 [ %inc.us.i, %for.body.us.i ], [ %i.014.us.i.ph, %for.body.us.i.preheader27 ]
   %conv.i11.us.i = trunc i64 %i.014.us.i to i32
   %arrayidx.i12.us.i = getelementptr inbounds i32, ptr %2, i64 %i.014.us.i
   store i32 %conv.i11.us.i, ptr %arrayidx.i12.us.i, align 4, !tbaa !70
@@ -23422,11 +23422,7 @@ if.end8:                                          ; preds = %if.end
   %31 = load i64, ptr %count.i, align 8, !tbaa !598
   %32 = load ptr, ptr %data.i.i.i.i.i, align 8, !tbaa !251
   %cmp17.not.i.i = icmp eq i64 %31, 0
-  br i1 %cmp17.not.i.i, label %cleanup.thread26, label %for.body.i.i
-
-cleanup.thread26:                                 ; preds = %if.end8
-  store i64 0, ptr %count.i, align 8, !tbaa !598
-  br label %return
+  br i1 %cmp17.not.i.i, label %return, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end8, %if.end.i.i
   %new_count.019.i.i = phi i64 [ %new_count.1.i.i, %if.end.i.i ], [ 0, %if.end8 ]
@@ -23473,8 +23469,8 @@ cleanup:                                          ; preds = %if.end.i.i
   %cmp9.not = icmp eq i64 %new_count.1.i.i, 0
   br i1 %cmp9.not, label %return, label %while.body
 
-return:                                           ; preds = %cleanup, %if.end, %cleanup.thread26, %if.end.thread
-  %retval.125 = phi i64 [ 0, %cleanup.thread26 ], [ %call5.i, %if.end.thread ], [ 0, %cleanup ], [ %call5.i, %if.end ]
+return:                                           ; preds = %cleanup, %if.end, %if.end8, %if.end.thread
+  %retval.125 = phi i64 [ %call5.i, %if.end.thread ], [ 0, %if.end8 ], [ 0, %cleanup ], [ %call5.i, %if.end ]
   ret i64 %retval.125
 }
 

@@ -18271,8 +18271,6 @@ land.lhs.true:                                    ; preds = %if.then9
 
 if.then14:                                        ; preds = %land.lhs.true
   %m_state.i.le = getelementptr inbounds i8, ptr %curr.071, i64 4
-  %m_data.i.le = getelementptr inbounds i8, ptr %curr.071, i64 8
-  store i32 %4, ptr %m_data.i.le, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %curr.071, i64 16
   %m_value3.i.i = getelementptr inbounds i8, ptr %e, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN3opt15model_based_opt3rowaSEOS1_(ptr noundef nonnull align 8 dereferenceable(120) %m_value.i.i, ptr noundef nonnull align 8 dereferenceable(120) %m_value3.i.i) #19
@@ -18335,8 +18333,6 @@ land.lhs.true34:                                  ; preds = %if.then31
 
 if.then37:                                        ; preds = %land.lhs.true34
   %m_state.i43.le = getelementptr inbounds i8, ptr %curr.175, i64 4
-  %m_data.i45.le = getelementptr inbounds i8, ptr %curr.175, i64 8
-  store i32 %4, ptr %m_data.i45.le, align 8
   %m_value.i.i48 = getelementptr inbounds i8, ptr %curr.175, i64 16
   %m_value3.i.i49 = getelementptr inbounds i8, ptr %e, i64 8
   %call.i.i50 = tail call noundef nonnull align 8 dereferenceable(120) ptr @_ZN3opt15model_based_opt3rowaSEOS1_(ptr noundef nonnull align 8 dereferenceable(120) %m_value.i.i48, ptr noundef nonnull align 8 dereferenceable(120) %m_value3.i.i49) #19

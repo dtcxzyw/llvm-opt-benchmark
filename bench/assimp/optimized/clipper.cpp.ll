@@ -7139,7 +7139,6 @@ invoke.cont:                                      ; preds = %entry
 _ZNSt7__cxx114listIxSaIxEE5clearEv.exit.i.i.thread: ; preds = %invoke.cont
   %_M_prev.i.i.i.i.i14123 = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %m_Maxima, ptr %_M_prev.i.i.i.i.i14123, align 8
-  store ptr %m_Maxima, ptr %m_Maxima, align 8
   %_M_size.i.i.i.i.i15124 = getelementptr inbounds i8, ptr %this, i64 104
   store i64 0, ptr %_M_size.i.i.i.i.i15124, align 8
   br label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit
@@ -16180,9 +16179,9 @@ _ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIxEvEEEEvRNS
   br i1 %cmp26.not, label %for.end32, label %for.body27
 
 for.end32:                                        ; preds = %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIxEvEEEEvRNS_15_List_node_baseET_.exit46, %for.cond25.preheader
-  %spec.select.sroa.sel.idx = select i1 %cmp13.not.lcssa, i64 0, i64 -16
-  %spec.select.sroa.sel = getelementptr inbounds i8, ptr %__fill.0.ptr, i64 %spec.select.sroa.sel.idx
-  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %spec.select.sroa.sel, ptr noundef nonnull align 8 dereferenceable(16) %this) #28
+  %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %cmp13.not.lcssa, i64 0, i64 -16
+  %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %__fill.0.ptr, i64 %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
+  call void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %spec.select.sroa.sel.idx.sroa.sel.idx.sroa.sel, ptr noundef nonnull align 8 dereferenceable(16) %this) #28
   br label %if.end55
 
 if.end55:                                         ; preds = %for.end32, %land.lhs.true, %entry

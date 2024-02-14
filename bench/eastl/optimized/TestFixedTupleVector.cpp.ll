@@ -16265,11 +16265,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1EL
 _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i: ; preds = %for.end4279
   store i64 %2899, ptr %mNumElements.i.i9911, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %2899, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont12.i.thread, label %for.body.i.i.preheader.i
-
-invoke.cont12.i.thread:                           ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i
-  store i64 0, ptr %mNumElements.i.i9861, align 8
-  br label %invoke.cont4281
+  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont4281, label %for.body.i.i.preheader.i
 
 for.body.i.i.preheader.i:                         ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i.thread, %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i
   %2905 = load ptr, ptr %ctorFromMove, align 8
@@ -16375,7 +16371,7 @@ lpad.i9920:                                       ; preds = %_ZN5eastl16TupleVec
   call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromMove) #11
   br label %ehcleanup4334
 
-invoke.cont4281:                                  ; preds = %invoke.cont12.i.thread, %for.cond.for.end_crit_edge.i.i.i.i9942, %invoke.cont12.i
+invoke.cont4281:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i, %for.cond.for.end_crit_edge.i.i.i.i9942, %invoke.cont12.i
   %2919 = load i64, ptr %mNumElements.i.i9911, align 8
   %cmp4283 = icmp eq i64 %2919, 10
   %call4286 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4283, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1179, ptr noundef nonnull @.str.133)
@@ -16794,11 +16790,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1EL
 _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13832: ; preds = %for.end4353
   store i64 %2993, ptr %mNumElements.i.i10129, align 8
   %cmp.i.i.i.i.i.i.i13834 = icmp eq i64 %2993, 0
-  br i1 %cmp.i.i.i.i.i.i.i13834, label %invoke.cont10.i.thread, label %for.body.i.i.preheader.i13835
-
-invoke.cont10.i.thread:                           ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13832
-  store i64 0, ptr %mNumElements.i.i10072, align 8
-  br label %invoke.cont4356
+  br i1 %cmp.i.i.i.i.i.i.i13834, label %invoke.cont4356, label %for.body.i.i.preheader.i13835
 
 for.body.i.i.preheader.i13835:                    ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13832.thread, %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13832
   %2999 = load ptr, ptr %ctorFromMove4354, align 8
@@ -16904,7 +16896,7 @@ lpad.i10138:                                      ; preds = %_ZN5eastl16TupleVec
   call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromMove4354) #11
   br label %ehcleanup4463
 
-invoke.cont4356:                                  ; preds = %invoke.cont10.i.thread, %for.cond.for.end_crit_edge.i.i.i.i10160, %invoke.cont10.i
+invoke.cont4356:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13832, %for.cond.for.end_crit_edge.i.i.i.i10160, %invoke.cont10.i
   %3013 = load i64, ptr %mNumElements.i.i10129, align 8
   %cmp4358 = icmp eq i64 %3013, 10
   %call4361 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4358, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1201, ptr noundef nonnull @.str.133)
@@ -17111,11 +17103,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1EL
 _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13897: ; preds = %invoke.cont4406
   store i64 %3056, ptr %mNumElements.i.i10228, align 8
   %cmp.i.i.i.i.i.i.i13899 = icmp eq i64 %3056, 0
-  br i1 %cmp.i.i.i.i.i.i.i13899, label %invoke.cont10.i10244.thread, label %for.body.i.i.preheader.i13900
-
-invoke.cont10.i10244.thread:                      ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13897
-  store i64 0, ptr %mNumElements.i.i10129, align 8
-  br label %invoke.cont4409
+  br i1 %cmp.i.i.i.i.i.i.i13899, label %invoke.cont4409, label %for.body.i.i.preheader.i13900
 
 for.body.i.i.preheader.i13900:                    ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13897.thread, %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13897
   %3062 = load ptr, ptr %ctorFromMoveSameAlloc, align 8
@@ -17221,7 +17209,7 @@ lpad.i10243:                                      ; preds = %_ZN5eastl16TupleVec
   call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromMoveSameAlloc) #11
   br label %ehcleanup4462
 
-invoke.cont4409:                                  ; preds = %invoke.cont10.i10244.thread, %for.cond.for.end_crit_edge.i.i.i.i10266, %invoke.cont10.i10244
+invoke.cont4409:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13897, %for.cond.for.end_crit_edge.i.i.i.i10266, %invoke.cont10.i10244
   %3076 = load i64, ptr %mNumElements.i.i10228, align 8
   %cmp4411 = icmp eq i64 %3076, 10
   %call4414 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4411, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1214, ptr noundef nonnull @.str.140)
@@ -38165,11 +38153,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1E
 _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i: ; preds = %for.end4214
   store i64 %2783, ptr %mNumElements.i.i9911, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %2783, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont12.i.thread, label %for.body.i.i.preheader.i
-
-invoke.cont12.i.thread:                           ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i
-  store i64 0, ptr %mNumElements.i.i9861, align 8
-  br label %invoke.cont4216
+  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont4216, label %for.body.i.i.preheader.i
 
 for.body.i.i.preheader.i:                         ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i.thread, %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i
   %2789 = load ptr, ptr %ctorFromMove, align 8
@@ -38275,7 +38259,7 @@ lpad.i9920:                                       ; preds = %_ZN5eastl16TupleVec
   call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromMove) #11
   br label %ehcleanup4267
 
-invoke.cont4216:                                  ; preds = %invoke.cont12.i.thread, %for.cond.for.end_crit_edge.i.i.i.i9942, %invoke.cont12.i
+invoke.cont4216:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i, %for.cond.for.end_crit_edge.i.i.i.i9942, %invoke.cont12.i
   %2803 = load i64, ptr %mNumElements.i.i9911, align 8
   %cmp4218 = icmp eq i64 %2803, 10
   %call4221 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4218, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1179, ptr noundef nonnull @.str.133)
@@ -38694,11 +38678,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1E
 _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13832: ; preds = %for.end4286
   store i64 %2877, ptr %mNumElements.i.i10129, align 8
   %cmp.i.i.i.i.i.i.i13834 = icmp eq i64 %2877, 0
-  br i1 %cmp.i.i.i.i.i.i.i13834, label %invoke.cont10.i.thread, label %for.body.i.i.preheader.i13835
-
-invoke.cont10.i.thread:                           ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13832
-  store i64 0, ptr %mNumElements.i.i10072, align 8
-  br label %invoke.cont4289
+  br i1 %cmp.i.i.i.i.i.i.i13834, label %invoke.cont4289, label %for.body.i.i.preheader.i13835
 
 for.body.i.i.preheader.i13835:                    ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13832.thread, %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13832
   %2883 = load ptr, ptr %ctorFromMove4287, align 8
@@ -38804,7 +38784,7 @@ lpad.i10138:                                      ; preds = %_ZN5eastl16TupleVec
   call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromMove4287) #11
   br label %ehcleanup4392
 
-invoke.cont4289:                                  ; preds = %invoke.cont10.i.thread, %for.cond.for.end_crit_edge.i.i.i.i10160, %invoke.cont10.i
+invoke.cont4289:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13832, %for.cond.for.end_crit_edge.i.i.i.i10160, %invoke.cont10.i
   %2897 = load i64, ptr %mNumElements.i.i10129, align 8
   %cmp4291 = icmp eq i64 %2897, 10
   %call4294 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4291, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1201, ptr noundef nonnull @.str.133)
@@ -39011,11 +38991,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1E
 _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13897: ; preds = %invoke.cont4337
   store i64 %2940, ptr %mNumElements.i.i10228, align 8
   %cmp.i.i.i.i.i.i.i13899 = icmp eq i64 %2940, 0
-  br i1 %cmp.i.i.i.i.i.i.i13899, label %invoke.cont10.i10244.thread, label %for.body.i.i.preheader.i13900
-
-invoke.cont10.i10244.thread:                      ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13897
-  store i64 0, ptr %mNumElements.i.i10129, align 8
-  br label %invoke.cont4340
+  br i1 %cmp.i.i.i.i.i.i.i13899, label %invoke.cont4340, label %for.body.i.i.preheader.i13900
 
 for.body.i.i.preheader.i13900:                    ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13897.thread, %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13897
   %2946 = load ptr, ptr %ctorFromMoveSameAlloc, align 8
@@ -39121,7 +39097,7 @@ lpad.i10243:                                      ; preds = %_ZN5eastl16TupleVec
   call void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ctorFromMoveSameAlloc) #11
   br label %ehcleanup4391
 
-invoke.cont4340:                                  ; preds = %invoke.cont10.i10244.thread, %for.cond.for.end_crit_edge.i.i.i.i10266, %invoke.cont10.i10244
+invoke.cont4340:                                  ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i13897, %for.cond.for.end_crit_edge.i.i.i.i10266, %invoke.cont10.i10244
   %2960 = load i64, ptr %mNumElements.i.i10228, align 8
   %cmp4342 = icmp eq i64 %2960, 10
   %call4345 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp4342, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1214, ptr noundef nonnull @.str.140)

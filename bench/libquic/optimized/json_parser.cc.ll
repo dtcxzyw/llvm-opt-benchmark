@@ -1636,7 +1636,6 @@ invoke.cont14:                                    ; preds = %while.body
 
 _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit54.thread: ; preds = %invoke.cont14
   store ptr null, ptr %agg.result, align 8
-  store ptr null, ptr %item, align 8
   br label %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i
 
 lpad7:                                            ; preds = %invoke.cont5
@@ -1750,7 +1749,6 @@ _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i51: ; preds = %cleanup
   br i1 %cond.ph, label %while.cond.backedge, label %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i
 
 _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit54: ; preds = %cleanup
-  store ptr null, ptr %item, align 8
   br i1 %cond.ph, label %while.cond.backedge, label %_ZNKSt14default_deleteIN4base9ListValueEEclEPS1_.exit.i
 
 while.cond.backedge:                              ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit54, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i51
@@ -3226,7 +3224,7 @@ if.then44:                                        ; preds = %if.else, %if.else42
 if.else50:                                        ; preds = %if.else42
   %shr51 = lshr i32 %sub, 18
   %16 = trunc i32 %shr51 to i8
-  %conv53 = or i8 %16, -16
+  %conv53 = or disjoint i8 %16, -16
   store i8 %conv53, ptr %code_unit8, align 8
   %shr56 = lshr i32 %sub, 12
   %17 = trunc i32 %shr56 to i8
@@ -3305,7 +3303,7 @@ if.then95:                                        ; preds = %if.else85, %if.else
 if.else101:                                       ; preds = %if.else93
   %shr102 = lshr i32 %4, 18
   %27 = trunc i32 %shr102 to i8
-  %conv104 = or i8 %27, -16
+  %conv104 = or disjoint i8 %27, -16
   store i8 %conv104, ptr %code_unit8, align 8
   %shr107 = lshr i32 %4, 12
   %28 = trunc i32 %shr107 to i8

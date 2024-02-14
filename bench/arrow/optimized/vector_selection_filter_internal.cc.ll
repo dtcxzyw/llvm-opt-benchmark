@@ -2652,14 +2652,14 @@ arraydestroy.body254:                             ; preds = %arraydestroy.body25
 ehcleanup:                                        ; preds = %arraydestroy.body254, %lpad166
   %.pn = phi { ptr, i32 } [ %143, %lpad166 ], [ %144, %arraydestroy.body254 ]
   %arrayinit.endOfInit.4 = phi ptr [ %arrayinit.endOfInit.3, %lpad166 ], [ %arrayinit.element242, %arraydestroy.body254 ]
-  %cleanup.isactive.0 = phi i1 [ false, %lpad166 ], [ true, %arraydestroy.body254 ]
+  %145 = phi i1 [ false, %lpad166 ], [ true, %arraydestroy.body254 ]
   call void @_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp163) #20
   br label %ehcleanup259
 
 ehcleanup259:                                     ; preds = %ehcleanup, %lpad148
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %142, %lpad148 ]
   %arrayinit.endOfInit.5 = phi ptr [ %arrayinit.endOfInit.4, %ehcleanup ], [ %arrayinit.endOfInit.2, %lpad148 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %ehcleanup ], [ false, %lpad148 ]
+  %cleanup.isactive.1 = phi i1 [ %145, %ehcleanup ], [ false, %lpad148 ]
   call void @_ZNSt10shared_ptrIN5arrow7compute11TypeMatcherEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp146) #20
   br label %ehcleanup260
 
@@ -17663,7 +17663,7 @@ if.then.i:                                        ; preds = %entry
   %storage_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %storage_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEE7DestroyEv.exit
+  br i1 %cmp.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEE7DestroyEv.exit
 
 _ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEE7DestroyEv.exit: ; preds = %if.then.i
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
@@ -17754,14 +17754,10 @@ _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.
   %msg.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i) #20
   tail call void @_ZdlPv(ptr noundef nonnull %3) #21
-  br label %_ZN5arrow6StatusD2Ev.exit.sink.split
-
-_ZN5arrow6StatusD2Ev.exit.sink.split:             ; preds = %if.then.i, %_ZN5arrow6Status11DeleteStateEv.exit.i
-  %storage_.i.sink = phi ptr [ %this, %_ZN5arrow6Status11DeleteStateEv.exit.i ], [ %storage_.i, %if.then.i ]
-  store ptr null, ptr %storage_.i.sink, align 8
+  store ptr null, ptr %this, align 8
   br label %_ZN5arrow6StatusD2Ev.exit
 
-_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2Ev.exit.sink.split, %_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEE7DestroyEv.exit
+_ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then.i, %_ZN5arrow6ResultISt10unique_ptrINS_15ResizableBufferESt14default_deleteIS2_EEE7DestroyEv.exit, %_ZN5arrow6Status11DeleteStateEv.exit.i
   ret void
 }
 
@@ -18772,7 +18768,7 @@ if.then.i:                                        ; preds = %entry
   %storage_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %storage_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit.sink.split, label %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit
+  br i1 %cmp.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit
 
 _ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit: ; preds = %if.then.i
   %vtable.i.i.i.i = load ptr, ptr %1, align 8
@@ -18863,14 +18859,10 @@ _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.
   %msg.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i) #20
   tail call void @_ZdlPv(ptr noundef nonnull %3) #21
-  br label %_ZN5arrow6StatusD2Ev.exit.sink.split
-
-_ZN5arrow6StatusD2Ev.exit.sink.split:             ; preds = %if.then.i, %_ZN5arrow6Status11DeleteStateEv.exit.i
-  %storage_.i.sink = phi ptr [ %this, %_ZN5arrow6Status11DeleteStateEv.exit.i ], [ %storage_.i, %if.then.i ]
-  store ptr null, ptr %storage_.i.sink, align 8
+  store ptr null, ptr %this, align 8
   br label %_ZN5arrow6StatusD2Ev.exit
 
-_ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6StatusD2Ev.exit.sink.split, %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit
+_ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then.i, %_ZN5arrow6ResultISt10unique_ptrINS_6BufferESt14default_deleteIS2_EEE7DestroyEv.exit, %_ZN5arrow6Status11DeleteStateEv.exit.i
   ret void
 }
 
@@ -31402,10 +31394,10 @@ ehcleanup34.thread.i:                             ; preds = %lpad9.i, %lpad.i9
 
 ehcleanup34.i:                                    ; preds = %arraydestroy.body28.i, %lpad12.i, %lpad.i25.i
   %.pn.pn.i = phi { ptr, i32 } [ %19, %lpad12.i ], [ %5, %lpad.i25.i ], [ %.pn.i, %arraydestroy.body28.i ]
-  %cleanup.isactive.0.i = phi i1 [ false, %lpad12.i ], [ false, %lpad.i25.i ], [ true, %arraydestroy.body28.i ]
+  %21 = phi i1 [ false, %lpad12.i ], [ false, %lpad.i25.i ], [ true, %arraydestroy.body28.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11.i) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp8.i) #20
-  br i1 %cleanup.isactive.0.i, label %cleanup.done.i, label %arraydestroy.body36.preheader.i
+  br i1 %21, label %cleanup.done.i, label %arraydestroy.body36.preheader.i
 
 arraydestroy.body36.preheader.i:                  ; preds = %ehcleanup34.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i) #20
@@ -31434,7 +31426,7 @@ __cxx_global_var_init.exit:                       ; preds = %arraydestroy.body.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2.i) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #20
-  %21 = call i32 @__cxa_atexit(ptr nonnull @_ZN5arrow7compute11FunctionDocD2Ev, ptr nonnull @_ZN5arrow7compute8internal12_GLOBAL__N_110filter_docE, ptr nonnull @__dso_handle) #20
+  %22 = call i32 @__cxa_atexit(ptr nonnull @_ZN5arrow7compute11FunctionDocD2Ev, ptr nonnull @_ZN5arrow7compute8internal12_GLOBAL__N_110filter_docE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1.i)

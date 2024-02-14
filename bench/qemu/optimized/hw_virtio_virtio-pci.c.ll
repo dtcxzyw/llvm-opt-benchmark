@@ -882,7 +882,6 @@ if.end12:                                         ; preds = %virtio_bus_get_devi
   br i1 %tobool14.not, label %lor.lhs.false15, label %if.end29
 
 if.end12.thread:                                  ; preds = %lor.lhs.false
-  store i32 %cond, ptr %nvqs_with_notifiers13, align 8
   %vector_irqfd82 = getelementptr inbounds i8, ptr %d, i64 33600
   %7 = load ptr, ptr %vector_irqfd82, align 16
   %tobool14.not83 = icmp eq ptr %7, null

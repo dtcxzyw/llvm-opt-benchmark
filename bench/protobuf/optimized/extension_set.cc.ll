@@ -7460,7 +7460,6 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  store ptr %0, ptr %other, align 8
   %flat_capacity_.i = getelementptr inbounds i8, ptr %this, i64 8
   %flat_capacity_3.i = getelementptr inbounds i8, ptr %other, i64 8
   %2 = load i16, ptr %flat_capacity_.i, align 8

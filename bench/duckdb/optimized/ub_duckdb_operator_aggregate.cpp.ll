@@ -34841,13 +34841,9 @@ if.then29:                                        ; preds = %land.lhs.true24
   tail call void @_ZN6duckdb23WindowGlobalSourceState10CreateTaskEm(ptr sret(%"struct.std::pair.1123") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %hash_bin.addr.0125)
   %14 = load ptr, ptr %second, align 8, !tbaa !18
   %cmp.i103.not = icmp eq ptr %14, null
-  br i1 %cmp.i103.not, label %_ZNSt4pairIPN6duckdb26WindowPartitionSourceStateENS0_10unique_ptrINS0_24RowDataCollectionScannerESt14default_deleteIS4_ELb1EEEED2Ev.exit, label %cleanup68
+  br i1 %cmp.i103.not, label %for.inc, label %cleanup68
 
-_ZNSt4pairIPN6duckdb26WindowPartitionSourceStateENS0_10unique_ptrINS0_24RowDataCollectionScannerESt14default_deleteIS4_ELb1EEEED2Ev.exit: ; preds = %if.then29
-  store ptr null, ptr %second, align 8, !tbaa !18
-  br label %for.inc
-
-for.inc:                                          ; preds = %_ZNSt4pairIPN6duckdb26WindowPartitionSourceStateENS0_10unique_ptrINS0_24RowDataCollectionScannerESt14default_deleteIS4_ELb1EEEED2Ev.exit, %land.lhs.true24, %for.body
+for.inc:                                          ; preds = %if.then29, %land.lhs.true24, %for.body
   %15 = atomicrmw add ptr %next_build, i64 1 seq_cst, align 8
   %16 = load ptr, ptr %_M_finish.i97, align 8, !tbaa !18
   %17 = load ptr, ptr %hash_groups2, align 8, !tbaa !18
@@ -34870,13 +34866,9 @@ if.then37:                                        ; preds = %for.end
   %second39 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %18 = load ptr, ptr %second39, align 8, !tbaa !18
   %cmp.i104.not = icmp eq ptr %18, null
-  br i1 %cmp.i104.not, label %_ZNSt4pairIPN6duckdb26WindowPartitionSourceStateENS0_10unique_ptrINS0_24RowDataCollectionScannerESt14default_deleteIS4_ELb1EEEED2Ev.exit108, label %cleanup68
+  br i1 %cmp.i104.not, label %if.end50, label %cleanup68
 
-_ZNSt4pairIPN6duckdb26WindowPartitionSourceStateENS0_10unique_ptrINS0_24RowDataCollectionScannerESt14default_deleteIS4_ELb1EEEED2Ev.exit108: ; preds = %if.then37
-  store ptr null, ptr %second39, align 8, !tbaa !18
-  br label %if.end50
-
-if.end50:                                         ; preds = %_ZNSt4pairIPN6duckdb26WindowPartitionSourceStateENS0_10unique_ptrINS0_24RowDataCollectionScannerESt14default_deleteIS4_ELb1EEEED2Ev.exit108, %for.end, %if.end16
+if.end50:                                         ; preds = %if.then37, %for.end, %if.end16
   %context = getelementptr inbounds i8, ptr %this, i64 8
   %19 = load ptr, ptr %context, align 8, !tbaa !1128
   %interrupted128 = getelementptr inbounds i8, ptr %19, i64 32

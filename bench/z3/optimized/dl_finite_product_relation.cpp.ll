@@ -30351,7 +30351,6 @@ land.lhs.true:                                    ; preds = %if.then9
 if.then14:                                        ; preds = %land.lhs.true
   %m_state.i.le = getelementptr inbounds i8, ptr %curr.098, i64 4
   %m_data.i.le = getelementptr inbounds i8, ptr %curr.098, i64 8
-  store i32 %4, ptr %m_data.i.le, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %curr.098, i64 16
   %m_value3.i.i = getelementptr inbounds i8, ptr %e, i64 8
   %9 = load i32, ptr %m_value3.i.i, align 8
@@ -30477,7 +30476,6 @@ land.lhs.true34:                                  ; preds = %if.then31
 if.then37:                                        ; preds = %land.lhs.true34
   %m_state.i52.le = getelementptr inbounds i8, ptr %curr.1102, i64 4
   %m_data.i54.le = getelementptr inbounds i8, ptr %curr.1102, i64 8
-  store i32 %4, ptr %m_data.i54.le, align 8
   %m_value.i.i57 = getelementptr inbounds i8, ptr %curr.1102, i64 16
   %m_value3.i.i58 = getelementptr inbounds i8, ptr %e, i64 8
   %25 = load i32, ptr %m_value3.i.i58, align 8

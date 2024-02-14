@@ -486,7 +486,6 @@ if.end42:                                         ; preds = %do.end32
 mqtt_decode_len.exit.thread:                      ; preds = %if.end42
   %remaining_length89 = getelementptr inbounds i8, ptr %1, i64 32
   store i64 0, ptr %remaining_length89, align 8
-  store i64 0, ptr %npacket27, align 8
   br label %if.end50
 
 for.body.i:                                       ; preds = %if.end42, %for.body.i

@@ -11140,11 +11140,7 @@ while.cond55:                                     ; preds = %for.cond.cleanup, %
 while.cond61:                                     ; preds = %while.cond55, %for.end
   %27 = load ptr, ptr %scanner, align 8, !tbaa !23
   %cmp.i279.not = icmp eq ptr %27, null
-  br i1 %cmp.i279.not, label %while.body69.thread, label %lor.rhs
-
-while.body69.thread:                              ; preds = %while.cond61
-  store ptr null, ptr %scanner, align 8, !tbaa !23
-  br label %_ZN6duckdb10unique_ptrINS_14PayloadScannerESt14default_deleteIS1_ELb1EE5resetEPS1_.exit
+  br i1 %cmp.i279.not, label %_ZN6duckdb10unique_ptrINS_14PayloadScannerESt14default_deleteIS1_ELb1EE5resetEPS1_.exit, label %lor.rhs
 
 lor.rhs:                                          ; preds = %while.cond61
   %call65 = invoke noundef ptr @_ZNK6duckdb10unique_ptrINS_14PayloadScannerESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %scanner)
@@ -11174,7 +11170,7 @@ _ZNKSt14default_deleteIN6duckdb14PayloadScannerEEclEPS1_.exit.i.i.i: ; preds = %
   call void @_ZdlPv(ptr noundef nonnull %.pr) #25
   br label %_ZN6duckdb10unique_ptrINS_14PayloadScannerESt14default_deleteIS1_ELb1EE5resetEPS1_.exit
 
-_ZN6duckdb10unique_ptrINS_14PayloadScannerESt14default_deleteIS1_ELb1EE5resetEPS1_.exit: ; preds = %_ZNKSt14default_deleteIN6duckdb14PayloadScannerEEclEPS1_.exit.i.i.i, %while.body69, %while.body69.thread
+_ZN6duckdb10unique_ptrINS_14PayloadScannerESt14default_deleteIS1_ELb1EE5resetEPS1_.exit: ; preds = %while.cond61, %_ZNKSt14default_deleteIN6duckdb14PayloadScannerEEclEPS1_.exit.i.i.i, %while.body69
   %30 = load ptr, ptr %hash_group, align 8, !tbaa !23
   store ptr null, ptr %hash_group, align 8, !tbaa !23
   %tobool.not.i.i.i281 = icmp eq ptr %30, null

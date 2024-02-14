@@ -5490,8 +5490,8 @@ ehcleanup42:                                      ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn.pn.pn.pn
 
 return:                                           ; preds = %entry, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7rocksdb7MemFileEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %if.then.i.i.i, %invoke.cont.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7rocksdb7MemFileESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
-  %cmp.i31 = phi i1 [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7rocksdb7MemFileESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit ], [ true, %invoke.cont.i ], [ true, %if.then.i.i.i ], [ false, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7rocksdb7MemFileEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ false, %entry ]
-  ret i1 %cmp.i31
+  %retval.0 = phi i1 [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7rocksdb7MemFileESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit ], [ true, %invoke.cont.i ], [ true, %if.then.i.i.i ], [ false, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN7rocksdb7MemFileEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ false, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8349,7 +8349,6 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br i1 %cmp.i30, label %if.end31, label %if.then21
 
 _ZN7rocksdb8IOStatusD2Ev.exit:                    ; preds = %invoke.cont19
-  store ptr null, ptr %state_.i, align 8
   br i1 %cmp.i30, label %if.end31, label %if.then21
 
 if.then21:                                        ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i, %invoke.cont19.thread, %_ZN7rocksdb8IOStatusD2Ev.exit

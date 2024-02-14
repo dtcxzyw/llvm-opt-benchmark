@@ -5169,8 +5169,6 @@ land.lhs.true:                                    ; preds = %if.then9
 
 if.then14:                                        ; preds = %land.lhs.true
   %m_state.i.le = getelementptr inbounds i8, ptr %curr.0200, i64 4
-  %m_data.i.le = getelementptr inbounds i8, ptr %curr.0200, i64 8
-  store i32 %4, ptr %m_data.i.le, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %curr.0200, i64 16
   %m_value3.i.i = getelementptr inbounds i8, ptr %e, i64 8
   %9 = load i32, ptr %m_value.i.i, align 4
@@ -5367,8 +5365,6 @@ land.lhs.true34:                                  ; preds = %if.then31
 
 if.then37:                                        ; preds = %land.lhs.true34
   %m_state.i86.le = getelementptr inbounds i8, ptr %curr.1204, i64 4
-  %m_data.i88.le = getelementptr inbounds i8, ptr %curr.1204, i64 8
-  store i32 %4, ptr %m_data.i88.le, align 8
   %m_value.i.i91 = getelementptr inbounds i8, ptr %curr.1204, i64 16
   %m_value3.i.i92 = getelementptr inbounds i8, ptr %e, i64 8
   %31 = load i32, ptr %m_value.i.i91, align 4
@@ -6957,8 +6953,6 @@ land.lhs.true:                                    ; preds = %if.then9
 
 if.then14:                                        ; preds = %land.lhs.true
   %m_state.i.le = getelementptr inbounds i8, ptr %curr.062, i64 4
-  %m_data.i.le = getelementptr inbounds i8, ptr %curr.062, i64 8
-  store i32 %4, ptr %m_data.i.le, align 4
   store i32 2, ptr %m_state.i.le, align 4
   br label %return
 
@@ -7015,8 +7009,6 @@ land.lhs.true34:                                  ; preds = %if.then31
 
 if.then37:                                        ; preds = %land.lhs.true34
   %m_state.i40.le = getelementptr inbounds i8, ptr %curr.166, i64 4
-  %m_data.i42.le = getelementptr inbounds i8, ptr %curr.166, i64 8
-  store i32 %4, ptr %m_data.i42.le, align 4
   store i32 2, ptr %m_state.i40.le, align 4
   br label %return
 
@@ -13052,26 +13044,26 @@ if.else.i.i7.i215:                                ; preds = %_ZN11mpq_managerILb
   br label %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit224
 
 _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit224:    ; preds = %if.then.i.i8.i216, %if.else.i.i7.i215
-  %.pre422.pre425 = load ptr, ptr %m_c.i178, align 8
+  %.pre423.pre426 = load ptr, ptr %m_c.i178, align 8
   br i1 %tobool.i.not.i.i, label %sw.bb1.i, label %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit
 
 sw.bb1.i:                                         ; preds = %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit224
-  tail call void @_ZN11mpq_managerILb0EE5powerERK3mpqjRS1_(ptr noundef nonnull align 8 dereferenceable(728) %.pre422.pre425, ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower, i32 noundef %n, ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower)
-  %.pre422.pre = load ptr, ptr %m_c.i178, align 8
+  tail call void @_ZN11mpq_managerILb0EE5powerERK3mpqjRS1_(ptr noundef nonnull align 8 dereferenceable(728) %.pre423.pre426, ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower, i32 noundef %n, ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower)
+  %.pre423.pre = load ptr, ptr %m_c.i178, align 8
   br label %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit
 
 _Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit: ; preds = %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit224, %sw.bb1.i
-  %.pre422 = phi ptr [ %.pre422.pre, %sw.bb1.i ], [ %.pre422.pre425, %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit224 ]
+  %.pre423 = phi ptr [ %.pre423.pre, %sw.bb1.i ], [ %.pre423.pre426, %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit224 ]
   %un1_kind.0 = phi i32 [ 1, %sw.bb1.i ], [ 2, %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit224 ]
   br i1 %tobool.i.not.i.i102, label %sw.bb1.i227, label %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit232
 
 sw.bb1.i227:                                      ; preds = %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit
-  tail call void @_ZN11mpq_managerILb0EE5powerERK3mpqjRS1_(ptr noundef nonnull align 8 dereferenceable(728) %.pre422, ptr noundef nonnull align 8 dereferenceable(32) %m_result_upper, i32 noundef %n, ptr noundef nonnull align 8 dereferenceable(32) %m_result_upper)
+  tail call void @_ZN11mpq_managerILb0EE5powerERK3mpqjRS1_(ptr noundef nonnull align 8 dereferenceable(728) %.pre423, ptr noundef nonnull align 8 dereferenceable(32) %m_result_upper, i32 noundef %n, ptr noundef nonnull align 8 dereferenceable(32) %m_result_upper)
   %.pre = load ptr, ptr %m_c.i178, align 8
   br label %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit232
 
 _Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit232: ; preds = %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit, %sw.bb1.i227
-  %34 = phi ptr [ %.pre422, %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit ], [ %.pre, %sw.bb1.i227 ]
+  %34 = phi ptr [ %.pre423, %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit ], [ %.pre, %sw.bb1.i227 ]
   %un2_kind.0 = phi i32 [ 2, %_Z5powerI11mpq_managerILb0EEEvRT_RNS2_7numeralER16ext_numeral_kindj.exit ], [ 1, %sw.bb1.i227 ]
   %call.i = tail call noundef zeroext i1 @_Z2ltI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_(ptr noundef nonnull align 8 dereferenceable(728) %34, ptr noundef nonnull align 8 dereferenceable(32) %m_result_upper, i32 noundef %un2_kind.0, ptr noundef nonnull align 8 dereferenceable(32) %m_result_lower, i32 noundef %un1_kind.0)
   br i1 %call.i, label %if.then60, label %lor.lhs.false

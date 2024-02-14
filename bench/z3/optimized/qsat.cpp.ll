@@ -16195,8 +16195,7 @@ if.then74:                                        ; preds = %if.end69
 invoke.cont75:                                    ; preds = %if.then74
   br i1 %call76, label %sw.epilog95, label %cleanup
 
-_ZN3refI5modelE5resetEv.exit.i.invoke:            ; preds = %if.end69, %sw.default
-  store ptr null, ptr %m_model, align 8
+_ZN3refI5modelE5resetEv.exit.i.invoke:            ; preds = %sw.default, %if.end69
   invoke void @_ZN2qe8pred_abs3popEj(ptr noundef nonnull align 8 dereferenceable(216) %m_pred_abs, i32 noundef 1)
           to label %sw.epilog95.sink.split unwind label %lpad.loopexit.split-lp
 
@@ -16223,7 +16222,7 @@ sw.epilog95:                                      ; preds = %sw.epilog95.sink.sp
 
 cleanup:                                          ; preds = %.noexc, %invoke.cont39, %invoke.cont87, %invoke.cont75, %sw.bb65, %sw.bb62, %invoke.cont42, %sw.epilog95
   %retval.1 = phi i32 [ %retval.0, %sw.epilog95 ], [ 0, %invoke.cont42 ], [ -1, %sw.bb62 ], [ 1, %sw.bb65 ], [ 0, %invoke.cont75 ], [ 0, %invoke.cont87 ], [ %call3.i11, %invoke.cont39 ], [ 0, %.noexc ]
-  %cleanup.dest.slot.0 = phi i1 [ true, %sw.epilog95 ], [ false, %invoke.cont42 ], [ false, %sw.bb62 ], [ false, %sw.bb65 ], [ false, %invoke.cont75 ], [ false, %invoke.cont87 ], [ false, %invoke.cont39 ], [ false, %.noexc ]
+  %switch = phi i1 [ true, %sw.epilog95 ], [ false, %invoke.cont42 ], [ false, %sw.bb62 ], [ false, %sw.bb65 ], [ false, %invoke.cont75 ], [ false, %invoke.cont87 ], [ false, %invoke.cont39 ], [ false, %.noexc ]
   %67 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i49 = icmp eq ptr %67, null
   br i1 %cmp.i.i.i49, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
@@ -16286,7 +16285,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %cleanup, %invoke.cont8.i.i, %if.then.i.i.i.i.i
-  br i1 %cleanup.dest.slot.0, label %while.body, label %return
+  br i1 %switch, label %while.body, label %return
 
 return:                                           ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit
   ret i32 %retval.1

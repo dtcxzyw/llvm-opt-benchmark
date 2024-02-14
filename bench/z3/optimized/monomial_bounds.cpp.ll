@@ -267,10 +267,10 @@ land.rhs.i:                                       ; preds = %entry
   br label %_ZNK3nla15monomial_bounds7is_freeEj.exit
 
 _ZNK3nla15monomial_bounds7is_freeEj.exit:         ; preds = %entry, %land.rhs.i
-  %not. = phi i1 [ true, %entry ], [ %call4.i, %land.rhs.i ]
+  %.not139 = phi i1 [ true, %entry ], [ %call4.i, %land.rhs.i ]
   %cmp3 = icmp ult i32 %0, 2
-  %.not = select i1 %not., i1 %cmp3, i1 false
-  %brmerge = or i1 %cmp, %.not
+  %.not.not140 = select i1 %.not139, i1 %cmp3, i1 false
+  %brmerge = or i1 %cmp, %.not.not140
   br i1 %brmerge, label %invoke.cont12, label %return
 
 invoke.cont12:                                    ; preds = %_ZNK3nla15monomial_bounds7is_freeEj.exit
@@ -416,7 +416,7 @@ for.cond.preheader:                               ; preds = %invoke.cont16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %_ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.exit
-  %storemerge.lcssa139149 = phi i32 [ %storemerge.lcssa139, %_ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.exit ], [ %power.promoted, %for.cond.preheader ]
+  %storemerge.lcssa141151 = phi i32 [ %storemerge.lcssa141, %_ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.exit ], [ %power.promoted, %for.cond.preheader ]
   %i.0 = phi i32 [ %i.1.lcssa, %_ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.exit ], [ 0, %for.cond.preheader ]
   %8 = load ptr, ptr %m_vs.i, align 8
   %cmp.i.i = icmp eq ptr %8, null
@@ -438,9 +438,9 @@ for.body:                                         ; preds = %invoke.cont23
   %10 = load i32, ptr %arrayidx.i, align 4
   %arrayidx.i.i101 = getelementptr inbounds i8, ptr %8, i64 -4
   %11 = load i32, ptr %arrayidx.i.i101, align 4
-  %i.1140 = add nuw i32 %i.0, 1
-  %cmp33141 = icmp ult i32 %i.1140, %11
-  br i1 %cmp33141, label %land.rhs34.preheader, label %for.end
+  %i.1142 = add nuw i32 %i.0, 1
+  %cmp33143 = icmp ult i32 %i.1142, %11
+  br i1 %cmp33143, label %land.rhs34.preheader, label %for.end
 
 land.rhs34.preheader:                             ; preds = %for.body
   %12 = add nuw nsw i64 %idxprom.i, 1
@@ -450,14 +450,14 @@ land.rhs34.preheader:                             ; preds = %for.body
 
 land.rhs34:                                       ; preds = %land.rhs34.preheader, %for.inc
   %indvars.iv = phi i64 [ %12, %land.rhs34.preheader ], [ %indvars.iv.next, %for.inc ]
-  %storemerge142 = phi i32 [ 1, %land.rhs34.preheader ], [ %inc43, %for.inc ]
+  %storemerge144 = phi i32 [ 1, %land.rhs34.preheader ], [ %inc43, %for.inc ]
   %arrayidx.i106 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
   %15 = load i32, ptr %arrayidx.i106, align 4
   %cmp39 = icmp eq i32 %10, %15
-  br i1 %cmp39, label %for.inc, label %for.end.loopexit.split.loop.exit162
+  br i1 %cmp39, label %for.inc, label %for.end.loopexit.split.loop.exit163
 
 for.inc:                                          ; preds = %land.rhs34
-  %inc43 = add i32 %storemerge142, 1
+  %inc43 = add i32 %storemerge144, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp33 = icmp ult i64 %indvars.iv.next, %13
   br i1 %cmp33, label %land.rhs34, label %for.end, !llvm.loop !4
@@ -480,25 +480,25 @@ lpad13:                                           ; preds = %lpad13.loopexit.spl
   call void @_ZN16_scoped_intervalI13dep_intervalsED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %product) #16
   resume { ptr, i32 } %lpad.phi
 
-for.end.loopexit.split.loop.exit162:              ; preds = %land.rhs34
+for.end.loopexit.split.loop.exit163:              ; preds = %land.rhs34
   %16 = trunc i64 %indvars.iv to i32
   br label %for.end
 
-for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit162, %for.body
-  %storemerge.lcssa139 = phi i32 [ 1, %for.body ], [ %storemerge142, %for.end.loopexit.split.loop.exit162 ], [ %14, %for.inc ]
-  %i.1.lcssa = phi i32 [ %i.1140, %for.body ], [ %16, %for.end.loopexit.split.loop.exit162 ], [ %11, %for.inc ]
+for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit163, %for.body
+  %storemerge.lcssa141 = phi i32 [ 1, %for.body ], [ %storemerge144, %for.end.loopexit.split.loop.exit163 ], [ %14, %for.inc ]
+  %i.1.lcssa = phi i32 [ %i.1142, %for.body ], [ %16, %for.end.loopexit.split.loop.exit163 ], [ %11, %for.inc ]
   invoke void @_ZN3nla15monomial_bounds12var2intervalEjR16_scoped_intervalI13dep_intervalsE(ptr noundef nonnull align 8 dereferenceable(192) %this, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(96) %vi)
           to label %invoke.cont44 unwind label %lpad13.loopexit
 
 invoke.cont44:                                    ; preds = %for.end
   %17 = load ptr, ptr %dep, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %combine_rule.i)
-  %cmp.i = icmp eq i32 %storemerge.lcssa139, 1
+  %cmp.i = icmp eq i32 %storemerge.lcssa141, 1
   br i1 %cmp.i, label %invoke.cont50, label %if.end.i
 
 if.end.i:                                         ; preds = %invoke.cont44
   %m_imanager.i = getelementptr inbounds i8, ptr %17, i64 752
-  invoke void @_ZN16interval_managerIN13dep_intervals9im_configEE5powerERKNS1_8intervalEjRS3_R26interval_deps_combine_rule(ptr noundef nonnull align 8 dereferenceable(672) %m_imanager.i, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i24, i32 noundef %storemerge.lcssa139, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i24, ptr noundef nonnull align 2 dereferenceable(4) %combine_rule.i)
+  invoke void @_ZN16interval_managerIN13dep_intervals9im_configEE5powerERKNS1_8intervalEjRS3_R26interval_deps_combine_rule(ptr noundef nonnull align 8 dereferenceable(672) %m_imanager.i, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i24, i32 noundef %storemerge.lcssa141, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i24, ptr noundef nonnull align 2 dereferenceable(4) %combine_rule.i)
           to label %.noexc unwind label %lpad13.loopexit
 
 .noexc:                                           ; preds = %if.end.i
@@ -507,19 +507,19 @@ if.end.i:                                         ; preds = %invoke.cont44
           to label %.noexc.invoke.cont50_crit_edge unwind label %lpad13.loopexit
 
 .noexc.invoke.cont50_crit_edge:                   ; preds = %.noexc
-  %.pre157.pre = load ptr, ptr %dep, align 8
+  %.pre158.pre = load ptr, ptr %dep, align 8
   br label %invoke.cont50
 
 invoke.cont50:                                    ; preds = %.noexc.invoke.cont50_crit_edge, %invoke.cont44
-  %.pre157 = phi ptr [ %.pre157.pre, %.noexc.invoke.cont50_crit_edge ], [ %17, %invoke.cont44 ]
+  %.pre158 = phi ptr [ %.pre158.pre, %.noexc.invoke.cont50_crit_edge ], [ %17, %invoke.cont44 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %combine_rule.i)
   %cmp54 = icmp eq i32 %7, %10
   %or.cond = select i1 %cmp, i1 true, i1 %cmp54
-  %or.cond152 = select i1 %.not, i1 %or.cond, i1 false
-  br i1 %or.cond152, label %if.then55, label %if.end71
+  %or.cond153 = select i1 %.not.not140, i1 %or.cond, i1 false
+  br i1 %or.cond153, label %if.then55, label %if.end71
 
 if.then55:                                        ; preds = %invoke.cont50
-  %m_imanager.i112 = getelementptr inbounds i8, ptr %.pre157, i64 752
+  %m_imanager.i112 = getelementptr inbounds i8, ptr %.pre158, i64 752
   invoke void @_ZN16interval_managerIN13dep_intervals9im_configEE3setERNS1_8intervalERKS3_(ptr noundef nonnull align 8 dereferenceable(672) %m_imanager.i112, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i72, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i)
           to label %invoke.cont61 unwind label %lpad13.loopexit
 
@@ -530,7 +530,7 @@ invoke.cont61:                                    ; preds = %if.then55
           to label %invoke.cont62 unwind label %lpad13.loopexit
 
 invoke.cont62:                                    ; preds = %invoke.cont61
-  %call68 = invoke noundef zeroext i1 @_ZN3nla15monomial_bounds14propagate_downERKNS_5monicERN13dep_intervals9im_config8intervalEjjS7_(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i48, i32 noundef %10, i32 noundef %storemerge.lcssa139, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i72)
+  %call68 = invoke noundef zeroext i1 @_ZN3nla15monomial_bounds14propagate_downERKNS_5monicERN13dep_intervals9im_config8intervalEjjS7_(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i48, i32 noundef %10, i32 noundef %storemerge.lcssa141, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i72)
           to label %invoke.cont67 unwind label %lpad13.loopexit
 
 invoke.cont67:                                    ; preds = %invoke.cont62
@@ -541,7 +541,7 @@ invoke.cont67.if.end71_crit_edge:                 ; preds = %invoke.cont67
   br label %if.end71
 
 if.end71:                                         ; preds = %invoke.cont67.if.end71_crit_edge, %invoke.cont50
-  %19 = phi ptr [ %.pre, %invoke.cont67.if.end71_crit_edge ], [ %.pre157, %invoke.cont50 ]
+  %19 = phi ptr [ %.pre, %invoke.cont67.if.end71_crit_edge ], [ %.pre158, %invoke.cont50 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %comb_rule.i)
   %m_imanager.i.i = getelementptr inbounds i8, ptr %19, i64 752
   invoke void @_ZN16interval_managerIN13dep_intervals9im_configEE3mulERKNS1_8intervalES5_RS3_R26interval_deps_combine_rule(ptr noundef nonnull align 8 dereferenceable(672) %m_imanager.i.i, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i24, ptr noundef nonnull align 8 dereferenceable(88) %m_interval.i, ptr noundef nonnull align 2 dereferenceable(4) %comb_rule.i)
@@ -583,7 +583,7 @@ _ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.e
   br label %for.cond
 
 for.end80:                                        ; preds = %invoke.cont23
-  store i32 %storemerge.lcssa139149, ptr %power, align 4
+  store i32 %storemerge.lcssa141151, ptr %power, align 4
   br i1 %cmp, label %land.rhs82, label %cleanup
 
 land.rhs82:                                       ; preds = %for.end80
@@ -592,7 +592,7 @@ land.rhs82:                                       ; preds = %for.end80
           to label %cleanup unwind label %lpad13.loopexit.split-lp
 
 cleanup.loopexit:                                 ; preds = %invoke.cont67
-  store i32 %storemerge.lcssa139, ptr %power, align 4
+  store i32 %storemerge.lcssa141, ptr %power, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.loopexit, %for.end80, %land.rhs82
@@ -6883,8 +6883,6 @@ land.lhs.true:                                    ; preds = %if.then9
 
 if.then14:                                        ; preds = %land.lhs.true
   %m_state.i.le = getelementptr inbounds i8, ptr %curr.0200, i64 4
-  %m_data.i.le = getelementptr inbounds i8, ptr %curr.0200, i64 8
-  store i32 %4, ptr %m_data.i.le, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %curr.0200, i64 16
   %m_value3.i.i = getelementptr inbounds i8, ptr %e, i64 8
   %9 = load i32, ptr %m_value.i.i, align 4
@@ -7081,8 +7079,6 @@ land.lhs.true34:                                  ; preds = %if.then31
 
 if.then37:                                        ; preds = %land.lhs.true34
   %m_state.i86.le = getelementptr inbounds i8, ptr %curr.1204, i64 4
-  %m_data.i88.le = getelementptr inbounds i8, ptr %curr.1204, i64 8
-  store i32 %4, ptr %m_data.i88.le, align 8
   %m_value.i.i91 = getelementptr inbounds i8, ptr %curr.1204, i64 16
   %m_value3.i.i92 = getelementptr inbounds i8, ptr %e, i64 8
   %31 = load i32, ptr %m_value.i.i91, align 4
@@ -10397,8 +10393,6 @@ land.lhs.true:                                    ; preds = %if.then9
 
 if.then14:                                        ; preds = %land.lhs.true
   %m_state.i.le = getelementptr inbounds i8, ptr %curr.062, i64 4
-  %m_data.i.le = getelementptr inbounds i8, ptr %curr.062, i64 8
-  store i32 %4, ptr %m_data.i.le, align 4
   store i32 2, ptr %m_state.i.le, align 4
   br label %return
 
@@ -10455,8 +10449,6 @@ land.lhs.true34:                                  ; preds = %if.then31
 
 if.then37:                                        ; preds = %land.lhs.true34
   %m_state.i40.le = getelementptr inbounds i8, ptr %curr.166, i64 4
-  %m_data.i42.le = getelementptr inbounds i8, ptr %curr.166, i64 8
-  store i32 %4, ptr %m_data.i42.le, align 4
   store i32 2, ptr %m_state.i40.le, align 4
   br label %return
 

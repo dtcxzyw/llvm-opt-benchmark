@@ -265,13 +265,9 @@ if.then.i:                                        ; preds = %entry
   tail call void @_ZN3ue221teddyBuildProtoHintedEhRKSt6vectorINS_11hwlmLiteralESaIS1_EEbjRKNS_8target_tE(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, i8 noundef zeroext %engType, ptr noundef nonnull align 8 dereferenceable(24) %lits, i1 noundef zeroext %make_small, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(16) %target)
   %2 = load ptr, ptr %agg.result, align 8, !alias.scope !5
   %cmp.i.not.i = icmp eq ptr %2, null
-  br i1 %cmp.i.not.i, label %nrvo.skipdtor.thread.i, label %_ZN3ue2L21fdrBuildProtoInternalEhRSt6vectorINS_11hwlmLiteralESaIS1_EEbRKNS_8target_tERKNS_4GreyEj.exit
+  br i1 %cmp.i.not.i, label %cond.true.i, label %_ZN3ue2L21fdrBuildProtoInternalEhRSt6vectorINS_11hwlmLiteralESaIS1_EEbRKNS_8target_tERKNS_4GreyEj.exit
 
-nrvo.skipdtor.thread.i:                           ; preds = %if.then.i
-  store ptr null, ptr %agg.result, align 8, !alias.scope !5
-  br label %cond.true.i
-
-cond.true.i:                                      ; preds = %nrvo.skipdtor.thread.i, %entry
+cond.true.i:                                      ; preds = %if.then.i, %entry
   call void @_ZN3ue212chooseEngineERKNS_8target_tERKSt6vectorINS_11hwlmLiteralESaIS4_EEb(ptr nonnull sret(%"class.std::unique_ptr.15") align 8 %des.i, ptr noundef nonnull align 8 dereferenceable(16) %target, ptr noundef nonnull align 8 dereferenceable(24) %lits, i1 noundef zeroext %make_small)
   %3 = load ptr, ptr %des.i, align 8, !noalias !5
   %cmp.i10.not.i = icmp eq ptr %3, null

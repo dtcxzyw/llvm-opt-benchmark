@@ -5152,7 +5152,7 @@ if.end30.i:                                       ; preds = %st_mult.exit.i, %if
 
 while.cond.i148:                                  ; preds = %land.rhs.i, %if.end30.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %land.rhs.i ], [ %idxprom.i, %if.end30.i ]
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %70 = load i32, ptr %cache_nr.i, align 4
   %71 = trunc i64 %indvars.iv.next.i to i32
   %cmp32.i = icmp ugt i32 %70, %71
@@ -8396,11 +8396,7 @@ if.end.i122:                                      ; preds = %if.then98
   store ptr null, ptr %yet_to_do.i, align 8
   %212 = load ptr, ptr %revs, align 8
   %tobool1.not69.i = icmp eq ptr %212, null
-  br i1 %tobool1.not69.i, label %while.end9.thread.i, label %for.body.i123
-
-while.end9.thread.i:                              ; preds = %if.end.i122
-  store ptr null, ptr %revs, align 8
-  br label %simplify_merges.exit
+  br i1 %tobool1.not69.i, label %simplify_merges.exit, label %for.body.i123
 
 while.cond.preheader.i:                           ; preds = %for.body.i123
   %.pre.i125 = load ptr, ptr %yet_to_do.i, align 8
@@ -8901,7 +8897,7 @@ if.end21.i134:                                    ; preds = %if.then18.i, %locat
   %tobool14.not.i135 = icmp eq ptr %.pr64.i, null
   br i1 %tobool14.not.i135, label %simplify_merges.exit, label %while.body15.i, !llvm.loop !75
 
-simplify_merges.exit:                             ; preds = %if.end21.i134, %if.then98, %while.end9.thread.i, %while.end9.i
+simplify_merges.exit:                             ; preds = %if.end21.i134, %if.then98, %if.end.i122, %while.end9.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %list.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %yet_to_do.i)
   br label %if.end99
@@ -12352,7 +12348,7 @@ for.inc:                                          ; preds = %sw.bb128, %if.then1
   %relevant_change.2 = phi i32 [ %relevant_change.0., %sw.bb128 ], [ %relevant_change.0., %if.then134 ], [ %relevant_change.0117, %if.then80 ], [ %relevant_change.0117, %if.then78 ]
   %irrelevant_change.2 = phi i32 [ %.irrelevant_change.0, %sw.bb128 ], [ %.irrelevant_change.0, %if.then134 ], [ %irrelevant_change.0118, %if.then80 ], [ %irrelevant_change.0118, %if.then78 ]
   %next148 = getelementptr inbounds i8, ptr %7, i64 8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load ptr, ptr %next148, align 8
   %cmp.not = icmp eq ptr %43, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !95

@@ -31555,7 +31555,6 @@ if.then:                                          ; preds = %sw.bb
   unreachable
 
 if.end:                                           ; preds = %sw.bb
-  store i32 %1, ptr %lastline, align 8
   %lookahead.i = getelementptr inbounds i8, ptr %ls, i64 32
   %4 = load i32, ptr %lookahead.i, align 8
   %cmp.not.i = icmp eq i32 %4, 287

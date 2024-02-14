@@ -6028,7 +6028,6 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %_M_refcount4.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
-  store ptr null, ptr %handle, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -29541,7 +29540,7 @@ invoke.cont70:                                    ; preds = %if.end22.i, %_ZZN3f
   %cmp75 = icmp sgt i32 %retval.0.i472, %invariant.op
   %141 = trunc i32 %call63 to i8
   %conv78 = add i8 %141, 48
-  %indvars.iv.next1004 = add nuw i64 %indvars.iv1003, 1
+  %indvars.iv.next1004 = add nuw nsw i64 %indvars.iv1003, 1
   %arrayidx = getelementptr inbounds i8, ptr %113, i64 %indvars.iv1003
   store i8 %conv78, ptr %arrayidx, align 1
   %brmerge = select i1 %cmp68, i1 true, i1 %cmp75
@@ -44127,7 +44126,7 @@ if.end42:                                         ; preds = %if.end15
 while.body.preheader.i:                           ; preds = %if.end42
   %value.coerce0.masked.numleadingzeros.i = tail call i64 @llvm.ctlz.i64(i64 %and.i.i, i1 true), !range !380
   %value.coerce0.masked.leadingonepos.i = xor i64 %value.coerce0.masked.numleadingzeros.i, 63
-  %while.body.tripcount.i = sub nsw i64 52, %value.coerce0.masked.leadingonepos.i
+  %while.body.tripcount.i = sub nuw nsw i64 52, %value.coerce0.masked.leadingonepos.i
   %shl.i80 = shl i64 %and.i.i, %while.body.tripcount.i
   %17 = trunc i64 %value.coerce0.masked.numleadingzeros.i to i32
   %18 = sub nuw nsw i32 -1063, %17
@@ -53409,7 +53408,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont55 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont55:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i237, %if.then.i232, %if.then2.i236, %if.end13.i
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond35, !llvm.loop !685
 
 for.end57:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -54460,7 +54459,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i245, %if.then.i240, %if.then2.i244, %if.end13.i
-  %indvars.iv.next424 = add nuw i64 %indvars.iv423, 1
+  %indvars.iv.next424 = add nuw nsw i64 %indvars.iv423, 1
   br label %for.cond35, !llvm.loop !694
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -55515,7 +55514,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i245, %if.then.i240, %if.then2.i244, %if.end13.i
-  %indvars.iv.next424 = add nuw i64 %indvars.iv423, 1
+  %indvars.iv.next424 = add nuw nsw i64 %indvars.iv423, 1
   br label %for.cond35, !llvm.loop !703
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -56581,7 +56580,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i262, %if.then.i257, %if.then2.i261, %if.end13.i
-  %indvars.iv.next447 = add nuw i64 %indvars.iv446, 1
+  %indvars.iv.next447 = add nuw nsw i64 %indvars.iv446, 1
   br label %for.cond35, !llvm.loop !712
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -57693,7 +57692,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i249, %if.then.i244, %if.then2.i248, %if.end13.i
-  %indvars.iv.next428 = add nuw i64 %indvars.iv427, 1
+  %indvars.iv.next428 = add nuw nsw i64 %indvars.iv427, 1
   br label %for.cond35, !llvm.loop !721
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -58752,7 +58751,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i249, %if.then.i244, %if.then2.i248, %if.end13.i
-  %indvars.iv.next428 = add nuw i64 %indvars.iv427, 1
+  %indvars.iv.next428 = add nuw nsw i64 %indvars.iv427, 1
   br label %for.cond35, !llvm.loop !730
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -59811,7 +59810,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i249, %if.then.i244, %if.then2.i248, %if.end13.i
-  %indvars.iv.next428 = add nuw i64 %indvars.iv427, 1
+  %indvars.iv.next428 = add nuw nsw i64 %indvars.iv427, 1
   br label %for.cond35, !llvm.loop !739
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -60870,7 +60869,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i251, %if.then.i246, %if.then2.i250, %if.end13.i
-  %indvars.iv.next430 = add nuw i64 %indvars.iv429, 1
+  %indvars.iv.next430 = add nuw nsw i64 %indvars.iv429, 1
   br label %for.cond35, !llvm.loop !748
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -61930,7 +61929,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i239, %if.then.i234, %if.then2.i238, %if.end13.i
-  %indvars.iv.next418 = add nuw i64 %indvars.iv417, 1
+  %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 1
   br label %for.cond35, !llvm.loop !757
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -63036,7 +63035,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i239, %if.then.i234, %if.then2.i238, %if.end13.i
-  %indvars.iv.next418 = add nuw i64 %indvars.iv417, 1
+  %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 1
   br label %for.cond35, !llvm.loop !766
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -64078,7 +64077,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i239, %if.then.i234, %if.then2.i238, %if.end13.i
-  %indvars.iv.next418 = add nuw i64 %indvars.iv417, 1
+  %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 1
   br label %for.cond35, !llvm.loop !775
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -65120,7 +65119,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i239, %if.then.i234, %if.then2.i238, %if.end13.i
-  %indvars.iv.next418 = add nuw i64 %indvars.iv417, 1
+  %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 1
   br label %for.cond35, !llvm.loop !784
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -66148,7 +66147,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i246, %if.then.i241, %if.then2.i245, %if.end13.i
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond35, !llvm.loop !792
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -67206,7 +67205,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i248, %if.then.i243, %if.then2.i247, %if.end13.i
-  %indvars.iv.next427 = add nuw i64 %indvars.iv426, 1
+  %indvars.iv.next427 = add nuw nsw i64 %indvars.iv426, 1
   br label %for.cond35, !llvm.loop !801
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -68266,7 +68265,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i245, %if.then.i240, %if.then2.i244, %if.end13.i
-  %indvars.iv.next424 = add nuw i64 %indvars.iv423, 1
+  %indvars.iv.next424 = add nuw nsw i64 %indvars.iv423, 1
   br label %for.cond35, !llvm.loop !810
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -69318,7 +69317,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i260, %if.then.i255, %if.then2.i259, %if.end13.i
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond35, !llvm.loop !818
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -70435,7 +70434,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i262, %if.then.i257, %if.then2.i261, %if.end13.i
-  %indvars.iv.next447 = add nuw i64 %indvars.iv446, 1
+  %indvars.iv.next447 = add nuw nsw i64 %indvars.iv446, 1
   br label %for.cond35, !llvm.loop !827
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -71554,7 +71553,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i262, %if.then.i257, %if.then2.i261, %if.end13.i
-  %indvars.iv.next447 = add nuw i64 %indvars.iv446, 1
+  %indvars.iv.next447 = add nuw nsw i64 %indvars.iv446, 1
   br label %for.cond35, !llvm.loop !836
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -72650,7 +72649,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i246, %if.then.i241, %if.then2.i245, %if.end13.i
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %for.cond35, !llvm.loop !844
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -73707,7 +73706,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i245, %if.then.i240, %if.then2.i244, %if.end13.i
-  %indvars.iv.next424 = add nuw i64 %indvars.iv423, 1
+  %indvars.iv.next424 = add nuw nsw i64 %indvars.iv423, 1
   br label %for.cond35, !llvm.loop !853
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
@@ -74763,7 +74762,7 @@ if.end13.i:                                       ; preds = %if.then6.i, %if.els
           to label %invoke.cont54 unwind label %lpad33.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont54:                                    ; preds = %if.then10.i, %call.i.noexc, %if.then4.i, %if.else.i248, %if.then.i243, %if.then2.i247, %if.end13.i
-  %indvars.iv.next427 = add nuw i64 %indvars.iv426, 1
+  %indvars.iv.next427 = add nuw nsw i64 %indvars.iv426, 1
   br label %for.cond35, !llvm.loop !862
 
 for.end56:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit

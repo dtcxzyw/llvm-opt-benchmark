@@ -34501,7 +34501,6 @@ _ZNKSt14default_deleteIN6duckdb10ExpressionEEclEPS1_.exit.i: ; preds = %invoke.c
   br i1 %cmp.not, label %cleanup12, label %for.inc
 
 _ZNSt10unique_ptrIN6duckdb10ExpressionESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont9
-  store ptr null, ptr %agg.tmp, align 8, !tbaa !30
   br i1 %cmp.not, label %cleanup12, label %for.inc
 
 lpad8.loopexit:                                   ; preds = %_ZNSt16allocator_traitsISaIN6duckdb10unique_ptrINS0_10ExpressionESt14default_deleteIS2_ELb1EEEEE8allocateERS6_m.exit.i.i58, %call.i.noexc, %for.body

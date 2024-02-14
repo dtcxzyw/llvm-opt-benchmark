@@ -17494,7 +17494,6 @@ _ZN7testing8internal17TestPropertyKeyIsC2EOS1_.exit.thread.i: ; preds = %_ZN7tes
   %add.i.i.i = add nuw nsw i64 %10, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %add.i.i.i, i1 false), !noalias !231
   %_M_string_length.i33.i.i7.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  store ptr %0, ptr %agg.tmp4, align 8, !noalias !231
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !noalias !231
   store i8 0, ptr %0, align 8, !noalias !231
   %11 = getelementptr inbounds i8, ptr %agg.tmp3, i64 16
@@ -40948,7 +40947,6 @@ _ZN7testing8internal14TestCaseNameIsC2EOS1_.exit.thread.i: ; preds = %_ZN7testin
   %add.i.i.i = add nuw nsw i64 %10, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %add.i.i.i, i1 false), !noalias !429
   %_M_string_length.i33.i.i7.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
-  store ptr %0, ptr %agg.tmp4, align 8, !noalias !429
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8, !noalias !429
   store i8 0, ptr %0, align 8, !noalias !429
   %11 = getelementptr inbounds i8, ptr %agg.tmp3, i64 16

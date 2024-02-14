@@ -2247,7 +2247,7 @@ if.end12:                                         ; preds = %invoke.cont9, %invo
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont9, %if.end12
-  %cleanup.dest.slot.0 = phi i1 [ true, %if.end12 ], [ false, %invoke.cont9 ]
+  %switch = phi i1 [ true, %if.end12 ], [ false, %invoke.cont9 ]
   %6 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(16) %lo)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -2289,7 +2289,7 @@ terminate.lpad.i15:                               ; preds = %if.then2.i.i.i
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN8rationalD2Ev.exit, %if.then.i.i.i, %if.then2.i.i.i
-  br i1 %cleanup.dest.slot.0, label %for.cond, label %return
+  br i1 %switch, label %for.cond, label %return
 
 invoke.cont23:                                    ; preds = %for.cond
   %.pre = load ptr, ptr %m_nodes.i, align 8
@@ -5133,7 +5133,6 @@ if.end.i:                                         ; preds = %_ZN7obj_refI4expr11
   br i1 %tobool.not.i.i, label %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjEaSEOS6_.exit.thread18, label %_ZNK6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE4sizeEv.exit.i.i.i
 
 _ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjEaSEOS6_.exit.thread18: ; preds = %if.end.i
-  store ptr null, ptr %m_eqs, align 8
   %14 = load ptr, ptr %m_eqs5, align 8
   store ptr %14, ptr %m_eqs, align 8
   store ptr null, ptr %m_eqs5, align 8

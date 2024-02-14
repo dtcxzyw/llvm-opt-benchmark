@@ -6476,12 +6476,12 @@ if.end313:                                        ; preds = %land.lhs.true271, %
   br i1 %notifyEgressShutdown.076, label %if.then317, label %if.end351
 
 if.then317:                                       ; preds = %if.then262, %invoke.cont308, %if.end313
-  %notifyIngressShutdown.084 = phi i1 [ true, %if.end313 ], [ true, %if.then262 ], [ false, %invoke.cont308 ]
+  %notifyIngressShutdown.0.not = phi i1 [ true, %if.end313 ], [ true, %if.then262 ], [ false, %invoke.cont308 ]
   %error.addr.1627483 = phi i32 [ %error.addr.16274, %if.end313 ], [ %error.addr.163, %if.then262 ], [ %error.addr.16275, %invoke.cont308 ]
   %notifyEgressShutdown.07682 = phi i1 [ true, %if.end313 ], [ true, %if.then262 ], [ %notifyEgressShutdown.077, %invoke.cont308 ]
   %notifyEgressShutdown.0.not = xor i1 %notifyEgressShutdown.07682, true
-  %brmerge28 = or i1 %notifyIngressShutdown.084, %notifyEgressShutdown.0.not
-  %cond324 = zext i1 %notifyIngressShutdown.084 to i32
+  %brmerge28 = or i1 %notifyIngressShutdown.0.not, %notifyEgressShutdown.0.not
+  %cond324 = zext i1 %notifyIngressShutdown.0.not to i32
   %cond326 = select i1 %brmerge28, i32 %cond324, i32 2
   %call330 = invoke noundef ptr @_ZN8proxygen14getErrorStringENS_13ProxygenErrorE(i32 noundef %error.addr.1627483)
           to label %invoke.cont329 unwind label %lpad
@@ -8747,7 +8747,7 @@ terminate.lpad.body:                              ; preds = %lpad.i, %terminate.
   unreachable
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #16
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
@@ -25914,11 +25914,7 @@ for.body:                                         ; preds = %if.end, %for.inc
 invoke.cont37:                                    ; preds = %for.body
   %12 = load ptr, ptr %writeBuf, align 8
   %cmp.i12.not = icmp eq ptr %12, null
-  br i1 %cmp.i12.not, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.thread, label %if.end40
-
-_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.thread: ; preds = %invoke.cont37
-  store ptr null, ptr %writeBuf, align 8
-  br label %for.end
+  br i1 %cmp.i12.not, label %for.end, label %if.end40
 
 if.end40:                                         ; preds = %invoke.cont37
   %call43 = invoke noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %12)
@@ -26190,7 +26186,7 @@ for.inc:                                          ; preds = %_ZNSt10unique_ptrIN
   %exitcond.not = icmp eq i32 %inc200, 32
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !199
 
-for.end:                                          ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, %for.inc, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.thread
+for.end:                                          ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, %for.inc, %invoke.cont37
   %46 = load i32, ptr %numActiveWrites_, align 8
   %cmp202 = icmp ne i32 %46, 0
   %writes_.i = getelementptr inbounds i8, ptr %this, i64 2393
@@ -40786,7 +40782,7 @@ attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #13 = { noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind memory(read) }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #17 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

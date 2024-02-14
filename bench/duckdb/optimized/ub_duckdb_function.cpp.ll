@@ -5791,7 +5791,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread: ; pr
   call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %10, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %add.i.i, i1 false)
-  store ptr %0, ptr %agg.tmp, align 8, !tbaa !12
   store i64 0, ptr %_M_string_length.i31.i, align 8, !tbaa !14
   store i8 0, ptr %0, align 8, !tbaa !15
   %name.i.i12 = getelementptr inbounds i8, ptr %this, i64 8
@@ -6728,7 +6727,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.thread: ; pr
   call void @llvm.assume(i1 %cmp3.i.i.i)
   %add.i.i = add nuw nsw i64 %10, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %add.i.i, i1 false)
-  store ptr %0, ptr %agg.tmp, align 8, !tbaa !12
   store i64 0, ptr %_M_string_length.i31.i, align 8, !tbaa !14
   store i8 0, ptr %0, align 8, !tbaa !15
   %name.i.i14 = getelementptr inbounds i8, ptr %this, i64 8

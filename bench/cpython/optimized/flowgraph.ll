@@ -3594,11 +3594,7 @@ for.body.lr.ph.i154:                              ; preds = %get_max_label.exit.
 while.cond.preheader.i169:                        ; preds = %for.inc.i168, %get_max_label.exit.i
   %355 = load ptr, ptr %b_next.i130, align 8
   %tobool47.not100.i = icmp eq ptr %355, null
-  br i1 %tobool47.not100.i, label %while.end89.thread.i, label %while.cond48.preheader.i
-
-while.end89.thread.i:                             ; preds = %while.cond.preheader.i169
-  store ptr null, ptr %b_next.i130, align 8
-  br label %if.end28
+  br i1 %tobool47.not100.i, label %if.end28, label %while.cond48.preheader.i
 
 for.body.i155:                                    ; preds = %for.inc.i168, %for.body.lr.ph.i154
   %next_lbl.096.i = phi i32 [ %lbl.0.lcssa.i.i, %for.body.lr.ph.i154 ], [ %next_lbl.2.i, %for.inc.i168 ]
@@ -3862,7 +3858,7 @@ remove_redundant_jumps.exit.i:                    ; preds = %if.then.i69.i
   tail call void @PyErr_SetString(ptr noundef %391, ptr noundef nonnull @.str.3) #8
   br label %return
 
-if.end28:                                         ; preds = %for.inc.i.i178, %while.end89.i, %while.end89.thread.i
+if.end28:                                         ; preds = %for.inc.i.i178, %while.cond.preheader.i169, %while.end89.i
   %.pr315 = load ptr, ptr %g, align 8
   %cmp.not5.i.i.i228 = icmp eq ptr %.pr315, null
   br i1 %cmp.not5.i.i.i228, label %if.end.thread.i, label %for.body.i.i.i229.preheader

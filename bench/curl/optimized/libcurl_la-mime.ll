@@ -2420,7 +2420,6 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store i32 1, ptr %state, align 8
   %ptr2.i = getelementptr inbounds i8, ptr %part, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ptr2.i, i8 0, i64 16, i1 false)
   br label %if.end
@@ -2837,7 +2836,6 @@ if.end160:                                        ; preds = %land.lhs.true.i.i17
 
 if.then164:                                       ; preds = %if.end160
   %44 = load ptr, ptr %curlheaders, align 8
-  store i32 1, ptr %state, align 8
   %ptr2.i188 = getelementptr inbounds i8, ptr %part, i64 128
   store ptr %44, ptr %ptr2.i188, align 8
   %offset.i189 = getelementptr inbounds i8, ptr %part, i64 136

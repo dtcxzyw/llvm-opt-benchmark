@@ -1606,7 +1606,7 @@ cleanup:                                          ; preds = %if.then118, %if.the
   %min_version.1 = phi i32 [ %call64, %if.then102 ], [ %call64, %if.then108 ], [ %call64, %if.else164 ], [ %call64, %if.then114 ], [ %call64, %if.then118 ], [ 0, %if.then125 ], [ 0, %if.then129 ], [ 769, %if.then136 ], [ 769, %if.then140 ], [ 770, %if.then147 ], [ 770, %if.then151 ], [ 771, %if.then158 ], [ 771, %if.then162 ], [ %call64, %if.else109 ], [ 0, %if.else120 ], [ 769, %if.else131 ], [ 770, %if.else142 ], [ 771, %if.else153 ]
   %max_version.1 = phi i32 [ %spec.store.select, %if.then102 ], [ %spec.store.select, %if.then108 ], [ %spec.store.select, %if.else164 ], [ 771, %if.then114 ], [ 771, %if.then118 ], [ 772, %if.then125 ], [ 772, %if.then129 ], [ 769, %if.then136 ], [ 769, %if.then140 ], [ 770, %if.then147 ], [ 770, %if.then151 ], [ 771, %if.then158 ], [ 771, %if.then162 ], [ 771, %if.else109 ], [ 772, %if.else120 ], [ 769, %if.else131 ], [ 770, %if.else142 ], [ 771, %if.else153 ]
   %method.1 = phi ptr [ %call77, %if.then102 ], [ %call77, %if.then108 ], [ %call77, %if.else164 ], [ %call115, %if.then114 ], [ %call119, %if.then118 ], [ %call126, %if.then125 ], [ %call130, %if.then129 ], [ %call137, %if.then136 ], [ %call141, %if.then140 ], [ %call148, %if.then147 ], [ %call152, %if.then151 ], [ %call159, %if.then158 ], [ %call163, %if.then162 ], [ %call77, %if.else109 ], [ %call77, %if.else120 ], [ %call77, %if.else131 ], [ %call77, %if.else142 ], [ %call77, %if.else153 ]
-  %cleanup.dest.slot.0 = phi i1 [ false, %if.then102 ], [ false, %if.then108 ], [ false, %if.else164 ], [ true, %if.then114 ], [ true, %if.then118 ], [ true, %if.then125 ], [ true, %if.then129 ], [ true, %if.then136 ], [ true, %if.then140 ], [ true, %if.then147 ], [ true, %if.then151 ], [ true, %if.then158 ], [ true, %if.then162 ], [ true, %if.else109 ], [ true, %if.else120 ], [ true, %if.else131 ], [ true, %if.else142 ], [ true, %if.else153 ]
+  %switch = phi i1 [ false, %if.then102 ], [ false, %if.then108 ], [ false, %if.else164 ], [ true, %if.then114 ], [ true, %if.then118 ], [ true, %if.then125 ], [ true, %if.then129 ], [ true, %if.then136 ], [ true, %if.then140 ], [ true, %if.then147 ], [ true, %if.then151 ], [ true, %if.then158 ], [ true, %if.then162 ], [ true, %if.else109 ], [ true, %if.else120 ], [ true, %if.else131 ], [ true, %if.else142 ], [ true, %if.else153 ]
   %51 = load ptr, ptr %buf_.i.i, align 8
   %cmp.i.i.i.i = icmp ne ptr %51, null
   %buf_st_.i.i.i = getelementptr inbounds i8, ptr %sslmethod, i64 24
@@ -1619,7 +1619,7 @@ if.then.i.i109:                                   ; preds = %cleanup
   br label %_ZN4node9Utf8ValueD2Ev.exit
 
 _ZN4node9Utf8ValueD2Ev.exit:                      ; preds = %cleanup, %if.then.i.i109
-  br i1 %cleanup.dest.slot.0, label %if.end184, label %return
+  br i1 %switch, label %if.end184, label %return
 
 if.end184:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit273, %_ZN4node9Utf8ValueD2Ev.exit, %if.end.i384
   %min_version.2 = phi i32 [ %min_version.1, %_ZN4node9Utf8ValueD2Ev.exit ], [ %call64, %if.end.i384 ], [ %call64, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit273 ]
@@ -3625,11 +3625,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
   %ctx_.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 32
   %10 = load ptr, ptr %ctx_.i, align 8
   %cmp.i.i.not.i = icmp eq ptr %10, null
-  br i1 %cmp.i.i.not.i, label %if.end.thread.i, label %if.end.i
-
-if.end.thread.i:                                  ; preds = %do.end
-  store ptr null, ptr %ctx_.i, align 8
-  br label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i
+  br i1 %cmp.i.i.not.i, label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i, label %if.end.i
 
 if.end.i:                                         ; preds = %do.end
   %realm_.i.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 16
@@ -3648,7 +3644,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   tail call void @SSL_CTX_free(ptr noundef nonnull %.pr.i) #20
   br label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i
 
-_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i: ; preds = %if.then.i.i.i, %if.end.i, %if.end.thread.i
+_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i: ; preds = %if.then.i.i.i, %if.end.i, %do.end
   %cert_.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 40
   %14 = load ptr, ptr %cert_.i, align 8
   store ptr null, ptr %cert_.i, align 8
@@ -7442,11 +7438,7 @@ entry:
   %ctx_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %ctx_.i, align 8
   %cmp.i.i.not.i = icmp eq ptr %0, null
-  br i1 %cmp.i.i.not.i, label %if.end.thread.i, label %if.end.i
-
-if.end.thread.i:                                  ; preds = %entry
-  store ptr null, ptr %ctx_.i, align 8
-  br label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i
+  br i1 %cmp.i.i.not.i, label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %realm_.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -7465,7 +7457,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i
   tail call void @SSL_CTX_free(ptr noundef nonnull %.pr.i) #20
   br label %_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i
 
-_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i: ; preds = %if.then.i.i.i, %if.end.i, %if.end.thread.i
+_ZNSt10unique_ptrI10ssl_ctx_stN4node15FunctionDeleterIS0_XadL_Z12SSL_CTX_freeEEEEE5resetEPS0_.exit.i: ; preds = %if.then.i.i.i, %if.end.i, %entry
   %cert_.i = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load ptr, ptr %cert_.i, align 8
   store ptr null, ptr %cert_.i, align 8
