@@ -54,25 +54,19 @@ return:                                           ; preds = %if.end, %entry, %lo
 define noundef i32 @_ZN7Imf_3_211floatToUintEf(float noundef %f) local_unnamed_addr #4 {
 entry:
   %0 = bitcast float %f to i32
-  %cmp.i = icmp slt i32 %0, 0
-  br i1 %cmp.i, label %return, label %lor.lhs.false
+  %or.cond7 = icmp ugt i32 %0, 2139095040
+  br i1 %or.cond7, label %return, label %if.end
 
-lor.lhs.false:                                    ; preds = %entry
-  %1 = tail call float @llvm.fabs.f32(float %f)
-  %and.i = bitcast float %1 to i32
-  %cmp.i5 = icmp sgt i32 %and.i, 2139095040
-  br i1 %cmp.i5, label %return, label %if.end
-
-if.end:                                           ; preds = %lor.lhs.false
-  %cmp.i6 = fcmp oeq float %1, 0x7FF0000000000000
+if.end:                                           ; preds = %entry
+  %cmp.i6 = fcmp oeq float %f, 0x7FF0000000000000
   %cmp = fcmp ogt float %f, 0x41F0000000000000
-  %or.cond = or i1 %cmp, %cmp.i6
+  %or.cond = or i1 %cmp.i6, %cmp
   %conv8 = fptoui float %f to i32
   %spec.select = select i1 %or.cond, i32 -1, i32 %conv8
   br label %return
 
-return:                                           ; preds = %if.end, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %if.end ]
+return:                                           ; preds = %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ %spec.select, %if.end ]
   ret i32 %retval.0
 }
 
