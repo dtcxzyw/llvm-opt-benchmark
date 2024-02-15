@@ -109,7 +109,7 @@ entry:
 
 lor.rhs:                                          ; preds = %if.end284, %entry
   %pathDef.addr.0 = phi ptr [ %pathDef, %entry ], [ %pathDef.addr.4614, %if.end284 ]
-  %0 = phi <2 x double> [ zeroinitializer, %entry ], [ %313, %if.end284 ]
+  %0 = phi <2 x double> [ zeroinitializer, %entry ], [ %312, %if.end284 ]
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %lor.rhs
@@ -143,7 +143,7 @@ _ZN7msdfgenL12readNodeTypeERcRPKc.exit:           ; preds = %land.lhs.true10.i
 while.body:                                       ; preds = %_ZN7msdfgenL12readNodeTypeERcRPKc.exit, %if.end284
   %nodeType.2 = phi i8 [ %2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit ], [ %nodeType.3656, %if.end284 ]
   %pathDef.addr.3 = phi ptr [ %incdec.ptr.i, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit ], [ %pathDef.addr.4614, %if.end284 ]
-  %4 = phi <2 x double> [ %0, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit ], [ %313, %if.end284 ]
+  %4 = phi <2 x double> [ %0, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit ], [ %312, %if.end284 ]
   %call1 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7msdfgen5Shape10addContourEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
   %5 = load i8, ptr %pathDef.addr.3, align 1
   %tobool3.not907 = icmp eq i8 %5, 0
@@ -152,16 +152,16 @@ while.body:                                       ; preds = %_ZN7msdfgenL12readN
   br i1 %tobool3.not907, label %NEXT_CONTOUR, label %while.body4
 
 while.body4:                                      ; preds = %while.body, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376
-  %8 = phi i8 [ %308, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %5, %while.body ]
+  %8 = phi i8 [ %307, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %5, %while.body ]
   %prevNodeType.1919 = phi i8 [ %nodeType.4, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0, %while.body ]
   %contourStart.0918 = phi i1 [ %and29, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ true, %while.body ]
   %pathDef.addr.4917 = phi ptr [ %pathDef.addr.65, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %pathDef.addr.3, %while.body ]
   %nodeType.3916 = phi i8 [ %nodeType.5, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %nodeType.2, %while.body ]
-  %9 = phi <2 x double> [ %300, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %4, %while.body ]
-  %10 = phi <2 x double> [ %301, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ zeroinitializer, %while.body ]
-  %11 = phi <2 x double> [ %302, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ zeroinitializer, %while.body ]
-  %12 = phi <2 x double> [ %300, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ zeroinitializer, %while.body ]
-  %13 = phi <2 x double> [ %303, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ zeroinitializer, %while.body ]
+  %9 = phi <2 x double> [ %299, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %4, %while.body ]
+  %10 = phi <2 x double> [ %300, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ zeroinitializer, %while.body ]
+  %11 = phi <2 x double> [ %301, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ zeroinitializer, %while.body ]
+  %12 = phi <2 x double> [ %299, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ zeroinitializer, %while.body ]
+  %13 = phi <2 x double> [ %302, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ zeroinitializer, %while.body ]
   switch i8 %nodeType.3916, label %return [
     i8 77, label %sw.bb
     i8 109, label %sw.bb
@@ -876,21 +876,20 @@ lpad153:                                          ; preds = %if.end133
   br label %common.resume
 
 sw.bb155:                                         ; preds = %while.body4, %while.body4
-  %131 = add i8 %prevNodeType.1919, -67
-  %132 = call i8 @llvm.fshl.i8(i8 %131, i8 %131, i8 4)
-  %switch = icmp ult i8 %132, 4
-  %133 = fadd <2 x double> %12, %12
-  %134 = fsub <2 x double> %133, %13
-  %135 = insertelement <2 x i1> poison, i1 %switch, i64 0
-  %136 = shufflevector <2 x i1> %135, <2 x i1> poison, <2 x i32> zeroinitializer
-  %137 = select <2 x i1> %136, <2 x double> %134, <2 x double> %12
+  %131 = and i8 %prevNodeType.1919, -49
+  %or.cond5 = icmp eq i8 %131, 67
+  %132 = fadd <2 x double> %12, %12
+  %133 = fsub <2 x double> %132, %13
+  %134 = insertelement <2 x i1> poison, i1 %or.cond5, i64 0
+  %135 = shufflevector <2 x i1> %134, <2 x i1> poison, <2 x i32> zeroinitializer
+  %136 = select <2 x i1> %135, <2 x double> %133, <2 x double> %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i236)
   br label %while.cond.i.i.i238
 
 while.cond.i.i.i238:                              ; preds = %while.body.i.i.i239, %sw.bb155
-  %138 = phi i8 [ %8, %sw.bb155 ], [ %.pre1313, %while.body.i.i.i239 ]
+  %137 = phi i8 [ %8, %sw.bb155 ], [ %.pre1313, %while.body.i.i.i239 ]
   %pathDef.addr.41 = phi ptr [ %pathDef.addr.4917, %sw.bb155 ], [ %incdec.ptr.i.i.i240, %while.body.i.i.i239 ]
-  switch i8 %138, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241 [
+  switch i8 %137, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241 [
     i8 44, label %while.body.i.i.i239
     i8 32, label %while.body.i.i.i239
     i8 9, label %while.body.i.i.i239
@@ -906,8 +905,8 @@ while.body.i.i.i239:                              ; preds = %while.cond.i.i.i238
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241:    ; preds = %while.cond.i.i.i238
   store ptr null, ptr %end.i.i236, align 8
   %call.i.i242 = call double @strtod(ptr noundef nonnull %pathDef.addr.41, ptr noundef nonnull %end.i.i236) #16
-  %139 = load ptr, ptr %end.i.i236, align 8
-  %cmp.i.i243 = icmp ugt ptr %139, %pathDef.addr.41
+  %138 = load ptr, ptr %end.i.i236, align 8
+  %cmp.i.i243 = icmp ugt ptr %138, %pathDef.addr.41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i236)
   br i1 %cmp.i.i243, label %land.rhs.i245, label %return
 
@@ -916,9 +915,9 @@ land.rhs.i245:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i246
 
 while.cond.i.i5.i246:                             ; preds = %while.body.i.i6.i247, %land.rhs.i245
-  %pathDef.addr.42 = phi ptr [ %139, %land.rhs.i245 ], [ %incdec.ptr.i.i7.i248, %while.body.i.i6.i247 ]
-  %140 = load i8, ptr %pathDef.addr.42, align 1
-  switch i8 %140, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i249 [
+  %pathDef.addr.42 = phi ptr [ %138, %land.rhs.i245 ], [ %incdec.ptr.i.i7.i248, %while.body.i.i6.i247 ]
+  %139 = load i8, ptr %pathDef.addr.42, align 1
+  switch i8 %139, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i249 [
     i8 44, label %while.body.i.i6.i247
     i8 32, label %while.body.i.i6.i247
     i8 9, label %while.body.i.i6.i247
@@ -933,8 +932,8 @@ while.body.i.i6.i247:                             ; preds = %while.cond.i.i5.i24
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i249:   ; preds = %while.cond.i.i5.i246
   store ptr null, ptr %end.i3.i235, align 8
   %call.i9.i251 = call double @strtod(ptr noundef nonnull %pathDef.addr.42, ptr noundef nonnull %end.i3.i235) #16
-  %141 = load ptr, ptr %end.i3.i235, align 8
-  %cmp.i10.i252 = icmp ugt ptr %141, %pathDef.addr.42
+  %140 = load ptr, ptr %end.i3.i235, align 8
+  %cmp.i10.i252 = icmp ugt ptr %140, %pathDef.addr.42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i235)
   br i1 %cmp.i10.i252, label %if.end183, label %return
 
@@ -943,9 +942,9 @@ if.end183:                                        ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i.i259
 
 while.cond.i.i.i259:                              ; preds = %while.body.i.i.i260, %if.end183
-  %pathDef.addr.45 = phi ptr [ %141, %if.end183 ], [ %incdec.ptr.i.i.i261, %while.body.i.i.i260 ]
-  %142 = load i8, ptr %pathDef.addr.45, align 1
-  switch i8 %142, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i262 [
+  %pathDef.addr.45 = phi ptr [ %140, %if.end183 ], [ %incdec.ptr.i.i.i261, %while.body.i.i.i260 ]
+  %141 = load i8, ptr %pathDef.addr.45, align 1
+  switch i8 %141, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i262 [
     i8 44, label %while.body.i.i.i260
     i8 32, label %while.body.i.i.i260
     i8 9, label %while.body.i.i.i260
@@ -960,8 +959,8 @@ while.body.i.i.i260:                              ; preds = %while.cond.i.i.i259
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i262:    ; preds = %while.cond.i.i.i259
   store ptr null, ptr %end.i.i257, align 8
   %call.i.i263 = call double @strtod(ptr noundef nonnull %pathDef.addr.45, ptr noundef nonnull %end.i.i257) #16
-  %143 = load ptr, ptr %end.i.i257, align 8
-  %cmp.i.i264 = icmp ugt ptr %143, %pathDef.addr.45
+  %142 = load ptr, ptr %end.i.i257, align 8
+  %cmp.i.i264 = icmp ugt ptr %142, %pathDef.addr.45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i257)
   br i1 %cmp.i.i264, label %land.rhs.i266, label %return
 
@@ -970,9 +969,9 @@ land.rhs.i266:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i267
 
 while.cond.i.i5.i267:                             ; preds = %while.body.i.i6.i268, %land.rhs.i266
-  %pathDef.addr.46 = phi ptr [ %143, %land.rhs.i266 ], [ %incdec.ptr.i.i7.i269, %while.body.i.i6.i268 ]
-  %144 = load i8, ptr %pathDef.addr.46, align 1
-  switch i8 %144, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270 [
+  %pathDef.addr.46 = phi ptr [ %142, %land.rhs.i266 ], [ %incdec.ptr.i.i7.i269, %while.body.i.i6.i268 ]
+  %143 = load i8, ptr %pathDef.addr.46, align 1
+  switch i8 %143, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270 [
     i8 44, label %while.body.i.i6.i268
     i8 32, label %while.body.i.i6.i268
     i8 9, label %while.body.i.i6.i268
@@ -987,30 +986,30 @@ while.body.i.i6.i268:                             ; preds = %while.cond.i.i5.i26
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270:   ; preds = %while.cond.i.i5.i267
   store ptr null, ptr %end.i3.i256, align 8
   %call.i9.i272 = call double @strtod(ptr noundef nonnull %pathDef.addr.46, ptr noundef nonnull %end.i3.i256) #16
-  %145 = load ptr, ptr %end.i3.i256, align 8
-  %cmp.i10.i273 = icmp ugt ptr %145, %pathDef.addr.46
+  %144 = load ptr, ptr %end.i3.i256, align 8
+  %cmp.i10.i273 = icmp ugt ptr %144, %pathDef.addr.46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i256)
   br i1 %cmp.i10.i273, label %if.end186, label %return
 
 if.end186:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270
   %cmp188 = icmp eq i8 %nodeType.3916, 115
-  %146 = insertelement <2 x double> poison, double %call.i.i263, i64 0
-  %147 = insertelement <2 x double> %146, double %call.i9.i272, i64 1
-  %148 = insertelement <2 x double> poison, double %call.i.i242, i64 0
-  %149 = insertelement <2 x double> %148, double %call.i9.i251, i64 1
-  %150 = fadd <2 x double> %9, %149
-  %151 = fadd <2 x double> %9, %147
-  %152 = select i1 %cmp188, <2 x double> %151, <2 x double> %147
-  %153 = select i1 %cmp188, <2 x double> %150, <2 x double> %149
-  %154 = extractelement <2 x double> %9, i64 0
-  %155 = extractelement <2 x double> %9, i64 1
-  %156 = extractelement <2 x double> %152, i64 0
-  %157 = extractelement <2 x double> %152, i64 1
-  %158 = extractelement <2 x double> %137, i64 0
-  %159 = extractelement <2 x double> %137, i64 1
-  %160 = extractelement <2 x double> %153, i64 0
-  %161 = extractelement <2 x double> %153, i64 1
-  %call.i283 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %154, double %155, double %158, double %159, double %160, double %161, double %156, double %157, i32 noundef 7)
+  %145 = insertelement <2 x double> poison, double %call.i.i263, i64 0
+  %146 = insertelement <2 x double> %145, double %call.i9.i272, i64 1
+  %147 = insertelement <2 x double> poison, double %call.i.i242, i64 0
+  %148 = insertelement <2 x double> %147, double %call.i9.i251, i64 1
+  %149 = fadd <2 x double> %9, %148
+  %150 = fadd <2 x double> %9, %146
+  %151 = select i1 %cmp188, <2 x double> %150, <2 x double> %146
+  %152 = select i1 %cmp188, <2 x double> %149, <2 x double> %148
+  %153 = extractelement <2 x double> %9, i64 0
+  %154 = extractelement <2 x double> %9, i64 1
+  %155 = extractelement <2 x double> %151, i64 0
+  %156 = extractelement <2 x double> %151, i64 1
+  %157 = extractelement <2 x double> %136, i64 0
+  %158 = extractelement <2 x double> %136, i64 1
+  %159 = extractelement <2 x double> %152, i64 0
+  %160 = extractelement <2 x double> %152, i64 1
+  %call.i283 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %153, double %154, double %157, double %158, double %159, double %160, double %155, double %156, i32 noundef 7)
   store ptr %call.i283, ptr %ref.tmp196, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp196)
           to label %invoke.cont204 unwind label %lpad203
@@ -1020,7 +1019,7 @@ invoke.cont204:                                   ; preds = %if.end186
   br label %sw.epilog
 
 lpad203:                                          ; preds = %if.end186
-  %162 = landingpad { ptr, i32 }
+  %161 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -1029,9 +1028,9 @@ sw.bb205:                                         ; preds = %while.body4, %while
   br label %while.cond.i.i.i288
 
 while.cond.i.i.i288:                              ; preds = %while.body.i.i.i289, %sw.bb205
-  %163 = phi i8 [ %8, %sw.bb205 ], [ %.pre, %while.body.i.i.i289 ]
+  %162 = phi i8 [ %8, %sw.bb205 ], [ %.pre, %while.body.i.i.i289 ]
   %pathDef.addr.49 = phi ptr [ %pathDef.addr.4917, %sw.bb205 ], [ %incdec.ptr.i.i.i290, %while.body.i.i.i289 ]
-  switch i8 %163, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291 [
+  switch i8 %162, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291 [
     i8 44, label %while.body.i.i.i289
     i8 32, label %while.body.i.i.i289
     i8 9, label %while.body.i.i.i289
@@ -1047,8 +1046,8 @@ while.body.i.i.i289:                              ; preds = %while.cond.i.i.i288
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291:    ; preds = %while.cond.i.i.i288
   store ptr null, ptr %end.i.i286, align 8
   %call.i.i292 = call double @strtod(ptr noundef nonnull %pathDef.addr.49, ptr noundef nonnull %end.i.i286) #16
-  %164 = load ptr, ptr %end.i.i286, align 8
-  %cmp.i.i293 = icmp ugt ptr %164, %pathDef.addr.49
+  %163 = load ptr, ptr %end.i.i286, align 8
+  %cmp.i.i293 = icmp ugt ptr %163, %pathDef.addr.49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i286)
   br i1 %cmp.i.i293, label %land.rhs.i295, label %return
 
@@ -1057,9 +1056,9 @@ land.rhs.i295:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i296
 
 while.cond.i.i5.i296:                             ; preds = %while.body.i.i6.i297, %land.rhs.i295
-  %pathDef.addr.50 = phi ptr [ %164, %land.rhs.i295 ], [ %incdec.ptr.i.i7.i298, %while.body.i.i6.i297 ]
-  %165 = load i8, ptr %pathDef.addr.50, align 1
-  switch i8 %165, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i299 [
+  %pathDef.addr.50 = phi ptr [ %163, %land.rhs.i295 ], [ %incdec.ptr.i.i7.i298, %while.body.i.i6.i297 ]
+  %164 = load i8, ptr %pathDef.addr.50, align 1
+  switch i8 %164, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i299 [
     i8 44, label %while.body.i.i6.i297
     i8 32, label %while.body.i.i6.i297
     i8 9, label %while.body.i.i6.i297
@@ -1074,8 +1073,8 @@ while.body.i.i6.i297:                             ; preds = %while.cond.i.i5.i29
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i299:   ; preds = %while.cond.i.i5.i296
   store ptr null, ptr %end.i3.i285, align 8
   %call.i9.i301 = call double @strtod(ptr noundef nonnull %pathDef.addr.50, ptr noundef nonnull %end.i3.i285) #16
-  %166 = load ptr, ptr %end.i3.i285, align 8
-  %cmp.i10.i302 = icmp ugt ptr %166, %pathDef.addr.50
+  %165 = load ptr, ptr %end.i3.i285, align 8
+  %cmp.i10.i302 = icmp ugt ptr %165, %pathDef.addr.50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i285)
   br i1 %cmp.i10.i302, label %if.end208, label %return
 
@@ -1084,9 +1083,9 @@ if.end208:                                        ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i308
 
 while.cond.i.i308:                                ; preds = %while.body.i.i309, %if.end208
-  %pathDef.addr.53 = phi ptr [ %166, %if.end208 ], [ %incdec.ptr.i.i310, %while.body.i.i309 ]
-  %167 = load i8, ptr %pathDef.addr.53, align 1
-  switch i8 %167, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i311 [
+  %pathDef.addr.53 = phi ptr [ %165, %if.end208 ], [ %incdec.ptr.i.i310, %while.body.i.i309 ]
+  %166 = load i8, ptr %pathDef.addr.53, align 1
+  switch i8 %166, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i311 [
     i8 44, label %while.body.i.i309
     i8 32, label %while.body.i.i309
     i8 9, label %while.body.i.i309
@@ -1101,8 +1100,8 @@ while.body.i.i309:                                ; preds = %while.cond.i.i308, 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i311:      ; preds = %while.cond.i.i308
   store ptr null, ptr %end.i306, align 8
   %call.i312 = call double @strtod(ptr noundef nonnull %pathDef.addr.53, ptr noundef nonnull %end.i306) #16
-  %168 = load ptr, ptr %end.i306, align 8
-  %cmp.i313 = icmp ugt ptr %168, %pathDef.addr.53
+  %167 = load ptr, ptr %end.i306, align 8
+  %cmp.i313 = icmp ugt ptr %167, %pathDef.addr.53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i306)
   br i1 %cmp.i313, label %if.end211, label %return
 
@@ -1111,9 +1110,9 @@ if.end211:                                        ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i318
 
 while.cond.i.i318:                                ; preds = %while.body.i.i319, %if.end211
-  %pathDef.addr.55 = phi ptr [ %168, %if.end211 ], [ %incdec.ptr.i.i320, %while.body.i.i319 ]
-  %169 = load i8, ptr %pathDef.addr.55, align 1
-  switch i8 %169, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i321 [
+  %pathDef.addr.55 = phi ptr [ %167, %if.end211 ], [ %incdec.ptr.i.i320, %while.body.i.i319 ]
+  %168 = load i8, ptr %pathDef.addr.55, align 1
+  switch i8 %168, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i321 [
     i8 44, label %while.body.i.i319
     i8 32, label %while.body.i.i319
     i8 9, label %while.body.i.i319
@@ -1128,8 +1127,8 @@ while.body.i.i319:                                ; preds = %while.cond.i.i318, 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i321:      ; preds = %while.cond.i.i318
   store ptr null, ptr %end.i316, align 8
   %call.i322 = call i64 @strtol(ptr noundef nonnull %pathDef.addr.55, ptr noundef nonnull %end.i316, i32 noundef 10) #16
-  %170 = load ptr, ptr %end.i316, align 8
-  %cmp.i323 = icmp ugt ptr %170, %pathDef.addr.55
+  %169 = load ptr, ptr %end.i316, align 8
+  %cmp.i323 = icmp ugt ptr %169, %pathDef.addr.55
   br i1 %cmp.i323, label %if.end214, label %_ZN7msdfgenL8readBoolERbRPKc.exit
 
 _ZN7msdfgenL8readBoolERbRPKc.exit:                ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i321
@@ -1143,9 +1142,9 @@ if.end214:                                        ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i327
 
 while.cond.i.i327:                                ; preds = %while.body.i.i328, %if.end214
-  %pathDef.addr.57 = phi ptr [ %170, %if.end214 ], [ %incdec.ptr.i.i329, %while.body.i.i328 ]
-  %171 = load i8, ptr %pathDef.addr.57, align 1
-  switch i8 %171, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i330 [
+  %pathDef.addr.57 = phi ptr [ %169, %if.end214 ], [ %incdec.ptr.i.i329, %while.body.i.i328 ]
+  %170 = load i8, ptr %pathDef.addr.57, align 1
+  switch i8 %170, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i330 [
     i8 44, label %while.body.i.i328
     i8 32, label %while.body.i.i328
     i8 9, label %while.body.i.i328
@@ -1160,8 +1159,8 @@ while.body.i.i328:                                ; preds = %while.cond.i.i327, 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i330:      ; preds = %while.cond.i.i327
   store ptr null, ptr %end.i325, align 8
   %call.i331 = call i64 @strtol(ptr noundef nonnull %pathDef.addr.57, ptr noundef nonnull %end.i325, i32 noundef 10) #16
-  %172 = load ptr, ptr %end.i325, align 8
-  %cmp.i332 = icmp ugt ptr %172, %pathDef.addr.57
+  %171 = load ptr, ptr %end.i325, align 8
+  %cmp.i332 = icmp ugt ptr %171, %pathDef.addr.57
   br i1 %cmp.i332, label %if.end217, label %_ZN7msdfgenL8readBoolERbRPKc.exit336
 
 _ZN7msdfgenL8readBoolERbRPKc.exit336:             ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i330
@@ -1175,9 +1174,9 @@ if.end217:                                        ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i.i340
 
 while.cond.i.i.i340:                              ; preds = %while.body.i.i.i341, %if.end217
-  %pathDef.addr.59 = phi ptr [ %172, %if.end217 ], [ %incdec.ptr.i.i.i342, %while.body.i.i.i341 ]
-  %173 = load i8, ptr %pathDef.addr.59, align 1
-  switch i8 %173, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343 [
+  %pathDef.addr.59 = phi ptr [ %171, %if.end217 ], [ %incdec.ptr.i.i.i342, %while.body.i.i.i341 ]
+  %172 = load i8, ptr %pathDef.addr.59, align 1
+  switch i8 %172, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343 [
     i8 44, label %while.body.i.i.i341
     i8 32, label %while.body.i.i.i341
     i8 9, label %while.body.i.i.i341
@@ -1192,8 +1191,8 @@ while.body.i.i.i341:                              ; preds = %while.cond.i.i.i340
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343:    ; preds = %while.cond.i.i.i340
   store ptr null, ptr %end.i.i338, align 8
   %call.i.i344 = call double @strtod(ptr noundef nonnull %pathDef.addr.59, ptr noundef nonnull %end.i.i338) #16
-  %174 = load ptr, ptr %end.i.i338, align 8
-  %cmp.i.i345 = icmp ugt ptr %174, %pathDef.addr.59
+  %173 = load ptr, ptr %end.i.i338, align 8
+  %cmp.i.i345 = icmp ugt ptr %173, %pathDef.addr.59
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i338)
   br i1 %cmp.i.i345, label %land.rhs.i347, label %return
 
@@ -1202,9 +1201,9 @@ land.rhs.i347:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i348
 
 while.cond.i.i5.i348:                             ; preds = %while.body.i.i6.i349, %land.rhs.i347
-  %pathDef.addr.60 = phi ptr [ %174, %land.rhs.i347 ], [ %incdec.ptr.i.i7.i350, %while.body.i.i6.i349 ]
-  %175 = load i8, ptr %pathDef.addr.60, align 1
-  switch i8 %175, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351 [
+  %pathDef.addr.60 = phi ptr [ %173, %land.rhs.i347 ], [ %incdec.ptr.i.i7.i350, %while.body.i.i6.i349 ]
+  %174 = load i8, ptr %pathDef.addr.60, align 1
+  switch i8 %174, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351 [
     i8 44, label %while.body.i.i6.i349
     i8 32, label %while.body.i.i6.i349
     i8 9, label %while.body.i.i6.i349
@@ -1219,30 +1218,30 @@ while.body.i.i6.i349:                             ; preds = %while.cond.i.i5.i34
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351:   ; preds = %while.cond.i.i5.i348
   store ptr null, ptr %end.i3.i337, align 8
   %call.i9.i353 = call double @strtod(ptr noundef nonnull %pathDef.addr.60, ptr noundef nonnull %end.i3.i337) #16
-  %176 = load ptr, ptr %end.i3.i337, align 8
-  %cmp.i10.i354 = icmp ugt ptr %176, %pathDef.addr.60
+  %175 = load ptr, ptr %end.i3.i337, align 8
+  %cmp.i10.i354 = icmp ugt ptr %175, %pathDef.addr.60
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i337)
   br i1 %cmp.i10.i354, label %if.end220, label %return
 
 if.end220:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351
   %cmp222 = icmp eq i8 %nodeType.3916, 97
-  %177 = insertelement <2 x i1> poison, i1 %cmp222, i64 0
-  %178 = shufflevector <2 x i1> %177, <2 x i1> poison, <2 x i32> zeroinitializer
-  %179 = select <2 x i1> %178, <2 x double> %9, <2 x double> <double -0.000000e+00, double -0.000000e+00>
-  %180 = insertelement <2 x double> poison, double %call.i.i344, i64 0
-  %181 = insertelement <2 x double> %180, double %call.i9.i353, i64 1
-  %182 = fadd <2 x double> %179, %181
+  %176 = insertelement <2 x i1> poison, i1 %cmp222, i64 0
+  %177 = shufflevector <2 x i1> %176, <2 x i1> poison, <2 x i32> zeroinitializer
+  %178 = select <2 x i1> %177, <2 x double> %9, <2 x double> <double -0.000000e+00, double -0.000000e+00>
+  %179 = insertelement <2 x double> poison, double %call.i.i344, i64 0
+  %180 = insertelement <2 x double> %179, double %call.i9.i353, i64 1
+  %181 = fadd <2 x double> %178, %180
   %mul = fmul double %call.i312, 0x3F91DF46A2529D39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp182.i)
-  %183 = extractelement <2 x double> %9, i64 0
-  %184 = extractelement <2 x double> %182, i64 0
-  %cmp.i.i361 = fcmp oeq double %184, %183
-  %185 = extractelement <2 x double> %9, i64 1
-  %186 = extractelement <2 x double> %182, i64 1
-  %cmp3.i.i = fcmp oeq double %186, %185
-  %187 = select i1 %cmp.i.i361, i1 %cmp3.i.i, i1 false
-  br i1 %187, label %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit, label %if.end.i
+  %182 = extractelement <2 x double> %9, i64 0
+  %183 = extractelement <2 x double> %181, i64 0
+  %cmp.i.i361 = fcmp oeq double %183, %182
+  %184 = extractelement <2 x double> %9, i64 1
+  %185 = extractelement <2 x double> %181, i64 1
+  %cmp3.i.i = fcmp oeq double %185, %184
+  %186 = select i1 %cmp.i.i361, i1 %cmp3.i.i, i1 false
+  br i1 %186, label %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end220
   %cmp.i362 = fcmp oeq double %call.i.i292, 0.000000e+00
@@ -1251,7 +1250,7 @@ if.end.i:                                         ; preds = %if.end220
   br i1 %or.cond.i, label %if.then4.i, label %if.end7.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %call.i.i365 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %183, double %185, double %184, double %186, i32 noundef 7)
+  %call.i.i365 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %182, double %184, double %183, double %185, i32 noundef 7)
   store ptr %call.i.i365, ptr %ref.tmp.i, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -1261,140 +1260,140 @@ invoke.cont.i:                                    ; preds = %if.then4.i
   br label %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit
 
 lpad.i:                                           ; preds = %if.then4.i
-  %188 = landingpad { ptr, i32 }
+  %187 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.end7.i:                                        ; preds = %if.end.i
-  %189 = insertelement <2 x double> poison, double %call.i.i292, i64 0
-  %190 = insertelement <2 x double> %189, double %call.i9.i301, i64 1
-  %191 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %190)
+  %188 = insertelement <2 x double> poison, double %call.i.i292, i64 0
+  %189 = insertelement <2 x double> %188, double %call.i9.i301, i64 1
+  %190 = call <2 x double> @llvm.fabs.v2f64(<2 x double> %189)
   %call12.i = call double @cos(double noundef %mul) #16
   %call13.i = call double @sin(double noundef %mul) #16
-  %192 = fsub <2 x double> %9, %182
-  %sub.i.i = extractelement <2 x double> %192, i64 0
-  %sub3.i.i = fsub double %185, %186
+  %191 = fsub <2 x double> %9, %181
+  %sub.i.i = extractelement <2 x double> %191, i64 0
+  %sub3.i.i = fsub double %184, %185
   %mul.i.i = fmul double %sub.i.i, 5.000000e-01
   %mul1.i.i = fmul double %sub3.i.i, 5.000000e-01
   %fneg.i = fneg double %call13.i
-  %193 = fmul <2 x double> %190, %190
-  %194 = insertelement <2 x double> poison, double %mul1.i.i, i64 0
-  %195 = shufflevector <2 x double> %194, <2 x double> poison, <2 x i32> zeroinitializer
-  %196 = insertelement <2 x double> poison, double %call13.i, i64 0
-  %197 = insertelement <2 x double> %196, double %call12.i, i64 1
-  %198 = fmul <2 x double> %195, %197
-  %199 = insertelement <2 x double> poison, double %call12.i, i64 0
-  %200 = insertelement <2 x double> %199, double %fneg.i, i64 1
-  %201 = insertelement <2 x double> poison, double %mul.i.i, i64 0
-  %202 = shufflevector <2 x double> %201, <2 x double> poison, <2 x i32> zeroinitializer
-  %203 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %200, <2 x double> %202, <2 x double> %198)
-  %204 = fmul <2 x double> %203, %203
-  %205 = fdiv <2 x double> %204, %193
-  %shift = shufflevector <2 x double> %205, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %206 = fadd <2 x double> %shift, %205
-  %add.i363 = extractelement <2 x double> %206, i64 0
+  %192 = fmul <2 x double> %189, %189
+  %193 = insertelement <2 x double> poison, double %mul1.i.i, i64 0
+  %194 = shufflevector <2 x double> %193, <2 x double> poison, <2 x i32> zeroinitializer
+  %195 = insertelement <2 x double> poison, double %call13.i, i64 0
+  %196 = insertelement <2 x double> %195, double %call12.i, i64 1
+  %197 = fmul <2 x double> %194, %196
+  %198 = insertelement <2 x double> poison, double %call12.i, i64 0
+  %199 = insertelement <2 x double> %198, double %fneg.i, i64 1
+  %200 = insertelement <2 x double> poison, double %mul.i.i, i64 0
+  %201 = shufflevector <2 x double> %200, <2 x double> poison, <2 x i32> zeroinitializer
+  %202 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %199, <2 x double> %201, <2 x double> %197)
+  %203 = fmul <2 x double> %202, %202
+  %204 = fdiv <2 x double> %203, %192
+  %shift = shufflevector <2 x double> %204, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %205 = fadd <2 x double> %shift, %204
+  %add.i363 = extractelement <2 x double> %205, i64 0
   %cmp35.i = fcmp ogt double %add.i363, 1.000000e+00
   %sqrt.i = call double @llvm.sqrt.f64(double %add.i363)
-  %207 = insertelement <2 x double> poison, double %sqrt.i, i64 0
-  %208 = shufflevector <2 x double> %207, <2 x double> poison, <2 x i32> zeroinitializer
-  %209 = fmul <2 x double> %191, %208
-  %210 = fmul <2 x double> %209, %209
-  %211 = select i1 %cmp35.i, <2 x double> %210, <2 x double> %193
-  %212 = select i1 %cmp35.i, <2 x double> %209, <2 x double> %191
-  %213 = extractelement <2 x double> %211, i64 1
-  %214 = extractelement <2 x double> %204, i64 0
-  %mul48.i = fmul double %214, %213
-  %215 = extractelement <2 x double> %211, i64 0
-  %216 = extractelement <2 x double> %204, i64 1
-  %217 = call double @llvm.fmuladd.f64(double %215, double %216, double %mul48.i)
-  %mul.i = fmul double %215, %213
-  %div51.i = fdiv double %mul.i, %217
+  %206 = insertelement <2 x double> poison, double %sqrt.i, i64 0
+  %207 = shufflevector <2 x double> %206, <2 x double> poison, <2 x i32> zeroinitializer
+  %208 = fmul <2 x double> %190, %207
+  %209 = fmul <2 x double> %208, %208
+  %210 = select i1 %cmp35.i, <2 x double> %209, <2 x double> %192
+  %211 = select i1 %cmp35.i, <2 x double> %208, <2 x double> %190
+  %212 = extractelement <2 x double> %210, i64 1
+  %213 = extractelement <2 x double> %203, i64 0
+  %mul48.i = fmul double %213, %212
+  %214 = extractelement <2 x double> %210, i64 0
+  %215 = extractelement <2 x double> %203, i64 1
+  %216 = call double @llvm.fmuladd.f64(double %214, double %215, double %mul48.i)
+  %mul.i = fmul double %214, %212
+  %div51.i = fdiv double %mul.i, %216
   %sub.i364 = fadd double %div51.i, -1.000000e+00
-  %218 = xor i1 %cmp1.i, %cmp1.i334
+  %217 = xor i1 %cmp1.i, %cmp1.i334
   %cmp.i53.i = fcmp olt double %sub.i364, 0.000000e+00
   %cond.i.i = select i1 %cmp.i53.i, double 0.000000e+00, double %sub.i364
   %sqrt160.i = call double @llvm.sqrt.f64(double %cond.i.i)
-  %219 = fneg double %sqrt160.i
-  %mul58.i = select i1 %218, double %sqrt160.i, double %219
-  %220 = extractelement <2 x double> %212, i64 0
-  %mul60.i = fmul double %220, %mul58.i
-  %221 = extractelement <2 x double> %203, i64 1
-  %mul62.i = fmul double %221, %mul60.i
-  %222 = extractelement <2 x double> %212, i64 1
-  %div64.i = fdiv double %mul62.i, %222
+  %218 = fneg double %sqrt160.i
+  %mul58.i = select i1 %217, double %sqrt160.i, double %218
+  %219 = extractelement <2 x double> %211, i64 0
+  %mul60.i = fmul double %219, %mul58.i
+  %220 = extractelement <2 x double> %202, i64 1
+  %mul62.i = fmul double %220, %mul60.i
+  %221 = extractelement <2 x double> %211, i64 1
+  %div64.i = fdiv double %mul62.i, %221
   %fneg65.i = fneg double %mul58.i
-  %mul67.i = fmul double %222, %fneg65.i
-  %223 = extractelement <2 x double> %203, i64 0
-  %mul69.i = fmul double %223, %mul67.i
-  %div71.i = fdiv double %mul69.i, %220
-  %224 = fadd <2 x double> %9, %182
-  %225 = fmul <2 x double> %224, <double 5.000000e-01, double 5.000000e-01>
-  %226 = insertelement <2 x double> poison, double %div71.i, i64 0
-  %227 = shufflevector <2 x double> %226, <2 x double> poison, <2 x i32> zeroinitializer
-  %228 = insertelement <2 x double> poison, double %fneg.i, i64 0
-  %229 = insertelement <2 x double> %228, double %call12.i, i64 1
-  %230 = fmul <2 x double> %227, %229
-  %231 = insertelement <2 x double> poison, double %call12.i, i64 0
-  %232 = insertelement <2 x double> %231, double %call13.i, i64 1
-  %233 = insertelement <2 x double> poison, double %div64.i, i64 0
-  %234 = shufflevector <2 x double> %233, <2 x double> poison, <2 x i32> zeroinitializer
-  %235 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %232, <2 x double> %234, <2 x double> %230)
-  %236 = fadd <2 x double> %225, %235
-  %fneg.i.i = fneg double %223
-  %237 = insertelement <2 x double> %203, double %fneg.i.i, i64 1
-  %238 = fsub <2 x double> %237, %234
-  %239 = shufflevector <2 x double> %212, <2 x double> poison, <2 x i32> zeroinitializer
-  %240 = fdiv <2 x double> %238, %239
-  %241 = extractelement <2 x double> %240, i64 0
-  %neg.i.i.i = fmul double %241, 0.000000e+00
-  %242 = shufflevector <2 x double> %203, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %243 = fneg <2 x double> %203
-  %244 = shufflevector <2 x double> %242, <2 x double> %243, <2 x i32> <i32 0, i32 3>
-  %245 = fsub <2 x double> %244, %227
-  %246 = shufflevector <2 x double> %212, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %247 = fdiv <2 x double> %245, %246
-  %248 = extractelement <2 x double> %247, i64 0
-  %249 = fsub double %248, %neg.i.i.i
-  %cmp.i.i.i = fcmp ogt double %249, 0.000000e+00
-  %mul3.i.i.i = fmul double %248, 0.000000e+00
-  %250 = fadd double %241, %mul3.i.i.i
-  %251 = fmul <2 x double> %247, %247
-  %252 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %240, <2 x double> %240, <2 x double> %251)
-  %253 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %252)
-  %254 = fneg double %248
-  %255 = extractelement <2 x double> %240, i64 1
-  %neg.i.i96.i = fmul double %255, %254
-  %256 = extractelement <2 x double> %247, i64 1
-  %257 = call noundef double @llvm.fmuladd.f64(double %241, double %256, double %neg.i.i96.i)
-  %cmp.i.i97.i = fcmp ogt double %257, 0.000000e+00
-  %mul3.i.i98.i = fmul double %248, %256
-  %258 = call noundef double @llvm.fmuladd.f64(double %241, double %255, double %mul3.i.i98.i)
-  %shift1717 = shufflevector <2 x double> %253, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %259 = fmul <2 x double> %253, %shift1717
-  %260 = insertelement <2 x double> poison, double %258, i64 0
-  %261 = insertelement <2 x double> %260, double %250, i64 1
-  %262 = shufflevector <2 x double> %253, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %263 = shufflevector <2 x double> %259, <2 x double> %262, <2 x i32> <i32 0, i32 3>
-  %264 = fdiv <2 x double> %261, %263
-  %265 = extractelement <2 x double> %264, i64 1
-  %266 = call double @llvm.fabs.f64(double %265)
-  %or.cond.i.i.i = fcmp ugt double %266, 1.000000e+00
-  %267 = fcmp olt <2 x double> %264, <double -1.000000e+00, double -1.000000e+00>
-  %268 = extractelement <2 x i1> %267, i64 1
-  %cond.i.i.i = select i1 %268, double -1.000000e+00, double 1.000000e+00
-  %cond6.i.i.i = select i1 %or.cond.i.i.i, double %cond.i.i.i, double %265
+  %mul67.i = fmul double %221, %fneg65.i
+  %222 = extractelement <2 x double> %202, i64 0
+  %mul69.i = fmul double %222, %mul67.i
+  %div71.i = fdiv double %mul69.i, %219
+  %223 = fadd <2 x double> %9, %181
+  %224 = fmul <2 x double> %223, <double 5.000000e-01, double 5.000000e-01>
+  %225 = insertelement <2 x double> poison, double %div71.i, i64 0
+  %226 = shufflevector <2 x double> %225, <2 x double> poison, <2 x i32> zeroinitializer
+  %227 = insertelement <2 x double> poison, double %fneg.i, i64 0
+  %228 = insertelement <2 x double> %227, double %call12.i, i64 1
+  %229 = fmul <2 x double> %226, %228
+  %230 = insertelement <2 x double> poison, double %call12.i, i64 0
+  %231 = insertelement <2 x double> %230, double %call13.i, i64 1
+  %232 = insertelement <2 x double> poison, double %div64.i, i64 0
+  %233 = shufflevector <2 x double> %232, <2 x double> poison, <2 x i32> zeroinitializer
+  %234 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %231, <2 x double> %233, <2 x double> %229)
+  %235 = fadd <2 x double> %224, %234
+  %fneg.i.i = fneg double %222
+  %236 = insertelement <2 x double> %202, double %fneg.i.i, i64 1
+  %237 = fsub <2 x double> %236, %233
+  %238 = shufflevector <2 x double> %211, <2 x double> poison, <2 x i32> zeroinitializer
+  %239 = fdiv <2 x double> %237, %238
+  %240 = extractelement <2 x double> %239, i64 0
+  %neg.i.i.i = fmul double %240, 0.000000e+00
+  %241 = shufflevector <2 x double> %202, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %242 = fneg <2 x double> %202
+  %243 = shufflevector <2 x double> %241, <2 x double> %242, <2 x i32> <i32 0, i32 3>
+  %244 = fsub <2 x double> %243, %226
+  %245 = shufflevector <2 x double> %211, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %246 = fdiv <2 x double> %244, %245
+  %247 = extractelement <2 x double> %246, i64 0
+  %248 = fsub double %247, %neg.i.i.i
+  %cmp.i.i.i = fcmp ogt double %248, 0.000000e+00
+  %mul3.i.i.i = fmul double %247, 0.000000e+00
+  %249 = fadd double %240, %mul3.i.i.i
+  %250 = fmul <2 x double> %246, %246
+  %251 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %239, <2 x double> %239, <2 x double> %250)
+  %252 = call <2 x double> @llvm.sqrt.v2f64(<2 x double> %251)
+  %253 = fneg double %247
+  %254 = extractelement <2 x double> %239, i64 1
+  %neg.i.i96.i = fmul double %254, %253
+  %255 = extractelement <2 x double> %246, i64 1
+  %256 = call noundef double @llvm.fmuladd.f64(double %240, double %255, double %neg.i.i96.i)
+  %cmp.i.i97.i = fcmp ogt double %256, 0.000000e+00
+  %mul3.i.i98.i = fmul double %247, %255
+  %257 = call noundef double @llvm.fmuladd.f64(double %240, double %254, double %mul3.i.i98.i)
+  %shift1717 = shufflevector <2 x double> %252, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %258 = fmul <2 x double> %252, %shift1717
+  %259 = insertelement <2 x double> poison, double %257, i64 0
+  %260 = insertelement <2 x double> %259, double %249, i64 1
+  %261 = shufflevector <2 x double> %252, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %262 = shufflevector <2 x double> %258, <2 x double> %261, <2 x i32> <i32 0, i32 3>
+  %263 = fdiv <2 x double> %260, %262
+  %264 = extractelement <2 x double> %263, i64 1
+  %265 = call double @llvm.fabs.f64(double %264)
+  %or.cond.i.i.i = fcmp ugt double %265, 1.000000e+00
+  %266 = fcmp olt <2 x double> %263, <double -1.000000e+00, double -1.000000e+00>
+  %267 = extractelement <2 x i1> %266, i64 1
+  %cond.i.i.i = select i1 %267, double -1.000000e+00, double 1.000000e+00
+  %cond6.i.i.i = select i1 %or.cond.i.i.i, double %cond.i.i.i, double %264
   %call9.i.i = call double @acos(double noundef %cond6.i.i.i) #16
-  %269 = fneg double %call9.i.i
-  %mul10.i.i = select i1 %cmp.i.i.i, double %call9.i.i, double %269
-  %270 = extractelement <2 x double> %264, i64 0
-  %271 = call double @llvm.fabs.f64(double %270)
-  %or.cond.i.i105.i = fcmp ugt double %271, 1.000000e+00
-  %272 = extractelement <2 x i1> %267, i64 0
-  %cond.i.i107.i = select i1 %272, double -1.000000e+00, double 1.000000e+00
-  %cond6.i.i108.i = select i1 %or.cond.i.i105.i, double %cond.i.i107.i, double %270
+  %268 = fneg double %call9.i.i
+  %mul10.i.i = select i1 %cmp.i.i.i, double %call9.i.i, double %268
+  %269 = extractelement <2 x double> %263, i64 0
+  %270 = call double @llvm.fabs.f64(double %269)
+  %or.cond.i.i105.i = fcmp ugt double %270, 1.000000e+00
+  %271 = extractelement <2 x i1> %266, i64 0
+  %cond.i.i107.i = select i1 %271, double -1.000000e+00, double 1.000000e+00
+  %cond6.i.i108.i = select i1 %or.cond.i.i105.i, double %cond.i.i107.i, double %269
   %call9.i109.i = call double @acos(double noundef %cond6.i.i108.i) #16
-  %273 = fneg double %call9.i109.i
-  %mul10.i110.i = select i1 %cmp.i.i97.i, double %call9.i109.i, double %273
+  %272 = fneg double %call9.i109.i
+  %mul10.i110.i = select i1 %cmp.i.i97.i, double %call9.i109.i, double %272
   %cmp110.i = fcmp ule double %mul10.i110.i, 0.000000e+00
   %or.cond1.not.i = or i1 %cmp1.i334, %cmp110.i
   br i1 %or.cond1.not.i, label %if.else.i, label %if.then111.i
@@ -1414,10 +1413,10 @@ if.then116.i:                                     ; preds = %if.else.i
 
 if.end119.i:                                      ; preds = %if.then116.i, %if.else.i, %if.then111.i
   %angleExtent.0.i = phi double [ %sub112.i, %if.then111.i ], [ %add117.i, %if.then116.i ], [ %mul10.i110.i, %if.else.i ]
-  %274 = call double @llvm.fabs.f64(double %angleExtent.0.i)
-  %mul120.i = fmul double %274, 0x3FE45F306DC9C883
-  %275 = call double @llvm.ceil.f64(double %mul120.i)
-  %conv121.i = fptosi double %275 to i32
+  %273 = call double @llvm.fabs.f64(double %angleExtent.0.i)
+  %mul120.i = fmul double %273, 0x3FE45F306DC9C883
+  %274 = call double @llvm.ceil.f64(double %mul120.i)
+  %conv121.i = fptosi double %274 to i32
   %conv122.i = sitofp i32 %conv121.i to double
   %div123.i = fdiv double %angleExtent.0.i, %conv122.i
   %mul124.i = fmul double %div123.i, 5.000000e-01
@@ -1432,61 +1431,61 @@ if.end119.i:                                      ; preds = %if.then116.i, %if.e
 arrayctor.loop.preheader.lr.ph.i:                 ; preds = %if.end119.i
   %neg.i = fneg double %div130.i
   %sub171.i = add nsw i32 %conv121.i, -1
-  %276 = extractelement <2 x double> %236, i64 0
-  %277 = extractelement <2 x double> %236, i64 1
+  %275 = extractelement <2 x double> %235, i64 0
+  %276 = extractelement <2 x double> %235, i64 1
   br label %arrayctor.loop.preheader.i
 
 arrayctor.loop.preheader.i:                       ; preds = %invoke.cont190.i, %arrayctor.loop.preheader.lr.ph.i
   %angle.0163.i = phi double [ %mul10.i.i, %arrayctor.loop.preheader.lr.ph.i ], [ %add150.i, %invoke.cont190.i ]
   %i.0162.i = phi i32 [ 0, %arrayctor.loop.preheader.lr.ph.i ], [ %inc.i, %invoke.cont190.i ]
-  %278 = phi <2 x double> [ %9, %arrayctor.loop.preheader.lr.ph.i ], [ %294, %invoke.cont190.i ]
+  %277 = phi <2 x double> [ %9, %arrayctor.loop.preheader.lr.ph.i ], [ %293, %invoke.cont190.i ]
   %call132.i = call double @cos(double noundef %angle.0163.i) #16
   %call133.i = call double @sin(double noundef %angle.0163.i) #16
-  %279 = call double @llvm.fmuladd.f64(double %neg.i, double %call133.i, double %call132.i)
-  %280 = call double @llvm.fmuladd.f64(double %div130.i, double %call132.i, double %call133.i)
-  %mul.i114.i = fmul double %220, %279
-  %mul3.i115.i = fmul double %222, %280
+  %278 = call double @llvm.fmuladd.f64(double %neg.i, double %call133.i, double %call132.i)
+  %279 = call double @llvm.fmuladd.f64(double %div130.i, double %call132.i, double %call133.i)
+  %mul.i114.i = fmul double %219, %278
+  %mul3.i115.i = fmul double %221, %279
   %neg.i118.i = fmul double %mul3.i115.i, %fneg.i
-  %281 = call double @llvm.fmuladd.f64(double %call12.i, double %mul.i114.i, double %neg.i118.i)
+  %280 = call double @llvm.fmuladd.f64(double %call12.i, double %mul.i114.i, double %neg.i118.i)
   %mul8.i119.i = fmul double %call12.i, %mul3.i115.i
-  %282 = call double @llvm.fmuladd.f64(double %call13.i, double %mul.i114.i, double %mul8.i119.i)
-  %add.i122.i = fadd double %276, %281
-  %add3.i123.i = fadd double %277, %282
+  %281 = call double @llvm.fmuladd.f64(double %call13.i, double %mul.i114.i, double %mul8.i119.i)
+  %add.i122.i = fadd double %275, %280
+  %add3.i123.i = fadd double %276, %281
   %add150.i = fadd double %div123.i, %angle.0163.i
   %call151.i = call double @cos(double noundef %add150.i) #16
   %call152.i = call double @sin(double noundef %add150.i) #16
-  %283 = call double @llvm.fmuladd.f64(double %div130.i, double %call152.i, double %call151.i)
-  %284 = call double @llvm.fmuladd.f64(double %neg.i, double %call151.i, double %call152.i)
-  %mul.i128.i = fmul double %220, %283
-  %mul3.i129.i = fmul double %222, %284
+  %282 = call double @llvm.fmuladd.f64(double %div130.i, double %call152.i, double %call151.i)
+  %283 = call double @llvm.fmuladd.f64(double %neg.i, double %call151.i, double %call152.i)
+  %mul.i128.i = fmul double %219, %282
+  %mul3.i129.i = fmul double %221, %283
   %neg.i132.i = fmul double %mul3.i129.i, %fneg.i
-  %285 = call double @llvm.fmuladd.f64(double %call12.i, double %mul.i128.i, double %neg.i132.i)
+  %284 = call double @llvm.fmuladd.f64(double %call12.i, double %mul.i128.i, double %neg.i132.i)
   %mul8.i133.i = fmul double %call12.i, %mul3.i129.i
-  %286 = call double @llvm.fmuladd.f64(double %call13.i, double %mul.i128.i, double %mul8.i133.i)
-  %add.i136.i = fadd double %276, %285
-  %add3.i137.i = fadd double %277, %286
+  %285 = call double @llvm.fmuladd.f64(double %call13.i, double %mul.i128.i, double %mul8.i133.i)
+  %add.i136.i = fadd double %275, %284
+  %add3.i137.i = fadd double %276, %285
   %cmp172.i = icmp eq i32 %i.0162.i, %sub171.i
   br i1 %cmp172.i, label %cond.end.i, label %cond.false.i
 
 cond.false.i:                                     ; preds = %arrayctor.loop.preheader.i
-  %mul.i140.i = fmul double %220, %call151.i
-  %mul3.i141.i = fmul double %222, %call152.i
-  %287 = insertelement <2 x double> poison, double %mul3.i141.i, i64 0
-  %288 = shufflevector <2 x double> %287, <2 x double> poison, <2 x i32> zeroinitializer
-  %289 = fmul <2 x double> %288, %229
-  %290 = insertelement <2 x double> poison, double %mul.i140.i, i64 0
-  %291 = shufflevector <2 x double> %290, <2 x double> poison, <2 x i32> zeroinitializer
-  %292 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %232, <2 x double> %291, <2 x double> %289)
-  %293 = fadd <2 x double> %236, %292
+  %mul.i140.i = fmul double %219, %call151.i
+  %mul3.i141.i = fmul double %221, %call152.i
+  %286 = insertelement <2 x double> poison, double %mul3.i141.i, i64 0
+  %287 = shufflevector <2 x double> %286, <2 x double> poison, <2 x i32> zeroinitializer
+  %288 = fmul <2 x double> %287, %228
+  %289 = insertelement <2 x double> poison, double %mul.i140.i, i64 0
+  %290 = shufflevector <2 x double> %289, <2 x double> poison, <2 x i32> zeroinitializer
+  %291 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %231, <2 x double> %290, <2 x double> %288)
+  %292 = fadd <2 x double> %235, %291
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %arrayctor.loop.preheader.i
-  %294 = phi <2 x double> [ %293, %cond.false.i ], [ %182, %arrayctor.loop.preheader.i ]
-  %295 = extractelement <2 x double> %294, i64 0
-  %296 = extractelement <2 x double> %294, i64 1
-  %297 = extractelement <2 x double> %278, i64 0
-  %298 = extractelement <2 x double> %278, i64 1
-  %call.i152.i = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %297, double %298, double %add.i122.i, double %add3.i123.i, double %add.i136.i, double %add3.i137.i, double %295, double %296, i32 noundef 7)
+  %293 = phi <2 x double> [ %292, %cond.false.i ], [ %181, %arrayctor.loop.preheader.i ]
+  %294 = extractelement <2 x double> %293, i64 0
+  %295 = extractelement <2 x double> %293, i64 1
+  %296 = extractelement <2 x double> %277, i64 0
+  %297 = extractelement <2 x double> %277, i64 1
+  %call.i152.i = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double %296, double %297, double %add.i122.i, double %add3.i123.i, double %add.i136.i, double %add3.i137.i, double %294, double %295, i32 noundef 7)
   store ptr %call.i152.i, ptr %ref.tmp182.i, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp182.i)
           to label %invoke.cont190.i unwind label %lpad189.i
@@ -1498,13 +1497,13 @@ invoke.cont190.i:                                 ; preds = %cond.end.i
   br i1 %exitcond.not.i, label %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit, label %arrayctor.loop.preheader.i, !llvm.loop !7
 
 lpad189.i:                                        ; preds = %cond.end.i
-  %299 = landingpad { ptr, i32 }
+  %298 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 common.resume:                                    ; preds = %lpad.i, %lpad189.i, %lpad, %lpad42, %lpad58, %lpad81, %lpad120, %lpad153, %lpad203, %lpad281
   %ref.tmp.sink = phi ptr [ %ref.tmp, %lpad ], [ %ref.tmp39, %lpad42 ], [ %ref.tmp55, %lpad58 ], [ %ref.tmp76, %lpad81 ], [ %ref.tmp115, %lpad120 ], [ %ref.tmp146, %lpad153 ], [ %ref.tmp196, %lpad203 ], [ %ref.tmp278, %lpad281 ], [ %ref.tmp182.i, %lpad189.i ], [ %ref.tmp.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %40, %lpad ], [ %47, %lpad42 ], [ %54, %lpad58 ], [ %77, %lpad81 ], [ %97, %lpad120 ], [ %130, %lpad153 ], [ %162, %lpad203 ], [ %333, %lpad281 ], [ %299, %lpad189.i ], [ %188, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %40, %lpad ], [ %47, %lpad42 ], [ %54, %lpad58 ], [ %77, %lpad81 ], [ %97, %lpad120 ], [ %130, %lpad153 ], [ %161, %lpad203 ], [ %332, %lpad281 ], [ %298, %lpad189.i ], [ %187, %lpad.i ]
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.sink) #16
   resume { ptr, i32 } %common.resume.op
 
@@ -1515,20 +1514,20 @@ _ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit: ; preds
 
 sw.epilog:                                        ; preds = %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit, %invoke.cont204, %invoke.cont154, %invoke.cont121, %invoke.cont82, %invoke.cont59, %invoke.cont43, %invoke.cont, %if.end8
   %nodeType.4 = phi i8 [ %nodeType.3916, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %nodeType.3916, %invoke.cont204 ], [ %nodeType.3916, %invoke.cont154 ], [ %nodeType.3916, %invoke.cont121 ], [ %nodeType.3916, %invoke.cont82 ], [ %nodeType.3916, %invoke.cont59 ], [ %nodeType.3916, %invoke.cont43 ], [ %nodeType.3916, %invoke.cont ], [ %dec, %if.end8 ]
-  %pathDef.addr.63 = phi ptr [ %176, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %145, %invoke.cont204 ], [ %109, %invoke.cont154 ], [ %84, %invoke.cont121 ], [ %62, %invoke.cont82 ], [ %49, %invoke.cont59 ], [ %42, %invoke.cont43 ], [ %29, %invoke.cont ], [ %17, %if.end8 ]
-  %300 = phi <2 x double> [ %182, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %152, %invoke.cont204 ], [ %119, %invoke.cont154 ], [ %90, %invoke.cont121 ], [ %69, %invoke.cont82 ], [ %53, %invoke.cont59 ], [ %46, %invoke.cont43 ], [ %35, %invoke.cont ], [ %23, %if.end8 ]
-  %301 = phi <2 x double> [ %10, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %10, %invoke.cont204 ], [ %10, %invoke.cont154 ], [ %10, %invoke.cont121 ], [ %10, %invoke.cont82 ], [ %10, %invoke.cont59 ], [ %10, %invoke.cont43 ], [ %10, %invoke.cont ], [ %23, %if.end8 ]
-  %302 = phi <2 x double> [ %11, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %137, %invoke.cont204 ], [ %120, %invoke.cont154 ], [ %80, %invoke.cont121 ], [ %70, %invoke.cont82 ], [ %11, %invoke.cont59 ], [ %11, %invoke.cont43 ], [ %11, %invoke.cont ], [ %11, %if.end8 ]
-  %303 = phi <2 x double> [ %13, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %153, %invoke.cont204 ], [ %121, %invoke.cont154 ], [ %13, %invoke.cont121 ], [ %13, %invoke.cont82 ], [ %13, %invoke.cont59 ], [ %13, %invoke.cont43 ], [ %13, %invoke.cont ], [ %13, %if.end8 ]
-  %304 = and i8 %nodeType.4, -33
-  %305 = icmp eq i8 %304, 77
-  %and29 = and i1 %contourStart.0918, %305
+  %pathDef.addr.63 = phi ptr [ %175, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %144, %invoke.cont204 ], [ %109, %invoke.cont154 ], [ %84, %invoke.cont121 ], [ %62, %invoke.cont82 ], [ %49, %invoke.cont59 ], [ %42, %invoke.cont43 ], [ %29, %invoke.cont ], [ %17, %if.end8 ]
+  %299 = phi <2 x double> [ %181, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %151, %invoke.cont204 ], [ %119, %invoke.cont154 ], [ %90, %invoke.cont121 ], [ %69, %invoke.cont82 ], [ %53, %invoke.cont59 ], [ %46, %invoke.cont43 ], [ %35, %invoke.cont ], [ %23, %if.end8 ]
+  %300 = phi <2 x double> [ %10, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %10, %invoke.cont204 ], [ %10, %invoke.cont154 ], [ %10, %invoke.cont121 ], [ %10, %invoke.cont82 ], [ %10, %invoke.cont59 ], [ %10, %invoke.cont43 ], [ %10, %invoke.cont ], [ %23, %if.end8 ]
+  %301 = phi <2 x double> [ %11, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %136, %invoke.cont204 ], [ %120, %invoke.cont154 ], [ %80, %invoke.cont121 ], [ %70, %invoke.cont82 ], [ %11, %invoke.cont59 ], [ %11, %invoke.cont43 ], [ %11, %invoke.cont ], [ %11, %if.end8 ]
+  %302 = phi <2 x double> [ %13, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %152, %invoke.cont204 ], [ %121, %invoke.cont154 ], [ %13, %invoke.cont121 ], [ %13, %invoke.cont82 ], [ %13, %invoke.cont59 ], [ %13, %invoke.cont43 ], [ %13, %invoke.cont ], [ %13, %if.end8 ]
+  %303 = and i8 %nodeType.4, -33
+  %304 = icmp eq i8 %303, 77
+  %and29 = and i1 %contourStart.0918, %304
   br label %while.cond.i.i367
 
 while.cond.i.i367:                                ; preds = %while.body.i.i368, %sw.epilog
   %pathDef.addr.64 = phi ptr [ %pathDef.addr.63, %sw.epilog ], [ %incdec.ptr.i.i369, %while.body.i.i368 ]
-  %306 = load i8, ptr %pathDef.addr.64, align 1
-  switch i8 %306, label %land.lhs.true10.i372 [
+  %305 = load i8, ptr %pathDef.addr.64, align 1
+  switch i8 %305, label %land.lhs.true10.i372 [
     i8 44, label %while.body.i.i368
     i8 32, label %while.body.i.i368
     i8 9, label %while.body.i.i368
@@ -1545,97 +1544,97 @@ while.body.i.i368:                                ; preds = %while.cond.i.i367, 
   br label %while.cond.i.i367, !llvm.loop !5
 
 land.lhs.true10.i372:                             ; preds = %while.cond.i.i367
-  %307 = add i8 %306, -58
-  %or.cond4.i373 = icmp ult i8 %307, -10
-  %spec.select = select i1 %or.cond4.i373, i8 %306, i8 %nodeType.4
+  %306 = add i8 %305, -58
+  %or.cond4.i373 = icmp ult i8 %306, -10
+  %spec.select = select i1 %or.cond4.i373, i8 %305, i8 %nodeType.4
   %spec.select524.idx = zext i1 %or.cond4.i373 to i64
   %spec.select524 = getelementptr inbounds i8, ptr %pathDef.addr.64, i64 %spec.select524.idx
   %.pre1321 = load i8, ptr %spec.select524, align 1
   br label %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376
 
 _ZN7msdfgenL12readNodeTypeERcRPKc.exit376:        ; preds = %while.cond.i.i367, %while.cond.i.i367, %while.cond.i.i367, %while.cond.i.i367, %land.lhs.true10.i372
-  %308 = phi i8 [ %.pre1321, %land.lhs.true10.i372 ], [ %306, %while.cond.i.i367 ], [ %306, %while.cond.i.i367 ], [ %306, %while.cond.i.i367 ], [ %306, %while.cond.i.i367 ]
+  %307 = phi i8 [ %.pre1321, %land.lhs.true10.i372 ], [ %305, %while.cond.i.i367 ], [ %305, %while.cond.i.i367 ], [ %305, %while.cond.i.i367 ], [ %305, %while.cond.i.i367 ]
   %nodeType.5 = phi i8 [ %spec.select, %land.lhs.true10.i372 ], [ %nodeType.4, %while.cond.i.i367 ], [ %nodeType.4, %while.cond.i.i367 ], [ %nodeType.4, %while.cond.i.i367 ], [ %nodeType.4, %while.cond.i.i367 ]
   %pathDef.addr.65 = phi ptr [ %spec.select524, %land.lhs.true10.i372 ], [ %pathDef.addr.64, %while.cond.i.i367 ], [ %pathDef.addr.64, %while.cond.i.i367 ], [ %pathDef.addr.64, %while.cond.i.i367 ], [ %pathDef.addr.64, %while.cond.i.i367 ]
-  %tobool3.not = icmp eq i8 %308, 0
+  %tobool3.not = icmp eq i8 %307, 0
   br i1 %tobool3.not, label %NEXT_CONTOUR.loopexit.split.loop.exit1873, label %while.body4, !llvm.loop !8
 
 NEXT_CONTOUR.loopexit.split.loop.exit:            ; preds = %sw.bb
-  %309 = extractelement <2 x double> %9, i64 0
-  %310 = extractelement <2 x double> %9, i64 1
+  %308 = extractelement <2 x double> %9, i64 0
+  %309 = extractelement <2 x double> %9, i64 1
   br label %NEXT_CONTOUR
 
 NEXT_CONTOUR.loopexit.split.loop.exit1873:        ; preds = %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376
-  %311 = extractelement <2 x double> %300, i64 0
-  %312 = extractelement <2 x double> %300, i64 1
+  %310 = extractelement <2 x double> %299, i64 0
+  %311 = extractelement <2 x double> %299, i64 1
   br label %NEXT_CONTOUR
 
 NEXT_CONTOUR:                                     ; preds = %NEXT_CONTOUR.loopexit.split.loop.exit, %NEXT_CONTOUR.loopexit.split.loop.exit1873, %while.body, %sw.bb13
-  %prevNode.sroa.25.2906 = phi double [ %25, %sw.bb13 ], [ %7, %while.body ], [ %310, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %312, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
-  %prevNode.sroa.0.2865 = phi double [ %24, %sw.bb13 ], [ %6, %while.body ], [ %309, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %311, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
+  %prevNode.sroa.25.2906 = phi double [ %25, %sw.bb13 ], [ %7, %while.body ], [ %309, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %311, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
+  %prevNode.sroa.0.2865 = phi double [ %24, %sw.bb13 ], [ %6, %while.body ], [ %308, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %310, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
   %nodeType.3656 = phi i8 [ %nodeType.3916, %sw.bb13 ], [ %nodeType.2, %while.body ], [ %nodeType.3916, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %nodeType.5, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
   %pathDef.addr.4614 = phi ptr [ %pathDef.addr.4917, %sw.bb13 ], [ %pathDef.addr.3, %while.body ], [ %pathDef.addr.4917, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %pathDef.addr.65, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
   %nodeTypePreread.1 = phi i1 [ false, %sw.bb13 ], [ false, %while.body ], [ true, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ false, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
-  %313 = phi <2 x double> [ %10, %sw.bb13 ], [ zeroinitializer, %while.body ], [ %10, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %301, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
-  %314 = load ptr, ptr %call1, align 8
+  %312 = phi <2 x double> [ %10, %sw.bb13 ], [ zeroinitializer, %while.body ], [ %10, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %300, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
+  %313 = load ptr, ptr %call1, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %call1, i64 8
-  %315 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.i377 = icmp eq ptr %314, %315
+  %314 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.i377 = icmp eq ptr %313, %314
   br i1 %cmp.i.i377, label %if.end284, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %NEXT_CONTOUR
-  %316 = extractelement <2 x double> %313, i64 0
-  %cmp.i378 = fcmp une double %prevNode.sroa.0.2865, %316
-  %317 = extractelement <2 x double> %313, i64 1
-  %cmp3.i379 = fcmp une double %prevNode.sroa.25.2906, %317
-  %318 = select i1 %cmp.i378, i1 true, i1 %cmp3.i379
-  br i1 %318, label %if.then247, label %if.end284
+  %315 = extractelement <2 x double> %312, i64 0
+  %cmp.i378 = fcmp une double %prevNode.sroa.0.2865, %315
+  %316 = extractelement <2 x double> %312, i64 1
+  %cmp3.i379 = fcmp une double %prevNode.sroa.25.2906, %316
+  %317 = select i1 %cmp.i378, i1 true, i1 %cmp3.i379
+  br i1 %317, label %if.then247, label %if.end284
 
 if.then247:                                       ; preds = %land.lhs.true
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %315, i64 -8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %314, i64 -8
   %call252 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i)
   %vtable = load ptr, ptr %call252, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
-  %319 = load ptr, ptr %vfn, align 8
-  %call253 = call { double, double } %319(ptr noundef nonnull align 8 dereferenceable(12) %call252, double noundef 1.000000e+00)
-  %320 = extractvalue { double, double } %call253, 0
-  %321 = extractvalue { double, double } %call253, 1
-  %322 = load ptr, ptr %call1, align 8
-  %call257 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %322)
+  %318 = load ptr, ptr %vfn, align 8
+  %call253 = call { double, double } %318(ptr noundef nonnull align 8 dereferenceable(12) %call252, double noundef 1.000000e+00)
+  %319 = extractvalue { double, double } %call253, 0
+  %320 = extractvalue { double, double } %call253, 1
+  %321 = load ptr, ptr %call1, align 8
+  %call257 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %321)
   %vtable258 = load ptr, ptr %call257, align 8
   %vfn259 = getelementptr inbounds i8, ptr %vtable258, i64 40
-  %323 = load ptr, ptr %vfn259, align 8
-  %call260 = call { double, double } %323(ptr noundef nonnull align 8 dereferenceable(12) %call257, double noundef 0.000000e+00)
-  %324 = extractvalue { double, double } %call260, 0
-  %325 = extractvalue { double, double } %call260, 1
-  %sub.i381 = fsub double %320, %324
-  %sub3.i382 = fsub double %321, %325
+  %322 = load ptr, ptr %vfn259, align 8
+  %call260 = call { double, double } %322(ptr noundef nonnull align 8 dereferenceable(12) %call257, double noundef 0.000000e+00)
+  %323 = extractvalue { double, double } %call260, 0
+  %324 = extractvalue { double, double } %call260, 1
+  %sub.i381 = fsub double %319, %323
+  %sub3.i382 = fsub double %320, %324
   %mul4.i = fmul double %sub3.i382, %sub3.i382
-  %326 = call double @llvm.fmuladd.f64(double %sub.i381, double %sub.i381, double %mul4.i)
-  %sqrt.i386 = call noundef double @llvm.sqrt.f64(double %326)
+  %325 = call double @llvm.fmuladd.f64(double %sub.i381, double %sub.i381, double %mul4.i)
+  %sqrt.i386 = call noundef double @llvm.sqrt.f64(double %325)
   %cmp263 = fcmp olt double %sqrt.i386, %endpointSnapRange
   br i1 %cmp263, label %if.then264, label %if.else277
 
 if.then264:                                       ; preds = %if.then247
-  %327 = load ptr, ptr %_M_finish.i.i, align 8
-  %add.ptr.i.i388 = getelementptr inbounds i8, ptr %327, i64 -8
+  %326 = load ptr, ptr %_M_finish.i.i, align 8
+  %add.ptr.i.i388 = getelementptr inbounds i8, ptr %326, i64 -8
   %call267 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i388)
-  %328 = load ptr, ptr %call1, align 8
-  %call271 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %328)
+  %327 = load ptr, ptr %call1, align 8
+  %call271 = call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %327)
   %vtable272 = load ptr, ptr %call271, align 8
   %vfn273 = getelementptr inbounds i8, ptr %vtable272, i64 40
-  %329 = load ptr, ptr %vfn273, align 8
-  %call274 = call { double, double } %329(ptr noundef nonnull align 8 dereferenceable(12) %call271, double noundef 0.000000e+00)
-  %330 = extractvalue { double, double } %call274, 0
-  %331 = extractvalue { double, double } %call274, 1
+  %328 = load ptr, ptr %vfn273, align 8
+  %call274 = call { double, double } %328(ptr noundef nonnull align 8 dereferenceable(12) %call271, double noundef 0.000000e+00)
+  %329 = extractvalue { double, double } %call274, 0
+  %330 = extractvalue { double, double } %call274, 1
   %vtable275 = load ptr, ptr %call267, align 8
   %vfn276 = getelementptr inbounds i8, ptr %vtable275, i64 112
-  %332 = load ptr, ptr %vfn276, align 8
-  call void %332(ptr noundef nonnull align 8 dereferenceable(12) %call267, double %330, double %331)
+  %331 = load ptr, ptr %vfn276, align 8
+  call void %331(ptr noundef nonnull align 8 dereferenceable(12) %call267, double %329, double %330)
   br label %if.end284
 
 if.else277:                                       ; preds = %if.then247
-  %call.i389 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %prevNode.sroa.0.2865, double %prevNode.sroa.25.2906, double %316, double %317, i32 noundef 7)
+  %call.i389 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %prevNode.sroa.0.2865, double %prevNode.sroa.25.2906, double %315, double %316, i32 noundef 7)
   store ptr %call.i389, ptr %ref.tmp278, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp278)
           to label %invoke.cont282 unwind label %lpad281
@@ -1645,7 +1644,7 @@ invoke.cont282:                                   ; preds = %if.else277
   br label %if.end284
 
 lpad281:                                          ; preds = %if.else277
-  %333 = landingpad { ptr, i32 }
+  %332 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -3513,20 +3512,17 @@ declare void @_ZNK6SkPath9transformERK8SkMatrixPS_22SkApplyPerspectiveClip(ptr n
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #11
-
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #11
+declare double @llvm.sqrt.f64(double) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
@@ -3535,13 +3531,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #11
+declare <2 x double> @llvm.fmuladd.v2f64(<2 x double>, <2 x double>, <2 x double>) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #11
+declare <2 x double> @llvm.fabs.v2f64(<2 x double>) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #11
+declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3554,9 +3550,9 @@ attributes #7 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" 
 attributes #8 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #16 = { nounwind }

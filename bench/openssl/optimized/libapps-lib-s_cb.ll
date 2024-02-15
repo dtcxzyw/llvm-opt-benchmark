@@ -1495,34 +1495,39 @@ entry:
   %tmpbuf = alloca [128 x i8], align 16
   %tobool.not = icmp eq i32 %write_p, 0
   %cond = select i1 %tobool.not, ptr @.str.50, ptr @.str.49
+  %0 = and i32 %version, -4
+  %or.cond2 = icmp eq i32 %0, 768
+  br i1 %or.cond2, label %for.body.i.preheader, label %switch.early.test
+
+switch.early.test:                                ; preds = %entry
   switch i32 %version, label %if.else [
-    i32 768, label %lookup.exit
     i32 256, label %for.cond.i.preheader
-    i32 769, label %for.cond.i.preheader
-    i32 770, label %for.cond.i.preheader
-    i32 771, label %for.cond.i.preheader
     i32 772, label %for.cond.i.preheader
     i32 65279, label %for.cond.i.preheader
   ]
 
-for.cond.i.preheader:                             ; preds = %entry, %entry, %entry, %entry, %entry, %entry
+for.body.i.preheader:                             ; preds = %entry
+  %cmp.i74 = icmp eq i32 %version, 768
+  br i1 %cmp.i74, label %lookup.exit, label %for.cond.i.preheader
+
+for.cond.i.preheader:                             ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %for.body.i.preheader
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %for.body.i
   %list.addr.05.i75 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ @ssl_versions, %for.cond.i.preheader ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %list.addr.05.i75, i64 16
-  %0 = load ptr, ptr %incdec.ptr.i, align 8
-  %tobool.not.i = icmp eq ptr %0, null
+  %1 = load ptr, ptr %incdec.ptr.i, align 8
+  %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %lookup.exit, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %for.cond.i
   %retval1.i = getelementptr inbounds i8, ptr %list.addr.05.i75, i64 24
-  %1 = load i32, ptr %retval1.i, align 8
-  %cmp.i = icmp eq i32 %1, %version
+  %2 = load i32, ptr %retval1.i, align 8
+  %cmp.i = icmp eq i32 %2, %version
   br i1 %cmp.i, label %lookup.exit, label %for.cond.i, !llvm.loop !4
 
-lookup.exit:                                      ; preds = %for.body.i, %for.cond.i, %entry
-  %retval.0.i = phi ptr [ @.str.145, %entry ], [ %0, %for.body.i ], [ @.str.52, %for.cond.i ]
+lookup.exit:                                      ; preds = %for.body.i, %for.cond.i, %for.body.i.preheader
+  %retval.0.i = phi ptr [ @.str.145, %for.body.i.preheader ], [ %1, %for.body.i ], [ @.str.52, %for.cond.i ]
   switch i32 %content_type, label %sw.default [
     i32 20, label %if.end37
     i32 21, label %sw.bb12
@@ -1537,28 +1542,28 @@ sw.bb12:                                          ; preds = %lookup.exit
   br i1 %cmp13, label %if.then14, label %if.end37
 
 if.then14:                                        ; preds = %sw.bb12
-  %2 = load i8, ptr %buf, align 1
-  %switch.selectcmp = icmp eq i8 %2, 2
+  %3 = load i8, ptr %buf, align 1
+  %switch.selectcmp = icmp eq i8 %3, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.57, ptr @.str.55
-  %switch.selectcmp36 = icmp eq i8 %2, 1
+  %switch.selectcmp36 = icmp eq i8 %3, 1
   %switch.select37 = select i1 %switch.selectcmp36, ptr @.str.56, ptr %switch.select
   %arrayidx17 = getelementptr inbounds i8, ptr %buf, i64 1
-  %3 = load i8, ptr %arrayidx17, align 1
-  %conv18 = zext i8 %3 to i32
-  %cmp.i4281 = icmp eq i8 %3, 0
+  %4 = load i8, ptr %arrayidx17, align 1
+  %conv18 = zext i8 %4 to i32
+  %cmp.i4281 = icmp eq i8 %4, 0
   br i1 %cmp.i4281, label %if.end37.thread93, label %for.cond.i43
 
 for.cond.i43:                                     ; preds = %if.then14, %for.body.i39
   %list.addr.05.i4082 = phi ptr [ %incdec.ptr.i44, %for.body.i39 ], [ @alert_types, %if.then14 ]
   %incdec.ptr.i44 = getelementptr inbounds i8, ptr %list.addr.05.i4082, i64 16
-  %4 = load ptr, ptr %incdec.ptr.i44, align 8
-  %tobool.not.i45 = icmp eq ptr %4, null
+  %5 = load ptr, ptr %incdec.ptr.i44, align 8
+  %tobool.not.i45 = icmp eq ptr %5, null
   br i1 %tobool.not.i45, label %if.end37, label %for.body.i39, !llvm.loop !4
 
 for.body.i39:                                     ; preds = %for.cond.i43
   %retval1.i41 = getelementptr inbounds i8, ptr %list.addr.05.i4082, i64 24
-  %5 = load i32, ptr %retval1.i41, align 8
-  %cmp.i42 = icmp eq i32 %5, %conv18
+  %6 = load i32, ptr %retval1.i41, align 8
+  %cmp.i42 = icmp eq i32 %6, %conv18
   br i1 %cmp.i42, label %if.end37, label %for.cond.i43, !llvm.loop !4
 
 sw.bb20:                                          ; preds = %lookup.exit
@@ -1570,22 +1575,22 @@ if.end37.thread64:                                ; preds = %sw.bb20
   br label %if.end61
 
 if.then23:                                        ; preds = %sw.bb20
-  %6 = load i8, ptr %buf, align 1
-  %conv25 = zext i8 %6 to i32
-  %cmp.i5277 = icmp eq i8 %6, 0
+  %7 = load i8, ptr %buf, align 1
+  %conv25 = zext i8 %7 to i32
+  %cmp.i5277 = icmp eq i8 %7, 0
   br i1 %cmp.i5277, label %if.end37.thread93, label %for.cond.i53
 
 for.cond.i53:                                     ; preds = %if.then23, %for.body.i49
   %list.addr.05.i5078 = phi ptr [ %incdec.ptr.i54, %for.body.i49 ], [ @handshakes, %if.then23 ]
   %incdec.ptr.i54 = getelementptr inbounds i8, ptr %list.addr.05.i5078, i64 16
-  %7 = load ptr, ptr %incdec.ptr.i54, align 8
-  %tobool.not.i55 = icmp eq ptr %7, null
+  %8 = load ptr, ptr %incdec.ptr.i54, align 8
+  %tobool.not.i55 = icmp eq ptr %8, null
   br i1 %tobool.not.i55, label %if.end37, label %for.body.i49, !llvm.loop !4
 
 for.body.i49:                                     ; preds = %for.cond.i53
   %retval1.i51 = getelementptr inbounds i8, ptr %list.addr.05.i5078, i64 24
-  %8 = load i32, ptr %retval1.i51, align 8
-  %cmp.i52 = icmp eq i32 %8, %conv25
+  %9 = load i32, ptr %retval1.i51, align 8
+  %cmp.i52 = icmp eq i32 %9, %conv25
   br i1 %cmp.i52, label %if.end37, label %for.cond.i53, !llvm.loop !4
 
 sw.bb28:                                          ; preds = %lookup.exit
@@ -1601,7 +1606,7 @@ sw.default:                                       ; preds = %lookup.exit
   %call31 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %tmpbuf, i64 noundef 127, ptr noundef nonnull @.str.63, i32 noundef %content_type) #6
   br label %if.end37
 
-if.else:                                          ; preds = %entry
+if.else:                                          ; preds = %switch.early.test
   %call35 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %tmpbuf, i64 noundef 127, ptr noundef nonnull @.str.64, i32 noundef %version, i32 noundef %content_type) #6
   br label %if.end37
 
@@ -1613,8 +1618,8 @@ if.end37.thread93:                                ; preds = %if.then23, %if.then
   br label %for.body.preheader
 
 if.end37:                                         ; preds = %for.cond.i53, %for.body.i49, %for.cond.i43, %for.body.i39, %lookup.exit, %sw.bb28, %sw.bb29, %sw.bb30, %sw.default, %sw.bb12, %if.else
-  %str_details1.1 = phi ptr [ @.str.51, %sw.default ], [ @.str.51, %sw.bb30 ], [ @.str.51, %sw.bb29 ], [ @.str.51, %sw.bb28 ], [ @.str.55, %sw.bb12 ], [ @.str.51, %if.else ], [ @.str.51, %lookup.exit ], [ %switch.select37, %for.body.i39 ], [ %switch.select37, %for.cond.i43 ], [ @.str.52, %for.cond.i53 ], [ %7, %for.body.i49 ]
-  %str_details2.0 = phi ptr [ @.str.51, %sw.default ], [ @.str.51, %sw.bb30 ], [ @.str.51, %sw.bb29 ], [ @.str.51, %sw.bb28 ], [ @.str.51, %sw.bb12 ], [ @.str.51, %if.else ], [ @.str.51, %lookup.exit ], [ @.str.58, %for.cond.i43 ], [ %4, %for.body.i39 ], [ @.str.51, %for.body.i49 ], [ @.str.51, %for.cond.i53 ]
+  %str_details1.1 = phi ptr [ @.str.51, %sw.default ], [ @.str.51, %sw.bb30 ], [ @.str.51, %sw.bb29 ], [ @.str.51, %sw.bb28 ], [ @.str.55, %sw.bb12 ], [ @.str.51, %if.else ], [ @.str.51, %lookup.exit ], [ %switch.select37, %for.body.i39 ], [ %switch.select37, %for.cond.i43 ], [ @.str.52, %for.cond.i53 ], [ %8, %for.body.i49 ]
+  %str_details2.0 = phi ptr [ @.str.51, %sw.default ], [ @.str.51, %sw.bb30 ], [ @.str.51, %sw.bb29 ], [ @.str.51, %sw.bb28 ], [ @.str.51, %sw.bb12 ], [ @.str.51, %if.else ], [ @.str.51, %lookup.exit ], [ @.str.58, %for.cond.i43 ], [ %5, %for.body.i39 ], [ @.str.51, %for.body.i49 ], [ @.str.51, %for.cond.i53 ]
   %str_content_type.0 = phi ptr [ %tmpbuf, %sw.default ], [ @.str.62, %sw.bb30 ], [ @.str.61, %sw.bb29 ], [ @.str.60, %sw.bb28 ], [ @.str.54, %sw.bb12 ], [ @.str.51, %if.else ], [ @.str.53, %lookup.exit ], [ @.str.54, %for.body.i39 ], [ @.str.54, %for.cond.i43 ], [ @.str.59, %for.body.i49 ], [ @.str.59, %for.cond.i53 ]
   %str_version.0 = phi ptr [ %retval.0.i, %sw.default ], [ %retval.0.i, %sw.bb30 ], [ %retval.0.i, %sw.bb29 ], [ %retval.0.i, %sw.bb28 ], [ %retval.0.i, %sw.bb12 ], [ %tmpbuf, %if.else ], [ %retval.0.i, %lookup.exit ], [ %retval.0.i, %for.body.i39 ], [ %retval.0.i, %for.cond.i43 ], [ %retval.0.i, %for.body.i49 ], [ %retval.0.i, %for.cond.i53 ]
   %call38 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.65, ptr noundef nonnull %cond, ptr noundef %str_version.0, ptr noundef nonnull %str_content_type.0, i64 noundef %len, ptr noundef %str_details1.1, ptr noundef nonnull %str_details2.0) #6
@@ -1639,8 +1644,8 @@ if.then49:                                        ; preds = %for.body
 
 if.end51:                                         ; preds = %if.then49, %for.body
   %arrayidx52 = getelementptr inbounds i8, ptr %buf, i64 %i.086
-  %9 = load i8, ptr %arrayidx52, align 1
-  %conv53 = zext i8 %9 to i32
+  %10 = load i8, ptr %arrayidx52, align 1
+  %conv53 = zext i8 %10 to i32
   %call54 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %arg, ptr noundef nonnull @.str.68, i32 noundef %conv53) #6
   %inc = add nuw i64 %i.086, 1
   %exitcond.not = icmp eq i64 %inc, %len

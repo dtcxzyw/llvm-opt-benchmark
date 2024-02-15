@@ -14029,16 +14029,9 @@ if.then7:                                         ; preds = %land.lhs.true
   br label %if.end112
 
 if.else:                                          ; preds = %for.inc.i, %_ZNKSt5ctypeIcE6narrowEcc.exit
-  switch i8 %2, label %if.else58 [
+  switch i8 %2, label %if.else22 [
     i8 98, label %if.then11
     i8 66, label %if.then18
-    i8 119, label %if.then40
-    i8 115, label %if.then40
-    i8 100, label %if.then40
-    i8 87, label %if.then40
-    i8 83, label %if.then40
-    i8 68, label %if.then40
-    i8 99, label %if.then47
   ]
 
 if.then11:                                        ; preds = %land.lhs.true, %if.else
@@ -14055,17 +14048,29 @@ if.then18:                                        ; preds = %if.else
   %call21 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc(ptr noundef nonnull align 8 dereferenceable(32) %_M_value20, i64 noundef 1, i8 noundef signext 110)
   br label %if.end112
 
-if.then40:                                        ; preds = %if.else, %if.else, %if.else, %if.else, %if.else, %if.else
+if.else22:                                        ; preds = %if.else
+  %12 = and i8 %2, -33
+  %or.cond = icmp eq i8 %12, 68
+  %13 = and i8 %2, -37
+  %14 = icmp eq i8 %13, 83
+  %or.cond4 = or i1 %or.cond, %14
+  br i1 %or.cond4, label %if.then40, label %if.else44
+
+if.then40:                                        ; preds = %if.else22
   %_M_token41 = getelementptr inbounds i8, ptr %this, i64 144
   store i32 14, ptr %_M_token41, align 8
   %_M_value42 = getelementptr inbounds i8, ptr %this, i64 200
   %call43 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc(ptr noundef nonnull align 8 dereferenceable(32) %_M_value42, i64 noundef 1, i8 noundef signext %2)
   br label %if.end112
 
-if.then47:                                        ; preds = %if.else
-  %12 = load ptr, ptr %_M_current, align 8
-  %13 = load ptr, ptr %_M_end, align 8
-  %cmp50 = icmp eq ptr %12, %13
+if.else44:                                        ; preds = %if.else22
+  %cmp46 = icmp eq i8 %2, 99
+  br i1 %cmp46, label %if.then47, label %if.else58
+
+if.then47:                                        ; preds = %if.else44
+  %15 = load ptr, ptr %_M_current, align 8
+  %16 = load ptr, ptr %_M_end, align 8
+  %cmp50 = icmp eq ptr %15, %16
   br i1 %cmp50, label %if.then51, label %if.end52
 
 if.then51:                                        ; preds = %if.then47
@@ -14076,13 +14081,13 @@ if.end52:                                         ; preds = %if.then47
   %_M_token53 = getelementptr inbounds i8, ptr %this, i64 144
   store i32 1, ptr %_M_token53, align 8
   %_M_value54 = getelementptr inbounds i8, ptr %this, i64 200
-  %incdec.ptr56 = getelementptr inbounds i8, ptr %12, i64 1
+  %incdec.ptr56 = getelementptr inbounds i8, ptr %15, i64 1
   store ptr %incdec.ptr56, ptr %_M_current, align 8
-  %14 = load i8, ptr %12, align 1
-  %call57 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc(ptr noundef nonnull align 8 dereferenceable(32) %_M_value54, i64 noundef 1, i8 noundef signext %14)
+  %17 = load i8, ptr %15, align 1
+  %call57 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc(ptr noundef nonnull align 8 dereferenceable(32) %_M_value54, i64 noundef 1, i8 noundef signext %17)
   br label %if.end112
 
-if.else58:                                        ; preds = %if.else
+if.else58:                                        ; preds = %if.else44
   %cmp60 = icmp eq i8 %2, 120
   switch i8 %2, label %if.else85 [
     i8 120, label %if.then64
@@ -14097,20 +14102,20 @@ if.then64:                                        ; preds = %if.else58, %if.else
 
 for.body:                                         ; preds = %if.then64, %if.end79
   %__i.046 = phi i32 [ 0, %if.then64 ], [ %inc, %if.end79 ]
-  %15 = load ptr, ptr %_M_current, align 8
-  %16 = load ptr, ptr %_M_end, align 8
-  %cmp71 = icmp eq ptr %15, %16
+  %18 = load ptr, ptr %_M_current, align 8
+  %19 = load ptr, ptr %_M_end, align 8
+  %cmp71 = icmp eq ptr %18, %19
   br i1 %cmp71, label %if.then76, label %lor.lhs.false72
 
 lor.lhs.false72:                                  ; preds = %for.body
-  %17 = load ptr, ptr %_M_ctype, align 8
-  %18 = load i8, ptr %15, align 1
-  %_M_table.i = getelementptr inbounds i8, ptr %17, i64 48
-  %19 = load ptr, ptr %_M_table.i, align 8
-  %idxprom.i31 = zext i8 %18 to i64
-  %arrayidx.i32 = getelementptr inbounds i16, ptr %19, i64 %idxprom.i31
-  %20 = load i16, ptr %arrayidx.i32, align 2
-  %and1.i = and i16 %20, 4096
+  %20 = load ptr, ptr %_M_ctype, align 8
+  %21 = load i8, ptr %18, align 1
+  %_M_table.i = getelementptr inbounds i8, ptr %20, i64 48
+  %22 = load ptr, ptr %_M_table.i, align 8
+  %idxprom.i31 = zext i8 %21 to i64
+  %arrayidx.i32 = getelementptr inbounds i16, ptr %22, i64 %idxprom.i31
+  %23 = load i16, ptr %arrayidx.i32, align 2
+  %and1.i = and i16 %23, 4096
   %tobool.i.not = icmp eq i16 %and1.i, 0
   br i1 %tobool.i.not, label %if.then76, label %if.end79
 
@@ -14120,10 +14125,10 @@ if.then76:                                        ; preds = %lor.lhs.false72, %f
   unreachable
 
 if.end79:                                         ; preds = %lor.lhs.false72
-  %incdec.ptr81 = getelementptr inbounds i8, ptr %15, i64 1
+  %incdec.ptr81 = getelementptr inbounds i8, ptr %18, i64 1
   store ptr %incdec.ptr81, ptr %_M_current, align 8
-  %21 = load i8, ptr %15, align 1
-  %call83 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %_M_value65, i8 noundef signext %21)
+  %24 = load i8, ptr %18, align 1
+  %call83 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %_M_value65, i8 noundef signext %24)
   %inc = add nuw nsw i32 %__i.046, 1
   %exitcond.not = icmp eq i32 %inc, %cond
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !278
@@ -14134,44 +14139,44 @@ for.end:                                          ; preds = %if.end79
   br label %if.end112
 
 if.else85:                                        ; preds = %if.else58
-  %22 = load ptr, ptr %_M_ctype, align 8
-  %_M_table.i33 = getelementptr inbounds i8, ptr %22, i64 48
-  %23 = load ptr, ptr %_M_table.i33, align 8
-  %arrayidx.i35 = getelementptr inbounds i16, ptr %23, i64 %idxprom.i
-  %24 = load i16, ptr %arrayidx.i35, align 2
-  %and1.i36 = and i16 %24, 2048
+  %25 = load ptr, ptr %_M_ctype, align 8
+  %_M_table.i33 = getelementptr inbounds i8, ptr %25, i64 48
+  %26 = load ptr, ptr %_M_table.i33, align 8
+  %arrayidx.i35 = getelementptr inbounds i16, ptr %26, i64 %idxprom.i
+  %27 = load i16, ptr %arrayidx.i35, align 2
+  %and1.i36 = and i16 %27, 2048
   %tobool.i37.not = icmp eq i16 %and1.i36, 0
   br i1 %tobool.i37.not, label %if.else102, label %if.then88
 
 if.then88:                                        ; preds = %if.else85
   %_M_value89 = getelementptr inbounds i8, ptr %this, i64 200
   %call90 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEmc(ptr noundef nonnull align 8 dereferenceable(32) %_M_value89, i64 noundef 1, i8 noundef signext %2)
-  %25 = load ptr, ptr %_M_current, align 8
-  %26 = load ptr, ptr %_M_end, align 8
-  %cmp93.not47 = icmp eq ptr %25, %26
+  %28 = load ptr, ptr %_M_current, align 8
+  %29 = load ptr, ptr %_M_end, align 8
+  %cmp93.not47 = icmp eq ptr %28, %29
   br i1 %cmp93.not47, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then88, %while.body
-  %27 = phi ptr [ %33, %while.body ], [ %25, %if.then88 ]
-  %28 = load ptr, ptr %_M_ctype, align 8
-  %29 = load i8, ptr %27, align 1
-  %_M_table.i38 = getelementptr inbounds i8, ptr %28, i64 48
-  %30 = load ptr, ptr %_M_table.i38, align 8
-  %idxprom.i39 = zext i8 %29 to i64
-  %arrayidx.i40 = getelementptr inbounds i16, ptr %30, i64 %idxprom.i39
-  %31 = load i16, ptr %arrayidx.i40, align 2
-  %and1.i41 = and i16 %31, 2048
+  %30 = phi ptr [ %36, %while.body ], [ %28, %if.then88 ]
+  %31 = load ptr, ptr %_M_ctype, align 8
+  %32 = load i8, ptr %30, align 1
+  %_M_table.i38 = getelementptr inbounds i8, ptr %31, i64 48
+  %33 = load ptr, ptr %_M_table.i38, align 8
+  %idxprom.i39 = zext i8 %32 to i64
+  %arrayidx.i40 = getelementptr inbounds i16, ptr %33, i64 %idxprom.i39
+  %34 = load i16, ptr %arrayidx.i40, align 2
+  %and1.i41 = and i16 %34, 2048
   %tobool.i42.not = icmp eq i16 %and1.i41, 0
   br i1 %tobool.i42.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %incdec.ptr98 = getelementptr inbounds i8, ptr %27, i64 1
+  %incdec.ptr98 = getelementptr inbounds i8, ptr %30, i64 1
   store ptr %incdec.ptr98, ptr %_M_current, align 8
-  %32 = load i8, ptr %27, align 1
-  %call100 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %_M_value89, i8 noundef signext %32)
-  %33 = load ptr, ptr %_M_current, align 8
-  %34 = load ptr, ptr %_M_end, align 8
-  %cmp93.not = icmp eq ptr %33, %34
+  %35 = load i8, ptr %30, align 1
+  %call100 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %_M_value89, i8 noundef signext %35)
+  %36 = load ptr, ptr %_M_current, align 8
+  %37 = load ptr, ptr %_M_end, align 8
+  %cmp93.not = icmp eq ptr %36, %37
   br i1 %cmp93.not, label %while.end, label %land.rhs, !llvm.loop !279
 
 while.end:                                        ; preds = %land.rhs, %while.body, %if.then88

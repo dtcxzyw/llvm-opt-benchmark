@@ -1108,29 +1108,28 @@ if.else68:                                        ; preds = %if.end37
   br i1 %tobool69.not, label %if.else97, label %if.then70
 
 if.then70:                                        ; preds = %if.else68
-  switch i32 %6, label %if.end86 [
-    i32 10, label %if.then85
-    i32 6, label %if.then85
-    i32 5, label %if.then85
-    i32 2, label %if.then85
-    i32 1, label %if.then85
-  ]
+  %21 = and i32 %6, -5
+  %22 = add i32 %21, -1
+  %or.cond4 = icmp ult i32 %22, 2
+  %cmp83 = icmp eq i32 %6, 10
+  %or.cond5 = or i1 %cmp83, %or.cond4
+  br i1 %or.cond5, label %if.then85, label %if.end86
 
-if.then85:                                        ; preds = %if.then70, %if.then70, %if.then70, %if.then70, %if.then70
+if.then85:                                        ; preds = %if.then70
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 179, ptr noundef nonnull @.str, i32 noundef 794) #7
   br label %return
 
 if.end86:                                         ; preds = %if.then70
   store i8 1, ptr %free_cont, align 1
-  %21 = load i64, ptr %plen, align 8
-  %22 = load i8, ptr %inf, align 1
-  %call87 = call fastcc i32 @asn1_collect(ptr noundef nonnull %buf, ptr noundef nonnull %p, i64 noundef %21, i8 noundef signext %22, i32 noundef 0)
+  %23 = load i64, ptr %plen, align 8
+  %24 = load i8, ptr %inf, align 1
+  %call87 = call fastcc i32 @asn1_collect(ptr noundef nonnull %buf, ptr noundef nonnull %p, i64 noundef %23, i8 noundef signext %24, i32 noundef 0)
   %tobool88.not = icmp eq i32 %call87, 0
   br i1 %tobool88.not, label %err, label %if.end90
 
 if.end90:                                         ; preds = %if.end86
-  %23 = load i64, ptr %buf, align 8
-  %add91 = add nsw i64 %23, 1
+  %25 = load i64, ptr %buf, align 8
+  %add91 = add nsw i64 %25, 1
   %call92 = call i64 @BUF_MEM_grow_clean(ptr noundef nonnull %buf, i64 noundef %add91) #7
   %tobool93.not = icmp eq i64 %call92, 0
   br i1 %tobool93.not, label %if.then94, label %if.end95
@@ -1141,45 +1140,45 @@ if.then94:                                        ; preds = %if.end90
 
 if.end95:                                         ; preds = %if.end90
   %data = getelementptr inbounds i8, ptr %buf, i64 8
-  %24 = load ptr, ptr %data, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %24, i64 %23
+  %26 = load ptr, ptr %data, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %26, i64 %25
   store i8 0, ptr %arrayidx, align 1
-  %25 = load ptr, ptr %data, align 8
+  %27 = load ptr, ptr %data, align 8
   br label %if.end100
 
 if.else97:                                        ; preds = %if.else68
-  %26 = load ptr, ptr %p, align 8
-  %27 = load i64, ptr %plen, align 8
-  %add.ptr98 = getelementptr inbounds i8, ptr %26, i64 %27
+  %28 = load ptr, ptr %p, align 8
+  %29 = load i64, ptr %plen, align 8
+  %add.ptr98 = getelementptr inbounds i8, ptr %28, i64 %29
   store ptr %add.ptr98, ptr %p, align 8
   br label %if.end100
 
 if.end100:                                        ; preds = %if.end95, %if.else97, %if.end62, %if.else63
-  %cont.0 = phi ptr [ %8, %if.end62 ], [ %8, %if.else63 ], [ %25, %if.end95 ], [ %26, %if.else97 ]
-  %len.0 = phi i64 [ %sub.ptr.sub, %if.end62 ], [ %add, %if.else63 ], [ %23, %if.end95 ], [ %27, %if.else97 ]
+  %cont.0 = phi ptr [ %8, %if.end62 ], [ %8, %if.else63 ], [ %27, %if.end95 ], [ %28, %if.else97 ]
+  %len.0 = phi i64 [ %sub.ptr.sub, %if.end62 ], [ %add, %if.else63 ], [ %25, %if.end95 ], [ %29, %if.else97 ]
   %conv101 = trunc i64 %len.0 to i32
-  %28 = load i32, ptr %utype, align 4
-  %call102 = call i32 @asn1_ex_c2i(ptr noundef %pval, ptr noundef %cont.0, i32 noundef %conv101, i32 noundef %28, ptr noundef nonnull %free_cont, ptr noundef nonnull %it)
+  %30 = load i32, ptr %utype, align 4
+  %call102 = call i32 @asn1_ex_c2i(ptr noundef %pval, ptr noundef %cont.0, i32 noundef %conv101, i32 noundef %30, ptr noundef nonnull %free_cont, ptr noundef nonnull %it)
   %tobool103.not = icmp eq i32 %call102, 0
   br i1 %tobool103.not, label %err, label %if.end105
 
 if.end105:                                        ; preds = %if.end100
-  %29 = load ptr, ptr %p, align 8
-  store ptr %29, ptr %in, align 8
+  %31 = load ptr, ptr %p, align 8
+  store ptr %31, ptr %in, align 8
   br label %err
 
 err:                                              ; preds = %if.then12.i, %if.then20.i, %if.end100, %if.end86, %if.end105, %if.then94
   %ret.0 = phi i32 [ 1, %if.end105 ], [ 0, %if.end100 ], [ 0, %if.then94 ], [ 0, %if.end86 ], [ 0, %if.then20.i ], [ 0, %if.then12.i ]
-  %30 = load i8, ptr %free_cont, align 1
-  %tobool107 = icmp ne i8 %30, 0
+  %32 = load i8, ptr %free_cont, align 1
+  %tobool107 = icmp ne i8 %32, 0
   %data108 = getelementptr inbounds i8, ptr %buf, i64 8
-  %31 = load ptr, ptr %data108, align 8
-  %tobool109 = icmp ne ptr %31, null
+  %33 = load ptr, ptr %data108, align 8
+  %tobool109 = icmp ne ptr %33, null
   %or.cond6 = select i1 %tobool107, i1 %tobool109, i1 false
   br i1 %or.cond6, label %if.then110, label %return
 
 if.then110:                                       ; preds = %err
-  call void @free(ptr noundef nonnull %31) #7
+  call void @free(ptr noundef nonnull %33) #7
   br label %return
 
 return:                                           ; preds = %err, %if.then110, %if.end24, %if.then85, %if.then54, %if.then31, %if.then17, %if.then14, %if.then11

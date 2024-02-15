@@ -288,7 +288,7 @@ if.else19.i:                                      ; preds = %if.else.i
   br i1 %cmp29.not.i, label %for.inc.i, label %for.inc36.i
 
 for.inc.i:                                        ; preds = %if.else19.i, %if.then.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx3.i = getelementptr inbounds [20 x [5 x i8]], ptr @_ZL18escSeqCompoundText, i64 0, i64 %indvars.iv31.i, i64 %indvars.iv.next.i
   %15 = load i8, ptr %arrayidx3.i, align 1
   %cmp4.not.not.i = icmp eq i8 %15, 0
@@ -627,18 +627,21 @@ lor.lhs.false18.i:                                ; preds = %switch.hole_check, 
   %16 = add i32 %15, -313
   %17 = icmp ult i32 %16, 2
   %or.cond10.i = or i1 %or.cond6.i, %17
-  br i1 %or.cond10.i, label %_ZL8getStatei.exit, label %lor.lhs.false30.i
+  %18 = and i32 %sourceChar.1, -6
+  %19 = icmp eq i32 %18, 336
+  %or.cond254.i = or i1 %19, %or.cond10.i
+  br i1 %or.cond254.i, label %_ZL8getStatei.exit, label %switch.early.test.i
 
-lor.lhs.false30.i:                                ; preds = %lor.lhs.false18.i
+switch.early.test.i:                              ; preds = %lor.lhs.false18.i
   %switch.tableidx167 = add i32 %sourceChar.1, -321
-  %18 = icmp ult i32 %switch.tableidx167, 21
-  br i1 %18, label %switch.hole_check168, label %lor.lhs.false46.i
+  %20 = icmp ult i32 %switch.tableidx167, 7
+  br i1 %20, label %switch.hole_check168, label %lor.lhs.false46.i
 
-lor.lhs.false46.i:                                ; preds = %switch.hole_check168, %lor.lhs.false30.i
+lor.lhs.false46.i:                                ; preds = %switch.hole_check168, %switch.early.test.i
   %or.cond18.i = icmp eq i32 %14, 344
-  %19 = and i32 %sourceChar.1, -2
-  %20 = icmp eq i32 %19, 350
-  %or.cond20.i = or i1 %or.cond18.i, %20
+  %21 = and i32 %sourceChar.1, -2
+  %22 = icmp eq i32 %21, 350
+  %or.cond20.i = or i1 %or.cond18.i, %22
   br i1 %or.cond20.i, label %_ZL8getStatei.exit, label %lor.lhs.false54.i
 
 lor.lhs.false54.i:                                ; preds = %lor.lhs.false46.i
@@ -668,18 +671,18 @@ lor.lhs.false54.i:                                ; preds = %lor.lhs.false46.i
 
 if.else81.i:                                      ; preds = %lor.lhs.false54.i
   %or.cond32.i = icmp eq i32 %14, 264
-  br i1 %or.cond32.i, label %_ZL8getStatei.exit, label %switch.early.test251.i
+  br i1 %or.cond32.i, label %_ZL8getStatei.exit, label %switch.early.test255.i
 
-switch.early.test251.i:                           ; preds = %if.else81.i
-  %switch.tableidx173 = add i32 %sourceChar.1, -284
-  %21 = icmp ult i32 %switch.tableidx173, 6
-  br i1 %21, label %switch.hole_check174, label %lor.lhs.false93.i
+switch.early.test255.i:                           ; preds = %if.else81.i
+  %switch.tableidx174 = add i32 %sourceChar.1, -284
+  %23 = icmp ult i32 %switch.tableidx174, 6
+  br i1 %23, label %switch.hole_check175, label %lor.lhs.false93.i
 
-lor.lhs.false93.i:                                ; preds = %switch.early.test251.i
+lor.lhs.false93.i:                                ; preds = %switch.early.test255.i
   %or.cond37.i.old = icmp eq i32 %14, 292
-  br i1 %or.cond37.i.old, label %_ZL8getStatei.exit, label %switch.early.test252.i
+  br i1 %or.cond37.i.old, label %_ZL8getStatei.exit, label %switch.early.test256.i
 
-switch.early.test252.i:                           ; preds = %switch.hole_check174, %lor.lhs.false93.i
+switch.early.test256.i:                           ; preds = %switch.hole_check175, %lor.lhs.false93.i
   switch i32 %sourceChar.1, label %if.else110.i [
     i32 365, label %_ZL8getStatei.exit
     i32 364, label %_ZL8getStatei.exit
@@ -689,11 +692,11 @@ switch.early.test252.i:                           ; preds = %switch.hole_check17
     i32 308, label %_ZL8getStatei.exit
   ]
 
-if.else110.i:                                     ; preds = %switch.early.test252.i
+if.else110.i:                                     ; preds = %switch.early.test256.i
   %or.cond44.i = icmp eq i32 %14, 372
-  br i1 %or.cond44.i, label %_ZL8getStatei.exit, label %switch.early.test253.i
+  br i1 %or.cond44.i, label %_ZL8getStatei.exit, label %switch.early.test257.i
 
-switch.early.test253.i:                           ; preds = %if.else110.i
+switch.early.test257.i:                           ; preds = %if.else110.i
   switch i32 %sourceChar.1, label %if.else156.i [
     i32 7923, label %_ZL8getStatei.exit
     i32 7922, label %_ZL8getStatei.exit
@@ -721,30 +724,30 @@ switch.early.test253.i:                           ; preds = %if.else110.i
     i32 338, label %if.end299.fold.split.i
   ]
 
-if.else156.i:                                     ; preds = %switch.early.test253.i
-  %22 = add i32 %sourceChar.1, -3585
-  %or.cond63.i = icmp ult i32 %22, 58
-  %23 = add i32 %sourceChar.1, -3647
-  %or.cond64.i = icmp ult i32 %23, 29
+if.else156.i:                                     ; preds = %switch.early.test257.i
+  %24 = add i32 %sourceChar.1, -3585
+  %or.cond63.i = icmp ult i32 %24, 58
+  %25 = add i32 %sourceChar.1, -3647
+  %or.cond64.i = icmp ult i32 %25, 29
   %or.cond249.i = or i1 %or.cond63.i, %or.cond64.i
   br i1 %or.cond249.i, label %_ZL8getStatei.exit, label %if.else165.i
 
 if.else165.i:                                     ; preds = %if.else156.i
+  %26 = icmp eq i32 %18, 274
+  br i1 %26, label %_ZL8getStatei.exit, label %switch.early.test250.i
+
+switch.early.test250.i:                           ; preds = %if.else165.i
   switch i32 %sourceChar.1, label %lor.lhs.false181.i [
     i32 291, label %_ZL8getStatei.exit
     i32 290, label %_ZL8getStatei.exit
-    i32 279, label %_ZL8getStatei.exit
-    i32 278, label %_ZL8getStatei.exit
-    i32 275, label %_ZL8getStatei.exit
-    i32 274, label %_ZL8getStatei.exit
     i32 257, label %_ZL8getStatei.exit
     i32 256, label %_ZL8getStatei.exit
   ]
 
-lor.lhs.false181.i:                               ; preds = %if.else165.i
+lor.lhs.false181.i:                               ; preds = %switch.early.test250.i
   %or.cond72.i = icmp eq i32 %14, 296
-  %24 = icmp eq i32 %19, 302
-  %or.cond74.i = or i1 %or.cond72.i, %24
+  %27 = icmp eq i32 %21, 302
+  %or.cond74.i = or i1 %or.cond72.i, %27
   br i1 %or.cond74.i, label %_ZL8getStatei.exit, label %lor.lhs.false189.i
 
 lor.lhs.false189.i:                               ; preds = %lor.lhs.false181.i
@@ -773,12 +776,12 @@ lor.lhs.false189.i:                               ; preds = %lor.lhs.false181.i
   ]
 
 if.else218.i:                                     ; preds = %lor.lhs.false189.i
-  %or.cond86.i = icmp eq i32 %19, 700
+  %or.cond86.i = icmp eq i32 %21, 700
   br i1 %or.cond86.i, label %_ZL8getStatei.exit, label %lor.lhs.false222.i
 
 lor.lhs.false222.i:                               ; preds = %if.else218.i
-  %25 = add i32 %sourceChar.1, -900
-  %or.cond87.i = icmp ult i32 %25, 75
+  %28 = add i32 %sourceChar.1, -900
+  %or.cond87.i = icmp ult i32 %28, 75
   %cmp227.i = icmp eq i32 %sourceChar.1, 8213
   %or.cond88.i = or i1 %cmp227.i, %or.cond87.i
   br i1 %or.cond88.i, label %_ZL8getStatei.exit, label %if.else229.i
@@ -791,44 +794,44 @@ if.else229.i:                                     ; preds = %lor.lhs.false222.i
   ]
 
 lor.lhs.false235.i:                               ; preds = %if.else229.i
-  %26 = add i32 %sourceChar.1, -1569
-  %or.cond91.i = icmp ult i32 %26, 26
-  %27 = add i32 %sourceChar.1, -1600
-  %or.cond92.i = icmp ult i32 %27, 19
-  %or.cond250.i = or i1 %or.cond91.i, %or.cond92.i
-  br i1 %or.cond250.i, label %_ZL8getStatei.exit, label %lor.lhs.false243.i
+  %29 = add i32 %sourceChar.1, -1569
+  %or.cond91.i = icmp ult i32 %29, 26
+  %30 = add i32 %sourceChar.1, -1600
+  %or.cond92.i = icmp ult i32 %30, 19
+  %or.cond251.i = or i1 %or.cond91.i, %or.cond92.i
+  br i1 %or.cond251.i, label %_ZL8getStatei.exit, label %lor.lhs.false243.i
 
 lor.lhs.false243.i:                               ; preds = %lor.lhs.false235.i
-  %28 = add i32 %sourceChar.1, -1632
-  %or.cond93.i = icmp ult i32 %28, 14
+  %31 = add i32 %sourceChar.1, -1632
+  %or.cond93.i = icmp ult i32 %31, 14
   %cmp248.i = icmp eq i32 %sourceChar.1, 8203
   %or.cond94.i = or i1 %cmp248.i, %or.cond93.i
   br i1 %or.cond94.i, label %_ZL8getStatei.exit, label %lor.lhs.false249.i
 
 lor.lhs.false249.i:                               ; preds = %lor.lhs.false243.i
-  %switch.tableidx180 = add i32 %sourceChar.1, -65136
-  %29 = icmp ult i32 %switch.tableidx180, 5
-  br i1 %29, label %switch.hole_check181, label %lor.lhs.false255.i
+  %switch.tableidx181 = add i32 %sourceChar.1, -65136
+  %32 = icmp ult i32 %switch.tableidx181, 5
+  br i1 %32, label %switch.hole_check182, label %lor.lhs.false255.i
 
 lor.lhs.false255.i:                               ; preds = %lor.lhs.false249.i
   %.old = add i32 %sourceChar.1, -65142
   %or.cond97.i.old = icmp ult i32 %.old, 73
   br i1 %or.cond97.i.old, label %_ZL8getStatei.exit, label %if.else260.i
 
-if.else260.i:                                     ; preds = %switch.hole_check181, %lor.lhs.false255.i
-  %30 = add i32 %sourceChar.1, -1488
-  %or.cond98.i = icmp ult i32 %30, 27
-  br i1 %or.cond98.i, label %_ZL8getStatei.exit, label %switch.early.test.i
+if.else260.i:                                     ; preds = %switch.hole_check182, %lor.lhs.false255.i
+  %33 = add i32 %sourceChar.1, -1488
+  %or.cond98.i = icmp ult i32 %33, 27
+  br i1 %or.cond98.i, label %_ZL8getStatei.exit, label %switch.early.test252.i
 
-switch.early.test.i:                              ; preds = %if.else260.i
+switch.early.test252.i:                           ; preds = %if.else260.i
   switch i32 %sourceChar.1, label %if.else269.i [
     i32 8254, label %_ZL8getStatei.exit
     i32 8215, label %_ZL8getStatei.exit
   ]
 
-if.else269.i:                                     ; preds = %switch.early.test.i
-  %31 = add i32 %sourceChar.1, -1025
-  %or.cond101.i = icmp ult i32 %31, 95
+if.else269.i:                                     ; preds = %switch.early.test252.i
+  %34 = add i32 %sourceChar.1, -1025
+  %or.cond101.i = icmp ult i32 %34, 95
   %cmp274.i = icmp eq i32 %sourceChar.1, 8470
   %or.cond102.i = or i1 %cmp274.i, %or.cond101.i
   br i1 %or.cond102.i, label %_ZL8getStatei.exit, label %if.else276.i
@@ -845,70 +848,71 @@ lor.lhs.false284.i:                               ; preds = %if.else276.i
   %or.cond106.i = icmp eq i32 %14, 536
   br i1 %or.cond106.i, label %_ZL8getStatei.exit, label %for.body53.preheader
 
-if.end299.fold.split.i:                           ; preds = %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i
+if.end299.fold.split.i:                           ; preds = %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i
   br label %_ZL8getStatei.exit
 
 switch.hole_check:                                ; preds = %if.else.i
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 -961, %switch.maskindex
-  %32 = and i16 %switch.shifted, 1
-  %switch.lobit.not = icmp eq i16 %32, 0
+  %35 = and i16 %switch.shifted, 1
+  %switch.lobit.not = icmp eq i16 %35, 0
   br i1 %switch.lobit.not, label %lor.lhs.false18.i, label %_ZL8getStatei.exit
 
-switch.hole_check168:                             ; preds = %lor.lhs.false30.i
-  %switch.shifted170 = lshr i32 1671247, %switch.tableidx167
-  %33 = and i32 %switch.shifted170, 1
-  %switch.lobit171.not = icmp eq i32 %33, 0
-  br i1 %switch.lobit171.not, label %lor.lhs.false46.i, label %_ZL8getStatei.exit
+switch.hole_check168:                             ; preds = %switch.early.test.i
+  %switch.maskindex170 = trunc i32 %switch.tableidx167 to i8
+  %switch.shifted171 = lshr i8 79, %switch.maskindex170
+  %36 = and i8 %switch.shifted171, 1
+  %switch.lobit172.not = icmp eq i8 %36, 0
+  br i1 %switch.lobit172.not, label %lor.lhs.false46.i, label %_ZL8getStatei.exit
 
-switch.hole_check174:                             ; preds = %switch.early.test251.i
-  %switch.maskindex176 = trunc i32 %switch.tableidx173 to i8
-  %switch.shifted177 = lshr i8 51, %switch.maskindex176
-  %34 = and i8 %switch.shifted177, 1
-  %switch.lobit178 = icmp ne i8 %34, 0
+switch.hole_check175:                             ; preds = %switch.early.test255.i
+  %switch.maskindex177 = trunc i32 %switch.tableidx174 to i8
+  %switch.shifted178 = lshr i8 51, %switch.maskindex177
+  %37 = and i8 %switch.shifted178, 1
+  %switch.lobit179 = icmp ne i8 %37, 0
   %or.cond37.i = icmp eq i32 %14, 292
-  %or.cond186 = or i1 %switch.lobit178, %or.cond37.i
-  br i1 %or.cond186, label %_ZL8getStatei.exit, label %switch.early.test252.i
+  %or.cond187 = or i1 %switch.lobit179, %or.cond37.i
+  br i1 %or.cond187, label %_ZL8getStatei.exit, label %switch.early.test256.i
 
-switch.hole_check181:                             ; preds = %lor.lhs.false249.i
-  %switch.maskindex183 = trunc i32 %switch.tableidx180 to i8
-  %switch.shifted184 = lshr i8 23, %switch.maskindex183
-  %35 = and i8 %switch.shifted184, 1
-  %switch.lobit185 = icmp ne i8 %35, 0
-  %36 = add nsw i32 %sourceChar.1, -65142
-  %or.cond97.i = icmp ult i32 %36, 73
-  %or.cond187 = or i1 %switch.lobit185, %or.cond97.i
-  br i1 %or.cond187, label %_ZL8getStatei.exit, label %if.else260.i
+switch.hole_check182:                             ; preds = %lor.lhs.false249.i
+  %switch.maskindex184 = trunc i32 %switch.tableidx181 to i8
+  %switch.shifted185 = lshr i8 23, %switch.maskindex184
+  %38 = and i8 %switch.shifted185, 1
+  %switch.lobit186 = icmp ne i8 %38, 0
+  %39 = add nsw i32 %sourceChar.1, -65142
+  %or.cond97.i = icmp ult i32 %39, 73
+  %or.cond188 = or i1 %switch.lobit186, %or.cond97.i
+  br i1 %or.cond188, label %_ZL8getStatei.exit, label %if.else260.i
 
-_ZL8getStatei.exit:                               ; preds = %switch.hole_check181, %switch.hole_check174, %switch.hole_check168, %switch.hole_check, %if.else276.i, %if.else276.i, %if.else276.i, %if.else276.i, %lor.lhs.false284.i, %if.end32, %if.end32, %if.end32, %lor.lhs.false4.i, %lor.lhs.false18.i, %lor.lhs.false46.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %if.else81.i, %lor.lhs.false93.i, %switch.early.test252.i, %switch.early.test252.i, %switch.early.test252.i, %switch.early.test252.i, %switch.early.test252.i, %switch.early.test252.i, %if.else110.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %switch.early.test253.i, %if.else156.i, %if.else165.i, %if.else165.i, %if.else165.i, %if.else165.i, %if.else165.i, %if.else165.i, %if.else165.i, %if.else165.i, %lor.lhs.false181.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %if.else218.i, %lor.lhs.false222.i, %if.else229.i, %if.else229.i, %if.else229.i, %lor.lhs.false235.i, %lor.lhs.false243.i, %lor.lhs.false255.i, %if.else260.i, %switch.early.test.i, %switch.early.test.i, %if.else269.i, %if.end299.fold.split.i
-  %state.0.i = phi i32 [ 0, %if.end32 ], [ 0, %if.end32 ], [ 0, %if.end32 ], [ 0, %lor.lhs.false4.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false46.i ], [ 16, %lor.lhs.false18.i ], [ 17, %switch.early.test252.i ], [ 18, %switch.early.test253.i ], [ 15, %if.else156.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %if.else165.i ], [ 14, %if.else165.i ], [ 14, %if.else165.i ], [ 14, %if.else165.i ], [ 14, %if.else165.i ], [ 14, %if.else165.i ], [ 14, %if.else165.i ], [ 14, %if.else165.i ], [ 14, %lor.lhs.false181.i ], [ 2, %lor.lhs.false222.i ], [ 2, %if.else218.i ], [ 3, %if.else229.i ], [ 3, %if.else229.i ], [ 3, %if.else229.i ], [ 3, %lor.lhs.false255.i ], [ 3, %lor.lhs.false243.i ], [ 3, %lor.lhs.false235.i ], [ 13, %switch.early.test.i ], [ 13, %switch.early.test.i ], [ 13, %if.else260.i ], [ 12, %if.else269.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 17, %if.else81.i ], [ 17, %lor.lhs.false93.i ], [ 17, %switch.early.test252.i ], [ 17, %switch.early.test252.i ], [ 17, %switch.early.test252.i ], [ 17, %switch.early.test252.i ], [ 17, %switch.early.test252.i ], [ 18, %if.else110.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 18, %switch.early.test253.i ], [ 19, %if.end299.fold.split.i ], [ 1, %lor.lhs.false284.i ], [ 1, %if.else276.i ], [ 1, %if.else276.i ], [ 1, %if.else276.i ], [ 1, %if.else276.i ], [ 16, %switch.hole_check ], [ 16, %switch.hole_check168 ], [ 17, %switch.hole_check174 ], [ 3, %switch.hole_check181 ]
+_ZL8getStatei.exit:                               ; preds = %switch.hole_check182, %switch.hole_check175, %switch.hole_check168, %switch.hole_check, %if.else276.i, %if.else276.i, %if.else276.i, %if.else276.i, %lor.lhs.false284.i, %if.end32, %if.end32, %if.end32, %lor.lhs.false4.i, %lor.lhs.false18.i, %lor.lhs.false46.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %lor.lhs.false54.i, %if.else81.i, %lor.lhs.false93.i, %switch.early.test256.i, %switch.early.test256.i, %switch.early.test256.i, %switch.early.test256.i, %switch.early.test256.i, %switch.early.test256.i, %if.else110.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %switch.early.test257.i, %if.else156.i, %if.else165.i, %switch.early.test250.i, %switch.early.test250.i, %switch.early.test250.i, %switch.early.test250.i, %lor.lhs.false181.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %lor.lhs.false189.i, %if.else218.i, %lor.lhs.false222.i, %if.else229.i, %if.else229.i, %if.else229.i, %lor.lhs.false235.i, %lor.lhs.false243.i, %lor.lhs.false255.i, %if.else260.i, %switch.early.test252.i, %switch.early.test252.i, %if.else269.i, %if.end299.fold.split.i
+  %state.0.i = phi i32 [ 0, %if.end32 ], [ 0, %if.end32 ], [ 0, %if.end32 ], [ 0, %lor.lhs.false4.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false46.i ], [ 16, %lor.lhs.false18.i ], [ 17, %switch.early.test256.i ], [ 18, %switch.early.test257.i ], [ 15, %if.else156.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %switch.early.test250.i ], [ 14, %switch.early.test250.i ], [ 14, %switch.early.test250.i ], [ 14, %switch.early.test250.i ], [ 14, %if.else165.i ], [ 14, %lor.lhs.false181.i ], [ 2, %lor.lhs.false222.i ], [ 2, %if.else218.i ], [ 3, %if.else229.i ], [ 3, %if.else229.i ], [ 3, %if.else229.i ], [ 3, %lor.lhs.false255.i ], [ 3, %lor.lhs.false243.i ], [ 3, %lor.lhs.false235.i ], [ 13, %switch.early.test252.i ], [ 13, %switch.early.test252.i ], [ 13, %if.else260.i ], [ 12, %if.else269.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 16, %lor.lhs.false54.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 14, %lor.lhs.false189.i ], [ 17, %if.else81.i ], [ 17, %lor.lhs.false93.i ], [ 17, %switch.early.test256.i ], [ 17, %switch.early.test256.i ], [ 17, %switch.early.test256.i ], [ 17, %switch.early.test256.i ], [ 17, %switch.early.test256.i ], [ 18, %if.else110.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 18, %switch.early.test257.i ], [ 19, %if.end299.fold.split.i ], [ 1, %lor.lhs.false284.i ], [ 1, %if.else276.i ], [ 1, %if.else276.i ], [ 1, %if.else276.i ], [ 1, %if.else276.i ], [ 16, %switch.hole_check ], [ 16, %switch.hole_check168 ], [ 17, %switch.hole_check175 ], [ 3, %switch.hole_check182 ]
   %cmp35.not = icmp eq i32 %currentState.2, %state.0.i
   br i1 %cmp35.not, label %if.end48, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZL8getStatei.exit
   %idxprom = zext nneg i32 %state.0.i to i64
   %arrayidx38100 = getelementptr inbounds [20 x [5 x i8]], ptr @_ZL18escSeqCompoundText, i64 0, i64 %idxprom, i64 0
-  %37 = load i8, ptr %arrayidx38100, align 1
+  %40 = load i8, ptr %arrayidx38100, align 1
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %38 = phi i8 [ %37, %for.body.preheader ], [ %39, %for.body ]
+  %41 = phi i8 [ %40, %for.body.preheader ], [ %42, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx46 = getelementptr inbounds [7 x i8], ptr %tmpTargetBuffer, i64 0, i64 %indvars.iv
-  store i8 %38, ptr %arrayidx46, align 1
+  store i8 %41, ptr %arrayidx46, align 1
   %arrayidx38 = getelementptr inbounds [20 x [5 x i8]], ptr @_ZL18escSeqCompoundText, i64 0, i64 %idxprom, i64 %indvars.iv.next
-  %39 = load i8, ptr %arrayidx38, align 1
-  %cmp40.not = icmp eq i8 %39, 0
+  %42 = load i8, ptr %arrayidx38, align 1
+  %cmp40.not = icmp eq i8 %42, 0
   br i1 %cmp40.not, label %if.end48.loopexit, label %for.body, !llvm.loop !12
 
 if.end48.loopexit:                                ; preds = %for.body
-  %40 = trunc i64 %indvars.iv.next to i32
+  %43 = trunc i64 %indvars.iv.next to i32
   br label %if.end48
 
 if.end48:                                         ; preds = %if.end48.loopexit, %_ZL8getStatei.exit
   %state.0.i92 = phi i32 [ %currentState.2, %_ZL8getStatei.exit ], [ %state.0.i, %if.end48.loopexit ]
-  %tmpTargetBufferLength.1 = phi i32 [ 0, %_ZL8getStatei.exit ], [ %40, %if.end48.loopexit ]
+  %tmpTargetBufferLength.1 = phi i32 [ 0, %_ZL8getStatei.exit ], [ %43, %if.end48.loopexit ]
   switch i32 %state.0.i92, label %if.else101 [
     i32 -1, label %for.body53.preheader
     i32 0, label %if.then96
@@ -922,52 +926,52 @@ for.body53.preheader:                             ; preds = %lor.lhs.false284.i,
 for.body53:                                       ; preds = %for.body53.preheader, %for.inc91
   %indvars.iv129 = phi i64 [ 1, %for.body53.preheader ], [ %indvars.iv.next130, %for.inc91 ]
   %arrayidx55 = getelementptr inbounds [20 x ptr], ptr %6, i64 0, i64 %indvars.iv129
-  %41 = load ptr, ptr %arrayidx55, align 8
-  %call56 = call i32 @ucnv_MBCSFromUChar32_75(ptr noundef %41, i32 noundef %sourceChar.1, ptr noundef nonnull %pValue, i8 noundef signext %5)
+  %44 = load ptr, ptr %arrayidx55, align 8
+  %call56 = call i32 @ucnv_MBCSFromUChar32_75(ptr noundef %44, i32 noundef %sourceChar.1, ptr noundef nonnull %pValue, i8 noundef signext %5)
   %cmp57 = icmp sgt i32 %call56, 0
   br i1 %cmp57, label %if.then58, label %for.inc91
 
 if.then58:                                        ; preds = %for.body53
-  %42 = trunc i64 %indvars.iv129 to i32
-  %cmp59.not = icmp eq i32 %currentState.3155, %42
+  %45 = trunc i64 %indvars.iv129 to i32
+  %cmp59.not = icmp eq i32 %currentState.3155, %45
   br i1 %cmp59.not, label %if.end79, label %for.body68.preheader
 
 for.body68.preheader:                             ; preds = %if.then58
   %arrayidx65105 = getelementptr inbounds [20 x [5 x i8]], ptr @_ZL18escSeqCompoundText, i64 0, i64 %indvars.iv129, i64 0
-  %43 = load i8, ptr %arrayidx65105, align 1
-  %44 = zext i32 %tmpTargetBufferLength.1154 to i64
+  %46 = load i8, ptr %arrayidx65105, align 1
+  %47 = zext i32 %tmpTargetBufferLength.1154 to i64
   br label %for.body68
 
 for.body68:                                       ; preds = %for.body68.preheader, %for.body68
-  %indvars.iv134 = phi i64 [ %44, %for.body68.preheader ], [ %indvars.iv.next135, %for.body68 ]
+  %indvars.iv134 = phi i64 [ %47, %for.body68.preheader ], [ %indvars.iv.next135, %for.body68 ]
   %indvars.iv132 = phi i64 [ 0, %for.body68.preheader ], [ %indvars.iv.next133, %for.body68 ]
-  %45 = phi i8 [ %43, %for.body68.preheader ], [ %46, %for.body68 ]
-  %indvars.iv.next135 = add nuw i64 %indvars.iv134, 1
+  %48 = phi i8 [ %46, %for.body68.preheader ], [ %49, %for.body68 ]
+  %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %arrayidx75 = getelementptr inbounds [7 x i8], ptr %tmpTargetBuffer, i64 0, i64 %indvars.iv134
-  store i8 %45, ptr %arrayidx75, align 1
+  store i8 %48, ptr %arrayidx75, align 1
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %arrayidx65 = getelementptr inbounds [20 x [5 x i8]], ptr @_ZL18escSeqCompoundText, i64 0, i64 %indvars.iv129, i64 %indvars.iv.next133
-  %46 = load i8, ptr %arrayidx65, align 1
-  %cmp67.not = icmp eq i8 %46, 0
+  %49 = load i8, ptr %arrayidx65, align 1
+  %cmp67.not = icmp eq i8 %49, 0
   br i1 %cmp67.not, label %if.end79.loopexit, label %for.body68, !llvm.loop !13
 
 if.end79.loopexit:                                ; preds = %for.body68
-  %47 = trunc i64 %indvars.iv.next135 to i32
+  %50 = trunc i64 %indvars.iv.next135 to i32
   br label %if.end79
 
 if.end79:                                         ; preds = %if.end79.loopexit, %if.then58
-  %tmpTargetBufferLength.3 = phi i32 [ %tmpTargetBufferLength.1154, %if.then58 ], [ %47, %if.end79.loopexit ]
-  %currentState.4 = phi i32 [ %currentState.3155, %if.then58 ], [ %42, %if.end79.loopexit ]
-  %48 = load i32, ptr %pValue, align 4
-  %49 = sext i32 %tmpTargetBufferLength.3 to i64
+  %tmpTargetBufferLength.3 = phi i32 [ %tmpTargetBufferLength.1154, %if.then58 ], [ %50, %if.end79.loopexit ]
+  %currentState.4 = phi i32 [ %currentState.3155, %if.then58 ], [ %45, %if.end79.loopexit ]
+  %51 = load i32, ptr %pValue, align 4
+  %52 = sext i32 %tmpTargetBufferLength.3 to i64
   br label %for.body83
 
 for.body83:                                       ; preds = %if.end79, %for.body83
-  %indvars.iv136 = phi i64 [ %49, %if.end79 ], [ %indvars.iv.next137, %for.body83 ]
+  %indvars.iv136 = phi i64 [ %52, %if.end79 ], [ %indvars.iv.next137, %for.body83 ]
   %n.0.in111 = phi i32 [ %call56, %if.end79 ], [ %n.0, %for.body83 ]
   %n.0 = add nsw i32 %n.0.in111, -1
   %mul = shl nsw i32 %n.0, 3
-  %shr = lshr i32 %48, %mul
+  %shr = lshr i32 %51, %mul
   %conv84 = trunc i32 %shr to i8
   %indvars.iv.next137 = add nsw i64 %indvars.iv136, 1
   %arrayidx87 = getelementptr inbounds [7 x i8], ptr %tmpTargetBuffer, i64 0, i64 %indvars.iv136
@@ -991,22 +995,22 @@ if.then96:                                        ; preds = %if.end48
 if.else101:                                       ; preds = %if.end48
   %idxprom103 = sext i32 %state.0.i92 to i64
   %arrayidx104 = getelementptr inbounds [20 x ptr], ptr %6, i64 0, i64 %idxprom103
-  %50 = load ptr, ptr %arrayidx104, align 8
-  %call105 = call i32 @ucnv_MBCSFromUChar32_75(ptr noundef %50, i32 noundef %sourceChar.1, ptr noundef nonnull %pValue, i8 noundef signext %5)
+  %53 = load ptr, ptr %arrayidx104, align 8
+  %call105 = call i32 @ucnv_MBCSFromUChar32_75(ptr noundef %53, i32 noundef %sourceChar.1, ptr noundef nonnull %pValue, i8 noundef signext %5)
   %cmp106 = icmp sgt i32 %call105, 0
   br i1 %cmp106, label %for.cond109.preheader, label %if.end123
 
 for.cond109.preheader:                            ; preds = %if.else101
-  %51 = load i32, ptr %pValue, align 4
-  %52 = zext i32 %tmpTargetBufferLength.1 to i64
+  %54 = load i32, ptr %pValue, align 4
+  %55 = zext i32 %tmpTargetBufferLength.1 to i64
   br label %for.body111
 
 for.body111:                                      ; preds = %for.cond109.preheader, %for.body111
-  %indvars.iv139 = phi i64 [ %52, %for.cond109.preheader ], [ %indvars.iv.next140, %for.body111 ]
+  %indvars.iv139 = phi i64 [ %55, %for.cond109.preheader ], [ %indvars.iv.next140, %for.body111 ]
   %n.1.in113 = phi i32 [ %call105, %for.cond109.preheader ], [ %n.1, %for.body111 ]
   %n.1 = add nsw i32 %n.1.in113, -1
   %mul112 = shl nsw i32 %n.1, 3
-  %shr113 = lshr i32 %51, %mul112
+  %shr113 = lshr i32 %54, %mul112
   %conv114 = trunc i32 %shr113 to i8
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %arrayidx117 = getelementptr inbounds [7 x i8], ptr %tmpTargetBuffer, i64 0, i64 %indvars.iv139
@@ -1015,15 +1019,15 @@ for.body111:                                      ; preds = %for.cond109.prehead
   br i1 %cmp110, label %for.body111, label %if.end123.loopexit, !llvm.loop !16
 
 if.end123.loopexit:                               ; preds = %for.body111
-  %53 = trunc i64 %indvars.iv.next140 to i32
+  %56 = trunc i64 %indvars.iv.next140 to i32
   br label %if.end123
 
 if.end123.loopexit122:                            ; preds = %for.body83
-  %54 = trunc i64 %indvars.iv.next137 to i32
+  %57 = trunc i64 %indvars.iv.next137 to i32
   br label %if.end123
 
 if.end123:                                        ; preds = %for.inc91, %if.end123.loopexit122, %if.end123.loopexit, %if.then96, %if.else101
-  %tmpTargetBufferLength.6 = phi i32 [ %inc98, %if.then96 ], [ %tmpTargetBufferLength.1, %if.else101 ], [ %53, %if.end123.loopexit ], [ %54, %if.end123.loopexit122 ], [ %tmpTargetBufferLength.1154, %for.inc91 ]
+  %tmpTargetBufferLength.6 = phi i32 [ %inc98, %if.then96 ], [ %tmpTargetBufferLength.1, %if.else101 ], [ %56, %if.end123.loopexit ], [ %57, %if.end123.loopexit122 ], [ %tmpTargetBufferLength.1154, %for.inc91 ]
   %currentState.5 = phi i32 [ %state.0.i92, %if.then96 ], [ %state.0.i92, %if.else101 ], [ %state.0.i92, %if.end123.loopexit ], [ %currentState.4, %if.end123.loopexit122 ], [ %currentState.3155, %for.inc91 ]
   %cmp125114 = icmp sgt i32 %tmpTargetBufferLength.6, 0
   br i1 %cmp125114, label %for.body126.preheader, label %for.end136thread-pre-split
@@ -1040,15 +1044,15 @@ for.body126:                                      ; preds = %for.body126.prehead
 
 if.then128:                                       ; preds = %for.body126
   %arrayidx130 = getelementptr inbounds [7 x i8], ptr %tmpTargetBuffer, i64 0, i64 %indvars.iv142
-  %55 = load i8, ptr %arrayidx130, align 1
+  %58 = load i8, ptr %arrayidx130, align 1
   %incdec.ptr131 = getelementptr inbounds i8, ptr %target.3116, i64 1
-  store i8 %55, ptr %target.3116, align 1
+  store i8 %58, ptr %target.3116, align 1
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count
   br i1 %exitcond145.not, label %for.end136thread-pre-split, label %for.body126, !llvm.loop !17
 
 if.else132:                                       ; preds = %for.body126
-  %56 = trunc i64 %indvars.iv142 to i32
+  %59 = trunc i64 %indvars.iv142 to i32
   store i32 15, ptr %err, align 4
   br label %for.end136
 
@@ -1059,32 +1063,32 @@ for.end136thread-pre-split:                       ; preds = %if.then128, %if.end
   br label %for.end136
 
 for.end136:                                       ; preds = %for.end136thread-pre-split, %if.else132
-  %i.298 = phi i32 [ %i.2.lcssa, %for.end136thread-pre-split ], [ %56, %if.else132 ]
+  %i.298 = phi i32 [ %i.2.lcssa, %for.end136thread-pre-split ], [ %59, %if.else132 ]
   %target.396 = phi ptr [ %target.3.lcssa, %for.end136thread-pre-split ], [ %target.3116, %if.else132 ]
-  %57 = phi i32 [ %.pr, %for.end136thread-pre-split ], [ 15, %if.else132 ]
-  %cmp137 = icmp eq i32 %57, 15
+  %60 = phi i32 [ %.pr, %for.end136thread-pre-split ], [ 15, %if.else132 ]
+  %cmp137 = icmp eq i32 %60, 15
   %cmp140119 = icmp slt i32 %i.298, %tmpTargetBufferLength.6
   %or.cond121 = and i1 %cmp137, %cmp140119
   br i1 %or.cond121, label %for.body141.preheader, label %while.cond, !llvm.loop !18
 
 for.body141.preheader:                            ; preds = %for.end136
-  %58 = zext nneg i32 %i.298 to i64
+  %61 = zext nneg i32 %i.298 to i64
   %wide.trip.count149 = zext i32 %tmpTargetBufferLength.6 to i64
   br label %for.body141
 
 for.body141:                                      ; preds = %for.body141.preheader, %for.body141
-  %indvars.iv146 = phi i64 [ %58, %for.body141.preheader ], [ %indvars.iv.next147, %for.body141 ]
+  %indvars.iv146 = phi i64 [ %61, %for.body141.preheader ], [ %indvars.iv.next147, %for.body141 ]
   %arrayidx143 = getelementptr inbounds [7 x i8], ptr %tmpTargetBuffer, i64 0, i64 %indvars.iv146
-  %59 = load i8, ptr %arrayidx143, align 1
-  %60 = load ptr, ptr %converter, align 8
-  %charErrorBuffer = getelementptr inbounds i8, ptr %60, i64 104
-  %charErrorBufferLength = getelementptr inbounds i8, ptr %60, i64 91
-  %61 = load i8, ptr %charErrorBufferLength, align 1
-  %inc146 = add i8 %61, 1
+  %62 = load i8, ptr %arrayidx143, align 1
+  %63 = load ptr, ptr %converter, align 8
+  %charErrorBuffer = getelementptr inbounds i8, ptr %63, i64 104
+  %charErrorBufferLength = getelementptr inbounds i8, ptr %63, i64 91
+  %64 = load i8, ptr %charErrorBufferLength, align 1
+  %inc146 = add i8 %64, 1
   store i8 %inc146, ptr %charErrorBufferLength, align 1
-  %idxprom147 = sext i8 %61 to i64
+  %idxprom147 = sext i8 %64 to i64
   %arrayidx148 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer, i64 0, i64 %idxprom147
-  store i8 %59, ptr %arrayidx148, align 1
+  store i8 %62, ptr %arrayidx148, align 1
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
   br i1 %exitcond150.not, label %while.cond, label %for.body141, !llvm.loop !19

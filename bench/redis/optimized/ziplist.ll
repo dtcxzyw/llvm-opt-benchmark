@@ -1059,20 +1059,14 @@ do.body286:                                       ; preds = %do.body255
   %23 = and i8 %22, -64
   %spec.select190 = select i1 %cmp294, i8 %23, i8 %22
   store i8 %spec.select190, ptr %encoding291, align 4
-  switch i8 %spec.select190, label %if.end.i [
-    i8 -2, label %if.end315
-    i8 -16, label %if.end315
-    i8 -32, label %if.end315
-    i8 -48, label %if.end315
-    i8 -64, label %if.end315
-  ]
+  %24 = and i8 %spec.select190, -49
+  %or.cond2.i = icmp eq i8 %24, -64
+  %25 = add i8 %spec.select190, 15
+  %26 = icmp ult i8 %25, 14
+  %or.cond.i = or i1 %or.cond2.i, %26
+  br i1 %or.cond.i, label %if.end315, label %if.end24.i
 
-if.end.i:                                         ; preds = %do.body286
-  %24 = add i8 %spec.select190, 15
-  %or.cond4.i = icmp ult i8 %24, 13
-  br i1 %or.cond4.i, label %if.end315, label %if.end24.i
-
-if.end24.i:                                       ; preds = %if.end.i
+if.end24.i:                                       ; preds = %do.body286
   switch i8 %spec.select190, label %zipEncodingLenSize.exit [
     i8 0, label %if.end315
     i8 64, label %if.then33.i
@@ -1090,8 +1084,8 @@ zipEncodingLenSize.exit:                          ; preds = %if.end24.i
   store i32 255, ptr %lensize304, align 8
   br label %return
 
-if.end315:                                        ; preds = %if.then33.i, %if.then38.i, %do.body286, %do.body286, %do.body286, %do.body286, %do.body286, %if.end.i, %if.end24.i
-  %retval.0.i.ph = phi i32 [ 1, %if.end24.i ], [ 1, %if.end.i ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 1, %do.body286 ], [ 5, %if.then38.i ], [ 2, %if.then33.i ]
+if.end315:                                        ; preds = %if.then33.i, %if.then38.i, %do.body286, %if.end24.i
+  %retval.0.i.ph = phi i32 [ 1, %if.end24.i ], [ 1, %do.body286 ], [ 5, %if.then38.i ], [ 2, %if.then33.i ]
   %lensize304197 = getelementptr inbounds i8, ptr %e, i64 8
   store i32 %retval.0.i.ph, ptr %lensize304197, align 8
   %idx.ext320 = zext nneg i32 %retval.0.i.ph to i64
@@ -1102,26 +1096,26 @@ if.end315:                                        ; preds = %if.then33.i, %if.th
   br i1 %spec.select191, label %return, label %do.body343
 
 do.body343:                                       ; preds = %if.end315
-  %25 = load i8, ptr %p, align 1
-  %cmp346 = icmp ult i8 %25, -2
+  %27 = load i8, ptr %p, align 1
+  %cmp346 = icmp ult i8 %27, -2
   %.192 = select i1 %cmp346, i32 1, i32 5
   store i32 %.192, ptr %e, align 8
   br i1 %cmp346, label %if.then357, label %if.else361
 
 if.then357:                                       ; preds = %do.body343
-  %26 = load i8, ptr %p, align 1
-  %conv359 = zext i8 %26 to i32
+  %28 = load i8, ptr %p, align 1
+  %conv359 = zext i8 %28 to i32
   br label %do.body379
 
 if.else361:                                       ; preds = %do.body343
-  %27 = getelementptr i8, ptr %p, i64 1
-  %28 = load i32, ptr %27, align 1
+  %29 = getelementptr i8, ptr %p, i64 1
+  %30 = load i32, ptr %29, align 1
   br label %do.body379
 
 do.body379:                                       ; preds = %if.else361, %if.then357
-  %29 = phi i32 [ %conv359, %if.then357 ], [ %28, %if.else361 ]
-  %30 = getelementptr inbounds i8, ptr %e, i64 4
-  store i32 %29, ptr %30, align 4
+  %31 = phi i32 [ %conv359, %if.then357 ], [ %30, %if.else361 ]
+  %32 = getelementptr inbounds i8, ptr %e, i64 4
+  store i32 %31, ptr %32, align 4
   %cmp382 = icmp ult i8 %spec.select190, -64
   br i1 %cmp382, label %if.then384, label %if.else459
 
@@ -1136,9 +1130,9 @@ if.then389:                                       ; preds = %if.then384
   store i32 1, ptr %lensize304197, align 8
   %idx.ext392 = zext nneg i32 %.192 to i64
   %add.ptr393 = getelementptr inbounds i8, ptr %p, i64 %idx.ext392
-  %31 = load i8, ptr %add.ptr393, align 1
-  %32 = and i8 %31, 63
-  %and396 = zext nneg i8 %32 to i32
+  %33 = load i8, ptr %add.ptr393, align 1
+  %34 = and i8 %33, 63
+  %and396 = zext nneg i8 %34 to i32
   %len397 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 %and396, ptr %len397, align 4
   br label %do.end517
@@ -1147,13 +1141,13 @@ if.then403:                                       ; preds = %if.then384
   store i32 2, ptr %lensize304197, align 8
   %idx.ext406 = zext nneg i32 %.192 to i64
   %add.ptr407 = getelementptr inbounds i8, ptr %p, i64 %idx.ext406
-  %33 = load i8, ptr %add.ptr407, align 1
-  %34 = and i8 %33, 63
-  %and410 = zext nneg i8 %34 to i32
+  %35 = load i8, ptr %add.ptr407, align 1
+  %36 = and i8 %35, 63
+  %and410 = zext nneg i8 %36 to i32
   %shl411 = shl nuw nsw i32 %and410, 8
   %arrayidx415 = getelementptr inbounds i8, ptr %add.ptr407, i64 1
-  %35 = load i8, ptr %arrayidx415, align 1
-  %conv416 = zext i8 %35 to i32
+  %37 = load i8, ptr %arrayidx415, align 1
+  %conv416 = zext i8 %37 to i32
   %or417 = or disjoint i32 %shl411, %conv416
   %len418 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 %or417, ptr %len418, align 4
@@ -1164,22 +1158,22 @@ if.then424:                                       ; preds = %if.then384
   %idx.ext427 = zext nneg i32 %.192 to i64
   %add.ptr428 = getelementptr inbounds i8, ptr %p, i64 %idx.ext427
   %arrayidx429 = getelementptr inbounds i8, ptr %add.ptr428, i64 1
-  %36 = load i8, ptr %arrayidx429, align 1
-  %conv430 = zext i8 %36 to i32
+  %38 = load i8, ptr %arrayidx429, align 1
+  %conv430 = zext i8 %38 to i32
   %shl431 = shl nuw i32 %conv430, 24
   %arrayidx435 = getelementptr inbounds i8, ptr %add.ptr428, i64 2
-  %37 = load i8, ptr %arrayidx435, align 1
-  %conv436 = zext i8 %37 to i32
+  %39 = load i8, ptr %arrayidx435, align 1
+  %conv436 = zext i8 %39 to i32
   %shl437 = shl nuw nsw i32 %conv436, 16
   %or438 = or disjoint i32 %shl437, %shl431
   %arrayidx442 = getelementptr inbounds i8, ptr %add.ptr428, i64 3
-  %38 = load i8, ptr %arrayidx442, align 1
-  %conv443 = zext i8 %38 to i32
+  %40 = load i8, ptr %arrayidx442, align 1
+  %conv443 = zext i8 %40 to i32
   %shl444 = shl nuw nsw i32 %conv443, 8
   %or445 = or disjoint i32 %or438, %shl444
   %arrayidx449 = getelementptr inbounds i8, ptr %add.ptr428, i64 4
-  %39 = load i8, ptr %arrayidx449, align 1
-  %conv450 = zext i8 %39 to i32
+  %41 = load i8, ptr %arrayidx449, align 1
+  %conv450 = zext i8 %41 to i32
   %or451 = or disjoint i32 %or445, %conv450
   %len452 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 %or451, ptr %len452, align 4
@@ -1227,8 +1221,8 @@ if.then493:                                       ; preds = %if.else459
   br label %do.end517
 
 if.else495:                                       ; preds = %if.else459
-  %40 = add nsw i8 %spec.select190, 1
-  %or.cond193 = icmp ult i8 %40, -14
+  %42 = add nsw i8 %spec.select190, 1
+  %or.cond193 = icmp ult i8 %42, -14
   %len508 = getelementptr inbounds i8, ptr %e, i64 12
   store i32 0, ptr %len508, align 4
   br i1 %or.cond193, label %if.else507, label %do.end517
@@ -1238,14 +1232,14 @@ if.else507:                                       ; preds = %if.else495
   br label %do.end517
 
 do.end517:                                        ; preds = %if.else495, %if.then403, %if.else453, %if.then424, %if.then389, %if.then472, %if.then486, %if.else507, %if.then493, %if.then479, %if.then465
-  %41 = phi i32 [ %or417, %if.then403 ], [ 0, %if.else453 ], [ %or451, %if.then424 ], [ %and396, %if.then389 ], [ 2, %if.then472 ], [ 4, %if.then486 ], [ 0, %if.else507 ], [ 8, %if.then493 ], [ 3, %if.then479 ], [ 1, %if.then465 ], [ 0, %if.else495 ]
-  %42 = phi i32 [ 2, %if.then403 ], [ 0, %if.else453 ], [ 5, %if.then424 ], [ 1, %if.then389 ], [ 1, %if.then472 ], [ 1, %if.then486 ], [ 0, %if.else507 ], [ 1, %if.then493 ], [ 1, %if.then479 ], [ 1, %if.then465 ], [ 1, %if.else495 ]
-  %add520 = add nuw nsw i32 %42, %.192
+  %43 = phi i32 [ %or417, %if.then403 ], [ 0, %if.else453 ], [ %or451, %if.then424 ], [ %and396, %if.then389 ], [ 2, %if.then472 ], [ 4, %if.then486 ], [ 0, %if.else507 ], [ 8, %if.then493 ], [ 3, %if.then479 ], [ 1, %if.then465 ], [ 0, %if.else495 ]
+  %44 = phi i32 [ 2, %if.then403 ], [ 0, %if.else453 ], [ 5, %if.then424 ], [ 1, %if.then389 ], [ 1, %if.then472 ], [ 1, %if.then486 ], [ 0, %if.else507 ], [ 1, %if.then493 ], [ 1, %if.then479 ], [ 1, %if.then465 ], [ 1, %if.else495 ]
+  %add520 = add nuw nsw i32 %44, %.192
   %headersize521 = getelementptr inbounds i8, ptr %e, i64 16
   store i32 %add520, ptr %headersize521, align 8
   %idx.ext523 = zext nneg i32 %add520 to i64
   %add.ptr524 = getelementptr inbounds i8, ptr %p, i64 %idx.ext523
-  %idx.ext526 = zext i32 %41 to i64
+  %idx.ext526 = zext i32 %43 to i64
   %add.ptr527 = getelementptr inbounds i8, ptr %add.ptr524, i64 %idx.ext526
   %cmp528 = icmp ult ptr %add.ptr527, %add.ptr
   %cmp537 = icmp ugt ptr %add.ptr527, %add.ptr2
@@ -1257,7 +1251,7 @@ if.end547:                                        ; preds = %do.end517
   br i1 %tobool548.not, label %if.end571, label %land.lhs.true549
 
 land.lhs.true549:                                 ; preds = %if.end547
-  %idx.ext551 = zext i32 %29 to i64
+  %idx.ext551 = zext i32 %31 to i64
   %idx.neg552 = sub nsw i64 0, %idx.ext551
   %add.ptr553 = getelementptr inbounds i8, ptr %p, i64 %idx.neg552
   %cmp554 = icmp ult ptr %add.ptr553, %add.ptr

@@ -176,6 +176,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN4cvc58internal9GenericOp28isNumeralIndexedOperatorKindENS0_4kind6Kind_tE(i32 noundef %k) local_unnamed_addr #7 align 2 {
 entry:
+  %0 = and i32 %k, -11
+  %1 = icmp eq i32 %0, 133
+  br i1 %1, label %lor.end, label %switch.early.test
+
+switch.early.test:                                ; preds = %entry
   switch i32 %k, label %lor.rhs [
     i32 350, label %lor.end
     i32 300, label %lor.end
@@ -193,24 +198,20 @@ entry:
     i32 185, label %lor.end
     i32 183, label %lor.end
     i32 181, label %lor.end
-    i32 143, label %lor.end
-    i32 141, label %lor.end
     i32 139, label %lor.end
     i32 137, label %lor.end
-    i32 135, label %lor.end
-    i32 133, label %lor.end
     i32 131, label %lor.end
     i32 81, label %lor.end
     i32 35, label %lor.end
     i32 302, label %lor.end
   ]
 
-lor.rhs:                                          ; preds = %entry
+lor.rhs:                                          ; preds = %switch.early.test
   br label %lor.end
 
-lor.end:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %lor.rhs
-  %0 = phi i1 [ true, %entry ], [ false, %lor.rhs ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ], [ true, %entry ]
-  ret i1 %0
+lor.end:                                          ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %entry, %lor.rhs
+  %2 = phi i1 [ true, %switch.early.test ], [ false, %lor.rhs ], [ true, %entry ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ]
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

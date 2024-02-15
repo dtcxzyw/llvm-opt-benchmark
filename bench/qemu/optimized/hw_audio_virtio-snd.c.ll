@@ -1690,10 +1690,10 @@ declare ptr @virtqueue_pop(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @virtio_snd_process_cmdq(ptr noundef %s) unnamed_addr #0 {
 entry:
-  %_now.i.i121.i = alloca %struct.timeval, align 8
+  %_now.i.i117.i = alloca %struct.timeval, align 8
   %_now.i.i11.i.i = alloca %struct.timeval, align 8
-  %_now.i.i.i77.i = alloca %struct.timeval, align 8
-  %stream_id.i78.i = alloca i32, align 4
+  %_now.i.i.i75.i = alloca %struct.timeval, align 8
+  %stream_id.i76.i = alloca i32, align 4
   %stream_id.i.i = alloca i32, align 4
   %_now.i.i.i33.i = alloca %struct.timeval, align 8
   %req.i34.i = alloca %struct.virtio_snd_pcm_set_params, align 4
@@ -1713,10 +1713,10 @@ if.end:                                           ; preds = %entry
   tail call void %3(ptr noundef nonnull %cmdq_mutex, ptr noundef nonnull @.str.26, i32 noundef 122) #11
   %cmdq = getelementptr inbounds i8, ptr %s, i64 672
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
-  %tv_usec.i.i133.i = getelementptr inbounds i8, ptr %_now.i.i121.i, i64 8
-  %tv_usec.i.i.i108.i = getelementptr inbounds i8, ptr %_now.i.i.i77.i, i64 8
-  %streams.i.i93.i = getelementptr inbounds i8, ptr %s, i64 612
-  %pcm.i.i95.i = getelementptr inbounds i8, ptr %s, i64 560
+  %tv_usec.i.i129.i = getelementptr inbounds i8, ptr %_now.i.i117.i, i64 8
+  %tv_usec.i.i.i104.i = getelementptr inbounds i8, ptr %_now.i.i.i75.i, i64 8
+  %streams.i.i89.i = getelementptr inbounds i8, ptr %s, i64 612
+  %pcm.i.i91.i = getelementptr inbounds i8, ptr %s, i64 560
   %tv_usec.i.i23.i.i = getelementptr inbounds i8, ptr %_now.i.i11.i.i, i64 8
   %stream_id7.i.i = getelementptr inbounds i8, ptr %req.i34.i, i64 4
   %tv_usec.i.i.i54.i = getelementptr inbounds i8, ptr %_now.i.i.i33.i, i64 8
@@ -1731,7 +1731,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not21, label %qemu_lockable_auto_unlock.exit, label %while.body18
 
 while.body18:                                     ; preds = %if.end, %process_cmd.exit
-  %5 = phi ptr [ %137, %process_cmd.exit ], [ %4, %if.end ]
+  %5 = phi ptr [ %135, %process_cmd.exit ], [ %4, %if.end ]
   %6 = load ptr, ptr %5, align 8
   %out_sg.i = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %out_sg.i, align 8
@@ -1993,12 +1993,12 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
 
 trace_virtio_snd_handle_pcm_info.exit.i.i:        ; preds = %if.else.i.i.i.i, %if.then8.i.i.i.i, %land.lhs.true5.i.i.i.i, %for.body.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i.i)
-  %45 = load i32, ptr %streams.i.i93.i, align 4
+  %45 = load i32, ptr %streams.i.i89.i, align 4
   %cmp.not.i.i.i = icmp ugt i32 %45, %add33.i.i
   br i1 %cmp.not.i.i.i, label %virtio_snd_pcm_get_stream.exit.i.i, label %if.then36.i.i
 
 virtio_snd_pcm_get_stream.exit.i.i:               ; preds = %trace_virtio_snd_handle_pcm_info.exit.i.i
-  %46 = load ptr, ptr %pcm.i.i95.i, align 8
+  %46 = load ptr, ptr %pcm.i.i91.i, align 8
   %streams1.i.i.i = getelementptr inbounds i8, ptr %46, i64 16
   %47 = load ptr, ptr %streams1.i.i.i, align 8
   %idxprom.i.i.i = zext i32 %add33.i.i to i64
@@ -2149,151 +2149,145 @@ sw.bb27.i:                                        ; preds = %trace_virtio_snd_ha
   %out_num.i64.i = getelementptr inbounds i8, ptr %69, i64 12
   %71 = load i32, ptr %out_num.i64.i, align 4
   %tobool.i.not.i65.i = icmp eq i32 %71, 0
-  br i1 %tobool.i.not.i65.i, label %iov_to_buf.exit.i74.i, label %land.lhs.true1.i.i66.i
+  br i1 %tobool.i.not.i65.i, label %iov_to_buf.exit.i72.i, label %land.lhs.true1.i.i66.i
 
 land.lhs.true1.i.i66.i:                           ; preds = %sw.bb27.i
   %iov_len.i.i67.i = getelementptr inbounds i8, ptr %70, i64 8
   %72 = load i64, ptr %iov_len.i.i67.i, align 8
-  %cmp.not.i.i68.i = icmp ult i64 %72, 4
-  %73 = and i64 %72, -4
-  %cmp5.not.i.i69.i = icmp eq i64 %73, 4
-  %or.cond13.i.i70.i = or i1 %cmp.not.i.i68.i, %cmp5.not.i.i69.i
-  br i1 %or.cond13.i.i70.i, label %iov_to_buf.exit.i74.i, label %iov_to_buf.exit.thread.i71.i
+  %or.cond13.i.i68.i = icmp ult i64 %72, 8
+  br i1 %or.cond13.i.i68.i, label %iov_to_buf.exit.i72.i, label %iov_to_buf.exit.thread.i69.i
 
-iov_to_buf.exit.thread.i71.i:                     ; preds = %land.lhs.true1.i.i66.i
-  %74 = load ptr, ptr %70, align 8
-  %add.ptr.i.i72.i = getelementptr i8, ptr %74, i64 4
-  %75 = load i32, ptr %add.ptr.i.i72.i, align 1
-  store i32 %75, ptr %stream_id.i.i, align 4
+iov_to_buf.exit.thread.i69.i:                     ; preds = %land.lhs.true1.i.i66.i
+  %73 = load ptr, ptr %70, align 8
+  %add.ptr.i.i70.i = getelementptr i8, ptr %73, i64 4
+  %74 = load i32, ptr %add.ptr.i.i70.i, align 1
+  store i32 %74, ptr %stream_id.i.i, align 4
   br label %cond.true.i.i
 
-iov_to_buf.exit.i74.i:                            ; preds = %land.lhs.true1.i.i66.i, %sw.bb27.i
-  %call.i.i75.i = call i64 @iov_to_buf_full(ptr noundef %70, i32 noundef %71, i64 noundef 4, ptr noundef nonnull %stream_id.i.i, i64 noundef 4) #11
-  %76 = load i32, ptr %stream_id.i.i, align 4
-  %cmp.i76.i = icmp eq i64 %call.i.i75.i, 4
-  br i1 %cmp.i76.i, label %cond.true.i.i, label %virtio_snd_handle_pcm_prepare.exit.i
+iov_to_buf.exit.i72.i:                            ; preds = %land.lhs.true1.i.i66.i, %sw.bb27.i
+  %call.i.i73.i = call i64 @iov_to_buf_full(ptr noundef %70, i32 noundef %71, i64 noundef 4, ptr noundef nonnull %stream_id.i.i, i64 noundef 4) #11
+  %75 = load i32, ptr %stream_id.i.i, align 4
+  %cmp.i74.i = icmp eq i64 %call.i.i73.i, 4
+  br i1 %cmp.i74.i, label %cond.true.i.i, label %virtio_snd_handle_pcm_prepare.exit.i
 
-cond.true.i.i:                                    ; preds = %iov_to_buf.exit.i74.i, %iov_to_buf.exit.thread.i71.i
-  %77 = phi i32 [ %75, %iov_to_buf.exit.thread.i71.i ], [ %76, %iov_to_buf.exit.i74.i ]
-  %call3.i.i = call fastcc i32 @virtio_snd_pcm_prepare(ptr noundef nonnull %s, i32 noundef %77)
+cond.true.i.i:                                    ; preds = %iov_to_buf.exit.i72.i, %iov_to_buf.exit.thread.i69.i
+  %76 = phi i32 [ %74, %iov_to_buf.exit.thread.i69.i ], [ %75, %iov_to_buf.exit.i72.i ]
+  %call3.i.i = call fastcc i32 @virtio_snd_pcm_prepare(ptr noundef nonnull %s, i32 noundef %76)
   br label %virtio_snd_handle_pcm_prepare.exit.i
 
-virtio_snd_handle_pcm_prepare.exit.i:             ; preds = %cond.true.i.i, %iov_to_buf.exit.i74.i
-  %cond.i.i = phi i32 [ %call3.i.i, %cond.true.i.i ], [ 32769, %iov_to_buf.exit.i74.i ]
-  %resp.i73.i = getelementptr inbounds i8, ptr %5, i64 20
-  store i32 %cond.i.i, ptr %resp.i73.i, align 4
+virtio_snd_handle_pcm_prepare.exit.i:             ; preds = %cond.true.i.i, %iov_to_buf.exit.i72.i
+  %cond.i.i = phi i32 [ %call3.i.i, %cond.true.i.i ], [ 32769, %iov_to_buf.exit.i72.i ]
+  %resp.i71.i = getelementptr inbounds i8, ptr %5, i64 20
+  store i32 %cond.i.i, ptr %resp.i71.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %stream_id.i.i)
   br label %sw.epilog.i
 
 sw.bb28.i:                                        ; preds = %trace_virtio_snd_handle_code.exit.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %stream_id.i78.i)
-  %78 = load ptr, ptr %5, align 8
-  %out_sg.i79.i = getelementptr inbounds i8, ptr %78, i64 48
-  %79 = load ptr, ptr %out_sg.i79.i, align 8
-  %out_num.i80.i = getelementptr inbounds i8, ptr %78, i64 12
-  %80 = load i32, ptr %out_num.i80.i, align 4
-  %tobool.i.not.i81.i = icmp eq i32 %80, 0
-  br i1 %tobool.i.not.i81.i, label %iov_to_buf.exit.i110.i, label %land.lhs.true1.i.i82.i
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %stream_id.i76.i)
+  %77 = load ptr, ptr %5, align 8
+  %out_sg.i77.i = getelementptr inbounds i8, ptr %77, i64 48
+  %78 = load ptr, ptr %out_sg.i77.i, align 8
+  %out_num.i78.i = getelementptr inbounds i8, ptr %77, i64 12
+  %79 = load i32, ptr %out_num.i78.i, align 4
+  %tobool.i.not.i79.i = icmp eq i32 %79, 0
+  br i1 %tobool.i.not.i79.i, label %iov_to_buf.exit.i106.i, label %land.lhs.true1.i.i80.i
 
-land.lhs.true1.i.i82.i:                           ; preds = %sw.bb28.i
-  %iov_len.i.i83.i = getelementptr inbounds i8, ptr %79, i64 8
-  %81 = load i64, ptr %iov_len.i.i83.i, align 8
-  %cmp.not.i.i84.i = icmp ult i64 %81, 4
-  %82 = and i64 %81, -4
-  %cmp5.not.i.i85.i = icmp eq i64 %82, 4
-  %or.cond13.i.i86.i = or i1 %cmp.not.i.i84.i, %cmp5.not.i.i85.i
-  br i1 %or.cond13.i.i86.i, label %iov_to_buf.exit.i110.i, label %iov_to_buf.exit.thread.i87.i
+land.lhs.true1.i.i80.i:                           ; preds = %sw.bb28.i
+  %iov_len.i.i81.i = getelementptr inbounds i8, ptr %78, i64 8
+  %80 = load i64, ptr %iov_len.i.i81.i, align 8
+  %or.cond13.i.i82.i = icmp ult i64 %80, 8
+  br i1 %or.cond13.i.i82.i, label %iov_to_buf.exit.i106.i, label %iov_to_buf.exit.thread.i83.i
 
-iov_to_buf.exit.thread.i87.i:                     ; preds = %land.lhs.true1.i.i82.i
-  %83 = load ptr, ptr %79, align 8
-  %add.ptr.i.i88.i = getelementptr i8, ptr %83, i64 4
-  %84 = load i32, ptr %add.ptr.i.i88.i, align 1
-  store i32 %84, ptr %stream_id.i78.i, align 4
-  br label %if.end6.i89.i
+iov_to_buf.exit.thread.i83.i:                     ; preds = %land.lhs.true1.i.i80.i
+  %81 = load ptr, ptr %78, align 8
+  %add.ptr.i.i84.i = getelementptr i8, ptr %81, i64 4
+  %82 = load i32, ptr %add.ptr.i.i84.i, align 1
+  store i32 %82, ptr %stream_id.i76.i, align 4
+  br label %if.end6.i85.i
 
-iov_to_buf.exit.i110.i:                           ; preds = %land.lhs.true1.i.i82.i, %sw.bb28.i
-  %call.i.i111.i = call i64 @iov_to_buf_full(ptr noundef %79, i32 noundef %80, i64 noundef 4, ptr noundef nonnull %stream_id.i78.i, i64 noundef 4) #11
-  %cmp.not.i112.i = icmp eq i64 %call.i.i111.i, 4
-  br i1 %cmp.not.i112.i, label %iov_to_buf.exit.if.end6_crit_edge.i117.i, label %do.body.i113.i
+iov_to_buf.exit.i106.i:                           ; preds = %land.lhs.true1.i.i80.i, %sw.bb28.i
+  %call.i.i107.i = call i64 @iov_to_buf_full(ptr noundef %78, i32 noundef %79, i64 noundef 4, ptr noundef nonnull %stream_id.i76.i, i64 noundef 4) #11
+  %cmp.not.i108.i = icmp eq i64 %call.i.i107.i, 4
+  br i1 %cmp.not.i108.i, label %iov_to_buf.exit.if.end6_crit_edge.i113.i, label %do.body.i109.i
 
-iov_to_buf.exit.if.end6_crit_edge.i117.i:         ; preds = %iov_to_buf.exit.i110.i
-  %.pre.i118.i = load i32, ptr %stream_id.i78.i, align 4
-  br label %if.end6.i89.i
+iov_to_buf.exit.if.end6_crit_edge.i113.i:         ; preds = %iov_to_buf.exit.i106.i
+  %.pre.i114.i = load i32, ptr %stream_id.i76.i, align 4
+  br label %if.end6.i85.i
 
-do.body.i113.i:                                   ; preds = %iov_to_buf.exit.i110.i
-  %85 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i114.i = and i32 %85, 2048
-  %cmp.i.not.i115.i = icmp eq i32 %and.i.i114.i, 0
-  br i1 %cmp.i.not.i115.i, label %virtio_snd_handle_pcm_release.exit.i, label %if.then4.i116.i
+do.body.i109.i:                                   ; preds = %iov_to_buf.exit.i106.i
+  %83 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i110.i = and i32 %83, 2048
+  %cmp.i.not.i111.i = icmp eq i32 %and.i.i110.i, 0
+  br i1 %cmp.i.not.i111.i, label %virtio_snd_handle_pcm_release.exit.i, label %if.then4.i112.i
 
-if.then4.i116.i:                                  ; preds = %do.body.i113.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.virtio_snd_handle_pcm_release, i64 noundef %call.i.i111.i, i64 noundef 4) #11
+if.then4.i112.i:                                  ; preds = %do.body.i109.i
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, ptr noundef nonnull @__func__.virtio_snd_handle_pcm_release, i64 noundef %call.i.i107.i, i64 noundef 4) #11
   br label %virtio_snd_handle_pcm_release.exit.i
 
-if.end6.i89.i:                                    ; preds = %iov_to_buf.exit.if.end6_crit_edge.i117.i, %iov_to_buf.exit.thread.i87.i
-  %86 = phi i32 [ %.pre.i118.i, %iov_to_buf.exit.if.end6_crit_edge.i117.i ], [ %84, %iov_to_buf.exit.thread.i87.i ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i77.i)
-  %87 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i90.i = icmp ne i32 %87, 0
-  %88 = load i16, ptr @_TRACE_VIRTIO_SND_HANDLE_PCM_RELEASE_DSTATE, align 2
-  %tobool4.i.i.i91.i = icmp ne i16 %88, 0
-  %or.cond.i.i.i92.i = select i1 %tobool.i.i.i90.i, i1 %tobool4.i.i.i91.i, i1 false
-  br i1 %or.cond.i.i.i92.i, label %land.lhs.true5.i.i.i100.i, label %trace_virtio_snd_handle_pcm_release.exit.i.i
+if.end6.i85.i:                                    ; preds = %iov_to_buf.exit.if.end6_crit_edge.i113.i, %iov_to_buf.exit.thread.i83.i
+  %84 = phi i32 [ %.pre.i114.i, %iov_to_buf.exit.if.end6_crit_edge.i113.i ], [ %82, %iov_to_buf.exit.thread.i83.i ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i75.i)
+  %85 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i86.i = icmp ne i32 %85, 0
+  %86 = load i16, ptr @_TRACE_VIRTIO_SND_HANDLE_PCM_RELEASE_DSTATE, align 2
+  %tobool4.i.i.i87.i = icmp ne i16 %86, 0
+  %or.cond.i.i.i88.i = select i1 %tobool.i.i.i86.i, i1 %tobool4.i.i.i87.i, i1 false
+  br i1 %or.cond.i.i.i88.i, label %land.lhs.true5.i.i.i96.i, label %trace_virtio_snd_handle_pcm_release.exit.i.i
 
-land.lhs.true5.i.i.i100.i:                        ; preds = %if.end6.i89.i
-  %89 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i101.i = and i32 %89, 32768
-  %cmp.i.not.i.i.i102.i = icmp eq i32 %and.i.i.i.i101.i, 0
-  br i1 %cmp.i.not.i.i.i102.i, label %trace_virtio_snd_handle_pcm_release.exit.i.i, label %if.then.i.i.i103.i
+land.lhs.true5.i.i.i96.i:                         ; preds = %if.end6.i85.i
+  %87 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i97.i = and i32 %87, 32768
+  %cmp.i.not.i.i.i98.i = icmp eq i32 %and.i.i.i.i97.i, 0
+  br i1 %cmp.i.not.i.i.i98.i, label %trace_virtio_snd_handle_pcm_release.exit.i.i, label %if.then.i.i.i99.i
 
-if.then.i.i.i103.i:                               ; preds = %land.lhs.true5.i.i.i100.i
-  %90 = load i8, ptr @message_with_timestamp, align 1
-  %91 = and i8 %90, 1
-  %tobool7.not.i.i.i104.i = icmp eq i8 %91, 0
-  br i1 %tobool7.not.i.i.i104.i, label %if.else.i.i.i109.i, label %if.then8.i.i.i105.i
+if.then.i.i.i99.i:                                ; preds = %land.lhs.true5.i.i.i96.i
+  %88 = load i8, ptr @message_with_timestamp, align 1
+  %89 = and i8 %88, 1
+  %tobool7.not.i.i.i100.i = icmp eq i8 %89, 0
+  br i1 %tobool7.not.i.i.i100.i, label %if.else.i.i.i105.i, label %if.then8.i.i.i101.i
 
-if.then8.i.i.i105.i:                              ; preds = %if.then.i.i.i103.i
-  %call9.i.i.i106.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i77.i, ptr noundef null) #11
-  %call10.i.i.i107.i = call i32 @qemu_get_thread_id() #11
-  %92 = load i64, ptr %_now.i.i.i77.i, align 8
-  %93 = load i64, ptr %tv_usec.i.i.i108.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i.i107.i, i64 noundef %92, i64 noundef %93, i32 noundef %86) #11
+if.then8.i.i.i101.i:                              ; preds = %if.then.i.i.i99.i
+  %call9.i.i.i102.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i75.i, ptr noundef null) #11
+  %call10.i.i.i103.i = call i32 @qemu_get_thread_id() #11
+  %90 = load i64, ptr %_now.i.i.i75.i, align 8
+  %91 = load i64, ptr %tv_usec.i.i.i104.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i.i103.i, i64 noundef %90, i64 noundef %91, i32 noundef %84) #11
   br label %trace_virtio_snd_handle_pcm_release.exit.i.i
 
-if.else.i.i.i109.i:                               ; preds = %if.then.i.i.i103.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %86) #11
+if.else.i.i.i105.i:                               ; preds = %if.then.i.i.i99.i
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %84) #11
   br label %trace_virtio_snd_handle_pcm_release.exit.i.i
 
-trace_virtio_snd_handle_pcm_release.exit.i.i:     ; preds = %if.else.i.i.i109.i, %if.then8.i.i.i105.i, %land.lhs.true5.i.i.i100.i, %if.end6.i89.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i77.i)
-  %94 = load i32, ptr %stream_id.i78.i, align 4
-  %95 = load i32, ptr %streams.i.i93.i, align 4
-  %cmp.not.i9.i.i = icmp ugt i32 %95, %94
-  br i1 %cmp.not.i9.i.i, label %virtio_snd_pcm_get_stream.exit.i94.i, label %if.then11.i.i
+trace_virtio_snd_handle_pcm_release.exit.i.i:     ; preds = %if.else.i.i.i105.i, %if.then8.i.i.i101.i, %land.lhs.true5.i.i.i96.i, %if.end6.i85.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i75.i)
+  %92 = load i32, ptr %stream_id.i76.i, align 4
+  %93 = load i32, ptr %streams.i.i89.i, align 4
+  %cmp.not.i9.i.i = icmp ugt i32 %93, %92
+  br i1 %cmp.not.i9.i.i, label %virtio_snd_pcm_get_stream.exit.i90.i, label %if.then11.i.i
 
-virtio_snd_pcm_get_stream.exit.i94.i:             ; preds = %trace_virtio_snd_handle_pcm_release.exit.i.i
-  %96 = load ptr, ptr %pcm.i.i95.i, align 8
-  %streams1.i.i96.i = getelementptr inbounds i8, ptr %96, i64 16
-  %97 = load ptr, ptr %streams1.i.i96.i, align 8
-  %idxprom.i.i97.i = zext i32 %94 to i64
-  %arrayidx.i.i98.i = getelementptr ptr, ptr %97, i64 %idxprom.i.i97.i
-  %98 = load ptr, ptr %arrayidx.i.i98.i, align 8
-  %cmp9.i.i = icmp eq ptr %98, null
+virtio_snd_pcm_get_stream.exit.i90.i:             ; preds = %trace_virtio_snd_handle_pcm_release.exit.i.i
+  %94 = load ptr, ptr %pcm.i.i91.i, align 8
+  %streams1.i.i92.i = getelementptr inbounds i8, ptr %94, i64 16
+  %95 = load ptr, ptr %streams1.i.i92.i, align 8
+  %idxprom.i.i93.i = zext i32 %92 to i64
+  %arrayidx.i.i94.i = getelementptr ptr, ptr %95, i64 %idxprom.i.i93.i
+  %96 = load ptr, ptr %arrayidx.i.i94.i, align 8
+  %cmp9.i.i = icmp eq ptr %96, null
   br i1 %cmp9.i.i, label %if.then11.i.i, label %if.end16.i.i
 
-if.then11.i.i:                                    ; preds = %virtio_snd_pcm_get_stream.exit.i94.i, %trace_virtio_snd_handle_pcm_release.exit.i.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.43, i32 noundef %94) #11
+if.then11.i.i:                                    ; preds = %virtio_snd_pcm_get_stream.exit.i90.i, %trace_virtio_snd_handle_pcm_release.exit.i.i
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.43, i32 noundef %92) #11
   %call.i10.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
-  %99 = load i32, ptr %stream_id.i78.i, align 4
-  call void (ptr, ptr, ...) @virtio_error(ptr noundef %call.i10.i.i, ptr noundef nonnull @.str.43, i32 noundef %99) #11
+  %97 = load i32, ptr %stream_id.i76.i, align 4
+  call void (ptr, ptr, ...) @virtio_error(ptr noundef %call.i10.i.i, ptr noundef nonnull @.str.43, i32 noundef %97) #11
   br label %virtio_snd_handle_pcm_release.exit.i
 
-if.end16.i.i:                                     ; preds = %virtio_snd_pcm_get_stream.exit.i94.i
-  %queue_mutex.i.i.i = getelementptr inbounds i8, ptr %98, i64 128
-  %100 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %101 = inttoptr i64 %100 to ptr
-  call void %101(ptr noundef nonnull %queue_mutex.i.i.i, ptr noundef nonnull @.str.26, i32 noundef 122) #11
-  %queue.i.i.i = getelementptr inbounds i8, ptr %98, i64 184
+if.end16.i.i:                                     ; preds = %virtio_snd_pcm_get_stream.exit.i90.i
+  %queue_mutex.i.i.i = getelementptr inbounds i8, ptr %96, i64 128
+  %98 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %99 = inttoptr i64 %98 to ptr
+  call void %99(ptr noundef nonnull %queue_mutex.i.i.i, ptr noundef nonnull @.str.26, i32 noundef 122) #11
+  %queue.i.i.i = getelementptr inbounds i8, ptr %96, i64 184
   br label %for.cond1.us.i.i.i
 
 for.cond1.us.i.i.i:                               ; preds = %for.cond1.us.i.i.i, %if.end16.i.i
@@ -2305,7 +2299,7 @@ for.cond1.us.i.i.i:                               ; preds = %for.cond1.us.i.i.i,
   br i1 %tobool2.not.us.i.i.i, label %for.cond6.us.preheader.i.i.i, label %for.cond1.us.i.i.i, !llvm.loop !13
 
 for.cond6.us.preheader.i.i.i:                     ; preds = %for.cond1.us.i.i.i
-  %invalid.i.i.i = getelementptr inbounds i8, ptr %98, i64 200
+  %invalid.i.i.i = getelementptr inbounds i8, ptr %96, i64 200
   br label %for.cond6.us.i.i.i
 
 for.cond6.us.i.i.i:                               ; preds = %for.cond6.us.i.i.i, %for.cond6.us.preheader.i.i.i
@@ -2319,118 +2313,118 @@ for.cond6.us.i.i.i:                               ; preds = %for.cond6.us.i.i.i,
 virtio_snd_pcm_get_io_msgs_count.exit.i.i:        ; preds = %for.cond6.us.i.i.i
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %queue_mutex.i.i.i, ptr noundef nonnull @.str.26, i32 noundef 132) #11
   %tobool18.not.i.i = icmp eq i64 %count.2.us.i.i.i, 0
-  br i1 %tobool18.not.i.i, label %virtio_snd_handle_pcm_release.exit.i, label %if.then19.i99.i
+  br i1 %tobool18.not.i.i, label %virtio_snd_handle_pcm_release.exit.i, label %if.then19.i95.i
 
-if.then19.i99.i:                                  ; preds = %virtio_snd_pcm_get_io_msgs_count.exit.i.i
-  %102 = load i32, ptr %stream_id.i78.i, align 4
+if.then19.i95.i:                                  ; preds = %virtio_snd_pcm_get_io_msgs_count.exit.i.i
+  %100 = load i32, ptr %stream_id.i76.i, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i11.i.i)
-  %103 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i12.i.i = icmp ne i32 %103, 0
-  %104 = load i16, ptr @_TRACE_VIRTIO_SND_PCM_STREAM_FLUSH_DSTATE, align 2
-  %tobool4.i.i13.i.i = icmp ne i16 %104, 0
+  %101 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i12.i.i = icmp ne i32 %101, 0
+  %102 = load i16, ptr @_TRACE_VIRTIO_SND_PCM_STREAM_FLUSH_DSTATE, align 2
+  %tobool4.i.i13.i.i = icmp ne i16 %102, 0
   %or.cond.i.i14.i.i = select i1 %tobool.i.i12.i.i, i1 %tobool4.i.i13.i.i, i1 false
   br i1 %or.cond.i.i14.i.i, label %land.lhs.true5.i.i15.i.i, label %trace_virtio_snd_pcm_stream_flush.exit.i.i
 
-land.lhs.true5.i.i15.i.i:                         ; preds = %if.then19.i99.i
-  %105 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i16.i.i = and i32 %105, 32768
+land.lhs.true5.i.i15.i.i:                         ; preds = %if.then19.i95.i
+  %103 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i16.i.i = and i32 %103, 32768
   %cmp.i.not.i.i17.i.i = icmp eq i32 %and.i.i.i16.i.i, 0
   br i1 %cmp.i.not.i.i17.i.i, label %trace_virtio_snd_pcm_stream_flush.exit.i.i, label %if.then.i.i18.i.i
 
 if.then.i.i18.i.i:                                ; preds = %land.lhs.true5.i.i15.i.i
-  %106 = load i8, ptr @message_with_timestamp, align 1
-  %107 = and i8 %106, 1
-  %tobool7.not.i.i19.i.i = icmp eq i8 %107, 0
+  %104 = load i8, ptr @message_with_timestamp, align 1
+  %105 = and i8 %104, 1
+  %tobool7.not.i.i19.i.i = icmp eq i8 %105, 0
   br i1 %tobool7.not.i.i19.i.i, label %if.else.i.i24.i.i, label %if.then8.i.i20.i.i
 
 if.then8.i.i20.i.i:                               ; preds = %if.then.i.i18.i.i
   %call9.i.i21.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11.i.i, ptr noundef null) #11
   %call10.i.i22.i.i = call i32 @qemu_get_thread_id() #11
-  %108 = load i64, ptr %_now.i.i11.i.i, align 8
-  %109 = load i64, ptr %tv_usec.i.i23.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i22.i.i, i64 noundef %108, i64 noundef %109, i32 noundef %102) #11
+  %106 = load i64, ptr %_now.i.i11.i.i, align 8
+  %107 = load i64, ptr %tv_usec.i.i23.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i22.i.i, i64 noundef %106, i64 noundef %107, i32 noundef %100) #11
   br label %trace_virtio_snd_pcm_stream_flush.exit.i.i
 
 if.else.i.i24.i.i:                                ; preds = %if.then.i.i18.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %102) #11
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %100) #11
   br label %trace_virtio_snd_pcm_stream_flush.exit.i.i
 
-trace_virtio_snd_pcm_stream_flush.exit.i.i:       ; preds = %if.else.i.i24.i.i, %if.then8.i.i20.i.i, %land.lhs.true5.i.i15.i.i, %if.then19.i99.i
+trace_virtio_snd_pcm_stream_flush.exit.i.i:       ; preds = %if.else.i.i24.i.i, %if.then8.i.i20.i.i, %land.lhs.true5.i.i15.i.i, %if.then19.i95.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i11.i.i)
-  %direction.i.i.i = getelementptr inbounds i8, ptr %98, i64 32
-  %110 = load i8, ptr %direction.i.i.i, align 8
-  %cmp.i25.i.i = icmp eq i8 %110, 0
+  %direction.i.i.i = getelementptr inbounds i8, ptr %96, i64 32
+  %108 = load i8, ptr %direction.i.i.i, align 8
+  %cmp.i25.i.i = icmp eq i8 %108, 0
   %cond.i26.i.i = select i1 %cmp.i25.i.i, ptr @return_tx_buffer, ptr @return_rx_buffer
-  %111 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %112 = inttoptr i64 %111 to ptr
-  call void %112(ptr noundef nonnull %queue_mutex.i.i.i, ptr noundef nonnull @.str.26, i32 noundef 122) #11
-  %113 = load ptr, ptr %queue.i.i.i, align 8
-  %cmp2.not7.us.i.i.i = icmp eq ptr %113, null
+  %109 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %110 = inttoptr i64 %109 to ptr
+  call void %110(ptr noundef nonnull %queue_mutex.i.i.i, ptr noundef nonnull @.str.26, i32 noundef 122) #11
+  %111 = load ptr, ptr %queue.i.i.i, align 8
+  %cmp2.not7.us.i.i.i = icmp eq ptr %111, null
   br i1 %cmp2.not7.us.i.i.i, label %virtio_snd_pcm_flush.exit.i.i, label %while.body.us.i.i.i
 
 while.body.us.i.i.i:                              ; preds = %trace_virtio_snd_pcm_stream_flush.exit.i.i, %while.body.us.i.i.i
-  %114 = phi ptr [ %115, %while.body.us.i.i.i ], [ %113, %trace_virtio_snd_pcm_stream_flush.exit.i.i ]
-  call void %cond.i26.i.i(ptr noundef nonnull %98, ptr noundef nonnull %114) #11, !callees !7
-  %115 = load ptr, ptr %queue.i.i.i, align 8
-  %cmp2.not.us.i.i.i = icmp eq ptr %115, null
+  %112 = phi ptr [ %113, %while.body.us.i.i.i ], [ %111, %trace_virtio_snd_pcm_stream_flush.exit.i.i ]
+  call void %cond.i26.i.i(ptr noundef nonnull %96, ptr noundef nonnull %112) #11, !callees !7
+  %113 = load ptr, ptr %queue.i.i.i, align 8
+  %cmp2.not.us.i.i.i = icmp eq ptr %113, null
   br i1 %cmp2.not.us.i.i.i, label %virtio_snd_pcm_flush.exit.i.i, label %while.body.us.i.i.i, !llvm.loop !8
 
 virtio_snd_pcm_flush.exit.i.i:                    ; preds = %while.body.us.i.i.i, %trace_virtio_snd_pcm_stream_flush.exit.i.i
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %queue_mutex.i.i.i, ptr noundef nonnull @.str.26, i32 noundef 132) #11
   br label %virtio_snd_handle_pcm_release.exit.i
 
-virtio_snd_handle_pcm_release.exit.i:             ; preds = %virtio_snd_pcm_flush.exit.i.i, %virtio_snd_pcm_get_io_msgs_count.exit.i.i, %if.then11.i.i, %if.then4.i116.i, %do.body.i113.i
-  %.sink.i.i = phi i32 [ 32769, %if.then11.i.i ], [ 32769, %do.body.i113.i ], [ 32769, %if.then4.i116.i ], [ 32768, %virtio_snd_pcm_flush.exit.i.i ], [ 32768, %virtio_snd_pcm_get_io_msgs_count.exit.i.i ]
+virtio_snd_handle_pcm_release.exit.i:             ; preds = %virtio_snd_pcm_flush.exit.i.i, %virtio_snd_pcm_get_io_msgs_count.exit.i.i, %if.then11.i.i, %if.then4.i112.i, %do.body.i109.i
+  %.sink.i.i = phi i32 [ 32769, %if.then11.i.i ], [ 32769, %do.body.i109.i ], [ 32769, %if.then4.i112.i ], [ 32768, %virtio_snd_pcm_flush.exit.i.i ], [ 32768, %virtio_snd_pcm_get_io_msgs_count.exit.i.i ]
   %resp22.i.i = getelementptr inbounds i8, ptr %5, i64 20
   store i32 %.sink.i.i, ptr %resp22.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %stream_id.i78.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %stream_id.i76.i)
   br label %sw.epilog.i
 
 do.body30.i:                                      ; preds = %trace_virtio_snd_handle_code.exit.i
-  %116 = load i32, ptr @qemu_loglevel, align 4
-  %and.i119.i = and i32 %116, 1024
-  %cmp.i120.not.i = icmp eq i32 %and.i119.i, 0
-  br i1 %cmp.i120.not.i, label %do.end40.i, label %if.then38.i
+  %114 = load i32, ptr @qemu_loglevel, align 4
+  %and.i115.i = and i32 %114, 1024
+  %cmp.i116.not.i = icmp eq i32 %and.i115.i, 0
+  br i1 %cmp.i116.not.i, label %do.end40.i, label %if.then38.i
 
 if.then38.i:                                      ; preds = %do.body30.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29) #11
   br label %do.end40.i
 
 do.end40.i:                                       ; preds = %if.then38.i, %do.body30.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i121.i)
-  %117 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i122.i = icmp ne i32 %117, 0
-  %118 = load i16, ptr @_TRACE_VIRTIO_SND_HANDLE_CHMAP_INFO_DSTATE, align 2
-  %tobool4.i.i123.i = icmp ne i16 %118, 0
-  %or.cond.i.i124.i = select i1 %tobool.i.i122.i, i1 %tobool4.i.i123.i, i1 false
-  br i1 %or.cond.i.i124.i, label %land.lhs.true5.i.i125.i, label %trace_virtio_snd_handle_chmap_info.exit.i
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i117.i)
+  %115 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i118.i = icmp ne i32 %115, 0
+  %116 = load i16, ptr @_TRACE_VIRTIO_SND_HANDLE_CHMAP_INFO_DSTATE, align 2
+  %tobool4.i.i119.i = icmp ne i16 %116, 0
+  %or.cond.i.i120.i = select i1 %tobool.i.i118.i, i1 %tobool4.i.i119.i, i1 false
+  br i1 %or.cond.i.i120.i, label %land.lhs.true5.i.i121.i, label %trace_virtio_snd_handle_chmap_info.exit.i
 
-land.lhs.true5.i.i125.i:                          ; preds = %do.end40.i
-  %119 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i126.i = and i32 %119, 32768
-  %cmp.i.not.i.i127.i = icmp eq i32 %and.i.i.i126.i, 0
-  br i1 %cmp.i.not.i.i127.i, label %trace_virtio_snd_handle_chmap_info.exit.i, label %if.then.i.i128.i
+land.lhs.true5.i.i121.i:                          ; preds = %do.end40.i
+  %117 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i122.i = and i32 %117, 32768
+  %cmp.i.not.i.i123.i = icmp eq i32 %and.i.i.i122.i, 0
+  br i1 %cmp.i.not.i.i123.i, label %trace_virtio_snd_handle_chmap_info.exit.i, label %if.then.i.i124.i
 
-if.then.i.i128.i:                                 ; preds = %land.lhs.true5.i.i125.i
-  %120 = load i8, ptr @message_with_timestamp, align 1
-  %121 = and i8 %120, 1
-  %tobool7.not.i.i129.i = icmp eq i8 %121, 0
-  br i1 %tobool7.not.i.i129.i, label %if.else.i.i134.i, label %if.then8.i.i130.i
+if.then.i.i124.i:                                 ; preds = %land.lhs.true5.i.i121.i
+  %118 = load i8, ptr @message_with_timestamp, align 1
+  %119 = and i8 %118, 1
+  %tobool7.not.i.i125.i = icmp eq i8 %119, 0
+  br i1 %tobool7.not.i.i125.i, label %if.else.i.i130.i, label %if.then8.i.i126.i
 
-if.then8.i.i130.i:                                ; preds = %if.then.i.i128.i
-  %call9.i.i131.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i121.i, ptr noundef null) #11
-  %call10.i.i132.i = call i32 @qemu_get_thread_id() #11
-  %122 = load i64, ptr %_now.i.i121.i, align 8
-  %123 = load i64, ptr %tv_usec.i.i133.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i132.i, i64 noundef %122, i64 noundef %123) #11
+if.then8.i.i126.i:                                ; preds = %if.then.i.i124.i
+  %call9.i.i127.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i117.i, ptr noundef null) #11
+  %call10.i.i128.i = call i32 @qemu_get_thread_id() #11
+  %120 = load i64, ptr %_now.i.i117.i, align 8
+  %121 = load i64, ptr %tv_usec.i.i129.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i128.i, i64 noundef %120, i64 noundef %121) #11
   br label %trace_virtio_snd_handle_chmap_info.exit.i
 
-if.else.i.i134.i:                                 ; preds = %if.then.i.i128.i
+if.else.i.i130.i:                                 ; preds = %if.then.i.i124.i
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49) #11
   br label %trace_virtio_snd_handle_chmap_info.exit.i
 
-trace_virtio_snd_handle_chmap_info.exit.i:        ; preds = %if.else.i.i134.i, %if.then8.i.i130.i, %land.lhs.true5.i.i125.i, %do.end40.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i121.i)
+trace_virtio_snd_handle_chmap_info.exit.i:        ; preds = %if.else.i.i130.i, %if.then8.i.i126.i, %land.lhs.true5.i.i121.i, %do.end40.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i117.i)
   %resp42.i = getelementptr inbounds i8, ptr %5, i64 20
   store i32 32770, ptr %resp42.i, align 4
   br label %sw.epilog.i
@@ -2442,58 +2436,58 @@ sw.default.i:                                     ; preds = %trace_virtio_snd_ha
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.default.i, %trace_virtio_snd_handle_chmap_info.exit.i, %virtio_snd_handle_pcm_release.exit.i, %virtio_snd_handle_pcm_prepare.exit.i, %virtio_snd_handle_pcm_set_params.exit.i, %sw.bb25.i, %sw.bb24.i, %virtio_snd_handle_pcm_info.exit.i, %do.end20.i
-  %124 = load ptr, ptr %5, align 8
-  %in_sg.i = getelementptr inbounds i8, ptr %124, i64 40
-  %125 = load ptr, ptr %in_sg.i, align 8
-  %in_num.i = getelementptr inbounds i8, ptr %124, i64 16
-  %126 = load i32, ptr %in_num.i, align 8
+  %122 = load ptr, ptr %5, align 8
+  %in_sg.i = getelementptr inbounds i8, ptr %122, i64 40
+  %123 = load ptr, ptr %in_sg.i, align 8
+  %in_num.i = getelementptr inbounds i8, ptr %122, i64 16
+  %124 = load i32, ptr %in_num.i, align 8
   %resp49.i = getelementptr inbounds i8, ptr %5, i64 20
-  %tobool.i135.not.i = icmp eq i32 %126, 0
-  br i1 %tobool.i135.not.i, label %if.else.i136.i, label %land.lhs.true1.i139.i
+  %tobool.i131.not.i = icmp eq i32 %124, 0
+  br i1 %tobool.i131.not.i, label %if.else.i132.i, label %land.lhs.true1.i135.i
 
-land.lhs.true1.i139.i:                            ; preds = %sw.epilog.i
-  %iov_len.i140.i = getelementptr inbounds i8, ptr %125, i64 8
-  %127 = load i64, ptr %iov_len.i140.i, align 8
-  %cmp5.not.i141.i = icmp ult i64 %127, 4
-  br i1 %cmp5.not.i141.i, label %if.else.i136.i, label %if.then.i142.i
+land.lhs.true1.i135.i:                            ; preds = %sw.epilog.i
+  %iov_len.i136.i = getelementptr inbounds i8, ptr %123, i64 8
+  %125 = load i64, ptr %iov_len.i136.i, align 8
+  %cmp5.not.i137.i = icmp ult i64 %125, 4
+  br i1 %cmp5.not.i137.i, label %if.else.i132.i, label %if.then.i138.i
 
-if.then.i142.i:                                   ; preds = %land.lhs.true1.i139.i
-  %128 = load ptr, ptr %125, align 8
-  %129 = load i32, ptr %resp49.i, align 1
-  store i32 %129, ptr %128, align 1
+if.then.i138.i:                                   ; preds = %land.lhs.true1.i135.i
+  %126 = load ptr, ptr %123, align 8
+  %127 = load i32, ptr %resp49.i, align 1
+  store i32 %127, ptr %126, align 1
   br label %iov_from_buf.exit.i
 
-if.else.i136.i:                                   ; preds = %land.lhs.true1.i139.i, %sw.epilog.i
-  %call.i137.i = call i64 @iov_from_buf_full(ptr noundef %125, i32 noundef %126, i64 noundef 0, ptr noundef nonnull %resp49.i, i64 noundef 4) #11
+if.else.i132.i:                                   ; preds = %land.lhs.true1.i135.i, %sw.epilog.i
+  %call.i133.i = call i64 @iov_from_buf_full(ptr noundef %123, i32 noundef %124, i64 noundef 0, ptr noundef nonnull %resp49.i, i64 noundef 4) #11
   br label %iov_from_buf.exit.i
 
-iov_from_buf.exit.i:                              ; preds = %if.else.i136.i, %if.then.i142.i
+iov_from_buf.exit.i:                              ; preds = %if.else.i132.i, %if.then.i138.i
   %vq.i = getelementptr inbounds i8, ptr %5, i64 8
+  %128 = load ptr, ptr %vq.i, align 8
+  %129 = load ptr, ptr %5, align 8
+  call void @virtqueue_push(ptr noundef %128, ptr noundef %129, i32 noundef 4) #11
+  %call.i139.i = call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
   %130 = load ptr, ptr %vq.i, align 8
-  %131 = load ptr, ptr %5, align 8
-  call void @virtqueue_push(ptr noundef %130, ptr noundef %131, i32 noundef 4) #11
-  %call.i143.i = call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #11
-  %132 = load ptr, ptr %vq.i, align 8
-  call void @virtio_notify(ptr noundef %call.i143.i, ptr noundef %132) #11
+  call void @virtio_notify(ptr noundef %call.i139.i, ptr noundef %130) #11
   br label %process_cmd.exit
 
 process_cmd.exit:                                 ; preds = %do.body.i, %if.then4.i, %iov_from_buf.exit.i
   %next = getelementptr inbounds i8, ptr %5, i64 24
-  %133 = load ptr, ptr %next, align 8
-  %cmp21.not = icmp eq ptr %133, null
+  %131 = load ptr, ptr %next, align 8
+  %cmp21.not = icmp eq ptr %131, null
   %tql_prev29 = getelementptr inbounds i8, ptr %5, i64 32
-  %134 = load ptr, ptr %tql_prev29, align 8
-  %tql_prev27 = getelementptr inbounds i8, ptr %133, i64 32
+  %132 = load ptr, ptr %tql_prev29, align 8
+  %tql_prev27 = getelementptr inbounds i8, ptr %131, i64 32
   %tql_prev31.sink = select i1 %cmp21.not, ptr %tql_prev31, ptr %tql_prev27
-  store ptr %134, ptr %tql_prev31.sink, align 8
-  %135 = load ptr, ptr %next, align 8
-  store ptr %135, ptr %134, align 8
+  store ptr %132, ptr %tql_prev31.sink, align 8
+  %133 = load ptr, ptr %next, align 8
+  store ptr %133, ptr %132, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next, i8 0, i64 16, i1 false)
-  %136 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %136) #11
+  %134 = load ptr, ptr %5, align 8
+  call void @g_free(ptr noundef %134) #11
   call void @g_free(ptr noundef nonnull %5) #11
-  %137 = load ptr, ptr %cmdq, align 8
-  %cmp.not = icmp eq ptr %137, null
+  %135 = load ptr, ptr %cmdq, align 8
+  %cmp.not = icmp eq ptr %135, null
   br i1 %cmp.not, label %qemu_lockable_auto_unlock.exit, label %while.body18, !llvm.loop !15
 
 qemu_lockable_auto_unlock.exit:                   ; preds = %process_cmd.exit, %if.end

@@ -2152,10 +2152,8 @@ cond.false17:                                     ; preds = %invoke.cont10
 
 invoke.cont21:                                    ; preds = %invoke.cont10
   %inc = add nuw i64 %index.0180, 1
-  %bf.clear.i26 = and i16 %bf.load.i, 1023
-  %cmp23 = icmp ne i16 %bf.clear.i26, 19
-  %brmerge = or i1 %cmp12.not, %cmp23
-  br i1 %brmerge, label %if.else85, label %if.then
+  %brmerge.not = icmp eq i16 %bf.clear.i, 19
+  br i1 %brmerge.not, label %if.then, label %if.else85
 
 if.then:                                          ; preds = %invoke.cont21
   %4 = load ptr, ptr %toProcess, align 8

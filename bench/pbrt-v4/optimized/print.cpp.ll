@@ -271,34 +271,27 @@ invoke.cont:                                      ; preds = %while.body10
   %6 = load ptr, ptr %fmt_ptr, align 8
   %incdec.ptr12 = getelementptr inbounds i8, ptr %6, i64 1
   store ptr %incdec.ptr12, ptr %fmt_ptr, align 8
-  switch i8 %5, label %while.cond8 [
-    i8 120, label %nrvo.skipdtor
-    i8 117, label %nrvo.skipdtor
-    i8 115, label %nrvo.skipdtor
-    i8 112, label %nrvo.skipdtor
-    i8 111, label %nrvo.skipdtor
-    i8 105, label %nrvo.skipdtor
-    i8 103, label %nrvo.skipdtor
-    i8 102, label %nrvo.skipdtor
-    i8 101, label %nrvo.skipdtor
-    i8 100, label %nrvo.skipdtor
-    i8 99, label %nrvo.skipdtor
-    i8 97, label %nrvo.skipdtor
-    i8 83, label %nrvo.skipdtor
-    i8 71, label %nrvo.skipdtor
-    i8 70, label %nrvo.skipdtor
-    i8 69, label %nrvo.skipdtor
-    i8 67, label %nrvo.skipdtor
-    i8 65, label %nrvo.skipdtor
-  ]
+  %7 = and i8 %5, -33
+  %8 = add i8 %7, -69
+  %9 = icmp ult i8 %8, 3
+  %10 = and i8 %5, -35
+  %11 = insertelement <8 x i8> poison, i8 %5, i64 0
+  %12 = insertelement <8 x i8> %11, i8 %10, i64 5
+  %13 = insertelement <8 x i8> %12, i8 %7, i64 6
+  %14 = shufflevector <8 x i8> %13, <8 x i8> poison, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 5, i32 6, i32 0>
+  %15 = icmp eq <8 x i8> %14, <i8 105, i8 100, i8 111, i8 117, i8 120, i8 65, i8 83, i8 112>
+  %16 = bitcast <8 x i1> %15 to i8
+  %17 = icmp ne i8 %16, 0
+  %op.rdx = or i1 %17, %9
+  br i1 %op.rdx, label %nrvo.skipdtor, label %while.cond8, !llvm.loop !8
 
 lpad:                                             ; preds = %while.body10
-  %7 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #4
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %18
 
-nrvo.skipdtor:                                    ; preds = %while.cond8, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont, %invoke.cont
+nrvo.skipdtor:                                    ; preds = %while.cond8, %invoke.cont
   ret void
 }
 
@@ -327,3 +320,4 @@ attributes #5 = { noreturn }
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

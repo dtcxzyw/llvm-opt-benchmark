@@ -1191,9 +1191,12 @@ trace_vga_vbe_write.exit:                         ; preds = %if.then, %land.lhs.
   ]
 
 sw.bb:                                            ; preds = %trace_vga_vbe_write.exit
-  %val.off = add i32 %val, -45248
-  %switch = icmp ult i32 %val.off, 6
-  br i1 %switch, label %if.then22, label %if.end73
+  %9 = and i32 %val, -4
+  %or.cond2 = icmp eq i32 %9, 45248
+  %10 = and i32 %val, -2
+  %11 = icmp eq i32 %10, 45252
+  %or.cond4 = or i1 %or.cond2, %11
+  br i1 %or.cond4, label %if.then22, label %if.end73
 
 if.then22:                                        ; preds = %sw.bb
   %conv23 = trunc i32 %val to i16
@@ -1208,46 +1211,46 @@ sw.bb25:                                          ; preds = %trace_vga_vbe_write
   %arrayidx30 = getelementptr [10 x i16], ptr %vbe_regs27, i64 0, i64 %idxprom29
   store i16 %conv26, ptr %arrayidx30, align 2
   tail call fastcc void @vbe_fixup_regs(ptr noundef nonnull %opaque)
-  %9 = getelementptr i8, ptr %opaque, i64 2594
-  %s.val.i = load i16, ptr %9, align 2
-  %10 = and i16 %s.val.i, 1
-  %tobool.i.not.i = icmp eq i16 %10, 0
+  %12 = getelementptr i8, ptr %opaque, i64 2594
+  %s.val.i = load i16, ptr %12, align 2
+  %13 = and i16 %s.val.i, 1
+  %tobool.i.not.i = icmp eq i16 %13, 0
   br i1 %tobool.i.not.i, label %if.end73, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb25
   %arrayidx.i = getelementptr i8, ptr %opaque, i64 1112
-  %11 = load i8, ptr %arrayidx.i, align 2
-  %12 = and i8 %11, -14
-  %13 = or disjoint i8 %12, 5
-  store i8 %13, ptr %arrayidx.i, align 2
+  %14 = load i8, ptr %arrayidx.i, align 2
+  %15 = and i8 %14, -14
+  %16 = or disjoint i8 %15, 5
+  store i8 %16, ptr %arrayidx.i, align 2
   %arrayidx5.i = getelementptr i8, ptr %opaque, i64 1412
-  %14 = load i8, ptr %arrayidx5.i, align 1
-  %15 = or i8 %14, 3
-  store i8 %15, ptr %arrayidx5.i, align 1
+  %17 = load i8, ptr %arrayidx5.i, align 1
+  %18 = or i8 %17, 3
+  store i8 %18, ptr %arrayidx5.i, align 1
   %vbe_line_offset.i = getelementptr inbounds i8, ptr %opaque, i64 2612
-  %16 = load i32, ptr %vbe_line_offset.i, align 4
-  %shr.i = lshr i32 %16, 3
+  %19 = load i32, ptr %vbe_line_offset.i, align 4
+  %shr.i = lshr i32 %19, 3
   %conv9.i = trunc i32 %shr.i to i8
   %arrayidx11.i = getelementptr i8, ptr %opaque, i64 1408
   store i8 %conv9.i, ptr %arrayidx11.i, align 1
   %arrayidx12.i = getelementptr i8, ptr %opaque, i64 2588
-  %17 = load i16, ptr %arrayidx12.i, align 2
-  %18 = lshr i16 %17, 3
-  %shr14.i = trunc i16 %18 to i8
+  %20 = load i16, ptr %arrayidx12.i, align 2
+  %21 = lshr i16 %20, 3
+  %shr14.i = trunc i16 %21 to i8
   %sub.i = add i8 %shr14.i, -1
   %arrayidx17.i = getelementptr i8, ptr %opaque, i64 1390
   store i8 %sub.i, ptr %arrayidx17.i, align 1
   %arrayidx19.i = getelementptr i8, ptr %opaque, i64 2590
-  %19 = load i16, ptr %arrayidx19.i, align 2
-  %conv20.i = zext i16 %19 to i32
+  %22 = load i16, ptr %arrayidx19.i, align 2
+  %conv20.i = zext i16 %22 to i32
   %sub21.i = add nsw i32 %conv20.i, -1
   %conv22.i = trunc i32 %sub21.i to i8
   %arrayidx24.i = getelementptr i8, ptr %opaque, i64 1407
   store i8 %conv22.i, ptr %arrayidx24.i, align 1
   %arrayidx26.i = getelementptr i8, ptr %opaque, i64 1396
-  %20 = load i8, ptr %arrayidx26.i, align 1
-  %21 = and i8 %20, -83
-  %and28.i = zext i8 %21 to i32
+  %23 = load i8, ptr %arrayidx26.i, align 1
+  %24 = and i8 %23, -83
+  %and28.i = zext i8 %24 to i32
   %shr29.i = lshr i32 %sub21.i, 7
   %and30.i = and i32 %shr29.i, 2
   %or31.i = or disjoint i32 %and30.i, %and28.i
@@ -1260,46 +1263,46 @@ if.end.i:                                         ; preds = %sw.bb25
   %conv44.i = or disjoint i8 %conv35.i, 16
   store i8 %conv44.i, ptr %arrayidx26.i, align 1
   %arrayidx46.i = getelementptr i8, ptr %opaque, i64 1398
-  %22 = load i8, ptr %arrayidx46.i, align 1
+  %25 = load i8, ptr %arrayidx46.i, align 1
   %arrayidx51.i = getelementptr i8, ptr %opaque, i64 2592
-  %23 = load i16, ptr %arrayidx51.i, align 2
-  %cmp.i = icmp eq i16 %23, 4
+  %26 = load i16, ptr %arrayidx51.i, align 2
+  %cmp.i = icmp eq i16 %26, 4
   br i1 %cmp.i, label %if.then54.i, label %if.else.i
 
 if.then54.i:                                      ; preds = %if.end.i
   %arrayidx55.i = getelementptr i8, ptr %opaque, i64 850
-  %24 = load i8, ptr %arrayidx55.i, align 1
-  %25 = and i8 %24, -9
-  store i8 %25, ptr %arrayidx55.i, align 1
+  %27 = load i8, ptr %arrayidx55.i, align 1
+  %28 = and i8 %27, -9
+  store i8 %28, ptr %arrayidx55.i, align 1
   br label %if.end69.i
 
 if.else.i:                                        ; preds = %if.end.i
   %arrayidx60.i = getelementptr i8, ptr %opaque, i64 853
-  %26 = load i8, ptr %arrayidx60.i, align 1
-  %27 = or i8 %26, 8
-  store i8 %27, ptr %arrayidx60.i, align 1
+  %29 = load i8, ptr %arrayidx60.i, align 1
+  %30 = or i8 %29, 8
+  store i8 %30, ptr %arrayidx60.i, align 1
   %arrayidx65.i = getelementptr i8, ptr %opaque, i64 851
-  %28 = load i8, ptr %arrayidx65.i, align 1
-  %29 = or i8 %28, 15
-  store i8 %29, ptr %arrayidx65.i, align 1
+  %31 = load i8, ptr %arrayidx65.i, align 1
+  %32 = or i8 %31, 15
+  store i8 %32, ptr %arrayidx65.i, align 1
   br label %if.end69.i
 
 if.end69.i:                                       ; preds = %if.else.i, %if.then54.i
   %shift_control.0.i = phi i8 [ 0, %if.then54.i ], [ 64, %if.else.i ]
   %arrayidx71.i = getelementptr i8, ptr %opaque, i64 1111
-  %30 = load i8, ptr %arrayidx71.i, align 1
-  %31 = and i8 %30, -97
-  %or74.i = or disjoint i8 %31, %shift_control.0.i
+  %33 = load i8, ptr %arrayidx71.i, align 1
+  %34 = and i8 %33, -97
+  %or74.i = or disjoint i8 %34, %shift_control.0.i
   store i8 %or74.i, ptr %arrayidx71.i, align 1
-  %32 = and i8 %22, 32
-  %33 = or disjoint i8 %32, 64
-  store i8 %33, ptr %arrayidx46.i, align 1
+  %35 = and i8 %25, 32
+  %36 = or disjoint i8 %35, 64
+  store i8 %36, ptr %arrayidx46.i, align 1
   br label %if.end73
 
 sw.bb31:                                          ; preds = %trace_vga_vbe_write.exit
   %vbe_bank_mask = getelementptr inbounds i8, ptr %opaque, i64 2616
-  %34 = load i32, ptr %vbe_bank_mask, align 8
-  %and = and i32 %34, %val
+  %37 = load i32, ptr %vbe_bank_mask, align 8
+  %and = and i32 %37, %val
   %conv32 = trunc i32 %and to i16
   %arrayidx36 = getelementptr i8, ptr %opaque, i64 2596
   store i16 %conv32, ptr %arrayidx36, align 2
@@ -1316,9 +1319,9 @@ sw.bb37:                                          ; preds = %trace_vga_vbe_write
 
 land.lhs.true:                                    ; preds = %sw.bb37
   %arrayidx40 = getelementptr i8, ptr %opaque, i64 2594
-  %35 = load i16, ptr %arrayidx40, align 2
-  %36 = and i16 %35, 1
-  %tobool43.not = icmp eq i16 %36, 0
+  %38 = load i16, ptr %arrayidx40, align 2
+  %39 = and i16 %38, 1
+  %tobool43.not = icmp eq i16 %39, 0
   br i1 %tobool43.not, label %if.then44, label %if.else
 
 if.then44:                                        ; preds = %land.lhs.true
@@ -1328,8 +1331,8 @@ if.then44:                                        ; preds = %land.lhs.true
   store i16 0, ptr %arrayidx48, align 2
   %arrayidx50 = getelementptr i8, ptr %opaque, i64 2604
   store i16 0, ptr %arrayidx50, align 2
-  %37 = or disjoint i16 %35, 1
-  store i16 %37, ptr %arrayidx40, align 2
+  %40 = or disjoint i16 %38, 1
+  store i16 %40, ptr %arrayidx40, align 2
   tail call fastcc void @vbe_fixup_regs(ptr noundef nonnull %opaque)
   tail call fastcc void @vbe_update_vgaregs(ptr noundef nonnull %opaque)
   %and55 = and i32 %val, 128
@@ -1338,15 +1341,15 @@ if.then44:                                        ; preds = %land.lhs.true
 
 if.then57:                                        ; preds = %if.then44
   %vram_ptr = getelementptr inbounds i8, ptr %opaque, i64 8
-  %38 = load ptr, ptr %vram_ptr, align 8
+  %41 = load ptr, ptr %vram_ptr, align 8
   %arrayidx59 = getelementptr i8, ptr %opaque, i64 2590
-  %39 = load i16, ptr %arrayidx59, align 2
-  %conv60 = zext i16 %39 to i32
+  %42 = load i16, ptr %arrayidx59, align 2
+  %conv60 = zext i16 %42 to i32
   %vbe_line_offset = getelementptr inbounds i8, ptr %opaque, i64 2612
-  %40 = load i32, ptr %vbe_line_offset, align 4
-  %mul = mul i32 %40, %conv60
+  %43 = load i32, ptr %vbe_line_offset, align 4
+  %mul = mul i32 %43, %conv60
   %conv61 = zext i32 %mul to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %38, i8 0, i64 %conv61, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %41, i8 0, i64 %conv61, i1 false)
   br label %if.end64
 
 if.else:                                          ; preds = %land.lhs.true, %sw.bb37
@@ -1361,14 +1364,14 @@ if.end64:                                         ; preds = %if.then44, %if.then
   store i32 %and65.lobit, ptr %dac_8bit, align 8
   %conv68 = trunc i32 %val to i16
   %vbe_regs69 = getelementptr inbounds i8, ptr %opaque, i64 2586
-  %41 = load i16, ptr %vbe_index, align 8
-  %idxprom71 = zext i16 %41 to i64
+  %44 = load i16, ptr %vbe_index, align 8
+  %idxprom71 = zext i16 %44 to i64
   %arrayidx72 = getelementptr [10 x i16], ptr %vbe_regs69, i64 0, i64 %idxprom71
   store i16 %conv68, ptr %arrayidx72, align 2
   tail call fastcc void @vga_update_memory_access(ptr noundef nonnull %opaque)
   br label %if.end73
 
-if.end73:                                         ; preds = %if.end69.i, %sw.bb25, %sw.bb, %sw.bb31, %if.end64, %if.then22, %trace_vga_vbe_write.exit, %entry
+if.end73:                                         ; preds = %if.end69.i, %sw.bb25, %sw.bb31, %if.end64, %sw.bb, %if.then22, %trace_vga_vbe_write.exit, %entry
   ret void
 }
 

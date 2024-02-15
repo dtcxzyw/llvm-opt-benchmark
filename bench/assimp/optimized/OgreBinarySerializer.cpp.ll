@@ -1317,7 +1317,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
   unreachable
 
 common.resume:                                    ; preds = %lpad.i.i, %lpad.i.i.i60, %lpad.i.i.i51, %lpad, %lpad.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i ], [ %19, %lpad ], [ %22, %lpad.i.i.i51 ], [ %26, %lpad.i.i.i60 ], [ %33, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %3, %lpad.i.i.i ], [ %21, %lpad ], [ %24, %lpad.i.i.i51 ], [ %28, %lpad.i.i.i60 ], [ %35, %lpad.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i.i
@@ -1373,31 +1373,26 @@ land.rhs.lr.ph:                                   ; preds = %if.then
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end
-  %13 = phi ptr [ %12, %land.rhs.lr.ph ], [ %30, %if.end ]
+  %13 = phi ptr [ %12, %land.rhs.lr.ph ], [ %32, %if.end ]
   %mCurrent.i.i39101 = phi ptr [ %mCurrent.i.i3994, %land.rhs.lr.ph ], [ %mCurrent.i.i39, %if.end ]
-  %14 = phi ptr [ %10, %land.rhs.lr.ph ], [ %31, %if.end ]
+  %14 = phi ptr [ %10, %land.rhs.lr.ph ], [ %33, %if.end ]
   %id.0100 = phi i16 [ %call6, %land.rhs.lr.ph ], [ %id.1, %if.end ]
-  %15 = xor i16 %id.0100, -32768
-  %16 = call i16 @llvm.fshl.i16(i16 %15, i16 %15, i16 4)
-  switch i16 %16, label %if.then54 [
-    i16 6, label %while.body
-    i16 5, label %while.body
-    i16 4, label %while.body
-    i16 3, label %while.body
-    i16 2, label %while.body
-    i16 1, label %while.body
-    i16 0, label %while.body
-    i16 15, label %while.body
-    i16 14, label %while.body
-    i16 13, label %while.body
-    i16 12, label %while.body
-  ]
+  %15 = and i16 %id.0100, -12289
+  %or.cond2 = icmp eq i16 %15, 16384
+  %16 = icmp eq i16 %15, -32768
+  %or.cond6 = or i1 %or.cond2, %16
+  %17 = and i16 %id.0100, -4097
+  %18 = icmp eq i16 %17, -16384
+  %or.cond8 = or i1 %or.cond6, %18
+  %cmp35 = icmp eq i16 %id.0100, -8192
+  %or.cond9 = or i1 %or.cond8, %cmp35
+  br i1 %or.cond9, label %while.body, label %if.then54
 
-while.body:                                       ; preds = %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs, %land.rhs
+while.body:                                       ; preds = %land.rhs
   %conv = zext i16 %id.0100 to i32
-  %17 = add nsw i32 %conv, -16384
-  %18 = call i32 @llvm.fshl.i32(i32 %17, i32 %17, i32 20)
-  switch i32 %18, label %sw.epilog [
+  %19 = add nsw i32 %conv, -16384
+  %20 = call i32 @llvm.fshl.i32(i32 %19, i32 %19, i32 20)
+  switch i32 %20, label %sw.epilog [
     i32 1, label %sw.bb
     i32 0, label %sw.bb39
     i32 2, label %sw.bb40
@@ -1422,7 +1417,7 @@ invoke.cont:                                      ; preds = %sw.bb
   br label %sw.epilog
 
 lpad:                                             ; preds = %sw.bb
-  %19 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %call37) #22
   br label %common.resume
@@ -1440,8 +1435,8 @@ sw.bb40:                                          ; preds = %while.body
   br label %sw.epilog
 
 sw.bb41:                                          ; preds = %while.body
-  %20 = load ptr, ptr %sharedVertexData42, align 8
-  call void @_ZN6Assimp4Ogre20OgreBinarySerializer18ReadBoneAssignmentEPNS0_10VertexDataE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %20)
+  %22 = load ptr, ptr %sharedVertexData42, align 8
+  call void @_ZN6Assimp4Ogre20OgreBinarySerializer18ReadBoneAssignmentEPNS0_10VertexDataE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef %22)
   br label %sw.epilog
 
 sw.bb43:                                          ; preds = %while.body
@@ -1452,8 +1447,8 @@ sw.bb44:                                          ; preds = %while.body
   %add.ptr.i.i.i46 = getelementptr inbounds i8, ptr %13, i64 28
   store ptr %add.ptr.i.i.i46, ptr %mCurrent.i.i39101, align 8
   %mLimit.i.i.i47 = getelementptr inbounds i8, ptr %14, i64 40
-  %21 = load ptr, ptr %mLimit.i.i.i47, align 8
-  %cmp.i.i.i48 = icmp ugt ptr %add.ptr.i.i.i46, %21
+  %23 = load ptr, ptr %mLimit.i.i.i47, align 8
+  %cmp.i.i.i48 = icmp ugt ptr %add.ptr.i.i.i46, %23
   br i1 %cmp.i.i.i48, label %if.then.i.i.i49, label %sw.epilog
 
 if.then.i.i.i49:                                  ; preds = %sw.bb44
@@ -1466,7 +1461,7 @@ invoke.cont.i.i.i52:                              ; preds = %if.then.i.i.i49
   unreachable
 
 lpad.i.i.i51:                                     ; preds = %if.then.i.i.i49
-  %22 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception.i.i.i50) #19
   br label %common.resume
@@ -1488,14 +1483,14 @@ sw.bb48:                                          ; preds = %while.body
   br label %sw.epilog
 
 sw.bb49:                                          ; preds = %while.body
-  %23 = load i32, ptr %this, align 8
-  %conv.i = zext i32 %23 to i64
-  %24 = getelementptr i8, ptr %13, i64 %conv.i
-  %add.ptr.i.i.i55 = getelementptr i8, ptr %24, i64 -6
+  %25 = load i32, ptr %this, align 8
+  %conv.i = zext i32 %25 to i64
+  %26 = getelementptr i8, ptr %13, i64 %conv.i
+  %add.ptr.i.i.i55 = getelementptr i8, ptr %26, i64 -6
   store ptr %add.ptr.i.i.i55, ptr %mCurrent.i.i39101, align 8
   %mLimit.i.i.i56 = getelementptr inbounds i8, ptr %14, i64 40
-  %25 = load ptr, ptr %mLimit.i.i.i56, align 8
-  %cmp.i.i.i57 = icmp ugt ptr %add.ptr.i.i.i55, %25
+  %27 = load ptr, ptr %mLimit.i.i.i56, align 8
+  %cmp.i.i.i57 = icmp ugt ptr %add.ptr.i.i.i55, %27
   br i1 %cmp.i.i.i57, label %if.then.i.i.i58, label %sw.epilog
 
 if.then.i.i.i58:                                  ; preds = %sw.bb49
@@ -1508,19 +1503,19 @@ invoke.cont.i.i.i61:                              ; preds = %if.then.i.i.i58
   unreachable
 
 lpad.i.i.i60:                                     ; preds = %if.then.i.i.i58
-  %26 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception.i.i.i59) #19
   br label %common.resume
 
 sw.epilog:                                        ; preds = %sw.bb49, %sw.bb44, %sw.bb48, %sw.bb47, %sw.bb46, %sw.bb45, %sw.bb43, %sw.bb41, %sw.bb40, %sw.bb39, %invoke.cont, %while.body
-  %27 = load ptr, ptr %m_reader.i, align 8
-  %mEnd.i.i63 = getelementptr inbounds i8, ptr %27, i64 32
-  %28 = load ptr, ptr %mEnd.i.i63, align 8
-  %mCurrent.i.i64 = getelementptr inbounds i8, ptr %27, i64 24
-  %29 = load ptr, ptr %mCurrent.i.i64, align 8
-  %sub.ptr.lhs.cast.i.i65 = ptrtoint ptr %28 to i64
-  %sub.ptr.rhs.cast.i.i66 = ptrtoint ptr %29 to i64
+  %29 = load ptr, ptr %m_reader.i, align 8
+  %mEnd.i.i63 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = load ptr, ptr %mEnd.i.i63, align 8
+  %mCurrent.i.i64 = getelementptr inbounds i8, ptr %29, i64 24
+  %31 = load ptr, ptr %mCurrent.i.i64, align 8
+  %sub.ptr.lhs.cast.i.i65 = ptrtoint ptr %30 to i64
+  %sub.ptr.rhs.cast.i.i66 = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i.i67 = sub i64 %sub.ptr.lhs.cast.i.i65, %sub.ptr.rhs.cast.i.i66
   %conv2.i.i68 = and i64 %sub.ptr.sub.i.i67, 4294967295
   %cmp.i69 = icmp eq i64 %conv2.i.i68, 0
@@ -1540,10 +1535,10 @@ if.then51:                                        ; preds = %sw.epilog
 
 if.end:                                           ; preds = %if.then51, %sw.epilog
   %sub.ptr.sub.i.i42.pre-phi = phi i64 [ %.pre119, %if.then51 ], [ %sub.ptr.sub.i.i67, %sw.epilog ]
-  %30 = phi ptr [ %.pre116, %if.then51 ], [ %29, %sw.epilog ]
-  %31 = phi ptr [ %.pre, %if.then51 ], [ %27, %sw.epilog ]
+  %32 = phi ptr [ %.pre116, %if.then51 ], [ %31, %sw.epilog ]
+  %33 = phi ptr [ %.pre, %if.then51 ], [ %29, %sw.epilog ]
   %id.1 = phi i16 [ %call52, %if.then51 ], [ %id.0100, %sw.epilog ]
-  %mCurrent.i.i39 = getelementptr inbounds i8, ptr %31, i64 24
+  %mCurrent.i.i39 = getelementptr inbounds i8, ptr %33, i64 24
   %conv2.i.i43 = and i64 %sub.ptr.sub.i.i42.pre-phi, 4294967295
   %cmp.i44 = icmp eq i64 %conv2.i.i43, 0
   br i1 %cmp.i44, label %if.end56, label %land.rhs, !llvm.loop !7
@@ -1552,8 +1547,8 @@ if.then54:                                        ; preds = %land.rhs
   %add.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 -6
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i39101, align 8
   %mLimit.i.i = getelementptr inbounds i8, ptr %14, i64 40
-  %32 = load ptr, ptr %mLimit.i.i, align 8
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %32
+  %34 = load ptr, ptr %mLimit.i.i, align 8
+  %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %34
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end56
 
 if.then.i.i:                                      ; preds = %if.then54
@@ -1566,15 +1561,15 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   unreachable
 
 lpad.i.i:                                         ; preds = %if.then.i.i
-  %33 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception.i.i) #19
   br label %common.resume
 
 if.end56:                                         ; preds = %if.end, %if.then, %if.then54, %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIbEET_v.exit
   %sharedVertexData57 = getelementptr inbounds i8, ptr %mesh, i64 48
-  %34 = load ptr, ptr %sharedVertexData57, align 8
-  call void @_ZNK6Assimp4Ogre20OgreBinarySerializer20NormalizeBoneWeightsEPNS0_10VertexDataE(ptr nonnull align 8 poison, ptr noundef %34)
+  %36 = load ptr, ptr %sharedVertexData57, align 8
+  call void @_ZNK6Assimp4Ogre20OgreBinarySerializer20NormalizeBoneWeightsEPNS0_10VertexDataE(ptr nonnull align 8 poison, ptr noundef %36)
   ret void
 }
 
@@ -15497,9 +15492,6 @@ entry:
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.fshl.i16(i16, i16, i16) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
