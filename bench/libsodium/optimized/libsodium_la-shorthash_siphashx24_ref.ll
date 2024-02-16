@@ -235,7 +235,7 @@ sw.epilog:                                        ; preds = %sw.bb68, %for.end
   store i64 %xor174, ptr %out, align 1
   %xor175 = xor i64 %xor169, 221
   %add177 = add i64 %xor175, %add164
-  %or.i450 = tail call i64 @llvm.fshl.i64(i64 %xor175, i64 %xor169, i64 13)
+  %or.i450 = tail call i64 @llvm.fshl.i64(i64 %xor175, i64 %xor175, i64 13)
   %xor179 = xor i64 %or.i450, %add177
   %or.i453 = tail call i64 @llvm.fshl.i64(i64 %add177, i64 %add177, i64 32)
   %add181 = add i64 %or.i447, %xor166
