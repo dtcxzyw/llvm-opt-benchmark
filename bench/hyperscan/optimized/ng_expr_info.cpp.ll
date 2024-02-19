@@ -780,7 +780,8 @@ _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit: ; preds = %if.end7
   %2 = load ptr, ptr %reports, align 8, !noalias !27
   %m_size.i.i.i = getelementptr inbounds i8, ptr %v.coerce0, i64 56
   %3 = load i64, ptr %m_size.i.i.i, align 8, !noalias !28
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.i.idx = shl nsw i64 %3, 2
+  %add.ptr.i.i.i.ptr = getelementptr inbounds i8, ptr %2, i64 %add.ptr.i.i.i.idx
   %cmp.i.i.i.i.not23 = icmp eq i64 %3, 0
   br i1 %cmp.i.i.i.i.not23, label %for.end, label %for.body.lr.ph
 
@@ -876,7 +877,7 @@ do.end:                                           ; preds = %if.then44, %if.end3
   %call55 = call i64 @_ZN3ue216unionDepthMinMaxERKNS_11DepthMinMaxES2_(ptr noundef nonnull align 4 dereferenceable(8) %info, ptr noundef nonnull align 4 dereferenceable(8) %rd)
   store i64 %call55, ptr %info, align 4
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.024, i64 4
-  %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i
+  %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.ptr
   br i1 %cmp.i.i.i.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %do.end, %entry, %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit, %if.then3

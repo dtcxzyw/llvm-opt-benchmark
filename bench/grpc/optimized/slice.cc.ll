@@ -1431,10 +1431,9 @@ if.then45:                                        ; preds = %if.end43
   br label %return
 
 if.end48:                                         ; preds = %if.end43
-  %add.ptr = getelementptr inbounds i8, ptr %cond11, i64 %cond
-  %idx.neg = sub i64 0, %cond22
-  %add.ptr49 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %cmp50.not22 = icmp ugt ptr %cond11, %add.ptr49
+  %add.ptr.add = sub i64 %cond, %cond22
+  %add.ptr49.ptr = getelementptr inbounds i8, ptr %cond11, i64 %add.ptr.add
+  %cmp50.not22 = icmp slt i64 %add.ptr.add, 0
   br i1 %cmp50.not22, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end48, %for.inc
@@ -1452,7 +1451,7 @@ if.then53:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %cur.023, i64 1
-  %cmp50.not = icmp ugt ptr %incdec.ptr, %add.ptr49
+  %cmp50.not = icmp ugt ptr %incdec.ptr, %add.ptr49.ptr
   br i1 %cmp50.not, label %return, label %for.body, !llvm.loop !69
 
 return:                                           ; preds = %for.inc, %if.end48, %if.end27.i, %if.end.i, %if.then39, %entry, %if.then53, %if.then45

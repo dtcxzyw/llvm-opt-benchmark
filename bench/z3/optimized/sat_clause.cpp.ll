@@ -573,7 +573,8 @@ _ZN6vectorIPN13sat_allocator5chunkELb0EjE3endEv.exit.i: ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i.i, align 4
   %2 = zext i32 %1 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %0, i64 %2
+  %add.ptr.i.idx.i = shl nuw nsw i64 %2, 3
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx.i
   %cmp.not11.i = icmp eq i32 %1, 0
   br i1 %cmp.not11.i, label %if.then.i.i, label %for.body.i
 
@@ -589,7 +590,7 @@ if.end.i.i:                                       ; preds = %for.body.i
 
 _Z7deallocIN13sat_allocator5chunkEEvPT_.exit.i:   ; preds = %if.end.i.i, %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.012.i, i64 8
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr.i
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %_Z7deallocIN13sat_allocator5chunkEEvPT_.exit.i
@@ -1218,7 +1219,8 @@ _ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit:      ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %2
+  %add.ptr.i.idx = shl nuw nsw i64 %2, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i32 %1, 0
   br i1 %cmp.not5, label %for.end, label %for.body
 
@@ -1228,7 +1230,7 @@ for.body:                                         ; preds = %_ZNK6vectorIPN3sat6
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3satlsERSoRKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 4 dereferenceable(20) %3)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.8)
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.06, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry, %_ZNK6vectorIPN3sat6clauseELb0EjE3endEv.exit

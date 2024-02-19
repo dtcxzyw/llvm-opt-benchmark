@@ -2091,19 +2091,20 @@ delete.notnull4:                                  ; preds = %invoke.cont
   br i1 %arraydestroy.isempty, label %arraydestroy.done6, label %arraydestroy.body.preheader
 
 arraydestroy.body.preheader:                      ; preds = %delete.notnull4
-  %delete.end5 = getelementptr inbounds %"struct.icu_75::LSR", ptr %8, i64 %10
+  %delete.end5.idx = mul nsw i64 %10, 48
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %_ZN6icu_753LSRD2Ev.exit
-  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %_ZN6icu_753LSRD2Ev.exit ], [ %delete.end5, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -48
-  %owned.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -24
+  %arraydestroy.elementPast.idx = phi i64 [ %arraydestroy.elementPast.add, %_ZN6icu_753LSRD2Ev.exit ], [ %delete.end5.idx, %arraydestroy.body.preheader ]
+  %arraydestroy.elementPast.add = add nsw i64 %arraydestroy.elementPast.idx, -48
+  %arraydestroy.element.ptr = getelementptr inbounds i8, ptr %8, i64 %arraydestroy.elementPast.add
+  %owned.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr, i64 24
   %11 = load ptr, ptr %owned.i, align 8
   %cmp.not.i = icmp eq ptr %11, null
   br i1 %cmp.not.i, label %_ZN6icu_753LSRD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %arraydestroy.body
-  invoke void @_ZN6icu_753LSR11deleteOwnedEv(ptr noundef nonnull align 8 dereferenceable(48) %arraydestroy.element)
+  invoke void @_ZN6icu_753LSR11deleteOwnedEv(ptr noundef nonnull align 8 dereferenceable(48) %arraydestroy.element.ptr)
           to label %_ZN6icu_753LSRD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
@@ -2114,7 +2115,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN6icu_753LSRD2Ev.exit:                          ; preds = %arraydestroy.body, %if.then.i
-  %arraydestroy.done = icmp eq ptr %arraydestroy.element, %8
+  %arraydestroy.done = icmp eq i64 %arraydestroy.elementPast.add, 0
   br i1 %arraydestroy.done, label %arraydestroy.done6, label %arraydestroy.body
 
 arraydestroy.done6:                               ; preds = %_ZN6icu_753LSRD2Ev.exit, %delete.notnull4

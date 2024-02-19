@@ -499,13 +499,14 @@ entry:
   %m_pos.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %m_pos.i.i, align 8
   %idx.ext.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds i32, ptr %0, i64 %idx.ext.i
+  %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not10 = icmp eq i32 %1, 0
   br i1 %cmp.not10, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.011, i64 4
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
@@ -1973,8 +1974,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %or.cond, label %_ZNK7zstringeqERKS_.exit, label %for.body.i, !llvm.loop !22
 
 _ZNK7zstringeqERKS_.exit:                         ; preds = %for.body.i, %entry, %for.cond.preheader.i
-  %retval.0.i = phi i1 [ true, %entry ], [ false, %for.cond.preheader.i ], [ %cmp7.not.i.not, %for.body.i ]
-  ret i1 %retval.0.i
+  %lnot = phi i1 [ true, %entry ], [ false, %for.cond.preheader.i ], [ %cmp7.not.i.not, %for.body.i ]
+  ret i1 %lnot
 }
 
 ; Function Attrs: mustprogress uwtable

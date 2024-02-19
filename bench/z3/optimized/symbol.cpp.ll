@@ -708,7 +708,8 @@ if.end:                                           ; preds = %if.then, %entry
   %and = and i32 %sub, %call2.i.i
   %5 = load ptr, ptr %this, align 8
   %idx.ext = zext i32 %and to i64
-  %add.ptr = getelementptr inbounds %class.ptr_hash_entry, ptr %5, i64 %idx.ext
+  %add.ptr.idx = shl nuw nsw i64 %idx.ext, 4
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %5, i64 %add.ptr.idx
   %idx.ext5 = zext i32 %4 to i64
   %add.ptr6 = getelementptr inbounds %class.ptr_hash_entry, ptr %5, i64 %idx.ext5
   %cmp7.not61 = icmp eq i32 %and, %4
@@ -729,7 +730,7 @@ for.body29.lr.ph:                                 ; preds = %for.cond27.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %del_entry.063 = phi ptr [ null, %for.body.lr.ph ], [ %del_entry.1, %for.inc ]
-  %curr.062 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %curr.062 = phi ptr [ %add.ptr.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %m_ptr.i = getelementptr inbounds i8, ptr %curr.062, i64 8
   %8 = load ptr, ptr %m_ptr.i, align 8
   %magicptr51 = ptrtoint ptr %8 to i64
@@ -786,7 +787,7 @@ if.then41:                                        ; preds = %for.body29
 for.inc54:                                        ; preds = %for.body29, %land.lhs.true34, %if.then31
   %del_entry.3 = phi ptr [ %del_entry.266, %land.lhs.true34 ], [ %del_entry.266, %if.then31 ], [ %curr.165, %for.body29 ]
   %incdec.ptr55 = getelementptr inbounds i8, ptr %curr.165, i64 16
-  %cmp28.not = icmp eq ptr %incdec.ptr55, %add.ptr
+  %cmp28.not = icmp eq ptr %incdec.ptr55, %add.ptr.ptr
   br i1 %cmp28.not, label %for.end56, label %for.body29, !llvm.loop !8
 
 for.end56:                                        ; preds = %for.inc54, %for.cond27.preheader

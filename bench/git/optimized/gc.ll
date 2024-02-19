@@ -1034,7 +1034,7 @@ for.body.i56:                                     ; preds = %if.then270, %for.bo
   %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %64, i64 %indvars.iv.i
   %65 = load ptr, ptr %arrayidx.i, align 8
   %call.i57 = call i32 @unlink_or_warn(ptr noundef %65) #21
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %66 = load i64, ptr getelementptr inbounds (%struct.string_list, ptr @pack_garbage, i64 0, i32 1), align 8
   %cmp.i58 = icmp ugt i64 %66, %indvars.iv.next.i
   br i1 %cmp.i58, label %for.body.i56, label %clean_pack_garbage.exit, !llvm.loop !8
@@ -2692,13 +2692,14 @@ if.then14:                                        ; preds = %if.end11
 land.rhs.lr.ph:                                   ; preds = %if.then14
   %nr = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %nr, align 8
-  %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %4, i64 %5
+  %add.ptr.idx = shl nsw i64 %5, 4
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %4, i64 %add.ptr.idx
   %cmp11 = icmp sgt i64 %5, 0
   br i1 %cmp11, label %for.body, label %if.then23.critedge
 
 land.rhs:                                         ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %item.01012, i64 16
-  %cmp = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp = icmp ult ptr %incdec.ptr, %add.ptr.ptr
   br i1 %cmp, label %for.body, label %if.then23.critedge
 
 for.body:                                         ; preds = %land.rhs.lr.ph, %land.rhs
@@ -2849,13 +2850,14 @@ if.then37:                                        ; preds = %cond.false, %cond.t
 land.rhs.lr.ph:                                   ; preds = %if.then37
   %nr = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i64, ptr %nr, align 8
-  %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %6, i64 %7
+  %add.ptr.idx = shl nsw i64 %7, 4
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %6, i64 %add.ptr.idx
   %cmp16 = icmp sgt i64 %7, 0
   br i1 %cmp16, label %for.body, label %if.else
 
 land.rhs:                                         ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %item.01517, i64 16
-  %cmp = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp = icmp ult ptr %incdec.ptr, %add.ptr.ptr
   br i1 %cmp, label %for.body, label %if.else
 
 for.body:                                         ; preds = %land.rhs.lr.ph, %land.rhs

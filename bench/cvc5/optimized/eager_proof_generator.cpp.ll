@@ -3047,8 +3047,7 @@ if.then.i.i.i208:                                 ; preds = %invoke.cont.i206
   br label %_ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EED2Ev.exit229
 
 _ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EED2Ev.exit229: ; preds = %invoke.cont.i206, %if.then.i.i.i208
-  %_M_refcount.i.i230 = getelementptr inbounds i8, ptr %ref.tmp38, i64 8
-  %105 = load ptr, ptr %_M_refcount.i.i230, align 8
+  %105 = load ptr, ptr %_M_refcount.i.i139, align 8
   %cmp.not.i.i.i231 = icmp eq ptr %105, null
   br i1 %cmp.not.i.i.i231, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev.exit261, label %if.then.i.i.i232
 

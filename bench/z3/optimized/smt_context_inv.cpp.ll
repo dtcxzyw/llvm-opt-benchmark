@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %struct.app_flags = type { i24 }
 %class.obj_ref = type { ptr, ptr }
-%"class.sat::literal" = type { i32 }
 %"class.smt::context" = type { ptr, %"struct.smt::statistics", ptr, ptr, %class.params_ref, %class.statistics, %"class.smt::setup", i32, [4 x i8], %class.timer, %class.asserted_formulas, %class.th_rewriter, %class.scoped_ptr.132, %class.scoped_ptr.133, %class.scoped_ptr.134, ptr, %class.random_gen, i8, i32, ptr, i32, %"class.smt::clause_proof", %class.region, %"class.smt::fingerprint_set", %class.ref_vector, %class.ref_vector, %class.ref_vector.43, %class.ptr_vector.196, i32, i8, ptr, i32, i8, ptr, ptr, %class.ptr_vector.194, %class.ptr_vector.194, %class.plugin_manager, %class.ptr_vector.198, %class.vector.200, %class.ptr_vector.194, %"class.smt::cg_table", %class.svector.208, %class.svector.210, %class.svector.210, ptr, %"class.smt::tmp_enode", %class.ptr_vector.212, %class.svector.4, %class.ptr_vector, %class.svector.214, %class.vector.216, %class.svector.4, %class.svector.217, %class.svector.219, %class.ptr_vector.221, %class.ptr_vector.221, %class.vector.223, %class.ref_vector, %class.svector.224, %class.svector.226, %class.vector.228, i32, i32, i32, %class.scoped_ptr.229, double, i8, i32, i8, %"class.smt::b_justification", %"class.sat::literal", %class.scoped_ptr.230, %class.obj_ref.80, %class.svector.226, %class.obj_map.16, %class.obj_hashtable.72, %"class.smt::dyn_ack_manager", %class.ref, %class.ref.262, ptr, %class.svector.226, %class.u_map.263, %class.ref_vector, i32, %class.svector.268, %class.uint_set, %class.vector.270, %class.u_map.271, i8, %class.ptr_vector.276, i32, i32, i32, %class.svector.278, %class.svector.280, i32, %class.svector.282, %class.svector.224, %class.svector.224, %class.obj_map.284, %"class.smt::context::mk_bool_var_trail", %"class.smt::context::mk_enode_trail", %"class.smt::context::mk_lambda_trail", %class.ast_pp_util, i32, i32, %class.ptr_vector.198, i8, i32, i32, i32, i32, i32, i32, i32, i32, double, i32, %class.svector.10, %class.ast_mark, %class.u_map.289, %class.obj_map, %class.u_map.263, %class.obj_map }
 %"struct.smt::statistics" = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %class.params_ref = type { ptr }
@@ -254,6 +253,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.vector.228 = type { ptr }
 %class.scoped_ptr.229 = type { ptr }
 %"class.smt::b_justification" = type { ptr }
+%"class.sat::literal" = type { i32 }
 %class.scoped_ptr.230 = type { ptr }
 %class.obj_ref.80 = type { ptr, ptr }
 %class.obj_map.16 = type { %class.core_hashtable.17 }
@@ -440,7 +440,8 @@ _ZN6vectorIN3sat7literalELb0EjE3endEv.exit:       ; preds = %if.end
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
   %3 = zext i32 %2 to i64
-  %add.ptr.i = getelementptr inbounds %"class.sat::literal", ptr %1, i64 %3
+  %add.ptr.i.idx = shl nuw nsw i64 %3, 2
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx
   %cmp.not20 = icmp eq i32 %2, 0
   br i1 %cmp.not20, label %return, label %for.body.lr.ph
 
@@ -618,7 +619,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit19:       ; preds = %_ZN7obj_refI4expr11
 for.inc:                                          ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit19, %_ZNK3smt7context11is_relevantEN3sat7literalE.exit
   %retval.2 = phi i1 [ %retval.1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit19 ], [ %retval.022, %_ZNK3smt7context11is_relevantEN3sat7literalE.exit ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.021, i64 4
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %return, label %for.body
 
 return:                                           ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit19, %for.inc, %if.end, %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit, %entry

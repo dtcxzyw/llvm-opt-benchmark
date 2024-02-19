@@ -2646,28 +2646,29 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N4llvh7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %arraydestroy.body.i.preheader
 
 arraydestroy.body.i.preheader:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.llvh::APFloat", ptr %0, i64 %2
+  %delete.end.idx.i = shl nsw i64 %2, 5
+  %invariant.gep = getelementptr i8, ptr %0, i64 8
   %call.i1 = tail call noundef nonnull align 1 ptr @_ZN4llvh11APFloatBase15PPCDoubleDoubleEv() #21
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i.preheader, %_ZN4llvh7APFloatD2Ev.exit.i
-  %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %_ZN4llvh7APFloatD2Ev.exit.i ], [ %delete.end.i, %arraydestroy.body.i.preheader ]
-  %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -32
-  %U.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -24
-  %3 = load ptr, ptr %U.i.i, align 8
+  %arraydestroy.elementPast.idx.i = phi i64 [ %arraydestroy.elementPast.add.i, %_ZN4llvh7APFloatD2Ev.exit.i ], [ %delete.end.idx.i, %arraydestroy.body.i.preheader ]
+  %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -32
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %arraydestroy.elementPast.add.i
+  %3 = load ptr, ptr %gep, align 8
   %cmp.i2.not = icmp eq ptr %call.i1, %3
   br i1 %cmp.i2.not, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %arraydestroy.body.i
-  tail call void @_ZN4llvh6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %U.i.i) #20
+  tail call void @_ZN4llvh6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %gep) #20
   br label %_ZN4llvh7APFloatD2Ev.exit.i
 
 if.end.i.i.i:                                     ; preds = %arraydestroy.body.i
-  tail call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %U.i.i) #20
+  tail call void @_ZN4llvh6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gep) #20
   br label %_ZN4llvh7APFloatD2Ev.exit.i
 
 _ZN4llvh7APFloatD2Ev.exit.i:                      ; preds = %if.end.i.i.i, %if.then.i.i.i
-  %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %0
+  %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.add.i, 0
   br i1 %arraydestroy.done.i, label %_ZNKSt14default_deleteIA_N4llvh7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit, label %arraydestroy.body.i
 
 _ZNKSt14default_deleteIA_N4llvh7APFloatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit: ; preds = %_ZN4llvh7APFloatD2Ev.exit.i, %delete.notnull.i

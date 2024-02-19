@@ -1369,7 +1369,8 @@ invoke.cont239.i:                                 ; preds = %for.body21.i.i321.i
   %90 = load ptr, ptr %reports238.i, align 8, !noalias !35
   %m_size.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp234.sroa.0.0.copyload.i, i64 56
   %91 = load i64, ptr %m_size.i.i.i.i, align 8, !noalias !85
-  %add.ptr.i.i.i363.i = getelementptr inbounds i32, ptr %90, i64 %91
+  %add.ptr.i.i.i363.idx.i = shl nsw i64 %91, 2
+  %add.ptr.i.i.i363.ptr.i = getelementptr inbounds i8, ptr %90, i64 %add.ptr.i.i.i363.idx.i
   %cmp.i.i.i.i364.not727.i = icmp eq i64 %91, 0
   br i1 %cmp.i.i.i.i364.not727.i, label %for.end271.i, label %invoke.cont245.lr.ph.i
 
@@ -1425,7 +1426,7 @@ if.end261.i:                                      ; preds = %invoke.cont247.i
 
 for.inc268.i:                                     ; preds = %if.end261.i, %if.end3.i.i
   %incdec.ptr.i.i.i.i368.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0728.i, i64 4
-  %cmp.i.i.i.i364.not.i = icmp eq ptr %incdec.ptr.i.i.i.i368.i, %add.ptr.i.i.i363.i
+  %cmp.i.i.i.i364.not.i = icmp eq ptr %incdec.ptr.i.i.i.i368.i, %add.ptr.i.i.i363.ptr.i
   br i1 %cmp.i.i.i.i364.not.i, label %for.end271.i, label %invoke.cont245.i
 
 for.end271.i:                                     ; preds = %for.inc268.i, %invoke.cont239.i
@@ -1467,7 +1468,8 @@ invoke.cont284.i:                                 ; preds = %call3.i.noexc.i, %d
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i.i, align 8
   %100 = load ptr, ptr %reports238.i, align 8, !noalias !35
   %101 = load i64, ptr %m_size.i.i.i.i, align 8, !noalias !93
-  %add.ptr.i.i.i378.i = getelementptr inbounds i32, ptr %100, i64 %101
+  %add.ptr.i.i.i378.idx.i = shl nsw i64 %101, 2
+  %add.ptr.i.i.i378.ptr.i = getelementptr inbounds i8, ptr %100, i64 %add.ptr.i.i.i378.idx.i
   %cmp.i.i.i.i379.not729.i = icmp eq i64 %101, 0
   br i1 %cmp.i.i.i.i379.not729.i, label %if.end310.i, label %invoke.cont292.lr.ph.i
 
@@ -1992,7 +1994,7 @@ for.inc301.i:                                     ; preds = %do.end45.i.invoke.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %rp46.i.i)
   %incdec.ptr.i.i.i.i415.i = getelementptr inbounds i8, ptr %__begin1282.sroa.0.0730.i, i64 4
-  %cmp.i.i.i.i379.not.i = icmp eq ptr %incdec.ptr.i.i.i.i415.i, %add.ptr.i.i.i378.i
+  %cmp.i.i.i.i379.not.i = icmp eq ptr %incdec.ptr.i.i.i.i415.i, %add.ptr.i.i.i378.ptr.i
   br i1 %cmp.i.i.i.i379.not.i, label %for.end304.i, label %invoke.cont292.i
 
 lpad283.loopexit.i:                               ; preds = %_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE10_M_insert_IRS8_NSE_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS8_EPSt18_Rb_tree_node_baseSL_OT_RT0_.exit.i.i.i.i
@@ -2069,7 +2071,8 @@ do.end.i426.i:                                    ; preds = %for.body.i422.i
   store i64 0, ptr %m_size.i.i.i.i.i, align 8
   %162 = load ptr, ptr %chain_reports.i, align 8, !noalias !35
   %163 = load i64, ptr %m_size.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !110
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %162, i64 %163
+  %add.ptr.i.i.i.idx.i.i = shl nsw i64 %163, 2
+  %add.ptr.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %162, i64 %add.ptr.i.i.i.idx.i.i
   %cmp.i.i.i.i.not1.i.i.i = icmp eq i64 %163, 0
   br i1 %cmp.i.i.i.i.not1.i.i.i, label %for.inc.i432.i, label %for.body.i.preheader.i.i
 
@@ -2277,7 +2280,7 @@ _ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_a
 
 _ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit.i.i: ; preds = %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i, %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE37priv_forward_range_insert_no_capacityINS0_3dtl17insert_copy_proxyIS4_PjEEEENS0_12vec_iteratorIS9_Lb0EEERKS9_mT_NS_11move_detail17integral_constantIjLj1EEE.exit.i.i, %lor.rhs.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp7.sroa.0.0.i.i, i64 4
-  %cmp.i.i.i.i.not.i.i431.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
+  %cmp.i.i.i.i.not.i.i431.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.ptr.i.i
   br i1 %cmp.i.i.i.i.not.i.i431.i, label %for.inc.i432.i, label %for.body.i.i428.i, !llvm.loop !136
 
 for.inc.i432.i:                                   ; preds = %_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj.exit.i.i, %.noexc443.i, %for.body.i422.i

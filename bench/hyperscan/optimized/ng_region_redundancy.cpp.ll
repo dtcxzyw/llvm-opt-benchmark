@@ -2373,6 +2373,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %1 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %2 = load ptr, ptr %region_map, align 8
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %region_map, i64 16
+  %add.ptr.i.i.idx.i.i.i.us = shl nsw i64 %expected_reports.8.val, 2
   %cmp.i.not3.i.i.i.i.i.us = icmp eq i64 %expected_reports.8.val, 0
   br i1 %cmp.not.not.i.i.i, label %for.body.us, label %for.body
 
@@ -2422,7 +2423,7 @@ land.lhs.true.us:                                 ; preds = %for.body9.us
 
 land.rhs.i.i.i.us:                                ; preds = %land.lhs.true.us
   %11 = load ptr, ptr %reports.us, align 8, !noalias !27
-  %add.ptr.i.i.i.i.i15.us = getelementptr inbounds i32, ptr %11, i64 %expected_reports.8.val
+  %add.ptr.i.i.ptr.i.i.i.us = getelementptr inbounds i8, ptr %11, i64 %add.ptr.i.i.idx.i.i.i.us
   br i1 %cmp.i.not3.i.i.i.i.i.us, label %for.inc.us, label %for.body.i.i.i.i.i.us
 
 for.body.i.i.i.i.i.us:                            ; preds = %land.rhs.i.i.i.us, %for.inc.i.i.i.i.i.us
@@ -2436,7 +2437,7 @@ for.body.i.i.i.i.i.us:                            ; preds = %land.rhs.i.i.i.us, 
 for.inc.i.i.i.i.i.us:                             ; preds = %for.body.i.i.i.i.i.us
   %incdec.ptr.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %12, i64 4
   %incdec.ptr.i2.i.i.i.i.i.us = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.i.i.i.i.us, i64 4
-  %cmp.i.not.i.i.i.i.i.us = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.us, %add.ptr.i.i.i.i.i15.us
+  %cmp.i.not.i.i.i.i.i.us = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.us, %add.ptr.i.i.ptr.i.i.i.us
   br i1 %cmp.i.not.i.i.i.i.i.us, label %for.inc.us, label %for.body.i.i.i.i.i.us, !llvm.loop !72
 
 for.inc.us:                                       ; preds = %for.inc.i.i.i.i.i.us, %land.rhs.i.i.i.us, %for.body9.us
@@ -2548,7 +2549,7 @@ land.lhs.true:                                    ; preds = %for.body9
 
 land.rhs.i.i.i:                                   ; preds = %land.lhs.true
   %33 = load ptr, ptr %reports, align 8, !noalias !27
-  %add.ptr.i.i.i.i.i15 = getelementptr inbounds i32, ptr %33, i64 %expected_reports.8.val
+  %add.ptr.i.i.ptr.i.i.i = getelementptr inbounds i8, ptr %33, i64 %add.ptr.i.i.idx.i.i.i.us
   br i1 %cmp.i.not3.i.i.i.i.i.us, label %for.inc, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i, %for.inc.i.i.i.i.i
@@ -2562,7 +2563,7 @@ for.body.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i, %fo
 for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 4
   %incdec.ptr.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.i.i.i.i, i64 4
-  %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %add.ptr.i.i.i.i.i15
+  %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %add.ptr.i.i.ptr.i.i.i
   br i1 %cmp.i.not.i.i.i.i.i, label %for.inc, label %for.body.i.i.i.i.i, !llvm.loop !72
 
 for.inc:                                          ; preds = %for.inc.i.i.i.i.i, %land.rhs.i.i.i, %for.body9

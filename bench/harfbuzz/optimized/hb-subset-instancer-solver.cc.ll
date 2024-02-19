@@ -131,7 +131,8 @@ entry:
   %length.i = getelementptr inbounds i8, ptr %sols, i64 4
   %1 = load i32, ptr %length.i, align 4
   %idx.ext.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds %struct.hb_pair_t, ptr %0, i64 %idx.ext.i
+  %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 4
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not64 = icmp eq i32 %1, 0
   br i1 %cmp.not64, label %nrvo.skipdtor, label %for.body.lr.ph
 
@@ -303,7 +304,7 @@ for.inc:                                          ; preds = %if.end.i31, %if.the
   %inc.i3372 = phi i32 [ %inc.i3373, %for.body ], [ %inc.i3373, %if.then.i ], [ %.pre79, %if.end.i ], [ %inc.i3373, %if.then.i56 ], [ %.pre80, %if.end.i31 ]
   %new_allocated.128.sink.i.ph.i5558 = phi i32 [ %new_allocated.128.sink.i.ph.i556365, %for.body ], [ %new_allocated.128.sink.i.ph.i5561, %if.then.i ], [ %new_allocated.128.sink.i.ph.i5562, %if.end.i ], [ %new_allocated.128.sink.i.ph.i5559, %if.then.i56 ], [ %new_allocated.128.sink.i.ph.i5560, %if.end.i31 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.068, i64 16
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %for.inc, %entry
@@ -359,7 +360,8 @@ if.then:                                          ; preds = %entry
   %length.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   %3 = load i32, ptr %length.i, align 4
   %idx.ext.i = zext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds %struct.hb_pair_t, ptr %2, i64 %idx.ext.i
+  %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 4
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %2, i64 %add.ptr.i.idx
   %cmp10.not669 = icmp eq i32 %3, 0
   br i1 %cmp10.not669, label %return, label %for.body.lr.ph
 
@@ -389,7 +391,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store <2 x float> %retval.i.0.retval.i.0.retval.i.0.retval.0.retval.0..fca.0.load.i, ptr %__begin2.0670, align 4
   store <2 x float> %retval.i.8.retval.i.8.retval.i.8.retval.8.retval.8..fca.1.load.i, ptr %middle.i76, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0670, i64 16
-  %cmp10.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp10.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp10.not, label %return, label %for.body
 
 if.end:                                           ; preds = %entry
@@ -446,7 +448,8 @@ _ZL13supportScalarfRK6Triple.exit:                ; preds = %if.then21, %if.end.
   %length.i91 = getelementptr inbounds i8, ptr %agg.result, i64 4
   %10 = load i32, ptr %length.i91, align 4
   %idx.ext.i92 = zext i32 %10 to i64
-  %add.ptr.i93 = getelementptr inbounds %struct.hb_pair_t, ptr %9, i64 %idx.ext.i92
+  %add.ptr.i93.idx = shl nuw nsw i64 %idx.ext.i92, 4
+  %add.ptr.i93.ptr = getelementptr inbounds i8, ptr %9, i64 %add.ptr.i93.idx
   %cmp33.not667 = icmp eq i32 %10, 0
   br i1 %cmp33.not667, label %return, label %for.body34.lr.ph
 
@@ -475,7 +478,7 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   %ref.tmp36.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin228.0668, i64 8
   store <2 x float> %retval.i96.8.retval.i96.8.retval.i96.8.retval.8.retval.8..fca.1.load.i105, ptr %ref.tmp36.sroa.2.0..sroa_idx, align 4
   %incdec.ptr44 = getelementptr inbounds i8, ptr %__begin228.0668, i64 16
-  %cmp33.not = icmp eq ptr %incdec.ptr44, %add.ptr.i93
+  %cmp33.not = icmp eq ptr %incdec.ptr44, %add.ptr.i93.ptr
   br i1 %cmp33.not, label %return, label %for.body34
 
 if.end49:                                         ; preds = %if.end19

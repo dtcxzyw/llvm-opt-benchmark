@@ -12,11 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.41" }
 %"struct.std::_Head_base.41" = type { ptr }
-%"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { i64, %"class.std::__cxx11::basic_string" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 
 $_ZN6hermes2vm16SamplingProfilerD2Ev = comdat any
 
@@ -480,7 +475,8 @@ _ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hash
 
 for.body.preheader.i.i:                           ; preds = %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EED2Ev.exit
   %idx.ext.i.i.i = zext i32 %7 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %.pre1.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.idx.i.i = mul nuw nsw i64 %idx.ext.i.i.i, 40
+  %add.ptr.i.ptr.i.i = getelementptr inbounds i8, ptr %.pre1.i, i64 %add.ptr.i.idx.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end13.i.i, %for.body.preheader.i.i
@@ -496,7 +492,7 @@ if.then11.i.i:                                    ; preds = %for.body.i.i
 
 if.end13.i.i:                                     ; preds = %if.then11.i.i, %for.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %P.08.i.i, i64 40
-  %cmp6.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
+  %cmp6.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.ptr.i.i
   br i1 %cmp6.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E10destroyAllEv.exit.loopexit.i, label %for.body.i.i, !llvm.loop !13
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12DenseMapInfoImEENS_6detail12DenseMapPairImS7_EEEEmS7_S9_SC_E10destroyAllEv.exit.loopexit.i: ; preds = %if.end13.i.i

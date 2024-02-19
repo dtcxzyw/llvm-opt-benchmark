@@ -135,7 +135,8 @@ _ZNK6vectorIN3sat7watchedELb1EjE3endEv.exit.i:    ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %2, i64 -4
   %3 = load i32, ptr %arrayidx.i.i.i, align 4
   %4 = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds %"class.sat::watched", ptr %2, i64 %4
+  %add.ptr.i.idx.i = shl nuw nsw i64 %4, 4
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %2, i64 %add.ptr.i.idx.i
   %cmp.not3.not.i = icmp eq i32 %3, 0
   br i1 %cmp.not3.not.i, label %_ZNK6vectorIN3sat7watchedELb1EjE8containsERKS1_.exit, label %for.body.i
 
@@ -148,7 +149,7 @@ for.body.i:                                       ; preds = %_ZNK6vectorIN3sat7w
   %cmp4.i.i = icmp eq i32 %6, 2
   %7 = select i1 %cmp.i.i, i1 %cmp4.i.i, i1 false
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.04.i, i64 16
-  %cmp.not.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
+  %cmp.not.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr.i
   %or.cond = select i1 %7, i1 true, i1 %cmp.not.not.i
   br i1 %or.cond, label %_ZNK6vectorIN3sat7watchedELb1EjE8containsERKS1_.exit, label %for.body.i, !llvm.loop !6
 

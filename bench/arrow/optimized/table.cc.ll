@@ -26517,8 +26517,7 @@ if.then.i.i.i5:                                   ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i5
-  %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %31 = load ptr, ptr %_M_refcount.i.i10, align 8
+  %31 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i11 = icmp eq ptr %31, null
   br i1 %cmp.not.i.i.i11, label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit, label %if.then.i.i.i12
 

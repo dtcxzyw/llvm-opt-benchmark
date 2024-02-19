@@ -853,7 +853,8 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i.i, align 4
   %3 = zext i32 %2 to i64
-  %add.ptr.i = getelementptr inbounds i32, ptr %1, i64 %3
+  %add.ptr.i.idx = shl nuw nsw i64 %3, 2
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i32 %2, 0
   br i1 %cmp.not5, label %if.then.i, label %for.body.lr.ph
 
@@ -882,7 +883,7 @@ if.then:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then
   %incdec.ptr = getelementptr inbounds i8, ptr %it.06, i64 4
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc

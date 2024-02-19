@@ -1790,7 +1790,8 @@ for.end:                                          ; preds = %for.body, %entry
   %9 = inttoptr i64 %sub.i.i.i.i.i18 to ptr
   %elements.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %cond.i.i.i = select i1 %cmp.i.i.i.i, ptr %proto_file_.i, ptr %elements.i.i.i
-  %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i.i.i, i64 %conv
+  %add.ptr.i.idx = shl nsw i64 %conv, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %add.ptr.i.idx
   %cmp.i.not84 = icmp eq i32 %6, 0
   br i1 %cmp.i.not84, label %for.end25, label %for.body19
 
@@ -1810,7 +1811,7 @@ for.body19:                                       ; preds = %for.end, %for.body1
   %add.i.i33 = add i64 %call.i25, %total_size.186
   %add22 = add i64 %add.i.i33, %conv.i.i.i32
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.085, i64 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr
   br i1 %cmp.i.not, label %for.end25, label %for.body19
 
 for.end25:                                        ; preds = %for.body19, %for.end
@@ -1829,7 +1830,8 @@ for.end25:                                        ; preds = %for.body19, %for.en
   %15 = inttoptr i64 %sub.i.i.i.i.i37 to ptr
   %elements.i.i.i38 = getelementptr inbounds i8, ptr %15, i64 8
   %cond.i.i.i39 = select i1 %cmp.i.i.i.i36, ptr %source_file_descriptors_.i, ptr %elements.i.i.i38
-  %add.ptr.i47 = getelementptr inbounds ptr, ptr %cond.i.i.i39, i64 %conv27
+  %add.ptr.i47.idx = shl nsw i64 %conv27, 3
+  %add.ptr.i47.ptr = getelementptr inbounds i8, ptr %cond.i.i.i39, i64 %add.ptr.i47.idx
   %cmp.i48.not88 = icmp eq i32 %12, 0
   br i1 %cmp.i48.not88, label %for.end47, label %for.body40
 
@@ -1849,7 +1851,7 @@ for.body40:                                       ; preds = %for.end25, %for.bod
   %add.i.i57 = add i64 %call.i49, %total_size.290
   %add44 = add i64 %add.i.i57, %conv.i.i.i56
   %incdec.ptr.i58 = getelementptr inbounds i8, ptr %__begin232.sroa.0.089, i64 8
-  %cmp.i48.not = icmp eq ptr %incdec.ptr.i58, %add.ptr.i47
+  %cmp.i48.not = icmp eq ptr %incdec.ptr.i58, %add.ptr.i47.ptr
   br i1 %cmp.i48.not, label %for.end47, label %for.body40
 
 for.end47:                                        ; preds = %for.body40, %for.end25
@@ -3458,7 +3460,8 @@ entry:
   %3 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %elements.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %cond.i.i.i = select i1 %cmp.i.i.i.i, ptr %file_.i, ptr %elements.i.i.i
-  %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i.i.i, i64 %conv
+  %add.ptr.i.idx = shl nsw i64 %conv, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %add.ptr.i.idx
   %cmp.i.not38 = icmp eq i32 %0, 0
   br i1 %cmp.i.not38, label %for.end, label %for.body
 
@@ -3478,7 +3481,7 @@ for.body:                                         ; preds = %entry, %for.body
   %add.i.i = add i64 %call.i, %total_size.040
   %add9 = add i64 %add.i.i, %conv.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.039, i64 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry

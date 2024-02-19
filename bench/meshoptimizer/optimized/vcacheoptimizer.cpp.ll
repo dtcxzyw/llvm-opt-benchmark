@@ -318,7 +318,8 @@ if.end146:                                        ; preds = %for.body138
   %add.ptr169 = getelementptr inbounds i32, ptr %23, i64 %idx.ext168
   %43 = load i32, ptr %arrayidx143, align 4
   %idx.ext173 = zext i32 %43 to i64
-  %add.ptr174 = getelementptr inbounds i32, ptr %add.ptr169, i64 %idx.ext173
+  %add.ptr174.idx = shl nuw nsw i64 %idx.ext173, 2
+  %add.ptr174.ptr = getelementptr inbounds i8, ptr %add.ptr169, i64 %add.ptr174.idx
   %cmp176.not155 = icmp eq i32 %43, 0
   br i1 %cmp176.not155, label %for.inc196, label %for.body177
 
@@ -336,7 +337,7 @@ for.body177:                                      ; preds = %if.end146, %for.bod
   %cond191 = select i1 %cmp182, float %add181, float %best_score.1157
   store float %add181, ptr %arrayidx180, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %it.0158, i64 4
-  %cmp176.not = icmp eq ptr %incdec.ptr, %add.ptr174
+  %cmp176.not = icmp eq ptr %incdec.ptr, %add.ptr174.ptr
   br i1 %cmp176.not, label %for.inc196, label %for.body177, !llvm.loop !11
 
 for.inc196:                                       ; preds = %for.body177, %if.end146, %for.body138
@@ -721,7 +722,8 @@ while.body:                                       ; preds = %invoke.cont14, %if.
   %arrayidx23 = getelementptr inbounds i32, ptr %4, i64 %idxprom
   %14 = load i32, ptr %arrayidx23, align 4
   %idx.ext24 = zext i32 %14 to i64
-  %add.ptr25 = getelementptr inbounds i32, ptr %add.ptr20, i64 %idx.ext24
+  %add.ptr25.idx = shl nuw nsw i64 %idx.ext24, 2
+  %add.ptr25.ptr = getelementptr inbounds i8, ptr %add.ptr20, i64 %add.ptr25.idx
   %cmp26.not126 = icmp eq i32 %14, 0
   br i1 %cmp26.not126, label %for.end, label %for.body
 
@@ -837,7 +839,7 @@ for.inc:                                          ; preds = %for.body, %if.end97
   %output_triangle.2 = phi i32 [ %inc, %if.end97 ], [ %output_triangle.1129, %for.body ]
   %timestamp.5 = phi i32 [ %timestamp.4, %if.end97 ], [ %timestamp.1130, %for.body ]
   %incdec.ptr = getelementptr inbounds i8, ptr %it.0128, i64 4
-  %cmp26.not = icmp eq ptr %incdec.ptr, %add.ptr25
+  %cmp26.not = icmp eq ptr %incdec.ptr, %add.ptr25.ptr
   br i1 %cmp26.not, label %for.end.loopexit, label %for.body, !llvm.loop !20
 
 for.end.loopexit:                                 ; preds = %for.inc

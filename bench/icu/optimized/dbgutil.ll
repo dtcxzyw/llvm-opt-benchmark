@@ -979,14 +979,15 @@ delete.notnull.i:                                 ; preds = %for.body.i
   br i1 %arraydestroy.isempty.i, label %arraydestroy.done2.i, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %2, i64 %4
+  %delete.end.idx.i = shl nsw i64 %4, 6
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i, %arraydestroy.body.preheader.i
-  %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %arraydestroy.body.i ], [ %delete.end.i, %arraydestroy.body.preheader.i ]
-  %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -64
-  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element.i) #12
-  %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %2
+  %arraydestroy.elementPast.idx.i = phi i64 [ %arraydestroy.elementPast.add.i, %arraydestroy.body.i ], [ %delete.end.idx.i, %arraydestroy.body.preheader.i ]
+  %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -64
+  %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %2, i64 %arraydestroy.elementPast.add.i
+  tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element.ptr.i) #12
+  %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.add.i, 0
   br i1 %arraydestroy.done.i, label %arraydestroy.done2.i, label %arraydestroy.body.i
 
 arraydestroy.done2.i:                             ; preds = %arraydestroy.body.i, %delete.notnull.i

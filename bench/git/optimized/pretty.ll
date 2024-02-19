@@ -10,10 +10,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.ident_split = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.regmatch_t = type { i32, i32 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.format_commit_context = type { ptr, ptr, ptr, i8, %struct.signature_check, i32, i32, ptr, ptr, i64, i64, i64, i32, i32, %struct.chunk, %struct.chunk, i64, i64, i64, i64 }
 %struct.signature_check = type { ptr, i64, i32, i64, ptr, ptr, i8, ptr, ptr, ptr, ptr, i32 }
 %struct.chunk = type { i64, i64 }
+%struct.string_list_item = type { ptr, ptr }
 %struct.pretty_print_context = type { i32, i32, ptr, i32, %struct.date_mode, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, %struct.string_list, i32 }
 %struct.date_mode = type { i32, ptr, i32 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
@@ -2357,7 +2357,8 @@ entry:
 land.rhs.lr.ph:                                   ; preds = %entry
   %nr = getelementptr inbounds i8, ptr %ud, i64 8
   %1 = load i64, ptr %nr, align 8
-  %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %0, i64 %1
+  %add.ptr.idx = shl nsw i64 %1, 4
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.idx
   %len = getelementptr inbounds i8, ptr %key, i64 8
   %buf = getelementptr inbounds i8, ptr %key, i64 16
   %cmp13 = icmp sgt i64 %1, 0
@@ -2384,7 +2385,7 @@ land.lhs.true:                                    ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
   %incdec.ptr = getelementptr inbounds i8, ptr %item.01014, i64 16
-  %cmp = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp = icmp ult ptr %incdec.ptr, %add.ptr.ptr
   br i1 %cmp, label %for.body, label %return
 
 return:                                           ; preds = %for.inc, %land.lhs.true, %land.rhs.lr.ph, %entry

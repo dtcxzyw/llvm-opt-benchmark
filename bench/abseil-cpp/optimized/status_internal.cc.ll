@@ -925,7 +925,8 @@ if.end23:                                         ; preds = %if.end5
   %spec.select.sroa.sel = select i1 %cmp16, ptr %cond13.sroa.sel.v.sroa.sel, ptr %cond.sroa.sel
   %8 = load ptr, ptr %spec.select.sroa.sel, align 8
   %cond.i.i = select i1 %tobool.i.not.i.i, ptr %spec.select.sroa.sel, ptr %8
-  %add.ptr.i = getelementptr inbounds %"struct.absl::status_internal::Payload", ptr %cond.i.i, i64 %shr.i.i14
+  %add.ptr.i.idx = mul nsw i64 %shr.i.i14, 48
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr.i.idx
   %cmp26.not52 = icmp ult i64 %6, 2
   br i1 %cmp26.not52, label %cleanup, label %for.body.lr.ph
 
@@ -943,7 +944,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %10 = load ptr, ptr %spec.select47.sroa.sel, align 8
   %cond.i.i23 = select i1 %tobool.i.not.i.i21, ptr %spec.select47.sroa.sel, ptr %10
   %shr.i.i.i28 = lshr i64 %9, 1
-  %add.ptr.i29 = getelementptr inbounds %"struct.absl::status_internal::Payload", ptr %cond.i.i23, i64 %shr.i.i.i28
+  %add.ptr.i29.idx = mul nsw i64 %shr.i.i.i28, 48
+  %add.ptr.i29.ptr = getelementptr inbounds i8, ptr %cond.i.i23, i64 %add.ptr.i29.idx
   %cmp30.not.not50 = icmp ult i64 %9, 2
   br i1 %cmp30.not.not50, label %cleanup, label %for.body31
 
@@ -1028,12 +1030,12 @@ lpad:                                             ; preds = %if.end5.i.i
 
 for.inc:                                          ; preds = %for.body31, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.051, i64 48
-  %cmp30.not.not = icmp eq ptr %incdec.ptr, %add.ptr.i29
+  %cmp30.not.not = icmp eq ptr %incdec.ptr, %add.ptr.i29.ptr
   br i1 %cmp30.not.not, label %cleanup, label %for.body31
 
 for.inc44:                                        ; preds = %if.then34, %invoke.cont
   %incdec.ptr45 = getelementptr inbounds i8, ptr %__begin2.053, i64 48
-  %cmp26.not = icmp eq ptr %incdec.ptr45, %add.ptr.i
+  %cmp26.not = icmp eq ptr %incdec.ptr45, %add.ptr.i.ptr
   br i1 %cmp26.not, label %cleanup, label %for.body
 
 cleanup:                                          ; preds = %for.inc44, %invoke.cont, %_ZNK4absl4Cord4sizeEv.exit13.i.i, %for.body, %for.inc, %if.end23, %if.end5

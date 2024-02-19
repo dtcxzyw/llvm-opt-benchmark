@@ -1913,7 +1913,7 @@ if.end:                                           ; preds = %invoke.cont33, %inv
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.end, %invoke.cont33
-  %cleanup.dest.slot.0 = phi i1 [ false, %invoke.cont33 ], [ %call36, %if.end ]
+  %switch = phi i1 [ false, %invoke.cont33 ], [ %call36, %if.end ]
   %11 = load ptr, ptr %mems2, align 8
   %12 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %11, %12
@@ -1966,7 +1966,7 @@ if.then.i.i.i122:                                 ; preds = %invoke.cont.i120
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i120, %if.then.i.i.i122
-  br i1 %cleanup.dest.slot.0, label %for.inc, label %cond.end49
+  br i1 %switch, label %for.inc, label %cond.end49
 
 for.inc:                                          ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
   %call.i123 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.0172) #23
@@ -11732,7 +11732,7 @@ cleanup.sink.split:                               ; preds = %invoke.cont.i317, %
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont.i317, %if.then13.i.i155, %if.then.i.i148, %invoke.cont55, %invoke.cont.i125, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %cleanup.dest.slot.0 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %invoke.cont.i125 ], [ true, %invoke.cont55 ], [ true, %if.then.i.i148 ], [ true, %if.then13.i.i155 ], [ false, %invoke.cont.i317 ], [ false, %cleanup.sink.split ]
+  %switch = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %invoke.cont.i125 ], [ true, %invoke.cont55 ], [ true, %if.then.i.i148 ], [ true, %if.then13.i.i155 ], [ false, %invoke.cont.i317 ], [ false, %cleanup.sink.split ]
   %116 = load ptr, ptr %exp, align 8
   %bf.load.i.i323 = load i64, ptr %116, align 8
   %117 = and i64 %bf.load.i.i323, 1152920405095219200
@@ -11760,7 +11760,7 @@ terminate.lpad.i333:                              ; preds = %if.then13.i.i332
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit334: ; preds = %cleanup, %if.then.i.i325, %if.then13.i.i332
-  br i1 %cleanup.dest.slot.0, label %if.end121, label %return
+  br i1 %switch, label %if.end121, label %return
 
 ehcleanup100:                                     ; preds = %ehcleanup99, %lpad54, %ehcleanup49, %lpad8, %lpad6
   %.pn5.pn.pn = phi { ptr, i32 } [ %.pn5.pn, %ehcleanup99 ], [ %72, %lpad54 ], [ %14, %lpad6 ], [ %.pn8.pn, %ehcleanup49 ], [ %15, %lpad8 ]
@@ -17270,18 +17270,18 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then4
-  %idx.neg = sub i64 0, %__n
-  %add.ptr = getelementptr inbounds i64, ptr %1, i64 %idx.neg
+  %.neg = mul i64 %__n, -8
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %1, i64 %.neg
   %add.ptr.idx.neg = shl i64 %__n, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr nonnull align 8 %add.ptr, i64 %add.ptr.idx.neg, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %add.ptr.ptr, i64 %add.ptr.idx.neg, i1 false)
   %3 = load ptr, ptr %_M_finish, align 8
   %add.ptr16 = getelementptr inbounds i64, ptr %3, i64 %__n
   store ptr %add.ptr16, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
+  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr.ptr, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont20, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then11
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i

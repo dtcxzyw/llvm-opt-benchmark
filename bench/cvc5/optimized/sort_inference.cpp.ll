@@ -22291,25 +22291,26 @@ if.then9:                                         ; preds = %if.then
   br i1 %cmp15, label %for.body.i.i.i.i.i.preheader, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then9
-  %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr = getelementptr %"struct.std::pair.8", ptr %1, i64 %idx.neg
+  %add.ptr.idx = sub i64 0, %sub.ptr.sub.i.i.i
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
   %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %for.body.i.i.i.i.i.preheader ]
-  %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr, %for.body.i.i.i.i.i.preheader ]
-  %2 = load i64, ptr %__first.sroa.0.08.i.i.i.i.i, align 4
+  %__first.sroa.0.08.i.i.i.i.i.idx = phi i64 [ %__first.sroa.0.08.i.i.i.i.i.add, %for.body.i.i.i.i.i ], [ %add.ptr.idx, %for.body.i.i.i.i.i.preheader ]
+  %__first.sroa.0.08.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %1, i64 %__first.sroa.0.08.i.i.i.i.i.idx
+  %2 = load i64, ptr %__first.sroa.0.08.i.i.i.i.i.ptr, align 4
   store i64 %2, ptr %__cur.09.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 8
+  %__first.sroa.0.08.i.i.i.i.i.add = add nsw i64 %__first.sroa.0.08.i.i.i.i.i.idx, 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 8
-  %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
+  %cmp.i.i.not.i.i.i.i.i = icmp eq i64 %__first.sroa.0.08.i.i.i.i.i.add, 0
   br i1 %cmp.i.i.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPSt4pairIiiES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %for.body.i.i.i.i.i, !llvm.loop !298
 
 _ZSt22__uninitialized_move_aIPSt4pairIiiES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %for.body.i.i.i.i.i
   %.pre114 = load ptr, ptr %_M_finish, align 8
   %add.ptr27 = getelementptr inbounds i8, ptr %.pre114, i64 %sub.ptr.sub.i.i.i
   store ptr %add.ptr27, ptr %_M_finish, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %cmp4.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i, 0
@@ -22318,7 +22319,7 @@ _ZSt22__uninitialized_move_aIPSt4pairIiiES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; pred
 for.body.i.i.i.i.i26:                             ; preds = %_ZSt22__uninitialized_move_aIPSt4pairIiiES2_SaIS1_EET0_T_S5_S4_RT1_.exit, %for.body.i.i.i.i.i26
   %__n.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i26 ], [ %sub.ptr.div.i.i.i.i.i, %_ZSt22__uninitialized_move_aIPSt4pairIiiES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
   %__result.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i26 ], [ %1, %_ZSt22__uninitialized_move_aIPSt4pairIiiES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
-  %__last.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i27, %for.body.i.i.i.i.i26 ], [ %add.ptr, %_ZSt22__uninitialized_move_aIPSt4pairIiiES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
+  %__last.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i27, %for.body.i.i.i.i.i26 ], [ %add.ptr.ptr, %_ZSt22__uninitialized_move_aIPSt4pairIiiES2_SaIS1_EET0_T_S5_S4_RT1_.exit ]
   %incdec.ptr.i.i.i.i.i27 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -8
   %3 = load i32, ptr %incdec.ptr.i.i.i.i.i27, align 4

@@ -99,7 +99,8 @@ invoke.cont5.i:                                   ; preds = %invoke.cont.i
   %and.i.i.i.i.i = and i32 %sub.i.i.i.i.i, %5
   %7 = load ptr, ptr %m_interp.i.i, align 8
   %idx.ext.i.i.i.i.i = zext i32 %and.i.i.i.i.i to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry", ptr %7, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i = mul nuw nsw i64 %idx.ext.i.i.i.i.i, 24
+  %add.ptr.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %add.ptr.idx.i.i.i.i.i
   %idx.ext4.i.i.i.i.i = zext i32 %6 to i64
   %add.ptr5.i.i.i.i.i = getelementptr inbounds %"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry", ptr %7, i64 %idx.ext4.i.i.i.i.i
   %cmp.not30.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i, %6
@@ -110,7 +111,7 @@ for.cond18.preheader.i.i.i.i.i:                   ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp19.not32.i.i.i.i.i, label %invoke.cont9.i, label %for.body20.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont5.i, %for.inc.i.i.i.i.i
-  %curr.031.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %invoke.cont5.i ]
+  %curr.031.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %add.ptr.ptr.i.i.i.i.i, %invoke.cont5.i ]
   %8 = load ptr, ptr %curr.031.i.i.i.i.i, align 8
   %magicptr25.i.i.i.i.i = ptrtoint ptr %8 to i64
   switch i64 %magicptr25.i.i.i.i.i, label %if.then.i.i.i.i.i [
@@ -150,7 +151,7 @@ if.then22.i.i.i.i.i:                              ; preds = %for.body20.i.i.i.i.
 
 for.inc36.i.i.i.i.i:                              ; preds = %if.then22.i.i.i.i.i, %for.body20.i.i.i.i.i
   %incdec.ptr37.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.133.i.i.i.i.i, i64 24
-  %cmp19.not.i.i.i.i.i = icmp eq ptr %incdec.ptr37.i.i.i.i.i, %add.ptr.i.i.i.i.i
+  %cmp19.not.i.i.i.i.i = icmp eq ptr %incdec.ptr37.i.i.i.i.i, %add.ptr.ptr.i.i.i.i.i
   br i1 %cmp19.not.i.i.i.i.i, label %invoke.cont9.i, label %for.body20.i.i.i.i.i, !llvm.loop !6
 
 .loopexit.i.i:                                    ; preds = %if.then.i.i.i.i.i, %if.then22.i.i.i.i.i
@@ -240,7 +241,8 @@ for.body.i8:                                      ; preds = %_ZL16display_functi
   %and.i.i.i.i.i.i = and i32 %sub.i.i.i.i.i.i, %22
   %24 = load ptr, ptr %m_finterp.i.i.i, align 8
   %idx.ext.i.i.i.i.i.i = zext i32 %and.i.i.i.i.i.i to i64
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.obj_map<func_decl, func_interp *>::obj_map_entry", ptr %24, i64 %idx.ext.i.i.i.i.i.i
+  %add.ptr.idx.i.i.i.i.i.i = shl nuw nsw i64 %idx.ext.i.i.i.i.i.i, 4
+  %add.ptr.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 %add.ptr.idx.i.i.i.i.i.i
   %idx.ext4.i.i.i.i.i.i = zext i32 %23 to i64
   %add.ptr5.i.i.i.i.i.i = getelementptr inbounds %"class.obj_map<func_decl, func_interp *>::obj_map_entry", ptr %24, i64 %idx.ext4.i.i.i.i.i.i
   %cmp.not30.i.i.i.i.i.i = icmp eq i32 %and.i.i.i.i.i.i, %23
@@ -251,7 +253,7 @@ for.cond18.preheader.i.i.i.i.i.i:                 ; preds = %for.inc.i.i.i.i.i.i
   br i1 %cmp19.not32.i.i.i.i.i.i, label %_ZNK10model_core15get_func_interpEP9func_decl.exit.i.i, label %for.body20.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i8, %for.inc.i.i.i.i.i.i
-  %curr.031.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %for.body.i8 ]
+  %curr.031.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i ], [ %add.ptr.ptr.i.i.i.i.i.i, %for.body.i8 ]
   %25 = load ptr, ptr %curr.031.i.i.i.i.i.i, align 8
   %magicptr25.i.i.i.i.i.i = ptrtoint ptr %25 to i64
   switch i64 %magicptr25.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i [
@@ -291,7 +293,7 @@ if.then22.i.i.i.i.i.i:                            ; preds = %for.body20.i.i.i.i.
 
 for.inc36.i.i.i.i.i.i:                            ; preds = %if.then22.i.i.i.i.i.i, %for.body20.i.i.i.i.i.i
   %incdec.ptr37.i.i.i.i.i.i = getelementptr inbounds i8, ptr %curr.133.i.i.i.i.i.i, i64 16
-  %cmp19.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr37.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i
+  %cmp19.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr37.i.i.i.i.i.i, %add.ptr.ptr.i.i.i.i.i.i
   br i1 %cmp19.not.i.i.i.i.i.i, label %_ZNK10model_core15get_func_interpEP9func_decl.exit.i.i, label %for.body20.i.i.i.i.i.i, !llvm.loop !9
 
 .loopexit.i.i.i:                                  ; preds = %if.then.i.i.i.i.i.i, %if.then22.i.i.i.i.i.i

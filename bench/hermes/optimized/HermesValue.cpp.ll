@@ -489,7 +489,6 @@ if.then58:                                        ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.i.i243.not488, label %if.end69, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then58
-  %add.ptr.i.i242 = getelementptr inbounds i8, ptr %48, i64 %49
   %DecValue.i.i261 = getelementptr inbounds i8, ptr %ref.tmp65, i64 8
   %Width.i.i262 = getelementptr inbounds i8, ptr %ref.tmp65, i64 16
   %Hex.i.i263 = getelementptr inbounds i8, ptr %ref.tmp65, i64 20
@@ -498,7 +497,7 @@ for.body.lr.ph:                                   ; preds = %if.then58
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh11raw_ostreamlsEPKc.exit259
-  %it.sroa.0.0489 = phi ptr [ %add.ptr.i.i242, %for.body.lr.ph ], [ %incdec.ptr.i260, %_ZN4llvh11raw_ostreamlsEPKc.exit259 ]
+  %it.sroa.0.0.idx489 = phi i64 [ %49, %for.body.lr.ph ], [ %it.sroa.0.0.add, %_ZN4llvh11raw_ostreamlsEPKc.exit259 ]
   %50 = load ptr, ptr %OutBufEnd.i5.i186, align 8
   %51 = load ptr, ptr %OutBufCur.i6.i187, align 8
   %cmp.i.i251 = icmp eq ptr %50, %51
@@ -517,8 +516,9 @@ if.then4.i.i254:                                  ; preds = %for.body
 
 _ZN4llvh11raw_ostreamlsEPKc.exit259:              ; preds = %if.then.i.i257, %if.then4.i.i254
   %phi.call.i256 = phi ptr [ %call3.i.i258, %if.then.i.i257 ], [ %OS, %if.then4.i.i254 ]
-  %incdec.ptr.i260 = getelementptr inbounds i8, ptr %it.sroa.0.0489, i64 -1
-  %53 = load i8, ptr %incdec.ptr.i260, align 1
+  %it.sroa.0.0.add = add nsw i64 %it.sroa.0.0.idx489, -1
+  %incdec.ptr.i260.ptr = getelementptr inbounds i8, ptr %48, i64 %it.sroa.0.0.add
+  %53 = load i8, ptr %incdec.ptr.i260.ptr, align 1
   %conv = zext i8 %53 to i64
   store i64 %conv, ptr %ref.tmp65, align 8, !alias.scope !13
   store i64 0, ptr %DecValue.i.i261, align 8, !alias.scope !13
@@ -527,7 +527,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit259:              ; preds = %if.then.i.i257, %if
   store i8 0, ptr %Upper.i.i264, align 1, !alias.scope !13
   store i8 1, ptr %HexPrefix.i.i265, align 2, !alias.scope !13
   %call67 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i256, ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp65) #7
-  %cmp.i.i243.not = icmp eq ptr %incdec.ptr.i260, %48
+  %cmp.i.i243.not = icmp eq i64 %it.sroa.0.0.add, 0
   br i1 %cmp.i.i243.not, label %if.end69, label %for.body, !llvm.loop !16
 
 if.end69:                                         ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit259, %if.then58, %_ZN4llvh11raw_ostreamlsEPKc.exit231

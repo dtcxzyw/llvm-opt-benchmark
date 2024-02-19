@@ -5602,9 +5602,11 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i
   %4 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
+  %.pre = load ptr, ptr %_M_refcount.i.i, align 8
   br label %_ZSt10_ConstructISt10shared_ptrIN6spdlog5sinks4sinkEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i
 
 _ZSt10_ConstructISt10shared_ptrIN6spdlog5sinks4sinkEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i.noexc.i.i
+  %5 = phi ptr [ %.pre, %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %1, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ null, %call5.i.i.i.i.noexc.i.i ]
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   %level_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -5617,8 +5619,6 @@ _ZSt10_ConstructISt10shared_ptrIN6spdlog5sinks4sinkEEJRKS4_EEvPT_DpOT0_.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %custom_err_handler_.i, i8 0, i64 73, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %5 = load ptr, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6spdlog5sinks4sinkEED2Ev.exit, label %if.then.i.i.i
 

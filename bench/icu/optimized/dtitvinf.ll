@@ -1328,14 +1328,15 @@ delete.notnull:                                   ; preds = %while.body
   br i1 %arraydestroy.isempty, label %arraydestroy.done4, label %arraydestroy.body.preheader
 
 arraydestroy.body.preheader:                      ; preds = %delete.notnull
-  %delete.end = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %valueTok.sroa.0.0.copyload, i64 %2
+  %delete.end.idx = shl nsw i64 %2, 6
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
-  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -64
-  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element) #15
-  %arraydestroy.done = icmp eq ptr %arraydestroy.element, %valueTok.sroa.0.0.copyload
+  %arraydestroy.elementPast.idx = phi i64 [ %arraydestroy.elementPast.add, %arraydestroy.body ], [ %delete.end.idx, %arraydestroy.body.preheader ]
+  %arraydestroy.elementPast.add = add nsw i64 %arraydestroy.elementPast.idx, -64
+  %arraydestroy.element.ptr = getelementptr inbounds i8, ptr %valueTok.sroa.0.0.copyload, i64 %arraydestroy.elementPast.add
+  call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element.ptr) #15
+  %arraydestroy.done = icmp eq i64 %arraydestroy.elementPast.add, 0
   br i1 %arraydestroy.done, label %arraydestroy.done4, label %arraydestroy.body
 
 arraydestroy.done4:                               ; preds = %arraydestroy.body, %delete.notnull

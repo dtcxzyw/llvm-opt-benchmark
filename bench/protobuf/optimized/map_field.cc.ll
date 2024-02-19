@@ -3735,7 +3735,8 @@ if.end:                                           ; preds = %_ZNK6google8protobu
   %cond.i.i.i = select i1 %cmp.i.i.i.i, ptr %cond-lvalue.i, ptr %elements.i.i.i
   %16 = load i32, ptr %current_size_.i.i, align 8
   %idx.ext.i = sext i32 %16 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %cond.i.i.i, i64 %idx.ext.i
+  %add.ptr.i.idx = shl nsw i64 %idx.ext.i, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %add.ptr.i.idx
   %cmp.i.not134 = icmp eq i32 %16, 0
   br i1 %cmp.i.not134, label %for.end, label %for.body.lr.ph
 
@@ -4153,7 +4154,7 @@ if.then.i:                                        ; preds = %sw.epilog88
 
 _ZN6google8protobuf6MapKeyD2Ev.exit:              ; preds = %sw.epilog88, %if.then.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0135, i64 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 ehcleanup:                                        ; preds = %lpad76, %lpad

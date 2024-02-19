@@ -940,9 +940,10 @@ if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc
 
 invoke.cont5:                                     ; preds = %call5.i.i.i.i.noexc, %if.end.i.i.i.i.i25.i
   store ptr %call5.i.i.i.i35, ptr %vars.i, align 8
-  %add.ptr37.i = getelementptr inbounds float, ptr %call5.i.i.i.i35, i64 %conv
-  store ptr %add.ptr37.i, ptr %_M_finish.i.i5, align 8
-  store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
+  %add.ptr37.i.idx = shl nuw nsw i64 %conv, 2
+  %add.ptr37.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i35, i64 %add.ptr37.i.idx
+  store ptr %add.ptr37.i.ptr, ptr %_M_finish.i.i5, align 8
+  store ptr %add.ptr37.i.ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %3
   br i1 %cmp.i.i.i, label %if.end, label %if.then.i13
 

@@ -6678,29 +6678,30 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then4
-  %idx.neg = sub i64 0, %__n
-  %add.ptr = getelementptr %"class.v8::Local", ptr %1, i64 %idx.neg
+  %.neg = mul i64 %__n, -8
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then11, %for.body.i.i.i.i.i
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %if.then11 ]
-  %__first.sroa.0.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr, %if.then11 ]
-  %3 = load i64, ptr %__first.sroa.0.06.i.i.i.i.i, align 8
+  %__first.sroa.0.06.i.i.i.i.i.idx = phi i64 [ %__first.sroa.0.06.i.i.i.i.i.add, %for.body.i.i.i.i.i ], [ %.neg, %if.then11 ]
+  %__first.sroa.0.06.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %1, i64 %__first.sroa.0.06.i.i.i.i.i.idx
+  %3 = load i64, ptr %__first.sroa.0.06.i.i.i.i.i.ptr, align 8
   store i64 %3, ptr %__cur.07.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i, i64 8
+  %__first.sroa.0.06.i.i.i.i.i.add = add nsw i64 %__first.sroa.0.06.i.i.i.i.i.idx, 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 8
-  %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
+  %cmp.i.i.not.i.i.i.i.i = icmp eq i64 %__first.sroa.0.06.i.i.i.i.i.add, 0
   br i1 %cmp.i.i.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN2v85LocalINS0_5ValueEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit, label %for.body.i.i.i.i.i, !llvm.loop !55
 
 _ZSt22__uninitialized_move_aIPN2v85LocalINS0_5ValueEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %for.body.i.i.i.i.i
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %1, i64 %.neg
   %4 = load ptr, ptr %_M_finish, align 8
   %add.ptr16 = getelementptr inbounds %"class.v8::Local", ptr %4, i64 %__n
   store ptr %add.ptr16, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
+  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr.ptr, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt13move_backwardIPN2v85LocalINS0_5ValueEEES4_ET0_T_S6_S5_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitialized_move_aIPN2v85LocalINS0_5ValueEEES4_SaIS3_EET0_T_S7_S6_RT1_.exit
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i

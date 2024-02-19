@@ -595,6 +595,7 @@ while.body.lr.ph.i:                               ; preds = %if.end.i53
   %add.ptr22.i.i = getelementptr inbounds i8, ptr %add.ptr29.i, i64 -3
   %add.ptr34.i.i = getelementptr inbounds i8, ptr %add.ptr29.i, i64 -1
   %cmp17.i12.i.i = icmp ugt ptr %cond26.i, %cond19.i
+  %add.ptr103.idx.i = shl nuw nsw i64 %idx.ext102.i, 3
   br label %while.body.i
 
 while.body.i:                                     ; preds = %for.end212.i, %while.body.lr.ph.i
@@ -664,7 +665,7 @@ for.body72.i:                                     ; preds = %for.inc210.i, %for.
 for.body106.lr.ph.i:                              ; preds = %for.body72.i
   %bucket88.i = getelementptr inbounds i8, ptr %arrayidx75.i, i64 16
   %30 = load ptr, ptr %bucket88.i, align 8
-  %add.ptr103.i = getelementptr inbounds %struct.ldmEntry_t, ptr %30, i64 %idx.ext102.i
+  %add.ptr103.ptr.i = getelementptr inbounds i8, ptr %30, i64 %add.ptr103.idx.i
   %cmp.i183.i = icmp ugt ptr %add.ptr.i182.i, %27
   %cmp6.i189.i = icmp ugt ptr %27, %anchor.1252.i
   br i1 %cmp.i.not.i, label %for.body106.us.i, label %for.body106.i
@@ -981,7 +982,7 @@ for.inc164.us.i:                                  ; preds = %if.then162.us.i, %i
   %backwardMatchLength.1.us.i = phi i64 [ %backwardMatchLength.0243.us.i, %for.body106.us.i ], [ %backwardMatchLength.0243.us.i, %lor.lhs.false.us.i ], [ %backwardMatchLength.0243.us.i, %ZSTD_count_2segments.exit.us.i ], [ %curBackwardMatchLength.0.us.i, %if.then162.us.i ], [ %backwardMatchLength.0243.us.i, %if.end159.us.i ]
   %forwardMatchLength.1.us.i = phi i64 [ %forwardMatchLength.0244.us.i, %for.body106.us.i ], [ %forwardMatchLength.0244.us.i, %lor.lhs.false.us.i ], [ %forwardMatchLength.0244.us.i, %ZSTD_count_2segments.exit.us.i ], [ %retval.0.i.us.i, %if.then162.us.i ], [ %forwardMatchLength.0244.us.i, %if.end159.us.i ]
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %cur.0241.us.i, i64 8
-  %cmp104.us.i = icmp ult ptr %incdec.ptr.us.i, %add.ptr103.i
+  %cmp104.us.i = icmp ult ptr %incdec.ptr.us.i, %add.ptr103.ptr.i
   br i1 %cmp104.us.i, label %for.body106.us.i, label %for.end165.i, !llvm.loop !14
 
 for.body106.i:                                    ; preds = %for.body106.lr.ph.i, %for.inc164.i
@@ -1137,7 +1138,7 @@ for.inc164.i:                                     ; preds = %if.then162.i, %if.e
   %backwardMatchLength.1.i = phi i64 [ %backwardMatchLength.0243.i, %for.body106.i ], [ %backwardMatchLength.0243.i, %lor.lhs.false.i ], [ %curBackwardMatchLength.0.i, %if.then162.i ], [ %backwardMatchLength.0243.i, %if.end159.i ], [ %backwardMatchLength.0243.i, %ZSTD_count.exit.i ]
   %forwardMatchLength.1.i = phi i64 [ %forwardMatchLength.0244.i, %for.body106.i ], [ %forwardMatchLength.0244.i, %lor.lhs.false.i ], [ %retval.0.i184.i, %if.then162.i ], [ %forwardMatchLength.0244.i, %if.end159.i ], [ %forwardMatchLength.0244.i, %ZSTD_count.exit.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %cur.0241.i, i64 8
-  %cmp104.i = icmp ult ptr %incdec.ptr.i, %add.ptr103.i
+  %cmp104.i = icmp ult ptr %incdec.ptr.i, %add.ptr103.ptr.i
   br i1 %cmp104.i, label %for.body106.i, label %for.end165.i, !llvm.loop !14
 
 for.end165.i:                                     ; preds = %for.inc164.i, %for.inc164.us.i

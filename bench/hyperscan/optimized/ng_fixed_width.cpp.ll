@@ -318,7 +318,8 @@ do.end46.i:                                       ; preds = %while.cond.i, %if.e
   %19 = load ptr, ptr %reports50.i, align 8, !noalias !26
   %m_size.i.i.i.i.i = getelementptr inbounds i8, ptr %u.sroa.0.0.lcssa.i, i64 56
   %20 = load i64, ptr %m_size.i.i.i.i.i, align 8, !noalias !27
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %19, i64 %20
+  %add.ptr.i.i.i.idx.i.i = shl nsw i64 %20, 2
+  %add.ptr.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %19, i64 %add.ptr.i.i.i.idx.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tmp.i.i.i)
   %cmp.i.i.i.i.not1.i.i.i = icmp eq i64 %20, 0
   br i1 %cmp.i.i.i.i.not1.i.i.i, label %_ZN3ue26insertINS_8flat_setIjSt4lessIjESaIjEEES5_EEvPT_RKT0_.exit.i, label %for.body.i.i.i
@@ -330,7 +331,7 @@ for.body.i.i.i:                                   ; preds = %do.end46.i, %.noexc
 
 .noexc.i:                                         ; preds = %for.body.i.i.i
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i, i64 4
-  %cmp.i.i.i.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
+  %cmp.i.i.i.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.ptr.i.i
   br i1 %cmp.i.i.i.i.not.i.i.i, label %_ZN3ue26insertINS_8flat_setIjSt4lessIjESaIjEEES5_EEvPT_RKT0_.exit.i, label %for.body.i.i.i, !llvm.loop !34
 
 _ZN3ue26insertINS_8flat_setIjSt4lessIjESaIjEEES5_EEvPT_RKT0_.exit.i: ; preds = %.noexc.i, %do.end46.i

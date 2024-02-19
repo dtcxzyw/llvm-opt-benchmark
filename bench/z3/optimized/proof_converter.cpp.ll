@@ -419,7 +419,8 @@ invoke.cont16:                                    ; preds = %invoke.cont12
   %22 = load ptr, ptr %m_buffer.i.i, align 8
   %23 = load i32, ptr %m_pos.i.i.i.i, align 8
   %idx.ext.i.i.i = zext i32 %23 to i64
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %22, i64 %idx.ext.i.i.i
+  %add.ptr.i.idx.i.i = shl nuw nsw i64 %idx.ext.i.i.i, 3
+  %add.ptr.i.ptr.i.i = getelementptr inbounds i8, ptr %22, i64 %add.ptr.i.idx.i.i
   %cmp3.i.not.i.i = icmp eq i32 %23, 0
   br i1 %cmp3.i.not.i.i, label %invoke.cont5.i.i, label %for.body.i.i.i27
 
@@ -444,7 +445,7 @@ if.then2.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
 
 _ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i.i.i: ; preds = %if.then2.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i27
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.04.i.i.i, i64 8
-  %cmp.i.i.i28 = icmp ult ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i
+  %cmp.i.i.i28 = icmp ult ptr %incdec.ptr.i.i.i, %add.ptr.i.ptr.i.i
   br i1 %cmp.i.i.i28, label %for.body.i.i.i27, label %invoke.cont5.loopexit.i.i, !llvm.loop !7
 
 invoke.cont5.loopexit.i.i:                        ; preds = %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i.i.i
@@ -495,7 +496,8 @@ entry:
   %m_pos.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %m_pos.i.i.i, align 8
   %idx.ext.i.i = zext i32 %1 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %0, i64 %idx.ext.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 3
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx.i
   %cmp3.i.not.i = icmp eq i32 %1, 0
   br i1 %cmp3.i.not.i, label %invoke.cont5.i, label %for.body.i.i
 
@@ -520,7 +522,7 @@ if.then2.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
 
 _ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i.i: ; preds = %if.then2.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.04.i.i, i64 8
-  %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %add.ptr.i.i
+  %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %add.ptr.i.ptr.i
   br i1 %cmp.i.i, label %for.body.i.i, label %invoke.cont5.loopexit.i, !llvm.loop !7
 
 invoke.cont5.loopexit.i:                          ; preds = %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i.i

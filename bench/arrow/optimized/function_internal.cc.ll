@@ -1203,7 +1203,7 @@ ehcleanup46:                                      ; preds = %ehcleanup38, %clean
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2641,6 +2641,7 @@ call5.i.i.i.i.noexc.i:                            ; preds = %invoke.cont41
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.tmp27, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
+  %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   %14 = load <2 x ptr>, ptr %ref.tmp29, align 16
   store <2 x ptr> %14, ptr %call5.i.i.i.i2.i, align 8
   %15 = extractelement <2 x ptr> %14, i64 1
@@ -2676,6 +2677,7 @@ lpad.i32:                                         ; preds = %invoke.cont41
   br label %ehcleanup72
 
 invoke.cont47:                                    ; preds = %_ZSt10_ConstructISt10shared_ptrIN5arrow5FieldEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i
+  %_M_refcount.i.i34 = getelementptr inbounds i8, ptr %ref.tmp50, i64 8
   %20 = load <2 x ptr>, ptr %array, align 16
   store <2 x ptr> %20, ptr %ref.tmp50, align 16
   %21 = extractelement <2 x ptr> %20, i64 1
@@ -2841,8 +2843,7 @@ if.then.i.i.i70:                                  ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i70
-  %_M_refcount.i.i75 = getelementptr inbounds i8, ptr %ref.tmp50, i64 8
-  %45 = load ptr, ptr %_M_refcount.i.i75, align 8
+  %45 = load ptr, ptr %_M_refcount.i.i34, align 8
   %cmp.not.i.i.i76 = icmp eq ptr %45, null
   br i1 %cmp.not.i.i.i76, label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit, label %if.then.i.i.i77
 
@@ -3162,8 +3163,7 @@ if.then.i.i.i166:                                 ; preds = %invoke.cont.i164
   br label %_ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt10shared_ptrIN5arrow5FieldEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i164, %if.then.i.i.i166
-  %_M_refcount.i.i187 = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
-  %92 = load ptr, ptr %_M_refcount.i.i187, align 8
+  %92 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i188 = icmp eq ptr %92, null
   br i1 %cmp.not.i.i.i188, label %_ZNSt10shared_ptrIN5arrow5FieldEED2Ev.exit, label %if.then.i.i.i189
 
@@ -10458,7 +10458,7 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind memory(read) }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

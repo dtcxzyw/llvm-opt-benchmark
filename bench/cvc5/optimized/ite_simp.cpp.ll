@@ -248,13 +248,14 @@ while.body.lr.ph:                                 ; preds = %if.end
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %subChildren, i64 16
   %_M_finish.i54 = getelementptr inbounds i8, ptr %newChildren, i64 8
   %_M_end_of_storage.i55 = getelementptr inbounds i8, ptr %newChildren, i64 16
+  %add.ptr.i.idx = shl nuw nsw i64 %conv17, 3
   %cmp.i31.not288 = icmp eq i32 %call7, 0
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %numChildren.0294 = phi i32 [ %conv, %while.body.lr.ph ], [ %numChildren.1.lcssa, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   %it.sroa.0.0293 = phi ptr [ %5, %while.body.lr.ph ], [ %it.sroa.0.1.lcssa, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
-  %add.ptr.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %it.sroa.0.0293, i64 %conv17
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %it.sroa.0.0293, i64 %add.ptr.i.idx
   br i1 %cmp.i31.not288, label %for.end, label %for.body
 
 for.body:                                         ; preds = %while.body, %for.inc
@@ -306,7 +307,7 @@ if.else.i:                                        ; preds = %for.body
 for.inc:                                          ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, %if.else.i
   %incdec.ptr.i34 = getelementptr inbounds i8, ptr %it.sroa.0.1289, i64 8
   %dec = add i32 %numChildren.1290, -1
-  %cmp.i31.not = icmp eq ptr %incdec.ptr.i34, %add.ptr.i
+  %cmp.i31.not = icmp eq ptr %incdec.ptr.i34, %add.ptr.i.ptr
   br i1 %cmp.i31.not, label %for.end, label %for.body, !llvm.loop !9
 
 lpad.loopexit:                                    ; preds = %if.then13.i.i.i.i.i99, %if.else.i106
@@ -335,7 +336,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; 
   br label %ehcleanup
 
 for.end:                                          ; preds = %for.inc, %while.body
-  %it.sroa.0.1.lcssa = phi ptr [ %it.sroa.0.0293, %while.body ], [ %add.ptr.i, %for.inc ]
+  %it.sroa.0.1.lcssa = phi ptr [ %it.sroa.0.0293, %while.body ], [ %add.ptr.i.ptr, %for.inc ]
   %numChildren.1.lcssa = phi i32 [ %numChildren.0294, %while.body ], [ %dec, %for.inc ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i36)
   invoke void @_ZN4cvc58internal11NodeBuilderC1EPNS0_11NodeManagerENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i36, ptr noundef nonnull %call, i32 noundef 19)

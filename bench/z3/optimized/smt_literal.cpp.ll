@@ -289,7 +289,8 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit:      ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds %"class.sat::literal", ptr %0, i64 %2
+  %add.ptr.i.idx = shl nuw nsw i64 %2, 2
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not5.i.i = icmp eq i32 %1, 0
   br i1 %cmp.not5.i.i, label %_Z7displayIPKN3sat7literalEEvRSoRKT_S7_PKc.exit, label %for.body.i.i
 
@@ -327,7 +328,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i3
 
 _ZN3satlsERSoNS_7literalE.exit.i.i:               ; preds = %if.else.i.i.i, %if.then.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.06.i.i, i64 4
-  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i
+  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.ptr
   br i1 %cmp.not.i.i, label %_Z7displayIPKN3sat7literalEEvRSoRKT_S7_PKc.exit, label %for.body.i.i, !llvm.loop !4
 
 _Z7displayIPKN3sat7literalEEvRSoRKT_S7_PKc.exit:  ; preds = %_ZN3satlsERSoNS_7literalE.exit.i.i, %entry, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit

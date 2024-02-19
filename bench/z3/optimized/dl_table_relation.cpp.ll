@@ -4266,7 +4266,8 @@ _ZNK6vectorIP3appLb0EjE4sizeEv.exit.i.i.i:        ; preds = %for.end
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 -4
   %32 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %33 = zext i32 %32 to i64
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %31, i64 %33
+  %add.ptr.idx.i.i.i = shl nuw nsw i64 %33, 3
+  %add.ptr.ptr.i.i.i = getelementptr inbounds i8, ptr %31, i64 %add.ptr.idx.i.i.i
   %cmp3.i.not.i.i.i = icmp eq i32 %32, 0
   br i1 %cmp3.i.not.i.i.i, label %if.then.i.i.i.i.i.i, label %for.body.i.i.i.i
 
@@ -4291,7 +4292,7 @@ if.then2.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
 
 _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i.i: ; preds = %if.then2.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %it.04.i.i.i.i, i64 8
-  %cmp.i1.i.i.i = icmp ult ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i
+  %cmp.i1.i.i.i = icmp ult ptr %incdec.ptr.i.i.i.i, %add.ptr.ptr.i.i.i
   br i1 %cmp.i1.i.i.i, label %for.body.i.i.i.i, label %invoke.cont8.i.i.i, !llvm.loop !16
 
 invoke.cont8.i.i.i:                               ; preds = %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i.i
@@ -4421,7 +4422,8 @@ _ZNK6vectorIP3appLb0EjE4sizeEv.exit.i.i:          ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i.i, align 4
   %2 = zext i32 %1 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %0, i64 %2
+  %add.ptr.idx.i.i = shl nuw nsw i64 %2, 3
+  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %add.ptr.idx.i.i
   %cmp3.i.not.i.i = icmp eq i32 %1, 0
   br i1 %cmp3.i.not.i.i, label %if.then.i.i.i.i.i, label %for.body.i.i.i
 
@@ -4446,7 +4448,7 @@ if.then2.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
 
 _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i: ; preds = %if.then2.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.04.i.i.i, i64 8
-  %cmp.i1.i.i = icmp ult ptr %incdec.ptr.i.i.i, %add.ptr.i.i
+  %cmp.i1.i.i = icmp ult ptr %incdec.ptr.i.i.i, %add.ptr.ptr.i.i
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %invoke.cont8.i.i, !llvm.loop !16
 
 invoke.cont8.i.i:                                 ; preds = %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i

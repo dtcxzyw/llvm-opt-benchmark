@@ -1994,7 +1994,8 @@ while.end:                                        ; preds = %_ZNK11ast_manager6i
   %and.i.i = and i32 %sub.i.i, %6
   %8 = load ptr, ptr %c2b, align 8
   %idx.ext.i.i = zext i32 %and.i.i to i64
-  %add.ptr.i.i = getelementptr inbounds %"class.obj_map<expr, occf_tactic::imp::bvar_info>::obj_map_entry", ptr %8, i64 %idx.ext.i.i
+  %add.ptr.idx.i.i = mul nuw nsw i64 %idx.ext.i.i, 24
+  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %add.ptr.idx.i.i
   %idx.ext4.i.i = zext i32 %7 to i64
   %add.ptr5.i.i = getelementptr inbounds %"class.obj_map<expr, occf_tactic::imp::bvar_info>::obj_map_entry", ptr %8, i64 %idx.ext4.i.i
   %cmp.not30.i.i = icmp eq i32 %and.i.i, %7
@@ -2005,7 +2006,7 @@ for.cond18.preheader.i.i:                         ; preds = %for.inc.i.i, %while
   br i1 %cmp19.not32.i.i, label %return, label %for.body20.i.i
 
 for.body.i.i:                                     ; preds = %while.end, %for.inc.i.i
-  %curr.031.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %add.ptr.i.i, %while.end ]
+  %curr.031.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %add.ptr.ptr.i.i, %while.end ]
   %9 = load ptr, ptr %curr.031.i.i, align 8
   %magicptr25.i.i = ptrtoint ptr %9 to i64
   switch i64 %magicptr25.i.i, label %if.then.i.i [
@@ -2045,7 +2046,7 @@ if.then22.i.i:                                    ; preds = %for.body20.i.i
 
 for.inc36.i.i:                                    ; preds = %if.then22.i.i, %for.body20.i.i
   %incdec.ptr37.i.i = getelementptr inbounds i8, ptr %curr.133.i.i, i64 24
-  %cmp19.not.i.i = icmp eq ptr %incdec.ptr37.i.i, %add.ptr.i.i
+  %cmp19.not.i.i = icmp eq ptr %incdec.ptr37.i.i, %add.ptr.ptr.i.i
   br i1 %cmp19.not.i.i, label %return, label %for.body20.i.i, !llvm.loop !14
 
 if.end:                                           ; preds = %if.then.i.i, %if.then22.i.i
@@ -4866,7 +4867,8 @@ if.end:                                           ; preds = %if.then, %entry
   %and = and i32 %sub, %5
   %6 = load ptr, ptr %this, align 8
   %idx.ext = zext i32 %and to i64
-  %add.ptr = getelementptr inbounds %"class.obj_map<expr, occf_tactic::imp::bvar_info>::obj_map_entry", ptr %6, i64 %idx.ext
+  %add.ptr.idx = mul nuw nsw i64 %idx.ext, 24
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %6, i64 %add.ptr.idx
   %idx.ext5 = zext i32 %3 to i64
   %add.ptr6 = getelementptr inbounds %"class.obj_map<expr, occf_tactic::imp::bvar_info>::obj_map_entry", ptr %6, i64 %idx.ext5
   %cmp7.not51 = icmp eq i32 %and, %3
@@ -4879,7 +4881,7 @@ for.cond27.preheader:                             ; preds = %for.inc, %if.end
 
 for.body:                                         ; preds = %if.end, %for.inc
   %del_entry.053 = phi ptr [ %del_entry.1, %for.inc ], [ null, %if.end ]
-  %curr.052 = phi ptr [ %incdec.ptr, %for.inc ], [ %add.ptr, %if.end ]
+  %curr.052 = phi ptr [ %incdec.ptr, %for.inc ], [ %add.ptr.ptr, %if.end ]
   %7 = load ptr, ptr %curr.052, align 8
   %magicptr40 = ptrtoint ptr %7 to i64
   switch i64 %magicptr40, label %if.then9 [
@@ -4966,7 +4968,7 @@ if.end48:                                         ; preds = %if.then41, %if.then
 for.inc54:                                        ; preds = %for.body29, %if.then31
   %del_entry.3 = phi ptr [ %del_entry.256, %if.then31 ], [ %curr.155, %for.body29 ]
   %incdec.ptr55 = getelementptr inbounds i8, ptr %curr.155, i64 24
-  %cmp28.not = icmp eq ptr %incdec.ptr55, %add.ptr
+  %cmp28.not = icmp eq ptr %incdec.ptr55, %add.ptr.ptr
   br i1 %cmp28.not, label %for.end56, label %for.body29, !llvm.loop !38
 
 for.end56:                                        ; preds = %for.inc54, %for.cond27.preheader

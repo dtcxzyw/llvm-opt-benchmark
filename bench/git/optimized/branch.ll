@@ -159,7 +159,8 @@ if.end5:                                          ; preds = %if.end
 
 if.then7:                                         ; preds = %if.end5
   %2 = load ptr, ptr %remotes, align 8
-  %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %2, i64 %1
+  %add.ptr.idx = shl nsw i64 %1, 4
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %2, i64 %add.ptr.idx
   %tobool8.not105 = icmp ne ptr %2, null
   %cmp11106 = icmp sgt i64 %1, 0
   %or.cond103107 = and i1 %tobool8.not105, %cmp11106
@@ -213,7 +214,7 @@ _.exit:                                           ; preds = %if.then16, %if.end3
 
 for.inc:                                          ; preds = %skip_prefix.exit, %land.lhs.true13
   %incdec.ptr = getelementptr inbounds i8, ptr %item.0109, i64 16
-  %cmp11 = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp11 = icmp ult ptr %incdec.ptr, %add.ptr.ptr
   br i1 %cmp11, label %for.body, label %if.end19, !llvm.loop !8
 
 if.end19:                                         ; preds = %for.inc, %if.then7, %if.end5
@@ -632,7 +633,7 @@ while.body.i:                                     ; preds = %while.cond.backedge
   %2 = phi ptr [ %0, %while.body.lr.ph.i ], [ %19, %while.cond.backedge.i ]
   %indvars.iv.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %indvars.iv.next.i, %while.cond.backedge.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %state.i, i8 0, i64 184, i1 false)
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %update_refs.i, i8 0, i64 40, i1 false)
   store i8 1, ptr %1, align 8
   %is_bare.i = getelementptr inbounds i8, ptr %2, i64 80
@@ -1746,7 +1747,7 @@ if.then9:                                         ; preds = %if.end, %for.body.u
   unreachable
 
 for.inc:                                          ; preds = %if.end, %for.body
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds ptr, ptr %call, i64 %indvars.iv.next
   %7 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %7, null

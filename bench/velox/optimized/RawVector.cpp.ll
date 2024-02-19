@@ -117,7 +117,8 @@ _ZN8facebook5velox10raw_vectorIiE6resizeEi.exit:  ; preds = %if.then._ZN8faceboo
   %13 = phi ptr [ %.pre, %if.then._ZN8facebook5velox10raw_vectorIiE6resizeEi.exit_crit_edge ], [ %7, %_ZN8facebook5velox10raw_vectorIiE7reserveEi.exit.i ]
   %size_2.i = getelementptr inbounds i8, ptr %storage, i64 8
   store i32 %size, ptr %size_2.i, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %13, i64 %conv
+  %arrayidx.i.idx = shl nsw i64 %conv, 2
+  %arrayidx.i.ptr = getelementptr inbounds i8, ptr %13, i64 %arrayidx.i.idx
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN8facebook5velox10raw_vectorIiE6resizeEi.exit, %for.body.i
@@ -126,7 +127,7 @@ for.body.i:                                       ; preds = %_ZN8facebook5velox1
   store i32 %__value.addr.06.i, ptr %__first.addr.05.i, align 4
   %inc.i = add nuw nsw i32 %__value.addr.06.i, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.05.i, i64 4
-  %cmp.not.i6 = icmp eq ptr %incdec.ptr.i, %arrayidx.i
+  %cmp.not.i6 = icmp eq ptr %incdec.ptr.i, %arrayidx.i.ptr
   br i1 %cmp.not.i6, label %_ZSt4iotaIPiiEvT_S1_T0_.exit, label %for.body.i, !llvm.loop !5
 
 _ZSt4iotaIPiiEvT_S1_T0_.exit:                     ; preds = %for.body.i

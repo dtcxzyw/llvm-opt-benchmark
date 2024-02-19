@@ -34,7 +34,8 @@ _ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit:       ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %2
+  %add.ptr.i.idx = shl nuw nsw i64 %2, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not13 = icmp eq i32 %1, 0
   br i1 %cmp.not13, label %for.end, label %for.body.lr.ph
 
@@ -79,7 +80,7 @@ if.then:                                          ; preds = %lor.lhs.false
 
 for.inc:                                          ; preds = %for.body, %lor.lhs.false
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.014, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %entry, %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit
@@ -105,7 +106,8 @@ _ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit:       ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %2
+  %add.ptr.i.idx = shl nuw nsw i64 %2, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not31 = icmp eq i32 %1, 0
   br i1 %cmp.not31, label %for.end41, label %for.body.lr.ph
 
@@ -185,7 +187,7 @@ for.inc:                                          ; preds = %for.body26
 
 for.inc40:                                        ; preds = %for.inc, %for.body, %land.lhs.true, %if.then12
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.032, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end41, label %for.body
 
 for.end41:                                        ; preds = %for.inc40, %entry, %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit
@@ -213,7 +215,8 @@ _ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit:       ; preds = %if.end
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i, align 4
   %5 = zext i32 %4 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %3, i64 %5
+  %add.ptr.i.idx = shl nuw nsw i64 %5, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %3, i64 %add.ptr.i.idx
   %cmp.not13 = icmp eq i32 %4, 0
   br i1 %cmp.not13, label %for.end, label %for.body.lr.ph
 
@@ -283,7 +286,7 @@ if.then23:                                        ; preds = %land.lhs.true17
 
 for.inc:                                          ; preds = %land.rhs.i.i, %land.lhs.true, %for.body, %_ZNK11ast_manager5is_eqEPK4expr.exit, %land.lhs.true12, %land.lhs.true17
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.014, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.end, %_ZNK6vectorIPN3euf5enodeELb0EjE3endEv.exit, %entry

@@ -1341,7 +1341,8 @@ entry:
   %2 = load i32, ptr %height, align 4
   %mul1 = mul nsw i32 %2, %1
   %idx.ext = sext i32 %mul1 to i64
-  %add.ptr = getelementptr inbounds float, ptr %0, i64 %idx.ext
+  %add.ptr.idx = shl nsw i64 %idx.ext, 2
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.idx
   %cmp9 = icmp sgt i32 %mul1, 0
   br i1 %cmp9, label %for.body, label %for.end
 
@@ -1361,7 +1362,7 @@ for.body:                                         ; preds = %entry, %for.body
   %mul.i8 = fmul float %conv.i7, 0x3F70101020000000
   store float %mul.i8, ptr %p.010, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %p.010, i64 4
-  %cmp = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp = icmp ult ptr %incdec.ptr, %add.ptr.ptr
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body, %entry
@@ -1379,7 +1380,8 @@ entry:
   %2 = load i32, ptr %height, align 4
   %mul1 = mul nsw i32 %mul, %2
   %idx.ext = sext i32 %mul1 to i64
-  %add.ptr = getelementptr inbounds float, ptr %0, i64 %idx.ext
+  %add.ptr.idx = shl nsw i64 %idx.ext, 2
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.idx
   %cmp9 = icmp sgt i32 %mul1, 0
   br i1 %cmp9, label %for.body, label %for.end
 
@@ -1399,7 +1401,7 @@ for.body:                                         ; preds = %entry, %for.body
   %mul.i8 = fmul float %conv.i7, 0x3F70101020000000
   store float %mul.i8, ptr %p.010, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %p.010, i64 4
-  %cmp = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp = icmp ult ptr %incdec.ptr, %add.ptr.ptr
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body, %entry
@@ -1417,7 +1419,8 @@ entry:
   %2 = load i32, ptr %height, align 4
   %mul1 = mul nsw i32 %mul, %2
   %idx.ext = sext i32 %mul1 to i64
-  %add.ptr = getelementptr inbounds float, ptr %0, i64 %idx.ext
+  %add.ptr.idx = shl nsw i64 %idx.ext, 2
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.idx
   %cmp9 = icmp sgt i32 %mul1, 0
   br i1 %cmp9, label %for.body, label %for.end
 
@@ -1437,7 +1440,7 @@ for.body:                                         ; preds = %entry, %for.body
   %mul.i8 = fmul float %conv.i7, 0x3F70101020000000
   store float %mul.i8, ptr %p.010, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %p.010, i64 4
-  %cmp = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp = icmp ult ptr %incdec.ptr, %add.ptr.ptr
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body, %entry

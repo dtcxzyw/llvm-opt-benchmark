@@ -2989,9 +2989,9 @@ _ZN4llvh15SmallVectorImplIDsE7reserveEm.exit:     ; preds = %if.end, %if.then.i2
   br i1 %cmp16.not, label %if.end31, label %if.then17
 
 if.then17:                                        ; preds = %_ZN4llvh15SmallVectorImplIDsE7reserveEm.exit
-  %idx.neg = sub i64 0, %retval.0.i.i.i.i
-  %add.ptr21 = getelementptr inbounds i16, ptr %add.ptr.i83, i64 %idx.neg
-  %sub.ptr.rhs.cast.i.i.i.i38 = ptrtoint ptr %add.ptr21 to i64
+  %.neg = mul i64 %retval.0.i.i.i.i, -2
+  %add.ptr21.ptr = getelementptr inbounds i8, ptr %add.ptr.i83, i64 %.neg
+  %sub.ptr.rhs.cast.i.i.i.i38 = ptrtoint ptr %add.ptr21.ptr to i64
   %sub.ptr.sub.i.i.i.i39 = sub i64 %sub.ptr.lhs.cast12, %sub.ptr.rhs.cast.i.i.i.i38
   %sub.ptr.div.i.i.i.i40 = ashr exact i64 %sub.ptr.sub.i.i.i.i39, 1
   %13 = load i32, ptr %Capacity.i.i23, align 4
@@ -3016,7 +3016,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i47
   %14 = load ptr, ptr %this, align 8
   %conv.i7.i = zext i32 %.pre11.i48 to i64
   %add.ptr.i.i49 = getelementptr inbounds i16, ptr %14, i64 %conv.i7.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i.i49, ptr nonnull align 2 %add.ptr21, i64 %sub.ptr.sub.i.i.i.i39, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i.i49, ptr align 2 %add.ptr21.ptr, i64 %sub.ptr.sub.i.i.i.i39, i1 false)
   %.pre.i50 = load i32, ptr %Size.i, align 8
   br label %_ZN4llvh15SmallVectorImplIDsE6appendISt13move_iteratorIPDsEvEEvT_S6_.exit
 
@@ -3025,7 +3025,7 @@ _ZN4llvh15SmallVectorImplIDsE6appendISt13move_iteratorIPDsEvEEvT_S6_.exit: ; pre
   %16 = trunc i64 %sub.ptr.div.i.i.i.i40 to i32
   %conv.i10.i51 = add i32 %15, %16
   store i32 %conv.i10.i51, ptr %Size.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %add.ptr10
+  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21.ptr, %add.ptr10
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt13move_backwardIPDsS0_ET0_T_S2_S1_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN4llvh15SmallVectorImplIDsE6appendISt13move_iteratorIPDsEvEEvT_S6_.exit

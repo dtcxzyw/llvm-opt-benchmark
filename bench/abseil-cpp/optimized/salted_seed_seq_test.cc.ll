@@ -6182,7 +6182,8 @@ entry:
   %0 = load ptr, ptr %container, align 8
   %size_.i = getelementptr inbounds i8, ptr %container, i64 8
   %1 = load i64, ptr %size_.i, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %0, i64 %1
+  %add.ptr.i.idx = shl i64 %1, 2
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not15 = icmp eq i64 %1, 0
   br i1 %cmp.not15, label %if.end13, label %for.body
 
@@ -6207,7 +6208,7 @@ if.end8:                                          ; preds = %if.then, %for.body
   %call.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %2)
   %inc = add nuw nsw i64 %count.017, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.016, i64 4
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %if.end8

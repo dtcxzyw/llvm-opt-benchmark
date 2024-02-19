@@ -22628,8 +22628,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i101
   br label %_ZNSt6vectorISt8functionIFvRKN7rocksdb6StatusEEESaIS6_EED2Ev.exit
 
 _ZNSt6vectorISt8functionIFvRKN7rocksdb6StatusEEESaIS6_EED2Ev.exit: ; preds = %invoke.cont.i101, %if.then.i.i.i
-  %_M_manager.i.i104 = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
-  %15 = load ptr, ptr %_M_manager.i.i104, align 8
+  %15 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i105 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i105, label %_ZNSt8functionIFvRKN7rocksdb6StatusEEED2Ev.exit, label %if.then.i.i106
 
@@ -22745,8 +22744,7 @@ lpad19:                                           ; preds = %invoke.cont18
 
 ehcleanup:                                        ; preds = %if.then.i.i4.i, %lpad.i95, %lpad19
   %.pn = phi { ptr, i32 } [ %25, %lpad19 ], [ %6, %if.then.i.i4.i ], [ %6, %lpad.i95 ]
-  %_M_manager.i.i132 = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
-  %26 = load ptr, ptr %_M_manager.i.i132, align 8
+  %26 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i133 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i133, label %ehcleanup33, label %if.then.i.i134
 

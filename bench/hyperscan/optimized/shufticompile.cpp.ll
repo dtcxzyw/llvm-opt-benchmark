@@ -27,7 +27,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Rb_tree_key_compare.31" = type { %"struct.std::less.32" }
 %"struct.std::less.32" = type { i8 }
 %"struct.std::array.25" = type { [4 x i16] }
-%"struct.std::pair.23" = type { i8, i8 }
 
 $_ZNSt3mapIhN3ue29CharReachESt4lessIhESaISt4pairIKhS1_EEEixERS5_ = comdat any
 
@@ -672,7 +671,8 @@ invoke.cont:
   %0 = load ptr, ptr %twochar, align 8, !noalias !15
   %m_size.i.i.i = getelementptr inbounds i8, ptr %twochar, i64 8
   %1 = load i64, ptr %m_size.i.i.i, align 8, !noalias !16
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair.23", ptr %0, i64 %1
+  %add.ptr.i.i.i.idx = shl nsw i64 %1, 1
+  %add.ptr.i.i.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.i.i.idx
   %cmp.i.i.i.i.not452 = icmp eq i64 %1, 0
   br i1 %cmp.i.i.i.i.not452, label %for.body.i.i.preheader, label %invoke.cont6
 
@@ -782,7 +782,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorISt5arr
   %nibble_masks.sroa.0.1 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorISt5arrayItLm4EESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %nibble_masks.sroa.0.0456, %if.then.i.i ]
   %nibble_masks.sroa.13.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0453, i64 2
-  %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i
+  %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.ptr
   br i1 %cmp.i.i.i.i.not, label %for.body.i.i.preheader, label %invoke.cont6
 
 lpad.loopexit410:                                 ; preds = %cond.true.i.i.i.i46

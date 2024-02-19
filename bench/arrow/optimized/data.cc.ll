@@ -3761,8 +3761,8 @@ invoke.cont37:                                    ; preds = %if.end8.sink.split.
   %57 = load ptr, ptr %arrayidx.i63, align 8
   %size.i64 = getelementptr inbounds i8, ptr %this, i64 88
   %58 = load i64, ptr %size.i64, align 8
-  %div1.i = lshr i64 %58, 4
-  %add.ptr.i65 = getelementptr inbounds %"class.std::shared_ptr.8", ptr %57, i64 %div1.i
+  %add.ptr.i65.idx = and i64 %58, -16
+  %add.ptr.i65.ptr = getelementptr inbounds i8, ptr %57, i64 %add.ptr.i65.idx
   %cmp44.not174 = icmp ult i64 %58, 16
   br i1 %cmp44.not174, label %if.else, label %for.body45.preheader
 
@@ -3822,7 +3822,7 @@ if.else.i78:                                      ; preds = %for.body45
 for.inc49:                                        ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIN5arrow6BufferEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, %if.else.i78
   %69 = phi ptr [ %67, %_ZNSt16allocator_traitsISaISt10shared_ptrIN5arrow6BufferEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i ], [ %59, %if.else.i78 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0175, i64 16
-  %cmp44.not = icmp eq ptr %incdec.ptr, %add.ptr.i65
+  %cmp44.not = icmp eq ptr %incdec.ptr, %add.ptr.i65.ptr
   br i1 %cmp44.not, label %if.end51, label %for.body45
 
 if.end51:                                         ; preds = %for.inc49, %invoke.cont22.thread, %invoke.cont22

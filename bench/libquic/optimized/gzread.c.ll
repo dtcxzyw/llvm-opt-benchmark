@@ -836,7 +836,8 @@ do.body.preheader:                                ; preds = %if.end16
 do.body:                                          ; preds = %do.body.preheader, %if.end29
   %9 = phi i32 [ %sub49, %if.end29 ], [ %.pre, %do.body.preheader ]
   %left.0 = phi i32 [ %sub55, %if.end29 ], [ %sub, %do.body.preheader ]
-  %buf.addr.0 = phi ptr [ %add.ptr57, %if.end29 ], [ %buf, %do.body.preheader ]
+  %buf.addr.0.idx = phi i64 [ %buf.addr.0.add, %if.end29 ], [ 0, %do.body.preheader ]
+  %buf.addr.0.ptr = getelementptr inbounds i8, ptr %buf, i64 %buf.addr.0.idx
   %cmp19 = icmp eq i32 %9, 0
   br i1 %cmp19, label %land.lhs.true20, label %if.end29
 
@@ -869,7 +870,7 @@ if.end29:                                         ; preds = %do.body, %if.end24
   %add = add i32 %conv42, 1
   %n.0 = select i1 %cmp37.not, i32 %left.0., i32 %add
   %conv46 = zext i32 %n.0 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.0, ptr align 1 %11, i64 %conv46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.0.ptr, ptr align 1 %11, i64 %conv46, i1 false)
   %12 = load i32, ptr %file, align 8
   %sub49 = sub i32 %12, %n.0
   store i32 %sub49, ptr %file, align 8
@@ -880,18 +881,19 @@ if.end29:                                         ; preds = %do.body, %if.end24
   %add54 = add nsw i64 %14, %conv46
   store i64 %add54, ptr %pos, align 8
   %sub55 = sub i32 %left.0, %n.0
-  %add.ptr57 = getelementptr inbounds i8, ptr %buf.addr.0, i64 %conv46
+  %buf.addr.0.add = add nuw nsw i64 %buf.addr.0.idx, %conv46
   %tobool58 = icmp ne i32 %sub55, 0
   %15 = and i1 %cmp37.not, %tobool58
   br i1 %15, label %do.body, label %if.end61, !llvm.loop !13
 
 if.end61:                                         ; preds = %if.end29, %if.then28
-  %buf.addr.1 = phi ptr [ %buf.addr.0, %if.then28 ], [ %add.ptr57, %if.end29 ]
-  %cmp62 = icmp eq ptr %buf.addr.1, %buf
+  %buf.addr.1.idx = phi i64 [ %buf.addr.0.idx, %if.then28 ], [ %buf.addr.0.add, %if.end29 ]
+  %cmp62 = icmp eq i64 %buf.addr.1.idx, 0
   br i1 %cmp62, label %return, label %if.end65
 
 if.end65:                                         ; preds = %if.end61
-  store i8 0, ptr %buf.addr.1, align 1
+  %buf.addr.1.ptr = getelementptr inbounds i8, ptr %buf, i64 %buf.addr.1.idx
+  store i8 0, ptr %buf.addr.1.ptr, align 1
   br label %return
 
 return:                                           ; preds = %if.else19.i, %land.lhs.true20, %if.end16, %if.end61, %if.end, %lor.lhs.false5, %entry, %if.end65

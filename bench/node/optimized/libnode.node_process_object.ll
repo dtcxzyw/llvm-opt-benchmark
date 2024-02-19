@@ -1370,7 +1370,6 @@ if.then12:                                        ; preds = %if.end
   store i8 7, ptr %arg_type.i, align 1
   store i64 %9, ptr %arg_value.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arg_convertibles.i, i8 0, i64 16, i1 false)
-  %arrayctor.end.i = getelementptr inbounds i8, ptr %arg_convertibles.i, i64 16
   %call.i28 = call noundef ptr @_ZN4node7tracing16TraceEventHelper8GetAgentEv() #19
   %cmp13.i = icmp eq ptr %call.i28, null
   br i1 %cmp13.i, label %arraydestroy.body.i.preheader, label %if.end15.i
@@ -1394,9 +1393,10 @@ arraydestroy.body.i.preheader:                    ; preds = %if.then12, %_ZN4nod
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i.preheader, %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit
-  %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit ], [ %arrayctor.end.i, %arraydestroy.body.i.preheader ]
-  %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -8
-  %11 = load ptr, ptr %arraydestroy.element.i, align 8
+  %arraydestroy.elementPast.i.idx = phi i64 [ %arraydestroy.elementPast.i.add, %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit ], [ 16, %arraydestroy.body.i.preheader ]
+  %arraydestroy.elementPast.i.add = add nsw i64 %arraydestroy.elementPast.i.idx, -8
+  %arraydestroy.element.i.ptr = getelementptr inbounds i8, ptr %arg_convertibles.i, i64 %arraydestroy.elementPast.i.add
+  %11 = load ptr, ptr %arraydestroy.element.i.ptr, align 8
   %cmp.not.i15 = icmp eq ptr %11, null
   br i1 %cmp.not.i15, label %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i
 
@@ -1408,8 +1408,8 @@ _ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i: ; preds =
   br label %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit: ; preds = %arraydestroy.body.i, %_ZNKSt14default_deleteIN2v824ConvertableToTraceFormatEEclEPS1_.exit.i
-  store ptr null, ptr %arraydestroy.element.i, align 8
-  %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %arg_convertibles.i
+  store ptr null, ptr %arraydestroy.element.i.ptr, align 8
+  %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.i.add, 0
   br i1 %arraydestroy.done.i, label %do.end, label %arraydestroy.body.i
 
 do.end:                                           ; preds = %_ZNSt10unique_ptrIN2v824ConvertableToTraceFormatESt14default_deleteIS1_EED2Ev.exit, %if.end

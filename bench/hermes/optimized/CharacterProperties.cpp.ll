@@ -263,7 +263,8 @@ _ZN6hermes12CodePointSetC2ERKS0_.exit:            ; preds = %entry, %return.sink
   %5 = phi i32 [ %0, %entry ], [ %.pre, %return.sink.split.i.i.i ]
   %6 = load ptr, ptr %set, align 8
   %conv.i.i.i = zext i32 %5 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %6, i64 %conv.i.i.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i.i.i, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %6, i64 %add.ptr.i.idx
   %cmp.not221 = icmp eq i32 %5, 0
   br i1 %cmp.not221, label %for.end, label %for.body.lr.ph
 
@@ -641,7 +642,7 @@ if.end.i:                                         ; preds = %for.end.i, %while.b
 
 _ZN6hermesL17canonicalizeRangeENS_14CodePointRangeEPNS_12CodePointSetEb.exit: ; preds = %if.end.i, %_ZSt11lower_boundIPKN6hermes21UnicodeTransformRangeEjET_S4_S4_RKT0_.exit.i
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0222, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %_ZN6hermesL17canonicalizeRangeENS_14CodePointRangeEPNS_12CodePointSetEb.exit
@@ -695,7 +696,8 @@ _ZN6hermes12CodePointSetC2ERKS0_.exit33:          ; preds = %for.end, %return.si
   %52 = phi i32 [ %48, %for.end ], [ %.pre237, %return.sink.split.i.i.i26 ]
   %53 = load ptr, ptr %canonicalized, align 8
   %conv.i.i.i35 = zext i32 %52 to i64
-  %add.ptr.i39 = getelementptr inbounds %"struct.hermes::CodePointRange", ptr %53, i64 %conv.i.i.i35
+  %add.ptr.i39.idx = shl nuw nsw i64 %conv.i.i.i35, 3
+  %add.ptr.i39.ptr = getelementptr inbounds i8, ptr %53, i64 %add.ptr.i39.idx
   %cmp11.not223 = icmp eq i32 %52, 0
   br i1 %cmp11.not223, label %nrvo.skipdtor, label %for.body12.lr.ph
 
@@ -1058,7 +1060,7 @@ for.inc31.i:                                      ; preds = %for.inc.i, %for.bod
 
 _ZN6hermesL25addPrecanonicalCharactersENS_14CodePointRangeEPNS_12CodePointSetEb.exit: ; preds = %for.inc31.i, %for.body12
   %incdec.ptr17 = getelementptr inbounds i8, ptr %__begin16.0224, i64 8
-  %cmp11.not = icmp eq ptr %incdec.ptr17, %add.ptr.i39
+  %cmp11.not = icmp eq ptr %incdec.ptr17, %add.ptr.i39.ptr
   br i1 %cmp11.not, label %nrvo.skipdtor.loopexit, label %for.body12
 
 nrvo.skipdtor.loopexit:                           ; preds = %_ZN6hermesL25addPrecanonicalCharactersENS_14CodePointRangeEPNS_12CodePointSetEb.exit

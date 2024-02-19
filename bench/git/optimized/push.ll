@@ -8,7 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.refspec = type { ptr, i32, i32, ptr, i32, i32, i32 }
 %struct.refspec_item = type { i8, ptr, ptr }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
-%struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [8 x i8] c"verbose\00", align 1
 @verbosity = internal global i32 0, align 4
@@ -1053,13 +1052,14 @@ if.end408:                                        ; preds = %if.then407, %land.l
   br i1 %tobool409.not42, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end408
-  %add.ptr412 = getelementptr inbounds %struct.string_list_item, ptr %35, i64 %.pre46
+  %add.ptr412.idx = shl nsw i64 %.pre46, 4
+  %add.ptr412.ptr = getelementptr inbounds i8, ptr %35, i64 %add.ptr412.idx
   %cmp41349 = icmp sgt i64 %.pre46, 0
   br i1 %cmp41349, label %for.body, label %for.end
 
 land.rhs:                                         ; preds = %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %item.04350, i64 16
-  %cmp413 = icmp ult ptr %incdec.ptr, %add.ptr412
+  %cmp413 = icmp ult ptr %incdec.ptr, %add.ptr412.ptr
   br i1 %cmp413, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.rhs.lr.ph, %land.rhs

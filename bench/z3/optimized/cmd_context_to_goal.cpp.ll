@@ -138,7 +138,8 @@ _ZNK6vectorIP4exprLb0EjE3endEv.exit:              ; preds = %if.then16
   %arrayidx.i.i = getelementptr inbounds i8, ptr %8, i64 -4
   %9 = load i32, ptr %arrayidx.i.i, align 4
   %10 = zext i32 %9 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %10
+  %add.ptr.i.idx = shl nuw nsw i64 %10, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %8, i64 %add.ptr.i.idx
   %cmp23.not43 = icmp eq i32 %9, 0
   br i1 %cmp23.not43, label %if.end42, label %for.body.lr.ph
 
@@ -156,7 +157,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %t, ptr noundef %12, ptr noundef null, ptr noundef %call25.us)
   %incdec.ptr.us = getelementptr inbounds i8, ptr %it.045.us, i64 8
   %incdec.ptr26.us = getelementptr inbounds i8, ptr %it2.044.us, i64 8
-  %cmp23.not.us = icmp eq ptr %incdec.ptr.us, %add.ptr.i
+  %cmp23.not.us = icmp eq ptr %incdec.ptr.us, %add.ptr.i.ptr
   br i1 %cmp23.not.us, label %if.end42, label %for.body.us, !llvm.loop !4
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -169,7 +170,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %t, ptr noundef %14, ptr noundef %call24, ptr noundef %call25)
   %incdec.ptr = getelementptr inbounds i8, ptr %it.045, i64 8
   %incdec.ptr26 = getelementptr inbounds i8, ptr %it2.044, i64 8
-  %cmp23.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp23.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp23.not, label %if.end42, label %for.body, !llvm.loop !4
 
 if.else:                                          ; preds = %if.end12
@@ -179,7 +180,8 @@ _ZNK6vectorIP4exprLb0EjE3endEv.exit39:            ; preds = %if.else
   %arrayidx.i.i36 = getelementptr inbounds i8, ptr %8, i64 -4
   %16 = load i32, ptr %arrayidx.i.i36, align 4
   %17 = zext i32 %16 to i64
-  %add.ptr.i38 = getelementptr inbounds ptr, ptr %8, i64 %17
+  %add.ptr.i38.idx = shl nuw nsw i64 %17, 3
+  %add.ptr.i38.ptr = getelementptr inbounds i8, ptr %8, i64 %add.ptr.i38.idx
   %cmp31.not41 = icmp eq i32 %16, 0
   br i1 %cmp31.not41, label %if.end42, label %for.body32.lr.ph
 
@@ -191,7 +193,7 @@ for.body32.us:                                    ; preds = %for.body32.lr.ph, %
   %18 = load ptr, ptr %__begin2.042.us, align 8
   tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %t, ptr noundef %18, ptr noundef null, ptr noundef null)
   %incdec.ptr40.us = getelementptr inbounds i8, ptr %__begin2.042.us, i64 8
-  %cmp31.not.us = icmp eq ptr %incdec.ptr40.us, %add.ptr.i38
+  %cmp31.not.us = icmp eq ptr %incdec.ptr40.us, %add.ptr.i38.ptr
   br i1 %cmp31.not.us, label %if.end42, label %for.body32.us
 
 for.body32:                                       ; preds = %for.body32.lr.ph, %for.body32
@@ -200,7 +202,7 @@ for.body32:                                       ; preds = %for.body32.lr.ph, %
   %call35 = tail call noundef ptr @_ZN11ast_manager11mk_assertedEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %6, ptr noundef %19)
   tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %t, ptr noundef %19, ptr noundef %call35, ptr noundef null)
   %incdec.ptr40 = getelementptr inbounds i8, ptr %__begin2.042, i64 8
-  %cmp31.not = icmp eq ptr %incdec.ptr40, %add.ptr.i38
+  %cmp31.not = icmp eq ptr %incdec.ptr40, %add.ptr.i38.ptr
   br i1 %cmp31.not, label %if.end42, label %for.body32
 
 if.end42:                                         ; preds = %for.body32, %for.body32.us, %for.body, %for.body.us, %if.else, %if.then16, %_ZNK6vectorIP4exprLb0EjE3endEv.exit39, %_ZNK6vectorIP4exprLb0EjE3endEv.exit

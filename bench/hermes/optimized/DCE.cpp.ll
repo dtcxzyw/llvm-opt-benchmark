@@ -296,7 +296,8 @@ for.end32:                                        ; preds = %for.inc30
   %.pre = load ptr, ptr %toRemove, align 8
   %.pre81 = load i32, ptr %Size.i.i.i.i.i20, align 8
   %conv.i = zext i32 %.pre81 to i64
-  %add.ptr.i78 = getelementptr inbounds ptr, ptr %.pre, i64 %conv.i
+  %add.ptr.i78.idx = shl nuw nsw i64 %conv.i, 3
+  %add.ptr.i78.ptr = getelementptr inbounds i8, ptr %.pre, i64 %add.ptr.i78.idx
   %cmp39.not72 = icmp eq i32 %.pre81, 0
   br i1 %cmp39.not72, label %for.end46, label %for.body40
 
@@ -305,7 +306,7 @@ for.body40:                                       ; preds = %for.end32, %for.bod
   %35 = load ptr, ptr %__begin234.073, align 8
   call void @_ZN6hermes8Function24eraseFromParentNoDestroyEv(ptr noundef nonnull align 8 dereferenceable(304) %35) #6
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin234.073, i64 8
-  %cmp39.not = icmp eq ptr %incdec.ptr, %add.ptr.i78
+  %cmp39.not = icmp eq ptr %incdec.ptr, %add.ptr.i78.ptr
   br i1 %cmp39.not, label %for.end46.loopexit, label %for.body40
 
 for.end46.loopexit:                               ; preds = %for.body40
@@ -327,11 +328,12 @@ _ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit: ; preds = %for.end46, 
   br i1 %tobool48.not, label %do.end49, label %do.body10, !llvm.loop !7
 
 do.end49:                                         ; preds = %do.body10, %_ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit
-  %changed.2.lcssa909499 = phi i8 [ %changed.3, %_ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit ], [ %changed.1, %do.body10 ]
+  %changed.2.lcssa9195100 = phi i8 [ %changed.3, %_ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit ], [ %changed.1, %do.body10 ]
   %38 = load ptr, ptr %toDestroy, align 8
   %39 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i46 = zext i32 %39 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %38, i64 %conv.i46
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i46, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %38, i64 %add.ptr.i.idx
   %cmp56.not74 = icmp eq i32 %39, 0
   br i1 %cmp56.not74, label %for.end62, label %for.body57
 
@@ -343,7 +345,7 @@ for.body57:                                       ; preds = %do.end49, %for.body
   %spec.select = select i1 %41, ptr null, ptr %add.ptr59
   call void @_ZN6hermes5Value7destroyEPS0_(ptr noundef %spec.select) #6
   %incdec.ptr61 = getelementptr inbounds i8, ptr %__begin151.075, i64 8
-  %cmp56.not = icmp eq ptr %incdec.ptr61, %add.ptr.i
+  %cmp56.not = icmp eq ptr %incdec.ptr61, %add.ptr.i.ptr
   br i1 %cmp56.not, label %for.end62.loopexit, label %for.body57
 
 for.end62.loopexit:                               ; preds = %for.body57
@@ -360,7 +362,7 @@ if.then.i.i49:                                    ; preds = %for.end62
   br label %_ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit50
 
 _ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit50: ; preds = %for.end62, %if.then.i.i49
-  %43 = and i8 %changed.2.lcssa909499, 1
+  %43 = and i8 %changed.2.lcssa9195100, 1
   %tobool63 = icmp ne i8 %43, 0
   ret i1 %tobool63
 }

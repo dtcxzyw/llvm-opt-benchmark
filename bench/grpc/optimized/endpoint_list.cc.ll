@@ -914,8 +914,7 @@ if.then.i.i.i104:                                 ; preds = %invoke.cont.i
 
 _ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i104
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i106)
-  %_M_index.i.i.i.i.i107 = getelementptr inbounds i8, ptr %ref.tmp62, i64 48
-  %83 = load i8, ptr %_M_index.i.i.i.i.i107, align 8
+  %83 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i93, align 8
   %cmp.i.i.i.not.i.i108 = icmp eq i8 %83, -1
   br i1 %cmp.i.i.i.not.i.i108, label %_ZN9grpc_core12experimental4JsonD2Ev.exit112, label %if.end.i.i.i.i109
 
@@ -924,7 +923,7 @@ if.end.i.i.i.i109:                                ; preds = %_ZNSt6vectorIN9grpc
           to label %.noexc.i.i.i111 unwind label %terminate.lpad.i.i.i.i110
 
 .noexc.i.i.i111:                                  ; preds = %if.end.i.i.i.i109
-  store i8 -1, ptr %_M_index.i.i.i.i.i107, align 8
+  store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i93, align 8
   br label %_ZN9grpc_core12experimental4JsonD2Ev.exit112
 
 terminate.lpad.i.i.i.i110:                        ; preds = %if.end.i.i.i.i109

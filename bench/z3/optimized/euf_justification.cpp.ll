@@ -7,13 +7,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.ptr_vector.2 = type { %class.vector.3 }
 %class.vector.3 = type { ptr }
 %class.vector = type { ptr }
-%"class.euf::justification" = type { i32, %union.anon, %union.anon.0 }
-%union.anon = type { ptr }
-%union.anon.0 = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.4 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.4 = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
+%"class.euf::justification" = type { i32, %union.anon, %union.anon.0 }
+%union.anon = type { ptr }
+%union.anon.0 = type { ptr }
 %struct._Guard = type { ptr }
 
 $_ZN6vectorIN3euf13justificationELb0EjED2Ev = comdat any
@@ -170,7 +170,8 @@ _ZNK6vectorIN3euf13justificationELb0EjE3endEv.exit: ; preds = %invoke.cont9
   %arrayidx.i.i = getelementptr inbounds i8, ptr %13, i64 -4
   %14 = load i32, ptr %arrayidx.i.i, align 4
   %15 = zext i32 %14 to i64
-  %add.ptr.i = getelementptr inbounds %"class.euf::justification", ptr %13, i64 %15
+  %add.ptr.i.idx = mul nuw nsw i64 %15, 24
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %13, i64 %add.ptr.i.idx
   %cmp.not21 = icmp eq i32 %14, 0
   br i1 %cmp.not21, label %if.then.i.i, label %for.body
 
@@ -185,7 +186,7 @@ invoke.cont15:                                    ; preds = %for.body
 
 for.inc:                                          ; preds = %invoke.cont15
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.022, i64 24
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 lpad.loopexit:                                    ; preds = %for.body, %invoke.cont15
@@ -479,7 +480,8 @@ if.end11:                                         ; preds = %for.inc, %_ZN6vecto
   br i1 %cmp.i, label %for.end19, label %_ZNK6vectorIPN18dependency_managerIN26stacked_dependency_managerIN3euf13justificationEE6configEE10dependencyELb0EjE4sizeEv.exit.thread, !llvm.loop !6
 
 _ZN6vectorIPN18dependency_managerIN26stacked_dependency_managerIN3euf13justificationEE6configEE10dependencyELb0EjE3endEv.exit: ; preds = %_ZNK6vectorIPN18dependency_managerIN26stacked_dependency_managerIN3euf13justificationEE6configEE10dependencyELb0EjE4sizeEv.exit.thread
-  %add.ptr.i35 = getelementptr inbounds ptr, ptr %1, i64 %3
+  %add.ptr.i35.idx = shl nuw nsw i64 %3, 3
+  %add.ptr.i35.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i35.idx
   %cmp15.not50 = icmp eq i32 %2, 0
   br i1 %cmp15.not50, label %for.end19, label %for.body16
 
@@ -490,7 +492,7 @@ for.body16:                                       ; preds = %_ZN6vectorIPN18depe
   %bf.clear.i = and i32 %bf.load.i36, -1073741825
   store i32 %bf.clear.i, ptr %24, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.051, i64 8
-  %cmp15.not = icmp eq ptr %incdec.ptr, %add.ptr.i35
+  %cmp15.not = icmp eq ptr %incdec.ptr, %add.ptr.i35.ptr
   br i1 %cmp15.not, label %for.end19, label %for.body16
 
 for.end19:                                        ; preds = %if.end11, %for.body16, %entry, %_ZN6vectorIPN18dependency_managerIN26stacked_dependency_managerIN3euf13justificationEE6configEE10dependencyELb0EjE3endEv.exit

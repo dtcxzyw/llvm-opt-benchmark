@@ -18,8 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.std::pair" = type { %"class.folly::Range", double }
-%"class.folly::Range" = type { ptr, ptr }
 %"struct.proxygen::compress::Header" = type { i8, ptr, ptr }
 %struct.Initializer.7 = type { i8 }
 %struct.Initializer.6 = type { i8 }
@@ -103,7 +101,8 @@ invoke.cont2:                                     ; preds = %invoke.cont
   %cond.i.i = select i1 %tobool.not1.i.i, ptr %1, ptr %u.i
   %2 = and i16 %0, 16383
   %conv2.i.i.i = zext nneg i16 %2 to i64
-  %add.ptr.i14 = getelementptr inbounds %"struct.std::pair", ptr %cond.i.i, i64 %conv2.i.i.i
+  %add.ptr.i14.idx = mul nuw nsw i64 %conv2.i.i.i, 24
+  %add.ptr.i14.ptr = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr.i14.idx
   %cmp.not25 = icmp eq i16 %2, 0
   br i1 %cmp.not25, label %for.end, label %for.body
 
@@ -178,7 +177,7 @@ if.end19.sink.split:                              ; preds = %land.lhs.true15, %l
 if.end19:                                         ; preds = %if.end19.sink.split, %if.else, %land.lhs.true15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lower) #19
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.026, i64 24
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i14
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i14.ptr
   br i1 %cmp.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %if.end19

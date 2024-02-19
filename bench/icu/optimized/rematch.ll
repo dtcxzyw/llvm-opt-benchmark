@@ -18021,21 +18021,22 @@ if.then5:                                         ; preds = %_ZN6icu_759UVector6
 if.end6:                                          ; preds = %_ZN6icu_759UVector6412reserveBlockEiR10UErrorCode.exit
   %8 = load i32, ptr %fFrameSize, align 8
   %idx.ext = sext i32 %8 to i64
-  %idx.neg = sub nsw i64 0, %idx.ext
-  %add.ptr = getelementptr i64, ptr %retval.0.i, i64 %idx.neg
+  %.neg = mul nsw i64 %idx.ext, -8
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond, %if.end6
-  %source.0 = phi ptr [ %add.ptr, %if.end6 ], [ %incdec.ptr, %for.cond ]
+  %source.0.idx = phi i64 [ %.neg, %if.end6 ], [ %source.0.add, %for.cond ]
   %dest.0 = phi ptr [ %retval.0.i, %if.end6 ], [ %incdec.ptr8, %for.cond ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %source.0, i64 8
-  %9 = load i64, ptr %source.0, align 8
+  %source.0.ptr = getelementptr inbounds i8, ptr %retval.0.i, i64 %source.0.idx
+  %source.0.add = add nsw i64 %source.0.idx, 8
+  %9 = load i64, ptr %source.0.ptr, align 8
   %incdec.ptr8 = getelementptr inbounds i8, ptr %dest.0, i64 8
   store i64 %9, ptr %dest.0, align 8
-  %cmp = icmp eq ptr %incdec.ptr, %retval.0.i
+  %cmp = icmp eq i64 %source.0.add, 0
   br i1 %cmp, label %for.end, label %for.cond, !llvm.loop !48
 
 for.end:                                          ; preds = %for.cond
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %retval.0.i, i64 %.neg
   %fTickCounter = getelementptr inbounds i8, ptr %this, i64 272
   %10 = load i32, ptr %fTickCounter, align 8
   %dec = add nsw i32 %10, -1
@@ -18080,7 +18081,7 @@ if.end12.sink.split.i:                            ; preds = %if.end6.i, %if.then
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end12.sink.split.i, %if.end6.i, %for.end
-  %fPatIdx = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %fPatIdx = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 8
   store i64 %savePatIdx, ptr %fPatIdx, align 8
   br label %return
 

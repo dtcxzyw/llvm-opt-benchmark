@@ -1158,7 +1158,8 @@ if.else31:                                        ; preds = %_ZN11z3_replayer3im
   %and.i.i.i = and i32 %sub.i.i.i, %conv.i.i.i.i.i.i
   %17 = load ptr, ptr %m_heap167, align 8
   %idx.ext.i.i.i = zext i32 %and.i.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds %class.default_map_entry, ptr %17, i64 %idx.ext.i.i.i
+  %add.ptr.idx.i.i.i = mul nuw nsw i64 %idx.ext.i.i.i, 24
+  %add.ptr.ptr.i.i.i = getelementptr inbounds i8, ptr %17, i64 %add.ptr.idx.i.i.i
   %idx.ext4.i.i.i = zext i32 %16 to i64
   %add.ptr5.i.i.i = getelementptr inbounds %class.default_map_entry, ptr %17, i64 %idx.ext4.i.i.i
   %cmp.not29.i.i.i = icmp eq i32 %and.i.i.i, %16
@@ -1169,7 +1170,7 @@ for.cond18.preheader.i.i.i:                       ; preds = %for.inc.i.i.i, %if.
   br i1 %cmp19.not31.i.i.i, label %if.then34, label %for.body20.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.else31, %for.inc.i.i.i
-  %curr.030.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %add.ptr.i.i.i, %if.else31 ]
+  %curr.030.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %add.ptr.ptr.i.i.i, %if.else31 ]
   %m_state.i.i.i.i = getelementptr inbounds i8, ptr %curr.030.i.i.i, i64 4
   %18 = load i32, ptr %m_state.i.i.i.i, align 4
   switch i32 %18, label %for.inc.i.i.i [
@@ -1215,7 +1216,7 @@ land.lhs.true25.i.i.i:                            ; preds = %if.then22.i.i.i
 
 for.inc36.i.i.i:                                  ; preds = %land.lhs.true25.i.i.i, %if.then22.i.i.i, %for.body20.i.i.i
   %incdec.ptr37.i.i.i = getelementptr inbounds i8, ptr %curr.132.i.i.i, i64 24
-  %cmp19.not.i.i.i = icmp eq ptr %incdec.ptr37.i.i.i, %add.ptr.i.i.i
+  %cmp19.not.i.i.i = icmp eq ptr %incdec.ptr37.i.i.i, %add.ptr.ptr.i.i.i
   br i1 %cmp19.not.i.i.i, label %if.then34, label %for.body20.i.i.i, !llvm.loop !9
 
 if.then34:                                        ; preds = %for.cond18.preheader.i.i.i, %for.body.i.i.i, %for.body20.i.i.i, %for.inc36.i.i.i
@@ -6006,7 +6007,8 @@ if.end:                                           ; preds = %if.then, %entry
   %and = and i32 %sub, %conv.i.i.i
   %5 = load ptr, ptr %this, align 8
   %idx.ext = zext i32 %and to i64
-  %add.ptr = getelementptr inbounds %class.default_map_entry, ptr %5, i64 %idx.ext
+  %add.ptr.idx = mul nuw nsw i64 %idx.ext, 24
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %5, i64 %add.ptr.idx
   %idx.ext5 = zext i32 %3 to i64
   %add.ptr6 = getelementptr inbounds %class.default_map_entry, ptr %5, i64 %idx.ext5
   %cmp7.not61 = icmp eq i32 %and, %3
@@ -6019,7 +6021,7 @@ for.cond27.preheader:                             ; preds = %for.inc, %if.end
 
 for.body:                                         ; preds = %if.end, %for.inc
   %del_entry.063 = phi ptr [ %del_entry.1, %for.inc ], [ null, %if.end ]
-  %curr.062 = phi ptr [ %incdec.ptr, %for.inc ], [ %add.ptr, %if.end ]
+  %curr.062 = phi ptr [ %incdec.ptr, %for.inc ], [ %add.ptr.ptr, %if.end ]
   %m_state.i = getelementptr inbounds i8, ptr %curr.062, i64 4
   %6 = load i32, ptr %m_state.i, align 4
   switch i32 %6, label %for.inc [
@@ -6126,7 +6128,7 @@ if.end48:                                         ; preds = %if.then41, %if.then
 for.inc54:                                        ; preds = %for.body29, %land.lhs.true34, %if.then31
   %del_entry.3 = phi ptr [ %del_entry.267, %land.lhs.true34 ], [ %del_entry.267, %if.then31 ], [ %curr.166, %for.body29 ]
   %incdec.ptr55 = getelementptr inbounds i8, ptr %curr.166, i64 24
-  %cmp28.not = icmp eq ptr %incdec.ptr55, %add.ptr
+  %cmp28.not = icmp eq ptr %incdec.ptr55, %add.ptr.ptr
   br i1 %cmp28.not, label %for.end56, label %for.body29, !llvm.loop !34
 
 for.end56:                                        ; preds = %for.inc54, %for.cond27.preheader

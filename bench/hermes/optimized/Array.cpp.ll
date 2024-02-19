@@ -2714,8 +2714,8 @@ if.end63:                                         ; preds = %if.end56
   %29 = load i32, ptr %curChunkIndex_.i, align 8
   %30 = load ptr, ptr %args, align 8, !noalias !36
   %conv.i.i43 = zext i32 %26 to i64
-  %idx.neg.i.i.i = sub nsw i64 0, %conv.i.i43
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %30, i64 %idx.neg.i.i.i
+  %.neg = mul nsw i64 %conv.i.i43, -8
+  %add.ptr.i.i.i.ptr = getelementptr inbounds i8, ptr %30, i64 %.neg
   %cmp.i.i.i44.not78 = icmp eq i32 %26, 0
   br i1 %cmp.i.i.i44.not78, label %for.end, label %for.body.lr.ph
 
@@ -2742,7 +2742,7 @@ if.end89:                                         ; preds = %for.body
   %33 = load double, ptr %retval.0.i.i.i.i.i.i18, align 8
   %add94 = fadd double %33, 1.000000e+00
   store double %add94, ptr %retval.0.i.i.i.i.i.i18, align 8
-  %cmp.i.i.i44.not = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
+  %cmp.i.i.i44.not = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i.ptr
   br i1 %cmp.i.i.i44.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %if.end89, %if.end63
@@ -3645,8 +3645,8 @@ _ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11P
   %22 = load ptr, ptr %args, align 8, !noalias !56
   %23 = load i32, ptr %argCount_.i, align 8, !noalias !59
   %conv.i.i40 = zext i32 %23 to i64
-  %idx.neg.i.i.i = sub nsw i64 0, %conv.i.i40
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %22, i64 %idx.neg.i.i.i
+  %.neg = mul nsw i64 %conv.i.i40, -8
+  %add.ptr.i.i.i.ptr = getelementptr inbounds i8, ptr %22, i64 %.neg
   %cmp.i.i.i41.not59 = icmp eq i32 %23, 0
   %chunks_.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %19, i64 144
   br i1 %cmp.i.i.i41.not59, label %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit39.for.end_crit_edge, label %for.body.lr.ph
@@ -3674,7 +3674,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %21, ptr %curChunkIndex_.i.i, align 8
   store ptr %add.ptr.i.i, ptr %curChunkEnd_.i.i, align 8
   store ptr %20, ptr %next_.i.i, align 8
-  %cmp.i.i.i41.not = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
+  %cmp.i.i.i41.not = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i.ptr
   br i1 %cmp.i.i.i41.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit39.for.end_crit_edge
@@ -6216,8 +6216,8 @@ while.end:                                        ; preds = %if.end159, %_ZN6her
   %55 = load ptr, ptr %args, align 8, !noalias !92
   %56 = load i32, ptr %argCount_.i, align 8, !noalias !95
   %conv.i.i = zext i32 %56 to i64
-  %idx.neg.i.i.i = sub nsw i64 0, %conv.i.i
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %55, i64 %idx.neg.i.i.i
+  %.neg = mul nsw i64 %conv.i.i, -8
+  %add.ptr.i.i.i.ptr = getelementptr inbounds i8, ptr %55, i64 %.neg
   %cmp.i.i.i.not200 = icmp eq i32 %56, 0
   br i1 %cmp.i.i.i.not200, label %if.end203, label %for.body.lr.ph
 
@@ -6247,7 +6247,7 @@ if.end192:                                        ; preds = %for.body
   %61 = bitcast double %add197 to i64
   %retval.sroa.0.0.i159 = select i1 %60, i64 9221120237041090560, i64 %61
   store i64 %retval.sroa.0.0.i159, ptr %retval.0.i.i.i.i.i.i57, align 8
-  %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
+  %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i.ptr
   br i1 %cmp.i.i.i.not, label %if.end203, label %for.body
 
 if.end203:                                        ; preds = %if.end192, %if.end35, %while.end

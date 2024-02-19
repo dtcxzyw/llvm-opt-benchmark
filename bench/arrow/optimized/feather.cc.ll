@@ -13472,7 +13472,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %do.body
 if.else.i:                                        ; preds = %do.body
   %conv.i = trunc i64 %rem.i to i32
   %conv8.i = and i32 %conv.i, 255
-  %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %length
+  %add.ptr12.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %length
   %cmp13.not283.i = icmp eq i64 %length, 0
   br i1 %cmp13.not283.i, label %if.end81.i, label %for.body.lr.ph.i
 
@@ -13509,7 +13509,7 @@ _ZN5arrow6StatusD2Ev.exit98.i:                    ; preds = %for.body.i
   br i1 %cmp.i99.i, label %if.end51.i.thread, label %nrvo.skipdtor
 
 if.end51.i:                                       ; preds = %for.body.i
-  %cmp13.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr12.i
+  %cmp13.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr12.ptr.i
   br i1 %cmp13.not.i, label %for.end.i, label %for.body.i.backedge
 
 for.body.i.backedge:                              ; preds = %if.end51.i, %if.end51.i.thread
@@ -13517,7 +13517,7 @@ for.body.i.backedge:                              ; preds = %if.end51.i, %if.end
   br label %for.body.i, !llvm.loop !473
 
 if.end51.i.thread:                                ; preds = %_ZN5arrow6StatusD2Ev.exit98.i
-  %cmp13.not.i127 = icmp eq ptr %incdec.ptr.i, %add.ptr12.i
+  %cmp13.not.i127 = icmp eq ptr %incdec.ptr.i, %add.ptr12.ptr.i
   br i1 %cmp13.not.i127, label %if.end81.i, label %for.body.i.backedge
 
 for.end.i:                                        ; preds = %if.end51.i
@@ -23821,8 +23821,7 @@ if.then.i.i.i5:                                   ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i5
-  %_M_refcount.i.i10 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %31 = load ptr, ptr %_M_refcount.i.i10, align 8
+  %31 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i11 = icmp eq ptr %31, null
   br i1 %cmp.not.i.i.i11, label %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit, label %if.then.i.i.i12
 

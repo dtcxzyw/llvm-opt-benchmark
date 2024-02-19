@@ -1935,7 +1935,7 @@ for.inc.i.us:                                     ; preds = %refspec_match.exit.
   br i1 %exitcond.not, label %omit_name_by_refspec.exit.loopexit.us, label %for.body.i.us, !llvm.loop !17
 
 omit_name_by_refspec.exit.loopexit.us:            ; preds = %for.inc.i.us
-  %indvars.iv.next44 = add nuw i64 %indvars.iv43, 1
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %cmp48.us = icmp ugt i64 %.pre46, %indvars.iv.next44
   br i1 %cmp48.us, label %for.body50.us, label %for.end60, !llvm.loop !21
 
@@ -6260,7 +6260,7 @@ for.body:                                         ; preds = %query_refspecs_mult
   %12 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @string_list_has_string(ptr noundef %10, ptr noundef %12) #21
   %tobool7.not = icmp eq i32 %call, 0
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i64, ptr %nr, align 8
   %cmp5 = icmp ugt i64 %13, %indvars.iv.next
   %14 = select i1 %tobool7.not, i1 %cmp5, i1 false
@@ -6710,11 +6710,12 @@ if.end4.i.i:                                      ; preds = %if.end.i.i10
   br i1 %cmp611.i.i, label %for.body.preheader.i.i, label %is_reachable_in_reflog.exit.thread.i
 
 for.body.preheader.i.i:                           ; preds = %if.end4.i.i
-  %add.ptr10.i.i = getelementptr inbounds ptr, ptr %.pre15.i.i, i64 %18
+  %add.ptr10.idx.i.i = shl nsw i64 %18, 3
+  %add.ptr10.ptr.i.i = getelementptr inbounds i8, ptr %.pre15.i.i, i64 %add.ptr10.idx.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
-  %add.ptr13.i.i = phi ptr [ %add.ptr.i.i, %for.inc.i.i ], [ %add.ptr10.i.i, %for.body.preheader.i.i ]
+  %add.ptr13.i.i = phi ptr [ %add.ptr.i.i, %for.inc.i.i ], [ %add.ptr10.ptr.i.i, %for.body.preheader.i.i ]
   %chunk.012.i.i = phi ptr [ %add.ptr17.i.i, %for.inc.i.i ], [ %.pre15.i.i, %for.body.preheader.i.i ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr13.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %chunk.012.i.i to i64

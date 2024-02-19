@@ -1073,7 +1073,8 @@ if.then:                                          ; preds = %entry
   %fields_.i = getelementptr inbounds i8, ptr %1, i64 56
   %3 = load ptr, ptr %fields_.i, align 8
   %idx.ext = sext i32 %2 to i64
-  %add.ptr = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %3, i64 %idx.ext
+  %add.ptr.idx = mul nsw i64 %idx.ext, 88
+  %add.ptr.ptr.ptr = getelementptr inbounds i8, ptr %3, i64 %add.ptr.idx
   br i1 %check_fields, label %for.body, label %if.end11
 
 for.body:                                         ; preds = %if.then, %for.inc
@@ -1087,7 +1088,7 @@ land.lhs.true:                                    ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
   %incdec.ptr = getelementptr inbounds i8, ptr %field.086, i64 88
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.ptr.ptr
   br i1 %cmp.not, label %if.end11, label %for.body, !llvm.loop !6
 
 if.end11:                                         ; preds = %for.inc, %if.then
@@ -1340,7 +1341,7 @@ if.then70:                                        ; preds = %if.else68
 
 for.inc81:                                        ; preds = %for.cond57, %if.then55, %_ZN6google8protobuf11MapIteratorD2Ev.exit76, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %if.then70, %if.else68, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit61, %if.then28
   %incdec.ptr82 = getelementptr inbounds i8, ptr %field14.090, i64 88
-  %cmp16.not = icmp eq ptr %incdec.ptr82, %add.ptr
+  %cmp16.not = icmp eq ptr %incdec.ptr82, %add.ptr.ptr.ptr
   br i1 %cmp16.not, label %if.end85, label %for.body17, !llvm.loop !8
 
 if.end85:                                         ; preds = %for.inc81, %entry

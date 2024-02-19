@@ -2255,7 +2255,8 @@ if.end10:                                         ; preds = %invoke.cont6, %entr
   %4 = phi i32 [ %.pre, %invoke.cont6 ], [ 16, %entry ]
   %5 = phi ptr [ %call.i45, %invoke.cont6 ], [ %stackArray.i, %entry ]
   %idx.ext = sext i32 %0 to i64
-  %add.ptr = getelementptr inbounds ptr, ptr %5, i64 %idx.ext
+  %add.ptr.idx = shl nsw i64 %idx.ext, 3
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %5, i64 %add.ptr.idx
   %cmp15 = icmp sgt i32 %1, %4
   br i1 %cmp15, label %if.then16, label %if.end10.if.end22_crit_edge
 
@@ -2296,7 +2297,8 @@ invoke.cont17:                                    ; preds = %if.then3.i53, %if.t
 if.end22:                                         ; preds = %if.end10.if.end22_crit_edge, %invoke.cont17
   %8 = phi ptr [ %.pre96, %if.end10.if.end22_crit_edge ], [ %call.i60, %invoke.cont17 ]
   %idx.ext25 = sext i32 %1 to i64
-  %add.ptr26 = getelementptr inbounds ptr, ptr %8, i64 %idx.ext25
+  %add.ptr26.idx = shl nsw i64 %idx.ext25, 3
+  %add.ptr26.ptr = getelementptr inbounds i8, ptr %8, i64 %add.ptr26.idx
   %call28 = invoke noundef ptr @_ZNK6icu_757UVector7toArrayEPPv(ptr noundef nonnull align 8 dereferenceable(40) %dest, ptr noundef nonnull %5)
           to label %invoke.cont27 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -2366,15 +2368,15 @@ if.end54:                                         ; preds = %if.then45, %if.else
   %sourcePtr.1 = phi ptr [ %incdec.ptr, %invoke.cont41 ], [ %sourcePtr.089, %if.then45 ], [ %incdec.ptr50, %if.else49 ]
   %destPtr.1 = phi ptr [ %incdec.ptr42, %invoke.cont41 ], [ %incdec.ptr46, %if.then45 ], [ %destPtr.090, %if.else49 ]
   %di.1 = add nuw nsw i32 %di.091, 1
-  %cmp37 = icmp ult ptr %sourcePtr.1, %add.ptr26
-  %cmp38 = icmp ult ptr %destPtr.1, %add.ptr
+  %cmp37 = icmp ult ptr %sourcePtr.1, %add.ptr26.ptr
+  %cmp38 = icmp ult ptr %destPtr.1, %add.ptr.ptr
   %15 = select i1 %cmp37, i1 %cmp38, i1 false
   br i1 %15, label %while.body, label %while.cond55.preheader, !llvm.loop !29
 
 while.cond55:                                     ; preds = %while.cond55.preheader, %while.body57
   %destPtr.2 = phi ptr [ %incdec.ptr58, %while.body57 ], [ %destPtr.0.lcssa, %while.cond55.preheader ]
   %di.2 = phi i32 [ %inc59, %while.body57 ], [ %di.0.lcssa, %while.cond55.preheader ]
-  %cmp56 = icmp ult ptr %destPtr.2, %add.ptr
+  %cmp56 = icmp ult ptr %destPtr.2, %add.ptr.ptr
   br i1 %cmp56, label %while.body57, label %while.cond62
 
 while.body57:                                     ; preds = %while.cond55
@@ -2387,7 +2389,7 @@ while.body57:                                     ; preds = %while.cond55
 while.cond62:                                     ; preds = %while.cond55, %while.body64
   %sourcePtr.2 = phi ptr [ %incdec.ptr65, %while.body64 ], [ %sourcePtr.0.lcssa, %while.cond55 ]
   %di.3 = phi i32 [ %inc66, %while.body64 ], [ %di.2, %while.cond55 ]
-  %cmp63 = icmp ult ptr %sourcePtr.2, %add.ptr26
+  %cmp63 = icmp ult ptr %sourcePtr.2, %add.ptr26.ptr
   br i1 %cmp63, label %while.body64, label %while.end68
 
 while.body64:                                     ; preds = %while.cond62
@@ -4060,7 +4062,7 @@ invoke.cont124:                                   ; preds = %invoke.cont118
           to label %for.inc128 unwind label %lpad43.loopexit.split-lp.loopexit
 
 for.inc128:                                       ; preds = %invoke.cont124
-  %indvars.iv.next172 = add nuw i64 %indvars.iv171, 2
+  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 2
   %37 = load i16, ptr %fUnion2.i, align 8
   %cmp.i.i67 = icmp slt i16 %37, 0
   %38 = ashr i16 %37, 5

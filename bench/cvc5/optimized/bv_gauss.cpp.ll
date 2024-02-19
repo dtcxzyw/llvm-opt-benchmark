@@ -17501,20 +17501,21 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then4
-  %idx.neg = sub i64 0, %__n
-  %add.ptr = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %2, i64 %idx.neg
+  %.neg = mul i64 %__n, -16
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %2, i64 %.neg
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then11, %for.inc.i.i.i.i.i
   %__cur.010.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %2, %if.then11 ]
-  %__first.sroa.0.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %add.ptr, %if.then11 ]
-  invoke void @__gmpz_init_set(ptr noundef nonnull %__cur.010.i.i.i.i.i, ptr noundef nonnull %__first.sroa.0.09.i.i.i.i.i)
+  %__first.sroa.0.09.i.i.i.i.i.idx = phi i64 [ %__first.sroa.0.09.i.i.i.i.i.add, %for.inc.i.i.i.i.i ], [ %.neg, %if.then11 ]
+  %__first.sroa.0.09.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %2, i64 %__first.sroa.0.09.i.i.i.i.i.idx
+  invoke void @__gmpz_init_set(ptr noundef nonnull %__cur.010.i.i.i.i.i, ptr noundef nonnull %__first.sroa.0.09.i.i.i.i.i.ptr)
           to label %for.inc.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i.i, i64 16
+  %__first.sroa.0.09.i.i.i.i.i.add = add nsw i64 %__first.sroa.0.09.i.i.i.i.i.idx, 16
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 16
-  %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %2
+  %cmp.i.i.not.i.i.i.i.i = icmp eq i64 %__first.sroa.0.09.i.i.i.i.i.add, 0
   br i1 %cmp.i.i.not.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i, !llvm.loop !185
 
 lpad.i.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
@@ -17549,7 +17550,7 @@ invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i
   %9 = load ptr, ptr %_M_finish, align 8
   %add.ptr16 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %9, i64 %__n
   store ptr %add.ptr16, ptr %_M_finish, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
   %cmp4.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i, 0
@@ -17558,7 +17559,7 @@ invoke.cont:                                      ; preds = %for.inc.i.i.i.i.i
 for.body.i.i.i.i.i49:                             ; preds = %invoke.cont, %call.i.i.i.i.i.noexc
   %__n.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %call.i.i.i.i.i.noexc ], [ %sub.ptr.div.i.i.i.i.i, %invoke.cont ]
   %__result.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %call.i.i.i.i.i.noexc ], [ %2, %invoke.cont ]
-  %__last.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i50, %call.i.i.i.i.i.noexc ], [ %add.ptr, %invoke.cont ]
+  %__last.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i50, %call.i.i.i.i.i.noexc ], [ %add.ptr.ptr, %invoke.cont ]
   %incdec.ptr.i.i.i.i.i50 = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i, i64 -16
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i, i64 -16
   %call.i.i.i.i.i51 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr1.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i.i.i50)

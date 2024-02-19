@@ -1751,18 +1751,18 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then4
-  %idx.neg = sub i64 0, %__n
-  %add.ptr = getelementptr inbounds i32, ptr %1, i64 %idx.neg
+  %.neg = mul i64 %__n, -4
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %1, i64 %.neg
   %add.ptr.idx.neg = shl i64 %__n, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr nonnull align 4 %add.ptr, i64 %add.ptr.idx.neg, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %1, ptr align 4 %add.ptr.ptr, i64 %add.ptr.idx.neg, i1 false)
   %3 = load ptr, ptr %_M_finish, align 8
   %add.ptr16 = getelementptr inbounds i32, ptr %3, i64 %__n
   store ptr %add.ptr16, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
+  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr.ptr, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont20, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then11
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 2
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i

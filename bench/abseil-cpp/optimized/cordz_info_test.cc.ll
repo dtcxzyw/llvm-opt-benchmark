@@ -6578,7 +6578,8 @@ entry:
   %0 = load ptr, ptr %container, align 8
   %len_.i.i = getelementptr inbounds i8, ptr %container, i64 8
   %1 = load i64, ptr %len_.i.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %1
+  %add.ptr.i.idx = shl i64 %1, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not15 = icmp eq i64 %1, 0
   br i1 %cmp.not15, label %if.end13, label %for.body
 
@@ -6614,7 +6615,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.end8
 _ZN7testing8internal14UniversalPrintIPvEEvRKT_PSo.exit: ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %inc = add nuw nsw i64 %count.017, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.016, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN7testing8internal14UniversalPrintIPvEEvRKT_PSo.exit
@@ -17889,11 +17890,11 @@ if.else.i18:                                      ; preds = %invoke.cont8
 
 if.then5.i20:                                     ; preds = %if.else.i18
   %add.ptr.i21.idx = shl nuw nsw i64 %conv, 3
-  %add.ptr.i21.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i61, i64 %add.ptr.i21.idx
+  %add.ptr.i21 = getelementptr inbounds i8, ptr %call5.i.i.i.i61, i64 %add.ptr.i21.idx
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %if.then5.i20, %if.else.i18, %if.then.i.i.i30.i103, %if.then.i24
-  %local_stack.sroa.11.3 = phi ptr [ %add.ptr37.i, %if.else.i18 ], [ %add.ptr37.i, %if.then.i24 ], [ %add.ptr37.i101, %if.then.i.i.i30.i103 ], [ %add.ptr.i21.ptr, %if.then5.i20 ]
+  %local_stack.sroa.11.3 = phi ptr [ %add.ptr37.i, %if.else.i18 ], [ %add.ptr37.i, %if.then.i24 ], [ %add.ptr37.i101, %if.then.i.i.i30.i103 ], [ %add.ptr.i21, %if.then5.i20 ]
   %local_stack.sroa.0.3 = phi ptr [ %call5.i.i.i.i61, %if.else.i18 ], [ %call5.i.i.i.i61, %if.then.i24 ], [ %call5.i.i.i.i107, %if.then.i.i.i30.i103 ], [ %call5.i.i.i.i61, %if.then5.i20 ]
   %call12 = invoke { ptr, i64 } @_ZNK4absl13cord_internal9CordzInfo8GetStackEv(ptr noundef nonnull align 8 dereferenceable(1332) %1)
           to label %invoke.cont11 unwind label %ehcleanup41.thread127

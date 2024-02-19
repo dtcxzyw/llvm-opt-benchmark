@@ -1806,20 +1806,22 @@ if.else16:                                        ; preds = %if.else
   br i1 %or.cond.not.i, label %while.cond.i.i, label %_ZN11flatbuffers11JsonPrinter15GetFieldDefaultImEET_RKNS_8FieldDefE.exit
 
 while.cond.i.i:                                   ; preds = %if.else16, %while.cond.i.i
-  %s.0.i.i = phi ptr [ %incdec.ptr.i.i, %while.cond.i.i ], [ %call.i, %if.else16 ]
-  %11 = load i8, ptr %s.0.i.i, align 1
+  %s.0.idx.i.i = phi i64 [ %s.0.add.i.i, %while.cond.i.i ], [ 0, %if.else16 ]
+  %s.0.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 %s.0.idx.i.i
+  %11 = load i8, ptr %s.0.ptr.i.i, align 1
   %tobool2.not.i.i = icmp eq i8 %11, 0
   %conv.i.i.i.i = sext i8 %11 to i32
   %sub.i.i.i.i = add nsw i32 %conv.i.i.i.i, -48
   %cmp.i.i.i.i = icmp ult i32 %sub.i.i.i.i, 10
   %or.cond.i.i = select i1 %tobool2.not.i.i, i1 true, i1 %cmp.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %s.0.i.i, i64 1
+  %s.0.add.i.i = add nuw nsw i64 %s.0.idx.i.i, 1
   br i1 %or.cond.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !13
 
 while.end.i.i:                                    ; preds = %while.cond.i.i
-  %cmp.i.i12 = icmp ugt ptr %s.0.i.i, %call.i
-  %cond.idx.i.i = sext i1 %cmp.i.i12 to i64
-  %cond.i.i = getelementptr inbounds i8, ptr %s.0.i.i, i64 %cond.idx.i.i
+  %s.0.ptr.i.i.le = getelementptr inbounds i8, ptr %call.i, i64 %s.0.idx.i.i
+  %cmp.not.i.i = icmp eq i64 %s.0.idx.i.i, 0
+  %add.ptr.i.i12 = getelementptr inbounds i8, ptr %s.0.ptr.i.i.le, i64 -1
+  %cond.i.i = select i1 %cmp.not.i.i, ptr %call.i, ptr %add.ptr.i.i12
   %12 = load i8, ptr %cond.i.i, align 1
   %cmp4.i.i = icmp eq i8 %12, 45
   %spec.select.i = select i1 %cmp4.i.i, i64 -1, i64 %10

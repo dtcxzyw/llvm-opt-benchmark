@@ -7500,7 +7500,8 @@ entry:
   br i1 %useCurrentLocale, label %if.end175, label %if.then
 
 if.then:                                          ; preds = %entry
-  %add.ptr.i = getelementptr inbounds i16, ptr %1, i64 %conv.i.i
+  %add.ptr.i.idx = shl nuw nsw i64 %conv.i.i, 1
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx
   %cmp.not136 = icmp eq i32 %2, 0
   br i1 %upperCase, label %if.then5, label %if.else
 
@@ -7517,7 +7518,7 @@ for.body:                                         ; preds = %if.then5, %for.body
   %5 = icmp ult i16 %4, -26
   %tobool17 = select i1 %5, i1 %noop.0138, i1 false
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin4.0137, i64 2
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %if.end, label %for.body
 
 if.else:                                          ; preds = %if.then
@@ -7533,7 +7534,7 @@ for.body26:                                       ; preds = %if.else, %for.body2
   %8 = icmp ult i16 %7, -26
   %tobool43 = select i1 %8, i1 %noop.1133, i1 false
   %incdec.ptr46 = getelementptr inbounds i8, ptr %__begin420.0132, i64 2
-  %cmp25.not = icmp eq ptr %incdec.ptr46, %add.ptr.i
+  %cmp25.not = icmp eq ptr %incdec.ptr46, %add.ptr.i.ptr
   br i1 %cmp25.not, label %if.end, label %for.body26
 
 if.end:                                           ; preds = %for.body26, %for.body
@@ -7639,7 +7640,8 @@ if.end109:                                        ; preds = %if.end.i.i.i.i.i.i.
   %ref.tmp7.sroa.47.8.index_.i.i.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %builder, i64 16
   store ptr %runtime, ptr %ref.tmp7.sroa.47.8.index_.i.i.i.i.sroa_idx.i, align 8, !alias.scope !127
   %hasVal.i.i.i = getelementptr inbounds i8, ptr %builder, i64 24
-  %add.ptr.i52 = getelementptr inbounds i16, ptr %1, i64 %conv.i.i
+  %add.ptr.i52.idx = shl nuw nsw i64 %conv.i.i, 1
+  %add.ptr.i52.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i52.idx
   %cmp115.not144 = icmp eq i32 %2, 0
   br i1 %upperCase, label %if.then111, label %if.else136
 
@@ -7744,7 +7746,7 @@ _ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i: ; preds = %
 _ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit: ; preds = %_ZN6hermes2vm15StringPrimitive26castToASCIIPointerForWriteEv.exit.i, %if.else.i, %_ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i)
   %incdec.ptr134 = getelementptr inbounds i8, ptr %__begin5.0145, i64 2
-  %cmp115.not = icmp eq ptr %incdec.ptr134, %add.ptr.i52
+  %cmp115.not = icmp eq ptr %incdec.ptr134, %add.ptr.i52.ptr
   br i1 %cmp115.not, label %cleanup, label %for.body116
 
 if.else136:                                       ; preds = %if.end109
@@ -7848,7 +7850,7 @@ _ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i70: ; preds =
 _ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit102: ; preds = %_ZN6hermes2vm15StringPrimitive26castToASCIIPointerForWriteEv.exit.i91, %if.else.i82, %_ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i70
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i58)
   %incdec.ptr161 = getelementptr inbounds i8, ptr %__begin5138.0143, i64 2
-  %cmp143.not = icmp eq ptr %incdec.ptr161, %add.ptr.i52
+  %cmp143.not = icmp eq ptr %incdec.ptr161, %add.ptr.i52.ptr
   br i1 %cmp143.not, label %cleanup, label %for.body144
 
 cleanup:                                          ; preds = %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit102, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit, %if.then111, %if.else136

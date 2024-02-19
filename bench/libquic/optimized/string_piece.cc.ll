@@ -3266,7 +3266,8 @@ entry:
   %2 = load ptr, ptr %s, align 8
   %length_.i6.i = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load i64, ptr %length_.i6.i, align 8
-  %add.ptr.i7.i = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i7.idx.i = shl nsw i64 %3, 1
+  %add.ptr.i7.ptr.i = getelementptr inbounds i8, ptr %2, i64 %add.ptr.i7.idx.i
   %cmp.not11.i.i = icmp eq i64 %1, %pos
   br i1 %cmp.not11.i.i, label %_ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit.i, label %for.cond1.preheader.lr.ph.i.i
 
@@ -3281,7 +3282,7 @@ for.cond1.preheader.i.i:                          ; preds = %for.cond1.preheader
 
 for.cond1.i.i:                                    ; preds = %for.body3.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__iter.010.i.i, i64 2
-  %cmp2.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i7.i
+  %cmp2.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i7.ptr.i
   br i1 %cmp2.not.i.i, label %for.cond1.for.inc6_crit_edge.i.i, label %for.body3.i.i, !llvm.loop !17
 
 for.body3.i.i:                                    ; preds = %for.cond1.i.i, %for.cond1.preheader.i.i
@@ -3323,7 +3324,8 @@ entry:
   %2 = load ptr, ptr %s, align 8
   %length_.i6 = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load i64, ptr %length_.i6, align 8
-  %add.ptr.i7 = getelementptr inbounds i16, ptr %2, i64 %3
+  %add.ptr.i7.idx = shl nsw i64 %3, 1
+  %add.ptr.i7.ptr = getelementptr inbounds i8, ptr %2, i64 %add.ptr.i7.idx
   %cmp.not11.i = icmp eq i64 %1, %pos
   br i1 %cmp.not11.i, label %_ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit, label %for.cond1.preheader.lr.ph.i
 
@@ -3338,7 +3340,7 @@ for.cond1.preheader.i:                            ; preds = %for.cond1.preheader
 
 for.cond1.i:                                      ; preds = %for.body3.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__iter.010.i, i64 2
-  %cmp2.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i7
+  %cmp2.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i7.ptr
   br i1 %cmp2.not.i, label %for.cond1.for.inc6_crit_edge.i, label %for.body3.i, !llvm.loop !17
 
 for.body3.i:                                      ; preds = %for.cond1.i, %for.cond1.preheader.i

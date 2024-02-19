@@ -3394,23 +3394,25 @@ invoke.cont7:                                     ; preds = %if.end7.i.i.i.i.i.i
 
 for.body.lr.ph:                                   ; preds = %invoke.cont7
   %shr.i.i.i.i.i.i = lshr i64 %7, 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %8, i64 %shr.i.i.i.i.i.i
+  %add.ptr.i.i.i.idx = mul nuw nsw i64 %shr.i.i.i.i.i.i, 40
   %9 = load i32, ptr %this, align 4, !tbaa !44
   br label %for.body
 
 for.body:                                         ; preds = %for.inc, %for.body.lr.ph
-  %add.ptr.i.i.i.pn = phi ptr [ %add.ptr.i.i.i, %for.body.lr.ph ], [ %__begin1.sroa.0.055, %for.inc ]
-  %__begin1.sroa.0.055 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.pn, i64 -40
-  %second = getelementptr i8, ptr %add.ptr.i.i.i.pn, i64 -8
+  %add.ptr.i.i.i.pn.idx = phi i64 [ %add.ptr.i.i.i.idx, %for.body.lr.ph ], [ %add.ptr.i.i.i.pn.add, %for.inc ]
+  %add.ptr.i.i.i.pn.ptr = getelementptr inbounds i8, ptr %8, i64 %add.ptr.i.i.i.pn.idx
+  %add.ptr.i.i.i.pn.add = add nsw i64 %add.ptr.i.i.i.pn.idx, -40
+  %second = getelementptr i8, ptr %add.ptr.i.i.i.pn.ptr, i64 -8
   %10 = load i32, ptr %second, align 8, !tbaa !42
   %cmp.not = icmp eq i32 %10, %9
   br i1 %cmp.not, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
+  %__begin1.sroa.0.055.ptr = getelementptr inbounds i8, ptr %8, i64 %add.ptr.i.i.i.pn.add
   %11 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %11, ptr %agg.result, align 8, !tbaa !95
-  %12 = load ptr, ptr %__begin1.sroa.0.055, align 8, !tbaa !29
-  %_M_string_length.i.i = getelementptr i8, ptr %add.ptr.i.i.i.pn, i64 -32
+  %12 = load ptr, ptr %__begin1.sroa.0.055.ptr, align 8, !tbaa !29
+  %_M_string_length.i.i = getelementptr i8, ptr %add.ptr.i.i.i.pn.ptr, i64 -32
   %13 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #25
   store i64 %13, ptr %__dnew.i.i, align 8, !tbaa !96
@@ -3449,7 +3451,7 @@ lpad11:                                           ; preds = %if.then.i.i
   br label %ehcleanup28
 
 for.inc:                                          ; preds = %for.body
-  %cmp.i56 = icmp eq ptr %8, %__begin1.sroa.0.055
+  %cmp.i56 = icmp eq i64 %add.ptr.i.i.i.pn.add, 0
   br i1 %cmp.i56, label %for.end, label %for.body, !prof !71
 
 for.end:                                          ; preds = %for.inc, %invoke.cont7

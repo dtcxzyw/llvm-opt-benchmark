@@ -368,15 +368,16 @@ for.body41:                                       ; preds = %if.end33, %for.inc1
 
 if.end49:                                         ; preds = %for.body41
   %41 = load ptr, ptr %vit.sroa.0.0116, align 8
-  %arrayidx.i46 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %41, i64 %39
+  %arrayidx.i46.idx = shl nsw i64 %39, 3
+  %arrayidx.i46.ptr = getelementptr inbounds i8, ptr %41, i64 %arrayidx.i46.idx
   %42 = tail call i64 @llvm.ctlz.i64(i64 %39, i1 true), !range !9
   %sub.i.i.i = shl nuw nsw i64 %42, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIPN6Assimp23LimitBoneWeightsProcess6WeightElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_(ptr noundef %41, ptr noundef nonnull %arrayidx.i46, i64 noundef %mul.i.i)
+  invoke void @_ZSt16__introsort_loopIPN6Assimp23LimitBoneWeightsProcess6WeightElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_(ptr noundef %41, ptr noundef nonnull %arrayidx.i46.ptr, i64 noundef %mul.i.i)
           to label %.noexc unwind label %lpad16.loopexit
 
 .noexc:                                           ; preds = %if.end49
-  invoke void @_ZSt22__final_insertion_sortIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_(ptr noundef %41, ptr noundef nonnull %arrayidx.i46)
+  invoke void @_ZSt22__final_insertion_sortIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_(ptr noundef %41, ptr noundef nonnull %arrayidx.i46.ptr)
           to label %invoke.cont56 unwind label %lpad16.loopexit
 
 invoke.cont56:                                    ; preds = %.noexc
@@ -387,10 +388,10 @@ invoke.cont56:                                    ; preds = %.noexc
   %45 = load i64, ptr %mCapacity.i49, align 8
   %cmp.i50 = icmp ult i64 %45, %conv63
   %.pre139 = load ptr, ptr %vit.sroa.0.0116, align 8
+  %46 = shl nuw nsw i64 %conv63, 3
   br i1 %cmp.i50, label %arrayctor.cont.i.i, label %invoke.cont64
 
 arrayctor.cont.i.i:                               ; preds = %invoke.cont56
-  %46 = shl nuw nsw i64 %conv63, 3
   %call.i.i55 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %46) #13
           to label %call.i.i.noexc unwind label %lpad16.loopexit
 
@@ -412,14 +413,14 @@ delete.notnull.i.i:                               ; preds = %call.i.i.noexc
   %.pre138 = load ptr, ptr %vit.sroa.0.0116, align 8
   br label %invoke.cont64
 
-invoke.cont64:                                    ; preds = %delete.notnull.i.i, %call.i.i.noexc, %invoke.cont56
+invoke.cont64:                                    ; preds = %invoke.cont56, %delete.notnull.i.i, %call.i.i.noexc
   %48 = phi ptr [ %.pre138, %delete.notnull.i.i ], [ %call.i.i55, %call.i.i.noexc ], [ %.pre139, %invoke.cont56 ]
   store i64 %conv63, ptr %mSize.i44, align 8
   %49 = trunc i64 %43 to i32
   %conv69 = sub i32 %49, %44
   %add = add i32 %conv69, %38
   store i32 %add, ptr %removed, align 4
-  %arrayidx.i58 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %48, i64 %conv63
+  %arrayidx.i58.ptr = getelementptr inbounds i8, ptr %48, i64 %46
   %cmp77.not108 = icmp eq i32 %44, 0
   br i1 %cmp77.not108, label %for.inc100, label %for.body78
 
@@ -430,7 +431,7 @@ for.body78:                                       ; preds = %invoke.cont64, %for
   %50 = load float, ptr %mWeight79, align 4
   %add80 = fadd float %sum.0109, %50
   %incdec.ptr = getelementptr inbounds i8, ptr %it.0110, i64 8
-  %cmp77.not = icmp eq ptr %incdec.ptr, %arrayidx.i58
+  %cmp77.not = icmp eq ptr %incdec.ptr, %arrayidx.i58.ptr
   br i1 %cmp77.not, label %for.end82, label %for.body78, !llvm.loop !10
 
 for.end82:                                        ; preds = %for.body78

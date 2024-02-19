@@ -1241,7 +1241,8 @@ lpad20.loopexit.split-lp:                         ; preds = %if.end64
 
 for.end49:                                        ; preds = %for.inc48
   %nStored.i65 = getelementptr inbounds i8, ptr %lightPower, i64 24
-  %add.ptr.i66 = getelementptr inbounds float, ptr %35, i64 %inc.i38
+  %add.ptr.i66.idx = shl nsw i64 %inc.i38, 2
+  %add.ptr.i66.ptr = getelementptr inbounds i8, ptr %35, i64 %add.ptr.i66.idx
   %cmp.not4.i = icmp eq i64 %inc.i38, 0
   br i1 %cmp.not4.i, label %if.end64, label %for.body.i67
 
@@ -1251,7 +1252,7 @@ for.body.i67:                                     ; preds = %for.end49, %for.bod
   %39 = load float, ptr %__first.addr.05.i, align 4
   %add.i68 = fadd float %__init.addr.06.i, %39
   %incdec.ptr.i69 = getelementptr inbounds i8, ptr %__first.addr.05.i, i64 4
-  %cmp.not.i70 = icmp eq ptr %incdec.ptr.i69, %add.ptr.i66
+  %cmp.not.i70 = icmp eq ptr %incdec.ptr.i69, %add.ptr.i66.ptr
   br i1 %cmp.not.i70, label %_ZSt10accumulateIPffET0_T_S2_S1_.exit, label %for.body.i67, !llvm.loop !30
 
 _ZSt10accumulateIPffET0_T_S2_S1_.exit:            ; preds = %for.body.i67
@@ -1262,7 +1263,7 @@ for.body.i.i.i:                                   ; preds = %_ZSt10accumulateIPf
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %35, %_ZSt10accumulateIPffET0_T_S2_S1_.exit ]
   store float 1.000000e+00, ptr %__first.addr.04.i.i.i, align 4
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 4
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i66
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i66.ptr
   br i1 %cmp.not.i.i.i, label %if.end64.loopexit, label %for.body.i.i.i, !llvm.loop !31
 
 if.end64.loopexit:                                ; preds = %for.body.i.i.i

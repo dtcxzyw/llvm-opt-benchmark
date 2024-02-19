@@ -120,14 +120,14 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm14EED2Ev(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 448
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %0, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
-  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -32
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #12
-  %arraydestroy.done = icmp eq ptr %arraydestroy.element, %this
+  %arraydestroy.elementPast.idx = phi i64 [ 448, %entry ], [ %arraydestroy.elementPast.add, %arraydestroy.body ]
+  %arraydestroy.elementPast.add = add nsw i64 %arraydestroy.elementPast.idx, -32
+  %arraydestroy.element.ptr = getelementptr inbounds i8, ptr %this, i64 %arraydestroy.elementPast.add
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.ptr) #12
+  %arraydestroy.done = icmp eq i64 %arraydestroy.elementPast.add, 0
   br i1 %arraydestroy.done, label %arraydestroy.done2, label %arraydestroy.body
 
 arraydestroy.done2:                               ; preds = %arraydestroy.body

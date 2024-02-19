@@ -175,12 +175,13 @@ for.cond.preheader.i19.i.i.i:                     ; preds = %if.then.i.i
   br i1 %cmp.i1.not10.i21.i.i.i, label %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_T0_.exit50.i.i.i", label %for.body.lr.ph.i22.i.i.i
 
 for.body.lr.ph.i22.i.i.i:                         ; preds = %for.cond.preheader.i19.i.i.i
+  %__i.sroa.0.09.i20.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 24
   %10 = getelementptr i8, ptr %call5.i.i.i.i.i, i64 16
   br label %for.body.i24.i.i.i
 
 for.body.i24.i.i.i:                               ; preds = %for.inc.i36.i.i.i, %for.body.lr.ph.i22.i.i.i
+  %__i.sroa.0.012.i25.i.i.i = phi ptr [ %__i.sroa.0.09.i20.i.i.i, %for.body.lr.ph.i22.i.i.i ], [ %__i.sroa.0.0.i37.i.i.i, %for.inc.i36.i.i.i ]
   %__first.coerce.pn11.i26.i.i.i = phi ptr [ %call5.i.i.i.i.i, %for.body.lr.ph.i22.i.i.i ], [ %__i.sroa.0.012.i25.i.i.i, %for.inc.i36.i.i.i ]
-  %__i.sroa.0.012.i25.i.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn11.i26.i.i.i, i64 24
   %11 = getelementptr i8, ptr %__first.coerce.pn11.i26.i.i.i, i64 40
   %call.val.i.i27.i.i.i = load i64, ptr %11, align 8
   %call3.val.i.i28.i.i.i = load i64, ptr %10, align 8
@@ -224,7 +225,8 @@ while.body.i.i39.i.i.i:                           ; preds = %if.else.i30.i.i.i, 
   br label %for.inc.i36.i.i.i
 
 for.inc.i36.i.i.i:                                ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_T0_.exit.i33.i.i.i", %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i44.i.i.i
-  %cmp.i1.not.i38.i.i.i = icmp eq ptr %__i.sroa.0.012.i25.i.i.i, %__cur.07.i.i.i.i.i.i.ptr
+  %__i.sroa.0.0.i37.i.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.012.i25.i.i.i, i64 24
+  %cmp.i1.not.i38.i.i.i = icmp eq ptr %__i.sroa.0.0.i37.i.i.i, %incdec.ptr.i.i.i.i.i.i.ptr.le
   br i1 %cmp.i1.not.i38.i.i.i, label %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_T0_.exit50.i.i.i", label %for.body.i24.i.i.i, !llvm.loop !10
 
 "_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_T0_.exit50.i.i.i": ; preds = %for.inc.i36.i.i.i, %for.cond.preheader.i19.i.i.i

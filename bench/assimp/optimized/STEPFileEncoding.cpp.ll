@@ -703,7 +703,7 @@ for.end225:                                       ; preds = %invoke.cont216
           to label %while.body.i283.preheader unwind label %lpad198
 
 while.body.i283.preheader:                        ; preds = %for.end225
-  %add.ptr235 = getelementptr inbounds i32, ptr %call190, i64 %div188118
+  %add.ptr235.ptr = getelementptr inbounds i8, ptr %call190, i64 %47
   br label %while.body.i283
 
 while.body.i283:                                  ; preds = %while.body.i283.preheader, %call.i287.noexc
@@ -715,7 +715,7 @@ while.body.i283:                                  ; preds = %while.body.i283.pre
 
 call.i287.noexc:                                  ; preds = %while.body.i283
   %incdec.ptr.i286 = getelementptr inbounds i8, ptr %start.addr.04.i285, i64 4
-  %cmp.not.i288 = icmp eq ptr %incdec.ptr.i286, %add.ptr235
+  %cmp.not.i288 = icmp eq ptr %incdec.ptr.i286, %add.ptr235.ptr
   br i1 %cmp.not.i288, label %invoke.cont237, label %while.body.i283, !llvm.loop !9
 
 invoke.cont237:                                   ; preds = %call.i287.noexc
@@ -925,7 +925,7 @@ if.then10.i.i:                                    ; preds = %if.else8.i.i
 if.else24.i.i:                                    ; preds = %if.else8.i.i
   %shr25.i.i = lshr i32 %cp, 18
   %11 = trunc i32 %shr25.i.i to i8
-  %conv27.i.i = or i8 %11, -16
+  %conv27.i.i = or disjoint i8 %11, -16
   store i8 %conv27.i.i, ptr %result, align 1
   %shr29.i.i = lshr i32 %cp, 12
   %12 = trunc i32 %shr29.i.i to i8

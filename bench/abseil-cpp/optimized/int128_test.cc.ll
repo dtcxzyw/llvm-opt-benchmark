@@ -24434,7 +24434,8 @@ entry:
   %0 = load ptr, ptr %values, align 8
   %_M_len.i.i = getelementptr inbounds i8, ptr %values, i64 8
   %1 = load i64, ptr %_M_len.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.absl::uint128", ptr %0, i64 %1
+  %add.ptr.i.idx = shl nsw i64 %1, 4
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not12 = icmp eq i64 %1, 0
   br i1 %cmp.not12, label %nrvo.skipdtor, label %for.body.lr.ph
 
@@ -24527,7 +24528,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorISt7var
   %5 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorISt7variantIJPKN4absl7uint128EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
   %cond.i10.i.i.i10 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorISt7variantIJPKN4absl7uint128EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %cond.i10.i.i.i1113, %if.then.i.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.014, i64 16
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %nrvo.skipdtor, label %for.body
 
 lpad.loopexit:                                    ; preds = %cond.true.i.i.i.i

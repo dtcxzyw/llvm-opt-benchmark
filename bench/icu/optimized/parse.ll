@@ -1626,7 +1626,7 @@ if.end34:                                         ; preds = %if.end30
   store i8 %18, ptr %arrayidx39, align 1
   %call40 = call i64 @strtoul(ptr noundef nonnull %toConv, ptr noundef nonnull %stopstring, i32 noundef 16) #19
   %conv41 = trunc i64 %call40 to i8
-  %indvars.iv.next63 = add nuw i64 %indvars.iv62, 1
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %arrayidx.i36 = getelementptr inbounds i8, ptr %value.sroa.0.2, i64 %indvars.iv62
   store i8 %conv41, ptr %arrayidx.i36, align 1
   %19 = load ptr, ptr %stopstring, align 8
@@ -3107,7 +3107,8 @@ if.end36:                                         ; preds = %if.end28
   %call39 = call noalias ptr @uprv_malloc_75(i64 noundef %conv38) #20
   call void @llvm.memset.p0.i64(ptr align 2 %call39, i8 0, i64 %conv38, i1 false)
   %idx.ext = sext i32 %add to i64
-  %add.ptr = getelementptr inbounds i16, ptr %call39, i64 %idx.ext
+  %add.ptr.idx = shl nsw i64 %idx.ext, 1
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %call39, i64 %add.ptr.idx
   %cmp42123 = icmp sgt i32 %call37, -1
   br i1 %cmp42123, label %while.body.lr.ph.split.us, label %while.end119
 
@@ -3247,12 +3248,12 @@ if.else105:                                       ; preds = %do.body100
 if.end118:                                        ; preds = %if.else105, %if.then102
   %quoted.190 = phi i8 [ %quoted.191, %if.then102 ], [ %quoted.1.us118, %if.else105 ]
   %target.4 = phi ptr [ %incdec.ptr104, %if.then102 ], [ %add.ptr114, %if.else105 ]
-  %cmp42 = icmp ult ptr %target.4, %add.ptr
+  %cmp42 = icmp ult ptr %target.4, %add.ptr.ptr
   br i1 %cmp42, label %while.body.lr.ph.split.us, label %while.end119, !llvm.loop !17
 
 while.end119:                                     ; preds = %if.end97, %if.end118, %if.end36
   %target.0.ph97 = phi ptr [ %call39, %if.end36 ], [ %target.0.ph125, %if.end97 ], [ %target.4, %if.end118 ]
-  %cmp120 = icmp ult ptr %target.0.ph97, %add.ptr
+  %cmp120 = icmp ult ptr %target.0.ph97, %add.ptr.ptr
   br i1 %cmp120, label %if.then121, label %if.end122
 
 if.then121:                                       ; preds = %while.end119

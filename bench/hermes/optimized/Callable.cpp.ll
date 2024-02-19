@@ -4837,7 +4837,8 @@ entry:
   %currentFrame_.i = getelementptr inbounds i8, ptr %runtime, i64 9496
   %retval.sroa.0.0.copyload.i = load ptr, ptr %currentFrame_.i, align 8
   %idx.ext = zext i32 %sub.i to i64
-  %add.ptr = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %retval.sroa.0.0.copyload.i, i64 %idx.ext
+  %add.ptr.idx = shl nuw nsw i64 %idx.ext, 3
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i, i64 %add.ptr.idx
   %heapStorage_.i = getelementptr inbounds i8, ptr %runtime, i64 840
   %cmp.not5.i = icmp eq i32 %sub.i, 0
   br i1 %cmp.not5.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4copyIPNS0_17PinnedHermesValueEPS3_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.lr.ph.i
@@ -4869,7 +4870,7 @@ _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIb
   store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %result.addr.06.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.07.i, i64 8
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %result.addr.06.i, i64 8
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.ptr
   br i1 %cmp.not.i, label %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4copyIPNS0_17PinnedHermesValueEPS3_EET0_T_S9_S8_RNS0_7HadesGCE.exit, label %for.body.i, !llvm.loop !54
 
 _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE4copyIPNS0_17PinnedHermesValueEPS3_EET0_T_S9_S8_RNS0_7HadesGCE.exit: ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, %entry

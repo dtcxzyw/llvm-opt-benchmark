@@ -7017,7 +7017,8 @@ invoke.cont11:                                    ; preds = %invoke.cont6
   %arrayidx.i.i = getelementptr inbounds i8, ptr %24, i64 -4
   %25 = load i32, ptr %arrayidx.i.i, align 4
   %26 = zext i32 %25 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %24, i64 %26
+  %add.ptr.i.idx = shl nuw nsw i64 %26, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %24, i64 %add.ptr.i.idx
   %cmp.not5.i = icmp eq i32 %25, 0
   br i1 %cmp.not5.i, label %invoke.cont13, label %for.body.i
 
@@ -7040,7 +7041,7 @@ if.end.i:                                         ; preds = %if.else.i, %for.bod
 
 call1.i.noexc:                                    ; preds = %if.end.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.06.i, i64 8
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr
   br i1 %cmp.not.i, label %invoke.cont13, label %for.body.i, !llvm.loop !7
 
 invoke.cont13:                                    ; preds = %call1.i.noexc, %invoke.cont6, %invoke.cont11
@@ -7638,7 +7639,8 @@ if.end11:                                         ; preds = %for.inc, %_ZN6vecto
   br i1 %cmp.i, label %for.end19, label %_ZNK6vectorIPN18dependency_managerIN25scoped_dependency_managerIPvE6configEE10dependencyELb0EjE4sizeEv.exit.thread, !llvm.loop !10
 
 _ZN6vectorIPN18dependency_managerIN25scoped_dependency_managerIPvE6configEE10dependencyELb0EjE3endEv.exit: ; preds = %_ZNK6vectorIPN18dependency_managerIN25scoped_dependency_managerIPvE6configEE10dependencyELb0EjE4sizeEv.exit.thread
-  %add.ptr.i35 = getelementptr inbounds ptr, ptr %1, i64 %3
+  %add.ptr.i35.idx = shl nuw nsw i64 %3, 3
+  %add.ptr.i35.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i35.idx
   %cmp15.not50 = icmp eq i32 %2, 0
   br i1 %cmp15.not50, label %for.end19, label %for.body16
 
@@ -7649,7 +7651,7 @@ for.body16:                                       ; preds = %_ZN6vectorIPN18depe
   %bf.clear.i = and i32 %bf.load.i36, -1073741825
   store i32 %bf.clear.i, ptr %25, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.051, i64 8
-  %cmp15.not = icmp eq ptr %incdec.ptr, %add.ptr.i35
+  %cmp15.not = icmp eq ptr %incdec.ptr, %add.ptr.i35.ptr
   br i1 %cmp15.not, label %for.end19, label %for.body16
 
 for.end19:                                        ; preds = %if.end11, %for.body16, %entry, %_ZN6vectorIPN18dependency_managerIN25scoped_dependency_managerIPvE6configEE10dependencyELb0EjE3endEv.exit

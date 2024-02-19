@@ -5411,18 +5411,18 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then4
-  %idx.neg = sub i64 0, %__n
-  %add.ptr = getelementptr inbounds i64, ptr %1, i64 %idx.neg
+  %.neg = mul i64 %__n, -8
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %1, i64 %.neg
   %add.ptr.idx.neg = shl i64 %__n, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr nonnull align 8 %add.ptr, i64 %add.ptr.idx.neg, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %add.ptr.ptr, i64 %add.ptr.idx.neg, i1 false)
   %3 = load ptr, ptr %_M_finish, align 8
   %add.ptr16 = getelementptr inbounds i64, ptr %3, i64 %__n
   store ptr %add.ptr16, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
+  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr.ptr, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont20, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then11
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
@@ -7519,8 +7519,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt10shared_ptrIN8facebook5velox4exec4ExprEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorISt10shared_ptrIN8facebook5velox4exec4ExprEESaIS5_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %_M_refcount.i.i14 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %22 = load ptr, ptr %_M_refcount.i.i14, align 8
+  %22 = load ptr, ptr %_M_refcount.i.i3, align 8
   %cmp.not.i.i.i = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox4exec4ExprEED2Ev.exit, label %if.then.i.i.i15
 

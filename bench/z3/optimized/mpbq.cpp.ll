@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.rational = type { %class.mpq }
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
-%class.mpbq = type <{ %class.mpz, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -19,6 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
+%class.mpbq = type <{ %class.mpz, i32, [4 x i8] }>
 %class._scoped_numeral = type { ptr, %class.mpz }
 %class._scoped_numeral.0 = type { ptr, %class.mpq }
 
@@ -640,7 +640,8 @@ _ZN6vectorI4mpbqLb0EjE3endEv.exit:                ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds %class.mpbq, ptr %0, i64 %2
+  %add.ptr.i.idx = mul nuw nsw i64 %2, 24
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not5 = icmp eq i32 %1, 0
   br i1 %cmp.not5, label %if.then.i, label %for.body
 
@@ -651,7 +652,7 @@ for.body:                                         ; preds = %_ZN6vectorI4mpbqLb0
   %m_k.i = getelementptr inbounds i8, ptr %__begin1.06, i64 16
   store i32 0, ptr %m_k.i, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.06, i64 24
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body
@@ -4002,8 +4003,8 @@ if.else.i79:                                      ; preds = %if.then28
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.else.i79, %if.then.i80, %_ZN11mpz_managerILb0EE2leERK3mpzS3_.exit
-  %retval.0.i.i86 = phi i1 [ false, %if.then.i.i ], [ true, %if.else.i79 ], [ true, %if.then.i80 ], [ false, %_ZN11mpz_managerILb0EE2leERK3mpzS3_.exit ]
-  ret i1 %retval.0.i.i86
+  %lnot.i = phi i1 [ false, %if.then.i.i ], [ true, %if.else.i79 ], [ true, %if.then.i80 ], [ false, %_ZN11mpz_managerILb0EE2leERK3mpzS3_.exit ]
+  ret i1 %lnot.i
 
 eh.resume:                                        ; preds = %lpad17, %lpad
   %tmp16.sink = phi ptr [ %tmp16, %lpad17 ], [ %tmp, %lpad ]

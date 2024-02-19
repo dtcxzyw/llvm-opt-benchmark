@@ -10662,18 +10662,18 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then4
-  %idx.neg = sub i64 0, %__n
-  %add.ptr = getelementptr inbounds i64, ptr %1, i64 %idx.neg
+  %.neg = mul i64 %__n, -8
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %1, i64 %.neg
   %add.ptr.idx.neg = shl i64 %__n, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr nonnull align 8 %add.ptr, i64 %add.ptr.idx.neg, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %add.ptr.ptr, i64 %add.ptr.idx.neg, i1 false)
   %3 = load ptr, ptr %_M_finish, align 8
   %add.ptr16 = getelementptr inbounds i64, ptr %3, i64 %__n
   store ptr %add.ptr16, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
+  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr.ptr, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont20, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then11
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
@@ -12279,7 +12279,7 @@ return:                                           ; preds = %_ZN5folly3f146detai
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #22
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
@@ -14049,7 +14049,7 @@ _ZN8facebook5velox10StringViewC2EPKci.exit:       ; preds = %if.then2.i, %if.end
   %add = add i64 %spec.select, %conv.i26
   %add.ptr = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %add
   %sub = sub i64 %sinput.sroa.0.0, %add
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = add nuw nsw i64 %indvars.iv, 2
   %cmp24 = icmp eq i64 %54, %limit
   br i1 %cmp24, label %while.end, label %while.body, !llvm.loop !164
@@ -14551,7 +14551,7 @@ attributes #19 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-
 attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #21 = { cold noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #23 = { nofree nounwind memory(read) }
+attributes #23 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #24 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [26 x i8] c"GIT_TEST_PROTOCOL_VERSION\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"protocol.version\00", align 1
@@ -112,7 +111,8 @@ if.then:                                          ; preds = %entry
 land.rhs.lr.ph:                                   ; preds = %if.then
   %nr = getelementptr inbounds i8, ptr %list, i64 8
   %2 = load i64, ptr %nr, align 8
-  %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %1, i64 %2
+  %add.ptr.idx = shl nsw i64 %2, 4
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
   %cmp18 = icmp sgt i64 %2, 0
   br i1 %cmp18, label %for.body, label %for.end
 
@@ -162,7 +162,7 @@ parse_protocol_version.exit:                      ; preds = %if.then5, %if.else.
 for.inc:                                          ; preds = %do.cond.i, %parse_protocol_version.exit
   %version.1 = phi i32 [ %spec.select, %parse_protocol_version.exit ], [ %version.01519, %do.cond.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %item.01420, i64 16
-  %cmp = icmp ult ptr %incdec.ptr, %add.ptr
+  %cmp = icmp ult ptr %incdec.ptr, %add.ptr.ptr
   br i1 %cmp, label %for.body, label %for.end
 
 for.end:                                          ; preds = %for.inc, %land.rhs.lr.ph, %if.then

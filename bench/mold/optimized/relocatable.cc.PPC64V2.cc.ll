@@ -5092,7 +5092,8 @@ if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   %16 = load ptr, ptr %members12.i.i.i.i.i.i.i.i.i.i, align 8
   %_M_extent.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0131.i.i.i.i.i.i.i.i.i.i, i64 24
   %17 = load i64, ptr %_M_extent.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %add.ptr.i16.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.mold::LittleEndian", ptr %16, i64 %17
+  %add.ptr.i16.idx.i.i.i.i.i.i.i.i.i.i = shl nsw i64 %17, 2
+  %add.ptr.i16.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 %add.ptr.i16.idx.i.i.i.i.i.i.i.i.i.i
   %cmp.i17123.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %17, 0
   br i1 %cmp.i17123.i.i.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i.i.i, label %for.body22.i.i.i.i.i.i.i.i.i.i
 
@@ -5250,7 +5251,7 @@ for.inc.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt6vectorIPN4mol
   %members.sroa.8.4.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold3elf5ChunkINS1_7PPC64V2EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i50.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold3elf5ChunkINS1_7PPC64V2EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i53.i.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i28.i.i.i.i.i.i.i.i.i.i, %if.then.i.i27.i.i.i.i.i.i.i.i.i.i ]
   %members.sroa.0.4.i.i.i.i.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold3elf5ChunkINS1_7PPC64V2EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %members.sroa.0.1127.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i ], [ %cond.i10.i.i.i45.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIPN4mold3elf5ChunkINS1_7PPC64V2EEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i53.i.i.i.i.i.i.i.i.i.i ], [ %members.sroa.0.1127.i.i.i.i.i.i.i.i.i.i, %if.then.i.i27.i.i.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin013.sroa.0.0124.i.i.i.i.i.i.i.i.i.i, i64 4
-  %cmp.i17.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %add.ptr.i16.i.i.i.i.i.i.i.i.i.i
+  %cmp.i17.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %add.ptr.i16.ptr.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp.i17.i.i.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i.i.i, label %for.body22.i.i.i.i.i.i.i.i.i.i
 
 for.end.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.inc.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i

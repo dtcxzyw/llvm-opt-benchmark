@@ -53,7 +53,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.grpc_core::Slice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
 %"class.grpc_core::CompressionAlgorithmSet" = type { %"class.grpc_core::BitSet.46" }
 %"class.grpc_core::BitSet.46" = type { [1 x i8] }
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
 %struct._Guard.159 = type { ptr }
 
 $_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = comdat any
@@ -3251,7 +3250,8 @@ if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %data_.i.i.i, align 8
   %cond.i.i = select i1 %tobool.i.not.i.i, ptr %data_.i.i.i, ptr %4
   %shr.i.i.i = lshr i64 %3, 1
-  %add.ptr.i = getelementptr inbounds %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %cond.i.i, i64 %shr.i.i.i
+  %add.ptr.i.idx = mul nsw i64 %shr.i.i.i, 40
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr.i.idx
   %cmp5.not15 = icmp ult i64 %3, 2
   br i1 %cmp5.not15, label %for.end, label %for.body.lr.ph
 
@@ -3313,7 +3313,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %invoke.cont15, %if.then.i.i, %if.then.i.i.i
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.016, i64 40
-  %cmp5.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp5.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp5.not, label %for.end, label %for.body
 
 lpad:                                             ; preds = %if.end10

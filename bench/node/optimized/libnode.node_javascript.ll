@@ -5582,18 +5582,18 @@ entry:
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4node10UnionBytesEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef %0)
-  %1 = getelementptr inbounds i8, ptr %ref.tmp1, i64 15888
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %entry
-  %arraydestroy.elementPast = phi ptr [ %1, %entry ], [ %arraydestroy.element, %arraydestroy.body ]
-  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -48
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #16
-  %arraydestroy.done = icmp eq ptr %arraydestroy.element, %ref.tmp1
+  %arraydestroy.elementPast.idx = phi i64 [ 15888, %entry ], [ %arraydestroy.elementPast.add, %arraydestroy.body ]
+  %arraydestroy.elementPast.add = add nsw i64 %arraydestroy.elementPast.idx, -48
+  %arraydestroy.element.ptr = getelementptr inbounds i8, ptr %ref.tmp1, i64 %arraydestroy.elementPast.add
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.ptr) #16
+  %arraydestroy.done = icmp eq i64 %arraydestroy.elementPast.add, 0
   br i1 %arraydestroy.done, label %arraydestroy.done664, label %arraydestroy.body
 
 arraydestroy.done664:                             ; preds = %arraydestroy.body
-  %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN4node21ThreadsafeCopyOnWriteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10UnionBytesESt4lessIS7_ESaISt4pairIKS7_S8_EEEED2Ev, ptr nonnull @_ZN4node8builtins12_GLOBAL__N_117global_source_mapB5cxx11E, ptr nonnull @__dso_handle) #16
+  %1 = call i32 @__cxa_atexit(ptr nonnull @_ZN4node21ThreadsafeCopyOnWriteISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10UnionBytesESt4lessIS7_ESaISt4pairIKS7_S8_EEEED2Ev, ptr nonnull @_ZN4node8builtins12_GLOBAL__N_117global_source_mapB5cxx11E, ptr nonnull @__dso_handle) #16
   ret void
 }
 

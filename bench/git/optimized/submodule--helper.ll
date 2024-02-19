@@ -29,7 +29,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.module_list = type { ptr, i32, i32 }
 %struct.init_cb = type { ptr, ptr, i32 }
 %struct.update_clone_data = type { ptr, %struct.object_id, i32 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.foreach_cb = type { i32, ptr, ptr, ptr, i32, i32 }
 %struct.rev_info = type { ptr, %struct.object_array, ptr, %struct.object_array, %struct.rev_cmdline_info, %struct.list_objects_filter_options, %struct.ref_exclusions, ptr, ptr, %struct.pathspec, i32, i32, i32, i32, i64, i32, i24, %struct.date_mode, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, %struct.ident_split, ptr, i32, ptr, ptr, ptr, i32, i32, i32, ptr, %struct.grep_opt, ptr, i32, i32, i64, i64, i64, i32, i32, ptr, ptr, ptr, %struct.diff_options, %struct.diff_options, ptr, %struct.decoration, %struct.decoration, %struct.decoration, %struct.display_notes_opt, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, i32, %struct.decoration, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, %struct.oidset }
 %struct.object_array = type { i32, i32, ptr }
@@ -50,6 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.summary_cb = type { i32, ptr, ptr, ptr, i8, i32 }
 %struct.refspec = type { ptr, i32, i32, ptr, i32, i32, i32 }
 %struct.refspec_item = type { i8, ptr, ptr }
+%struct.string_list_item = type { ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
@@ -3560,7 +3560,8 @@ if.end44.i.i.i:                                   ; preds = %submodule_update_ty
   br i1 %or.cond.i30.i, label %if.end54.i.i.i, label %land.rhs.i.preheader.i.i
 
 land.rhs.i.preheader.i.i:                         ; preds = %if.end44.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds %struct.string_list_item, ptr %next.sroa.7.0.copyload.i.i, i64 %next.sroa.9.0.copyload.i.i
+  %add.ptr.i.idx.i.i = shl nsw i64 %next.sroa.9.0.copyload.i.i, 4
+  %add.ptr.i.ptr.i.i = getelementptr inbounds i8, ptr %next.sroa.7.0.copyload.i.i, i64 %add.ptr.i.idx.i.i
   %cmp53.i140.i.i = icmp sgt i64 %next.sroa.9.0.copyload.i.i, 0
   br i1 %cmp53.i140.i.i, label %for.body.i.i.i, label %if.end54.i.i.i
 
@@ -3569,7 +3570,7 @@ for.body.i.i.i:                                   ; preds = %land.rhs.i.preheade
   %136 = load ptr, ptr %item.052.i141.i.i, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %cp.i.i, ptr noundef nonnull @.str.50, ptr noundef %136, ptr noundef null) #19
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %item.052.i141.i.i, i64 16
-  %cmp53.i.i.i = icmp ult ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i
+  %cmp53.i.i.i = icmp ult ptr %incdec.ptr.i.i.i, %add.ptr.i.ptr.i.i
   br i1 %cmp53.i.i.i, label %for.body.i.i.i, label %if.end54.i.i.i
 
 if.end54.i.i.i:                                   ; preds = %for.body.i.i.i, %land.rhs.i.preheader.i.i, %if.end44.i.i.i
@@ -7086,7 +7087,7 @@ do.end:                                           ; preds = %do.body.do.end_crit
 
 while.cond:                                       ; preds = %land.rhs, %do.end
   %indvars.iv = phi i64 [ %indvars.iv.next, %land.rhs ], [ %idxprom, %do.end ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = trunc i64 %indvars.iv.next to i32
   %cmp46 = icmp ugt i32 %13, %17
   br i1 %cmp46, label %land.rhs, label %for.inc

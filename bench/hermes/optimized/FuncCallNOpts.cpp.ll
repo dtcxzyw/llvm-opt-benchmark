@@ -234,7 +234,8 @@ for.end36:                                        ; preds = %for.inc34
   %15 = and i8 %changed.1.lcssa, 1
   %16 = icmp ne i8 %15, 0
   %conv.i.i = zext i32 %.pre54 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %.pre, i64 %conv.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i, 3
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %.pre, i64 %add.ptr.i.idx.i
   %cmp.not4.i = icmp eq i32 %.pre54, 0
   br i1 %cmp.not4.i, label %for.end.i, label %for.body.i22
 
@@ -243,7 +244,7 @@ for.body.i22:                                     ; preds = %for.end36, %for.bod
   %17 = load ptr, ptr %__begin2.05.i, align 8
   call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %17) #9
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.05.i, i64 8
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr.i
   br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i22
 
 for.end.loopexit.i:                               ; preds = %for.body.i22
@@ -260,8 +261,8 @@ if.then.i.i.i24:                                  ; preds = %for.end.i
   br label %_ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit
 
 _ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit: ; preds = %entry, %for.end.i, %if.then.i.i.i24
-  %changed.0.lcssa5962 = phi i1 [ %16, %for.end.i ], [ %16, %if.then.i.i.i24 ], [ false, %entry ]
-  ret i1 %changed.0.lcssa5962
+  %changed.0.lcssa6063 = phi i1 [ %16, %for.end.i ], [ %16, %if.then.i.i.i24 ], [ false, %entry ]
+  ret i1 %changed.0.lcssa6063
 }
 
 declare void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #1

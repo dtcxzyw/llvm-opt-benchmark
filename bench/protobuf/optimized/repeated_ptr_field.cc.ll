@@ -645,7 +645,8 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit: ; pred
   %sub.i29 = sub nsw i32 %cond3.i.i, %13
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %7, i32 %sub.i29)
   %idx.ext10 = sext i32 %.sroa.speculated to i64
-  %add.ptr11 = getelementptr inbounds ptr, ptr %cond.i27, i64 %idx.ext10
+  %add.ptr11.idx = shl nsw i64 %idx.ext10, 3
+  %add.ptr11.ptr = getelementptr inbounds i8, ptr %cond.i27, i64 %add.ptr11.idx
   %cmp40 = icmp sgt i32 %.sroa.speculated, 0
   br i1 %cmp40, label %for.body, label %for.end
 
@@ -657,7 +658,7 @@ for.body:                                         ; preds = %_ZNK6google8protobu
   %call12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
   %incdec.ptr = getelementptr inbounds i8, ptr %dst.042, i64 8
   %incdec.ptr13 = getelementptr inbounds i8, ptr %src.041, i64 8
-  %cmp = icmp ult ptr %incdec.ptr13, %add.ptr11
+  %cmp = icmp ult ptr %incdec.ptr13, %add.ptr11.ptr
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit

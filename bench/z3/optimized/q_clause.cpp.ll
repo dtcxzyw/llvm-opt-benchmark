@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.q::lit" = type <{ %class.obj_ref, %class.obj_ref, i8, [7 x i8] }>
-%class.obj_ref = type { ptr, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -160,7 +158,8 @@ _ZNK6vectorIN1q3litELb1EjE3endEv.exit:            ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.q::lit", ptr %0, i64 %2
+  %add.ptr.i.idx = mul nuw nsw i64 %2, 40
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not11 = icmp eq i32 %1, 0
   br i1 %cmp.not11, label %for.end, label %for.body
 
@@ -169,7 +168,7 @@ for.body:                                         ; preds = %_ZNK6vectorIN1q3lit
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK1q3lit7displayERSo(ptr noundef nonnull align 8 dereferenceable(33) %__begin1.012, ptr noundef nonnull align 8 dereferenceable(8) %out)
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef nonnull @.str.7)
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.012, i64 40
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry, %_ZNK6vectorIN1q3litELb1EjE3endEv.exit

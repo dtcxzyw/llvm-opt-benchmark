@@ -5170,18 +5170,19 @@ entry:
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div1348 = lshr i64 %sub, 1
   %add.ptr = getelementptr inbounds ptr, ptr %call5.i.i4.i, i64 %div1348
-  %add.ptr14 = getelementptr inbounds ptr, ptr %add.ptr, i64 %add
+  %add.ptr14.idx = shl nuw nsw i64 %add, 3
   br label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont.i, %entry
-  %__cur.013.i = phi ptr [ %incdec.ptr.i, %invoke.cont.i ], [ %add.ptr, %entry ]
+  %__cur.013.i.idx = phi i64 [ %__cur.013.i.add, %invoke.cont.i ], [ 0, %entry ]
+  %__cur.013.i.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 %__cur.013.i.idx
   %call5.i.i.i10.i = invoke noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #36
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %for.body.i
-  store ptr %call5.i.i.i10.i, ptr %__cur.013.i, align 8, !tbaa !44
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.013.i, i64 8
-  %cmp.i49 = icmp ult ptr %incdec.ptr.i, %add.ptr14
+  store ptr %call5.i.i.i10.i, ptr %__cur.013.i.ptr, align 8, !tbaa !44
+  %__cur.013.i.add = add nuw nsw i64 %__cur.013.i.idx, 8
+  %cmp.i49 = icmp ult i64 %__cur.013.i.add, %add.ptr14.idx
   br i1 %cmp.i49, label %for.body.i, label %try.cont, !llvm.loop !217
 
 lpad.i:                                           ; preds = %for.body.i
@@ -5189,15 +5190,15 @@ lpad.i:                                           ; preds = %for.body.i
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %2) #24
-  %cmp4.i.i = icmp ugt ptr %__cur.013.i, %add.ptr
-  br i1 %cmp4.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESaISB_EE16_M_destroy_nodesEPPSB_SF_.exit.i
+  %cmp4.i.i.not = icmp eq i64 %__cur.013.i.idx, 0
+  br i1 %cmp4.i.i.not, label %_ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESaISB_EE16_M_destroy_nodesEPPSB_SF_.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %lpad.i, %for.body.i.i
   %__n.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.05.i.i, align 8, !tbaa !44
   tail call void @_ZdlPv(ptr noundef %4) #35
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.05.i.i, i64 8
-  %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.013.i
+  %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.013.i.ptr
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESaISB_EE16_M_destroy_nodesEPPSB_SF_.exit.i, !llvm.loop !218
 
 _ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESaISB_EE16_M_destroy_nodesEPPSB_SF_.exit.i: ; preds = %for.body.i.i, %lpad.i

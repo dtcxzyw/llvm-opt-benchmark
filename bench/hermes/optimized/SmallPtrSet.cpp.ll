@@ -183,7 +183,8 @@ entry:
   %3 = load i32, ptr %CurArraySize.i, align 8
   %cond.v.v.i = select i1 %cmp.i.i, i32 %2, i32 %3
   %cond.v.i = zext i32 %cond.v.v.i to i64
-  %cond.i = getelementptr inbounds ptr, ptr %0, i64 %cond.v.i
+  %cond.i.idx = shl nuw nsw i64 %cond.v.i, 3
+  %cond.i.ptr = getelementptr inbounds i8, ptr %0, i64 %cond.i.idx
   %conv = zext i32 %NewSize to i64
   %mul = shl nuw nsw i64 %conv, 3
   %call.i = tail call noalias ptr @malloc(i64 noundef %mul) #14
@@ -260,7 +261,7 @@ _ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit: ; preds = %if.end.i, %if
 
 for.inc:                                          ; preds = %for.body, %_ZNK4llvh19SmallPtrSetImplBase13FindBucketForEPKv.exit
   %incdec.ptr = getelementptr inbounds i8, ptr %BucketPtr.017, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %cond.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %cond.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %_ZN4llvh11safe_mallocEm.exit
@@ -815,7 +816,8 @@ if.end49:                                         ; preds = %land.lhs.true29
   %29 = load i32, ptr %NumNonEmpty50, align 4
   %30 = tail call i32 @llvm.umin.i32(i32 %28, i32 %29)
   %idx.ext55 = zext i32 %30 to i64
-  %add.ptr56 = getelementptr inbounds ptr, ptr %1, i64 %idx.ext55
+  %add.ptr56.idx = shl nuw nsw i64 %idx.ext55, 3
+  %add.ptr56.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr56.idx
   %cmp.not5.i = icmp eq i32 %30, 0
   br i1 %cmp.not5.i, label %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit, label %for.body.i
 
@@ -828,7 +830,7 @@ for.body.i:                                       ; preds = %if.end49, %for.body
   store ptr %31, ptr %__first2.addr.07.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first1.addr.06.i, i64 8
   %incdec.ptr1.i = getelementptr inbounds i8, ptr %__first2.addr.07.i, i64 8
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr56
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr56.ptr
   br i1 %cmp.not.i, label %_ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit, label %for.body.i, !llvm.loop !8
 
 _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit.loopexit: ; preds = %for.body.i

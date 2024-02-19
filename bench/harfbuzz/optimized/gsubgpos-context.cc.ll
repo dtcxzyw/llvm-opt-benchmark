@@ -14,11 +14,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.hb_serialize_context_t::object_t::link_t" = type { i32, i32, i32 }
 %struct.hb_concat_iter_t = type { %struct.hb_array_t.41, %struct.hb_array_t.41 }
 %struct.hb_array_t.41 = type { ptr, i32, i32 }
-%"struct.hb_hashmap_t<unsigned int, graph::Lookup *>::item_t" = type { i32, i32, ptr }
 %"struct.OT::OffsetTo.20" = type { %"struct.OT::Offset" }
 %"struct.OT::Offset" = type { %"struct.OT::IntType" }
 %"struct.OT::IntType" = type { %struct.BEInt }
 %struct.BEInt = type { [2 x i8] }
+%"struct.hb_hashmap_t<unsigned int, graph::Lookup *>::item_t" = type { i32, i32, ptr }
 %"struct.hb_hashmap_t<unsigned int, unsigned int>::item_t" = type { i32, i32, i32 }
 %"struct.hb_user_data_array_t::hb_user_data_item_t" = type { ptr, ptr, ptr }
 
@@ -596,7 +596,8 @@ _ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEERS6_E
 
 for.body.preheader:                               ; preds = %_ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEERS6_EdeEv.exit.i.us.i.i.i.i.i
   %idx.ext.i.i.i.i.i.i.i.i.i.i.i.i = zext i32 %ref.tmp2.sroa.3.sroa.0.0.i.i to i64
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, graph::Lookup *>::item_t", ptr %ref.tmp2.sroa.0.0.i.i, i64 %idx.ext.i.i.i.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.idx = shl nuw nsw i64 %idx.ext.i.i.i.i.i.i.i.i.i.i.i.i, 4
+  %ref.tmp.sroa.0.2.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %ref.tmp2.sroa.0.0.i.i, i64 %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i.idx
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEEMS8_KFbvERK3$_7LPv0EEMS8_FRS6_vEL24hb_function_sortedness_t0ELSF_0EERK3$_8LSK_0ELSF_0EES6_EppEv.exit"
@@ -670,7 +671,7 @@ _ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEERS6_E
 "_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEEMS8_KFbvERK3$_7LPv0EEMS8_FRS6_vEL24hb_function_sortedness_t0ELSF_0EERK3$_8LSK_0ELSF_0EES6_EppEv.exit": ; preds = %do.body.i.i.i.i.i.i, %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEERS6_EppEv.exit.i.i.i.i.i.i, %"_ZNK4$_15clIRMN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEKFbvERS6_EEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSC_OSD_.exit.i.i.i.i.i.i"
   %__begin1.sroa.0.2 = phi ptr [ %scevgep, %do.body.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i, %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEERS6_EppEv.exit.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i, %"_ZNK4$_15clIRMN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEKFbvERS6_EEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSC_OSD_.exit.i.i.i.i.i.i" ]
   %__begin1.sroa.5.2 = phi i32 [ 0, %do.body.i.i.i.i.i.i ], [ 0, %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEERS6_EppEv.exit.i.i.i.i.i.i ], [ %dec.i.i.i.i.i.i.i.i, %"_ZNK4$_15clIRMN12hb_hashmap_tIjPN5graph6LookupELb0EE6item_tEKFbvERS6_EEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSC_OSD_.exit.i.i.i.i.i.i" ]
-  %cmp.not.i.i.i.i = icmp ne ptr %__begin1.sroa.0.2, %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i
+  %cmp.not.i.i.i.i = icmp ne ptr %__begin1.sroa.0.2, %ref.tmp.sroa.0.2.i.i.i.i.i.ptr
   %cmp4.i.i.i.i = icmp ne i32 %__begin1.sroa.5.2, 0
   %9 = or i1 %cmp.not.i.i.i.i, %cmp4.i.i.i.i
   br i1 %9, label %for.body, label %for.end
@@ -1532,12 +1533,12 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNR9hb_iter_tI10hb
 
 for.body.preheader.i.i:                           ; preds = %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEEMS5_KFbvERK3$_7LPv0EEMS5_FRjvEL24hb_function_sortedness_t0ELSC_0EERK3$_8LSH_0ELSC_0EEjEdeEv.exit"
   %retval.sroa.2.8.insert.ext.i.i.i = zext i32 %add.i.i.i.i to i64
+  %add.ptr.i.idx.i.i = mul nuw nsw i64 %retval.sroa.2.8.insert.ext.i.i.i, 12
   %22 = load ptr, ptr %items.i, align 8
-  %23 = mul nuw nsw i64 %retval.sroa.2.8.insert.ext.i.i.i, 12
-  %24 = add nsw i64 %23, -12
-  %25 = urem i64 %24, 12
-  %26 = sub nuw nsw i64 %23, %25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %22, i8 0, i64 %26, i1 false)
+  %23 = add nsw i64 %add.ptr.i.idx.i.i, -12
+  %24 = urem i64 %23, 12
+  %25 = sub nuw nsw i64 %add.ptr.i.idx.i.i, %24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %22, i8 0, i64 %25, i1 false)
   br label %_ZN12hb_hashmap_tIjjLb0EE5resetEv.exit
 
 _ZN12hb_hashmap_tIjjLb0EE5resetEv.exit:           ; preds = %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb0EE6item_tEEMS5_KFbvERK3$_7LPv0EEMS5_FRjvEL24hb_function_sortedness_t0ELSC_0EERK3$_8LSH_0ELSC_0EEjEdeEv.exit", %for.body.preheader.i.i

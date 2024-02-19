@@ -26,7 +26,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::list.3" = type { %"class.std::__cxx11::_List_base.4" }
 %"class.std::__cxx11::_List_base.4" = type { %"struct.std::__cxx11::_List_base<Assimp::STransformVecInfo, std::allocator<Assimp::STransformVecInfo>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<Assimp::STransformVecInfo, std::allocator<Assimp::STransformVecInfo>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%class.aiVector3t = type { float, float, float }
 
 $_ZN6Assimp6Logger4infoIJRA29_KcRfRA23_S2_S5_EEEvDpOT_ = comdat any
 
@@ -1604,7 +1603,8 @@ if.then529:                                       ; preds = %if.end520
 if.end533:                                        ; preds = %if.then529, %if.end520
   %159 = load i32, ptr %mNumVertices, align 4
   %idx.ext = zext i32 %159 to i64
-  %add.ptr = getelementptr inbounds %class.aiVector3t, ptr %155, i64 %idx.ext
+  %add.ptr.idx = mul nuw nsw i64 %idx.ext, 12
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %155, i64 %add.ptr.idx
   %y8.i303 = getelementptr inbounds i8, ptr %it236.sroa.0.3689, i64 20
   %160 = load <4 x float>, ptr %_M_storage.i.i294, align 8
   %.fr777 = freeze <4 x float> %160
@@ -1737,7 +1737,7 @@ for.body574:                                      ; preds = %invoke.cont571, %fo
   store <2 x float> %247, ptr %src.0684, align 4
   store float 0.000000e+00, ptr %z, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %src.0684, i64 12
-  %cmp573.not = icmp eq ptr %incdec.ptr, %add.ptr
+  %cmp573.not = icmp eq ptr %incdec.ptr, %add.ptr.ptr
   br i1 %cmp573.not, label %if.end586, label %for.body574, !llvm.loop !24
 
 if.end586:                                        ; preds = %for.body574, %if.end533, %invoke.cont571

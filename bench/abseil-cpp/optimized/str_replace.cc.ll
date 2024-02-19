@@ -14,7 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<absl::strings_internal::ViableSubstitution, std::allocator<absl::strings_internal::ViableSubstitution>>::_Vector_impl" }
 %"struct.std::_Vector_base<absl::strings_internal::ViableSubstitution, std::allocator<absl::strings_internal::ViableSubstitution>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::strings_internal::ViableSubstitution, std::allocator<absl::strings_internal::ViableSubstitution>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<absl::strings_internal::ViableSubstitution, std::allocator<absl::strings_internal::ViableSubstitution>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { %"class.std::basic_string_view", %"class.std::basic_string_view" }
 
 $_ZN4absl13StrReplaceAllISt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEES6_EEEENSt7__cxx1112basic_stringIcS5_SaIcEEES6_RKT_ = comdat any
 
@@ -390,7 +389,8 @@ _ZNSt12_Vector_baseIN4absl16strings_internal18ViableSubstitutionESaIS2_EE11_M_al
   %add.ptr21.i = getelementptr inbounds %"struct.absl::strings_internal::ViableSubstitution", ptr %call5.i.i.i.i10, i64 %0
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %1 = load ptr, ptr %replacements, align 8
-  %add.ptr.i11 = getelementptr inbounds %"struct.std::pair", ptr %1, i64 %0
+  %add.ptr.i11.idx = shl nuw nsw i64 %0, 5
+  %add.ptr.i11.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i11.idx
   %agg.tmp.sroa.2.0.old.sroa_idx = getelementptr inbounds i8, ptr %old, i64 8
   %add.ptr9.i.i = getelementptr inbounds i8, ptr %s.coerce1, i64 %s.coerce0
   %sub.ptr.lhs.cast21.i.i = ptrtoint ptr %add.ptr9.i.i to i64
@@ -544,7 +544,7 @@ while.body:                                       ; preds = %land.rhs
 for.inc:                                          ; preds = %while.body, %land.rhs, %invoke.cont10, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, %if.end.thread, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread
   %13 = phi ptr [ %6, %invoke.cont10 ], [ %2, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ %2, %if.end.thread ], [ %2, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread ], [ %6, %land.rhs ], [ %6, %while.body ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.041, i64 32
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i11
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i11.ptr
   br i1 %cmp.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %for.inc, %if.end.i

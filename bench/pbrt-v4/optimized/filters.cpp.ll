@@ -2275,7 +2275,7 @@ terminate.lpad.i9.i.i.i:                          ; preds = %if.end.i.i.i.i4.i.i
   unreachable
 
 _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt19PiecewiseConstant1DEE7destroyIS3_EEvPT_.exit.i: ; preds = %if.end.i.i.i.i4.i.i.i, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i.i.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = load i64, ptr %nStored.i, align 8
   %cmp.i = icmp ugt i64 %14, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %invoke.cont, !llvm.loop !11
@@ -2923,7 +2923,7 @@ terminate.lpad.i9.i.i:                            ; preds = %if.end.i.i.i.i4.i.i
   unreachable
 
 _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt19PiecewiseConstant1DEE7destroyIS3_EEvPT_.exit: ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i.i, %if.end.i.i.i.i4.i.i
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i64, ptr %nStored, align 8
   %cmp2 = icmp ugt i64 %26, %indvars.iv.next
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !15
@@ -3154,7 +3154,8 @@ lpad7:                                            ; preds = %if.then31, %if.then
 do.end:                                           ; preds = %invoke.cont
   %22 = load ptr, ptr %ptr.i, align 8
   %23 = load i64, ptr %nStored.i, align 8
-  %add.ptr.i33 = getelementptr inbounds float, ptr %22, i64 %23
+  %add.ptr.i33.idx = shl nsw i64 %23, 2
+  %add.ptr.i33.ptr = getelementptr inbounds i8, ptr %22, i64 %add.ptr.i33.idx
   %cmp13.not55 = icmp eq i64 %23, 0
   br i1 %cmp13.not55, label %for.end, label %for.body
 
@@ -3164,7 +3165,7 @@ for.body:                                         ; preds = %do.end, %for.body
   %25 = tail call noundef float @llvm.fabs.f32(float %24)
   store float %25, ptr %__begin2.056, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.056, i64 4
-  %cmp13.not = icmp eq ptr %incdec.ptr, %add.ptr.i33
+  %cmp13.not = icmp eq ptr %incdec.ptr, %add.ptr.i33.ptr
   br i1 %cmp13.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %do.end
@@ -6412,7 +6413,7 @@ terminate.lpad.i9.i.i.i:                          ; preds = %if.end.i.i.i.i4.i.i
   unreachable
 
 _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt19PiecewiseConstant1DEE7destroyIS3_EEvPT_.exit.i: ; preds = %if.end.i.i.i.i4.i.i.i, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i.i.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = load i64, ptr %nStored.i, align 8
   %cmp.i12 = icmp ugt i64 %22, %indvars.iv.next.i
   br i1 %cmp.i12, label %for.body.i, label %_ZN4pstd6vectorIN4pbrt19PiecewiseConstant1DENS_3pmr21polymorphic_allocatorIS2_EEE5clearEv.exit, !llvm.loop !11

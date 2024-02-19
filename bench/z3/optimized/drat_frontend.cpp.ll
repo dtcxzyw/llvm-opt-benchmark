@@ -345,7 +345,8 @@ _ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i:    ; preds = %invoke.cont28
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i.i, align 4
   %5 = zext i32 %4 to i64
-  %add.ptr.i.i = getelementptr inbounds %"class.sat::literal", ptr %3, i64 %5
+  %add.ptr.i.idx.i = shl nuw nsw i64 %5, 2
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %3, i64 %add.ptr.i.idx.i
   %cmp.not15.i = icmp eq i32 %4, 0
   br i1 %cmp.not15.i, label %for.end.i, label %for.body.i
 
@@ -376,7 +377,7 @@ while.body.i:                                     ; preds = %_ZNK3sat6solver8num
 
 for.inc.i:                                        ; preds = %_ZNK3sat6solver8num_varsEv.exit.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.016.i, i64 4
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr.i
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i, %_ZNK6vectorIN3sat7literalELb0EjE3endEv.exit.i, %invoke.cont28

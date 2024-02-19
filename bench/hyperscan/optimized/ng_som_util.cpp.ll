@@ -1134,7 +1134,8 @@ invoke.cont29:                                    ; preds = %invoke.cont25.threa
   %13 = load ptr, ptr %states, align 8
   %m_size.i.i = getelementptr inbounds i8, ptr %states, i64 8
   %14 = load i64, ptr %m_size.i.i, align 8, !noalias !51
-  %add.ptr.i.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %13, i64 %14
+  %add.ptr.i.i.idx = shl nsw i64 %14, 4
+  %add.ptr.i.i.ptr = getelementptr inbounds i8, ptr %13, i64 %add.ptr.i.i.idx
   %cmp.i.i.i.i12.not50 = icmp eq i64 %14, 0
   br i1 %cmp.i.i.i.i12.not50, label %cleanup, label %invoke.cont37.lr.ph
 
@@ -1184,7 +1185,7 @@ for.body21.i.i:                                   ; preds = %for.cond19.i.i
 
 for.inc51:                                        ; preds = %for.body21.i.i, %for.body.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin128.sroa.0.051, i64 16
-  %cmp.i.i.i.i12.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i
+  %cmp.i.i.i.i12.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.ptr
   br i1 %cmp.i.i.i.i12.not, label %cleanup, label %invoke.cont37
 
 cleanup:                                          ; preds = %for.inc51, %for.cond19.i.i, %for.cond.i.i, %invoke.cont29
@@ -3180,7 +3181,8 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i
 invoke.cont43:                                    ; preds = %invoke.cont39.thread, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont39
   %12 = load ptr, ptr %states, align 8
   %13 = load i64, ptr %m_size.i.i, align 8, !noalias !175
-  %add.ptr.i.i16 = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %12, i64 %13
+  %add.ptr.i.i16.idx = shl nsw i64 %13, 4
+  %add.ptr.i.i16.ptr = getelementptr inbounds i8, ptr %12, i64 %add.ptr.i.i16.idx
   %cmp.i.i.i.i17.not67 = icmp eq i64 %13, 0
   br i1 %cmp.i.i.i.i17.not67, label %cleanup, label %invoke.cont51.lr.ph
 
@@ -3227,7 +3229,7 @@ do.end68.us:                                      ; preds = %invoke.cont63.loope
 for.inc72.us:                                     ; preds = %do.end68.us, %invoke.cont63.loopexit.us, %invoke.cont51.us
   %first_bad_region.1.us = phi i32 [ %first_bad_region.069.us, %invoke.cont51.us ], [ %.sroa.speculated.us, %do.end68.us ], [ %first_bad_region.069.us, %invoke.cont63.loopexit.us ]
   %incdec.ptr.i.i.i.i27.us = getelementptr inbounds i8, ptr %__begin142.sroa.0.068.us, i64 16
-  %cmp.i.i.i.i17.not.us = icmp eq ptr %incdec.ptr.i.i.i.i27.us, %add.ptr.i.i16
+  %cmp.i.i.i.i17.not.us = icmp eq ptr %incdec.ptr.i.i.i.i27.us, %add.ptr.i.i16.ptr
   br i1 %cmp.i.i.i.i17.not.us, label %for.end75, label %invoke.cont51.us
 
 invoke.cont63.loopexit.us:                        ; preds = %for.body.i.i.i.us
@@ -3307,7 +3309,7 @@ do.end68:                                         ; preds = %invoke.cont63
 for.inc72:                                        ; preds = %invoke.cont63, %do.end68, %invoke.cont51
   %first_bad_region.1 = phi i32 [ %first_bad_region.069, %invoke.cont51 ], [ %.sroa.speculated, %do.end68 ], [ %first_bad_region.069, %invoke.cont63 ]
   %incdec.ptr.i.i.i.i27 = getelementptr inbounds i8, ptr %__begin142.sroa.0.068, i64 16
-  %cmp.i.i.i.i17.not = icmp eq ptr %incdec.ptr.i.i.i.i27, %add.ptr.i.i16
+  %cmp.i.i.i.i17.not = icmp eq ptr %incdec.ptr.i.i.i.i27, %add.ptr.i.i16.ptr
   br i1 %cmp.i.i.i.i17.not, label %for.end75, label %invoke.cont51
 
 for.end75:                                        ; preds = %for.inc72, %for.inc72.us

@@ -332,7 +332,7 @@ invoke.cont14:                                    ; preds = %invoke.cont10
   %add2.i = add i64 %12, add (i64 ptrtoint (ptr @_ZZN6google8protobuf13json_internal12_GLOBAL__N_122HardenAgainstHyrumsLawESt17basic_string_viewIcSt11char_traitsIcEERNSt7__cxx1112basic_stringIcS5_SaIcEEEE9kAslrSeed to i64), i64 1442695040888963407)
   %mul.i.i = mul i64 %add2.i, 6364136223846793005
   %add.i.i = add i64 %mul.i.i, 1442695040888963407
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %10
+  %add.ptr.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %10
   %cmp.not4.i.i.i.i = icmp eq i64 %10, 0
   br i1 %cmp.not4.i.i.i.i, label %_ZN4absl12lts_202308027c_countISt17basic_string_viewIcSt11char_traitsIcEEcEEDTclsr3stdE8distanceclsr3stdE7declvalIDTcl5beginclsr3stdE7declvalIRKT_EEEEEEclsr3stdE7declvalIS9_EEEES8_OT0_.exit.thread.i, label %for.body.i.i.i.i
 
@@ -348,7 +348,7 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont14, %for
   %inc.i.i.i.i = zext i1 %cmp.i.i.i.i.i to i64
   %spec.select.i.i.i.i = add nuw nsw i64 %__n.06.i.i.i.i, %inc.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.05.i.i.i.i, i64 1
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.ptr.i.i
   br i1 %cmp.not.i.i.i.i, label %_ZN4absl12lts_202308027c_countISt17basic_string_viewIcSt11char_traitsIcEEcEEDTclsr3stdE8distanceclsr3stdE7declvalIDTcl5beginclsr3stdE7declvalIRKT_EEEEEEclsr3stdE7declvalIS9_EEEES8_OT0_.exit.i, label %for.body.i.i.i.i, !llvm.loop !4
 
 _ZN4absl12lts_202308027c_countISt17basic_string_viewIcSt11char_traitsIcEEcEEDTclsr3stdE8distanceclsr3stdE7declvalIDTcl5beginclsr3stdE7declvalIRKT_EEEEEEclsr3stdE7declvalIS9_EEEES8_OT0_.exit.i: ; preds = %for.body.i.i.i.i
@@ -409,7 +409,7 @@ for.body18.i:                                     ; preds = %.noexc7, %if.end.i
 for.inc19.i:                                      ; preds = %.noexc7, %lor.lhs.false.i, %.noexc6
   %state.1.i = phi i64 [ %add.i14.i, %lor.lhs.false.i ], [ %state.043.i, %.noexc6 ], [ %add.i21.i, %.noexc7 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.044.i, i64 1
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i.i.i
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i.ptr.i.i
   br i1 %cmp.not.i, label %invoke.cont16, label %for.body.i
 
 invoke.cont16:                                    ; preds = %for.inc19.i, %_ZN4absl12lts_202308027c_countISt17basic_string_viewIcSt11char_traitsIcEEcEEDTclsr3stdE8distanceclsr3stdE7declvalIDTcl5beginclsr3stdE7declvalIRKT_EEEEEEclsr3stdE7declvalIS9_EEEES8_OT0_.exit.thread.i
@@ -3665,7 +3665,7 @@ invoke.cont7:                                     ; preds = %do.end
 invoke.cont9:                                     ; preds = %invoke.cont7
   %11 = extractvalue { i64, ptr } %call10, 0
   %12 = extractvalue { i64, ptr } %call10, 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 %11
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %12, i64 %11
   %cmp.not42 = icmp eq i64 %11, 0
   br i1 %cmp.not42, label %for.end, label %for.body
 
@@ -3741,7 +3741,7 @@ if.end48:                                         ; preds = %for.body, %if.then2
   %21 = zext nneg i8 %c.0 to i16
   %22 = or i16 %shl, %21
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.044, i64 1
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %if.end48, %invoke.cont9

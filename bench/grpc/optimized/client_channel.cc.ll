@@ -30752,7 +30752,8 @@ if.then.i84:                                      ; preds = %_ZNK9grpc_core5Tabl
   %21 = load ptr, ptr %data_.i.i.i.i.i.i, align 8
   %cond.i.i.i.i.i = select i1 %tobool.i.not.i.i.i.i.i, ptr %data_.i.i.i.i.i.i, ptr %21
   %shr.i.i.i.i.i.i = lshr i64 %20, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %cond.i.i.i.i.i, i64 %shr.i.i.i.i.i.i
+  %add.ptr.i.idx.i.i.i = mul nsw i64 %shr.i.i.i.i.i.i, 40
+  %add.ptr.i.ptr.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i, i64 %add.ptr.i.idx.i.i.i
   %cmp.not8.i.i.i = icmp ult i64 %20, 2
   br i1 %cmp.not8.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS85, label %for.body.i.i.i
 
@@ -30760,7 +30761,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i84, %for.b
   %__begin0.09.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %cond.i.i.i.i.i, %if.then.i84 ]
   tail call void @_ZN9grpc_core13ClientChannel16LoadBalancedCall8Metadata7Encoder6EncodeINS_17LbCostBinMetadataEEEvT_RKNS6_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(24) %f.coerce, ptr noundef nonnull align 8 dereferenceable(40) %__begin0.09.i.i.i)
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin0.09.i.i.i, i64 40
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.ptr.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS115, label %for.body.i.i.i
 
 _ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_20GrpcCallWasCancelledEvEENS2_INS_18GrpcStatusFromWireEvEENS2_INS_10TeMetadataEvEENS2_INS_19ContentTypeMetadataEvEENS2_INS115: ; preds = %for.body.i.i.i
@@ -35355,7 +35356,8 @@ if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %data_.i.i.i, align 8
   %cond.i.i = select i1 %tobool.i.not.i.i, ptr %data_.i.i.i, ptr %4
   %shr.i.i.i = lshr i64 %3, 1
-  %add.ptr.i = getelementptr inbounds %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %cond.i.i, i64 %shr.i.i.i
+  %add.ptr.i.idx = mul nsw i64 %shr.i.i.i, 40
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %cond.i.i, i64 %add.ptr.i.idx
   %cmp5.not15 = icmp ult i64 %3, 2
   br i1 %cmp5.not15, label %for.end, label %for.body.lr.ph
 
@@ -35417,7 +35419,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %invoke.cont15, %if.then.i.i, %if.then.i.i.i
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin0.016, i64 40
-  %cmp5.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp5.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp5.not, label %for.end, label %for.body
 
 lpad:                                             ; preds = %if.end10

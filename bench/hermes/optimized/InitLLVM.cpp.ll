@@ -3,8 +3,6 @@ source_filename = "bench/hermes/original/InitLLVM.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::pair" = type { ptr, i64 }
-
 @_ZTVN4llvh23PrettyStackTraceProgramE = external unnamed_addr constant { [5 x ptr] }, align 8
 
 @_ZN4llvh8InitLLVMC1ERiRPPKc = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4llvh8InitLLVMC2ERiRPPKc
@@ -82,7 +80,8 @@ _ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit:          ; preds = %entry, %if.then.i.i
   %Size.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %1, i64 %conv.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i, 3
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx.i
   %cmp.not4.i.i = icmp eq i32 %2, 0
   br i1 %cmp.not4.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i, label %for.body.i.i
 
@@ -91,7 +90,7 @@ for.body.i.i:                                     ; preds = %_ZN4llvh11SmallVect
   %3 = load ptr, ptr %I.addr.05.i.i, align 8
   tail call void @free(ptr noundef %3) #6
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %I.addr.05.i.i, i64 8
-  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
+  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.ptr.i
   br i1 %cmp.not.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i, label %for.body.i.i, !llvm.loop !4
 
 _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i: ; preds = %for.body.i.i, %_ZN4llvh11SmallVectorIPKcLj0EED2Ev.exit
@@ -100,7 +99,8 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateS
   %Size.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load i32, ptr %Size.i.i.i, align 8
   %conv.i.i.i = zext i32 %5 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %4, i64 %conv.i.i.i
+  %add.ptr.i.idx.i.i = shl nuw nsw i64 %conv.i.i.i, 4
+  %add.ptr.i.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %add.ptr.i.idx.i.i
   %cmp.not5.i.i = icmp eq i32 %5, 0
   br i1 %cmp.not5.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i, label %for.body.i1.i
 
@@ -109,7 +109,7 @@ for.body.i1.i:                                    ; preds = %_ZN4llvh20BumpPtrAl
   %6 = load ptr, ptr %__begin2.06.i.i, align 8
   tail call void @free(ptr noundef %6) #6
   %incdec.ptr.i2.i = getelementptr inbounds i8, ptr %__begin2.06.i.i, i64 16
-  %cmp.not.i3.i = icmp eq ptr %incdec.ptr.i2.i, %add.ptr.i.i.i
+  %cmp.not.i3.i = icmp eq ptr %incdec.ptr.i2.i, %add.ptr.i.ptr.i.i
   br i1 %cmp.not.i3.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i, label %for.body.i1.i
 
 _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i: ; preds = %for.body.i1.i

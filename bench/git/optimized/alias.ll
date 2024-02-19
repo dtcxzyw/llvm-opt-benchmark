@@ -94,7 +94,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @quote_cmdline(ptr noundef %buf, ptr noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local void @quote_cmdline(ptr noundef %buf, ptr nocapture noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %argv, align 8
   %tobool.not73 = icmp eq ptr %0, null
@@ -106,8 +106,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %strbuf_addch.exit72
-  %argp.074 = phi ptr [ %argv, %for.body.lr.ph ], [ %incdec.ptr13, %strbuf_addch.exit72 ]
-  %cmp.not = icmp eq ptr %argp.074, %argv
+  %argp.0.ptr75 = phi ptr [ %argv, %for.body.lr.ph ], [ %argp.0.ptr, %strbuf_addch.exit72 ]
+  %argp.0.idx74 = phi i64 [ 0, %for.body.lr.ph ], [ %argp.0.add, %strbuf_addch.exit72 ]
+  %cmp.not = icmp eq i64 %argp.0.idx74, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
@@ -168,7 +169,7 @@ strbuf_addch.exit27:                              ; preds = %strbuf_avail.exit.i
   %12 = load i64, ptr %len.i.i, align 8
   %arrayidx3.i22 = getelementptr inbounds i8, ptr %11, i64 %12
   store i8 0, ptr %arrayidx3.i22, align 1
-  %13 = load ptr, ptr %argp.074, align 8
+  %13 = load ptr, ptr %argp.0.ptr75, align 8
   br label %for.cond1
 
 for.cond1:                                        ; preds = %strbuf_addch.exit57, %strbuf_addch.exit27
@@ -269,8 +270,9 @@ strbuf_addch.exit72:                              ; preds = %strbuf_avail.exit.i
   %32 = load i64, ptr %len.i.i, align 8
   %arrayidx3.i67 = getelementptr inbounds i8, ptr %31, i64 %32
   store i8 0, ptr %arrayidx3.i67, align 1
-  %incdec.ptr13 = getelementptr inbounds i8, ptr %argp.074, i64 8
-  %33 = load ptr, ptr %incdec.ptr13, align 8
+  %argp.0.add = add nuw nsw i64 %argp.0.idx74, 8
+  %argp.0.ptr = getelementptr inbounds i8, ptr %argv, i64 %argp.0.add
+  %33 = load ptr, ptr %argp.0.ptr, align 8
   %tobool.not = icmp eq ptr %33, null
   br i1 %tobool.not, label %for.end14, label %for.body, !llvm.loop !8
 

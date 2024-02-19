@@ -10,7 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.mk_pp = type { %struct.mk_ismt2_pp }
 %struct.mk_ismt2_pp = type { ptr, ptr, %class.params_ref, ptr, i32, i32, ptr }
 %class.params_ref = type { ptr }
-%"struct.smt::context::scope" = type { i32, i32, i32, i32, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -70,7 +69,8 @@ _ZNK6vectorIPN3smt6clauseELb0EjE5emptyEv.exit:    ; preds = %entry
 
 for.body.preheader:                               ; preds = %_ZNK6vectorIPN3smt6clauseELb0EjE5emptyEv.exit
   %2 = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %0, i64 %2
+  %add.ptr.i.idx = shl nuw nsw i64 %2, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -87,7 +87,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %conv = zext i32 %4 to i64
   %add = add i64 %acc.09, %conv
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.08, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %if.end.i, label %for.body
 
 if.end.i:                                         ; preds = %for.body
@@ -393,7 +393,8 @@ _ZNK6vectorIN3smt7context5scopeELb0EjE3endEv.exit: ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds %"struct.smt::context::scope", ptr %0, i64 %2
+  %add.ptr.i.idx = mul nuw nsw i64 %2, 20
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not8 = icmp eq i32 %1, 0
   br i1 %cmp.not8, label %for.end, label %for.body
 
@@ -406,7 +407,7 @@ for.body:                                         ; preds = %_ZNK6vectorIN3smt7c
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef nonnull @.str)
   %4 = load i32, ptr %__begin1.09, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.09, i64 20
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry, %_ZNK6vectorIN3smt7context5scopeELb0EjE3endEv.exit

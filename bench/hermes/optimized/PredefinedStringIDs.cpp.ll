@@ -481,7 +481,8 @@ if.then:                                          ; preds = %_ZN4llvh8DenseMapIN
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %3 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i
+  %add.ptr.i.idx.i = mul nuw nsw i64 %idx.ext.i.i, 24
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %add.ptr.i.idx.i
   %cmp.not3.i = icmp eq i32 %3, 0
   br i1 %cmp.not3.i, label %return, label %for.body.i
 
@@ -491,19 +492,21 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   %EmptyKey.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds i8, ptr %B.04.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %B.04.i, i64 24
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !11
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S4_EEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext
+  %add.ptr.idx = mul nuw nsw i64 %idx.ext, 24
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
   %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i, align 8
   %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %4 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %call.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.idx.i.i = mul nuw nsw i64 %idx.ext.i.i.i, 24
+  %add.ptr.i.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 %add.ptr.i.idx.i.i
   %cmp.not3.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not3.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E9initEmptyEv.exit.i, label %for.body.i.i
 
@@ -513,7 +516,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
   %EmptyKey.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 24
-  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
+  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.ptr.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !11
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E9initEmptyEv.exit.i: ; preds = %for.body.i.i, %if.end
@@ -543,7 +546,7 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
 
 if.end.i5:                                        ; preds = %if.then.i, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i
   %incdec.ptr.i6 = getelementptr inbounds i8, ptr %B.027.i, i64 24
-  %cmp.not.i7 = icmp eq ptr %incdec.ptr.i6, %add.ptr
+  %cmp.not.i7 = icmp eq ptr %incdec.ptr.i6, %add.ptr.ptr
   br i1 %cmp.not.i7, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit.i, !llvm.loop !12
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E18moveFromOldBucketsEPSA_SD_.exit: ; preds = %if.end.i5, %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_9StringRefEN6hermes2vm8SymbolIDENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S5_EEEES2_S5_S7_SA_E9initEmptyEv.exit.i

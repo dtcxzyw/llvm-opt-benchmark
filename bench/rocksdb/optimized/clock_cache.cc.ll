@@ -1713,11 +1713,10 @@ entry:
   %length_bits_.i = getelementptr inbounds i8, ptr %this, i64 224
   %1 = load i32, ptr %length_bits_.i, align 32
   %sh_prom.i = zext nneg i32 %1 to i64
-  %shl.i = shl nuw i64 1, %sh_prom.i
-  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::clock_cache::FixedHyperClockTable::HandleImpl", ptr %0, i64 %shl.i
   %arrayidx.i.i.idx = shl i64 64, %sh_prom.i
-  %cmp10.i = icmp sgt i64 %arrayidx.i.i.idx, 0
-  br i1 %cmp10.i, label %for.body.i.preheader, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit
+  %arrayidx.i.i.ptr = getelementptr inbounds i8, ptr %0, i64 %arrayidx.i.i.idx
+  %cmp10.i.not = icmp eq i32 %1, 63
+  br i1 %cmp10.i.not, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %entry
   %2 = load i32, ptr %this, align 64
@@ -1763,7 +1762,7 @@ _ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPin
 for.inc.i.us:                                     ; preds = %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i.us, %if.then2.i.us, %for.body.i.us
   %table_pinned_usage.2.us = phi i64 [ %table_pinned_usage.0.us, %for.body.i.us ], [ %table_pinned_usage.0.us, %if.then2.i.us ], [ %table_pinned_usage.1.us, %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i.us ]
   %incdec.ptr.i.us = getelementptr inbounds i8, ptr %h.011.i.us, i64 64
-  %cmp.i.us = icmp ult ptr %incdec.ptr.i.us, %arrayidx.i.i
+  %cmp.i.us = icmp ult ptr %incdec.ptr.i.us, %arrayidx.i.i.ptr
   br i1 %cmp.i.us, label %for.body.i.us, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit, !llvm.loop !22
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
@@ -1803,7 +1802,7 @@ _ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPin
 for.inc.i:                                        ; preds = %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i, %if.then2.i, %for.body.i
   %table_pinned_usage.2 = phi i64 [ %table_pinned_usage.0, %for.body.i ], [ %table_pinned_usage.0, %if.then2.i ], [ %table_pinned_usage.1, %_ZZNK7rocksdb11clock_cache15ClockCacheShardINS0_20FixedHyperClockTableEE14GetPinnedUsageEvENKUlRKNS2_10HandleImplEE_clES6_.exit.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %h.011.i, i64 64
-  %cmp.i = icmp ult ptr %incdec.ptr.i, %arrayidx.i.i
+  %cmp.i = icmp ult ptr %incdec.ptr.i, %arrayidx.i.i.ptr
   br i1 %cmp.i, label %for.body.i, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit, !llvm.loop !22
 
 _ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_20FixedHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit: ; preds = %for.inc.i, %for.inc.i.us, %entry

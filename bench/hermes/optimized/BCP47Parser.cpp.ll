@@ -790,7 +790,8 @@ for.body:                                         ; preds = %_ZSt7reverseIN9__gn
   %31 = load ptr, ptr %__begin2.sroa.0.017, align 8
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.017, i64 8
   %32 = load i64, ptr %_M_string_length.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %31, i64 %32
+  %add.ptr.i.idx = shl nsw i64 %32, 1
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %31, i64 %add.ptr.i.idx
   %cmp.i8.not14 = icmp eq i64 %32, 0
   br i1 %cmp.i8.not14, label %for.inc31, label %for.body24
 
@@ -808,7 +809,7 @@ if.then:                                          ; preds = %for.body24
 
 for.inc:                                          ; preds = %for.body24, %if.then
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.015, i64 2
-  %cmp.i8.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i
+  %cmp.i8.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr
   br i1 %cmp.i8.not, label %for.inc31, label %for.body24
 
 for.inc31:                                        ; preds = %for.inc, %for.body
@@ -3765,7 +3766,8 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEpLEDs.exit53: ; preds = 
   store i16 0, ptr %arrayidx.i.i.i48, align 2
   %30 = load ptr, ptr %regionSubtag, align 8
   %31 = load i64, ptr %_M_string_length.i.i39, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %30, i64 %31
+  %add.ptr.i.idx = shl nsw i64 %31, 1
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %30, i64 %add.ptr.i.idx
   %cmp.i55.not989 = icmp eq i64 %31, 0
   br i1 %cmp.i55.not989, label %if.end29, label %for.body22
 
@@ -3807,7 +3809,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEpLEDs.exit71: ; preds = 
   %arrayidx.i.i.i66 = getelementptr inbounds i16, ptr %38, i64 %add.i.i60
   store i16 0, ptr %arrayidx.i.i.i66, align 2
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0990, i64 2
-  %cmp.i55.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i
+  %cmp.i55.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr
   br i1 %cmp.i55.not, label %if.end29, label %for.body22
 
 if.end29:                                         ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEpLEDs.exit71, %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEpLEDs.exit53, %if.end

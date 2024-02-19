@@ -1358,14 +1358,15 @@ delete.notnull5:                                  ; preds = %sw.bb2
   br i1 %arraydestroy.isempty, label %arraydestroy.done7, label %arraydestroy.body.preheader
 
 arraydestroy.body.preheader:                      ; preds = %delete.notnull5
-  %delete.end6 = getelementptr inbounds %"class.icu_75::Formattable", ptr %3, i64 %5
+  %delete.end6.idx = mul nsw i64 %5, 112
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
-  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end6, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -112
-  tail call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %arraydestroy.element) #16
-  %arraydestroy.done = icmp eq ptr %arraydestroy.element, %3
+  %arraydestroy.elementPast.idx = phi i64 [ %arraydestroy.elementPast.add, %arraydestroy.body ], [ %delete.end6.idx, %arraydestroy.body.preheader ]
+  %arraydestroy.elementPast.add = add nsw i64 %arraydestroy.elementPast.idx, -112
+  %arraydestroy.element.ptr = getelementptr inbounds i8, ptr %3, i64 %arraydestroy.elementPast.add
+  tail call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %arraydestroy.element.ptr) #16
+  %arraydestroy.done = icmp eq i64 %arraydestroy.elementPast.add, 0
   br i1 %arraydestroy.done, label %arraydestroy.done7, label %arraydestroy.body
 
 arraydestroy.done7:                               ; preds = %arraydestroy.body, %delete.notnull5
@@ -3172,7 +3173,7 @@ declare noundef signext i8 @_ZNK6icu_7513UnicodeString8doEqualsERKS0_i(ptr nound
 
 declare noundef zeroext i1 @_ZNK6icu_757MeasureeqERKNS_7UObjectE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
@@ -3194,7 +3195,7 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #10 = { mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind memory(read) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }

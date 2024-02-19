@@ -1338,7 +1338,8 @@ _ZNK4mold3elf12InputSectionINS0_5ALPHAEE8get_fdesEv.exit: ; preds = %if.then
   %sub.i.i = sub nsw i64 %sub.ptr.div.i.i.i.i, %conv.i
   %__count.addr.0.i.i = select i1 %cmp.i.i, i64 %sub.i.i, i64 %conv4.i
   %add.ptr.i.i = getelementptr inbounds %"struct.mold::elf::FdeRecord", ptr %4, i64 %conv.i
-  %add.ptr.i = getelementptr inbounds %"struct.mold::elf::FdeRecord", ptr %add.ptr.i.i, i64 %__count.addr.0.i.i
+  %add.ptr.i.idx = shl nsw i64 %__count.addr.0.i.i, 4
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %add.ptr.i.idx
   %cmp.i26 = icmp eq i64 %__count.addr.0.i.i, 0
   br i1 %cmp.i26, label %if.end, label %for.body
 
@@ -1347,7 +1348,7 @@ for.body:                                         ; preds = %_ZNK4mold3elf12Inpu
   %is_alive8 = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 14
   store atomic i8 0, ptr %is_alive8 monotonic, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.07, i64 16
-  %cmp.i2 = icmp eq ptr %incdec.ptr.i, %add.ptr.i
+  %cmp.i2 = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr
   br i1 %cmp.i2, label %if.end, label %for.body
 
 if.end:                                           ; preds = %for.body, %if.then, %_ZNK4mold3elf12InputSectionINS0_5ALPHAEE8get_fdesEv.exit, %entry

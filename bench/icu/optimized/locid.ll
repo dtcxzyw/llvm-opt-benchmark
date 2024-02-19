@@ -10,11 +10,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_75::CharStringByteSink" = type { %"class.icu_75::ByteSink", ptr }
 %"class.icu_75::ByteSink" = type { ptr }
-%"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
-%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::LocalUHashtablePointer" = type { %"class.icu_75::LocalPointerBase.38" }
 %"class.icu_75::LocalPointerBase.38" = type { ptr }
 %"class.icu_75::StringPiece" = type <{ ptr, i32, [4 x i8] }>
+%"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
+%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::LocalUResourceBundlePointer" = type { %"class.icu_75::LocalPointerBase.7" }
 %"class.icu_75::LocalPointerBase.7" = type { ptr }
 %"class.icu_75::UniqueCharStrings" = type <{ %struct.UHashtable, ptr, %"class.icu_75::MemoryPool", i8, [7 x i8] }>
@@ -1017,14 +1017,15 @@ delete.notnull:                                   ; preds = %entry
   br i1 %arraydestroy.isempty, label %arraydestroy.done1, label %arraydestroy.body.preheader
 
 arraydestroy.body.preheader:                      ; preds = %delete.notnull
-  %delete.end = getelementptr inbounds %"class.icu_75::Locale", ptr %0, i64 %2
+  %delete.end.idx = mul nsw i64 %2, 224
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
-  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -224
-  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %arraydestroy.element) #20
-  %arraydestroy.done = icmp eq ptr %arraydestroy.element, %0
+  %arraydestroy.elementPast.idx = phi i64 [ %arraydestroy.elementPast.add, %arraydestroy.body ], [ %delete.end.idx, %arraydestroy.body.preheader ]
+  %arraydestroy.elementPast.add = add nsw i64 %arraydestroy.elementPast.idx, -224
+  %arraydestroy.element.ptr = getelementptr inbounds i8, ptr %0, i64 %arraydestroy.elementPast.add
+  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %arraydestroy.element.ptr) #20
+  %arraydestroy.done = icmp eq i64 %arraydestroy.elementPast.add, 0
   br i1 %arraydestroy.done, label %arraydestroy.done1, label %arraydestroy.body
 
 arraydestroy.done1:                               ; preds = %arraydestroy.body, %delete.notnull
@@ -8577,7 +8578,7 @@ land.rhs.lr.ph:                                   ; preds = %_ZN6icu_7511LocalMe
   br label %land.rhs
 
 for.cond:                                         ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %status, align 4
   %cmp.i29 = icmp sgt i32 %3, 0
   br i1 %cmp.i29, label %for.end, label %land.rhs, !llvm.loop !27

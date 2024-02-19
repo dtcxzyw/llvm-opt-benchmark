@@ -1689,9 +1689,8 @@ return:                                           ; preds = %for.inc, %entry, %i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZN2EA4StdC6MemmemEPKvmS2_m(ptr noundef readonly %pMemory, i64 noundef %memorySize, ptr nocapture noundef readonly %pFind, i64 noundef %findSize) local_unnamed_addr #2 {
 entry:
-  %add.ptr = getelementptr inbounds i8, ptr %pMemory, i64 %memorySize
-  %idx.neg = sub i64 0, %findSize
-  %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
+  %add.ptr.add = sub i64 %memorySize, %findSize
+  %add.ptr1.ptr = getelementptr inbounds i8, ptr %pMemory, i64 %add.ptr.add
   %tobool.not = icmp eq i64 %memorySize, 0
   %cmp.not = icmp ugt i64 %findSize, %memorySize
   %or.cond = or i1 %tobool.not, %cmp.not
@@ -1702,7 +1701,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then
-  %cmp4.not17 = icmp ult ptr %add.ptr1, %pMemory
+  %cmp4.not17 = icmp slt i64 %add.ptr.add, 0
   br i1 %cmp4.not17, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -1719,7 +1718,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 for.inc.us:                                       ; preds = %for.body.us
   %incdec.ptr.us = getelementptr inbounds i8, ptr %pCurrent8.018.us, i64 1
-  %cmp4.not.us = icmp ugt ptr %incdec.ptr.us, %add.ptr1
+  %cmp4.not.us = icmp ugt ptr %incdec.ptr.us, %add.ptr1.ptr
   br i1 %cmp4.not.us, label %return, label %for.body.us, !llvm.loop !40
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1746,7 +1745,7 @@ for.inc.i:                                        ; preds = %for.body.i
 
 for.inc:                                          ; preds = %for.body.i, %for.body
   %incdec.ptr = getelementptr inbounds i8, ptr %pCurrent8.018, i64 1
-  %cmp4.not = icmp ugt ptr %incdec.ptr, %add.ptr1
+  %cmp4.not = icmp ugt ptr %incdec.ptr, %add.ptr1.ptr
   br i1 %cmp4.not, label %return, label %for.body, !llvm.loop !40
 
 return:                                           ; preds = %for.inc, %for.inc.i, %for.inc.us, %for.body.us, %for.cond.preheader, %entry, %if.then

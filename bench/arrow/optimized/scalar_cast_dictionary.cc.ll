@@ -3584,20 +3584,20 @@ if.then.i.i.i.i.i.i.i.i.i.i76:                    ; preds = %call5.i.i.i.i.noexc
   %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 8
   %62 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %62, 0
-  %_M_finish.i.i81 = getelementptr inbounds i8, ptr %agg.result, i64 8
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread134
 
 _ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread134: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i76
   %63 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, align 4
   %add.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %63, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, align 4
-  store ptr %add.ptr.i1.i74, ptr %_M_finish.i.i81, align 8
+  %_M_finish.i.i81135 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %add.ptr.i1.i74, ptr %_M_finish.i.i81135, align 8
   br label %if.then.i.i.i91
 
 _ZSt10_ConstructISt10shared_ptrIN5arrow7compute8internal12CastFunctionEEJRKS5_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i76
   %64 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %_M_refcount.i.i89.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp38, i64 8
-  %.pre131 = load ptr, ptr %_M_refcount.i.i89.phi.trans.insert, align 8
+  %.pre131 = load ptr, ptr %_M_refcount.i.i, align 8
+  %_M_finish.i.i81 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i74, ptr %_M_finish.i.i81, align 8
   %cmp.not.i.i.i90 = icmp eq ptr %.pre131, null
   br i1 %cmp.not.i.i.i90, label %_ZNSt10shared_ptrIN5arrow7compute8internal12CastFunctionEED2Ev.exit, label %if.then.i.i.i91

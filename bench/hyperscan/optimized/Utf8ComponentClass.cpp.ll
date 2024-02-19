@@ -9547,28 +9547,30 @@ if.then9:                                         ; preds = %_ZSt8distanceISt23_
 
 if.then16:                                        ; preds = %if.then9
   %idx.neg = xor i64 %__n.05.i.i, -1
-  %add.ptr = getelementptr %"class.ue2::PositionInfo", ptr %1, i64 %idx.neg
+  %add.ptr.idx = shl i64 %idx.neg, 3
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %if.then16, %for.body.i.i.i.i.i
   %__cur.09.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %if.then16 ]
-  %__first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr, %if.then16 ]
-  %2 = load i64, ptr %__first.sroa.0.08.i.i.i.i.i, align 4
+  %__first.sroa.0.08.i.i.i.i.i.idx = phi i64 [ %__first.sroa.0.08.i.i.i.i.i.add, %for.body.i.i.i.i.i ], [ %add.ptr.idx, %if.then16 ]
+  %__first.sroa.0.08.i.i.i.i.i.ptr = getelementptr inbounds i8, ptr %1, i64 %__first.sroa.0.08.i.i.i.i.i.idx
+  %2 = load i64, ptr %__first.sroa.0.08.i.i.i.i.i.ptr, align 4
   store i64 %2, ptr %__cur.09.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.08.i.i.i.i.i, i64 8
+  %__first.sroa.0.08.i.i.i.i.i.add = add nsw i64 %__first.sroa.0.08.i.i.i.i.i.idx, 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i, i64 8
-  %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
+  %cmp.i.i.not.i.i.i.i.i = icmp eq i64 %__first.sroa.0.08.i.i.i.i.i.add, 0
   br i1 %cmp.i.i.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN3ue212PositionInfoES2_SaIS1_EET0_T_S5_S4_RT1_.exit, label %for.body.i.i.i.i.i, !llvm.loop !66
 
 _ZSt22__uninitialized_move_aIPN3ue212PositionInfoES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %for.body.i.i.i.i.i
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.idx
   %3 = load ptr, ptr %_M_finish, align 8
   %add.ptr27 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %3, i64 %inc.i.i
   store ptr %add.ptr27, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
+  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr.ptr, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i, label %for.body.i.i.i.i.i26.preheader, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitialized_move_aIPN3ue212PositionInfoES2_SaIS1_EET0_T_S5_S4_RT1_.exit
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i

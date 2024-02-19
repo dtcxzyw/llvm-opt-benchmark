@@ -22,8 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::AlignedCharArray.167" = type { [2 x i8] }
 %"class.hermes::vm::StringView" = type { %union.anon.169, i32, i32 }
 %union.anon.169 = type { ptr }
-%"class.hermes::vm::PinnedHermesValue" = type { %"class.hermes::vm::HermesValue" }
-%"class.hermes::vm::HermesValue" = type { i64 }
 
 @.str = private unnamed_addr constant [2 x i8] c" \00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
@@ -59,8 +57,8 @@ entry:
   %argCount_.i.i = getelementptr inbounds i8, ptr %args, i64 8
   %3 = load i32, ptr %argCount_.i.i, align 8, !noalias !7
   %conv.i.i = zext i32 %3 to i64
-  %idx.neg.i.i.i = sub nsw i64 0, %conv.i.i
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %2, i64 %idx.neg.i.i.i
+  %.neg = mul nsw i64 %conv.i.i, -8
+  %add.ptr.i.i.i.ptr = getelementptr inbounds i8, ptr %2, i64 %.neg
   %cmp.i.i.i.not34 = icmp eq i32 %3, 0
   br i1 %cmp.i.i.i.not34, label %for.end, label %for.body.lr.ph
 
@@ -153,7 +151,7 @@ if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm15Hand
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit
 
 _ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit:    ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %if.then.i.i.i
-  %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
+  %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i.ptr
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit, %entry

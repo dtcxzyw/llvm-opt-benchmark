@@ -119,7 +119,8 @@ _ZNK3euf13enode_parents3endEv.exit:               ; preds = %if.end33
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 -4
   %6 = load i32, ptr %arrayidx.i.i.i, align 4
   %7 = zext i32 %6 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %5, i64 %7
+  %add.ptr.i.i.idx = shl nuw nsw i64 %7, 3
+  %add.ptr.i.i.ptr = getelementptr inbounds i8, ptr %5, i64 %add.ptr.i.i.idx
   %cmp38.not93 = icmp eq i32 %6, 0
   br i1 %cmp38.not93, label %for.cond71.preheader, label %for.body39
 
@@ -172,7 +173,7 @@ if.then60:                                        ; preds = %if.end42, %for.end5
 
 for.inc62:                                        ; preds = %for.end58, %for.body39
   %incdec.ptr63 = getelementptr inbounds i8, ptr %__begin2.094, i64 8
-  %cmp38.not = icmp eq ptr %incdec.ptr63, %add.ptr.i.i
+  %cmp38.not = icmp eq ptr %incdec.ptr63, %add.ptr.i.i.ptr
   br i1 %cmp38.not, label %for.cond71.preheader, label %for.body39
 
 for.body73:                                       ; preds = %for.cond71.preheader, %for.inc115
@@ -191,7 +192,8 @@ _ZNK3euf13enode_parents3endEv.exit50:             ; preds = %if.end78
   %arrayidx.i.i.i47 = getelementptr inbounds i8, ptr %15, i64 -4
   %16 = load i32, ptr %arrayidx.i.i.i47, align 4
   %17 = zext i32 %16 to i64
-  %add.ptr.i.i49 = getelementptr inbounds ptr, ptr %15, i64 %17
+  %add.ptr.i.i49.idx = shl nuw nsw i64 %17, 3
+  %add.ptr.i.i49.ptr = getelementptr inbounds i8, ptr %15, i64 %add.ptr.i.i49.idx
   %cmp86.not99 = icmp eq i32 %16, 0
   br i1 %cmp86.not99, label %for.inc115, label %for.body87
 
@@ -210,7 +212,8 @@ if.end91:                                         ; preds = %for.body87
 _ZNK3euf13enode_parents3endEv.exit60:             ; preds = %if.end91
   %21 = load i32, ptr %arrayidx.i.i.i57, align 4
   %22 = zext i32 %21 to i64
-  %add.ptr.i.i59 = getelementptr inbounds ptr, ptr %5, i64 %22
+  %add.ptr.i.i59.idx = shl nuw nsw i64 %22, 3
+  %add.ptr.i.i59.ptr = getelementptr inbounds i8, ptr %5, i64 %add.ptr.i.i59.idx
   %cmp97.not95 = icmp eq i32 %21, 0
   br i1 %cmp97.not95, label %if.then110, label %for.body98.lr.ph
 
@@ -314,7 +317,7 @@ _ZNK3euf5enode9congruentEPS0_.exit.us:            ; preds = %for.cond.i.us, %for
   %retval.0.i.us = phi i1 [ false, %_ZNK3euf5enode8get_declEv.exit14.i.us ], [ false, %if.end.i.us ], [ true, %land.lhs.true13.i.us ], [ %cmp22.not.i.us, %for.body.i.us ], [ %cmp22.not.i.us, %for.cond.i.us ]
   %or10325.us = or i1 %found92.096.us, %retval.0.i.us
   %incdec.ptr107.us = getelementptr inbounds i8, ptr %__begin4.097.us, i64 8
-  %cmp97.not.us = icmp eq ptr %incdec.ptr107.us, %add.ptr.i.i59
+  %cmp97.not.us = icmp eq ptr %incdec.ptr107.us, %add.ptr.i.i59.ptr
   br i1 %cmp97.not.us, label %for.end108, label %for.body98.us
 
 for.body98:                                       ; preds = %for.body98.lr.ph, %_ZNK3euf5enode9congruentEPS0_.exit
@@ -396,7 +399,7 @@ _ZNK3euf5enode9congruentEPS0_.exit:               ; preds = %for.cond.i, %for.bo
   %retval.0.i = phi i1 [ false, %_ZNK3euf5enode8get_declEv.exit14.i ], [ false, %if.end.i ], [ true, %land.lhs.true13.i ], [ %cmp22.not.i, %for.body.i ], [ %cmp22.not.i, %for.cond.i ]
   %or10325 = or i1 %found92.096, %retval.0.i
   %incdec.ptr107 = getelementptr inbounds i8, ptr %__begin4.097, i64 8
-  %cmp97.not = icmp eq ptr %incdec.ptr107, %add.ptr.i.i59
+  %cmp97.not = icmp eq ptr %incdec.ptr107, %add.ptr.i.i59.ptr
   br i1 %cmp97.not, label %for.end108, label %for.body98
 
 for.end108:                                       ; preds = %_ZNK3euf5enode9congruentEPS0_.exit, %_ZNK3euf5enode9congruentEPS0_.exit.us
@@ -410,7 +413,7 @@ if.then110:                                       ; preds = %if.end91, %_ZNK3euf
 
 for.inc112:                                       ; preds = %for.end108, %for.body87
   %incdec.ptr113 = getelementptr inbounds i8, ptr %__begin381.0100, i64 8
-  %cmp86.not = icmp eq ptr %incdec.ptr113, %add.ptr.i.i49
+  %cmp86.not = icmp eq ptr %incdec.ptr113, %add.ptr.i.i49.ptr
   br i1 %cmp86.not, label %for.inc115, label %for.body87
 
 for.inc115:                                       ; preds = %for.inc112, %if.end78, %_ZNK3euf13enode_parents3endEv.exit50, %for.body73

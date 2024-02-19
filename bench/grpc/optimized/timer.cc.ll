@@ -362,13 +362,14 @@ delete.notnull.i:                                 ; preds = %entry
   br i1 %arraydestroy.isempty.i, label %_ZNKSt14default_deleteIA_N17grpc_event_engine12experimental9TimerList5ShardEEclIS3_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS4_EE5valueEvE4typeEPS8_.exit, label %arraydestroy.body.preheader.i
 
 arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
-  %delete.end.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %0, i64 %2
+  %delete.end.idx.i = mul nsw i64 %2, 176
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev.exit.i, %arraydestroy.body.preheader.i
-  %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %_ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev.exit.i ], [ %delete.end.i, %arraydestroy.body.preheader.i ]
-  %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -176
-  %heap.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -88
+  %arraydestroy.elementPast.idx.i = phi i64 [ %arraydestroy.elementPast.add.i, %_ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev.exit.i ], [ %delete.end.idx.i, %arraydestroy.body.preheader.i ]
+  %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -176
+  %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %0, i64 %arraydestroy.elementPast.add.i
+  %heap.i.i = getelementptr inbounds i8, ptr %arraydestroy.element.ptr.i, i64 88
   %3 = load ptr, ptr %heap.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev.exit.i, label %if.then.i.i.i.i.i.i
@@ -378,8 +379,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %arraydestroy.body.i
   br label %_ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev.exit.i
 
 _ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %arraydestroy.body.i
-  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element.i) #16
-  %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %0
+  tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element.ptr.i) #16
+  %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.add.i, 0
   br i1 %arraydestroy.done.i, label %_ZNKSt14default_deleteIA_N17grpc_event_engine12experimental9TimerList5ShardEEclIS3_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS4_EE5valueEvE4typeEPS8_.exit, label %arraydestroy.body.i
 
 _ZNKSt14default_deleteIA_N17grpc_event_engine12experimental9TimerList5ShardEEclIS3_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS4_EE5valueEvE4typeEPS8_.exit: ; preds = %_ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev.exit.i, %delete.notnull.i

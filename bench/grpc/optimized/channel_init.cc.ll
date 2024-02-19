@@ -4223,14 +4223,14 @@ invoke.cont:                                      ; preds = %for.body
 lpad:                                             ; preds = %for.body
   %1 = landingpad { ptr, i32 }
           cleanup
-  %2 = getelementptr inbounds i8, ptr %agg.result, i64 432
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i, %lpad
-  %arraydestroy.elementPast.i = phi ptr [ %2, %lpad ], [ %arraydestroy.element.i, %arraydestroy.body.i ]
-  %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -72
-  call void @_ZN9grpc_core11ChannelInit11StackConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %arraydestroy.element.i) #20
-  %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, %agg.result
+  %arraydestroy.elementPast.idx.i = phi i64 [ 432, %lpad ], [ %arraydestroy.elementPast.add.i, %arraydestroy.body.i ]
+  %arraydestroy.elementPast.add.i = add nsw i64 %arraydestroy.elementPast.idx.i, -72
+  %arraydestroy.element.ptr.i = getelementptr inbounds i8, ptr %agg.result, i64 %arraydestroy.elementPast.add.i
+  call void @_ZN9grpc_core11ChannelInit11StackConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %arraydestroy.element.ptr.i) #20
+  %arraydestroy.done.i = icmp eq i64 %arraydestroy.elementPast.add.i, 0
   br i1 %arraydestroy.done.i, label %_ZN9grpc_core11ChannelInitD2Ev.exit, label %arraydestroy.body.i
 
 _ZN9grpc_core11ChannelInitD2Ev.exit:              ; preds = %arraydestroy.body.i

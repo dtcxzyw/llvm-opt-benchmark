@@ -23,12 +23,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ImVec1 = type { float }
 %struct.ImGuiTableColumn = type <{ i32, float, float, float, float, float, float, float, %struct.ImRect, i32, float, float, float, float, float, float, float, i16, i16, i16, i16, i16, i16, i16, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }>
 %struct.ImVec4 = type { float, float, float, float }
-%struct.ImGuiTableCellData = type { i32, i16 }
 %struct.MergeGroup = type { %struct.ImRect, i32, ptr }
 %struct.ImDrawChannel = type { %struct.ImVector.32, %struct.ImVector }
 %struct.ImVector.32 = type { i32, i32, ptr }
 %struct.ImVector = type { i32, i32, ptr }
 %struct.ImDrawCmd = type { %struct.ImVec4, ptr, i32, i32, i32, ptr, ptr }
+%struct.ImGuiTableCellData = type { i32, i16 }
 %struct.ImGuiSettingsHandler = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %"struct.ImGuiStorage::ImGuiStoragePair" = type { i32, %union.anon }
 %union.anon = type { ptr }
@@ -2039,7 +2039,7 @@ for.body70.lr.ph:                                 ; preds = %for.cond68.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %13, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %indvars.iv.next = add i64 %indvars.iv, %14
+  %indvars.iv.next = add nsw i64 %indvars.iv, %14
   %16 = load ptr, ptr %DisplayOrderToIndex, align 8
   %add.ptr.i60 = getelementptr inbounds i16, ptr %16, i64 %indvars.iv.next
   %17 = load i16, ptr %add.ptr.i60, align 2
@@ -6453,7 +6453,8 @@ if.then129:                                       ; preds = %if.end127
   %68 = load i16, ptr %RowCellDataCurrent, align 2
   %69 = load ptr, ptr %RowCellData, align 8
   %idx.ext.i = sext i16 %68 to i64
-  %add.ptr.i = getelementptr inbounds %struct.ImGuiTableCellData, ptr %69, i64 %idx.ext.i
+  %add.ptr.i.idx = shl nsw i64 %idx.ext.i, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %69, i64 %add.ptr.i.idx
   %cmp135.not201 = icmp slt i16 %68, 0
   br i1 %cmp135.not201, label %if.end158, label %for.body.lr.ph
 
@@ -6513,7 +6514,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %94 = load i32, ptr %cell_data.0202, align 4
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(196) %93, ptr noundef nonnull align 4 dereferenceable(8) %cell_bg_rect, ptr noundef nonnull align 4 dereferenceable(8) %70, i32 noundef %94, float noundef 0.000000e+00, i32 noundef 0)
   %incdec.ptr = getelementptr inbounds i8, ptr %cell_data.0202, i64 8
-  %cmp135.not = icmp ugt ptr %incdec.ptr, %add.ptr.i
+  %cmp135.not = icmp ugt ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp135.not, label %if.end158, label %for.body, !llvm.loop !29
 
 if.end158:                                        ; preds = %for.body, %if.then129, %if.end127
@@ -8107,7 +8108,7 @@ if.then14:                                        ; preds = %if.end
   ]
 
 if.then20:                                        ; preds = %if.then14, %if.then14
-  %or = or i32 %flags, 16
+  %or = or disjoint i32 %flags, 16
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then14, %if.then20, %if.end

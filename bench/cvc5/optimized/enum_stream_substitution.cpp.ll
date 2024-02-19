@@ -8173,9 +8173,10 @@ if.end.i.i.i.i.i25.i:                             ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i: ; preds = %call5.i.i.i.i.noexc, %if.end.i.i.i.i.i25.i
   store ptr %call5.i.i.i.i589, ptr %d_last_comb.i, align 8
-  %add.ptr37.i = getelementptr inbounds i32, ptr %call5.i.i.i.i589, i64 %conv.i219
-  store ptr %add.ptr37.i, ptr %_M_finish.i.i.i, align 8
-  store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
+  %add.ptr37.i.idx = shl nuw nsw i64 %conv.i219, 2
+  %add.ptr37.i.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i589, i64 %add.ptr37.i.idx
+  store ptr %add.ptr37.i.ptr, ptr %_M_finish.i.i.i, align 8
+  store ptr %add.ptr37.i.ptr, ptr %_M_end_of_storage.i, align 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit33.i, %for.body.i.i
@@ -8184,7 +8185,7 @@ for.body.i.i:                                     ; preds = %_ZNSt12_Vector_base
   store i32 %__value.addr.06.i.i, ptr %__first.sroa.0.05.i.i, align 4
   %inc.i.i = add nuw nsw i32 %__value.addr.06.i.i, 1
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.05.i.i, i64 4
-  %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr37.i
+  %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr37.i.ptr
   br i1 %cmp.i.not.i.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i, label %for.body.i.i, !llvm.loop !30
 
 _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEiEvT_S7_T0_.exit.i: ; preds = %for.body.i.i

@@ -5,8 +5,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.std::pair" = type <{ ptr, i32, [4 x i8] }>
-%"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell" = type { ptr, %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value" }
 %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value" = type { %"struct.std::pair", ptr }
+%"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell" = type { ptr, %"struct.cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -140,7 +140,8 @@ entry:
   %m_slots.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i32, ptr %m_slots.i.i, align 4, !noalias !6
   %idx.ext.i.i = zext i32 %1 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.chashtable<cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_hash_proc, cmap<std::pair<expr *, unsigned int>, expr *, act_cache::entry_hash, default_eq<std::pair<expr *, unsigned int>>>::key_value_eq_proc>::cell", ptr %0, i64 %idx.ext.i.i
+  %add.ptr.idx.i.i = shl nuw nsw i64 %idx.ext.i.i, 5
+  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 %add.ptr.idx.i.i
   %cmp.not3.i.i.i.i = icmp eq i32 %1, 0
   br i1 %cmp.not3.i.i.i.i, label %for.end, label %while.body.i.i.i.i
 
@@ -154,7 +155,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %if.end.i.i.
 
 if.end.i.i.i.i:                                   ; preds = %while.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0, i64 32
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.ptr.i.i
   br i1 %cmp.not.i.i.i.i, label %for.end, label %while.body.i.i.i.i, !llvm.loop !11
 
 for.body.outer:                                   ; preds = %while.body.i.i, %while.body.i.i.i.i
@@ -210,7 +211,7 @@ _ZN11ast_manager7dec_refEP3ast.exit11:            ; preds = %_ZN11ast_manager7de
 
 if.then.i14:                                      ; preds = %_ZN11ast_manager7dec_refEP3ast.exit11
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.218.ph, i64 32
-  %cmp.not3.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
+  %cmp.not3.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.ptr.i.i
   br i1 %cmp.not3.i.i, label %for.end, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.then.i14, %if.end.i.i
@@ -223,7 +224,7 @@ while.body.i.i:                                   ; preds = %if.then.i14, %if.en
 
 if.end.i.i:                                       ; preds = %while.body.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.3, i64 32
-  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
+  %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.ptr.i.i
   br i1 %cmp.not.i.i, label %for.end, label %while.body.i.i, !llvm.loop !11
 
 for.end:                                          ; preds = %if.end.i.i.i.i, %if.then.i14, %if.end.i.i, %entry

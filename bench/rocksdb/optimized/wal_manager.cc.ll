@@ -2215,14 +2215,15 @@ while.end:                                        ; preds = %if.else, %_ZNSt6vec
   %end.2.ph = phi i64 [ %end.1, %if.else ], [ %add, %_ZNSt6vectorISt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS2_EESaIS5_EE2atEm.exit ]
   %.pre = load ptr, ptr %all_logs, align 8
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %end.2.ph, i64 0)
-  %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.49", ptr %.pre, i64 %.sroa.speculated
-  %sub.ptr.lhs.cast.i1.i = ptrtoint ptr %add.ptr.i to i64
+  %add.ptr.i.idx = shl nsw i64 %.sroa.speculated, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %.pre, i64 %add.ptr.i.idx
+  %sub.ptr.lhs.cast.i1.i = ptrtoint ptr %add.ptr.i.ptr to i64
   %cmp.i.not.i.i = icmp slt i64 %end.2.ph, 1
   br i1 %cmp.i.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EESC_.exit, label %if.then.i.i13
 
 if.then.i.i13:                                    ; preds = %while.end
   %6 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i1.not.i.i = icmp eq ptr %6, %add.ptr.i
+  %cmp.i1.not.i.i = icmp eq ptr %6, %add.ptr.i.ptr
   br i1 %cmp.i1.not.i.i, label %if.end.i.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i.i13
@@ -2235,7 +2236,7 @@ if.then6.i.i:                                     ; preds = %if.then.i.i13
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.then6.i.i, %_ZNSt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i
   %__n.09.i.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i.i, %if.then6.i.i ]
   %__result.addr.08.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i ], [ %.pre, %if.then6.i.i ]
-  %__first.addr.07.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i ], [ %add.ptr.i, %if.then6.i.i ]
+  %__first.addr.07.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN7rocksdb7LogFileESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i ], [ %add.ptr.i.ptr, %if.then6.i.i ]
   %7 = load ptr, ptr %__first.addr.07.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %__first.addr.07.i.i.i.i.i.i.i, align 8
   %8 = load ptr, ptr %__result.addr.08.i.i.i.i.i.i.i, align 8
@@ -2264,7 +2265,7 @@ if.end.loopexit.i.i:                              ; preds = %_ZNSt10unique_ptrIN
 
 if.end.i.i:                                       ; preds = %if.end.loopexit.i.i, %if.then6.i.i, %if.then.i.i13
   %sub.ptr.lhs.cast.i.pre-phi.i.i = phi i64 [ %.pre9.i.i, %if.end.loopexit.i.i ], [ %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %if.then6.i.i ], [ %sub.ptr.lhs.cast.i1.i, %if.then.i.i13 ]
-  %10 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %6, %if.then6.i.i ], [ %add.ptr.i, %if.then.i.i13 ]
+  %10 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %6, %if.then6.i.i ], [ %add.ptr.i.ptr, %if.then.i.i13 ]
   %sub.ptr.sub.i.i.i15 = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i, %sub.ptr.lhs.cast.i1.i
   %add.ptr.i6.i = getelementptr inbounds i8, ptr %.pre, i64 %sub.ptr.sub.i.i.i15
   %tobool.not.i.i.i = icmp eq ptr %10, %add.ptr.i6.i
@@ -3671,7 +3672,7 @@ if.then24:                                        ; preds = %for.cond.i.i.i.i, %
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end3.i.i.i.i, %lor.lhs.false.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %if.then24
-  %cmp.i108 = phi i1 [ false, %if.then24 ], [ true, %if.end15.i.i ], [ true, %for.cond.i.i ], [ true, %lor.lhs.false.i.i.i.i ], [ true, %if.end3.i.i.i.i ]
+  %switch = phi i1 [ false, %if.then24 ], [ true, %if.end15.i.i ], [ true, %for.cond.i.i ], [ true, %lor.lhs.false.i.i.i.i ], [ true, %if.end3.i.i.i.i ]
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %read_first_record_cache_mutex_)
           to label %_ZN7rocksdb9MutexLockD2Ev.exit23 unwind label %terminate.lpad.i22
 
@@ -3683,7 +3684,7 @@ terminate.lpad.i22:                               ; preds = %cleanup
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit23:                 ; preds = %cleanup
-  br i1 %cmp.i108, label %cleanup.cont, label %return
+  br i1 %switch, label %cleanup.cont, label %return
 
 cleanup.cont:                                     ; preds = %_ZN7rocksdb9MutexLockD2Ev.exit23
   %trunc.not.not = icmp eq i32 %type, 0

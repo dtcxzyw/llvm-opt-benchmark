@@ -6470,13 +6470,13 @@ land.end.i.i.i.i:                                 ; preds = %cleanup.cont11.i.i.
   %.fr.i.i.i.i = freeze i8 %13
   %cmp10.i.i.i.i = icmp eq i8 %.fr.i.i.i.i, 47
   %spec.select.i27.i.i.i = select i1 %cmp10.i.i.i.i, ptr %ref.tmp1.i.i.i.i, ptr %ref.tmp.i.i.i.i
-  %spec.select45.i.i.i.i = select i1 %cmp10.i.i.i.i, i64 1, i64 4
+  %spec.select45.i.i.i.i = select i1 %cmp10.i.i.i.i, i64 8, i64 32
   br label %for.body.preheader.i.i.i.i
 
 for.body.preheader.i.i.i.i:                       ; preds = %land.end.i.i.i.i, %cleanup.cont11.i.i.i
   %14 = phi ptr [ %ref.tmp.i.i.i.i, %cleanup.cont11.i.i.i ], [ %spec.select.i27.i.i.i, %land.end.i.i.i.i ]
-  %15 = phi i64 [ 4, %cleanup.cont11.i.i.i ], [ %spec.select45.i.i.i.i, %land.end.i.i.i.i ]
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %14, i64 %15
+  %15 = phi i64 [ 32, %cleanup.cont11.i.i.i ], [ %spec.select45.i.i.i.i, %land.end.i.i.i.i ]
+  %add.ptr.i.ptr.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 %15
   br label %for.body.i28.i.i.i
 
 for.body.i28.i.i.i:                               ; preds = %for.inc.critedge.i.i.i.i, %for.body.preheader.i.i.i.i
@@ -6645,7 +6645,7 @@ for.inc.critedge.i.i.i.i:                         ; preds = %invoke.cont24.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path.i22.i.i.i) #22, !noalias !143
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prefix.i.i.i.i) #22, !noalias !143
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin3.052.i.i.i.i, i64 8
-  %cmp13.not.i42.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.i.i
+  %cmp13.not.i42.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.ptr.i.i.i.i
   br i1 %cmp13.not.i42.i.i.i, label %cleanup.cont21.i.i.i, label %for.body.i28.i.i.i
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_121FuchsiaZoneInfoSource4OpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i: ; preds = %if.end42.i.i.i.i

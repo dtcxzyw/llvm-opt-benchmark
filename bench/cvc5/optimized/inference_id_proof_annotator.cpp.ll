@@ -851,8 +851,7 @@ if.then.i.i.i34:                                  ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i34
-  %_M_refcount.i.i39 = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
-  %59 = load ptr, ptr %_M_refcount.i.i39, align 8
+  %59 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i40 = icmp eq ptr %59, null
   br i1 %cmp.not.i.i.i40, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev.exit, label %if.then.i.i.i41
 
@@ -1206,8 +1205,7 @@ if.then.i.i.i148:                                 ; preds = %invoke.cont.i146
   br label %_ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EED2Ev.exit169
 
 _ZNSt6vectorISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EED2Ev.exit169: ; preds = %invoke.cont.i146, %if.then.i.i.i148
-  %_M_refcount.i.i170 = getelementptr inbounds i8, ptr %ref.tmp35, i64 8
-  %109 = load ptr, ptr %_M_refcount.i.i170, align 8
+  %109 = load ptr, ptr %_M_refcount.i.i47, align 8
   %cmp.not.i.i.i171 = icmp eq ptr %109, null
   br i1 %cmp.not.i.i.i171, label %_ZNSt10shared_ptrIN4cvc58internal9ProofNodeEED2Ev.exit201, label %if.then.i.i.i172
 

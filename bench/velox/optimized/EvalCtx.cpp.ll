@@ -7562,7 +7562,8 @@ invoke.cont:                                      ; preds = %call.i.noexc
   %data_.i = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %data_.i, align 8
   %idx.ext = sext i32 %1 to i64
-  %add.ptr = getelementptr inbounds i32, ptr %16, i64 %idx.ext
+  %add.ptr.idx = shl nsw i64 %idx.ext, 2
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %16, i64 %add.ptr.idx
   %cmp.not4.i = icmp eq i32 %1, 0
   br i1 %cmp.not4.i, label %invoke.cont7, label %for.body.i
 
@@ -7572,7 +7573,7 @@ for.body.i:                                       ; preds = %invoke.cont, %for.b
   store i32 %__value.addr.06.i, ptr %__first.addr.05.i, align 4
   %inc.i = add nuw nsw i32 %__value.addr.06.i, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.05.i, i64 4
-  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr
+  %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.ptr
   br i1 %cmp.not.i, label %invoke.cont7, label %for.body.i, !llvm.loop !81
 
 invoke.cont7:                                     ; preds = %for.body.i, %invoke.cont
@@ -10054,18 +10055,18 @@ if.then4:                                         ; preds = %if.then
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then4
-  %idx.neg = sub i64 0, %__n
-  %add.ptr = getelementptr inbounds i64, ptr %1, i64 %idx.neg
+  %.neg = mul i64 %__n, -8
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %1, i64 %.neg
   %add.ptr.idx.neg = shl i64 %__n, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr nonnull align 8 %add.ptr, i64 %add.ptr.idx.neg, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %add.ptr.ptr, i64 %add.ptr.idx.neg, i1 false)
   %3 = load ptr, ptr %_M_finish, align 8
   %add.ptr16 = getelementptr inbounds i64, ptr %3, i64 %__n
   store ptr %add.ptr16, ptr %_M_finish, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr, %__position.coerce
+  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr.ptr, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont20, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then11
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i

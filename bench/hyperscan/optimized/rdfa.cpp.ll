@@ -184,7 +184,8 @@ for.body:                                         ; preds = %entry, %for.inc11
   %2 = load ptr, ptr %reports, align 8, !noalias !7
   %m_size.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.012, i64 40
   %3 = load i64, ptr %m_size.i.i, align 8, !noalias !8
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %2, i64 %3
+  %add.ptr.i.i.idx = shl nsw i64 %3, 2
+  %add.ptr.i.i.ptr = getelementptr inbounds i8, ptr %2, i64 %add.ptr.i.i.idx
   %cmp.i.i.i.i.not9 = icmp eq i64 %3, 0
   br i1 %cmp.i.i.i.i.not9, label %for.inc11, label %for.body8.lr.ph
 
@@ -254,7 +255,7 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseENS_11flat_detail12iter_wrapperIN5boost9
 _ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit: ; preds = %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i, %_ZN3ue28flat_setIjSt4lessIjESaIjEE4findERKj.exit.i, %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseENS_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEE.exit.i
   %15 = phi i64 [ %4, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i ], [ %4, %_ZN3ue28flat_setIjSt4lessIjESaIjEE4findERKj.exit.i ], [ %dec.i.i.i.i, %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseENS_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEE.exit.i ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.010, i64 4
-  %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i
+  %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.ptr
   br i1 %cmp.i.i.i.i.not, label %for.inc11, label %for.body8
 
 for.inc11:                                        ; preds = %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit, %for.body

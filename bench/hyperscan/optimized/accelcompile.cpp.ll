@@ -3,8 +3,6 @@ source_filename = "bench/hyperscan/original/accelcompile.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.std::pair" = type { i8, i8 }
-
 @_ZTIN3ue218ResourceLimitErrorE = external constant ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -13,7 +11,8 @@ entry:
   %0 = load ptr, ptr %escape_set, align 8, !noalias !5
   %m_size.i.i.i = getelementptr inbounds i8, ptr %escape_set, i64 8
   %1 = load i64, ptr %m_size.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %1
+  %add.ptr.i.i.i.idx = shl nsw i64 %1, 1
+  %add.ptr.i.i.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.i.i.idx
   %cmp.i.i.i.i.not30 = icmp eq i64 %1, 0
   br i1 %cmp.i.i.i.i.not30, label %for.end, label %for.body
 
@@ -26,7 +25,7 @@ for.body:                                         ; preds = %entry, %for.body
   %6 = and <2 x i8> %4, %2
   %7 = and <2 x i8> %3, %5
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.031, i64 2
-  %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i
+  %cmp.i.i.i.i.not = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.ptr
   br i1 %cmp.i.i.i.i.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -230,7 +229,8 @@ if.then18.i:                                      ; preds = %for.cond.i.i
   br label %if.end7
 
 if.then38.i:                                      ; preds = %lor.lhs.false.i.i, %for.body.i.i11, %land.lhs.true15.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %double_stop2.val.i, i64 %10
+  %add.ptr.i.i.i.idx.i.i = shl nsw i64 %10, 1
+  %add.ptr.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %double_stop2.val.i, i64 %add.ptr.i.i.i.idx.i.i
   br label %for.body.i46.i
 
 for.body.i46.i:                                   ; preds = %for.body.i46.i, %if.then38.i
@@ -249,7 +249,7 @@ for.body.i46.i:                                   ; preds = %for.body.i46.i, %if
   %not15.i.i = xor i8 %32, -1
   %and17.i.i = and i8 %b2.032.i.i, %not15.i.i
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.031.i.i, i64 2
-  %cmp.i.i.i.i.not.i48.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
+  %cmp.i.i.i.i.not.i48.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %add.ptr.i.i.i.ptr.i.i
   br i1 %cmp.i.i.i.i.not.i48.i, label %for.end.i.i, label %for.body.i46.i
 
 for.end.i.i:                                      ; preds = %for.body.i46.i

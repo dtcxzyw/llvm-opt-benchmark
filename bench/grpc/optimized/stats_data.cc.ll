@@ -18,12 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"struct.grpc_core::GlobalStatsCollector::Data" = type { %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20" }
-%"class.grpc_core::HistogramCollector_80_10" = type { [10 x %"struct.std::atomic"] }
-%"class.grpc_core::HistogramCollector_16777216_20" = type { [20 x %"struct.std::atomic"] }
-%"class.grpc_core::HistogramCollector_65536_26" = type { [26 x %"struct.std::atomic"] }
-%"class.grpc_core::HistogramCollector_100000_20" = type { [20 x %"struct.std::atomic"] }
-%"class.grpc_core::HistogramCollector_10000_20" = type { [20 x %"struct.std::atomic"] }
 
 @.str = private unnamed_addr constant [21 x i8] c"client_calls_created\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"server_calls_created\00", align 1
@@ -587,7 +581,8 @@ _ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__sing
   %1 = load ptr, ptr %data_.i, align 8
   %shards_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %shards_.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.grpc_core::GlobalStatsCollector::Data", ptr %1, i64 %2
+  %add.ptr.i.idx = mul nsw i64 %2, 2344
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %1, i64 %add.ptr.i.idx
   %cmp.not161 = icmp eq i64 %2, 0
   br i1 %cmp.not161, label %nrvo.skipdtor, label %for.body.lr.ph
 
@@ -978,7 +973,7 @@ for.body.i153:                                    ; preds = %for.body.i153, %_ZN
 
 _ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit160: ; preds = %for.body.i153
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0162, i64 2344
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %nrvo.skipdtor, label %for.body
 
 nrvo.skipdtor:                                    ; preds = %_ZNK9grpc_core27HistogramCollector_10000_207CollectEPNS_18Histogram_10000_20E.exit160, %_ZSt11make_uniqueIN9grpc_core11GlobalStatsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit

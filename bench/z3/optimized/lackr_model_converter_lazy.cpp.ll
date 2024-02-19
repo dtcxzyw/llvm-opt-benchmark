@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.obj_map<expr, bool>::obj_map_entry" = type { %"struct.obj_map<expr, bool>::key_data" }
-%"struct.obj_map<expr, bool>::key_data" = type <{ ptr, i8, [7 x i8] }>
 
 $_ZN26lackr_model_converter_lazyD2Ev = comdat any
 
@@ -248,7 +246,8 @@ if.end.i.i:                                       ; preds = %entry
   %m_capacity.i.i = getelementptr inbounds i8, ptr %units, i64 8
   %3 = load i32, ptr %m_capacity.i.i, align 8
   %idx.ext.i.i = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds %"class.obj_map<expr, bool>::obj_map_entry", ptr %2, i64 %idx.ext.i.i
+  %add.ptr.idx.i.i = shl nuw nsw i64 %idx.ext.i.i, 4
+  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %add.ptr.idx.i.i
   %cmp4.not5.i.i = icmp eq i32 %3, 0
   br i1 %cmp4.not5.i.i, label %if.end18.i.i, label %for.body.i.i
 
@@ -270,7 +269,7 @@ if.else.i.i:                                      ; preds = %for.body.i.i
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then5.i.i
   %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.07.i.i, %if.then5.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
-  %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
+  %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.ptr.i.i
   br i1 %cmp4.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !4
 
 for.end.i.i:                                      ; preds = %for.inc.i.i

@@ -71,7 +71,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.std::__detail::_Hash_node_base" = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%struct.aiFace = type { i32, ptr }
 %"class.std::map.221" = type { %"class.std::_Rb_tree.222" }
 %"class.std::_Rb_tree.222" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.16", %"struct.std::_Rb_tree_header" }
@@ -4841,14 +4840,15 @@ delete.notnull107:                                ; preds = %if.end105
   br i1 %arraydestroy.isempty, label %arraydestroy.done109, label %arraydestroy.body.preheader
 
 arraydestroy.body.preheader:                      ; preds = %delete.notnull107
-  %delete.end108 = getelementptr inbounds %struct.aiFace, ptr %33, i64 %35
+  %delete.end108.idx = shl nsw i64 %35, 4
+  %invariant.gep = getelementptr i8, ptr %33, i64 8
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %_ZN6aiFaceD2Ev.exit
-  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %_ZN6aiFaceD2Ev.exit ], [ %delete.end108, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -16
-  %mIndices.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -8
-  %36 = load ptr, ptr %mIndices.i, align 8
+  %arraydestroy.elementPast.idx = phi i64 [ %arraydestroy.elementPast.add, %_ZN6aiFaceD2Ev.exit ], [ %delete.end108.idx, %arraydestroy.body.preheader ]
+  %arraydestroy.elementPast.add = add nsw i64 %arraydestroy.elementPast.idx, -16
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %arraydestroy.elementPast.add
+  %36 = load ptr, ptr %gep, align 8
   %isnull.i26 = icmp eq ptr %36, null
   br i1 %isnull.i26, label %_ZN6aiFaceD2Ev.exit, label %delete.notnull.i27
 
@@ -4857,7 +4857,7 @@ delete.notnull.i27:                               ; preds = %arraydestroy.body
   br label %_ZN6aiFaceD2Ev.exit
 
 _ZN6aiFaceD2Ev.exit:                              ; preds = %arraydestroy.body, %delete.notnull.i27
-  %arraydestroy.done = icmp eq ptr %arraydestroy.element, %33
+  %arraydestroy.done = icmp eq i64 %arraydestroy.elementPast.add, 0
   br i1 %arraydestroy.done, label %arraydestroy.done109, label %arraydestroy.body
 
 arraydestroy.done109:                             ; preds = %_ZN6aiFaceD2Ev.exit, %delete.notnull107

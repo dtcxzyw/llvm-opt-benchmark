@@ -5138,6 +5138,7 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow6BufferEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
+  %_M_refcount3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i2.i, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
@@ -5440,8 +5441,7 @@ if.then.i.i.i19:                                  ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i19
-  %_M_refcount.i.i24 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
-  %49 = load ptr, ptr %_M_refcount.i.i24, align 8
+  %49 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i25 = icmp eq ptr %49, null
   br i1 %cmp.not.i.i.i25, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, label %if.then.i.i.i26
 

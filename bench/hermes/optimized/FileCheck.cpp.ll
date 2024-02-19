@@ -5139,7 +5139,8 @@ while.cond.i.i.i.backedge:                        ; preds = %while.cond.i.i.i, %
 for.end.i:                                        ; preds = %for.cond.loopexit.i
   %.pre21.i = load ptr, ptr %LocalVars.i, align 8
   %conv.i.i = zext i32 %21 to i64
-  %add.ptr.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %.pre21.i, i64 %conv.i.i
+  %add.ptr.i.idx.i = shl nuw nsw i64 %conv.i.i, 4
+  %add.ptr.i.ptr.i = getelementptr inbounds i8, ptr %.pre21.i, i64 %add.ptr.i.idx.i
   %cmp18.not19.i = icmp eq i32 %21, 0
   br i1 %cmp18.not19.i, label %for.end23.i, label %for.body19.i
 
@@ -5167,7 +5168,7 @@ if.end.i.i45:                                     ; preds = %for.body19.i
 
 _ZN4llvh9StringMapINS_9StringRefENS_15MallocAllocatorEE5eraseES1_.exit.i: ; preds = %if.end.i.i45, %for.body19.i
   %incdec.ptr.i44 = getelementptr inbounds i8, ptr %__begin113.020.i, i64 16
-  %cmp18.not.i = icmp eq ptr %incdec.ptr.i44, %add.ptr.i.i
+  %cmp18.not.i = icmp eq ptr %incdec.ptr.i44, %add.ptr.i.ptr.i
   br i1 %cmp18.not.i, label %for.end23.loopexit.i, label %for.body19.i
 
 for.end23.loopexit.i:                             ; preds = %_ZN4llvh9StringMapINS_9StringRefENS_15MallocAllocatorEE5eraseES1_.exit.i

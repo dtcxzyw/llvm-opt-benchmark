@@ -287,14 +287,15 @@ delete.notnull:                                   ; preds = %entry
   br i1 %arraydestroy.isempty, label %arraydestroy.done1, label %arraydestroy.body.preheader
 
 arraydestroy.body.preheader:                      ; preds = %delete.notnull
-  %delete.end = getelementptr inbounds %"class.icu_75::Locale", ptr %0, i64 %2
+  %delete.end.idx = mul nsw i64 %2, 224
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %arraydestroy.body
-  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %delete.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -224
-  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %arraydestroy.element) #12
-  %arraydestroy.done = icmp eq ptr %arraydestroy.element, %0
+  %arraydestroy.elementPast.idx = phi i64 [ %arraydestroy.elementPast.add, %arraydestroy.body ], [ %delete.end.idx, %arraydestroy.body.preheader ]
+  %arraydestroy.elementPast.add = add nsw i64 %arraydestroy.elementPast.idx, -224
+  %arraydestroy.element.ptr = getelementptr inbounds i8, ptr %0, i64 %arraydestroy.elementPast.add
+  tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %arraydestroy.element.ptr) #12
+  %arraydestroy.done = icmp eq i64 %arraydestroy.elementPast.add, 0
   br i1 %arraydestroy.done, label %arraydestroy.done1, label %arraydestroy.body
 
 arraydestroy.done1:                               ; preds = %arraydestroy.body, %delete.notnull
@@ -635,7 +636,7 @@ for.body32:                                       ; preds = %for.cond29.preheade
   %8 = load ptr, ptr %arrayidx23, align 8
   %arrayidx36 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   store ptr %7, ptr %arrayidx36, align 8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = trunc i64 %indvars.iv.next to i32
   %call30 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %availableLocalesTable, i32 noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool31.not = icmp eq i8 %call30, 0

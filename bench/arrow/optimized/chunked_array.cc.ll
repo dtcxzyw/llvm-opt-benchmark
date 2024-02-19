@@ -3602,9 +3602,6 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZSt11make_sharedIN
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %3, 0
-  %storage_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow12ChunkedArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow12ChunkedArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread
 
 _ZSt10_ConstructISt10shared_ptrIN5arrow12ChunkedArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i.thread: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
@@ -3612,18 +3609,23 @@ _ZSt10_ConstructISt10shared_ptrIN5arrow12ChunkedArrayEEJRKS3_EEvPT_DpOT0_.exit.i
   %add.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %4, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4
   store ptr null, ptr %agg.result, align 8
-  store ptr %call5.i.i.i.i2.i, ptr %storage_.i.i, align 8
-  store ptr %incdec.ptr1.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  store ptr %incdec.ptr1.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
+  %storage_.i.i300 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %call5.i.i.i.i2.i, ptr %storage_.i.i300, align 8
+  %_M_finish.i.i.i.i.i.i.i301 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store ptr %incdec.ptr1.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i301, align 8
+  %_M_end_of_storage.i.i.i.i.i.i.i302 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  store ptr %incdec.ptr1.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i302, align 8
   br label %if.then.i.i.i21
 
 _ZSt10_ConstructISt10shared_ptrIN5arrow12ChunkedArrayEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
   %5 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i, i32 1 acq_rel, align 4
-  %_M_refcount.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
-  %.pre = load ptr, ptr %_M_refcount.i.i.phi.trans.insert, align 8
+  %.pre = load ptr, ptr %_M_refcount.i.i.i, align 8
   store ptr null, ptr %agg.result, align 8
+  %storage_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i.i2.i, ptr %storage_.i.i, align 8
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %incdec.ptr1.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i.i, align 8
+  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %incdec.ptr1.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i.i, label %return, label %if.then.i.i.i21

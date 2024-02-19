@@ -2919,20 +2919,21 @@ for.inc.i.i:                                      ; preds = %"_ZZN6hermes2vm7JSA
 
 for.body38.preheader:                             ; preds = %"_ZN6hermes2vm11HiddenClass15forEachPropertyIZNS0_7JSArray9setLengthENS0_6HandleIS3_EERNS0_7RuntimeEjNS0_11PropOpFlagsEE3$_0EEvNS4_IS1_EES7_RKT_.exit"
   %conv.i.i61 = zext i32 %60 to i64
-  %add.ptr.i.i62 = getelementptr inbounds %"struct.std::pair.207", ptr %59, i64 %conv.i.i61
+  %add.ptr.i.i62.idx = shl nuw nsw i64 %conv.i.i61, 3
   br label %for.body38
 
 for.body38:                                       ; preds = %for.body38.preheader, %for.inc54
-  %it.sroa.0.0197 = phi ptr [ %incdec.ptr.i, %for.inc54 ], [ %add.ptr.i.i62, %for.body38.preheader ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.0197, i64 -8
-  %61 = load i32, ptr %incdec.ptr.i, align 4
+  %it.sroa.0.0.idx197 = phi i64 [ %it.sroa.0.0.add, %for.inc54 ], [ %add.ptr.i.i62.idx, %for.body38.preheader ]
+  %it.sroa.0.0.add = add nsw i64 %it.sroa.0.0.idx197, -8
+  %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr %59, i64 %it.sroa.0.0.add
+  %61 = load i32, ptr %incdec.ptr.i.ptr, align 4
   %cmp41.not = icmp ult i32 %61, %adjustedLength.4
   br i1 %cmp41.not, label %for.inc54, label %if.then42
 
 if.then42:                                        ; preds = %for.body38
   %62 = load ptr, ptr %next_.i, align 8
   %63 = load i32, ptr %curChunkIndex_.i, align 8
-  %second46 = getelementptr inbounds i8, ptr %it.sroa.0.0197, i64 -4
+  %second46 = getelementptr inbounds i8, ptr %incdec.ptr.i.ptr, i64 4
   %agg.tmp44.sroa.0.0.copyload = load i32, ptr %second46, align 4
   %call52 = call i32 @_ZN6hermes2vm8JSObject11deleteNamedENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_11PropOpFlagsE(ptr nonnull %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %agg.tmp44.sroa.0.0.copyload, i32 0) #11
   %conv.i.i.i66 = zext i32 %63 to i64
@@ -2946,7 +2947,7 @@ if.then42:                                        ; preds = %for.body38
   br label %for.inc54
 
 for.inc54:                                        ; preds = %for.body38, %if.then42
-  %cmp.i.i63.not = icmp eq ptr %incdec.ptr.i, %59
+  %cmp.i.i63.not = icmp eq i64 %it.sroa.0.0.add, 0
   br i1 %cmp.i.i63.not, label %for.end56, label %for.body38, !llvm.loop !19
 
 for.end56:                                        ; preds = %for.inc54, %"_ZN6hermes2vm11HiddenClass15forEachPropertyIZNS0_7JSArray9setLengthENS0_6HandleIS3_EERNS0_7RuntimeEjNS0_11PropOpFlagsEE3$_0EEvNS4_IS1_EES7_RKT_.exit"

@@ -46,13 +46,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %dest, i64 %szdest
-  %add.ptr2 = getelementptr inbounds i8, ptr %src, i64 %szsrc
+  %add.ptr2.ptr = getelementptr i8, ptr %src, i64 %szsrc
   %cmp3 = icmp ugt i64 %szsrc, 2
   br i1 %cmp3, label %while.cond.preheader, label %if.end24
 
 while.cond.preheader:                             ; preds = %if.end
-  %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr2, i64 -3
-  %cmp683 = icmp ugt ptr %add.ptr5, %src
+  %add.ptr5.ptr = getelementptr i8, ptr %add.ptr2.ptr, i64 -3
+  %cmp683 = icmp sgt i64 %szsrc, 3
   br i1 %cmp683, label %while.body, label %if.end24
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
@@ -88,7 +88,7 @@ while.body:                                       ; preds = %while.cond.preheade
   store i8 %4, ptr %arrayidx21, align 1
   %add.ptr22 = getelementptr inbounds i8, ptr %cur_dest.085, i64 4
   %add.ptr23 = getelementptr inbounds i8, ptr %cur_src.084, i64 3
-  %cmp6 = icmp ult ptr %add.ptr23, %add.ptr5
+  %cmp6 = icmp ult ptr %add.ptr23, %add.ptr5.ptr
   br i1 %cmp6, label %while.body, label %if.end24, !llvm.loop !5
 
 if.end24:                                         ; preds = %while.body, %while.cond.preheader, %if.end
@@ -97,7 +97,7 @@ if.end24:                                         ; preds = %while.body, %while.
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %cur_dest.1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.lhs.cast25 = ptrtoint ptr %add.ptr2 to i64
+  %sub.ptr.lhs.cast25 = ptrtoint ptr %add.ptr2.ptr to i64
   %sub.ptr.rhs.cast26 = ptrtoint ptr %cur_src.1 to i64
   %sub.ptr.sub27 = sub i64 %sub.ptr.lhs.cast25, %sub.ptr.rhs.cast26
   switch i64 %sub.ptr.sub27, label %do.body [

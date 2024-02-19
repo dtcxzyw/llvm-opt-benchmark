@@ -1876,18 +1876,17 @@ entry:
 
 invoke.cont:                                      ; preds = %entry, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ 0, %entry ], [ %arrayctor.cur.add, %invoke.cont ]
-  %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
-  store ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE11EmptyVTableEvE6vtable, ptr %arrayctor.cur.ptr, align 8
-  %transport_size_.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 40
+  %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
+  store ptr @_ZZN9grpc_core14ParsedMetadataI19grpc_metadata_batchE11EmptyVTableEvE6vtable, ptr %arrayctor.cur.ptr.ptr, align 8
+  %transport_size_.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 40
   store i32 0, ptr %transport_size_.i.i, align 8
-  %parse_status.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 48
+  %parse_status.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 48
   store ptr null, ptr %parse_status.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 56
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 3416
   br i1 %arrayctor.done, label %for.cond.preheader, label %invoke.cont
 
 for.cond.preheader:                               ; preds = %invoke.cont
-  %arrayctor.end = getelementptr inbounds i8, ptr %this, i64 3416
   %slice.sroa.2.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
   %slice.sroa.3.0.agg.result.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
   %invoker_.i.i = getelementptr inbounds i8, ptr %agg.tmp6.i, i64 8
@@ -2041,10 +2040,11 @@ for.end:                                          ; preds = %_ZN9grpc_core10HPac
   ret void
 
 arraydestroy.body7:                               ; preds = %arraydestroy.body7, %lpad.i
-  %arraydestroy.elementPast8 = phi ptr [ %arrayctor.end, %lpad.i ], [ %arraydestroy.element9, %arraydestroy.body7 ]
-  %arraydestroy.element9 = getelementptr inbounds i8, ptr %arraydestroy.elementPast8, i64 -56
-  call void @_ZN9grpc_core10HPackTable7MementoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %arraydestroy.element9) #22
-  %arraydestroy.done10 = icmp eq ptr %arraydestroy.element9, %this
+  %arraydestroy.elementPast8.idx = phi i64 [ 3416, %lpad.i ], [ %arraydestroy.elementPast8.add, %arraydestroy.body7 ]
+  %arraydestroy.elementPast8.add = add nsw i64 %arraydestroy.elementPast8.idx, -56
+  %arraydestroy.element9.ptr = getelementptr inbounds i8, ptr %this, i64 %arraydestroy.elementPast8.add
+  call void @_ZN9grpc_core10HPackTable7MementoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %arraydestroy.element9.ptr) #22
+  %arraydestroy.done10 = icmp eq i64 %arraydestroy.elementPast8.add, 0
   br i1 %arraydestroy.done10, label %eh.resume, label %arraydestroy.body7
 
 eh.resume:                                        ; preds = %arraydestroy.body7

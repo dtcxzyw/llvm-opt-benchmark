@@ -1976,26 +1976,25 @@ for.end252.i.for.body260.preheader.i_crit_edge:   ; preds = %for.end252.i
 for.body260.preheader.i:                          ; preds = %for.inc250.i, %for.end252.i.for.body260.preheader.i_crit_edge
   %wide.trip.count192.i.pre-phi = phi i64 [ %.pre, %for.end252.i.for.body260.preheader.i_crit_edge ], [ %wide.trip.count.i146.i, %for.inc250.i ]
   %currentSize.0.lcssa.ph199.i = phi i32 [ %currentSize.0171.i, %for.end252.i.for.body260.preheader.i_crit_edge ], [ %add240.i, %for.inc250.i ]
-  %add.ptr255.i = getelementptr inbounds i8, ptr %dictBuffer, i64 %dictBufferCapacity
   br label %for.body260.i
 
 for.body260.i:                                    ; preds = %if.end269.i, %for.body260.preheader.i
   %indvars.iv189.i = phi i64 [ 1, %for.body260.preheader.i ], [ %indvars.iv.next190.i, %if.end269.i ]
-  %ptr.0178.i = phi ptr [ %add.ptr255.i, %for.body260.preheader.i ], [ %add.ptr265.i, %if.end269.i ]
+  %ptr.0.idx178.i = phi i64 [ %dictBufferCapacity, %for.body260.preheader.i ], [ %ptr.0.add.i, %if.end269.i ]
   %arrayidx262.i = getelementptr inbounds %struct.dictItem, ptr %call.i, i64 %indvars.iv189.i
   %length263.i = getelementptr inbounds i8, ptr %arrayidx262.i, i64 4
   %119 = load i32, ptr %length263.i, align 4
   %idx.ext264.i = zext i32 %119 to i64
-  %idx.neg.i = sub nsw i64 0, %idx.ext264.i
-  %add.ptr265.i = getelementptr inbounds i8, ptr %ptr.0178.i, i64 %idx.neg.i
-  %cmp266.i = icmp ult ptr %add.ptr265.i, %dictBuffer
+  %ptr.0.add.i = sub i64 %ptr.0.idx178.i, %idx.ext264.i
+  %cmp266.i = icmp slt i64 %ptr.0.add.i, 0
   br i1 %cmp266.i, label %return.sink.split.i, label %if.end269.i
 
 if.end269.i:                                      ; preds = %for.body260.i
+  %add.ptr265.ptr.i = getelementptr inbounds i8, ptr %dictBuffer, i64 %ptr.0.add.i
   %120 = load i32, ptr %arrayidx262.i, align 4
   %idx.ext273.i = zext i32 %120 to i64
   %add.ptr274.i = getelementptr inbounds i8, ptr %call1, i64 %idx.ext273.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr265.i, ptr nonnull align 1 %add.ptr274.i, i64 %idx.ext264.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr265.ptr.i, ptr nonnull align 1 %add.ptr274.i, i64 %idx.ext264.i, i1 false)
   %indvars.iv.next190.i = add nuw nsw i64 %indvars.iv189.i, 1
   %exitcond193.not.i = icmp eq i64 %indvars.iv.next190.i, %wide.trip.count192.i.pre-phi
   br i1 %exitcond193.not.i, label %for.end278.i, label %for.body260.i, !llvm.loop !48

@@ -3636,7 +3636,8 @@ entry:
   %0 = load ptr, ptr %ptr.i, align 8
   %nStored.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i64, ptr %nStored.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.pbrt::MLTSampler::PrimarySample", ptr %0, i64 %1
+  %add.ptr.i.idx = shl nsw i64 %1, 5
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not6 = icmp eq i64 %1, 0
   br i1 %cmp.not6, label %for.end, label %for.body.lr.ph
 
@@ -3663,7 +3664,7 @@ if.then:                                          ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.07, i64 32
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %entry
@@ -3693,7 +3694,8 @@ entry:
   %0 = load ptr, ptr %ptr.i, align 8
   %nStored.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i64, ptr %nStored.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.pbrt::MLTSampler::PrimarySample", ptr %0, i64 %1
+  %add.ptr.i.idx = shl nsw i64 %1, 5
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not6 = icmp eq i64 %1, 0
   br i1 %cmp.not6, label %for.end, label %for.body
 
@@ -3716,7 +3718,7 @@ invoke.cont4:                                     ; preds = %for.body
 invoke.cont6:                                     ; preds = %invoke.cont4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.07, i64 32
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 lpad:                                             ; preds = %for.end

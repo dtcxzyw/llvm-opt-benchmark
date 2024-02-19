@@ -442,7 +442,8 @@ _ZNK6vectorIS_I8rationalLb1EjELb1EjE3endEv.exit:  ; preds = %_ZN6vectorI8rationa
   %arrayidx.i.i8 = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx.i.i8, align 4
   %12 = zext i32 %11 to i64
-  %add.ptr.i = getelementptr inbounds %class.vector.0, ptr %10, i64 %12
+  %add.ptr.i.idx = shl nuw nsw i64 %12, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %10, i64 %add.ptr.i.idx
   %cmp.not14 = icmp eq i32 %11, 0
   br i1 %cmp.not14, label %for.end, label %for.body.lr.ph
 
@@ -502,7 +503,7 @@ if.else.i.i7.i.i:                                 ; preds = %_ZN11mpq_managerILb
 
 _ZN8rationalaSERKS_.exit:                         ; preds = %if.then.i.i8.i.i, %if.else.i.i7.i.i
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.015, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN8rationalaSERKS_.exit, %_ZN6vectorI8rationalLb1EjE7reserveEj.exit, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE3endEv.exit
@@ -2104,7 +2105,8 @@ _ZNK6vectorIS_I8rationalLb1EjELb1EjE3endEv.exit:  ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %2 = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds %class.vector.0, ptr %0, i64 %2
+  %add.ptr.i.idx = shl nuw nsw i64 %2, 3
+  %add.ptr.i.ptr = getelementptr inbounds i8, ptr %0, i64 %add.ptr.i.idx
   %cmp.not18 = icmp eq i32 %1, 0
   br i1 %cmp.not18, label %for.end14, label %for.body
 
@@ -2118,7 +2120,8 @@ _ZNK6vectorI8rationalLb1EjE3endEv.exit:           ; preds = %for.body
   %arrayidx.i.i13 = getelementptr inbounds i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx.i.i13, align 4
   %5 = zext i32 %4 to i64
-  %add.ptr.i15 = getelementptr inbounds %class.rational, ptr %3, i64 %5
+  %add.ptr.i15.idx = shl nuw nsw i64 %5, 5
+  %add.ptr.i15.ptr = getelementptr inbounds i8, ptr %3, i64 %add.ptr.i15.idx
   %cmp7.not16 = icmp eq i32 %4, 0
   br i1 %cmp7.not16, label %for.end, label %for.body8
 
@@ -2141,13 +2144,13 @@ _ZlsRSoRK8rational.exit:                          ; preds = %for.body8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %call10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call1.i, ptr noundef nonnull @.str.1)
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.017, i64 32
-  %cmp7.not = icmp eq ptr %incdec.ptr, %add.ptr.i15
+  %cmp7.not = icmp eq ptr %incdec.ptr, %add.ptr.i15.ptr
   br i1 %cmp7.not, label %for.end, label %for.body8
 
 for.end:                                          ; preds = %_ZlsRSoRK8rational.exit, %for.body, %_ZNK6vectorI8rationalLb1EjE3endEv.exit
   %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.2)
   %incdec.ptr13 = getelementptr inbounds i8, ptr %__begin1.019, i64 8
-  %cmp.not = icmp eq ptr %incdec.ptr13, %add.ptr.i
+  %cmp.not = icmp eq ptr %incdec.ptr13, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end14, label %for.body
 
 for.end14:                                        ; preds = %for.end, %entry, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE3endEv.exit

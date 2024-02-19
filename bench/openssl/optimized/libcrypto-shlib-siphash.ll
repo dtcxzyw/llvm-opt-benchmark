@@ -249,11 +249,10 @@ if.end82:                                         ; preds = %for.end, %entry
   %in.addr.0 = phi ptr [ %add.ptr, %for.end ], [ %in, %entry ]
   %15 = trunc i64 %inlen.addr.0 to i32
   %conv83 = and i32 %15, 7
-  %add.ptr84 = getelementptr inbounds i8, ptr %in.addr.0, i64 %inlen.addr.0
   %idx.ext = and i64 %inlen.addr.0, 7
-  %idx.neg = sub nsw i64 0, %idx.ext
-  %add.ptr85 = getelementptr inbounds i8, ptr %add.ptr84, i64 %idx.neg
-  %cmp87.not139 = icmp eq ptr %in.addr.0, %add.ptr85
+  %add.ptr84.add = and i64 %inlen.addr.0, -8
+  %add.ptr85.ptr = getelementptr inbounds i8, ptr %in.addr.0, i64 %add.ptr84.add
+  %cmp87.not139 = icmp ult i64 %inlen.addr.0, 8
   br i1 %cmp87.not139, label %for.end160, label %for.body89.lr.ph
 
 for.body89.lr.ph:                                 ; preds = %if.end82
@@ -320,7 +319,7 @@ do.body126.us:                                    ; preds = %for.body89.us, %do.
 for.cond121.for.end156_crit_edge.us:              ; preds = %do.body126.us
   %xor157.us = xor i64 %add140.us, %or119.us
   %add.ptr159.us = getelementptr inbounds i8, ptr %in.addr.1144.us, i64 8
-  %cmp87.not.us = icmp eq ptr %add.ptr159.us, %add.ptr85
+  %cmp87.not.us = icmp eq ptr %add.ptr159.us, %add.ptr85.ptr
   br i1 %cmp87.not.us, label %for.end160, label %for.body89.us, !llvm.loop !7
 
 for.body89:                                       ; preds = %for.body89.lr.ph, %for.body89
@@ -352,7 +351,7 @@ for.body89:                                       ; preds = %for.body89.lr.ph, %
   %xor120 = xor i64 %or119, %v3.2143
   %xor157 = xor i64 %v0.2140, %or119
   %add.ptr159 = getelementptr inbounds i8, ptr %in.addr.1144, i64 8
-  %cmp87.not = icmp eq ptr %add.ptr159, %add.ptr85
+  %cmp87.not = icmp eq ptr %add.ptr159, %add.ptr85.ptr
   br i1 %cmp87.not, label %for.end160, label %for.body89, !llvm.loop !7
 
 for.end160:                                       ; preds = %for.cond121.for.end156_crit_edge.us, %for.body89, %if.end82
@@ -365,7 +364,7 @@ for.end160:                                       ; preds = %for.cond121.for.end
 
 if.then162:                                       ; preds = %for.end160
   %leavings163 = getelementptr inbounds i8, ptr %ctx, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %leavings163, ptr align 1 %add.ptr85, i64 %idx.ext, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %leavings163, ptr align 1 %add.ptr85.ptr, i64 %idx.ext, i1 false)
   br label %if.end165
 
 if.end165:                                        ; preds = %if.then162, %for.end160
