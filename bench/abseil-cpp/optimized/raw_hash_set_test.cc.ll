@@ -17516,9 +17516,9 @@ invoke.cont5:                                     ; preds = %_ZNSt12_Vector_base
   store ptr %call5.i.i.i.i.i2, ptr %matchers, align 8
   %add.ptr26.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2, i64 24
   store ptr %add.ptr26.i, ptr %_M_end_of_storage.i.i, align 8
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matchers, i64 8
   %0 = load i32, ptr %this, align 4, !noalias !328
   %ref.tmp.i.sroa.2.16.insert.ext.i.i.i.i.i.i.i = zext i32 %0 to i64
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matchers, i64 8
   %vtable_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2, i64 8
   store ptr @_ZZN7testing8internal11MatcherBaseIRKiE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIiEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i.i.i, align 8
   %buffer_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2, i64 16
@@ -39578,10 +39578,6 @@ entry:
 define internal void @_ZN4absl18container_internal12_GLOBAL__N_120Table_Contains1_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
-  %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp4 = alloca %"class.testing::Message", align 8
-  %ref.tmp7 = alloca %"class.testing::internal::AssertHelper", align 8
-  %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %gtest_ar_18 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp27 = alloca %"class.testing::Message", align 8
   %ref.tmp30 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -39637,9 +39633,6 @@ if.end.thread:                                    ; preds = %if.then.i.i.i.i.i.i
   %.val2.i.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8, !noalias !991
   %add.ptr.i3.i.i.i.i.i.i = getelementptr inbounds i64, ptr %.val2.i.i.i.i.i.i, i64 %call40.i.i.i.i.i.i.i20
   store i64 0, ptr %add.ptr.i3.i.i.i.i.i.i, align 8, !noalias !991
-  store i8 1, ptr %gtest_ar_, align 8
-  %message_.i200 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
-  store ptr null, ptr %message_.i200, align 8
   br label %_ZN7testing15AssertionResultD2Ev.exit
 
 lpad:                                             ; preds = %if.end.i.i, %if.then.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE4findIlEENSB_8iteratorERKl.exit.i, %if.then.i.i.i.i.i.i
@@ -39648,19 +39641,19 @@ lpad:                                             ; preds = %if.end.i.i, %if.the
   br label %ehcleanup122
 
 if.else:                                          ; preds = %while.body.i.i.i.i.i.i.i
-  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.else
-  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_, ptr noundef nonnull @.str.368, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.280)
+  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) poison, ptr noundef nonnull @.str.368, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.280)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, i32 noundef 1, ptr noundef nonnull @.str.3, i32 noundef 776, ptr noundef poison)
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) poison, i32 noundef 1, ptr noundef nonnull @.str.3, i32 noundef 776, ptr noundef poison)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) poison, ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %_ZN7testing15AssertionResultD2Ev.exit unwind label %lpad14
 
 lpad5:                                            ; preds = %if.else
@@ -39684,8 +39677,6 @@ lpad14:                                           ; preds = %invoke.cont13
   br label %ehcleanup122
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont13, %if.end.thread
-  %message_.i202205 = phi ptr [ %message_.i200, %if.end.thread ], [ poison, %invoke.cont13 ]
-  store ptr null, ptr %message_.i202205, align 8
   %this.val.i.i = load ptr, ptr %t, align 8
   call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
   %8 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8, !noalias !1004
@@ -40412,10 +40403,6 @@ entry:
 define internal void @_ZN4absl18container_internal12_GLOBAL__N_120Table_Contains2_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
-  %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
-  %ref.tmp4 = alloca %"class.testing::Message", align 8
-  %ref.tmp7 = alloca %"class.testing::internal::AssertHelper", align 8
-  %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %gtest_ar_18 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp27 = alloca %"class.testing::Message", align 8
   %ref.tmp30 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -40466,9 +40453,6 @@ if.end.thread:                                    ; preds = %if.then.i.i.i.i.i.i
   %.val2.i.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.3.0.this.sroa_idx.i.i, align 8, !noalias !1021
   %add.ptr.i3.i.i.i.i.i.i = getelementptr inbounds i64, ptr %.val2.i.i.i.i.i.i, i64 %call40.i.i.i.i.i.i.i17
   store i64 0, ptr %add.ptr.i3.i.i.i.i.i.i, align 8, !noalias !1021
-  store i8 1, ptr %gtest_ar_, align 8
-  %message_.i170 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
-  store ptr null, ptr %message_.i170, align 8
   br label %_ZN7testing15AssertionResultD2Ev.exit
 
 lpad:                                             ; preds = %if.else.i, %if.then.i.i.i.i.i.i
@@ -40477,19 +40461,19 @@ lpad:                                             ; preds = %if.else.i, %if.then
   br label %ehcleanup100
 
 if.else:                                          ; preds = %while.body.i.i.i.i.i.i.i
-  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %if.else
-  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar_, ptr noundef nonnull @.str.368, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.280)
+  invoke void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 poison, ptr noundef nonnull align 8 dereferenceable(16) poison, ptr noundef nonnull @.str.368, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.280)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, i32 noundef 1, ptr noundef nonnull @.str.3, i32 noundef 787, ptr noundef poison)
+  invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) poison, i32 noundef 1, ptr noundef nonnull @.str.3, i32 noundef 787, ptr noundef poison)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp4)
+  invoke void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(8) poison, ptr noundef nonnull align 8 dereferenceable(8) poison)
           to label %_ZN7testing15AssertionResultD2Ev.exit unwind label %lpad14
 
 lpad5:                                            ; preds = %if.else
@@ -40513,8 +40497,6 @@ lpad14:                                           ; preds = %invoke.cont13
   br label %ehcleanup100
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %invoke.cont13, %if.end.thread
-  %message_.i172175 = phi ptr [ %message_.i170, %if.end.thread ], [ poison, %invoke.cont13 ]
-  store ptr null, ptr %message_.i172175, align 8
   %this.val.i.i = load ptr, ptr %t, align 8
   call void @llvm.prefetch.p0(ptr %this.val.i.i, i32 0, i32 1, i32 1)
   %8 = load i64, ptr %capacity_.i.i.i.i.i.i.i.i.i, align 8, !noalias !1034

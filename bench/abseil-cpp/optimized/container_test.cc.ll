@@ -3516,7 +3516,7 @@ _ZN7testing15AssertionResultD2Ev.exit97:          ; preds = %if.end84, %_ZNKSt14
   %sub.ptr.rhs.cast.i100 = ptrtoint ptr %48 to i64
   %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
   %cmp.not.i.i.i.i = icmp eq ptr %47, %48
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont94, label %cond.true.i.i.i.i
+  br i1 %cmp.not.i.i.i.i, label %if.then.i.i110, label %cond.true.i.i.i.i
 
 cond.true.i.i.i.i:                                ; preds = %_ZN7testing15AssertionResultD2Ev.exit97
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i101, 9223372036854775804
@@ -3529,14 +3529,14 @@ if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %cond.true.i.i.i.i
   %call5.i.i.i.i2.i6.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i101) #30
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i6.i, ptr align 4 %48, i64 %sub.ptr.sub.i101, i1 false)
-  br label %invoke.cont94
+  br label %if.then.i.i110
 
-invoke.cont94:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit97, %if.then.i.i.i.i.i.i.i.i.i
+if.then.i.i110:                                   ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit97
   %cond.i.i.i.i142 = phi ptr [ %call5.i.i.i.i2.i6.i, %if.then.i.i.i.i.i.i.i.i.i ], [ null, %_ZN7testing15AssertionResultD2Ev.exit97 ]
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar86)
           to label %invoke.cont96 unwind label %lpad93
 
-invoke.cont96:                                    ; preds = %invoke.cont94
+invoke.cont96:                                    ; preds = %if.then.i.i110
   %tobool.not.i.i.i = icmp eq ptr %cond.i.i.i.i142, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i
 
@@ -3555,7 +3555,7 @@ ehcleanup85:                                      ; preds = %_ZN7testing7Message
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar64) #28
   br label %eh.resume
 
-lpad93:                                           ; preds = %invoke.cont94
+lpad93:                                           ; preds = %if.then.i.i110
   %51 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i116 = icmp eq ptr %cond.i.i.i.i142, null
@@ -67419,9 +67419,9 @@ invoke.cont5:                                     ; preds = %_ZNSt12_Vector_base
   store ptr %call5.i.i.i.i.i2, ptr %matchers, align 8
   %add.ptr26.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2, i64 24
   store ptr %add.ptr26.i, ptr %_M_end_of_storage.i.i, align 8
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matchers, i64 8
   %0 = load i32, ptr %this, align 4, !noalias !1716
   %ref.tmp.i.sroa.2.16.insert.ext.i.i.i.i.i.i.i = zext i32 %0 to i64
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matchers, i64 8
   %vtable_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2, i64 8
   store ptr @_ZZN7testing8internal11MatcherBaseIRKiE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIiEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i.i.i, align 8
   %buffer_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2, i64 16

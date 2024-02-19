@@ -4418,9 +4418,9 @@ invoke.cont5:                                     ; preds = %_ZNSt12_Vector_base
   store ptr %call5.i.i.i.i.i2, ptr %matchers, align 8
   %add.ptr26.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2, i64 24
   store ptr %add.ptr26.i, ptr %_M_end_of_storage.i.i, align 8
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matchers, i64 8
   %0 = load ptr, ptr %this, align 8, !noalias !40
   %1 = ptrtoint ptr %0 to i64
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matchers, i64 8
   %vtable_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2, i64 8
   store ptr @_ZZN7testing8internal11MatcherBaseIRKPKN4absl13cord_internal11CordzHandleEE9GetVTableINS9_11ValuePolicyINS0_9EqMatcherIS6_EELb1EEEEEPKNS9_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i.i.i, align 8
   %buffer_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2, i64 16
@@ -7060,8 +7060,8 @@ invoke.cont5.i.i.i.i.i:                           ; preds = %entry
   store ptr %call5.i.i.i.i.i2.i.i.i.i.i, ptr %matchers.i.i.i.i.i, align 8, !noalias !90
   %add.ptr26.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2.i.i.i.i.i, i64 48
   store ptr %add.ptr26.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8, !noalias !90
-  %0 = ptrtoint ptr %this.8.val to i64
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matchers.i.i.i.i.i, i64 8
+  %0 = ptrtoint ptr %this.8.val to i64
   %vtable_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2.i.i.i.i.i, i64 8
   store ptr @_ZZN7testing8internal11MatcherBaseIRKPKN4absl13cord_internal11CordzHandleEE9GetVTableINS9_11ValuePolicyINS0_9EqMatcherIS6_EELb1EEEEEPKNS9_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !90
   %buffer_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2.i.i.i.i.i, i64 16
@@ -7613,8 +7613,8 @@ invoke.cont5.i.i.i.i.i.i:                         ; preds = %for.end
   store ptr %call5.i.i.i.i.i2.i.i.i.i.i.i, ptr %matchers.i.i.i.i.i.i, align 8, !noalias !110
   %add.ptr26.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2.i.i.i.i.i.i, i64 144
   store ptr %add.ptr26.i.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8, !noalias !110
-  %2 = ptrtoint ptr %arrayidx11.val34 to i64
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matchers.i.i.i.i.i.i, i64 8
+  %2 = ptrtoint ptr %arrayidx11.val34 to i64
   %vtable_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2.i.i.i.i.i.i, i64 8
   store ptr @_ZZN7testing8internal11MatcherBaseIRKPKN4absl13cord_internal11CordzHandleEE9GetVTableINS9_11ValuePolicyINS0_9EqMatcherIS6_EELb1EEEEEPKNS9_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !110
   %buffer_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2.i.i.i.i.i.i, i64 16
@@ -8263,8 +8263,8 @@ invoke.cont5.i.i.i.i.i.i100:                      ; preds = %delete.end
   store ptr %call5.i.i.i.i.i2.i.i.i.i.i.i94, ptr %matchers.i.i.i.i.i.i87, align 8, !noalias !131
   %add.ptr26.i.i.i.i.i.i.i102 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2.i.i.i.i.i.i94, i64 120
   store ptr %add.ptr26.i.i.i.i.i.i.i102, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i101, align 8, !noalias !131
+  %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i103 = getelementptr inbounds i8, ptr %matchers.i.i.i.i.i.i87, i64 8
   %67 = ptrtoint ptr %arrayidx11.val36 to i64
-  %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i105 = getelementptr inbounds i8, ptr %matchers.i.i.i.i.i.i87, i64 8
   %vtable_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i106 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2.i.i.i.i.i.i94, i64 8
   store ptr @_ZZN7testing8internal11MatcherBaseIRKPKN4absl13cord_internal11CordzHandleEE9GetVTableINS9_11ValuePolicyINS0_9EqMatcherIS6_EELb1EEEEEPKNS9_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i106, align 8, !noalias !131
   %buffer_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i107 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2.i.i.i.i.i.i94, i64 16
@@ -8298,7 +8298,7 @@ invoke.cont5.i.i.i.i.i.i100:                      ; preds = %delete.end
   %buffer_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i123 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2.i.i.i.i.i.i94, i64 112
   store i64 %71, ptr %buffer_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i123, align 8, !noalias !131
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKPKN4absl13cord_internal11CordzHandleEEE, i64 0, inrange i32 0, i64 2), ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i121, align 8, !noalias !131
-  store ptr %add.ptr26.i.i.i.i.i.i.i102, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i105, align 8, !noalias !131
+  store ptr %add.ptr26.i.i.i.i.i.i.i102, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i103, align 8, !noalias !131
   %call9.i.i.i.i.i.i124 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
           to label %invoke.cont8.i.i.i.i.i.i125 unwind label %lpad.i.i.i.i.i.i95, !noalias !131
 
@@ -16600,9 +16600,9 @@ invoke.cont5:                                     ; preds = %_ZNSt12_Vector_base
   store ptr %call5.i.i.i.i.i2, ptr %matchers, align 8
   %add.ptr26.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2, i64 24
   store ptr %add.ptr26.i, ptr %_M_end_of_storage.i.i, align 8
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matchers, i64 8
   %0 = load ptr, ptr %this, align 8, !noalias !300
   %1 = ptrtoint ptr %0 to i64
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matchers, i64 8
   %vtable_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2, i64 8
   store ptr @_ZZN7testing8internal11MatcherBaseIRKPKN4absl13cord_internal11CordzHandleEE9GetVTableINS9_11ValuePolicyINS0_9EqMatcherIS6_EELb1EEEEEPKNS9_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i.i.i, align 8
   %buffer_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2, i64 16

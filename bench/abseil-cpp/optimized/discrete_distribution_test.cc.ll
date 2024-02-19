@@ -19248,8 +19248,8 @@ invoke.cont5:                                     ; preds = %_ZNSt12_Vector_base
   store ptr %call5.i.i.i.i.i2, ptr %matchers, align 8
   %add.ptr26.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2, i64 24
   store ptr %add.ptr26.i, ptr %_M_end_of_storage.i.i, align 8
-  %0 = load i64, ptr %this, align 8, !noalias !630
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %matchers, i64 8
+  %0 = load i64, ptr %this, align 8, !noalias !630
   %vtable_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2, i64 8
   store ptr @_ZZN7testing8internal11MatcherBaseIRKdE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIdEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i.i.i.i.i, align 8
   %buffer_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i2, i64 16
