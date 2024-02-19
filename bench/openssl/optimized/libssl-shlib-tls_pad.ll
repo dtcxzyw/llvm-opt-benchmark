@@ -31,7 +31,7 @@ if.end:                                           ; preds = %entry
   %4 = or i64 %xor2.i.i, %xor2.i.i17
   %and20 = icmp sgt i64 %4, -1
   %and = sext i1 %and20 to i64
-  %and5 = and i64 %add2, %and
+  %and5 = select i1 %and20, i64 %add2, i64 0
   %sub6 = sub i64 %0, %and5
   store i64 %sub6, ptr %reclen, align 8
   %call7 = tail call fastcc i32 @ssl3_cbc_copy_mac(ptr noundef nonnull %reclen, i64 noundef %origreclen, ptr noundef %recdata, ptr noundef %mac, ptr noundef %alloced, i64 noundef %block_size, i64 noundef %mac_size, i64 noundef %and, ptr noundef %libctx), !range !4
@@ -298,9 +298,9 @@ for.end:                                          ; preds = %for.body, %if.end11
   %and26 = and i64 %good.0.lcssa, 255
   %8 = icmp eq i64 %and26, 255
   %shr.neg.i.i.i = sext i1 %8 to i64
-  %add28 = add nuw nsw i64 %conv6, 1
-  %and29 = and i64 %add28, %shr.neg.i.i.i
-  %sub30 = sub i64 %0, %and29
+  %add28.neg = xor i64 %conv6, -1
+  %and29.neg = select i1 %8, i64 %add28.neg, i64 0
+  %sub30 = add i64 %and29.neg, %0
   store i64 %sub30, ptr %reclen, align 8
   %call3228 = tail call fastcc i32 @ssl3_cbc_copy_mac(ptr noundef nonnull %reclen, i64 noundef %origreclen, ptr noundef nonnull %recdata, ptr noundef %mac, ptr noundef %alloced, i64 noundef %block_size, i64 noundef %mac_size, i64 noundef %shr.neg.i.i.i, ptr noundef %libctx), !range !4
   br label %return

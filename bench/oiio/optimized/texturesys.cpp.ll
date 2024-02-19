@@ -1320,19 +1320,12 @@ entry:
   %0 = load <4 x i32>, ptr %coord_, align 16
   %1 = load <4 x i32>, ptr %origin, align 16
   %2 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %1, <4 x i32> %0)
-  %or.i = bitcast <4 x i32> %2 to <2 x i64>
   %3 = load <4 x i32>, ptr %width, align 16
   %add.i = add <4 x i32> %3, %1
   %sub.i = add <4 x i32> %add.i, <i32 -1, i32 -1, i32 -1, i32 -1>
-  %or.i14824 = icmp sge <4 x i32> %2, %add.i
-  %or.i148 = sext <4 x i1> %or.i14824 to <4 x i32>
-  %4 = bitcast <4 x i32> %or.i148 to <2 x i64>
-  %and.i12225 = and <4 x i32> %sub.i, %or.i148
-  %and.i122 = bitcast <4 x i32> %and.i12225 to <2 x i64>
-  %not.i132 = xor <2 x i64> %4, <i64 -1, i64 -1>
-  %and.i133 = and <2 x i64> %not.i132, %or.i
-  %or.i117 = or <2 x i64> %and.i133, %and.i122
-  store <2 x i64> %or.i117, ptr %coord_, align 16
+  %or.i14824 = icmp slt <4 x i32> %2, %add.i
+  %or.i11727 = select <4 x i1> %or.i14824, <4 x i32> %2, <4 x i32> %sub.i
+  store <4 x i32> %or.i11727, ptr %coord_, align 16
   store <4 x float> <float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000>, ptr %agg.result, align 16
   ret void
 }
@@ -36007,9 +36000,9 @@ sw.bb26.i45:                                      ; preds = %if.end18
   %idxprom.i194 = zext nneg i16 %bf.clear.i254 to i64
   %arrayidx.i195 = getelementptr inbounds [4 x i32], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 0, i64 %idxprom.i194
   %46 = load i32, ptr %arrayidx.i195, align 4, !noalias !294
-  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16
+  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16, !alias.scope !294
   %agg.tmp4.i247.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 10
-  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2
+  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2, !alias.scope !294
   %prefix3.i196 = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 16
   store i32 %46, ptr %prefix3.i196, align 16, !alias.scope !294
   %call.i256 = call ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull byval(%"struct.fmt::v8::detail::write_int_arg.233") align 16 %agg.tmp4.i247, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %retval.sroa.0.0.copyload.i156)

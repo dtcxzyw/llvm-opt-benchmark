@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN5arrow8bit_utilL17kPrecedingBitmaskE = internal unnamed_addr constant [8 x i8] c"\00\01\03\07\0F\1F?\7F", align 1
 @_ZN5arrow8bit_utilL16kTrailingBitmaskE = internal unnamed_addr constant [8 x i8] c"\FF\FE\FC\F8\F0\E0\C0\80", align 1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5arrow8bit_util9SetBitsToEPhllb(ptr nocapture noundef %bits, i64 noundef %start_offset, i64 noundef %length, i1 noundef zeroext %bits_are_set) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %length, 0
@@ -28,8 +28,8 @@ if.end:                                           ; preds = %entry
 
 if.then9:                                         ; preds = %if.end
   %cmp11 = icmp eq i64 %rem5, 0
-  %or37 = select i1 %cmp11, i8 0, i8 %1
-  %cond = or i8 %or37, %0
+  %or35 = select i1 %cmp11, i8 0, i8 %1
+  %cond = or i8 %or35, %0
   br label %return.sink.split
 
 if.end28:                                         ; preds = %if.end
@@ -37,9 +37,9 @@ if.end28:                                         ; preds = %if.end
   %2 = load i8, ptr %arrayidx30, align 1
   %and3233 = and i8 %2, %0
   %not36 = xor i8 %0, -1
-  %and37 = and i8 %not36, %conv2
-  %or4234 = or i8 %and3233, %and37
-  store i8 %or4234, ptr %arrayidx30, align 1
+  %conv39 = select i1 %bits_are_set, i8 %not36, i8 0
+  %or42 = or i8 %and3233, %conv39
+  store i8 %or42, ptr %arrayidx30, align 1
   %reass.sub = sub nsw i64 %div3, %div
   %cmp45 = icmp sgt i64 %reass.sub, 1
   br i1 %cmp45, label %if.then46, label %if.end51
@@ -56,14 +56,14 @@ if.end51:                                         ; preds = %if.then46, %if.end2
 
 return.sink.split:                                ; preds = %if.end51, %if.then9
   %div.sink = phi i64 [ %div, %if.then9 ], [ %div3, %if.end51 ]
-  %.sink41 = phi i8 [ %cond, %if.then9 ], [ %1, %if.end51 ]
+  %.sink38 = phi i8 [ %cond, %if.then9 ], [ %1, %if.end51 ]
   %arrayidx16 = getelementptr inbounds i8, ptr %bits, i64 %div.sink
   %3 = load i8, ptr %arrayidx16, align 1
-  %and6035 = and i8 %3, %.sink41
-  %not64 = xor i8 %.sink41, -1
-  %and65 = and i8 %not64, %conv2
-  %or7136 = or i8 %and6035, %and65
-  store i8 %or7136, ptr %arrayidx16, align 1
+  %and6034 = and i8 %3, %.sink38
+  %not64 = xor i8 %.sink38, -1
+  %conv67 = select i1 %bits_are_set, i8 %not64, i8 0
+  %or71 = or i8 %and6034, %conv67
+  store i8 %or71, ptr %arrayidx16, align 1
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end51, %entry
@@ -73,7 +73,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5arrow8bit_util9SetBitmapEPhll(ptr nocapture noundef %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq i64 %length, 0
@@ -155,7 +155,7 @@ _ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll.exit: ; preds = %entry, %if.then10
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5arrow8bit_util11ClearBitmapEPhll(ptr nocapture noundef %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq i64 %length, 0
@@ -238,7 +238,7 @@ _ZN5arrow8bit_util13SetBitmapImplILb0EEEvPhll.exit: ; preds = %entry, %if.then10
   ret void
 }
 
-attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

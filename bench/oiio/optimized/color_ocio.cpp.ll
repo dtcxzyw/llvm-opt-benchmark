@@ -35419,9 +35419,9 @@ sw.bb26.i45:                                      ; preds = %if.end18
   %idxprom.i194 = zext nneg i16 %bf.clear.i254 to i64
   %arrayidx.i195 = getelementptr inbounds [4 x i32], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 0, i64 %idxprom.i194
   %46 = load i32, ptr %arrayidx.i195, align 4, !noalias !295
-  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16
+  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16, !alias.scope !295
   %agg.tmp4.i247.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 10
-  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2
+  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2, !alias.scope !295
   %prefix3.i196 = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 16
   store i32 %46, ptr %prefix3.i196, align 16, !alias.scope !295
   %call.i256 = call ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull byval(%"struct.fmt::v8::detail::write_int_arg.111") align 16 %agg.tmp4.i247, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %retval.sroa.0.0.copyload.i156)
@@ -46823,7 +46823,7 @@ for.body8.us:                                     ; preds = %for.body.us, %for.b
   %5 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %3, i64 0
   %6 = shufflevector <2 x float> %4, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i61.us78 = shufflevector <4 x float> %5, <4 x float> %6, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %7 = fcmp ole <4 x float> %vecinit3.i61.us78, <float 0x3F69A5C380000000, float 0x3F69A5C380000000, float 0x3F69A5C380000000, float 0x3F69A5C380000000>
+  %7 = fcmp ugt <4 x float> %vecinit3.i61.us78, <float 0x3F69A5C380000000, float 0x3F69A5C380000000, float 0x3F69A5C380000000, float 0x3F69A5C380000000>
   %mul.i.i.us = fmul <4 x float> %vecinit3.i61.us78, <float 0x4029D70A40000000, float 0x4029D70A40000000, float 0x4029D70A40000000, float poison>
   %8 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> <float 0x3810000000000000, float 0x3810000000000000, float 0x3810000000000000, float 0x3810000000000000>, <4 x float> %vecinit3.i61.us78)
   %9 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, <4 x float> %8)
@@ -46866,7 +46866,7 @@ for.body8.us:                                     ; preds = %for.body.us, %for.b
   %add.i.i.us = add <4 x i32> %29, %30
   %31 = bitcast <4 x i32> %add.i.i.us to <4 x float>
   %32 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %31, <4 x float> <float 0x3FF0E147A0000000, float 0x3FF0E147A0000000, float 0x3FF0E147A0000000, float 0x3FF0E147A0000000>, <4 x float> <float 0xBFAC28F5C0000000, float 0xBFAC28F5C0000000, float 0xBFAC28F5C0000000, float 0xBFAC28F5C0000000>)
-  %or.i.v.i.us = select <4 x i1> %7, <4 x float> %mul.i.i.us, <4 x float> %32
+  %or.i.v.i.us = select <4 x i1> %7, <4 x float> %32, <4 x float> %mul.i.i.us
   %33 = shufflevector <4 x float> %or.i.v.i.us, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   store <2 x float> %33, ptr %d.052.us, align 4
   %r.sroa.0.8.vec.extract.us = extractelement <4 x float> %or.i.v.i.us, i64 2
@@ -47003,7 +47003,7 @@ for.body8.us:                                     ; preds = %for.body.us, %for.b
   %4 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %2, i64 0
   %5 = shufflevector <2 x float> %3, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %vecinit3.i61.us78 = shufflevector <4 x float> %4, <4 x float> %5, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
-  %6 = fcmp ole <4 x float> %vecinit3.i61.us78, <float 0x3FA4B5DCC0000000, float 0x3FA4B5DCC0000000, float 0x3FA4B5DCC0000000, float 0x3FA4B5DCC0000000>
+  %6 = fcmp ugt <4 x float> %vecinit3.i61.us78, <float 0x3FA4B5DCC0000000, float 0x3FA4B5DCC0000000, float 0x3FA4B5DCC0000000, float 0x3FA4B5DCC0000000>
   %mul.i.i.us = fmul <4 x float> %vecinit3.i61.us78, <float 0x3FB3D07220000000, float 0x3FB3D07220000000, float 0x3FB3D07220000000, float poison>
   %7 = tail call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %vecinit3.i61.us78, <4 x float> <float 0x3FEE54EDE0000000, float 0x3FEE54EDE0000000, float 0x3FEE54EDE0000000, float 0x3FEE54EDE0000000>, <4 x float> <float 0x3FAAB12340000000, float 0x3FAAB12340000000, float 0x3FAAB12340000000, float 0x3FAAB12340000000>)
   %8 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> <float 0x3810000000000000, float 0x3810000000000000, float 0x3810000000000000, float 0x3810000000000000>, <4 x float> %7)
@@ -47046,7 +47046,7 @@ for.body8.us:                                     ; preds = %for.body.us, %for.b
   %30 = bitcast <4 x float> %28 to <4 x i32>
   %add.i.i.us = add <4 x i32> %29, %30
   %31 = bitcast <4 x i32> %add.i.i.us to <4 x float>
-  %32 = select <4 x i1> %6, <4 x float> %mul.i.i.us, <4 x float> %31
+  %32 = select <4 x i1> %6, <4 x float> %31, <4 x float> %mul.i.i.us
   %33 = shufflevector <4 x float> %32, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   store <2 x float> %33, ptr %d.052.us, align 4
   %r.sroa.0.8.vec.extract.us = extractelement <4 x float> %32, i64 2
