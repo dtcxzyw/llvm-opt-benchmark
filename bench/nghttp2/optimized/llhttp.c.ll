@@ -278,8 +278,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %conv = zext nneg i32 %match to i64
-  %sub = xor i64 %conv, -1
+  %1 = xor i32 %match, -1
+  %sub = sext i32 %1 to i64
   %cmp5 = icmp ugt i64 %mul, %sub
   br i1 %cmp5, label %return, label %if.then3.if.end16_crit_edge
 
@@ -538,8 +538,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %conv = zext nneg i32 %match to i64
-  %sub = xor i64 %conv, -1
+  %1 = xor i32 %match, -1
+  %sub = sext i32 %1 to i64
   %cmp5 = icmp ugt i64 %mul, %sub
   br i1 %cmp5, label %return, label %if.then3.if.end16_crit_edge
 
@@ -1054,69 +1054,69 @@ entry:
 
 s_n_llhttp__internal__n_start.preheader:          ; preds = %s_n_llhttp__internal__n_invoke_update_initial_message_completed, %entry
   %p.addr.225.ph = phi ptr [ %p.addr.1, %s_n_llhttp__internal__n_invoke_update_initial_message_completed ], [ %p, %entry ]
-  %cmp26735248 = icmp eq ptr %p.addr.225.ph, %endp
-  br i1 %cmp26735248, label %return, label %if.end2676
+  %cmp26735246 = icmp eq ptr %p.addr.225.ph, %endp
+  br i1 %cmp26735246, label %return, label %if.end2676
 
 s_n_llhttp__internal__n_res_status.preheader:     ; preds = %if.end2366, %entry
   %p.addr.197.ph = phi ptr [ %p, %entry ], [ %p.addr.198, %if.end2366 ]
-  %cmp23535250 = icmp eq ptr %p.addr.197.ph, %endp
-  br i1 %cmp23535250, label %return, label %if.end2356
+  %cmp23535248 = icmp eq ptr %p.addr.197.ph, %endp
+  br i1 %cmp23535248, label %return, label %if.end2356
 
 s_n_llhttp__internal__n_req_spaces_before_url.preheader: ; preds = %sw.bb1368, %entry
   %p.addr.122.ph = phi ptr [ %p, %entry ], [ %incdec.ptr1369, %sw.bb1368 ]
-  %cmp13545252 = icmp eq ptr %p.addr.122.ph, %endp
-  br i1 %cmp13545252, label %return, label %if.end1357
+  %cmp13545250 = icmp eq ptr %p.addr.122.ph, %endp
+  br i1 %cmp13545250, label %return, label %if.end1357
 
 s_n_llhttp__internal__n_url_server.preheader:     ; preds = %sw.bb1227, %sw.bb1262, %if.end1339, %entry
   %p.addr.112.ph = phi ptr [ %p, %entry ], [ %p.addr.120, %if.end1339 ], [ %incdec.ptr1228, %sw.bb1227 ], [ %incdec.ptr1263, %sw.bb1262 ]
-  %cmp12365256 = icmp eq ptr %p.addr.112.ph, %endp
-  br i1 %cmp12365256, label %return, label %if.end1239
+  %cmp12365254 = icmp eq ptr %p.addr.112.ph, %endp
+  br i1 %cmp12365254, label %return, label %if.end1239
 
 s_n_llhttp__internal__n_url_path.preheader:       ; preds = %if.end1200, %if.end1206, %if.end1212, %entry
   %p.addr.107.ph = phi ptr [ %p, %entry ], [ %incdec.ptr1201, %if.end1200 ], [ %incdec.ptr1207, %if.end1206 ], [ %incdec.ptr1213, %if.end1212 ]
-  %cmp11845258 = icmp eq ptr %p.addr.107.ph, %endp
-  br i1 %cmp11845258, label %return, label %if.end1187
+  %cmp11845256 = icmp eq ptr %p.addr.107.ph, %endp
+  br i1 %cmp11845256, label %return, label %if.end1187
 
 s_n_llhttp__internal__n_url_query.preheader:      ; preds = %sw.bb1180, %sw.bb1230, %sw.bb1251, %entry
   %p.addr.105.ph = phi ptr [ %p, %entry ], [ %incdec.ptr1252, %sw.bb1251 ], [ %incdec.ptr1181, %sw.bb1180 ], [ %incdec.ptr1231, %sw.bb1230 ]
-  %cmp11495260 = icmp eq ptr %p.addr.105.ph, %endp
-  br i1 %cmp11495260, label %return, label %if.end1152
+  %cmp11495258 = icmp eq ptr %p.addr.105.ph, %endp
+  br i1 %cmp11495258, label %return, label %if.end1152
 
 s_n_llhttp__internal__n_url_fragment.preheader:   ; preds = %if.end1146, %sw.bb1178, %entry
   %p.addr.103.ph = phi ptr [ %p, %entry ], [ %incdec.ptr1179, %sw.bb1178 ], [ %incdec.ptr1147, %if.end1146 ]
-  %cmp11275262 = icmp eq ptr %p.addr.103.ph, %endp
-  br i1 %cmp11275262, label %return, label %if.end1130
+  %cmp11275260 = icmp eq ptr %p.addr.103.ph, %endp
+  br i1 %cmp11275260, label %return, label %if.end1130
 
 s_n_llhttp__internal__n_chunk_extension_name.preheader: ; preds = %if.end149, %entry
   %p.addr.20.ph = phi ptr [ %p, %entry ], [ %p.addr.21, %if.end149 ]
-  %cmp1325266 = icmp eq ptr %p.addr.20.ph, %endp
-  br i1 %cmp1325266, label %return, label %if.end135
+  %cmp1325264 = icmp eq ptr %p.addr.20.ph, %endp
+  br i1 %cmp1325264, label %return, label %if.end135
 
 s_n_llhttp__internal__n_chunk_extension_quoted_value.preheader: ; preds = %sw.bb115, %entry
   %p.addr.14.ph = phi ptr [ %p, %entry ], [ %incdec.ptr116, %sw.bb115 ]
-  %cmp845270 = icmp eq ptr %p.addr.14.ph, %endp
-  br i1 %cmp845270, label %return, label %if.end87
+  %cmp845268 = icmp eq ptr %p.addr.14.ph, %endp
+  br i1 %cmp845268, label %return, label %if.end87
 
 s_n_llhttp__internal__n_header_field_general.preheader.sink.split: ; preds = %if.end731, %if.end815, %s_n_llhttp__internal__n_invoke_update_header_state_11.sink.split, %if.end692
   %p.addr.67.ph.ph = phi ptr [ %p.addr.68, %if.end692 ], [ %p.addr.76, %if.end815 ], [ %p.addr.71, %if.end731 ], [ %p.addr.235.ph, %s_n_llhttp__internal__n_invoke_update_header_state_11.sink.split ]
-  %header_state.i4209 = getelementptr inbounds i8, ptr %state, i64 76
-  store i8 0, ptr %header_state.i4209, align 4
+  %header_state.i4207 = getelementptr inbounds i8, ptr %state, i64 76
+  store i8 0, ptr %header_state.i4207, align 4
   br label %s_n_llhttp__internal__n_header_field_general.preheader
 
 s_n_llhttp__internal__n_header_field_general.preheader: ; preds = %s_n_llhttp__internal__n_header_field_general.preheader.sink.split, %entry
   %p.addr.67.ph = phi ptr [ %p, %entry ], [ %p.addr.67.ph.ph, %s_n_llhttp__internal__n_header_field_general.preheader.sink.split ]
-  %cmp6785274 = icmp eq ptr %p.addr.67.ph, %endp
-  br i1 %cmp6785274, label %return, label %if.end681
+  %cmp6785272 = icmp eq ptr %p.addr.67.ph, %endp
+  br i1 %cmp6785272, label %return, label %if.end681
 
 s_n_llhttp__internal__n_header_value_te_chunked_last.preheader: ; preds = %sw.bb637, %entry
   %p.addr.61.ph = phi ptr [ %p, %entry ], [ %incdec.ptr638, %sw.bb637 ]
-  %cmp6165278 = icmp eq ptr %p.addr.61.ph, %endp
-  br i1 %cmp6165278, label %return, label %if.end619
+  %cmp6165276 = icmp eq ptr %p.addr.61.ph, %endp
+  br i1 %cmp6165276, label %return, label %if.end619
 
 s_n_llhttp__internal__n_header_value_te_token_ows.preheader: ; preds = %sw.bb612, %entry
   %p.addr.58.ph = phi ptr [ %p, %entry ], [ %incdec.ptr613, %sw.bb612 ]
-  %cmp5815282 = icmp eq ptr %p.addr.58.ph, %endp
-  br i1 %cmp5815282, label %return, label %if.end584
+  %cmp5815280 = icmp eq ptr %p.addr.58.ph, %endp
+  br i1 %cmp5815280, label %return, label %if.end584
 
 s_n_llhttp__internal__n_header_value_connection_ws.preheader.sink.split: ; preds = %if.then.i2808, %if.then.i2781, %if.then.i2756
   %scevgep25.i.sink = phi ptr [ %scevgep25.i, %if.then.i2756 ], [ %scevgep25.i2767, %if.then.i2781 ], [ %scevgep25.i2794, %if.then.i2808 ]
@@ -1129,22 +1129,22 @@ s_n_llhttp__internal__n_header_value_connection_ws.preheader.sink.split: ; preds
 
 s_n_llhttp__internal__n_header_value_connection_ws.preheader: ; preds = %s_n_llhttp__internal__n_header_value_connection_ws.preheader.sink.split, %entry
   %p.addr.47.ph = phi ptr [ %p, %entry ], [ %incdec.ptr464, %s_n_llhttp__internal__n_header_value_connection_ws.preheader.sink.split ]
-  %cmp4415290 = icmp eq ptr %p.addr.47.ph, %endp
-  br i1 %cmp4415290, label %return, label %if.end444
+  %cmp4415288 = icmp eq ptr %p.addr.47.ph, %endp
+  br i1 %cmp4415288, label %return, label %if.end444
 
 s_n_llhttp__internal__n_closed.preheader:         ; preds = %entry, %s_n_llhttp__internal__n_invoke_update_finish_1
   %p.addr.0.ph = phi ptr [ %p, %entry ], [ %p.addr.1, %s_n_llhttp__internal__n_invoke_update_finish_1 ]
-  %cmp5298 = icmp eq ptr %p.addr.0.ph, %endp
-  br i1 %cmp5298, label %return, label %if.end.lr.ph
+  %cmp5296 = icmp eq ptr %p.addr.0.ph, %endp
+  br i1 %cmp5296, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %s_n_llhttp__internal__n_closed.preheader
   %lenient_flags.i = getelementptr inbounds i8, ptr %state, i64 77
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %s_n_llhttp__internal__n_closed.backedge
-  %p.addr.05299 = phi ptr [ %p.addr.0.ph, %if.end.lr.ph ], [ %incdec.ptr6, %s_n_llhttp__internal__n_closed.backedge ]
-  %2 = load i8, ptr %p.addr.05299, align 1
-  %incdec.ptr6 = getelementptr inbounds i8, ptr %p.addr.05299, i64 1
+  %p.addr.05297 = phi ptr [ %p.addr.0.ph, %if.end.lr.ph ], [ %incdec.ptr6, %s_n_llhttp__internal__n_closed.backedge ]
+  %2 = load i8, ptr %p.addr.05297, align 1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %p.addr.05297, i64 1
   switch i8 %2, label %sw.default [
     i8 10, label %s_n_llhttp__internal__n_closed.backedge
     i8 13, label %s_n_llhttp__internal__n_closed.backedge
@@ -1213,9 +1213,9 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.010.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %endp
-  br i1 %cmp.not.i, label %llparse__match_sequence_id.exit.thread4291, label %for.body.i, !llvm.loop !4
+  br i1 %cmp.not.i, label %llparse__match_sequence_id.exit.thread4289, label %for.body.i, !llvm.loop !4
 
-llparse__match_sequence_id.exit.thread4291:       ; preds = %for.inc.i
+llparse__match_sequence_id.exit.thread4289:       ; preds = %for.inc.i
   store i32 %11, ptr %state, align 8
   br label %return
 
@@ -1349,8 +1349,8 @@ s_n_llhttp__internal__n_error_21:                 ; preds = %entry, %if.end2882
   br label %return
 
 if.end87:                                         ; preds = %s_n_llhttp__internal__n_chunk_extension_quoted_value.preheader, %sw.bb89
-  %p.addr.145271 = phi ptr [ %incdec.ptr90, %sw.bb89 ], [ %p.addr.14.ph, %s_n_llhttp__internal__n_chunk_extension_quoted_value.preheader ]
-  %19 = load i8, ptr %p.addr.145271, align 1
+  %p.addr.145269 = phi ptr [ %incdec.ptr90, %sw.bb89 ], [ %p.addr.14.ph, %s_n_llhttp__internal__n_chunk_extension_quoted_value.preheader ]
+  %19 = load i8, ptr %p.addr.145269, align 1
   %idxprom = zext i8 %19 to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr @llhttp__internal__run.lookup_table, i64 0, i64 %idxprom
   %20 = load i8, ptr %arrayidx, align 1
@@ -1360,12 +1360,12 @@ if.end87:                                         ; preds = %s_n_llhttp__interna
   ]
 
 sw.bb89:                                          ; preds = %if.end87
-  %incdec.ptr90 = getelementptr inbounds i8, ptr %p.addr.145271, i64 1
+  %incdec.ptr90 = getelementptr inbounds i8, ptr %p.addr.145269, i64 1
   %cmp84 = icmp eq ptr %incdec.ptr90, %endp
   br i1 %cmp84, label %return, label %if.end87
 
 sw.bb91:                                          ; preds = %if.end87
-  %incdec.ptr92 = getelementptr inbounds i8, ptr %p.addr.145271, i64 1
+  %incdec.ptr92 = getelementptr inbounds i8, ptr %p.addr.145269, i64 1
   %_span_pos02860 = getelementptr inbounds i8, ptr %state, i64 8
   %21 = load ptr, ptr %_span_pos02860, align 8
   store ptr null, ptr %_span_pos02860, align 8
@@ -1393,8 +1393,8 @@ s_n_llhttp__internal__n_error_23:                 ; preds = %entry, %if.end2918
   br label %return
 
 if.end108:                                        ; preds = %s_n_llhttp__internal__n_chunk_extension_value.preheader, %sw.bb113
-  %p.addr.175269 = phi ptr [ %incdec.ptr114, %sw.bb113 ], [ %p.addr.17.ph, %s_n_llhttp__internal__n_chunk_extension_value.preheader ]
-  %22 = load i8, ptr %p.addr.175269, align 1
+  %p.addr.175267 = phi ptr [ %incdec.ptr114, %sw.bb113 ], [ %p.addr.17.ph, %s_n_llhttp__internal__n_chunk_extension_value.preheader ]
+  %22 = load i8, ptr %p.addr.175267, align 1
   %idxprom109 = zext i8 %22 to i64
   %arrayidx110 = getelementptr inbounds [256 x i8], ptr @llhttp__internal__run.lookup_table.3, i64 0, i64 %idxprom109
   %23 = load i8, ptr %arrayidx110, align 1
@@ -1406,12 +1406,12 @@ if.end108:                                        ; preds = %s_n_llhttp__interna
   ]
 
 sw.bb113:                                         ; preds = %if.end108
-  %incdec.ptr114 = getelementptr inbounds i8, ptr %p.addr.175269, i64 1
+  %incdec.ptr114 = getelementptr inbounds i8, ptr %p.addr.175267, i64 1
   %cmp105 = icmp eq ptr %incdec.ptr114, %endp
   br i1 %cmp105, label %return, label %if.end108
 
 sw.bb115:                                         ; preds = %if.end108
-  %incdec.ptr116 = getelementptr inbounds i8, ptr %p.addr.175269, i64 1
+  %incdec.ptr116 = getelementptr inbounds i8, ptr %p.addr.175267, i64 1
   br label %s_n_llhttp__internal__n_chunk_extension_quoted_value.preheader
 
 s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_value: ; preds = %entry, %if.end2944
@@ -1432,8 +1432,8 @@ if.end123:                                        ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_chunk_extension_value.preheader: ; preds = %entry, %if.end123
   %p.addr.17.ph = phi ptr [ %p, %entry ], [ %p.addr.18, %if.end123 ]
-  %cmp1055268 = icmp eq ptr %p.addr.17.ph, %endp
-  br i1 %cmp1055268, label %return, label %if.end108
+  %cmp1055266 = icmp eq ptr %p.addr.17.ph, %endp
+  br i1 %cmp1055266, label %return, label %if.end108
 
 s_n_llhttp__internal__n_error_24:                 ; preds = %entry, %if.end2958
   %p.addr.19 = phi ptr [ %incdec.ptr2959, %if.end2958 ], [ %p, %entry ]
@@ -1447,8 +1447,8 @@ s_n_llhttp__internal__n_error_24:                 ; preds = %entry, %if.end2958
   br label %return
 
 if.end135:                                        ; preds = %s_n_llhttp__internal__n_chunk_extension_name.preheader, %sw.bb140
-  %p.addr.205267 = phi ptr [ %incdec.ptr141, %sw.bb140 ], [ %p.addr.20.ph, %s_n_llhttp__internal__n_chunk_extension_name.preheader ]
-  %24 = load i8, ptr %p.addr.205267, align 1
+  %p.addr.205265 = phi ptr [ %incdec.ptr141, %sw.bb140 ], [ %p.addr.20.ph, %s_n_llhttp__internal__n_chunk_extension_name.preheader ]
+  %24 = load i8, ptr %p.addr.205265, align 1
   %idxprom136 = zext i8 %24 to i64
   %arrayidx137 = getelementptr inbounds [256 x i8], ptr @llhttp__internal__run.lookup_table.5, i64 0, i64 %idxprom136
   %25 = load i8, ptr %arrayidx137, align 1
@@ -1460,7 +1460,7 @@ if.end135:                                        ; preds = %s_n_llhttp__interna
   ]
 
 sw.bb140:                                         ; preds = %if.end135
-  %incdec.ptr141 = getelementptr inbounds i8, ptr %p.addr.205267, i64 1
+  %incdec.ptr141 = getelementptr inbounds i8, ptr %p.addr.205265, i64 1
   %cmp132 = icmp eq ptr %incdec.ptr141, %endp
   br i1 %cmp132, label %return, label %if.end135
 
@@ -1791,9 +1791,9 @@ if.end320:                                        ; preds = %s_n_llhttp__interna
   br label %return
 
 s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete.sink.split: ; preds = %s_n_llhttp__internal__n_invoke_llhttp__before_headers_complete, %sw.bb3045
-  %33 = load i16, ptr %flags.i4133, align 8
+  %33 = load i16, ptr %flags.i4132, align 8
   %34 = or i16 %33, 64
-  store i16 %34, ptr %flags.i4133, align 8
+  store i16 %34, ptr %flags.i4132, align 8
   br label %s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete
 
 s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete: ; preds = %s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete.sink.split, %s_n_llhttp__internal__n_invoke_llhttp__before_headers_complete, %sw.bb852, %entry
@@ -1833,13 +1833,13 @@ sw.bb342:                                         ; preds = %if.end340
   br label %s_n_llhttp__internal__n_invoke_test_flags
 
 if.end349:                                        ; preds = %s_n_llhttp__internal__n_header_field_colon_discard_ws.preheader, %sw.bb351
-  %p.addr.365273 = phi ptr [ %incdec.ptr352, %sw.bb351 ], [ %p.addr.36.ph, %s_n_llhttp__internal__n_header_field_colon_discard_ws.preheader ]
-  %36 = load i8, ptr %p.addr.365273, align 1
+  %p.addr.365271 = phi ptr [ %incdec.ptr352, %sw.bb351 ], [ %p.addr.36.ph, %s_n_llhttp__internal__n_header_field_colon_discard_ws.preheader ]
+  %36 = load i8, ptr %p.addr.365271, align 1
   %cond45 = icmp eq i8 %36, 32
   br i1 %cond45, label %sw.bb351, label %s_n_llhttp__internal__n_header_field_colon
 
 sw.bb351:                                         ; preds = %if.end349
-  %incdec.ptr352 = getelementptr inbounds i8, ptr %p.addr.365273, i64 1
+  %incdec.ptr352 = getelementptr inbounds i8, ptr %p.addr.365271, i64 1
   %cmp346 = icmp eq ptr %incdec.ptr352, %endp
   br i1 %cmp346, label %return, label %if.end349
 
@@ -1904,7 +1904,7 @@ if.end390:                                        ; preds = %s_n_llhttp__interna
   ]
 
 s_n_llhttp__internal__n_header_value_almost_done: ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_3, %entry, %if.end3210, %if.end3184
-  %p.addr.42 = phi ptr [ %incdec.ptr3185, %if.end3184 ], [ %incdec.ptr3211, %if.end3210 ], [ %p.addr.435297, %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_3 ], [ %p, %entry ]
+  %p.addr.42 = phi ptr [ %incdec.ptr3185, %if.end3184 ], [ %incdec.ptr3211, %if.end3210 ], [ %p.addr.435295, %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_3 ], [ %p, %entry ]
   %cmp396 = icmp eq ptr %p.addr.42, %endp
   br i1 %cmp396, label %return, label %if.end399
 
@@ -1918,15 +1918,15 @@ sw.bb401:                                         ; preds = %if.end399
   br label %s_n_llhttp__internal__n_header_value_lws
 
 if.end408:                                        ; preds = %s_n_llhttp__internal__n_header_value_lenient.preheader, %sw.default412
-  %p.addr.435297 = phi ptr [ %incdec.ptr413, %sw.default412 ], [ %p.addr.43.ph, %s_n_llhttp__internal__n_header_value_lenient.preheader ]
-  %41 = load i8, ptr %p.addr.435297, align 1
+  %p.addr.435295 = phi ptr [ %incdec.ptr413, %sw.default412 ], [ %p.addr.43.ph, %s_n_llhttp__internal__n_header_value_lenient.preheader ]
+  %41 = load i8, ptr %p.addr.435295, align 1
   switch i8 %41, label %sw.default412 [
     i8 10, label %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_3
     i8 13, label %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_4
   ]
 
 sw.default412:                                    ; preds = %if.end408
-  %incdec.ptr413 = getelementptr inbounds i8, ptr %p.addr.435297, i64 1
+  %incdec.ptr413 = getelementptr inbounds i8, ptr %p.addr.435295, i64 1
   %cmp405 = icmp eq ptr %incdec.ptr413, %endp
   br i1 %cmp405, label %return, label %if.end408
 
@@ -1942,7 +1942,7 @@ s_n_llhttp__internal__n_error_41:                 ; preds = %sw.default3226, %en
   br label %return
 
 s_n_llhttp__internal__n_header_value_otherwise:   ; preds = %if.end444, %if.end444, %if.end431, %if.end595, %entry, %s_n_llhttp__internal__n_invoke_update_header_state_8, %s_n_llhttp__internal__n_invoke_or_flags_15
-  %p.addr.45 = phi ptr [ %p.addr.615279, %s_n_llhttp__internal__n_invoke_update_header_state_8 ], [ %p.addr.545287, %s_n_llhttp__internal__n_invoke_or_flags_15 ], [ %p, %entry ], [ %p.addr.595295, %if.end595 ], [ %p.addr.465293, %if.end431 ], [ %p.addr.475291, %if.end444 ], [ %p.addr.475291, %if.end444 ]
+  %p.addr.45 = phi ptr [ %p.addr.615277, %s_n_llhttp__internal__n_invoke_update_header_state_8 ], [ %p.addr.545285, %s_n_llhttp__internal__n_invoke_or_flags_15 ], [ %p, %entry ], [ %p.addr.595293, %if.end595 ], [ %p.addr.465291, %if.end431 ], [ %p.addr.475289, %if.end444 ], [ %p.addr.475289, %if.end444 ]
   %cmp420 = icmp eq ptr %p.addr.45, %endp
   br i1 %cmp420, label %return, label %if.end423
 
@@ -1952,8 +1952,8 @@ if.end423:                                        ; preds = %s_n_llhttp__interna
   br i1 %cond33, label %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_1, label %s_n_llhttp__internal__n_invoke_test_lenient_flags_12
 
 if.end431:                                        ; preds = %s_n_llhttp__internal__n_header_value_connection_token.preheader, %sw.bb435
-  %p.addr.465293 = phi ptr [ %incdec.ptr436, %sw.bb435 ], [ %p.addr.46.ph, %s_n_llhttp__internal__n_header_value_connection_token.preheader ]
-  %43 = load i8, ptr %p.addr.465293, align 1
+  %p.addr.465291 = phi ptr [ %incdec.ptr436, %sw.bb435 ], [ %p.addr.46.ph, %s_n_llhttp__internal__n_header_value_connection_token.preheader ]
+  %43 = load i8, ptr %p.addr.465291, align 1
   %idxprom432 = zext i8 %43 to i64
   %arrayidx433 = getelementptr inbounds [256 x i8], ptr @llhttp__internal__run.lookup_table.13, i64 0, i64 %idxprom432
   %44 = load i8, ptr %arrayidx433, align 1
@@ -1963,17 +1963,17 @@ if.end431:                                        ; preds = %s_n_llhttp__interna
   ]
 
 sw.bb435:                                         ; preds = %if.end431
-  %incdec.ptr436 = getelementptr inbounds i8, ptr %p.addr.465293, i64 1
+  %incdec.ptr436 = getelementptr inbounds i8, ptr %p.addr.465291, i64 1
   %cmp428 = icmp eq ptr %incdec.ptr436, %endp
   br i1 %cmp428, label %return, label %if.end431
 
 sw.bb437:                                         ; preds = %if.end431
-  %incdec.ptr438 = getelementptr inbounds i8, ptr %p.addr.465293, i64 1
+  %incdec.ptr438 = getelementptr inbounds i8, ptr %p.addr.465291, i64 1
   br label %s_n_llhttp__internal__n_header_value_connection.preheader
 
 if.end444:                                        ; preds = %s_n_llhttp__internal__n_header_value_connection_ws.preheader, %sw.bb448
-  %p.addr.475291 = phi ptr [ %incdec.ptr449, %sw.bb448 ], [ %p.addr.47.ph, %s_n_llhttp__internal__n_header_value_connection_ws.preheader ]
-  %45 = load i8, ptr %p.addr.475291, align 1
+  %p.addr.475289 = phi ptr [ %incdec.ptr449, %sw.bb448 ], [ %p.addr.47.ph, %s_n_llhttp__internal__n_header_value_connection_ws.preheader ]
+  %45 = load i8, ptr %p.addr.475289, align 1
   switch i8 %45, label %s_n_llhttp__internal__n_invoke_update_header_state_5 [
     i8 10, label %s_n_llhttp__internal__n_header_value_otherwise
     i8 13, label %s_n_llhttp__internal__n_header_value_otherwise
@@ -1982,12 +1982,12 @@ if.end444:                                        ; preds = %s_n_llhttp__interna
   ]
 
 sw.bb448:                                         ; preds = %if.end444
-  %incdec.ptr449 = getelementptr inbounds i8, ptr %p.addr.475291, i64 1
+  %incdec.ptr449 = getelementptr inbounds i8, ptr %p.addr.475289, i64 1
   %cmp441 = icmp eq ptr %incdec.ptr449, %endp
   br i1 %cmp441, label %return, label %if.end444
 
 sw.bb450:                                         ; preds = %if.end444
-  %incdec.ptr451 = getelementptr inbounds i8, ptr %p.addr.475291, i64 1
+  %incdec.ptr451 = getelementptr inbounds i8, ptr %p.addr.475289, i64 1
   %header_state.i = getelementptr inbounds i8, ptr %state, i64 76
   %46 = load i8, ptr %header_state.i, align 4
   switch i8 %46, label %s_n_llhttp__internal__n_header_value_connection.preheader [
@@ -2037,9 +2037,9 @@ if.then.i2756:                                    ; preds = %for.body.i2748
 for.inc.i2758:                                    ; preds = %if.then.i2756
   %incdec.ptr.i2759 = getelementptr inbounds i8, ptr %p.addr.013.i, i64 1
   %cmp.not.i2760 = icmp eq ptr %incdec.ptr.i2759, %endp
-  br i1 %cmp.not.i2760, label %llparse__match_sequence_to_lower.exit.thread4303, label %for.body.i2748, !llvm.loop !6
+  br i1 %cmp.not.i2760, label %llparse__match_sequence_to_lower.exit.thread4301, label %for.body.i2748, !llvm.loop !6
 
-llparse__match_sequence_to_lower.exit.thread4303: ; preds = %for.inc.i2758
+llparse__match_sequence_to_lower.exit.thread4301: ; preds = %for.inc.i2758
   store i32 %53, ptr %state, align 8
   br label %return
 
@@ -2087,9 +2087,9 @@ if.then.i2781:                                    ; preds = %for.body.i2768
 for.inc.i2784:                                    ; preds = %if.then.i2781
   %incdec.ptr.i2785 = getelementptr inbounds i8, ptr %p.addr.013.i2770, i64 1
   %cmp.not.i2786 = icmp eq ptr %incdec.ptr.i2785, %endp
-  br i1 %cmp.not.i2786, label %llparse__match_sequence_to_lower.exit2787.thread4315, label %for.body.i2768, !llvm.loop !6
+  br i1 %cmp.not.i2786, label %llparse__match_sequence_to_lower.exit2787.thread4313, label %for.body.i2768, !llvm.loop !6
 
-llparse__match_sequence_to_lower.exit2787.thread4315: ; preds = %for.inc.i2784
+llparse__match_sequence_to_lower.exit2787.thread4313: ; preds = %for.inc.i2784
   store i32 %64, ptr %state, align 8
   br label %return
 
@@ -2137,9 +2137,9 @@ if.then.i2808:                                    ; preds = %for.body.i2795
 for.inc.i2811:                                    ; preds = %if.then.i2808
   %incdec.ptr.i2812 = getelementptr inbounds i8, ptr %p.addr.013.i2797, i64 1
   %cmp.not.i2813 = icmp eq ptr %incdec.ptr.i2812, %endp
-  br i1 %cmp.not.i2813, label %llparse__match_sequence_to_lower.exit2814.thread4327, label %for.body.i2795, !llvm.loop !6
+  br i1 %cmp.not.i2813, label %llparse__match_sequence_to_lower.exit2814.thread4325, label %for.body.i2795, !llvm.loop !6
 
-llparse__match_sequence_to_lower.exit2814.thread4327: ; preds = %for.inc.i2811
+llparse__match_sequence_to_lower.exit2814.thread4325: ; preds = %for.inc.i2811
   store i32 %75, ptr %state, align 8
   br label %return
 
@@ -2148,13 +2148,13 @@ llparse__match_sequence_to_lower.exit2814:        ; preds = %for.body.i2795
   br label %s_n_llhttp__internal__n_header_value_connection_token.preheader
 
 s_n_llhttp__internal__n_header_value_connection_token.preheader: ; preds = %if.end502, %s_n_llhttp__internal__n_invoke_update_header_state_5, %entry, %llparse__match_sequence_to_lower.exit, %llparse__match_sequence_to_lower.exit2787, %llparse__match_sequence_to_lower.exit2814
-  %p.addr.46.ph = phi ptr [ %p, %entry ], [ %p.addr.013.i, %llparse__match_sequence_to_lower.exit ], [ %p.addr.013.i2770, %llparse__match_sequence_to_lower.exit2787 ], [ %p.addr.475291, %s_n_llhttp__internal__n_invoke_update_header_state_5 ], [ %p.addr.013.i2797, %llparse__match_sequence_to_lower.exit2814 ], [ %p.addr.515289, %if.end502 ]
-  %cmp4285292 = icmp eq ptr %p.addr.46.ph, %endp
-  br i1 %cmp4285292, label %return, label %if.end431
+  %p.addr.46.ph = phi ptr [ %p, %entry ], [ %p.addr.013.i, %llparse__match_sequence_to_lower.exit ], [ %p.addr.013.i2770, %llparse__match_sequence_to_lower.exit2787 ], [ %p.addr.475289, %s_n_llhttp__internal__n_invoke_update_header_state_5 ], [ %p.addr.013.i2797, %llparse__match_sequence_to_lower.exit2814 ], [ %p.addr.515287, %if.end502 ]
+  %cmp4285290 = icmp eq ptr %p.addr.46.ph, %endp
+  br i1 %cmp4285290, label %return, label %if.end431
 
 if.end502:                                        ; preds = %s_n_llhttp__internal__n_header_value_connection.preheader, %s_n_llhttp__internal__n_header_value_connection.backedge
-  %p.addr.515289 = phi ptr [ %p.addr.51.be, %s_n_llhttp__internal__n_header_value_connection.backedge ], [ %p.addr.51.ph, %s_n_llhttp__internal__n_header_value_connection.preheader ]
-  %80 = load i8, ptr %p.addr.515289, align 1
+  %p.addr.515287 = phi ptr [ %p.addr.51.be, %s_n_llhttp__internal__n_header_value_connection.backedge ], [ %p.addr.51.ph, %s_n_llhttp__internal__n_header_value_connection.preheader ]
+  %80 = load i8, ptr %p.addr.515287, align 1
   %81 = add i8 %80, -65
   %or.cond = icmp ult i8 %81, 26
   %82 = or i8 %80, 32
@@ -2168,20 +2168,20 @@ if.end502:                                        ; preds = %s_n_llhttp__interna
   ]
 
 s_n_llhttp__internal__n_header_value_connection.backedge: ; preds = %if.end502, %if.end502
-  %p.addr.51.be = getelementptr inbounds i8, ptr %p.addr.515289, i64 1
+  %p.addr.51.be = getelementptr inbounds i8, ptr %p.addr.515287, i64 1
   %cmp499 = icmp eq ptr %p.addr.51.be, %endp
   br i1 %cmp499, label %return, label %if.end502
 
 sw.bb515:                                         ; preds = %if.end502
-  %incdec.ptr516 = getelementptr inbounds i8, ptr %p.addr.515289, i64 1
+  %incdec.ptr516 = getelementptr inbounds i8, ptr %p.addr.515287, i64 1
   br label %s_n_llhttp__internal__n_header_value_connection_1
 
 sw.bb517:                                         ; preds = %if.end502
-  %incdec.ptr518 = getelementptr inbounds i8, ptr %p.addr.515289, i64 1
+  %incdec.ptr518 = getelementptr inbounds i8, ptr %p.addr.515287, i64 1
   br label %s_n_llhttp__internal__n_header_value_connection_2
 
 sw.bb519:                                         ; preds = %if.end502
-  %incdec.ptr520 = getelementptr inbounds i8, ptr %p.addr.515289, i64 1
+  %incdec.ptr520 = getelementptr inbounds i8, ptr %p.addr.515287, i64 1
   br label %s_n_llhttp__internal__n_header_value_connection_3
 
 s_n_llhttp__internal__n_error_43:                 ; preds = %sw.bb3264, %entry
@@ -2196,7 +2196,7 @@ s_n_llhttp__internal__n_error_43:                 ; preds = %sw.bb3264, %entry
   br label %return
 
 s_n_llhttp__internal__n_error_44:                 ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_6, %entry
-  %p.addr.53 = phi ptr [ %p.addr.545287, %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_6 ], [ %p, %entry ]
+  %p.addr.53 = phi ptr [ %p.addr.545285, %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_6 ], [ %p, %entry ]
   %error528 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 11, ptr %error528, align 8
   %reason529 = getelementptr inbounds i8, ptr %state, i64 32
@@ -2207,8 +2207,8 @@ s_n_llhttp__internal__n_error_44:                 ; preds = %s_n_llhttp__interna
   br label %return
 
 if.end536:                                        ; preds = %s_n_llhttp__internal__n_header_value_content_length_ws.preheader, %sw.bb540
-  %p.addr.545287 = phi ptr [ %incdec.ptr541, %sw.bb540 ], [ %p.addr.54.ph, %s_n_llhttp__internal__n_header_value_content_length_ws.preheader ]
-  %83 = load i8, ptr %p.addr.545287, align 1
+  %p.addr.545285 = phi ptr [ %incdec.ptr541, %sw.bb540 ], [ %p.addr.54.ph, %s_n_llhttp__internal__n_header_value_content_length_ws.preheader ]
+  %83 = load i8, ptr %p.addr.545285, align 1
   switch i8 %83, label %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_6 [
     i8 10, label %s_n_llhttp__internal__n_invoke_or_flags_15
     i8 13, label %s_n_llhttp__internal__n_invoke_or_flags_15
@@ -2216,21 +2216,21 @@ if.end536:                                        ; preds = %s_n_llhttp__interna
   ]
 
 sw.bb540:                                         ; preds = %if.end536
-  %incdec.ptr541 = getelementptr inbounds i8, ptr %p.addr.545287, i64 1
+  %incdec.ptr541 = getelementptr inbounds i8, ptr %p.addr.545285, i64 1
   %cmp533 = icmp eq ptr %incdec.ptr541, %endp
   br i1 %cmp533, label %return, label %if.end536
 
 if.end547:                                        ; preds = %if.end547.lr.ph, %llhttp__internal__c_mul_add_content_length_1.exit
-  %p.addr.555285 = phi ptr [ %p.addr.55.ph, %if.end547.lr.ph ], [ %p.addr.232, %llhttp__internal__c_mul_add_content_length_1.exit ]
-  %84 = load i8, ptr %p.addr.555285, align 1
+  %p.addr.555283 = phi ptr [ %p.addr.55.ph, %if.end547.lr.ph ], [ %p.addr.232, %llhttp__internal__c_mul_add_content_length_1.exit ]
+  %84 = load i8, ptr %p.addr.555283, align 1
   %switch.tableidx = add i8 %84, -48
   %85 = icmp ult i8 %switch.tableidx, 10
   br i1 %85, label %switch.lookup, label %s_n_llhttp__internal__n_header_value_content_length_ws.preheader
 
 s_n_llhttp__internal__n_header_value_content_length_ws.preheader: ; preds = %if.end547, %entry
-  %p.addr.54.ph = phi ptr [ %p, %entry ], [ %p.addr.555285, %if.end547 ]
-  %cmp5335286 = icmp eq ptr %p.addr.54.ph, %endp
-  br i1 %cmp5335286, label %return, label %if.end536
+  %p.addr.54.ph = phi ptr [ %p, %entry ], [ %p.addr.555283, %if.end547 ]
+  %cmp5335284 = icmp eq ptr %p.addr.54.ph, %endp
+  br i1 %cmp5335284, label %return, label %if.end536
 
 s_n_llhttp__internal__n_error_46:                 ; preds = %entry, %if.end3299
   %p.addr.56 = phi ptr [ %incdec.ptr3300, %if.end3299 ], [ %p, %entry ]
@@ -2255,21 +2255,21 @@ s_n_llhttp__internal__n_error_45:                 ; preds = %entry, %if.end3315
   br label %return
 
 if.end584:                                        ; preds = %s_n_llhttp__internal__n_header_value_te_token_ows.preheader, %s_n_llhttp__internal__n_header_value_te_token_ows.backedge
-  %p.addr.585283 = phi ptr [ %p.addr.58.be, %s_n_llhttp__internal__n_header_value_te_token_ows.backedge ], [ %p.addr.58.ph, %s_n_llhttp__internal__n_header_value_te_token_ows.preheader ]
-  %86 = load i8, ptr %p.addr.585283, align 1
+  %p.addr.585281 = phi ptr [ %p.addr.58.be, %s_n_llhttp__internal__n_header_value_te_token_ows.backedge ], [ %p.addr.58.ph, %s_n_llhttp__internal__n_header_value_te_token_ows.preheader ]
+  %86 = load i8, ptr %p.addr.585281, align 1
   switch i8 %86, label %s_n_llhttp__internal__n_header_value_te_chunked [
     i8 9, label %s_n_llhttp__internal__n_header_value_te_token_ows.backedge
     i8 32, label %s_n_llhttp__internal__n_header_value_te_token_ows.backedge
   ]
 
 s_n_llhttp__internal__n_header_value_te_token_ows.backedge: ; preds = %if.end584, %if.end584
-  %p.addr.58.be = getelementptr inbounds i8, ptr %p.addr.585283, i64 1
+  %p.addr.58.be = getelementptr inbounds i8, ptr %p.addr.585281, i64 1
   %cmp581 = icmp eq ptr %p.addr.58.be, %endp
   br i1 %cmp581, label %return, label %if.end584
 
 if.end595:                                        ; preds = %s_n_llhttp__internal__n_header_value.preheader, %sw.bb599
-  %p.addr.595295 = phi ptr [ %incdec.ptr600, %sw.bb599 ], [ %p.addr.59.ph, %s_n_llhttp__internal__n_header_value.preheader ]
-  %87 = load i8, ptr %p.addr.595295, align 1
+  %p.addr.595293 = phi ptr [ %incdec.ptr600, %sw.bb599 ], [ %p.addr.59.ph, %s_n_llhttp__internal__n_header_value.preheader ]
+  %87 = load i8, ptr %p.addr.595293, align 1
   %idxprom596 = zext i8 %87 to i64
   %arrayidx597 = getelementptr inbounds [256 x i8], ptr @llhttp__internal__run.lookup_table.12, i64 0, i64 %idxprom596
   %88 = load i8, ptr %arrayidx597, align 1
@@ -2277,13 +2277,13 @@ if.end595:                                        ; preds = %s_n_llhttp__interna
   br i1 %cond32, label %sw.bb599, label %s_n_llhttp__internal__n_header_value_otherwise
 
 sw.bb599:                                         ; preds = %if.end595
-  %incdec.ptr600 = getelementptr inbounds i8, ptr %p.addr.595295, i64 1
+  %incdec.ptr600 = getelementptr inbounds i8, ptr %p.addr.595293, i64 1
   %cmp592 = icmp eq ptr %incdec.ptr600, %endp
   br i1 %cmp592, label %return, label %if.end595
 
 if.end606:                                        ; preds = %s_n_llhttp__internal__n_header_value_te_token.preheader, %sw.bb610
-  %p.addr.605281 = phi ptr [ %incdec.ptr611, %sw.bb610 ], [ %p.addr.60.ph, %s_n_llhttp__internal__n_header_value_te_token.preheader ]
-  %89 = load i8, ptr %p.addr.605281, align 1
+  %p.addr.605279 = phi ptr [ %incdec.ptr611, %sw.bb610 ], [ %p.addr.60.ph, %s_n_llhttp__internal__n_header_value_te_token.preheader ]
+  %89 = load i8, ptr %p.addr.605279, align 1
   %idxprom607 = zext i8 %89 to i64
   %arrayidx608 = getelementptr inbounds [256 x i8], ptr @llhttp__internal__run.lookup_table.13, i64 0, i64 %idxprom607
   %90 = load i8, ptr %arrayidx608, align 1
@@ -2293,17 +2293,17 @@ if.end606:                                        ; preds = %s_n_llhttp__interna
   ]
 
 sw.bb610:                                         ; preds = %if.end606
-  %incdec.ptr611 = getelementptr inbounds i8, ptr %p.addr.605281, i64 1
+  %incdec.ptr611 = getelementptr inbounds i8, ptr %p.addr.605279, i64 1
   %cmp603 = icmp eq ptr %incdec.ptr611, %endp
   br i1 %cmp603, label %return, label %if.end606
 
 sw.bb612:                                         ; preds = %if.end606
-  %incdec.ptr613 = getelementptr inbounds i8, ptr %p.addr.605281, i64 1
+  %incdec.ptr613 = getelementptr inbounds i8, ptr %p.addr.605279, i64 1
   br label %s_n_llhttp__internal__n_header_value_te_token_ows.preheader
 
 if.end619:                                        ; preds = %s_n_llhttp__internal__n_header_value_te_chunked_last.preheader, %sw.bb623
-  %p.addr.615279 = phi ptr [ %incdec.ptr624, %sw.bb623 ], [ %p.addr.61.ph, %s_n_llhttp__internal__n_header_value_te_chunked_last.preheader ]
-  %91 = load i8, ptr %p.addr.615279, align 1
+  %p.addr.615277 = phi ptr [ %incdec.ptr624, %sw.bb623 ], [ %p.addr.61.ph, %s_n_llhttp__internal__n_header_value_te_chunked_last.preheader ]
+  %91 = load i8, ptr %p.addr.615277, align 1
   switch i8 %91, label %s_n_llhttp__internal__n_header_value_te_token.preheader [
     i8 10, label %s_n_llhttp__internal__n_invoke_update_header_state_8
     i8 13, label %s_n_llhttp__internal__n_invoke_update_header_state_8
@@ -2312,12 +2312,12 @@ if.end619:                                        ; preds = %s_n_llhttp__interna
   ]
 
 sw.bb623:                                         ; preds = %if.end619
-  %incdec.ptr624 = getelementptr inbounds i8, ptr %p.addr.615279, i64 1
+  %incdec.ptr624 = getelementptr inbounds i8, ptr %p.addr.615277, i64 1
   %cmp616 = icmp eq ptr %incdec.ptr624, %endp
   br i1 %cmp616, label %return, label %if.end619
 
 s_n_llhttp__internal__n_header_value_te_chunked:  ; preds = %if.end584, %s_n_llhttp__internal__n_invoke_load_type_1, %sw.bb3321, %entry, %s_n_llhttp__internal__n_invoke_and_flags
-  %p.addr.62 = phi ptr [ %p.addr.63, %s_n_llhttp__internal__n_invoke_and_flags ], [ %p.addr.615279, %sw.bb3321 ], [ %p.addr.615279, %s_n_llhttp__internal__n_invoke_load_type_1 ], [ %p, %entry ], [ %p.addr.585283, %if.end584 ]
+  %p.addr.62 = phi ptr [ %p.addr.63, %s_n_llhttp__internal__n_invoke_and_flags ], [ %p.addr.615277, %sw.bb3321 ], [ %p.addr.615277, %s_n_llhttp__internal__n_invoke_load_type_1 ], [ %p, %entry ], [ %p.addr.585281, %if.end584 ]
   %cmp629 = icmp eq ptr %p.addr.62, %endp
   br i1 %cmp629, label %return, label %for.body.preheader.i2816
 
@@ -2353,9 +2353,9 @@ if.then.i2827:                                    ; preds = %for.body.i2818
 for.inc.i2829:                                    ; preds = %if.then.i2827
   %incdec.ptr.i2830 = getelementptr inbounds i8, ptr %p.addr.02.i, i64 1
   %cmp.not.i2831 = icmp eq ptr %incdec.ptr.i2830, %endp
-  br i1 %cmp.not.i2831, label %llparse__match_sequence_to_lower_unsafe.exit.thread4339, label %for.body.i2818, !llvm.loop !7
+  br i1 %cmp.not.i2831, label %llparse__match_sequence_to_lower_unsafe.exit.thread4337, label %for.body.i2818, !llvm.loop !7
 
-llparse__match_sequence_to_lower_unsafe.exit.thread4339: ; preds = %for.inc.i2829
+llparse__match_sequence_to_lower_unsafe.exit.thread4337: ; preds = %for.inc.i2829
   store i32 %98, ptr %state, align 8
   br label %return
 
@@ -2364,9 +2364,9 @@ llparse__match_sequence_to_lower_unsafe.exit:     ; preds = %for.body.i2818
   br label %s_n_llhttp__internal__n_header_value_te_token.preheader
 
 s_n_llhttp__internal__n_header_value_te_token.preheader: ; preds = %if.end619, %entry, %llparse__match_sequence_to_lower_unsafe.exit
-  %p.addr.60.ph = phi ptr [ %p, %entry ], [ %p.addr.02.i, %llparse__match_sequence_to_lower_unsafe.exit ], [ %p.addr.615279, %if.end619 ]
-  %cmp6035280 = icmp eq ptr %p.addr.60.ph, %endp
-  br i1 %cmp6035280, label %return, label %if.end606
+  %p.addr.60.ph = phi ptr [ %p, %entry ], [ %p.addr.02.i, %llparse__match_sequence_to_lower_unsafe.exit ], [ %p.addr.615277, %if.end619 ]
+  %cmp6035278 = icmp eq ptr %p.addr.60.ph, %endp
+  br i1 %cmp6035278, label %return, label %if.end606
 
 sw.bb637:                                         ; preds = %if.then.i2827
   store i32 0, ptr %state, align 8
@@ -2374,7 +2374,7 @@ sw.bb637:                                         ; preds = %if.then.i2827
   br label %s_n_llhttp__internal__n_header_value_te_chunked_last.preheader
 
 s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1: ; preds = %if.end653, %s_n_llhttp__internal__n_invoke_load_header_state_3, %entry, %sw.bb3150
-  %p.addr.63 = phi ptr [ %p.addr.41, %sw.bb3150 ], [ %p.addr.41, %s_n_llhttp__internal__n_invoke_load_header_state_3 ], [ %p, %entry ], [ %p.addr.645277, %if.end653 ]
+  %p.addr.63 = phi ptr [ %p.addr.41, %sw.bb3150 ], [ %p.addr.41, %s_n_llhttp__internal__n_invoke_load_header_state_3 ], [ %p, %entry ], [ %p.addr.645275, %if.end653 ]
   %cmp643 = icmp eq ptr %p.addr.63, %endp
   br i1 %cmp643, label %return, label %if.end646
 
@@ -2394,17 +2394,17 @@ if.end646:                                        ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_header_value_connection.preheader: ; preds = %sw.bb437, %s_n_llhttp__internal__n_invoke_update_header_state_4, %sw.bb3241, %entry, %sw.bb450, %if.end646
   %p.addr.51.ph = phi ptr [ %p, %entry ], [ %incdec.ptr451, %s_n_llhttp__internal__n_invoke_update_header_state_4 ], [ %incdec.ptr451, %sw.bb3241 ], [ %incdec.ptr451, %sw.bb450 ], [ %incdec.ptr438, %sw.bb437 ], [ %p.addr.63, %if.end646 ]
-  %cmp4995288 = icmp eq ptr %p.addr.51.ph, %endp
-  br i1 %cmp4995288, label %return, label %if.end502
+  %cmp4995286 = icmp eq ptr %p.addr.51.ph, %endp
+  br i1 %cmp4995286, label %return, label %if.end502
 
 s_n_llhttp__internal__n_header_value.preheader:   ; preds = %s_n_llhttp__internal__n_invoke_update_header_state_9, %entry, %if.end646
   %p.addr.59.ph = phi ptr [ %p, %entry ], [ %p.addr.233, %s_n_llhttp__internal__n_invoke_update_header_state_9 ], [ %p.addr.63, %if.end646 ]
-  %cmp5925294 = icmp eq ptr %p.addr.59.ph, %endp
-  br i1 %cmp5925294, label %return, label %if.end595
+  %cmp5925292 = icmp eq ptr %p.addr.59.ph, %endp
+  br i1 %cmp5925292, label %return, label %if.end595
 
 if.end653:                                        ; preds = %s_n_llhttp__internal__n_header_value_discard_ws.preheader, %s_n_llhttp__internal__n_header_value_discard_ws.backedge
-  %p.addr.645277 = phi ptr [ %p.addr.64.be, %s_n_llhttp__internal__n_header_value_discard_ws.backedge ], [ %p.addr.64.ph, %s_n_llhttp__internal__n_header_value_discard_ws.preheader ]
-  %103 = load i8, ptr %p.addr.645277, align 1
+  %p.addr.645275 = phi ptr [ %p.addr.64.be, %s_n_llhttp__internal__n_header_value_discard_ws.backedge ], [ %p.addr.64.ph, %s_n_llhttp__internal__n_header_value_discard_ws.preheader ]
+  %103 = load i8, ptr %p.addr.645275, align 1
   switch i8 %103, label %s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1 [
     i8 9, label %s_n_llhttp__internal__n_header_value_discard_ws.backedge
     i8 10, label %sw.bb657
@@ -2413,12 +2413,12 @@ if.end653:                                        ; preds = %s_n_llhttp__interna
   ]
 
 s_n_llhttp__internal__n_header_value_discard_ws.backedge: ; preds = %if.end653, %if.end653
-  %p.addr.64.be = getelementptr inbounds i8, ptr %p.addr.645277, i64 1
+  %p.addr.64.be = getelementptr inbounds i8, ptr %p.addr.645275, i64 1
   %cmp650 = icmp eq ptr %p.addr.64.be, %endp
   br i1 %cmp650, label %return, label %if.end653
 
 sw.bb657:                                         ; preds = %if.end653
-  %incdec.ptr658 = getelementptr inbounds i8, ptr %p.addr.645277, i64 1
+  %incdec.ptr658 = getelementptr inbounds i8, ptr %p.addr.645275, i64 1
   %lenient_flags.i2834 = getelementptr inbounds i8, ptr %state, i64 77
   %104 = load i8, ptr %lenient_flags.i2834, align 1
   %105 = and i8 %104, 1
@@ -2426,7 +2426,7 @@ sw.bb657:                                         ; preds = %if.end653
   br i1 %cond31.not, label %sw.default3139, label %s_n_llhttp__internal__n_header_value_discard_lws
 
 sw.bb659:                                         ; preds = %if.end653
-  %incdec.ptr660 = getelementptr inbounds i8, ptr %p.addr.645277, i64 1
+  %incdec.ptr660 = getelementptr inbounds i8, ptr %p.addr.645275, i64 1
   br label %s_n_llhttp__internal__n_header_value_discard_ws_almost_done
 
 s_n_llhttp__internal__n_invoke_llhttp__on_header_field_complete: ; preds = %entry, %if.end3382, %if.end3368
@@ -2438,7 +2438,7 @@ s_n_llhttp__internal__n_invoke_llhttp__on_header_field_complete: ; preds = %entr
   ]
 
 s_n_llhttp__internal__n_header_field_general_otherwise: ; preds = %if.end681, %entry
-  %p.addr.66 = phi ptr [ %p, %entry ], [ %p.addr.675275, %if.end681 ]
+  %p.addr.66 = phi ptr [ %p, %entry ], [ %p.addr.675273, %if.end681 ]
   %cmp670 = icmp eq ptr %p.addr.66, %endp
   br i1 %cmp670, label %return, label %if.end673
 
@@ -2448,8 +2448,8 @@ if.end673:                                        ; preds = %s_n_llhttp__interna
   br i1 %cond26, label %s_n_llhttp__internal__n_span_end_llhttp__on_header_field_2, label %s_n_llhttp__internal__n_error_47
 
 if.end681:                                        ; preds = %s_n_llhttp__internal__n_header_field_general.preheader, %sw.bb685
-  %p.addr.675275 = phi ptr [ %incdec.ptr686, %sw.bb685 ], [ %p.addr.67.ph, %s_n_llhttp__internal__n_header_field_general.preheader ]
-  %107 = load i8, ptr %p.addr.675275, align 1
+  %p.addr.675273 = phi ptr [ %incdec.ptr686, %sw.bb685 ], [ %p.addr.67.ph, %s_n_llhttp__internal__n_header_field_general.preheader ]
+  %107 = load i8, ptr %p.addr.675273, align 1
   %idxprom682 = zext i8 %107 to i64
   %arrayidx683 = getelementptr inbounds [256 x i8], ptr @llhttp__internal__run.lookup_table.14, i64 0, i64 %idxprom682
   %108 = load i8, ptr %arrayidx683, align 1
@@ -2457,12 +2457,12 @@ if.end681:                                        ; preds = %s_n_llhttp__interna
   br i1 %cond25, label %sw.bb685, label %s_n_llhttp__internal__n_header_field_general_otherwise
 
 sw.bb685:                                         ; preds = %if.end681
-  %incdec.ptr686 = getelementptr inbounds i8, ptr %p.addr.675275, i64 1
+  %incdec.ptr686 = getelementptr inbounds i8, ptr %p.addr.675273, i64 1
   %cmp678 = icmp eq ptr %incdec.ptr686, %endp
   br i1 %cmp678, label %return, label %if.end681
 
 s_n_llhttp__internal__n_header_field_colon:       ; preds = %if.end349, %entry, %s_n_llhttp__internal__n_invoke_store_header_state
-  %p.addr.68 = phi ptr [ %incdec.ptr807, %s_n_llhttp__internal__n_invoke_store_header_state ], [ %p, %entry ], [ %p.addr.365273, %if.end349 ]
+  %p.addr.68 = phi ptr [ %incdec.ptr807, %s_n_llhttp__internal__n_invoke_store_header_state ], [ %p, %entry ], [ %p.addr.365271, %if.end349 ]
   %cmp689 = icmp eq ptr %p.addr.68, %endp
   br i1 %cmp689, label %return, label %if.end692
 
@@ -2513,9 +2513,9 @@ if.then.i2855:                                    ; preds = %for.body.i2842
 for.inc.i2858:                                    ; preds = %if.then.i2855
   %incdec.ptr.i2859 = getelementptr inbounds i8, ptr %p.addr.013.i2844, i64 1
   %cmp.not.i2860 = icmp eq ptr %incdec.ptr.i2859, %endp
-  br i1 %cmp.not.i2860, label %llparse__match_sequence_to_lower.exit2861.thread4351, label %for.body.i2842, !llvm.loop !6
+  br i1 %cmp.not.i2860, label %llparse__match_sequence_to_lower.exit2861.thread4349, label %for.body.i2842, !llvm.loop !6
 
-llparse__match_sequence_to_lower.exit2861.thread4351: ; preds = %for.inc.i2858
+llparse__match_sequence_to_lower.exit2861.thread4349: ; preds = %for.inc.i2858
   store i32 %116, ptr %state, align 8
   br label %return
 
@@ -2559,9 +2559,9 @@ if.then.i2881:                                    ; preds = %for.body.i2868
 for.inc.i2884:                                    ; preds = %if.then.i2881
   %incdec.ptr.i2885 = getelementptr inbounds i8, ptr %p.addr.013.i2870, i64 1
   %cmp.not.i2886 = icmp eq ptr %incdec.ptr.i2885, %endp
-  br i1 %cmp.not.i2886, label %llparse__match_sequence_to_lower.exit2887.thread4363, label %for.body.i2868, !llvm.loop !6
+  br i1 %cmp.not.i2886, label %llparse__match_sequence_to_lower.exit2887.thread4361, label %for.body.i2868, !llvm.loop !6
 
-llparse__match_sequence_to_lower.exit2887.thread4363: ; preds = %for.inc.i2884
+llparse__match_sequence_to_lower.exit2887.thread4361: ; preds = %for.inc.i2884
   store i32 %127, ptr %state, align 8
   br label %return
 
@@ -2575,8 +2575,8 @@ if.end731:                                        ; preds = %s_n_llhttp__interna
   %133 = add i8 %132, -65
   %or.cond2738 = icmp ult i8 %133, 26
   %134 = or i8 %132, 32
-  %spec.select4979 = select i1 %or.cond2738, i8 %134, i8 %132
-  switch i8 %spec.select4979, label %s_n_llhttp__internal__n_header_field_general.preheader.sink.split [
+  %spec.select4977 = select i1 %or.cond2738, i8 %134, i8 %132
+  switch i8 %spec.select4977, label %s_n_llhttp__internal__n_header_field_general.preheader.sink.split [
     i8 110, label %sw.bb746
     i8 116, label %sw.bb748
   ]
@@ -2629,9 +2629,9 @@ if.then.i2907:                                    ; preds = %for.body.i2894
 for.inc.i2910:                                    ; preds = %if.then.i2907
   %incdec.ptr.i2911 = getelementptr inbounds i8, ptr %p.addr.013.i2896, i64 1
   %cmp.not.i2912 = icmp eq ptr %incdec.ptr.i2911, %endp
-  br i1 %cmp.not.i2912, label %llparse__match_sequence_to_lower.exit2913.thread4375, label %for.body.i2894, !llvm.loop !6
+  br i1 %cmp.not.i2912, label %llparse__match_sequence_to_lower.exit2913.thread4373, label %for.body.i2894, !llvm.loop !6
 
-llparse__match_sequence_to_lower.exit2913.thread4375: ; preds = %for.inc.i2910
+llparse__match_sequence_to_lower.exit2913.thread4373: ; preds = %for.inc.i2910
   store i32 %141, ptr %state, align 8
   br label %return
 
@@ -2680,9 +2680,9 @@ if.then.i2933:                                    ; preds = %for.body.i2920
 for.inc.i2936:                                    ; preds = %if.then.i2933
   %incdec.ptr.i2937 = getelementptr inbounds i8, ptr %p.addr.013.i2922, i64 1
   %cmp.not.i2938 = icmp eq ptr %incdec.ptr.i2937, %endp
-  br i1 %cmp.not.i2938, label %llparse__match_sequence_to_lower.exit2939.thread4387, label %for.body.i2920, !llvm.loop !6
+  br i1 %cmp.not.i2938, label %llparse__match_sequence_to_lower.exit2939.thread4385, label %for.body.i2920, !llvm.loop !6
 
-llparse__match_sequence_to_lower.exit2939.thread4387: ; preds = %for.inc.i2936
+llparse__match_sequence_to_lower.exit2939.thread4385: ; preds = %for.inc.i2936
   store i32 %152, ptr %state, align 8
   br label %return
 
@@ -2726,9 +2726,9 @@ if.then.i2959:                                    ; preds = %for.body.i2946
 for.inc.i2962:                                    ; preds = %if.then.i2959
   %incdec.ptr.i2963 = getelementptr inbounds i8, ptr %p.addr.013.i2948, i64 1
   %cmp.not.i2964 = icmp eq ptr %incdec.ptr.i2963, %endp
-  br i1 %cmp.not.i2964, label %llparse__match_sequence_to_lower.exit2965.thread4399, label %for.body.i2946, !llvm.loop !6
+  br i1 %cmp.not.i2964, label %llparse__match_sequence_to_lower.exit2965.thread4397, label %for.body.i2946, !llvm.loop !6
 
-llparse__match_sequence_to_lower.exit2965.thread4399: ; preds = %for.inc.i2962
+llparse__match_sequence_to_lower.exit2965.thread4397: ; preds = %for.inc.i2962
   store i32 %163, ptr %state, align 8
   br label %return
 
@@ -2772,9 +2772,9 @@ if.then.i2985:                                    ; preds = %for.body.i2972
 for.inc.i2988:                                    ; preds = %if.then.i2985
   %incdec.ptr.i2989 = getelementptr inbounds i8, ptr %p.addr.013.i2974, i64 1
   %cmp.not.i2990 = icmp eq ptr %incdec.ptr.i2989, %endp
-  br i1 %cmp.not.i2990, label %llparse__match_sequence_to_lower.exit2991.thread4411, label %for.body.i2972, !llvm.loop !6
+  br i1 %cmp.not.i2990, label %llparse__match_sequence_to_lower.exit2991.thread4409, label %for.body.i2972, !llvm.loop !6
 
-llparse__match_sequence_to_lower.exit2991.thread4411: ; preds = %for.inc.i2988
+llparse__match_sequence_to_lower.exit2991.thread4409: ; preds = %for.inc.i2988
   store i32 %174, ptr %state, align 8
   br label %return
 
@@ -2788,8 +2788,8 @@ if.end815:                                        ; preds = %s_n_llhttp__interna
   %180 = add i8 %179, -65
   %or.cond2739 = icmp ult i8 %180, 26
   %181 = or i8 %179, 32
-  %spec.select4980 = select i1 %or.cond2739, i8 %181, i8 %179
-  switch i8 %spec.select4980, label %s_n_llhttp__internal__n_header_field_general.preheader.sink.split [
+  %spec.select4978 = select i1 %or.cond2739, i8 %181, i8 %179
+  switch i8 %spec.select4978, label %s_n_llhttp__internal__n_header_field_general.preheader.sink.split [
     i8 99, label %sw.bb830
     i8 112, label %sw.bb832
     i8 116, label %sw.bb834
@@ -2887,7 +2887,7 @@ sw.bb874:                                         ; preds = %if.end870
   br label %s_n_llhttp__internal__n_error_2
 
 s_n_llhttp__internal__n_url_skip_to_http09:       ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_12, %s_n_llhttp__internal__n_span_end_llhttp__on_url, %s_n_llhttp__internal__n_span_end_llhttp__on_url_9, %s_n_llhttp__internal__n_span_end_llhttp__on_url_6, %s_n_llhttp__internal__n_span_end_llhttp__on_url_3, %entry
-  %p.addr.81 = phi ptr [ %p.addr.1035263, %s_n_llhttp__internal__n_span_end_llhttp__on_url_6 ], [ %p.addr.1055261, %s_n_llhttp__internal__n_span_end_llhttp__on_url_9 ], [ %p.addr.106, %s_n_llhttp__internal__n_span_end_llhttp__on_url_3 ], [ %p.addr.111, %s_n_llhttp__internal__n_span_end_llhttp__on_url_12 ], [ %p.addr.1125257, %s_n_llhttp__internal__n_span_end_llhttp__on_url ], [ %p, %entry ]
+  %p.addr.81 = phi ptr [ %p.addr.1035261, %s_n_llhttp__internal__n_span_end_llhttp__on_url_6 ], [ %p.addr.1055259, %s_n_llhttp__internal__n_span_end_llhttp__on_url_9 ], [ %p.addr.106, %s_n_llhttp__internal__n_span_end_llhttp__on_url_3 ], [ %p.addr.111, %s_n_llhttp__internal__n_span_end_llhttp__on_url_12 ], [ %p.addr.1125255, %s_n_llhttp__internal__n_span_end_llhttp__on_url ], [ %p, %entry ]
   %cmp878 = icmp eq ptr %p.addr.81, %endp
   br i1 %cmp878, label %return, label %if.end881
 
@@ -2914,7 +2914,7 @@ sw.bb895:                                         ; preds = %if.end893
   br label %s_n_llhttp__internal__n_url_to_http_09
 
 s_n_llhttp__internal__n_url_skip_lf_to_http09:    ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_13, %s_n_llhttp__internal__n_span_end_llhttp__on_url_1, %s_n_llhttp__internal__n_span_end_llhttp__on_url_10, %s_n_llhttp__internal__n_span_end_llhttp__on_url_7, %s_n_llhttp__internal__n_span_end_llhttp__on_url_4, %entry
-  %p.addr.83 = phi ptr [ %p.addr.1035263, %s_n_llhttp__internal__n_span_end_llhttp__on_url_7 ], [ %p.addr.1055261, %s_n_llhttp__internal__n_span_end_llhttp__on_url_10 ], [ %p.addr.106, %s_n_llhttp__internal__n_span_end_llhttp__on_url_4 ], [ %p.addr.111, %s_n_llhttp__internal__n_span_end_llhttp__on_url_13 ], [ %p.addr.1125257, %s_n_llhttp__internal__n_span_end_llhttp__on_url_1 ], [ %p, %entry ]
+  %p.addr.83 = phi ptr [ %p.addr.1035261, %s_n_llhttp__internal__n_span_end_llhttp__on_url_7 ], [ %p.addr.1055259, %s_n_llhttp__internal__n_span_end_llhttp__on_url_10 ], [ %p.addr.106, %s_n_llhttp__internal__n_span_end_llhttp__on_url_4 ], [ %p.addr.111, %s_n_llhttp__internal__n_span_end_llhttp__on_url_13 ], [ %p.addr.1125255, %s_n_llhttp__internal__n_span_end_llhttp__on_url_1 ], [ %p, %entry ]
   %cmp899 = icmp eq ptr %p.addr.83, %endp
   br i1 %cmp899, label %return, label %if.end902
 
@@ -3119,8 +3119,8 @@ s_n_llhttp__internal__n_req_http_major:           ; preds = %entry, %if.end1040
 
 if.end1013:                                       ; preds = %s_n_llhttp__internal__n_req_http_major
   %199 = load i8, ptr %p.addr.95, align 1
-  %switch.tableidx6003 = add i8 %199, -48
-  %200 = icmp ult i8 %switch.tableidx6003, 10
+  %switch.tableidx6001 = add i8 %199, -48
+  %200 = icmp ult i8 %switch.tableidx6001, 10
   br i1 %200, label %s_n_llhttp__internal__n_invoke_store_http_major, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_4
 
 s_n_llhttp__internal__n_span_start_llhttp__on_version: ; preds = %sw.bb1053, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1083, %sw.bb1068, %entry
@@ -3171,9 +3171,9 @@ if.then.i3014:                                    ; preds = %for.body.i3003
 for.inc.i3017:                                    ; preds = %if.then.i3014
   %incdec.ptr.i3018 = getelementptr inbounds i8, ptr %p.addr.010.i3005, i64 1
   %cmp.not.i3019 = icmp eq ptr %incdec.ptr.i3018, %endp
-  br i1 %cmp.not.i3019, label %llparse__match_sequence_id.exit3020.thread4423, label %for.body.i3003, !llvm.loop !4
+  br i1 %cmp.not.i3019, label %llparse__match_sequence_id.exit3020.thread4421, label %for.body.i3003, !llvm.loop !4
 
-llparse__match_sequence_id.exit3020.thread4423:   ; preds = %for.inc.i3017
+llparse__match_sequence_id.exit3020.thread4421:   ; preds = %for.inc.i3017
   store i32 %207, ptr %state, align 8
   br label %return
 
@@ -3221,9 +3221,9 @@ if.then.i3040:                                    ; preds = %for.body.i3029
 for.inc.i3043:                                    ; preds = %if.then.i3040
   %incdec.ptr.i3044 = getelementptr inbounds i8, ptr %p.addr.010.i3031, i64 1
   %cmp.not.i3045 = icmp eq ptr %incdec.ptr.i3044, %endp
-  br i1 %cmp.not.i3045, label %llparse__match_sequence_id.exit3046.thread4435, label %for.body.i3029, !llvm.loop !4
+  br i1 %cmp.not.i3045, label %llparse__match_sequence_id.exit3046.thread4433, label %for.body.i3029, !llvm.loop !4
 
-llparse__match_sequence_id.exit3046.thread4435:   ; preds = %for.inc.i3043
+llparse__match_sequence_id.exit3046.thread4433:   ; preds = %for.inc.i3043
   store i32 %217, ptr %state, align 8
   br label %return
 
@@ -3271,9 +3271,9 @@ if.then.i3066:                                    ; preds = %for.body.i3055
 for.inc.i3069:                                    ; preds = %if.then.i3066
   %incdec.ptr.i3070 = getelementptr inbounds i8, ptr %p.addr.010.i3057, i64 1
   %cmp.not.i3071 = icmp eq ptr %incdec.ptr.i3070, %endp
-  br i1 %cmp.not.i3071, label %llparse__match_sequence_id.exit3072.thread4447, label %for.body.i3055, !llvm.loop !4
+  br i1 %cmp.not.i3071, label %llparse__match_sequence_id.exit3072.thread4445, label %for.body.i3055, !llvm.loop !4
 
-llparse__match_sequence_id.exit3072.thread4447:   ; preds = %for.inc.i3069
+llparse__match_sequence_id.exit3072.thread4445:   ; preds = %for.inc.i3069
   store i32 %227, ptr %state, align 8
   br label %return
 
@@ -3300,8 +3300,8 @@ sw.bb1083:                                        ; preds = %if.then.i3066
   ]
 
 if.end1092:                                       ; preds = %s_n_llhttp__internal__n_req_http_start.preheader, %sw.bb1094
-  %p.addr.1005265 = phi ptr [ %incdec.ptr1095, %sw.bb1094 ], [ %p.addr.100.ph, %s_n_llhttp__internal__n_req_http_start.preheader ]
-  %231 = load i8, ptr %p.addr.1005265, align 1
+  %p.addr.1005263 = phi ptr [ %incdec.ptr1095, %sw.bb1094 ], [ %p.addr.100.ph, %s_n_llhttp__internal__n_req_http_start.preheader ]
+  %231 = load i8, ptr %p.addr.1005263, align 1
   switch i8 %231, label %s_n_llhttp__internal__n_error_62 [
     i8 32, label %sw.bb1094
     i8 72, label %sw.bb1096
@@ -3310,20 +3310,20 @@ if.end1092:                                       ; preds = %s_n_llhttp__interna
   ]
 
 sw.bb1094:                                        ; preds = %if.end1092
-  %incdec.ptr1095 = getelementptr inbounds i8, ptr %p.addr.1005265, i64 1
+  %incdec.ptr1095 = getelementptr inbounds i8, ptr %p.addr.1005263, i64 1
   %cmp1089 = icmp eq ptr %incdec.ptr1095, %endp
   br i1 %cmp1089, label %return, label %if.end1092
 
 sw.bb1096:                                        ; preds = %if.end1092
-  %incdec.ptr1097 = getelementptr inbounds i8, ptr %p.addr.1005265, i64 1
+  %incdec.ptr1097 = getelementptr inbounds i8, ptr %p.addr.1005263, i64 1
   br label %s_n_llhttp__internal__n_req_http_start_1
 
 sw.bb1098:                                        ; preds = %if.end1092
-  %incdec.ptr1099 = getelementptr inbounds i8, ptr %p.addr.1005265, i64 1
+  %incdec.ptr1099 = getelementptr inbounds i8, ptr %p.addr.1005263, i64 1
   br label %s_n_llhttp__internal__n_req_http_start_2
 
 sw.bb1100:                                        ; preds = %if.end1092
-  %incdec.ptr1101 = getelementptr inbounds i8, ptr %p.addr.1005265, i64 1
+  %incdec.ptr1101 = getelementptr inbounds i8, ptr %p.addr.1005263, i64 1
   br label %s_n_llhttp__internal__n_req_http_start_3
 
 s_n_llhttp__internal__n_url_to_http:              ; preds = %if.end1118, %entry
@@ -3347,7 +3347,7 @@ sw.bb1111:                                        ; preds = %if.end1107
   br label %s_n_llhttp__internal__n_error_2
 
 s_n_llhttp__internal__n_url_skip_to_http:         ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_url_14, %s_n_llhttp__internal__n_span_end_llhttp__on_url_2, %s_n_llhttp__internal__n_span_end_llhttp__on_url_11, %s_n_llhttp__internal__n_span_end_llhttp__on_url_8, %s_n_llhttp__internal__n_span_end_llhttp__on_url_5, %entry
-  %p.addr.102 = phi ptr [ %p.addr.1035263, %s_n_llhttp__internal__n_span_end_llhttp__on_url_8 ], [ %p.addr.1055261, %s_n_llhttp__internal__n_span_end_llhttp__on_url_11 ], [ %p.addr.106, %s_n_llhttp__internal__n_span_end_llhttp__on_url_5 ], [ %p.addr.111, %s_n_llhttp__internal__n_span_end_llhttp__on_url_14 ], [ %p.addr.1125257, %s_n_llhttp__internal__n_span_end_llhttp__on_url_2 ], [ %p, %entry ]
+  %p.addr.102 = phi ptr [ %p.addr.1035261, %s_n_llhttp__internal__n_span_end_llhttp__on_url_8 ], [ %p.addr.1055259, %s_n_llhttp__internal__n_span_end_llhttp__on_url_11 ], [ %p.addr.106, %s_n_llhttp__internal__n_span_end_llhttp__on_url_5 ], [ %p.addr.111, %s_n_llhttp__internal__n_span_end_llhttp__on_url_14 ], [ %p.addr.1125255, %s_n_llhttp__internal__n_span_end_llhttp__on_url_2 ], [ %p, %entry ]
   %cmp1115 = icmp eq ptr %p.addr.102, %endp
   br i1 %cmp1115, label %return, label %if.end1118
 
@@ -3360,8 +3360,8 @@ if.end1118:                                       ; preds = %s_n_llhttp__interna
   ]
 
 if.end1130:                                       ; preds = %s_n_llhttp__internal__n_url_fragment.preheader, %sw.bb1139
-  %p.addr.1035263 = phi ptr [ %incdec.ptr1140, %sw.bb1139 ], [ %p.addr.103.ph, %s_n_llhttp__internal__n_url_fragment.preheader ]
-  %234 = load i8, ptr %p.addr.1035263, align 1
+  %p.addr.1035261 = phi ptr [ %incdec.ptr1140, %sw.bb1139 ], [ %p.addr.103.ph, %s_n_llhttp__internal__n_url_fragment.preheader ]
+  %234 = load i8, ptr %p.addr.1035261, align 1
   %idxprom1131 = zext i8 %234 to i64
   %arrayidx1132 = getelementptr inbounds [256 x i8], ptr @llhttp__internal__run.lookup_table.19, i64 0, i64 %idxprom1131
   %235 = load i8, ptr %arrayidx1132, align 1
@@ -3374,16 +3374,16 @@ if.end1130:                                       ; preds = %s_n_llhttp__interna
   ]
 
 sw.bb1134:                                        ; preds = %if.end1130
-  %incdec.ptr1135 = getelementptr inbounds i8, ptr %p.addr.1035263, i64 1
+  %incdec.ptr1135 = getelementptr inbounds i8, ptr %p.addr.1035261, i64 1
   br label %s_n_llhttp__internal__n_error_2
 
 sw.bb1139:                                        ; preds = %if.end1130
-  %incdec.ptr1140 = getelementptr inbounds i8, ptr %p.addr.1035263, i64 1
+  %incdec.ptr1140 = getelementptr inbounds i8, ptr %p.addr.1035261, i64 1
   %cmp1127 = icmp eq ptr %incdec.ptr1140, %endp
   br i1 %cmp1127, label %return, label %if.end1130
 
 s_n_llhttp__internal__n_span_end_stub_query_3:    ; preds = %if.end1152, %entry
-  %p.addr.104 = phi ptr [ %p, %entry ], [ %p.addr.1055261, %if.end1152 ]
+  %p.addr.104 = phi ptr [ %p, %entry ], [ %p.addr.1055259, %if.end1152 ]
   %cmp1143 = icmp eq ptr %p.addr.104, %endp
   br i1 %cmp1143, label %return, label %if.end1146
 
@@ -3392,8 +3392,8 @@ if.end1146:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_url_fragment.preheader
 
 if.end1152:                                       ; preds = %s_n_llhttp__internal__n_url_query.preheader, %sw.bb1161
-  %p.addr.1055261 = phi ptr [ %incdec.ptr1162, %sw.bb1161 ], [ %p.addr.105.ph, %s_n_llhttp__internal__n_url_query.preheader ]
-  %236 = load i8, ptr %p.addr.1055261, align 1
+  %p.addr.1055259 = phi ptr [ %incdec.ptr1162, %sw.bb1161 ], [ %p.addr.105.ph, %s_n_llhttp__internal__n_url_query.preheader ]
+  %236 = load i8, ptr %p.addr.1055259, align 1
   %idxprom1153 = zext i8 %236 to i64
   %arrayidx1154 = getelementptr inbounds [256 x i8], ptr @llhttp__internal__run.lookup_table.20, i64 0, i64 %idxprom1153
   %237 = load i8, ptr %arrayidx1154, align 1
@@ -3407,16 +3407,16 @@ if.end1152:                                       ; preds = %s_n_llhttp__interna
   ]
 
 sw.bb1156:                                        ; preds = %if.end1152
-  %incdec.ptr1157 = getelementptr inbounds i8, ptr %p.addr.1055261, i64 1
+  %incdec.ptr1157 = getelementptr inbounds i8, ptr %p.addr.1055259, i64 1
   br label %s_n_llhttp__internal__n_error_2
 
 sw.bb1161:                                        ; preds = %if.end1152
-  %incdec.ptr1162 = getelementptr inbounds i8, ptr %p.addr.1055261, i64 1
+  %incdec.ptr1162 = getelementptr inbounds i8, ptr %p.addr.1055259, i64 1
   %cmp1149 = icmp eq ptr %incdec.ptr1162, %endp
   br i1 %cmp1149, label %return, label %if.end1152
 
 s_n_llhttp__internal__n_url_query_or_fragment:    ; preds = %if.end1187, %entry
-  %p.addr.106 = phi ptr [ %p, %entry ], [ %p.addr.1075259, %if.end1187 ]
+  %p.addr.106 = phi ptr [ %p, %entry ], [ %p.addr.1075257, %if.end1187 ]
   %cmp1166 = icmp eq ptr %p.addr.106, %endp
   br i1 %cmp1166, label %return, label %if.end1169
 
@@ -3449,8 +3449,8 @@ sw.bb1180:                                        ; preds = %if.end1169
   br label %s_n_llhttp__internal__n_url_query.preheader
 
 if.end1187:                                       ; preds = %s_n_llhttp__internal__n_url_path.preheader, %sw.bb1193
-  %p.addr.1075259 = phi ptr [ %incdec.ptr1194, %sw.bb1193 ], [ %p.addr.107.ph, %s_n_llhttp__internal__n_url_path.preheader ]
-  %239 = load i8, ptr %p.addr.1075259, align 1
+  %p.addr.1075257 = phi ptr [ %incdec.ptr1194, %sw.bb1193 ], [ %p.addr.107.ph, %s_n_llhttp__internal__n_url_path.preheader ]
+  %239 = load i8, ptr %p.addr.1075257, align 1
   %idxprom1188 = zext i8 %239 to i64
   %arrayidx1189 = getelementptr inbounds [256 x i8], ptr @llhttp__internal__run.lookup_table.21, i64 0, i64 %idxprom1188
   %240 = load i8, ptr %arrayidx1189, align 1
@@ -3460,11 +3460,11 @@ if.end1187:                                       ; preds = %s_n_llhttp__interna
   ]
 
 sw.bb1191:                                        ; preds = %if.end1187
-  %incdec.ptr1192 = getelementptr inbounds i8, ptr %p.addr.1075259, i64 1
+  %incdec.ptr1192 = getelementptr inbounds i8, ptr %p.addr.1075257, i64 1
   br label %s_n_llhttp__internal__n_error_2
 
 sw.bb1193:                                        ; preds = %if.end1187
-  %incdec.ptr1194 = getelementptr inbounds i8, ptr %p.addr.1075259, i64 1
+  %incdec.ptr1194 = getelementptr inbounds i8, ptr %p.addr.1075257, i64 1
   %cmp1184 = icmp eq ptr %incdec.ptr1194, %endp
   br i1 %cmp1184, label %return, label %if.end1187
 
@@ -3478,7 +3478,7 @@ if.end1200:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_url_path.preheader
 
 s_n_llhttp__internal__n_span_start_stub_path:     ; preds = %if.end1239, %entry
-  %p.addr.109 = phi ptr [ %p, %entry ], [ %p.addr.1125257, %if.end1239 ]
+  %p.addr.109 = phi ptr [ %p, %entry ], [ %p.addr.1125255, %if.end1239 ]
   %cmp1203 = icmp eq ptr %p.addr.109, %endp
   br i1 %cmp1203, label %return, label %if.end1206
 
@@ -3540,8 +3540,8 @@ sw.bb1232:                                        ; preds = %if.end1218
   br label %return
 
 if.end1239:                                       ; preds = %s_n_llhttp__internal__n_url_server.preheader, %sw.bb1248
-  %p.addr.1125257 = phi ptr [ %incdec.ptr1249, %sw.bb1248 ], [ %p.addr.112.ph, %s_n_llhttp__internal__n_url_server.preheader ]
-  %243 = load i8, ptr %p.addr.1125257, align 1
+  %p.addr.1125255 = phi ptr [ %incdec.ptr1249, %sw.bb1248 ], [ %p.addr.112.ph, %s_n_llhttp__internal__n_url_server.preheader ]
+  %243 = load i8, ptr %p.addr.1125255, align 1
   %idxprom1240 = zext i8 %243 to i64
   %arrayidx1241 = getelementptr inbounds [256 x i8], ptr @llhttp__internal__run.lookup_table.23, i64 0, i64 %idxprom1240
   %244 = load i8, ptr %arrayidx1241, align 1
@@ -3557,20 +3557,20 @@ if.end1239:                                       ; preds = %s_n_llhttp__interna
   ]
 
 sw.bb1243:                                        ; preds = %if.end1239
-  %incdec.ptr1244 = getelementptr inbounds i8, ptr %p.addr.1125257, i64 1
+  %incdec.ptr1244 = getelementptr inbounds i8, ptr %p.addr.1125255, i64 1
   br label %s_n_llhttp__internal__n_error_2
 
 sw.bb1248:                                        ; preds = %if.end1239
-  %incdec.ptr1249 = getelementptr inbounds i8, ptr %p.addr.1125257, i64 1
+  %incdec.ptr1249 = getelementptr inbounds i8, ptr %p.addr.1125255, i64 1
   %cmp1236 = icmp eq ptr %incdec.ptr1249, %endp
   br i1 %cmp1236, label %return, label %if.end1239
 
 sw.bb1251:                                        ; preds = %if.end1239
-  %incdec.ptr1252 = getelementptr inbounds i8, ptr %p.addr.1125257, i64 1
+  %incdec.ptr1252 = getelementptr inbounds i8, ptr %p.addr.1125255, i64 1
   br label %s_n_llhttp__internal__n_url_query.preheader
 
 sw.bb1253:                                        ; preds = %if.end1239
-  %incdec.ptr1254 = getelementptr inbounds i8, ptr %p.addr.1125257, i64 1
+  %incdec.ptr1254 = getelementptr inbounds i8, ptr %p.addr.1125255, i64 1
   br label %s_n_llhttp__internal__n_url_server_with_at
 
 s_n_llhttp__internal__n_url_schema_delim_1:       ; preds = %entry, %sw.bb1281
@@ -3628,7 +3628,7 @@ sw.bb1281:                                        ; preds = %if.end1269
   br label %s_n_llhttp__internal__n_url_schema_delim_1
 
 s_n_llhttp__internal__n_span_end_stub_schema:     ; preds = %if.end1294, %entry
-  %p.addr.115 = phi ptr [ %p, %entry ], [ %p.addr.1165255, %if.end1294 ]
+  %p.addr.115 = phi ptr [ %p, %entry ], [ %p.addr.1165253, %if.end1294 ]
   %cmp1285 = icmp eq ptr %p.addr.115, %endp
   br i1 %cmp1285, label %return, label %if.end1288
 
@@ -3637,8 +3637,8 @@ if.end1288:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_url_schema_delim
 
 if.end1294:                                       ; preds = %s_n_llhttp__internal__n_url_schema.preheader, %sw.bb1301
-  %p.addr.1165255 = phi ptr [ %incdec.ptr1302, %sw.bb1301 ], [ %p.addr.116.ph, %s_n_llhttp__internal__n_url_schema.preheader ]
-  %247 = load i8, ptr %p.addr.1165255, align 1
+  %p.addr.1165253 = phi ptr [ %incdec.ptr1302, %sw.bb1301 ], [ %p.addr.116.ph, %s_n_llhttp__internal__n_url_schema.preheader ]
+  %247 = load i8, ptr %p.addr.1165253, align 1
   %idxprom1295 = zext i8 %247 to i64
   %arrayidx1296 = getelementptr inbounds [256 x i8], ptr @llhttp__internal__run.lookup_table.24, i64 0, i64 %idxprom1295
   %248 = load i8, ptr %arrayidx1296, align 1
@@ -3649,11 +3649,11 @@ if.end1294:                                       ; preds = %s_n_llhttp__interna
   ]
 
 sw.bb1298:                                        ; preds = %if.end1294
-  %incdec.ptr1299 = getelementptr inbounds i8, ptr %p.addr.1165255, i64 1
+  %incdec.ptr1299 = getelementptr inbounds i8, ptr %p.addr.1165253, i64 1
   br label %s_n_llhttp__internal__n_error_2
 
 sw.bb1301:                                        ; preds = %if.end1294
-  %incdec.ptr1302 = getelementptr inbounds i8, ptr %p.addr.1165255, i64 1
+  %incdec.ptr1302 = getelementptr inbounds i8, ptr %p.addr.1165253, i64 1
   %cmp1291 = icmp eq ptr %incdec.ptr1302, %endp
   br i1 %cmp1291, label %return, label %if.end1294
 
@@ -3675,8 +3675,8 @@ if.end1308:                                       ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_url_schema.preheader:     ; preds = %entry, %if.end1308
   %p.addr.116.ph = phi ptr [ %p, %entry ], [ %p.addr.117, %if.end1308 ]
-  %cmp12915254 = icmp eq ptr %p.addr.116.ph, %endp
-  br i1 %cmp12915254, label %return, label %if.end1294
+  %cmp12915252 = icmp eq ptr %p.addr.116.ph, %endp
+  br i1 %cmp12915252, label %return, label %if.end1294
 
 sw.bb1312:                                        ; preds = %if.end1308
   %incdec.ptr1313 = getelementptr inbounds i8, ptr %p.addr.117, i64 1
@@ -3695,7 +3695,7 @@ if.end1321:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_url_start
 
 s_n_llhttp__internal__n_url_entry_normal:         ; preds = %s_n_llhttp__internal__n_invoke_is_equal_method, %entry
-  %p.addr.119 = phi ptr [ %p.addr.1225253, %s_n_llhttp__internal__n_invoke_is_equal_method ], [ %p, %entry ]
+  %p.addr.119 = phi ptr [ %p.addr.1225251, %s_n_llhttp__internal__n_invoke_is_equal_method ], [ %p, %entry ]
   %cmp1325 = icmp eq ptr %p.addr.119, %endp
   br i1 %cmp1325, label %return, label %if.end1328
 
@@ -3727,7 +3727,7 @@ if.end1339:                                       ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_url_server.preheader
 
 s_n_llhttp__internal__n_url_entry_connect:        ; preds = %s_n_llhttp__internal__n_invoke_is_equal_method, %entry
-  %p.addr.121 = phi ptr [ %p.addr.1225253, %s_n_llhttp__internal__n_invoke_is_equal_method ], [ %p, %entry ]
+  %p.addr.121 = phi ptr [ %p.addr.1225251, %s_n_llhttp__internal__n_invoke_is_equal_method ], [ %p, %entry ]
   %cmp1343 = icmp eq ptr %p.addr.121, %endp
   br i1 %cmp1343, label %return, label %if.end1346
 
@@ -3747,13 +3747,13 @@ sw.bb1350:                                        ; preds = %if.end1346
   br label %s_n_llhttp__internal__n_error_2
 
 if.end1357:                                       ; preds = %s_n_llhttp__internal__n_req_spaces_before_url.preheader, %sw.bb1359
-  %p.addr.1225253 = phi ptr [ %incdec.ptr1360, %sw.bb1359 ], [ %p.addr.122.ph, %s_n_llhttp__internal__n_req_spaces_before_url.preheader ]
-  %253 = load i8, ptr %p.addr.1225253, align 1
+  %p.addr.1225251 = phi ptr [ %incdec.ptr1360, %sw.bb1359 ], [ %p.addr.122.ph, %s_n_llhttp__internal__n_req_spaces_before_url.preheader ]
+  %253 = load i8, ptr %p.addr.1225251, align 1
   %cond51 = icmp eq i8 %253, 32
   br i1 %cond51, label %sw.bb1359, label %s_n_llhttp__internal__n_invoke_is_equal_method
 
 sw.bb1359:                                        ; preds = %if.end1357
-  %incdec.ptr1360 = getelementptr inbounds i8, ptr %p.addr.1225253, i64 1
+  %incdec.ptr1360 = getelementptr inbounds i8, ptr %p.addr.1225251, i64 1
   %cmp1354 = icmp eq ptr %incdec.ptr1360, %endp
   br i1 %cmp1354, label %return, label %if.end1357
 
@@ -3829,9 +3829,9 @@ if.then.i3092:                                    ; preds = %for.body.i3081
 for.inc.i3095:                                    ; preds = %if.then.i3092
   %incdec.ptr.i3096 = getelementptr inbounds i8, ptr %p.addr.010.i3083, i64 1
   %cmp.not.i3097 = icmp eq ptr %incdec.ptr.i3096, %endp
-  br i1 %cmp.not.i3097, label %llparse__match_sequence_id.exit3098.thread4459, label %for.body.i3081, !llvm.loop !4
+  br i1 %cmp.not.i3097, label %llparse__match_sequence_id.exit3098.thread4457, label %for.body.i3081, !llvm.loop !4
 
-llparse__match_sequence_id.exit3098.thread4459:   ; preds = %for.inc.i3095
+llparse__match_sequence_id.exit3098.thread4457:   ; preds = %for.inc.i3095
   store i32 %262, ptr %state, align 8
   br label %return
 
@@ -3896,9 +3896,9 @@ if.then.i3116:                                    ; preds = %for.body.i3105
 for.inc.i3119:                                    ; preds = %if.then.i3116
   %incdec.ptr.i3120 = getelementptr inbounds i8, ptr %p.addr.010.i3107, i64 1
   %cmp.not.i3121 = icmp eq ptr %incdec.ptr.i3120, %endp
-  br i1 %cmp.not.i3121, label %llparse__match_sequence_id.exit3122.thread4471, label %for.body.i3105, !llvm.loop !4
+  br i1 %cmp.not.i3121, label %llparse__match_sequence_id.exit3122.thread4469, label %for.body.i3105, !llvm.loop !4
 
-llparse__match_sequence_id.exit3122.thread4471:   ; preds = %for.inc.i3119
+llparse__match_sequence_id.exit3122.thread4469:   ; preds = %for.inc.i3119
   store i32 %272, ptr %state, align 8
   br label %return
 
@@ -3943,9 +3943,9 @@ if.then.i3140:                                    ; preds = %for.body.i3129
 for.inc.i3143:                                    ; preds = %if.then.i3140
   %incdec.ptr.i3144 = getelementptr inbounds i8, ptr %p.addr.010.i3131, i64 1
   %cmp.not.i3145 = icmp eq ptr %incdec.ptr.i3144, %endp
-  br i1 %cmp.not.i3145, label %llparse__match_sequence_id.exit3146.thread4483, label %for.body.i3129, !llvm.loop !4
+  br i1 %cmp.not.i3145, label %llparse__match_sequence_id.exit3146.thread4481, label %for.body.i3129, !llvm.loop !4
 
-llparse__match_sequence_id.exit3146.thread4483:   ; preds = %for.inc.i3143
+llparse__match_sequence_id.exit3146.thread4481:   ; preds = %for.inc.i3143
   store i32 %281, ptr %state, align 8
   br label %return
 
@@ -3990,9 +3990,9 @@ if.then.i3164:                                    ; preds = %for.body.i3153
 for.inc.i3167:                                    ; preds = %if.then.i3164
   %incdec.ptr.i3168 = getelementptr inbounds i8, ptr %p.addr.010.i3155, i64 1
   %cmp.not.i3169 = icmp eq ptr %incdec.ptr.i3168, %endp
-  br i1 %cmp.not.i3169, label %llparse__match_sequence_id.exit3170.thread4495, label %for.body.i3153, !llvm.loop !4
+  br i1 %cmp.not.i3169, label %llparse__match_sequence_id.exit3170.thread4493, label %for.body.i3153, !llvm.loop !4
 
-llparse__match_sequence_id.exit3170.thread4495:   ; preds = %for.inc.i3167
+llparse__match_sequence_id.exit3170.thread4493:   ; preds = %for.inc.i3167
   store i32 %290, ptr %state, align 8
   br label %return
 
@@ -4091,9 +4091,9 @@ if.then.i3188:                                    ; preds = %for.body.i3177
 for.inc.i3191:                                    ; preds = %if.then.i3188
   %incdec.ptr.i3192 = getelementptr inbounds i8, ptr %p.addr.010.i3179, i64 1
   %cmp.not.i3193 = icmp eq ptr %incdec.ptr.i3192, %endp
-  br i1 %cmp.not.i3193, label %llparse__match_sequence_id.exit3194.thread4507, label %for.body.i3177, !llvm.loop !4
+  br i1 %cmp.not.i3193, label %llparse__match_sequence_id.exit3194.thread4505, label %for.body.i3177, !llvm.loop !4
 
-llparse__match_sequence_id.exit3194.thread4507:   ; preds = %for.inc.i3191
+llparse__match_sequence_id.exit3194.thread4505:   ; preds = %for.inc.i3191
   store i32 %302, ptr %state, align 8
   br label %return
 
@@ -4138,9 +4138,9 @@ if.then.i3212:                                    ; preds = %for.body.i3201
 for.inc.i3215:                                    ; preds = %if.then.i3212
   %incdec.ptr.i3216 = getelementptr inbounds i8, ptr %p.addr.010.i3203, i64 1
   %cmp.not.i3217 = icmp eq ptr %incdec.ptr.i3216, %endp
-  br i1 %cmp.not.i3217, label %llparse__match_sequence_id.exit3218.thread4519, label %for.body.i3201, !llvm.loop !4
+  br i1 %cmp.not.i3217, label %llparse__match_sequence_id.exit3218.thread4517, label %for.body.i3201, !llvm.loop !4
 
-llparse__match_sequence_id.exit3218.thread4519:   ; preds = %for.inc.i3215
+llparse__match_sequence_id.exit3218.thread4517:   ; preds = %for.inc.i3215
   store i32 %311, ptr %state, align 8
   br label %return
 
@@ -4219,9 +4219,9 @@ if.then.i3236:                                    ; preds = %for.body.i3225
 for.inc.i3239:                                    ; preds = %if.then.i3236
   %incdec.ptr.i3240 = getelementptr inbounds i8, ptr %p.addr.010.i3227, i64 1
   %cmp.not.i3241 = icmp eq ptr %incdec.ptr.i3240, %endp
-  br i1 %cmp.not.i3241, label %llparse__match_sequence_id.exit3242.thread4531, label %for.body.i3225, !llvm.loop !4
+  br i1 %cmp.not.i3241, label %llparse__match_sequence_id.exit3242.thread4529, label %for.body.i3225, !llvm.loop !4
 
-llparse__match_sequence_id.exit3242.thread4531:   ; preds = %for.inc.i3239
+llparse__match_sequence_id.exit3242.thread4529:   ; preds = %for.inc.i3239
   store i32 %322, ptr %state, align 8
   br label %return
 
@@ -4266,9 +4266,9 @@ if.then.i3260:                                    ; preds = %for.body.i3249
 for.inc.i3263:                                    ; preds = %if.then.i3260
   %incdec.ptr.i3264 = getelementptr inbounds i8, ptr %p.addr.010.i3251, i64 1
   %cmp.not.i3265 = icmp eq ptr %incdec.ptr.i3264, %endp
-  br i1 %cmp.not.i3265, label %llparse__match_sequence_id.exit3266.thread4543, label %for.body.i3249, !llvm.loop !4
+  br i1 %cmp.not.i3265, label %llparse__match_sequence_id.exit3266.thread4541, label %for.body.i3249, !llvm.loop !4
 
-llparse__match_sequence_id.exit3266.thread4543:   ; preds = %for.inc.i3263
+llparse__match_sequence_id.exit3266.thread4541:   ; preds = %for.inc.i3263
   store i32 %331, ptr %state, align 8
   br label %return
 
@@ -4327,9 +4327,9 @@ if.then.i3284:                                    ; preds = %for.body.i3273
 for.inc.i3287:                                    ; preds = %if.then.i3284
   %incdec.ptr.i3288 = getelementptr inbounds i8, ptr %p.addr.010.i3275, i64 1
   %cmp.not.i3289 = icmp eq ptr %incdec.ptr.i3288, %endp
-  br i1 %cmp.not.i3289, label %llparse__match_sequence_id.exit3290.thread4555, label %for.body.i3273, !llvm.loop !4
+  br i1 %cmp.not.i3289, label %llparse__match_sequence_id.exit3290.thread4553, label %for.body.i3273, !llvm.loop !4
 
-llparse__match_sequence_id.exit3290.thread4555:   ; preds = %for.inc.i3287
+llparse__match_sequence_id.exit3290.thread4553:   ; preds = %for.inc.i3287
   store i32 %341, ptr %state, align 8
   br label %return
 
@@ -4374,9 +4374,9 @@ if.then.i3308:                                    ; preds = %for.body.i3297
 for.inc.i3311:                                    ; preds = %if.then.i3308
   %incdec.ptr.i3312 = getelementptr inbounds i8, ptr %p.addr.010.i3299, i64 1
   %cmp.not.i3313 = icmp eq ptr %incdec.ptr.i3312, %endp
-  br i1 %cmp.not.i3313, label %llparse__match_sequence_id.exit3314.thread4567, label %for.body.i3297, !llvm.loop !4
+  br i1 %cmp.not.i3313, label %llparse__match_sequence_id.exit3314.thread4565, label %for.body.i3297, !llvm.loop !4
 
-llparse__match_sequence_id.exit3314.thread4567:   ; preds = %for.inc.i3311
+llparse__match_sequence_id.exit3314.thread4565:   ; preds = %for.inc.i3311
   store i32 %350, ptr %state, align 8
   br label %return
 
@@ -4421,9 +4421,9 @@ if.then.i3332:                                    ; preds = %for.body.i3321
 for.inc.i3335:                                    ; preds = %if.then.i3332
   %incdec.ptr.i3336 = getelementptr inbounds i8, ptr %p.addr.010.i3323, i64 1
   %cmp.not.i3337 = icmp eq ptr %incdec.ptr.i3336, %endp
-  br i1 %cmp.not.i3337, label %llparse__match_sequence_id.exit3338.thread4579, label %for.body.i3321, !llvm.loop !4
+  br i1 %cmp.not.i3337, label %llparse__match_sequence_id.exit3338.thread4577, label %for.body.i3321, !llvm.loop !4
 
-llparse__match_sequence_id.exit3338.thread4579:   ; preds = %for.inc.i3335
+llparse__match_sequence_id.exit3338.thread4577:   ; preds = %for.inc.i3335
   store i32 %359, ptr %state, align 8
   br label %return
 
@@ -4468,9 +4468,9 @@ if.then.i3356:                                    ; preds = %for.body.i3345
 for.inc.i3359:                                    ; preds = %if.then.i3356
   %incdec.ptr.i3360 = getelementptr inbounds i8, ptr %p.addr.010.i3347, i64 1
   %cmp.not.i3361 = icmp eq ptr %incdec.ptr.i3360, %endp
-  br i1 %cmp.not.i3361, label %llparse__match_sequence_id.exit3362.thread4591, label %for.body.i3345, !llvm.loop !4
+  br i1 %cmp.not.i3361, label %llparse__match_sequence_id.exit3362.thread4589, label %for.body.i3345, !llvm.loop !4
 
-llparse__match_sequence_id.exit3362.thread4591:   ; preds = %for.inc.i3359
+llparse__match_sequence_id.exit3362.thread4589:   ; preds = %for.inc.i3359
   store i32 %368, ptr %state, align 8
   br label %return
 
@@ -4535,9 +4535,9 @@ if.then.i3380:                                    ; preds = %for.body.i3369
 for.inc.i3383:                                    ; preds = %if.then.i3380
   %incdec.ptr.i3384 = getelementptr inbounds i8, ptr %p.addr.010.i3371, i64 1
   %cmp.not.i3385 = icmp eq ptr %incdec.ptr.i3384, %endp
-  br i1 %cmp.not.i3385, label %llparse__match_sequence_id.exit3386.thread4603, label %for.body.i3369, !llvm.loop !4
+  br i1 %cmp.not.i3385, label %llparse__match_sequence_id.exit3386.thread4601, label %for.body.i3369, !llvm.loop !4
 
-llparse__match_sequence_id.exit3386.thread4603:   ; preds = %for.inc.i3383
+llparse__match_sequence_id.exit3386.thread4601:   ; preds = %for.inc.i3383
   store i32 %378, ptr %state, align 8
   br label %return
 
@@ -4582,9 +4582,9 @@ if.then.i3404:                                    ; preds = %for.body.i3393
 for.inc.i3407:                                    ; preds = %if.then.i3404
   %incdec.ptr.i3408 = getelementptr inbounds i8, ptr %p.addr.010.i3395, i64 1
   %cmp.not.i3409 = icmp eq ptr %incdec.ptr.i3408, %endp
-  br i1 %cmp.not.i3409, label %llparse__match_sequence_id.exit3410.thread4615, label %for.body.i3393, !llvm.loop !4
+  br i1 %cmp.not.i3409, label %llparse__match_sequence_id.exit3410.thread4613, label %for.body.i3393, !llvm.loop !4
 
-llparse__match_sequence_id.exit3410.thread4615:   ; preds = %for.inc.i3407
+llparse__match_sequence_id.exit3410.thread4613:   ; preds = %for.inc.i3407
   store i32 %387, ptr %state, align 8
   br label %return
 
@@ -4629,9 +4629,9 @@ if.then.i3428:                                    ; preds = %for.body.i3417
 for.inc.i3431:                                    ; preds = %if.then.i3428
   %incdec.ptr.i3432 = getelementptr inbounds i8, ptr %p.addr.010.i3419, i64 1
   %cmp.not.i3433 = icmp eq ptr %incdec.ptr.i3432, %endp
-  br i1 %cmp.not.i3433, label %llparse__match_sequence_id.exit3434.thread4627, label %for.body.i3417, !llvm.loop !4
+  br i1 %cmp.not.i3433, label %llparse__match_sequence_id.exit3434.thread4625, label %for.body.i3417, !llvm.loop !4
 
-llparse__match_sequence_id.exit3434.thread4627:   ; preds = %for.inc.i3431
+llparse__match_sequence_id.exit3434.thread4625:   ; preds = %for.inc.i3431
   store i32 %396, ptr %state, align 8
   br label %return
 
@@ -4676,9 +4676,9 @@ if.then.i3452:                                    ; preds = %for.body.i3441
 for.inc.i3455:                                    ; preds = %if.then.i3452
   %incdec.ptr.i3456 = getelementptr inbounds i8, ptr %p.addr.010.i3443, i64 1
   %cmp.not.i3457 = icmp eq ptr %incdec.ptr.i3456, %endp
-  br i1 %cmp.not.i3457, label %llparse__match_sequence_id.exit3458.thread4639, label %for.body.i3441, !llvm.loop !4
+  br i1 %cmp.not.i3457, label %llparse__match_sequence_id.exit3458.thread4637, label %for.body.i3441, !llvm.loop !4
 
-llparse__match_sequence_id.exit3458.thread4639:   ; preds = %for.inc.i3455
+llparse__match_sequence_id.exit3458.thread4637:   ; preds = %for.inc.i3455
   store i32 %405, ptr %state, align 8
   br label %return
 
@@ -4777,9 +4777,9 @@ if.then.i3476:                                    ; preds = %for.body.i3465
 for.inc.i3479:                                    ; preds = %if.then.i3476
   %incdec.ptr.i3480 = getelementptr inbounds i8, ptr %p.addr.010.i3467, i64 1
   %cmp.not.i3481 = icmp eq ptr %incdec.ptr.i3480, %endp
-  br i1 %cmp.not.i3481, label %llparse__match_sequence_id.exit3482.thread4651, label %for.body.i3465, !llvm.loop !4
+  br i1 %cmp.not.i3481, label %llparse__match_sequence_id.exit3482.thread4649, label %for.body.i3465, !llvm.loop !4
 
-llparse__match_sequence_id.exit3482.thread4651:   ; preds = %for.inc.i3479
+llparse__match_sequence_id.exit3482.thread4649:   ; preds = %for.inc.i3479
   store i32 %417, ptr %state, align 8
   br label %return
 
@@ -4854,9 +4854,9 @@ if.then.i3500:                                    ; preds = %for.body.i3489
 for.inc.i3503:                                    ; preds = %if.then.i3500
   %incdec.ptr.i3504 = getelementptr inbounds i8, ptr %p.addr.010.i3491, i64 1
   %cmp.not.i3505 = icmp eq ptr %incdec.ptr.i3504, %endp
-  br i1 %cmp.not.i3505, label %llparse__match_sequence_id.exit3506.thread4663, label %for.body.i3489, !llvm.loop !4
+  br i1 %cmp.not.i3505, label %llparse__match_sequence_id.exit3506.thread4661, label %for.body.i3489, !llvm.loop !4
 
-llparse__match_sequence_id.exit3506.thread4663:   ; preds = %for.inc.i3503
+llparse__match_sequence_id.exit3506.thread4661:   ; preds = %for.inc.i3503
   store i32 %427, ptr %state, align 8
   br label %return
 
@@ -4901,9 +4901,9 @@ if.then.i3524:                                    ; preds = %for.body.i3513
 for.inc.i3527:                                    ; preds = %if.then.i3524
   %incdec.ptr.i3528 = getelementptr inbounds i8, ptr %p.addr.010.i3515, i64 1
   %cmp.not.i3529 = icmp eq ptr %incdec.ptr.i3528, %endp
-  br i1 %cmp.not.i3529, label %llparse__match_sequence_id.exit3530.thread4675, label %for.body.i3513, !llvm.loop !4
+  br i1 %cmp.not.i3529, label %llparse__match_sequence_id.exit3530.thread4673, label %for.body.i3513, !llvm.loop !4
 
-llparse__match_sequence_id.exit3530.thread4675:   ; preds = %for.inc.i3527
+llparse__match_sequence_id.exit3530.thread4673:   ; preds = %for.inc.i3527
   store i32 %436, ptr %state, align 8
   br label %return
 
@@ -4948,9 +4948,9 @@ if.then.i3548:                                    ; preds = %for.body.i3537
 for.inc.i3551:                                    ; preds = %if.then.i3548
   %incdec.ptr.i3552 = getelementptr inbounds i8, ptr %p.addr.010.i3539, i64 1
   %cmp.not.i3553 = icmp eq ptr %incdec.ptr.i3552, %endp
-  br i1 %cmp.not.i3553, label %llparse__match_sequence_id.exit3554.thread4687, label %for.body.i3537, !llvm.loop !4
+  br i1 %cmp.not.i3553, label %llparse__match_sequence_id.exit3554.thread4685, label %for.body.i3537, !llvm.loop !4
 
-llparse__match_sequence_id.exit3554.thread4687:   ; preds = %for.inc.i3551
+llparse__match_sequence_id.exit3554.thread4685:   ; preds = %for.inc.i3551
   store i32 %445, ptr %state, align 8
   br label %return
 
@@ -4995,9 +4995,9 @@ if.then.i3572:                                    ; preds = %for.body.i3561
 for.inc.i3575:                                    ; preds = %if.then.i3572
   %incdec.ptr.i3576 = getelementptr inbounds i8, ptr %p.addr.010.i3563, i64 1
   %cmp.not.i3577 = icmp eq ptr %incdec.ptr.i3576, %endp
-  br i1 %cmp.not.i3577, label %llparse__match_sequence_id.exit3578.thread4699, label %for.body.i3561, !llvm.loop !4
+  br i1 %cmp.not.i3577, label %llparse__match_sequence_id.exit3578.thread4697, label %for.body.i3561, !llvm.loop !4
 
-llparse__match_sequence_id.exit3578.thread4699:   ; preds = %for.inc.i3575
+llparse__match_sequence_id.exit3578.thread4697:   ; preds = %for.inc.i3575
   store i32 %454, ptr %state, align 8
   br label %return
 
@@ -5062,9 +5062,9 @@ if.then.i3596:                                    ; preds = %for.body.i3585
 for.inc.i3599:                                    ; preds = %if.then.i3596
   %incdec.ptr.i3600 = getelementptr inbounds i8, ptr %p.addr.010.i3587, i64 1
   %cmp.not.i3601 = icmp eq ptr %incdec.ptr.i3600, %endp
-  br i1 %cmp.not.i3601, label %llparse__match_sequence_id.exit3602.thread4711, label %for.body.i3585, !llvm.loop !4
+  br i1 %cmp.not.i3601, label %llparse__match_sequence_id.exit3602.thread4709, label %for.body.i3585, !llvm.loop !4
 
-llparse__match_sequence_id.exit3602.thread4711:   ; preds = %for.inc.i3599
+llparse__match_sequence_id.exit3602.thread4709:   ; preds = %for.inc.i3599
   store i32 %464, ptr %state, align 8
   br label %return
 
@@ -5109,9 +5109,9 @@ if.then.i3620:                                    ; preds = %for.body.i3609
 for.inc.i3623:                                    ; preds = %if.then.i3620
   %incdec.ptr.i3624 = getelementptr inbounds i8, ptr %p.addr.010.i3611, i64 1
   %cmp.not.i3625 = icmp eq ptr %incdec.ptr.i3624, %endp
-  br i1 %cmp.not.i3625, label %llparse__match_sequence_id.exit3626.thread4723, label %for.body.i3609, !llvm.loop !4
+  br i1 %cmp.not.i3625, label %llparse__match_sequence_id.exit3626.thread4721, label %for.body.i3609, !llvm.loop !4
 
-llparse__match_sequence_id.exit3626.thread4723:   ; preds = %for.inc.i3623
+llparse__match_sequence_id.exit3626.thread4721:   ; preds = %for.inc.i3623
   store i32 %473, ptr %state, align 8
   br label %return
 
@@ -5156,9 +5156,9 @@ if.then.i3644:                                    ; preds = %for.body.i3633
 for.inc.i3647:                                    ; preds = %if.then.i3644
   %incdec.ptr.i3648 = getelementptr inbounds i8, ptr %p.addr.010.i3635, i64 1
   %cmp.not.i3649 = icmp eq ptr %incdec.ptr.i3648, %endp
-  br i1 %cmp.not.i3649, label %llparse__match_sequence_id.exit3650.thread4735, label %for.body.i3633, !llvm.loop !4
+  br i1 %cmp.not.i3649, label %llparse__match_sequence_id.exit3650.thread4733, label %for.body.i3633, !llvm.loop !4
 
-llparse__match_sequence_id.exit3650.thread4735:   ; preds = %for.inc.i3647
+llparse__match_sequence_id.exit3650.thread4733:   ; preds = %for.inc.i3647
   store i32 %482, ptr %state, align 8
   br label %return
 
@@ -5203,9 +5203,9 @@ if.then.i3668:                                    ; preds = %for.body.i3657
 for.inc.i3671:                                    ; preds = %if.then.i3668
   %incdec.ptr.i3672 = getelementptr inbounds i8, ptr %p.addr.010.i3659, i64 1
   %cmp.not.i3673 = icmp eq ptr %incdec.ptr.i3672, %endp
-  br i1 %cmp.not.i3673, label %llparse__match_sequence_id.exit3674.thread4747, label %for.body.i3657, !llvm.loop !4
+  br i1 %cmp.not.i3673, label %llparse__match_sequence_id.exit3674.thread4745, label %for.body.i3657, !llvm.loop !4
 
-llparse__match_sequence_id.exit3674.thread4747:   ; preds = %for.inc.i3671
+llparse__match_sequence_id.exit3674.thread4745:   ; preds = %for.inc.i3671
   store i32 %491, ptr %state, align 8
   br label %return
 
@@ -5304,9 +5304,9 @@ if.then.i3692:                                    ; preds = %for.body.i3681
 for.inc.i3695:                                    ; preds = %if.then.i3692
   %incdec.ptr.i3696 = getelementptr inbounds i8, ptr %p.addr.010.i3683, i64 1
   %cmp.not.i3697 = icmp eq ptr %incdec.ptr.i3696, %endp
-  br i1 %cmp.not.i3697, label %llparse__match_sequence_id.exit3698.thread4759, label %for.body.i3681, !llvm.loop !4
+  br i1 %cmp.not.i3697, label %llparse__match_sequence_id.exit3698.thread4757, label %for.body.i3681, !llvm.loop !4
 
-llparse__match_sequence_id.exit3698.thread4759:   ; preds = %for.inc.i3695
+llparse__match_sequence_id.exit3698.thread4757:   ; preds = %for.inc.i3695
   store i32 %503, ptr %state, align 8
   br label %return
 
@@ -5406,9 +5406,9 @@ if.then.i3716:                                    ; preds = %for.body.i3705
 for.inc.i3719:                                    ; preds = %if.then.i3716
   %incdec.ptr.i3720 = getelementptr inbounds i8, ptr %p.addr.010.i3707, i64 1
   %cmp.not.i3721 = icmp eq ptr %incdec.ptr.i3720, %endp
-  br i1 %cmp.not.i3721, label %llparse__match_sequence_id.exit3722.thread4771, label %for.body.i3705, !llvm.loop !4
+  br i1 %cmp.not.i3721, label %llparse__match_sequence_id.exit3722.thread4769, label %for.body.i3705, !llvm.loop !4
 
-llparse__match_sequence_id.exit3722.thread4771:   ; preds = %for.inc.i3719
+llparse__match_sequence_id.exit3722.thread4769:   ; preds = %for.inc.i3719
   store i32 %514, ptr %state, align 8
   br label %return
 
@@ -5453,9 +5453,9 @@ if.then.i3740:                                    ; preds = %for.body.i3729
 for.inc.i3743:                                    ; preds = %if.then.i3740
   %incdec.ptr.i3744 = getelementptr inbounds i8, ptr %p.addr.010.i3731, i64 1
   %cmp.not.i3745 = icmp eq ptr %incdec.ptr.i3744, %endp
-  br i1 %cmp.not.i3745, label %llparse__match_sequence_id.exit3746.thread4783, label %for.body.i3729, !llvm.loop !4
+  br i1 %cmp.not.i3745, label %llparse__match_sequence_id.exit3746.thread4781, label %for.body.i3729, !llvm.loop !4
 
-llparse__match_sequence_id.exit3746.thread4783:   ; preds = %for.inc.i3743
+llparse__match_sequence_id.exit3746.thread4781:   ; preds = %for.inc.i3743
   store i32 %523, ptr %state, align 8
   br label %return
 
@@ -5500,9 +5500,9 @@ if.then.i3764:                                    ; preds = %for.body.i3753
 for.inc.i3767:                                    ; preds = %if.then.i3764
   %incdec.ptr.i3768 = getelementptr inbounds i8, ptr %p.addr.010.i3755, i64 1
   %cmp.not.i3769 = icmp eq ptr %incdec.ptr.i3768, %endp
-  br i1 %cmp.not.i3769, label %llparse__match_sequence_id.exit3770.thread4795, label %for.body.i3753, !llvm.loop !4
+  br i1 %cmp.not.i3769, label %llparse__match_sequence_id.exit3770.thread4793, label %for.body.i3753, !llvm.loop !4
 
-llparse__match_sequence_id.exit3770.thread4795:   ; preds = %for.inc.i3767
+llparse__match_sequence_id.exit3770.thread4793:   ; preds = %for.inc.i3767
   store i32 %532, ptr %state, align 8
   br label %return
 
@@ -5547,9 +5547,9 @@ if.then.i3788:                                    ; preds = %for.body.i3777
 for.inc.i3791:                                    ; preds = %if.then.i3788
   %incdec.ptr.i3792 = getelementptr inbounds i8, ptr %p.addr.010.i3779, i64 1
   %cmp.not.i3793 = icmp eq ptr %incdec.ptr.i3792, %endp
-  br i1 %cmp.not.i3793, label %llparse__match_sequence_id.exit3794.thread4807, label %for.body.i3777, !llvm.loop !4
+  br i1 %cmp.not.i3793, label %llparse__match_sequence_id.exit3794.thread4805, label %for.body.i3777, !llvm.loop !4
 
-llparse__match_sequence_id.exit3794.thread4807:   ; preds = %for.inc.i3791
+llparse__match_sequence_id.exit3794.thread4805:   ; preds = %for.inc.i3791
   store i32 %541, ptr %state, align 8
   br label %return
 
@@ -5638,9 +5638,9 @@ if.then.i3812:                                    ; preds = %for.body.i3801
 for.inc.i3815:                                    ; preds = %if.then.i3812
   %incdec.ptr.i3816 = getelementptr inbounds i8, ptr %p.addr.010.i3803, i64 1
   %cmp.not.i3817 = icmp eq ptr %incdec.ptr.i3816, %endp
-  br i1 %cmp.not.i3817, label %llparse__match_sequence_id.exit3818.thread4819, label %for.body.i3801, !llvm.loop !4
+  br i1 %cmp.not.i3817, label %llparse__match_sequence_id.exit3818.thread4817, label %for.body.i3801, !llvm.loop !4
 
-llparse__match_sequence_id.exit3818.thread4819:   ; preds = %for.inc.i3815
+llparse__match_sequence_id.exit3818.thread4817:   ; preds = %for.inc.i3815
   store i32 %552, ptr %state, align 8
   br label %return
 
@@ -5699,9 +5699,9 @@ if.then.i3836:                                    ; preds = %for.body.i3825
 for.inc.i3839:                                    ; preds = %if.then.i3836
   %incdec.ptr.i3840 = getelementptr inbounds i8, ptr %p.addr.010.i3827, i64 1
   %cmp.not.i3841 = icmp eq ptr %incdec.ptr.i3840, %endp
-  br i1 %cmp.not.i3841, label %llparse__match_sequence_id.exit3842.thread4831, label %for.body.i3825, !llvm.loop !4
+  br i1 %cmp.not.i3841, label %llparse__match_sequence_id.exit3842.thread4829, label %for.body.i3825, !llvm.loop !4
 
-llparse__match_sequence_id.exit3842.thread4831:   ; preds = %for.inc.i3839
+llparse__match_sequence_id.exit3842.thread4829:   ; preds = %for.inc.i3839
   store i32 %562, ptr %state, align 8
   br label %return
 
@@ -5786,9 +5786,9 @@ if.then.i3860:                                    ; preds = %for.body.i3849
 for.inc.i3863:                                    ; preds = %if.then.i3860
   %incdec.ptr.i3864 = getelementptr inbounds i8, ptr %p.addr.010.i3851, i64 1
   %cmp.not.i3865 = icmp eq ptr %incdec.ptr.i3864, %endp
-  br i1 %cmp.not.i3865, label %llparse__match_sequence_id.exit3866.thread4843, label %for.body.i3849, !llvm.loop !4
+  br i1 %cmp.not.i3865, label %llparse__match_sequence_id.exit3866.thread4841, label %for.body.i3849, !llvm.loop !4
 
-llparse__match_sequence_id.exit3866.thread4843:   ; preds = %for.inc.i3863
+llparse__match_sequence_id.exit3866.thread4841:   ; preds = %for.inc.i3863
   store i32 %573, ptr %state, align 8
   br label %return
 
@@ -5833,9 +5833,9 @@ if.then.i3884:                                    ; preds = %for.body.i3873
 for.inc.i3887:                                    ; preds = %if.then.i3884
   %incdec.ptr.i3888 = getelementptr inbounds i8, ptr %p.addr.010.i3875, i64 1
   %cmp.not.i3889 = icmp eq ptr %incdec.ptr.i3888, %endp
-  br i1 %cmp.not.i3889, label %llparse__match_sequence_id.exit3890.thread4855, label %for.body.i3873, !llvm.loop !4
+  br i1 %cmp.not.i3889, label %llparse__match_sequence_id.exit3890.thread4853, label %for.body.i3873, !llvm.loop !4
 
-llparse__match_sequence_id.exit3890.thread4855:   ; preds = %for.inc.i3887
+llparse__match_sequence_id.exit3890.thread4853:   ; preds = %for.inc.i3887
   store i32 %582, ptr %state, align 8
   br label %return
 
@@ -5905,9 +5905,9 @@ if.then.i3908:                                    ; preds = %for.body.i3897
 for.inc.i3911:                                    ; preds = %if.then.i3908
   %incdec.ptr.i3912 = getelementptr inbounds i8, ptr %p.addr.010.i3899, i64 1
   %cmp.not.i3913 = icmp eq ptr %incdec.ptr.i3912, %endp
-  br i1 %cmp.not.i3913, label %llparse__match_sequence_id.exit3914.thread4867, label %for.body.i3897, !llvm.loop !4
+  br i1 %cmp.not.i3913, label %llparse__match_sequence_id.exit3914.thread4865, label %for.body.i3897, !llvm.loop !4
 
-llparse__match_sequence_id.exit3914.thread4867:   ; preds = %for.inc.i3911
+llparse__match_sequence_id.exit3914.thread4865:   ; preds = %for.inc.i3911
   store i32 %592, ptr %state, align 8
   br label %return
 
@@ -5952,9 +5952,9 @@ if.then.i3932:                                    ; preds = %for.body.i3921
 for.inc.i3935:                                    ; preds = %if.then.i3932
   %incdec.ptr.i3936 = getelementptr inbounds i8, ptr %p.addr.010.i3923, i64 1
   %cmp.not.i3937 = icmp eq ptr %incdec.ptr.i3936, %endp
-  br i1 %cmp.not.i3937, label %llparse__match_sequence_id.exit3938.thread4879, label %for.body.i3921, !llvm.loop !4
+  br i1 %cmp.not.i3937, label %llparse__match_sequence_id.exit3938.thread4877, label %for.body.i3921, !llvm.loop !4
 
-llparse__match_sequence_id.exit3938.thread4879:   ; preds = %for.inc.i3935
+llparse__match_sequence_id.exit3938.thread4877:   ; preds = %for.inc.i3935
   store i32 %601, ptr %state, align 8
   br label %return
 
@@ -6019,9 +6019,9 @@ if.then.i3956:                                    ; preds = %for.body.i3945
 for.inc.i3959:                                    ; preds = %if.then.i3956
   %incdec.ptr.i3960 = getelementptr inbounds i8, ptr %p.addr.010.i3947, i64 1
   %cmp.not.i3961 = icmp eq ptr %incdec.ptr.i3960, %endp
-  br i1 %cmp.not.i3961, label %llparse__match_sequence_id.exit3962.thread4891, label %for.body.i3945, !llvm.loop !4
+  br i1 %cmp.not.i3961, label %llparse__match_sequence_id.exit3962.thread4889, label %for.body.i3945, !llvm.loop !4
 
-llparse__match_sequence_id.exit3962.thread4891:   ; preds = %for.inc.i3959
+llparse__match_sequence_id.exit3962.thread4889:   ; preds = %for.inc.i3959
   store i32 %611, ptr %state, align 8
   br label %return
 
@@ -6066,9 +6066,9 @@ if.then.i3980:                                    ; preds = %for.body.i3969
 for.inc.i3983:                                    ; preds = %if.then.i3980
   %incdec.ptr.i3984 = getelementptr inbounds i8, ptr %p.addr.010.i3971, i64 1
   %cmp.not.i3985 = icmp eq ptr %incdec.ptr.i3984, %endp
-  br i1 %cmp.not.i3985, label %llparse__match_sequence_id.exit3986.thread4903, label %for.body.i3969, !llvm.loop !4
+  br i1 %cmp.not.i3985, label %llparse__match_sequence_id.exit3986.thread4901, label %for.body.i3969, !llvm.loop !4
 
-llparse__match_sequence_id.exit3986.thread4903:   ; preds = %for.inc.i3983
+llparse__match_sequence_id.exit3986.thread4901:   ; preds = %for.inc.i3983
   store i32 %620, ptr %state, align 8
   br label %return
 
@@ -6113,9 +6113,9 @@ if.then.i4004:                                    ; preds = %for.body.i3993
 for.inc.i4007:                                    ; preds = %if.then.i4004
   %incdec.ptr.i4008 = getelementptr inbounds i8, ptr %p.addr.010.i3995, i64 1
   %cmp.not.i4009 = icmp eq ptr %incdec.ptr.i4008, %endp
-  br i1 %cmp.not.i4009, label %llparse__match_sequence_id.exit4010.thread4915, label %for.body.i3993, !llvm.loop !4
+  br i1 %cmp.not.i4009, label %llparse__match_sequence_id.exit4010.thread4913, label %for.body.i3993, !llvm.loop !4
 
-llparse__match_sequence_id.exit4010.thread4915:   ; preds = %for.inc.i4007
+llparse__match_sequence_id.exit4010.thread4913:   ; preds = %for.inc.i4007
   store i32 %629, ptr %state, align 8
   br label %return
 
@@ -6180,9 +6180,9 @@ if.then.i4028:                                    ; preds = %for.body.i4017
 for.inc.i4031:                                    ; preds = %if.then.i4028
   %incdec.ptr.i4032 = getelementptr inbounds i8, ptr %p.addr.010.i4019, i64 1
   %cmp.not.i4033 = icmp eq ptr %incdec.ptr.i4032, %endp
-  br i1 %cmp.not.i4033, label %llparse__match_sequence_id.exit4034.thread4927, label %for.body.i4017, !llvm.loop !4
+  br i1 %cmp.not.i4033, label %llparse__match_sequence_id.exit4034.thread4925, label %for.body.i4017, !llvm.loop !4
 
-llparse__match_sequence_id.exit4034.thread4927:   ; preds = %for.inc.i4031
+llparse__match_sequence_id.exit4034.thread4925:   ; preds = %for.inc.i4031
   store i32 %639, ptr %state, align 8
   br label %return
 
@@ -6353,15 +6353,15 @@ sw.bb2349:                                        ; preds = %if.end2345
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_status_complete
 
 if.end2356:                                       ; preds = %s_n_llhttp__internal__n_res_status.preheader, %sw.default2360
-  %p.addr.1975251 = phi ptr [ %incdec.ptr2361, %sw.default2360 ], [ %p.addr.197.ph, %s_n_llhttp__internal__n_res_status.preheader ]
-  %646 = load i8, ptr %p.addr.1975251, align 1
+  %p.addr.1975249 = phi ptr [ %incdec.ptr2361, %sw.default2360 ], [ %p.addr.197.ph, %s_n_llhttp__internal__n_res_status.preheader ]
+  %646 = load i8, ptr %p.addr.1975249, align 1
   switch i8 %646, label %sw.default2360 [
     i8 10, label %s_n_llhttp__internal__n_span_end_llhttp__on_status
     i8 13, label %s_n_llhttp__internal__n_span_end_llhttp__on_status_1
   ]
 
 sw.default2360:                                   ; preds = %if.end2356
-  %incdec.ptr2361 = getelementptr inbounds i8, ptr %p.addr.1975251, i64 1
+  %incdec.ptr2361 = getelementptr inbounds i8, ptr %p.addr.1975249, i64 1
   %cmp2353 = icmp eq ptr %incdec.ptr2361, %endp
   br i1 %cmp2353, label %return, label %if.end2356
 
@@ -6414,27 +6414,27 @@ sw.bb2388:                                        ; preds = %if.end2384
   %incdec.ptr2389 = getelementptr inbounds i8, ptr %p.addr.200, i64 1
   br label %s_n_llhttp__internal__n_res_status_start
 
-s_n_llhttp__internal__n_res_status_code_digit_3:  ; preds = %llhttp__internal__c_mul_add_status_code.exit4255, %entry
-  %p.addr.201 = phi ptr [ %p.addr.245, %llhttp__internal__c_mul_add_status_code.exit4255 ], [ %p, %entry ]
+s_n_llhttp__internal__n_res_status_code_digit_3:  ; preds = %llhttp__internal__c_mul_add_status_code.exit4253, %entry
+  %p.addr.201 = phi ptr [ %p.addr.245, %llhttp__internal__c_mul_add_status_code.exit4253 ], [ %p, %entry ]
   %cmp2392 = icmp eq ptr %p.addr.201, %endp
   br i1 %cmp2392, label %return, label %if.end2395
 
 if.end2395:                                       ; preds = %s_n_llhttp__internal__n_res_status_code_digit_3
   %649 = load i8, ptr %p.addr.201, align 1
-  %switch.tableidx6005 = add i8 %649, -48
-  %650 = icmp ult i8 %switch.tableidx6005, 10
-  br i1 %650, label %switch.lookup6004, label %s_n_llhttp__internal__n_error_79
+  %switch.tableidx6003 = add i8 %649, -48
+  %650 = icmp ult i8 %switch.tableidx6003, 10
+  br i1 %650, label %switch.lookup6002, label %s_n_llhttp__internal__n_error_79
 
-s_n_llhttp__internal__n_res_status_code_digit_2:  ; preds = %llhttp__internal__c_mul_add_status_code.exit4266, %entry
-  %p.addr.202 = phi ptr [ %p.addr.246, %llhttp__internal__c_mul_add_status_code.exit4266 ], [ %p, %entry ]
+s_n_llhttp__internal__n_res_status_code_digit_2:  ; preds = %llhttp__internal__c_mul_add_status_code.exit4264, %entry
+  %p.addr.202 = phi ptr [ %p.addr.246, %llhttp__internal__c_mul_add_status_code.exit4264 ], [ %p, %entry ]
   %cmp2419 = icmp eq ptr %p.addr.202, %endp
   br i1 %cmp2419, label %return, label %if.end2422
 
 if.end2422:                                       ; preds = %s_n_llhttp__internal__n_res_status_code_digit_2
   %651 = load i8, ptr %p.addr.202, align 1
-  %switch.tableidx6008 = add i8 %651, -48
-  %652 = icmp ult i8 %switch.tableidx6008, 10
-  br i1 %652, label %switch.lookup6007, label %s_n_llhttp__internal__n_error_81
+  %switch.tableidx6006 = add i8 %651, -48
+  %652 = icmp ult i8 %switch.tableidx6006, 10
+  br i1 %652, label %switch.lookup6005, label %s_n_llhttp__internal__n_error_81
 
 s_n_llhttp__internal__n_res_status_code_digit_1:  ; preds = %entry, %sw.bb2478
   %p.addr.203 = phi ptr [ %incdec.ptr2479, %sw.bb2478 ], [ %p, %entry ]
@@ -6443,9 +6443,9 @@ s_n_llhttp__internal__n_res_status_code_digit_1:  ; preds = %entry, %sw.bb2478
 
 if.end2449:                                       ; preds = %s_n_llhttp__internal__n_res_status_code_digit_1
   %653 = load i8, ptr %p.addr.203, align 1
-  %switch.tableidx6011 = add i8 %653, -48
-  %654 = icmp ult i8 %switch.tableidx6011, 10
-  br i1 %654, label %switch.lookup6010, label %s_n_llhttp__internal__n_error_83
+  %switch.tableidx6009 = add i8 %653, -48
+  %654 = icmp ult i8 %switch.tableidx6009, 10
+  br i1 %654, label %switch.lookup6008, label %s_n_llhttp__internal__n_error_83
 
 s_n_llhttp__internal__n_res_after_version:        ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_version_complete_1, %entry
   %p.addr.204 = phi ptr [ %p.addr.205, %s_n_llhttp__internal__n_invoke_llhttp__on_version_complete_1 ], [ %p, %entry ]
@@ -6583,8 +6583,8 @@ s_n_llhttp__internal__n_res_http_major:           ; preds = %entry, %if.end2573
 
 if.end2546:                                       ; preds = %s_n_llhttp__internal__n_res_http_major
   %658 = load i8, ptr %p.addr.212, align 1
-  %switch.tableidx6014 = add i8 %658, -48
-  %659 = icmp ult i8 %switch.tableidx6014, 10
+  %switch.tableidx6012 = add i8 %658, -48
+  %659 = icmp ult i8 %switch.tableidx6012, 10
   br i1 %659, label %s_n_llhttp__internal__n_invoke_store_http_major_1, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_9
 
 s_n_llhttp__internal__n_span_start_llhttp__on_version_1: ; preds = %entry, %s_n_llhttp__internal__n_invoke_update_type_1, %sw.bb2586
@@ -6635,9 +6635,9 @@ if.then.i4052:                                    ; preds = %for.body.i4041
 for.inc.i4055:                                    ; preds = %if.then.i4052
   %incdec.ptr.i4056 = getelementptr inbounds i8, ptr %p.addr.010.i4043, i64 1
   %cmp.not.i4057 = icmp eq ptr %incdec.ptr.i4056, %endp
-  br i1 %cmp.not.i4057, label %llparse__match_sequence_id.exit4058.thread4939, label %for.body.i4041, !llvm.loop !4
+  br i1 %cmp.not.i4057, label %llparse__match_sequence_id.exit4058.thread4937, label %for.body.i4041, !llvm.loop !4
 
-llparse__match_sequence_id.exit4058.thread4939:   ; preds = %for.inc.i4055
+llparse__match_sequence_id.exit4058.thread4937:   ; preds = %for.inc.i4055
   store i32 %666, ptr %state, align 8
   br label %return
 
@@ -6690,9 +6690,9 @@ if.then.i4076:                                    ; preds = %for.body.i4065
 for.inc.i4079:                                    ; preds = %if.then.i4076
   %incdec.ptr.i4080 = getelementptr inbounds i8, ptr %p.addr.010.i4067, i64 1
   %cmp.not.i4081 = icmp eq ptr %incdec.ptr.i4080, %endp
-  br i1 %cmp.not.i4081, label %llparse__match_sequence_id.exit4082.thread4951, label %for.body.i4065, !llvm.loop !4
+  br i1 %cmp.not.i4081, label %llparse__match_sequence_id.exit4082.thread4949, label %for.body.i4065, !llvm.loop !4
 
-llparse__match_sequence_id.exit4082.thread4951:   ; preds = %for.inc.i4079
+llparse__match_sequence_id.exit4082.thread4949:   ; preds = %for.inc.i4079
   store i32 %675, ptr %state, align 8
   br label %return
 
@@ -6752,9 +6752,9 @@ if.then.i4102:                                    ; preds = %for.body.i4091
 for.inc.i4105:                                    ; preds = %if.then.i4102
   %incdec.ptr.i4106 = getelementptr inbounds i8, ptr %p.addr.010.i4093, i64 1
   %cmp.not.i4107 = icmp eq ptr %incdec.ptr.i4106, %endp
-  br i1 %cmp.not.i4107, label %llparse__match_sequence_id.exit4108.thread4963, label %for.body.i4091, !llvm.loop !4
+  br i1 %cmp.not.i4107, label %llparse__match_sequence_id.exit4108.thread4961, label %for.body.i4091, !llvm.loop !4
 
-llparse__match_sequence_id.exit4108.thread4963:   ; preds = %for.inc.i4105
+llparse__match_sequence_id.exit4108.thread4961:   ; preds = %for.inc.i4105
   store i32 %685, ptr %state, align 8
   br label %return
 
@@ -6834,7 +6834,7 @@ s_n_llhttp__internal__n_invoke_load_type:         ; preds = %s_n_llhttp__interna
   ]
 
 s_n_llhttp__internal__n_invoke_update_finish:     ; preds = %s_n_llhttp__internal__n_invoke_load_initial_message_completed, %sw.bb4114, %entry
-  %p.addr.224 = phi ptr [ %p.addr.2255249, %sw.bb4114 ], [ %p.addr.2255249, %s_n_llhttp__internal__n_invoke_load_initial_message_completed ], [ %p, %entry ]
+  %p.addr.224 = phi ptr [ %p.addr.2255247, %sw.bb4114 ], [ %p.addr.2255247, %s_n_llhttp__internal__n_invoke_load_initial_message_completed ], [ %p, %entry ]
   %finish.i = getelementptr inbounds i8, ptr %state, i64 79
   store i8 2, ptr %finish.i, align 1
   %call4097 = tail call i32 @llhttp__on_message_begin(ptr noundef nonnull %state, ptr noundef %p.addr.224, ptr noundef %endp) #8
@@ -6844,15 +6844,15 @@ s_n_llhttp__internal__n_invoke_update_finish:     ; preds = %s_n_llhttp__interna
   ]
 
 if.end2676:                                       ; preds = %s_n_llhttp__internal__n_start.preheader, %s_n_llhttp__internal__n_start.backedge
-  %p.addr.2255249 = phi ptr [ %p.addr.225.be, %s_n_llhttp__internal__n_start.backedge ], [ %p.addr.225.ph, %s_n_llhttp__internal__n_start.preheader ]
-  %693 = load i8, ptr %p.addr.2255249, align 1
+  %p.addr.2255247 = phi ptr [ %p.addr.225.be, %s_n_llhttp__internal__n_start.backedge ], [ %p.addr.225.ph, %s_n_llhttp__internal__n_start.preheader ]
+  %693 = load i8, ptr %p.addr.2255247, align 1
   switch i8 %693, label %s_n_llhttp__internal__n_invoke_load_initial_message_completed [
     i8 10, label %s_n_llhttp__internal__n_start.backedge
     i8 13, label %s_n_llhttp__internal__n_start.backedge
   ]
 
 s_n_llhttp__internal__n_start.backedge:           ; preds = %if.end2676, %if.end2676
-  %p.addr.225.be = getelementptr inbounds i8, ptr %p.addr.2255249, i64 1
+  %p.addr.225.be = getelementptr inbounds i8, ptr %p.addr.2255247, i64 1
   %cmp2673 = icmp eq ptr %p.addr.225.be, %endp
   br i1 %cmp2673, label %return, label %if.end2676
 
@@ -7058,21 +7058,21 @@ s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name: ; preds = %if.
   %_span_pos02790 = getelementptr inbounds i8, ptr %state, i64 8
   %701 = load ptr, ptr %_span_pos02790, align 8
   store ptr null, ptr %_span_pos02790, align 8
-  %call2792 = tail call i32 @llhttp__on_chunk_extension_name(ptr noundef %state, ptr noundef %701, ptr noundef nonnull %p.addr.205267) #8
+  %call2792 = tail call i32 @llhttp__on_chunk_extension_name(ptr noundef %state, ptr noundef %701, ptr noundef nonnull %p.addr.205265) #8
   %cmp2793.not = icmp eq i32 %call2792, 0
   br i1 %cmp2793.not, label %if.end2800, label %if.then2795
 
 if.then2795:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name
   %error2796 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2792, ptr %error2796, align 8
-  %add.ptr2797 = getelementptr inbounds i8, ptr %p.addr.205267, i64 1
+  %add.ptr2797 = getelementptr inbounds i8, ptr %p.addr.205265, i64 1
   %error_pos2798 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2797, ptr %error_pos2798, align 8
   store ptr inttoptr (i64 9 to ptr), ptr %_current, align 8
   br label %return
 
 if.end2800:                                       ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name
-  %incdec.ptr2801 = getelementptr inbounds i8, ptr %p.addr.205267, i64 1
+  %incdec.ptr2801 = getelementptr inbounds i8, ptr %p.addr.205265, i64 1
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_name_complete
 
 s_n_llhttp__internal__n_pause_6:                  ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_name_complete_1
@@ -7099,21 +7099,21 @@ s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_1: ; preds = %i
   %_span_pos02812 = getelementptr inbounds i8, ptr %state, i64 8
   %702 = load ptr, ptr %_span_pos02812, align 8
   store ptr null, ptr %_span_pos02812, align 8
-  %call2814 = tail call i32 @llhttp__on_chunk_extension_name(ptr noundef %state, ptr noundef %702, ptr noundef nonnull %p.addr.205267) #8
+  %call2814 = tail call i32 @llhttp__on_chunk_extension_name(ptr noundef %state, ptr noundef %702, ptr noundef nonnull %p.addr.205265) #8
   %cmp2815.not = icmp eq i32 %call2814, 0
   br i1 %cmp2815.not, label %if.end2822, label %if.then2817
 
 if.then2817:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_1
   %error2818 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2814, ptr %error2818, align 8
-  %add.ptr2819 = getelementptr inbounds i8, ptr %p.addr.205267, i64 1
+  %add.ptr2819 = getelementptr inbounds i8, ptr %p.addr.205265, i64 1
   %error_pos2820 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2819, ptr %error_pos2820, align 8
   store ptr inttoptr (i64 10 to ptr), ptr %_current, align 8
   br label %return
 
 if.end2822:                                       ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_1
-  %incdec.ptr2823 = getelementptr inbounds i8, ptr %p.addr.205267, i64 1
+  %incdec.ptr2823 = getelementptr inbounds i8, ptr %p.addr.205265, i64 1
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_name_complete_1
 
 s_n_llhttp__internal__n_pause_7:                  ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_value_complete
@@ -7140,21 +7140,21 @@ s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value: ; preds = %if
   %_span_pos02834 = getelementptr inbounds i8, ptr %state, i64 8
   %703 = load ptr, ptr %_span_pos02834, align 8
   store ptr null, ptr %_span_pos02834, align 8
-  %call2836 = tail call i32 @llhttp__on_chunk_extension_value(ptr noundef %state, ptr noundef %703, ptr noundef nonnull %p.addr.175269) #8
+  %call2836 = tail call i32 @llhttp__on_chunk_extension_value(ptr noundef %state, ptr noundef %703, ptr noundef nonnull %p.addr.175267) #8
   %cmp2837.not = icmp eq i32 %call2836, 0
   br i1 %cmp2837.not, label %if.end2844, label %if.then2839
 
 if.then2839:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value
   %error2840 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2836, ptr %error2840, align 8
-  %add.ptr2841 = getelementptr inbounds i8, ptr %p.addr.175269, i64 1
+  %add.ptr2841 = getelementptr inbounds i8, ptr %p.addr.175267, i64 1
   %error_pos2842 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2841, ptr %error_pos2842, align 8
   store ptr inttoptr (i64 11 to ptr), ptr %_current, align 8
   br label %return
 
 if.end2844:                                       ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value
-  %incdec.ptr2845 = getelementptr inbounds i8, ptr %p.addr.175269, i64 1
+  %incdec.ptr2845 = getelementptr inbounds i8, ptr %p.addr.175267, i64 1
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_value_complete
 
 s_n_llhttp__internal__n_error_20:                 ; preds = %if.end66
@@ -7199,21 +7199,21 @@ s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_2: ; preds = %
   %_span_pos02872 = getelementptr inbounds i8, ptr %state, i64 8
   %704 = load ptr, ptr %_span_pos02872, align 8
   store ptr null, ptr %_span_pos02872, align 8
-  %call2874 = tail call i32 @llhttp__on_chunk_extension_value(ptr noundef %state, ptr noundef %704, ptr noundef nonnull %p.addr.145271) #8
+  %call2874 = tail call i32 @llhttp__on_chunk_extension_value(ptr noundef %state, ptr noundef %704, ptr noundef nonnull %p.addr.145269) #8
   %cmp2875.not = icmp eq i32 %call2874, 0
   br i1 %cmp2875.not, label %if.end2882, label %if.then2877
 
 if.then2877:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_2
   %error2878 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2874, ptr %error2878, align 8
-  %add.ptr2879 = getelementptr inbounds i8, ptr %p.addr.145271, i64 1
+  %add.ptr2879 = getelementptr inbounds i8, ptr %p.addr.145269, i64 1
   %error_pos2880 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2879, ptr %error_pos2880, align 8
   store ptr inttoptr (i64 14 to ptr), ptr %_current, align 8
   br label %return
 
 if.end2882:                                       ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_2
-  %incdec.ptr2883 = getelementptr inbounds i8, ptr %p.addr.145271, i64 1
+  %incdec.ptr2883 = getelementptr inbounds i8, ptr %p.addr.145269, i64 1
   br label %s_n_llhttp__internal__n_error_21
 
 s_n_llhttp__internal__n_pause_9:                  ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_value_complete_2
@@ -7240,42 +7240,42 @@ s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_3: ; preds = %
   %_span_pos02894 = getelementptr inbounds i8, ptr %state, i64 8
   %705 = load ptr, ptr %_span_pos02894, align 8
   store ptr null, ptr %_span_pos02894, align 8
-  %call2896 = tail call i32 @llhttp__on_chunk_extension_value(ptr noundef %state, ptr noundef %705, ptr noundef nonnull %p.addr.175269) #8
+  %call2896 = tail call i32 @llhttp__on_chunk_extension_value(ptr noundef %state, ptr noundef %705, ptr noundef nonnull %p.addr.175267) #8
   %cmp2897.not = icmp eq i32 %call2896, 0
   br i1 %cmp2897.not, label %if.end2904, label %if.then2899
 
 if.then2899:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_3
   %error2900 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2896, ptr %error2900, align 8
-  %add.ptr2901 = getelementptr inbounds i8, ptr %p.addr.175269, i64 1
+  %add.ptr2901 = getelementptr inbounds i8, ptr %p.addr.175267, i64 1
   %error_pos2902 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2901, ptr %error_pos2902, align 8
   store ptr inttoptr (i64 16 to ptr), ptr %_current, align 8
   br label %return
 
 if.end2904:                                       ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_3
-  %incdec.ptr2905 = getelementptr inbounds i8, ptr %p.addr.175269, i64 1
+  %incdec.ptr2905 = getelementptr inbounds i8, ptr %p.addr.175267, i64 1
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_extension_value_complete_2
 
 s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_4: ; preds = %if.end108
   %_span_pos02908 = getelementptr inbounds i8, ptr %state, i64 8
   %706 = load ptr, ptr %_span_pos02908, align 8
   store ptr null, ptr %_span_pos02908, align 8
-  %call2910 = tail call i32 @llhttp__on_chunk_extension_value(ptr noundef %state, ptr noundef %706, ptr noundef nonnull %p.addr.175269) #8
+  %call2910 = tail call i32 @llhttp__on_chunk_extension_value(ptr noundef %state, ptr noundef %706, ptr noundef nonnull %p.addr.175267) #8
   %cmp2911.not = icmp eq i32 %call2910, 0
   br i1 %cmp2911.not, label %if.end2918, label %if.then2913
 
 if.then2913:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_4
   %error2914 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2910, ptr %error2914, align 8
-  %add.ptr2915 = getelementptr inbounds i8, ptr %p.addr.175269, i64 1
+  %add.ptr2915 = getelementptr inbounds i8, ptr %p.addr.175267, i64 1
   %error_pos2916 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2915, ptr %error_pos2916, align 8
   store ptr inttoptr (i64 17 to ptr), ptr %_current, align 8
   br label %return
 
 if.end2918:                                       ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_value_4
-  %incdec.ptr2919 = getelementptr inbounds i8, ptr %p.addr.175269, i64 1
+  %incdec.ptr2919 = getelementptr inbounds i8, ptr %p.addr.175267, i64 1
   br label %s_n_llhttp__internal__n_error_23
 
 sw.bb2930:                                        ; preds = %if.end123
@@ -7302,42 +7302,42 @@ s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_2: ; preds = %i
   %_span_pos02934 = getelementptr inbounds i8, ptr %state, i64 8
   %707 = load ptr, ptr %_span_pos02934, align 8
   store ptr null, ptr %_span_pos02934, align 8
-  %call2936 = tail call i32 @llhttp__on_chunk_extension_name(ptr noundef %state, ptr noundef %707, ptr noundef nonnull %p.addr.205267) #8
+  %call2936 = tail call i32 @llhttp__on_chunk_extension_name(ptr noundef %state, ptr noundef %707, ptr noundef nonnull %p.addr.205265) #8
   %cmp2937.not = icmp eq i32 %call2936, 0
   br i1 %cmp2937.not, label %if.end2944, label %if.then2939
 
 if.then2939:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_2
   %error2940 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2936, ptr %error2940, align 8
-  %add.ptr2941 = getelementptr inbounds i8, ptr %p.addr.205267, i64 1
+  %add.ptr2941 = getelementptr inbounds i8, ptr %p.addr.205265, i64 1
   %error_pos2942 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2941, ptr %error_pos2942, align 8
   store ptr inttoptr (i64 19 to ptr), ptr %_current, align 8
   br label %return
 
 if.end2944:                                       ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_2
-  %incdec.ptr2945 = getelementptr inbounds i8, ptr %p.addr.205267, i64 1
+  %incdec.ptr2945 = getelementptr inbounds i8, ptr %p.addr.205265, i64 1
   br label %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_value
 
 s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_3: ; preds = %if.end135
   %_span_pos02948 = getelementptr inbounds i8, ptr %state, i64 8
   %708 = load ptr, ptr %_span_pos02948, align 8
   store ptr null, ptr %_span_pos02948, align 8
-  %call2950 = tail call i32 @llhttp__on_chunk_extension_name(ptr noundef %state, ptr noundef %708, ptr noundef nonnull %p.addr.205267) #8
+  %call2950 = tail call i32 @llhttp__on_chunk_extension_name(ptr noundef %state, ptr noundef %708, ptr noundef nonnull %p.addr.205265) #8
   %cmp2951.not = icmp eq i32 %call2950, 0
   br i1 %cmp2951.not, label %if.end2958, label %if.then2953
 
 if.then2953:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_3
   %error2954 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call2950, ptr %error2954, align 8
-  %add.ptr2955 = getelementptr inbounds i8, ptr %p.addr.205267, i64 1
+  %add.ptr2955 = getelementptr inbounds i8, ptr %p.addr.205265, i64 1
   %error_pos2956 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr2955, ptr %error_pos2956, align 8
   store ptr inttoptr (i64 20 to ptr), ptr %_current, align 8
   br label %return
 
 if.end2958:                                       ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_chunk_extension_name_3
-  %incdec.ptr2959 = getelementptr inbounds i8, ptr %p.addr.205267, i64 1
+  %incdec.ptr2959 = getelementptr inbounds i8, ptr %p.addr.205265, i64 1
   br label %s_n_llhttp__internal__n_error_24
 
 s_n_llhttp__internal__n_error_25:                 ; preds = %if.end167
@@ -7414,8 +7414,8 @@ if.then2986:                                      ; preds = %if.then297
   br label %return
 
 s_n_llhttp__internal__n_invoke_update_finish_3:   ; preds = %s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete
-  %finish.i4126 = getelementptr inbounds i8, ptr %state, i64 79
-  store i8 1, ptr %finish.i4126, align 1
+  %finish.i4125 = getelementptr inbounds i8, ptr %state, i64 79
+  store i8 1, ptr %finish.i4125, align 1
   br label %s_n_llhttp__internal__n_span_start_llhttp__on_body_2
 
 s_n_llhttp__internal__n_error_29:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete
@@ -7476,8 +7476,8 @@ sw.default3023:                                   ; preds = %sw.bb3057
   br label %return
 
 sw.bb3045:                                        ; preds = %s_n_llhttp__internal__n_invoke_llhttp__before_headers_complete
-  %upgrade.i4128 = getelementptr inbounds i8, ptr %state, i64 78
-  store i8 1, ptr %upgrade.i4128, align 2
+  %upgrade.i4127 = getelementptr inbounds i8, ptr %state, i64 78
+  store i8 1, ptr %upgrade.i4127, align 2
   br label %s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete.sink.split
 
 sw.bb3046:                                        ; preds = %s_n_llhttp__internal__n_invoke_llhttp__before_headers_complete
@@ -7521,16 +7521,16 @@ sw.bb3051:                                        ; preds = %sw.bb3054
   br label %return
 
 sw.bb3054:                                        ; preds = %sw.default3058
-  %lenient_flags.i4130 = getelementptr inbounds i8, ptr %state, i64 77
-  %710 = load i8, ptr %lenient_flags.i4130, align 1
+  %lenient_flags.i4129 = getelementptr inbounds i8, ptr %state, i64 77
+  %710 = load i8, ptr %lenient_flags.i4129, align 1
   %711 = and i8 %710, 2
   %cond23 = icmp eq i8 %711, 0
   br i1 %cond23, label %sw.bb3051, label %s_n_llhttp__internal__n_invoke_llhttp__before_headers_complete
 
 s_n_llhttp__internal__n_invoke_test_flags:        ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_7, %sw.bb342
   %p.addr.230 = phi ptr [ %incdec.ptr343, %sw.bb342 ], [ %p.addr.35, %s_n_llhttp__internal__n_invoke_test_lenient_flags_7 ]
-  %flags.i4133 = getelementptr inbounds i8, ptr %state, i64 80
-  %712 = load i16, ptr %flags.i4133, align 8
+  %flags.i4132 = getelementptr inbounds i8, ptr %state, i64 80
+  %712 = load i16, ptr %flags.i4132, align 8
   %713 = and i16 %712, 128
   %cond12.not = icmp eq i16 %713, 0
   br i1 %cond12.not, label %sw.default3058, label %sw.bb3057
@@ -7544,12 +7544,12 @@ sw.bb3057:                                        ; preds = %s_n_llhttp__interna
 
 sw.default3058:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_flags
   %714 = and i16 %712, 544
-  %cmp.i4137.not = icmp eq i16 %714, 544
-  br i1 %cmp.i4137.not, label %sw.bb3054, label %s_n_llhttp__internal__n_invoke_llhttp__before_headers_complete
+  %cmp.i4136.not = icmp eq i16 %714, 544
+  br i1 %cmp.i4136.not, label %sw.bb3054, label %s_n_llhttp__internal__n_invoke_llhttp__before_headers_complete
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_7: ; preds = %if.end340
-  %lenient_flags.i4139 = getelementptr inbounds i8, ptr %state, i64 77
-  %715 = load i8, ptr %lenient_flags.i4139, align 1
+  %lenient_flags.i4138 = getelementptr inbounds i8, ptr %state, i64 77
+  %715 = load i8, ptr %lenient_flags.i4138, align 1
   %716 = and i8 %715, 64
   %cond11.not = icmp eq i8 %716, 0
   br i1 %cond11.not, label %sw.default3065, label %s_n_llhttp__internal__n_invoke_test_flags
@@ -7578,16 +7578,16 @@ if.end3078:                                       ; preds = %sw.default3082
   br label %s_n_llhttp__internal__n_error_5
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_8: ; preds = %if.end692
-  %lenient_flags.i4142 = getelementptr inbounds i8, ptr %state, i64 77
-  %717 = load i8, ptr %lenient_flags.i4142, align 1
+  %lenient_flags.i4141 = getelementptr inbounds i8, ptr %state, i64 77
+  %717 = load i8, ptr %lenient_flags.i4141, align 1
   %718 = and i8 %717, 1
   %cond44.not = icmp eq i8 %718, 0
   br i1 %cond44.not, label %sw.default3082, label %s_n_llhttp__internal__n_header_field_colon_discard_ws.preheader
 
 s_n_llhttp__internal__n_header_field_colon_discard_ws.preheader: ; preds = %entry, %s_n_llhttp__internal__n_invoke_test_lenient_flags_8
   %p.addr.36.ph = phi ptr [ %p, %entry ], [ %p.addr.68, %s_n_llhttp__internal__n_invoke_test_lenient_flags_8 ]
-  %cmp3465272 = icmp eq ptr %p.addr.36.ph, %endp
-  br i1 %cmp3465272, label %return, label %if.end349
+  %cmp3465270 = icmp eq ptr %p.addr.36.ph, %endp
+  br i1 %cmp3465270, label %return, label %if.end349
 
 sw.default3082:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_8
   %_span_pos03068 = getelementptr inbounds i8, ptr %state, i64 8
@@ -7599,16 +7599,16 @@ sw.default3082:                                   ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_10: ; preds = %if.end370, %if.end370
   %p.addr.231 = getelementptr inbounds i8, ptr %p.addr.39, i64 1
-  %lenient_flags.i4144 = getelementptr inbounds i8, ptr %state, i64 77
-  %720 = load i8, ptr %lenient_flags.i4144, align 1
+  %lenient_flags.i4143 = getelementptr inbounds i8, ptr %state, i64 77
+  %720 = load i8, ptr %lenient_flags.i4143, align 1
   %721 = and i8 %720, 1
   %cond29.not = icmp eq i8 %721, 0
   br i1 %cond29.not, label %sw.default3089, label %s_n_llhttp__internal__n_header_value_discard_ws.preheader
 
 s_n_llhttp__internal__n_header_value_discard_ws.preheader: ; preds = %entry, %s_n_llhttp__internal__n_invoke_llhttp__on_header_field_complete, %s_n_llhttp__internal__n_invoke_test_lenient_flags_10
   %p.addr.64.ph = phi ptr [ %p, %entry ], [ %p.addr.231, %s_n_llhttp__internal__n_invoke_test_lenient_flags_10 ], [ %p.addr.65, %s_n_llhttp__internal__n_invoke_llhttp__on_header_field_complete ]
-  %cmp6505276 = icmp eq ptr %p.addr.64.ph, %endp
-  br i1 %cmp6505276, label %return, label %if.end653
+  %cmp6505274 = icmp eq ptr %p.addr.64.ph, %endp
+  br i1 %cmp6505274, label %return, label %if.end653
 
 sw.default3089:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_10
   %error3083 = getelementptr inbounds i8, ptr %state, i64 24
@@ -7649,12 +7649,12 @@ if.then3109:                                      ; preds = %if.end363
   br label %return
 
 s_n_llhttp__internal__n_invoke_update_header_state: ; preds = %s_n_llhttp__internal__n_invoke_load_header_state, %sw.bb3127, %sw.bb3126
-  %.sink5727 = phi i16 [ 4, %sw.bb3127 ], [ 2, %sw.bb3126 ], [ 1, %s_n_llhttp__internal__n_invoke_load_header_state ]
-  %flags.i4149 = getelementptr inbounds i8, ptr %state, i64 80
-  %722 = load i16, ptr %flags.i4149, align 8
-  %723 = or i16 %722, %.sink5727
-  store i16 %723, ptr %flags.i4149, align 8
-  store i8 1, ptr %header_state.i4151, align 4
+  %.sink5725 = phi i16 [ 4, %sw.bb3127 ], [ 2, %sw.bb3126 ], [ 1, %s_n_llhttp__internal__n_invoke_load_header_state ]
+  %flags.i4148 = getelementptr inbounds i8, ptr %state, i64 80
+  %722 = load i16, ptr %flags.i4148, align 8
+  %723 = or i16 %722, %.sink5725
+  store i16 %723, ptr %flags.i4148, align 8
+  store i8 1, ptr %header_state.i4150, align 4
   br label %s_n_llhttp__internal__n_span_start_llhttp__on_header_value
 
 sw.bb3126:                                        ; preds = %s_n_llhttp__internal__n_invoke_load_header_state
@@ -7664,15 +7664,15 @@ sw.bb3127:                                        ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_invoke_update_header_state
 
 sw.bb3128:                                        ; preds = %s_n_llhttp__internal__n_invoke_load_header_state
-  %flags.i4150 = getelementptr inbounds i8, ptr %state, i64 80
-  %724 = load i16, ptr %flags.i4150, align 8
+  %flags.i4149 = getelementptr inbounds i8, ptr %state, i64 80
+  %724 = load i16, ptr %flags.i4149, align 8
   %725 = or i16 %724, 8
-  store i16 %725, ptr %flags.i4150, align 8
+  store i16 %725, ptr %flags.i4149, align 8
   br label %s_n_llhttp__internal__n_span_start_llhttp__on_header_value
 
 s_n_llhttp__internal__n_invoke_load_header_state: ; preds = %if.end370
-  %header_state.i4151 = getelementptr inbounds i8, ptr %state, i64 76
-  %726 = load i8, ptr %header_state.i4151, align 4
+  %header_state.i4150 = getelementptr inbounds i8, ptr %state, i64 76
+  %726 = load i8, ptr %header_state.i4150, align 4
   switch i8 %726, label %s_n_llhttp__internal__n_span_start_llhttp__on_header_value [
     i8 2, label %sw.bb3131
     i8 5, label %s_n_llhttp__internal__n_invoke_update_header_state
@@ -7702,8 +7702,8 @@ sw.default3139:                                   ; preds = %sw.bb657
   br label %return
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_11: ; preds = %if.end381
-  %lenient_flags.i4155 = getelementptr inbounds i8, ptr %state, i64 77
-  %727 = load i8, ptr %lenient_flags.i4155, align 1
+  %lenient_flags.i4154 = getelementptr inbounds i8, ptr %state, i64 77
+  %727 = load i8, ptr %lenient_flags.i4154, align 1
   %728 = and i8 %727, 1
   %cond28.not = icmp eq i8 %728, 0
   br i1 %cond28.not, label %sw.default3146, label %s_n_llhttp__internal__n_header_value_discard_lws
@@ -7719,27 +7719,27 @@ sw.default3146:                                   ; preds = %s_n_llhttp__interna
   br label %return
 
 s_n_llhttp__internal__n_invoke_load_header_state_3: ; preds = %if.end390, %if.end390
-  %header_state.i4157 = getelementptr inbounds i8, ptr %state, i64 76
-  %729 = load i8, ptr %header_state.i4157, align 4
+  %header_state.i4156 = getelementptr inbounds i8, ptr %state, i64 76
+  %729 = load i8, ptr %header_state.i4156, align 4
   %cond36 = icmp eq i8 %729, 8
   br i1 %cond36, label %sw.bb3150, label %s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1
 
 sw.bb3150:                                        ; preds = %s_n_llhttp__internal__n_invoke_load_header_state_3
-  store i8 0, ptr %header_state.i4157, align 4
+  store i8 0, ptr %header_state.i4156, align 4
   br label %s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1
 
 s_n_llhttp__internal__n_invoke_update_header_state_2: ; preds = %s_n_llhttp__internal__n_invoke_load_header_state_4, %sw.bb3165, %sw.bb3164
-  %.sink5731 = phi i16 [ 4, %sw.bb3165 ], [ 2, %sw.bb3164 ], [ 1, %s_n_llhttp__internal__n_invoke_load_header_state_4 ]
-  %flags.i4165 = getelementptr inbounds i8, ptr %state, i64 80
-  %730 = load i16, ptr %flags.i4165, align 8
-  %731 = or i16 %730, %.sink5731
-  store i16 %731, ptr %flags.i4165, align 8
-  store i8 1, ptr %header_state.i4161, align 4
+  %.sink5729 = phi i16 [ 4, %sw.bb3165 ], [ 2, %sw.bb3164 ], [ 1, %s_n_llhttp__internal__n_invoke_load_header_state_4 ]
+  %flags.i4164 = getelementptr inbounds i8, ptr %state, i64 80
+  %730 = load i16, ptr %flags.i4164, align 8
+  %731 = or i16 %730, %.sink5729
+  store i16 %731, ptr %flags.i4164, align 8
+  store i8 1, ptr %header_state.i4160, align 4
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_header_value_complete
 
 s_n_llhttp__internal__n_invoke_load_header_state_4: ; preds = %if.end390
-  %header_state.i4161 = getelementptr inbounds i8, ptr %state, i64 76
-  %732 = load i8, ptr %header_state.i4161, align 4
+  %header_state.i4160 = getelementptr inbounds i8, ptr %state, i64 76
+  %732 = load i8, ptr %header_state.i4160, align 4
   switch i8 %732, label %s_n_llhttp__internal__n_invoke_llhttp__on_header_value_complete [
     i8 5, label %s_n_llhttp__internal__n_invoke_update_header_state_2
     i8 6, label %sw.bb3164
@@ -7754,10 +7754,10 @@ sw.bb3165:                                        ; preds = %s_n_llhttp__interna
   br label %s_n_llhttp__internal__n_invoke_update_header_state_2
 
 sw.bb3166:                                        ; preds = %s_n_llhttp__internal__n_invoke_load_header_state_4
-  %flags.i4166 = getelementptr inbounds i8, ptr %state, i64 80
-  %733 = load i16, ptr %flags.i4166, align 8
+  %flags.i4165 = getelementptr inbounds i8, ptr %state, i64 80
+  %733 = load i16, ptr %flags.i4165, align 8
   %734 = or i16 %733, 8
-  store i16 %734, ptr %flags.i4166, align 8
+  store i16 %734, ptr %flags.i4165, align 8
   br label %s_n_llhttp__internal__n_invoke_llhttp__on_header_value_complete
 
 s_n_llhttp__internal__n_error_40:                 ; preds = %if.end399
@@ -7795,7 +7795,7 @@ s_n_llhttp__internal__n_span_end_llhttp__on_header_value_3: ; preds = %if.end408
   %_span_pos03188 = getelementptr inbounds i8, ptr %state, i64 8
   %736 = load ptr, ptr %_span_pos03188, align 8
   store ptr null, ptr %_span_pos03188, align 8
-  %call3190 = tail call i32 @llhttp__on_header_value(ptr noundef %state, ptr noundef %736, ptr noundef nonnull %p.addr.435297) #8
+  %call3190 = tail call i32 @llhttp__on_header_value(ptr noundef %state, ptr noundef %736, ptr noundef nonnull %p.addr.435295) #8
   %cmp3191.not = icmp eq i32 %call3190, 0
   br i1 %cmp3191.not, label %s_n_llhttp__internal__n_header_value_almost_done, label %if.then3193
 
@@ -7803,7 +7803,7 @@ if.then3193:                                      ; preds = %s_n_llhttp__interna
   %error3194 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3190, ptr %error3194, align 8
   %error_pos3195 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.435297, ptr %error_pos3195, align 8
+  store ptr %p.addr.435295, ptr %error_pos3195, align 8
   store ptr inttoptr (i64 43 to ptr), ptr %_current, align 8
   br label %return
 
@@ -7811,21 +7811,21 @@ s_n_llhttp__internal__n_span_end_llhttp__on_header_value_4: ; preds = %if.end408
   %_span_pos03200 = getelementptr inbounds i8, ptr %state, i64 8
   %737 = load ptr, ptr %_span_pos03200, align 8
   store ptr null, ptr %_span_pos03200, align 8
-  %call3202 = tail call i32 @llhttp__on_header_value(ptr noundef %state, ptr noundef %737, ptr noundef nonnull %p.addr.435297) #8
+  %call3202 = tail call i32 @llhttp__on_header_value(ptr noundef %state, ptr noundef %737, ptr noundef nonnull %p.addr.435295) #8
   %cmp3203.not = icmp eq i32 %call3202, 0
   br i1 %cmp3203.not, label %if.end3210, label %if.then3205
 
 if.then3205:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_4
   %error3206 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3202, ptr %error3206, align 8
-  %add.ptr3207 = getelementptr inbounds i8, ptr %p.addr.435297, i64 1
+  %add.ptr3207 = getelementptr inbounds i8, ptr %p.addr.435295, i64 1
   %error_pos3208 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr3207, ptr %error_pos3208, align 8
   store ptr inttoptr (i64 43 to ptr), ptr %_current, align 8
   br label %return
 
 if.end3210:                                       ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_header_value_4
-  %incdec.ptr3211 = getelementptr inbounds i8, ptr %p.addr.435297, i64 1
+  %incdec.ptr3211 = getelementptr inbounds i8, ptr %p.addr.435295, i64 1
   br label %s_n_llhttp__internal__n_header_value_almost_done
 
 if.then3219:                                      ; preds = %sw.default3226
@@ -7837,16 +7837,16 @@ if.then3219:                                      ; preds = %sw.default3226
   br label %return
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_12: ; preds = %if.end423
-  %lenient_flags.i4167 = getelementptr inbounds i8, ptr %state, i64 77
-  %738 = load i8, ptr %lenient_flags.i4167, align 1
+  %lenient_flags.i4166 = getelementptr inbounds i8, ptr %state, i64 77
+  %738 = load i8, ptr %lenient_flags.i4166, align 1
   %739 = and i8 %738, 1
   %cond34.not = icmp eq i8 %739, 0
   br i1 %cond34.not, label %sw.default3226, label %s_n_llhttp__internal__n_header_value_lenient.preheader
 
 s_n_llhttp__internal__n_header_value_lenient.preheader: ; preds = %entry, %s_n_llhttp__internal__n_invoke_test_lenient_flags_12
   %p.addr.43.ph = phi ptr [ %p, %entry ], [ %p.addr.45, %s_n_llhttp__internal__n_invoke_test_lenient_flags_12 ]
-  %cmp4055296 = icmp eq ptr %p.addr.43.ph, %endp
-  br i1 %cmp4055296, label %return, label %if.end408
+  %cmp4055294 = icmp eq ptr %p.addr.43.ph, %endp
+  br i1 %cmp4055294, label %return, label %if.end408
 
 sw.default3226:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_12
   %_span_pos03214 = getelementptr inbounds i8, ptr %state, i64 8
@@ -7857,11 +7857,11 @@ sw.default3226:                                   ; preds = %s_n_llhttp__interna
   br i1 %cmp3217.not, label %s_n_llhttp__internal__n_error_41, label %if.then3219
 
 s_n_llhttp__internal__n_invoke_update_header_state_4: ; preds = %sw.bb450, %sw.bb3240, %sw.bb3239
-  %.sink5735 = phi i16 [ 4, %sw.bb3240 ], [ 2, %sw.bb3239 ], [ 1, %sw.bb450 ]
-  %flags.i4172 = getelementptr inbounds i8, ptr %state, i64 80
-  %741 = load i16, ptr %flags.i4172, align 8
-  %742 = or i16 %741, %.sink5735
-  store i16 %742, ptr %flags.i4172, align 8
+  %.sink5733 = phi i16 [ 4, %sw.bb3240 ], [ 2, %sw.bb3239 ], [ 1, %sw.bb450 ]
+  %flags.i4171 = getelementptr inbounds i8, ptr %state, i64 80
+  %741 = load i16, ptr %flags.i4171, align 8
+  %742 = or i16 %741, %.sink5733
+  store i16 %742, ptr %flags.i4171, align 8
   store i8 1, ptr %header_state.i, align 4
   br label %s_n_llhttp__internal__n_header_value_connection.preheader
 
@@ -7872,15 +7872,15 @@ sw.bb3240:                                        ; preds = %sw.bb450
   br label %s_n_llhttp__internal__n_invoke_update_header_state_4
 
 sw.bb3241:                                        ; preds = %sw.bb450
-  %flags.i4173 = getelementptr inbounds i8, ptr %state, i64 80
-  %743 = load i16, ptr %flags.i4173, align 8
+  %flags.i4172 = getelementptr inbounds i8, ptr %state, i64 80
+  %743 = load i16, ptr %flags.i4172, align 8
   %744 = or i16 %743, 8
-  store i16 %744, ptr %flags.i4173, align 8
+  store i16 %744, ptr %flags.i4172, align 8
   br label %s_n_llhttp__internal__n_header_value_connection.preheader
 
 s_n_llhttp__internal__n_invoke_update_header_state_5: ; preds = %if.end444
-  %header_state.i4174 = getelementptr inbounds i8, ptr %state, i64 76
-  store i8 0, ptr %header_state.i4174, align 4
+  %header_state.i4173 = getelementptr inbounds i8, ptr %state, i64 76
+  store i8 0, ptr %header_state.i4173, align 4
   br label %s_n_llhttp__internal__n_header_value_connection_token.preheader
 
 if.then3258:                                      ; preds = %sw.bb3264
@@ -7892,45 +7892,46 @@ if.then3258:                                      ; preds = %sw.bb3264
   br label %return
 
 switch.lookup:                                    ; preds = %if.end547
-  %switch.idx.cast = zext nneg i8 %switch.tableidx to i64
-  %p.addr.232 = getelementptr inbounds i8, ptr %p.addr.555285, i64 1
-  %745 = load i64, ptr %content_length.i4175, align 8
-  %cmp.i4176 = icmp ugt i64 %745, 1844674407370955161
-  br i1 %cmp.i4176, label %sw.bb3264, label %if.end.i4177
+  %p.addr.232 = getelementptr inbounds i8, ptr %p.addr.555283, i64 1
+  %745 = load i64, ptr %content_length.i4174, align 8
+  %cmp.i4175 = icmp ugt i64 %745, 1844674407370955161
+  br i1 %cmp.i4175, label %sw.bb3264, label %if.end.i4176
 
-if.end.i4177:                                     ; preds = %switch.lookup
-  %mul.i4178 = mul nuw i64 %745, 10
-  store i64 %mul.i4178, ptr %content_length.i4175, align 8
-  %sub.i4180 = xor i64 %switch.idx.cast, -1
-  %cmp5.i4181 = icmp ugt i64 %mul.i4178, %sub.i4180
-  br i1 %cmp5.i4181, label %sw.bb3264, label %llhttp__internal__c_mul_add_content_length_1.exit
+if.end.i4176:                                     ; preds = %switch.lookup
+  %mul.i4177 = mul nuw i64 %745, 10
+  store i64 %mul.i4177, ptr %content_length.i4174, align 8
+  %746 = sub nsw i8 47, %84
+  %sub.i4178 = sext i8 %746 to i64
+  %cmp5.i4179 = icmp ugt i64 %mul.i4177, %sub.i4178
+  br i1 %cmp5.i4179, label %sw.bb3264, label %llhttp__internal__c_mul_add_content_length_1.exit
 
-llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %if.end.i4177
-  %add.i4184 = add i64 %mul.i4178, %switch.idx.cast
-  store i64 %add.i4184, ptr %content_length.i4175, align 8
+llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %if.end.i4176
+  %.pre.i4181 = zext nneg i8 %switch.tableidx to i64
+  %add.i4182 = add i64 %mul.i4177, %.pre.i4181
+  store i64 %add.i4182, ptr %content_length.i4174, align 8
   %cmp544 = icmp eq ptr %p.addr.232, %endp
   br i1 %cmp544, label %return, label %if.end547
 
-sw.bb3264:                                        ; preds = %switch.lookup, %if.end.i4177
+sw.bb3264:                                        ; preds = %switch.lookup, %if.end.i4176
   %_span_pos03253 = getelementptr inbounds i8, ptr %state, i64 8
-  %746 = load ptr, ptr %_span_pos03253, align 8
+  %747 = load ptr, ptr %_span_pos03253, align 8
   store ptr null, ptr %_span_pos03253, align 8
-  %call3255 = tail call i32 @llhttp__on_header_value(ptr noundef nonnull %state, ptr noundef %746, ptr noundef nonnull %p.addr.232) #8
+  %call3255 = tail call i32 @llhttp__on_header_value(ptr noundef nonnull %state, ptr noundef %747, ptr noundef nonnull %p.addr.232) #8
   %cmp3256.not = icmp eq i32 %call3255, 0
   br i1 %cmp3256.not, label %s_n_llhttp__internal__n_error_43, label %if.then3258
 
 s_n_llhttp__internal__n_invoke_or_flags_15:       ; preds = %if.end536, %if.end536
-  %flags.i4186 = getelementptr inbounds i8, ptr %state, i64 80
-  %747 = load i16, ptr %flags.i4186, align 8
-  %748 = or i16 %747, 32
-  store i16 %748, ptr %flags.i4186, align 8
+  %flags.i4184 = getelementptr inbounds i8, ptr %state, i64 80
+  %748 = load i16, ptr %flags.i4184, align 8
+  %749 = or i16 %748, 32
+  store i16 %749, ptr %flags.i4184, align 8
   br label %s_n_llhttp__internal__n_header_value_otherwise
 
 s_n_llhttp__internal__n_span_end_llhttp__on_header_value_6: ; preds = %if.end536
   %_span_pos03270 = getelementptr inbounds i8, ptr %state, i64 8
-  %749 = load ptr, ptr %_span_pos03270, align 8
+  %750 = load ptr, ptr %_span_pos03270, align 8
   store ptr null, ptr %_span_pos03270, align 8
-  %call3272 = tail call i32 @llhttp__on_header_value(ptr noundef %state, ptr noundef %749, ptr noundef nonnull %p.addr.545287) #8
+  %call3272 = tail call i32 @llhttp__on_header_value(ptr noundef %state, ptr noundef %750, ptr noundef nonnull %p.addr.545285) #8
   %cmp3273.not = icmp eq i32 %call3272, 0
   br i1 %cmp3273.not, label %s_n_llhttp__internal__n_error_44, label %if.then3275
 
@@ -7938,7 +7939,7 @@ if.then3275:                                      ; preds = %s_n_llhttp__interna
   %error3276 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3272, ptr %error3276, align 8
   %error_pos3277 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.545287, ptr %error_pos3277, align 8
+  store ptr %p.addr.545285, ptr %error_pos3277, align 8
   store ptr inttoptr (i64 54 to ptr), ptr %_current, align 8
   br label %return
 
@@ -7966,54 +7967,54 @@ if.end3299:                                       ; preds = %sw.bb3330
   br label %s_n_llhttp__internal__n_error_46
 
 s_n_llhttp__internal__n_invoke_update_header_state_8: ; preds = %if.end619, %if.end619
-  %header_state.i4187 = getelementptr inbounds i8, ptr %state, i64 76
-  store i8 8, ptr %header_state.i4187, align 4
+  %header_state.i4185 = getelementptr inbounds i8, ptr %state, i64 76
+  store i8 8, ptr %header_state.i4185, align 4
   br label %s_n_llhttp__internal__n_header_value_otherwise
 
 if.then3310:                                      ; preds = %sw.bb3318
   %error3311 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3307, ptr %error3311, align 8
-  %add.ptr3312 = getelementptr inbounds i8, ptr %p.addr.615279, i64 1
+  %add.ptr3312 = getelementptr inbounds i8, ptr %p.addr.615277, i64 1
   %error_pos3313 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr3312, ptr %error_pos3313, align 8
   store ptr inttoptr (i64 58 to ptr), ptr %_current, align 8
   br label %return
 
 if.end3315:                                       ; preds = %sw.bb3318
-  %incdec.ptr3316 = getelementptr inbounds i8, ptr %p.addr.615279, i64 1
+  %incdec.ptr3316 = getelementptr inbounds i8, ptr %p.addr.615277, i64 1
   br label %s_n_llhttp__internal__n_error_45
 
 sw.bb3318:                                        ; preds = %sw.bb3321
   %_span_pos03305 = getelementptr inbounds i8, ptr %state, i64 8
-  %750 = load ptr, ptr %_span_pos03305, align 8
+  %751 = load ptr, ptr %_span_pos03305, align 8
   store ptr null, ptr %_span_pos03305, align 8
-  %call3307 = tail call i32 @llhttp__on_header_value(ptr noundef nonnull %state, ptr noundef %750, ptr noundef nonnull %p.addr.615279) #8
+  %call3307 = tail call i32 @llhttp__on_header_value(ptr noundef nonnull %state, ptr noundef %751, ptr noundef nonnull %p.addr.615277) #8
   %cmp3308.not = icmp eq i32 %call3307, 0
   br i1 %cmp3308.not, label %if.end3315, label %if.then3310
 
 s_n_llhttp__internal__n_invoke_load_type_1:       ; preds = %if.end619
-  %type.i4188 = getelementptr inbounds i8, ptr %state, i64 72
-  %751 = load i8, ptr %type.i4188, align 8
-  %cond38 = icmp eq i8 %751, 1
+  %type.i4186 = getelementptr inbounds i8, ptr %state, i64 72
+  %752 = load i8, ptr %type.i4186, align 8
+  %cond38 = icmp eq i8 %752, 1
   br i1 %cond38, label %sw.bb3321, label %s_n_llhttp__internal__n_header_value_te_chunked
 
 sw.bb3321:                                        ; preds = %s_n_llhttp__internal__n_invoke_load_type_1
-  %lenient_flags.i4190 = getelementptr inbounds i8, ptr %state, i64 77
-  %752 = load i8, ptr %lenient_flags.i4190, align 1
-  %753 = and i8 %752, 8
-  %cond39 = icmp eq i8 %753, 0
+  %lenient_flags.i4188 = getelementptr inbounds i8, ptr %state, i64 77
+  %753 = load i8, ptr %lenient_flags.i4188, align 1
+  %754 = and i8 %753, 8
+  %cond39 = icmp eq i8 %754, 0
   br i1 %cond39, label %sw.bb3318, label %s_n_llhttp__internal__n_header_value_te_chunked
 
 s_n_llhttp__internal__n_invoke_update_header_state_9: ; preds = %if.end606, %sw.bb3346
-  %p.addr.233 = phi ptr [ %p.addr.63, %sw.bb3346 ], [ %p.addr.605281, %if.end606 ]
-  %header_state.i4193 = getelementptr inbounds i8, ptr %state, i64 76
-  store i8 0, ptr %header_state.i4193, align 4
+  %p.addr.233 = phi ptr [ %p.addr.63, %sw.bb3346 ], [ %p.addr.605279, %if.end606 ]
+  %header_state.i4191 = getelementptr inbounds i8, ptr %state, i64 76
+  store i8 0, ptr %header_state.i4191, align 4
   br label %s_n_llhttp__internal__n_header_value.preheader
 
 s_n_llhttp__internal__n_invoke_and_flags:         ; preds = %sw.bb3345, %sw.bb3333, %sw.bb3338
-  %storemerge = and i16 %760, -521
-  %754 = or disjoint i16 %storemerge, 512
-  store i16 %754, ptr %flags.i4205, align 8
+  %storemerge = and i16 %761, -521
+  %755 = or disjoint i16 %storemerge, 512
+  store i16 %755, ptr %flags.i4203, align 8
   br label %s_n_llhttp__internal__n_header_value_te_chunked
 
 sw.bb3330:                                        ; preds = %sw.bb3333
@@ -8023,46 +8024,46 @@ sw.bb3330:                                        ; preds = %sw.bb3333
   br i1 %cmp3292.not, label %if.end3299, label %if.then3294
 
 sw.bb3333:                                        ; preds = %sw.bb3338
-  %lenient_flags.i4196 = getelementptr inbounds i8, ptr %state, i64 77
-  %755 = load i8, ptr %lenient_flags.i4196, align 1
-  %756 = and i8 %755, 8
-  %cond41 = icmp eq i8 %756, 0
+  %lenient_flags.i4194 = getelementptr inbounds i8, ptr %state, i64 77
+  %756 = load i8, ptr %lenient_flags.i4194, align 1
+  %757 = and i8 %756, 8
+  %cond41 = icmp eq i8 %757, 0
   br i1 %cond41, label %sw.bb3330, label %s_n_llhttp__internal__n_invoke_and_flags
 
 sw.bb3338:                                        ; preds = %sw.bb3345
-  %type.i4199 = getelementptr inbounds i8, ptr %state, i64 72
-  %757 = load i8, ptr %type.i4199, align 8
-  %cond40 = icmp eq i8 %757, 1
+  %type.i4197 = getelementptr inbounds i8, ptr %state, i64 72
+  %758 = load i8, ptr %type.i4197, align 8
+  %cond40 = icmp eq i8 %758, 1
   br i1 %cond40, label %sw.bb3333, label %s_n_llhttp__internal__n_invoke_and_flags
 
 sw.bb3344:                                        ; preds = %if.end646
-  %flags.i4202 = getelementptr inbounds i8, ptr %state, i64 80
-  %758 = load i16, ptr %flags.i4202, align 8
-  %759 = and i16 %758, 32
-  %cond42 = icmp eq i16 %759, 0
+  %flags.i4200 = getelementptr inbounds i8, ptr %state, i64 80
+  %759 = load i16, ptr %flags.i4200, align 8
+  %760 = and i16 %759, 32
+  %cond42 = icmp eq i16 %760, 0
   br i1 %cond42, label %s_n_llhttp__internal__n_header_value_content_length.preheader, label %sw.default3286
 
 s_n_llhttp__internal__n_header_value_content_length.preheader: ; preds = %entry, %sw.bb3344
   %p.addr.55.ph = phi ptr [ %p, %entry ], [ %p.addr.63, %sw.bb3344 ]
-  %cmp5445284 = icmp eq ptr %p.addr.55.ph, %endp
-  br i1 %cmp5445284, label %return, label %if.end547.lr.ph
+  %cmp5445282 = icmp eq ptr %p.addr.55.ph, %endp
+  br i1 %cmp5445282, label %return, label %if.end547.lr.ph
 
 if.end547.lr.ph:                                  ; preds = %s_n_llhttp__internal__n_header_value_content_length.preheader
-  %content_length.i4175 = getelementptr inbounds i8, ptr %state, i64 64
+  %content_length.i4174 = getelementptr inbounds i8, ptr %state, i64 64
   br label %if.end547
 
 sw.bb3345:                                        ; preds = %if.end646
-  %flags.i4205 = getelementptr inbounds i8, ptr %state, i64 80
-  %760 = load i16, ptr %flags.i4205, align 8
-  %761 = and i16 %760, 8
-  %cond37.not = icmp eq i16 %761, 0
+  %flags.i4203 = getelementptr inbounds i8, ptr %state, i64 80
+  %761 = load i16, ptr %flags.i4203, align 8
+  %762 = and i16 %761, 8
+  %cond37.not = icmp eq i16 %762, 0
   br i1 %cond37.not, label %s_n_llhttp__internal__n_invoke_and_flags, label %sw.bb3338
 
 sw.bb3346:                                        ; preds = %if.end646
-  %flags.i4208 = getelementptr inbounds i8, ptr %state, i64 80
-  %762 = load i16, ptr %flags.i4208, align 8
-  %763 = or i16 %762, 16
-  store i16 %763, ptr %flags.i4208, align 8
+  %flags.i4206 = getelementptr inbounds i8, ptr %state, i64 80
+  %763 = load i16, ptr %flags.i4206, align 8
+  %764 = or i16 %763, 16
+  store i16 %764, ptr %flags.i4206, align 8
   br label %s_n_llhttp__internal__n_invoke_update_header_state_9
 
 s_n_llhttp__internal__n_pause_15:                 ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_header_field_complete
@@ -8087,9 +8088,9 @@ s_n_llhttp__internal__n_error_34:                 ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_span_end_llhttp__on_header_field_1: ; preds = %if.end692
   %_span_pos03358 = getelementptr inbounds i8, ptr %state, i64 8
-  %764 = load ptr, ptr %_span_pos03358, align 8
+  %765 = load ptr, ptr %_span_pos03358, align 8
   store ptr null, ptr %_span_pos03358, align 8
-  %call3360 = tail call i32 @llhttp__on_header_field(ptr noundef %state, ptr noundef %764, ptr noundef nonnull %p.addr.68) #8
+  %call3360 = tail call i32 @llhttp__on_header_field(ptr noundef %state, ptr noundef %765, ptr noundef nonnull %p.addr.68) #8
   %cmp3361.not = icmp eq i32 %call3360, 0
   br i1 %cmp3361.not, label %if.end3368, label %if.then3363
 
@@ -8108,9 +8109,9 @@ if.end3368:                                       ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_span_end_llhttp__on_header_field_2: ; preds = %if.end673
   %_span_pos03372 = getelementptr inbounds i8, ptr %state, i64 8
-  %765 = load ptr, ptr %_span_pos03372, align 8
+  %766 = load ptr, ptr %_span_pos03372, align 8
   store ptr null, ptr %_span_pos03372, align 8
-  %call3374 = tail call i32 @llhttp__on_header_field(ptr noundef %state, ptr noundef %765, ptr noundef nonnull %p.addr.66) #8
+  %call3374 = tail call i32 @llhttp__on_header_field(ptr noundef %state, ptr noundef %766, ptr noundef nonnull %p.addr.66) #8
   %cmp3375.not = icmp eq i32 %call3374, 0
   br i1 %cmp3375.not, label %if.end3382, label %if.then3377
 
@@ -8142,8 +8143,8 @@ s_n_llhttp__internal__n_invoke_store_header_state: ; preds = %if.then.i2985, %if
   %match.2 = phi i8 [ 1, %if.then.i2855 ], [ 2, %if.then.i2881 ], [ 1, %if.then.i2933 ], [ 3, %if.then.i2959 ], [ 4, %if.then.i2985 ]
   store i32 0, ptr %state, align 8
   %incdec.ptr807 = getelementptr inbounds i8, ptr %scevgep25.i2971.sink, i64 1
-  %header_state.i4211 = getelementptr inbounds i8, ptr %state, i64 76
-  store i8 %match.2, ptr %header_state.i4211, align 4
+  %header_state.i4209 = getelementptr inbounds i8, ptr %state, i64 76
+  store i8 %match.2, ptr %header_state.i4209, align 4
   br label %s_n_llhttp__internal__n_header_field_colon
 
 s_n_llhttp__internal__n_invoke_update_header_state_11.sink.split: ; preds = %for.body.i2972, %for.body.i2946, %for.body.i2920, %for.body.i2894, %for.body.i2868, %for.body.i2842
@@ -8194,9 +8195,9 @@ s_n_llhttp__internal__n_invoke_update_http_major: ; preds = %if.end870
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_3: ; preds = %if.end1169
   %_span_pos03419 = getelementptr inbounds i8, ptr %state, i64 8
-  %766 = load ptr, ptr %_span_pos03419, align 8
+  %767 = load ptr, ptr %_span_pos03419, align 8
   store ptr null, ptr %_span_pos03419, align 8
-  %call3421 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %766, ptr noundef nonnull %p.addr.106) #8
+  %call3421 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %767, ptr noundef nonnull %p.addr.106) #8
   %cmp3422.not = icmp eq i32 %call3421, 0
   br i1 %cmp3422.not, label %s_n_llhttp__internal__n_url_skip_to_http09, label %if.then3424
 
@@ -8221,9 +8222,9 @@ s_n_llhttp__internal__n_error_48:                 ; preds = %if.end902, %if.end8
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_4: ; preds = %if.end1169
   %_span_pos03435 = getelementptr inbounds i8, ptr %state, i64 8
-  %767 = load ptr, ptr %_span_pos03435, align 8
+  %768 = load ptr, ptr %_span_pos03435, align 8
   store ptr null, ptr %_span_pos03435, align 8
-  %call3437 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %767, ptr noundef nonnull %p.addr.106) #8
+  %call3437 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %768, ptr noundef nonnull %p.addr.106) #8
   %cmp3438.not = icmp eq i32 %call3437, 0
   br i1 %cmp3438.not, label %s_n_llhttp__internal__n_url_skip_lf_to_http09, label %if.then3440
 
@@ -8246,10 +8247,10 @@ s_n_llhttp__internal__n_error_56:                 ; preds = %if.end916
   br label %return
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_16: ; preds = %if.end930
-  %lenient_flags.i4213 = getelementptr inbounds i8, ptr %state, i64 77
-  %768 = load i8, ptr %lenient_flags.i4213, align 1
-  %769 = and i8 %768, 64
-  %cond59.not = icmp eq i8 %769, 0
+  %lenient_flags.i4211 = getelementptr inbounds i8, ptr %state, i64 77
+  %769 = load i8, ptr %lenient_flags.i4211, align 1
+  %770 = and i8 %769, 64
+  %cond59.not = icmp eq i8 %770, 0
   br i1 %cond59.not, label %sw.default3459, label %s_n_llhttp__internal__n_headers_start
 
 sw.default3459:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_16
@@ -8294,9 +8295,9 @@ s_n_llhttp__internal__n_error_52:                 ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_1: ; preds = %sw.bb3508, %s_n_llhttp__internal__n_invoke_store_http_minor, %sw.bb3509, %sw.bb3507
   %_span_pos03474 = getelementptr inbounds i8, ptr %state, i64 8
-  %770 = load ptr, ptr %_span_pos03474, align 8
+  %771 = load ptr, ptr %_span_pos03474, align 8
   store ptr null, ptr %_span_pos03474, align 8
-  %call3476 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %770, ptr noundef nonnull %p.addr.237) #8
+  %call3476 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %771, ptr noundef nonnull %p.addr.237) #8
   %cmp3477.not = icmp eq i32 %call3476, 0
   br i1 %cmp3477.not, label %s_n_llhttp__internal__n_invoke_llhttp__on_version_complete, label %if.then3479
 
@@ -8310,9 +8311,9 @@ if.then3479:                                      ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version: ; preds = %sw.bb3508, %sw.default3513, %sw.bb3509, %sw.bb3507
   %_span_pos03486 = getelementptr inbounds i8, ptr %state, i64 8
-  %771 = load ptr, ptr %_span_pos03486, align 8
+  %772 = load ptr, ptr %_span_pos03486, align 8
   store ptr null, ptr %_span_pos03486, align 8
-  %call3488 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %771, ptr noundef nonnull %p.addr.237) #8
+  %call3488 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %772, ptr noundef nonnull %p.addr.237) #8
   %cmp3489.not = icmp eq i32 %call3488, 0
   br i1 %cmp3489.not, label %s_n_llhttp__internal__n_error_51, label %if.then3491
 
@@ -8334,9 +8335,9 @@ sw.bb3509:                                        ; preds = %sw.default3513
   br i1 %cond55, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_1, label %s_n_llhttp__internal__n_span_end_llhttp__on_version
 
 sw.default3513:                                   ; preds = %s_n_llhttp__internal__n_invoke_store_http_minor
-  %http_major.i4222 = getelementptr inbounds i8, ptr %state, i64 74
-  %772 = load i8, ptr %http_major.i4222, align 2
-  switch i8 %772, label %s_n_llhttp__internal__n_span_end_llhttp__on_version [
+  %http_major.i4220 = getelementptr inbounds i8, ptr %state, i64 74
+  %773 = load i8, ptr %http_major.i4220, align 2
+  switch i8 %773, label %s_n_llhttp__internal__n_span_end_llhttp__on_version [
     i8 0, label %sw.bb3507
     i8 1, label %sw.bb3508
     i8 2, label %sw.bb3509
@@ -8348,19 +8349,19 @@ s_n_llhttp__internal__n_invoke_store_http_minor:  ; preds = %if.end967, %sw.bb98
   %cond60 = phi i1 [ true, %sw.bb987 ], [ false, %sw.bb985 ], [ false, %sw.bb983 ], [ false, %sw.bb981 ], [ false, %sw.bb979 ], [ false, %sw.bb977 ], [ false, %sw.bb975 ], [ false, %sw.bb973 ], [ false, %sw.bb971 ], [ false, %if.end967 ]
   %match.3 = phi i8 [ 9, %sw.bb987 ], [ 8, %sw.bb985 ], [ 7, %sw.bb983 ], [ 6, %sw.bb981 ], [ 5, %sw.bb979 ], [ 4, %sw.bb977 ], [ 3, %sw.bb975 ], [ 2, %sw.bb973 ], [ 1, %sw.bb971 ], [ 0, %if.end967 ]
   %p.addr.237 = getelementptr inbounds i8, ptr %p.addr.91, i64 1
-  %http_minor.i4225 = getelementptr inbounds i8, ptr %state, i64 75
-  store i8 %match.3, ptr %http_minor.i4225, align 1
-  %lenient_flags.i4226 = getelementptr inbounds i8, ptr %state, i64 77
-  %773 = load i8, ptr %lenient_flags.i4226, align 1
-  %774 = and i8 %773, 16
-  %cond54.not = icmp eq i8 %774, 0
+  %http_minor.i4223 = getelementptr inbounds i8, ptr %state, i64 75
+  store i8 %match.3, ptr %http_minor.i4223, align 1
+  %lenient_flags.i4224 = getelementptr inbounds i8, ptr %state, i64 77
+  %774 = load i8, ptr %lenient_flags.i4224, align 1
+  %775 = and i8 %774, 16
+  %cond54.not = icmp eq i8 %775, 0
   br i1 %cond54.not, label %sw.default3513, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_1
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_2: ; preds = %if.end967
   %_span_pos03518 = getelementptr inbounds i8, ptr %state, i64 8
-  %775 = load ptr, ptr %_span_pos03518, align 8
+  %776 = load ptr, ptr %_span_pos03518, align 8
   store ptr null, ptr %_span_pos03518, align 8
-  %call3520 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %775, ptr noundef nonnull %p.addr.91) #8
+  %call3520 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %776, ptr noundef nonnull %p.addr.91) #8
   %cmp3521.not = icmp eq i32 %call3520, 0
   br i1 %cmp3521.not, label %s_n_llhttp__internal__n_error_57, label %if.then3523
 
@@ -8374,9 +8375,9 @@ if.then3523:                                      ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_3: ; preds = %if.end999
   %_span_pos03530 = getelementptr inbounds i8, ptr %state, i64 8
-  %776 = load ptr, ptr %_span_pos03530, align 8
+  %777 = load ptr, ptr %_span_pos03530, align 8
   store ptr null, ptr %_span_pos03530, align 8
-  %call3532 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %776, ptr noundef nonnull %p.addr.93) #8
+  %call3532 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %777, ptr noundef nonnull %p.addr.93) #8
   %cmp3533.not = icmp eq i32 %call3532, 0
   br i1 %cmp3533.not, label %s_n_llhttp__internal__n_error_58, label %if.then3535
 
@@ -8390,15 +8391,15 @@ if.then3535:                                      ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_invoke_store_http_major:  ; preds = %if.end1013
   %p.addr.238 = getelementptr inbounds i8, ptr %p.addr.95, i64 1
-  %http_major.i4230 = getelementptr inbounds i8, ptr %state, i64 74
-  store i8 %switch.tableidx6003, ptr %http_major.i4230, align 2
+  %http_major.i4228 = getelementptr inbounds i8, ptr %state, i64 74
+  store i8 %switch.tableidx6001, ptr %http_major.i4228, align 2
   br label %s_n_llhttp__internal__n_req_http_dot
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_4: ; preds = %if.end1013
   %_span_pos03544 = getelementptr inbounds i8, ptr %state, i64 8
-  %777 = load ptr, ptr %_span_pos03544, align 8
+  %778 = load ptr, ptr %_span_pos03544, align 8
   store ptr null, ptr %_span_pos03544, align 8
-  %call3546 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %777, ptr noundef nonnull %p.addr.95) #8
+  %call3546 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %778, ptr noundef nonnull %p.addr.95) #8
   %cmp3547.not = icmp eq i32 %call3546, 0
   br i1 %cmp3547.not, label %s_n_llhttp__internal__n_error_59, label %if.then3549
 
@@ -8426,7 +8427,7 @@ s_n_llhttp__internal__n_error_62.sink.split:      ; preds = %for.body.i3055, %fo
   br label %s_n_llhttp__internal__n_error_62
 
 s_n_llhttp__internal__n_error_62:                 ; preds = %if.end1092, %s_n_llhttp__internal__n_error_62.sink.split
-  %p.addr.239 = phi ptr [ %p.addr.239.ph, %s_n_llhttp__internal__n_error_62.sink.split ], [ %p.addr.1005265, %if.end1092 ]
+  %p.addr.239 = phi ptr [ %p.addr.239.ph, %s_n_llhttp__internal__n_error_62.sink.split ], [ %p.addr.1005263, %if.end1092 ]
   %error3595 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 8, ptr %error3595, align 8
   %reason3596 = getelementptr inbounds i8, ptr %state, i64 32
@@ -8465,8 +8466,8 @@ s_n_llhttp__internal__n_invoke_llhttp__on_url_complete_1: ; preds = %if.end1107
 
 s_n_llhttp__internal__n_req_http_start.preheader: ; preds = %entry, %s_n_llhttp__internal__n_invoke_llhttp__on_url_complete_1
   %p.addr.100.ph = phi ptr [ %p, %entry ], [ %p.addr.101, %s_n_llhttp__internal__n_invoke_llhttp__on_url_complete_1 ]
-  %cmp10895264 = icmp eq ptr %p.addr.100.ph, %endp
-  br i1 %cmp10895264, label %return, label %if.end1092
+  %cmp10895262 = icmp eq ptr %p.addr.100.ph, %endp
+  br i1 %cmp10895262, label %return, label %if.end1092
 
 sw.bb3636:                                        ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_url_complete_1
   %error3626 = getelementptr inbounds i8, ptr %state, i64 24
@@ -8490,9 +8491,9 @@ sw.default3637:                                   ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_5: ; preds = %if.end1169
   %_span_pos03640 = getelementptr inbounds i8, ptr %state, i64 8
-  %778 = load ptr, ptr %_span_pos03640, align 8
+  %779 = load ptr, ptr %_span_pos03640, align 8
   store ptr null, ptr %_span_pos03640, align 8
-  %call3642 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %778, ptr noundef nonnull %p.addr.106) #8
+  %call3642 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %779, ptr noundef nonnull %p.addr.106) #8
   %cmp3643.not = icmp eq i32 %call3642, 0
   br i1 %cmp3643.not, label %s_n_llhttp__internal__n_url_skip_to_http, label %if.then3645
 
@@ -8506,9 +8507,9 @@ if.then3645:                                      ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_6: ; preds = %if.end1130
   %_span_pos03652 = getelementptr inbounds i8, ptr %state, i64 8
-  %779 = load ptr, ptr %_span_pos03652, align 8
+  %780 = load ptr, ptr %_span_pos03652, align 8
   store ptr null, ptr %_span_pos03652, align 8
-  %call3654 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %779, ptr noundef nonnull %p.addr.1035263) #8
+  %call3654 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %780, ptr noundef nonnull %p.addr.1035261) #8
   %cmp3655.not = icmp eq i32 %call3654, 0
   br i1 %cmp3655.not, label %s_n_llhttp__internal__n_url_skip_to_http09, label %if.then3657
 
@@ -8516,15 +8517,15 @@ if.then3657:                                      ; preds = %s_n_llhttp__interna
   %error3658 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3654, ptr %error3658, align 8
   %error_pos3659 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.1035263, ptr %error_pos3659, align 8
+  store ptr %p.addr.1035261, ptr %error_pos3659, align 8
   store ptr inttoptr (i64 82 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_7: ; preds = %if.end1130
   %_span_pos03664 = getelementptr inbounds i8, ptr %state, i64 8
-  %780 = load ptr, ptr %_span_pos03664, align 8
+  %781 = load ptr, ptr %_span_pos03664, align 8
   store ptr null, ptr %_span_pos03664, align 8
-  %call3666 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %780, ptr noundef nonnull %p.addr.1035263) #8
+  %call3666 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %781, ptr noundef nonnull %p.addr.1035261) #8
   %cmp3667.not = icmp eq i32 %call3666, 0
   br i1 %cmp3667.not, label %s_n_llhttp__internal__n_url_skip_lf_to_http09, label %if.then3669
 
@@ -8532,15 +8533,15 @@ if.then3669:                                      ; preds = %s_n_llhttp__interna
   %error3670 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3666, ptr %error3670, align 8
   %error_pos3671 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.1035263, ptr %error_pos3671, align 8
+  store ptr %p.addr.1035261, ptr %error_pos3671, align 8
   store ptr inttoptr (i64 84 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_8: ; preds = %if.end1130
   %_span_pos03676 = getelementptr inbounds i8, ptr %state, i64 8
-  %781 = load ptr, ptr %_span_pos03676, align 8
+  %782 = load ptr, ptr %_span_pos03676, align 8
   store ptr null, ptr %_span_pos03676, align 8
-  %call3678 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %781, ptr noundef nonnull %p.addr.1035263) #8
+  %call3678 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %782, ptr noundef nonnull %p.addr.1035261) #8
   %cmp3679.not = icmp eq i32 %call3678, 0
   br i1 %cmp3679.not, label %s_n_llhttp__internal__n_url_skip_to_http, label %if.then3681
 
@@ -8548,7 +8549,7 @@ if.then3681:                                      ; preds = %s_n_llhttp__interna
   %error3682 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3678, ptr %error3682, align 8
   %error_pos3683 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.1035263, ptr %error_pos3683, align 8
+  store ptr %p.addr.1035261, ptr %error_pos3683, align 8
   store ptr inttoptr (i64 103 to ptr), ptr %_current, align 8
   br label %return
 
@@ -8558,15 +8559,15 @@ s_n_llhttp__internal__n_error_63:                 ; preds = %if.end1130
   %reason3687 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.71, ptr %reason3687, align 8
   %error_pos3688 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.1035263, ptr %error_pos3688, align 8
+  store ptr %p.addr.1035261, ptr %error_pos3688, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_9: ; preds = %if.end1152
   %_span_pos03692 = getelementptr inbounds i8, ptr %state, i64 8
-  %782 = load ptr, ptr %_span_pos03692, align 8
+  %783 = load ptr, ptr %_span_pos03692, align 8
   store ptr null, ptr %_span_pos03692, align 8
-  %call3694 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %782, ptr noundef nonnull %p.addr.1055261) #8
+  %call3694 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %783, ptr noundef nonnull %p.addr.1055259) #8
   %cmp3695.not = icmp eq i32 %call3694, 0
   br i1 %cmp3695.not, label %s_n_llhttp__internal__n_url_skip_to_http09, label %if.then3697
 
@@ -8574,15 +8575,15 @@ if.then3697:                                      ; preds = %s_n_llhttp__interna
   %error3698 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3694, ptr %error3698, align 8
   %error_pos3699 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.1055261, ptr %error_pos3699, align 8
+  store ptr %p.addr.1055259, ptr %error_pos3699, align 8
   store ptr inttoptr (i64 82 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_10: ; preds = %if.end1152
   %_span_pos03704 = getelementptr inbounds i8, ptr %state, i64 8
-  %783 = load ptr, ptr %_span_pos03704, align 8
+  %784 = load ptr, ptr %_span_pos03704, align 8
   store ptr null, ptr %_span_pos03704, align 8
-  %call3706 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %783, ptr noundef nonnull %p.addr.1055261) #8
+  %call3706 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %784, ptr noundef nonnull %p.addr.1055259) #8
   %cmp3707.not = icmp eq i32 %call3706, 0
   br i1 %cmp3707.not, label %s_n_llhttp__internal__n_url_skip_lf_to_http09, label %if.then3709
 
@@ -8590,15 +8591,15 @@ if.then3709:                                      ; preds = %s_n_llhttp__interna
   %error3710 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3706, ptr %error3710, align 8
   %error_pos3711 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.1055261, ptr %error_pos3711, align 8
+  store ptr %p.addr.1055259, ptr %error_pos3711, align 8
   store ptr inttoptr (i64 84 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_11: ; preds = %if.end1152
   %_span_pos03716 = getelementptr inbounds i8, ptr %state, i64 8
-  %784 = load ptr, ptr %_span_pos03716, align 8
+  %785 = load ptr, ptr %_span_pos03716, align 8
   store ptr null, ptr %_span_pos03716, align 8
-  %call3718 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %784, ptr noundef nonnull %p.addr.1055261) #8
+  %call3718 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %785, ptr noundef nonnull %p.addr.1055259) #8
   %cmp3719.not = icmp eq i32 %call3718, 0
   br i1 %cmp3719.not, label %s_n_llhttp__internal__n_url_skip_to_http, label %if.then3721
 
@@ -8606,7 +8607,7 @@ if.then3721:                                      ; preds = %s_n_llhttp__interna
   %error3722 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3718, ptr %error3722, align 8
   %error_pos3723 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.1055261, ptr %error_pos3723, align 8
+  store ptr %p.addr.1055259, ptr %error_pos3723, align 8
   store ptr inttoptr (i64 103 to ptr), ptr %_current, align 8
   br label %return
 
@@ -8616,7 +8617,7 @@ s_n_llhttp__internal__n_error_64:                 ; preds = %if.end1152
   %reason3727 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.72, ptr %reason3727, align 8
   %error_pos3728 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.1055261, ptr %error_pos3728, align 8
+  store ptr %p.addr.1055259, ptr %error_pos3728, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
@@ -8632,9 +8633,9 @@ s_n_llhttp__internal__n_error_65:                 ; preds = %if.end1169
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url:  ; preds = %if.end1239
   %_span_pos03736 = getelementptr inbounds i8, ptr %state, i64 8
-  %785 = load ptr, ptr %_span_pos03736, align 8
+  %786 = load ptr, ptr %_span_pos03736, align 8
   store ptr null, ptr %_span_pos03736, align 8
-  %call3738 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %785, ptr noundef nonnull %p.addr.1125257) #8
+  %call3738 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %786, ptr noundef nonnull %p.addr.1125255) #8
   %cmp3739.not = icmp eq i32 %call3738, 0
   br i1 %cmp3739.not, label %s_n_llhttp__internal__n_url_skip_to_http09, label %if.then3741
 
@@ -8642,15 +8643,15 @@ if.then3741:                                      ; preds = %s_n_llhttp__interna
   %error3742 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3738, ptr %error3742, align 8
   %error_pos3743 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.1125257, ptr %error_pos3743, align 8
+  store ptr %p.addr.1125255, ptr %error_pos3743, align 8
   store ptr inttoptr (i64 82 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_1: ; preds = %if.end1239
   %_span_pos03748 = getelementptr inbounds i8, ptr %state, i64 8
-  %786 = load ptr, ptr %_span_pos03748, align 8
+  %787 = load ptr, ptr %_span_pos03748, align 8
   store ptr null, ptr %_span_pos03748, align 8
-  %call3750 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %786, ptr noundef nonnull %p.addr.1125257) #8
+  %call3750 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %787, ptr noundef nonnull %p.addr.1125255) #8
   %cmp3751.not = icmp eq i32 %call3750, 0
   br i1 %cmp3751.not, label %s_n_llhttp__internal__n_url_skip_lf_to_http09, label %if.then3753
 
@@ -8658,15 +8659,15 @@ if.then3753:                                      ; preds = %s_n_llhttp__interna
   %error3754 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3750, ptr %error3754, align 8
   %error_pos3755 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.1125257, ptr %error_pos3755, align 8
+  store ptr %p.addr.1125255, ptr %error_pos3755, align 8
   store ptr inttoptr (i64 84 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_2: ; preds = %if.end1239
   %_span_pos03760 = getelementptr inbounds i8, ptr %state, i64 8
-  %787 = load ptr, ptr %_span_pos03760, align 8
+  %788 = load ptr, ptr %_span_pos03760, align 8
   store ptr null, ptr %_span_pos03760, align 8
-  %call3762 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %787, ptr noundef nonnull %p.addr.1125257) #8
+  %call3762 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %788, ptr noundef nonnull %p.addr.1125255) #8
   %cmp3763.not = icmp eq i32 %call3762, 0
   br i1 %cmp3763.not, label %s_n_llhttp__internal__n_url_skip_to_http, label %if.then3765
 
@@ -8674,15 +8675,15 @@ if.then3765:                                      ; preds = %s_n_llhttp__interna
   %error3766 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3762, ptr %error3766, align 8
   %error_pos3767 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.1125257, ptr %error_pos3767, align 8
+  store ptr %p.addr.1125255, ptr %error_pos3767, align 8
   store ptr inttoptr (i64 103 to ptr), ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_12: ; preds = %if.end1218
   %_span_pos03772 = getelementptr inbounds i8, ptr %state, i64 8
-  %788 = load ptr, ptr %_span_pos03772, align 8
+  %789 = load ptr, ptr %_span_pos03772, align 8
   store ptr null, ptr %_span_pos03772, align 8
-  %call3774 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %788, ptr noundef nonnull %p.addr.111) #8
+  %call3774 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %789, ptr noundef nonnull %p.addr.111) #8
   %cmp3775.not = icmp eq i32 %call3774, 0
   br i1 %cmp3775.not, label %s_n_llhttp__internal__n_url_skip_to_http09, label %if.then3777
 
@@ -8696,9 +8697,9 @@ if.then3777:                                      ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_13: ; preds = %if.end1218
   %_span_pos03784 = getelementptr inbounds i8, ptr %state, i64 8
-  %789 = load ptr, ptr %_span_pos03784, align 8
+  %790 = load ptr, ptr %_span_pos03784, align 8
   store ptr null, ptr %_span_pos03784, align 8
-  %call3786 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %789, ptr noundef nonnull %p.addr.111) #8
+  %call3786 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %790, ptr noundef nonnull %p.addr.111) #8
   %cmp3787.not = icmp eq i32 %call3786, 0
   br i1 %cmp3787.not, label %s_n_llhttp__internal__n_url_skip_lf_to_http09, label %if.then3789
 
@@ -8712,9 +8713,9 @@ if.then3789:                                      ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_span_end_llhttp__on_url_14: ; preds = %if.end1218
   %_span_pos03796 = getelementptr inbounds i8, ptr %state, i64 8
-  %790 = load ptr, ptr %_span_pos03796, align 8
+  %791 = load ptr, ptr %_span_pos03796, align 8
   store ptr null, ptr %_span_pos03796, align 8
-  %call3798 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %790, ptr noundef nonnull %p.addr.111) #8
+  %call3798 = tail call i32 @llhttp__on_url(ptr noundef %state, ptr noundef %791, ptr noundef nonnull %p.addr.111) #8
   %cmp3799.not = icmp eq i32 %call3798, 0
   br i1 %cmp3799.not, label %s_n_llhttp__internal__n_url_skip_to_http, label %if.then3801
 
@@ -8742,7 +8743,7 @@ s_n_llhttp__internal__n_error_68:                 ; preds = %if.end1239
   %reason3815 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.75, ptr %reason3815, align 8
   %error_pos3816 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.1125257, ptr %error_pos3816, align 8
+  store ptr %p.addr.1125255, ptr %error_pos3816, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
@@ -8763,7 +8764,7 @@ s_n_llhttp__internal__n_error_70:                 ; preds = %if.end1294
   %reason3823 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.76, ptr %reason3823, align 8
   %error_pos3824 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.1165255, ptr %error_pos3824, align 8
+  store ptr %p.addr.1165253, ptr %error_pos3824, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
@@ -8778,10 +8779,10 @@ s_n_llhttp__internal__n_error_71:                 ; preds = %if.end1308
   br label %return
 
 s_n_llhttp__internal__n_invoke_is_equal_method:   ; preds = %if.end1357
-  %method.i4231 = getelementptr inbounds i8, ptr %state, i64 73
-  %791 = load i8, ptr %method.i4231, align 1
-  %cmp.i4232.not = icmp eq i8 %791, 5
-  br i1 %cmp.i4232.not, label %s_n_llhttp__internal__n_url_entry_connect, label %s_n_llhttp__internal__n_url_entry_normal
+  %method.i4229 = getelementptr inbounds i8, ptr %state, i64 73
+  %792 = load i8, ptr %method.i4229, align 1
+  %cmp.i4230.not = icmp eq i8 %792, 5
+  br i1 %cmp.i4230.not, label %s_n_llhttp__internal__n_url_entry_connect, label %s_n_llhttp__internal__n_url_entry_normal
 
 s_n_llhttp__internal__n_error_72:                 ; preds = %if.end1366
   %error3833 = getelementptr inbounds i8, ptr %state, i64 24
@@ -8824,12 +8825,12 @@ if.then3852:                                      ; preds = %s_n_llhttp__interna
 s_n_llhttp__internal__n_invoke_store_method_1:    ; preds = %if.end1571, %sw.bb2268, %sw.bb2242, %sw.bb2227, %sw.bb2212, %sw.bb2186, %sw.bb2171, %sw.bb2143, %sw.bb2128, %sw.bb2091, %sw.bb2078, %sw.bb2067, %sw.bb2028, %sw.bb2013, %sw.bb1998, %sw.bb1983, %sw.bb1953, %sw.bb1940, %sw.bb1925, %sw.bb1894, %sw.bb1879, %sw.bb1864, %sw.bb1849, %sw.bb1823, %sw.bb1808, %sw.bb1793, %sw.bb1778, %sw.bb1748, %sw.bb1713, %sw.bb1702, %sw.bb1687, %sw.bb1672, %sw.bb1657, %sw.bb1631, %sw.bb1616, %sw.bb1601, %sw.bb1562, %sw.bb1547, %sw.bb1512, %sw.bb1497, %sw.bb1462, %sw.bb1451, %sw.bb1436, %sw.bb1421, %sw.bb1395, %sw.bb1382
   %match.5 = phi i8 [ 27, %sw.bb2268 ], [ 15, %sw.bb2242 ], [ 32, %sw.bb2227 ], [ 18, %sw.bb2212 ], [ 7, %sw.bb2186 ], [ 40, %sw.bb2171 ], [ 26, %sw.bb2143 ], [ 33, %sw.bb2128 ], [ 42, %sw.bb2091 ], [ 37, %sw.bb2078 ], [ 14, %sw.bb2067 ], [ 20, %sw.bb2028 ], [ 43, %sw.bb2013 ], [ 44, %sw.bb1998 ], [ 17, %sw.bb1983 ], [ 4, %sw.bb1953 ], [ 29, %sw.bb1940 ], [ 13, %sw.bb1894 ], [ 12, %sw.bb1879 ], [ 34, %sw.bb1925 ], [ 3, %sw.bb1864 ], [ 38, %sw.bb1849 ], [ 39, %sw.bb1823 ], [ 28, %sw.bb1808 ], [ 6, %sw.bb1793 ], [ 25, %sw.bb1778 ], [ 11, %sw.bb1748 ], [ 10, %sw.bb1713 ], [ 30, %sw.bb1702 ], [ 21, %sw.bb1687 ], [ 23, %sw.bb1672 ], [ 24, %sw.bb1657 ], [ 9, %sw.bb1631 ], [ 31, %sw.bb1616 ], [ 2, %sw.bb1601 ], [ 41, %sw.bb1562 ], [ 45, %sw.bb1547 ], [ 35, %sw.bb1512 ], [ 0, %sw.bb1497 ], [ 8, %sw.bb1462 ], [ 5, %sw.bb1451 ], [ 22, %sw.bb1436 ], [ 16, %sw.bb1421 ], [ 36, %sw.bb1395 ], [ 19, %sw.bb1382 ], [ 1, %if.end1571 ]
   %p.addr.241 = phi ptr [ %incdec.ptr2269, %sw.bb2268 ], [ %incdec.ptr2243, %sw.bb2242 ], [ %incdec.ptr2228, %sw.bb2227 ], [ %incdec.ptr2213, %sw.bb2212 ], [ %incdec.ptr2187, %sw.bb2186 ], [ %incdec.ptr2172, %sw.bb2171 ], [ %incdec.ptr2144, %sw.bb2143 ], [ %incdec.ptr2129, %sw.bb2128 ], [ %incdec.ptr2092, %sw.bb2091 ], [ %incdec.ptr2079, %sw.bb2078 ], [ %incdec.ptr2068, %sw.bb2067 ], [ %incdec.ptr2029, %sw.bb2028 ], [ %incdec.ptr2014, %sw.bb2013 ], [ %incdec.ptr1999, %sw.bb1998 ], [ %incdec.ptr1984, %sw.bb1983 ], [ %incdec.ptr1954, %sw.bb1953 ], [ %incdec.ptr1941, %sw.bb1940 ], [ %incdec.ptr1895, %sw.bb1894 ], [ %incdec.ptr1880, %sw.bb1879 ], [ %incdec.ptr1926, %sw.bb1925 ], [ %incdec.ptr1865, %sw.bb1864 ], [ %incdec.ptr1850, %sw.bb1849 ], [ %incdec.ptr1824, %sw.bb1823 ], [ %incdec.ptr1809, %sw.bb1808 ], [ %incdec.ptr1794, %sw.bb1793 ], [ %incdec.ptr1779, %sw.bb1778 ], [ %incdec.ptr1749, %sw.bb1748 ], [ %incdec.ptr1714, %sw.bb1713 ], [ %incdec.ptr1703, %sw.bb1702 ], [ %incdec.ptr1688, %sw.bb1687 ], [ %incdec.ptr1673, %sw.bb1672 ], [ %incdec.ptr1658, %sw.bb1657 ], [ %incdec.ptr1632, %sw.bb1631 ], [ %incdec.ptr1617, %sw.bb1616 ], [ %incdec.ptr1602, %sw.bb1601 ], [ %incdec.ptr1563, %sw.bb1562 ], [ %incdec.ptr1548, %sw.bb1547 ], [ %incdec.ptr1513, %sw.bb1512 ], [ %incdec.ptr1498, %sw.bb1497 ], [ %incdec.ptr1463, %sw.bb1462 ], [ %incdec.ptr1452, %sw.bb1451 ], [ %incdec.ptr1437, %sw.bb1436 ], [ %incdec.ptr1422, %sw.bb1421 ], [ %incdec.ptr1396, %sw.bb1395 ], [ %incdec.ptr1383, %sw.bb1382 ], [ %p.addr.140, %if.end1571 ]
-  %method.i4235 = getelementptr inbounds i8, ptr %state, i64 73
-  store i8 %match.5, ptr %method.i4235, align 1
+  %method.i4233 = getelementptr inbounds i8, ptr %state, i64 73
+  store i8 %match.5, ptr %method.i4233, align 1
   %_span_pos03847 = getelementptr inbounds i8, ptr %state, i64 8
-  %792 = load ptr, ptr %_span_pos03847, align 8
+  %793 = load ptr, ptr %_span_pos03847, align 8
   store ptr null, ptr %_span_pos03847, align 8
-  %call3849 = tail call i32 @llhttp__on_method(ptr noundef nonnull %state, ptr noundef %792, ptr noundef nonnull %p.addr.241) #8
+  %call3849 = tail call i32 @llhttp__on_method(ptr noundef nonnull %state, ptr noundef %793, ptr noundef nonnull %p.addr.241) #8
   %cmp3850.not = icmp eq i32 %call3849, 0
   br i1 %cmp3850.not, label %s_n_llhttp__internal__n_invoke_llhttp__on_method_complete_1, label %if.then3852
 
@@ -8878,10 +8879,10 @@ sw.default3886:                                   ; preds = %s_n_llhttp__interna
   br label %return
 
 s_n_llhttp__internal__n_invoke_test_lenient_flags_18: ; preds = %if.end2345
-  %lenient_flags.i4236 = getelementptr inbounds i8, ptr %state, i64 77
-  %793 = load i8, ptr %lenient_flags.i4236, align 1
-  %794 = and i8 %793, 64
-  %cond47.not = icmp eq i8 %794, 0
+  %lenient_flags.i4234 = getelementptr inbounds i8, ptr %state, i64 77
+  %794 = load i8, ptr %lenient_flags.i4234, align 1
+  %795 = and i8 %794, 64
+  %cond47.not = icmp eq i8 %795, 0
   br i1 %cond47.not, label %sw.default3893, label %s_n_llhttp__internal__n_invoke_llhttp__on_status_complete
 
 sw.default3893:                                   ; preds = %s_n_llhttp__internal__n_invoke_test_lenient_flags_18
@@ -8896,44 +8897,44 @@ sw.default3893:                                   ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_span_end_llhttp__on_status: ; preds = %if.end2356
   %_span_pos03896 = getelementptr inbounds i8, ptr %state, i64 8
-  %795 = load ptr, ptr %_span_pos03896, align 8
+  %796 = load ptr, ptr %_span_pos03896, align 8
   store ptr null, ptr %_span_pos03896, align 8
-  %call3898 = tail call i32 @llhttp__on_status(ptr noundef %state, ptr noundef %795, ptr noundef nonnull %p.addr.1975251) #8
+  %call3898 = tail call i32 @llhttp__on_status(ptr noundef %state, ptr noundef %796, ptr noundef nonnull %p.addr.1975249) #8
   %cmp3899.not = icmp eq i32 %call3898, 0
   br i1 %cmp3899.not, label %if.end3906, label %if.then3901
 
 if.then3901:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_status
   %error3902 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3898, ptr %error3902, align 8
-  %add.ptr3903 = getelementptr inbounds i8, ptr %p.addr.1975251, i64 1
+  %add.ptr3903 = getelementptr inbounds i8, ptr %p.addr.1975249, i64 1
   %error_pos3904 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr3903, ptr %error_pos3904, align 8
   store ptr inttoptr (i64 197 to ptr), ptr %_current, align 8
   br label %return
 
 if.end3906:                                       ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_status
-  %incdec.ptr3907 = getelementptr inbounds i8, ptr %p.addr.1975251, i64 1
+  %incdec.ptr3907 = getelementptr inbounds i8, ptr %p.addr.1975249, i64 1
   br label %s_n_llhttp__internal__n_res_line_almost_done
 
 s_n_llhttp__internal__n_span_end_llhttp__on_status_1: ; preds = %if.end2356
   %_span_pos03910 = getelementptr inbounds i8, ptr %state, i64 8
-  %796 = load ptr, ptr %_span_pos03910, align 8
+  %797 = load ptr, ptr %_span_pos03910, align 8
   store ptr null, ptr %_span_pos03910, align 8
-  %call3912 = tail call i32 @llhttp__on_status(ptr noundef %state, ptr noundef %796, ptr noundef nonnull %p.addr.1975251) #8
+  %call3912 = tail call i32 @llhttp__on_status(ptr noundef %state, ptr noundef %797, ptr noundef nonnull %p.addr.1975249) #8
   %cmp3913.not = icmp eq i32 %call3912, 0
   br i1 %cmp3913.not, label %if.end3920, label %if.then3915
 
 if.then3915:                                      ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_status_1
   %error3916 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 %call3912, ptr %error3916, align 8
-  %add.ptr3917 = getelementptr inbounds i8, ptr %p.addr.1975251, i64 1
+  %add.ptr3917 = getelementptr inbounds i8, ptr %p.addr.1975249, i64 1
   %error_pos3918 = getelementptr inbounds i8, ptr %state, i64 40
   store ptr %add.ptr3917, ptr %error_pos3918, align 8
   store ptr inttoptr (i64 197 to ptr), ptr %_current, align 8
   br label %return
 
 if.end3920:                                       ; preds = %s_n_llhttp__internal__n_span_end_llhttp__on_status_1
-  %incdec.ptr3921 = getelementptr inbounds i8, ptr %p.addr.1975251, i64 1
+  %incdec.ptr3921 = getelementptr inbounds i8, ptr %p.addr.1975249, i64 1
   br label %s_n_llhttp__internal__n_res_line_almost_done
 
 s_n_llhttp__internal__n_error_77:                 ; preds = %if.end2384
@@ -8946,29 +8947,29 @@ s_n_llhttp__internal__n_error_77:                 ; preds = %if.end2384
   store ptr null, ptr %_current, align 8
   br label %return
 
-switch.lookup6004:                                ; preds = %if.end2395
+switch.lookup6002:                                ; preds = %if.end2395
   %p.addr.244 = getelementptr inbounds i8, ptr %p.addr.201, i64 1
-  %status_code.i4239 = getelementptr inbounds i8, ptr %state, i64 82
-  %797 = load i16, ptr %status_code.i4239, align 2
-  %cmp.i4240 = icmp ugt i16 %797, 6553
-  br i1 %cmp.i4240, label %sw.bb3927, label %if.end.i4241
+  %status_code.i4237 = getelementptr inbounds i8, ptr %state, i64 82
+  %798 = load i16, ptr %status_code.i4237, align 2
+  %cmp.i4238 = icmp ugt i16 %798, 6553
+  br i1 %cmp.i4238, label %sw.bb3927, label %if.end.i4239
 
-if.end.i4241:                                     ; preds = %switch.lookup6004
-  %switch.idx.cast6006 = zext nneg i8 %switch.tableidx6005 to i32
-  %mul.i4242 = mul nuw i16 %797, 10
-  store i16 %mul.i4242, ptr %status_code.i4239, align 2
-  %conv9.i = zext i16 %mul.i4242 to i32
-  %sub.i4243 = xor i32 %switch.idx.cast6006, 65535
-  %cmp10.i = icmp ult i32 %sub.i4243, %conv9.i
+if.end.i4239:                                     ; preds = %switch.lookup6002
+  %switch.idx.cast6004 = zext nneg i8 %switch.tableidx6003 to i32
+  %mul.i4240 = mul nuw i16 %798, 10
+  store i16 %mul.i4240, ptr %status_code.i4237, align 2
+  %conv9.i = zext i16 %mul.i4240 to i32
+  %sub.i4241 = xor i32 %switch.idx.cast6004, 65535
+  %cmp10.i = icmp ult i32 %sub.i4241, %conv9.i
   br i1 %cmp10.i, label %sw.bb3927, label %llhttp__internal__c_mul_add_status_code.exit
 
-llhttp__internal__c_mul_add_status_code.exit:     ; preds = %if.end.i4241
-  %798 = zext nneg i8 %switch.tableidx6005 to i16
-  %conv24.i = add i16 %mul.i4242, %798
-  store i16 %conv24.i, ptr %status_code.i4239, align 2
+llhttp__internal__c_mul_add_status_code.exit:     ; preds = %if.end.i4239
+  %799 = zext nneg i8 %switch.tableidx6003 to i16
+  %conv24.i = add i16 %mul.i4240, %799
+  store i16 %conv24.i, ptr %status_code.i4237, align 2
   br label %s_n_llhttp__internal__n_res_status_code_otherwise
 
-sw.bb3927:                                        ; preds = %switch.lookup6004, %if.end.i4241
+sw.bb3927:                                        ; preds = %switch.lookup6002, %if.end.i4239
   %error3871 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 13, ptr %error3871, align 8
   %reason3872 = getelementptr inbounds i8, ptr %state, i64 32
@@ -8988,29 +8989,29 @@ s_n_llhttp__internal__n_error_79:                 ; preds = %if.end2395
   store ptr null, ptr %_current, align 8
   br label %return
 
-switch.lookup6007:                                ; preds = %if.end2422
+switch.lookup6005:                                ; preds = %if.end2422
   %p.addr.245 = getelementptr inbounds i8, ptr %p.addr.202, i64 1
-  %status_code.i4245 = getelementptr inbounds i8, ptr %state, i64 82
-  %799 = load i16, ptr %status_code.i4245, align 2
-  %cmp.i4246 = icmp ugt i16 %799, 6553
-  br i1 %cmp.i4246, label %sw.bb3934, label %if.end.i4247
+  %status_code.i4243 = getelementptr inbounds i8, ptr %state, i64 82
+  %800 = load i16, ptr %status_code.i4243, align 2
+  %cmp.i4244 = icmp ugt i16 %800, 6553
+  br i1 %cmp.i4244, label %sw.bb3934, label %if.end.i4245
 
-if.end.i4247:                                     ; preds = %switch.lookup6007
-  %switch.idx.cast6009 = zext nneg i8 %switch.tableidx6008 to i32
-  %mul.i4248 = mul nuw i16 %799, 10
-  store i16 %mul.i4248, ptr %status_code.i4245, align 2
-  %conv9.i4249 = zext i16 %mul.i4248 to i32
-  %sub.i4250 = xor i32 %switch.idx.cast6009, 65535
-  %cmp10.i4251 = icmp ult i32 %sub.i4250, %conv9.i4249
-  br i1 %cmp10.i4251, label %sw.bb3934, label %llhttp__internal__c_mul_add_status_code.exit4255
+if.end.i4245:                                     ; preds = %switch.lookup6005
+  %switch.idx.cast6007 = zext nneg i8 %switch.tableidx6006 to i32
+  %mul.i4246 = mul nuw i16 %800, 10
+  store i16 %mul.i4246, ptr %status_code.i4243, align 2
+  %conv9.i4247 = zext i16 %mul.i4246 to i32
+  %sub.i4248 = xor i32 %switch.idx.cast6007, 65535
+  %cmp10.i4249 = icmp ult i32 %sub.i4248, %conv9.i4247
+  br i1 %cmp10.i4249, label %sw.bb3934, label %llhttp__internal__c_mul_add_status_code.exit4253
 
-llhttp__internal__c_mul_add_status_code.exit4255: ; preds = %if.end.i4247
-  %800 = zext nneg i8 %switch.tableidx6008 to i16
-  %conv24.i4253 = add i16 %mul.i4248, %800
-  store i16 %conv24.i4253, ptr %status_code.i4245, align 2
+llhttp__internal__c_mul_add_status_code.exit4253: ; preds = %if.end.i4245
+  %801 = zext nneg i8 %switch.tableidx6006 to i16
+  %conv24.i4251 = add i16 %mul.i4246, %801
+  store i16 %conv24.i4251, ptr %status_code.i4243, align 2
   br label %s_n_llhttp__internal__n_res_status_code_digit_3
 
-sw.bb3934:                                        ; preds = %switch.lookup6007, %if.end.i4247
+sw.bb3934:                                        ; preds = %switch.lookup6005, %if.end.i4245
   %error3867 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 13, ptr %error3867, align 8
   %reason3868 = getelementptr inbounds i8, ptr %state, i64 32
@@ -9030,29 +9031,29 @@ s_n_llhttp__internal__n_error_81:                 ; preds = %if.end2422
   store ptr null, ptr %_current, align 8
   br label %return
 
-switch.lookup6010:                                ; preds = %if.end2449
+switch.lookup6008:                                ; preds = %if.end2449
   %p.addr.246 = getelementptr inbounds i8, ptr %p.addr.203, i64 1
-  %status_code.i4256 = getelementptr inbounds i8, ptr %state, i64 82
-  %801 = load i16, ptr %status_code.i4256, align 2
-  %cmp.i4257 = icmp ugt i16 %801, 6553
-  br i1 %cmp.i4257, label %sw.bb3941, label %if.end.i4258
+  %status_code.i4254 = getelementptr inbounds i8, ptr %state, i64 82
+  %802 = load i16, ptr %status_code.i4254, align 2
+  %cmp.i4255 = icmp ugt i16 %802, 6553
+  br i1 %cmp.i4255, label %sw.bb3941, label %if.end.i4256
 
-if.end.i4258:                                     ; preds = %switch.lookup6010
-  %switch.idx.cast6012 = zext nneg i8 %switch.tableidx6011 to i32
-  %mul.i4259 = mul nuw i16 %801, 10
-  store i16 %mul.i4259, ptr %status_code.i4256, align 2
-  %conv9.i4260 = zext i16 %mul.i4259 to i32
-  %sub.i4261 = xor i32 %switch.idx.cast6012, 65535
-  %cmp10.i4262 = icmp ult i32 %sub.i4261, %conv9.i4260
-  br i1 %cmp10.i4262, label %sw.bb3941, label %llhttp__internal__c_mul_add_status_code.exit4266
+if.end.i4256:                                     ; preds = %switch.lookup6008
+  %switch.idx.cast6010 = zext nneg i8 %switch.tableidx6009 to i32
+  %mul.i4257 = mul nuw i16 %802, 10
+  store i16 %mul.i4257, ptr %status_code.i4254, align 2
+  %conv9.i4258 = zext i16 %mul.i4257 to i32
+  %sub.i4259 = xor i32 %switch.idx.cast6010, 65535
+  %cmp10.i4260 = icmp ult i32 %sub.i4259, %conv9.i4258
+  br i1 %cmp10.i4260, label %sw.bb3941, label %llhttp__internal__c_mul_add_status_code.exit4264
 
-llhttp__internal__c_mul_add_status_code.exit4266: ; preds = %if.end.i4258
-  %802 = zext nneg i8 %switch.tableidx6011 to i16
-  %conv24.i4264 = add i16 %mul.i4259, %802
-  store i16 %conv24.i4264, ptr %status_code.i4256, align 2
+llhttp__internal__c_mul_add_status_code.exit4264: ; preds = %if.end.i4256
+  %803 = zext nneg i8 %switch.tableidx6009 to i16
+  %conv24.i4262 = add i16 %mul.i4257, %803
+  store i16 %conv24.i4262, ptr %status_code.i4254, align 2
   br label %s_n_llhttp__internal__n_res_status_code_digit_2
 
-sw.bb3941:                                        ; preds = %switch.lookup6010, %if.end.i4258
+sw.bb3941:                                        ; preds = %switch.lookup6008, %if.end.i4256
   %error3863 = getelementptr inbounds i8, ptr %state, i64 24
   store i32 13, ptr %error3863, align 8
   %reason3864 = getelementptr inbounds i8, ptr %state, i64 32
@@ -9104,9 +9105,9 @@ s_n_llhttp__internal__n_error_74:                 ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_6: ; preds = %sw.bb3997, %s_n_llhttp__internal__n_invoke_store_http_minor_1, %sw.bb3998, %sw.bb3996
   %_span_pos03963 = getelementptr inbounds i8, ptr %state, i64 8
-  %803 = load ptr, ptr %_span_pos03963, align 8
+  %804 = load ptr, ptr %_span_pos03963, align 8
   store ptr null, ptr %_span_pos03963, align 8
-  %call3965 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %803, ptr noundef nonnull %p.addr.247) #8
+  %call3965 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %804, ptr noundef nonnull %p.addr.247) #8
   %cmp3966.not = icmp eq i32 %call3965, 0
   br i1 %cmp3966.not, label %s_n_llhttp__internal__n_invoke_llhttp__on_version_complete_1, label %if.then3968
 
@@ -9120,9 +9121,9 @@ if.then3968:                                      ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_5: ; preds = %sw.bb3997, %sw.default4002, %sw.bb3998, %sw.bb3996
   %_span_pos03975 = getelementptr inbounds i8, ptr %state, i64 8
-  %804 = load ptr, ptr %_span_pos03975, align 8
+  %805 = load ptr, ptr %_span_pos03975, align 8
   store ptr null, ptr %_span_pos03975, align 8
-  %call3977 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %804, ptr noundef nonnull %p.addr.247) #8
+  %call3977 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %805, ptr noundef nonnull %p.addr.247) #8
   %cmp3978.not = icmp eq i32 %call3977, 0
   br i1 %cmp3978.not, label %s_n_llhttp__internal__n_error_73, label %if.then3980
 
@@ -9144,9 +9145,9 @@ sw.bb3998:                                        ; preds = %sw.default4002
   br i1 %cond4, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_6, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_5
 
 sw.default4002:                                   ; preds = %s_n_llhttp__internal__n_invoke_store_http_minor_1
-  %http_major.i4273 = getelementptr inbounds i8, ptr %state, i64 74
-  %805 = load i8, ptr %http_major.i4273, align 2
-  switch i8 %805, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_5 [
+  %http_major.i4271 = getelementptr inbounds i8, ptr %state, i64 74
+  %806 = load i8, ptr %http_major.i4271, align 2
+  switch i8 %806, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_5 [
     i8 0, label %sw.bb3996
     i8 1, label %sw.bb3997
     i8 2, label %sw.bb3998
@@ -9158,19 +9159,19 @@ s_n_llhttp__internal__n_invoke_store_http_minor_1: ; preds = %if.end2500, %sw.bb
   %cond48 = phi i1 [ true, %sw.bb2520 ], [ false, %sw.bb2518 ], [ false, %sw.bb2516 ], [ false, %sw.bb2514 ], [ false, %sw.bb2512 ], [ false, %sw.bb2510 ], [ false, %sw.bb2508 ], [ false, %sw.bb2506 ], [ false, %sw.bb2504 ], [ false, %if.end2500 ]
   %match.9 = phi i8 [ 9, %sw.bb2520 ], [ 8, %sw.bb2518 ], [ 7, %sw.bb2516 ], [ 6, %sw.bb2514 ], [ 5, %sw.bb2512 ], [ 4, %sw.bb2510 ], [ 3, %sw.bb2508 ], [ 2, %sw.bb2506 ], [ 1, %sw.bb2504 ], [ 0, %if.end2500 ]
   %p.addr.247 = getelementptr inbounds i8, ptr %p.addr.208, i64 1
-  %http_minor.i4276 = getelementptr inbounds i8, ptr %state, i64 75
-  store i8 %match.9, ptr %http_minor.i4276, align 1
-  %lenient_flags.i4277 = getelementptr inbounds i8, ptr %state, i64 77
-  %806 = load i8, ptr %lenient_flags.i4277, align 1
-  %807 = and i8 %806, 16
-  %cond3.not = icmp eq i8 %807, 0
+  %http_minor.i4274 = getelementptr inbounds i8, ptr %state, i64 75
+  store i8 %match.9, ptr %http_minor.i4274, align 1
+  %lenient_flags.i4275 = getelementptr inbounds i8, ptr %state, i64 77
+  %807 = load i8, ptr %lenient_flags.i4275, align 1
+  %808 = and i8 %807, 16
+  %cond3.not = icmp eq i8 %808, 0
   br i1 %cond3.not, label %sw.default4002, label %s_n_llhttp__internal__n_span_end_llhttp__on_version_6
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_7: ; preds = %if.end2500
   %_span_pos04007 = getelementptr inbounds i8, ptr %state, i64 8
-  %808 = load ptr, ptr %_span_pos04007, align 8
+  %809 = load ptr, ptr %_span_pos04007, align 8
   store ptr null, ptr %_span_pos04007, align 8
-  %call4009 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %808, ptr noundef nonnull %p.addr.208) #8
+  %call4009 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %809, ptr noundef nonnull %p.addr.208) #8
   %cmp4010.not = icmp eq i32 %call4009, 0
   br i1 %cmp4010.not, label %s_n_llhttp__internal__n_error_85, label %if.then4012
 
@@ -9184,9 +9185,9 @@ if.then4012:                                      ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_8: ; preds = %if.end2532
   %_span_pos04019 = getelementptr inbounds i8, ptr %state, i64 8
-  %809 = load ptr, ptr %_span_pos04019, align 8
+  %810 = load ptr, ptr %_span_pos04019, align 8
   store ptr null, ptr %_span_pos04019, align 8
-  %call4021 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %809, ptr noundef nonnull %p.addr.210) #8
+  %call4021 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %810, ptr noundef nonnull %p.addr.210) #8
   %cmp4022.not = icmp eq i32 %call4021, 0
   br i1 %cmp4022.not, label %s_n_llhttp__internal__n_error_86, label %if.then4024
 
@@ -9200,15 +9201,15 @@ if.then4024:                                      ; preds = %s_n_llhttp__interna
 
 s_n_llhttp__internal__n_invoke_store_http_major_1: ; preds = %if.end2546
   %p.addr.248 = getelementptr inbounds i8, ptr %p.addr.212, i64 1
-  %http_major.i4281 = getelementptr inbounds i8, ptr %state, i64 74
-  store i8 %switch.tableidx6014, ptr %http_major.i4281, align 2
+  %http_major.i4279 = getelementptr inbounds i8, ptr %state, i64 74
+  store i8 %switch.tableidx6012, ptr %http_major.i4279, align 2
   br label %s_n_llhttp__internal__n_res_http_dot
 
 s_n_llhttp__internal__n_span_end_llhttp__on_version_9: ; preds = %if.end2546
   %_span_pos04033 = getelementptr inbounds i8, ptr %state, i64 8
-  %810 = load ptr, ptr %_span_pos04033, align 8
+  %811 = load ptr, ptr %_span_pos04033, align 8
   store ptr null, ptr %_span_pos04033, align 8
-  %call4035 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %810, ptr noundef nonnull %p.addr.212) #8
+  %call4035 = tail call i32 @llhttp__on_version(ptr noundef nonnull %state, ptr noundef %811, ptr noundef nonnull %p.addr.212) #8
   %cmp4036.not = icmp eq i32 %call4035, 0
   br i1 %cmp4036.not, label %s_n_llhttp__internal__n_error_87, label %if.then4038
 
@@ -9284,8 +9285,8 @@ if.then4082:                                      ; preds = %sw.bb2624
   br label %return
 
 s_n_llhttp__internal__n_invoke_update_type_2:     ; preds = %if.end2660
-  %type.i4282 = getelementptr inbounds i8, ptr %state, i64 72
-  store i8 1, ptr %type.i4282, align 8
+  %type.i4280 = getelementptr inbounds i8, ptr %state, i64 72
+  store i8 1, ptr %type.i4280, align 8
   br label %s_n_llhttp__internal__n_span_start_llhttp__on_method_1
 
 sw.bb4099:                                        ; preds = %s_n_llhttp__internal__n_invoke_update_finish
@@ -9314,7 +9315,7 @@ sw.bb4111:                                        ; preds = %sw.bb4114
   %reason4102 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.90, ptr %reason4102, align 8
   %error_pos4103 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.2255249, ptr %error_pos4103, align 8
+  store ptr %p.addr.2255247, ptr %error_pos4103, align 8
   store ptr inttoptr (i64 225 to ptr), ptr %_current, align 8
   br label %return
 
@@ -9324,25 +9325,25 @@ sw.default4112:                                   ; preds = %sw.bb4114
   %reason4106 = getelementptr inbounds i8, ptr %state, i64 32
   store ptr @.str.91, ptr %reason4106, align 8
   %error_pos4107 = getelementptr inbounds i8, ptr %state, i64 40
-  store ptr %p.addr.2255249, ptr %error_pos4107, align 8
+  store ptr %p.addr.2255247, ptr %error_pos4107, align 8
   store ptr null, ptr %_current, align 8
   br label %return
 
 s_n_llhttp__internal__n_invoke_load_initial_message_completed: ; preds = %if.end2676
-  %initial_message_completed.i4283 = getelementptr inbounds i8, ptr %state, i64 84
-  %811 = load i8, ptr %initial_message_completed.i4283, align 4
-  %cond1 = icmp eq i8 %811, 1
+  %initial_message_completed.i4281 = getelementptr inbounds i8, ptr %state, i64 84
+  %812 = load i8, ptr %initial_message_completed.i4281, align 4
+  %cond1 = icmp eq i8 %812, 1
   br i1 %cond1, label %sw.bb4114, label %s_n_llhttp__internal__n_invoke_update_finish
 
 sw.bb4114:                                        ; preds = %s_n_llhttp__internal__n_invoke_load_initial_message_completed
-  %call4109 = tail call i32 @llhttp__on_reset(ptr noundef nonnull %state, ptr noundef nonnull %p.addr.2255249, ptr noundef %endp) #8
+  %call4109 = tail call i32 @llhttp__on_reset(ptr noundef nonnull %state, ptr noundef nonnull %p.addr.2255247, ptr noundef %endp) #8
   switch i32 %call4109, label %sw.default4112 [
     i32 0, label %s_n_llhttp__internal__n_invoke_update_finish
     i32 21, label %sw.bb4111
   ]
 
-return:                                           ; preds = %s_n_llhttp__internal__n_start.backedge, %sw.default2360, %sw.bb1359, %sw.bb1301, %sw.bb1248, %sw.bb1193, %sw.bb1161, %sw.bb1139, %sw.bb1094, %sw.bb140, %sw.bb113, %sw.bb89, %sw.bb351, %sw.bb685, %s_n_llhttp__internal__n_header_value_discard_ws.backedge, %sw.bb623, %sw.bb610, %s_n_llhttp__internal__n_header_value_te_token_ows.backedge, %llhttp__internal__c_mul_add_content_length_1.exit, %sw.bb540, %s_n_llhttp__internal__n_header_value_connection.backedge, %sw.bb448, %sw.bb435, %sw.bb599, %sw.default412, %s_n_llhttp__internal__n_closed.backedge, %entry, %if.end320, %s_n_llhttp__internal__n_start.preheader, %s_n_llhttp__internal__n_res_status.preheader, %s_n_llhttp__internal__n_req_spaces_before_url.preheader, %s_n_llhttp__internal__n_url_schema.preheader, %s_n_llhttp__internal__n_url_server.preheader, %s_n_llhttp__internal__n_url_path.preheader, %s_n_llhttp__internal__n_url_query.preheader, %s_n_llhttp__internal__n_url_fragment.preheader, %s_n_llhttp__internal__n_req_http_start.preheader, %s_n_llhttp__internal__n_chunk_extension_name.preheader, %s_n_llhttp__internal__n_chunk_extension_value.preheader, %s_n_llhttp__internal__n_chunk_extension_quoted_value.preheader, %s_n_llhttp__internal__n_header_field_colon_discard_ws.preheader, %s_n_llhttp__internal__n_header_field_general.preheader, %s_n_llhttp__internal__n_header_value_discard_ws.preheader, %s_n_llhttp__internal__n_header_value_te_chunked_last.preheader, %s_n_llhttp__internal__n_header_value_te_token.preheader, %s_n_llhttp__internal__n_header_value_te_token_ows.preheader, %s_n_llhttp__internal__n_header_value_content_length.preheader, %s_n_llhttp__internal__n_header_value_content_length_ws.preheader, %s_n_llhttp__internal__n_header_value_connection.preheader, %s_n_llhttp__internal__n_header_value_connection_ws.preheader, %s_n_llhttp__internal__n_header_value_connection_token.preheader, %s_n_llhttp__internal__n_header_value.preheader, %s_n_llhttp__internal__n_header_value_lenient.preheader, %s_n_llhttp__internal__n_closed.preheader, %llparse__match_sequence_id.exit4108.thread4963, %llparse__match_sequence_id.exit4082.thread4951, %llparse__match_sequence_id.exit4058.thread4939, %llparse__match_sequence_id.exit4034.thread4927, %llparse__match_sequence_id.exit4010.thread4915, %llparse__match_sequence_id.exit3986.thread4903, %llparse__match_sequence_id.exit3962.thread4891, %llparse__match_sequence_id.exit3938.thread4879, %llparse__match_sequence_id.exit3914.thread4867, %llparse__match_sequence_id.exit3890.thread4855, %llparse__match_sequence_id.exit3866.thread4843, %llparse__match_sequence_id.exit3842.thread4831, %llparse__match_sequence_id.exit3818.thread4819, %llparse__match_sequence_id.exit3794.thread4807, %llparse__match_sequence_id.exit3770.thread4795, %llparse__match_sequence_id.exit3746.thread4783, %llparse__match_sequence_id.exit3722.thread4771, %llparse__match_sequence_id.exit3698.thread4759, %llparse__match_sequence_id.exit3674.thread4747, %llparse__match_sequence_id.exit3650.thread4735, %llparse__match_sequence_id.exit3626.thread4723, %llparse__match_sequence_id.exit3602.thread4711, %llparse__match_sequence_id.exit3578.thread4699, %llparse__match_sequence_id.exit3554.thread4687, %llparse__match_sequence_id.exit3530.thread4675, %llparse__match_sequence_id.exit3506.thread4663, %llparse__match_sequence_id.exit3482.thread4651, %llparse__match_sequence_id.exit3458.thread4639, %llparse__match_sequence_id.exit3434.thread4627, %llparse__match_sequence_id.exit3410.thread4615, %llparse__match_sequence_id.exit3386.thread4603, %llparse__match_sequence_id.exit3362.thread4591, %llparse__match_sequence_id.exit3338.thread4579, %llparse__match_sequence_id.exit3314.thread4567, %llparse__match_sequence_id.exit3290.thread4555, %llparse__match_sequence_id.exit3266.thread4543, %llparse__match_sequence_id.exit3242.thread4531, %llparse__match_sequence_id.exit3218.thread4519, %llparse__match_sequence_id.exit3194.thread4507, %llparse__match_sequence_id.exit3170.thread4495, %llparse__match_sequence_id.exit3146.thread4483, %llparse__match_sequence_id.exit3122.thread4471, %llparse__match_sequence_id.exit3098.thread4459, %llparse__match_sequence_id.exit3072.thread4447, %llparse__match_sequence_id.exit3046.thread4435, %llparse__match_sequence_id.exit3020.thread4423, %llparse__match_sequence_to_lower.exit2991.thread4411, %llparse__match_sequence_to_lower.exit2965.thread4399, %llparse__match_sequence_to_lower.exit2939.thread4387, %llparse__match_sequence_to_lower.exit2913.thread4375, %llparse__match_sequence_to_lower.exit2887.thread4363, %llparse__match_sequence_to_lower.exit2861.thread4351, %llparse__match_sequence_to_lower_unsafe.exit.thread4339, %llparse__match_sequence_to_lower.exit2814.thread4327, %llparse__match_sequence_to_lower.exit2787.thread4315, %llparse__match_sequence_to_lower.exit.thread4303, %llparse__match_sequence_id.exit.thread4291, %s_n_llhttp__internal__n_start_req_or_res, %s_n_llhttp__internal__n_span_start_llhttp__on_method, %s_n_llhttp__internal__n_req_or_res_method, %s_n_llhttp__internal__n_req_or_res_method_1, %s_n_llhttp__internal__n_req_or_res_method_3, %s_n_llhttp__internal__n_req_or_res_method_2, %s_n_llhttp__internal__n_start_res, %s_n_llhttp__internal__n_span_start_llhttp__on_version_1, %s_n_llhttp__internal__n_res_http_major, %s_n_llhttp__internal__n_res_http_dot, %s_n_llhttp__internal__n_res_http_minor, %s_n_llhttp__internal__n_res_after_version, %s_n_llhttp__internal__n_res_status_code_digit_1, %s_n_llhttp__internal__n_res_status_code_digit_2, %s_n_llhttp__internal__n_res_status_code_digit_3, %s_n_llhttp__internal__n_res_status_code_otherwise, %s_n_llhttp__internal__n_res_status_start, %s_n_llhttp__internal__n_span_start_llhttp__on_status, %s_n_llhttp__internal__n_res_line_almost_done, %s_n_llhttp__internal__n_span_start_llhttp__on_method_1, %s_n_llhttp__internal__n_after_start_req, %s_n_llhttp__internal__n_after_start_req_63, %s_n_llhttp__internal__n_after_start_req_64, %s_n_llhttp__internal__n_after_start_req_69, %s_n_llhttp__internal__n_after_start_req_66, %s_n_llhttp__internal__n_after_start_req_68, %s_n_llhttp__internal__n_after_start_req_67, %s_n_llhttp__internal__n_after_start_req_65, %s_n_llhttp__internal__n_after_start_req_60, %s_n_llhttp__internal__n_after_start_req_62, %s_n_llhttp__internal__n_after_start_req_61, %s_n_llhttp__internal__n_after_start_req_52, %s_n_llhttp__internal__n_after_start_req_59, %s_n_llhttp__internal__n_after_start_req_58, %s_n_llhttp__internal__n_after_start_req_53, %s_n_llhttp__internal__n_after_start_req_55, %s_n_llhttp__internal__n_after_start_req_57, %s_n_llhttp__internal__n_after_start_req_56, %s_n_llhttp__internal__n_after_start_req_54, %s_n_llhttp__internal__n_after_start_req_46, %s_n_llhttp__internal__n_after_start_req_47, %s_n_llhttp__internal__n_after_start_req_51, %s_n_llhttp__internal__n_after_start_req_50, %s_n_llhttp__internal__n_after_start_req_49, %s_n_llhttp__internal__n_after_start_req_48, %s_n_llhttp__internal__n_after_start_req_33, %s_n_llhttp__internal__n_after_start_req_44, %s_n_llhttp__internal__n_after_start_req_45, %s_n_llhttp__internal__n_after_start_req_39, %s_n_llhttp__internal__n_after_start_req_40, %s_n_llhttp__internal__n_after_start_req_41, %s_n_llhttp__internal__n_after_start_req_43, %s_n_llhttp__internal__n_after_start_req_42, %s_n_llhttp__internal__n_after_start_req_38, %s_n_llhttp__internal__n_after_start_req_37, %s_n_llhttp__internal__n_after_start_req_34, %s_n_llhttp__internal__n_after_start_req_36, %s_n_llhttp__internal__n_after_start_req_35, %s_n_llhttp__internal__n_after_start_req_32, %s_n_llhttp__internal__n_after_start_req_31, %s_n_llhttp__internal__n_after_start_req_22, %s_n_llhttp__internal__n_after_start_req_30, %s_n_llhttp__internal__n_after_start_req_25, %s_n_llhttp__internal__n_after_start_req_27, %s_n_llhttp__internal__n_after_start_req_29, %s_n_llhttp__internal__n_after_start_req_28, %s_n_llhttp__internal__n_after_start_req_26, %s_n_llhttp__internal__n_after_start_req_24, %s_n_llhttp__internal__n_after_start_req_23, %s_n_llhttp__internal__n_after_start_req_19, %s_n_llhttp__internal__n_after_start_req_21, %s_n_llhttp__internal__n_after_start_req_20, %s_n_llhttp__internal__n_after_start_req_18, %s_n_llhttp__internal__n_after_start_req_15, %s_n_llhttp__internal__n_after_start_req_16, %s_n_llhttp__internal__n_after_start_req_17, %s_n_llhttp__internal__n_after_start_req_14, %s_n_llhttp__internal__n_after_start_req_10, %s_n_llhttp__internal__n_after_start_req_11, %s_n_llhttp__internal__n_after_start_req_13, %s_n_llhttp__internal__n_after_start_req_12, %s_n_llhttp__internal__n_after_start_req_5, %s_n_llhttp__internal__n_after_start_req_7, %s_n_llhttp__internal__n_after_start_req_9, %s_n_llhttp__internal__n_after_start_req_8, %s_n_llhttp__internal__n_after_start_req_6, %s_n_llhttp__internal__n_after_start_req_4, %s_n_llhttp__internal__n_after_start_req_1, %s_n_llhttp__internal__n_after_start_req_3, %s_n_llhttp__internal__n_after_start_req_2, %s_n_llhttp__internal__n_req_first_space_before_url, %s_n_llhttp__internal__n_url_entry_connect, %s_n_llhttp__internal__n_span_start_llhttp__on_url, %s_n_llhttp__internal__n_url_entry_normal, %s_n_llhttp__internal__n_span_start_llhttp__on_url_1, %s_n_llhttp__internal__n_url_start, %s_n_llhttp__internal__n_span_end_stub_schema, %s_n_llhttp__internal__n_url_schema_delim, %s_n_llhttp__internal__n_url_schema_delim_1, %s_n_llhttp__internal__n_url_server_with_at, %s_n_llhttp__internal__n_span_start_stub_path_1, %s_n_llhttp__internal__n_span_start_stub_path, %s_n_llhttp__internal__n_span_start_stub_path_2, %s_n_llhttp__internal__n_url_query_or_fragment, %s_n_llhttp__internal__n_span_end_stub_query_3, %s_n_llhttp__internal__n_url_skip_to_http, %s_n_llhttp__internal__n_url_to_http, %s_n_llhttp__internal__n_req_http_start_3, %s_n_llhttp__internal__n_req_http_start_2, %s_n_llhttp__internal__n_req_http_start_1, %s_n_llhttp__internal__n_span_start_llhttp__on_version, %s_n_llhttp__internal__n_req_http_major, %s_n_llhttp__internal__n_req_http_dot, %s_n_llhttp__internal__n_req_http_minor, %s_n_llhttp__internal__n_req_http_complete, %s_n_llhttp__internal__n_req_http_complete_crlf, %if.end916, %s_n_llhttp__internal__n_req_pri_upgrade, %s_n_llhttp__internal__n_url_skip_lf_to_http09, %s_n_llhttp__internal__n_url_skip_lf_to_http09_1, %s_n_llhttp__internal__n_url_skip_to_http09, %s_n_llhttp__internal__n_url_to_http_09, %s_n_llhttp__internal__n_headers_start, %s_n_llhttp__internal__n_header_field_start, %s_n_llhttp__internal__n_span_start_llhttp__on_header_field, %s_n_llhttp__internal__n_header_field, %s_n_llhttp__internal__n_header_field_7, %s_n_llhttp__internal__n_header_field_6, %s_n_llhttp__internal__n_header_field_5, %s_n_llhttp__internal__n_header_field_1, %s_n_llhttp__internal__n_header_field_2, %s_n_llhttp__internal__n_header_field_4, %s_n_llhttp__internal__n_header_field_3, %s_n_llhttp__internal__n_header_field_colon, %s_n_llhttp__internal__n_header_field_general_otherwise, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1, %s_n_llhttp__internal__n_header_value_te_chunked, %s_n_llhttp__internal__n_header_value_connection_3, %s_n_llhttp__internal__n_header_value_connection_2, %s_n_llhttp__internal__n_header_value_connection_1, %s_n_llhttp__internal__n_header_value_otherwise, %s_n_llhttp__internal__n_header_value_almost_done, %s_n_llhttp__internal__n_header_value_lws, %s_n_llhttp__internal__n_header_value_discard_ws_almost_done, %s_n_llhttp__internal__n_header_value_discard_lws, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value, %s_n_llhttp__internal__n_headers_almost_done, %s_n_llhttp__internal__n_span_start_llhttp__on_body_2, %s_n_llhttp__internal__n_span_start_llhttp__on_body_1, %s_n_llhttp__internal__n_chunk_size_digit, %s_n_llhttp__internal__n_chunk_size, %s_n_llhttp__internal__n_chunk_size_otherwise, %s_n_llhttp__internal__n_chunk_extensions, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_name, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_value, %s_n_llhttp__internal__n_chunk_extension_quoted_value_done, %s_n_llhttp__internal__n_chunk_size_almost_done, %s_n_llhttp__internal__n_span_start_llhttp__on_body, %s_n_llhttp__internal__n_chunk_data_almost_done, %sw.default4112, %sw.bb4111, %sw.default4100, %sw.bb4099, %if.then4082, %s_n_llhttp__internal__n_error_88, %if.then4062, %s_n_llhttp__internal__n_error_1, %s_n_llhttp__internal__n_pause_19, %s_n_llhttp__internal__n_error_91, %if.then4038, %if.then4024, %if.then4012, %if.then3980, %if.then3968, %s_n_llhttp__internal__n_error_74, %s_n_llhttp__internal__n_pause_21, %s_n_llhttp__internal__n_error_84, %s_n_llhttp__internal__n_error_83, %s_n_llhttp__internal__n_error_81, %s_n_llhttp__internal__n_error_79, %s_n_llhttp__internal__n_error_77, %if.then3915, %if.then3901, %sw.default3893, %sw.default3886, %sw.bb3885, %sw.bb3927, %sw.bb3934, %sw.bb3941, %s_n_llhttp__internal__n_error_90, %if.then3852, %s_n_llhttp__internal__n_error_89, %s_n_llhttp__internal__n_pause_22, %s_n_llhttp__internal__n_error_72, %s_n_llhttp__internal__n_error_71, %s_n_llhttp__internal__n_error_70, %s_n_llhttp__internal__n_error_69, %s_n_llhttp__internal__n_error_68, %s_n_llhttp__internal__n_error_67, %sw.bb1232, %if.then3801, %if.then3789, %if.then3777, %if.then3765, %if.then3753, %if.then3741, %s_n_llhttp__internal__n_error_65, %s_n_llhttp__internal__n_error_64, %if.then3721, %if.then3709, %if.then3697, %s_n_llhttp__internal__n_error_63, %if.then3681, %if.then3669, %if.then3657, %if.then3645, %sw.default3637, %sw.bb3636, %sw.default3625, %sw.default3605, %s_n_llhttp__internal__n_error_62, %sw.default3594, %if.then3549, %if.then3535, %if.then3523, %if.then3491, %if.then3479, %s_n_llhttp__internal__n_error_52, %s_n_llhttp__internal__n_pause_17, %s_n_llhttp__internal__n_error_54, %sw.default3459, %s_n_llhttp__internal__n_error_56, %sw.bb921, %if.then3440, %s_n_llhttp__internal__n_error_48, %if.then3424, %sw.default3412, %sw.bb3411, %sw.default3400, %s_n_llhttp__internal__n_error_47, %if.then3377, %if.then3363, %s_n_llhttp__internal__n_error_34, %s_n_llhttp__internal__n_pause_15, %if.then3310, %if.then3294, %sw.default3286, %if.then3275, %if.then3258, %if.then3219, %if.then3205, %if.then3193, %if.then3179, %s_n_llhttp__internal__n_error_40, %sw.default3146, %sw.default3139, %if.then3109, %s_n_llhttp__internal__n_error_37, %s_n_llhttp__internal__n_pause_14, %sw.bb3131, %sw.default3089, %if.then3073, %sw.default3065, %sw.default3047, %sw.bb3046, %sw.bb3051, %sw.default3023, %sw.bb3022, %sw.default3008, %sw.bb3007, %s_n_llhttp__internal__n_error_29, %if.then2986, %s_n_llhttp__internal__n_error_28, %s_n_llhttp__internal__n_pause_11, %s_n_llhttp__internal__n_error_27, %s_n_llhttp__internal__n_error_25, %if.then2953, %if.then2939, %sw.default2931, %sw.bb2930, %if.then2913, %if.then2899, %s_n_llhttp__internal__n_error_22, %s_n_llhttp__internal__n_pause_9, %if.then2877, %if.then2865, %s_n_llhttp__internal__n_error_19, %s_n_llhttp__internal__n_pause_8, %s_n_llhttp__internal__n_error_20, %if.then2839, %s_n_llhttp__internal__n_error_18, %s_n_llhttp__internal__n_pause_7, %if.then2817, %s_n_llhttp__internal__n_error_16, %s_n_llhttp__internal__n_pause_6, %if.then2795, %s_n_llhttp__internal__n_error_15, %s_n_llhttp__internal__n_pause_5, %sw.bb160, %sw.bb158, %sw.default2771, %sw.default2764, %sw.bb2763, %if.then2746, %sw.default2740, %sw.default2733, %sw.bb2732, %sw.bb2965, %sw.default2717, %sw.bb2716, %sw.default2700, %s_n_llhttp__internal__n_error_2, %s_n_llhttp__internal__n_error_87, %s_n_llhttp__internal__n_error_86, %s_n_llhttp__internal__n_error_85, %s_n_llhttp__internal__n_error_73, %s_n_llhttp__internal__n_error_59, %s_n_llhttp__internal__n_error_58, %s_n_llhttp__internal__n_error_57, %s_n_llhttp__internal__n_error_51, %s_n_llhttp__internal__n_error_45, %s_n_llhttp__internal__n_error_46, %s_n_llhttp__internal__n_error_44, %s_n_llhttp__internal__n_error_43, %s_n_llhttp__internal__n_error_41, %s_n_llhttp__internal__n_error_5, %if.end300, %s_n_llhttp__internal__n_error_24, %s_n_llhttp__internal__n_error_23, %s_n_llhttp__internal__n_error_21, %if.end27, %s_n_llhttp__internal__n_pause_1
-  %retval.0 = phi i32 [ 0, %sw.default4112 ], [ 0, %sw.bb4111 ], [ 0, %sw.default4100 ], [ 0, %sw.bb4099 ], [ 0, %s_n_llhttp__internal__n_error_88 ], [ 0, %if.then4082 ], [ 0, %if.then4038 ], [ 0, %s_n_llhttp__internal__n_error_87 ], [ 0, %if.then4012 ], [ 0, %s_n_llhttp__internal__n_error_85 ], [ 0, %if.then3968 ], [ 0, %s_n_llhttp__internal__n_error_74 ], [ 0, %s_n_llhttp__internal__n_pause_21 ], [ 0, %s_n_llhttp__internal__n_error_83 ], [ 0, %sw.bb3941 ], [ 0, %s_n_llhttp__internal__n_error_81 ], [ 0, %sw.bb3934 ], [ 0, %s_n_llhttp__internal__n_error_79 ], [ 0, %sw.bb3927 ], [ 0, %s_n_llhttp__internal__n_error_77 ], [ 0, %if.then3915 ], [ 0, %sw.default3886 ], [ 0, %sw.bb3885 ], [ 0, %if.then3377 ], [ 0, %s_n_llhttp__internal__n_error_34 ], [ 0, %s_n_llhttp__internal__n_pause_15 ], [ 0, %if.then3179 ], [ 0, %s_n_llhttp__internal__n_error_37 ], [ 0, %s_n_llhttp__internal__n_pause_14 ], [ 0, %s_n_llhttp__internal__n_error_40 ], [ 0, %if.then3205 ], [ 0, %if.then3193 ], [ 0, %if.then3219 ], [ 0, %s_n_llhttp__internal__n_error_41 ], [ 0, %if.then3294 ], [ 0, %s_n_llhttp__internal__n_error_46 ], [ 0, %if.then3310 ], [ 0, %s_n_llhttp__internal__n_error_45 ], [ 0, %if.then3275 ], [ 0, %s_n_llhttp__internal__n_error_44 ], [ 0, %if.then3258 ], [ 0, %s_n_llhttp__internal__n_error_43 ], [ 0, %sw.default3286 ], [ 0, %sw.bb3131 ], [ 0, %if.then3109 ], [ 0, %sw.default3089 ], [ 0, %sw.default3146 ], [ 0, %sw.default3139 ], [ 0, %s_n_llhttp__internal__n_error_47 ], [ 0, %if.then3363 ], [ 0, %if.then3073 ], [ 0, %s_n_llhttp__internal__n_error_5 ], [ 0, %sw.default3023 ], [ 0, %sw.bb3022 ], [ 0, %s_n_llhttp__internal__n_error_28 ], [ 0, %s_n_llhttp__internal__n_pause_11 ], [ 0, %sw.default2700 ], [ 0, %s_n_llhttp__internal__n_pause_1 ], [ 0, %sw.bb3051 ], [ 0, %sw.default3047 ], [ 0, %sw.bb3046 ], [ 0, %sw.default3008 ], [ 0, %sw.bb3007 ], [ 0, %s_n_llhttp__internal__n_error_29 ], [ 0, %if.then2986 ], [ 30, %if.end300 ], [ 0, %s_n_llhttp__internal__n_error_27 ], [ 0, %sw.bb2965 ], [ 0, %s_n_llhttp__internal__n_error_25 ], [ 0, %if.then2953 ], [ 0, %s_n_llhttp__internal__n_error_24 ], [ 0, %if.then2939 ], [ 0, %sw.default2931 ], [ 0, %sw.bb2930 ], [ 0, %if.then2913 ], [ 0, %s_n_llhttp__internal__n_error_23 ], [ 0, %if.then2899 ], [ 0, %s_n_llhttp__internal__n_error_22 ], [ 0, %s_n_llhttp__internal__n_pause_9 ], [ 0, %if.then2877 ], [ 0, %s_n_llhttp__internal__n_error_21 ], [ 0, %if.then2865 ], [ 0, %s_n_llhttp__internal__n_error_19 ], [ 0, %s_n_llhttp__internal__n_pause_8 ], [ 0, %s_n_llhttp__internal__n_error_20 ], [ 0, %sw.default2764 ], [ 0, %sw.bb2763 ], [ 0, %if.then2746 ], [ 0, %sw.default2733 ], [ 0, %sw.bb2732 ], [ 0, %sw.default2740 ], [ 5, %if.end27 ], [ 0, %sw.default2771 ], [ 0, %if.then2839 ], [ 0, %s_n_llhttp__internal__n_error_18 ], [ 0, %s_n_llhttp__internal__n_pause_7 ], [ 0, %if.then2817 ], [ 0, %s_n_llhttp__internal__n_error_16 ], [ 0, %s_n_llhttp__internal__n_pause_6 ], [ 0, %if.then2795 ], [ 0, %s_n_llhttp__internal__n_error_15 ], [ 0, %s_n_llhttp__internal__n_pause_5 ], [ 0, %sw.bb160 ], [ 0, %sw.bb158 ], [ 0, %sw.default2717 ], [ 0, %sw.bb2716 ], [ 0, %sw.default3065 ], [ 0, %sw.default3400 ], [ 0, %sw.default3893 ], [ 0, %if.then3901 ], [ 0, %s_n_llhttp__internal__n_error_84 ], [ 0, %if.then3980 ], [ 0, %s_n_llhttp__internal__n_error_73 ], [ 0, %if.then4024 ], [ 0, %s_n_llhttp__internal__n_error_86 ], [ 0, %if.then4062 ], [ 0, %s_n_llhttp__internal__n_error_1 ], [ 0, %s_n_llhttp__internal__n_pause_19 ], [ 0, %s_n_llhttp__internal__n_error_71 ], [ 0, %s_n_llhttp__internal__n_error_70 ], [ 0, %s_n_llhttp__internal__n_error_69 ], [ 0, %s_n_llhttp__internal__n_error_68 ], [ 0, %s_n_llhttp__internal__n_error_67 ], [ 0, %sw.bb1232 ], [ 0, %s_n_llhttp__internal__n_error_64 ], [ 0, %s_n_llhttp__internal__n_error_63 ], [ 0, %if.then3681 ], [ 0, %sw.default3637 ], [ 0, %sw.bb3636 ], [ 0, %s_n_llhttp__internal__n_error_62 ], [ 0, %sw.default3625 ], [ 0, %if.then3549 ], [ 0, %s_n_llhttp__internal__n_error_59 ], [ 0, %if.then3523 ], [ 0, %s_n_llhttp__internal__n_error_57 ], [ 0, %if.then3479 ], [ 0, %s_n_llhttp__internal__n_error_52 ], [ 0, %s_n_llhttp__internal__n_pause_17 ], [ 0, %s_n_llhttp__internal__n_error_56 ], [ 0, %sw.bb921 ], [ 0, %sw.default3459 ], [ 0, %s_n_llhttp__internal__n_error_54 ], [ 0, %if.then3491 ], [ 0, %s_n_llhttp__internal__n_error_51 ], [ 0, %if.then3535 ], [ 0, %s_n_llhttp__internal__n_error_58 ], [ 0, %sw.default3605 ], [ 0, %sw.default3594 ], [ 0, %s_n_llhttp__internal__n_error_2 ], [ 0, %if.then3669 ], [ 0, %s_n_llhttp__internal__n_error_48 ], [ 0, %sw.default3412 ], [ 0, %sw.bb3411 ], [ 0, %if.then3657 ], [ 0, %if.then3721 ], [ 0, %if.then3709 ], [ 0, %if.then3697 ], [ 0, %s_n_llhttp__internal__n_error_65 ], [ 0, %if.then3645 ], [ 0, %if.then3440 ], [ 0, %if.then3424 ], [ 0, %if.then3801 ], [ 0, %if.then3789 ], [ 0, %if.then3777 ], [ 0, %if.then3765 ], [ 0, %if.then3753 ], [ 0, %if.then3741 ], [ 0, %s_n_llhttp__internal__n_error_72 ], [ 0, %s_n_llhttp__internal__n_error_90 ], [ 0, %if.then3852 ], [ 0, %s_n_llhttp__internal__n_error_89 ], [ 0, %s_n_llhttp__internal__n_pause_22 ], [ 0, %s_n_llhttp__internal__n_error_91 ], [ 4, %s_n_llhttp__internal__n_chunk_data_almost_done ], [ 6, %s_n_llhttp__internal__n_span_start_llhttp__on_body ], [ 8, %s_n_llhttp__internal__n_chunk_size_almost_done ], [ 12, %s_n_llhttp__internal__n_chunk_extension_quoted_value_done ], [ 19, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_value ], [ 22, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_name ], [ 23, %s_n_llhttp__internal__n_chunk_extensions ], [ 24, %s_n_llhttp__internal__n_chunk_size_otherwise ], [ 25, %s_n_llhttp__internal__n_chunk_size ], [ 26, %s_n_llhttp__internal__n_chunk_size_digit ], [ 31, %s_n_llhttp__internal__n_span_start_llhttp__on_body_1 ], [ 33, %s_n_llhttp__internal__n_span_start_llhttp__on_body_2 ], [ 36, %s_n_llhttp__internal__n_headers_almost_done ], [ 39, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value ], [ 40, %s_n_llhttp__internal__n_header_value_discard_lws ], [ 41, %s_n_llhttp__internal__n_header_value_discard_ws_almost_done ], [ 42, %s_n_llhttp__internal__n_header_value_lws ], [ 43, %s_n_llhttp__internal__n_header_value_almost_done ], [ 46, %s_n_llhttp__internal__n_header_value_otherwise ], [ 49, %s_n_llhttp__internal__n_header_value_connection_1 ], [ 50, %s_n_llhttp__internal__n_header_value_connection_2 ], [ 51, %s_n_llhttp__internal__n_header_value_connection_3 ], [ 63, %s_n_llhttp__internal__n_header_value_te_chunked ], [ 64, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1 ], [ 67, %s_n_llhttp__internal__n_header_field_general_otherwise ], [ 69, %s_n_llhttp__internal__n_header_field_colon ], [ 70, %s_n_llhttp__internal__n_header_field_3 ], [ 71, %s_n_llhttp__internal__n_header_field_4 ], [ 72, %s_n_llhttp__internal__n_header_field_2 ], [ 73, %s_n_llhttp__internal__n_header_field_1 ], [ 74, %s_n_llhttp__internal__n_header_field_5 ], [ 75, %s_n_llhttp__internal__n_header_field_6 ], [ 76, %s_n_llhttp__internal__n_header_field_7 ], [ 77, %s_n_llhttp__internal__n_header_field ], [ 78, %s_n_llhttp__internal__n_span_start_llhttp__on_header_field ], [ 79, %s_n_llhttp__internal__n_header_field_start ], [ 80, %s_n_llhttp__internal__n_headers_start ], [ 81, %s_n_llhttp__internal__n_url_to_http_09 ], [ 82, %s_n_llhttp__internal__n_url_skip_to_http09 ], [ 83, %s_n_llhttp__internal__n_url_skip_lf_to_http09_1 ], [ 84, %s_n_llhttp__internal__n_url_skip_lf_to_http09 ], [ 85, %s_n_llhttp__internal__n_req_pri_upgrade ], [ 85, %if.end916 ], [ 86, %s_n_llhttp__internal__n_req_http_complete_crlf ], [ 87, %s_n_llhttp__internal__n_req_http_complete ], [ 92, %s_n_llhttp__internal__n_req_http_minor ], [ 94, %s_n_llhttp__internal__n_req_http_dot ], [ 96, %s_n_llhttp__internal__n_req_http_major ], [ 97, %s_n_llhttp__internal__n_span_start_llhttp__on_version ], [ 98, %s_n_llhttp__internal__n_req_http_start_1 ], [ 99, %s_n_llhttp__internal__n_req_http_start_2 ], [ 100, %s_n_llhttp__internal__n_req_http_start_3 ], [ 102, %s_n_llhttp__internal__n_url_to_http ], [ 103, %s_n_llhttp__internal__n_url_skip_to_http ], [ 105, %s_n_llhttp__internal__n_span_end_stub_query_3 ], [ 107, %s_n_llhttp__internal__n_url_query_or_fragment ], [ 109, %s_n_llhttp__internal__n_span_start_stub_path_2 ], [ 110, %s_n_llhttp__internal__n_span_start_stub_path ], [ 111, %s_n_llhttp__internal__n_span_start_stub_path_1 ], [ 112, %s_n_llhttp__internal__n_url_server_with_at ], [ 114, %s_n_llhttp__internal__n_url_schema_delim_1 ], [ 115, %s_n_llhttp__internal__n_url_schema_delim ], [ 116, %s_n_llhttp__internal__n_span_end_stub_schema ], [ 118, %s_n_llhttp__internal__n_url_start ], [ 119, %s_n_llhttp__internal__n_span_start_llhttp__on_url_1 ], [ 120, %s_n_llhttp__internal__n_url_entry_normal ], [ 121, %s_n_llhttp__internal__n_span_start_llhttp__on_url ], [ 122, %s_n_llhttp__internal__n_url_entry_connect ], [ 124, %s_n_llhttp__internal__n_req_first_space_before_url ], [ 126, %s_n_llhttp__internal__n_after_start_req_2 ], [ 127, %s_n_llhttp__internal__n_after_start_req_3 ], [ 128, %s_n_llhttp__internal__n_after_start_req_1 ], [ 129, %s_n_llhttp__internal__n_after_start_req_4 ], [ 130, %s_n_llhttp__internal__n_after_start_req_6 ], [ 131, %s_n_llhttp__internal__n_after_start_req_8 ], [ 132, %s_n_llhttp__internal__n_after_start_req_9 ], [ 133, %s_n_llhttp__internal__n_after_start_req_7 ], [ 134, %s_n_llhttp__internal__n_after_start_req_5 ], [ 135, %s_n_llhttp__internal__n_after_start_req_12 ], [ 136, %s_n_llhttp__internal__n_after_start_req_13 ], [ 137, %s_n_llhttp__internal__n_after_start_req_11 ], [ 138, %s_n_llhttp__internal__n_after_start_req_10 ], [ 139, %s_n_llhttp__internal__n_after_start_req_14 ], [ 140, %s_n_llhttp__internal__n_after_start_req_17 ], [ 141, %s_n_llhttp__internal__n_after_start_req_16 ], [ 142, %s_n_llhttp__internal__n_after_start_req_15 ], [ 143, %s_n_llhttp__internal__n_after_start_req_18 ], [ 144, %s_n_llhttp__internal__n_after_start_req_20 ], [ 145, %s_n_llhttp__internal__n_after_start_req_21 ], [ 146, %s_n_llhttp__internal__n_after_start_req_19 ], [ 147, %s_n_llhttp__internal__n_after_start_req_23 ], [ 148, %s_n_llhttp__internal__n_after_start_req_24 ], [ 149, %s_n_llhttp__internal__n_after_start_req_26 ], [ 150, %s_n_llhttp__internal__n_after_start_req_28 ], [ 151, %s_n_llhttp__internal__n_after_start_req_29 ], [ 152, %s_n_llhttp__internal__n_after_start_req_27 ], [ 153, %s_n_llhttp__internal__n_after_start_req_25 ], [ 154, %s_n_llhttp__internal__n_after_start_req_30 ], [ 155, %s_n_llhttp__internal__n_after_start_req_22 ], [ 156, %s_n_llhttp__internal__n_after_start_req_31 ], [ 157, %s_n_llhttp__internal__n_after_start_req_32 ], [ 158, %s_n_llhttp__internal__n_after_start_req_35 ], [ 159, %s_n_llhttp__internal__n_after_start_req_36 ], [ 160, %s_n_llhttp__internal__n_after_start_req_34 ], [ 161, %s_n_llhttp__internal__n_after_start_req_37 ], [ 162, %s_n_llhttp__internal__n_after_start_req_38 ], [ 163, %s_n_llhttp__internal__n_after_start_req_42 ], [ 164, %s_n_llhttp__internal__n_after_start_req_43 ], [ 165, %s_n_llhttp__internal__n_after_start_req_41 ], [ 166, %s_n_llhttp__internal__n_after_start_req_40 ], [ 167, %s_n_llhttp__internal__n_after_start_req_39 ], [ 168, %s_n_llhttp__internal__n_after_start_req_45 ], [ 169, %s_n_llhttp__internal__n_after_start_req_44 ], [ 170, %s_n_llhttp__internal__n_after_start_req_33 ], [ 171, %s_n_llhttp__internal__n_after_start_req_48 ], [ 172, %s_n_llhttp__internal__n_after_start_req_49 ], [ 173, %s_n_llhttp__internal__n_after_start_req_50 ], [ 174, %s_n_llhttp__internal__n_after_start_req_51 ], [ 175, %s_n_llhttp__internal__n_after_start_req_47 ], [ 176, %s_n_llhttp__internal__n_after_start_req_46 ], [ 177, %s_n_llhttp__internal__n_after_start_req_54 ], [ 178, %s_n_llhttp__internal__n_after_start_req_56 ], [ 179, %s_n_llhttp__internal__n_after_start_req_57 ], [ 180, %s_n_llhttp__internal__n_after_start_req_55 ], [ 181, %s_n_llhttp__internal__n_after_start_req_53 ], [ 182, %s_n_llhttp__internal__n_after_start_req_58 ], [ 183, %s_n_llhttp__internal__n_after_start_req_59 ], [ 184, %s_n_llhttp__internal__n_after_start_req_52 ], [ 185, %s_n_llhttp__internal__n_after_start_req_61 ], [ 186, %s_n_llhttp__internal__n_after_start_req_62 ], [ 187, %s_n_llhttp__internal__n_after_start_req_60 ], [ 188, %s_n_llhttp__internal__n_after_start_req_65 ], [ 189, %s_n_llhttp__internal__n_after_start_req_67 ], [ 190, %s_n_llhttp__internal__n_after_start_req_68 ], [ 191, %s_n_llhttp__internal__n_after_start_req_66 ], [ 192, %s_n_llhttp__internal__n_after_start_req_69 ], [ 193, %s_n_llhttp__internal__n_after_start_req_64 ], [ 194, %s_n_llhttp__internal__n_after_start_req_63 ], [ 195, %s_n_llhttp__internal__n_after_start_req ], [ 196, %s_n_llhttp__internal__n_span_start_llhttp__on_method_1 ], [ 197, %s_n_llhttp__internal__n_res_line_almost_done ], [ 199, %s_n_llhttp__internal__n_span_start_llhttp__on_status ], [ 200, %s_n_llhttp__internal__n_res_status_start ], [ 201, %s_n_llhttp__internal__n_res_status_code_otherwise ], [ 202, %s_n_llhttp__internal__n_res_status_code_digit_3 ], [ 203, %s_n_llhttp__internal__n_res_status_code_digit_2 ], [ 204, %s_n_llhttp__internal__n_res_status_code_digit_1 ], [ 205, %s_n_llhttp__internal__n_res_after_version ], [ 209, %s_n_llhttp__internal__n_res_http_minor ], [ 211, %s_n_llhttp__internal__n_res_http_dot ], [ 213, %s_n_llhttp__internal__n_res_http_major ], [ 214, %s_n_llhttp__internal__n_span_start_llhttp__on_version_1 ], [ 215, %s_n_llhttp__internal__n_start_res ], [ 217, %s_n_llhttp__internal__n_req_or_res_method_2 ], [ 219, %s_n_llhttp__internal__n_req_or_res_method_3 ], [ 220, %s_n_llhttp__internal__n_req_or_res_method_1 ], [ 221, %s_n_llhttp__internal__n_req_or_res_method ], [ 222, %s_n_llhttp__internal__n_span_start_llhttp__on_method ], [ 223, %s_n_llhttp__internal__n_start_req_or_res ], [ 4, %llparse__match_sequence_id.exit.thread4291 ], [ 49, %llparse__match_sequence_to_lower.exit.thread4303 ], [ 50, %llparse__match_sequence_to_lower.exit2787.thread4315 ], [ 51, %llparse__match_sequence_to_lower.exit2814.thread4327 ], [ 63, %llparse__match_sequence_to_lower_unsafe.exit.thread4339 ], [ 70, %llparse__match_sequence_to_lower.exit2861.thread4351 ], [ 71, %llparse__match_sequence_to_lower.exit2887.thread4363 ], [ 73, %llparse__match_sequence_to_lower.exit2913.thread4375 ], [ 74, %llparse__match_sequence_to_lower.exit2939.thread4387 ], [ 75, %llparse__match_sequence_to_lower.exit2965.thread4399 ], [ 76, %llparse__match_sequence_to_lower.exit2991.thread4411 ], [ 98, %llparse__match_sequence_id.exit3020.thread4423 ], [ 99, %llparse__match_sequence_id.exit3046.thread4435 ], [ 100, %llparse__match_sequence_id.exit3072.thread4447 ], [ 127, %llparse__match_sequence_id.exit3098.thread4459 ], [ 129, %llparse__match_sequence_id.exit3122.thread4471 ], [ 130, %llparse__match_sequence_id.exit3146.thread4483 ], [ 131, %llparse__match_sequence_id.exit3170.thread4495 ], [ 135, %llparse__match_sequence_id.exit3194.thread4507 ], [ 136, %llparse__match_sequence_id.exit3218.thread4519 ], [ 139, %llparse__match_sequence_id.exit3242.thread4531 ], [ 140, %llparse__match_sequence_id.exit3266.thread4543 ], [ 142, %llparse__match_sequence_id.exit3290.thread4555 ], [ 143, %llparse__match_sequence_id.exit3314.thread4567 ], [ 144, %llparse__match_sequence_id.exit3338.thread4579 ], [ 145, %llparse__match_sequence_id.exit3362.thread4591 ], [ 147, %llparse__match_sequence_id.exit3386.thread4603 ], [ 148, %llparse__match_sequence_id.exit3410.thread4615 ], [ 149, %llparse__match_sequence_id.exit3434.thread4627 ], [ 150, %llparse__match_sequence_id.exit3458.thread4639 ], [ 154, %llparse__match_sequence_id.exit3482.thread4651 ], [ 156, %llparse__match_sequence_id.exit3506.thread4663 ], [ 157, %llparse__match_sequence_id.exit3530.thread4675 ], [ 158, %llparse__match_sequence_id.exit3554.thread4687 ], [ 159, %llparse__match_sequence_id.exit3578.thread4699 ], [ 161, %llparse__match_sequence_id.exit3602.thread4711 ], [ 162, %llparse__match_sequence_id.exit3626.thread4723 ], [ 163, %llparse__match_sequence_id.exit3650.thread4735 ], [ 164, %llparse__match_sequence_id.exit3674.thread4747 ], [ 168, %llparse__match_sequence_id.exit3698.thread4759 ], [ 171, %llparse__match_sequence_id.exit3722.thread4771 ], [ 172, %llparse__match_sequence_id.exit3746.thread4783 ], [ 173, %llparse__match_sequence_id.exit3770.thread4795 ], [ 174, %llparse__match_sequence_id.exit3794.thread4807 ], [ 177, %llparse__match_sequence_id.exit3818.thread4819 ], [ 179, %llparse__match_sequence_id.exit3842.thread4831 ], [ 182, %llparse__match_sequence_id.exit3866.thread4843 ], [ 183, %llparse__match_sequence_id.exit3890.thread4855 ], [ 185, %llparse__match_sequence_id.exit3914.thread4867 ], [ 186, %llparse__match_sequence_id.exit3938.thread4879 ], [ 188, %llparse__match_sequence_id.exit3962.thread4891 ], [ 189, %llparse__match_sequence_id.exit3986.thread4903 ], [ 190, %llparse__match_sequence_id.exit4010.thread4915 ], [ 192, %llparse__match_sequence_id.exit4034.thread4927 ], [ 215, %llparse__match_sequence_id.exit4058.thread4939 ], [ 217, %llparse__match_sequence_id.exit4082.thread4951 ], [ 219, %llparse__match_sequence_id.exit4108.thread4963 ], [ 1, %s_n_llhttp__internal__n_closed.preheader ], [ 44, %s_n_llhttp__internal__n_header_value_lenient.preheader ], [ 60, %s_n_llhttp__internal__n_header_value.preheader ], [ 47, %s_n_llhttp__internal__n_header_value_connection_token.preheader ], [ 48, %s_n_llhttp__internal__n_header_value_connection_ws.preheader ], [ 52, %s_n_llhttp__internal__n_header_value_connection.preheader ], [ 55, %s_n_llhttp__internal__n_header_value_content_length_ws.preheader ], [ 56, %s_n_llhttp__internal__n_header_value_content_length.preheader ], [ 59, %s_n_llhttp__internal__n_header_value_te_token_ows.preheader ], [ 61, %s_n_llhttp__internal__n_header_value_te_token.preheader ], [ 62, %s_n_llhttp__internal__n_header_value_te_chunked_last.preheader ], [ 65, %s_n_llhttp__internal__n_header_value_discard_ws.preheader ], [ 68, %s_n_llhttp__internal__n_header_field_general.preheader ], [ 37, %s_n_llhttp__internal__n_header_field_colon_discard_ws.preheader ], [ 15, %s_n_llhttp__internal__n_chunk_extension_quoted_value.preheader ], [ 18, %s_n_llhttp__internal__n_chunk_extension_value.preheader ], [ 21, %s_n_llhttp__internal__n_chunk_extension_name.preheader ], [ 101, %s_n_llhttp__internal__n_req_http_start.preheader ], [ 104, %s_n_llhttp__internal__n_url_fragment.preheader ], [ 106, %s_n_llhttp__internal__n_url_query.preheader ], [ 108, %s_n_llhttp__internal__n_url_path.preheader ], [ 113, %s_n_llhttp__internal__n_url_server.preheader ], [ 117, %s_n_llhttp__internal__n_url_schema.preheader ], [ 123, %s_n_llhttp__internal__n_req_spaces_before_url.preheader ], [ 198, %s_n_llhttp__internal__n_res_status.preheader ], [ 226, %s_n_llhttp__internal__n_start.preheader ], [ 32, %if.end320 ], [ %conv, %entry ], [ 1, %s_n_llhttp__internal__n_closed.backedge ], [ 44, %sw.default412 ], [ 60, %sw.bb599 ], [ 47, %sw.bb435 ], [ 48, %sw.bb448 ], [ 52, %s_n_llhttp__internal__n_header_value_connection.backedge ], [ 55, %sw.bb540 ], [ 56, %llhttp__internal__c_mul_add_content_length_1.exit ], [ 59, %s_n_llhttp__internal__n_header_value_te_token_ows.backedge ], [ 61, %sw.bb610 ], [ 62, %sw.bb623 ], [ 65, %s_n_llhttp__internal__n_header_value_discard_ws.backedge ], [ 68, %sw.bb685 ], [ 37, %sw.bb351 ], [ 15, %sw.bb89 ], [ 18, %sw.bb113 ], [ 21, %sw.bb140 ], [ 101, %sw.bb1094 ], [ 104, %sw.bb1139 ], [ 106, %sw.bb1161 ], [ 108, %sw.bb1193 ], [ 113, %sw.bb1248 ], [ 117, %sw.bb1301 ], [ 123, %sw.bb1359 ], [ 198, %sw.default2360 ], [ 226, %s_n_llhttp__internal__n_start.backedge ]
+return:                                           ; preds = %s_n_llhttp__internal__n_start.backedge, %sw.default2360, %sw.bb1359, %sw.bb1301, %sw.bb1248, %sw.bb1193, %sw.bb1161, %sw.bb1139, %sw.bb1094, %sw.bb140, %sw.bb113, %sw.bb89, %sw.bb351, %sw.bb685, %s_n_llhttp__internal__n_header_value_discard_ws.backedge, %sw.bb623, %sw.bb610, %s_n_llhttp__internal__n_header_value_te_token_ows.backedge, %llhttp__internal__c_mul_add_content_length_1.exit, %sw.bb540, %s_n_llhttp__internal__n_header_value_connection.backedge, %sw.bb448, %sw.bb435, %sw.bb599, %sw.default412, %s_n_llhttp__internal__n_closed.backedge, %entry, %if.end320, %s_n_llhttp__internal__n_start.preheader, %s_n_llhttp__internal__n_res_status.preheader, %s_n_llhttp__internal__n_req_spaces_before_url.preheader, %s_n_llhttp__internal__n_url_schema.preheader, %s_n_llhttp__internal__n_url_server.preheader, %s_n_llhttp__internal__n_url_path.preheader, %s_n_llhttp__internal__n_url_query.preheader, %s_n_llhttp__internal__n_url_fragment.preheader, %s_n_llhttp__internal__n_req_http_start.preheader, %s_n_llhttp__internal__n_chunk_extension_name.preheader, %s_n_llhttp__internal__n_chunk_extension_value.preheader, %s_n_llhttp__internal__n_chunk_extension_quoted_value.preheader, %s_n_llhttp__internal__n_header_field_colon_discard_ws.preheader, %s_n_llhttp__internal__n_header_field_general.preheader, %s_n_llhttp__internal__n_header_value_discard_ws.preheader, %s_n_llhttp__internal__n_header_value_te_chunked_last.preheader, %s_n_llhttp__internal__n_header_value_te_token.preheader, %s_n_llhttp__internal__n_header_value_te_token_ows.preheader, %s_n_llhttp__internal__n_header_value_content_length.preheader, %s_n_llhttp__internal__n_header_value_content_length_ws.preheader, %s_n_llhttp__internal__n_header_value_connection.preheader, %s_n_llhttp__internal__n_header_value_connection_ws.preheader, %s_n_llhttp__internal__n_header_value_connection_token.preheader, %s_n_llhttp__internal__n_header_value.preheader, %s_n_llhttp__internal__n_header_value_lenient.preheader, %s_n_llhttp__internal__n_closed.preheader, %llparse__match_sequence_id.exit4108.thread4961, %llparse__match_sequence_id.exit4082.thread4949, %llparse__match_sequence_id.exit4058.thread4937, %llparse__match_sequence_id.exit4034.thread4925, %llparse__match_sequence_id.exit4010.thread4913, %llparse__match_sequence_id.exit3986.thread4901, %llparse__match_sequence_id.exit3962.thread4889, %llparse__match_sequence_id.exit3938.thread4877, %llparse__match_sequence_id.exit3914.thread4865, %llparse__match_sequence_id.exit3890.thread4853, %llparse__match_sequence_id.exit3866.thread4841, %llparse__match_sequence_id.exit3842.thread4829, %llparse__match_sequence_id.exit3818.thread4817, %llparse__match_sequence_id.exit3794.thread4805, %llparse__match_sequence_id.exit3770.thread4793, %llparse__match_sequence_id.exit3746.thread4781, %llparse__match_sequence_id.exit3722.thread4769, %llparse__match_sequence_id.exit3698.thread4757, %llparse__match_sequence_id.exit3674.thread4745, %llparse__match_sequence_id.exit3650.thread4733, %llparse__match_sequence_id.exit3626.thread4721, %llparse__match_sequence_id.exit3602.thread4709, %llparse__match_sequence_id.exit3578.thread4697, %llparse__match_sequence_id.exit3554.thread4685, %llparse__match_sequence_id.exit3530.thread4673, %llparse__match_sequence_id.exit3506.thread4661, %llparse__match_sequence_id.exit3482.thread4649, %llparse__match_sequence_id.exit3458.thread4637, %llparse__match_sequence_id.exit3434.thread4625, %llparse__match_sequence_id.exit3410.thread4613, %llparse__match_sequence_id.exit3386.thread4601, %llparse__match_sequence_id.exit3362.thread4589, %llparse__match_sequence_id.exit3338.thread4577, %llparse__match_sequence_id.exit3314.thread4565, %llparse__match_sequence_id.exit3290.thread4553, %llparse__match_sequence_id.exit3266.thread4541, %llparse__match_sequence_id.exit3242.thread4529, %llparse__match_sequence_id.exit3218.thread4517, %llparse__match_sequence_id.exit3194.thread4505, %llparse__match_sequence_id.exit3170.thread4493, %llparse__match_sequence_id.exit3146.thread4481, %llparse__match_sequence_id.exit3122.thread4469, %llparse__match_sequence_id.exit3098.thread4457, %llparse__match_sequence_id.exit3072.thread4445, %llparse__match_sequence_id.exit3046.thread4433, %llparse__match_sequence_id.exit3020.thread4421, %llparse__match_sequence_to_lower.exit2991.thread4409, %llparse__match_sequence_to_lower.exit2965.thread4397, %llparse__match_sequence_to_lower.exit2939.thread4385, %llparse__match_sequence_to_lower.exit2913.thread4373, %llparse__match_sequence_to_lower.exit2887.thread4361, %llparse__match_sequence_to_lower.exit2861.thread4349, %llparse__match_sequence_to_lower_unsafe.exit.thread4337, %llparse__match_sequence_to_lower.exit2814.thread4325, %llparse__match_sequence_to_lower.exit2787.thread4313, %llparse__match_sequence_to_lower.exit.thread4301, %llparse__match_sequence_id.exit.thread4289, %s_n_llhttp__internal__n_start_req_or_res, %s_n_llhttp__internal__n_span_start_llhttp__on_method, %s_n_llhttp__internal__n_req_or_res_method, %s_n_llhttp__internal__n_req_or_res_method_1, %s_n_llhttp__internal__n_req_or_res_method_3, %s_n_llhttp__internal__n_req_or_res_method_2, %s_n_llhttp__internal__n_start_res, %s_n_llhttp__internal__n_span_start_llhttp__on_version_1, %s_n_llhttp__internal__n_res_http_major, %s_n_llhttp__internal__n_res_http_dot, %s_n_llhttp__internal__n_res_http_minor, %s_n_llhttp__internal__n_res_after_version, %s_n_llhttp__internal__n_res_status_code_digit_1, %s_n_llhttp__internal__n_res_status_code_digit_2, %s_n_llhttp__internal__n_res_status_code_digit_3, %s_n_llhttp__internal__n_res_status_code_otherwise, %s_n_llhttp__internal__n_res_status_start, %s_n_llhttp__internal__n_span_start_llhttp__on_status, %s_n_llhttp__internal__n_res_line_almost_done, %s_n_llhttp__internal__n_span_start_llhttp__on_method_1, %s_n_llhttp__internal__n_after_start_req, %s_n_llhttp__internal__n_after_start_req_63, %s_n_llhttp__internal__n_after_start_req_64, %s_n_llhttp__internal__n_after_start_req_69, %s_n_llhttp__internal__n_after_start_req_66, %s_n_llhttp__internal__n_after_start_req_68, %s_n_llhttp__internal__n_after_start_req_67, %s_n_llhttp__internal__n_after_start_req_65, %s_n_llhttp__internal__n_after_start_req_60, %s_n_llhttp__internal__n_after_start_req_62, %s_n_llhttp__internal__n_after_start_req_61, %s_n_llhttp__internal__n_after_start_req_52, %s_n_llhttp__internal__n_after_start_req_59, %s_n_llhttp__internal__n_after_start_req_58, %s_n_llhttp__internal__n_after_start_req_53, %s_n_llhttp__internal__n_after_start_req_55, %s_n_llhttp__internal__n_after_start_req_57, %s_n_llhttp__internal__n_after_start_req_56, %s_n_llhttp__internal__n_after_start_req_54, %s_n_llhttp__internal__n_after_start_req_46, %s_n_llhttp__internal__n_after_start_req_47, %s_n_llhttp__internal__n_after_start_req_51, %s_n_llhttp__internal__n_after_start_req_50, %s_n_llhttp__internal__n_after_start_req_49, %s_n_llhttp__internal__n_after_start_req_48, %s_n_llhttp__internal__n_after_start_req_33, %s_n_llhttp__internal__n_after_start_req_44, %s_n_llhttp__internal__n_after_start_req_45, %s_n_llhttp__internal__n_after_start_req_39, %s_n_llhttp__internal__n_after_start_req_40, %s_n_llhttp__internal__n_after_start_req_41, %s_n_llhttp__internal__n_after_start_req_43, %s_n_llhttp__internal__n_after_start_req_42, %s_n_llhttp__internal__n_after_start_req_38, %s_n_llhttp__internal__n_after_start_req_37, %s_n_llhttp__internal__n_after_start_req_34, %s_n_llhttp__internal__n_after_start_req_36, %s_n_llhttp__internal__n_after_start_req_35, %s_n_llhttp__internal__n_after_start_req_32, %s_n_llhttp__internal__n_after_start_req_31, %s_n_llhttp__internal__n_after_start_req_22, %s_n_llhttp__internal__n_after_start_req_30, %s_n_llhttp__internal__n_after_start_req_25, %s_n_llhttp__internal__n_after_start_req_27, %s_n_llhttp__internal__n_after_start_req_29, %s_n_llhttp__internal__n_after_start_req_28, %s_n_llhttp__internal__n_after_start_req_26, %s_n_llhttp__internal__n_after_start_req_24, %s_n_llhttp__internal__n_after_start_req_23, %s_n_llhttp__internal__n_after_start_req_19, %s_n_llhttp__internal__n_after_start_req_21, %s_n_llhttp__internal__n_after_start_req_20, %s_n_llhttp__internal__n_after_start_req_18, %s_n_llhttp__internal__n_after_start_req_15, %s_n_llhttp__internal__n_after_start_req_16, %s_n_llhttp__internal__n_after_start_req_17, %s_n_llhttp__internal__n_after_start_req_14, %s_n_llhttp__internal__n_after_start_req_10, %s_n_llhttp__internal__n_after_start_req_11, %s_n_llhttp__internal__n_after_start_req_13, %s_n_llhttp__internal__n_after_start_req_12, %s_n_llhttp__internal__n_after_start_req_5, %s_n_llhttp__internal__n_after_start_req_7, %s_n_llhttp__internal__n_after_start_req_9, %s_n_llhttp__internal__n_after_start_req_8, %s_n_llhttp__internal__n_after_start_req_6, %s_n_llhttp__internal__n_after_start_req_4, %s_n_llhttp__internal__n_after_start_req_1, %s_n_llhttp__internal__n_after_start_req_3, %s_n_llhttp__internal__n_after_start_req_2, %s_n_llhttp__internal__n_req_first_space_before_url, %s_n_llhttp__internal__n_url_entry_connect, %s_n_llhttp__internal__n_span_start_llhttp__on_url, %s_n_llhttp__internal__n_url_entry_normal, %s_n_llhttp__internal__n_span_start_llhttp__on_url_1, %s_n_llhttp__internal__n_url_start, %s_n_llhttp__internal__n_span_end_stub_schema, %s_n_llhttp__internal__n_url_schema_delim, %s_n_llhttp__internal__n_url_schema_delim_1, %s_n_llhttp__internal__n_url_server_with_at, %s_n_llhttp__internal__n_span_start_stub_path_1, %s_n_llhttp__internal__n_span_start_stub_path, %s_n_llhttp__internal__n_span_start_stub_path_2, %s_n_llhttp__internal__n_url_query_or_fragment, %s_n_llhttp__internal__n_span_end_stub_query_3, %s_n_llhttp__internal__n_url_skip_to_http, %s_n_llhttp__internal__n_url_to_http, %s_n_llhttp__internal__n_req_http_start_3, %s_n_llhttp__internal__n_req_http_start_2, %s_n_llhttp__internal__n_req_http_start_1, %s_n_llhttp__internal__n_span_start_llhttp__on_version, %s_n_llhttp__internal__n_req_http_major, %s_n_llhttp__internal__n_req_http_dot, %s_n_llhttp__internal__n_req_http_minor, %s_n_llhttp__internal__n_req_http_complete, %s_n_llhttp__internal__n_req_http_complete_crlf, %if.end916, %s_n_llhttp__internal__n_req_pri_upgrade, %s_n_llhttp__internal__n_url_skip_lf_to_http09, %s_n_llhttp__internal__n_url_skip_lf_to_http09_1, %s_n_llhttp__internal__n_url_skip_to_http09, %s_n_llhttp__internal__n_url_to_http_09, %s_n_llhttp__internal__n_headers_start, %s_n_llhttp__internal__n_header_field_start, %s_n_llhttp__internal__n_span_start_llhttp__on_header_field, %s_n_llhttp__internal__n_header_field, %s_n_llhttp__internal__n_header_field_7, %s_n_llhttp__internal__n_header_field_6, %s_n_llhttp__internal__n_header_field_5, %s_n_llhttp__internal__n_header_field_1, %s_n_llhttp__internal__n_header_field_2, %s_n_llhttp__internal__n_header_field_4, %s_n_llhttp__internal__n_header_field_3, %s_n_llhttp__internal__n_header_field_colon, %s_n_llhttp__internal__n_header_field_general_otherwise, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1, %s_n_llhttp__internal__n_header_value_te_chunked, %s_n_llhttp__internal__n_header_value_connection_3, %s_n_llhttp__internal__n_header_value_connection_2, %s_n_llhttp__internal__n_header_value_connection_1, %s_n_llhttp__internal__n_header_value_otherwise, %s_n_llhttp__internal__n_header_value_almost_done, %s_n_llhttp__internal__n_header_value_lws, %s_n_llhttp__internal__n_header_value_discard_ws_almost_done, %s_n_llhttp__internal__n_header_value_discard_lws, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value, %s_n_llhttp__internal__n_headers_almost_done, %s_n_llhttp__internal__n_span_start_llhttp__on_body_2, %s_n_llhttp__internal__n_span_start_llhttp__on_body_1, %s_n_llhttp__internal__n_chunk_size_digit, %s_n_llhttp__internal__n_chunk_size, %s_n_llhttp__internal__n_chunk_size_otherwise, %s_n_llhttp__internal__n_chunk_extensions, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_name, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_value, %s_n_llhttp__internal__n_chunk_extension_quoted_value_done, %s_n_llhttp__internal__n_chunk_size_almost_done, %s_n_llhttp__internal__n_span_start_llhttp__on_body, %s_n_llhttp__internal__n_chunk_data_almost_done, %sw.default4112, %sw.bb4111, %sw.default4100, %sw.bb4099, %if.then4082, %s_n_llhttp__internal__n_error_88, %if.then4062, %s_n_llhttp__internal__n_error_1, %s_n_llhttp__internal__n_pause_19, %s_n_llhttp__internal__n_error_91, %if.then4038, %if.then4024, %if.then4012, %if.then3980, %if.then3968, %s_n_llhttp__internal__n_error_74, %s_n_llhttp__internal__n_pause_21, %s_n_llhttp__internal__n_error_84, %s_n_llhttp__internal__n_error_83, %s_n_llhttp__internal__n_error_81, %s_n_llhttp__internal__n_error_79, %s_n_llhttp__internal__n_error_77, %if.then3915, %if.then3901, %sw.default3893, %sw.default3886, %sw.bb3885, %sw.bb3927, %sw.bb3934, %sw.bb3941, %s_n_llhttp__internal__n_error_90, %if.then3852, %s_n_llhttp__internal__n_error_89, %s_n_llhttp__internal__n_pause_22, %s_n_llhttp__internal__n_error_72, %s_n_llhttp__internal__n_error_71, %s_n_llhttp__internal__n_error_70, %s_n_llhttp__internal__n_error_69, %s_n_llhttp__internal__n_error_68, %s_n_llhttp__internal__n_error_67, %sw.bb1232, %if.then3801, %if.then3789, %if.then3777, %if.then3765, %if.then3753, %if.then3741, %s_n_llhttp__internal__n_error_65, %s_n_llhttp__internal__n_error_64, %if.then3721, %if.then3709, %if.then3697, %s_n_llhttp__internal__n_error_63, %if.then3681, %if.then3669, %if.then3657, %if.then3645, %sw.default3637, %sw.bb3636, %sw.default3625, %sw.default3605, %s_n_llhttp__internal__n_error_62, %sw.default3594, %if.then3549, %if.then3535, %if.then3523, %if.then3491, %if.then3479, %s_n_llhttp__internal__n_error_52, %s_n_llhttp__internal__n_pause_17, %s_n_llhttp__internal__n_error_54, %sw.default3459, %s_n_llhttp__internal__n_error_56, %sw.bb921, %if.then3440, %s_n_llhttp__internal__n_error_48, %if.then3424, %sw.default3412, %sw.bb3411, %sw.default3400, %s_n_llhttp__internal__n_error_47, %if.then3377, %if.then3363, %s_n_llhttp__internal__n_error_34, %s_n_llhttp__internal__n_pause_15, %if.then3310, %if.then3294, %sw.default3286, %if.then3275, %if.then3258, %if.then3219, %if.then3205, %if.then3193, %if.then3179, %s_n_llhttp__internal__n_error_40, %sw.default3146, %sw.default3139, %if.then3109, %s_n_llhttp__internal__n_error_37, %s_n_llhttp__internal__n_pause_14, %sw.bb3131, %sw.default3089, %if.then3073, %sw.default3065, %sw.default3047, %sw.bb3046, %sw.bb3051, %sw.default3023, %sw.bb3022, %sw.default3008, %sw.bb3007, %s_n_llhttp__internal__n_error_29, %if.then2986, %s_n_llhttp__internal__n_error_28, %s_n_llhttp__internal__n_pause_11, %s_n_llhttp__internal__n_error_27, %s_n_llhttp__internal__n_error_25, %if.then2953, %if.then2939, %sw.default2931, %sw.bb2930, %if.then2913, %if.then2899, %s_n_llhttp__internal__n_error_22, %s_n_llhttp__internal__n_pause_9, %if.then2877, %if.then2865, %s_n_llhttp__internal__n_error_19, %s_n_llhttp__internal__n_pause_8, %s_n_llhttp__internal__n_error_20, %if.then2839, %s_n_llhttp__internal__n_error_18, %s_n_llhttp__internal__n_pause_7, %if.then2817, %s_n_llhttp__internal__n_error_16, %s_n_llhttp__internal__n_pause_6, %if.then2795, %s_n_llhttp__internal__n_error_15, %s_n_llhttp__internal__n_pause_5, %sw.bb160, %sw.bb158, %sw.default2771, %sw.default2764, %sw.bb2763, %if.then2746, %sw.default2740, %sw.default2733, %sw.bb2732, %sw.bb2965, %sw.default2717, %sw.bb2716, %sw.default2700, %s_n_llhttp__internal__n_error_2, %s_n_llhttp__internal__n_error_87, %s_n_llhttp__internal__n_error_86, %s_n_llhttp__internal__n_error_85, %s_n_llhttp__internal__n_error_73, %s_n_llhttp__internal__n_error_59, %s_n_llhttp__internal__n_error_58, %s_n_llhttp__internal__n_error_57, %s_n_llhttp__internal__n_error_51, %s_n_llhttp__internal__n_error_45, %s_n_llhttp__internal__n_error_46, %s_n_llhttp__internal__n_error_44, %s_n_llhttp__internal__n_error_43, %s_n_llhttp__internal__n_error_41, %s_n_llhttp__internal__n_error_5, %if.end300, %s_n_llhttp__internal__n_error_24, %s_n_llhttp__internal__n_error_23, %s_n_llhttp__internal__n_error_21, %if.end27, %s_n_llhttp__internal__n_pause_1
+  %retval.0 = phi i32 [ 0, %sw.default4112 ], [ 0, %sw.bb4111 ], [ 0, %sw.default4100 ], [ 0, %sw.bb4099 ], [ 0, %s_n_llhttp__internal__n_error_88 ], [ 0, %if.then4082 ], [ 0, %if.then4038 ], [ 0, %s_n_llhttp__internal__n_error_87 ], [ 0, %if.then4012 ], [ 0, %s_n_llhttp__internal__n_error_85 ], [ 0, %if.then3968 ], [ 0, %s_n_llhttp__internal__n_error_74 ], [ 0, %s_n_llhttp__internal__n_pause_21 ], [ 0, %s_n_llhttp__internal__n_error_83 ], [ 0, %sw.bb3941 ], [ 0, %s_n_llhttp__internal__n_error_81 ], [ 0, %sw.bb3934 ], [ 0, %s_n_llhttp__internal__n_error_79 ], [ 0, %sw.bb3927 ], [ 0, %s_n_llhttp__internal__n_error_77 ], [ 0, %if.then3915 ], [ 0, %sw.default3886 ], [ 0, %sw.bb3885 ], [ 0, %if.then3377 ], [ 0, %s_n_llhttp__internal__n_error_34 ], [ 0, %s_n_llhttp__internal__n_pause_15 ], [ 0, %if.then3179 ], [ 0, %s_n_llhttp__internal__n_error_37 ], [ 0, %s_n_llhttp__internal__n_pause_14 ], [ 0, %s_n_llhttp__internal__n_error_40 ], [ 0, %if.then3205 ], [ 0, %if.then3193 ], [ 0, %if.then3219 ], [ 0, %s_n_llhttp__internal__n_error_41 ], [ 0, %if.then3294 ], [ 0, %s_n_llhttp__internal__n_error_46 ], [ 0, %if.then3310 ], [ 0, %s_n_llhttp__internal__n_error_45 ], [ 0, %if.then3275 ], [ 0, %s_n_llhttp__internal__n_error_44 ], [ 0, %if.then3258 ], [ 0, %s_n_llhttp__internal__n_error_43 ], [ 0, %sw.default3286 ], [ 0, %sw.bb3131 ], [ 0, %if.then3109 ], [ 0, %sw.default3089 ], [ 0, %sw.default3146 ], [ 0, %sw.default3139 ], [ 0, %s_n_llhttp__internal__n_error_47 ], [ 0, %if.then3363 ], [ 0, %if.then3073 ], [ 0, %s_n_llhttp__internal__n_error_5 ], [ 0, %sw.default3023 ], [ 0, %sw.bb3022 ], [ 0, %s_n_llhttp__internal__n_error_28 ], [ 0, %s_n_llhttp__internal__n_pause_11 ], [ 0, %sw.default2700 ], [ 0, %s_n_llhttp__internal__n_pause_1 ], [ 0, %sw.bb3051 ], [ 0, %sw.default3047 ], [ 0, %sw.bb3046 ], [ 0, %sw.default3008 ], [ 0, %sw.bb3007 ], [ 0, %s_n_llhttp__internal__n_error_29 ], [ 0, %if.then2986 ], [ 30, %if.end300 ], [ 0, %s_n_llhttp__internal__n_error_27 ], [ 0, %sw.bb2965 ], [ 0, %s_n_llhttp__internal__n_error_25 ], [ 0, %if.then2953 ], [ 0, %s_n_llhttp__internal__n_error_24 ], [ 0, %if.then2939 ], [ 0, %sw.default2931 ], [ 0, %sw.bb2930 ], [ 0, %if.then2913 ], [ 0, %s_n_llhttp__internal__n_error_23 ], [ 0, %if.then2899 ], [ 0, %s_n_llhttp__internal__n_error_22 ], [ 0, %s_n_llhttp__internal__n_pause_9 ], [ 0, %if.then2877 ], [ 0, %s_n_llhttp__internal__n_error_21 ], [ 0, %if.then2865 ], [ 0, %s_n_llhttp__internal__n_error_19 ], [ 0, %s_n_llhttp__internal__n_pause_8 ], [ 0, %s_n_llhttp__internal__n_error_20 ], [ 0, %sw.default2764 ], [ 0, %sw.bb2763 ], [ 0, %if.then2746 ], [ 0, %sw.default2733 ], [ 0, %sw.bb2732 ], [ 0, %sw.default2740 ], [ 5, %if.end27 ], [ 0, %sw.default2771 ], [ 0, %if.then2839 ], [ 0, %s_n_llhttp__internal__n_error_18 ], [ 0, %s_n_llhttp__internal__n_pause_7 ], [ 0, %if.then2817 ], [ 0, %s_n_llhttp__internal__n_error_16 ], [ 0, %s_n_llhttp__internal__n_pause_6 ], [ 0, %if.then2795 ], [ 0, %s_n_llhttp__internal__n_error_15 ], [ 0, %s_n_llhttp__internal__n_pause_5 ], [ 0, %sw.bb160 ], [ 0, %sw.bb158 ], [ 0, %sw.default2717 ], [ 0, %sw.bb2716 ], [ 0, %sw.default3065 ], [ 0, %sw.default3400 ], [ 0, %sw.default3893 ], [ 0, %if.then3901 ], [ 0, %s_n_llhttp__internal__n_error_84 ], [ 0, %if.then3980 ], [ 0, %s_n_llhttp__internal__n_error_73 ], [ 0, %if.then4024 ], [ 0, %s_n_llhttp__internal__n_error_86 ], [ 0, %if.then4062 ], [ 0, %s_n_llhttp__internal__n_error_1 ], [ 0, %s_n_llhttp__internal__n_pause_19 ], [ 0, %s_n_llhttp__internal__n_error_71 ], [ 0, %s_n_llhttp__internal__n_error_70 ], [ 0, %s_n_llhttp__internal__n_error_69 ], [ 0, %s_n_llhttp__internal__n_error_68 ], [ 0, %s_n_llhttp__internal__n_error_67 ], [ 0, %sw.bb1232 ], [ 0, %s_n_llhttp__internal__n_error_64 ], [ 0, %s_n_llhttp__internal__n_error_63 ], [ 0, %if.then3681 ], [ 0, %sw.default3637 ], [ 0, %sw.bb3636 ], [ 0, %s_n_llhttp__internal__n_error_62 ], [ 0, %sw.default3625 ], [ 0, %if.then3549 ], [ 0, %s_n_llhttp__internal__n_error_59 ], [ 0, %if.then3523 ], [ 0, %s_n_llhttp__internal__n_error_57 ], [ 0, %if.then3479 ], [ 0, %s_n_llhttp__internal__n_error_52 ], [ 0, %s_n_llhttp__internal__n_pause_17 ], [ 0, %s_n_llhttp__internal__n_error_56 ], [ 0, %sw.bb921 ], [ 0, %sw.default3459 ], [ 0, %s_n_llhttp__internal__n_error_54 ], [ 0, %if.then3491 ], [ 0, %s_n_llhttp__internal__n_error_51 ], [ 0, %if.then3535 ], [ 0, %s_n_llhttp__internal__n_error_58 ], [ 0, %sw.default3605 ], [ 0, %sw.default3594 ], [ 0, %s_n_llhttp__internal__n_error_2 ], [ 0, %if.then3669 ], [ 0, %s_n_llhttp__internal__n_error_48 ], [ 0, %sw.default3412 ], [ 0, %sw.bb3411 ], [ 0, %if.then3657 ], [ 0, %if.then3721 ], [ 0, %if.then3709 ], [ 0, %if.then3697 ], [ 0, %s_n_llhttp__internal__n_error_65 ], [ 0, %if.then3645 ], [ 0, %if.then3440 ], [ 0, %if.then3424 ], [ 0, %if.then3801 ], [ 0, %if.then3789 ], [ 0, %if.then3777 ], [ 0, %if.then3765 ], [ 0, %if.then3753 ], [ 0, %if.then3741 ], [ 0, %s_n_llhttp__internal__n_error_72 ], [ 0, %s_n_llhttp__internal__n_error_90 ], [ 0, %if.then3852 ], [ 0, %s_n_llhttp__internal__n_error_89 ], [ 0, %s_n_llhttp__internal__n_pause_22 ], [ 0, %s_n_llhttp__internal__n_error_91 ], [ 4, %s_n_llhttp__internal__n_chunk_data_almost_done ], [ 6, %s_n_llhttp__internal__n_span_start_llhttp__on_body ], [ 8, %s_n_llhttp__internal__n_chunk_size_almost_done ], [ 12, %s_n_llhttp__internal__n_chunk_extension_quoted_value_done ], [ 19, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_value ], [ 22, %s_n_llhttp__internal__n_span_start_llhttp__on_chunk_extension_name ], [ 23, %s_n_llhttp__internal__n_chunk_extensions ], [ 24, %s_n_llhttp__internal__n_chunk_size_otherwise ], [ 25, %s_n_llhttp__internal__n_chunk_size ], [ 26, %s_n_llhttp__internal__n_chunk_size_digit ], [ 31, %s_n_llhttp__internal__n_span_start_llhttp__on_body_1 ], [ 33, %s_n_llhttp__internal__n_span_start_llhttp__on_body_2 ], [ 36, %s_n_llhttp__internal__n_headers_almost_done ], [ 39, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value ], [ 40, %s_n_llhttp__internal__n_header_value_discard_lws ], [ 41, %s_n_llhttp__internal__n_header_value_discard_ws_almost_done ], [ 42, %s_n_llhttp__internal__n_header_value_lws ], [ 43, %s_n_llhttp__internal__n_header_value_almost_done ], [ 46, %s_n_llhttp__internal__n_header_value_otherwise ], [ 49, %s_n_llhttp__internal__n_header_value_connection_1 ], [ 50, %s_n_llhttp__internal__n_header_value_connection_2 ], [ 51, %s_n_llhttp__internal__n_header_value_connection_3 ], [ 63, %s_n_llhttp__internal__n_header_value_te_chunked ], [ 64, %s_n_llhttp__internal__n_span_start_llhttp__on_header_value_1 ], [ 67, %s_n_llhttp__internal__n_header_field_general_otherwise ], [ 69, %s_n_llhttp__internal__n_header_field_colon ], [ 70, %s_n_llhttp__internal__n_header_field_3 ], [ 71, %s_n_llhttp__internal__n_header_field_4 ], [ 72, %s_n_llhttp__internal__n_header_field_2 ], [ 73, %s_n_llhttp__internal__n_header_field_1 ], [ 74, %s_n_llhttp__internal__n_header_field_5 ], [ 75, %s_n_llhttp__internal__n_header_field_6 ], [ 76, %s_n_llhttp__internal__n_header_field_7 ], [ 77, %s_n_llhttp__internal__n_header_field ], [ 78, %s_n_llhttp__internal__n_span_start_llhttp__on_header_field ], [ 79, %s_n_llhttp__internal__n_header_field_start ], [ 80, %s_n_llhttp__internal__n_headers_start ], [ 81, %s_n_llhttp__internal__n_url_to_http_09 ], [ 82, %s_n_llhttp__internal__n_url_skip_to_http09 ], [ 83, %s_n_llhttp__internal__n_url_skip_lf_to_http09_1 ], [ 84, %s_n_llhttp__internal__n_url_skip_lf_to_http09 ], [ 85, %s_n_llhttp__internal__n_req_pri_upgrade ], [ 85, %if.end916 ], [ 86, %s_n_llhttp__internal__n_req_http_complete_crlf ], [ 87, %s_n_llhttp__internal__n_req_http_complete ], [ 92, %s_n_llhttp__internal__n_req_http_minor ], [ 94, %s_n_llhttp__internal__n_req_http_dot ], [ 96, %s_n_llhttp__internal__n_req_http_major ], [ 97, %s_n_llhttp__internal__n_span_start_llhttp__on_version ], [ 98, %s_n_llhttp__internal__n_req_http_start_1 ], [ 99, %s_n_llhttp__internal__n_req_http_start_2 ], [ 100, %s_n_llhttp__internal__n_req_http_start_3 ], [ 102, %s_n_llhttp__internal__n_url_to_http ], [ 103, %s_n_llhttp__internal__n_url_skip_to_http ], [ 105, %s_n_llhttp__internal__n_span_end_stub_query_3 ], [ 107, %s_n_llhttp__internal__n_url_query_or_fragment ], [ 109, %s_n_llhttp__internal__n_span_start_stub_path_2 ], [ 110, %s_n_llhttp__internal__n_span_start_stub_path ], [ 111, %s_n_llhttp__internal__n_span_start_stub_path_1 ], [ 112, %s_n_llhttp__internal__n_url_server_with_at ], [ 114, %s_n_llhttp__internal__n_url_schema_delim_1 ], [ 115, %s_n_llhttp__internal__n_url_schema_delim ], [ 116, %s_n_llhttp__internal__n_span_end_stub_schema ], [ 118, %s_n_llhttp__internal__n_url_start ], [ 119, %s_n_llhttp__internal__n_span_start_llhttp__on_url_1 ], [ 120, %s_n_llhttp__internal__n_url_entry_normal ], [ 121, %s_n_llhttp__internal__n_span_start_llhttp__on_url ], [ 122, %s_n_llhttp__internal__n_url_entry_connect ], [ 124, %s_n_llhttp__internal__n_req_first_space_before_url ], [ 126, %s_n_llhttp__internal__n_after_start_req_2 ], [ 127, %s_n_llhttp__internal__n_after_start_req_3 ], [ 128, %s_n_llhttp__internal__n_after_start_req_1 ], [ 129, %s_n_llhttp__internal__n_after_start_req_4 ], [ 130, %s_n_llhttp__internal__n_after_start_req_6 ], [ 131, %s_n_llhttp__internal__n_after_start_req_8 ], [ 132, %s_n_llhttp__internal__n_after_start_req_9 ], [ 133, %s_n_llhttp__internal__n_after_start_req_7 ], [ 134, %s_n_llhttp__internal__n_after_start_req_5 ], [ 135, %s_n_llhttp__internal__n_after_start_req_12 ], [ 136, %s_n_llhttp__internal__n_after_start_req_13 ], [ 137, %s_n_llhttp__internal__n_after_start_req_11 ], [ 138, %s_n_llhttp__internal__n_after_start_req_10 ], [ 139, %s_n_llhttp__internal__n_after_start_req_14 ], [ 140, %s_n_llhttp__internal__n_after_start_req_17 ], [ 141, %s_n_llhttp__internal__n_after_start_req_16 ], [ 142, %s_n_llhttp__internal__n_after_start_req_15 ], [ 143, %s_n_llhttp__internal__n_after_start_req_18 ], [ 144, %s_n_llhttp__internal__n_after_start_req_20 ], [ 145, %s_n_llhttp__internal__n_after_start_req_21 ], [ 146, %s_n_llhttp__internal__n_after_start_req_19 ], [ 147, %s_n_llhttp__internal__n_after_start_req_23 ], [ 148, %s_n_llhttp__internal__n_after_start_req_24 ], [ 149, %s_n_llhttp__internal__n_after_start_req_26 ], [ 150, %s_n_llhttp__internal__n_after_start_req_28 ], [ 151, %s_n_llhttp__internal__n_after_start_req_29 ], [ 152, %s_n_llhttp__internal__n_after_start_req_27 ], [ 153, %s_n_llhttp__internal__n_after_start_req_25 ], [ 154, %s_n_llhttp__internal__n_after_start_req_30 ], [ 155, %s_n_llhttp__internal__n_after_start_req_22 ], [ 156, %s_n_llhttp__internal__n_after_start_req_31 ], [ 157, %s_n_llhttp__internal__n_after_start_req_32 ], [ 158, %s_n_llhttp__internal__n_after_start_req_35 ], [ 159, %s_n_llhttp__internal__n_after_start_req_36 ], [ 160, %s_n_llhttp__internal__n_after_start_req_34 ], [ 161, %s_n_llhttp__internal__n_after_start_req_37 ], [ 162, %s_n_llhttp__internal__n_after_start_req_38 ], [ 163, %s_n_llhttp__internal__n_after_start_req_42 ], [ 164, %s_n_llhttp__internal__n_after_start_req_43 ], [ 165, %s_n_llhttp__internal__n_after_start_req_41 ], [ 166, %s_n_llhttp__internal__n_after_start_req_40 ], [ 167, %s_n_llhttp__internal__n_after_start_req_39 ], [ 168, %s_n_llhttp__internal__n_after_start_req_45 ], [ 169, %s_n_llhttp__internal__n_after_start_req_44 ], [ 170, %s_n_llhttp__internal__n_after_start_req_33 ], [ 171, %s_n_llhttp__internal__n_after_start_req_48 ], [ 172, %s_n_llhttp__internal__n_after_start_req_49 ], [ 173, %s_n_llhttp__internal__n_after_start_req_50 ], [ 174, %s_n_llhttp__internal__n_after_start_req_51 ], [ 175, %s_n_llhttp__internal__n_after_start_req_47 ], [ 176, %s_n_llhttp__internal__n_after_start_req_46 ], [ 177, %s_n_llhttp__internal__n_after_start_req_54 ], [ 178, %s_n_llhttp__internal__n_after_start_req_56 ], [ 179, %s_n_llhttp__internal__n_after_start_req_57 ], [ 180, %s_n_llhttp__internal__n_after_start_req_55 ], [ 181, %s_n_llhttp__internal__n_after_start_req_53 ], [ 182, %s_n_llhttp__internal__n_after_start_req_58 ], [ 183, %s_n_llhttp__internal__n_after_start_req_59 ], [ 184, %s_n_llhttp__internal__n_after_start_req_52 ], [ 185, %s_n_llhttp__internal__n_after_start_req_61 ], [ 186, %s_n_llhttp__internal__n_after_start_req_62 ], [ 187, %s_n_llhttp__internal__n_after_start_req_60 ], [ 188, %s_n_llhttp__internal__n_after_start_req_65 ], [ 189, %s_n_llhttp__internal__n_after_start_req_67 ], [ 190, %s_n_llhttp__internal__n_after_start_req_68 ], [ 191, %s_n_llhttp__internal__n_after_start_req_66 ], [ 192, %s_n_llhttp__internal__n_after_start_req_69 ], [ 193, %s_n_llhttp__internal__n_after_start_req_64 ], [ 194, %s_n_llhttp__internal__n_after_start_req_63 ], [ 195, %s_n_llhttp__internal__n_after_start_req ], [ 196, %s_n_llhttp__internal__n_span_start_llhttp__on_method_1 ], [ 197, %s_n_llhttp__internal__n_res_line_almost_done ], [ 199, %s_n_llhttp__internal__n_span_start_llhttp__on_status ], [ 200, %s_n_llhttp__internal__n_res_status_start ], [ 201, %s_n_llhttp__internal__n_res_status_code_otherwise ], [ 202, %s_n_llhttp__internal__n_res_status_code_digit_3 ], [ 203, %s_n_llhttp__internal__n_res_status_code_digit_2 ], [ 204, %s_n_llhttp__internal__n_res_status_code_digit_1 ], [ 205, %s_n_llhttp__internal__n_res_after_version ], [ 209, %s_n_llhttp__internal__n_res_http_minor ], [ 211, %s_n_llhttp__internal__n_res_http_dot ], [ 213, %s_n_llhttp__internal__n_res_http_major ], [ 214, %s_n_llhttp__internal__n_span_start_llhttp__on_version_1 ], [ 215, %s_n_llhttp__internal__n_start_res ], [ 217, %s_n_llhttp__internal__n_req_or_res_method_2 ], [ 219, %s_n_llhttp__internal__n_req_or_res_method_3 ], [ 220, %s_n_llhttp__internal__n_req_or_res_method_1 ], [ 221, %s_n_llhttp__internal__n_req_or_res_method ], [ 222, %s_n_llhttp__internal__n_span_start_llhttp__on_method ], [ 223, %s_n_llhttp__internal__n_start_req_or_res ], [ 4, %llparse__match_sequence_id.exit.thread4289 ], [ 49, %llparse__match_sequence_to_lower.exit.thread4301 ], [ 50, %llparse__match_sequence_to_lower.exit2787.thread4313 ], [ 51, %llparse__match_sequence_to_lower.exit2814.thread4325 ], [ 63, %llparse__match_sequence_to_lower_unsafe.exit.thread4337 ], [ 70, %llparse__match_sequence_to_lower.exit2861.thread4349 ], [ 71, %llparse__match_sequence_to_lower.exit2887.thread4361 ], [ 73, %llparse__match_sequence_to_lower.exit2913.thread4373 ], [ 74, %llparse__match_sequence_to_lower.exit2939.thread4385 ], [ 75, %llparse__match_sequence_to_lower.exit2965.thread4397 ], [ 76, %llparse__match_sequence_to_lower.exit2991.thread4409 ], [ 98, %llparse__match_sequence_id.exit3020.thread4421 ], [ 99, %llparse__match_sequence_id.exit3046.thread4433 ], [ 100, %llparse__match_sequence_id.exit3072.thread4445 ], [ 127, %llparse__match_sequence_id.exit3098.thread4457 ], [ 129, %llparse__match_sequence_id.exit3122.thread4469 ], [ 130, %llparse__match_sequence_id.exit3146.thread4481 ], [ 131, %llparse__match_sequence_id.exit3170.thread4493 ], [ 135, %llparse__match_sequence_id.exit3194.thread4505 ], [ 136, %llparse__match_sequence_id.exit3218.thread4517 ], [ 139, %llparse__match_sequence_id.exit3242.thread4529 ], [ 140, %llparse__match_sequence_id.exit3266.thread4541 ], [ 142, %llparse__match_sequence_id.exit3290.thread4553 ], [ 143, %llparse__match_sequence_id.exit3314.thread4565 ], [ 144, %llparse__match_sequence_id.exit3338.thread4577 ], [ 145, %llparse__match_sequence_id.exit3362.thread4589 ], [ 147, %llparse__match_sequence_id.exit3386.thread4601 ], [ 148, %llparse__match_sequence_id.exit3410.thread4613 ], [ 149, %llparse__match_sequence_id.exit3434.thread4625 ], [ 150, %llparse__match_sequence_id.exit3458.thread4637 ], [ 154, %llparse__match_sequence_id.exit3482.thread4649 ], [ 156, %llparse__match_sequence_id.exit3506.thread4661 ], [ 157, %llparse__match_sequence_id.exit3530.thread4673 ], [ 158, %llparse__match_sequence_id.exit3554.thread4685 ], [ 159, %llparse__match_sequence_id.exit3578.thread4697 ], [ 161, %llparse__match_sequence_id.exit3602.thread4709 ], [ 162, %llparse__match_sequence_id.exit3626.thread4721 ], [ 163, %llparse__match_sequence_id.exit3650.thread4733 ], [ 164, %llparse__match_sequence_id.exit3674.thread4745 ], [ 168, %llparse__match_sequence_id.exit3698.thread4757 ], [ 171, %llparse__match_sequence_id.exit3722.thread4769 ], [ 172, %llparse__match_sequence_id.exit3746.thread4781 ], [ 173, %llparse__match_sequence_id.exit3770.thread4793 ], [ 174, %llparse__match_sequence_id.exit3794.thread4805 ], [ 177, %llparse__match_sequence_id.exit3818.thread4817 ], [ 179, %llparse__match_sequence_id.exit3842.thread4829 ], [ 182, %llparse__match_sequence_id.exit3866.thread4841 ], [ 183, %llparse__match_sequence_id.exit3890.thread4853 ], [ 185, %llparse__match_sequence_id.exit3914.thread4865 ], [ 186, %llparse__match_sequence_id.exit3938.thread4877 ], [ 188, %llparse__match_sequence_id.exit3962.thread4889 ], [ 189, %llparse__match_sequence_id.exit3986.thread4901 ], [ 190, %llparse__match_sequence_id.exit4010.thread4913 ], [ 192, %llparse__match_sequence_id.exit4034.thread4925 ], [ 215, %llparse__match_sequence_id.exit4058.thread4937 ], [ 217, %llparse__match_sequence_id.exit4082.thread4949 ], [ 219, %llparse__match_sequence_id.exit4108.thread4961 ], [ 1, %s_n_llhttp__internal__n_closed.preheader ], [ 44, %s_n_llhttp__internal__n_header_value_lenient.preheader ], [ 60, %s_n_llhttp__internal__n_header_value.preheader ], [ 47, %s_n_llhttp__internal__n_header_value_connection_token.preheader ], [ 48, %s_n_llhttp__internal__n_header_value_connection_ws.preheader ], [ 52, %s_n_llhttp__internal__n_header_value_connection.preheader ], [ 55, %s_n_llhttp__internal__n_header_value_content_length_ws.preheader ], [ 56, %s_n_llhttp__internal__n_header_value_content_length.preheader ], [ 59, %s_n_llhttp__internal__n_header_value_te_token_ows.preheader ], [ 61, %s_n_llhttp__internal__n_header_value_te_token.preheader ], [ 62, %s_n_llhttp__internal__n_header_value_te_chunked_last.preheader ], [ 65, %s_n_llhttp__internal__n_header_value_discard_ws.preheader ], [ 68, %s_n_llhttp__internal__n_header_field_general.preheader ], [ 37, %s_n_llhttp__internal__n_header_field_colon_discard_ws.preheader ], [ 15, %s_n_llhttp__internal__n_chunk_extension_quoted_value.preheader ], [ 18, %s_n_llhttp__internal__n_chunk_extension_value.preheader ], [ 21, %s_n_llhttp__internal__n_chunk_extension_name.preheader ], [ 101, %s_n_llhttp__internal__n_req_http_start.preheader ], [ 104, %s_n_llhttp__internal__n_url_fragment.preheader ], [ 106, %s_n_llhttp__internal__n_url_query.preheader ], [ 108, %s_n_llhttp__internal__n_url_path.preheader ], [ 113, %s_n_llhttp__internal__n_url_server.preheader ], [ 117, %s_n_llhttp__internal__n_url_schema.preheader ], [ 123, %s_n_llhttp__internal__n_req_spaces_before_url.preheader ], [ 198, %s_n_llhttp__internal__n_res_status.preheader ], [ 226, %s_n_llhttp__internal__n_start.preheader ], [ 32, %if.end320 ], [ %conv, %entry ], [ 1, %s_n_llhttp__internal__n_closed.backedge ], [ 44, %sw.default412 ], [ 60, %sw.bb599 ], [ 47, %sw.bb435 ], [ 48, %sw.bb448 ], [ 52, %s_n_llhttp__internal__n_header_value_connection.backedge ], [ 55, %sw.bb540 ], [ 56, %llhttp__internal__c_mul_add_content_length_1.exit ], [ 59, %s_n_llhttp__internal__n_header_value_te_token_ows.backedge ], [ 61, %sw.bb610 ], [ 62, %sw.bb623 ], [ 65, %s_n_llhttp__internal__n_header_value_discard_ws.backedge ], [ 68, %sw.bb685 ], [ 37, %sw.bb351 ], [ 15, %sw.bb89 ], [ 18, %sw.bb113 ], [ 21, %sw.bb140 ], [ 101, %sw.bb1094 ], [ 104, %sw.bb1139 ], [ 106, %sw.bb1161 ], [ 108, %sw.bb1193 ], [ 113, %sw.bb1248 ], [ 117, %sw.bb1301 ], [ 123, %sw.bb1359 ], [ 198, %sw.default2360 ], [ 226, %s_n_llhttp__internal__n_start.backedge ]
   ret i32 %retval.0
 }
 

@@ -652,8 +652,8 @@ if.else10:                                        ; preds = %if.else
 _ZN5arrow7compute15TailSkipForSIMD15FixBinaryAccessEill.exit40: ; preds = %if.else10
   %sub.i.i34 = add i32 %0, -1
   %div.i.i35464748 = lshr i32 %sub.i.i34, 5
-  %div.i.i3546.zext = zext nneg i32 %div.i.i35464748 to i64
-  %add.i.neg.i36 = xor i64 %div.i.i3546.zext, -1
+  %4 = xor i32 %div.i.i35464748, -1
+  %add.i.neg.i36 = sext i32 %4 to i64
   %sub.i38 = add i64 %1, %add.i.neg.i36
   %.sroa.speculated.i39 = tail call noundef i64 @llvm.smax.i64(i64 %sub.i38, i64 0)
   br label %if.end18
@@ -670,10 +670,10 @@ if.then19:                                        ; preds = %if.end18
 
 land.rhs.i:                                       ; preds = %if.then19, %while.body.i
   %num_selected_safe.05.i = phi i32 [ %dec.i, %while.body.i ], [ %num_rows_to_compare, %if.then19 ]
-  %4 = zext nneg i32 %num_selected_safe.05.i to i64
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %4
-  %5 = load i16, ptr %gep.i, align 2
-  %conv.i41 = zext i16 %5 to i64
+  %5 = zext nneg i32 %num_selected_safe.05.i to i64
+  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %5
+  %6 = load i16, ptr %gep.i, align 2
+  %conv.i41 = zext i16 %6 to i64
   %cmp1.not.i = icmp sgt i64 %num_rows_safe.0, %conv.i41
   br i1 %cmp1.not.i, label %if.end25, label %while.body.i
 

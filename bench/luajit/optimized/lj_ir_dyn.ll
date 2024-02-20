@@ -1254,8 +1254,8 @@ sw.bb5:                                           ; preds = %entry
   %t6 = getelementptr inbounds i8, ptr %ir, i64 4
   %5 = load i8, ptr %t6, align 4
   %6 = and i8 %5, 31
-  %and9 = zext nneg i8 %6 to i64
-  %not.i = xor i64 %and9, -1
+  %7 = xor i8 %6, -1
+  %not.i = sext i8 %7 to i64
   %shl.i38 = shl nsw i64 %not.i, 47
   %or.i39 = or i64 %shl.i38, %4
   store i64 %or.i39, ptr %tv, align 8
@@ -1263,8 +1263,8 @@ sw.bb5:                                           ; preds = %entry
 
 sw.bb11:                                          ; preds = %entry, %entry
   %arrayidx12 = getelementptr inbounds i8, ptr %ir, i64 8
-  %7 = load i64, ptr %arrayidx12, align 8
-  %conv13 = uitofp i64 %7 to double
+  %8 = load i64, ptr %arrayidx12, align 8
+  %conv13 = uitofp i64 %8 to double
   store double %conv13, ptr %tv, align 8
   br label %sw.epilog
 
@@ -1274,8 +1274,8 @@ sw.bb14:                                          ; preds = %entry
 
 sw.bb15:                                          ; preds = %entry
   %arrayidx16 = getelementptr inbounds i8, ptr %ir, i64 8
-  %8 = load double, ptr %arrayidx16, align 8
-  store double %8, ptr %tv, align 8
+  %9 = load double, ptr %arrayidx16, align 8
+  store double %9, ptr %tv, align 8
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %entry
@@ -1285,11 +1285,11 @@ sw.bb17:                                          ; preds = %entry
   %ctypeid.i = getelementptr inbounds i8, ptr %call.i, i64 10
   store i16 11, ptr %ctypeid.i, align 2
   %arrayidx19 = getelementptr inbounds i8, ptr %ir, i64 8
-  %9 = load i64, ptr %arrayidx19, align 8
+  %10 = load i64, ptr %arrayidx19, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call.i, i64 16
-  store i64 %9, ptr %add.ptr, align 8
-  %10 = ptrtoint ptr %call.i to i64
-  %or.i = or i64 %10, -1548112371908608
+  store i64 %10, ptr %add.ptr, align 8
+  %11 = ptrtoint ptr %call.i to i64
+  %or.i = or i64 %11, -1548112371908608
   store i64 %or.i, ptr %tv, align 8
   br label %sw.epilog
 
