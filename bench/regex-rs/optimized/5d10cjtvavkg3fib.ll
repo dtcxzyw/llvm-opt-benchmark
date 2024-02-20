@@ -13924,94 +13924,93 @@ define void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..o
   %30 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   %31 = ptrtoint ptr %30 to i64
   %32 = sub nuw i64 %27, %31
-  %33 = udiv exact i64 %32, 24
-  %34 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %30, i64 %33
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 16
-  br label %37
+  %33 = getelementptr inbounds i8, ptr %30, i64 %32
+  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  br label %36
 
-37:                                               ; preds = %"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h7efa890953a871f7E.exit.i", %.lr.ph.i
-  %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %39, %"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h7efa890953a871f7E.exit.i" ]
-  %38 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 } }], ptr %34, i64 0, i64 %.09.i
-  %39 = add nuw i64 %.09.i, 1
+36:                                               ; preds = %"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h7efa890953a871f7E.exit.i", %.lr.ph.i
+  %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %38, %"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h7efa890953a871f7E.exit.i" ]
+  %37 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 } }], ptr %33, i64 0, i64 %.09.i
+  %38 = add nuw i64 %.09.i, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8a9de8ddfdf3c498E"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %38)
-          to label %.noexc.i unwind label %48
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8a9de8ddfdf3c498E"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %37)
+          to label %.noexc.i unwind label %47
 
-.noexc.i:                                         ; preds = %37
-  %40 = load i64, ptr %35, align 8, !range !18, !noundef !5
-  %.not.i.i.i.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h7efa890953a871f7E.exit.i", label %41
+.noexc.i:                                         ; preds = %36
+  %39 = load i64, ptr %34, align 8, !range !18, !noundef !5
+  %.not.i.i.i.i.i = icmp eq i64 %39, 0
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h7efa890953a871f7E.exit.i", label %40
 
-41:                                               ; preds = %.noexc.i
-  %42 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %43 = load i64, ptr %36, align 8, !noundef !5
-  %44 = getelementptr i8, ptr %38, i64 16
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h17e6f182a6fab149E"(ptr align 1 %44, ptr nonnull %42, i64 %40, i64 %43)
-          to label %"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h7efa890953a871f7E.exit.i" unwind label %48
+40:                                               ; preds = %.noexc.i
+  %41 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
+  %42 = load i64, ptr %35, align 8, !noundef !5
+  %43 = getelementptr i8, ptr %37, i64 16
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h17e6f182a6fab149E"(ptr align 1 %43, ptr nonnull %41, i64 %39, i64 %42)
+          to label %"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h7efa890953a871f7E.exit.i" unwind label %47
 
-"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h7efa890953a871f7E.exit.i": ; preds = %41, %.noexc.i
+"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h7efa890953a871f7E.exit.i": ; preds = %40, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %45 = icmp eq i64 %39, %29
-  br i1 %45, label %"_ZN4core3ptr79drop_in_place$LT$$u5b$regex_automata..nfa..thompson..range_trie..State$u5d$$GT$17hb59a808ed75d9554E.exit", label %37
+  %44 = icmp eq i64 %38, %29
+  br i1 %44, label %"_ZN4core3ptr79drop_in_place$LT$$u5b$regex_automata..nfa..thompson..range_trie..State$u5d$$GT$17hb59a808ed75d9554E.exit", label %36
 
-46:                                               ; preds = %50, %48
-  %.1.i = phi i64 [ %39, %48 ], [ %52, %50 ]
-  %47 = icmp eq i64 %.1.i, %29
-  br i1 %47, label %.body, label %50
+45:                                               ; preds = %49, %47
+  %.1.i = phi i64 [ %38, %47 ], [ %51, %49 ]
+  %46 = icmp eq i64 %.1.i, %29
+  br i1 %46, label %.body, label %49
 
-48:                                               ; preds = %41, %37
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %40, %36
+  %48 = landingpad { ptr, i32 }
           cleanup
-  br label %46
+  br label %45
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 } }], ptr %34, i64 0, i64 %.1.i
-  %52 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h7efa890953a871f7E"(ptr nonnull align 8 %51) #14
-          to label %46 unwind label %53
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 } }], ptr %33, i64 0, i64 %.1.i
+  %51 = add i64 %.1.i, 1
+  invoke void @"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h7efa890953a871f7E"(ptr nonnull align 8 %50) #14
+          to label %45 unwind label %52
 
-53:                                               ; preds = %50
-  %54 = landingpad { ptr, i32 }
+52:                                               ; preds = %49
+  %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #13
   unreachable
 
-.body:                                            ; preds = %46
+.body:                                            ; preds = %45
   call void @"_ZN4core3ptr195drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_automata..nfa..thompson..range_trie..State$C$alloc..alloc..Global$GT$$GT$17h3a9260b779a96e02E"(ptr nonnull align 8 %3) #14
-  resume { ptr, i32 } %49
+  resume { ptr, i32 } %48
 
 "_ZN4core3ptr79drop_in_place$LT$$u5b$regex_automata..nfa..thompson..range_trie..State$u5d$$GT$17hb59a808ed75d9554E.exit": ; preds = %"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..range_trie..State$GT$17h7efa890953a871f7E.exit.i"
-  %55 = getelementptr inbounds i8, ptr %0, i64 32
-  %56 = load i64, ptr %55, align 8, !noundef !5
-  %.not.i.i22 = icmp eq i64 %56, 0
-  br i1 %.not.i.i22, label %"_ZN4core3ptr195drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_automata..nfa..thompson..range_trie..State$C$alloc..alloc..Global$GT$$GT$17h3a9260b779a96e02E.exit", label %57
+  %54 = getelementptr inbounds i8, ptr %0, i64 32
+  %55 = load i64, ptr %54, align 8, !noundef !5
+  %.not.i.i22 = icmp eq i64 %55, 0
+  br i1 %.not.i.i22, label %"_ZN4core3ptr195drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_automata..nfa..thompson..range_trie..State$C$alloc..alloc..Global$GT$$GT$17h3a9260b779a96e02E.exit", label %56
 
-57:                                               ; preds = %"_ZN4core3ptr79drop_in_place$LT$$u5b$regex_automata..nfa..thompson..range_trie..State$u5d$$GT$17hb59a808ed75d9554E.exit"
-  %58 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
-  %60 = load i64, ptr %59, align 8, !noundef !5
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
-  %62 = load i64, ptr %61, align 8, !noundef !5
-  %.not3.i.i23 = icmp eq i64 %62, %60
-  br i1 %.not3.i.i23, label %63, label %66
+56:                                               ; preds = %"_ZN4core3ptr79drop_in_place$LT$$u5b$regex_automata..nfa..thompson..range_trie..State$u5d$$GT$17hb59a808ed75d9554E.exit"
+  %57 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
+  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %59 = load i64, ptr %58, align 8, !noundef !5
+  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = load i64, ptr %60, align 8, !noundef !5
+  %.not3.i.i23 = icmp eq i64 %61, %59
+  br i1 %.not3.i.i23, label %62, label %65
 
-63:                                               ; preds = %66, %57
-  %64 = phi i64 [ %.pre4.i.i26, %66 ], [ %56, %57 ]
-  %65 = add i64 %64, %60
-  store i64 %65, ptr %59, align 8
+62:                                               ; preds = %65, %56
+  %63 = phi i64 [ %.pre4.i.i26, %65 ], [ %55, %56 ]
+  %64 = add i64 %63, %59
+  store i64 %64, ptr %58, align 8
   br label %"_ZN4core3ptr195drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_automata..nfa..thompson..range_trie..State$C$alloc..alloc..Global$GT$$GT$17h3a9260b779a96e02E.exit"
 
-66:                                               ; preds = %57
-  %67 = load ptr, ptr %58, align 8, !nonnull !5, !noundef !5
-  %68 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %67, i64 %62
-  %69 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %67, i64 %60
-  %70 = mul i64 %56, 24
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %69, ptr nonnull align 8 %68, i64 %70, i1 false)
-  %.pre4.i.i26 = load i64, ptr %55, align 8
-  br label %63
+65:                                               ; preds = %56
+  %66 = load ptr, ptr %57, align 8, !nonnull !5, !noundef !5
+  %67 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %66, i64 %61
+  %68 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %66, i64 %59
+  %69 = mul i64 %55, 24
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %68, ptr nonnull align 8 %67, i64 %69, i1 false)
+  %.pre4.i.i26 = load i64, ptr %54, align 8
+  br label %62
 
-"_ZN4core3ptr195drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_automata..nfa..thompson..range_trie..State$C$alloc..alloc..Global$GT$$GT$17h3a9260b779a96e02E.exit": ; preds = %63, %"_ZN4core3ptr79drop_in_place$LT$$u5b$regex_automata..nfa..thompson..range_trie..State$u5d$$GT$17hb59a808ed75d9554E.exit", %18, %10
+"_ZN4core3ptr195drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_automata..nfa..thompson..range_trie..State$C$alloc..alloc..Global$GT$$GT$17h3a9260b779a96e02E.exit": ; preds = %62, %"_ZN4core3ptr79drop_in_place$LT$$u5b$regex_automata..nfa..thompson..range_trie..State$u5d$$GT$17hb59a808ed75d9554E.exit", %18, %10
   ret void
 }
 

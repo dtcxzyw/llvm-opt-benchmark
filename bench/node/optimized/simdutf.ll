@@ -9295,24 +9295,24 @@ if.end:                                           ; preds = %land.lhs.true56.i.i
   %rem = and i64 %length, 1
   %cmp2 = icmp eq i64 %rem, 0
   %add.ptr = getelementptr inbounds i8, ptr %input, i64 %length
-  %cmp6.not993 = icmp slt i64 %length, 64
+  %cmp6.not994 = icmp slt i64 %length, 64
   br i1 %cmp2, label %if.then3, label %if.else99
 
 if.then3:                                         ; preds = %if.end
-  br i1 %cmp6.not993, label %if.then52, label %while.body.preheader
+  br i1 %cmp6.not994, label %if.then52, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.then3
-  %add.ptr5992 = getelementptr inbounds i8, ptr %input, i64 64
+  %add.ptr5993 = getelementptr inbounds i8, ptr %input, i64 64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit214
-  %add.ptr5998 = phi ptr [ %add.ptr5, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit214 ], [ %add.ptr5992, %while.body.preheader ]
-  %buf.0997 = phi ptr [ %add.ptr5998, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit214 ], [ %input, %while.body.preheader ]
+  %add.ptr5999 = phi ptr [ %add.ptr5, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit214 ], [ %add.ptr5993, %while.body.preheader ]
+  %buf.0998 = phi ptr [ %add.ptr5999, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit214 ], [ %input, %while.body.preheader ]
   %10 = phi <16 x i32> [ %elt.max.i186, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit214 ], [ zeroinitializer, %while.body.preheader ]
-  %checker.sroa.0.0996 = phi <8 x i64> [ %checker.sroa.0.1, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit214 ], [ zeroinitializer, %while.body.preheader ]
-  %checker.sroa.13.0995 = phi <8 x i64> [ %checker.sroa.13.1, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit214 ], [ zeroinitializer, %while.body.preheader ]
-  %checker.sroa.18.0994 = phi <8 x i64> [ %checker.sroa.18.1, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit214 ], [ zeroinitializer, %while.body.preheader ]
-  %11 = load <8 x i64>, ptr %buf.0997, align 1
+  %checker.sroa.0.0997 = phi <8 x i64> [ %checker.sroa.0.1, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit214 ], [ zeroinitializer, %while.body.preheader ]
+  %checker.sroa.13.0996 = phi <8 x i64> [ %checker.sroa.13.1, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit214 ], [ zeroinitializer, %while.body.preheader ]
+  %checker.sroa.18.0995 = phi <8 x i64> [ %checker.sroa.18.1, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit214 ], [ zeroinitializer, %while.body.preheader ]
+  %11 = load <8 x i64>, ptr %buf.0998, align 1
   %12 = bitcast <8 x i64> %11 to <32 x i16>
   %sub.i = add <32 x i16> %12, <i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240, i16 10240>
   %13 = icmp ult <32 x i16> %sub.i, <i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048, i16 2048>
@@ -9334,14 +9334,14 @@ if.then14:                                        ; preds = %if.then12
   br i1 %cmp16.not, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.then14
-  %add.ptr23 = getelementptr inbounds i8, ptr %buf.0997, i64 62
-  %cmp20.not983 = icmp slt i32 %16, 0
-  %buf.1 = select i1 %cmp20.not983, ptr %add.ptr23, ptr %add.ptr5998
+  %add.ptr23 = getelementptr inbounds i8, ptr %buf.0998, i64 62
+  %cmp20.not984 = icmp slt i32 %16, 0
+  %buf.1 = select i1 %cmp20.not984, ptr %add.ptr23, ptr %add.ptr5999
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %buf.1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %add.ptr.idx.i = and i64 %sub.ptr.sub, -2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf.1, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.1, i64 %add.ptr.idx.i
   %cmp.not208.i = icmp ult i64 %sub.ptr.sub, 64
   br i1 %cmp.not208.i, label %for.end.i, label %for.body.preheader.i
 
@@ -9376,16 +9376,16 @@ if.end.i:                                         ; preds = %if.then.i953
 if.end18.i:                                       ; preds = %if.end.i, %for.body.i
   %buf.addr.1.i = phi ptr [ %add.ptr2210.i, %for.body.i ], [ %spec.select.i, %if.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %buf.addr.1.i, i64 64
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i, !llvm.loop !106
 
 for.end.i:                                        ; preds = %if.end18.i, %if.end18
   %buf.addr.0.lcssa.i = phi ptr [ %buf.1, %if.end18 ], [ %buf.addr.1.i, %if.end18.i ]
-  %cmp19.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.ptr.i
+  %cmp19.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.i
   br i1 %cmp19.i, label %if.then20.i, label %return
 
 if.then20.i:                                      ; preds = %for.end.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %buf.addr.0.lcssa.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 1
@@ -9417,13 +9417,11 @@ if.else31:                                        ; preds = %if.then12
   br i1 %cmp33, label %if.then34, label %if.end43
 
 if.then34:                                        ; preds = %if.else31
-  %div35949 = lshr exact i64 %length, 2
-  %add.ptr36 = getelementptr inbounds i32, ptr %input, i64 %div35949
-  %sub.ptr.lhs.cast37 = ptrtoint ptr %add.ptr36 to i64
-  %sub.ptr.rhs.cast38 = ptrtoint ptr %buf.0997 to i64
+  %sub.ptr.lhs.cast37 = ptrtoint ptr %add.ptr to i64
+  %sub.ptr.rhs.cast38 = ptrtoint ptr %buf.0998 to i64
   %sub.ptr.sub39 = sub i64 %sub.ptr.lhs.cast37, %sub.ptr.rhs.cast38
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub39, 2
-  %call40 = tail call noundef zeroext i1 @_ZNK7simdutf7icelake14implementation14validate_utf32EPKDim(ptr nonnull align 8 poison, ptr noundef nonnull %buf.0997, i64 noundef %sub.ptr.div) #54
+  %call40 = tail call noundef zeroext i1 @_ZNK7simdutf7icelake14implementation14validate_utf32EPKDim(ptr nonnull align 8 poison, ptr noundef nonnull %buf.0998, i64 noundef %sub.ptr.div) #54
   br i1 %call40, label %return, label %if.end43
 
 if.end43:                                         ; preds = %if.then34, %if.else31
@@ -9439,7 +9437,7 @@ if.end44:                                         ; preds = %while.body
   br i1 %cmp.i205, label %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit214, label %if.else.i206
 
 if.else.i206:                                     ; preds = %if.end44
-  %32 = bitcast <8 x i64> %checker.sroa.13.0995 to <16 x i32>
+  %32 = bitcast <8 x i64> %checker.sroa.13.0996 to <16 x i32>
   %33 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %28, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %32)
   %34 = bitcast <16 x i32> %33 to <64 x i8>
   %palignr.i = shufflevector <64 x i8> %34, <64 x i8> %29, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
@@ -9473,11 +9471,11 @@ if.else.i206:                                     ; preds = %if.end44
   br label %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit214
 
 _ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit214: ; preds = %if.end44, %if.else.i206
-  %checker.sroa.18.1 = phi <8 x i64> [ %54, %if.else.i206 ], [ %checker.sroa.18.0994, %if.end44 ]
-  %checker.sroa.13.1 = phi <8 x i64> [ %11, %if.else.i206 ], [ %checker.sroa.13.0995, %if.end44 ]
-  %checker.sroa.18.0.pn = phi <8 x i64> [ %53, %if.else.i206 ], [ %checker.sroa.18.0994, %if.end44 ]
-  %checker.sroa.0.1 = or <8 x i64> %checker.sroa.18.0.pn, %checker.sroa.0.0996
-  %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr5998, i64 64
+  %checker.sroa.18.1 = phi <8 x i64> [ %54, %if.else.i206 ], [ %checker.sroa.18.0995, %if.end44 ]
+  %checker.sroa.13.1 = phi <8 x i64> [ %11, %if.else.i206 ], [ %checker.sroa.13.0996, %if.end44 ]
+  %checker.sroa.18.0.pn = phi <8 x i64> [ %53, %if.else.i206 ], [ %checker.sroa.18.0995, %if.end44 ]
+  %checker.sroa.0.1 = or <8 x i64> %checker.sroa.18.0.pn, %checker.sroa.0.0997
+  %add.ptr5 = getelementptr inbounds i8, ptr %add.ptr5999, i64 64
   %cmp6.not = icmp ugt ptr %add.ptr5, %add.ptr
   br i1 %cmp6.not, label %if.then52.loopexit, label %while.body, !llvm.loop !107
 
@@ -9490,7 +9488,7 @@ if.then52:                                        ; preds = %if.then52.loopexit,
   %checker.sroa.13.0.lcssa = phi <16 x i32> [ zeroinitializer, %if.then3 ], [ %55, %if.then52.loopexit ]
   %checker.sroa.0.0.lcssa = phi <8 x i64> [ zeroinitializer, %if.then3 ], [ %checker.sroa.0.1, %if.then52.loopexit ]
   %.lcssa = phi <16 x i32> [ zeroinitializer, %if.then3 ], [ %elt.max.i186, %if.then52.loopexit ]
-  %buf.0.lcssa = phi ptr [ %input, %if.then3 ], [ %add.ptr5998, %if.then52.loopexit ]
+  %buf.0.lcssa = phi ptr [ %input, %if.then3 ], [ %add.ptr5999, %if.then52.loopexit ]
   %sub.ptr.lhs.cast53 = ptrtoint ptr %buf.0.lcssa to i64
   %sub.ptr.rhs.cast54 = ptrtoint ptr %input to i64
   %sub.ptr.sub55 = sub i64 %sub.ptr.lhs.cast53, %sub.ptr.rhs.cast54
@@ -9596,11 +9594,11 @@ if.end30.i:                                       ; preds = %if.end28.i, %cond.e
   br i1 %cmp.not.i960, label %cond.end.i, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %if.end30.i, %if.end63
-  %or76981 = or disjoint i32 %spec.select, 2
+  %or76982 = or disjoint i32 %spec.select, 2
   br label %_ZN7simdutf6scalar12_GLOBAL__N_15utf168validateILNS_10endiannessE0EEEbPKDsm.exit
 
 _ZN7simdutf6scalar12_GLOBAL__N_15utf168validateILNS_10endiannessE0EEEbPKDsm.exit: ; preds = %cond.end20.i, %if.then.i961, %.loopexit
-  %92 = phi i32 [ %or76981, %.loopexit ], [ %spec.select, %if.then.i961 ], [ %spec.select, %cond.end20.i ]
+  %92 = phi i32 [ %or76982, %.loopexit ], [ %spec.select, %if.then.i961 ], [ %spec.select, %cond.end20.i ]
   %rem80 = and i64 %length, 2
   %cmp81 = icmp eq i64 %rem80, 0
   br i1 %cmp81, label %if.then82, label %return
@@ -9620,18 +9618,18 @@ if.then82:                                        ; preds = %_ZN7simdutf6scalar1
   br label %return
 
 if.else99:                                        ; preds = %if.end
-  br i1 %cmp6.not993, label %for.end.i966, label %for.body.preheader.i962
+  br i1 %cmp6.not994, label %for.end.i967, label %for.body.preheader.i963
 
-for.body.preheader.i962:                          ; preds = %if.else99
+for.body.preheader.i963:                          ; preds = %if.else99
   %add.ptr2807.i = getelementptr inbounds i8, ptr %input, i64 64
-  br label %for.body.i963
+  br label %for.body.i964
 
-for.body.i963:                                    ; preds = %for.inc.i, %for.body.preheader.i962
-  %add.ptr2813.i = phi ptr [ %add.ptr2.i964, %for.inc.i ], [ %add.ptr2807.i, %for.body.preheader.i962 ]
-  %ptr.0812.i = phi ptr [ %add.ptr2813.i, %for.inc.i ], [ %input, %for.body.preheader.i962 ]
-  %checker.sroa.0.0811.i = phi <8 x i64> [ %checker.sroa.0.1.i, %for.inc.i ], [ zeroinitializer, %for.body.preheader.i962 ]
-  %checker.sroa.13.0810.i = phi <8 x i64> [ %checker.sroa.13.1.i, %for.inc.i ], [ zeroinitializer, %for.body.preheader.i962 ]
-  %checker.sroa.18.0809.i = phi <8 x i64> [ %checker.sroa.18.1.i, %for.inc.i ], [ zeroinitializer, %for.body.preheader.i962 ]
+for.body.i964:                                    ; preds = %for.inc.i, %for.body.preheader.i963
+  %add.ptr2813.i = phi ptr [ %add.ptr2.i965, %for.inc.i ], [ %add.ptr2807.i, %for.body.preheader.i963 ]
+  %ptr.0812.i = phi ptr [ %add.ptr2813.i, %for.inc.i ], [ %input, %for.body.preheader.i963 ]
+  %checker.sroa.0.0811.i = phi <8 x i64> [ %checker.sroa.0.1.i, %for.inc.i ], [ zeroinitializer, %for.body.preheader.i963 ]
+  %checker.sroa.13.0810.i = phi <8 x i64> [ %checker.sroa.13.1.i, %for.inc.i ], [ zeroinitializer, %for.body.preheader.i963 ]
+  %checker.sroa.18.0809.i = phi <8 x i64> [ %checker.sroa.18.1.i, %for.inc.i ], [ zeroinitializer, %for.body.preheader.i963 ]
   %98 = load <8 x i64>, ptr %ptr.0812.i, align 1
   %99 = bitcast <8 x i64> %98 to <64 x i8>
   %100 = icmp slt <64 x i8> %99, zeroinitializer
@@ -9639,7 +9637,7 @@ for.body.i963:                                    ; preds = %for.inc.i, %for.bod
   %cmp.i28.i = icmp eq i64 %101, 0
   br i1 %cmp.i28.i, label %for.inc.i, label %if.else.i29.i
 
-if.else.i29.i:                                    ; preds = %for.body.i963
+if.else.i29.i:                                    ; preds = %for.body.i964
   %102 = bitcast <8 x i64> %checker.sroa.13.0810.i to <16 x i32>
   %103 = bitcast <8 x i64> %98 to <16 x i32>
   %104 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %103, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %102)
@@ -9675,37 +9673,37 @@ if.else.i29.i:                                    ; preds = %for.body.i963
   %126 = bitcast <64 x i8> %elt.sat.i943.i to <8 x i64>
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.else.i29.i, %for.body.i963
-  %checker.sroa.18.1.i = phi <8 x i64> [ %126, %if.else.i29.i ], [ %checker.sroa.18.0809.i, %for.body.i963 ]
-  %checker.sroa.13.1.i = phi <8 x i64> [ %98, %if.else.i29.i ], [ %checker.sroa.13.0810.i, %for.body.i963 ]
-  %checker.sroa.18.0.pn798.i = phi <8 x i64> [ %125, %if.else.i29.i ], [ %checker.sroa.18.0809.i, %for.body.i963 ]
+for.inc.i:                                        ; preds = %if.else.i29.i, %for.body.i964
+  %checker.sroa.18.1.i = phi <8 x i64> [ %126, %if.else.i29.i ], [ %checker.sroa.18.0809.i, %for.body.i964 ]
+  %checker.sroa.13.1.i = phi <8 x i64> [ %98, %if.else.i29.i ], [ %checker.sroa.13.0810.i, %for.body.i964 ]
+  %checker.sroa.18.0.pn798.i = phi <8 x i64> [ %125, %if.else.i29.i ], [ %checker.sroa.18.0809.i, %for.body.i964 ]
   %checker.sroa.0.1.i = or <8 x i64> %checker.sroa.18.0.pn798.i, %checker.sroa.0.0811.i
-  %add.ptr2.i964 = getelementptr inbounds i8, ptr %add.ptr2813.i, i64 64
-  %cmp.not.i965 = icmp ugt ptr %add.ptr2.i964, %add.ptr
-  br i1 %cmp.not.i965, label %for.end.loopexit.i, label %for.body.i963, !llvm.loop !108
+  %add.ptr2.i965 = getelementptr inbounds i8, ptr %add.ptr2813.i, i64 64
+  %cmp.not.i966 = icmp ugt ptr %add.ptr2.i965, %add.ptr
+  br i1 %cmp.not.i966, label %for.end.loopexit.i, label %for.body.i964, !llvm.loop !108
 
 for.end.loopexit.i:                               ; preds = %for.inc.i
   %127 = bitcast <8 x i64> %checker.sroa.13.1.i to <16 x i32>
-  br label %for.end.i966
+  br label %for.end.i967
 
-for.end.i966:                                     ; preds = %for.end.loopexit.i, %if.else99
+for.end.i967:                                     ; preds = %for.end.loopexit.i, %if.else99
   %checker.sroa.18.0.lcssa.i = phi <8 x i64> [ zeroinitializer, %if.else99 ], [ %checker.sroa.18.1.i, %for.end.loopexit.i ]
   %checker.sroa.13.0.lcssa.i = phi <16 x i32> [ zeroinitializer, %if.else99 ], [ %127, %for.end.loopexit.i ]
   %checker.sroa.0.0.lcssa.i = phi <8 x i64> [ zeroinitializer, %if.else99 ], [ %checker.sroa.0.1.i, %for.end.loopexit.i ]
   %ptr.0.lcssa.i = phi ptr [ %input, %if.else99 ], [ %add.ptr2813.i, %for.end.loopexit.i ]
-  %sub.ptr.lhs.cast.i967 = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.rhs.cast.i968 = ptrtoint ptr %ptr.0.lcssa.i to i64
-  %sub.ptr.sub.i969 = sub i64 %sub.ptr.lhs.cast.i967, %sub.ptr.rhs.cast.i968
-  %notmask.i970 = shl nsw i64 -1, %sub.ptr.sub.i969
-  %sub.i971 = xor i64 %notmask.i970, -1
-  %128 = bitcast i64 %sub.i971 to <64 x i1>
+  %sub.ptr.lhs.cast.i968 = ptrtoint ptr %add.ptr to i64
+  %sub.ptr.rhs.cast.i969 = ptrtoint ptr %ptr.0.lcssa.i to i64
+  %sub.ptr.sub.i970 = sub i64 %sub.ptr.lhs.cast.i968, %sub.ptr.rhs.cast.i969
+  %notmask.i971 = shl nsw i64 -1, %sub.ptr.sub.i970
+  %sub.i972 = xor i64 %notmask.i971, -1
+  %128 = bitcast i64 %sub.i972 to <64 x i1>
   %129 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %ptr.0.lcssa.i, i32 1, <64 x i1> %128, <64 x i8> zeroinitializer)
   %130 = icmp slt <64 x i8> %129, zeroinitializer
   %131 = bitcast <64 x i1> %130 to i64
-  %cmp.i.i972 = icmp eq i64 %131, 0
-  br i1 %cmp.i.i972, label %_ZNK7simdutf7icelake14implementation13validate_utf8EPKcm.exit, label %if.else.i.i973
+  %cmp.i.i973 = icmp eq i64 %131, 0
+  br i1 %cmp.i.i973, label %_ZNK7simdutf7icelake14implementation13validate_utf8EPKcm.exit, label %if.else.i.i974
 
-if.else.i.i973:                                   ; preds = %for.end.i966
+if.else.i.i974:                                   ; preds = %for.end.i967
   %132 = bitcast <64 x i8> %129 to <16 x i32>
   %133 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %132, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %checker.sroa.13.0.lcssa.i)
   %134 = bitcast <16 x i32> %133 to <64 x i8>
@@ -9740,9 +9738,9 @@ if.else.i.i973:                                   ; preds = %for.end.i966
   %155 = bitcast <64 x i8> %elt.sat.i936.i to <8 x i64>
   br label %_ZNK7simdutf7icelake14implementation13validate_utf8EPKcm.exit
 
-_ZNK7simdutf7icelake14implementation13validate_utf8EPKcm.exit: ; preds = %for.end.i966, %if.else.i.i973
-  %checker.sroa.18.2.i = phi <8 x i64> [ %155, %if.else.i.i973 ], [ %checker.sroa.18.0.lcssa.i, %for.end.i966 ]
-  %checker.sroa.18.0.pn.i = phi <8 x i64> [ %154, %if.else.i.i973 ], [ %checker.sroa.18.0.lcssa.i, %for.end.i966 ]
+_ZNK7simdutf7icelake14implementation13validate_utf8EPKcm.exit: ; preds = %for.end.i967, %if.else.i.i974
+  %checker.sroa.18.2.i = phi <8 x i64> [ %155, %if.else.i.i974 ], [ %checker.sroa.18.0.lcssa.i, %for.end.i967 ]
+  %checker.sroa.18.0.pn.i = phi <8 x i64> [ %154, %if.else.i.i974 ], [ %checker.sroa.18.0.lcssa.i, %for.end.i967 ]
   %156 = or <8 x i64> %checker.sroa.18.2.i, %checker.sroa.0.0.lcssa.i
   %or.i.i = or <8 x i64> %156, %checker.sroa.18.0.pn.i
   %157 = bitcast <8 x i64> %or.i.i to <64 x i8>
@@ -9761,7 +9759,7 @@ return:                                           ; preds = %land.lhs.true56.i.i
 define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation16validate_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #9 align 2 {
 entry:
   %add.ptr.idx = shl nsw i64 %len, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
   %cmp.not208 = icmp slt i64 %len, 32
   br i1 %cmp.not208, label %for.end, label %for.body.preheader
 
@@ -9796,16 +9794,16 @@ if.end:                                           ; preds = %if.then
 if.end18:                                         ; preds = %if.end, %for.body
   %buf.addr.1 = phi ptr [ %add.ptr2210, %for.body ], [ %spec.select, %if.end ]
   %add.ptr2 = getelementptr inbounds i8, ptr %buf.addr.1, i64 64
-  %cmp.not = icmp ugt ptr %add.ptr2, %add.ptr.ptr
+  %cmp.not = icmp ugt ptr %add.ptr2, %add.ptr
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !106
 
 for.end:                                          ; preds = %if.end18, %entry
   %buf.addr.0.lcssa = phi ptr [ %buf, %entry ], [ %buf.addr.1, %if.end18 ]
-  %cmp19 = icmp ult ptr %buf.addr.0.lcssa, %add.ptr.ptr
+  %cmp19 = icmp ult ptr %buf.addr.0.lcssa, %add.ptr
   br i1 %cmp19, label %if.then20, label %if.end42
 
 if.then20:                                        ; preds = %for.end
-  %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr.ptr to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %buf.addr.0.lcssa to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 1
@@ -10382,7 +10380,7 @@ return:                                           ; preds = %for.end, %if.then13
 define dso_local noundef zeroext i1 @_ZNK7simdutf7icelake14implementation16validate_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #9 align 2 {
 entry:
   %add.ptr.idx = shl nsw i64 %len, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
   %cmp.not209 = icmp slt i64 %len, 32
   br i1 %cmp.not209, label %for.end, label %for.body.preheader
 
@@ -10419,16 +10417,16 @@ if.end:                                           ; preds = %if.then
 if.end22:                                         ; preds = %if.end, %for.body
   %buf.addr.1 = phi ptr [ %add.ptr2211, %for.body ], [ %spec.select, %if.end ]
   %add.ptr2 = getelementptr inbounds i8, ptr %buf.addr.1, i64 64
-  %cmp.not = icmp ugt ptr %add.ptr2, %add.ptr.ptr
+  %cmp.not = icmp ugt ptr %add.ptr2, %add.ptr
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !115
 
 for.end:                                          ; preds = %if.end22, %entry
   %buf.addr.0.lcssa = phi ptr [ %buf, %entry ], [ %buf.addr.1, %if.end22 ]
-  %cmp23 = icmp ult ptr %buf.addr.0.lcssa, %add.ptr.ptr
+  %cmp23 = icmp ult ptr %buf.addr.0.lcssa, %add.ptr
   br i1 %cmp23, label %if.then24, label %if.end49
 
 if.then24:                                        ; preds = %for.end
-  %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr.ptr to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %buf.addr.0.lcssa to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 1
@@ -10466,7 +10464,7 @@ return:                                           ; preds = %if.then, %if.then39
 define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation28validate_utf16le_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #9 align 2 {
 entry:
   %add.ptr.idx = shl nsw i64 %len, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
   %cmp.not225 = icmp slt i64 %len, 32
   br i1 %cmp.not225, label %for.end, label %for.body.preheader
 
@@ -10518,16 +10516,16 @@ if.end:                                           ; preds = %if.then
 if.end25:                                         ; preds = %if.end, %for.body
   %buf.addr.1 = phi ptr [ %add.ptr2227, %for.body ], [ %spec.select, %if.end ]
   %add.ptr2 = getelementptr inbounds i8, ptr %buf.addr.1, i64 64
-  %cmp.not = icmp ugt ptr %add.ptr2, %add.ptr.ptr
+  %cmp.not = icmp ugt ptr %add.ptr2, %add.ptr
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !117
 
 for.end:                                          ; preds = %if.end25, %entry
   %buf.addr.0.lcssa = phi ptr [ %buf, %entry ], [ %buf.addr.1, %if.end25 ]
-  %cmp26 = icmp ult ptr %buf.addr.0.lcssa, %add.ptr.ptr
+  %cmp26 = icmp ult ptr %buf.addr.0.lcssa, %add.ptr
   br i1 %cmp26, label %if.then27, label %return
 
 if.then27:                                        ; preds = %for.end
-  %sub.ptr.lhs.cast29 = ptrtoint ptr %add.ptr.ptr to i64
+  %sub.ptr.lhs.cast29 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast30 = ptrtoint ptr %buf.addr.0.lcssa to i64
   %sub.ptr.sub31 = sub i64 %sub.ptr.lhs.cast29, %sub.ptr.rhs.cast30
   %sub.ptr.div32 = lshr exact i64 %sub.ptr.sub31, 1
@@ -10578,7 +10576,7 @@ return:                                           ; preds = %for.end, %if.then43
 define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation28validate_utf16be_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #9 align 2 {
 entry:
   %add.ptr.idx = shl nsw i64 %len, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx
   %cmp.not226 = icmp slt i64 %len, 32
   br i1 %cmp.not226, label %for.end, label %for.body.preheader
 
@@ -10632,16 +10630,16 @@ if.end:                                           ; preds = %if.then
 if.end29:                                         ; preds = %if.end, %for.body
   %buf.addr.1 = phi ptr [ %add.ptr2228, %for.body ], [ %spec.select, %if.end ]
   %add.ptr2 = getelementptr inbounds i8, ptr %buf.addr.1, i64 64
-  %cmp.not = icmp ugt ptr %add.ptr2, %add.ptr.ptr
+  %cmp.not = icmp ugt ptr %add.ptr2, %add.ptr
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !118
 
 for.end:                                          ; preds = %if.end29, %entry
   %buf.addr.0.lcssa = phi ptr [ %buf, %entry ], [ %buf.addr.1, %if.end29 ]
-  %cmp30 = icmp ult ptr %buf.addr.0.lcssa, %add.ptr.ptr
+  %cmp30 = icmp ult ptr %buf.addr.0.lcssa, %add.ptr
   br i1 %cmp30, label %if.then31, label %return
 
 if.then31:                                        ; preds = %for.end
-  %sub.ptr.lhs.cast33 = ptrtoint ptr %add.ptr.ptr to i64
+  %sub.ptr.lhs.cast33 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast34 = ptrtoint ptr %buf.addr.0.lcssa to i64
   %sub.ptr.sub35 = sub i64 %sub.ptr.lhs.cast33, %sub.ptr.rhs.cast34
   %sub.ptr.div36 = lshr exact i64 %sub.ptr.sub35, 1
@@ -17336,7 +17334,7 @@ return:                                           ; preds = %while.body, %if.the
 define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not53.i = icmp slt i64 %len, 32
   br i1 %cmp.not53.i, label %while.end.i, label %while.body.preheader.i
 
@@ -17363,17 +17361,17 @@ if.end.i:                                         ; preds = %while.body.i
   store <4 x i64> %shuffle.i86.i, ptr %latin1_output.addr.054.i, align 1
   %add.ptr10.i = getelementptr inbounds i8, ptr %latin1_output.addr.054.i, i64 32
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr356.i, i64 64
-  %cmp.not.i = icmp ugt ptr %add.ptr3.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr3.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !146
 
 while.end.i:                                      ; preds = %if.end.i, %entry
   %latin1_output.addr.0.lcssa.i = phi ptr [ %latin1_output, %entry ], [ %add.ptr10.i, %if.end.i ]
   %buf.addr.0.lcssa.i = phi ptr [ %buf, %entry ], [ %add.ptr356.i, %if.end.i ]
-  %cmp12.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.ptr.i
+  %cmp12.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.i
   br i1 %cmp12.i, label %if.then13.i, label %_ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf16_to_latin1ILNS_10endiannessE0EEEmPKDsmPc.exit
 
 if.then13.i:                                      ; preds = %while.end.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %buf.addr.0.lcssa.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 1
@@ -17401,7 +17399,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf16_to_latin1ILNS_10endiann
 define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not56.i = icmp slt i64 %len, 32
   br i1 %cmp.not56.i, label %while.end.i, label %while.body.preheader.i
 
@@ -17428,17 +17426,17 @@ if.end.i:                                         ; preds = %while.body.i
   store <4 x i64> %shuffle.i104.i, ptr %latin1_output.addr.057.i, align 1
   %add.ptr13.i = getelementptr inbounds i8, ptr %latin1_output.addr.057.i, i64 32
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr359.i, i64 64
-  %cmp.not.i = icmp ugt ptr %add.ptr3.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr3.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !147
 
 while.end.i:                                      ; preds = %if.end.i, %entry
   %latin1_output.addr.0.lcssa.i = phi ptr [ %latin1_output, %entry ], [ %add.ptr13.i, %if.end.i ]
   %buf.addr.0.lcssa.i = phi ptr [ %buf, %entry ], [ %add.ptr359.i, %if.end.i ]
-  %cmp15.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.ptr.i
+  %cmp15.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.i
   br i1 %cmp15.i, label %if.then16.i, label %_ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf16_to_latin1ILNS_10endiannessE1EEEmPKDsmPc.exit
 
 if.then16.i:                                      ; preds = %while.end.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %buf.addr.0.lcssa.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 1
@@ -17469,7 +17467,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf16_to_latin1ILNS_10endiann
 define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not70.i = icmp slt i64 %len, 32
   br i1 %cmp.not70.i, label %while.end17.i, label %while.body.preheader.i
 
@@ -17521,17 +17519,17 @@ if.end.i:                                         ; preds = %while.body.i
   store <4 x i64> %shuffle.i121.i, ptr %latin1_output.addr.071.i, align 1, !noalias !148
   %add.ptr15.i = getelementptr inbounds i8, ptr %latin1_output.addr.071.i, i64 32
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr373.i, i64 64
-  %cmp.not.i = icmp ugt ptr %add.ptr3.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr3.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end17.i, label %while.body.i, !llvm.loop !152
 
 while.end17.i:                                    ; preds = %if.end.i, %entry
   %latin1_output.addr.0.lcssa.i = phi ptr [ %latin1_output, %entry ], [ %add.ptr15.i, %if.end.i ]
   %buf.addr.0.lcssa.i = phi ptr [ %buf, %entry ], [ %add.ptr373.i, %if.end.i ]
-  %cmp18.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.ptr.i
+  %cmp18.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.i
   br i1 %cmp18.i, label %if.then19.i, label %_ZN7simdutf7icelake12_GLOBAL__N_143icelake_convert_utf16_to_latin1_with_errorsILNS_10endiannessE0EEESt4pairINS_6resultEPcEPKDsmS6_.exit
 
 if.then19.i:                                      ; preds = %while.end17.i
-  %sub.ptr.lhs.cast20.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast20.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast21.i = ptrtoint ptr %buf.addr.0.lcssa.i to i64
   %sub.ptr.sub22.i = sub i64 %sub.ptr.lhs.cast20.i, %sub.ptr.rhs.cast21.i
   %sub.ptr.div23.i = lshr exact i64 %sub.ptr.sub22.i, 1
@@ -17593,7 +17591,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not74.i = icmp slt i64 %len, 32
   br i1 %cmp.not74.i, label %while.end21.i, label %while.body.preheader.i
 
@@ -17648,17 +17646,17 @@ if.end.i:                                         ; preds = %while.body.i
   store <4 x i64> %shuffle.i141.i, ptr %latin1_output.addr.075.i, align 1, !noalias !154
   %add.ptr19.i = getelementptr inbounds i8, ptr %latin1_output.addr.075.i, i64 32
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr377.i, i64 64
-  %cmp.not.i = icmp ugt ptr %add.ptr3.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr3.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end21.i, label %while.body.i, !llvm.loop !158
 
 while.end21.i:                                    ; preds = %if.end.i, %entry
   %latin1_output.addr.0.lcssa.i = phi ptr [ %latin1_output, %entry ], [ %add.ptr19.i, %if.end.i ]
   %buf.addr.0.lcssa.i = phi ptr [ %buf, %entry ], [ %add.ptr377.i, %if.end.i ]
-  %cmp22.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.ptr.i
+  %cmp22.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.i
   br i1 %cmp22.i, label %if.then23.i, label %_ZN7simdutf7icelake12_GLOBAL__N_143icelake_convert_utf16_to_latin1_with_errorsILNS_10endiannessE1EEESt4pairINS_6resultEPcEPKDsmS6_.exit
 
 if.then23.i:                                      ; preds = %while.end21.i
-  %sub.ptr.lhs.cast24.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast24.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast25.i = ptrtoint ptr %buf.addr.0.lcssa.i to i64
   %sub.ptr.sub26.i = sub i64 %sub.ptr.lhs.cast24.i, %sub.ptr.rhs.cast25.i
   %sub.ptr.div27.i = lshr exact i64 %sub.ptr.sub26.i, 1
@@ -17722,7 +17720,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_143icelake_convert_utf16_to_latin1_with_errorsIL
 define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
   %cmp.not56.i.i = icmp slt i64 %len, 32
   br i1 %cmp.not56.i.i, label %while.end.i.i, label %while.body.preheader.i.i
 
@@ -17749,17 +17747,17 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   store <4 x i64> %shuffle.i104.i.i, ptr %latin1_output.addr.057.i.i, align 1
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %latin1_output.addr.057.i.i, i64 32
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr359.i.i, i64 64
-  %cmp.not.i.i = icmp ugt ptr %add.ptr3.i.i, %add.ptr.ptr.i.i
+  %cmp.not.i.i = icmp ugt ptr %add.ptr3.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !147
 
 while.end.i.i:                                    ; preds = %if.end.i.i, %entry
   %latin1_output.addr.0.lcssa.i.i = phi ptr [ %latin1_output, %entry ], [ %add.ptr13.i.i, %if.end.i.i ]
   %buf.addr.0.lcssa.i.i = phi ptr [ %buf, %entry ], [ %add.ptr359.i.i, %if.end.i.i ]
-  %cmp15.i.i = icmp ult ptr %buf.addr.0.lcssa.i.i, %add.ptr.ptr.i.i
+  %cmp15.i.i = icmp ult ptr %buf.addr.0.lcssa.i.i, %add.ptr.i.i
   br i1 %cmp15.i.i, label %if.then16.i.i, label %_ZNK7simdutf7icelake14implementation25convert_utf16be_to_latin1EPKDsmPc.exit
 
 if.then16.i.i:                                    ; preds = %while.end.i.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.ptr.i.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buf.addr.0.lcssa.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 1
@@ -17790,7 +17788,7 @@ _ZNK7simdutf7icelake14implementation25convert_utf16be_to_latin1EPKDsmPc.exit: ; 
 define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
   %cmp.not53.i.i = icmp slt i64 %len, 32
   br i1 %cmp.not53.i.i, label %while.end.i.i, label %while.body.preheader.i.i
 
@@ -17817,17 +17815,17 @@ if.end.i.i:                                       ; preds = %while.body.i.i
   store <4 x i64> %shuffle.i86.i.i, ptr %latin1_output.addr.054.i.i, align 1
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %latin1_output.addr.054.i.i, i64 32
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr356.i.i, i64 64
-  %cmp.not.i.i = icmp ugt ptr %add.ptr3.i.i, %add.ptr.ptr.i.i
+  %cmp.not.i.i = icmp ugt ptr %add.ptr3.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !146
 
 while.end.i.i:                                    ; preds = %if.end.i.i, %entry
   %latin1_output.addr.0.lcssa.i.i = phi ptr [ %latin1_output, %entry ], [ %add.ptr10.i.i, %if.end.i.i ]
   %buf.addr.0.lcssa.i.i = phi ptr [ %buf, %entry ], [ %add.ptr356.i.i, %if.end.i.i ]
-  %cmp12.i.i = icmp ult ptr %buf.addr.0.lcssa.i.i, %add.ptr.ptr.i.i
+  %cmp12.i.i = icmp ult ptr %buf.addr.0.lcssa.i.i, %add.ptr.i.i
   br i1 %cmp12.i.i, label %if.then13.i.i, label %_ZNK7simdutf7icelake14implementation25convert_utf16le_to_latin1EPKDsmPc.exit
 
 if.then13.i.i:                                    ; preds = %while.end.i.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.ptr.i.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %buf.addr.0.lcssa.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 1
@@ -19317,7 +19315,7 @@ entry:
 define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation23convert_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not37.i = icmp slt i64 %len, 16
   br i1 %cmp.not37.i, label %while.end.i, label %while.body.preheader.i
 
@@ -19344,17 +19342,17 @@ if.end.i:                                         ; preds = %while.body.i
   store <2 x i64> %shuffle.i55.i, ptr %latin1_output.addr.038.i, align 1
   %add.ptr8.i = getelementptr inbounds i8, ptr %latin1_output.addr.038.i, i64 16
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr240.i, i64 64
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !162
 
 while.end.i:                                      ; preds = %if.end.i, %entry
   %latin1_output.addr.0.lcssa.i = phi ptr [ %latin1_output, %entry ], [ %add.ptr8.i, %if.end.i ]
   %buf.addr.0.lcssa.i = phi ptr [ %buf, %entry ], [ %add.ptr240.i, %if.end.i ]
-  %cmp10.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.ptr.i
+  %cmp10.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.i
   br i1 %cmp10.i, label %if.then11.i, label %_ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf32_to_latin1EPKDimPc.exit
 
 if.then11.i:                                      ; preds = %while.end.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %buf.addr.0.lcssa.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 2
@@ -19383,7 +19381,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf32_to_latin1EPKDimPc.exit:
 define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation35convert_utf32_to_latin1_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not55.i = icmp slt i64 %len, 16
   br i1 %cmp.not55.i, label %while.end14.i, label %while.body.preheader.i
 
@@ -19435,17 +19433,17 @@ if.end.i:                                         ; preds = %while.body.i
   store <2 x i64> %shuffle.i88.i, ptr %latin1_output.addr.056.i, align 1, !noalias !163
   %add.ptr12.i = getelementptr inbounds i8, ptr %latin1_output.addr.056.i, i64 16
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr258.i, i64 64
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end14.i, label %while.body.i, !llvm.loop !167
 
 while.end14.i:                                    ; preds = %if.end.i, %entry
   %latin1_output.addr.0.lcssa.i = phi ptr [ %latin1_output, %entry ], [ %add.ptr12.i, %if.end.i ]
   %buf.addr.0.lcssa.i = phi ptr [ %buf, %entry ], [ %add.ptr258.i, %if.end.i ]
-  %cmp15.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.ptr.i
+  %cmp15.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.i
   br i1 %cmp15.i, label %if.then16.i, label %_ZN7simdutf7icelake12_GLOBAL__N_143icelake_convert_utf32_to_latin1_with_errorsEPKDimPc.exit
 
 if.then16.i:                                      ; preds = %while.end14.i
-  %sub.ptr.lhs.cast17.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast17.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast18.i = ptrtoint ptr %buf.addr.0.lcssa.i to i64
   %sub.ptr.sub19.i = sub i64 %sub.ptr.lhs.cast17.i, %sub.ptr.rhs.cast18.i
   %sub.ptr.div20.i = lshr exact i64 %sub.ptr.sub19.i, 2
@@ -19505,7 +19503,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_143icelake_convert_utf32_to_latin1_with_errorsEP
 define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation29convert_valid_utf32_to_latin1EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr nocapture noundef writeonly %latin1_output) unnamed_addr #13 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not37.i = icmp slt i64 %len, 16
   br i1 %cmp.not37.i, label %while.end.i, label %while.body.preheader.i
 
@@ -19532,17 +19530,17 @@ if.end.i:                                         ; preds = %while.body.i
   store <2 x i64> %shuffle.i55.i, ptr %latin1_output.addr.038.i, align 1
   %add.ptr8.i = getelementptr inbounds i8, ptr %latin1_output.addr.038.i, i64 16
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr240.i, i64 64
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !162
 
 while.end.i:                                      ; preds = %if.end.i, %entry
   %latin1_output.addr.0.lcssa.i = phi ptr [ %latin1_output, %entry ], [ %add.ptr8.i, %if.end.i ]
   %buf.addr.0.lcssa.i = phi ptr [ %buf, %entry ], [ %add.ptr240.i, %if.end.i ]
-  %cmp10.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.ptr.i
+  %cmp10.i = icmp ult ptr %buf.addr.0.lcssa.i, %add.ptr.i
   br i1 %cmp10.i, label %if.then11.i, label %_ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf32_to_latin1EPKDimPc.exit
 
 if.then11.i:                                      ; preds = %while.end.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %buf.addr.0.lcssa.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 2
@@ -19571,12 +19569,12 @@ _ZN7simdutf7icelake12_GLOBAL__N_131icelake_convert_utf32_to_latin1EPKDimPc.exit:
 define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation21convert_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #16 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not317333.i = icmp slt i64 %len, 28
   br i1 %cmp.not317333.i, label %while.end.i, label %while.body.lr.ph.lr.ph.i
 
 while.body.lr.ph.lr.ph.i:                         ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end299.i, %while.body.lr.ph.lr.ph.i
@@ -19620,7 +19618,7 @@ while.cond.backedge.i:                            ; preds = %if.then52.i, %if.th
   %utf8_output.addr.0.be.i = phi ptr [ %add.ptr99.i, %if.then52.i ], [ %add.ptr34.i, %if.then.i ]
   %buf.addr.0.be.i = getelementptr inbounds i8, ptr %buf.addr.0319.i, i64 64
   %add.ptr9.i = getelementptr inbounds i8, ptr %buf.addr.0319.i, i64 176
-  %cmp.not.i = icmp ugt ptr %add.ptr9.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr9.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !169
 
 if.end.i:                                         ; preds = %while.body.i
@@ -19879,7 +19877,7 @@ if.end299.i:                                      ; preds = %for.end.i, %if.then
   %storemerge.i = phi ptr [ %add.ptr223.i, %if.then114.i ], [ %add.ptr298.i, %for.end.i ]
   %forbidden_bytemask.1.i = phi <4 x i64> [ %or.i563.i, %if.then114.i ], [ %forbidden_bytemask.0.ph336.i, %for.end.i ]
   %add.ptr9316.i = getelementptr inbounds i8, ptr %storemerge.i, i64 112
-  %cmp.not317.i = icmp ugt ptr %add.ptr9316.i, %add.ptr.ptr.i
+  %cmp.not317.i = icmp ugt ptr %add.ptr9316.i, %add.ptr.i
   br i1 %cmp.not317.i, label %while.end.i, label %while.body.lr.ph.i, !llvm.loop !169
 
 while.end.i:                                      ; preds = %if.end299.i, %while.cond.backedge.i, %entry
@@ -19931,12 +19929,12 @@ return:                                           ; preds = %if.else271.i, %if.t
 define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #16 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not336.i = icmp slt i64 %len, 28
   br i1 %cmp.not336.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast238.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast238.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -19988,7 +19986,7 @@ while.cond.backedge.i:                            ; preds = %for.end.i, %if.end1
   %utf8_output.addr.0.be.i = phi ptr [ %add.ptr106.i, %if.then59.i ], [ %add.ptr40.i, %if.then35.i ], [ %add.ptr236.i, %if.end138.i ], [ %utf8_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.0.be.i = phi ptr [ %add.ptr7339.i, %if.then59.i ], [ %add.ptr7339.i, %if.then35.i ], [ %add.ptr7339.i, %if.end138.i ], [ %add.ptr325.i, %for.end.i ]
   %add.ptr8.i = getelementptr inbounds i8, ptr %buf.addr.0.be.i, i64 112
-  %cmp.not.i = icmp ugt ptr %add.ptr8.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr8.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !174
 
 if.end41.i:                                       ; preds = %if.end.i
@@ -20326,12 +20324,12 @@ entry:
 define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not67.i = icmp slt i64 %len, 20
   br i1 %cmp.not67.i, label %_ZN7simdutf7icelake12_GLOBAL__N_129avx512_convert_utf32_to_utf16ILNS_10endiannessE0EEESt4pairIPKDiPDsES6_mS7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end60.i, %while.body.lr.ph.i
@@ -20426,7 +20424,7 @@ if.end60.i:                                       ; preds = %for.end.i, %if.then
   %storemerge.i = phi ptr [ %add.ptr29.i, %if.then.i ], [ %add.ptr59.i, %for.end.i ]
   %forbidden_bytemask.1.i = phi <4 x i64> [ %or.i.i, %if.then.i ], [ %forbidden_bytemask.070.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %storemerge.i, i64 80
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !177
 
 while.end.loopexit.i:                             ; preds = %if.end60.i
@@ -20524,12 +20522,12 @@ return:                                           ; preds = %if.else44.i, %if.th
 define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not73.i = icmp slt i64 %len, 20
   br i1 %cmp.not73.i, label %_ZN7simdutf7icelake12_GLOBAL__N_129avx512_convert_utf32_to_utf16ILNS_10endiannessE1EEESt4pairIPKDiPDsES6_mS7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end79.i, %while.body.lr.ph.i
@@ -20636,7 +20634,7 @@ if.end79.i:                                       ; preds = %for.end.i, %if.then
   %storemerge.i = phi ptr [ %add.ptr31.i, %if.then.i ], [ %add.ptr78.i, %for.end.i ]
   %forbidden_bytemask.1.i = phi <4 x i64> [ %or.i.i, %if.then.i ], [ %forbidden_bytemask.076.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %storemerge.i, i64 80
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !179
 
 while.end.loopexit.i:                             ; preds = %if.end79.i
@@ -20737,12 +20735,12 @@ return:                                           ; preds = %if.else50.i, %if.th
 define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not87.i = icmp slt i64 %len, 20
   br i1 %cmp.not87.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast30.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast30.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end74.i, %while.body.lr.ph.i
@@ -20861,7 +20859,7 @@ if.end74.i:                                       ; preds = %for.end.i, %if.end.
   %utf16_output.addr.3.i = phi ptr [ %add.ptr28.i, %if.end.i ], [ %utf16_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.1.i = phi ptr [ %add.ptr190.i, %if.end.i ], [ %add.ptr73.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %buf.addr.1.i, i64 80
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !184
 
 while.end.i:                                      ; preds = %if.end74.i, %entry
@@ -20961,12 +20959,12 @@ return:                                           ; preds = %if.end13, %if.then6
 define dso_local { i32, i64 } @_ZNK7simdutf7icelake14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not93.i = icmp slt i64 %len, 20
   br i1 %cmp.not93.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast32.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast32.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end93.i, %while.body.lr.ph.i
@@ -21097,7 +21095,7 @@ if.end93.i:                                       ; preds = %for.end.i, %if.end.
   %utf16_output.addr.3.i = phi ptr [ %add.ptr30.i, %if.end.i ], [ %utf16_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.1.i = phi ptr [ %add.ptr196.i, %if.end.i ], [ %add.ptr92.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %buf.addr.1.i, i64 80
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !189
 
 while.end.i:                                      ; preds = %if.end93.i, %entry
@@ -21200,12 +21198,12 @@ return:                                           ; preds = %if.end13, %if.then6
 define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
   %cmp.not67.i.i = icmp slt i64 %len, 20
   br i1 %cmp.not67.i.i, label %_ZN7simdutf7icelake12_GLOBAL__N_129avx512_convert_utf32_to_utf16ILNS_10endiannessE0EEESt4pairIPKDiPDsES6_mS7_.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.ptr.i.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end60.i.i, %while.body.lr.ph.i.i
@@ -21300,7 +21298,7 @@ if.end60.i.i:                                     ; preds = %for.end.i.i, %if.th
   %storemerge.i.i = phi ptr [ %add.ptr29.i.i, %if.then.i.i ], [ %add.ptr59.i.i, %for.end.i.i ]
   %forbidden_bytemask.1.i.i = phi <4 x i64> [ %or.i.i.i, %if.then.i.i ], [ %forbidden_bytemask.070.i.i, %for.end.i.i ]
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 80
-  %cmp.not.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr.ptr.i.i
+  %cmp.not.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %while.end.loopexit.i.i, label %while.body.i.i, !llvm.loop !177
 
 while.end.loopexit.i.i:                           ; preds = %if.end60.i.i
@@ -21398,12 +21396,12 @@ _ZNK7simdutf7icelake14implementation24convert_utf32_to_utf16leEPKDimPDs.exit: ; 
 define dso_local noundef i64 @_ZNK7simdutf7icelake14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #16 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
   %cmp.not73.i.i = icmp slt i64 %len, 20
   br i1 %cmp.not73.i.i, label %_ZN7simdutf7icelake12_GLOBAL__N_129avx512_convert_utf32_to_utf16ILNS_10endiannessE1EEESt4pairIPKDiPDsES6_mS7_.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.ptr.i.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end79.i.i, %while.body.lr.ph.i.i
@@ -21510,7 +21508,7 @@ if.end79.i.i:                                     ; preds = %for.end.i.i, %if.th
   %storemerge.i.i = phi ptr [ %add.ptr31.i.i, %if.then.i.i ], [ %add.ptr78.i.i, %for.end.i.i ]
   %forbidden_bytemask.1.i.i = phi <4 x i64> [ %or.i.i.i, %if.then.i.i ], [ %forbidden_bytemask.076.i.i, %for.end.i.i ]
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 80
-  %cmp.not.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr.ptr.i.i
+  %cmp.not.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %while.end.loopexit.i.i, label %while.body.i.i, !llvm.loop !179
 
 while.end.loopexit.i.i:                           ; preds = %if.end79.i.i
@@ -24117,8 +24115,6 @@ if.then.i:                                        ; preds = %while.body.i
   br i1 %cmp10.not.i, label %if.else65.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then.i
-  %div1437.i = lshr exact i64 %length, 1
-  %add.ptr12.i = getelementptr inbounds i16, ptr %input, i64 %div1437.i
   %not.i = xor i32 %27, -1
   %28 = and <32 x i8> %25, <i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4>
   %cmp.i9572.i = icmp eq <32 x i8> %28, <i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36>
@@ -24142,7 +24138,7 @@ if.then25.i:                                      ; preds = %if.then11.i
 if.end28.i:                                       ; preds = %if.then25.i, %if.then11.i
   %input.0.i = phi ptr [ %add.ptr26.i, %if.then25.i ], [ %add.ptr11493.i, %if.then11.i ]
   %add.ptr301499.i = getelementptr inbounds i8, ptr %input.0.i, i64 64
-  %cmp311500.i = icmp ult ptr %add.ptr301499.i, %add.ptr12.i
+  %cmp311500.i = icmp ult ptr %add.ptr301499.i, %add.ptr.i
   br i1 %cmp311500.i, label %while.body32.i, label %if.end150.land.lhs.true_crit_edge.i
 
 while.body32.i:                                   ; preds = %if.end28.i, %if.end64.i
@@ -24196,7 +24192,7 @@ if.then59.i:                                      ; preds = %if.else41.i
 if.end64.i:                                       ; preds = %if.then59.i, %if.else41.i, %while.body32.i
   %input.2.i = phi ptr [ %add.ptr60.i, %if.then59.i ], [ %add.ptr301502.i, %while.body32.i ], [ %add.ptr301502.i, %if.else41.i ]
   %add.ptr30.i = getelementptr inbounds i8, ptr %input.2.i, i64 64
-  %cmp31.i = icmp ult ptr %add.ptr30.i, %add.ptr12.i
+  %cmp31.i = icmp ult ptr %add.ptr30.i, %add.ptr.i
   br i1 %cmp31.i, label %while.body32.i, label %if.end150.i, !llvm.loop !232
 
 if.else65.i:                                      ; preds = %if.then.i
@@ -24205,8 +24201,6 @@ if.else65.i:                                      ; preds = %if.then.i
   br i1 %cmp66.i, label %if.then67.i, label %_ZN7simdutf7haswell12_GLOBAL__N_121avx2_detect_encodingsINS1_15utf8_validation12utf8_checkerEEEiPKcm.exit
 
 if.then67.i:                                      ; preds = %if.else65.i
-  %div691436.i = lshr exact i64 %length, 2
-  %add.ptr70.i = getelementptr inbounds i32, ptr %input, i64 %div691436.i
   %51 = bitcast <4 x i64> %11 to <8 x i32>
   %elt.max.i272.i = tail call <8 x i32> @llvm.umax.v8i32(<8 x i32> %51, <8 x i32> %10)
   %52 = bitcast <4 x i64> %12 to <8 x i32>
@@ -24214,7 +24208,7 @@ if.then67.i:                                      ; preds = %if.else65.i
   %add.i9328.i = add <8 x i32> %51, <i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344>
   %add.i9321.i = add <8 x i32> %52, <i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344>
   %elt.max.i251.i = tail call <8 x i32> @llvm.umax.v8i32(<8 x i32> %add.i9321.i, <8 x i32> %add.i9328.i)
-  %cmp941504.i = icmp ult ptr %add.ptr3.i.le, %add.ptr70.i
+  %cmp941504.i = icmp ult ptr %add.ptr3.i.le, %add.ptr.i
   br i1 %cmp941504.i, label %while.body95.i, label %while.end107.i
 
 while.body95.i:                                   ; preds = %if.then67.i, %while.body95.i
@@ -24227,7 +24221,7 @@ while.body95.i:                                   ; preds = %if.then67.i, %while
   %add.i.i = add <8 x i32> %53, <i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344>
   %elt.max.i237.i = tail call <8 x i32> @llvm.umax.v8i32(<8 x i32> %add.i.i, <8 x i32> %currentoffsetmax.0.in1505.i)
   %add.ptr93.i = getelementptr inbounds i8, ptr %add.ptr931508.i, i64 32
-  %cmp94.i = icmp ult ptr %add.ptr93.i, %add.ptr70.i
+  %cmp94.i = icmp ult ptr %add.ptr93.i, %add.ptr.i
   br i1 %cmp94.i, label %while.body95.i, label %while.end107.i, !llvm.loop !233
 
 while.end107.i:                                   ; preds = %while.body95.i, %if.then67.i
@@ -25444,7 +25438,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_115utf8_validation34generic_validate_ascii_with_
 define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation16validate_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #22 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp147.i = icmp sgt i64 %len, 32
   br i1 %cmp147.i, label %while.body.preheader.i, label %_ZN7simdutf7haswell12_GLOBAL__N_119avx2_validate_utf16ILNS_10endiannessE0EEEPKDsS5_m.exit
 
@@ -25503,7 +25497,7 @@ if.then19.i:                                      ; preds = %if.else.i
 if.end23.i:                                       ; preds = %if.then19.i, %if.else.i, %while.body.i
   %input.addr.1.i = phi ptr [ %add.ptr20.i, %if.then19.i ], [ %add.ptr1149.i, %while.body.i ], [ %add.ptr1149.i, %if.else.i ]
   %add.ptr1.i = getelementptr inbounds i8, ptr %input.addr.1.i, i64 64
-  %cmp.i = icmp ult ptr %add.ptr1.i, %add.ptr.ptr.i
+  %cmp.i = icmp ult ptr %add.ptr1.i, %add.ptr.i
   br i1 %cmp.i, label %while.body.i, label %if.then, !llvm.loop !311
 
 _ZN7simdutf7haswell12_GLOBAL__N_119avx2_validate_utf16ILNS_10endiannessE0EEEPKDsS5_m.exit: ; preds = %entry
@@ -25561,7 +25555,7 @@ return:                                           ; preds = %if.else.i, %if.end3
 define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation16validate_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #22 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp149.i = icmp sgt i64 %len, 32
   br i1 %cmp149.i, label %while.body.preheader.i, label %_ZN7simdutf7haswell12_GLOBAL__N_119avx2_validate_utf16ILNS_10endiannessE1EEEPKDsS5_m.exit
 
@@ -25624,7 +25618,7 @@ if.then20.i:                                      ; preds = %if.else.i
 if.end24.i:                                       ; preds = %if.then20.i, %if.else.i, %while.body.i
   %input.addr.1.i = phi ptr [ %add.ptr21.i, %if.then20.i ], [ %add.ptr1151.i, %while.body.i ], [ %add.ptr1151.i, %if.else.i ]
   %add.ptr1.i = getelementptr inbounds i8, ptr %input.addr.1.i, i64 64
-  %cmp.i = icmp ult ptr %add.ptr1.i, %add.ptr.ptr.i
+  %cmp.i = icmp ult ptr %add.ptr1.i, %add.ptr.i
   br i1 %cmp.i, label %while.body.i, label %if.then, !llvm.loop !318
 
 _ZN7simdutf7haswell12_GLOBAL__N_119avx2_validate_utf16ILNS_10endiannessE1EEEPKDsS5_m.exit: ; preds = %entry
@@ -25683,7 +25677,7 @@ return:                                           ; preds = %if.else.i, %if.end3
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation28validate_utf16le_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #22 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp151.i = icmp sgt i64 %len, 32
   br i1 %cmp151.i, label %while.body.preheader.i, label %_ZN7simdutf7haswell12_GLOBAL__N_131avx2_validate_utf16_with_errorsILNS_10endiannessE0EEEKNS_6resultEPKDsm.exit
 
@@ -25742,7 +25736,7 @@ if.then19.i:                                      ; preds = %if.else.i
 if.end23.i:                                       ; preds = %if.then19.i, %if.else.i, %while.body.i
   %input.addr.1.i = phi ptr [ %add.ptr20.i, %if.then19.i ], [ %add.ptr1153.i, %while.body.i ], [ %add.ptr1153.i, %if.else.i ]
   %add.ptr1.i = getelementptr inbounds i8, ptr %input.addr.1.i, i64 64
-  %cmp.i = icmp ult ptr %add.ptr1.i, %add.ptr.ptr.i
+  %cmp.i = icmp ult ptr %add.ptr1.i, %add.ptr.i
   br i1 %cmp.i, label %while.body.i, label %_ZN7simdutf7haswell12_GLOBAL__N_131avx2_validate_utf16_with_errorsILNS_10endiannessE0EEEKNS_6resultEPKDsm.exit, !llvm.loop !325
 
 _ZN7simdutf7haswell12_GLOBAL__N_131avx2_validate_utf16_with_errorsILNS_10endiannessE0EEEKNS_6resultEPKDsm.exit: ; preds = %if.else.i, %if.end23.i, %entry
@@ -25810,7 +25804,7 @@ return:                                           ; preds = %_ZN7simdutf7haswell
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation28validate_utf16be_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #22 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp153.i = icmp sgt i64 %len, 32
   br i1 %cmp153.i, label %while.body.preheader.i, label %_ZN7simdutf7haswell12_GLOBAL__N_131avx2_validate_utf16_with_errorsILNS_10endiannessE1EEEKNS_6resultEPKDsm.exit
 
@@ -25873,7 +25867,7 @@ if.then20.i:                                      ; preds = %if.else.i
 if.end24.i:                                       ; preds = %if.then20.i, %if.else.i, %while.body.i
   %input.addr.1.i = phi ptr [ %add.ptr21.i, %if.then20.i ], [ %add.ptr1155.i, %while.body.i ], [ %add.ptr1155.i, %if.else.i ]
   %add.ptr1.i = getelementptr inbounds i8, ptr %input.addr.1.i, i64 64
-  %cmp.i = icmp ult ptr %add.ptr1.i, %add.ptr.ptr.i
+  %cmp.i = icmp ult ptr %add.ptr1.i, %add.ptr.i
   br i1 %cmp.i, label %while.body.i, label %_ZN7simdutf7haswell12_GLOBAL__N_131avx2_validate_utf16_with_errorsILNS_10endiannessE1EEEKNS_6resultEPKDsm.exit, !llvm.loop !332
 
 _ZN7simdutf7haswell12_GLOBAL__N_131avx2_validate_utf16_with_errorsILNS_10endiannessE1EEEKNS_6resultEPKDsm.exit: ; preds = %if.else.i, %if.end24.i, %entry
@@ -25942,7 +25936,7 @@ return:                                           ; preds = %_ZN7simdutf7haswell
 define dso_local noundef zeroext i1 @_ZNK7simdutf7haswell14implementation14validate_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #22 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp36.i = icmp sgt i64 %len, 8
   br i1 %cmp36.i, label %while.body.preheader.i, label %while.end.i
 
@@ -25960,7 +25954,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %add.i.i = add <8 x i32> %2, <i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344, i32 -57344>
   %elt.max.i71.i = tail call <8 x i32> @llvm.umax.v8i32(<8 x i32> %add.i.i, <8 x i32> %1)
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr538.i, i64 32
-  %cmp.i = icmp ult ptr %add.ptr5.i, %add.ptr.ptr.i
+  %cmp.i = icmp ult ptr %add.ptr5.i, %add.ptr.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !333
 
 while.end.i:                                      ; preds = %while.body.i, %entry
@@ -30646,7 +30640,7 @@ _ZN7simdutf7haswell12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi.exit: ; 
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #25 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not28.i = icmp slt i64 %len, 16
   br i1 %cmp.not28.i, label %_ZN7simdutf7haswell12_GLOBAL__N_128avx2_convert_utf16_to_latin1ILNS_10endiannessE0EEESt4pairIPKDsPcES6_mS7_.exit, label %while.body.preheader.i
 
@@ -30676,7 +30670,7 @@ if.then10.i:                                      ; preds = %while.body.i
   store <2 x i64> %10, ptr %latin1_output.addr.029.i, align 1
   %add.ptr16.i = getelementptr inbounds i8, ptr %latin1_output.addr.029.i, i64 16
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr131.i, i64 32
-  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !446
 
 _ZN7simdutf7haswell12_GLOBAL__N_128avx2_convert_utf16_to_latin1ILNS_10endiannessE0EEESt4pairIPKDsPcES6_mS7_.exit: ; preds = %entry
@@ -30714,7 +30708,7 @@ return:                                           ; preds = %while.body.i, %if.t
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #25 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not28.i = icmp slt i64 %len, 16
   br i1 %cmp.not28.i, label %_ZN7simdutf7haswell12_GLOBAL__N_128avx2_convert_utf16_to_latin1ILNS_10endiannessE1EEESt4pairIPKDsPcES6_mS7_.exit, label %while.body.preheader.i
 
@@ -30746,7 +30740,7 @@ if.then10.i:                                      ; preds = %while.body.i
   store <2 x i64> %12, ptr %latin1_output.addr.029.i, align 1
   %add.ptr16.i = getelementptr inbounds i8, ptr %latin1_output.addr.029.i, i64 16
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr131.i, i64 32
-  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !447
 
 _ZN7simdutf7haswell12_GLOBAL__N_128avx2_convert_utf16_to_latin1ILNS_10endiannessE1EEESt4pairIPKDsPcES6_mS7_.exit: ; preds = %entry
@@ -30784,7 +30778,7 @@ return:                                           ; preds = %while.body.i, %if.t
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not50.i = icmp slt i64 %len, 16
   br i1 %cmp.not50.i, label %if.end, label %while.body.preheader.i
 
@@ -30836,7 +30830,7 @@ if.then24.i:                                      ; preds = %cond.end.i
 if.end29.i:                                       ; preds = %if.then24.i, %if.then.i
   %latin1_output.addr.2.i = phi ptr [ %add.ptr14.i, %if.then.i ], [ %incdec.ptr.i, %if.then24.i ]
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr153.i, i64 32
-  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !452
 
 if.then:                                          ; preds = %cond.end.i
@@ -30955,7 +30949,7 @@ return:                                           ; preds = %if.end19, %if.then1
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not49.i = icmp slt i64 %len, 16
   br i1 %cmp.not49.i, label %if.end, label %while.body.preheader.i
 
@@ -31006,7 +31000,7 @@ if.then20.i:                                      ; preds = %cond.end.i
 if.end25.i:                                       ; preds = %if.then20.i, %if.then.i
   %latin1_output.addr.2.i = phi ptr [ %add.ptr10.i, %if.then.i ], [ %incdec.ptr.i, %if.then20.i ]
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr152.i, i64 32
-  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !457
 
 if.then:                                          ; preds = %cond.end.i
@@ -31131,7 +31125,7 @@ return:                                           ; preds = %if.end19, %if.then1
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #25 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
   %cmp.not28.i.i = icmp slt i64 %len, 16
   br i1 %cmp.not28.i.i, label %_ZN7simdutf7haswell12_GLOBAL__N_128avx2_convert_utf16_to_latin1ILNS_10endiannessE1EEESt4pairIPKDsPcES6_mS7_.exit.i, label %while.body.preheader.i.i
 
@@ -31163,7 +31157,7 @@ if.then10.i.i:                                    ; preds = %while.body.i.i
   store <2 x i64> %12, ptr %latin1_output.addr.029.i.i, align 1
   %add.ptr16.i.i = getelementptr inbounds i8, ptr %latin1_output.addr.029.i.i, i64 16
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr131.i.i, i64 32
-  %cmp.not.i.i = icmp ugt ptr %add.ptr1.i.i, %add.ptr.ptr.i.i
+  %cmp.not.i.i = icmp ugt ptr %add.ptr1.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.end.i, label %while.body.i.i, !llvm.loop !447
 
 _ZN7simdutf7haswell12_GLOBAL__N_128avx2_convert_utf16_to_latin1ILNS_10endiannessE1EEESt4pairIPKDsPcES6_mS7_.exit.i: ; preds = %entry
@@ -31201,7 +31195,7 @@ _ZNK7simdutf7haswell14implementation25convert_utf16be_to_latin1EPKDsmPc.exit: ; 
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #25 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
   %cmp.not28.i.i = icmp slt i64 %len, 16
   br i1 %cmp.not28.i.i, label %_ZN7simdutf7haswell12_GLOBAL__N_128avx2_convert_utf16_to_latin1ILNS_10endiannessE0EEESt4pairIPKDsPcES6_mS7_.exit.i, label %while.body.preheader.i.i
 
@@ -31231,7 +31225,7 @@ if.then10.i.i:                                    ; preds = %while.body.i.i
   store <2 x i64> %10, ptr %latin1_output.addr.029.i.i, align 1
   %add.ptr16.i.i = getelementptr inbounds i8, ptr %latin1_output.addr.029.i.i, i64 16
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr131.i.i, i64 32
-  %cmp.not.i.i = icmp ugt ptr %add.ptr1.i.i, %add.ptr.ptr.i.i
+  %cmp.not.i.i = icmp ugt ptr %add.ptr1.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.end.i, label %while.body.i.i, !llvm.loop !446
 
 _ZN7simdutf7haswell12_GLOBAL__N_128avx2_convert_utf16_to_latin1ILNS_10endiannessE0EEESt4pairIPKDsPcES6_mS7_.exit.i: ; preds = %entry
@@ -31269,12 +31263,12 @@ _ZNK7simdutf7haswell14implementation25convert_utf16le_to_latin1EPKDsmPc.exit: ; 
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not270.i = icmp slt i64 %len, 28
   br i1 %cmp.not270.i, label %_ZN7simdutf7haswell12_GLOBAL__N_126avx2_convert_utf16_to_utf8ILNS_10endiannessE0EEESt4pairIPKDsPcES6_mS7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -31300,7 +31294,7 @@ while.cond.backedge.i:                            ; preds = %for.end.i, %if.then
   %utf8_output.addr.0.be.i = phi ptr [ %add.ptr79.i, %if.then32.i ], [ %add.ptr14.i, %if.then.i ], [ %add.ptr189.i, %if.then91.i ], [ %utf8_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.0.be.i = phi ptr [ %add.ptr80.i, %if.then32.i ], [ %add.ptr13.i, %if.then.i ], [ %add.ptr190.i, %if.then91.i ], [ %add.ptr287.i, %for.end.i ]
   %add.ptr5.i = getelementptr inbounds i8, ptr %buf.addr.0.be.i, i64 56
-  %cmp.not.i = icmp ugt ptr %add.ptr5.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr5.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN7simdutf7haswell12_GLOBAL__N_126avx2_convert_utf16_to_utf8ILNS_10endiannessE0EEESt4pairIPKDsPcES6_mS7_.exit, label %while.body.i, !llvm.loop !458
 
 if.end.i:                                         ; preds = %while.body.i
@@ -31591,12 +31585,12 @@ return:                                           ; preds = %if.else243.i, %if.t
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not274.i = icmp slt i64 %len, 28
   br i1 %cmp.not274.i, label %_ZN7simdutf7haswell12_GLOBAL__N_126avx2_convert_utf16_to_utf8ILNS_10endiannessE1EEESt4pairIPKDsPcES6_mS7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -31624,7 +31618,7 @@ while.cond.backedge.i:                            ; preds = %for.end.i, %if.then
   %utf8_output.addr.0.be.i = phi ptr [ %add.ptr83.i, %if.then36.i ], [ %add.ptr18.i, %if.then.i ], [ %add.ptr193.i, %if.then95.i ], [ %utf8_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.0.be.i = phi ptr [ %add.ptr84.i, %if.then36.i ], [ %add.ptr17.i, %if.then.i ], [ %add.ptr194.i, %if.then95.i ], [ %add.ptr293.i, %for.end.i ]
   %add.ptr5.i = getelementptr inbounds i8, ptr %buf.addr.0.be.i, i64 56
-  %cmp.not.i = icmp ugt ptr %add.ptr5.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr5.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN7simdutf7haswell12_GLOBAL__N_126avx2_convert_utf16_to_utf8ILNS_10endiannessE1EEESt4pairIPKDsPcES6_mS7_.exit, label %while.body.i, !llvm.loop !460
 
 if.end.i:                                         ; preds = %while.body.i
@@ -31916,12 +31910,12 @@ return:                                           ; preds = %if.else248.i, %if.t
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not282.i = icmp slt i64 %len, 28
   br i1 %cmp.not282.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -31947,7 +31941,7 @@ while.cond.backedge.i:                            ; preds = %for.end.i, %if.then
   %utf8_output.addr.0.be.i = phi ptr [ %add.ptr79.i, %if.then32.i ], [ %add.ptr14.i, %if.then.i ], [ %add.ptr189.i, %if.then91.i ], [ %utf8_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.0.be.i = phi ptr [ %add.ptr4285.i, %if.then32.i ], [ %add.ptr4285.i, %if.then.i ], [ %add.ptr4285.i, %if.then91.i ], [ %add.ptr292.i, %for.end.i ]
   %add.ptr5.i = getelementptr inbounds i8, ptr %buf.addr.0.be.i, i64 56
-  %cmp.not.i = icmp ugt ptr %add.ptr5.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr5.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !465
 
 if.end.i:                                         ; preds = %while.body.i
@@ -32254,12 +32248,12 @@ return:                                           ; preds = %if.end19, %if.then1
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not285.i = icmp slt i64 %len, 28
   br i1 %cmp.not285.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -32287,7 +32281,7 @@ while.cond.backedge.i:                            ; preds = %for.end.i, %if.then
   %utf8_output.addr.0.be.i = phi ptr [ %add.ptr83.i, %if.then36.i ], [ %add.ptr18.i, %if.then.i ], [ %add.ptr193.i, %if.then95.i ], [ %utf8_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.0.be.i = phi ptr [ %add.ptr4288.i, %if.then36.i ], [ %add.ptr4288.i, %if.then.i ], [ %add.ptr4288.i, %if.then95.i ], [ %add.ptr298.i, %for.end.i ]
   %add.ptr5.i = getelementptr inbounds i8, ptr %buf.addr.0.be.i, i64 56
-  %cmp.not.i = icmp ugt ptr %add.ptr5.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr5.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !470
 
 if.end.i:                                         ; preds = %while.body.i
@@ -32609,12 +32603,12 @@ entry:
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation21convert_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not317333.i = icmp slt i64 %len, 28
   br i1 %cmp.not317333.i, label %while.end.i, label %while.body.lr.ph.lr.ph.i
 
 while.body.lr.ph.lr.ph.i:                         ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end299.i, %while.body.lr.ph.lr.ph.i
@@ -32658,7 +32652,7 @@ while.cond.backedge.i:                            ; preds = %if.then52.i, %if.th
   %utf8_output.addr.0.be.i = phi ptr [ %add.ptr99.i, %if.then52.i ], [ %add.ptr34.i, %if.then.i ]
   %buf.addr.0.be.i = getelementptr inbounds i8, ptr %buf.addr.0319.i, i64 64
   %add.ptr9.i = getelementptr inbounds i8, ptr %buf.addr.0319.i, i64 176
-  %cmp.not.i = icmp ugt ptr %add.ptr9.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr9.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !472
 
 if.end.i:                                         ; preds = %while.body.i
@@ -32917,7 +32911,7 @@ if.end299.i:                                      ; preds = %for.end.i, %if.then
   %storemerge.i = phi ptr [ %add.ptr223.i, %if.then114.i ], [ %add.ptr298.i, %for.end.i ]
   %forbidden_bytemask.1.i = phi <4 x i64> [ %or.i563.i, %if.then114.i ], [ %forbidden_bytemask.0.ph336.i, %for.end.i ]
   %add.ptr9316.i = getelementptr inbounds i8, ptr %storemerge.i, i64 112
-  %cmp.not317.i = icmp ugt ptr %add.ptr9316.i, %add.ptr.ptr.i
+  %cmp.not317.i = icmp ugt ptr %add.ptr9316.i, %add.ptr.i
   br i1 %cmp.not317.i, label %while.end.i, label %while.body.lr.ph.i, !llvm.loop !472
 
 while.end.i:                                      ; preds = %if.end299.i, %while.cond.backedge.i, %entry
@@ -33218,12 +33212,12 @@ _ZNK7simdutf7haswell14implementation23convert_utf32_to_latin1EPKDimPc.exit: ; pr
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not336.i = icmp slt i64 %len, 28
   br i1 %cmp.not336.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast238.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast238.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -33275,7 +33269,7 @@ while.cond.backedge.i:                            ; preds = %for.end.i, %if.end1
   %utf8_output.addr.0.be.i = phi ptr [ %add.ptr106.i, %if.then59.i ], [ %add.ptr40.i, %if.then35.i ], [ %add.ptr236.i, %if.end138.i ], [ %utf8_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.0.be.i = phi ptr [ %add.ptr7339.i, %if.then59.i ], [ %add.ptr7339.i, %if.then35.i ], [ %add.ptr7339.i, %if.end138.i ], [ %add.ptr325.i, %for.end.i ]
   %add.ptr8.i = getelementptr inbounds i8, ptr %buf.addr.0.be.i, i64 112
-  %cmp.not.i = icmp ugt ptr %add.ptr8.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr8.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !478
 
 if.end41.i:                                       ; preds = %if.end.i
@@ -33606,13 +33600,13 @@ return:                                           ; preds = %if.end13, %if.then6
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not66.i = icmp slt i64 %len, 16
   br i1 %cmp.not66.i, label %_ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf16_to_utf32ILNS_10endiannessE0EEESt4pairIPKDsPDiES6_mS7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %add.ptr265.i = getelementptr inbounds i8, ptr %buf, i64 32
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end58.i, %while.body.lr.ph.i
@@ -33700,7 +33694,7 @@ if.end58.i:                                       ; preds = %for.end.i, %if.then
   %utf32_output.addr.3.i = phi ptr [ %add.ptr19.i, %if.then.i ], [ %utf32_output.addr.1.lcssa.i, %for.end.i ]
   %storemerge.i = phi ptr [ %add.ptr269.i, %if.then.i ], [ %add.ptr57.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %storemerge.i, i64 32
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf16_to_utf32ILNS_10endiannessE0EEESt4pairIPKDsPDiES6_mS7_.exit, label %while.body.i, !llvm.loop !481
 
 _ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf16_to_utf32ILNS_10endiannessE0EEESt4pairIPKDsPDiES6_mS7_.exit: ; preds = %if.end58.i, %entry
@@ -33787,13 +33781,13 @@ return:                                           ; preds = %if.else33.i, %if.el
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not69.i = icmp slt i64 %len, 16
   br i1 %cmp.not69.i, label %_ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf16_to_utf32ILNS_10endiannessE1EEESt4pairIPKDsPDiES6_mS7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %add.ptr268.i = getelementptr inbounds i8, ptr %buf, i64 32
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end64.i, %while.body.lr.ph.i
@@ -33884,7 +33878,7 @@ if.end64.i:                                       ; preds = %for.end.i, %if.then
   %utf32_output.addr.3.i = phi ptr [ %add.ptr23.i, %if.then.i ], [ %utf32_output.addr.1.lcssa.i, %for.end.i ]
   %storemerge.i = phi ptr [ %add.ptr272.i, %if.then.i ], [ %add.ptr63.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %storemerge.i, i64 32
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf16_to_utf32ILNS_10endiannessE1EEESt4pairIPKDsPDiES6_mS7_.exit, label %while.body.i, !llvm.loop !483
 
 _ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf16_to_utf32ILNS_10endiannessE1EEESt4pairIPKDsPDiES6_mS7_.exit: ; preds = %if.end64.i, %entry
@@ -33973,13 +33967,13 @@ return:                                           ; preds = %if.else38.i, %if.el
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not76.i = icmp slt i64 %len, 16
   br i1 %cmp.not76.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %add.ptr275.i = getelementptr inbounds i8, ptr %buf, i64 32
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end63.i, %while.body.lr.ph.i
@@ -34067,7 +34061,7 @@ if.end63.i:                                       ; preds = %for.end.i, %if.then
   %utf32_output.addr.3.i = phi ptr [ %add.ptr19.i, %if.then.i ], [ %utf32_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.1.i = phi ptr [ %add.ptr279.i, %if.then.i ], [ %add.ptr62.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %buf.addr.1.i, i64 32
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !488
 
 if.then:                                          ; preds = %if.else33.i
@@ -34168,13 +34162,13 @@ return:                                           ; preds = %if.end19, %if.then1
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not78.i = icmp slt i64 %len, 16
   br i1 %cmp.not78.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %add.ptr277.i = getelementptr inbounds i8, ptr %buf, i64 32
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end69.i, %while.body.lr.ph.i
@@ -34265,7 +34259,7 @@ if.end69.i:                                       ; preds = %for.end.i, %if.then
   %utf32_output.addr.3.i = phi ptr [ %add.ptr23.i, %if.then.i ], [ %utf32_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.1.i = phi ptr [ %add.ptr281.i, %if.then.i ], [ %add.ptr68.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %buf.addr.1.i, i64 32
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !493
 
 if.then:                                          ; preds = %if.else38.i
@@ -34375,12 +34369,12 @@ entry:
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not67.i = icmp slt i64 %len, 20
   br i1 %cmp.not67.i, label %_ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf32_to_utf16ILNS_10endiannessE0EEESt4pairIPKDiPDsES6_mS7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end60.i, %while.body.lr.ph.i
@@ -34475,7 +34469,7 @@ if.end60.i:                                       ; preds = %for.end.i, %if.then
   %storemerge.i = phi ptr [ %add.ptr29.i, %if.then.i ], [ %add.ptr59.i, %for.end.i ]
   %forbidden_bytemask.1.i = phi <4 x i64> [ %or.i.i, %if.then.i ], [ %forbidden_bytemask.070.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %storemerge.i, i64 80
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !495
 
 while.end.loopexit.i:                             ; preds = %if.end60.i
@@ -34573,12 +34567,12 @@ return:                                           ; preds = %if.else44.i, %if.th
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not73.i = icmp slt i64 %len, 20
   br i1 %cmp.not73.i, label %_ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf32_to_utf16ILNS_10endiannessE1EEESt4pairIPKDiPDsES6_mS7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end79.i, %while.body.lr.ph.i
@@ -34685,7 +34679,7 @@ if.end79.i:                                       ; preds = %for.end.i, %if.then
   %storemerge.i = phi ptr [ %add.ptr31.i, %if.then.i ], [ %add.ptr78.i, %for.end.i ]
   %forbidden_bytemask.1.i = phi <4 x i64> [ %or.i.i, %if.then.i ], [ %forbidden_bytemask.076.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %storemerge.i, i64 80
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !497
 
 while.end.loopexit.i:                             ; preds = %if.end79.i
@@ -34786,12 +34780,12 @@ return:                                           ; preds = %if.else50.i, %if.th
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not87.i = icmp slt i64 %len, 20
   br i1 %cmp.not87.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast30.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast30.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end74.i, %while.body.lr.ph.i
@@ -34910,7 +34904,7 @@ if.end74.i:                                       ; preds = %for.end.i, %if.end.
   %utf16_output.addr.3.i = phi ptr [ %add.ptr28.i, %if.end.i ], [ %utf16_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.1.i = phi ptr [ %add.ptr190.i, %if.end.i ], [ %add.ptr73.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %buf.addr.1.i, i64 80
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !502
 
 while.end.i:                                      ; preds = %if.end74.i, %entry
@@ -35010,12 +35004,12 @@ return:                                           ; preds = %if.end13, %if.then6
 define dso_local { i32, i64 } @_ZNK7simdutf7haswell14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not93.i = icmp slt i64 %len, 20
   br i1 %cmp.not93.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast32.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast32.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end93.i, %while.body.lr.ph.i
@@ -35146,7 +35140,7 @@ if.end93.i:                                       ; preds = %for.end.i, %if.end.
   %utf16_output.addr.3.i = phi ptr [ %add.ptr30.i, %if.end.i ], [ %utf16_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.1.i = phi ptr [ %add.ptr196.i, %if.end.i ], [ %add.ptr92.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %buf.addr.1.i, i64 80
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !507
 
 while.end.i:                                      ; preds = %if.end93.i, %entry
@@ -35249,12 +35243,12 @@ return:                                           ; preds = %if.end13, %if.then6
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
   %cmp.not67.i.i = icmp slt i64 %len, 20
   br i1 %cmp.not67.i.i, label %_ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf32_to_utf16ILNS_10endiannessE0EEESt4pairIPKDiPDsES6_mS7_.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.ptr.i.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end60.i.i, %while.body.lr.ph.i.i
@@ -35349,7 +35343,7 @@ if.end60.i.i:                                     ; preds = %for.end.i.i, %if.th
   %storemerge.i.i = phi ptr [ %add.ptr29.i.i, %if.then.i.i ], [ %add.ptr59.i.i, %for.end.i.i ]
   %forbidden_bytemask.1.i.i = phi <4 x i64> [ %or.i.i.i, %if.then.i.i ], [ %forbidden_bytemask.070.i.i, %for.end.i.i ]
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 80
-  %cmp.not.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr.ptr.i.i
+  %cmp.not.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %while.end.loopexit.i.i, label %while.body.i.i, !llvm.loop !495
 
 while.end.loopexit.i.i:                           ; preds = %if.end60.i.i
@@ -35447,12 +35441,12 @@ _ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16leEPKDimPDs.exit: ; 
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
   %cmp.not73.i.i = icmp slt i64 %len, 20
   br i1 %cmp.not73.i.i, label %_ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf32_to_utf16ILNS_10endiannessE1EEESt4pairIPKDiPDsES6_mS7_.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.ptr.i.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end79.i.i, %while.body.lr.ph.i.i
@@ -35559,7 +35553,7 @@ if.end79.i.i:                                     ; preds = %for.end.i.i, %if.th
   %storemerge.i.i = phi ptr [ %add.ptr31.i.i, %if.then.i.i ], [ %add.ptr78.i.i, %for.end.i.i ]
   %forbidden_bytemask.1.i.i = phi <4 x i64> [ %or.i.i.i, %if.then.i.i ], [ %forbidden_bytemask.076.i.i, %for.end.i.i ]
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 80
-  %cmp.not.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr.ptr.i.i
+  %cmp.not.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %while.end.loopexit.i.i, label %while.body.i.i, !llvm.loop !497
 
 while.end.loopexit.i.i:                           ; preds = %if.end79.i.i
@@ -35660,13 +35654,13 @@ _ZNK7simdutf7haswell14implementation24convert_utf32_to_utf16beEPKDimPDs.exit: ; 
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
   %cmp.not66.i.i = icmp slt i64 %len, 16
   br i1 %cmp.not66.i.i, label %_ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf16_to_utf32ILNS_10endiannessE0EEESt4pairIPKDsPDiES6_mS7_.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
   %add.ptr265.i.i = getelementptr inbounds i8, ptr %buf, i64 32
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.ptr.i.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end58.i.i, %while.body.lr.ph.i.i
@@ -35754,7 +35748,7 @@ if.end58.i.i:                                     ; preds = %for.end.i.i, %if.th
   %utf32_output.addr.3.i.i = phi ptr [ %add.ptr19.i.i, %if.then.i.i ], [ %utf32_output.addr.1.lcssa.i.i, %for.end.i.i ]
   %storemerge.i.i = phi ptr [ %add.ptr269.i.i, %if.then.i.i ], [ %add.ptr57.i.i, %for.end.i.i ]
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 32
-  %cmp.not.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr.ptr.i.i
+  %cmp.not.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %_ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf16_to_utf32ILNS_10endiannessE0EEESt4pairIPKDsPDiES6_mS7_.exit.i, label %while.body.i.i, !llvm.loop !481
 
 _ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf16_to_utf32ILNS_10endiannessE0EEESt4pairIPKDsPDiES6_mS7_.exit.i: ; preds = %if.end58.i.i, %entry
@@ -35841,13 +35835,13 @@ _ZNK7simdutf7haswell14implementation24convert_utf16le_to_utf32EPKDsmPDi.exit: ; 
 define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation30convert_valid_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #19 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
   %cmp.not69.i.i = icmp slt i64 %len, 16
   br i1 %cmp.not69.i.i, label %_ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf16_to_utf32ILNS_10endiannessE1EEESt4pairIPKDsPDiES6_mS7_.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
   %add.ptr268.i.i = getelementptr inbounds i8, ptr %buf, i64 32
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.ptr.i.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end64.i.i, %while.body.lr.ph.i.i
@@ -35938,7 +35932,7 @@ if.end64.i.i:                                     ; preds = %for.end.i.i, %if.th
   %utf32_output.addr.3.i.i = phi ptr [ %add.ptr23.i.i, %if.then.i.i ], [ %utf32_output.addr.1.lcssa.i.i, %for.end.i.i ]
   %storemerge.i.i = phi ptr [ %add.ptr272.i.i, %if.then.i.i ], [ %add.ptr63.i.i, %for.end.i.i ]
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 32
-  %cmp.not.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr.ptr.i.i
+  %cmp.not.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %_ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf16_to_utf32ILNS_10endiannessE1EEESt4pairIPKDsPDiES6_mS7_.exit.i, label %while.body.i.i, !llvm.loop !483
 
 _ZN7simdutf7haswell12_GLOBAL__N_127avx2_convert_utf16_to_utf32ILNS_10endiannessE1EEESt4pairIPKDsPDiES6_mS7_.exit.i: ; preds = %if.end64.i.i, %entry
@@ -37196,8 +37190,6 @@ if.then.i:                                        ; preds = %while.body.i
 
 if.then105.i:                                     ; preds = %if.then.i
   %add.ptr14.i.le = getelementptr inbounds i8, ptr %buf.addr.01215.i, i64 32
-  %div1132.i = lshr exact i64 %length, 1
-  %add.ptr106.i = getelementptr inbounds i16, ptr %input, i64 %div1132.i
   %not.i = xor i16 %27, -1
   %30 = and <16 x i8> %23, <i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4>
   %cmp.i11508.i = icmp eq <16 x i8> %30, <i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36, i8 -36>
@@ -37221,7 +37213,7 @@ if.then168.i:                                     ; preds = %if.then105.i
 if.end171.i:                                      ; preds = %if.then168.i, %if.then105.i
   %input.0.i = phi ptr [ %add.ptr169.i, %if.then168.i ], [ %add.ptr14.i.le, %if.then105.i ]
   %add.ptr1731222.i = getelementptr inbounds i8, ptr %input.0.i, i64 64
-  %cmp1741223.i = icmp ult ptr %add.ptr1731222.i, %add.ptr106.i
+  %cmp1741223.i = icmp ult ptr %add.ptr1731222.i, %add.ptr.i
   br i1 %cmp1741223.i, label %while.body175.i, label %if.end365.land.lhs.true_crit_edge.i
 
 while.body175.i:                                  ; preds = %if.end171.i, %if.end283.i
@@ -37262,7 +37254,7 @@ if.end283.i:                                      ; preds = %if.then278.i, %if.e
   %.sink.i = phi i64 [ 30, %if.then278.i ], [ 32, %while.body175.i ], [ 32, %if.else222.i ]
   %add.ptr274.i = getelementptr inbounds i8, ptr %input.11224.i, i64 %.sink.i
   %add.ptr173.i = getelementptr inbounds i8, ptr %add.ptr274.i, i64 64
-  %cmp174.i = icmp ult ptr %add.ptr173.i, %add.ptr106.i
+  %cmp174.i = icmp ult ptr %add.ptr173.i, %add.ptr.i
   br i1 %cmp174.i, label %while.body175.i, label %if.end365.land.lhs.true_crit_edge.i, !llvm.loop !586
 
 if.else284.i:                                     ; preds = %if.then.i
@@ -37271,8 +37263,6 @@ if.else284.i:                                     ; preds = %if.then.i
   br i1 %cmp285.i, label %if.then286.i, label %_ZN7simdutf8westmere12_GLOBAL__N_120sse_detect_encodingsINS1_15utf8_validation12utf8_checkerEEEiPKcm.exit
 
 if.then286.i:                                     ; preds = %if.else284.i
-  %div2881131.i = lshr exact i64 %length, 2
-  %add.ptr289.i = getelementptr inbounds i32, ptr %input, i64 %div2881131.i
   %47 = bitcast <2 x i64> %11 to <4 x i32>
   %elt.max.i11326.i = tail call <4 x i32> @llvm.umax.v4i32(<4 x i32> %47, <4 x i32> %10)
   %48 = bitcast <2 x i64> %12 to <4 x i32>
@@ -37288,7 +37278,7 @@ if.then286.i:                                     ; preds = %if.else284.i
   %elt.max.i11308.i = tail call <4 x i32> @llvm.umax.v4i32(<4 x i32> %add.i11334.i, <4 x i32> %elt.max.i11311.i)
   %add.i11331.i = add <4 x i32> %50, <i32 -57344, i32 -57344, i32 -57344, i32 -57344>
   %elt.max.i11305.i = tail call <4 x i32> @llvm.umax.v4i32(<4 x i32> %add.i11331.i, <4 x i32> %elt.max.i11308.i)
-  %cmp3071228.i = icmp ult ptr %add.ptr12.i.le, %add.ptr289.i
+  %cmp3071228.i = icmp ult ptr %add.ptr12.i.le, %add.ptr.i
   br i1 %cmp3071228.i, label %while.body308.i, label %while.end314.i
 
 while.body308.i:                                  ; preds = %if.then286.i, %while.body308.i
@@ -37301,7 +37291,7 @@ while.body308.i:                                  ; preds = %if.then286.i, %whil
   %add.i.i = add <4 x i32> %51, <i32 -57344, i32 -57344, i32 -57344, i32 -57344>
   %elt.max.i11299.i = tail call <4 x i32> @llvm.umax.v4i32(<4 x i32> %add.i.i, <4 x i32> %currentoffsetmax.0.in1230.i)
   %add.ptr306.i = getelementptr inbounds i8, ptr %add.ptr3061232.i, i64 16
-  %cmp307.i = icmp ult ptr %add.ptr306.i, %add.ptr289.i
+  %cmp307.i = icmp ult ptr %add.ptr306.i, %add.ptr.i
   br i1 %cmp307.i, label %while.body308.i, label %while.end314.i, !llvm.loop !587
 
 while.end314.i:                                   ; preds = %while.body308.i, %if.then286.i
@@ -38712,7 +38702,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_115utf8_validation34generic_validate_ascii_with
 define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation16validate_utf16leEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #33 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp78.i = icmp sgt i64 %len, 32
   br i1 %cmp78.i, label %while.body.i, label %_ZN7simdutf8westmere12_GLOBAL__N_118sse_validate_utf16ILNS_10endiannessE0EEEPKDsS5_m.exit
 
@@ -38754,7 +38744,7 @@ if.end117.i:                                      ; preds = %if.then113.i, %if.e
   %.sink.i = phi i64 [ 30, %if.then113.i ], [ 32, %while.body.i ], [ 32, %if.else.i ]
   %add.ptr109.i = getelementptr inbounds i8, ptr %input.addr.079.i, i64 %.sink.i
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr109.i, i64 64
-  %cmp.i = icmp ult ptr %add.ptr19.i, %add.ptr.ptr.i
+  %cmp.i = icmp ult ptr %add.ptr19.i, %add.ptr.i
   br i1 %cmp.i, label %while.body.i, label %if.then, !llvm.loop !593
 
 _ZN7simdutf8westmere12_GLOBAL__N_118sse_validate_utf16ILNS_10endiannessE0EEEPKDsS5_m.exit: ; preds = %entry
@@ -38812,7 +38802,7 @@ return:                                           ; preds = %if.else.i, %if.end3
 define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation16validate_utf16beEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #33 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp80.i = icmp sgt i64 %len, 32
   br i1 %cmp80.i, label %while.body.i, label %_ZN7simdutf8westmere12_GLOBAL__N_118sse_validate_utf16ILNS_10endiannessE1EEEPKDsS5_m.exit
 
@@ -38858,7 +38848,7 @@ if.end128.i:                                      ; preds = %if.then124.i, %if.e
   %.sink.i = phi i64 [ 30, %if.then124.i ], [ 32, %while.body.i ], [ 32, %if.else.i ]
   %add.ptr120.i = getelementptr inbounds i8, ptr %input.addr.081.i, i64 %.sink.i
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr120.i, i64 64
-  %cmp.i = icmp ult ptr %add.ptr19.i, %add.ptr.ptr.i
+  %cmp.i = icmp ult ptr %add.ptr19.i, %add.ptr.i
   br i1 %cmp.i, label %while.body.i, label %if.then, !llvm.loop !594
 
 _ZN7simdutf8westmere12_GLOBAL__N_118sse_validate_utf16ILNS_10endiannessE1EEEPKDsS5_m.exit: ; preds = %entry
@@ -38917,7 +38907,7 @@ return:                                           ; preds = %if.else.i, %if.end3
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation28validate_utf16le_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #33 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp82.i = icmp sgt i64 %len, 32
   br i1 %cmp82.i, label %while.body.i, label %_ZN7simdutf8westmere12_GLOBAL__N_130sse_validate_utf16_with_errorsILNS_10endiannessE0EEEKNS_6resultEPKDsm.exit
 
@@ -38959,7 +38949,7 @@ if.end117.i:                                      ; preds = %if.then113.i, %if.e
   %.sink.i = phi i64 [ 30, %if.then113.i ], [ 32, %while.body.i ], [ 32, %if.else.i ]
   %add.ptr109.i = getelementptr inbounds i8, ptr %input.addr.083.i, i64 %.sink.i
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr109.i, i64 64
-  %cmp.i = icmp ult ptr %add.ptr19.i, %add.ptr.ptr.i
+  %cmp.i = icmp ult ptr %add.ptr19.i, %add.ptr.i
   br i1 %cmp.i, label %while.body.i, label %_ZN7simdutf8westmere12_GLOBAL__N_130sse_validate_utf16_with_errorsILNS_10endiannessE0EEEKNS_6resultEPKDsm.exit, !llvm.loop !595
 
 _ZN7simdutf8westmere12_GLOBAL__N_130sse_validate_utf16_with_errorsILNS_10endiannessE0EEEKNS_6resultEPKDsm.exit: ; preds = %if.else.i, %if.end117.i, %entry
@@ -39027,7 +39017,7 @@ return:                                           ; preds = %_ZN7simdutf8westmer
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation28validate_utf16be_with_errorsEPKDsm(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #33 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp84.i = icmp sgt i64 %len, 32
   br i1 %cmp84.i, label %while.body.i, label %_ZN7simdutf8westmere12_GLOBAL__N_130sse_validate_utf16_with_errorsILNS_10endiannessE1EEEKNS_6resultEPKDsm.exit
 
@@ -39073,7 +39063,7 @@ if.end128.i:                                      ; preds = %if.then124.i, %if.e
   %.sink.i = phi i64 [ 30, %if.then124.i ], [ 32, %while.body.i ], [ 32, %if.else.i ]
   %add.ptr120.i = getelementptr inbounds i8, ptr %input.addr.085.i, i64 %.sink.i
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr120.i, i64 64
-  %cmp.i = icmp ult ptr %add.ptr19.i, %add.ptr.ptr.i
+  %cmp.i = icmp ult ptr %add.ptr19.i, %add.ptr.i
   br i1 %cmp.i, label %while.body.i, label %_ZN7simdutf8westmere12_GLOBAL__N_130sse_validate_utf16_with_errorsILNS_10endiannessE1EEEKNS_6resultEPKDsm.exit, !llvm.loop !596
 
 _ZN7simdutf8westmere12_GLOBAL__N_130sse_validate_utf16_with_errorsILNS_10endiannessE1EEEKNS_6resultEPKDsm.exit: ; preds = %if.else.i, %if.end128.i, %entry
@@ -39142,7 +39132,7 @@ return:                                           ; preds = %_ZN7simdutf8westmer
 define dso_local noundef zeroext i1 @_ZNK7simdutf8westmere14implementation14validate_utf32EPKDim(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len) unnamed_addr #33 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp24.i = icmp sgt i64 %len, 4
   br i1 %cmp24.i, label %while.body.preheader.i, label %while.end.i
 
@@ -39160,7 +39150,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %add.i.i = add <4 x i32> %2, <i32 -57344, i32 -57344, i32 -57344, i32 -57344>
   %elt.max.i36.i = tail call <4 x i32> @llvm.umax.v4i32(<4 x i32> %add.i.i, <4 x i32> %0)
   %add.ptr5.i = getelementptr inbounds i8, ptr %add.ptr526.i, i64 16
-  %cmp.i = icmp ult ptr %add.ptr5.i, %add.ptr.ptr.i
+  %cmp.i = icmp ult ptr %add.ptr5.i, %add.ptr.i
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !597
 
 while.end.i:                                      ; preds = %while.body.i, %entry
@@ -44804,7 +44794,7 @@ _ZN7simdutf8westmere12_GLOBAL__N_113utf8_to_utf3213convert_validEPKcmPDi.exit: ;
 define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25convert_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #35 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not17.i = icmp slt i64 %len, 8
   br i1 %cmp.not17.i, label %_ZN7simdutf8westmere12_GLOBAL__N_127sse_convert_utf16_to_latin1ILNS_10endiannessE0EEESt4pairIPKDsPcES6_mS7_.exit, label %while.body.preheader.i
 
@@ -44829,7 +44819,7 @@ if.then7.i:                                       ; preds = %while.body.i
   store i64 %vecext.i.i, ptr %latin1_output.addr.018.i, align 1
   %add.ptr10.i = getelementptr inbounds i8, ptr %latin1_output.addr.018.i, i64 8
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr120.i, i64 16
-  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !638
 
 _ZN7simdutf8westmere12_GLOBAL__N_127sse_convert_utf16_to_latin1ILNS_10endiannessE0EEESt4pairIPKDsPcES6_mS7_.exit: ; preds = %entry
@@ -44867,7 +44857,7 @@ return:                                           ; preds = %while.body.i, %if.t
 define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation25convert_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #35 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not17.i = icmp slt i64 %len, 8
   br i1 %cmp.not17.i, label %_ZN7simdutf8westmere12_GLOBAL__N_127sse_convert_utf16_to_latin1ILNS_10endiannessE1EEESt4pairIPKDsPcES6_mS7_.exit, label %while.body.preheader.i
 
@@ -44894,7 +44884,7 @@ if.then7.i:                                       ; preds = %while.body.i
   store i64 %vecext.i.i, ptr %latin1_output.addr.018.i, align 1
   %add.ptr10.i = getelementptr inbounds i8, ptr %latin1_output.addr.018.i, i64 8
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr120.i, i64 16
-  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !639
 
 _ZN7simdutf8westmere12_GLOBAL__N_127sse_convert_utf16_to_latin1ILNS_10endiannessE1EEESt4pairIPKDsPcES6_mS7_.exit: ; preds = %entry
@@ -44932,7 +44922,7 @@ return:                                           ; preds = %while.body.i, %if.t
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation37convert_utf16le_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not40.i = icmp slt i64 %len, 8
   br i1 %cmp.not40.i, label %if.end, label %while.body.preheader.i
 
@@ -44979,7 +44969,7 @@ if.then18.i:                                      ; preds = %cond.end.i
 if.end23.i:                                       ; preds = %if.then18.i, %if.then.i
   %latin1_output.addr.2.i = phi ptr [ %add.ptr8.i, %if.then.i ], [ %incdec.ptr.i, %if.then18.i ]
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr143.i, i64 16
-  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !644
 
 if.then:                                          ; preds = %cond.end.i
@@ -45098,7 +45088,7 @@ return:                                           ; preds = %if.end19, %if.then1
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation37convert_utf16be_to_latin1_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not39.i = icmp slt i64 %len, 8
   br i1 %cmp.not39.i, label %if.end, label %while.body.preheader.i
 
@@ -45144,7 +45134,7 @@ if.then16.i:                                      ; preds = %cond.end.i
 if.end21.i:                                       ; preds = %if.then16.i, %if.then.i
   %latin1_output.addr.2.i = phi ptr [ %add.ptr6.i, %if.then.i ], [ %incdec.ptr.i, %if.then16.i ]
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr142.i, i64 16
-  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr1.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !649
 
 if.then:                                          ; preds = %cond.end.i
@@ -45269,7 +45259,7 @@ return:                                           ; preds = %if.end19, %if.then1
 define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation31convert_valid_utf16be_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #35 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
   %cmp.not17.i.i = icmp slt i64 %len, 8
   br i1 %cmp.not17.i.i, label %_ZN7simdutf8westmere12_GLOBAL__N_127sse_convert_utf16_to_latin1ILNS_10endiannessE1EEESt4pairIPKDsPcES6_mS7_.exit.i, label %while.body.preheader.i.i
 
@@ -45296,7 +45286,7 @@ if.then7.i.i:                                     ; preds = %while.body.i.i
   store i64 %vecext.i.i.i, ptr %latin1_output.addr.018.i.i, align 1
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %latin1_output.addr.018.i.i, i64 8
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr120.i.i, i64 16
-  %cmp.not.i.i = icmp ugt ptr %add.ptr1.i.i, %add.ptr.ptr.i.i
+  %cmp.not.i.i = icmp ugt ptr %add.ptr1.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.end.i, label %while.body.i.i, !llvm.loop !639
 
 _ZN7simdutf8westmere12_GLOBAL__N_127sse_convert_utf16_to_latin1ILNS_10endiannessE1EEESt4pairIPKDsPcES6_mS7_.exit.i: ; preds = %entry
@@ -45334,7 +45324,7 @@ _ZNK7simdutf8westmere14implementation25convert_utf16be_to_latin1EPKDsmPc.exit: ;
 define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation31convert_valid_utf16le_to_latin1EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %latin1_output) unnamed_addr #35 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
   %cmp.not17.i.i = icmp slt i64 %len, 8
   br i1 %cmp.not17.i.i, label %_ZN7simdutf8westmere12_GLOBAL__N_127sse_convert_utf16_to_latin1ILNS_10endiannessE0EEESt4pairIPKDsPcES6_mS7_.exit.i, label %while.body.preheader.i.i
 
@@ -45359,7 +45349,7 @@ if.then7.i.i:                                     ; preds = %while.body.i.i
   store i64 %vecext.i.i.i, ptr %latin1_output.addr.018.i.i, align 1
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %latin1_output.addr.018.i.i, i64 8
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr120.i.i, i64 16
-  %cmp.not.i.i = icmp ugt ptr %add.ptr1.i.i, %add.ptr.ptr.i.i
+  %cmp.not.i.i = icmp ugt ptr %add.ptr1.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.end.i, label %while.body.i.i, !llvm.loop !638
 
 _ZN7simdutf8westmere12_GLOBAL__N_127sse_convert_utf16_to_latin1ILNS_10endiannessE0EEESt4pairIPKDsPcES6_mS7_.exit.i: ; preds = %entry
@@ -45397,12 +45387,12 @@ _ZNK7simdutf8westmere14implementation25convert_utf16le_to_latin1EPKDsmPc.exit: ;
 define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16le_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not151.i = icmp slt i64 %len, 28
   br i1 %cmp.not151.i, label %_ZN7simdutf8westmere12_GLOBAL__N_125sse_convert_utf16_to_utf8ILNS_10endiannessE0EEESt4pairIPKDsPcES6_mS7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -45439,7 +45429,7 @@ while.cond.backedge.i:                            ; preds = %for.end.i, %if.end7
   %utf8_output.addr.0.be.i = phi ptr [ %add.ptr21.i.i, %if.then30.i ], [ %add.ptr69.i, %if.then64.i ], [ %add.ptr19.i, %if.else.i ], [ %add.ptr93.i, %if.end71.i ], [ %utf8_output.addr.2.lcssa.i, %for.end.i ]
   %buf.addr.0.be.i = phi ptr [ %add.ptr31.i, %if.then30.i ], [ %add.ptr70.i, %if.then64.i ], [ %add.ptr18.i, %if.else.i ], [ %add.ptr94.i, %if.end71.i ], [ %add.ptr192.i, %for.end.i ]
   %add.ptr4.i = getelementptr inbounds i8, ptr %buf.addr.0.be.i, i64 56
-  %cmp.not.i = icmp ugt ptr %add.ptr4.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr4.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN7simdutf8westmere12_GLOBAL__N_125sse_convert_utf16_to_utf8ILNS_10endiannessE0EEESt4pairIPKDsPcES6_mS7_.exit, label %while.body.i, !llvm.loop !650
 
 if.end20.i:                                       ; preds = %if.then12.i, %while.body.i
@@ -45705,12 +45695,12 @@ return:                                           ; preds = %if.else148.i, %if.t
 define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation23convert_utf16be_to_utf8EPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not156.i = icmp slt i64 %len, 28
   br i1 %cmp.not156.i, label %_ZN7simdutf8westmere12_GLOBAL__N_125sse_convert_utf16_to_utf8ILNS_10endiannessE1EEESt4pairIPKDsPcES6_mS7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -45751,7 +45741,7 @@ while.cond.backedge.i:                            ; preds = %for.end.i, %if.end7
   %utf8_output.addr.0.be.i = phi ptr [ %add.ptr21.i.i, %if.then35.i ], [ %add.ptr74.i, %if.then69.i ], [ %add.ptr24.i, %if.else.i ], [ %add.ptr98.i, %if.end76.i ], [ %utf8_output.addr.2.lcssa.i, %for.end.i ]
   %buf.addr.0.be.i = phi ptr [ %add.ptr36.i, %if.then35.i ], [ %add.ptr75.i, %if.then69.i ], [ %add.ptr23.i, %if.else.i ], [ %add.ptr99.i, %if.end76.i ], [ %add.ptr199.i, %for.end.i ]
   %add.ptr4.i = getelementptr inbounds i8, ptr %buf.addr.0.be.i, i64 56
-  %cmp.not.i = icmp ugt ptr %add.ptr4.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr4.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN7simdutf8westmere12_GLOBAL__N_125sse_convert_utf16_to_utf8ILNS_10endiannessE1EEESt4pairIPKDsPcES6_mS7_.exit, label %while.body.i, !llvm.loop !652
 
 if.end25.i:                                       ; preds = %if.then17.i, %while.body.i
@@ -46019,12 +46009,12 @@ return:                                           ; preds = %if.else154.i, %if.t
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf16le_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not163.i = icmp slt i64 %len, 28
   br i1 %cmp.not163.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -46061,7 +46051,7 @@ while.cond.backedge.i:                            ; preds = %for.end.i, %if.end7
   %utf8_output.addr.0.be.i = phi ptr [ %add.ptr21.i.i, %if.then30.i ], [ %add.ptr69.i, %if.then64.i ], [ %add.ptr19.i, %if.else.i ], [ %add.ptr93.i, %if.end71.i ], [ %utf8_output.addr.2.lcssa.i, %for.end.i ]
   %buf.addr.0.be.i = phi ptr [ %add.ptr31.i, %if.then30.i ], [ %add.ptr70.i, %if.then64.i ], [ %add.ptr3166.i, %if.else.i ], [ %add.ptr94.i, %if.end71.i ], [ %add.ptr197.i, %for.end.i ]
   %add.ptr4.i = getelementptr inbounds i8, ptr %buf.addr.0.be.i, i64 56
-  %cmp.not.i = icmp ugt ptr %add.ptr4.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr4.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !657
 
 if.end20.i:                                       ; preds = %if.then12.i, %while.body.i
@@ -46345,12 +46335,12 @@ return:                                           ; preds = %if.end19, %if.then1
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation35convert_utf16be_to_utf8_with_errorsEPKDsmPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not167.i = icmp slt i64 %len, 28
   br i1 %cmp.not167.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -46391,7 +46381,7 @@ while.cond.backedge.i:                            ; preds = %for.end.i, %if.end7
   %utf8_output.addr.0.be.i = phi ptr [ %add.ptr21.i.i, %if.then35.i ], [ %add.ptr74.i, %if.then69.i ], [ %add.ptr24.i, %if.else.i ], [ %add.ptr98.i, %if.end76.i ], [ %utf8_output.addr.2.lcssa.i, %for.end.i ]
   %buf.addr.0.be.i = phi ptr [ %add.ptr36.i, %if.then35.i ], [ %add.ptr75.i, %if.then69.i ], [ %add.ptr3170.i, %if.else.i ], [ %add.ptr99.i, %if.end76.i ], [ %add.ptr204.i, %for.end.i ]
   %add.ptr4.i = getelementptr inbounds i8, ptr %buf.addr.0.be.i, i64 56
-  %cmp.not.i = icmp ugt ptr %add.ptr4.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr4.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !662
 
 if.end25.i:                                       ; preds = %if.then17.i, %while.body.i
@@ -47068,12 +47058,12 @@ _ZNK7simdutf8westmere14implementation23convert_utf32_to_latin1EPKDimPc.exit: ; p
 define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation21convert_utf32_to_utf8EPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not216232.i = icmp slt i64 %len, 28
   br i1 %cmp.not216232.i, label %while.end.i, label %while.body.lr.ph.lr.ph.i
 
 while.body.lr.ph.lr.ph.i:                         ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.outer.backedge.i, %while.body.lr.ph.lr.ph.i
@@ -47137,7 +47127,7 @@ while.cond.backedge.i:                            ; preds = %if.then48.i, %if.el
   %buf.addr.0.be.i = phi ptr [ %add.ptr70.i, %if.then48.i ], [ %add.ptr36.i, %if.else.i ]
   %.be.i = phi <4 x i32> [ %21, %if.then48.i ], [ %elt.max.i567.i, %if.else.i ]
   %add.ptr9.i = getelementptr inbounds i8, ptr %buf.addr.0.be.i, i64 112
-  %cmp.not.i = icmp ugt ptr %add.ptr9.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr9.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !670
 
 if.end38.i:                                       ; preds = %if.then30.i, %while.body.i
@@ -47245,7 +47235,7 @@ while.cond.outer.backedge.i:                      ; preds = %for.end.i, %if.end1
   %buf.addr.0.ph.be.i = phi ptr [ %add.ptr122.i, %if.then115.i ], [ %add.ptr150.i, %if.end123.i ], [ %add.ptr226.i, %for.end.i ]
   %forbidden_bytemask.0.ph.be.i = phi <2 x i64> [ %or.i366.i, %if.then115.i ], [ %or.i366.i, %if.end123.i ], [ %forbidden_bytemask.0.ph235.i, %for.end.i ]
   %add.ptr9215.i = getelementptr inbounds i8, ptr %buf.addr.0.ph.be.i, i64 112
-  %cmp.not216.i = icmp ugt ptr %add.ptr9215.i, %add.ptr.ptr.i
+  %cmp.not216.i = icmp ugt ptr %add.ptr9215.i, %add.ptr.i
   br i1 %cmp.not216.i, label %while.end.i, label %while.body.lr.ph.i, !llvm.loop !670
 
 if.end123.i:                                      ; preds = %if.then80.i
@@ -47427,12 +47417,12 @@ return:                                           ; preds = %if.else199.i, %if.t
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation33convert_utf32_to_utf8_with_errorsEPKDimPc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf8_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not248.i = icmp slt i64 %len, 28
   br i1 %cmp.not248.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %sub.ptr.lhs.cast178.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast178.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.backedge.i, %while.body.lr.ph.i
@@ -47514,7 +47504,7 @@ while.cond.backedge.i:                            ; preds = %for.end.i, %if.end1
   %utf8_output.addr.0.be.i = phi ptr [ %add.ptr91.i, %if.then66.i ], [ %add.ptr147.i, %if.then141.i ], [ %add.ptr53.i, %if.else.i ], [ %add.ptr175.i, %if.end149.i ], [ %utf8_output.addr.2.lcssa.i, %for.end.i ]
   %buf.addr.0.be.i = phi ptr [ %add.ptr88.i, %if.then66.i ], [ %add.ptr148.i, %if.then141.i ], [ %add.ptr7251.i, %if.else.i ], [ %add.ptr176.i, %if.end149.i ], [ %add.ptr265.i, %for.end.i ]
   %add.ptr8.i = getelementptr inbounds i8, ptr %buf.addr.0.be.i, i64 112
-  %cmp.not.i = icmp ugt ptr %add.ptr8.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr8.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !675
 
 if.end55.i:                                       ; preds = %if.then32.i, %if.end.i
@@ -47824,13 +47814,13 @@ return:                                           ; preds = %if.end13, %if.then6
 define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24convert_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not51.i = icmp slt i64 %len, 8
   br i1 %cmp.not51.i, label %_ZN7simdutf8westmere12_GLOBAL__N_126sse_convert_utf16_to_utf32ILNS_10endiannessE0EEESt4pairIPKDsPDiES6_mS7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %add.ptr250.i = getelementptr inbounds i8, ptr %buf, i64 16
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end53.i, %while.body.lr.ph.i
@@ -47917,7 +47907,7 @@ if.end53.i:                                       ; preds = %for.end.i, %if.then
   %utf32_output.addr.3.i = phi ptr [ %add.ptr13.i, %if.then.i ], [ %utf32_output.addr.1.lcssa.i, %for.end.i ]
   %storemerge.i = phi ptr [ %add.ptr254.i, %if.then.i ], [ %add.ptr52.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %storemerge.i, i64 16
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN7simdutf8westmere12_GLOBAL__N_126sse_convert_utf16_to_utf32ILNS_10endiannessE0EEESt4pairIPKDsPDiES6_mS7_.exit, label %while.body.i, !llvm.loop !678
 
 _ZN7simdutf8westmere12_GLOBAL__N_126sse_convert_utf16_to_utf32ILNS_10endiannessE0EEESt4pairIPKDsPDiES6_mS7_.exit: ; preds = %if.end53.i, %entry
@@ -48004,13 +47994,13 @@ return:                                           ; preds = %if.else28.i, %if.el
 define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24convert_utf16be_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not54.i = icmp slt i64 %len, 8
   br i1 %cmp.not54.i, label %_ZN7simdutf8westmere12_GLOBAL__N_126sse_convert_utf16_to_utf32ILNS_10endiannessE1EEESt4pairIPKDsPDiES6_mS7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %add.ptr253.i = getelementptr inbounds i8, ptr %buf, i64 16
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end57.i, %while.body.lr.ph.i
@@ -48100,7 +48090,7 @@ if.end57.i:                                       ; preds = %for.end.i, %if.then
   %utf32_output.addr.3.i = phi ptr [ %add.ptr15.i, %if.then.i ], [ %utf32_output.addr.1.lcssa.i, %for.end.i ]
   %storemerge.i = phi ptr [ %add.ptr257.i, %if.then.i ], [ %add.ptr56.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %storemerge.i, i64 16
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN7simdutf8westmere12_GLOBAL__N_126sse_convert_utf16_to_utf32ILNS_10endiannessE1EEESt4pairIPKDsPDiES6_mS7_.exit, label %while.body.i, !llvm.loop !680
 
 _ZN7simdutf8westmere12_GLOBAL__N_126sse_convert_utf16_to_utf32ILNS_10endiannessE1EEESt4pairIPKDsPDiES6_mS7_.exit: ; preds = %if.end57.i, %entry
@@ -48189,13 +48179,13 @@ return:                                           ; preds = %if.else31.i, %if.el
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf16le_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not61.i = icmp slt i64 %len, 8
   br i1 %cmp.not61.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %add.ptr260.i = getelementptr inbounds i8, ptr %buf, i64 16
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end58.i, %while.body.lr.ph.i
@@ -48282,7 +48272,7 @@ if.end58.i:                                       ; preds = %for.end.i, %if.then
   %utf32_output.addr.3.i = phi ptr [ %add.ptr13.i, %if.then.i ], [ %utf32_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.1.i = phi ptr [ %add.ptr264.i, %if.then.i ], [ %add.ptr57.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %buf.addr.1.i, i64 16
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !685
 
 if.then:                                          ; preds = %if.else28.i
@@ -48383,13 +48373,13 @@ return:                                           ; preds = %if.end19, %if.then1
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf16be_to_utf32_with_errorsEPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not63.i = icmp slt i64 %len, 8
   br i1 %cmp.not63.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %add.ptr262.i = getelementptr inbounds i8, ptr %buf, i64 16
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end62.i, %while.body.lr.ph.i
@@ -48479,7 +48469,7 @@ if.end62.i:                                       ; preds = %for.end.i, %if.then
   %utf32_output.addr.3.i = phi ptr [ %add.ptr15.i, %if.then.i ], [ %utf32_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.1.i = phi ptr [ %add.ptr266.i, %if.then.i ], [ %add.ptr61.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %buf.addr.1.i, i64 16
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %if.end, label %while.body.i, !llvm.loop !690
 
 if.then:                                          ; preds = %if.else31.i
@@ -48589,13 +48579,13 @@ entry:
 define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not62.i = icmp slt i64 %len, 8
   br i1 %cmp.not62.i, label %_ZN7simdutf8westmere12_GLOBAL__N_126sse_convert_utf32_to_utf16ILNS_10endiannessE0EEESt4pairIPKDiPDsES6_mS7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %add.ptr361.i = getelementptr inbounds i8, ptr %buf, i64 32
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end50.i, %while.body.lr.ph.i
@@ -48692,7 +48682,7 @@ if.end50.i:                                       ; preds = %for.end.i, %if.then
   %storemerge.i = phi ptr [ %add.ptr366.i, %if.then.i ], [ %add.ptr49.i, %for.end.i ]
   %forbidden_bytemask.1.i = phi <2 x i64> [ %or.i.i, %if.then.i ], [ %forbidden_bytemask.065.i, %for.end.i ]
   %add.ptr3.i = getelementptr inbounds i8, ptr %storemerge.i, i64 32
-  %cmp.not.i = icmp ugt ptr %add.ptr3.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr3.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !692
 
 while.end.loopexit.i:                             ; preds = %if.end50.i
@@ -48790,13 +48780,13 @@ return:                                           ; preds = %if.else34.i, %if.th
 define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not68.i = icmp slt i64 %len, 8
   br i1 %cmp.not68.i, label %_ZN7simdutf8westmere12_GLOBAL__N_126sse_convert_utf32_to_utf16ILNS_10endiannessE1EEESt4pairIPKDiPDsES6_mS7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %add.ptr367.i = getelementptr inbounds i8, ptr %buf, i64 32
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end69.i, %while.body.lr.ph.i
@@ -48905,7 +48895,7 @@ if.end69.i:                                       ; preds = %for.end.i, %if.then
   %storemerge.i = phi ptr [ %add.ptr372.i, %if.then.i ], [ %add.ptr68.i, %for.end.i ]
   %forbidden_bytemask.1.i = phi <2 x i64> [ %or.i.i, %if.then.i ], [ %forbidden_bytemask.071.i, %for.end.i ]
   %add.ptr3.i = getelementptr inbounds i8, ptr %storemerge.i, i64 32
-  %cmp.not.i = icmp ugt ptr %add.ptr3.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr3.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !694
 
 while.end.loopexit.i:                             ; preds = %if.end69.i
@@ -49006,13 +48996,13 @@ return:                                           ; preds = %if.else40.i, %if.th
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf32_to_utf16le_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not82.i = icmp slt i64 %len, 8
   br i1 %cmp.not82.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %add.ptr281.i = getelementptr inbounds i8, ptr %buf, i64 32
-  %sub.ptr.lhs.cast21.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast21.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end65.i, %while.body.lr.ph.i
@@ -49133,7 +49123,7 @@ if.end65.i:                                       ; preds = %for.end.i, %if.end.
   %utf16_output.addr.3.i = phi ptr [ %add.ptr19.i, %if.end.i ], [ %utf16_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.1.i = phi ptr [ %add.ptr285.i, %if.end.i ], [ %add.ptr64.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %buf.addr.1.i, i64 32
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !699
 
 while.end.i:                                      ; preds = %if.end65.i, %entry
@@ -49233,13 +49223,13 @@ return:                                           ; preds = %if.end13, %if.then6
 define dso_local { i32, i64 } @_ZNK7simdutf8westmere14implementation36convert_utf32_to_utf16be_with_errorsEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i
   %cmp.not88.i = icmp slt i64 %len, 8
   br i1 %cmp.not88.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %add.ptr287.i = getelementptr inbounds i8, ptr %buf, i64 32
-  %sub.ptr.lhs.cast23.i = ptrtoint ptr %add.ptr.ptr.i to i64
+  %sub.ptr.lhs.cast23.i = ptrtoint ptr %add.ptr.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end84.i, %while.body.lr.ph.i
@@ -49372,7 +49362,7 @@ if.end84.i:                                       ; preds = %for.end.i, %if.end.
   %utf16_output.addr.3.i = phi ptr [ %add.ptr21.i, %if.end.i ], [ %utf16_output.addr.1.lcssa.i, %for.end.i ]
   %buf.addr.1.i = phi ptr [ %add.ptr291.i, %if.end.i ], [ %add.ptr83.i, %for.end.i ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %buf.addr.1.i, i64 32
-  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.ptr.i
+  %cmp.not.i = icmp ugt ptr %add.ptr2.i, %add.ptr.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !704
 
 while.end.i:                                      ; preds = %if.end84.i, %entry
@@ -49475,13 +49465,13 @@ return:                                           ; preds = %if.end13, %if.then6
 define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf32_to_utf16leEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
   %cmp.not62.i.i = icmp slt i64 %len, 8
   br i1 %cmp.not62.i.i, label %_ZN7simdutf8westmere12_GLOBAL__N_126sse_convert_utf32_to_utf16ILNS_10endiannessE0EEESt4pairIPKDiPDsES6_mS7_.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
   %add.ptr361.i.i = getelementptr inbounds i8, ptr %buf, i64 32
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.ptr.i.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end50.i.i, %while.body.lr.ph.i.i
@@ -49578,7 +49568,7 @@ if.end50.i.i:                                     ; preds = %for.end.i.i, %if.th
   %storemerge.i.i = phi ptr [ %add.ptr366.i.i, %if.then.i.i ], [ %add.ptr49.i.i, %for.end.i.i ]
   %forbidden_bytemask.1.i.i = phi <2 x i64> [ %or.i.i.i, %if.then.i.i ], [ %forbidden_bytemask.065.i.i, %for.end.i.i ]
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 32
-  %cmp.not.i.i = icmp ugt ptr %add.ptr3.i.i, %add.ptr.ptr.i.i
+  %cmp.not.i.i = icmp ugt ptr %add.ptr3.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %while.end.loopexit.i.i, label %while.body.i.i, !llvm.loop !692
 
 while.end.loopexit.i.i:                           ; preds = %if.end50.i.i
@@ -49676,13 +49666,13 @@ _ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16leEPKDimPDs.exit: ;
 define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf32_to_utf16beEPKDimPDs(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf16_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 2
-  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
   %cmp.not68.i.i = icmp slt i64 %len, 8
   br i1 %cmp.not68.i.i, label %_ZN7simdutf8westmere12_GLOBAL__N_126sse_convert_utf32_to_utf16ILNS_10endiannessE1EEESt4pairIPKDiPDsES6_mS7_.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
   %add.ptr367.i.i = getelementptr inbounds i8, ptr %buf, i64 32
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.ptr.i.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end69.i.i, %while.body.lr.ph.i.i
@@ -49791,7 +49781,7 @@ if.end69.i.i:                                     ; preds = %for.end.i.i, %if.th
   %storemerge.i.i = phi ptr [ %add.ptr372.i.i, %if.then.i.i ], [ %add.ptr68.i.i, %for.end.i.i ]
   %forbidden_bytemask.1.i.i = phi <2 x i64> [ %or.i.i.i, %if.then.i.i ], [ %forbidden_bytemask.071.i.i, %for.end.i.i ]
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 32
-  %cmp.not.i.i = icmp ugt ptr %add.ptr3.i.i, %add.ptr.ptr.i.i
+  %cmp.not.i.i = icmp ugt ptr %add.ptr3.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %while.end.loopexit.i.i, label %while.body.i.i, !llvm.loop !694
 
 while.end.loopexit.i.i:                           ; preds = %if.end69.i.i
@@ -49892,13 +49882,13 @@ _ZNK7simdutf8westmere14implementation24convert_utf32_to_utf16beEPKDimPDs.exit: ;
 define dso_local noundef i64 @_ZNK7simdutf8westmere14implementation30convert_valid_utf16le_to_utf32EPKDsmPDi(ptr nocapture nonnull readnone align 8 %this, ptr noundef %buf, i64 noundef %len, ptr noundef %utf32_output) unnamed_addr #30 align 2 {
 entry:
   %add.ptr.idx.i.i = shl nsw i64 %len, 1
-  %add.ptr.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %buf, i64 %add.ptr.idx.i.i
   %cmp.not51.i.i = icmp slt i64 %len, 8
   br i1 %cmp.not51.i.i, label %_ZN7simdutf8westmere12_GLOBAL__N_126sse_convert_utf16_to_utf32ILNS_10endiannessE0EEESt4pairIPKDsPDiES6_mS7_.exit.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
   %add.ptr250.i.i = getelementptr inbounds i8, ptr %buf, i64 16
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.ptr.i.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end53.i.i, %while.body.lr.ph.i.i
@@ -49985,7 +49975,7 @@ if.end53.i.i:                                     ; preds = %for.end.i.i, %if.th
   %utf32_output.addr.3.i.i = phi ptr [ %add.ptr13.i.i, %if.then.i.i ], [ %utf32_output.addr.1.lcssa.i.i, %for.end.i.i ]
   %storemerge.i.i = phi ptr [ %add.ptr254.i.i, %if.then.i.i ], [ %add.ptr52.i.i, %for.end.i.i ]
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 16
-  %cmp.not.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr.ptr.i.i
+  %cmp.not.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %_ZN7simdutf8westmere12_GLOBAL__N_126sse_convert_utf16_to_utf32ILNS_10endiannessE0EEESt4pairIPKDsPDiES6_mS7_.exit.i, label %while.body.i.i, !llvm.loop !678
 
 _ZN7simdutf8westmere12_GLOBAL__N_126sse_convert_utf16_to_utf32ILNS_10endiannessE0EEESt4pairIPKDsPDiES6_mS7_.exit.i: ; preds = %if.end53.i.i, %entry

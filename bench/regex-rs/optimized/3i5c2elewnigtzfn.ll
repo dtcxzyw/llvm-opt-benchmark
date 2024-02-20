@@ -11413,48 +11413,47 @@ define void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..o
   %30 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
   %31 = ptrtoint ptr %30 to i64
   %32 = sub nuw i64 %27, %31
-  %33 = udiv exact i64 %32, 48
-  %34 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %30, i64 %33
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..hir..Hir$u5d$$GT$17h84be854a18689f13E"(ptr nonnull align 8 %34, i64 %29)
-          to label %37 unwind label %35
+  %33 = getelementptr inbounds i8, ptr %30, i64 %32
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..hir..Hir$u5d$$GT$17h84be854a18689f13E"(ptr nonnull align 8 %33, i64 %29)
+          to label %36 unwind label %34
 
-35:                                               ; preds = %25
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %25
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..hir..Hir$C$alloc..alloc..Global$GT$$GT$17h6e21b9c284abc3b6E"(ptr nonnull align 8 %2) #11
-  resume { ptr, i32 } %36
+  resume { ptr, i32 } %35
 
-37:                                               ; preds = %25
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
-  %39 = load i64, ptr %38, align 8, !noundef !5
-  %.not.i.i22 = icmp eq i64 %39, 0
-  br i1 %.not.i.i22, label %"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..hir..Hir$C$alloc..alloc..Global$GT$$GT$17h6e21b9c284abc3b6E.exit", label %40
+36:                                               ; preds = %25
+  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = load i64, ptr %37, align 8, !noundef !5
+  %.not.i.i22 = icmp eq i64 %38, 0
+  br i1 %.not.i.i22, label %"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..hir..Hir$C$alloc..alloc..Global$GT$$GT$17h6e21b9c284abc3b6E.exit", label %39
 
-40:                                               ; preds = %37
-  %41 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
-  %43 = load i64, ptr %42, align 8, !noundef !5
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
-  %45 = load i64, ptr %44, align 8, !noundef !5
-  %.not3.i.i23 = icmp eq i64 %45, %43
-  br i1 %.not3.i.i23, label %46, label %49
+39:                                               ; preds = %36
+  %40 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %42 = load i64, ptr %41, align 8, !noundef !5
+  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = load i64, ptr %43, align 8, !noundef !5
+  %.not3.i.i23 = icmp eq i64 %44, %42
+  br i1 %.not3.i.i23, label %45, label %48
 
-46:                                               ; preds = %49, %40
-  %47 = phi i64 [ %.pre4.i.i26, %49 ], [ %39, %40 ]
-  %48 = add i64 %47, %43
-  store i64 %48, ptr %42, align 8
+45:                                               ; preds = %48, %39
+  %46 = phi i64 [ %.pre4.i.i26, %48 ], [ %38, %39 ]
+  %47 = add i64 %46, %42
+  store i64 %47, ptr %41, align 8
   br label %"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..hir..Hir$C$alloc..alloc..Global$GT$$GT$17h6e21b9c284abc3b6E.exit"
 
-49:                                               ; preds = %40
-  %50 = load ptr, ptr %41, align 8, !nonnull !5, !noundef !5
-  %51 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %50, i64 %45
-  %52 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %50, i64 %43
-  %53 = mul i64 %39, 48
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr nonnull align 8 %51, i64 %53, i1 false)
-  %.pre4.i.i26 = load i64, ptr %38, align 8
-  br label %46
+48:                                               ; preds = %39
+  %49 = load ptr, ptr %40, align 8, !nonnull !5, !noundef !5
+  %50 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %49, i64 %44
+  %51 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %49, i64 %42
+  %52 = mul i64 %38, 48
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %51, ptr nonnull align 8 %50, i64 %52, i1 false)
+  %.pre4.i.i26 = load i64, ptr %37, align 8
+  br label %45
 
-"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..hir..Hir$C$alloc..alloc..Global$GT$$GT$17h6e21b9c284abc3b6E.exit": ; preds = %46, %37, %17, %9
+"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..hir..Hir$C$alloc..alloc..Global$GT$$GT$17h6e21b9c284abc3b6E.exit": ; preds = %45, %36, %17, %9
   ret void
 }
 
@@ -11509,78 +11508,77 @@ define void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..o
   %30 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
   %31 = ptrtoint ptr %30 to i64
   %32 = sub nuw i64 %27, %31
-  %33 = udiv exact i64 %32, 160
-  %34 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %30, i64 %33
-  br label %35
+  %33 = getelementptr inbounds i8, ptr %30, i64 %32
+  br label %34
 
-35:                                               ; preds = %37, %25
-  %.0.i = phi i64 [ 0, %25 ], [ %39, %37 ]
-  %36 = icmp eq i64 %.0.i, %29
-  br i1 %36, label %"_ZN4core3ptr62drop_in_place$LT$$u5b$regex_syntax..ast..ClassSetItem$u5d$$GT$17hb8cf736a19ef94f6E.exit", label %37
+34:                                               ; preds = %36, %25
+  %.0.i = phi i64 [ 0, %25 ], [ %38, %36 ]
+  %35 = icmp eq i64 %.0.i, %29
+  br i1 %35, label %"_ZN4core3ptr62drop_in_place$LT$$u5b$regex_syntax..ast..ClassSetItem$u5d$$GT$17hb8cf736a19ef94f6E.exit", label %36
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds [0 x { [38 x i32], i32, [1 x i32] }], ptr %34, i64 0, i64 %.0.i
-  %39 = add nuw nsw i64 %.0.i, 1
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h653b349f03c272d0E"(ptr nonnull align 8 %38)
-          to label %35 unwind label %42
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds [0 x { [38 x i32], i32, [1 x i32] }], ptr %33, i64 0, i64 %.0.i
+  %38 = add nuw nsw i64 %.0.i, 1
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h653b349f03c272d0E"(ptr nonnull align 8 %37)
+          to label %34 unwind label %41
 
-40:                                               ; preds = %44, %42
-  %.1.i = phi i64 [ %39, %42 ], [ %46, %44 ]
-  %41 = icmp eq i64 %.1.i, %29
-  br i1 %41, label %.body, label %44
+39:                                               ; preds = %43, %41
+  %.1.i = phi i64 [ %38, %41 ], [ %45, %43 ]
+  %40 = icmp eq i64 %.1.i, %29
+  br i1 %40, label %.body, label %43
 
-42:                                               ; preds = %37
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %36
+  %42 = landingpad { ptr, i32 }
           cleanup
-  br label %40
+  br label %39
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds [0 x { [38 x i32], i32, [1 x i32] }], ptr %34, i64 0, i64 %.1.i
-  %46 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h653b349f03c272d0E"(ptr nonnull align 8 %45) #11
-          to label %40 unwind label %47
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds [0 x { [38 x i32], i32, [1 x i32] }], ptr %33, i64 0, i64 %.1.i
+  %45 = add i64 %.1.i, 1
+  invoke void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetItem$GT$17h653b349f03c272d0E"(ptr nonnull align 8 %44) #11
+          to label %39 unwind label %46
 
-47:                                               ; preds = %44
-  %48 = landingpad { ptr, i32 }
+46:                                               ; preds = %43
+  %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #12
   unreachable
 
-.body:                                            ; preds = %40
+.body:                                            ; preds = %39
   call void @"_ZN4core3ptr178drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..ast..ClassSetItem$C$alloc..alloc..Global$GT$$GT$17h62e50360348ef897E"(ptr nonnull align 8 %2) #11
-  resume { ptr, i32 } %43
+  resume { ptr, i32 } %42
 
-"_ZN4core3ptr62drop_in_place$LT$$u5b$regex_syntax..ast..ClassSetItem$u5d$$GT$17hb8cf736a19ef94f6E.exit": ; preds = %35
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
-  %50 = load i64, ptr %49, align 8, !noundef !5
-  %.not.i.i22 = icmp eq i64 %50, 0
-  br i1 %.not.i.i22, label %"_ZN4core3ptr178drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..ast..ClassSetItem$C$alloc..alloc..Global$GT$$GT$17h62e50360348ef897E.exit", label %51
+"_ZN4core3ptr62drop_in_place$LT$$u5b$regex_syntax..ast..ClassSetItem$u5d$$GT$17hb8cf736a19ef94f6E.exit": ; preds = %34
+  %48 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = load i64, ptr %48, align 8, !noundef !5
+  %.not.i.i22 = icmp eq i64 %49, 0
+  br i1 %.not.i.i22, label %"_ZN4core3ptr178drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..ast..ClassSetItem$C$alloc..alloc..Global$GT$$GT$17h62e50360348ef897E.exit", label %50
 
-51:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$$u5b$regex_syntax..ast..ClassSetItem$u5d$$GT$17hb8cf736a19ef94f6E.exit"
-  %52 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
-  %54 = load i64, ptr %53, align 8, !noundef !5
-  %55 = getelementptr inbounds i8, ptr %0, i64 24
-  %56 = load i64, ptr %55, align 8, !noundef !5
-  %.not3.i.i23 = icmp eq i64 %56, %54
-  br i1 %.not3.i.i23, label %57, label %60
+50:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$$u5b$regex_syntax..ast..ClassSetItem$u5d$$GT$17hb8cf736a19ef94f6E.exit"
+  %51 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %53 = load i64, ptr %52, align 8, !noundef !5
+  %54 = getelementptr inbounds i8, ptr %0, i64 24
+  %55 = load i64, ptr %54, align 8, !noundef !5
+  %.not3.i.i23 = icmp eq i64 %55, %53
+  br i1 %.not3.i.i23, label %56, label %59
 
-57:                                               ; preds = %60, %51
-  %58 = phi i64 [ %.pre4.i.i26, %60 ], [ %50, %51 ]
-  %59 = add i64 %58, %54
-  store i64 %59, ptr %53, align 8
+56:                                               ; preds = %59, %50
+  %57 = phi i64 [ %.pre4.i.i26, %59 ], [ %49, %50 ]
+  %58 = add i64 %57, %53
+  store i64 %58, ptr %52, align 8
   br label %"_ZN4core3ptr178drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..ast..ClassSetItem$C$alloc..alloc..Global$GT$$GT$17h62e50360348ef897E.exit"
 
-60:                                               ; preds = %51
-  %61 = load ptr, ptr %52, align 8, !nonnull !5, !noundef !5
-  %62 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %61, i64 %56
-  %63 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %61, i64 %54
-  %64 = mul i64 %50, 160
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %63, ptr nonnull align 8 %62, i64 %64, i1 false)
-  %.pre4.i.i26 = load i64, ptr %49, align 8
-  br label %57
+59:                                               ; preds = %50
+  %60 = load ptr, ptr %51, align 8, !nonnull !5, !noundef !5
+  %61 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %60, i64 %55
+  %62 = getelementptr inbounds { [38 x i32], i32, [1 x i32] }, ptr %60, i64 %53
+  %63 = mul i64 %49, 160
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %62, ptr nonnull align 8 %61, i64 %63, i1 false)
+  %.pre4.i.i26 = load i64, ptr %48, align 8
+  br label %56
 
-"_ZN4core3ptr178drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..ast..ClassSetItem$C$alloc..alloc..Global$GT$$GT$17h62e50360348ef897E.exit": ; preds = %57, %"_ZN4core3ptr62drop_in_place$LT$$u5b$regex_syntax..ast..ClassSetItem$u5d$$GT$17hb8cf736a19ef94f6E.exit", %17, %9
+"_ZN4core3ptr178drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..ast..ClassSetItem$C$alloc..alloc..Global$GT$$GT$17h62e50360348ef897E.exit": ; preds = %56, %"_ZN4core3ptr62drop_in_place$LT$$u5b$regex_syntax..ast..ClassSetItem$u5d$$GT$17hb8cf736a19ef94f6E.exit", %17, %9
   ret void
 }
 
@@ -11635,78 +11633,77 @@ define void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..o
   %30 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
   %31 = ptrtoint ptr %30 to i64
   %32 = sub nuw i64 %26, %31
-  %33 = lshr exact i64 %32, 4
-  %34 = getelementptr inbounds { i64, ptr }, ptr %30, i64 %33
-  br label %35
+  %33 = getelementptr inbounds i8, ptr %30, i64 %32
+  br label %34
 
-35:                                               ; preds = %37, %25
-  %.0.i = phi i64 [ 0, %25 ], [ %39, %37 ]
-  %36 = icmp eq i64 %.0.i, %29
-  br i1 %36, label %"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..ast..Ast$u5d$$GT$17h6036ab9a53480f08E.exit", label %37
+34:                                               ; preds = %36, %25
+  %.0.i = phi i64 [ 0, %25 ], [ %38, %36 ]
+  %35 = icmp eq i64 %.0.i, %29
+  br i1 %35, label %"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..ast..Ast$u5d$$GT$17h6036ab9a53480f08E.exit", label %36
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds [0 x { i64, ptr }], ptr %34, i64 0, i64 %.0.i
-  %39 = add nuw nsw i64 %.0.i, 1
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..ast..Ast$GT$17h47bcfc7d4c551291E"(ptr nonnull align 8 %38)
-          to label %35 unwind label %42
+36:                                               ; preds = %34
+  %37 = getelementptr inbounds [0 x { i64, ptr }], ptr %33, i64 0, i64 %.0.i
+  %38 = add nuw nsw i64 %.0.i, 1
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..ast..Ast$GT$17h47bcfc7d4c551291E"(ptr nonnull align 8 %37)
+          to label %34 unwind label %41
 
-40:                                               ; preds = %44, %42
-  %.1.i = phi i64 [ %39, %42 ], [ %46, %44 ]
-  %41 = icmp eq i64 %.1.i, %29
-  br i1 %41, label %.body, label %44
+39:                                               ; preds = %43, %41
+  %.1.i = phi i64 [ %38, %41 ], [ %45, %43 ]
+  %40 = icmp eq i64 %.1.i, %29
+  br i1 %40, label %.body, label %43
 
-42:                                               ; preds = %37
-  %43 = landingpad { ptr, i32 }
+41:                                               ; preds = %36
+  %42 = landingpad { ptr, i32 }
           cleanup
-  br label %40
+  br label %39
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds [0 x { i64, ptr }], ptr %34, i64 0, i64 %.1.i
-  %46 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..ast..Ast$GT$17h47bcfc7d4c551291E"(ptr nonnull align 8 %45) #11
-          to label %40 unwind label %47
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds [0 x { i64, ptr }], ptr %33, i64 0, i64 %.1.i
+  %45 = add i64 %.1.i, 1
+  invoke void @"_ZN4core3ptr43drop_in_place$LT$regex_syntax..ast..Ast$GT$17h47bcfc7d4c551291E"(ptr nonnull align 8 %44) #11
+          to label %39 unwind label %46
 
-47:                                               ; preds = %44
-  %48 = landingpad { ptr, i32 }
+46:                                               ; preds = %43
+  %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #12
   unreachable
 
-.body:                                            ; preds = %40
+.body:                                            ; preds = %39
   call void @"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..ast..Ast$C$alloc..alloc..Global$GT$$GT$17h0d19bafa91ee9421E"(ptr nonnull align 8 %2) #11
-  resume { ptr, i32 } %43
+  resume { ptr, i32 } %42
 
-"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..ast..Ast$u5d$$GT$17h6036ab9a53480f08E.exit": ; preds = %35
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
-  %50 = load i64, ptr %49, align 8, !noundef !5
-  %.not.i.i22 = icmp eq i64 %50, 0
-  br i1 %.not.i.i22, label %"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..ast..Ast$C$alloc..alloc..Global$GT$$GT$17h0d19bafa91ee9421E.exit", label %51
+"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..ast..Ast$u5d$$GT$17h6036ab9a53480f08E.exit": ; preds = %34
+  %48 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = load i64, ptr %48, align 8, !noundef !5
+  %.not.i.i22 = icmp eq i64 %49, 0
+  br i1 %.not.i.i22, label %"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..ast..Ast$C$alloc..alloc..Global$GT$$GT$17h0d19bafa91ee9421E.exit", label %50
 
-51:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..ast..Ast$u5d$$GT$17h6036ab9a53480f08E.exit"
-  %52 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds i8, ptr %52, i64 16
-  %54 = load i64, ptr %53, align 8, !noundef !5
-  %55 = getelementptr inbounds i8, ptr %0, i64 24
-  %56 = load i64, ptr %55, align 8, !noundef !5
-  %.not3.i.i23 = icmp eq i64 %56, %54
-  br i1 %.not3.i.i23, label %57, label %60
+50:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..ast..Ast$u5d$$GT$17h6036ab9a53480f08E.exit"
+  %51 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+  %52 = getelementptr inbounds i8, ptr %51, i64 16
+  %53 = load i64, ptr %52, align 8, !noundef !5
+  %54 = getelementptr inbounds i8, ptr %0, i64 24
+  %55 = load i64, ptr %54, align 8, !noundef !5
+  %.not3.i.i23 = icmp eq i64 %55, %53
+  br i1 %.not3.i.i23, label %56, label %59
 
-57:                                               ; preds = %60, %51
-  %58 = phi i64 [ %.pre4.i.i26, %60 ], [ %50, %51 ]
-  %59 = add i64 %58, %54
-  store i64 %59, ptr %53, align 8
+56:                                               ; preds = %59, %50
+  %57 = phi i64 [ %.pre4.i.i26, %59 ], [ %49, %50 ]
+  %58 = add i64 %57, %53
+  store i64 %58, ptr %52, align 8
   br label %"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..ast..Ast$C$alloc..alloc..Global$GT$$GT$17h0d19bafa91ee9421E.exit"
 
-60:                                               ; preds = %51
-  %61 = load ptr, ptr %52, align 8, !nonnull !5, !noundef !5
-  %62 = getelementptr inbounds { i64, ptr }, ptr %61, i64 %56
-  %63 = getelementptr inbounds { i64, ptr }, ptr %61, i64 %54
-  %64 = shl i64 %50, 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %63, ptr nonnull align 8 %62, i64 %64, i1 false)
-  %.pre4.i.i26 = load i64, ptr %49, align 8
-  br label %57
+59:                                               ; preds = %50
+  %60 = load ptr, ptr %51, align 8, !nonnull !5, !noundef !5
+  %61 = getelementptr inbounds { i64, ptr }, ptr %60, i64 %55
+  %62 = getelementptr inbounds { i64, ptr }, ptr %60, i64 %53
+  %63 = shl i64 %49, 4
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %62, ptr nonnull align 8 %61, i64 %63, i1 false)
+  %.pre4.i.i26 = load i64, ptr %48, align 8
+  br label %56
 
-"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..ast..Ast$C$alloc..alloc..Global$GT$$GT$17h0d19bafa91ee9421E.exit": ; preds = %57, %"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..ast..Ast$u5d$$GT$17h6036ab9a53480f08E.exit", %17, %9
+"_ZN4core3ptr169drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..ast..Ast$C$alloc..alloc..Global$GT$$GT$17h0d19bafa91ee9421E.exit": ; preds = %56, %"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..ast..Ast$u5d$$GT$17h6036ab9a53480f08E.exit", %17, %9
   ret void
 }
 
@@ -11835,94 +11832,93 @@ define void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..o
   %30 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
   %31 = ptrtoint ptr %30 to i64
   %32 = sub nuw i64 %26, %31
-  %33 = lshr exact i64 %32, 5
-  %34 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %30, i64 %33
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 16
-  br label %37
+  %33 = getelementptr inbounds i8, ptr %30, i64 %32
+  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds i8, ptr %2, i64 16
+  br label %36
 
-37:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$regex_syntax..hir..literal..Literal$GT$17hd93d6b96cc1623ceE.exit.i", %.lr.ph.i
-  %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %39, %"_ZN4core3ptr56drop_in_place$LT$regex_syntax..hir..literal..Literal$GT$17hd93d6b96cc1623ceE.exit.i" ]
-  %38 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 }, i8, [7 x i8] }], ptr %34, i64 0, i64 %.09.i
-  %39 = add nuw i64 %.09.i, 1
+36:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$regex_syntax..hir..literal..Literal$GT$17hd93d6b96cc1623ceE.exit.i", %.lr.ph.i
+  %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %38, %"_ZN4core3ptr56drop_in_place$LT$regex_syntax..hir..literal..Literal$GT$17hd93d6b96cc1623ceE.exit.i" ]
+  %37 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 }, i8, [7 x i8] }], ptr %33, i64 0, i64 %.09.i
+  %38 = add nuw i64 %.09.i, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h23ce89c7503e662fE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %38)
-          to label %.noexc.i unwind label %48
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h23ce89c7503e662fE"(ptr nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 %2, ptr nonnull align 8 %37)
+          to label %.noexc.i unwind label %47
 
-.noexc.i:                                         ; preds = %37
-  %40 = load i64, ptr %35, align 8, !range !7, !noundef !5
-  %.not.i.i.i.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr56drop_in_place$LT$regex_syntax..hir..literal..Literal$GT$17hd93d6b96cc1623ceE.exit.i", label %41
+.noexc.i:                                         ; preds = %36
+  %39 = load i64, ptr %34, align 8, !range !7, !noundef !5
+  %.not.i.i.i.i.i = icmp eq i64 %39, 0
+  br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr56drop_in_place$LT$regex_syntax..hir..literal..Literal$GT$17hd93d6b96cc1623ceE.exit.i", label %40
 
-41:                                               ; preds = %.noexc.i
-  %42 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
-  %43 = load i64, ptr %36, align 8, !noundef !5
-  %44 = getelementptr i8, ptr %38, i64 16
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h77bae2a4fa5a87f8E"(ptr align 1 %44, ptr nonnull %42, i64 %40, i64 %43)
-          to label %"_ZN4core3ptr56drop_in_place$LT$regex_syntax..hir..literal..Literal$GT$17hd93d6b96cc1623ceE.exit.i" unwind label %48
+40:                                               ; preds = %.noexc.i
+  %41 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
+  %42 = load i64, ptr %35, align 8, !noundef !5
+  %43 = getelementptr i8, ptr %37, i64 16
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h77bae2a4fa5a87f8E"(ptr align 1 %43, ptr nonnull %41, i64 %39, i64 %42)
+          to label %"_ZN4core3ptr56drop_in_place$LT$regex_syntax..hir..literal..Literal$GT$17hd93d6b96cc1623ceE.exit.i" unwind label %47
 
-"_ZN4core3ptr56drop_in_place$LT$regex_syntax..hir..literal..Literal$GT$17hd93d6b96cc1623ceE.exit.i": ; preds = %41, %.noexc.i
+"_ZN4core3ptr56drop_in_place$LT$regex_syntax..hir..literal..Literal$GT$17hd93d6b96cc1623ceE.exit.i": ; preds = %40, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  %45 = icmp eq i64 %39, %29
-  br i1 %45, label %"_ZN4core3ptr66drop_in_place$LT$$u5b$regex_syntax..hir..literal..Literal$u5d$$GT$17h7f4c0f4570758c08E.exit", label %37
+  %44 = icmp eq i64 %38, %29
+  br i1 %44, label %"_ZN4core3ptr66drop_in_place$LT$$u5b$regex_syntax..hir..literal..Literal$u5d$$GT$17h7f4c0f4570758c08E.exit", label %36
 
-46:                                               ; preds = %50, %48
-  %.1.i = phi i64 [ %39, %48 ], [ %52, %50 ]
-  %47 = icmp eq i64 %.1.i, %29
-  br i1 %47, label %.body, label %50
+45:                                               ; preds = %49, %47
+  %.1.i = phi i64 [ %38, %47 ], [ %51, %49 ]
+  %46 = icmp eq i64 %.1.i, %29
+  br i1 %46, label %.body, label %49
 
-48:                                               ; preds = %41, %37
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %40, %36
+  %48 = landingpad { ptr, i32 }
           cleanup
-  br label %46
+  br label %45
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 }, i8, [7 x i8] }], ptr %34, i64 0, i64 %.1.i
-  %52 = add i64 %.1.i, 1
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$regex_syntax..hir..literal..Literal$GT$17hd93d6b96cc1623ceE"(ptr nonnull align 8 %51) #11
-          to label %46 unwind label %53
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds [0 x { { { ptr, i64 }, i64 }, i8, [7 x i8] }], ptr %33, i64 0, i64 %.1.i
+  %51 = add i64 %.1.i, 1
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$regex_syntax..hir..literal..Literal$GT$17hd93d6b96cc1623ceE"(ptr nonnull align 8 %50) #11
+          to label %45 unwind label %52
 
-53:                                               ; preds = %50
-  %54 = landingpad { ptr, i32 }
+52:                                               ; preds = %49
+  %53 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #12
   unreachable
 
-.body:                                            ; preds = %46
+.body:                                            ; preds = %45
   call void @"_ZN4core3ptr182drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..hir..literal..Literal$C$alloc..alloc..Global$GT$$GT$17h896d200ff4b6522aE"(ptr nonnull align 8 %3) #11
-  resume { ptr, i32 } %49
+  resume { ptr, i32 } %48
 
 "_ZN4core3ptr66drop_in_place$LT$$u5b$regex_syntax..hir..literal..Literal$u5d$$GT$17h7f4c0f4570758c08E.exit": ; preds = %"_ZN4core3ptr56drop_in_place$LT$regex_syntax..hir..literal..Literal$GT$17hd93d6b96cc1623ceE.exit.i"
-  %55 = getelementptr inbounds i8, ptr %0, i64 32
-  %56 = load i64, ptr %55, align 8, !noundef !5
-  %.not.i.i22 = icmp eq i64 %56, 0
-  br i1 %.not.i.i22, label %"_ZN4core3ptr182drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..hir..literal..Literal$C$alloc..alloc..Global$GT$$GT$17h896d200ff4b6522aE.exit", label %57
+  %54 = getelementptr inbounds i8, ptr %0, i64 32
+  %55 = load i64, ptr %54, align 8, !noundef !5
+  %.not.i.i22 = icmp eq i64 %55, 0
+  br i1 %.not.i.i22, label %"_ZN4core3ptr182drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..hir..literal..Literal$C$alloc..alloc..Global$GT$$GT$17h896d200ff4b6522aE.exit", label %56
 
-57:                                               ; preds = %"_ZN4core3ptr66drop_in_place$LT$$u5b$regex_syntax..hir..literal..Literal$u5d$$GT$17h7f4c0f4570758c08E.exit"
-  %58 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
-  %60 = load i64, ptr %59, align 8, !noundef !5
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
-  %62 = load i64, ptr %61, align 8, !noundef !5
-  %.not3.i.i23 = icmp eq i64 %62, %60
-  br i1 %.not3.i.i23, label %63, label %66
+56:                                               ; preds = %"_ZN4core3ptr66drop_in_place$LT$$u5b$regex_syntax..hir..literal..Literal$u5d$$GT$17h7f4c0f4570758c08E.exit"
+  %57 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
+  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %59 = load i64, ptr %58, align 8, !noundef !5
+  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = load i64, ptr %60, align 8, !noundef !5
+  %.not3.i.i23 = icmp eq i64 %61, %59
+  br i1 %.not3.i.i23, label %62, label %65
 
-63:                                               ; preds = %66, %57
-  %64 = phi i64 [ %.pre4.i.i26, %66 ], [ %56, %57 ]
-  %65 = add i64 %64, %60
-  store i64 %65, ptr %59, align 8
+62:                                               ; preds = %65, %56
+  %63 = phi i64 [ %.pre4.i.i26, %65 ], [ %55, %56 ]
+  %64 = add i64 %63, %59
+  store i64 %64, ptr %58, align 8
   br label %"_ZN4core3ptr182drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..hir..literal..Literal$C$alloc..alloc..Global$GT$$GT$17h896d200ff4b6522aE.exit"
 
-66:                                               ; preds = %57
-  %67 = load ptr, ptr %58, align 8, !nonnull !5, !noundef !5
-  %68 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %67, i64 %62
-  %69 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %67, i64 %60
-  %70 = shl i64 %56, 5
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %69, ptr nonnull align 8 %68, i64 %70, i1 false)
-  %.pre4.i.i26 = load i64, ptr %55, align 8
-  br label %63
+65:                                               ; preds = %56
+  %66 = load ptr, ptr %57, align 8, !nonnull !5, !noundef !5
+  %67 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %66, i64 %61
+  %68 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %66, i64 %59
+  %69 = shl i64 %55, 5
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %68, ptr nonnull align 8 %67, i64 %69, i1 false)
+  %.pre4.i.i26 = load i64, ptr %54, align 8
+  br label %62
 
-"_ZN4core3ptr182drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..hir..literal..Literal$C$alloc..alloc..Global$GT$$GT$17h896d200ff4b6522aE.exit": ; preds = %63, %"_ZN4core3ptr66drop_in_place$LT$$u5b$regex_syntax..hir..literal..Literal$u5d$$GT$17h7f4c0f4570758c08E.exit", %18, %10
+"_ZN4core3ptr182drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$regex_syntax..hir..literal..Literal$C$alloc..alloc..Global$GT$$GT$17h896d200ff4b6522aE.exit": ; preds = %62, %"_ZN4core3ptr66drop_in_place$LT$$u5b$regex_syntax..hir..literal..Literal$u5d$$GT$17h7f4c0f4570758c08E.exit", %18, %10
   ret void
 }
 

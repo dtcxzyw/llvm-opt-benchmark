@@ -187,8 +187,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::unordered_set.435" = type { %"class.std::_Hashtable.436" }
 %"class.std::_Hashtable.436" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.mold::elf::ElfShdr" = type { %"class.mold::LittleEndian", %"class.mold::LittleEndian", %"class.mold::LittleEndian", %"class.mold::LittleEndian", %"class.mold::LittleEndian", %"class.mold::LittleEndian", %"class.mold::LittleEndian", %"class.mold::LittleEndian", %"class.mold::LittleEndian", %"class.mold::LittleEndian" }
-%"struct.mold::elf::ElfRel" = type { %"class.mold::LittleEndian", i8, %"class.mold::LittleEndian.457" }
-%"class.mold::LittleEndian.457" = type { [3 x i8] }
 %"struct.std::__detail::_AllocNode.1179" = type { ptr }
 %"class.std::unique_ptr.466" = type { %"struct.std::__uniq_ptr_data.467" }
 %"struct.std::__uniq_ptr_data.467" = type { %"class.std::__uniq_ptr_impl.468" }
@@ -547,6 +545,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.tbb::detail::d2::for_each_root_task.1573" = type { %"class.tbb::detail::d2::for_each_root_task_base.base.1577", [23 x i8] }
 %"class.tbb::detail::d2::for_each_root_task_base.base.1577" = type <{ %"class.tbb::detail::d1::task", %"class.__gnu_cxx::__normal_iterator.306", %"class.__gnu_cxx::__normal_iterator.306", ptr, ptr, ptr, %"struct.tbb::detail::d2::feeder_holder.1575" }>
 %"struct.tbb::detail::d2::feeder_holder.1575" = type { i8 }
+%"struct.mold::elf::ElfRel" = type { %"class.mold::LittleEndian", i8, %"class.mold::LittleEndian.457" }
+%"class.mold::LittleEndian.457" = type { [3 x i8] }
 %"class.tbb::detail::d2::for_each_root_task.1582" = type { %"class.tbb::detail::d2::for_each_root_task_base.base.1586", [23 x i8] }
 %"class.tbb::detail::d2::for_each_root_task_base.base.1586" = type <{ %"class.tbb::detail::d1::task", %"class.__gnu_cxx::__normal_iterator.306", %"class.__gnu_cxx::__normal_iterator.306", ptr, ptr, ptr, %"struct.tbb::detail::d2::feeder_holder.1584" }>
 %"struct.tbb::detail::d2::feeder_holder.1584" = type { i8 }
@@ -15050,9 +15050,8 @@ if.then.i58:                                      ; preds = %_ZN4mold3elf9InputF
   unreachable
 
 _ZNK4mold3elf12InputSectionINS0_4I386EE8get_relsERNS0_7ContextIS2_EE.exit: ; preds = %_ZN4mold3elf9InputFileINS0_4I386EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit.i
-  %div2.i = lshr exact i64 %idx.ext3.i.i, 3
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp.i)
-  %add.ptr.i38 = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %add.ptr.i.i56, i64 %div2.i
+  %add.ptr.i38 = getelementptr inbounds i8, ptr %add.ptr.i.i56, i64 %idx.ext3.i.i
   %cmp.i39101 = icmp eq i32 %x.0.copyload.i6.i.i, 0
   br i1 %cmp.i39101, label %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %for.body30
 
@@ -19384,9 +19383,8 @@ if.then.i129:                                     ; preds = %_ZN4mold3elf9InputF
   unreachable
 
 _ZNK4mold3elf12InputSectionINS0_4I386EE8get_relsERNS0_7ContextIS2_EE.exit: ; preds = %_ZN4mold3elf9InputFileINS0_4I386EE10get_stringERNS0_7ContextIS2_EERKNS0_7ElfShdrIS2_EE.exit.i
-  %div2.i = lshr exact i64 %idx.ext3.i.i, 3
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %ref.tmp.i123)
-  %add.ptr.i98 = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %add.ptr.i.i126, i64 %div2.i
+  %add.ptr.i98 = getelementptr inbounds i8, ptr %add.ptr.i.i126, i64 %idx.ext3.i.i
   %cmp.i99152 = icmp eq i32 %x.0.copyload.i6.i.i, 0
   br i1 %cmp.i99152, label %for.inc67, label %for.body49
 

@@ -340,54 +340,53 @@ for.body68.preheader:                             ; preds = %if.end18, %for.cond
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %8 = lshr exact i64 %indvars.iv, 3
-  %arrayidx = getelementptr inbounds i64, ptr %1, i64 %8
-  %9 = load i64, ptr %arrayidx, align 8
-  %conv = trunc i64 %9 to i8
+  %arrayidx = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %8 = load i64, ptr %arrayidx, align 8
+  %conv = trunc i64 %8 to i8
   %arrayidx22 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %indvars.iv
   store i8 %conv, ptr %arrayidx22, align 8
-  %shr = lshr i64 %9, 8
+  %shr = lshr i64 %8, 8
   %conv24 = trunc i64 %shr to i8
-  %10 = or disjoint i64 %indvars.iv, 1
-  %arrayidx27 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %10
+  %9 = or disjoint i64 %indvars.iv, 1
+  %arrayidx27 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %9
   store i8 %conv24, ptr %arrayidx27, align 1
-  %shr28 = lshr i64 %9, 16
+  %shr28 = lshr i64 %8, 16
   %conv30 = trunc i64 %shr28 to i8
-  %11 = or disjoint i64 %indvars.iv, 2
-  %arrayidx33 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %11
+  %10 = or disjoint i64 %indvars.iv, 2
+  %arrayidx33 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %10
   store i8 %conv30, ptr %arrayidx33, align 2
-  %shr34 = lshr i64 %9, 24
+  %shr34 = lshr i64 %8, 24
   %conv36 = trunc i64 %shr34 to i8
-  %12 = or disjoint i64 %indvars.iv, 3
-  %arrayidx39 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %12
+  %11 = or disjoint i64 %indvars.iv, 3
+  %arrayidx39 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %11
   store i8 %conv36, ptr %arrayidx39, align 1
-  %shr40 = lshr i64 %9, 32
+  %shr40 = lshr i64 %8, 32
   %conv42 = trunc i64 %shr40 to i8
-  %13 = or disjoint i64 %indvars.iv, 4
-  %arrayidx45 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %13
+  %12 = or disjoint i64 %indvars.iv, 4
+  %arrayidx45 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %12
   store i8 %conv42, ptr %arrayidx45, align 4
-  %shr46 = lshr i64 %9, 40
+  %shr46 = lshr i64 %8, 40
   %conv48 = trunc i64 %shr46 to i8
-  %14 = or disjoint i64 %indvars.iv, 5
-  %arrayidx51 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %14
+  %13 = or disjoint i64 %indvars.iv, 5
+  %arrayidx51 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %13
   store i8 %conv48, ptr %arrayidx51, align 1
-  %shr52 = lshr i64 %9, 48
+  %shr52 = lshr i64 %8, 48
   %conv54 = trunc i64 %shr52 to i8
-  %15 = or disjoint i64 %indvars.iv, 6
-  %arrayidx57 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %15
+  %14 = or disjoint i64 %indvars.iv, 6
+  %arrayidx57 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %14
   store i8 %conv54, ptr %arrayidx57, align 2
-  %shr58 = lshr i64 %9, 56
+  %shr58 = lshr i64 %8, 56
   %conv60 = trunc i64 %shr58 to i8
-  %16 = or disjoint i64 %indvars.iv, 7
-  %arrayidx63 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %16
+  %15 = or disjoint i64 %indvars.iv, 7
+  %arrayidx63 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %15
   store i8 %conv60, ptr %arrayidx63, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %cmp19 = icmp ult i64 %indvars.iv.next, %2
   br i1 %cmp19, label %for.body, label %for.cond65.preheader, !llvm.loop !15
 
 for.end72:                                        ; preds = %for.body68.preheader, %for.cond65.preheader
-  %17 = load i8, ptr %p_str, align 16
-  %conv74 = zext i8 %17 to i32
+  %16 = load i8, ptr %p_str, align 16
+  %conv74 = zext i8 %16 to i32
   %shl = shl nuw nsw i32 %conv74, 1
   %and75 = and i32 %shl, 254
   %shr.i = lshr i32 %and75, 7
@@ -409,24 +408,24 @@ for.end72:                                        ; preds = %for.body68.preheade
   %conv84 = zext nneg i32 %and7.i to i64
   %sub.i56 = sub nsw i64 0, %conv84
   %not.i57 = add nsw i64 %conv84, -1
-  %18 = load <2 x i64>, ptr %Z, align 32
-  %19 = insertelement <2 x i64> poison, i64 %sub.i56, i64 0
-  %20 = shufflevector <2 x i64> %19, <2 x i64> poison, <2 x i32> zeroinitializer
-  %21 = and <2 x i64> %18, %20
-  %22 = load <2 x i64>, ptr %Y, align 32
-  %23 = insertelement <2 x i64> poison, i64 %not.i57, i64 0
-  %24 = shufflevector <2 x i64> %23, <2 x i64> poison, <2 x i32> zeroinitializer
-  %25 = and <2 x i64> %24, %22
-  %26 = xor <2 x i64> %25, %21
-  store <2 x i64> %26, ptr %Y, align 32
+  %17 = load <2 x i64>, ptr %Z, align 32
+  %18 = insertelement <2 x i64> poison, i64 %sub.i56, i64 0
+  %19 = shufflevector <2 x i64> %18, <2 x i64> poison, <2 x i32> zeroinitializer
+  %20 = and <2 x i64> %17, %19
+  %21 = load <2 x i64>, ptr %Y, align 32
+  %22 = insertelement <2 x i64> poison, i64 %not.i57, i64 0
+  %23 = shufflevector <2 x i64> %22, <2 x i64> poison, <2 x i32> zeroinitializer
+  %24 = and <2 x i64> %23, %21
+  %25 = xor <2 x i64> %24, %20
+  store <2 x i64> %25, ptr %Y, align 32
   %arrayidx10.i = getelementptr inbounds i8, ptr %p, i64 80
   %arrayidx12.i = getelementptr inbounds i8, ptr %p, i64 48
-  %27 = load <2 x i64>, ptr %arrayidx10.i, align 16
-  %28 = and <2 x i64> %27, %20
-  %29 = load <2 x i64>, ptr %arrayidx12.i, align 16
-  %30 = and <2 x i64> %29, %24
-  %31 = xor <2 x i64> %30, %28
-  store <2 x i64> %31, ptr %arrayidx12.i, align 16
+  %26 = load <2 x i64>, ptr %arrayidx10.i, align 16
+  %27 = and <2 x i64> %26, %19
+  %28 = load <2 x i64>, ptr %arrayidx12.i, align 16
+  %29 = and <2 x i64> %28, %23
+  %30 = xor <2 x i64> %29, %27
+  store <2 x i64> %30, ptr %arrayidx12.i, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %Z, ptr noundef nonnull align 16 dereferenceable(32) @ONE, i64 32, i1 false)
   %Z109 = getelementptr inbounds i8, ptr %t, i64 64
   %Y111 = getelementptr inbounds i8, ptr %t, i64 32
@@ -441,13 +440,13 @@ for.body90:                                       ; preds = %for.end72, %for.bod
   %div9155 = lshr i32 %sub, 3
   %idxprom92 = zext nneg i32 %div9155 to i64
   %arrayidx93 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %idxprom92
-  %32 = load i8, ptr %arrayidx93, align 1
-  %conv94 = zext i8 %32 to i32
+  %31 = load i8, ptr %arrayidx93, align 1
+  %conv94 = zext i8 %31 to i32
   %add95 = add nuw nsw i32 %div9155, 1
   %idxprom96 = zext nneg i32 %add95 to i64
   %arrayidx97 = getelementptr inbounds [33 x i8], ptr %p_str, i64 0, i64 %idxprom96
-  %33 = load i8, ptr %arrayidx97, align 1
-  %conv98 = zext i8 %33 to i32
+  %32 = load i8, ptr %arrayidx97, align 1
+  %conv98 = zext i8 %32 to i32
   %shl99 = shl nuw nsw i32 %conv98, 8
   %or = or disjoint i32 %shl99, %conv94
   %rem = and i32 %sub, 7
@@ -472,22 +471,22 @@ for.body90:                                       ; preds = %for.end72, %for.bod
   %conv118 = zext nneg i32 %and7.i71 to i64
   %sub.i73 = sub nsw i64 0, %conv118
   %not.i74 = add nsw i64 %conv118, -1
-  %34 = load <2 x i64>, ptr %Z109, align 32
-  %35 = insertelement <2 x i64> poison, i64 %sub.i73, i64 0
-  %36 = shufflevector <2 x i64> %35, <2 x i64> poison, <2 x i32> zeroinitializer
-  %37 = and <2 x i64> %34, %36
-  %38 = load <2 x i64>, ptr %Y111, align 32
-  %39 = insertelement <2 x i64> poison, i64 %not.i74, i64 0
-  %40 = shufflevector <2 x i64> %39, <2 x i64> poison, <2 x i32> zeroinitializer
-  %41 = and <2 x i64> %40, %38
-  %42 = xor <2 x i64> %41, %37
-  store <2 x i64> %42, ptr %Y111, align 32
-  %43 = load <2 x i64>, ptr %arrayidx10.i83, align 16
-  %44 = and <2 x i64> %43, %36
-  %45 = load <2 x i64>, ptr %arrayidx12.i85, align 16
-  %46 = and <2 x i64> %45, %40
-  %47 = xor <2 x i64> %46, %44
-  store <2 x i64> %47, ptr %arrayidx12.i85, align 16
+  %33 = load <2 x i64>, ptr %Z109, align 32
+  %34 = insertelement <2 x i64> poison, i64 %sub.i73, i64 0
+  %35 = shufflevector <2 x i64> %34, <2 x i64> poison, <2 x i32> zeroinitializer
+  %36 = and <2 x i64> %33, %35
+  %37 = load <2 x i64>, ptr %Y111, align 32
+  %38 = insertelement <2 x i64> poison, i64 %not.i74, i64 0
+  %39 = shufflevector <2 x i64> %38, <2 x i64> poison, <2 x i32> zeroinitializer
+  %40 = and <2 x i64> %39, %37
+  %41 = xor <2 x i64> %40, %36
+  store <2 x i64> %41, ptr %Y111, align 32
+  %42 = load <2 x i64>, ptr %arrayidx10.i83, align 16
+  %43 = and <2 x i64> %42, %35
+  %44 = load <2 x i64>, ptr %arrayidx12.i85, align 16
+  %45 = and <2 x i64> %44, %39
+  %46 = xor <2 x i64> %45, %43
+  store <2 x i64> %46, ptr %arrayidx12.i85, align 16
   call void @ecp_nistz256_point_add_affine(ptr noundef nonnull %p, ptr noundef nonnull %p, ptr noundef nonnull %t) #6
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next134, 37
@@ -561,107 +560,106 @@ if.end16.i:                                       ; preds = %if.end11.i, %lor.lh
   %ctx.addr.1.i = phi ptr [ %ctx.addr.2, %lor.lhs.false.i ], [ %ctx.addr.0.i, %if.end11.i ]
   %p_scalar.addr.0.i = phi ptr [ %p_scalar, %lor.lhs.false.i ], [ %call8.i, %if.end11.i ]
   %top.i = getelementptr inbounds i8, ptr %p_scalar.addr.0.i, i64 8
-  %48 = load i32, ptr %top.i, align 8
-  %cmp17193.i = icmp sgt i32 %48, 0
+  %47 = load i32, ptr %top.i, align 8
+  %cmp17193.i = icmp sgt i32 %47, 0
   br i1 %cmp17193.i, label %for.body.lr.ph.i, label %for.body66.preheader.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end16.i
-  %mul.i = shl nsw i32 %48, 3
-  %49 = load ptr, ptr %p_scalar.addr.0.i, align 8
-  %50 = zext nneg i32 %mul.i to i64
+  %mul.i = shl nsw i32 %47, 3
+  %48 = load ptr, ptr %p_scalar.addr.0.i, align 8
+  %49 = zext nneg i32 %mul.i to i64
   br label %for.body.i
 
 for.cond63.preheader.i:                           ; preds = %for.body.i
-  %51 = trunc i64 %indvars.iv.next.i to i32
-  %cmp64195.i = icmp ult i32 %51, 33
+  %50 = trunc i64 %indvars.iv.next.i to i32
+  %cmp64195.i = icmp ult i32 %50, 33
   br i1 %cmp64195.i, label %for.body66.preheader.i, label %for.end70.i
 
 for.body66.preheader.i:                           ; preds = %for.cond63.preheader.i, %if.end16.i
-  %j.0.lcssa212.i = phi i32 [ %51, %for.cond63.preheader.i ], [ 0, %if.end16.i ]
-  %52 = zext nneg i32 %j.0.lcssa212.i to i64
-  %scevgep.i = getelementptr i8, ptr %p_str.i, i64 %52
-  %53 = sub nuw nsw i32 32, %j.0.lcssa212.i
-  %54 = zext nneg i32 %53 to i64
-  %55 = add nuw nsw i64 %54, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %55, i1 false)
+  %j.0.lcssa212.i = phi i32 [ %50, %for.cond63.preheader.i ], [ 0, %if.end16.i ]
+  %51 = zext nneg i32 %j.0.lcssa212.i to i64
+  %scevgep.i = getelementptr i8, ptr %p_str.i, i64 %51
+  %52 = sub nuw nsw i32 32, %j.0.lcssa212.i
+  %53 = zext nneg i32 %52 to i64
+  %54 = add nuw nsw i64 %53, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %54, i1 false)
   br label %for.end70.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %56 = lshr exact i64 %indvars.iv.i, 3
-  %arrayidx.i = getelementptr inbounds i64, ptr %49, i64 %56
-  %57 = load i64, ptr %arrayidx.i, align 8
-  %conv.i = trunc i64 %57 to i8
+  %arrayidx.i = getelementptr inbounds i8, ptr %48, i64 %indvars.iv.i
+  %55 = load i64, ptr %arrayidx.i, align 8
+  %conv.i = trunc i64 %55 to i8
   %arrayidx20.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %indvars.iv.i
   store i8 %conv.i, ptr %arrayidx20.i, align 8
-  %shr.i95 = lshr i64 %57, 8
+  %shr.i95 = lshr i64 %55, 8
   %conv22.i = trunc i64 %shr.i95 to i8
-  %58 = or disjoint i64 %indvars.iv.i, 1
-  %arrayidx25.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %58
+  %56 = or disjoint i64 %indvars.iv.i, 1
+  %arrayidx25.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %56
   store i8 %conv22.i, ptr %arrayidx25.i, align 1
-  %shr26.i = lshr i64 %57, 16
+  %shr26.i = lshr i64 %55, 16
   %conv28.i = trunc i64 %shr26.i to i8
-  %59 = or disjoint i64 %indvars.iv.i, 2
-  %arrayidx31.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %59
+  %57 = or disjoint i64 %indvars.iv.i, 2
+  %arrayidx31.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %57
   store i8 %conv28.i, ptr %arrayidx31.i, align 2
-  %shr32.i = lshr i64 %57, 24
+  %shr32.i = lshr i64 %55, 24
   %conv34.i = trunc i64 %shr32.i to i8
-  %60 = or disjoint i64 %indvars.iv.i, 3
-  %arrayidx37.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %60
+  %58 = or disjoint i64 %indvars.iv.i, 3
+  %arrayidx37.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %58
   store i8 %conv34.i, ptr %arrayidx37.i, align 1
-  %shr38.i = lshr i64 %57, 32
+  %shr38.i = lshr i64 %55, 32
   %conv40.i = trunc i64 %shr38.i to i8
-  %61 = or disjoint i64 %indvars.iv.i, 4
-  %arrayidx43.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %61
+  %59 = or disjoint i64 %indvars.iv.i, 4
+  %arrayidx43.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %59
   store i8 %conv40.i, ptr %arrayidx43.i, align 4
-  %shr44.i = lshr i64 %57, 40
+  %shr44.i = lshr i64 %55, 40
   %conv46.i = trunc i64 %shr44.i to i8
-  %62 = or disjoint i64 %indvars.iv.i, 5
-  %arrayidx49.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %62
+  %60 = or disjoint i64 %indvars.iv.i, 5
+  %arrayidx49.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %60
   store i8 %conv46.i, ptr %arrayidx49.i, align 1
-  %shr50.i = lshr i64 %57, 48
+  %shr50.i = lshr i64 %55, 48
   %conv52.i = trunc i64 %shr50.i to i8
-  %63 = or disjoint i64 %indvars.iv.i, 6
-  %arrayidx55.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %63
+  %61 = or disjoint i64 %indvars.iv.i, 6
+  %arrayidx55.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %61
   store i8 %conv52.i, ptr %arrayidx55.i, align 2
-  %shr56.i = lshr i64 %57, 56
+  %shr56.i = lshr i64 %55, 56
   %conv58.i = trunc i64 %shr56.i to i8
-  %64 = or disjoint i64 %indvars.iv.i, 7
-  %arrayidx61.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %64
+  %62 = or disjoint i64 %indvars.iv.i, 7
+  %arrayidx61.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %62
   store i8 %conv58.i, ptr %arrayidx61.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
-  %cmp17.i = icmp ult i64 %indvars.iv.next.i, %50
+  %cmp17.i = icmp ult i64 %indvars.iv.next.i, %49
   br i1 %cmp17.i, label %for.body.i, label %for.cond63.preheader.i, !llvm.loop !17
 
 for.end70.i:                                      ; preds = %for.body66.preheader.i, %for.cond63.preheader.i
   %top.i.i = getelementptr inbounds i8, ptr %p_, i64 16
-  %65 = load i32, ptr %top.i.i, align 8
-  %cmp.i.i = icmp sgt i32 %65, 4
+  %63 = load i32, ptr %top.i.i, align 8
+  %cmp.i.i = icmp sgt i32 %63, 4
   br i1 %cmp.i.i, label %if.then88.i, label %lor.lhs.false76.i
 
 lor.lhs.false76.i:                                ; preds = %for.end70.i
   %X73.i = getelementptr inbounds i8, ptr %p_, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %table.i, i8 0, i64 32, i1 false)
-  %66 = load ptr, ptr %X73.i, align 8
-  %conv.i.i = sext i32 %65 to i64
+  %64 = load ptr, ptr %X73.i, align 8
+  %conv.i.i = sext i32 %63 to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %table.i, ptr align 8 %66, i64 %mul.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %table.i, ptr align 8 %64, i64 %mul.i.i, i1 false)
   %top.i107.i = getelementptr inbounds i8, ptr %p_, i64 40
-  %67 = load i32, ptr %top.i107.i, align 8
-  %cmp.i108.i = icmp sgt i32 %67, 4
+  %65 = load i32, ptr %top.i107.i, align 8
+  %cmp.i108.i = icmp sgt i32 %65, 4
   br i1 %cmp.i108.i, label %if.then88.i, label %lor.lhs.false82.i
 
 lor.lhs.false82.i:                                ; preds = %lor.lhs.false76.i
   %Y79.i = getelementptr inbounds i8, ptr %p_, i64 32
   %Y.i = getelementptr inbounds i8, ptr %table.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %Y.i, i8 0, i64 32, i1 false)
-  %68 = load ptr, ptr %Y79.i, align 8
-  %conv.i110.i = sext i32 %67 to i64
+  %66 = load ptr, ptr %Y79.i, align 8
+  %conv.i110.i = sext i32 %65 to i64
   %mul.i111.i = shl nsw i64 %conv.i110.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %Y.i, ptr align 8 %68, i64 %mul.i111.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %Y.i, ptr align 8 %66, i64 %mul.i111.i, i1 false)
   %top.i114.i = getelementptr inbounds i8, ptr %p_, i64 64
-  %69 = load i32, ptr %top.i114.i, align 8
-  %cmp.i115.i = icmp sgt i32 %69, 4
+  %67 = load i32, ptr %top.i114.i, align 8
+  %cmp.i115.i = icmp sgt i32 %67, 4
   br i1 %cmp.i115.i, label %if.then88.i, label %if.end89.i
 
 if.then88.i:                                      ; preds = %lor.lhs.false82.i, %lor.lhs.false76.i, %for.end70.i
@@ -672,10 +670,10 @@ if.end89.i:                                       ; preds = %lor.lhs.false82.i
   %Z85.i = getelementptr inbounds i8, ptr %p_, i64 56
   %Z.i = getelementptr inbounds i8, ptr %table.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(32) %Z.i, i8 0, i64 32, i1 false)
-  %70 = load ptr, ptr %Z85.i, align 8
-  %conv.i117.i = sext i32 %69 to i64
+  %68 = load ptr, ptr %Z85.i, align 8
+  %conv.i117.i = sext i32 %67 to i64
   %mul.i118.i = shl nsw i64 %conv.i117.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %Z.i, ptr align 8 %70, i64 %mul.i118.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 64 %Z.i, ptr align 8 %68, i64 %mul.i118.i, i1 false)
   %arrayidx90.i = getelementptr inbounds i8, ptr %table.i, i64 96
   call void @ecp_nistz256_point_double(ptr noundef nonnull %arrayidx90.i, ptr noundef nonnull %table.i) #6
   %arrayidx92.i = getelementptr inbounds i8, ptr %table.i, i64 192
@@ -707,9 +705,9 @@ if.end89.i:                                       ; preds = %lor.lhs.false82.i
   %arrayidx125.i = getelementptr inbounds i8, ptr %table.i, i64 1440
   call void @ecp_nistz256_point_add(ptr noundef nonnull %arrayidx125.i, ptr noundef nonnull %arrayidx119.i, ptr noundef nonnull %table.i) #6
   %arrayidx130.i = getelementptr inbounds i8, ptr %p_str.i, i64 31
-  %71 = load i8, ptr %arrayidx130.i, align 1
-  %72 = lshr i8 %71, 6
-  %shr133.i = zext nneg i8 %72 to i32
+  %69 = load i8, ptr %arrayidx130.i, align 1
+  %70 = lshr i8 %69, 6
+  %shr133.i = zext nneg i8 %70 to i32
   %and6.i.i = shl nuw nsw i32 %shr133.i, 1
   %add9.i.i = and i32 %and6.i.i, 2
   %shr510.i.i = add nuw nsw i32 %add9.i.i, %shr133.i
@@ -730,13 +728,13 @@ if.then142.i:                                     ; preds = %while.body.i
   %div144106.i = lshr i32 %sub143.i, 3
   %idxprom145.i = zext nneg i32 %div144106.i to i64
   %arrayidx146.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %idxprom145.i
-  %73 = load i8, ptr %arrayidx146.i, align 1
-  %conv147.i = zext i8 %73 to i32
+  %71 = load i8, ptr %arrayidx146.i, align 1
+  %conv147.i = zext i8 %71 to i32
   %add148.i = add nuw nsw i32 %div144106.i, 1
   %idxprom149.i = zext nneg i32 %add148.i to i64
   %arrayidx150.i = getelementptr inbounds [33 x i8], ptr %p_str.i, i64 0, i64 %idxprom149.i
-  %74 = load i8, ptr %arrayidx150.i, align 1
-  %conv151.i = zext i8 %74 to i32
+  %72 = load i8, ptr %arrayidx150.i, align 1
+  %conv151.i = zext i8 %72 to i32
   %shl.i93 = shl nuw nsw i32 %conv151.i, 8
   %or.i94 = or disjoint i32 %shl.i93, %conv147.i
   %rem153.i = and i32 %sub143.i, 7
@@ -759,22 +757,22 @@ if.then142.i:                                     ; preds = %while.body.i
   %conv166.i = zext nneg i32 %and7.i132.i to i64
   %sub.i134.i = sub nsw i64 0, %conv166.i
   %not.i135.i = add nsw i64 %conv166.i, -1
-  %75 = load <2 x i64>, ptr %tmp.i, align 16
-  %76 = insertelement <2 x i64> poison, i64 %sub.i134.i, i64 0
-  %77 = shufflevector <2 x i64> %76, <2 x i64> poison, <2 x i32> zeroinitializer
-  %78 = and <2 x i64> %75, %77
-  %79 = load <2 x i64>, ptr %Y160.i, align 32
-  %80 = insertelement <2 x i64> poison, i64 %not.i135.i, i64 0
-  %81 = shufflevector <2 x i64> %80, <2 x i64> poison, <2 x i32> zeroinitializer
-  %82 = and <2 x i64> %81, %79
-  %83 = xor <2 x i64> %82, %78
-  store <2 x i64> %83, ptr %Y160.i, align 32
-  %84 = load <2 x i64>, ptr %arrayidx10.i.i, align 16
-  %85 = and <2 x i64> %84, %77
-  %86 = load <2 x i64>, ptr %arrayidx12.i.i, align 16
-  %87 = and <2 x i64> %86, %81
-  %88 = xor <2 x i64> %87, %85
-  store <2 x i64> %88, ptr %arrayidx12.i.i, align 16
+  %73 = load <2 x i64>, ptr %tmp.i, align 16
+  %74 = insertelement <2 x i64> poison, i64 %sub.i134.i, i64 0
+  %75 = shufflevector <2 x i64> %74, <2 x i64> poison, <2 x i32> zeroinitializer
+  %76 = and <2 x i64> %73, %75
+  %77 = load <2 x i64>, ptr %Y160.i, align 32
+  %78 = insertelement <2 x i64> poison, i64 %not.i135.i, i64 0
+  %79 = shufflevector <2 x i64> %78, <2 x i64> poison, <2 x i32> zeroinitializer
+  %80 = and <2 x i64> %79, %77
+  %81 = xor <2 x i64> %80, %76
+  store <2 x i64> %81, ptr %Y160.i, align 32
+  %82 = load <2 x i64>, ptr %arrayidx10.i.i, align 16
+  %83 = and <2 x i64> %82, %75
+  %84 = load <2 x i64>, ptr %arrayidx12.i.i, align 16
+  %85 = and <2 x i64> %84, %79
+  %86 = xor <2 x i64> %85, %83
+  store <2 x i64> %86, ptr %arrayidx12.i.i, align 16
   call void @ecp_nistz256_point_add(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %h.i) #6
   br label %if.end167.i
 
@@ -789,8 +787,8 @@ if.end167.i:                                      ; preds = %if.then142.i, %whil
   br i1 %cmp138.i, label %while.body.i, label %while.end.i, !llvm.loop !18
 
 while.end.i:                                      ; preds = %if.end167.i
-  %89 = load i8, ptr %p_str.i, align 16
-  %conv170.i = zext i8 %89 to i32
+  %87 = load i8, ptr %p_str.i, align 16
+  %conv170.i = zext i8 %87 to i32
   %shl171.i = shl nuw nsw i32 %conv170.i, 1
   %and172.i = and i32 %shl171.i, 62
   %shr.i138.i = lshr i32 %and172.i, 5
@@ -810,22 +808,22 @@ while.end.i:                                      ; preds = %if.end167.i
   %conv183.i = zext nneg i32 %and7.i149.i to i64
   %sub.i151.i = sub nsw i64 0, %conv183.i
   %not.i152.i = add nsw i64 %conv183.i, -1
-  %90 = load <2 x i64>, ptr %tmp.i, align 16
-  %91 = insertelement <2 x i64> poison, i64 %sub.i151.i, i64 0
-  %92 = shufflevector <2 x i64> %91, <2 x i64> poison, <2 x i32> zeroinitializer
-  %93 = and <2 x i64> %90, %92
-  %94 = load <2 x i64>, ptr %Y160.i, align 32
-  %95 = insertelement <2 x i64> poison, i64 %not.i152.i, i64 0
-  %96 = shufflevector <2 x i64> %95, <2 x i64> poison, <2 x i32> zeroinitializer
-  %97 = and <2 x i64> %96, %94
-  %98 = xor <2 x i64> %97, %93
-  store <2 x i64> %98, ptr %Y160.i, align 32
-  %99 = load <2 x i64>, ptr %arrayidx10.i.i, align 16
-  %100 = and <2 x i64> %99, %92
-  %101 = load <2 x i64>, ptr %arrayidx12.i.i, align 16
-  %102 = and <2 x i64> %101, %96
-  %103 = xor <2 x i64> %102, %100
-  store <2 x i64> %103, ptr %arrayidx12.i.i, align 16
+  %88 = load <2 x i64>, ptr %tmp.i, align 16
+  %89 = insertelement <2 x i64> poison, i64 %sub.i151.i, i64 0
+  %90 = shufflevector <2 x i64> %89, <2 x i64> poison, <2 x i32> zeroinitializer
+  %91 = and <2 x i64> %88, %90
+  %92 = load <2 x i64>, ptr %Y160.i, align 32
+  %93 = insertelement <2 x i64> poison, i64 %not.i152.i, i64 0
+  %94 = shufflevector <2 x i64> %93, <2 x i64> poison, <2 x i32> zeroinitializer
+  %95 = and <2 x i64> %94, %92
+  %96 = xor <2 x i64> %95, %91
+  store <2 x i64> %96, ptr %Y160.i, align 32
+  %97 = load <2 x i64>, ptr %arrayidx10.i.i, align 16
+  %98 = and <2 x i64> %97, %90
+  %99 = load <2 x i64>, ptr %arrayidx12.i.i, align 16
+  %100 = and <2 x i64> %99, %94
+  %101 = xor <2 x i64> %100, %98
+  store <2 x i64> %101, ptr %arrayidx12.i.i, align 16
   call void @ecp_nistz256_point_add(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %h.i) #6
   br label %err.i
 

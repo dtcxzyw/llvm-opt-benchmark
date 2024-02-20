@@ -1977,7 +1977,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
           to label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i unwind label %ehcleanup435
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i: ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i.i.i22, i64 %sub.ptr.div.i.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i22, i64 %sub.ptr.sub.i.i.i.i
   store i32 2147483647, ptr %add.ptr.i.i.i, align 4
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i, label %if.then.i.i.i.i.i.i
 
@@ -1986,8 +1986,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i22, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %tobool.not.i.i.i.i = icmp eq ptr %sortedRemoved.sroa.0.0, null
   br i1 %tobool.not.i.i.i.i, label %invoke.cont7, label %if.then.i18.i.i.i
 
@@ -2259,7 +2258,7 @@ while.cond197:                                    ; preds = %while.cond197, %inv
   %headRemovedOrd.0.in = getelementptr inbounds i32, ptr %call5.i.i.i.i.i.i22, i64 %indvars.iv
   %headRemovedOrd.0 = load i32, ptr %headRemovedOrd.0.in, align 4
   %cmp198 = icmp slt i32 %headRemovedOrd.0, %36
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %cmp198, label %while.cond197, label %while.end203, !llvm.loop !17
 
 while.end203:                                     ; preds = %while.cond197

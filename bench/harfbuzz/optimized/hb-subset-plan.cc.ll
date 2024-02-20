@@ -24525,8 +24525,7 @@ if.end8.i.i.i:                                    ; preds = %if.then5.i.i.i, %if
   br i1 %cmp.not.not.i.i.i, label %_ZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPj.exit, label %while.body.i.i.i, !llvm.loop !145
 
 if.end.i:                                         ; preds = %_ZL14_hb_cmp_methodIjZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPjE11CustomRangeJjEEiPKvS6_DpT1_.exit.i.i.i
-  %sub.ptr.div.i = lshr exact i64 %mul.i.i.i, 1
-  %arrayidx.i = getelementptr inbounds %"struct.OT::IntType.3", ptr %add.ptr12.i.i, i64 %sub.ptr.div.i
+  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 %mul.i.i.i
   %11 = load i8, ptr %arrayidx.i, align 1
   %conv.i.i.i = zext i8 %11 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i, 8
@@ -24538,45 +24537,38 @@ if.end.i:                                         ; preds = %_ZL14_hb_cmp_method
   br i1 %cmp.i, label %if.end32.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %conv4.i = trunc i64 %sub.ptr.div.i to i32
   %div12.i = lshr i32 %add.i.i13.i, 1
-  %arrayidx12.i = getelementptr inbounds %"struct.OT::IntType.3", ptr %add.ptr4.i.i, i64 %sub.ptr.div.i
-  %13 = load i8, ptr %arrayidx12.i, align 1
-  %conv.i.i19.i = zext i8 %13 to i32
-  %shl.i.i20.neg.i = mul nsw i32 %conv.i.i19.i, -256
-  %arrayidx3.i.i21.i = getelementptr inbounds i8, ptr %arrayidx12.i, i64 1
-  %14 = load i8, ptr %arrayidx3.i.i21.i, align 1
-  %conv4.i.i22.i = zext i8 %14 to i32
-  %add.i.i23.neg38.i = sub nsw i32 %shl.i.i20.neg.i, %conv4.i.i22.i
+  %shl.i.i20.neg.i = mul nsw i32 %conv.i.i2.i.i.i.i.i, -256
+  %add.i.i23.neg39.i = sub nsw i32 %shl.i.i20.neg.i, %conv4.i.i5.i.i.i.i.i
   %sub.i = sub i32 %codepoint, %div3.i.i
-  %add14.i = add i32 %sub.i, %conv4.i
+  %add14.i = add i32 %sub.i, %div9.i.i.i
   %add15.i = add i32 %add14.i, %div12.i
-  %sub17.i = add i32 %add15.i, %add.i.i23.neg38.i
+  %sub17.i = add i32 %add15.i, %add.i.i23.neg39.i
   %cmp18.not.i = icmp ult i32 %sub17.i, %div204.i.i
   br i1 %cmp18.not.i, label %if.end20.i, label %_ZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPj.exit
 
 if.end20.i:                                       ; preds = %if.else.i
   %idxprom21.i = zext i32 %sub17.i to i64
   %arrayidx22.i = getelementptr inbounds %"struct.OT::IntType.3", ptr %add.ptr16.i.i, i64 %idxprom21.i
-  %15 = load i8, ptr %arrayidx22.i, align 1
-  %conv.i.i24.i = zext i8 %15 to i32
+  %13 = load i8, ptr %arrayidx22.i, align 1
+  %conv.i.i24.i = zext i8 %13 to i32
   %shl.i.i25.i = shl nuw nsw i32 %conv.i.i24.i, 8
   %arrayidx3.i.i26.i = getelementptr inbounds i8, ptr %arrayidx22.i, i64 1
-  %16 = load i8, ptr %arrayidx3.i.i26.i, align 1
-  %conv4.i.i27.i = zext i8 %16 to i32
+  %14 = load i8, ptr %arrayidx3.i.i26.i, align 1
+  %conv4.i.i27.i = zext i8 %14 to i32
   %add.i.i28.i = or disjoint i32 %shl.i.i25.i, %conv4.i.i27.i
   %tobool24.not.i = icmp eq i32 %add.i.i28.i, 0
   br i1 %tobool24.not.i, label %_ZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPj.exit, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.end20.i, %if.end.i
   %add.i.i28.sink.i = phi i32 [ %codepoint, %if.end.i ], [ %add.i.i28.i, %if.end20.i ]
-  %arrayidx29.i = getelementptr inbounds %"struct.OT::IntType.3", ptr %add.ptr8.i.i, i64 %sub.ptr.div.i
-  %17 = load i8, ptr %arrayidx29.i, align 1
-  %conv.i.i29.i = zext i8 %17 to i32
+  %arrayidx29.i = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 %mul.i.i.i
+  %15 = load i8, ptr %arrayidx29.i, align 1
+  %conv.i.i29.i = zext i8 %15 to i32
   %shl.i.i30.i = shl nuw nsw i32 %conv.i.i29.i, 8
   %arrayidx3.i.i31.i = getelementptr inbounds i8, ptr %arrayidx29.i, i64 1
-  %18 = load i8, ptr %arrayidx3.i.i31.i, align 1
-  %conv4.i.i32.i = zext i8 %18 to i32
+  %16 = load i8, ptr %arrayidx3.i.i31.i, align 1
+  %conv4.i.i32.i = zext i8 %16 to i32
   %add.i.i33.i = or disjoint i32 %shl.i.i30.i, %conv4.i.i32.i
   %add31.i = add nuw nsw i32 %add.i.i33.i, %add.i.i28.sink.i
   %and.i = and i32 %add31.i, 65535
@@ -24822,10 +24814,9 @@ if.end8.i.i:                                      ; preds = %if.then5.i.i, %if.t
   br i1 %cmp.not.not.i.i, label %return, label %while.body.i.i, !llvm.loop !145
 
 if.end:                                           ; preds = %_ZL14_hb_cmp_methodIjZNK2OT19CmapSubtableFormat413accelerator_t9get_glyphEjPjE11CustomRangeJjEEiPKvS6_DpT1_.exit.i.i
-  %sub.ptr.div = lshr exact i64 %mul.i.i, 1
   %idRangeOffset = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %idRangeOffset, align 8
-  %arrayidx = getelementptr inbounds %"struct.OT::IntType.3", ptr %7, i64 %sub.ptr.div
+  %arrayidx = getelementptr inbounds i8, ptr %7, i64 %mul.i.i
   %8 = load i8, ptr %arrayidx, align 1
   %conv.i.i = zext i8 %8 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
@@ -24837,22 +24828,21 @@ if.end:                                           ; preds = %_ZL14_hb_cmp_method
   br i1 %cmp, label %if.end32, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %conv4 = trunc i64 %sub.ptr.div to i32
   %div12 = lshr i32 %add.i.i13, 1
   %startCount = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load ptr, ptr %startCount, align 8
-  %arrayidx12 = getelementptr inbounds %"struct.OT::IntType.3", ptr %10, i64 %sub.ptr.div
+  %arrayidx12 = getelementptr inbounds i8, ptr %10, i64 %mul.i.i
   %11 = load i8, ptr %arrayidx12, align 1
   %conv.i.i19 = zext i8 %11 to i32
   %shl.i.i20.neg = mul nsw i32 %conv.i.i19, -256
   %arrayidx3.i.i21 = getelementptr inbounds i8, ptr %arrayidx12, i64 1
   %12 = load i8, ptr %arrayidx3.i.i21, align 1
   %conv4.i.i22 = zext i8 %12 to i32
-  %add.i.i23.neg38 = sub nsw i32 %shl.i.i20.neg, %conv4.i.i22
+  %add.i.i23.neg39 = sub nsw i32 %shl.i.i20.neg, %conv4.i.i22
   %sub = sub i32 %codepoint, %1
-  %add14 = add i32 %sub, %conv4
+  %add14 = add i32 %sub, %div9.i.i
   %add15 = add i32 %add14, %div12
-  %sub17 = add i32 %add15, %add.i.i23.neg38
+  %sub17 = add i32 %add15, %add.i.i23.neg39
   %glyphIdArrayLength = getelementptr inbounds i8, ptr %this, i64 44
   %13 = load i32, ptr %glyphIdArrayLength, align 4
   %cmp18.not = icmp ult i32 %sub17, %13
@@ -24877,7 +24867,7 @@ if.end32:                                         ; preds = %if.end20, %if.end
   %add.i.i28.sink = phi i32 [ %codepoint, %if.end ], [ %add.i.i28, %if.end20 ]
   %idDelta27 = getelementptr inbounds i8, ptr %this, i64 16
   %17 = load ptr, ptr %idDelta27, align 8
-  %arrayidx29 = getelementptr inbounds %"struct.OT::IntType.3", ptr %17, i64 %sub.ptr.div
+  %arrayidx29 = getelementptr inbounds i8, ptr %17, i64 %mul.i.i
   %18 = load i8, ptr %arrayidx29, align 1
   %conv.i.i29 = zext i8 %18 to i32
   %shl.i.i30 = shl nuw nsw i32 %conv.i.i29, 8
