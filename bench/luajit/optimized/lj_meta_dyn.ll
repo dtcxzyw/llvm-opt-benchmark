@@ -1714,28 +1714,28 @@ if.then15:                                        ; preds = %entry
   %8 = load i64, ptr %k, align 8
   %9 = inttoptr i64 %8 to ptr
   %shr20 = lshr i32 %ins, 16
-  %conv21 = zext nneg i32 %shr20 to i64
-  %not = xor i64 %conv21, -1
+  %10 = xor i32 %shr20, -1
+  %not = sext i32 %10 to i64
   %arrayidx22 = getelementptr inbounds %struct.GCRef, ptr %9, i64 %not
-  %10 = load i64, ptr %arrayidx22, align 8
-  %or.i.i = or i64 %10, -703687441776640
+  %11 = load i64, ptr %arrayidx22, align 8
+  %or.i.i = or i64 %11, -703687441776640
   store i64 %or.i.i, ptr %tv.sroa.0, align 8
   br label %if.end48
 
 if.then27:                                        ; preds = %entry
   %add.ptr29 = getelementptr inbounds i8, ptr %0, i64 -16
-  %11 = load i64, ptr %add.ptr29, align 8
-  %and31 = and i64 %11, 140737488355327
-  %12 = inttoptr i64 %and31 to ptr
-  %pc32 = getelementptr inbounds i8, ptr %12, i64 32
-  %13 = load i64, ptr %pc32, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %k35 = getelementptr inbounds i8, ptr %14, i64 -72
-  %15 = load i64, ptr %k35, align 8
-  %16 = inttoptr i64 %15 to ptr
+  %12 = load i64, ptr %add.ptr29, align 8
+  %and31 = and i64 %12, 140737488355327
+  %13 = inttoptr i64 %and31 to ptr
+  %pc32 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = load i64, ptr %pc32, align 8
+  %15 = inttoptr i64 %14 to ptr
+  %k35 = getelementptr inbounds i8, ptr %15, i64 -72
+  %16 = load i64, ptr %k35, align 8
+  %17 = inttoptr i64 %16 to ptr
   %shr37 = lshr i32 %ins, 16
   %idxprom38 = zext nneg i32 %shr37 to i64
-  %arrayidx39 = getelementptr inbounds %union.TValue, ptr %16, i64 %idxprom38
+  %arrayidx39 = getelementptr inbounds %union.TValue, ptr %17, i64 %idxprom38
   br label %if.end48
 
 if.else40:                                        ; preds = %entry
@@ -1749,8 +1749,8 @@ if.else40:                                        ; preds = %entry
 if.end48:                                         ; preds = %if.then, %if.then15, %if.else40, %if.then27
   %o2.0 = phi ptr [ %tv.sroa.0, %if.then15 ], [ %arrayidx39, %if.then27 ], [ %tv.sroa.0, %if.else40 ], [ %arrayidx8, %if.then ]
   %o1mm.0 = phi ptr [ %arrayidx, %if.then15 ], [ %arrayidx, %if.then27 ], [ %arrayidx, %if.else40 ], [ %spec.select, %if.then ]
-  %17 = load i64, ptr %o1mm.0, align 8
-  %shr.i = ashr i64 %17, 47
+  %18 = load i64, ptr %o1mm.0, align 8
+  %shr.i = ashr i64 %18, 47
   %conv.i = trunc i64 %shr.i to i32
   switch i32 %conv.i, label %if.else12.i [
     i32 -12, label %if.then.i
@@ -1758,26 +1758,26 @@ if.end48:                                         ; preds = %if.then, %if.then15
   ]
 
 if.then.i:                                        ; preds = %if.end48
-  %and.i = and i64 %17, 140737488355327
-  %18 = inttoptr i64 %and.i to ptr
-  %metatable.i = getelementptr inbounds i8, ptr %18, i64 32
+  %and.i = and i64 %18, 140737488355327
+  %19 = inttoptr i64 %and.i to ptr
+  %metatable.i = getelementptr inbounds i8, ptr %19, i64 32
   br label %if.end20.i
 
 if.then7.i:                                       ; preds = %if.end48
-  %and9.i = and i64 %17, 140737488355327
-  %19 = inttoptr i64 %and9.i to ptr
-  %metatable10.i = getelementptr inbounds i8, ptr %19, i64 32
+  %and9.i = and i64 %18, 140737488355327
+  %20 = inttoptr i64 %and9.i to ptr
+  %metatable10.i = getelementptr inbounds i8, ptr %20, i64 32
   br label %if.end20.i
 
 if.else12.i:                                      ; preds = %if.end48
   %glref.i = getelementptr inbounds i8, ptr %L, i64 16
-  %20 = load i64, ptr %glref.i, align 8
-  %21 = inttoptr i64 %20 to ptr
-  %gcroot.i = getelementptr inbounds i8, ptr %21, i64 424
+  %21 = load i64, ptr %glref.i, align 8
+  %22 = inttoptr i64 %21 to ptr
+  %gcroot.i = getelementptr inbounds i8, ptr %22, i64 424
   %cmp15.i = icmp ult i32 %conv.i, -13
-  %22 = sub nsw i64 21, %shr.i
-  %23 = and i64 %22, 4294967295
-  %cond.i = select i1 %cmp15.i, i64 35, i64 %23
+  %23 = sub nsw i64 21, %shr.i
+  %24 = and i64 %23, 4294967295
+  %cond.i = select i1 %cmp15.i, i64 35, i64 %24
   %arrayidx.i = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %cond.i
   br label %if.end20.i
 
@@ -1790,77 +1790,77 @@ if.end20.i:                                       ; preds = %if.else12.i, %if.th
 if.then21.i:                                      ; preds = %if.end20.i
   %mt.0.i = inttoptr i64 %mt.0.in.i to ptr
   %glref22.i = getelementptr inbounds i8, ptr %L, i64 16
-  %24 = load i64, ptr %glref22.i, align 8
-  %25 = inttoptr i64 %24 to ptr
-  %arrayidx27.i = getelementptr inbounds i8, ptr %25, i64 456
-  %26 = load i64, ptr %arrayidx27.i, align 8
-  %27 = inttoptr i64 %26 to ptr
-  %call.i = tail call ptr @lj_tab_getstr(ptr noundef nonnull %mt.0.i, ptr noundef %27) #5
+  %25 = load i64, ptr %glref22.i, align 8
+  %26 = inttoptr i64 %25 to ptr
+  %arrayidx27.i = getelementptr inbounds i8, ptr %26, i64 456
+  %27 = load i64, ptr %arrayidx27.i, align 8
+  %28 = inttoptr i64 %27 to ptr
+  %call.i = tail call ptr @lj_tab_getstr(ptr noundef nonnull %mt.0.i, ptr noundef %28) #5
   %tobool29.not.i = icmp eq ptr %call.i, null
   br i1 %tobool29.not.i, label %if.end32.i, label %lj_meta_lookup.exit
 
 if.end32.i:                                       ; preds = %if.then21.i, %if.end20.i
   %glref33.i = getelementptr inbounds i8, ptr %L, i64 16
-  %28 = load i64, ptr %glref33.i, align 8
-  %29 = inttoptr i64 %28 to ptr
-  %nilnode.i = getelementptr inbounds i8, ptr %29, i64 248
+  %29 = load i64, ptr %glref33.i, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %nilnode.i = getelementptr inbounds i8, ptr %30, i64 248
   br label %lj_meta_lookup.exit
 
 lj_meta_lookup.exit:                              ; preds = %if.then21.i, %if.end32.i
   %retval.0.i = phi ptr [ %nilnode.i, %if.end32.i ], [ %call.i, %if.then21.i ]
-  %30 = load i64, ptr %retval.0.i, align 8
-  %cmp49.not = icmp eq i64 %30, -1
+  %31 = load i64, ptr %retval.0.i, align 8
+  %cmp49.not = icmp eq i64 %31, -1
   br i1 %cmp49.not, label %if.else57, label %if.then55
 
 if.then55:                                        ; preds = %lj_meta_lookup.exit
   %L.val = load ptr, ptr %base, align 8
-  %31 = getelementptr i8, ptr %L, i64 40
-  %L.val21 = load ptr, ptr %31, align 8
+  %32 = getelementptr i8, ptr %L, i64 40
+  %L.val21 = load ptr, ptr %32, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %L.val, i64 -16
-  %32 = load i64, ptr %add.ptr.i, align 8
-  %and.i22 = and i64 %32, 140737488355327
-  %33 = inttoptr i64 %and.i22 to ptr
-  %ffid.i = getelementptr inbounds i8, ptr %33, i64 10
-  %34 = load i8, ptr %ffid.i, align 2
-  %cmp.i = icmp eq i8 %34, 0
+  %33 = load i64, ptr %add.ptr.i, align 8
+  %and.i22 = and i64 %33, 140737488355327
+  %34 = inttoptr i64 %and.i22 to ptr
+  %ffid.i = getelementptr inbounds i8, ptr %34, i64 10
+  %35 = load i8, ptr %ffid.i, align 2
+  %cmp.i = icmp eq i8 %35, 0
   br i1 %cmp.i, label %if.then.i23, label %mmcall.exit
 
 if.then.i23:                                      ; preds = %if.then55
-  %pc.i = getelementptr inbounds i8, ptr %33, i64 32
-  %35 = load i64, ptr %pc.i, align 8
-  %36 = inttoptr i64 %35 to ptr
-  %framesize.i = getelementptr inbounds i8, ptr %36, i64 -93
-  %37 = load i8, ptr %framesize.i, align 1
-  %idx.ext.i = zext i8 %37 to i64
+  %pc.i = getelementptr inbounds i8, ptr %34, i64 32
+  %36 = load i64, ptr %pc.i, align 8
+  %37 = inttoptr i64 %36 to ptr
+  %framesize.i = getelementptr inbounds i8, ptr %37, i64 -93
+  %38 = load i8, ptr %framesize.i, align 1
+  %idx.ext.i = zext i8 %38 to i64
   %add.ptr10.i = getelementptr inbounds %union.TValue, ptr %L.val, i64 %idx.ext.i
   br label %mmcall.exit
 
 mmcall.exit:                                      ; preds = %if.then55, %if.then.i23
   %top.0.i = phi ptr [ %add.ptr10.i, %if.then.i23 ], [ %L.val21, %if.then55 ]
-  %38 = select i1 %tobool.not, i64 ptrtoint (ptr @lj_cont_condt to i64), i64 ptrtoint (ptr @lj_cont_condf to i64)
+  %39 = select i1 %tobool.not, i64 ptrtoint (ptr @lj_cont_condt to i64), i64 ptrtoint (ptr @lj_cont_condf to i64)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %top.0.i, i64 8
-  store i64 %38, ptr %top.0.i, align 8
+  store i64 %39, ptr %top.0.i, align 8
   %incdec.ptr11.i = getelementptr inbounds i8, ptr %top.0.i, i64 16
   store i64 -1, ptr %incdec.ptr.i, align 8
   %incdec.ptr12.i = getelementptr inbounds i8, ptr %top.0.i, i64 24
-  %39 = load i64, ptr %retval.0.i, align 8
-  store i64 %39, ptr %incdec.ptr11.i, align 8
+  %40 = load i64, ptr %retval.0.i, align 8
+  store i64 %40, ptr %incdec.ptr11.i, align 8
   %incdec.ptr13.i = getelementptr inbounds i8, ptr %top.0.i, i64 32
   store i64 -1, ptr %incdec.ptr12.i, align 8
-  %40 = load i64, ptr %arrayidx, align 8
-  store i64 %40, ptr %incdec.ptr13.i, align 8
+  %41 = load i64, ptr %arrayidx, align 8
+  store i64 %41, ptr %incdec.ptr13.i, align 8
   %add.ptr14.i = getelementptr inbounds i8, ptr %top.0.i, i64 40
-  %41 = load i64, ptr %o2.0, align 8
-  store i64 %41, ptr %add.ptr14.i, align 8
+  %42 = load i64, ptr %o2.0, align 8
+  store i64 %42, ptr %add.ptr14.i, align 8
   br label %return
 
 if.else57:                                        ; preds = %lj_meta_lookup.exit
   %conv60 = zext nneg i32 %and1 to i64
-  %42 = inttoptr i64 %conv60 to ptr
+  %43 = inttoptr i64 %conv60 to ptr
   br label %return
 
 return:                                           ; preds = %if.else57, %mmcall.exit
-  %retval.0 = phi ptr [ %incdec.ptr13.i, %mmcall.exit ], [ %42, %if.else57 ]
+  %retval.0 = phi ptr [ %incdec.ptr13.i, %mmcall.exit ], [ %43, %if.else57 ]
   ret ptr %retval.0
 }
 
