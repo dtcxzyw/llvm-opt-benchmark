@@ -166,7 +166,7 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
 
 for.body.preheader.i.i.i.i.i.i:                   ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i, %if.then.i.i.i
   %idx.ext1117.i.i.i = phi i64 [ %16, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i ], [ 0, %if.then.i.i.i ]
-  %add.ptr13.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %div10.i.i.i
+  %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %6, i64 %add41
   %add.ptr12.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %idx.ext1117.i.i.i
   %__last5.i.i.i.i.i.i = ptrtoint ptr %add.ptr13.i.i.i to i64
   %__first6.i.i.i.i.i.i = ptrtoint ptr %add.ptr12.i.i.i to i64

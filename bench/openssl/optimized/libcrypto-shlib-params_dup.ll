@@ -88,20 +88,20 @@ ossl_param_dup.exit.loopexit:                     ; preds = %if.end20.us.i
   %blocks.i.phi.trans.insert = getelementptr inbounds i8, ptr %buf, i64 16
   %.pre = load i64, ptr %blocks.i.phi.trans.insert, align 16
   %7 = zext nneg i32 %inc39.us.i to i64
-  %8 = mul nuw nsw i64 %7, 5
+  %8 = mul nuw nsw i64 %7, 40
+  %9 = shl i64 %.pre, 3
   br label %ossl_param_dup.exit
 
 ossl_param_dup.exit:                              ; preds = %ossl_param_dup.exit.loopexit, %if.end
-  %9 = phi i64 [ 0, %if.end ], [ %.pre, %ossl_param_dup.exit.loopexit ]
-  %param_count.1 = phi i64 [ 5, %if.end ], [ %8, %ossl_param_dup.exit.loopexit ]
-  %add.i = add i64 %param_count.1, %9
-  %mul.i = shl i64 %add.i, 3
-  %call1.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %mul.i, ptr noundef nonnull @.str, i32 noundef 39) #7
+  %add.i20 = phi i64 [ 0, %if.end ], [ %9, %ossl_param_dup.exit.loopexit ]
+  %param_count.1 = phi i64 [ 40, %if.end ], [ %8, %ossl_param_dup.exit.loopexit ]
+  %div1.i21 = add i64 %param_count.1, %add.i20
+  %call1.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %div1.i21, ptr noundef nonnull @.str, i32 noundef 39) #7
   %cmp.i = icmp eq ptr %call1.i, null
   br i1 %cmp.i, label %return, label %if.end5
 
 if.end5:                                          ; preds = %ossl_param_dup.exit
-  %add.ptr.i = getelementptr inbounds %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %call1.i, i64 %param_count.1
+  %add.ptr.i = getelementptr inbounds i8, ptr %call1.i, i64 %param_count.1
   %cur.i = getelementptr inbounds i8, ptr %buf, i64 8
   store ptr %add.ptr.i, ptr %cur.i, align 8
   %blocks = getelementptr inbounds i8, ptr %buf, i64 48
@@ -271,9 +271,9 @@ if.end22:                                         ; preds = %for.body16, %for.co
 if.end28:                                         ; preds = %if.end22
   call void @qsort(ptr noundef nonnull %list1, i64 noundef %list1_sz.1, i64 noundef 8, ptr noundef nonnull @compare_params) #7
   call void @qsort(ptr noundef nonnull %list2, i64 noundef %list2_sz.1, i64 noundef 8, ptr noundef nonnull @compare_params) #7
-  %add = add nuw i64 %list2_sz.1, %list1_sz.1
-  %7 = mul i64 %add, 40
-  %mul = add i64 %7, 40
+  %add = add nuw nsw i64 %list2_sz.1, %list1_sz.1
+  %7 = mul nsw i64 %add, 40
+  %mul = add nuw nsw i64 %7, 40
   %call = call noalias ptr @CRYPTO_zalloc(i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 184) #7
   %cmp31 = icmp eq ptr %call, null
   br i1 %cmp31, label %return, label %while.body.preheader
