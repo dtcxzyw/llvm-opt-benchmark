@@ -184,8 +184,8 @@ for.cond18.preheader:                             ; preds = %invoke.cont14, %for
 
 for.body20:                                       ; preds = %for.cond18.preheader, %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEclEv.exit
   %7 = phi i64 [ %.pre, %for.cond18.preheader ], [ %add.i.i.i, %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEclEv.exit ]
-  %__begin2.0.ptr23 = phi ptr [ %buffer, %for.cond18.preheader ], [ %__begin2.0.ptr, %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEclEv.exit ]
   %__begin2.0.idx22 = phi i64 [ 0, %for.cond18.preheader ], [ %__begin2.0.add, %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEclEv.exit ]
+  %__begin2.0.ptr23 = getelementptr inbounds i8, ptr %buffer, i64 %__begin2.0.idx22
   %and2.i = and i64 %7, 65535
   %cmp.i = icmp eq i64 %and2.i, 0
   br i1 %cmp.i, label %for.body.i, label %_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EEclEv.exit
@@ -281,7 +281,6 @@ _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15sp
   %xor.i = xor i32 %or.i.i.i, %14
   store i32 %xor.i, ptr %__begin2.0.ptr23, align 4
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx22, 4
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr %buffer, i64 %__begin2.0.add
   %cmp19.not = icmp eq i64 %__begin2.0.add, 524288
   br i1 %cmp19.not, label %for.end, label %for.body20
 

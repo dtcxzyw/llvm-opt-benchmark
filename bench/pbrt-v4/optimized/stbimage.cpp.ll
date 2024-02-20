@@ -1808,7 +1808,6 @@ entry:
 
 for.cond.i:                                       ; preds = %_ZL10stbi__get8P13stbi__context.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds i8, ptr @.str.83, i64 %indvars.iv.next.i
   %exitcond = icmp eq i64 %indvars.iv.next.i, 11
   br i1 %exitcond, label %_ZL19stbi__hdr_test_coreP13stbi__contextPKc.exit, label %for.body.i, !llvm.loop !15
 
@@ -1816,7 +1815,7 @@ for.body.i:                                       ; preds = %for.cond.i, %entry
   %0 = phi ptr [ %.pre11.i, %entry ], [ %11, %for.cond.i ]
   %1 = phi ptr [ %.pre.i, %entry ], [ %12, %for.cond.i ]
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx9.i = phi ptr [ @.str.83, %entry ], [ %arrayidx.i, %for.cond.i ]
+  %arrayidx9.i = getelementptr inbounds i8, ptr @.str.83, i64 %indvars.iv.i
   %cmp.i.i = icmp ult ptr %1, %0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -1891,7 +1890,6 @@ if.then:                                          ; preds = %_ZL10stbi__get8P13s
 
 for.cond.i43:                                     ; preds = %_ZL10stbi__get8P13stbi__context.exit.i37
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i18, 1
-  %arrayidx.i45 = getelementptr inbounds i8, ptr @.str.84, i64 %indvars.iv.next.i44
   %exitcond64 = icmp eq i64 %indvars.iv.next.i44, 7
   br i1 %exitcond64, label %if.end, label %for.body.i17, !llvm.loop !15
 
@@ -1900,7 +1898,7 @@ for.body.i17:                                     ; preds = %for.cond.i43, %if.t
   %18 = phi ptr [ %16, %if.then ], [ %30, %for.cond.i43 ]
   %19 = phi ptr [ %15, %if.then ], [ %31, %for.cond.i43 ]
   %indvars.iv.i18 = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i44, %for.cond.i43 ]
-  %arrayidx9.i19 = phi ptr [ @.str.84, %if.then ], [ %arrayidx.i45, %for.cond.i43 ]
+  %arrayidx9.i19 = getelementptr inbounds i8, ptr @.str.84, i64 %indvars.iv.i18
   %cmp.i.i20 = icmp ult ptr %19, %18
   br i1 %cmp.i.i20, label %if.then.i.i53, label %if.end.i.i21
 
@@ -4897,24 +4895,24 @@ for.cond485.preheader.i:                          ; preds = %if.end482.i
   br i1 %cmp48893.i, label %for.body489.lr.ph.i, label %if.end520.i
 
 for.body489.lr.ph.i:                              ; preds = %for.cond485.preheader.i
-  %mul497.i = mul i32 %.pre120.pre124.i, %spec.select.i
-  %cmp50491.i = icmp sgt i32 %mul497.i, 0
+  %factor.op.mul.i = mul i32 %.pre120.pre124.i, %spec.select.i
+  %cmp50491.i = icmp sgt i32 %factor.op.mul.i, 0
   br i1 %cmp50491.i, label %for.body489.us.preheader.i, label %if.end520.i
 
 for.body489.us.preheader.i:                       ; preds = %for.body489.lr.ph.i
   %wide.trip.count111.i = zext nneg i32 %shr487.i to i64
-  %wide.trip.count106.i = zext nneg i32 %mul497.i to i64
+  %wide.trip.count106.i = zext nneg i32 %factor.op.mul.i to i64
   br label %for.body489.us.i
 
 for.body489.us.i:                                 ; preds = %for.cond501.for.inc517_crit_edge.us.i, %for.body489.us.preheader.i
   %indvars.iv108.i = phi i64 [ 0, %for.body489.us.preheader.i ], [ %indvars.iv.next109.i, %for.cond501.for.inc517_crit_edge.us.i ]
   %299 = trunc i64 %indvars.iv108.i to i32
-  %mul492.us.i = mul i32 %mul497.i, %299
-  %idx.ext.us.i = zext i32 %mul492.us.i to i64
+  %mul491.us.i = mul i32 %factor.op.mul.i, %299
+  %idx.ext.us.i = zext i32 %mul491.us.i to i64
   %add.ptr.us.i = getelementptr inbounds i8, ptr %call.i.i.i53, i64 %idx.ext.us.i
   %300 = xor i32 %299, -1
   %sub495.us.i = add i32 %296, %300
-  %mul498.us.i = mul i32 %sub495.us.i, %mul497.i
+  %mul498.us.i = mul i32 %sub495.us.i, %factor.op.mul.i
   %idx.ext499.us.i = zext i32 %mul498.us.i to i64
   %add.ptr500.us.i = getelementptr inbounds i8, ptr %call.i.i.i53, i64 %idx.ext499.us.i
   br label %for.body505.us.i

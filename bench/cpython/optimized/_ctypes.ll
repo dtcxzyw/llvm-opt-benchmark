@@ -12013,8 +12013,8 @@ for.cond.us:                                      ; preds = %Py_DECREF.exit.us
   br i1 %cmp14.us, label %land.rhs.us, label %for.end, !llvm.loop !27
 
 for.body.us:                                      ; preds = %land.rhs.lr.ph.split.us, %land.rhs.us
-  %add.us60 = phi i64 [ %add.us, %land.rhs.us ], [ %index.addr.0, %land.rhs.lr.ph.split.us ]
   %i.048.us59 = phi i64 [ %inc.us, %land.rhs.us ], [ 0, %land.rhs.lr.ph.split.us ]
+  %add.us60 = add nsw i64 %i.048.us59, %index.addr.0
   %call17.us = tail call ptr @PySequence_GetItem(ptr noundef nonnull %call6, i64 noundef %i.048.us59) #15
   %tobool18.not.us = icmp eq ptr %call17.us, null
   br i1 %tobool18.not.us, label %return, label %if.end20.us
@@ -12085,8 +12085,8 @@ land.rhs:                                         ; preds = %for.cond
   br i1 %cmp16, label %for.body, label %for.end, !llvm.loop !27
 
 for.body:                                         ; preds = %land.rhs.lr.ph.split, %land.rhs
-  %add55 = phi i64 [ %add, %land.rhs ], [ %index.addr.0, %land.rhs.lr.ph.split ]
   %i.04854 = phi i64 [ %inc, %land.rhs ], [ 0, %land.rhs.lr.ph.split ]
+  %add55 = add nsw i64 %i.04854, %index.addr.0
   %call17 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %call6, i64 noundef %i.04854) #15
   %tobool18.not = icmp eq ptr %call17, null
   br i1 %tobool18.not, label %return, label %if.end20

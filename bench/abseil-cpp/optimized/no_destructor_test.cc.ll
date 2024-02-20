@@ -4934,9 +4934,9 @@ invoke.cont:                                      ; preds = %if.end.i
           to label %for.body.i.i.i.i.i unwind label %lpad.loopexit.split-lp
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont, %.noexc17
-  %__begin0.0.ptr17.i.i.i.i.i = phi ptr [ %__begin0.0.ptr.i.i.i.i.i, %.noexc17 ], [ %value, %invoke.cont ]
   %count.016.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i, %.noexc17 ], [ 0, %invoke.cont ]
   %__begin0.0.idx15.i.i.i.i.i = phi i64 [ %__begin0.0.add.i.i.i.i.i, %.noexc17 ], [ 0, %invoke.cont ]
+  %__begin0.0.ptr17.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 %__begin0.0.idx15.i.i.i.i.i
   %cmp3.not.i.i.i.i.i = icmp eq i64 %count.016.i.i.i.i.i, 0
   br i1 %cmp3.not.i.i.i.i.i, label %if.end8.i.i.i.i.i, label %if.then.i.i.i.i.i
 
@@ -4955,7 +4955,6 @@ call9.i.i.i.i.i.noexc:                            ; preds = %if.end8.i.i.i.i.i
 .noexc17:                                         ; preds = %call9.i.i.i.i.i.noexc
   %inc.i.i.i.i.i = add nuw nsw i64 %count.016.i.i.i.i.i, 1
   %__begin0.0.add.i.i.i.i.i = add nuw nsw i64 %__begin0.0.idx15.i.i.i.i.i, 32
-  %__begin0.0.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 %__begin0.0.add.i.i.i.i.i
   %cmp.not.i.i.i.i.i = icmp eq i64 %__begin0.0.add.i.i.i.i.i, 96
   br i1 %cmp.not.i.i.i.i.i, label %_ZN7testing8internal16UniversalPrinterISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEE5PrintERKS9_PSo.exit.i, label %for.body.i.i.i.i.i
 
@@ -6581,9 +6580,9 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i,
   br i1 %cmp.i, label %land.rhs.us, label %land.rhs
 
 land.rhs.us:                                      ; preds = %invoke.cont, %for.inc.us
-  %it.0.ptr.ptr185.us = phi ptr [ %it.0.ptr.ptr.us, %for.inc.us ], [ %container, %invoke.cont ]
   %it.0.idx184.us = phi i64 [ %it.0.add.us, %for.inc.us ], [ 0, %invoke.cont ]
   %storemerge183.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %invoke.cont ]
+  %it.0.ptr.ptr185.us = getelementptr inbounds i8, ptr %container, i64 %it.0.idx184.us
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %5 = load ptr, ptr %matchers_.i, align 8
   %sub.ptr.lhs.cast.i.i26.us = ptrtoint ptr %4 to i64
@@ -6646,7 +6645,6 @@ invoke.cont17.us:                                 ; preds = %invoke.cont13.us
 for.inc.us:                                       ; preds = %invoke.cont17.us
   %it.0.add.us = add nuw nsw i64 %it.0.idx184.us, 32
   %inc.us = add nuw nsw i64 %storemerge183.us, 1
-  %it.0.ptr.ptr.us = getelementptr inbounds i8, ptr %container, i64 %it.0.add.us
   %cmp.not.us = icmp eq i64 %it.0.add.us, 96
   br i1 %cmp.not.us, label %for.end35.thread, label %land.rhs.us, !llvm.loop !196
 
@@ -6667,9 +6665,9 @@ lpad.i.split.us:                                  ; preds = %.noexc35.us
   br label %lpad12.body
 
 land.rhs:                                         ; preds = %invoke.cont, %for.inc
-  %it.0.ptr.ptr185 = phi ptr [ %it.0.ptr.ptr, %for.inc ], [ %container, %invoke.cont ]
   %it.0.idx184 = phi i64 [ %it.0.add, %for.inc ], [ 0, %invoke.cont ]
   %storemerge183 = phi i64 [ %inc, %for.inc ], [ 0, %invoke.cont ]
+  %it.0.ptr.ptr185 = getelementptr inbounds i8, ptr %container, i64 %it.0.idx184
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %13 = load ptr, ptr %matchers_.i, align 8
   %sub.ptr.lhs.cast.i.i26 = ptrtoint ptr %12 to i64
@@ -6747,7 +6745,6 @@ if.end:                                           ; preds = %if.end.i.i
 for.inc:                                          ; preds = %if.end
   %it.0.add = add nuw nsw i64 %it.0.idx184, 32
   %inc = add nuw nsw i64 %storemerge183, 1
-  %it.0.ptr.ptr = getelementptr inbounds i8, ptr %container, i64 %it.0.add
   %cmp.not = icmp eq i64 %it.0.add, 96
   br i1 %cmp.not, label %for.end35.thread, label %land.rhs, !llvm.loop !196
 

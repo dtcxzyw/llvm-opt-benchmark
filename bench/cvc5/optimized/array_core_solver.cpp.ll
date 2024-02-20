@@ -6465,8 +6465,8 @@ lpad304:                                          ; preds = %if.then13.i.i1176
   br label %ehcleanup559
 
 for.body312:                                      ; preds = %for.body312.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2295
-  %__begin4.0.ptr3257 = phi ptr [ %__begin4.0.ptr, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2295 ], [ %ref.tmp303, %for.body312.preheader ]
   %__begin4.0.idx3256 = phi i64 [ %__begin4.0.add, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2295 ], [ 0, %for.body312.preheader ]
+  %__begin4.0.ptr3257 = getelementptr inbounds i8, ptr %ref.tmp303, i64 %__begin4.0.idx3256
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
   %296 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -8974,7 +8974,6 @@ terminate.lpad.i2294:                             ; preds = %if.then13.i.i2293
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2295: ; preds = %for.end, %if.then.i.i2286, %if.then13.i.i2293
   %__begin4.0.add = add nuw nsw i64 %__begin4.0.idx3256, 8
-  %__begin4.0.ptr = getelementptr inbounds i8, ptr %ref.tmp303, i64 %__begin4.0.add
   %cmp.not = icmp eq i64 %__begin4.0.add, 16
   br i1 %cmp.not, label %arraydestroy.body546, label %for.body312
 
@@ -14158,8 +14157,8 @@ _ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_E
   br label %return
 
 return:                                           ; preds = %for.cond.i.i.i.i.i.i.i, %for.body.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE6insertERKS4_RKb.exit
-  %cmp.i.i.i7 = phi i1 [ true, %_ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE6insertERKS4_RKb.exit ], [ false, %if.end.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i.i ]
-  ret i1 %cmp.i.i.i7
+  %retval.0 = phi i1 [ true, %_ZN4cvc57context15CDInsertHashMapINS_8internal12NodeTemplateILb1EEEbSt4hashIS4_EE6insertERKS4_RKb.exit ], [ false, %if.end.i.i.i.i.i.i.i ], [ false, %for.body.i.i.i.i.i ], [ false, %for.cond.i.i.i.i.i.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

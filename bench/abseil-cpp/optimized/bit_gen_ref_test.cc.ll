@@ -4244,15 +4244,14 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont9:                                     ; preds = %invoke.cont9, %invoke.cont
   %inc.i.i.i.i87 = phi i64 [ 0, %invoke.cont ], [ %inc.i.i.i.i, %invoke.cont9 ]
-  %__begin2.sroa.0.0.ptr86 = phi ptr [ %call5.i.i.i.i2.i.i1113, %invoke.cont ], [ %__begin2.sroa.0.0.ptr, %invoke.cont9 ]
   %__begin2.sroa.0.0.idx85 = phi i64 [ 0, %invoke.cont ], [ %__begin2.sroa.0.0.add, %invoke.cont9 ]
   %inc.i.i.i.i = add i64 %inc.i.i.i.i87, 1
   %rem.i.i.i.i = urem i64 %inc.i.i.i.i87, 12
   %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i, i64 %rem.i.i.i.i
   %0 = load i64, ptr %add.ptr.i.i.i.i.i, align 8
+  %__begin2.sroa.0.0.ptr86 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1113, i64 %__begin2.sroa.0.0.idx85
   store i64 %0, ptr %__begin2.sroa.0.0.ptr86, align 8
   %__begin2.sroa.0.0.add = add nuw nsw i64 %__begin2.sroa.0.0.idx85, 8
-  %__begin2.sroa.0.0.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1113, i64 %__begin2.sroa.0.0.add
   %cmp.i.not = icmp eq i64 %__begin2.sroa.0.0.add, 96
   br i1 %cmp.i.not, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont9
 
@@ -6384,10 +6383,10 @@ if.then:
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %while.body
-  %dst.019 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
-  %sub = add nsw i64 %dst.019, -4
+  %dst.020 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
+  %sub = add nsw i64 %dst.020, -4
   %shr = lshr exact i64 %sub, 1
-  %dec = add nsw i64 %dst.019, -5
+  %dec = add nsw i64 %dst.020, -5
   %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec9
@@ -6395,7 +6394,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %1 = load i32, ptr %arrayidx10, align 4
   store i32 %1, ptr %arrayidx, align 4
   store i32 %0, ptr %arrayidx10, align 4
-  %dec11 = add nsw i64 %dst.019, -6
+  %dec11 = add nsw i64 %dst.020, -6
   %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec13
@@ -6403,7 +6402,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %3 = load i32, ptr %arrayidx14, align 8
   store i32 %3, ptr %arrayidx12, align 8
   store i32 %2, ptr %arrayidx14, align 8
-  %dec15 = add nsw i64 %dst.019, -7
+  %dec15 = add nsw i64 %dst.020, -7
   %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
   %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
@@ -6411,7 +6410,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %5 = load i32, ptr %arrayidx18, align 4
   store i32 %5, ptr %arrayidx16, align 4
   store i32 %4, ptr %arrayidx18, align 4
-  %dec19 = add nsw i64 %dst.019, -8
+  %dec19 = add nsw i64 %dst.020, -8
   %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
   %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21

@@ -1457,8 +1457,8 @@ sdslen.exit82:                                    ; preds = %sw.bb.i79, %sw.bb3.
 
 while.cond.i.outer.split:                         ; preds = %sdslen.exit82, %if.end50.i
   %sub.i99 = phi i64 [ %sub.i, %if.end50.i ], [ %retval.0.i69, %sdslen.exit82 ]
-  %add.ptr.i2498 = phi ptr [ %add.ptr.i24, %if.end50.i ], [ %1, %sdslen.exit82 ]
   %nwritten.0.i.ph97 = phi i64 [ %add.i, %if.end50.i ], [ 0, %sdslen.exit82 ]
+  %add.ptr.i2498 = getelementptr inbounds i8, ptr %1, i64 %nwritten.0.i.ph97
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.outer.split, %land.lhs.true.i
@@ -1486,7 +1486,6 @@ if.then47.i:                                      ; preds = %land.lhs.true.i
 if.end50.i:                                       ; preds = %while.cond.i
   %add.i = add i64 %call35.i, %nwritten.0.i.ph97
   %cmp33.not.i = icmp eq i64 %add.i, %retval.0.i69
-  %add.ptr.i24 = getelementptr inbounds i8, ptr %1, i64 %add.i
   %sub.i = sub i64 %retval.0.i69, %add.i
   br i1 %cmp33.not.i, label %rioFdWrite.exit.loopexit, label %while.cond.i.outer.split, !llvm.loop !9
 
@@ -1603,8 +1602,8 @@ while.cond.outer.split.preheader:                 ; preds = %if.then, %sdslen.ex
 
 while.cond.outer.split:                           ; preds = %while.cond.outer.split.preheader, %if.end50
   %sub103 = phi i64 [ %sub, %if.end50 ], [ %len.addr.0119, %while.cond.outer.split.preheader ]
-  %add.ptr102 = phi ptr [ %add.ptr, %if.end50 ], [ %p.0121, %while.cond.outer.split.preheader ]
   %nwritten.0.ph101 = phi i64 [ %add, %if.end50 ], [ 0, %while.cond.outer.split.preheader ]
+  %add.ptr102 = getelementptr inbounds i8, ptr %p.0121, i64 %nwritten.0.ph101
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer.split, %land.lhs.true
@@ -1632,7 +1631,6 @@ if.then47:                                        ; preds = %land.lhs.true
 if.end50:                                         ; preds = %while.cond
   %add = add i64 %call35, %nwritten.0.ph101
   %cmp33.not = icmp eq i64 %add, %len.addr.0119
-  %add.ptr = getelementptr inbounds i8, ptr %p.0121, i64 %add
   %sub = sub i64 %len.addr.0119, %add
   br i1 %cmp33.not, label %while.end, label %while.cond.outer.split, !llvm.loop !9
 

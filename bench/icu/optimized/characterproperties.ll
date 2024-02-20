@@ -959,9 +959,9 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %delete.end
-  %__begin1.0.ptr13 = phi ptr [ @_ZN12_GLOBAL__N_111gInclusionsE, %entry ], [ %__begin1.0.ptr, %delete.end ]
   %__begin1.0.idx12 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %delete.end ]
-  %0 = load ptr, ptr %__begin1.0.ptr13, align 8
+  %__begin1.0.ptr13 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 %__begin1.0.idx12
+  %0 = load ptr, ptr %__begin1.0.ptr13, align 16
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
@@ -971,11 +971,10 @@ delete.notnull:                                   ; preds = %for.body
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
-  store ptr null, ptr %__begin1.0.ptr13, align 8
+  store ptr null, ptr %__begin1.0.ptr13, align 16
   %fInitOnce = getelementptr inbounds i8, ptr %__begin1.0.ptr13, i64 8
-  store atomic i32 0, ptr %fInitOnce seq_cst, align 4
+  store atomic i32 0, ptr %fInitOnce seq_cst, align 8
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx12, 16
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 688
   br i1 %cmp.not, label %for.body4, label %for.body
 

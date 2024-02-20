@@ -27073,7 +27073,6 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.cond.backedge
   %0 = phi i8 [ %.pre, %entry ], [ %1, %for.cond.backedge ]
-  %k.0.ptr25 = phi ptr [ %begin, %entry ], [ %add.ptr1.ptr, %for.cond.backedge ]
   %k.0.idx24 = phi i64 [ 0, %entry ], [ %k.0.add, %for.cond.backedge ]
   %k.0.add = add nuw nsw i64 %k.0.idx24, 12
   %add.ptr1.ptr = getelementptr inbounds i8, ptr %begin, i64 %k.0.add
@@ -27091,6 +27090,7 @@ for.body:                                         ; preds = %entry, %for.cond.ba
   br i1 %cmp.eq.i.i.i.i, label %if.end.i.i.i, label %_ZZN4mold3elf13RelDynSectionINS0_6RV32LEEE4sortERNS0_7ContextIS2_EEENKUlRKNS0_6ElfRelIS2_EESA_E_clESA_SA_.exit
 
 if.end.i.i.i:                                     ; preds = %for.body
+  %k.0.ptr25 = getelementptr inbounds i8, ptr %begin, i64 %k.0.idx24
   %2 = load i32, ptr %k.0.ptr25, align 1
   %3 = load i32, ptr %add.ptr1.ptr, align 1
   %ref.tmp3.sroa.4.4.r_sym8.sroa_idx.i = getelementptr inbounds i8, ptr %k.0.ptr25, i64 6
@@ -27143,7 +27143,7 @@ if.then:                                          ; preds = %if.end.i.i.i, %_ZZN
   br label %cleanup
 
 for.end:                                          ; preds = %for.cond.backedge
-  %add.ptr2 = getelementptr i8, ptr %begin, i64 120
+  %add.ptr2 = getelementptr inbounds i8, ptr %begin, i64 120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i.i)
   %cmp.i.not.i.i = icmp ult ptr %add.ptr2, %end
@@ -34112,7 +34112,7 @@ for.inc:                                          ; preds = %if.then.i, %_ZZN4mo
   br i1 %cmp.i, label %for.end, label %for.body, !llvm.loop !297
 
 for.end:                                          ; preds = %for.inc
-  %add.ptr.i5 = getelementptr i8, ptr %begin.coerce, i64 80
+  %add.ptr.i5 = getelementptr inbounds i8, ptr %begin.coerce, i64 80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i.i)
   %cmp.lt.i.i.i.not.i.i = icmp ult ptr %add.ptr.i5, %end.coerce

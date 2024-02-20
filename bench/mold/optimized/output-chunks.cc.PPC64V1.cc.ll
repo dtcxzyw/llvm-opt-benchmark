@@ -27863,15 +27863,15 @@ entry:
   %my_traits2.i.i = getelementptr inbounds i8, ptr %my_context, i64 13
   store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %my_context) #13
-  %.pre = load i64, ptr %begin, align 1
   %r_type6.i.phi.trans.insert = getelementptr inbounds i8, ptr %begin, i64 12
   %x.0.copyload.i5.i.pre = load i32, ptr %r_type6.i.phi.trans.insert, align 1
+  %.pre = load i64, ptr %begin, align 1
+  %invariant.gep = getelementptr inbounds i8, ptr %begin, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.cond.backedge
-  %x.0.copyload.i5.i = phi i32 [ %x.0.copyload.i5.i.pre, %entry ], [ %x.0.copyload.i.i, %for.cond.backedge ]
   %0 = phi i64 [ %.pre, %entry ], [ %1, %for.cond.backedge ]
-  %k.0.ptr25 = phi ptr [ %begin, %entry ], [ %add.ptr1.ptr, %for.cond.backedge ]
+  %x.0.copyload.i5.i = phi i32 [ %x.0.copyload.i5.i.pre, %entry ], [ %x.0.copyload.i.i, %for.cond.backedge ]
   %k.0.idx24 = phi i64 [ 0, %entry ], [ %k.0.add, %for.cond.backedge ]
   %k.0.add = add nuw nsw i64 %k.0.idx24, 24
   %add.ptr1.ptr = getelementptr inbounds i8, ptr %begin, i64 %k.0.add
@@ -27891,8 +27891,8 @@ for.body:                                         ; preds = %entry, %for.cond.ba
   br i1 %cmp.eq.i.i.i.i, label %if.end.i.i.i, label %_ZZN4mold3elf13RelDynSectionINS0_7PPC64V1EE4sortERNS0_7ContextIS2_EEENKUlRKNS0_6ElfRelIS2_EESA_E_clESA_SA_.exit
 
 if.end.i.i.i:                                     ; preds = %for.body
-  %r_sym9.i = getelementptr inbounds i8, ptr %k.0.ptr25, i64 8
-  %2 = load i32, ptr %r_sym9.i, align 1
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %k.0.idx24
+  %2 = load i32, ptr %gep, align 1
   %r_sym.i = getelementptr inbounds i8, ptr %add.ptr1.ptr, i64 8
   %3 = load i32, ptr %r_sym.i, align 1
   %4 = call noundef i32 @llvm.bswap.i32(i32 %3)
@@ -27937,7 +27937,7 @@ if.then:                                          ; preds = %if.end.i.i.i.i, %_Z
   br label %cleanup
 
 for.end:                                          ; preds = %for.cond.backedge
-  %add.ptr2 = getelementptr i8, ptr %begin, i64 240
+  %add.ptr2 = getelementptr inbounds i8, ptr %begin, i64 240
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i.i)
   %cmp.i.not.i.i = icmp ult ptr %add.ptr2, %end
@@ -34835,7 +34835,7 @@ for.inc:                                          ; preds = %if.then.i, %_ZZN4mo
   br i1 %cmp.i, label %for.end, label %for.body, !llvm.loop !284
 
 for.end:                                          ; preds = %for.inc
-  %add.ptr.i5 = getelementptr i8, ptr %begin.coerce, i64 80
+  %add.ptr.i5 = getelementptr inbounds i8, ptr %begin.coerce, i64 80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i.i)
   %cmp.lt.i.i.i.not.i.i = icmp ult ptr %add.ptr.i5, %end.coerce

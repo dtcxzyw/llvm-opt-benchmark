@@ -6637,7 +6637,6 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %3 = phi i64 [ %5, %for.inc ], [ %2, %entry ]
-  %arrayidx15 = phi ptr [ %arrayidx, %for.inc ], [ %1, %entry ]
   %config_size.014 = phi i64 [ %config_size.1, %for.inc ], [ %0, %entry ]
   %i.013 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
   %and = and i64 %3, %host_features
@@ -6645,7 +6644,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %end = getelementptr inbounds i8, ptr %arrayidx15, i64 8
+  %end = getelementptr %struct.VirtIOFeature, ptr %1, i64 %i.013, i32 1
   %4 = load i64, ptr %end, align 8
   %cond = tail call i64 @llvm.umax.i64(i64 %4, i64 %config_size.014)
   br label %for.inc
@@ -9092,7 +9091,7 @@ done:                                             ; preds = %do.end, %if.then49
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then29, %if.then35, %done
-  %cleanup.dest.slot.0 = phi ptr [ null, %if.then35 ], [ %element.0, %done ], [ null, %if.then29 ]
+  %switch = phi ptr [ null, %if.then35 ], [ %element.0, %done ], [ null, %if.then29 ]
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #21
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %58 = load i32, ptr %depth.i.i.i.i, align 4
@@ -9125,7 +9124,7 @@ while.end21.i.i.i.i:                              ; preds = %while.end.i.i.i.i
   br label %return
 
 return:                                           ; preds = %while.end21.i.i.i.i, %while.end.i.i.i.i, %if.end.i.i.i.i139, %if.then10, %if.then5, %if.then
-  %retval.1 = phi ptr [ null, %if.then ], [ null, %if.then5 ], [ null, %if.then10 ], [ %cleanup.dest.slot.0, %if.end.i.i.i.i139 ], [ %cleanup.dest.slot.0, %while.end.i.i.i.i ], [ %cleanup.dest.slot.0, %while.end21.i.i.i.i ]
+  %retval.1 = phi ptr [ null, %if.then ], [ null, %if.then5 ], [ null, %if.then10 ], [ %switch, %if.end.i.i.i.i139 ], [ %switch, %while.end.i.i.i.i ], [ %switch, %while.end21.i.i.i.i ]
   ret ptr %retval.1
 }
 

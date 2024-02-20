@@ -745,9 +745,9 @@ land.rhs.lr.ph.split.i.i:                         ; preds = %if.end42.i.i
 
 for.body.i.i:                                     ; preds = %land.rhs.lr.ph.split.i.i, %for.body.i.i
   %37 = phi ptr [ %39, %for.body.i.i ], [ %36, %land.rhs.lr.ph.split.i.i ]
-  %arrayidx147.i.i = phi ptr [ %arrayidx.i.i, %for.body.i.i ], [ %call43.i.i, %land.rhs.lr.ph.split.i.i ]
   %upgraded.0140146.i.i = phi i8 [ %spec.select.i.i, %for.body.i.i ], [ 0, %land.rhs.lr.ph.split.i.i ]
   %i.0141145.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %land.rhs.lr.ph.split.i.i ]
+  %arrayidx147.i.i = getelementptr ptr, ptr %call43.i.i, i64 %i.0141145.i.i
   %call47.i.i = call ptr @g_strchug(ptr noundef nonnull %37) #15
   %call48.i.i = call ptr @g_strchomp(ptr noundef %call47.i.i) #15
   %38 = load ptr, ptr %arrayidx147.i.i, align 8

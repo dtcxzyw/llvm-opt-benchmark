@@ -8597,13 +8597,12 @@ entry:
 
 for.cond:                                         ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit39
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx101, 24
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZL10kASN1Tests, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 168
   br i1 %cmp.not, label %for.body87, label %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
-  %__begin1.0.ptr102 = phi ptr [ @_ZL10kASN1Tests, %entry ], [ %__begin1.0.ptr, %for.cond ]
   %__begin1.0.idx101 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.cond ]
+  %__begin1.0.ptr102 = getelementptr inbounds i8, ptr @_ZL10kASN1Tests, i64 %__begin1.0.idx101
   %0 = load ptr, ptr %__begin1.0.ptr102, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !61)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %raw.i)
@@ -8820,12 +8819,10 @@ ehcleanup:                                        ; preds = %if.then.i, %lpad51,
 
 for.cond85:                                       ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44
   %__begin183.0.add = add nuw nsw i64 %__begin183.0.idx103, 16
-  %__begin183.0.ptr = getelementptr inbounds i8, ptr @_ZL17kASN1InvalidTests, i64 %__begin183.0.add
   %cmp86.not = icmp eq i64 %__begin183.0.add, 32
   br i1 %cmp86.not, label %for.body132, label %for.body87
 
 for.body87:                                       ; preds = %for.cond, %for.cond85
-  %__begin183.0.ptr104 = phi ptr [ %__begin183.0.ptr, %for.cond85 ], [ @_ZL17kASN1InvalidTests, %for.cond ]
   %__begin183.0.idx103 = phi i64 [ %__begin183.0.add, %for.cond85 ], [ 0, %for.cond ]
   %call90 = call ptr @BN_new()
   store ptr %call90, ptr %bn89, align 8
@@ -8833,7 +8830,8 @@ for.body87:                                       ; preds = %for.cond, %for.cond
   br i1 %cmp.i40.not, label %return, label %if.end93
 
 if.end93:                                         ; preds = %for.body87
-  %23 = load ptr, ptr %__begin183.0.ptr104, align 8
+  %__begin183.0.ptr104 = getelementptr inbounds i8, ptr @_ZL17kASN1InvalidTests, i64 %__begin183.0.idx103
+  %23 = load ptr, ptr %__begin183.0.ptr104, align 16
   %der_len96 = getelementptr inbounds i8, ptr %__begin183.0.ptr104, i64 8
   %24 = load i64, ptr %der_len96, align 8
   invoke void @CBS_init(ptr noundef nonnull %cbs94, ptr noundef %23, i64 noundef %24)
@@ -8878,7 +8876,7 @@ if.then.i42.sink.split:                           ; preds = %invoke.cont112, %in
   br label %if.then.i42
 
 if.then.i42:                                      ; preds = %if.then.i42.sink.split, %if.end118
-  %cleanup.dest.slot.3.ph = phi i1 [ true, %if.end118 ], [ false, %if.then.i42.sink.split ]
+  %switch28 = phi i1 [ true, %if.end118 ], [ false, %if.then.i42.sink.split ]
   invoke void @BN_free(ptr noundef nonnull %call90)
           to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44 unwind label %terminate.lpad.i43
 
@@ -8891,17 +8889,16 @@ terminate.lpad.i43:                               ; preds = %if.then.i42
 
 _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit44: ; preds = %if.then.i42
   store ptr null, ptr %bn89, align 8
-  br i1 %cleanup.dest.slot.3.ph, label %for.cond85, label %return
+  br i1 %switch28, label %for.cond85, label %return
 
 for.cond130:                                      ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit59
   %__begin1128.0.add = add nuw nsw i64 %__begin1128.0.idx105, 24
-  %__begin1128.0.ptr = getelementptr inbounds i8, ptr @_ZL15kASN1BuggyTests, i64 %__begin1128.0.add
   %cmp131.not = icmp eq i64 %__begin1128.0.add, 72
   br i1 %cmp131.not, label %for.end192, label %for.body132
 
 for.body132:                                      ; preds = %for.cond85, %for.cond130
-  %__begin1128.0.ptr106 = phi ptr [ %__begin1128.0.ptr, %for.cond130 ], [ @_ZL15kASN1BuggyTests, %for.cond85 ]
   %__begin1128.0.idx105 = phi i64 [ %__begin1128.0.add, %for.cond130 ], [ 0, %for.cond85 ]
+  %__begin1128.0.ptr106 = getelementptr inbounds i8, ptr @_ZL15kASN1BuggyTests, i64 %__begin1128.0.idx105
   %call135 = call ptr @BN_new()
   store ptr %call135, ptr %bn134, align 8
   %cmp.i45.not = icmp eq ptr %call135, null

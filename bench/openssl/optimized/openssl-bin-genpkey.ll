@@ -178,8 +178,7 @@ if.end11.i:                                       ; preds = %if.end7.i
 for.body.i:                                       ; preds = %if.end11.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.end11.i ]
   %3 = phi ptr [ %9, %for.inc.i ], [ %2, %if.end11.i ]
-  %arrayidx24.i = phi ptr [ %arrayidx.i, %for.inc.i ], [ %call8.i, %if.end11.i ]
-  %data_type.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 8
+  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %call8.i, i64 %indvars.iv.i, i32 1
   %4 = load i32, ptr %data_type.i, align 8
   %switch.tableidx = add i32 %4, -1
   %5 = icmp ult i32 %switch.tableidx, 5
@@ -197,7 +196,7 @@ switch.lookup:                                    ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i, %switch.lookup
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i = getelementptr inbounds %struct.ossl_param_st, ptr %call8.i, i64 %indvars.iv.next.i
   %9 = load ptr, ptr %arrayidx.i, align 8
   %cmp13.not.i = icmp eq ptr %9, null

@@ -715,7 +715,7 @@ for.cond39.preheader:                             ; preds = %if.then32
 for.body41:                                       ; preds = %for.cond39.preheader, %for.inc56
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc56 ], [ 0, %for.cond39.preheader ]
   %11 = phi ptr [ %14, %for.inc56 ], [ %10, %for.cond39.preheader ]
-  %arrayidx44 = phi ptr [ %arrayidx, %for.inc56 ], [ %params, %for.cond39.preheader ]
+  %arrayidx44 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 %indvars.iv
   %data_type = getelementptr inbounds i8, ptr %arrayidx44, i64 8
   %12 = load i32, ptr %data_type, align 8
   %cmp44.not = icmp eq i32 %12, 4
@@ -729,7 +729,7 @@ if.end46:                                         ; preds = %for.body41
   br i1 %cmp53.not.not, label %return, label %for.inc56
 
 for.inc56:                                        ; preds = %if.end46, %for.body41
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 %indvars.iv.next
   %14 = load ptr, ptr %arrayidx, align 8
   %cmp40.not = icmp eq ptr %14, null

@@ -284,7 +284,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %strbuf_addch.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %strbuf_addch.exit ]
-  %arrayidx8 = phi ptr [ %argv, %for.body.lr.ph ], [ %arrayidx, %strbuf_addch.exit ]
+  %arrayidx8 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %1 = load i64, ptr %dst, align 8
   %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
@@ -314,7 +314,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %arrayidx3.i, align 1
   %7 = load ptr, ptr %arrayidx8, align 8
   tail call void @sq_quote_buf(ptr noundef nonnull %dst, ptr noundef %7)
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.next
   %8 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %8, null
@@ -387,7 +387,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %sq_quote_buf_pretty.exit
   %1 = phi ptr [ %0, %for.body.lr.ph ], [ %13, %sq_quote_buf_pretty.exit ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %sq_quote_buf_pretty.exit ]
-  %arrayidx11 = phi ptr [ %argv, %for.body.lr.ph ], [ %arrayidx, %sq_quote_buf_pretty.exit ]
+  %arrayidx11 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %cmp.not = icmp eq i64 %indvars.iv, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
@@ -464,7 +464,7 @@ for.end.i:                                        ; preds = %for.inc.i
   br label %sq_quote_buf_pretty.exit
 
 sq_quote_buf_pretty.exit:                         ; preds = %if.then.i8, %if.then5.i, %for.end.i
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.next
   %13 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %13, null

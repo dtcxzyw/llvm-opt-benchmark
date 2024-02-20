@@ -2157,8 +2157,8 @@ if.end90:                                         ; preds = %land.lhs.true, %sw.
   br label %init.backedge
 
 land.rhs.i:                                       ; preds = %while.body.i330, %land.rhs.i.lr.ph
-  %add.ptr.i320621 = phi ptr [ %s.addr.0.ph.ph, %land.rhs.i.lr.ph ], [ %add.ptr.i320, %while.body.i330 ]
   %i.0.i620 = phi i64 [ 0, %land.rhs.i.lr.ph ], [ %inc.i331, %while.body.i330 ]
+  %add.ptr.i320621 = getelementptr inbounds i8, ptr %s.addr.0.ph.ph, i64 %i.0.i620
   %77 = load i8, ptr %add.ptr.i320621, align 1, !tbaa !8
   %conv.i327 = zext i8 %77 to i32
   switch i8 %75, label %sw.default.i421 [
@@ -2242,7 +2242,6 @@ singlematch.exit425:                              ; preds = %sw.default.i421, %m
 
 while.body.i330:                                  ; preds = %singlematch.exit425, %land.rhs.i
   %inc.i331 = add nuw i64 %i.0.i620, 1
-  %add.ptr.i320 = getelementptr inbounds i8, ptr %s.addr.0.ph.ph, i64 %inc.i331
   %exitcond675.not = icmp eq i64 %inc.i331, %76
   br i1 %exitcond675.not, label %while.end.i, label %land.rhs.i, !llvm.loop !44
 
@@ -2280,8 +2279,8 @@ land.rhs.i351.lr.ph:                              ; preds = %cond.true97
   br label %land.rhs.i351
 
 land.rhs.i351:                                    ; preds = %while.body.i355, %land.rhs.i351.lr.ph
-  %add.ptr.i334616 = phi ptr [ %add.ptr84, %land.rhs.i351.lr.ph ], [ %add.ptr.i334, %while.body.i355 ]
   %i.0.i333615 = phi i64 [ 0, %land.rhs.i351.lr.ph ], [ %inc.i356, %while.body.i355 ]
+  %add.ptr.i334616 = getelementptr inbounds i8, ptr %add.ptr84, i64 %i.0.i333615
   %86 = load i8, ptr %add.ptr.i334616, align 1, !tbaa !8
   %conv.i352 = zext i8 %86 to i32
   switch i8 %83, label %sw.default.i470 [
@@ -2365,7 +2364,6 @@ singlematch.exit474:                              ; preds = %sw.default.i470, %m
 
 while.body.i355:                                  ; preds = %singlematch.exit474, %land.rhs.i351
   %inc.i356 = add nuw i64 %i.0.i333615, 1
-  %add.ptr.i334 = getelementptr inbounds i8, ptr %add.ptr84, i64 %inc.i356
   %exitcond.not = icmp eq i64 %inc.i356, %85
   br i1 %exitcond.not, label %while.end.i337, label %land.rhs.i351, !llvm.loop !44
 

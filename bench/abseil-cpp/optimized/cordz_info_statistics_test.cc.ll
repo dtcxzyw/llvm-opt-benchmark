@@ -10211,14 +10211,14 @@ while.cond.loopexit.i.i.i.i.i:                    ; preds = %for.inc.i.i.i.i.i
   br i1 %tobool.i.i.i.i.not.i.i.i.i.i, label %for.body.i.i.i.i.i.backedge, label %for.body47.i.i.i.i.i.preheader
 
 for.body.i.i.i.i.i:                               ; preds = %entry, %for.body.i.i.i.i.i.backedge
-  %__begin6.0.ptr52.i.i.i.i.i = phi ptr [ %__begin6.0.ptr52.i.i.i.i.i.be, %for.body.i.i.i.i.i.backedge ], [ %cords.i.i.i.i.i, %entry ]
   %__begin6.0.idx51.i.i.i.i.i = phi i64 [ %__begin6.0.idx51.i.i.i.i.i.be, %for.body.i.i.i.i.i.backedge ], [ 0, %entry ]
+  %__begin6.0.ptr52.i.i.i.i.i = getelementptr inbounds i8, ptr %cords.i.i.i.i.i, i64 %__begin6.0.idx51.i.i.i.i.i
   %call.i.i.i.i.i.i = call noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %coin_toss.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %gen.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %coin_toss.i.i.i.i.i)
   %cmp4.not.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i, 0
   br i1 %cmp4.not.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %6 = load i8, ptr %__begin6.0.ptr52.i.i.i.i.i, align 1
+  %6 = load i8, ptr %__begin6.0.ptr52.i.i.i.i.i, align 16
   %7 = and i8 %6, 1
   %cmp.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %cmp.i.not.i.i.i.i.i, label %if.else13.i.i.i.i.i, label %if.then6.i.i.i.i.i
@@ -10226,7 +10226,7 @@ if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
 if.then6.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
   %call.i22.i.i.i.i.i = call noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %coin_toss.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %gen.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %coin_toss.i.i.i.i.i)
   %cmp8.not.i.i.i.i.i = icmp eq i32 %call.i22.i.i.i.i.i, 0
-  %8 = load i64, ptr %__begin6.0.ptr52.i.i.i.i.i, align 8
+  %8 = load i64, ptr %__begin6.0.ptr52.i.i.i.i.i, align 16
   %sub.i23.i.i.i.i.i = add nsw i64 %8, -1
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %sub.i23.i.i.i.i.i, 0
   br i1 %cmp8.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then9.i.i.i.i.i
@@ -10270,7 +10270,7 @@ if.then.i29.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i.i
   br label %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit.i.i.i.i.i
 
 _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit.i.i.i.i.i: ; preds = %if.then.i29.i.i.i.i.i, %if.end.i.i.i.i.i
-  store i8 0, ptr %__begin6.0.ptr52.i.i.i.i.i, align 1
+  store i8 0, ptr %__begin6.0.ptr52.i.i.i.i.i, align 16
   br label %for.inc.i.i.i.i.i
 
 if.else13.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
@@ -10367,7 +10367,7 @@ if.end35.i.i.i.i.i:                               ; preds = %if.end35.sink.split
   %rep.1.i.i.i.i.i = phi ptr [ %rep.0.i.i.i.i.i, %if.end19.i.i.i.i.i ], [ %rep.1.ph.i.i.i.i.i, %if.end35.sink.split.i.i.i.i.i ]
   %rep.i.i38.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin6.0.ptr52.i.i.i.i.i, i64 8
   store ptr %rep.1.i.i.i.i.i, ptr %rep.i.i38.i.i.i.i.i, align 8
-  store i64 1, ptr %__begin6.0.ptr52.i.i.i.i.i, align 8
+  store i64 1, ptr %__begin6.0.ptr52.i.i.i.i.i, align 16
   %call.i39.i.i.i.i.i = call noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %coin_toss.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %gen.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %coin_toss.i.i.i.i.i)
   %cmp37.not.i.i.i.i.i = icmp eq i32 %call.i39.i.i.i.i.i, 0
   br i1 %cmp37.not.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %if.then38.i.i.i.i.i
@@ -10378,25 +10378,23 @@ if.then38.i.i.i.i.i:                              ; preds = %if.end35.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %if.then38.i.i.i.i.i, %if.end35.i.i.i.i.i, %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit.i.i.i.i.i, %for.body.i.i.i.i.i
   %__begin6.0.add.i.i.i.i.i = add nuw nsw i64 %__begin6.0.idx51.i.i.i.i.i, 16
-  %__begin6.0.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cords.i.i.i.i.i, i64 %__begin6.0.add.i.i.i.i.i
   %cmp.not.i.i.i.i.i = icmp eq i64 %__begin6.0.add.i.i.i.i.i, 32
   br i1 %cmp.not.i.i.i.i.i, label %while.cond.loopexit.i.i.i.i.i, label %for.body.i.i.i.i.i.backedge
 
 for.body.i.i.i.i.i.backedge:                      ; preds = %for.inc.i.i.i.i.i, %while.cond.loopexit.i.i.i.i.i
-  %__begin6.0.ptr52.i.i.i.i.i.be = phi ptr [ %__begin6.0.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %cords.i.i.i.i.i, %while.cond.loopexit.i.i.i.i.i ]
   %__begin6.0.idx51.i.i.i.i.i.be = phi i64 [ %__begin6.0.add.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ 0, %while.cond.loopexit.i.i.i.i.i ]
   br label %for.body.i.i.i.i.i, !llvm.loop !169
 
 for.body47.i.i.i.i.i:                             ; preds = %for.body47.i.i.i.i.i.preheader, %for.inc54.i.i.i.i.i
-  %__begin5.0.ptr56.i.i.i.i.i = phi ptr [ %__begin5.0.ptr.i.i.i.i.i, %for.inc54.i.i.i.i.i ], [ %cords.i.i.i.i.i, %for.body47.i.i.i.i.i.preheader ]
   %__begin5.0.idx55.i.i.i.i.i = phi i64 [ %__begin5.0.add.i.i.i.i.i, %for.inc54.i.i.i.i.i ], [ 0, %for.body47.i.i.i.i.i.preheader ]
-  %23 = load i8, ptr %__begin5.0.ptr56.i.i.i.i.i, align 1
+  %__begin5.0.ptr56.i.i.i.i.i = getelementptr inbounds i8, ptr %cords.i.i.i.i.i, i64 %__begin5.0.idx55.i.i.i.i.i
+  %23 = load i8, ptr %__begin5.0.ptr56.i.i.i.i.i, align 16
   %24 = and i8 %23, 1
   %cmp.i40.not.i.i.i.i.i = icmp eq i8 %24, 0
   br i1 %cmp.i40.not.i.i.i.i.i, label %for.inc54.i.i.i.i.i, label %if.then50.i.i.i.i.i
 
 if.then50.i.i.i.i.i:                              ; preds = %for.body47.i.i.i.i.i
-  %25 = load i64, ptr %__begin5.0.ptr56.i.i.i.i.i, align 8
+  %25 = load i64, ptr %__begin5.0.ptr56.i.i.i.i.i, align 16
   %sub.i41.i.i.i.i.i = add nsw i64 %25, -1
   %tobool.i.not.i.i.i.i.i = icmp eq i64 %sub.i41.i.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %_ZN4absl13cord_internal9CordzInfo16MaybeUntrackCordEPS1_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -10420,7 +10418,6 @@ if.then.i46.i.i.i.i.i:                            ; preds = %_ZN4absl13cord_inte
 
 for.inc54.i.i.i.i.i:                              ; preds = %if.then.i46.i.i.i.i.i, %_ZN4absl13cord_internal9CordzInfo16MaybeUntrackCordEPS1_.exit.i.i.i.i.i, %for.body47.i.i.i.i.i
   %__begin5.0.add.i.i.i.i.i = add nuw nsw i64 %__begin5.0.idx55.i.i.i.i.i, 16
-  %__begin5.0.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cords.i.i.i.i.i, i64 %__begin5.0.add.i.i.i.i.i
   %cmp46.not.i.i.i.i.i = icmp eq i64 %__begin5.0.add.i.i.i.i.i, 32
   br i1 %cmp46.not.i.i.i.i.i, label %"_ZN4absl22internal_any_invocable7InvokeRIvRZNS_13cord_internal12_GLOBAL__N_141CordzInfoStatisticsTest_ThreadSafety_Test8TestBodyEvE3$_1JEvEEvOT0_DpOT1_.exit", label %for.body47.i.i.i.i.i
 

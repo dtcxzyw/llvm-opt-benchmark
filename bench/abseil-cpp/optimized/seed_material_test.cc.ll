@@ -5503,9 +5503,9 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %it.0.ptr72 = phi ptr [ %container, %entry ], [ %it.0.ptr, %for.inc ]
   %it.0.idx71 = phi i64 [ 0, %entry ], [ %it.0.add, %for.inc ]
   %i.070 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
+  %it.0.ptr72 = getelementptr inbounds i8, ptr %container, i64 %it.0.idx71
   store ptr %add.ptr.i10, ptr %stream_.i.i, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i64 0, inrange i32 0, i64 2), ptr %inner_listener, align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i)
@@ -5623,7 +5623,6 @@ for.inc:                                          ; preds = %invoke.cont4
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss_.i) #20
   %it.0.add = add nuw nsw i64 %it.0.idx71, 4
   %inc = add nuw nsw i64 %i.070, 1
-  %it.0.ptr = getelementptr inbounds i8, ptr %container, i64 %it.0.add
   %cmp.not = icmp eq i64 %it.0.add, 128
   br i1 %cmp.not, label %_ZN7testing8internal11NativeArrayIjED2Ev.exit, label %for.body, !llvm.loop !54
 

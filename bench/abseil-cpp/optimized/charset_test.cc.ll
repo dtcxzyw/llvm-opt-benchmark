@@ -4104,8 +4104,8 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.end
-  %lo.sroa.0.0.ptr.ptr57 = phi ptr [ %call5.i.i.i.i2.i, %entry ], [ %lo.sroa.0.0.ptr.ptr, %for.end ]
   %lo.sroa.0.0.idx56 = phi i64 [ 0, %entry ], [ %lo.sroa.0.0.add, %for.end ]
+  %lo.sroa.0.0.ptr.ptr57 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 %lo.sroa.0.0.idx56
   invoke void @_ZN7testing11ScopedTraceC2ImEEPKciRKT_(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_136, ptr noundef nonnull @.str.3, i32 noundef 136, ptr noundef nonnull align 8 dereferenceable(8) %lo.sroa.0.0.ptr.ptr57)
           to label %for.body15 unwind label %lpad8
 
@@ -4450,7 +4450,6 @@ ehcleanup50:                                      ; preds = %lpad.i13, %ehcleanu
 for.end:                                          ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_136) #16
   %lo.sroa.0.0.add = add nuw nsw i64 %lo.sroa.0.0.idx56, 8
-  %lo.sroa.0.0.ptr.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 %lo.sroa.0.0.add
   %cmp.i.not = icmp eq i64 %lo.sroa.0.0.add, 208
   br i1 %cmp.i.not, label %_ZNSt6vectorImSaImEED2Ev.exit, label %for.body, !llvm.loop !206
 

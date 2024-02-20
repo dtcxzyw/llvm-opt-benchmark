@@ -457,7 +457,7 @@ for.body:                                         ; preds = %if.end156, %for.bod
   %14 = load ptr, ptr %exclude_list, align 8
   %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %14, i64 %indvars.iv
   %15 = load ptr, ptr %arrayidx, align 8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = trunc i64 %indvars.iv to i32
   %sub = xor i32 %16, -1
   call void @add_pattern(ptr noundef %15, ptr noundef nonnull @.str.20, i32 noundef 0, ptr noundef %call157, i32 noundef %sub) #14
@@ -1503,7 +1503,7 @@ cond.end139.us:                                   ; preds = %if.end3.i116.us, %f
   %arrayidx.us = getelementptr inbounds %struct.string_list_item, ptr %54, i64 %indvars.iv135
   %55 = load ptr, ptr %arrayidx.us, align 8
   %call141.us = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %cond140.us, ptr noundef %55)
-  %indvars.iv.next136 = add nuw i64 %indvars.iv135, 1
+  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %56 = load i64, ptr %nr, align 8
   %cmp132.us = icmp ugt i64 %56, %indvars.iv.next136
   br i1 %cmp132.us, label %for.body.us, label %out, !llvm.loop !15
@@ -1524,7 +1524,7 @@ cond.end139:                                      ; preds = %if.end3.i110, %for.
   %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %58, i64 %indvars.iv
   %59 = load ptr, ptr %arrayidx, align 8
   %call141 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %cond140, ptr noundef %59)
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i64, ptr %nr, align 8
   %cmp132 = icmp ugt i64 %60, %indvars.iv.next
   br i1 %cmp132, label %for.body, label %out, !llvm.loop !15
@@ -1679,7 +1679,7 @@ if.end11:                                         ; preds = %if.end8
 for.body:                                         ; preds = %if.end11, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end11 ]
   %7 = phi ptr [ %12, %for.inc ], [ %6, %if.end11 ]
-  %arrayidx37 = phi ptr [ %arrayidx, %for.inc ], [ %call.i21, %if.end11 ]
+  %arrayidx37 = getelementptr inbounds ptr, ptr %call.i21, i64 %indvars.iv
   call void @strbuf_trim(ptr noundef nonnull %7) #14
   %8 = load ptr, ptr %arrayidx37, align 8
   %len20 = getelementptr inbounds i8, ptr %8, i64 8
@@ -1696,7 +1696,7 @@ if.end23:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end23
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds ptr, ptr %call.i21, i64 %indvars.iv.next
   %12 = load ptr, ptr %arrayidx, align 8
   %tobool15.not = icmp eq ptr %12, null
@@ -2317,7 +2317,7 @@ if.end43.i:                                       ; preds = %for.body35.i
 
 47:                                               ; preds = %if.end43.i, %46
   %48 = phi ptr [ @.str.65, %46 ], [ @.str.64, %if.end43.i ]
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i129, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i129, 1
   %49 = load ptr, ptr %string_list_item.061.i130, align 8
   %50 = trunc i64 %indvars.iv.next.i to i32
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %menu.i, ptr noundef nonnull @.str.66, ptr noundef nonnull %48, i32 noundef %50, ptr noundef %49) #14

@@ -1739,12 +1739,12 @@ lpad12:                                           ; preds = %if.then.i, %if.then
 
 invoke.cont32:                                    ; preds = %for.cond20.preheader, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit145
   %68 = phi ptr [ %114, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit145 ], [ %20, %for.cond20.preheader ]
-  %i.0261361 = phi i32 [ %add46, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit145 ], [ 0, %for.cond20.preheader ]
-  %add262360 = phi i32 [ %add, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit145 ], [ 1, %for.cond20.preheader ]
-  %idxprom.i = zext i32 %i.0261361 to i64
+  %i.0261360 = phi i32 [ %add46, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit145 ], [ 0, %for.cond20.preheader ]
+  %add262361 = or disjoint i32 %i.0261360, 1
+  %idxprom.i = zext i32 %i.0261360 to i64
   %arrayidx.i36 = getelementptr inbounds ptr, ptr %68, i64 %idxprom.i
   %69 = load ptr, ptr %arrayidx.i36, align 8
-  %idxprom.i37 = zext i32 %add262360 to i64
+  %idxprom.i37 = zext i32 %add262361 to i64
   %arrayidx.i38 = getelementptr inbounds ptr, ptr %68, i64 %idxprom.i37
   %70 = load ptr, ptr %arrayidx.i38, align 8
   %71 = load ptr, ptr %this, align 8
@@ -2130,12 +2130,12 @@ terminate.lpad.i.i144:                            ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 _ZN10ref_vectorI4expr11ast_managerED2Ev.exit145:  ; preds = %invoke.cont43, %if.then.i.i.i.i.i140
-  %add46 = add i32 %i.0261361, 2
-  %add = or disjoint i32 %add46, 1
+  %add46 = add i32 %i.0261360, 2
   %114 = load ptr, ptr %trees, align 8, !nonnull !21, !noundef !21
+  %add262 = or disjoint i32 %add46, 1
   %arrayidx.i35 = getelementptr inbounds i8, ptr %114, i64 -4
   %115 = load i32, ptr %arrayidx.i35, align 4
-  %cmp23 = icmp ult i32 %add, %115
+  %cmp23 = icmp ult i32 %add262, %115
   br i1 %cmp23, label %invoke.cont32, label %if.end.i.i
 
 lpad33.loopexit:                                  ; preds = %if.then.i186, %if.end.i183

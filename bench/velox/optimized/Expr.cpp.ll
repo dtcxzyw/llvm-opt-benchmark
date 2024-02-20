@@ -6079,7 +6079,7 @@ for.body.i.lr.ph:                                 ; preds = %invoke.cont9.i
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %if.end77.i
-  %indvars.iv.next365 = add nuw i64 %indvars.iv364, 1
+  %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %27 = load ptr, ptr %_M_finish.i199, align 8
   %28 = load ptr, ptr %inputs_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %27 to i64
@@ -6752,7 +6752,7 @@ for.cond.i23.preheader:                           ; preds = %if.else
   br i1 %cmp.i26340.not, label %for.end.i27, label %for.body.i30
 
 for.cond.i23:                                     ; preds = %call4.i.noexc
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %136 = load ptr, ptr %_M_finish.i310, align 8
   %137 = load ptr, ptr %inputs_.i21, align 8
   %sub.ptr.lhs.cast.i306 = ptrtoint ptr %136 to i64
@@ -8524,7 +8524,7 @@ if.else:                                          ; preds = %for.body
           to label %for.inc unwind label %lpad6.loopexit
 
 for.inc:                                          ; preds = %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEaSEOS3_.exit, %if.else
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load ptr, ptr %_M_finish.i, align 8
   %37 = load ptr, ptr %inputs_, align 8
   %sub.ptr.lhs.cast.i31 = ptrtoint ptr %36 to i64
@@ -8664,7 +8664,7 @@ if.then75:                                        ; preds = %_ZNSt10shared_ptrIN
 for.inc78:                                        ; preds = %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEaSEOS3_.exit83.for.inc78_crit_edge, %invoke.cont59
   %60 = phi ptr [ %.pre110, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEaSEOS3_.exit83.for.inc78_crit_edge ], [ %40, %invoke.cont59 ]
   %61 = phi ptr [ %.pre, %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEaSEOS3_.exit83.for.inc78_crit_edge ], [ %41, %invoke.cont59 ]
-  %indvars.iv.next108 = add nuw i64 %indvars.iv107, 1
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %sub.ptr.lhs.cast.i43 = ptrtoint ptr %61 to i64
   %sub.ptr.rhs.cast.i44 = ptrtoint ptr %60 to i64
   %sub.ptr.sub.i45 = sub i64 %sub.ptr.lhs.cast.i43, %sub.ptr.rhs.cast.i44
@@ -9310,7 +9310,7 @@ invoke.cont84.i:                                  ; preds = %if.end77.i
 
 invoke.cont86.i:                                  ; preds = %invoke.cont84.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i12) #31
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %57 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %58 = load ptr, ptr %exprs.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %57 to i64
@@ -9966,7 +9966,7 @@ for.inc.i:                                        ; preds = %_ZNSt6vectorImSaImE
   %add.ptr.i.i.i.i.i.i.pn.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i ], [ %indices.sroa.8.079.i, %if.then.i.i.i ]
   %indices.sroa.0.1.i = phi ptr [ %cond.i10.i.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i ], [ %indices.sroa.0.080.i, %if.then.i.i.i ]
   %indices.sroa.8.1.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn.i, i64 8
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %11 = load ptr, ptr %inputValues_, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
@@ -10285,7 +10285,7 @@ for.inc.i40:                                      ; preds = %_ZNSt6vectorImSaImE
   %add.ptr.i.i.i.i.i.i.pn.i41 = phi ptr [ %add.ptr.i.i.i.i.i.i.i68, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i71 ], [ %indices.sroa.9.099.i, %if.then.i.i.i39 ]
   %indices.sroa.0.1.i42 = phi ptr [ %cond.i10.i.i.i.i64, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i71 ], [ %indices.sroa.0.0100.i, %if.then.i.i.i39 ]
   %indices.sroa.9.1.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn.i41, i64 8
-  %indvars.iv.next.i43 = add nuw i64 %indvars.iv.i37, 1
+  %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i37, 1
   %34 = load ptr, ptr %_M_finish.i.i35, align 8
   %35 = load ptr, ptr %inputValues_, align 8
   %sub.ptr.lhs.cast.i.i44 = ptrtoint ptr %34 to i64
@@ -14136,7 +14136,7 @@ invoke.cont87:                                    ; preds = %call7.i.noexc123, %
           to label %for.inc92 unwind label %lpad35.loopexit
 
 for.inc92:                                        ; preds = %invoke.cont87
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %92 = load ptr, ptr %_M_finish.i106, align 8
   %93 = load ptr, ptr %peeledVectors, align 8
   %sub.ptr.lhs.cast.i107 = ptrtoint ptr %92 to i64
@@ -17716,7 +17716,7 @@ for.body.i.lr.ph:                                 ; preds = %invoke.cont6.i
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %if.end70.i
-  %indvars.iv.next369 = add nuw i64 %indvars.iv368, 1
+  %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
   %26 = load ptr, ptr %_M_finish.i205, align 8
   %27 = load ptr, ptr %inputs_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %26 to i64
@@ -18395,7 +18395,7 @@ for.cond.i22.preheader:                           ; preds = %if.else
   br i1 %cmp.i25340.not, label %for.end.i26, label %for.body.i28
 
 for.cond.i22:                                     ; preds = %call4.i.noexc
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %134 = load ptr, ptr %_M_finish.i305, align 8
   %135 = load ptr, ptr %inputs_.i20, align 8
   %sub.ptr.lhs.cast.i301 = ptrtoint ptr %134 to i64
@@ -20137,7 +20137,7 @@ if.end:                                           ; preds = %if.then6, %for.body
 
 invoke.cont:                                      ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #31
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load ptr, ptr %_M_finish.i.i, align 8
   %9 = load ptr, ptr %inputs_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
@@ -20250,7 +20250,7 @@ if.end:                                           ; preds = %if.then6, %for.body
 
 invoke.cont:                                      ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #31
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load ptr, ptr %_M_finish.i.i, align 8
   %9 = load ptr, ptr %inputs_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
@@ -20323,7 +20323,7 @@ return:                                           ; preds = %dynamic_cast.end, %
   ret i1 %retval.0
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
@@ -23098,7 +23098,7 @@ invoke.cont12.us:                                 ; preds = %if.end.us
 
 invoke.cont14.us:                                 ; preds = %invoke.cont12.us
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #31
-  %indvars.iv.next23 = add nuw i64 %indvars.iv22, 1
+  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %6 = load ptr, ptr %_M_finish.i, align 8
   %7 = load ptr, ptr %exprs_, align 8
   %sub.ptr.lhs.cast.i.us = ptrtoint ptr %6 to i64
@@ -23177,7 +23177,7 @@ invoke.cont23:                                    ; preds = %.noexc
 invoke.cont25:                                    ; preds = %invoke.cont23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp21) #31
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load ptr, ptr %_M_finish.i, align 8
   %15 = load ptr, ptr %exprs_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %14 to i64
@@ -24465,7 +24465,7 @@ invoke.cont11:                                    ; preds = %.noexc
 invoke.cont13:                                    ; preds = %invoke.cont11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp9) #31
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load ptr, ptr %_M_finish.i, align 8
   %8 = load ptr, ptr %exprs_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
@@ -33966,8 +33966,8 @@ entry:
 
 while.cond.outer.split:                           ; preds = %entry, %if.end14
   %sub13 = phi i64 [ %sub, %if.end14 ], [ %siz, %entry ]
-  %add.ptr12 = phi ptr [ %add.ptr, %if.end14 ], [ %buf, %entry ]
   %offset.0.ph11 = phi i64 [ %add, %if.end14 ], [ 0, %entry ]
+  %add.ptr12 = getelementptr inbounds i8, ptr %buf, i64 %offset.0.ph11
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer.split, %if.then
@@ -34037,7 +34037,6 @@ ehcleanup13:                                      ; preds = %ehcleanup, %lpad
 if.end14:                                         ; preds = %while.cond
   %add = add i64 %call.i, %offset.0.ph11
   %cmp = icmp ult i64 %add, %siz
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %add
   %sub = sub i64 %siz, %add
   br i1 %cmp, label %while.cond.outer.split, label %while.end, !llvm.loop !387
 
@@ -41100,7 +41099,7 @@ invoke.cont56.i.i.i.i:                            ; preds = %if.end48.i.i.i.i
 
 invoke.cont58.i.i.i.i:                            ; preds = %invoke.cont56.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50.i.i.i.i) #31
-  %indvars.iv.next.i.i.i.i = add nuw i64 %indvars.iv.i.i.i.i, 1
+  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %25 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %26 = load ptr, ptr %exprs_.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %25 to i64
@@ -41435,7 +41434,7 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { nofree nosync nounwind memory(none) }
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind memory(read) }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #12 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #13 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

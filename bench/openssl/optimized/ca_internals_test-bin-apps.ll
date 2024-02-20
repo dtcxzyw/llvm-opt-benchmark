@@ -6018,7 +6018,7 @@ end:                                              ; preds = %if.end12, %if.else,
 
 declare i32 @X509_CRL_set1_nextUpdate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
+; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
 define dso_local void @make_uppercase(ptr nocapture noundef %string) local_unnamed_addr #21 {
 entry:
   %0 = load i8, ptr %string, align 1
@@ -6028,7 +6028,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
   %1 = phi i8 [ %2, %for.body ], [ %0, %entry ]
-  %arrayidx8 = phi ptr [ %arrayidx, %for.body ], [ %string, %entry ]
+  %arrayidx8 = getelementptr inbounds i8, ptr %string, i64 %indvars.iv
   %conv4 = zext i8 %1 to i32
   %call = tail call i32 @toupper(i32 noundef %conv4) #30
   %conv5 = trunc i32 %call to i8
@@ -6117,11 +6117,10 @@ for.cond.preheader.i:                             ; preds = %lor.lhs.false, %for
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
-  %arrayidx8.i = phi ptr [ %arrayidx.i, %for.body.i ], [ %call3, %for.cond.preheader.i ]
-  %data.i = getelementptr inbounds i8, ptr %arrayidx8.i, i64 16
+  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %call3, i64 %indvars.iv.i, i32 2
   %5 = load ptr, ptr %data.i, align 8
   call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 3404) #28
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i = getelementptr inbounds %struct.ossl_param_st, ptr %call3, i64 %indvars.iv.next.i
   %6 = load ptr, ptr %arrayidx.i, align 8
   %cmp1.not.i = icmp eq ptr %6, null
@@ -6153,11 +6152,10 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
-  %arrayidx8 = phi ptr [ %arrayidx, %for.body ], [ %params, %for.cond.preheader ]
-  %data = getelementptr inbounds i8, ptr %arrayidx8, i64 16
+  %data = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 %indvars.iv, i32 2
   %1 = load ptr, ptr %data, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 3404) #28
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 %indvars.iv.next
   %2 = load ptr, ptr %arrayidx, align 8
   %cmp1.not = icmp eq ptr %2, null
@@ -6466,7 +6464,7 @@ attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #18 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree nounwind memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { nofree nounwind willreturn memory(argmem: read) }

@@ -4174,7 +4174,11 @@ do.body.i.i:                                      ; preds = %do.cond.i.i, %land.
 for.cond.preheader.i:                             ; preds = %do.body.i.i
   %24 = load i8, ptr %scevgep.i, align 1
   %tobool.not7.i = icmp eq i8 %24, 0
-  br i1 %tobool.not7.i, label %if.then30, label %for.body.i
+  br i1 %tobool.not7.i, label %if.then30, label %for.body.preheader.i
+
+for.body.preheader.i:                             ; preds = %for.cond.preheader.i
+  %invariant.gep.i = getelementptr i8, ptr %23, i64 6
+  br label %for.body.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
   %prefix.addr.0.i.ptr.i = getelementptr inbounds i8, ptr @.str.79, i64 %prefix.addr.0.i.idx.i
@@ -4185,10 +4189,9 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   %cmp.i.i = icmp eq i8 %26, %25
   br i1 %cmp.i.i, label %do.body.i.i, label %if.then30, !llvm.loop !7
 
-for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
-  %27 = phi i8 [ %31, %for.inc.i ], [ %24, %for.cond.preheader.i ]
-  %arrayidx9.i = phi ptr [ %arrayidx.i63, %for.inc.i ], [ %scevgep.i, %for.cond.preheader.i ]
+for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %27 = phi i8 [ %24, %for.body.preheader.i ], [ %31, %for.inc.i ]
   %idxprom3.i = zext i8 %27 to i64
   %arrayidx4.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom3.i
   %28 = load i8, ptr %arrayidx4.i, align 1
@@ -4197,13 +4200,13 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %cmp.not.i, label %for.inc.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %arrayidx7.i = getelementptr i8, ptr %arrayidx9.i, i64 1
-  %30 = load i8, ptr %arrayidx7.i, align 1
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %30 = load i8, ptr %gep.i, align 1
   %cmp9.not.i = icmp eq i8 %30, 36
   br i1 %cmp9.not.i, label %for.inc.i, label %while.cond.backedge.sink.split
 
-for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+for.inc.i:                                        ; preds = %for.body.i, %land.lhs.true.i
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i63 = getelementptr inbounds i8, ptr %scevgep.i, i64 %indvars.iv.next.i
   %31 = load i8, ptr %arrayidx.i63, align 1
   %tobool.not.i64 = icmp eq i8 %31, 0
@@ -4702,7 +4705,7 @@ for.end:                                          ; preds = %for.inc, %if.end28
   br i1 %or.cond1, label %if.then72, label %return
 
 if.then72:                                        ; preds = %for.end
-  %bf.set76 = or i8 %bf.load66, 1
+  %bf.set76 = or disjoint i8 %bf.load66, 1
   store i8 %bf.set76, ptr %has_held, align 8
   %held77 = getelementptr inbounds i8, ptr %filter, i64 9
   store i8 13, ptr %held77, align 1

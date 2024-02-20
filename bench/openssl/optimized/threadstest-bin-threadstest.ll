@@ -1065,13 +1065,13 @@ for.cond:                                         ; preds = %lor.lhs.false
   br i1 %cmp6.not, label %return, label %for.body, !llvm.loop !11
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %arrayidx9 = phi ptr [ %arrayidx, %for.cond ], [ %providers, %for.cond.preheader ]
   %n.08 = phi i64 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
   %call8 = tail call i32 @test_size_t_lt(ptr noundef nonnull @.str.18, i32 noundef 307, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i64 noundef %n.08, i64 noundef 4) #8
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.then15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
+  %arrayidx9 = getelementptr inbounds ptr, ptr %providers, i64 %n.08
   %3 = load ptr, ptr @multi_libctx, align 8
   %4 = load ptr, ptr %arrayidx9, align 8
   %call11 = tail call ptr @OSSL_PROVIDER_load(ptr noundef %3, ptr noundef %4) #8

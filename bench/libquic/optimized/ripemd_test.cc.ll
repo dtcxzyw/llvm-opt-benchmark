@@ -30,12 +30,12 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc28
-  %__begin1.0.ptr37 = phi ptr [ @_ZL16kRIPEMDTestCases, %entry ], [ %__begin1.0.ptr, %for.inc28 ]
   %test_num.036 = phi i32 [ 0, %entry ], [ %inc, %for.inc28 ]
   %ok.035 = phi i32 [ 1, %entry ], [ %.us-phi, %for.inc28 ]
   %__begin1.0.idx34 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.inc28 ]
+  %__begin1.0.ptr37 = getelementptr inbounds i8, ptr @_ZL16kRIPEMDTestCases, i64 %__begin1.0.idx34
   %inc = add nuw nsw i32 %test_num.036, 1
-  %0 = load ptr, ptr %__begin1.0.ptr37, align 8
+  %0 = load ptr, ptr %__begin1.0.ptr37, align 16
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %call.fr = freeze i64 %call
   %cmp929.not = icmp eq i64 %call.fr, 0
@@ -105,7 +105,6 @@ if.then22:                                        ; preds = %if.end17
 for.inc28:                                        ; preds = %for.inc.us, %if.end17, %if.then22
   %.us-phi = phi i32 [ 0, %if.then22 ], [ %ok.035, %if.end17 ], [ %ok.2.us, %for.inc.us ]
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx34, 32
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZL16kRIPEMDTestCases, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 256
   br i1 %cmp.not, label %for.end29, label %for.body
 

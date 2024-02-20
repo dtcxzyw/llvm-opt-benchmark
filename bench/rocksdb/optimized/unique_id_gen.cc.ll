@@ -56,15 +56,14 @@ if.end.i.i.i:
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %invoke.cont.i.i.i, %if.end.i.i.i
-  %__begin2.0.ptr2.i.i.i = phi ptr [ %0, %if.end.i.i.i ], [ %__begin2.0.ptr.i.i.i, %invoke.cont.i.i.i ]
   %__begin2.0.idx1.i.i.i = phi i64 [ 0, %if.end.i.i.i ], [ %__begin2.0.add.i.i.i, %invoke.cont.i.i.i ]
   %call.i4.i.i.i = invoke noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %r.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %for.body.i.i.i
+  %__begin2.0.ptr2.i.i.i = getelementptr inbounds i8, ptr %0, i64 %__begin2.0.idx1.i.i.i
   store i32 %call.i4.i.i.i, ptr %__begin2.0.ptr2.i.i.i, align 4
   %__begin2.0.add.i.i.i = add nuw nsw i64 %__begin2.0.idx1.i.i.i, 4
-  %__begin2.0.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 %__begin2.0.add.i.i.i
   %cmp.not.i.i.i = icmp eq i64 %__begin2.0.add.i.i.i, 24
   br i1 %cmp.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 

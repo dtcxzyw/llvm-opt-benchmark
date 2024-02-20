@@ -4075,13 +4075,16 @@ if.end:                                           ; preds = %entry
 for.cond.preheader:                               ; preds = %if.end
   %7 = load i8, ptr %call2, align 1
   %tobool14.not103 = icmp eq i8 %7, 0
-  br i1 %tobool14.not103, label %if.end32, label %for.body
+  br i1 %tobool14.not103, label %if.end32, label %for.body.preheader
 
-for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
-  %8 = phi i8 [ %10, %for.inc ], [ %7, %for.cond.preheader ]
-  %arrayidx106 = phi ptr [ %arrayidx, %for.inc ], [ %call2, %for.cond.preheader ]
-  %in_body.0105 = phi i32 [ %in_body.1, %for.inc ], [ 0, %for.cond.preheader ]
+for.body.preheader:                               ; preds = %for.cond.preheader
+  %invariant.gep = getelementptr i8, ptr %call2, i64 1
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.preheader, %for.inc
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
+  %8 = phi i8 [ %7, %for.body.preheader ], [ %10, %for.inc ]
+  %in_body.0105 = phi i32 [ 0, %for.body.preheader ], [ %in_body.1, %for.inc ]
   %tobool15.not = icmp eq i32 %in_body.0105, 0
   br i1 %tobool15.not, label %if.then16, label %if.else
 
@@ -4090,8 +4093,8 @@ if.then16:                                        ; preds = %for.body
   br i1 %cmp17, label %land.lhs.true19, label %for.inc
 
 land.lhs.true19:                                  ; preds = %if.then16
-  %arrayidx21 = getelementptr i8, ptr %arrayidx106, i64 1
-  %9 = load i8, ptr %arrayidx21, align 1
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  %9 = load i8, ptr %gep, align 1
   %cmp23 = icmp eq i8 %9, 10
   %spec.select = zext i1 %cmp23 to i32
   br label %for.inc

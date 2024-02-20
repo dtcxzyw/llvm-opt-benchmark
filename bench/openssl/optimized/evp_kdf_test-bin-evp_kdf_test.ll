@@ -2580,12 +2580,12 @@ if.end9:                                          ; preds = %if.end
 for.body:                                         ; preds = %if.end9, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end9 ]
   %1 = phi ptr [ %4, %for.inc ], [ %0, %if.end9 ]
-  %arrayidx1018 = phi ptr [ %arrayidx10, %for.inc ], [ %call2, %if.end9 ]
   %call14 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.177) #6
   %cmp15.not = icmp eq i32 %call14, 0
   br i1 %cmp15.not, label %for.inc, label %if.then16
 
 if.then16:                                        ; preds = %for.body
+  %arrayidx1018 = getelementptr inbounds %struct.ossl_param_st, ptr %call2, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx1018, align 8
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.178, ptr noundef %2) #6
   %3 = load ptr, ptr %arrayidx1018, align 8
@@ -2597,7 +2597,7 @@ if.then16:                                        ; preds = %for.body
   br i1 %tobool28.not, label %err, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then16
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx10 = getelementptr inbounds %struct.ossl_param_st, ptr %call2, i64 %indvars.iv.next
   %4 = load ptr, ptr %arrayidx10, align 8
   %cmp.not = icmp eq ptr %4, null
@@ -2710,7 +2710,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp.not14, label %err, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx5 = getelementptr inbounds %struct.ossl_param_st, ptr %call2, i64 %indvars.iv.next
   %1 = load ptr, ptr %arrayidx5, align 8
   %cmp.not = icmp eq ptr %1, null
@@ -2732,7 +2732,7 @@ for.body:                                         ; preds = %if.end, %for.cond
   br i1 %tobool13.not, label %err, label %for.cond
 
 for.cond16:                                       ; preds = %for.body21
-  %indvars.iv.next22 = add nuw i64 %indvars.iv21, 1
+  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %arrayidx18 = getelementptr inbounds %struct.ossl_param_st, ptr %call2, i64 %indvars.iv.next22
   %3 = load ptr, ptr %arrayidx18, align 8
   %cmp20.not = icmp eq ptr %3, null

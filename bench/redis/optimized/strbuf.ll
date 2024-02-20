@@ -296,13 +296,13 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %if.end, %for.body.preheader
   %4 = phi i8 [ %13, %if.end ], [ %0, %for.body.preheader ]
   %5 = phi i64 [ %inc, %if.end ], [ %2, %for.body.preheader ]
-  %arrayidx23 = phi ptr [ %arrayidx, %if.end ], [ %str, %for.body.preheader ]
   %space.022 = phi i64 [ %dec, %if.end ], [ %sub1.i, %for.body.preheader ]
   %i.021 = phi i64 [ %inc6, %if.end ], [ 0, %for.body.preheader ]
   %cmp = icmp eq i64 %space.022, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
+  %arrayidx23 = getelementptr inbounds i8, ptr %str, i64 %i.021
   %add = add i64 %5, 1
   tail call void @strbuf_resize(ptr noundef nonnull %s, i64 noundef %add)
   %6 = load i64, ptr %size.i, align 8, !tbaa !4

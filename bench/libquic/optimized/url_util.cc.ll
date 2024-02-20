@@ -1579,26 +1579,25 @@ land.rhs.preheader.i.i:                           ; preds = %if.then.i
   %2 = sext i32 %add.i to i64
   %3 = sub i32 %base_spec_len, %add.i
   %wide.trip.count.i.i = zext i32 %3 to i64
+  %invariant.gep.i.i = getelementptr i8, ptr %base_spec, i64 %2
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.preheader.i.i
-  %indvars.iv9.i.i = phi i64 [ 0, %land.rhs.preheader.i.i ], [ %indvars.iv.next10.i.i, %while.body.i.i ]
-  %indvars.iv.i.i = phi i64 [ %2, %land.rhs.preheader.i.i ], [ %indvars.iv.next.i.i, %while.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %base_spec, i64 %indvars.iv.i.i
-  %4 = load i8, ptr %arrayidx.i.i, align 1
+  %indvars.iv.i.i = phi i64 [ 0, %land.rhs.preheader.i.i ], [ %indvars.iv.next.i.i, %while.body.i.i ]
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %4 = load i8, ptr %gep.i.i, align 1
   switch i8 %4, label %while.end.loopexit.split.loop.exit.i.i [
     i8 92, label %while.body.i.i
     i8 47, label %while.body.i.i
   ]
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i, %land.rhs.i.i
-  %indvars.iv.next10.i.i = add nuw nsw i64 %indvars.iv9.i.i, 1
-  %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next10.i.i, %wide.trip.count.i.i
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %invoke.cont5.i, label %land.rhs.i.i, !llvm.loop !5
 
 while.end.loopexit.split.loop.exit.i.i:           ; preds = %land.rhs.i.i
-  %5 = trunc i64 %indvars.iv9.i.i to i32
+  %5 = trunc i64 %indvars.iv.i.i to i32
   br label %invoke.cont5.i
 
 invoke.cont5.i:                                   ; preds = %while.body.i.i, %while.end.loopexit.split.loop.exit.i.i, %if.then.i
@@ -1914,26 +1913,25 @@ land.rhs.preheader.i.i:                           ; preds = %if.then.i
   %2 = sext i32 %add.i to i64
   %3 = sub i32 %base_spec_len, %add.i
   %wide.trip.count.i.i = zext i32 %3 to i64
+  %invariant.gep.i.i = getelementptr i8, ptr %base_spec, i64 %2
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.preheader.i.i
-  %indvars.iv9.i.i = phi i64 [ 0, %land.rhs.preheader.i.i ], [ %indvars.iv.next10.i.i, %while.body.i.i ]
-  %indvars.iv.i.i = phi i64 [ %2, %land.rhs.preheader.i.i ], [ %indvars.iv.next.i.i, %while.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %base_spec, i64 %indvars.iv.i.i
-  %4 = load i8, ptr %arrayidx.i.i, align 1
+  %indvars.iv.i.i = phi i64 [ 0, %land.rhs.preheader.i.i ], [ %indvars.iv.next.i.i, %while.body.i.i ]
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %4 = load i8, ptr %gep.i.i, align 1
   switch i8 %4, label %while.end.loopexit.split.loop.exit.i.i [
     i8 92, label %while.body.i.i
     i8 47, label %while.body.i.i
   ]
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i, %land.rhs.i.i
-  %indvars.iv.next10.i.i = add nuw nsw i64 %indvars.iv9.i.i, 1
-  %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next10.i.i, %wide.trip.count.i.i
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %invoke.cont4.i, label %land.rhs.i.i, !llvm.loop !5
 
 while.end.loopexit.split.loop.exit.i.i:           ; preds = %land.rhs.i.i
-  %5 = trunc i64 %indvars.iv9.i.i to i32
+  %5 = trunc i64 %indvars.iv.i.i to i32
   br label %invoke.cont4.i
 
 invoke.cont4.i:                                   ; preds = %while.body.i.i, %while.end.loopexit.split.loop.exit.i.i, %if.then.i

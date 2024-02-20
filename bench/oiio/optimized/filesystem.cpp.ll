@@ -22114,14 +22114,13 @@ lpad:                                             ; preds = %if.end.i, %for.body
 
 for.cond7:                                        ; preds = %for.body9
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx19, 16
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 %__begin0.0.add
   %cmp8.not = icmp eq i64 %__begin0.0.add, 240
   br i1 %cmp8.not, label %cleanup, label %for.body9
 
 for.body9:                                        ; preds = %for.body9.preheader, %for.cond7
-  %__begin0.0.ptr20 = phi ptr [ %__begin0.0.ptr, %for.cond7 ], [ @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, %for.body9.preheader ]
   %__begin0.0.idx19 = phi i64 [ %__begin0.0.add, %for.cond7 ], [ 0, %for.body9.preheader ]
-  %5 = load ptr, ptr %__begin0.0.ptr20, align 8
+  %__begin0.0.ptr20 = getelementptr inbounds i8, ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 %__begin0.0.idx19
+  %5 = load ptr, ptr %__begin0.0.ptr20, align 16
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__s, ptr noundef %5) #32
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then, label %for.cond7
@@ -74028,9 +74027,9 @@ sw.bb26.i45:                                      ; preds = %if.end18
   %idxprom.i193 = zext nneg i16 %bf.clear.i210.i to i64
   %arrayidx.i194 = getelementptr inbounds [4 x i32], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 0, i64 %idxprom.i193
   %46 = load i32, ptr %arrayidx.i194, align 4, !noalias !677
-  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i203.i, align 16
+  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i203.i, align 16, !alias.scope !677
   %agg.tmp4.i203.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4.i203.i, i64 10
-  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i203.i.sroa_idx, align 2
+  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i203.i.sroa_idx, align 2, !alias.scope !677
   %prefix3.i195 = getelementptr inbounds i8, ptr %agg.tmp4.i203.i, i64 16
   store i32 %46, ptr %prefix3.i195, align 16, !alias.scope !677
   %call.i212.i = call ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull byval(%"struct.fmt::v8::detail::write_int_arg.274") align 16 %agg.tmp4.i203.i, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %retval.sroa.0.0.copyload.i155)

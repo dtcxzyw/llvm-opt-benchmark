@@ -1911,11 +1911,11 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq ptr %2, %3
   %add.ptr.idx = select i1 %cmp2, i64 32, i64 %sub.ptr.sub.i.i.i.i
-  %add.ptr.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
+  %add.ptr.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add.ptr.idx
   %4 = sub nsw i64 236, %add.ptr.idx
   %5 = and i64 %4, -4
   %6 = add nsw i64 %5, 4
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr.ptr, i8 0, i64 %6, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr, i8 0, i64 %6, i1 false)
   %cmp.not.i = icmp eq i64 %add.ptr.idx, 0
   br i1 %cmp.not.i, label %while.body.preheader, label %_ZN4absl15random_internal13SaltedSeedSeqINS1_ISt8seed_seqEEE13generate_implIPjEEvNS4_22ContiguousAndUint32TagET_S8_m.exit.i
 
@@ -1923,7 +1923,7 @@ _ZN4absl15random_internal13SaltedSeedSeqINS1_ISt8seed_seqEEE13generate_implIPjEE
   %sub.ptr.div.i.i.i = lshr exact i64 %add.ptr.idx, 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %salt.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %salt.i.i.i.i)
-  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr.ptr)
+  call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %buffer, ptr noundef nonnull %add.ptr.ptr)
   %call2.i.i.i.i = call i64 @_ZN4absl15random_internal15GetSaltMaterialEv()
   %ref.tmp.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %call2.i.i.i.i to i32
   %7 = and i64 %call2.i.i.i.i, 4294967296
@@ -2848,10 +2848,10 @@ if.then:
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %while.body
-  %dst.019 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
-  %sub = add nsw i64 %dst.019, -4
+  %dst.020 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
+  %sub = add nsw i64 %dst.020, -4
   %shr = lshr exact i64 %sub, 1
-  %dec = add nsw i64 %dst.019, -5
+  %dec = add nsw i64 %dst.020, -5
   %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec9
@@ -2859,7 +2859,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %1 = load i32, ptr %arrayidx10, align 4
   store i32 %1, ptr %arrayidx, align 4
   store i32 %0, ptr %arrayidx10, align 4
-  %dec11 = add nsw i64 %dst.019, -6
+  %dec11 = add nsw i64 %dst.020, -6
   %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec13
@@ -2867,7 +2867,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %3 = load i32, ptr %arrayidx14, align 8
   store i32 %3, ptr %arrayidx12, align 8
   store i32 %2, ptr %arrayidx14, align 8
-  %dec15 = add nsw i64 %dst.019, -7
+  %dec15 = add nsw i64 %dst.020, -7
   %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
   %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
@@ -2875,7 +2875,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %5 = load i32, ptr %arrayidx18, align 4
   store i32 %5, ptr %arrayidx16, align 4
   store i32 %4, ptr %arrayidx18, align 4
-  %dec19 = add nsw i64 %dst.019, -8
+  %dec19 = add nsw i64 %dst.020, -8
   %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
   %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
@@ -4573,10 +4573,10 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br label %invoke.cont15.i
 
 invoke.cont15.i:                                  ; preds = %for.inc30.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2IRNS0_13SaltedSeedSeqISt8seed_seqEEvEEOT_.exit13.i
-  %__begin06.0.ptr49.i = phi ptr [ %variates.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2IRNS0_13SaltedSeedSeqISt8seed_seqEEvEEOT_.exit13.i ], [ %__begin06.0.ptr.i, %for.inc30.i ]
   %__begin06.0.idx48.i = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2IRNS0_13SaltedSeedSeqISt8seed_seqEEvEEOT_.exit13.i ], [ %__begin06.0.add.i, %for.inc30.i ]
   %child3.sroa.0.047.i = phi i64 [ %11, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2IRNS0_13SaltedSeedSeqISt8seed_seqEEvEEOT_.exit13.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i23.i, %for.inc30.i ]
   %child3.sroa.3.046.i = phi i64 [ %12, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2IRNS0_13SaltedSeedSeqISt8seed_seqEEvEEOT_.exit13.i ], [ %.narrow.i.i.i.i25.i, %for.inc30.i ]
+  %__begin06.0.ptr49.i = getelementptr inbounds i8, ptr %variates.i, i64 %__begin06.0.idx48.i
   %coerce.sroa.2.0.insert.ext.i.i.i.i17.i = zext i64 %child3.sroa.3.046.i to i128
   %coerce.sroa.2.0.insert.shift.i.i.i.i18.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i.i17.i, 64
   %coerce.sroa.0.0.insert.ext.i.i.i.i19.i = zext i64 %child3.sroa.0.047.i to i128
@@ -4705,7 +4705,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 for.inc30.i:                                      ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i38.i, %for.inc30.critedge.i
   store ptr null, ptr %message_.i36.i, align 8
   %__begin06.0.add.i = add nuw nsw i64 %__begin06.0.idx48.i, 8
-  %__begin06.0.ptr.i = getelementptr inbounds i8, ptr %variates.i, i64 %__begin06.0.add.i
   %cmp12.not.i = icmp eq i64 %__begin06.0.add.i, 8000
   br i1 %cmp12.not.i, label %cleanup33.i, label %invoke.cont15.i
 
@@ -5053,8 +5052,8 @@ for.cond.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %invoke.cont2.i, %for.cond.preheader.i
   %3 = phi i64 [ %.pre.i, %for.cond.preheader.i ], [ %inc.i.i.i, %invoke.cont2.i ]
-  %__begin0.0.ptr50.i = phi ptr [ %variates.i, %for.cond.preheader.i ], [ %__begin0.0.ptr.i, %invoke.cont2.i ]
   %__begin0.0.idx49.i = phi i64 [ 0, %for.cond.preheader.i ], [ %__begin0.0.add.i, %invoke.cont2.i ]
+  %__begin0.0.ptr50.i = getelementptr inbounds i8, ptr %variates.i, i64 %__begin0.0.idx49.i
   %cmp.i.i.i = icmp ugt i64 %3, 31
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %invoke.cont2.i
 
@@ -5082,7 +5081,6 @@ invoke.cont2.i:                                   ; preds = %if.else.i.i.i.i, %i
   %8 = load i64, ptr %arrayidx.i.i.i, align 8
   store i64 %8, ptr %__begin0.0.ptr50.i, align 8
   %__begin0.0.add.i = add nuw nsw i64 %__begin0.0.idx49.i, 8
-  %__begin0.0.ptr.i = getelementptr inbounds i8, ptr %variates.i, i64 %__begin0.0.add.i
   %cmp.not.i = icmp eq i64 %__begin0.0.add.i, 8000
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i
 
@@ -5116,8 +5114,8 @@ for.cond11.preheader.i:                           ; preds = %for.end.i
   br label %for.body13.i
 
 for.body13.i:                                     ; preds = %for.inc30.i, %for.cond11.preheader.i
-  %__begin06.0.ptr52.i = phi ptr [ %variates.i, %for.cond11.preheader.i ], [ %__begin06.0.ptr.i, %for.inc30.i ]
   %__begin06.0.idx51.i = phi i64 [ 0, %for.cond11.preheader.i ], [ %__begin06.0.add.i, %for.inc30.i ]
+  %__begin06.0.ptr52.i = getelementptr inbounds i8, ptr %variates.i, i64 %__begin06.0.idx51.i
   %10 = load i64, ptr %next_.i.i16.i, align 8
   %cmp.i.i17.i = icmp ugt i64 %10, 31
   br i1 %cmp.i.i17.i, label %if.then.i.i20.i, label %invoke.cont15.i
@@ -5259,7 +5257,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 for.inc30.i:                                      ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i41.i, %for.inc30.critedge.i
   store ptr null, ptr %message_.i39.i, align 8
   %__begin06.0.add.i = add nuw nsw i64 %__begin06.0.idx51.i, 8
-  %__begin06.0.ptr.i = getelementptr inbounds i8, ptr %variates.i, i64 %__begin06.0.add.i
   %cmp12.not.i = icmp eq i64 %__begin06.0.add.i, 8000
   br i1 %cmp12.not.i, label %cleanup33.i, label %for.body13.i
 

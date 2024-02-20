@@ -738,7 +738,6 @@ if.then:                                          ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %invoke.cont7
-  %__begin2.sroa.0.0.ptr11 = phi ptr [ %call5.i.i.i.i2.i.i4, %if.then ], [ %__begin2.sroa.0.0.ptr, %invoke.cont7 ]
   %__begin2.sroa.0.0.idx10 = phi i64 [ 0, %if.then ], [ %__begin2.sroa.0.0.add, %invoke.cont7 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i.i)
   %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #21
@@ -755,6 +754,7 @@ while.body.i:                                     ; preds = %while.body.i, %for.
   br i1 %tobool.not.i, label %invoke.cont7, label %while.body.i, !llvm.loop !5
 
 invoke.cont7:                                     ; preds = %while.body.i
+  %__begin2.sroa.0.0.ptr11 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i4, i64 %__begin2.sroa.0.0.idx10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i.i.i)
   %call.i.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i.i) #21
   %2 = load i64, ptr %t.i.i.i.i.i, align 8
@@ -770,7 +770,6 @@ invoke.cont7:                                     ; preds = %while.body.i
   %mul.i.i.i = fmul double %4, %conv.i.i.i
   store double %mul.i.i.i, ptr %__begin2.sroa.0.0.ptr11, align 8
   %__begin2.sroa.0.0.add = add nuw nsw i64 %__begin2.sroa.0.0.idx10, 8
-  %__begin2.sroa.0.0.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i4, i64 %__begin2.sroa.0.0.add
   %cmp.i.not = icmp eq i64 %__begin2.sroa.0.0.add, 80
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -23163,9 +23162,9 @@ sw.bb26.i45:                                      ; preds = %if.end18
   %idxprom.i194 = zext nneg i16 %bf.clear.i254 to i64
   %arrayidx.i195 = getelementptr inbounds [4 x i32], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 0, i64 %idxprom.i194
   %46 = load i32, ptr %arrayidx.i195, align 4, !noalias !146
-  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16
+  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16, !alias.scope !146
   %agg.tmp4.i247.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 10
-  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2
+  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2, !alias.scope !146
   %prefix3.i196 = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 16
   store i32 %46, ptr %prefix3.i196, align 16, !alias.scope !146
   %call.i256 = call ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull byval(%"struct.fmt::v8::detail::write_int_arg.89") align 16 %agg.tmp4.i247, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %retval.sroa.0.0.copyload.i156)

@@ -1636,8 +1636,8 @@ if.end89:                                         ; preds = %land.lhs.true, %sw.
   br label %initthread-pre-split.backedge
 
 land.rhs.i:                                       ; preds = %while.cond.i.preheader, %while.body.i233
-  %add.ptr.i224357 = phi ptr [ %add.ptr.i224, %while.body.i233 ], [ %s.addr.0, %while.cond.i.preheader ]
   %i.0.i356 = phi i64 [ %inc.i234, %while.body.i233 ], [ 0, %while.cond.i.preheader ]
+  %add.ptr.i224357 = getelementptr inbounds i8, ptr %s.addr.0, i64 %i.0.i356
   %66 = load i8, ptr %add.ptr.i224357, align 1
   %conv.i = zext i8 %66 to i32
   %call.i231 = tail call fastcc i32 @singlematch(i32 noundef %conv.i, ptr noundef nonnull %p.addr.0, ptr noundef nonnull %retval.0.i210), !range !16
@@ -1656,7 +1656,7 @@ while.end.i:                                      ; preds = %while.body.i233, %l
   br i1 %cmp3.i227360, label %while.body5.i.lr.ph, label %sw.epilog108
 
 while.body5.i.lr.ph:                              ; preds = %while.cond.i.preheader, %while.end.i
-  %i.0.i.lcssa418 = phi i64 [ %i.0.i.lcssa, %while.end.i ], [ 0, %while.cond.i.preheader ]
+  %i.0.i.lcssa419 = phi i64 [ %i.0.i.lcssa, %while.end.i ], [ 0, %while.cond.i.preheader ]
   %add.ptr7.i = getelementptr inbounds i8, ptr %retval.0.i210, i64 1
   br label %while.body5.i
 
@@ -1666,7 +1666,7 @@ while.cond2.i:                                    ; preds = %while.body5.i
   br i1 %cmp3.i227, label %while.body5.i, label %sw.epilog108, !llvm.loop !18
 
 while.body5.i:                                    ; preds = %while.body5.i.lr.ph, %while.cond2.i
-  %i.1.i361 = phi i64 [ %i.0.i.lcssa418, %while.body5.i.lr.ph ], [ %dec.i230, %while.cond2.i ]
+  %i.1.i361 = phi i64 [ %i.0.i.lcssa419, %while.body5.i.lr.ph ], [ %dec.i230, %while.cond2.i ]
   %add.ptr6.i = getelementptr inbounds i8, ptr %s.addr.0, i64 %i.1.i361
   %call8.i = tail call fastcc ptr @match(ptr noundef %ms, ptr noundef %add.ptr6.i, ptr noundef nonnull %add.ptr7.i)
   %tobool9.not.i = icmp eq ptr %call8.i, null
@@ -1681,8 +1681,8 @@ cond.true95:                                      ; preds = %sw.bb93
   br i1 %cmp.i239346, label %land.rhs.i252, label %while.body5.i245.lr.ph
 
 land.rhs.i252:                                    ; preds = %cond.true95, %while.body.i256
-  %add.ptr.i237348 = phi ptr [ %add.ptr.i237, %while.body.i256 ], [ %add.ptr96, %cond.true95 ]
   %i.0.i236347 = phi i64 [ %inc.i257, %while.body.i256 ], [ 0, %cond.true95 ]
+  %add.ptr.i237348 = getelementptr inbounds i8, ptr %add.ptr96, i64 %i.0.i236347
   %67 = load i8, ptr %add.ptr.i237348, align 1
   %conv.i253 = zext i8 %67 to i32
   %call.i254 = tail call fastcc i32 @singlematch(i32 noundef %conv.i253, ptr noundef nonnull %p.addr.0, ptr noundef nonnull %retval.0.i210), !range !16
@@ -1701,7 +1701,7 @@ while.end.i240:                                   ; preds = %while.body.i256, %l
   br i1 %cmp3.i243351, label %while.body5.i245.lr.ph, label %sw.epilog108
 
 while.body5.i245.lr.ph:                           ; preds = %cond.true95, %while.end.i240
-  %i.0.i236.lcssa421 = phi i64 [ %i.0.i236.lcssa, %while.end.i240 ], [ 0, %cond.true95 ]
+  %i.0.i236.lcssa422 = phi i64 [ %i.0.i236.lcssa, %while.end.i240 ], [ 0, %cond.true95 ]
   %add.ptr7.i247 = getelementptr inbounds i8, ptr %retval.0.i210, i64 1
   br label %while.body5.i245
 
@@ -1711,7 +1711,7 @@ while.cond2.i241:                                 ; preds = %while.body5.i245
   br i1 %cmp3.i243, label %while.body5.i245, label %sw.epilog108, !llvm.loop !18
 
 while.body5.i245:                                 ; preds = %while.body5.i245.lr.ph, %while.cond2.i241
-  %i.1.i242352 = phi i64 [ %i.0.i236.lcssa421, %while.body5.i245.lr.ph ], [ %dec.i251, %while.cond2.i241 ]
+  %i.1.i242352 = phi i64 [ %i.0.i236.lcssa422, %while.body5.i245.lr.ph ], [ %dec.i251, %while.cond2.i241 ]
   %add.ptr6.i246 = getelementptr inbounds i8, ptr %add.ptr96, i64 %i.1.i242352
   %call8.i248 = tail call fastcc ptr @match(ptr noundef %ms, ptr noundef nonnull %add.ptr6.i246, ptr noundef nonnull %add.ptr7.i247)
   %tobool9.not.i249 = icmp eq ptr %call8.i248, null

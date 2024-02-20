@@ -2905,14 +2905,13 @@ if.end25:                                         ; preds = %do.body22
 if.end29:                                         ; preds = %while.cond
   %add = add i64 %call15, %offset.0.ph31
   %cmp14 = icmp ult i64 %add, %retval.0.i
-  %add.ptr = getelementptr inbounds i8, ptr %call2, i64 %add
   %sub = sub i64 %retval.0.i, %add
   br i1 %cmp14, label %while.cond.outer.split, label %while.end, !llvm.loop !19
 
 while.cond.outer.split:                           ; preds = %while.cond.preheader, %if.end29
   %sub33 = phi i64 [ %sub, %if.end29 ], [ %retval.0.i, %while.cond.preheader ]
-  %add.ptr32 = phi ptr [ %add.ptr, %if.end29 ], [ %call2, %while.cond.preheader ]
   %offset.0.ph31 = phi i64 [ %add, %if.end29 ], [ 0, %while.cond.preheader ]
+  %add.ptr32 = getelementptr inbounds i8, ptr %call2, i64 %offset.0.ph31
   br label %while.cond
 
 while.end:                                        ; preds = %if.end29, %while.cond.preheader

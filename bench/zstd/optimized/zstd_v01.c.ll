@@ -689,7 +689,6 @@ if.end.i121.i.i.i.i.i.i.preheader:                ; preds = %FSE_initDState.exit
   br label %if.end.i121.i.i.i.i.i.i
 
 if.end.i121.i.i.i.i.i.i:                          ; preds = %if.end.i121.i.i.i.i.i.i.preheader, %cond.true.i138.i.i.i.i.i.i
-  %op.i10.0.ptr.ptr.i69.i.i.i.i.i = phi ptr [ %op.i10.0.ptr.ptr.i.i.i.i.i.i, %cond.true.i138.i.i.i.i.i.i ], [ %huffWeight.i.i.i.i, %if.end.i121.i.i.i.i.i.i.preheader ]
   %op.i10.0.idx.i67.i.i.i.i.i = phi i64 [ %op.i10.0.add.i.i.i.i.i.i, %cond.true.i138.i.i.i.i.i.i ], [ 0, %if.end.i121.i.i.i.i.i.i.preheader ]
   %bitD.i13.sroa.58.5.idx.i66.i.i.i.i.i = phi i64 [ %bitD.i13.sroa.58.5.add.pn.i.i.i.i.i.i, %cond.true.i138.i.i.i.i.i.i ], [ %bitD.i13.sroa.58.5.idx.i66.i.i.i.i.i.ph, %if.end.i121.i.i.i.i.i.i.preheader ]
   %bitD.i13.sroa.24.3.i65.i.i.i.i.i = phi i32 [ %add.i.i.i197.i.i.i.i.i.i, %cond.true.i138.i.i.i.i.i.i ], [ %bitD.i13.sroa.24.3.i65.i.i.i.i.i.ph, %if.end.i121.i.i.i.i.i.i.preheader ]
@@ -697,6 +696,7 @@ if.end.i121.i.i.i.i.i.i:                          ; preds = %if.end.i121.i.i.i.i
   %state2.i15.sroa.0.0.i63.i.i.i.i.i = phi i64 [ %add.i199.i.i.i.i.i.i, %cond.true.i138.i.i.i.i.i.i ], [ %shr3.i.i.i80.i.i.i.i.i.i, %if.end.i121.i.i.i.i.i.i.preheader ]
   %state1.i14.sroa.0.0.i62.i.i.i.i.i = phi i64 [ %add.i179.i.i.i.i.i.i, %cond.true.i138.i.i.i.i.i.i ], [ %shr3.i.i.i.i.i.i.i.i.i, %if.end.i121.i.i.i.i.i.i.preheader ]
   %bitD.i13.sroa.58.5.ptr.i68.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %bitD.i13.sroa.58.5.idx.i66.i.i.i.i.i
+  %op.i10.0.ptr.ptr.i69.i.i.i.i.i = getelementptr inbounds i8, ptr %huffWeight.i.i.i.i, i64 %op.i10.0.idx.i67.i.i.i.i.i
   %cmp2.not.i.i.i.i.i.i.i = icmp slt i64 %bitD.i13.sroa.58.5.idx.i66.i.i.i.i.i, 8
   br i1 %cmp2.not.i.i.i.i.i.i.i, label %if.end10.i.i.i.i.i.i.i, label %if.then4.i.i.i.i.i.i.i
 
@@ -762,7 +762,7 @@ cond.true.i138.i.i.i.i.i.i:                       ; preds = %FSE_reloadDStream.e
   %shr.i.i.i137.i.i.i.i.i.i = lshr i64 %shl.i.i.i133.i.i.i.i.i.i, %sh_prom2.i.i.i136.i.i.i.i.i.i
   %add.i.i.i138.i.i.i.i.i.i = add i32 %bitD.i13.sroa.24.4.i.i.i.i.i.i, %conv.i128.i.i.i.i.i.i
   %conv3.i.i.i.i.i.i.i = zext i16 %DInfo.sroa.0.0.copyload.i.i.i.i.i.i.i to i64
-  store i8 %DInfo.sroa.2.0.copyload.i.i.i.i.i.i.i, ptr %op.i10.0.ptr.ptr.i69.i.i.i.i.i, align 1
+  store i8 %DInfo.sroa.2.0.copyload.i.i.i.i.i.i.i, ptr %op.i10.0.ptr.ptr.i69.i.i.i.i.i, align 4
   %arrayidx.i141.i.i.i.i.i.i = getelementptr inbounds %struct.FSE_decode_t, ptr %add.ptr.i.i.i.i.i.i, i64 %state2.i15.sroa.0.0.i63.i.i.i.i.i
   %DInfo.sroa.0.0.copyload.i142.i.i.i.i.i.i = load i16, ptr %arrayidx.i141.i.i.i.i.i.i, align 4
   %DInfo.sroa.2.0.arrayidx.sroa_idx.i143.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i141.i.i.i.i.i.i, i64 2
@@ -800,7 +800,7 @@ cond.true.i138.i.i.i.i.i.i:                       ; preds = %FSE_reloadDStream.e
   %conv3.i178.i.i.i.i.i.i = zext i16 %DInfo.sroa.0.0.copyload.i162.i.i.i.i.i.i to i64
   %add.i179.i.i.i.i.i.i = add i64 %shr.i.i.i176.i.i.i.i.i.i, %conv3.i178.i.i.i.i.i.i
   %arrayidx31.i119.i.i.i.i.i.i = getelementptr inbounds i8, ptr %op.i10.0.ptr.ptr.i69.i.i.i.i.i, i64 2
-  store i8 %DInfo.sroa.2.0.copyload.i164.i.i.i.i.i.i, ptr %arrayidx31.i119.i.i.i.i.i.i, align 1
+  store i8 %DInfo.sroa.2.0.copyload.i164.i.i.i.i.i.i, ptr %arrayidx31.i119.i.i.i.i.i.i, align 2
   %46 = getelementptr %struct.FSE_decode_t, ptr %add.ptr.i.i.i.i.i.i, i64 %shr.i.i.i156.i.i.i.i.i.i
   %arrayidx.i181.i.i.i.i.i.i = getelementptr %struct.FSE_decode_t, ptr %46, i64 %conv3.i158.i.i.i.i.i.i
   %DInfo.sroa.0.0.copyload.i182.i.i.i.i.i.i = load i16, ptr %arrayidx.i181.i.i.i.i.i.i, align 4
@@ -822,7 +822,6 @@ cond.true.i138.i.i.i.i.i.i:                       ; preds = %FSE_reloadDStream.e
   %arrayidx42.i127.i.i.i.i.i.i = getelementptr inbounds i8, ptr %op.i10.0.ptr.ptr.i69.i.i.i.i.i, i64 3
   store i8 %DInfo.sroa.2.0.copyload.i184.i.i.i.i.i.i, ptr %arrayidx42.i127.i.i.i.i.i.i, align 1
   %op.i10.0.add.i.i.i.i.i.i = add nuw nsw i64 %op.i10.0.idx.i67.i.i.i.i.i, 4
-  %op.i10.0.ptr.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %huffWeight.i.i.i.i, i64 %op.i10.0.add.i.i.i.i.i.i
   %cmp.i120.i.i.i.i.i.i = icmp ugt i32 %add.i.i.i197.i.i.i.i.i.i, 64
   br i1 %cmp.i120.i.i.i.i.i.i, label %FSE_decompress.exit.thread.i.i.i.i, label %if.end.i121.i.i.i.i.i.i, !llvm.loop !13
 
@@ -1200,7 +1199,6 @@ if.end.i503.i.i.i.i.i.i.preheader:                ; preds = %FSE_initDState.exit
   br label %if.end.i503.i.i.i.i.i.i
 
 if.end.i503.i.i.i.i.i.i:                          ; preds = %if.end.i503.i.i.i.i.i.i.preheader, %cond.false.i.i.i.i.i.i.i
-  %op.i.0.ptr.ptr.i84.i.i.i.i.i = phi ptr [ %op.i.0.ptr.ptr.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i.i ], [ %huffWeight.i.i.i.i, %if.end.i503.i.i.i.i.i.i.preheader ]
   %op.i.0.idx.i82.i.i.i.i.i = phi i64 [ %op.i.0.add.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i.i ], [ 0, %if.end.i503.i.i.i.i.i.i.preheader ]
   %state2.i.sroa.0.0.i81.i.i.i.i.i = phi i64 [ %add.i623.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i.i ], [ %shr3.i.i.i462.i.i.i.i.i.i, %if.end.i503.i.i.i.i.i.i.preheader ]
   %state1.i.sroa.0.0.i80.i.i.i.i.i = phi i64 [ %add.i602.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i.i ], [ %shr3.i.i.i413.i.i.i.i.i.i, %if.end.i503.i.i.i.i.i.i.preheader ]
@@ -1208,6 +1206,7 @@ if.end.i503.i.i.i.i.i.i:                          ; preds = %if.end.i503.i.i.i.i
   %bitD.i.sroa.24.3.i78.i.i.i.i.i = phi i32 [ %add.i.i.i621.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i.i ], [ %bitD.i.sroa.24.3.i78.i.i.i.i.i.ph, %if.end.i503.i.i.i.i.i.i.preheader ]
   %bitD.i.sroa.58.5.idx.i77.i.i.i.i.i = phi i64 [ %bitD.i.sroa.58.5.add.pn.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i.i ], [ %bitD.i.sroa.58.5.idx.i77.i.i.i.i.i.ph, %if.end.i503.i.i.i.i.i.i.preheader ]
   %bitD.i.sroa.58.5.ptr.i83.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 %bitD.i.sroa.58.5.idx.i77.i.i.i.i.i
+  %op.i.0.ptr.ptr.i84.i.i.i.i.i = getelementptr inbounds i8, ptr %huffWeight.i.i.i.i, i64 %op.i.0.idx.i82.i.i.i.i.i
   %cmp2.not.i507.i.i.i.i.i.i = icmp slt i64 %bitD.i.sroa.58.5.idx.i77.i.i.i.i.i, 8
   br i1 %cmp2.not.i507.i.i.i.i.i.i, label %if.end10.i516.i.i.i.i.i.i, label %if.then4.i508.i.i.i.i.i.i
 
@@ -1274,7 +1273,7 @@ cond.false.i.i.i.i.i.i.i:                         ; preds = %FSE_reloadDStream.e
   %shr3.i.i.i557.i.i.i.i.i.i = lshr i64 %shr.i.i.i553.i.i.i.i.i.i, %sh_prom2.i.i.i556.i.i.i.i.i.i
   %add.i.i.i558.i.i.i.i.i.i = add i32 %bitD.i.sroa.24.4.i.i.i.i.i.i, %conv.i547.i.i.i.i.i.i
   %conv3.i559.i.i.i.i.i.i = zext i16 %DInfo.sroa.0.0.copyload.i542.i.i.i.i.i.i to i64
-  store i8 %DInfo.sroa.2.0.copyload.i544.i.i.i.i.i.i, ptr %op.i.0.ptr.ptr.i84.i.i.i.i.i, align 1
+  store i8 %DInfo.sroa.2.0.copyload.i544.i.i.i.i.i.i, ptr %op.i.0.ptr.ptr.i84.i.i.i.i.i, align 4
   %arrayidx.i562.i.i.i.i.i.i = getelementptr inbounds %struct.FSE_decode_t, ptr %add.ptr.i.i.i.i.i.i, i64 %state2.i.sroa.0.0.i81.i.i.i.i.i
   %DInfo.sroa.0.0.copyload.i563.i.i.i.i.i.i = load i16, ptr %arrayidx.i562.i.i.i.i.i.i, align 4
   %DInfo.sroa.2.0.arrayidx.sroa_idx.i564.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i562.i.i.i.i.i.i, i64 2
@@ -1314,7 +1313,7 @@ cond.false.i.i.i.i.i.i.i:                         ; preds = %FSE_reloadDStream.e
   %conv3.i601.i.i.i.i.i.i = zext i16 %DInfo.sroa.0.0.copyload.i584.i.i.i.i.i.i to i64
   %add.i602.i.i.i.i.i.i = add nuw i64 %shr3.i.i.i599.i.i.i.i.i.i, %conv3.i601.i.i.i.i.i.i
   %arrayidx31.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %op.i.0.ptr.ptr.i84.i.i.i.i.i, i64 2
-  store i8 %DInfo.sroa.2.0.copyload.i586.i.i.i.i.i.i, ptr %arrayidx31.i.i.i.i.i.i.i, align 1
+  store i8 %DInfo.sroa.2.0.copyload.i586.i.i.i.i.i.i, ptr %arrayidx31.i.i.i.i.i.i.i, align 2
   %71 = getelementptr %struct.FSE_decode_t, ptr %add.ptr.i.i.i.i.i.i, i64 %shr3.i.i.i578.i.i.i.i.i.i
   %arrayidx.i604.i.i.i.i.i.i = getelementptr %struct.FSE_decode_t, ptr %71, i64 %conv3.i580.i.i.i.i.i.i
   %DInfo.sroa.0.0.copyload.i605.i.i.i.i.i.i = load i16, ptr %arrayidx.i604.i.i.i.i.i.i, align 4
@@ -1337,7 +1336,6 @@ cond.false.i.i.i.i.i.i.i:                         ; preds = %FSE_reloadDStream.e
   %arrayidx42.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %op.i.0.ptr.ptr.i84.i.i.i.i.i, i64 3
   store i8 %DInfo.sroa.2.0.copyload.i607.i.i.i.i.i.i, ptr %arrayidx42.i.i.i.i.i.i.i, align 1
   %op.i.0.add.i.i.i.i.i.i = add nuw nsw i64 %op.i.0.idx.i82.i.i.i.i.i, 4
-  %op.i.0.ptr.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %huffWeight.i.i.i.i, i64 %op.i.0.add.i.i.i.i.i.i
   %cmp.i502.i.i.i.i.i.i = icmp ugt i32 %add.i.i.i621.i.i.i.i.i.i, 64
   br i1 %cmp.i502.i.i.i.i.i.i, label %FSE_decompress.exit.thread.i.i.i.i, label %if.end.i503.i.i.i.i.i.i, !llvm.loop !13
 

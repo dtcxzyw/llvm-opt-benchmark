@@ -2380,7 +2380,7 @@ if.end944:                                        ; preds = %if.then942, %sw.bb9
 
 for.body:                                         ; preds = %if.end944, %for.body
   %indvars.iv2063 = phi i64 [ %indvars.iv.next2064, %for.body ], [ 0, %if.end944 ]
-  %add.ptr9532044 = phi ptr [ %add.ptr953, %for.body ], [ %161, %if.end944 ]
+  %add.ptr9532044 = getelementptr inbounds %struct.lua_TValue, ptr %161, i64 %indvars.iv2063
   %add.ptr962 = getelementptr inbounds %struct.lua_TValue, ptr %160, i64 %indvars.iv2063
   %167 = load i64, ptr %add.ptr9532044, align 8
   store i64 %167, ptr %add.ptr962, align 8

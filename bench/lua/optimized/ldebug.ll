@@ -1290,12 +1290,12 @@ if.then3:                                         ; preds = %for.inc.i, %if.then
 
 for.body.i12:                                     ; preds = %if.then3, %for.inc.i14
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i15, %for.inc.i14 ], [ 0, %if.then3 ]
-  %add.ptr18.i = phi ptr [ %add.ptr1.i, %for.inc.i14 ], [ %add.ptr.i, %if.then3 ]
+  %add.ptr18.i = getelementptr inbounds %union.StackValue, ptr %add.ptr.i, i64 %indvars.iv.i13
   %cmp4.i = icmp eq ptr %add.ptr18.i, %o
   br i1 %cmp4.i, label %instack.exit, label %for.inc.i14
 
 for.inc.i14:                                      ; preds = %for.body.i12
-  %indvars.iv.next.i15 = add nuw i64 %indvars.iv.i13, 1
+  %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i13, 1
   %add.ptr1.i = getelementptr inbounds %union.StackValue, ptr %add.ptr.i, i64 %indvars.iv.next.i15
   %cmp.i = icmp ult ptr %add.ptr1.i, %9
   br i1 %cmp.i, label %for.body.i12, label %formatvarinfo.exit, !llvm.loop !13

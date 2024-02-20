@@ -18621,19 +18621,19 @@ if.then12:                                        ; preds = %invoke.cont7
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %cur.0.add.i.i = add nuw nsw i64 %cur.0.idx6.i.i, 8
-  %cur.0.ptr.i.i = getelementptr inbounds i8, ptr @_ZN5boost12interprocessL8ec_tableE, i64 %cur.0.add.i.i
   %cmp.not.i.i = icmp eq i64 %cur.0.add.i.i, 128
   br i1 %cmp.not.i.i, label %invoke.cont17, label %for.body.i.i, !llvm.loop !105
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %if.then12
-  %cur.0.ptr7.i.i = phi ptr [ @_ZN5boost12interprocessL8ec_tableE, %if.then12 ], [ %cur.0.ptr.i.i, %for.cond.i.i ]
   %cur.0.idx6.i.i = phi i64 [ 0, %if.then12 ], [ %cur.0.add.i.i, %for.cond.i.i ]
-  %6 = load i32, ptr %cur.0.ptr7.i.i, align 4
+  %cur.0.ptr7.i.i = getelementptr inbounds i8, ptr @_ZN5boost12interprocessL8ec_tableE, i64 %cur.0.idx6.i.i
+  %6 = load i32, ptr %cur.0.ptr7.i.i, align 8
   %cmp1.i.i = icmp eq i32 %6, %5
   br i1 %cmp1.i.i, label %if.then.i.i, label %for.cond.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %ec.i.i = getelementptr inbounds i8, ptr %cur.0.ptr7.i.i, i64 4
+  %cur.0.ptr7.i.i.le = getelementptr inbounds i8, ptr @_ZN5boost12interprocessL8ec_tableE, i64 %cur.0.idx6.i.i
+  %ec.i.i = getelementptr inbounds i8, ptr %cur.0.ptr7.i.i.le, i64 4
   %7 = load i32, ptr %ec.i.i, align 4
   br label %invoke.cont17
 
@@ -18721,27 +18721,27 @@ if.then52:                                        ; preds = %if.then48
   br label %for.body.i.i49
 
 for.cond.i.i53:                                   ; preds = %for.body.i.i49
-  %cur.0.add.i.i54 = add nuw nsw i64 %cur.0.idx6.i.i51, 8
-  %cur.0.ptr.i.i55 = getelementptr inbounds i8, ptr @_ZN5boost12interprocessL8ec_tableE, i64 %cur.0.add.i.i54
-  %cmp.not.i.i56 = icmp eq i64 %cur.0.add.i.i54, 128
-  br i1 %cmp.not.i.i56, label %_ZN5boost12interprocess10error_infoC2Ei.exit61, label %for.body.i.i49, !llvm.loop !105
+  %cur.0.add.i.i54 = add nuw nsw i64 %cur.0.idx6.i.i50, 8
+  %cmp.not.i.i55 = icmp eq i64 %cur.0.add.i.i54, 128
+  br i1 %cmp.not.i.i55, label %_ZN5boost12interprocess10error_infoC2Ei.exit61, label %for.body.i.i49, !llvm.loop !105
 
 for.body.i.i49:                                   ; preds = %for.cond.i.i53, %if.then52
-  %cur.0.ptr7.i.i50 = phi ptr [ @_ZN5boost12interprocessL8ec_tableE, %if.then52 ], [ %cur.0.ptr.i.i55, %for.cond.i.i53 ]
-  %cur.0.idx6.i.i51 = phi i64 [ 0, %if.then52 ], [ %cur.0.add.i.i54, %for.cond.i.i53 ]
-  %4 = load i32, ptr %cur.0.ptr7.i.i50, align 4
+  %cur.0.idx6.i.i50 = phi i64 [ 0, %if.then52 ], [ %cur.0.add.i.i54, %for.cond.i.i53 ]
+  %cur.0.ptr7.i.i51 = getelementptr inbounds i8, ptr @_ZN5boost12interprocessL8ec_tableE, i64 %cur.0.idx6.i.i50
+  %4 = load i32, ptr %cur.0.ptr7.i.i51, align 8
   %cmp1.i.i52 = icmp eq i32 %4, %3
-  br i1 %cmp1.i.i52, label %if.then.i.i59, label %for.cond.i.i53
+  br i1 %cmp1.i.i52, label %if.then.i.i58, label %for.cond.i.i53
 
-if.then.i.i59:                                    ; preds = %for.body.i.i49
-  %ec.i.i60 = getelementptr inbounds i8, ptr %cur.0.ptr7.i.i50, i64 4
+if.then.i.i58:                                    ; preds = %for.body.i.i49
+  %cur.0.ptr7.i.i51.le = getelementptr inbounds i8, ptr @_ZN5boost12interprocessL8ec_tableE, i64 %cur.0.idx6.i.i50
+  %ec.i.i60 = getelementptr inbounds i8, ptr %cur.0.ptr7.i.i51.le, i64 4
   %5 = load i32, ptr %ec.i.i60, align 4
   br label %_ZN5boost12interprocess10error_infoC2Ei.exit61
 
-_ZN5boost12interprocess10error_infoC2Ei.exit61:   ; preds = %for.cond.i.i53, %if.then.i.i59
-  %retval.0.i.i57 = phi i32 [ %5, %if.then.i.i59 ], [ 1, %for.cond.i.i53 ]
-  %m_ec.i58 = getelementptr inbounds i8, ptr %err53, i64 4
-  store i32 %retval.0.i.i57, ptr %m_ec.i58, align 4
+_ZN5boost12interprocess10error_infoC2Ei.exit61:   ; preds = %for.cond.i.i53, %if.then.i.i58
+  %retval.0.i.i56 = phi i32 [ %5, %if.then.i.i58 ], [ 1, %for.cond.i.i53 ]
+  %m_ec.i57 = getelementptr inbounds i8, ptr %err53, i64 4
+  store i32 %retval.0.i.i56, ptr %m_ec.i57, align 4
   %exception55 = tail call ptr @__cxa_allocate_exception(i64 48) #25
   invoke void @_ZN5boost12interprocess22interprocess_exceptionC2ERKNS0_10error_infoEPKc(ptr noundef nonnull align 8 dereferenceable(48) %exception55, ptr noundef nonnull align 4 dereferenceable(8) %err53, ptr noundef null)
           to label %invoke.cont57 unwind label %lpad56
@@ -18843,27 +18843,27 @@ if.then85:                                        ; preds = %switch.lookup
   br label %for.body.i.i66
 
 for.cond.i.i70:                                   ; preds = %for.body.i.i66
-  %cur.0.add.i.i71 = add nuw nsw i64 %cur.0.idx6.i.i68, 8
-  %cur.0.ptr.i.i72 = getelementptr inbounds i8, ptr @_ZN5boost12interprocessL8ec_tableE, i64 %cur.0.add.i.i71
-  %cmp.not.i.i73 = icmp eq i64 %cur.0.add.i.i71, 128
-  br i1 %cmp.not.i.i73, label %_ZN5boost12interprocess10error_infoC2Ei.exit78, label %for.body.i.i66, !llvm.loop !105
+  %cur.0.add.i.i71 = add nuw nsw i64 %cur.0.idx6.i.i67, 8
+  %cmp.not.i.i72 = icmp eq i64 %cur.0.add.i.i71, 128
+  br i1 %cmp.not.i.i72, label %_ZN5boost12interprocess10error_infoC2Ei.exit78, label %for.body.i.i66, !llvm.loop !105
 
 for.body.i.i66:                                   ; preds = %for.cond.i.i70, %if.then85
-  %cur.0.ptr7.i.i67 = phi ptr [ @_ZN5boost12interprocessL8ec_tableE, %if.then85 ], [ %cur.0.ptr.i.i72, %for.cond.i.i70 ]
-  %cur.0.idx6.i.i68 = phi i64 [ 0, %if.then85 ], [ %cur.0.add.i.i71, %for.cond.i.i70 ]
-  %16 = load i32, ptr %cur.0.ptr7.i.i67, align 4
+  %cur.0.idx6.i.i67 = phi i64 [ 0, %if.then85 ], [ %cur.0.add.i.i71, %for.cond.i.i70 ]
+  %cur.0.ptr7.i.i68 = getelementptr inbounds i8, ptr @_ZN5boost12interprocessL8ec_tableE, i64 %cur.0.idx6.i.i67
+  %16 = load i32, ptr %cur.0.ptr7.i.i68, align 8
   %cmp1.i.i69 = icmp eq i32 %16, %15
-  br i1 %cmp1.i.i69, label %if.then.i.i76, label %for.cond.i.i70
+  br i1 %cmp1.i.i69, label %if.then.i.i75, label %for.cond.i.i70
 
-if.then.i.i76:                                    ; preds = %for.body.i.i66
-  %ec.i.i77 = getelementptr inbounds i8, ptr %cur.0.ptr7.i.i67, i64 4
+if.then.i.i75:                                    ; preds = %for.body.i.i66
+  %cur.0.ptr7.i.i68.le = getelementptr inbounds i8, ptr @_ZN5boost12interprocessL8ec_tableE, i64 %cur.0.idx6.i.i67
+  %ec.i.i77 = getelementptr inbounds i8, ptr %cur.0.ptr7.i.i68.le, i64 4
   %17 = load i32, ptr %ec.i.i77, align 4
   br label %_ZN5boost12interprocess10error_infoC2Ei.exit78
 
-_ZN5boost12interprocess10error_infoC2Ei.exit78:   ; preds = %for.cond.i.i70, %if.then.i.i76
-  %retval.0.i.i74 = phi i32 [ %17, %if.then.i.i76 ], [ 1, %for.cond.i.i70 ]
-  %m_ec.i75 = getelementptr inbounds i8, ptr %err86, i64 4
-  store i32 %retval.0.i.i74, ptr %m_ec.i75, align 4
+_ZN5boost12interprocess10error_infoC2Ei.exit78:   ; preds = %for.cond.i.i70, %if.then.i.i75
+  %retval.0.i.i73 = phi i32 [ %17, %if.then.i.i75 ], [ 1, %for.cond.i.i70 ]
+  %m_ec.i74 = getelementptr inbounds i8, ptr %err86, i64 4
+  store i32 %retval.0.i.i73, ptr %m_ec.i74, align 4
   %exception88 = tail call ptr @__cxa_allocate_exception(i64 48) #25
   invoke void @_ZN5boost12interprocess22interprocess_exceptionC2ERKNS0_10error_infoEPKc(ptr noundef nonnull align 8 dereferenceable(48) %exception88, ptr noundef nonnull align 4 dereferenceable(8) %err86, ptr noundef null)
           to label %invoke.cont90 unwind label %lpad89
@@ -78130,7 +78130,7 @@ entry:
   ret ptr null
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -78296,7 +78296,7 @@ attributes #25 = { nounwind }
 attributes #26 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #27 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #28 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { nofree nounwind memory(read) }
+attributes #29 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #30 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #31 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #32 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

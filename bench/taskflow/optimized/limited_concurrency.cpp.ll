@@ -2777,8 +2777,8 @@ invoke.cont19:                                    ; preds = %invoke.cont16
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont19, %for.inc
-  %__begin1.sroa.0.0.ptr760 = phi ptr [ %call5.i.i.i.i2.i, %invoke.cont19 ], [ %__begin1.sroa.0.0.ptr, %for.inc ]
   %__begin1.sroa.0.0.idx759 = phi i64 [ 0, %invoke.cont19 ], [ %__begin1.sroa.0.0.add, %for.inc ]
+  %__begin1.sroa.0.0.ptr760 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 %__begin1.sroa.0.0.idx759
   %194 = load ptr, ptr %__begin1.sroa.0.0.ptr760, align 8
   %_semaphores.i = getelementptr inbounds i8, ptr %194, i64 168
   %195 = load ptr, ptr %_semaphores.i, align 8
@@ -2937,7 +2937,6 @@ for.inc:                                          ; preds = %_ZN2tf23SmallVector
   %add.ptr.i.i697 = getelementptr inbounds i8, ptr %211, i64 8
   store ptr %add.ptr.i.i697, ptr %EndX.i.i678, align 8
   %__begin1.sroa.0.0.add = add nuw nsw i64 %__begin1.sroa.0.0.idx759, 8
-  %__begin1.sroa.0.0.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 %__begin1.sroa.0.0.add
   %cmp.i.not = icmp eq i64 %__begin1.sroa.0.0.add, 40
   br i1 %cmp.i.not, label %for.end, label %for.body
 

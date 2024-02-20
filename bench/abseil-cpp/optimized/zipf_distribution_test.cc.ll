@@ -1077,15 +1077,15 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %__begin3.sroa.0.08, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i12 = icmp eq ptr %8, null
-  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %if.else
+dynamic_cast.end.i:                               ; preds = %if.else
   %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_18ZipfTestEEE, i64 0) #28
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %if.else
-  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %if.else
+  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i13 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %10)
   br i1 %call.i13, label %for.end, label %if.else.i
 
@@ -5356,7 +5356,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10438,9 +10438,9 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN4absl15random_internal13sequence_urbgD2Ev.exit
-  %__begin1.0.ptr124 = phi ptr [ %kInputs, %entry ], [ %__begin1.0.ptr, %_ZN4absl15random_internal13sequence_urbgD2Ev.exit ]
   %__begin1.0.idx123 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %_ZN4absl15random_internal13sequence_urbgD2Ev.exit ]
-  %0 = load i64, ptr %__begin1.0.ptr124, align 8
+  %__begin1.0.ptr124 = getelementptr inbounds i8, ptr %kInputs, i64 %__begin1.0.idx123
+  %0 = load i64, ptr %__begin1.0.ptr124, align 16
   store i64 0, ptr %urbg, align 8
   %call5.i.i.i.i2.i.i = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
   store ptr %call5.i.i.i.i2.i.i, ptr %data_.i, align 8
@@ -10457,7 +10457,7 @@ common.resume:                                    ; preds = %if.then.i.i.i.i114,
 invoke.cont:                                      ; preds = %for.body
   %second = getelementptr inbounds i8, ptr %__begin1.0.ptr124, i64 8
   store i32 %call.i102, ptr %ref.tmp194, align 4
-  %1 = load i32, ptr %second, align 4, !noalias !229
+  %1 = load i32, ptr %second, align 8, !noalias !229
   %cmp.i.i = icmp eq i32 %1, %call.i102
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -10574,7 +10574,6 @@ if.then.i.i.i.i:                                  ; preds = %_ZN7testing15Assert
 
 _ZN4absl15random_internal13sequence_urbgD2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %if.then.i.i.i.i
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx123, 16
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %kInputs, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 1024
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -11209,10 +11208,10 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont399
-  %__begin0.0.ptr566 = phi ptr [ %ref.tmp2, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.ptr, %invoke.cont399 ]
   %__begin0.0.idx565 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont399 ]
   %gen.sroa.3.0564 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont399 ]
   %gen.sroa.0.0563 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont399 ]
+  %__begin0.0.ptr566 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx565
   %6 = load i32, ptr %__begin0.0.ptr566, align 8
   %q_.i81 = getelementptr inbounds i8, ptr %__begin0.0.ptr566, i64 8
   %7 = load double, ptr %q_.i81, align 8
@@ -13228,7 +13227,6 @@ invoke.cont399:                                   ; preds = %invoke.cont397
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp389) #34
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #28
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx565, 64
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.add
   %cmp.not = icmp eq i64 %__begin0.0.add, 320
   br i1 %cmp.not, label %for.end404, label %for.body
 
@@ -16247,10 +16245,10 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont404
-  %__begin0.0.ptr565 = phi ptr [ %ref.tmp2, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.ptr, %invoke.cont404 ]
   %__begin0.0.idx564 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont404 ]
   %gen.sroa.3.0563 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont404 ]
   %gen.sroa.0.0562 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont404 ]
+  %__begin0.0.ptr565 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx564
   %6 = load i8, ptr %__begin0.0.ptr565, align 8
   %q_.i80 = getelementptr inbounds i8, ptr %__begin0.0.ptr565, i64 8
   %7 = load double, ptr %q_.i80, align 8
@@ -18266,7 +18264,6 @@ invoke.cont404:                                   ; preds = %invoke.cont402
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp394) #34
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #28
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx564, 64
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.add
   %cmp.not = icmp eq i64 %__begin0.0.add, 320
   br i1 %cmp.not, label %for.end409, label %for.body
 
@@ -22700,10 +22697,10 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont404
-  %__begin0.0.ptr565 = phi ptr [ %ref.tmp2, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.ptr, %invoke.cont404 ]
   %__begin0.0.idx564 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont404 ]
   %gen.sroa.3.0563 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont404 ]
   %gen.sroa.0.0562 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont404 ]
+  %__begin0.0.ptr565 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx564
   %6 = load i16, ptr %__begin0.0.ptr565, align 8
   %q_.i80 = getelementptr inbounds i8, ptr %__begin0.0.ptr565, i64 8
   %7 = load double, ptr %q_.i80, align 8
@@ -24719,7 +24716,6 @@ invoke.cont404:                                   ; preds = %invoke.cont402
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp394) #34
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #28
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx564, 64
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.add
   %cmp.not = icmp eq i64 %__begin0.0.add, 320
   br i1 %cmp.not, label %for.end409, label %for.body
 
@@ -27214,10 +27210,10 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont399
-  %__begin0.0.ptr567 = phi ptr [ %ref.tmp2, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.ptr, %invoke.cont399 ]
   %__begin0.0.idx566 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont399 ]
   %gen.sroa.3.0565 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont399 ]
   %gen.sroa.0.0564 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont399 ]
+  %__begin0.0.ptr567 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx566
   %6 = load i64, ptr %__begin0.0.ptr567, align 8
   %q_.i81 = getelementptr inbounds i8, ptr %__begin0.0.ptr567, i64 8
   %7 = load double, ptr %q_.i81, align 8
@@ -29233,7 +29229,6 @@ invoke.cont399:                                   ; preds = %invoke.cont397
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp389) #34
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #28
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx566, 64
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.add
   %cmp.not = icmp eq i64 %__begin0.0.add, 320
   br i1 %cmp.not, label %for.end404, label %for.body
 
@@ -31727,10 +31722,10 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont404
-  %__begin0.0.ptr565 = phi ptr [ %ref.tmp2, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.ptr, %invoke.cont404 ]
   %__begin0.0.idx564 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont404 ]
   %gen.sroa.3.0563 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont404 ]
   %gen.sroa.0.0562 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont404 ]
+  %__begin0.0.ptr565 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx564
   %6 = load i8, ptr %__begin0.0.ptr565, align 8
   %q_.i80 = getelementptr inbounds i8, ptr %__begin0.0.ptr565, i64 8
   %7 = load double, ptr %q_.i80, align 8
@@ -33737,7 +33732,6 @@ invoke.cont404:                                   ; preds = %invoke.cont402
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp394) #34
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #28
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx564, 64
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.add
   %cmp.not = icmp eq i64 %__begin0.0.add, 320
   br i1 %cmp.not, label %for.end409, label %for.body
 
@@ -36231,10 +36225,10 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont404
-  %__begin0.0.ptr565 = phi ptr [ %ref.tmp2, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.ptr, %invoke.cont404 ]
   %__begin0.0.idx564 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont404 ]
   %gen.sroa.3.0563 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont404 ]
   %gen.sroa.0.0562 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont404 ]
+  %__begin0.0.ptr565 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx564
   %6 = load i16, ptr %__begin0.0.ptr565, align 8
   %q_.i80 = getelementptr inbounds i8, ptr %__begin0.0.ptr565, i64 8
   %7 = load double, ptr %q_.i80, align 8
@@ -38241,7 +38235,6 @@ invoke.cont404:                                   ; preds = %invoke.cont402
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp394) #34
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #28
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx564, 64
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.add
   %cmp.not = icmp eq i64 %__begin0.0.add, 320
   br i1 %cmp.not, label %for.end409, label %for.body
 
@@ -40735,10 +40728,10 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont399
-  %__begin0.0.ptr567 = phi ptr [ %ref.tmp2, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.ptr, %invoke.cont399 ]
   %__begin0.0.idx566 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont399 ]
   %gen.sroa.3.0565 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont399 ]
   %gen.sroa.0.0564 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont399 ]
+  %__begin0.0.ptr567 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx566
   %6 = load i32, ptr %__begin0.0.ptr567, align 8
   %q_.i82 = getelementptr inbounds i8, ptr %__begin0.0.ptr567, i64 8
   %7 = load double, ptr %q_.i82, align 8
@@ -42745,7 +42738,6 @@ invoke.cont399:                                   ; preds = %invoke.cont397
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp389) #34
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #28
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx566, 64
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.add
   %cmp.not = icmp eq i64 %__begin0.0.add, 320
   br i1 %cmp.not, label %for.end404, label %for.body
 
@@ -45239,10 +45231,10 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont393
-  %__begin0.0.ptr568 = phi ptr [ %ref.tmp2, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.ptr, %invoke.cont393 ]
   %__begin0.0.idx567 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont393 ]
   %gen.sroa.3.0566 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.narrow.i.i.i.i.i.i.i.i.i, %invoke.cont393 ]
   %gen.sroa.0.0565 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i, %invoke.cont393 ]
+  %__begin0.0.ptr568 = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.idx567
   %6 = load i64, ptr %__begin0.0.ptr568, align 8
   %q_.i82 = getelementptr inbounds i8, ptr %__begin0.0.ptr568, i64 8
   %7 = load double, ptr %q_.i82, align 8
@@ -47249,7 +47241,6 @@ invoke.cont393:                                   ; preds = %invoke.cont391
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp383) #34
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #28
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx567, 64
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr %ref.tmp2, i64 %__begin0.0.add
   %cmp.not = icmp eq i64 %__begin0.0.add, 320
   br i1 %cmp.not, label %for.end398, label %for.body
 
@@ -52980,7 +52971,7 @@ attributes #15 = { cold nounwind "frame-pointer"="all" "no-trapping-math"="true"
 attributes #16 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree nounwind memory(read) }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #20 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

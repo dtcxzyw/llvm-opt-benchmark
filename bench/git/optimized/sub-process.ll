@@ -279,7 +279,7 @@ if.then2.i:                                       ; preds = %entry
   br label %handshake_version.exit.thread
 
 for.cond.i:                                       ; preds = %for.body.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i = getelementptr inbounds i32, ptr %versions, i64 %indvars.iv.next.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %tobool6.not.i = icmp eq i32 %2, 0
@@ -390,7 +390,7 @@ if.then54.i:                                      ; preds = %if.end50.i
   br label %handshake_version.exit.thread
 
 for.cond58.i:                                     ; preds = %for.body62.i
-  %indvars.iv.next51.i = add nuw i64 %indvars.iv50.i, 1
+  %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
   %arrayidx60.i = getelementptr inbounds i32, ptr %versions, i64 %indvars.iv.next51.i
   %14 = load i32, ptr %arrayidx60.i, align 4
   %tobool61.not.i = icmp eq i32 %14, 0
@@ -417,7 +417,7 @@ lor.rhs:                                          ; preds = %for.body62.i
   br i1 %tobool.not20.i, label %for.end.i11, label %for.body.i3
 
 for.cond.i7:                                      ; preds = %for.body.i3
-  %indvars.iv.next.i8 = add nuw i64 %indvars.iv.i4, 1
+  %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i4, 1
   %arrayidx.i9 = getelementptr inbounds %struct.subprocess_capability, ptr %capabilities, i64 %indvars.iv.next.i8
   %17 = load ptr, ptr %arrayidx.i9, align 8
   %tobool.not.i10 = icmp eq ptr %17, null
@@ -483,7 +483,7 @@ for.cond19.us.i:                                  ; preds = %land.rhs.lr.ph.us.i
 land.rhs.us.i:                                    ; preds = %for.cond19.us.i
   %call27.us.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %p.1.us.i, ptr noundef nonnull dereferenceable(1) %24) #11
   %tobool28.not.us.i = icmp eq i32 %call27.us.i, 0
-  %indvars.iv.next52.i = add nuw i64 %indvars.iv51.i, 1
+  %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   br i1 %tobool28.not.us.i, label %while.cond.backedge.us.i, label %for.cond19.us.i, !llvm.loop !10
 
 for.cond19.preheader.us.i:                        ; preds = %skip_prefix.exit.us.i
@@ -531,46 +531,41 @@ skip_prefix.exit.i:                               ; preds = %do.cond.i.i17, %do.
 for.cond19.preheader.i:                           ; preds = %skip_prefix.exit.i
   %29 = load ptr, ptr %capabilities, align 8
   %tobool23.not22.i = icmp eq ptr %29, null
-  br i1 %tobool23.not22.i, label %if.else.i, label %land.rhs.i.preheader
+  br i1 %tobool23.not22.i, label %if.else.i, label %land.rhs.i
 
-land.rhs.i.preheader:                             ; preds = %for.cond19.preheader.i
-  %call27.i2035 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %p.1.i, ptr noundef nonnull dereferenceable(1) %29) #11
-  %tobool28.not.i2136 = icmp eq i32 %call27.i2035, 0
-  br i1 %tobool28.not.i2136, label %if.then37.i, label %for.cond19.i
-
-for.cond19.i:                                     ; preds = %land.rhs.i.preheader, %land.rhs.i
-  %indvars.iv46.i37 = phi i64 [ %indvars.iv.next47.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %indvars.iv.next47.i = add nuw i64 %indvars.iv46.i37, 1
+for.cond19.i:                                     ; preds = %land.rhs.i
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %arrayidx21.i = getelementptr inbounds %struct.subprocess_capability, ptr %capabilities, i64 %indvars.iv.next47.i
   %30 = load ptr, ptr %arrayidx21.i, align 8
   %tobool23.not.i = icmp eq ptr %30, null
   br i1 %tobool23.not.i, label %if.else.i, label %land.rhs.i, !llvm.loop !10
 
-land.rhs.i:                                       ; preds = %for.cond19.i
-  %call27.i20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %p.1.i, ptr noundef nonnull dereferenceable(1) %30) #11
+land.rhs.i:                                       ; preds = %for.cond19.preheader.i, %for.cond19.i
+  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %for.cond19.i ], [ 0, %for.cond19.preheader.i ]
+  %31 = phi ptr [ %30, %for.cond19.i ], [ %29, %for.cond19.preheader.i ]
+  %call27.i20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %p.1.i, ptr noundef nonnull dereferenceable(1) %31) #11
   %tobool28.not.i21 = icmp eq i32 %call27.i20, 0
-  br i1 %tobool28.not.i21, label %if.then37.i, label %for.cond19.i, !llvm.loop !10
+  br i1 %tobool28.not.i21, label %if.then37.i, label %for.cond19.i
 
-if.then37.i:                                      ; preds = %land.rhs.i, %land.rhs.i.preheader
-  %arrayidx2124.i.lcssa = phi ptr [ %capabilities, %land.rhs.i.preheader ], [ %arrayidx21.i, %land.rhs.i ]
-  %flag.i = getelementptr inbounds i8, ptr %arrayidx2124.i.lcssa, i64 8
-  %31 = load i32, ptr %flag.i, align 8
-  %32 = load i32, ptr %supported_capabilities, align 4
-  %or.i = or i32 %32, %31
+if.then37.i:                                      ; preds = %land.rhs.i
+  %flag.i = getelementptr inbounds %struct.subprocess_capability, ptr %capabilities, i64 %indvars.iv46.i, i32 1
+  %32 = load i32, ptr %flag.i, align 8
+  %33 = load i32, ptr %supported_capabilities, align 4
+  %or.i = or i32 %33, %32
   store i32 %or.i, ptr %supported_capabilities, align 4
   br label %while.cond.backedge.i
 
 if.else.i:                                        ; preds = %for.cond19.preheader.i, %for.cond19.i, %for.cond19.preheader.us.i, %for.cond19.us.i
   %p.1.lcssa.i = phi ptr [ %p.1.us.i, %for.cond19.us.i ], [ %p.1.us.i, %for.cond19.preheader.us.i ], [ %p.1.i, %for.cond19.i ], [ %p.1.i, %for.cond19.preheader.i ]
   %process3 = getelementptr inbounds i8, ptr %entry1, i64 24
-  %33 = load ptr, ptr %process3, align 8
-  %34 = load ptr, ptr %33, align 8
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.21, ptr noundef %34, ptr noundef %p.1.lcssa.i) #13
+  %34 = load ptr, ptr %process3, align 8
+  %35 = load ptr, ptr %34, align 8
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.21, ptr noundef %35, ptr noundef %p.1.lcssa.i) #13
   unreachable
 
 while.cond.backedge.i:                            ; preds = %if.then37.i, %skip_prefix.exit.i
-  %35 = load i32, ptr %out.i, align 4
-  %call14.i = tail call ptr @packet_read_line(i32 noundef %35, ptr noundef null) #12
+  %36 = load i32, ptr %out.i, align 4
+  %call14.i = tail call ptr @packet_read_line(i32 noundef %36, ptr noundef null) #12
   %tobool15.not.i = icmp eq ptr %call14.i, null
   br i1 %tobool15.not.i, label %lor.end, label %do.body.i.preheader.i, !llvm.loop !11
 

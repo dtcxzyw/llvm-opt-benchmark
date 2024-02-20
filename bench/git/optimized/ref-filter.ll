@@ -2803,13 +2803,13 @@ if.end.i.i.i:                                     ; preds = %if.then37.i
 for.body.i.i.i.i:                                 ; preds = %if.end.i.i.i, %for.inc.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %if.end.i.i.i ]
   %18 = phi ptr [ %22, %for.inc.i.i.i.i ], [ %17, %if.end.i.i.i ]
-  %arrayidx3.i.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %for.inc.i.i.i.i ], [ %16, %if.end.i.i.i ]
   %head_ref.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %head_ref.i.i.i.i, align 8
   %tobool3.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %tobool3.not.i.i.i.i, label %for.inc.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
+  %arrayidx3.i.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv.i.i.i.i
   %call.i.i.i.i = call ptr @xmalloc(i64 noundef 24) #22
   %20 = load ptr, ptr %arrayidx3.i.i.i.i, align 8
   %wt.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
@@ -2824,7 +2824,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   br label %for.inc.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %if.then.i.i.i.i, %for.body.i.i.i.i
-  %indvars.iv.next.i.i.i.i = add nuw i64 %indvars.iv.i.i.i.i, 1
+  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv.next.i.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %22, null
@@ -5157,7 +5157,7 @@ if.then65:                                        ; preds = %if.else57
 
 for.inc:                                          ; preds = %if.else57.for.inc_crit_edge, %if.then19, %if.then30, %if.then49, %if.then39, %if.then24
   %7 = phi i64 [ %.pre, %if.else57.for.inc_crit_edge ], [ %3, %if.then19 ], [ %3, %if.then30 ], [ %3, %if.then49 ], [ %3, %if.then39 ], [ %3, %if.then24 ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp ugt i64 %7, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !37
 
@@ -5486,7 +5486,7 @@ _.exit75:                                         ; preds = %if.else31, %if.end3
 
 for.inc:                                          ; preds = %strtoul_ui.exit58, %strtoul_ui.exit, %if.end12, %if.then29
   %width.3 = phi i32 [ %width.0114, %if.end12 ], [ %conv9.i, %strtoul_ui.exit ], [ %conv9.i57, %strtoul_ui.exit58 ], [ %width.0114, %if.then29 ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %18, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !38

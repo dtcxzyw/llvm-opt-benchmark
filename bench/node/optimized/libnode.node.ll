@@ -684,8 +684,8 @@ if.end:                                           ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %__begin1.0.ptr24 = phi ptr [ @_ZN4nodeL5stdioE, %if.end ], [ %__begin1.0.ptr, %for.inc ]
   %__begin1.0.idx23 = phi i64 [ 0, %if.end ], [ %__begin1.0.add, %for.inc ]
+  %__begin1.0.ptr24 = getelementptr inbounds i8, ptr @_ZN4nodeL5stdioE, i64 %__begin1.0.idx23
   %sub.ptr.div = udiv exact i64 %__begin1.0.idx23, 216
   %conv = trunc i64 %sub.ptr.div to i32
   %call2 = call i32 @fstat64(i32 noundef %conv, ptr noundef nonnull %tmp) #23
@@ -828,7 +828,6 @@ do.body128:                                       ; preds = %land.rhs119, %lor.e
 
 for.inc:                                          ; preds = %land.rhs119, %if.end14, %if.end73, %lor.end, %land.rhs, %do.body
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx23, 216
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZN4nodeL5stdioE, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 648
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -3597,8 +3596,8 @@ if.end85.i:                                       ; preds = %do.end84.i, %if.end
   br i1 %tobool.not.i, label %for.body94.i, label %if.end156.i
 
 for.body94.i:                                     ; preds = %if.end85.i, %for.inc153.i
-  %__begin290.0.ptr50.i = phi ptr [ %__begin290.0.ptr.i, %for.inc153.i ], [ @_ZN4nodeL5stdioE, %if.end85.i ]
   %__begin290.0.idx49.i = phi i64 [ %__begin290.0.add.i, %for.inc153.i ], [ 0, %if.end85.i ]
+  %__begin290.0.ptr50.i = getelementptr inbounds i8, ptr @_ZN4nodeL5stdioE, i64 %__begin290.0.idx49.i
   %sub.ptr.div99.i = udiv exact i64 %__begin290.0.idx49.i, 216
   %conv100.i = trunc i64 %sub.ptr.div99.i to i32
   br label %do.body102.i
@@ -3651,7 +3650,6 @@ do.body147.i:                                     ; preds = %land.rhs135.i, %do.
 
 for.inc153.i:                                     ; preds = %do.body131.i, %do.end126.i
   %__begin290.0.add.i = add nuw nsw i64 %__begin290.0.idx49.i, 216
-  %__begin290.0.ptr.i = getelementptr inbounds i8, ptr @_ZN4nodeL5stdioE, i64 %__begin290.0.add.i
   %cmp93.not.i = icmp eq i64 %__begin290.0.add.i, 648
   br i1 %cmp93.not.i, label %if.end156.i, label %for.body94.i
 

@@ -7,21 +7,20 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @_ZN4base8internal29kThreadPriorityToNiceValueMapE = external global [4 x %"struct.base::internal::ThreadPriorityToNiceValuePair"], align 16
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZN4base8internal25ThreadPriorityToNiceValueENS_14ThreadPriorityE(i32 noundef %priority) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx5, 8
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 %__begin2.0.add
   %cmp.not = icmp eq i64 %__begin2.0.add, 32
   br i1 %cmp.not, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
-  %__begin2.0.ptr6 = phi ptr [ @_ZN4base8internal29kThreadPriorityToNiceValueMapE, %entry ], [ %__begin2.0.ptr, %for.cond ]
   %__begin2.0.idx5 = phi i64 [ 0, %entry ], [ %__begin2.0.add, %for.cond ]
-  %0 = load i32, ptr %__begin2.0.ptr6, align 4
+  %__begin2.0.ptr6 = getelementptr inbounds i8, ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 %__begin2.0.idx5
+  %0 = load i32, ptr %__begin2.0.ptr6, align 8
   %cmp2 = icmp eq i32 %0, %priority
   br i1 %cmp2, label %if.then, label %for.cond
 
@@ -36,7 +35,7 @@ return:                                           ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN4base8internal25NiceValueToThreadPriorityEi(i32 noundef %nice_value) local_unnamed_addr #0 {
+define dso_local noundef i32 @_ZN4base8internal25NiceValueToThreadPriorityEi(i32 noundef %nice_value) local_unnamed_addr #1 {
 entry:
   br label %for.cond
 
@@ -61,7 +60,8 @@ return:                                           ; preds = %for.cond, %if.then
   ret i32 %retval.0
 }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

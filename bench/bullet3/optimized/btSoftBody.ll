@@ -1865,9 +1865,9 @@ for.cond2.preheader:                              ; preds = %for.cond2.preheader
 
 for.body4:                                        ; preds = %for.cond2.preheader, %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit
   %2 = phi i32 [ %.pre, %for.cond2.preheader ], [ %inc.i, %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit ]
-  %add14 = phi i32 [ %i.016, %for.cond2.preheader ], [ %add, %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit ]
   %j.013 = phi i32 [ 0, %for.cond2.preheader ], [ %inc, %_ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit ]
-  %sub12 = sub i32 %N, %add14
+  %add14 = add nuw nsw i32 %j.013, %i.016
+  %sub12 = sub nsw i32 %N, %add14
   %3 = insertelement <2 x i32> poison, i32 %j.013, i64 0
   %4 = insertelement <2 x i32> %3, i32 %sub12, i64 1
   %5 = sitofp <2 x i32> %4 to <2 x float>

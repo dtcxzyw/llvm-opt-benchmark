@@ -94,8 +94,8 @@ for.cond2:                                        ; preds = %for.body5
   br i1 %cmp4.not, label %if.then13, label %for.body5, !llvm.loop !7
 
 for.body5:                                        ; preds = %for.body, %for.cond2
-  %arrayidx92 = phi ptr [ %arrayidx, %for.cond2 ], [ %templates, %for.body ]
   %j.091 = phi i64 [ %inc, %for.cond2 ], [ 0, %for.body ]
+  %arrayidx92 = getelementptr inbounds %struct.argument, ptr %templates, i64 %j.091
   %call6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #13
   %12 = load ptr, ptr %arrayidx92, align 8
   %call9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call6, ptr noundef nonnull dereferenceable(1) %12) #14
@@ -210,8 +210,8 @@ for.inc41:                                        ; preds = %if.then27, %if.end3
 
 for.body51:                                       ; preds = %for.cond45.preheader, %for.inc82
   %26 = phi ptr [ %36, %for.inc82 ], [ %5, %for.cond45.preheader ]
-  %arrayidx46102 = phi ptr [ %arrayidx46, %for.inc82 ], [ %templates, %for.cond45.preheader ]
   %j44.0101 = phi i64 [ %inc83, %for.inc82 ], [ 0, %for.cond45.preheader ]
+  %arrayidx46102 = getelementptr inbounds %struct.argument, ptr %templates, i64 %j44.0101
   %type54 = getelementptr inbounds i8, ptr %arrayidx46102, i64 8
   %27 = load i32, ptr %type54, align 8
   %cmp55 = icmp eq i32 %27, 0
@@ -410,10 +410,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %2 = phi ptr [ %5, %for.body ], [ %0, %entry ]
-  %arrayidx7 = phi ptr [ %arrayidx, %for.body ], [ %templates, %entry ]
   %i.06 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
   %3 = load ptr, ptr @stderr, align 8
-  %description = getelementptr inbounds i8, ptr %arrayidx7, i64 16
+  %description = getelementptr inbounds %struct.argument, ptr %templates, i64 %i.06, i32 2
   %4 = load ptr, ptr %description, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.5, ptr noundef nonnull %2, ptr noundef %4) #15
   %inc = add i64 %i.06, 1

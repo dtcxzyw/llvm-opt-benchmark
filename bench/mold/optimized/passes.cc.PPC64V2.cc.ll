@@ -47452,17 +47452,17 @@ entry:
   %0 = ptrtoint ptr %begin.coerce to i64
   %.pre = load ptr, ptr %begin.coerce, align 8
   %sh_flags8.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
-  %.pre23 = load i64, ptr %sh_flags8.i.phi.trans.insert, align 1
+  %.pre24 = load i64, ptr %sh_flags8.i.phi.trans.insert, align 1
   %sh_type6.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 28
-  %.pre24 = load i32, ptr %sh_type6.i.phi.trans.insert, align 1
+  %.pre25 = load i32, ptr %sh_type6.i.phi.trans.insert, align 1
   %name4.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
   %ref.tmp3.sroa.4.16.copyload.i.pre = load i64, ptr %name4.i.phi.trans.insert, align 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %ref.tmp3.sroa.4.16.copyload.i = phi i64 [ %ref.tmp3.sroa.4.16.copyload.i.pre, %entry ], [ %ref.tmp.sroa.4.16.copyload.i, %for.inc ]
-  %1 = phi i32 [ %.pre24, %entry ], [ %6, %for.inc ]
-  %2 = phi i64 [ %.pre23, %entry ], [ %5, %for.inc ]
+  %1 = phi i32 [ %.pre25, %entry ], [ %6, %for.inc ]
+  %2 = phi i64 [ %.pre24, %entry ], [ %5, %for.inc ]
   %3 = phi ptr [ %.pre, %entry ], [ %4, %for.inc ]
   %k.sroa.0.0.idx21 = phi i64 [ 0, %entry ], [ %k.sroa.0.0.add, %for.inc ]
   %k.sroa.0.0.add = add nuw nsw i64 %k.sroa.0.0.idx21, 8
@@ -47533,7 +47533,7 @@ for.inc:                                          ; preds = %if.end.i.i.i, %_ZNK
   br i1 %cmp.i, label %for.end, label %for.body, !llvm.loop !766
 
 for.end:                                          ; preds = %for.inc
-  %add.ptr.i5 = getelementptr i8, ptr %begin.coerce, i64 80
+  %add.ptr.i5 = getelementptr inbounds i8, ptr %begin.coerce, i64 80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i.i)
   %cmp.lt.i.i.i.not.i.i = icmp ult ptr %add.ptr.i5, %end.coerce
@@ -64742,9 +64742,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   br i1 %cmp.not, label %for.cond5.preheader, label %for.body, !llvm.loop !953
 
 for.body7:                                        ; preds = %for.cond5.preheader, %for.inc15
-  %__begin0.0.ptr27 = phi ptr [ @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, %for.cond5.preheader ], [ %__begin0.0.ptr, %for.inc15 ]
   %__begin0.0.idx26 = phi i64 [ 0, %for.cond5.preheader ], [ %__begin0.0.add, %for.inc15 ]
-  %13 = load ptr, ptr %__begin0.0.ptr27, align 8
+  %__begin0.0.ptr27 = getelementptr inbounds i8, ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 %__begin0.0.idx26
+  %13 = load ptr, ptr %__begin0.0.ptr27, align 16
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #15
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %call.i.i.i, i64 %2)
   %cmp.i3.i.i = icmp eq i64 %.sroa.speculated.i.i, 0
@@ -64764,17 +64764,18 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   br i1 %15, label %if.then, label %for.inc15
 
 if.then:                                          ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit
+  %__begin0.0.ptr27.le = getelementptr inbounds i8, ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 %__begin0.0.idx26
   br i1 %__icase, label %land.rhs, label %if.end
 
 land.rhs:                                         ; preds = %if.then
-  %second = getelementptr inbounds i8, ptr %__begin0.0.ptr27, i64 8
-  %16 = load i16, ptr %second, align 2
+  %second = getelementptr inbounds i8, ptr %__begin0.0.ptr27.le, i64 8
+  %16 = load i16, ptr %second, align 8
   %conv4.i = and i16 %16, 768
   %cmp8.i = icmp eq i16 %conv4.i, 0
   br i1 %cmp8.i, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %if.then, %land.rhs
-  %second13 = getelementptr inbounds i8, ptr %__begin0.0.ptr27, i64 8
+  %second13 = getelementptr inbounds i8, ptr %__begin0.0.ptr27.le, i64 8
   %17 = load i32, ptr %second13, align 8
   %retval.sroa.6.0.extract.shift = and i32 %17, -16777216
   %18 = and i32 %17, 16711680
@@ -64783,7 +64784,6 @@ if.end:                                           ; preds = %if.then, %land.rhs
 
 for.inc15:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exit
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx26, 16
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 %__begin0.0.add
   %cmp6.not = icmp eq i64 %__begin0.0.add, 240
   br i1 %cmp6.not, label %cleanup, label %for.body7
 

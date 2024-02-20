@@ -4517,7 +4517,7 @@ _ZN19OpenColorIO_v2_4dev14TruncateStringB5cxx11EPKcmm.exit: ; preds = %entry
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
@@ -5726,9 +5726,9 @@ land.rhs.lr.ph:                                   ; preds = %entry
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end65
   %1 = phi ptr [ %0, %land.rhs.lr.ph ], [ %42, %if.end65 ]
-  %arrayidx63 = phi ptr [ %atts, %land.rhs.lr.ph ], [ %arrayidx, %if.end65 ]
   %isDimFound.062 = phi i8 [ 0, %land.rhs.lr.ph ], [ %isDimFound.1, %if.end65 ]
   %i.061 = phi i64 [ 0, %land.rhs.lr.ph ], [ %add66, %if.end65 ]
+  %arrayidx63 = getelementptr inbounds ptr, ptr %atts, i64 %i.061
   %2 = load i8, ptr %1, align 1
   %tobool3.not = icmp eq i8 %2, 0
   br i1 %tobool3.not, label %while.end, label %while.body
@@ -41754,9 +41754,9 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end53
   %1 = phi ptr [ %0, %while.body.lr.ph ], [ %25, %if.end53 ]
-  %arrayidx39 = phi ptr [ %atts, %while.body.lr.ph ], [ %arrayidx, %if.end53 ]
   %i.038 = phi i64 [ 0, %while.body.lr.ph ], [ %add54, %if.end53 ]
   %basePathFound.037 = phi i8 [ 0, %while.body.lr.ph ], [ %basePathFound.1, %if.end53 ]
+  %arrayidx39 = getelementptr inbounds ptr, ptr %atts, i64 %i.038
   %call = invoke noundef i32 @_ZN19OpenColorIO_v2_4dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull @_ZN19OpenColorIO_v2_4devL9ATTR_PATHE, ptr noundef nonnull %1)
           to label %invoke.cont unwind label %lpad.loopexit
 
@@ -51425,7 +51425,7 @@ attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind memory(read) }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }

@@ -11783,8 +11783,8 @@ invoke.cont4:                                     ; preds = %for.body.i.i.i.i.i,
   br i1 %cmp.i.not, label %land.rhs, label %land.rhs.us
 
 land.rhs.us:                                      ; preds = %invoke.cont4, %for.inc.us
-  %it.0.ptr.ptr206.us = phi ptr [ %it.0.ptr.ptr.us, %for.inc.us ], [ %container, %invoke.cont4 ]
   %it.0.idx205.us = phi i64 [ %it.0.add.us, %for.inc.us ], [ 0, %invoke.cont4 ]
+  %it.0.ptr.ptr206.us = getelementptr inbounds i8, ptr %container, i64 %it.0.idx205.us
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %5 = load ptr, ptr %matchers_.i, align 8
   %sub.ptr.lhs.cast.i.i25.us = ptrtoint ptr %4 to i64
@@ -11846,7 +11846,6 @@ invoke.cont19.us:                                 ; preds = %invoke.cont15.us
 
 for.inc.us:                                       ; preds = %invoke.cont19.us
   %it.0.add.us = add nuw nsw i64 %it.0.idx205.us, 1
-  %it.0.ptr.ptr.us = getelementptr inbounds i8, ptr %container, i64 %it.0.add.us
   %cmp.not.us = icmp eq i64 %it.0.add.us, 3
   br i1 %cmp.not.us, label %for.end38.thread, label %land.rhs.us, !llvm.loop !192
 
@@ -11867,8 +11866,8 @@ lpad.i.split.us:                                  ; preds = %.noexc34.us
   br label %lpad14.body
 
 land.rhs:                                         ; preds = %invoke.cont4, %for.inc
-  %it.0.ptr.ptr206 = phi ptr [ %it.0.ptr.ptr, %for.inc ], [ %container, %invoke.cont4 ]
   %it.0.idx205 = phi i64 [ %it.0.add, %for.inc ], [ 0, %invoke.cont4 ]
+  %it.0.ptr.ptr206 = getelementptr inbounds i8, ptr %container, i64 %it.0.idx205
   %12 = load ptr, ptr %_M_finish.i.i, align 8
   %13 = load ptr, ptr %matchers_.i, align 8
   %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %12 to i64
@@ -11945,7 +11944,6 @@ if.end:                                           ; preds = %if.end.i.i
 
 for.inc:                                          ; preds = %if.end
   %it.0.add = add nuw nsw i64 %it.0.idx205, 1
-  %it.0.ptr.ptr = getelementptr inbounds i8, ptr %container, i64 %it.0.add
   %cmp.not = icmp eq i64 %it.0.add, 3
   br i1 %cmp.not, label %for.end38.thread, label %land.rhs, !llvm.loop !192
 

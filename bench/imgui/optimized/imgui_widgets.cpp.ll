@@ -37433,33 +37433,33 @@ for.body.preheader:                               ; preds = %for.end
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit
   %24 = phi float [ 0.000000e+00, %for.body.preheader ], [ %add38, %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit ]
-  %indvars.iv123 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next124, %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit ]
-  %indvars.iv = phi i64 [ %22, %for.body.preheader ], [ %indvars.iv.next, %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit ]
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit ]
   %25 = load ptr, ptr %Data.i36, align 8
-  %arrayidx.i.i97 = getelementptr inbounds i16, ptr %25, i64 %indvars.iv
-  %26 = load i16, ptr %arrayidx.i.i97, align 2
-  %cmp.i = icmp eq i16 %26, 10
+  %26 = getelementptr i16, ptr %25, i64 %indvars.iv
+  %arrayidx.i.i97 = getelementptr i16, ptr %26, i64 %22
+  %27 = load i16, ptr %arrayidx.i.i97, align 2
+  %cmp.i = icmp eq i16 %27, 10
   br i1 %cmp.i, label %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %27 = load ptr, ptr %str, align 8
-  %Font.i = getelementptr inbounds i8, ptr %27, i64 15672
-  %28 = load ptr, ptr %Font.i, align 8
-  %conv.i.i = zext i16 %26 to i32
-  %29 = load i32, ptr %28, align 8
-  %cmp.i.i = icmp sgt i32 %29, %conv.i.i
-  %Data.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
-  %30 = load ptr, ptr %Data.i.i.i, align 8
-  %idxprom.i.i.i = zext i16 %26 to i64
-  %arrayidx.i.i.i = getelementptr inbounds float, ptr %30, i64 %idxprom.i.i.i
-  %FallbackAdvanceX.i.i = getelementptr inbounds i8, ptr %28, i64 16
+  %28 = load ptr, ptr %str, align 8
+  %Font.i = getelementptr inbounds i8, ptr %28, i64 15672
+  %29 = load ptr, ptr %Font.i, align 8
+  %conv.i.i = zext i16 %27 to i32
+  %30 = load i32, ptr %29, align 8
+  %cmp.i.i = icmp sgt i32 %30, %conv.i.i
+  %Data.i.i.i = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = load ptr, ptr %Data.i.i.i, align 8
+  %idxprom.i.i.i = zext i16 %27 to i64
+  %arrayidx.i.i.i = getelementptr inbounds float, ptr %31, i64 %idxprom.i.i.i
+  %FallbackAdvanceX.i.i = getelementptr inbounds i8, ptr %29, i64 16
   %cond.in.i.i = select i1 %cmp.i.i, ptr %arrayidx.i.i.i, ptr %FallbackAdvanceX.i.i
   %cond.i.i = load float, ptr %cond.in.i.i, align 4
-  %FontSize.i = getelementptr inbounds i8, ptr %27, i64 15680
-  %31 = load float, ptr %FontSize.i, align 8
-  %FontSize3.i = getelementptr inbounds i8, ptr %28, i64 20
-  %32 = load float, ptr %FontSize3.i, align 4
-  %div.i = fdiv float %31, %32
+  %FontSize.i = getelementptr inbounds i8, ptr %28, i64 15680
+  %32 = load float, ptr %FontSize.i, align 8
+  %FontSize3.i = getelementptr inbounds i8, ptr %29, i64 20
+  %33 = load float, ptr %FontSize3.i, align 4
+  %div.i = fdiv float %32, %33
   %mul.i = fmul float %cond.i.i, %div.i
   br label %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit
 
@@ -37467,9 +37467,8 @@ _ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit: ; preds = %for.
   %retval.0.i = phi float [ %mul.i, %if.end.i ], [ -1.000000e+00, %for.body ]
   %add38 = fadd float %retval.0.i, %24
   store float %add38, ptr %find, align 4
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end39, label %for.body, !llvm.loop !88
 
 for.end39:                                        ; preds = %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit, %for.end, %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit

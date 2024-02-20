@@ -10877,22 +10877,22 @@ invoke.cont11.lr.ph:                              ; preds = %invoke.cont
   br i1 %cmp212, label %for.body, label %for.end
 
 invoke.cont11:                                    ; preds = %for.inc
-  %add63 = add i32 %i.0203214, 2
-  %add = or disjoint i32 %add63, 1
+  %add63 = add i32 %i.0203213, 2
+  %add204 = or disjoint i32 %add63, 1
   %arrayidx.i.i14 = getelementptr inbounds i8, ptr %70, i64 -4
   %18 = load i32, ptr %arrayidx.i.i14, align 4
-  %cmp = icmp ult i32 %add, %18
+  %cmp = icmp ult i32 %add204, %18
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !41
 
 for.body:                                         ; preds = %invoke.cont11.lr.ph, %invoke.cont11
-  %i.0203214 = phi i32 [ %add63, %invoke.cont11 ], [ 0, %invoke.cont11.lr.ph ]
-  %add204213 = phi i32 [ %add, %invoke.cont11 ], [ 1, %invoke.cont11.lr.ph ]
+  %i.0203213 = phi i32 [ %add63, %invoke.cont11 ], [ 0, %invoke.cont11.lr.ph ]
   %19 = phi ptr [ %70, %invoke.cont11 ], [ %15, %invoke.cont11.lr.ph ]
   %20 = phi ptr [ %call.i45, %invoke.cont11 ], [ null, %invoke.cont11.lr.ph ]
-  %idxprom.i.i = zext i32 %i.0203214 to i64
+  %add204214 = or disjoint i32 %i.0203213, 1
+  %idxprom.i.i = zext i32 %i.0203213 to i64
   %arrayidx.i.i16 = getelementptr inbounds ptr, ptr %19, i64 %idxprom.i.i
   %21 = load ptr, ptr %arrayidx.i.i16, align 8
-  %idxprom.i.i18 = zext i32 %add204213 to i64
+  %idxprom.i.i18 = zext i32 %add204214 to i64
   %arrayidx.i.i19 = getelementptr inbounds ptr, ptr %19, i64 %idxprom.i.i18
   %22 = load ptr, ptr %arrayidx.i.i19, align 8
   %call19 = invoke noundef ptr @_ZN3opt18maxsmt_solver_base13mk_fresh_boolEPKc(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull @.str.26)

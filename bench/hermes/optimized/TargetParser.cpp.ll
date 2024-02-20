@@ -7633,13 +7633,12 @@ entry:
 
 for.cond:                                         ; preds = %for.body
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx8, 40
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 840
   br i1 %cmp.not, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
-  %__begin1.0.ptr9 = phi ptr [ @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, %entry ], [ %__begin1.0.ptr, %for.cond ]
   %__begin1.0.idx8 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.cond ]
+  %__begin1.0.ptr9 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, i64 %__begin1.0.idx8
   %ID = getelementptr inbounds i8, ptr %__begin1.0.ptr9, i64 16
   %0 = load i32, ptr %ID, align 8
   %cmp1 = icmp eq i32 %0, %ArchExtKind
@@ -7677,8 +7676,8 @@ if.then:                                          ; preds = %if.end.i99
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %for.inc
-  %__begin2.0.ptr59 = phi ptr [ @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, %if.then ], [ %__begin2.0.ptr, %for.inc ]
   %__begin2.0.idx58 = phi i64 [ 0, %if.then ], [ %__begin2.0.add, %for.inc ]
+  %__begin2.0.ptr59 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, i64 %__begin2.0.idx58
   %NegFeature = getelementptr inbounds i8, ptr %__begin2.0.ptr59, i64 32
   %1 = load ptr, ptr %NegFeature, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -7701,7 +7700,6 @@ _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit93: ; preds = %land.rhs.i68
 
 for.inc:                                          ; preds = %for.body, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit93, %land.lhs.true
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx58, 40
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, i64 %__begin2.0.add
   %cmp.not = icmp eq i64 %__begin2.0.add, 840
   br i1 %cmp.not, label %if.end8, label %for.body
 
@@ -7710,8 +7708,8 @@ if.end8:                                          ; preds = %for.inc, %entry, %i
   br label %for.body11
 
 for.body11:                                       ; preds = %if.end8, %for.inc22
-  %__begin1.0.ptr61 = phi ptr [ @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, %if.end8 ], [ %__begin1.0.ptr, %for.inc22 ]
   %__begin1.0.idx60 = phi i64 [ 0, %if.end8 ], [ %__begin1.0.add, %for.inc22 ]
+  %__begin1.0.ptr61 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, i64 %__begin1.0.idx60
   %Feature = getelementptr inbounds i8, ptr %__begin1.0.ptr61, i64 24
   %3 = load ptr, ptr %Feature, align 8
   %tobool13.not = icmp eq ptr %3, null
@@ -7734,7 +7732,6 @@ _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %land.rhs.i78
 
 for.inc22:                                        ; preds = %for.body11, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %land.lhs.true14
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx60, 40
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_119AArch64ARCHExtNamesE, i64 %__begin1.0.add
   %cmp10.not = icmp eq i64 %__begin1.0.add, 840
   br i1 %cmp10.not, label %return, label %for.body11
 
@@ -7814,10 +7811,10 @@ _ZN4llvh7AArch649parseArchENS_9StringRefE.exit:   ; preds = %if.end.i, %return.l
   br i1 %cmp, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZN4llvh7AArch649parseArchENS_9StringRefE.exit, %for.inc
-  %__begin1.0.ptr17 = phi ptr [ %__begin1.0.ptr, %for.inc ], [ @_ZN12_GLOBAL__N_115AArch64CPUNamesE, %_ZN4llvh7AArch649parseArchENS_9StringRefE.exit ]
   %__begin1.0.idx16 = phi i64 [ %__begin1.0.add, %for.inc ], [ 0, %_ZN4llvh7AArch649parseArchENS_9StringRefE.exit ]
+  %__begin1.0.ptr17 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, i64 %__begin1.0.idx16
   %ArchID = getelementptr inbounds i8, ptr %__begin1.0.ptr17, i64 16
-  %7 = load i32, ptr %ArchID, align 8
+  %7 = load i32, ptr %ArchID, align 16
   %cmp2 = icmp eq i32 %7, %A.sroa.311.0.copyload.le20.i
   br i1 %cmp2, label %land.lhs.true, label %for.inc
 
@@ -7836,7 +7833,6 @@ if.then3:                                         ; preds = %land.lhs.true
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx16, 32
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, i64 %__begin1.0.add
   %cmp1.not = icmp eq i64 %__begin1.0.add, 672
   br i1 %cmp1.not, label %return, label %for.body
 
@@ -8547,15 +8543,15 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__begin1.0.ptr6 = phi ptr [ @_ZN12_GLOBAL__N_18CPUNamesE, %entry ], [ %__begin1.0.ptr, %for.inc ]
   %__begin1.0.idx5 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.inc ]
+  %__begin1.0.ptr6 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_18CPUNamesE, i64 %__begin1.0.idx5
   %ArchID = getelementptr inbounds i8, ptr %__begin1.0.ptr6, i64 16
-  %0 = load i32, ptr %ArchID, align 8
+  %0 = load i32, ptr %ArchID, align 16
   %cmp1.not = icmp eq i32 %0, 0
   br i1 %cmp1.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %__begin1.0.ptr.val = load ptr, ptr %__begin1.0.ptr6, align 8
+  %__begin1.0.ptr.val = load ptr, ptr %__begin1.0.ptr6, align 16
   %1 = getelementptr i8, ptr %__begin1.0.ptr6, i64 8
   %__begin1.0.ptr.val4 = load i64, ptr %1, align 8
   %2 = load i32, ptr %Size.i.i, align 8
@@ -8583,7 +8579,6 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit: ; pr
 
 for.inc:                                          ; preds = %for.body, %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx5, 32
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_18CPUNamesE, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 2656
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -8600,15 +8595,15 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__begin1.0.ptr6 = phi ptr [ @_ZN12_GLOBAL__N_115AArch64CPUNamesE, %entry ], [ %__begin1.0.ptr, %for.inc ]
   %__begin1.0.idx5 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.inc ]
+  %__begin1.0.ptr6 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, i64 %__begin1.0.idx5
   %ArchID = getelementptr inbounds i8, ptr %__begin1.0.ptr6, i64 16
-  %0 = load i32, ptr %ArchID, align 8
+  %0 = load i32, ptr %ArchID, align 16
   %cmp1.not = icmp eq i32 %0, 0
   br i1 %cmp1.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %__begin1.0.ptr.val = load ptr, ptr %__begin1.0.ptr6, align 8
+  %__begin1.0.ptr.val = load ptr, ptr %__begin1.0.ptr6, align 16
   %1 = getelementptr i8, ptr %__begin1.0.ptr6, i64 8
   %__begin1.0.ptr.val4 = load i64, ptr %1, align 8
   %2 = load i32, ptr %Size.i.i, align 8
@@ -8636,7 +8631,6 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit: ; pr
 
 for.inc:                                          ; preds = %for.body, %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx5, 32
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_115AArch64CPUNamesE, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 672
   br i1 %cmp.not, label %for.end, label %for.body
 

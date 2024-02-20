@@ -3411,8 +3411,8 @@ for.cond39:                                       ; preds = %if.end67
   br i1 %cmp40, label %for.body41, label %for.end79, !llvm.loop !18
 
 for.body41:                                       ; preds = %for.body41.lr.ph.split, %for.cond39
-  %add98 = phi i32 [ %add, %for.cond39 ], [ 1, %for.body41.lr.ph.split ]
   %i38.097 = phi i32 [ %add78, %for.cond39 ], [ 0, %for.body41.lr.ph.split ]
+  %add98 = or disjoint i32 %i38.097, 1
   %idxprom = zext i32 %i38.097 to i64
   %arrayidx = getelementptr inbounds %class.parameter, ptr %params, i64 %idxprom
   %idxprom43 = zext i32 %add98 to i64
@@ -3829,8 +3829,8 @@ for.cond:                                         ; preds = %if.end37
   br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !19
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.cond
-  %add49 = phi i32 [ %add, %for.cond ], [ 1, %for.body.lr.ph.split ]
   %i.048 = phi i32 [ %add47, %for.cond ], [ 0, %for.body.lr.ph.split ]
+  %add49 = or disjoint i32 %i.048, 1
   %idxprom = zext i32 %i.048 to i64
   %arrayidx = getelementptr inbounds %class.parameter, ptr %params, i64 %idxprom
   %idxprom13 = zext i32 %add49 to i64

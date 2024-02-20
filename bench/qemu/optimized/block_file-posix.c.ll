@@ -2593,7 +2593,7 @@ if.then12.us.us:                                  ; preds = %for.body.us.us
 
 for.inc.us.us:                                    ; preds = %if.then12.us.us, %for.body.us.us
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
-  %shl.us.us = shl i64 2, %indvars.iv148
+  %shl.us.us = shl nuw i64 2, %indvars.iv148
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, 4
   br i1 %exitcond152.not, label %for.cond54.preheader, label %for.body.us.us, !llvm.loop !9
 
@@ -2624,7 +2624,7 @@ if.else24.us:                                     ; preds = %if.then12.us
 
 for.inc.us:                                       ; preds = %for.body.us, %if.else24.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %shl.us = shl i64 2, %indvars.iv
+  %shl.us = shl nuw i64 2, %indvars.iv
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %for.cond54.preheader, label %for.body.us, !llvm.loop !9
 
@@ -2658,7 +2658,7 @@ if.then12.us93:                                   ; preds = %for.body.us83
 
 for.inc.us99:                                     ; preds = %if.then12.us93, %if.then39.us, %if.else30.us92
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
-  %shl.us102 = shl i64 2, %indvars.iv158
+  %shl.us102 = shl nuw i64 2, %indvars.iv158
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, 4
   br i1 %exitcond162.not, label %for.cond54.preheader, label %for.body.us83, !llvm.loop !9
 
@@ -2737,7 +2737,7 @@ for.inc.sink.split:                               ; preds = %if.else45, %if.else
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.else30
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %shl = shl i64 2, %indvars.iv153
+  %shl = shl nuw i64 2, %indvars.iv153
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, 4
   br i1 %exitcond157.not, label %for.cond54.preheader, label %for.body, !llvm.loop !9
 
@@ -2811,7 +2811,7 @@ for.inc120.sink.split:                            ; preds = %if.then112, %if.the
 
 for.inc120:                                       ; preds = %for.inc120.sink.split, %if.else95, %if.else88, %if.else110
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %shl56 = shl i64 2, %indvars.iv163
+  %shl56 = shl nuw i64 2, %indvars.iv163
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, 4
   br i1 %exitcond167.not, label %return, label %for.body59, !llvm.loop !11
 
@@ -2856,7 +2856,7 @@ if.else:                                          ; preds = %if.then4
 
 for.inc:                                          ; preds = %for.body, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %shl = shl i64 2, %indvars.iv
+  %shl = shl nuw i64 2, %indvars.iv
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %for.body20, label %for.body, !llvm.loop !12
 
@@ -2891,7 +2891,7 @@ if.else44:                                        ; preds = %if.then32
 
 for.inc50:                                        ; preds = %for.body20, %if.then28
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %shl17 = shl i64 2, %indvars.iv37
+  %shl17 = shl nuw i64 2, %indvars.iv37
   %exitcond41.not = icmp eq i64 %indvars.iv.next38, 4
   br i1 %exitcond41.not, label %return, label %for.body20, !llvm.loop !13
 
@@ -3809,7 +3809,7 @@ for.body.lr.ph.i:                                 ; preds = %land.lhs.true13
   br i1 %tobool.not.i54, label %if.end.i.preheader, label %if.then15
 
 if.end.i.preheader:                               ; preds = %for.body.lr.ph.i
-  %iov_len.i63 = getelementptr inbounds i8, ptr %11, i64 8
+  %iov_len.i63 = getelementptr i8, ptr %11, i64 8
   %15 = load i64, ptr %iov_len.i63, align 8
   %rem5.i64 = urem i64 %15, %conv.i
   %tobool6.not.i65 = icmp eq i64 %rem5.i64, 0
@@ -3830,7 +3830,7 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %tobool.not.i, label %if.end.i, label %bdrv_qiov_is_aligned.exit, !llvm.loop !21
 
 if.end.i:                                         ; preds = %for.body.i
-  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %iov_len.i = getelementptr %struct.iovec, ptr %11, i64 %indvars.iv.next.i, i32 1
   %18 = load i64, ptr %iov_len.i, align 8
   %rem5.i = urem i64 %18, %conv.i
   %tobool6.not.i = icmp eq i64 %rem5.i, 0

@@ -13280,17 +13280,16 @@ _ZN4llvh7hashing6detail18get_execution_seedEv.exit: ; preds = %entry, %init.chec
   br i1 %cmp.i.not78, label %while.end, label %while.body
 
 while.body:                                       ; preds = %_ZN4llvh7hashing6detail18get_execution_seedEv.exit, %while.body
-  %buffer_ptr.0.ptr81 = phi ptr [ %buffer_ptr.0.ptr, %while.body ], [ %buffer, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit ]
   %first.sroa.0.080 = phi ptr [ %incdec.ptr.i, %while.body ], [ %first.coerce, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit ]
   %buffer_ptr.0.idx79 = phi i64 [ %buffer_ptr.0.add, %while.body ], [ 0, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit ]
+  %buffer_ptr.0.ptr81 = getelementptr inbounds i8, ptr %buffer, i64 %buffer_ptr.0.idx79
   %buffer_ptr.0.add = add nuw nsw i64 %buffer_ptr.0.idx79, 8
   %4 = load ptr, ptr %first.sroa.0.080, align 8
-  store ptr %4, ptr %buffer_ptr.0.ptr81, align 1
+  store ptr %4, ptr %buffer_ptr.0.ptr81, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %first.sroa.0.080, i64 8
-  %buffer_ptr.0.ptr = getelementptr inbounds i8, ptr %buffer, i64 %buffer_ptr.0.add
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %last.coerce
   %cmp.i6.not = icmp ugt i64 %buffer_ptr.0.idx79, 48
-  %or.cond = select i1 %cmp.i.not, i1 true, i1 %cmp.i6.not
+  %or.cond = or i1 %cmp.i.not, %cmp.i6.not
   br i1 %or.cond, label %while.end, label %while.body, !llvm.loop !84
 
 while.end:                                        ; preds = %while.body, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit
@@ -13395,20 +13394,20 @@ while.cond17.preheader:                           ; preds = %if.end, %while.end2
   br label %while.body25
 
 while.body25:                                     ; preds = %while.cond17.preheader, %while.body25
-  %buffer_ptr.3.ptr85 = phi ptr [ %buffer, %while.cond17.preheader ], [ %buffer_ptr.3.ptr, %while.body25 ]
   %first.sroa.0.284 = phi ptr [ %first.sroa.0.186, %while.cond17.preheader ], [ %incdec.ptr.i15, %while.body25 ]
   %buffer_ptr.3.idx83 = phi i64 [ 0, %while.cond17.preheader ], [ %buffer_ptr.3.add, %while.body25 ]
+  %buffer_ptr.3.ptr85 = getelementptr inbounds i8, ptr %buffer, i64 %buffer_ptr.3.idx83
   %buffer_ptr.3.add = add nuw nsw i64 %buffer_ptr.3.idx83, 8
   %9 = load ptr, ptr %first.sroa.0.284, align 8
-  store ptr %9, ptr %buffer_ptr.3.ptr85, align 1
+  store ptr %9, ptr %buffer_ptr.3.ptr85, align 8
   %incdec.ptr.i15 = getelementptr inbounds i8, ptr %first.sroa.0.284, i64 8
-  %buffer_ptr.3.ptr = getelementptr inbounds i8, ptr %buffer, i64 %buffer_ptr.3.add
   %cmp.i9.not = icmp eq ptr %incdec.ptr.i15, %last.coerce
   %cmp.i11.not = icmp ugt i64 %buffer_ptr.3.idx83, 48
-  %or.cond77 = select i1 %cmp.i9.not, i1 true, i1 %cmp.i11.not
+  %or.cond77 = or i1 %cmp.i9.not, %cmp.i11.not
   br i1 %or.cond77, label %while.end27, label %while.body25, !llvm.loop !88
 
 while.end27:                                      ; preds = %while.body25
+  %buffer_ptr.3.ptr = getelementptr inbounds i8, ptr %buffer, i64 %buffer_ptr.3.add
   %call.i = call noundef ptr @_ZNSt3_V28__rotateIPcEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef nonnull %buffer, ptr noundef nonnull %buffer_ptr.3.ptr, ptr noundef nonnull %add.ptr.i)
   %result.0.copyload.i.i = load i64, ptr %add.ptr.i.i, align 8
   %add.i = add i64 %state.sroa.6.092, %state.sroa.16.090

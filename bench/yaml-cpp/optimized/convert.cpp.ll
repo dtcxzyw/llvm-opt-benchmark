@@ -662,8 +662,8 @@ cleanup.done48:                                   ; preds = %arraydestroy.body, 
   br label %common.resume
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %__begin1.0.ptr128 = phi ptr [ %__begin1.0.ptr, %for.inc ], [ @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, %for.body.preheader ]
   %__begin1.0.idx127 = phi i64 [ %__begin1.0.add, %for.inc ], [ 0, %for.body.preheader ]
+  %__begin1.0.ptr128 = getelementptr inbounds i8, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 %__begin1.0.idx127
   %97 = load i8, ptr %node, align 8
   %98 = and i8 %97, 1
   %tobool.not.i18 = icmp eq i8 %98, 0
@@ -848,7 +848,6 @@ if.then62:                                        ; preds = %_ZSteqIcEN9__gnu_cx
 
 for.inc:                                          ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit80.thread102, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit80
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx127, 64
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZZN4YAML7convertIbE6decodeERKNS_4NodeERbE5names, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 256
   br i1 %cmp.not, label %return, label %for.body
 

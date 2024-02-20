@@ -18973,8 +18973,8 @@ invoke.cont13:                                    ; preds = %invoke.cont10
   br i1 %cmp, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %invoke.cont13, %for.inc.us
-  %__begin2.0.ptr326.us = phi ptr [ %__begin2.0.ptr.us, %for.inc.us ], [ %ref.tmp7, %invoke.cont13 ]
   %__begin2.0.idx325.us = phi i64 [ %__begin2.0.add.us, %for.inc.us ], [ 0, %invoke.cont13 ]
+  %__begin2.0.ptr326.us = getelementptr inbounds i8, ptr %ref.tmp7, i64 %__begin2.0.idx325.us
   %second.i.i81.us = getelementptr inbounds i8, ptr %__begin2.0.ptr326.us, i64 8
   %5 = load atomic i8, ptr @_ZGVZN7rocksdb15BlockBasedTable28PrefetchIndexAndFilterBlocksERKNS_11ReadOptionsEPNS_18FilePrefetchBufferEPNS_20InternalIteratorBaseINS_5SliceEEEPS0_bRKNS_22BlockBasedTableOptionsEimmPNS_23BlockCacheLookupContextEE22kBuiltinNameAndAliasesB5cxx11 acquire, align 8
   %guard.uninitialized.us = icmp eq i8 %5, 0
@@ -19199,7 +19199,6 @@ for.inc.us.sink.split:                            ; preds = %for.inc.us.sink.spl
 
 for.inc.us:                                       ; preds = %for.inc.us.sink.split, %invoke.cont133.us, %_ZNK7rocksdb5Slice11starts_withERKS0_.exit.us, %invoke.cont120.us, %_ZN7rocksdb6StatusD2Ev.exit.us
   %__begin2.0.add.us = add nuw nsw i64 %__begin2.0.idx325.us, 40
-  %__begin2.0.ptr.us = getelementptr inbounds i8, ptr %ref.tmp7, i64 %__begin2.0.add.us
   %cmp17.not.us = icmp eq i64 %__begin2.0.add.us, 120
   br i1 %cmp17.not.us, label %arraydestroy.body207.preheader, label %for.body.us
 
@@ -19286,8 +19285,8 @@ arraydestroy.body:                                ; preds = %lpad, %arraydestroy
   br i1 %arraydestroy.done, label %eh.resume, label %arraydestroy.body
 
 for.body:                                         ; preds = %invoke.cont13, %for.inc.critedge75
-  %__begin2.0.ptr326 = phi ptr [ %__begin2.0.ptr, %for.inc.critedge75 ], [ %ref.tmp7, %invoke.cont13 ]
   %__begin2.0.idx325 = phi i64 [ %__begin2.0.add, %for.inc.critedge75 ], [ 0, %invoke.cont13 ]
+  %__begin2.0.ptr326 = getelementptr inbounds i8, ptr %ref.tmp7, i64 %__begin2.0.idx325
   %second.i.i81 = getelementptr inbounds i8, ptr %__begin2.0.ptr326, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filter_block_key, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i81)
           to label %.noexc unwind label %lpad100.split
@@ -19495,7 +19494,6 @@ cleanup200:                                       ; preds = %if.then181, %if.the
 for.inc.critedge75:                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit113
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filter_block_key) #33
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx325, 40
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr %ref.tmp7, i64 %__begin2.0.add
   %cmp17.not = icmp eq i64 %__begin2.0.add, 120
   br i1 %cmp17.not, label %arraydestroy.body207.preheader, label %for.body
 

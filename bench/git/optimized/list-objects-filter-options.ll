@@ -381,7 +381,6 @@ cleanup.thread:                                   ; preds = %if.end3.i, %if.then
 
 for.body:                                         ; preds = %for.body.lr.ph, %parse_combine_subfilter.exit
   %2 = phi ptr [ %0, %for.body.lr.ph ], [ %20, %parse_combine_subfilter.exit ]
-  %arrayidx240 = phi ptr [ %call1.i, %for.body.lr.ph ], [ %arrayidx5, %parse_combine_subfilter.exit ]
   %sub.039 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %parse_combine_subfilter.exit ]
   %add = add i64 %sub.039, 1
   %arrayidx5 = getelementptr inbounds ptr, ptr %call1.i, i64 %add
@@ -390,6 +389,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %pa
   br i1 %tobool6.not, label %if.end11, label %if.then7
 
 if.then7:                                         ; preds = %for.body
+  %arrayidx240 = getelementptr inbounds ptr, ptr %call1.i, i64 %sub.039
   %len = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %len, align 8
   %sub9 = add i64 %4, -1
@@ -1024,7 +1024,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load ptr, ptr %sub8, align 8
   %arrayidx10 = getelementptr inbounds %struct.list_objects_filter_options, ptr %4, i64 %indvars.iv
   tail call void @list_objects_filter_copy(ptr noundef %arrayidx, ptr noundef %arrayidx10)
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %5 = load i64, ptr %sub_nr, align 8
   %cmp = icmp ugt i64 %5, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11

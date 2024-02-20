@@ -374,8 +374,8 @@ invoke.cont12:                                    ; preds = %invoke.cont9
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont12, %_ZN7testing15AssertionResultD2Ev.exit140
-  %__begin1.0.ptr190 = phi ptr [ %tests, %invoke.cont12 ], [ %__begin1.0.ptr, %_ZN7testing15AssertionResultD2Ev.exit140 ]
   %__begin1.0.idx189 = phi i64 [ 0, %invoke.cont12 ], [ %__begin1.0.add, %_ZN7testing15AssertionResultD2Ev.exit140 ]
+  %__begin1.0.ptr190 = getelementptr inbounds i8, ptr %tests, i64 %__begin1.0.idx189
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %buf0, i8 0, i64 7, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %buf1, i8 -1, i64 7, i1 false)
   %0 = load i32, ptr %__begin1.0.ptr190, align 8
@@ -1011,7 +1011,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit140:         ; preds = %if.end154, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i139
   store ptr null, ptr %message_.i.i121, align 8
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx189, 40
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %tests, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 200
   br i1 %cmp.not, label %for.end, label %for.body
 

@@ -50293,8 +50293,8 @@ invoke.cont162:                                   ; preds = %.noexc341
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont162, %for.end
-  %__begin1.0.ptr662 = phi ptr [ %specs, %invoke.cont162 ], [ %__begin1.0.ptr, %for.end ]
   %__begin1.0.idx661 = phi i64 [ 0, %invoke.cont162 ], [ %__begin1.0.add, %for.end ]
+  %__begin1.0.ptr662 = getelementptr inbounds i8, ptr %specs, i64 %__begin1.0.idx661
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %__begin1.0.ptr662)
           to label %.noexc345 unwind label %lpad268
@@ -51693,7 +51693,6 @@ for.end:                                          ; preds = %_ZN7testing15Assert
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_770) #21
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_769) #21
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx661, 64
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %specs, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 1088
   br i1 %cmp.not, label %arraydestroy.body449, label %for.body
 

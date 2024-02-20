@@ -8729,9 +8729,9 @@ while.cond.outer.split.preheader:                 ; preds = %entry
   br label %while.cond.outer.split
 
 while.cond.outer.split:                           ; preds = %while.cond.outer.split.preheader, %if.end9
-  %add.ptr14 = phi ptr [ %add.ptr, %if.end9 ], [ %buffer, %while.cond.outer.split.preheader ]
   %.sroa.speculated13 = phi i64 [ %.sroa.speculated, %if.end9 ], [ %.sroa.speculated11, %while.cond.outer.split.preheader ]
   %bytes_written.0.ph12 = phi i64 [ %add, %if.end9 ], [ 0, %while.cond.outer.split.preheader ]
+  %add.ptr14 = getelementptr inbounds i8, ptr %buffer, i64 %bytes_written.0.ph12
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer.split, %land.lhs.true
@@ -8754,7 +8754,6 @@ if.end9:                                          ; preds = %while.cond
   %cmp = icmp slt i64 %add, %nbytes
   %sub = sub nsw i64 %nbytes, %add
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub, i64 2147479552)
-  %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %add
   br i1 %cmp, label %while.cond.outer.split, label %while.end, !llvm.loop !244
 
 while.end:                                        ; preds = %if.end9, %entry

@@ -3728,8 +3728,8 @@ land.rhs.preheader.i:                             ; preds = %entry
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.preheader.i
-  %add.ptr12.i = phi ptr [ %add.ptr.i, %while.body.i ], [ %call, %land.rhs.preheader.i ]
   %left.addr.011.i = phi i64 [ %inc.i, %while.body.i ], [ 0, %land.rhs.preheader.i ]
+  %add.ptr12.i = getelementptr inbounds i8, ptr %call, i64 %left.addr.011.i
   %1 = load i8, ptr %add.ptr12.i, align 1
   switch i8 %1, label %while.end.i [
     i8 32, label %while.body.i
@@ -69609,14 +69609,13 @@ lpad:                                             ; preds = %if.end.i, %for.body
 
 for.cond7:                                        ; preds = %for.body9
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx19, 16
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 %__begin0.0.add
   %cmp8.not = icmp eq i64 %__begin0.0.add, 240
   br i1 %cmp8.not, label %cleanup, label %for.body9
 
 for.body9:                                        ; preds = %for.body9.preheader, %for.cond7
-  %__begin0.0.ptr20 = phi ptr [ %__begin0.0.ptr, %for.cond7 ], [ @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, %for.body9.preheader ]
   %__begin0.0.idx19 = phi i64 [ %__begin0.0.add, %for.cond7 ], [ 0, %for.body9.preheader ]
-  %5 = load ptr, ptr %__begin0.0.ptr20, align 8
+  %__begin0.0.ptr20 = getelementptr inbounds i8, ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 %__begin0.0.idx19
+  %5 = load ptr, ptr %__begin0.0.ptr20, align 16
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__s, ptr noundef %5) #37
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then, label %for.cond7

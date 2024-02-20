@@ -754,8 +754,8 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %cleanup
-  %__begin2.0.ptr127 = phi ptr [ %kExpect, %entry ], [ %__begin2.0.ptr, %cleanup ]
   %__begin2.0.idx126 = phi i64 [ 0, %entry ], [ %__begin2.0.add, %cleanup ]
+  %__begin2.0.ptr127 = getelementptr inbounds i8, ptr %kExpect, i64 %__begin2.0.idx126
   call void @_ZN7testing11ScopedTraceC2IiEEPKciRKT_(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_83, ptr noundef nonnull @.str.3, i32 noundef 83, ptr noundef nonnull align 4 dereferenceable(4) %__begin2.0.ptr127)
   %fmt247 = getelementptr inbounds i8, ptr %__begin2.0.ptr127, i64 8
   %0 = load ptr, ptr %fmt247, align 8
@@ -813,7 +813,7 @@ lpad248:                                          ; preds = %if.end.i.i100, %if.
 if.end257:                                        ; preds = %invoke.cont253, %if.then255, %invoke.cont252
   %4 = phi i32 [ %.pre, %invoke.cont253 ], [ %inc256, %if.then255 ], [ %.pre128, %invoke.cont252 ]
   %ok_phases258 = getelementptr inbounds i8, ptr %__begin2.0.ptr127, i64 16
-  %5 = load i32, ptr %ok_phases258, align 4, !noalias !5
+  %5 = load i32, ptr %ok_phases258, align 16, !noalias !5
   %cmp.i.i36 = icmp eq i32 %5, %4
   br i1 %cmp.i.i36, label %if.then.i.i38, label %if.end.i.i37
 
@@ -915,7 +915,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end272, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i.i, align 8
-  %17 = load i32, ptr %ok_phases258, align 8
+  %17 = load i32, ptr %ok_phases258, align 16
   %cmp275 = icmp slt i32 %17, 2
   br i1 %cmp275, label %cleanup, label %if.end277
 
@@ -1045,7 +1045,7 @@ if.end305:                                        ; preds = %_ZN7testing15Assert
   %width307 = getelementptr inbounds i8, ptr %__begin2.0.ptr127, i64 32
   %31 = load i32, ptr %width_.i, align 4
   store i32 %31, ptr %ref.tmp308, align 4
-  %32 = load i32, ptr %width307, align 4, !noalias !10
+  %32 = load i32, ptr %width307, align 16, !noalias !10
   %cmp.i.i72 = icmp eq i32 %32, %31
   br i1 %cmp.i.i72, label %if.then.i.i74, label %if.end.i.i73
 
@@ -1263,7 +1263,6 @@ cleanup:                                          ; preds = %_ZN7testing15Assert
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_84) #14
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_83) #14
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx126, 48
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr %kExpect, i64 %__begin2.0.add
   %cmp.not = icmp eq i64 %__begin2.0.add, 1344
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -3037,8 +3036,8 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN7testing15AssertionResultD2Ev.exit
-  %__begin2.0.ptr35 = phi ptr [ %kExpect, %entry ], [ %__begin2.0.ptr, %_ZN7testing15AssertionResultD2Ev.exit ]
   %__begin2.0.idx34 = phi i64 [ 0, %entry ], [ %__begin2.0.add, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %__begin2.0.ptr35 = getelementptr inbounds i8, ptr %kExpect, i64 %__begin2.0.idx34
   %fmt10 = getelementptr inbounds i8, ptr %__begin2.0.ptr35, i64 8
   %0 = load ptr, ptr %fmt10, align 8
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
@@ -3102,7 +3101,7 @@ invoke.cont22:                                    ; preds = %if.else
 invoke.cont24:                                    ; preds = %invoke.cont22
   %9 = load ptr, ptr %ref.tmp20, align 8
   %add.ptr.i26 = getelementptr inbounds i8, ptr %9, i64 16
-  %10 = load i32, ptr %__begin2.0.ptr35, align 4
+  %10 = load i32, ptr %__begin2.0.ptr35, align 8
   %call2.i27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i26, i32 noundef %10)
           to label %invoke.cont27 unwind label %lpad23
 
@@ -3189,7 +3188,6 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_146) #14
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_145) #14
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx34, 24
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr %kExpect, i64 %__begin2.0.add
   %cmp.not = icmp eq i64 %__begin2.0.add, 288
   br i1 %cmp.not, label %for.end, label %for.body
 
