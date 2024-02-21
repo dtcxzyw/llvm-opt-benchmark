@@ -4778,14 +4778,11 @@ glib_autoptr_cleanup_GString.exit:                ; preds = %if.then15, %land.lh
 if.end27:                                         ; preds = %glib_autoptr_cleanup_GString.exit, %if.end9
   %10 = load ptr, ptr %arg, align 8
   %has_force = getelementptr inbounds i8, ptr %arg, i64 8
-  %11 = load i8, ptr %has_force, align 8
-  %12 = and i8 %11, 1
-  %tobool28 = icmp ne i8 %12, 0
-  %force = getelementptr inbounds i8, ptr %arg, i64 9
-  %13 = load i8, ptr %force, align 1
-  %14 = and i8 %13, 1
-  %tobool29 = icmp ne i8 %14, 0
-  call void @qmp_block_job_cancel(ptr noundef %10, i1 noundef zeroext %tobool28, i1 noundef zeroext %tobool29, ptr noundef nonnull %err) #5
+  %11 = load <2 x i8>, ptr %has_force, align 8
+  %12 = trunc <2 x i8> %11 to <2 x i1>
+  %13 = extractelement <2 x i1> %12, i64 0
+  %14 = extractelement <2 x i1> %12, i64 1
+  call void @qmp_block_job_cancel(ptr noundef %10, i1 noundef zeroext %13, i1 noundef zeroext %14, ptr noundef nonnull %err) #5
   %15 = load ptr, ptr %err, align 8
   %tobool30.not = icmp eq ptr %15, null
   br i1 %tobool30.not, label %if.end33, label %if.then31
@@ -6726,14 +6723,11 @@ if.end27:                                         ; preds = %glib_autoptr_cleanu
   %options = getelementptr inbounds i8, ptr %arg, i64 16
   %12 = load ptr, ptr %options, align 8
   %has_force = getelementptr inbounds i8, ptr %arg, i64 24
-  %13 = load i8, ptr %has_force, align 8
-  %14 = and i8 %13, 1
-  %tobool28 = icmp ne i8 %14, 0
-  %force = getelementptr inbounds i8, ptr %arg, i64 25
-  %15 = load i8, ptr %force, align 1
-  %16 = and i8 %15, 1
-  %tobool29 = icmp ne i8 %16, 0
-  call void @qmp_x_blockdev_amend(ptr noundef %10, ptr noundef %11, ptr noundef %12, i1 noundef zeroext %tobool28, i1 noundef zeroext %tobool29, ptr noundef nonnull %err) #5
+  %13 = load <2 x i8>, ptr %has_force, align 8
+  %14 = trunc <2 x i8> %13 to <2 x i1>
+  %15 = extractelement <2 x i1> %14, i64 0
+  %16 = extractelement <2 x i1> %14, i64 1
+  call void @qmp_x_blockdev_amend(ptr noundef %10, ptr noundef %11, ptr noundef %12, i1 noundef zeroext %15, i1 noundef zeroext %16, ptr noundef nonnull %err) #5
   %17 = load ptr, ptr %err, align 8
   %tobool30.not = icmp eq ptr %17, null
   br i1 %tobool30.not, label %if.end33, label %if.then31
@@ -7270,14 +7264,11 @@ if.end27:                                         ; preds = %glib_autoptr_cleanu
   %iothread = getelementptr inbounds i8, ptr %arg, i64 8
   %11 = load ptr, ptr %iothread, align 8
   %has_force = getelementptr inbounds i8, ptr %arg, i64 16
-  %12 = load i8, ptr %has_force, align 8
-  %13 = and i8 %12, 1
-  %tobool28 = icmp ne i8 %13, 0
-  %force = getelementptr inbounds i8, ptr %arg, i64 17
-  %14 = load i8, ptr %force, align 1
-  %15 = and i8 %14, 1
-  %tobool29 = icmp ne i8 %15, 0
-  call void @qmp_x_blockdev_set_iothread(ptr noundef %10, ptr noundef %11, i1 noundef zeroext %tobool28, i1 noundef zeroext %tobool29, ptr noundef nonnull %err) #5
+  %12 = load <2 x i8>, ptr %has_force, align 8
+  %13 = trunc <2 x i8> %12 to <2 x i1>
+  %14 = extractelement <2 x i1> %13, i64 0
+  %15 = extractelement <2 x i1> %13, i64 1
+  call void @qmp_x_blockdev_set_iothread(ptr noundef %10, ptr noundef %11, i1 noundef zeroext %14, i1 noundef zeroext %15, ptr noundef nonnull %err) #5
   %16 = load ptr, ptr %err, align 8
   %tobool30.not = icmp eq ptr %16, null
   br i1 %tobool30.not, label %if.end33, label %if.then31

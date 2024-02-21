@@ -1203,7 +1203,7 @@ ehcleanup46:                                      ; preds = %ehcleanup38, %clean
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8486,15 +8486,12 @@ entry:
   br i1 %cmp.i.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %is_cpu_.i = getelementptr inbounds i8, ptr %0, i64 9
-  %1 = load i8, ptr %is_cpu_.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp ne i8 %2, 0
   %is_mutable_.i = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load i8, ptr %is_mutable_.i, align 8
-  %4 = and i8 %3, 1
-  %tobool2.i = icmp ne i8 %4, 0
-  %5 = select i1 %tobool.not.i, i1 %tobool2.i, i1 false
+  %1 = load <2 x i8>, ptr %is_mutable_.i, align 8
+  %2 = trunc <2 x i8> %1 to <2 x i1>
+  %3 = extractelement <2 x i1> %2, i64 0
+  %4 = extractelement <2 x i1> %2, i64 1
+  %5 = select i1 %4, i1 %3, i1 false
   %data_.i = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %5, ptr %6, ptr null
@@ -10458,7 +10455,7 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind memory(read) }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

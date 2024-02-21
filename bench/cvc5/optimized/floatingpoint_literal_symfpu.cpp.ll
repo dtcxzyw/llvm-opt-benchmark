@@ -6802,11 +6802,11 @@ land.rhs32:                                       ; preds = %land.rhs
   br label %land.end36
 
 land.end36:                                       ; preds = %land.lhs.true15, %land.lhs.true, %entry, %land.rhs32, %land.rhs
-  %frombool37 = phi i1 [ false, %land.rhs ], [ %call35, %land.rhs32 ], [ false, %entry ], [ false, %land.lhs.true ], [ false, %land.lhs.true15 ]
+  %not.frombool37 = phi i1 [ false, %land.rhs ], [ %call35, %land.rhs32 ], [ false, %entry ], [ false, %land.lhs.true ], [ false, %land.lhs.true15 ]
   %significand.i = getelementptr inbounds i8, ptr %left, i64 32
   %significand.i18 = getelementptr inbounds i8, ptr %right, i64 32
   %call42 = call noundef zeroext i1 @_ZNK4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %significand.i, ptr noundef nonnull align 8 dereferenceable(24) %significand.i18)
-  %narrow = and i1 %frombool37, %call42
+  %narrow = and i1 %not.frombool37, %call42
   ret i1 %narrow
 }
 
@@ -7811,14 +7811,11 @@ entry:
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %ref.tmp, align 1
   call void @_ZN4cvc58internal13symfpuLiteral6traits12preconditionERKb(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-  %inf.i = getelementptr inbounds i8, ptr %input, i64 1
-  %2 = load i8, ptr %inf.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.not = icmp ne i8 %3, 0
-  %4 = load i8, ptr %input, align 8
-  %5 = and i8 %4, 1
-  %tobool2 = icmp ne i8 %5, 0
-  %6 = select i1 %tobool.not, i1 true, i1 %tobool2
+  %2 = load <2 x i8>, ptr %input, align 8
+  %3 = trunc <2 x i8> %2 to <2 x i1>
+  %4 = extractelement <2 x i1> %3, i64 0
+  %5 = extractelement <2 x i1> %3, i64 1
+  %6 = select i1 %5, i1 true, i1 %4
   %7 = load i32, ptr %targetWidth, align 4
   %cmp.not3.i = icmp eq i32 %7, 0
   br i1 %cmp.not3.i, label %_ZN6symfpu15bitsToRepresentIjEET_S1_.exit, label %while.body.i
@@ -8225,14 +8222,11 @@ entry:
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %ref.tmp, align 1
   call void @_ZN4cvc58internal13symfpuLiteral6traits12preconditionERKb(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-  %inf.i = getelementptr inbounds i8, ptr %input, i64 1
-  %2 = load i8, ptr %inf.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.not = icmp ne i8 %3, 0
-  %4 = load i8, ptr %input, align 8
-  %5 = and i8 %4, 1
-  %tobool2 = icmp ne i8 %5, 0
-  %6 = select i1 %tobool.not, i1 true, i1 %tobool2
+  %2 = load <2 x i8>, ptr %input, align 8
+  %3 = trunc <2 x i8> %2 to <2 x i1>
+  %4 = extractelement <2 x i1> %3, i64 0
+  %5 = extractelement <2 x i1> %3, i64 1
+  %6 = select i1 %5, i1 true, i1 %4
   %7 = load i32, ptr %targetWidth, align 4
   %cmp.not3.i = icmp eq i32 %7, 0
   br i1 %cmp.not3.i, label %_ZN6symfpu15bitsToRepresentIjEET_S1_.exit, label %while.body.i

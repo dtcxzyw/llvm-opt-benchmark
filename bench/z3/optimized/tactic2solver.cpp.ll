@@ -1291,20 +1291,17 @@ entry:
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(976) %m)
   %call3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 232)
-  %m_produce_proofs = getelementptr inbounds i8, ptr %this, i64 201
-  %2 = load i8, ptr %m_produce_proofs, align 1
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
   %m_produce_models = getelementptr inbounds i8, ptr %this, i64 200
-  %4 = load i8, ptr %m_produce_models, align 8
-  %5 = and i8 %4, 1
-  %tobool4 = icmp ne i8 %5, 0
+  %2 = load <2 x i8>, ptr %m_produce_models, align 8
+  %3 = trunc <2 x i8> %2 to <2 x i1>
   %m_produce_unsat_cores = getelementptr inbounds i8, ptr %this, i64 202
-  %6 = load i8, ptr %m_produce_unsat_cores, align 2
-  %7 = and i8 %6, 1
-  %tobool5 = icmp ne i8 %7, 0
+  %4 = load i8, ptr %m_produce_unsat_cores, align 2
+  %5 = and i8 %4, 1
+  %tobool5 = icmp ne i8 %5, 0
   %m_logic = getelementptr inbounds i8, ptr %this, i64 192
-  tail call fastcc void @_ZN12_GLOBAL__N_113tactic2solverC2ER11ast_managerP6tacticRK10params_refbbbRK6symbol(ptr noundef nonnull align 8 dereferenceable(225) %call3, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %call2, ptr noundef nonnull align 8 dereferenceable(8) %p, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool4, i1 noundef zeroext %tobool5, ptr noundef nonnull align 8 dereferenceable(8) %m_logic)
+  %6 = extractelement <2 x i1> %3, i64 0
+  %7 = extractelement <2 x i1> %3, i64 1
+  tail call fastcc void @_ZN12_GLOBAL__N_113tactic2solverC2ER11ast_managerP6tacticRK10params_refbbbRK6symbol(ptr noundef nonnull align 8 dereferenceable(225) %call3, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %call2, ptr noundef nonnull align 8 dereferenceable(8) %p, i1 noundef zeroext %7, i1 noundef zeroext %6, i1 noundef zeroext %tobool5, ptr noundef nonnull align 8 dereferenceable(8) %m_logic)
   %m_result = getelementptr inbounds i8, ptr %call3, i64 168
   %8 = load ptr, ptr %m_result, align 8
   %tobool.not.i.i = icmp eq ptr %8, null
@@ -2001,19 +1998,16 @@ invoke.cont:                                      ; preds = %if.then.i.i.i, %if.
   %12 = load ptr, ptr %vfn17, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(8) %call15)
   %call18 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 128)
-  %m_produce_proofs = getelementptr inbounds i8, ptr %this, i64 201
-  %13 = load i8, ptr %m_produce_proofs, align 1
-  %14 = and i8 %13, 1
-  %tobool = icmp ne i8 %14, 0
   %m_produce_models = getelementptr inbounds i8, ptr %this, i64 200
-  %15 = load i8, ptr %m_produce_models, align 8
-  %16 = and i8 %15, 1
-  %tobool19 = icmp ne i8 %16, 0
+  %13 = load <2 x i8>, ptr %m_produce_models, align 8
+  %14 = trunc <2 x i8> %13 to <2 x i1>
   %m_produce_unsat_cores = getelementptr inbounds i8, ptr %this, i64 202
-  %17 = load i8, ptr %m_produce_unsat_cores, align 2
-  %18 = and i8 %17, 1
-  %tobool20 = icmp ne i8 %18, 0
-  tail call void @_ZN4goalC1ER11ast_managerbbb(ptr noundef nonnull align 8 dereferenceable(124) %call18, ptr noundef nonnull align 8 dereferenceable(976) %1, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool19, i1 noundef zeroext %tobool20)
+  %15 = load i8, ptr %m_produce_unsat_cores, align 2
+  %16 = and i8 %15, 1
+  %tobool20 = icmp ne i8 %16, 0
+  %17 = extractelement <2 x i1> %14, i64 0
+  %18 = extractelement <2 x i1> %14, i64 1
+  tail call void @_ZN4goalC1ER11ast_managerbbb(ptr noundef nonnull align 8 dereferenceable(124) %call18, ptr noundef nonnull align 8 dereferenceable(976) %1, i1 noundef zeroext %18, i1 noundef zeroext %17, i1 noundef zeroext %tobool20)
   store ptr %call18, ptr %g, align 8
   %m_ref_count.i.i.i23 = getelementptr inbounds i8, ptr %call18, i64 32
   %19 = load i32, ptr %m_ref_count.i.i.i23, align 8

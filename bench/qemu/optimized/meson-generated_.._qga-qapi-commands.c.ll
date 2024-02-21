@@ -2285,14 +2285,11 @@ if.end9:                                          ; preds = %if.then4
   %keys = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load ptr, ptr %keys, align 8
   %has_reset = getelementptr inbounds i8, ptr %arg, i64 16
-  %2 = load i8, ptr %has_reset, align 8
-  %3 = and i8 %2, 1
-  %tobool10 = icmp ne i8 %3, 0
-  %reset = getelementptr inbounds i8, ptr %arg, i64 17
-  %4 = load i8, ptr %reset, align 1
-  %5 = and i8 %4, 1
-  %tobool11 = icmp ne i8 %5, 0
-  call void @qmp_guest_ssh_add_authorized_keys(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %tobool10, i1 noundef zeroext %tobool11, ptr noundef nonnull %err) #4
+  %2 = load <2 x i8>, ptr %has_reset, align 8
+  %3 = trunc <2 x i8> %2 to <2 x i1>
+  %4 = extractelement <2 x i1> %3, i64 0
+  %5 = extractelement <2 x i1> %3, i64 1
+  call void @qmp_guest_ssh_add_authorized_keys(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef nonnull %err) #4
   %6 = load ptr, ptr %err, align 8
   %tobool12.not = icmp eq ptr %6, null
   br i1 %tobool12.not, label %out, label %if.then13

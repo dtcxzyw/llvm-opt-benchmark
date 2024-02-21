@@ -115,14 +115,11 @@ entry:
   %2 = load ptr, ptr %j, align 8
   store ptr %2, ptr %agg.tmp2, align 8
   %d_isConcrete = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load i8, ptr %d_isConcrete, align 8
-  %4 = and i8 %3, 1
-  %tobool = icmp ne i8 %4, 0
-  %d_isAbsolute = getelementptr inbounds i8, ptr %this, i64 9
-  %5 = load i8, ptr %d_isAbsolute, align 1
-  %6 = and i8 %5, 1
-  %tobool3 = icmp ne i8 %6, 0
-  %call = call noundef i32 @_ZN4cvc58internal6theory5arith2nl7NlModel7compareENS0_12NodeTemplateILb0EEES6_bb(ptr noundef nonnull align 8 dereferenceable(369) %0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool3)
+  %3 = load <2 x i8>, ptr %d_isConcrete, align 8
+  %4 = trunc <2 x i8> %3 to <2 x i1>
+  %5 = extractelement <2 x i1> %4, i64 0
+  %6 = extractelement <2 x i1> %4, i64 1
+  %call = call noundef i32 @_ZN4cvc58internal6theory5arith2nl7NlModel7compareENS0_12NodeTemplateILb0EEES6_bb(ptr noundef nonnull align 8 dereferenceable(369) %0, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext %5, i1 noundef zeroext %6)
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 

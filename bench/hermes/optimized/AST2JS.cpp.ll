@@ -5983,20 +5983,17 @@ return:                                           ; preds = %tailrecurse.backedg
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree22FunctionExpressionNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
-  %_async = getelementptr inbounds i8, ptr %node, i64 129
-  %0 = load i8, ptr %_async, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
   %_generator = getelementptr inbounds i8, ptr %node, i64 128
-  %2 = load i8, ptr %_generator, align 8
-  %3 = and i8 %2, 1
-  %tobool2 = icmp ne i8 %3, 0
+  %0 = load <2 x i8>, ptr %_generator, align 8
+  %1 = trunc <2 x i8> %0 to <2 x i1>
   %_id = getelementptr inbounds i8, ptr %node, i64 72
-  %4 = load ptr, ptr %_id, align 8
+  %2 = load ptr, ptr %_id, align 8
   %_params = getelementptr inbounds i8, ptr %node, i64 80
   %_body = getelementptr inbounds i8, ptr %node, i64 96
-  %5 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitFuncLikeEbbPNS_6ESTree4NodeERN4llvh12simple_ilistIS3_JEEES4_S4_(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool2, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %_params, ptr noundef %5)
+  %3 = load ptr, ptr %_body, align 8
+  %4 = extractelement <2 x i1> %1, i64 0
+  %5 = extractelement <2 x i1> %1, i64 1
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitFuncLikeEbbPNS_6ESTree4NodeERN4llvh12simple_ilistIS3_JEEES4_S4_(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %5, i1 noundef zeroext %4, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %_params, ptr noundef %3)
   ret void
 }
 
@@ -7376,20 +7373,17 @@ _ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree23FunctionDeclarationNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
-  %_async = getelementptr inbounds i8, ptr %node, i64 129
-  %0 = load i8, ptr %_async, align 1
-  %1 = and i8 %0, 1
-  %tobool = icmp ne i8 %1, 0
   %_generator = getelementptr inbounds i8, ptr %node, i64 128
-  %2 = load i8, ptr %_generator, align 8
-  %3 = and i8 %2, 1
-  %tobool2 = icmp ne i8 %3, 0
+  %0 = load <2 x i8>, ptr %_generator, align 8
+  %1 = trunc <2 x i8> %0 to <2 x i1>
   %_id = getelementptr inbounds i8, ptr %node, i64 72
-  %4 = load ptr, ptr %_id, align 8
+  %2 = load ptr, ptr %_id, align 8
   %_params = getelementptr inbounds i8, ptr %node, i64 80
   %_body = getelementptr inbounds i8, ptr %node, i64 96
-  %5 = load ptr, ptr %_body, align 8
-  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitFuncLikeEbbPNS_6ESTree4NodeERN4llvh12simple_ilistIS3_JEEES4_S4_(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool2, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %_params, ptr noundef %5)
+  %3 = load ptr, ptr %_body, align 8
+  %4 = extractelement <2 x i1> %1, i64 0
+  %5 = extractelement <2 x i1> %1, i64 1
+  tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitFuncLikeEbbPNS_6ESTree4NodeERN4llvh12simple_ilistIS3_JEEES4_S4_(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %5, i1 noundef zeroext %4, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %_params, ptr noundef %3)
   ret void
 }
 

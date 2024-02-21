@@ -621,15 +621,12 @@ declare void @_ZN4cvc58internal12TheoryEngine15entailmentCheckENS0_7options12The
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory9Valuation9needCheckEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %d_outputChannelUsed.i = getelementptr inbounds i8, ptr %0, i64 953
-  %1 = load i8, ptr %d_outputChannelUsed.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp ne i8 %2, 0
   %d_lemmasAdded.i = getelementptr inbounds i8, ptr %0, i64 952
-  %3 = load i8, ptr %d_lemmasAdded.i, align 8
-  %4 = and i8 %3, 1
-  %tobool2.i = icmp ne i8 %4, 0
-  %5 = select i1 %tobool.not.i, i1 true, i1 %tobool2.i
+  %1 = load <2 x i8>, ptr %d_lemmasAdded.i, align 8
+  %2 = trunc <2 x i8> %1 to <2 x i1>
+  %3 = extractelement <2 x i1> %2, i64 0
+  %4 = extractelement <2 x i1> %2, i64 1
+  %5 = select i1 %4, i1 true, i1 %3
   ret i1 %5
 }
 

@@ -2169,7 +2169,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %m_scratch_m = getelementptr inbounds i8, ptr %this, i64 816
   %m_timeStep = getelementptr inbounds i8, ptr %solverInfo, i64 12
   %m_jointFeedbackInWorldSpace = getelementptr inbounds i8, ptr %this, i64 268
-  %m_jointFeedbackInJointFrame = getelementptr inbounds i8, ptr %this, i64 269
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc72
@@ -2405,13 +2404,11 @@ if.then50:                                        ; preds = %invoke.cont47
 
 if.then56:                                        ; preds = %if.then50
   %39 = load float, ptr %m_timeStep, align 4
-  %40 = load i8, ptr %m_jointFeedbackInWorldSpace, align 4
-  %41 = and i8 %40, 1
-  %tobool63 = icmp ne i8 %41, 0
-  %42 = load i8, ptr %m_jointFeedbackInJointFrame, align 1
-  %43 = and i8 %42, 1
-  %tobool66 = icmp ne i8 %43, 0
-  invoke void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %7, float noundef %39, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext true, i1 noundef zeroext %tobool63, i1 noundef zeroext %tobool66)
+  %40 = load <2 x i8>, ptr %m_jointFeedbackInWorldSpace, align 4
+  %41 = trunc <2 x i8> %40 to <2 x i1>
+  %42 = extractelement <2 x i1> %41, i64 0
+  %43 = extractelement <2 x i1> %41, i64 1
+  invoke void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %7, float noundef %39, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext true, i1 noundef zeroext %42, i1 noundef zeroext %43)
           to label %for.inc72 unwind label %lpad
 
 for.inc72:                                        ; preds = %for.end, %if.then50, %if.then56, %invoke.cont47
@@ -3010,7 +3007,6 @@ for.body93.lr.ph:                                 ; preds = %for.cond88.preheade
   %m_scratch_m = getelementptr inbounds i8, ptr %this, i64 816
   %m_timeStep264 = getelementptr inbounds i8, ptr %solverInfo, i64 12
   %m_jointFeedbackInWorldSpace271 = getelementptr inbounds i8, ptr %this, i64 268
-  %m_jointFeedbackInJointFrame275 = getelementptr inbounds i8, ptr %this, i64 269
   %m_ownsMemory.i.i584783 = getelementptr inbounds i8, ptr %delta_q, i64 24
   %m_data.i.i585784 = getelementptr inbounds i8, ptr %delta_q, i64 16
   %m_size.i.i586785 = getelementptr inbounds i8, ptr %delta_q, i64 4
@@ -3246,13 +3242,11 @@ invoke.cont142:                                   ; preds = %invoke.cont141
 
 if.then145:                                       ; preds = %invoke.cont142
   %86 = load float, ptr %m_timeStep264, align 4
-  %87 = load i8, ptr %m_jointFeedbackInWorldSpace271, align 4
-  %88 = and i8 %87, 1
-  %tobool152 = icmp ne i8 %88, 0
-  %89 = load i8, ptr %m_jointFeedbackInJointFrame275, align 1
-  %90 = and i8 %89, 1
-  %tobool155 = icmp ne i8 %90, 0
-  invoke void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %56, float noundef %86, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext false, i1 noundef zeroext %tobool152, i1 noundef zeroext %tobool155)
+  %87 = load <2 x i8>, ptr %m_jointFeedbackInWorldSpace271, align 4
+  %88 = trunc <2 x i8> %87 to <2 x i1>
+  %89 = extractelement <2 x i1> %88, i64 0
+  %90 = extractelement <2 x i1> %88, i64 1
+  invoke void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %56, float noundef %86, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext false, i1 noundef zeroext %89, i1 noundef zeroext %90)
           to label %for.inc461 unwind label %lpad89
 
 invoke.cont163:                                   ; preds = %invoke.cont142
@@ -3401,13 +3395,11 @@ invoke.cont252:                                   ; preds = %invoke.cont252.lr.p
 
 for.end260:                                       ; preds = %invoke.cont252, %for.cond249.preheader
   %117 = load float, ptr %m_timeStep264, align 4
-  %118 = load i8, ptr %m_jointFeedbackInWorldSpace271, align 4
-  %119 = and i8 %118, 1
-  %tobool272 = icmp ne i8 %119, 0
-  %120 = load i8, ptr %m_jointFeedbackInJointFrame275, align 1
-  %121 = and i8 %120, 1
-  %tobool276 = icmp ne i8 %121, 0
-  invoke void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %56, float noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext false, i1 noundef zeroext %tobool272, i1 noundef zeroext %tobool276)
+  %118 = load <2 x i8>, ptr %m_jointFeedbackInWorldSpace271, align 4
+  %119 = trunc <2 x i8> %118 to <2 x i1>
+  %120 = extractelement <2 x i1> %119, i64 0
+  %121 = extractelement <2 x i1> %119, i64 1
+  invoke void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %56, float noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext false, i1 noundef zeroext %120, i1 noundef zeroext %121)
           to label %invoke.cont277 unwind label %lpad167
 
 invoke.cont277:                                   ; preds = %for.end260
@@ -3495,13 +3487,11 @@ for.body.i463:                                    ; preds = %"_ZZN24btMultiBodyD
   br i1 %cmp.i467, label %for.body.i463, label %invoke.cont289, !llvm.loop !44
 
 invoke.cont289:                                   ; preds = %for.body.i463, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit"
-  %139 = load i8, ptr %m_jointFeedbackInWorldSpace271, align 4
-  %140 = and i8 %139, 1
-  %tobool297 = icmp ne i8 %140, 0
-  %141 = load i8, ptr %m_jointFeedbackInJointFrame275, align 1
-  %142 = and i8 %141, 1
-  %tobool301 = icmp ne i8 %142, 0
-  invoke void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %56, float noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext false, i1 noundef zeroext %tobool297, i1 noundef zeroext %tobool301)
+  %139 = load <2 x i8>, ptr %m_jointFeedbackInWorldSpace271, align 4
+  %140 = trunc <2 x i8> %139 to <2 x i1>
+  %141 = extractelement <2 x i1> %140, i64 0
+  %142 = extractelement <2 x i1> %140, i64 1
+  invoke void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %56, float noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext false, i1 noundef zeroext %141, i1 noundef zeroext %142)
           to label %invoke.cont302 unwind label %lpad167
 
 invoke.cont302:                                   ; preds = %invoke.cont289
@@ -3587,13 +3577,11 @@ for.body.i511:                                    ; preds = %"_ZZN24btMultiBodyD
   br i1 %cmp.i516, label %for.body.i511, label %invoke.cont314, !llvm.loop !44
 
 invoke.cont314:                                   ; preds = %for.body.i511, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit507"
-  %160 = load i8, ptr %m_jointFeedbackInWorldSpace271, align 4
-  %161 = and i8 %160, 1
-  %tobool322 = icmp ne i8 %161, 0
-  %162 = load i8, ptr %m_jointFeedbackInJointFrame275, align 1
-  %163 = and i8 %162, 1
-  %tobool326 = icmp ne i8 %163, 0
-  invoke void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %56, float noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext false, i1 noundef zeroext %tobool322, i1 noundef zeroext %tobool326)
+  %160 = load <2 x i8>, ptr %m_jointFeedbackInWorldSpace271, align 4
+  %161 = trunc <2 x i8> %160 to <2 x i1>
+  %162 = extractelement <2 x i1> %161, i64 0
+  %163 = extractelement <2 x i1> %161, i64 1
+  invoke void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %56, float noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext false, i1 noundef zeroext %162, i1 noundef zeroext %163)
           to label %invoke.cont327 unwind label %lpad167
 
 invoke.cont327:                                   ; preds = %invoke.cont314
@@ -3679,13 +3667,11 @@ for.body.i561:                                    ; preds = %"_ZZN24btMultiBodyD
   br i1 %cmp.i566, label %for.body.i561, label %invoke.cont337, !llvm.loop !44
 
 invoke.cont337:                                   ; preds = %for.body.i561, %"_ZZN24btMultiBodyDynamicsWorld19solveExternalForcesER19btContactSolverInfoEN3$_2clEfPKfS4_Pfi.exit557"
-  %181 = load i8, ptr %m_jointFeedbackInWorldSpace271, align 4
-  %182 = and i8 %181, 1
-  %tobool345 = icmp ne i8 %182, 0
-  %183 = load i8, ptr %m_jointFeedbackInJointFrame275, align 1
-  %184 = and i8 %183, 1
-  %tobool349 = icmp ne i8 %184, 0
-  invoke void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %56, float noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext false, i1 noundef zeroext %tobool345, i1 noundef zeroext %tobool349)
+  %181 = load <2 x i8>, ptr %m_jointFeedbackInWorldSpace271, align 4
+  %182 = trunc <2 x i8> %181 to <2 x i1>
+  %183 = extractelement <2 x i1> %182, i64 0
+  %184 = extractelement <2 x i1> %182, i64 1
+  invoke void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %56, float noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext false, i1 noundef zeroext %183, i1 noundef zeroext %184)
           to label %invoke.cont350 unwind label %lpad167
 
 invoke.cont350:                                   ; preds = %invoke.cont337
@@ -3944,13 +3930,11 @@ for.inc442:                                       ; preds = %invoke.cont439
   br i1 %cmp437, label %invoke.cont439, label %for.end444, !llvm.loop !47
 
 for.end444:                                       ; preds = %for.inc442, %for.end430
-  %226 = load i8, ptr %m_jointFeedbackInWorldSpace271, align 4
-  %227 = and i8 %226, 1
-  %tobool452 = icmp ne i8 %227, 0
-  %228 = load i8, ptr %m_jointFeedbackInJointFrame275, align 1
-  %229 = and i8 %228, 1
-  %tobool456 = icmp ne i8 %229, 0
-  invoke void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %56, float noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext false, i1 noundef zeroext %tobool452, i1 noundef zeroext %tobool456)
+  %226 = load <2 x i8>, ptr %m_jointFeedbackInWorldSpace271, align 4
+  %227 = trunc <2 x i8> %226 to <2 x i1>
+  %228 = extractelement <2 x i1> %227, i64 0
+  %229 = extractelement <2 x i1> %227, i64 1
+  invoke void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %56, float noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext false, i1 noundef zeroext %228, i1 noundef zeroext %229)
           to label %invoke.cont457 unwind label %lpad363.loopexit.split-lp
 
 invoke.cont457:                                   ; preds = %for.end444
@@ -9378,7 +9362,7 @@ cond.false.i4.i.us:                               ; preds = %while.cond.us
 _ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit.us: ; preds = %cond.false.i4.i.us, %while.cond.us
   %cond.i7.i.us = phi i32 [ %10, %cond.false.i4.i.us ], [ %8, %while.cond.us ]
   %cmp.i.us = icmp slt i32 %cond.i7.i.us, %4
-  %indvars.iv.next63 = add i64 %indvars.iv62, 1
+  %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
   br i1 %cmp.i.us, label %while.cond.us, label %while.cond5.preheader, !llvm.loop !82
 
 do.body.split:                                    ; preds = %do.body
@@ -9409,7 +9393,7 @@ cond.false.i4.i:                                  ; preds = %while.cond
 _ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit: ; preds = %while.cond, %cond.false.i4.i
   %cond.i7.i = phi i32 [ %18, %cond.false.i4.i ], [ %16, %while.cond ]
   %cmp.i = icmp slt i32 %cond.i7.i, %12
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %cmp.i, label %while.cond, label %while.cond5.preheader, !llvm.loop !82
 
 while.cond5.preheader:                            ; preds = %_ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit, %_ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit.us
@@ -9444,7 +9428,7 @@ cond.false.i.i28.us:                              ; preds = %while.cond5.us
 _Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i31.us: ; preds = %cond.false.i.i28.us, %while.cond5.us
   %cond.i.i32.us = phi i32 [ %24, %cond.false.i.i28.us ], [ %22, %while.cond5.us ]
   %cmp.i40.us = icmp slt i32 %4, %cond.i.i32.us
-  %indvars.iv.next69 = add i64 %indvars.iv68, -1
+  %indvars.iv.next69 = add nsw i64 %indvars.iv68, -1
   br i1 %cmp.i40.us, label %while.cond5.us, label %while.end11, !llvm.loop !83
 
 while.cond5.preheader.split52:                    ; preds = %while.cond5.preheader
@@ -9475,7 +9459,7 @@ cond.false.i.i28:                                 ; preds = %while.cond5
 _Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i31: ; preds = %cond.false.i.i28, %while.cond5
   %cond.i.i32 = phi i32 [ %32, %cond.false.i.i28 ], [ %30, %while.cond5 ]
   %cmp.i40 = icmp slt i32 %26, %cond.i.i32
-  %indvars.iv.next66 = add i64 %indvars.iv65, -1
+  %indvars.iv.next66 = add nsw i64 %indvars.iv65, -1
   br i1 %cmp.i40, label %while.cond5, label %while.end11, !llvm.loop !83
 
 while.end11:                                      ; preds = %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i31, %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i31.us
@@ -9564,7 +9548,7 @@ while.cond:                                       ; preds = %while.cond, %do.bod
   %cmp3.i7.i = icmp slt i32 %call.i3.i, 0
   %cond.i8.i = select i1 %cmp3.i7.i, i32 %call3.i6.i, i32 %call.i3.i
   %cmp.i = icmp slt i32 %cond.i8.i, %cond.i.i
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %cmp.i, label %while.cond, label %while.cond5.preheader, !llvm.loop !85
 
 while.cond5.preheader:                            ; preds = %while.cond
@@ -9597,7 +9581,7 @@ while.cond5:                                      ; preds = %while.cond5, %while
   %cmp3.i7.i39 = icmp slt i32 %call.i3.i35, 0
   %cond.i8.i40 = select i1 %cmp3.i7.i39, i32 %call3.i6.i38, i32 %call.i3.i35
   %cmp.i41 = icmp slt i32 %cond.i8.i40, %cond.i.i32
-  %indvars.iv.next44 = add i64 %indvars.iv43, -1
+  %indvars.iv.next44 = add nsw i64 %indvars.iv43, -1
   br i1 %cmp.i41, label %while.cond5, label %while.end11, !llvm.loop !86
 
 while.end11:                                      ; preds = %while.cond5

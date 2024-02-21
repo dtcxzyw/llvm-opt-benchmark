@@ -1685,15 +1685,12 @@ do.end6.i:                                        ; preds = %.noexc
   br i1 %cmp.not.i39.i, label %invoke.cont.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.end6.i
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %13, i64 9
-  %15 = load i8, ptr %is_cpu_.i.i.i, align 1, !noalias !36
-  %16 = and i8 %15, 1
-  %tobool.not.i.i.i = icmp ne i8 %16, 0
   %is_mutable_.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
-  %17 = load i8, ptr %is_mutable_.i.i.i, align 8, !noalias !36
-  %18 = and i8 %17, 1
-  %tobool2.i.i.i = icmp ne i8 %18, 0
-  %19 = select i1 %tobool.not.i.i.i, i1 %tobool2.i.i.i, i1 false
+  %15 = load <2 x i8>, ptr %is_mutable_.i.i.i, align 8, !noalias !36
+  %16 = trunc <2 x i8> %15 to <2 x i1>
+  %17 = extractelement <2 x i1> %16, i64 0
+  %18 = extractelement <2 x i1> %16, i64 1
+  %19 = select i1 %18, i1 %17, i1 false
   %data_.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %20 = load ptr, ptr %data_.i.i.i, align 8, !noalias !36
   %cond.i.i.i = select i1 %19, ptr %20, ptr null
@@ -2359,15 +2356,12 @@ do.end6.i:                                        ; preds = %.noexc
   br i1 %cmp.not.i39.i, label %invoke.cont.thread, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %do.end6.i
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %13, i64 9
-  %15 = load i8, ptr %is_cpu_.i.i.i, align 1, !noalias !43
-  %16 = and i8 %15, 1
-  %tobool.not.i.i.i = icmp ne i8 %16, 0
   %is_mutable_.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
-  %17 = load i8, ptr %is_mutable_.i.i.i, align 8, !noalias !43
-  %18 = and i8 %17, 1
-  %tobool2.i.i.i = icmp ne i8 %18, 0
-  %19 = select i1 %tobool.not.i.i.i, i1 %tobool2.i.i.i, i1 false
+  %15 = load <2 x i8>, ptr %is_mutable_.i.i.i, align 8, !noalias !43
+  %16 = trunc <2 x i8> %15 to <2 x i1>
+  %17 = extractelement <2 x i1> %16, i64 0
+  %18 = extractelement <2 x i1> %16, i64 1
+  %19 = select i1 %18, i1 %17, i1 false
   %data_.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %20 = load ptr, ptr %data_.i.i.i, align 8, !noalias !43
   %cond.i.i.i = select i1 %19, ptr %20, ptr null
@@ -4458,7 +4452,7 @@ _ZN5arrow6StatusD2Ev.exit50:                      ; preds = %_ZN5arrow6StatusD2E
   br label %cleanup37
 
 cleanup37:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit50, %_ZN5arrow6StatusC2ERKS0_.exit, %_ZN5arrow6StatusD2Ev.exit
-  %cleanup.dest.slot.1 = phi i1 [ false, %_ZN5arrow6StatusC2ERKS0_.exit ], [ true, %_ZN5arrow6StatusD2Ev.exit50 ], [ false, %_ZN5arrow6StatusD2Ev.exit ]
+  %switch = phi i1 [ false, %_ZN5arrow6StatusC2ERKS0_.exit ], [ true, %_ZN5arrow6StatusD2Ev.exit50 ], [ false, %_ZN5arrow6StatusD2Ev.exit ]
   %11 = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i, label %_ZN5arrow6ResultIlED2Ev.exit, label %delete.notnull.i.i.i
@@ -4544,7 +4538,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i:         ; preds = %if.end8.sink.split.
   br label %_ZN5arrow6ResultIlED2Ev.exit
 
 _ZN5arrow6ResultIlED2Ev.exit:                     ; preds = %cleanup37, %_ZN5arrow6Status11DeleteStateEv.exit.i.i
-  br i1 %cleanup.dest.slot.1, label %if.end40, label %return
+  br i1 %switch, label %if.end40, label %return
 
 if.end40:                                         ; preds = %_ZN5arrow6ResultIlED2Ev.exit, %if.then
   store ptr null, ptr %agg.result, align 8, !alias.scope !80
@@ -6317,7 +6311,7 @@ _ZN5arrow6StatusD2Ev.exit46:                      ; preds = %_ZN5arrow6StatusD2E
   br label %cleanup31
 
 cleanup31:                                        ; preds = %_ZN5arrow6StatusC2ERKS0_.exit, %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit46
-  %cleanup.dest.slot.1 = phi i1 [ true, %_ZN5arrow6StatusD2Ev.exit46 ], [ false, %_ZN5arrow6StatusC2ERKS0_.exit ], [ false, %_ZN5arrow6StatusD2Ev.exit ]
+  %switch = phi i1 [ true, %_ZN5arrow6StatusD2Ev.exit46 ], [ false, %_ZN5arrow6StatusC2ERKS0_.exit ], [ false, %_ZN5arrow6StatusD2Ev.exit ]
   %12 = load ptr, ptr %ref.tmp, align 8
   %cmp.not.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i, label %_ZN5arrow6ResultIlED2Ev.exit, label %delete.notnull.i.i.i
@@ -6403,7 +6397,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i:         ; preds = %if.end8.sink.split.
   br label %_ZN5arrow6ResultIlED2Ev.exit
 
 _ZN5arrow6ResultIlED2Ev.exit:                     ; preds = %cleanup31, %_ZN5arrow6Status11DeleteStateEv.exit.i.i
-  br i1 %cleanup.dest.slot.1, label %if.end34, label %return
+  br i1 %switch, label %if.end34, label %return
 
 if.end34:                                         ; preds = %_ZN5arrow6ResultIlED2Ev.exit, %if.then
   store ptr null, ptr %agg.result, align 8, !alias.scope !173
@@ -7461,15 +7455,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %is_cpu_.i = getelementptr inbounds i8, ptr %this, i64 9
-  %0 = load i8, ptr %is_cpu_.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp ne i8 %1, 0
   %is_mutable_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load i8, ptr %is_mutable_.i, align 8
-  %3 = and i8 %2, 1
-  %tobool2.i = icmp ne i8 %3, 0
-  %4 = select i1 %tobool.not.i, i1 %tobool2.i, i1 false
+  %0 = load <2 x i8>, ptr %is_mutable_.i, align 8
+  %1 = trunc <2 x i8> %0 to <2 x i1>
+  %2 = extractelement <2 x i1> %1, i64 0
+  %3 = extractelement <2 x i1> %1, i64 1
+  %4 = select i1 %3, i1 %2, i1 false
   %data_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %4, ptr %5, ptr null
@@ -7545,15 +7536,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %is_cpu_.i = getelementptr inbounds i8, ptr %this, i64 9
-  %0 = load i8, ptr %is_cpu_.i, align 1
-  %1 = and i8 %0, 1
-  %tobool.not.i = icmp ne i8 %1, 0
   %is_mutable_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %2 = load i8, ptr %is_mutable_.i, align 8
-  %3 = and i8 %2, 1
-  %tobool2.i = icmp ne i8 %3, 0
-  %4 = select i1 %tobool.not.i, i1 %tobool2.i, i1 false
+  %0 = load <2 x i8>, ptr %is_mutable_.i, align 8
+  %1 = trunc <2 x i8> %0 to <2 x i1>
+  %2 = extractelement <2 x i1> %1, i64 0
+  %3 = extractelement <2 x i1> %1, i64 1
+  %4 = select i1 %3, i1 %2, i1 false
   %data_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %4, ptr %5, ptr null

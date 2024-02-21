@@ -2156,7 +2156,7 @@ if.end20:                                         ; preds = %if.then14
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end20, %land.lhs.true12, %land.lhs.true10, %land.lhs.true8, %land.lhs.true6, %land.lhs.true, %entry
-  %reentrancy_guard_applied.0 = phi i1 [ true, %land.lhs.true ], [ true, %land.lhs.true6 ], [ true, %land.lhs.true8 ], [ true, %land.lhs.true10 ], [ true, %land.lhs.true12 ], [ false, %if.end20 ], [ true, %entry ]
+  %reentrancy_guard_applied.0.not = phi i1 [ true, %land.lhs.true ], [ true, %land.lhs.true6 ], [ true, %land.lhs.true8 ], [ true, %land.lhs.true10 ], [ true, %land.lhs.true12 ], [ false, %if.end20 ], [ true, %entry ]
   %cond = tail call i32 @llvm.umin.i32(i32 %spec.store.select1, i32 %size)
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %access_size_min, i32 %cond)
   %cond31 = tail call i32 @llvm.umax.i32(i32 %spec.store.select, i32 1)
@@ -2207,7 +2207,7 @@ if.end54:                                         ; preds = %for.body44, %for.bo
   %r.2 = phi i32 [ 0, %for.cond.preheader ], [ 0, %for.cond41.preheader ], [ %or, %for.body ], [ %or50, %for.body44 ]
   %16 = load ptr, ptr %dev, align 8
   %tobool56.not = icmp eq ptr %16, null
-  %brmerge = or i1 %reentrancy_guard_applied.0, %tobool56.not
+  %brmerge = or i1 %reentrancy_guard_applied.0.not, %tobool56.not
   br i1 %brmerge, label %return, label %if.then60
 
 if.then60:                                        ; preds = %if.end54
@@ -11403,14 +11403,11 @@ entry:
   tail call void @g_slist_foreach(ptr noundef %value, ptr noundef nonnull @mtree_print_as_name, ptr noundef null) #19
   %0 = load ptr, ptr %user_data, align 8
   %owner = getelementptr inbounds i8, ptr %user_data, i64 8
-  %1 = load i8, ptr %owner, align 8
-  %2 = and i8 %1, 1
-  %tobool = icmp ne i8 %2, 0
-  %disabled = getelementptr inbounds i8, ptr %user_data, i64 9
-  %3 = load i8, ptr %disabled, align 1
-  %4 = and i8 %3, 1
-  %tobool1 = icmp ne i8 %4, 0
-  tail call fastcc void @mtree_print_mr(ptr noundef %key, i32 noundef 1, i64 noundef 0, ptr noundef %0, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool1)
+  %1 = load <2 x i8>, ptr %owner, align 8
+  %2 = trunc <2 x i8> %1 to <2 x i1>
+  %3 = extractelement <2 x i1> %2, i64 0
+  %4 = extractelement <2 x i1> %2, i64 1
+  tail call fastcc void @mtree_print_mr(ptr noundef %key, i32 noundef 1, i64 noundef 0, ptr noundef %0, i1 noundef zeroext %3, i1 noundef zeroext %4)
   %call = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.87) #19
   ret void
 }

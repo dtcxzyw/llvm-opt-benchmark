@@ -1038,17 +1038,14 @@ for.body51:                                       ; preds = %for.end, %for.inc63
   %__begin143.sroa.0.087 = phi ptr [ %incdec.ptr.i48, %for.inc63 ], [ %.pre, %for.end ]
   %reports55 = getelementptr inbounds i8, ptr %__begin143.sroa.0.087, i64 24
   %is_anchored56 = getelementptr inbounds i8, ptr %__begin143.sroa.0.087, i64 56
-  %108 = load i8, ptr %is_anchored56, align 8
-  %109 = and i8 %108, 1
-  %tobool57 = icmp ne i8 %109, 0
-  %is_eod58 = getelementptr inbounds i8, ptr %__begin143.sroa.0.087, i64 57
-  %110 = load i8, ptr %is_eod58, align 1
-  %111 = and i8 %110, 1
-  %tobool59 = icmp ne i8 %111, 0
+  %108 = load <2 x i8>, ptr %is_anchored56, align 8
+  %109 = trunc <2 x i8> %108 to <2 x i1>
   %vtable60 = load ptr, ptr %rose, align 8
   %vfn61 = getelementptr inbounds i8, ptr %vtable60, i64 96
-  %112 = load ptr, ptr %vfn61, align 8
-  invoke void %112(ptr noundef nonnull align 8 dereferenceable(8) %rose, ptr noundef nonnull align 8 dereferenceable(24) %__begin143.sroa.0.087, ptr noundef nonnull align 8 dereferenceable(32) %reports55, i1 noundef zeroext %tobool57, i1 noundef zeroext %tobool59)
+  %110 = load ptr, ptr %vfn61, align 8
+  %111 = extractelement <2 x i1> %109, i64 0
+  %112 = extractelement <2 x i1> %109, i64 1
+  invoke void %110(ptr noundef nonnull align 8 dereferenceable(8) %rose, ptr noundef nonnull align 8 dereferenceable(24) %__begin143.sroa.0.087, ptr noundef nonnull align 8 dereferenceable(32) %reports55, i1 noundef zeroext %111, i1 noundef zeroext %112)
           to label %for.inc63 unwind label %lpad19.loopexit
 
 for.inc63:                                        ; preds = %for.body51

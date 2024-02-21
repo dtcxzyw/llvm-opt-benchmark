@@ -119,15 +119,12 @@ invoke.cont7:                                     ; preds = %invoke.cont
   store i64 %3, ptr %buffer, align 8, !alias.scope !10
   store ptr null, ptr %storage_.i.i, align 8, !noalias !10
   %.cast = inttoptr i64 %3 to ptr
-  %is_cpu_.i = getelementptr inbounds i8, ptr %.cast, i64 9
-  %4 = load i8, ptr %is_cpu_.i, align 1
-  %5 = and i8 %4, 1
-  %tobool.not.i = icmp ne i8 %5, 0
   %is_mutable_.i = getelementptr inbounds i8, ptr %.cast, i64 8
-  %6 = load i8, ptr %is_mutable_.i, align 8
-  %7 = and i8 %6, 1
-  %tobool2.i = icmp ne i8 %7, 0
-  %8 = select i1 %tobool.not.i, i1 %tobool2.i, i1 false
+  %4 = load <2 x i8>, ptr %is_mutable_.i, align 8
+  %5 = trunc <2 x i8> %4 to <2 x i1>
+  %6 = extractelement <2 x i1> %5, i64 0
+  %7 = extractelement <2 x i1> %5, i64 1
+  %8 = select i1 %7, i1 %6, i1 false
   %data_.i = getelementptr inbounds i8, ptr %.cast, i64 16
   %9 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %8, ptr %9, ptr null
@@ -580,15 +577,12 @@ invoke.cont10:                                    ; preds = %invoke.cont
   store i64 %13, ptr %buffer, align 8, !alias.scope !22
   store ptr null, ptr %storage_.i.i, align 8, !noalias !22
   %.cast = inttoptr i64 %13 to ptr
-  %is_cpu_.i = getelementptr inbounds i8, ptr %.cast, i64 9
-  %14 = load i8, ptr %is_cpu_.i, align 1
-  %15 = and i8 %14, 1
-  %tobool.not.i = icmp ne i8 %15, 0
   %is_mutable_.i = getelementptr inbounds i8, ptr %.cast, i64 8
-  %16 = load i8, ptr %is_mutable_.i, align 8
-  %17 = and i8 %16, 1
-  %tobool2.i = icmp ne i8 %17, 0
-  %18 = select i1 %tobool.not.i, i1 %tobool2.i, i1 false
+  %14 = load <2 x i8>, ptr %is_mutable_.i, align 8
+  %15 = trunc <2 x i8> %14 to <2 x i1>
+  %16 = extractelement <2 x i1> %15, i64 0
+  %17 = extractelement <2 x i1> %15, i64 1
+  %18 = select i1 %17, i1 %16, i1 false
   %data_.i = getelementptr inbounds i8, ptr %.cast, i64 16
   %19 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %18, ptr %19, ptr null

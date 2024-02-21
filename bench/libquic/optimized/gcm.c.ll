@@ -171,14 +171,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden i32 @crypto_gcm_clmul_enabled() local_unnamed_addr #3 {
 entry:
-  %0 = load i32, ptr @OPENSSL_ia32cap_P, align 16
-  %and = and i32 %0, 16777216
-  %tobool = icmp ne i32 %and, 0
-  %1 = load i32, ptr getelementptr inbounds ([4 x i32], ptr @OPENSSL_ia32cap_P, i64 0, i64 1), align 4
-  %and1 = and i32 %1, 2
-  %tobool2 = icmp ne i32 %and1, 0
-  %2 = select i1 %tobool, i1 %tobool2, i1 false
-  %land.ext = zext i1 %2 to i32
+  %0 = load <2 x i32>, ptr @OPENSSL_ia32cap_P, align 16
+  %1 = and <2 x i32> %0, <i32 16777216, i32 2>
+  %2 = icmp ne <2 x i32> %1, zeroinitializer
+  %3 = extractelement <2 x i1> %2, i64 0
+  %4 = extractelement <2 x i1> %2, i64 1
+  %5 = select i1 %3, i1 %4, i1 false
+  %land.ext = zext i1 %5 to i32
   ret i32 %land.ext
 }
 

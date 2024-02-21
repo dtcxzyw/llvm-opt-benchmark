@@ -3938,7 +3938,6 @@ for.body8.lr.ph:                                  ; preds = %for.end
   %m_scratch_m = getelementptr inbounds i8, ptr %this, i64 816
   %m_timeStep = getelementptr inbounds i8, ptr %this, i64 164
   %m_jointFeedbackInWorldSpace = getelementptr inbounds i8, ptr %this, i64 268
-  %m_jointFeedbackInJointFrame = getelementptr inbounds i8, ptr %this, i64 269
   br label %for.body8
 
 for.body8:                                        ; preds = %for.body8.lr.ph, %for.inc52
@@ -4152,13 +4151,11 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %if.end.i60,
 
 if.then41:                                        ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
   %37 = load float, ptr %m_timeStep, align 4
-  %38 = load i8, ptr %m_jointFeedbackInWorldSpace, align 4
-  %39 = and i8 %38, 1
-  %tobool47 = icmp ne i8 %39, 0
-  %40 = load i8, ptr %m_jointFeedbackInJointFrame, align 1
-  %41 = and i8 %40, 1
-  %tobool49 = icmp ne i8 %41, 0
-  call void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %8, float noundef %37, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext false, i1 noundef zeroext %tobool47, i1 noundef zeroext %tobool49)
+  %38 = load <2 x i8>, ptr %m_jointFeedbackInWorldSpace, align 4
+  %39 = trunc <2 x i8> %38 to <2 x i1>
+  %40 = extractelement <2 x i1> %39, i64 0
+  %41 = extractelement <2 x i1> %39, i64 1
+  call void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %8, float noundef %37, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext false, i1 noundef zeroext %40, i1 noundef zeroext %41)
   br label %for.inc52
 
 for.inc52:                                        ; preds = %for.end30, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit, %if.then41
@@ -6161,7 +6158,6 @@ for.body.lr.ph:                                   ; preds = %entry
   %m_scratch_m = getelementptr inbounds i8, ptr %this, i64 816
   %m_timeStep = getelementptr inbounds i8, ptr %this, i64 164
   %m_jointFeedbackInWorldSpace = getelementptr inbounds i8, ptr %this, i64 268
-  %m_jointFeedbackInJointFrame = getelementptr inbounds i8, ptr %this, i64 269
   br label %for.body
 
 for.cond59.preheader:                             ; preds = %for.inc55
@@ -6390,13 +6386,11 @@ if.then37:                                        ; preds = %_ZN20btAlignedObjec
 
 if.then41:                                        ; preds = %if.then37
   %42 = load float, ptr %m_timeStep, align 4
-  %43 = load i8, ptr %m_jointFeedbackInWorldSpace, align 4
-  %44 = and i8 %43, 1
-  %tobool48 = icmp ne i8 %44, 0
-  %45 = load i8, ptr %m_jointFeedbackInJointFrame, align 1
-  %46 = and i8 %45, 1
-  %tobool50 = icmp ne i8 %46, 0
-  call void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %11, float noundef %42, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext true, i1 noundef zeroext %tobool48, i1 noundef zeroext %tobool50)
+  %43 = load <2 x i8>, ptr %m_jointFeedbackInWorldSpace, align 4
+  %44 = trunc <2 x i8> %43 to <2 x i1>
+  %45 = extractelement <2 x i1> %44, i64 0
+  %46 = extractelement <2 x i1> %44, i64 1
+  call void @_ZN11btMultiBody52computeAccelerationsArticulatedBodyAlgorithmMultiDofEfR20btAlignedObjectArrayIfERS0_I9btVector3ERS0_I11btMatrix3x3Ebbb(ptr noundef nonnull align 8 dereferenceable(640) %11, float noundef %42, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_r, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_v, ptr noundef nonnull align 8 dereferenceable(25) %m_scratch_m, i1 noundef zeroext true, i1 noundef zeroext %45, i1 noundef zeroext %46)
   br label %for.inc55
 
 for.inc55:                                        ; preds = %for.end, %if.then37, %if.then41, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
@@ -11901,7 +11895,7 @@ cond.false.i4.i.us:                               ; preds = %while.cond.us
 _ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit.us: ; preds = %cond.false.i4.i.us, %while.cond.us
   %cond.i7.i.us = phi i32 [ %10, %cond.false.i4.i.us ], [ %8, %while.cond.us ]
   %cmp.i.us = icmp slt i32 %cond.i7.i.us, %4
-  %indvars.iv.next63 = add i64 %indvars.iv62, 1
+  %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
   br i1 %cmp.i.us, label %while.cond.us, label %while.cond5.preheader, !llvm.loop !117
 
 do.body.split:                                    ; preds = %do.body
@@ -11932,7 +11926,7 @@ cond.false.i4.i:                                  ; preds = %while.cond
 _ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit: ; preds = %while.cond, %cond.false.i4.i
   %cond.i7.i = phi i32 [ %18, %cond.false.i4.i ], [ %16, %while.cond ]
   %cmp.i = icmp slt i32 %cond.i7.i, %12
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %cmp.i, label %while.cond, label %while.cond5.preheader, !llvm.loop !117
 
 while.cond5.preheader:                            ; preds = %_ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit, %_ZNK34btSortConstraintOnIslandPredicate2clEPK17btTypedConstraintS2_.exit.us
@@ -11967,7 +11961,7 @@ cond.false.i.i28.us:                              ; preds = %while.cond5.us
 _Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i31.us: ; preds = %cond.false.i.i28.us, %while.cond5.us
   %cond.i.i32.us = phi i32 [ %24, %cond.false.i.i28.us ], [ %22, %while.cond5.us ]
   %cmp.i40.us = icmp slt i32 %4, %cond.i.i32.us
-  %indvars.iv.next69 = add i64 %indvars.iv68, -1
+  %indvars.iv.next69 = add nsw i64 %indvars.iv68, -1
   br i1 %cmp.i40.us, label %while.cond5.us, label %while.end11, !llvm.loop !118
 
 while.cond5.preheader.split52:                    ; preds = %while.cond5.preheader
@@ -11998,7 +11992,7 @@ cond.false.i.i28:                                 ; preds = %while.cond5
 _Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i31: ; preds = %cond.false.i.i28, %while.cond5
   %cond.i.i32 = phi i32 [ %32, %cond.false.i.i28 ], [ %30, %while.cond5 ]
   %cmp.i40 = icmp slt i32 %26, %cond.i.i32
-  %indvars.iv.next66 = add i64 %indvars.iv65, -1
+  %indvars.iv.next66 = add nsw i64 %indvars.iv65, -1
   br i1 %cmp.i40, label %while.cond5, label %while.end11, !llvm.loop !118
 
 while.end11:                                      ; preds = %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i31, %_Z24btGetConstraintIslandId2PK17btTypedConstraint.exit.i31.us
@@ -12087,7 +12081,7 @@ while.cond:                                       ; preds = %while.cond, %do.bod
   %cmp3.i7.i = icmp slt i32 %call.i3.i, 0
   %cond.i8.i = select i1 %cmp3.i7.i, i32 %call3.i6.i, i32 %call.i3.i
   %cmp.i = icmp slt i32 %cond.i8.i, %cond.i.i
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %cmp.i, label %while.cond, label %while.cond5.preheader, !llvm.loop !120
 
 while.cond5.preheader:                            ; preds = %while.cond
@@ -12120,7 +12114,7 @@ while.cond5:                                      ; preds = %while.cond5, %while
   %cmp3.i7.i39 = icmp slt i32 %call.i3.i35, 0
   %cond.i8.i40 = select i1 %cmp3.i7.i39, i32 %call3.i6.i38, i32 %call.i3.i35
   %cmp.i41 = icmp slt i32 %cond.i8.i40, %cond.i.i32
-  %indvars.iv.next44 = add i64 %indvars.iv43, -1
+  %indvars.iv.next44 = add nsw i64 %indvars.iv43, -1
   br i1 %cmp.i41, label %while.cond5, label %while.end11, !llvm.loop !121
 
 while.end11:                                      ; preds = %while.cond5

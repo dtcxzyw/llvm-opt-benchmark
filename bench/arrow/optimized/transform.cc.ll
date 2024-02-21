@@ -906,15 +906,12 @@ invoke.cont24:                                    ; preds = %do.end9
   store i64 %15, ptr %buf, align 8, !alias.scope !24
   store ptr null, ptr %storage_.i.i, align 8, !noalias !24
   %.cast = inttoptr i64 %15 to ptr
-  %is_cpu_.i = getelementptr inbounds i8, ptr %.cast, i64 9
-  %16 = load i8, ptr %is_cpu_.i, align 1
-  %17 = and i8 %16, 1
-  %tobool.not.i49 = icmp ne i8 %17, 0
   %is_mutable_.i = getelementptr inbounds i8, ptr %.cast, i64 8
-  %18 = load i8, ptr %is_mutable_.i, align 8
-  %19 = and i8 %18, 1
-  %tobool2.i = icmp ne i8 %19, 0
-  %20 = select i1 %tobool.not.i49, i1 %tobool2.i, i1 false
+  %16 = load <2 x i8>, ptr %is_mutable_.i, align 8
+  %17 = trunc <2 x i8> %16 to <2 x i1>
+  %18 = extractelement <2 x i1> %17, i64 0
+  %19 = extractelement <2 x i1> %17, i64 1
+  %20 = select i1 %19, i1 %18, i1 false
   %data_.i = getelementptr inbounds i8, ptr %.cast, i64 16
   %21 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %20, ptr %21, ptr null

@@ -2994,15 +2994,12 @@ if.else:                                          ; preds = %entry
 cond.end:                                         ; preds = %if.else
   %d_theoryEngine = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %d_theoryEngine, align 8
-  %d_outputChannelUsed.i = getelementptr inbounds i8, ptr %4, i64 953
-  %5 = load i8, ptr %d_outputChannelUsed.i, align 1
-  %6 = and i8 %5, 1
-  %tobool.not.i = icmp ne i8 %6, 0
   %d_lemmasAdded.i = getelementptr inbounds i8, ptr %4, i64 952
-  %7 = load i8, ptr %d_lemmasAdded.i, align 8
-  %8 = and i8 %7, 1
-  %tobool2.i = icmp ne i8 %8, 0
-  %9 = select i1 %tobool.not.i, i1 true, i1 %tobool2.i
+  %5 = load <2 x i8>, ptr %d_lemmasAdded.i, align 8
+  %6 = trunc <2 x i8> %5 to <2 x i1>
+  %7 = extractelement <2 x i1> %6, i64 0
+  %8 = extractelement <2 x i1> %6, i64 1
+  %9 = select i1 %8, i1 true, i1 %7
   br label %return
 
 return:                                           ; preds = %if.else, %entry, %cond.end

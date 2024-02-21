@@ -2724,15 +2724,12 @@ invoke.cont6:                                     ; preds = %entry
   store i64 %2, ptr %buffer, align 8, !alias.scope !76
   store ptr null, ptr %storage_.i.i, align 8, !noalias !76
   %.cast = inttoptr i64 %2 to ptr
-  %is_cpu_.i = getelementptr inbounds i8, ptr %.cast, i64 9
-  %3 = load i8, ptr %is_cpu_.i, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp ne i8 %4, 0
   %is_mutable_.i = getelementptr inbounds i8, ptr %.cast, i64 8
-  %5 = load i8, ptr %is_mutable_.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.i = icmp ne i8 %6, 0
-  %7 = select i1 %tobool.not.i, i1 %tobool2.i, i1 false
+  %3 = load <2 x i8>, ptr %is_mutable_.i, align 8
+  %4 = trunc <2 x i8> %3 to <2 x i1>
+  %5 = extractelement <2 x i1> %4, i64 0
+  %6 = extractelement <2 x i1> %4, i64 1
+  %7 = select i1 %6, i1 %5, i1 false
   %data_.i = getelementptr inbounds i8, ptr %.cast, i64 16
   %8 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %7, ptr %8, ptr null
@@ -2874,13 +2871,11 @@ _ZN5arrow6StatusD2Ev.exit83:                      ; preds = %_ZN5arrow6StatusD2E
   br i1 %cmp.not.i84, label %if.end46, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit83
-  %28 = load i8, ptr %is_cpu_.i, align 1
-  %29 = and i8 %28, 1
-  %tobool.not.i.i = icmp ne i8 %29, 0
-  %30 = load i8, ptr %is_mutable_.i, align 8
-  %31 = and i8 %30, 1
-  %tobool2.i.i = icmp ne i8 %31, 0
-  %32 = select i1 %tobool.not.i.i, i1 %tobool2.i.i, i1 false
+  %28 = load <2 x i8>, ptr %is_mutable_.i, align 8
+  %29 = trunc <2 x i8> %28 to <2 x i1>
+  %30 = extractelement <2 x i1> %29, i64 0
+  %31 = extractelement <2 x i1> %29, i64 1
+  %32 = select i1 %31, i1 %30, i1 false
   %33 = load ptr, ptr %data_.i, align 8
   %cond.i.i = select i1 %32, ptr %33, ptr null
   %size_.i = getelementptr inbounds i8, ptr %.cast, i64 24
@@ -3062,15 +3057,12 @@ invoke.cont:                                      ; preds = %entry
   store i64 %2, ptr %buffer, align 8, !alias.scope !89
   store ptr null, ptr %storage_.i.i, align 8, !noalias !89
   %.cast = inttoptr i64 %2 to ptr
-  %is_cpu_.i = getelementptr inbounds i8, ptr %.cast, i64 9
-  %3 = load i8, ptr %is_cpu_.i, align 1
-  %4 = and i8 %3, 1
-  %tobool.not.i = icmp ne i8 %4, 0
   %is_mutable_.i = getelementptr inbounds i8, ptr %.cast, i64 8
-  %5 = load i8, ptr %is_mutable_.i, align 8
-  %6 = and i8 %5, 1
-  %tobool2.i = icmp ne i8 %6, 0
-  %7 = select i1 %tobool.not.i, i1 %tobool2.i, i1 false
+  %3 = load <2 x i8>, ptr %is_mutable_.i, align 8
+  %4 = trunc <2 x i8> %3 to <2 x i1>
+  %5 = extractelement <2 x i1> %4, i64 0
+  %6 = extractelement <2 x i1> %4, i64 1
+  %7 = select i1 %6, i1 %5, i1 false
   %data_.i = getelementptr inbounds i8, ptr %.cast, i64 16
   %8 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %7, ptr %8, ptr null
@@ -3212,13 +3204,11 @@ _ZN5arrow6StatusD2Ev.exit83:                      ; preds = %_ZN5arrow6StatusD2E
   br i1 %cmp.not.i84, label %if.end42, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit83
-  %28 = load i8, ptr %is_cpu_.i, align 1
-  %29 = and i8 %28, 1
-  %tobool.not.i.i = icmp ne i8 %29, 0
-  %30 = load i8, ptr %is_mutable_.i, align 8
-  %31 = and i8 %30, 1
-  %tobool2.i.i = icmp ne i8 %31, 0
-  %32 = select i1 %tobool.not.i.i, i1 %tobool2.i.i, i1 false
+  %28 = load <2 x i8>, ptr %is_mutable_.i, align 8
+  %29 = trunc <2 x i8> %28 to <2 x i1>
+  %30 = extractelement <2 x i1> %29, i64 0
+  %31 = extractelement <2 x i1> %29, i64 1
+  %32 = select i1 %31, i1 %30, i1 false
   %33 = load ptr, ptr %data_.i, align 8
   %cond.i.i = select i1 %32, ptr %33, ptr null
   %size_.i = getelementptr inbounds i8, ptr %.cast, i64 24

@@ -1399,19 +1399,16 @@ if.else.i.i.i65:                                  ; preds = %if.else77
 
 if.end87:                                         ; preds = %if.then44, %sw.default
   %parent_arg88 = getelementptr inbounds i8, ptr %9, i64 -12
-  %40 = load i8, ptr %parent_arg88, align 4
-  %41 = and i8 %40, 1
-  %tobool89 = icmp ne i8 %41, 0
-  %pre_arg90 = getelementptr inbounds i8, ptr %9, i64 -11
-  %42 = load i8, ptr %pre_arg90, align 1
-  %43 = and i8 %42, 1
-  %tobool91 = icmp ne i8 %43, 0
+  %40 = load <2 x i8>, ptr %parent_arg88, align 4
+  %41 = trunc <2 x i8> %40 to <2 x i1>
   %child_args92 = getelementptr inbounds i8, ptr %9, i64 -8
-  %44 = load ptr, ptr %child_args92, align 8
+  %42 = load ptr, ptr %child_args92, align 8
   %vtable94 = load ptr, ptr %this, align 8
   %vfn95 = getelementptr inbounds i8, ptr %vtable94, i64 24
-  %45 = load ptr, ptr %vfn95, align 8
-  %call96 = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, i1 noundef zeroext %tobool89, i1 noundef zeroext %tobool91, ptr noundef %44, i32 noundef %.pre)
+  %43 = load ptr, ptr %vfn95, align 8
+  %44 = extractelement <2 x i1> %41, i64 0
+  %45 = extractelement <2 x i1> %41, i64 1
+  %call96 = call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %10, i1 noundef zeroext %44, i1 noundef zeroext %45, ptr noundef %42, i32 noundef %.pre)
   %46 = load i16, ptr %nsub_41, align 2
   %cmp100 = icmp ugt i16 %46, 1
   br i1 %cmp100, label %if.then101, label %sw.epilog

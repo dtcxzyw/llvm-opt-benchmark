@@ -550,15 +550,12 @@ invoke.cont59.i:                                  ; preds = %invoke.cont43.i
   store i64 %46, ptr %indices_buffer.i, align 8, !alias.scope !22, !noalias !4
   store ptr null, ptr %storage_.i.i269.i, align 8, !noalias !21
   %.cast.i = inttoptr i64 %46 to ptr
-  %is_cpu_.i.i = getelementptr inbounds i8, ptr %.cast.i, i64 9
-  %47 = load i8, ptr %is_cpu_.i.i, align 1
-  %48 = and i8 %47, 1
-  %tobool.not.i.i = icmp ne i8 %48, 0
   %is_mutable_.i.i = getelementptr inbounds i8, ptr %.cast.i, i64 8
-  %49 = load i8, ptr %is_mutable_.i.i, align 8
-  %50 = and i8 %49, 1
-  %tobool2.i.i = icmp ne i8 %50, 0
-  %51 = select i1 %tobool.not.i.i, i1 %tobool2.i.i, i1 false
+  %47 = load <2 x i8>, ptr %is_mutable_.i.i, align 8
+  %48 = trunc <2 x i8> %47 to <2 x i1>
+  %49 = extractelement <2 x i1> %48, i64 0
+  %50 = extractelement <2 x i1> %48, i64 1
+  %51 = select i1 %50, i1 %49, i1 false
   %data_.i.i = getelementptr inbounds i8, ptr %.cast.i, i64 16
   %52 = load ptr, ptr %data_.i.i, align 8
   %cond.i270.i = select i1 %51, ptr %52, ptr null
@@ -641,15 +638,12 @@ invoke.cont90.i:                                  ; preds = %invoke.cont68.i
   store i64 %64, ptr %values_buffer.i, align 8, !alias.scope !30, !noalias !4
   store ptr null, ptr %storage_.i.i294.i, align 8, !noalias !29
   %.cast463.i = inttoptr i64 %64 to ptr
-  %is_cpu_.i295.i = getelementptr inbounds i8, ptr %.cast463.i, i64 9
-  %65 = load i8, ptr %is_cpu_.i295.i, align 1
-  %66 = and i8 %65, 1
-  %tobool.not.i296.i = icmp ne i8 %66, 0
   %is_mutable_.i297.i = getelementptr inbounds i8, ptr %.cast463.i, i64 8
-  %67 = load i8, ptr %is_mutable_.i297.i, align 8
-  %68 = and i8 %67, 1
-  %tobool2.i298.i = icmp ne i8 %68, 0
-  %69 = select i1 %tobool.not.i296.i, i1 %tobool2.i298.i, i1 false
+  %65 = load <2 x i8>, ptr %is_mutable_.i297.i, align 8
+  %66 = trunc <2 x i8> %65 to <2 x i1>
+  %67 = extractelement <2 x i1> %66, i64 0
+  %68 = extractelement <2 x i1> %66, i64 1
+  %69 = select i1 %68, i1 %67, i1 false
   %data_.i299.i = getelementptr inbounds i8, ptr %.cast463.i, i64 16
   %70 = load ptr, ptr %data_.i299.i, align 8
   %cond.i300.i = select i1 %69, ptr %70, ptr null

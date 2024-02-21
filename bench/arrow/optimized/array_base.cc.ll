@@ -79109,15 +79109,12 @@ entry:
   br i1 %cmp.i.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %is_cpu_.i = getelementptr inbounds i8, ptr %0, i64 9
-  %1 = load i8, ptr %is_cpu_.i, align 1
-  %2 = and i8 %1, 1
-  %tobool.not.i = icmp ne i8 %2, 0
   %is_mutable_.i = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = load i8, ptr %is_mutable_.i, align 8
-  %4 = and i8 %3, 1
-  %tobool2.i = icmp ne i8 %4, 0
-  %5 = select i1 %tobool.not.i, i1 %tobool2.i, i1 false
+  %1 = load <2 x i8>, ptr %is_mutable_.i, align 8
+  %2 = trunc <2 x i8> %1 to <2 x i1>
+  %3 = extractelement <2 x i1> %2, i64 0
+  %4 = extractelement <2 x i1> %2, i64 1
+  %5 = select i1 %4, i1 %3, i1 false
   %data_.i = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %5, ptr %6, ptr null

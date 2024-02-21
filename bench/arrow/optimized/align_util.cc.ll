@@ -1658,15 +1658,12 @@ invoke.cont23:                                    ; preds = %invoke.cont
   store i64 %43, ptr %new_buffer, align 8, !alias.scope !15
   store ptr null, ptr %storage_.i.i, align 8, !noalias !15
   %.cast = inttoptr i64 %43 to ptr
-  %is_cpu_.i77 = getelementptr inbounds i8, ptr %.cast, i64 9
-  %44 = load i8, ptr %is_cpu_.i77, align 1
-  %45 = and i8 %44, 1
-  %tobool.not.i = icmp ne i8 %45, 0
   %is_mutable_.i = getelementptr inbounds i8, ptr %.cast, i64 8
-  %46 = load i8, ptr %is_mutable_.i, align 8
-  %47 = and i8 %46, 1
-  %tobool2.i = icmp ne i8 %47, 0
-  %48 = select i1 %tobool.not.i, i1 %tobool2.i, i1 false
+  %44 = load <2 x i8>, ptr %is_mutable_.i, align 8
+  %45 = trunc <2 x i8> %44 to <2 x i1>
+  %46 = extractelement <2 x i1> %45, i64 0
+  %47 = extractelement <2 x i1> %45, i64 1
+  %48 = select i1 %47, i1 %46, i1 false
   %data_.i = getelementptr inbounds i8, ptr %.cast, i64 16
   %49 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %48, ptr %49, ptr null

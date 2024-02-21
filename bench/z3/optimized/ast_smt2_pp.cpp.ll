@@ -20157,17 +20157,14 @@ if.else35:                                        ; preds = %land.rhs.i.i17, %if
 
 if.then41:                                        ; preds = %if.else35
   %m_pp_bv_lits43 = getelementptr inbounds i8, ptr %this, i64 288
-  %42 = load i8, ptr %m_pp_bv_lits43, align 8
-  %43 = and i8 %42, 1
-  %tobool44 = icmp ne i8 %43, 0
-  %m_pp_float_real_lits = getelementptr inbounds i8, ptr %this, i64 289
-  %44 = load i8, ptr %m_pp_float_real_lits, align 1
-  %45 = and i8 %44, 1
-  %tobool45 = icmp ne i8 %45, 0
+  %42 = load <2 x i8>, ptr %m_pp_bv_lits43, align 8
+  %43 = trunc <2 x i8> %42 to <2 x i1>
   %vtable46 = load ptr, ptr %41, align 8
   %vfn47 = getelementptr inbounds i8, ptr %vtable46, i64 112
-  %46 = load ptr, ptr %vfn47, align 8
-  %call48 = tail call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(56) %41, ptr noundef nonnull %c, i1 noundef zeroext %tobool44, i1 noundef zeroext %tobool45)
+  %44 = load ptr, ptr %vfn47, align 8
+  %45 = extractelement <2 x i1> %43, i64 0
+  %46 = extractelement <2 x i1> %43, i64 1
+  %call48 = tail call noundef ptr %44(ptr noundef nonnull align 8 dereferenceable(56) %41, ptr noundef nonnull %c, i1 noundef zeroext %45, i1 noundef zeroext %46)
   br label %if.end81
 
 if.else49:                                        ; preds = %if.else35

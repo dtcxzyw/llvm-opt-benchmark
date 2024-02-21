@@ -2496,7 +2496,7 @@ _ZNSt10shared_ptrIKN8facebook5velox4core13CallTypedExprEED2Ev.exit: ; preds = %c
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
@@ -4183,13 +4183,13 @@ arraydestroy.body63:                              ; preds = %arraydestroy.body63
 
 ehcleanup:                                        ; preds = %arraydestroy.body63, %lpad54
   %.pn = phi { ptr, i32 } [ %62, %lpad54 ], [ %63, %arraydestroy.body63 ]
-  %cleanup.isactive.0 = phi i1 [ false, %lpad54 ], [ true, %arraydestroy.body63 ]
+  %64 = phi i1 [ false, %lpad54 ], [ true, %arraydestroy.body63 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50) #24
   br label %ehcleanup68
 
 ehcleanup68:                                      ; preds = %lpad52, %lpad.i89, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %61, %lpad52 ], [ %9, %lpad.i89 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %ehcleanup ], [ false, %lpad52 ], [ false, %lpad.i89 ]
+  %cleanup.isactive.1 = phi i1 [ %64, %ehcleanup ], [ false, %lpad52 ], [ false, %lpad.i89 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp51) #24
   br label %ehcleanup69
 
@@ -4295,88 +4295,88 @@ arraydestroy.body86:                              ; preds = %ehcleanup83, %array
   br i1 %arraydestroy.done89, label %eh.resume, label %arraydestroy.body86
 
 lpad95:                                           ; preds = %call.i.noexc111, %if.then
-  %64 = landingpad { ptr, i32 }
+  %65 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup132
 
 lpad97:                                           ; preds = %invoke.cont96
-  %65 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup131
 
 lpad102:                                          ; preds = %call.i.noexc119, %invoke.cont98
-  %66 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup130
 
 lpad104:                                          ; preds = %invoke.cont103
-  %67 = landingpad { ptr, i32 }
+  %68 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup129
 
 lpad109:                                          ; preds = %call.i.noexc127, %invoke.cont105
-  %68 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup128
 
 lpad111:                                          ; preds = %invoke.cont110
-  %69 = landingpad { ptr, i32 }
+  %70 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup127
 
 lpad116:                                          ; preds = %call.i.noexc135, %invoke.cont112
-  %70 = landingpad { ptr, i32 }
+  %71 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup126
 
 lpad118:                                          ; preds = %invoke.cont119, %invoke.cont117
-  %71 = landingpad { ptr, i32 }
+  %72 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup125
 
 lpad122:                                          ; preds = %if.else.i.i
-  %72 = landingpad { ptr, i32 }
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp91) #24
   br label %ehcleanup125
 
 ehcleanup125:                                     ; preds = %lpad122, %lpad118
-  %.pn17 = phi { ptr, i32 } [ %72, %lpad122 ], [ %71, %lpad118 ]
+  %.pn17 = phi { ptr, i32 } [ %73, %lpad122 ], [ %72, %lpad118 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114) #24
   br label %ehcleanup126
 
 ehcleanup126:                                     ; preds = %lpad116, %lpad.i134, %ehcleanup125
-  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %ehcleanup125 ], [ %70, %lpad116 ], [ %30, %lpad.i134 ]
+  %.pn17.pn = phi { ptr, i32 } [ %.pn17, %ehcleanup125 ], [ %71, %lpad116 ], [ %30, %lpad.i134 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp115) #24
   br label %ehcleanup127
 
 ehcleanup127:                                     ; preds = %ehcleanup126, %lpad111
-  %.pn17.pn.pn = phi { ptr, i32 } [ %.pn17.pn, %ehcleanup126 ], [ %69, %lpad111 ]
+  %.pn17.pn.pn = phi { ptr, i32 } [ %.pn17.pn, %ehcleanup126 ], [ %70, %lpad111 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107) #24
   br label %ehcleanup128
 
 ehcleanup128:                                     ; preds = %lpad109, %lpad.i126, %ehcleanup127
-  %.pn17.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn, %ehcleanup127 ], [ %68, %lpad109 ], [ %29, %lpad.i126 ]
+  %.pn17.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn, %ehcleanup127 ], [ %69, %lpad109 ], [ %29, %lpad.i126 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp108) #24
   br label %ehcleanup129
 
 ehcleanup129:                                     ; preds = %ehcleanup128, %lpad104
-  %.pn17.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn.pn, %ehcleanup128 ], [ %67, %lpad104 ]
+  %.pn17.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn.pn, %ehcleanup128 ], [ %68, %lpad104 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp100) #24
   br label %ehcleanup130
 
 ehcleanup130:                                     ; preds = %lpad102, %lpad.i118, %ehcleanup129
-  %.pn17.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn.pn.pn, %ehcleanup129 ], [ %66, %lpad102 ], [ %28, %lpad.i118 ]
+  %.pn17.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn.pn.pn, %ehcleanup129 ], [ %67, %lpad102 ], [ %28, %lpad.i118 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp101) #24
   br label %ehcleanup131
 
 ehcleanup131:                                     ; preds = %ehcleanup130, %lpad97
-  %.pn17.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn.pn.pn.pn, %ehcleanup130 ], [ %65, %lpad97 ]
+  %.pn17.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn.pn.pn.pn, %ehcleanup130 ], [ %66, %lpad97 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93) #24
   br label %ehcleanup132
 
 ehcleanup132:                                     ; preds = %lpad95, %lpad.i110, %ehcleanup131
-  %.pn17.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn.pn.pn.pn.pn, %ehcleanup131 ], [ %64, %lpad95 ], [ %27, %lpad.i110 ]
+  %.pn17.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn.pn.pn.pn.pn, %ehcleanup131 ], [ %65, %lpad95 ], [ %27, %lpad.i110 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp94) #24
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp92) #24
   call void @_ZNSt6vectorISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.result) #24
@@ -8806,14 +8806,11 @@ while.end:                                        ; preds = %invoke.cont47, %_ZN
   %86 = load ptr, ptr %flatArray, align 16
   %87 = load ptr, ptr %newElements, align 8
   %ascending_ = getelementptr inbounds i8, ptr %this, i64 8
-  %88 = load i8, ptr %ascending_, align 8
-  %89 = and i8 %88, 1
-  %tobool = icmp ne i8 %89, 0
-  %throwOnNestedNull_ = getelementptr inbounds i8, ptr %this, i64 9
-  %90 = load i8, ptr %throwOnNestedNull_, align 1
-  %91 = and i8 %90, 1
-  %tobool62 = icmp ne i8 %91, 0
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEb(ptr noalias nonnull align 8 %indices, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(152) %86, ptr noundef nonnull align 8 dereferenceable(99) %87, i1 noundef zeroext %tobool, ptr noundef nonnull align 8 dereferenceable(104) %context, i1 noundef zeroext %tobool62)
+  %88 = load <2 x i8>, ptr %ascending_, align 8
+  %89 = trunc <2 x i8> %88 to <2 x i1>
+  %90 = extractelement <2 x i1> %89, i64 0
+  %91 = extractelement <2 x i1> %89, i64 1
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEb(ptr noalias nonnull align 8 %indices, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(152) %86, ptr noundef nonnull align 8 dereferenceable(99) %87, i1 noundef zeroext %90, ptr noundef nonnull align 8 dereferenceable(104) %context, i1 noundef zeroext %91)
           to label %invoke.cont66 unwind label %lpad46.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont66:                                    ; preds = %while.end
@@ -13793,7 +13790,7 @@ for.end:                                          ; preds = %for.body, %entry.fo
   %add.ptr = getelementptr inbounds i32, ptr %13, i64 %idx.ext.pre-phi
   %idx.ext5 = sext i32 %2 to i64
   %add.ptr6.idx = shl nsw i64 %idx.ext5, 2
-  %add.ptr6.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 %add.ptr6.idx
+  %add.ptr6 = getelementptr inbounds i8, ptr %add.ptr, i64 %add.ptr6.idx
   %14 = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp11)
   %15 = load <4 x ptr>, ptr %14, align 8
@@ -13805,7 +13802,7 @@ if.then.i.i:                                      ; preds = %for.end
   %16 = tail call i64 @llvm.ctlz.i64(i64 %idx.ext5, i1 true), !range !148
   %sub.i.i.i = shl nuw nsw i64 %16, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  tail call fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_SO_T0_T1_"(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr6.ptr, i64 noundef %mul.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp11)
+  tail call fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_SO_T0_T1_"(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr6, i64 noundef %mul.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp11)
   %cmp.i.i.i = icmp sgt i32 %2, 16
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -13979,7 +13976,7 @@ while.body.i.backedge.i.i.i.i:                    ; preds = %_ZNRSt8optionalIiE5
   store i32 %20, ptr %__last.addr.0.lcssa.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp4.i.i.i.i)
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__i.028.i.i.i.i, i64 4
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr6.ptr
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr6
   br i1 %cmp.not.i.i.i.i, label %"_ZSt26__unguarded_insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_SO_T0_.exit.i.i.i", label %for.body.i.i.i.i, !llvm.loop !183
 
 "_ZSt26__unguarded_insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_SO_T0_.exit.i.i.i": ; preds = %"_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_T0_.exit.i.i.i.i"
@@ -13987,7 +13984,7 @@ while.body.i.backedge.i.i.i.i:                    ; preds = %_ZNRSt8optionalIiE5
   br label %"_ZSt4sortIPiZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS2_17SelectivityVectorERKNS2_11ArrayVectorERKNS2_10BaseVectorEbRNS2_4exec7EvalCtxEbENK3$_0clEiEUlRiSI_E_EvT_SK_T0_.exit"
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
-  tail call fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_SO_T0_"(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr6.ptr, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp11)
+  tail call fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_SO_T0_"(ptr noundef %add.ptr, ptr noundef nonnull %add.ptr6, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp11)
   br label %"_ZSt4sortIPiZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS2_17SelectivityVectorERKNS2_11ArrayVectorERKNS2_10BaseVectorEbRNS2_4exec7EvalCtxEbENK3$_0clEiEUlRiSI_E_EvT_SK_T0_.exit"
 
 "_ZSt4sortIPiZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS2_17SelectivityVectorERKNS2_11ArrayVectorERKNS2_10BaseVectorEbRNS2_4exec7EvalCtxEbENK3$_0clEiEUlRiSI_E_EvT_SK_T0_.exit": ; preds = %for.end, %"_ZSt26__unguarded_insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_SO_T0_.exit.i.i.i", %if.else.i.i.i
@@ -59618,7 +59615,7 @@ declare i32 @llvm.umax.i32(i32, i32) #23
 declare i32 @llvm.umin.i32(i32, i32) #23
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind memory(read) }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #2 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #3 = { nofree nounwind }
 attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

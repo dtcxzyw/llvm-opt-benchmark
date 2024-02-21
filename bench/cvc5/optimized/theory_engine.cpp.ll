@@ -5465,13 +5465,11 @@ invoke.cont599:                                   ; preds = %invoke.cont595
   br i1 %tobool.i790.not, label %land.lhs.true601, label %if.end651
 
 land.lhs.true601:                                 ; preds = %invoke.cont599
-  %63 = load i8, ptr %d_outputChannelUsed, align 1
-  %64 = and i8 %63, 1
-  %tobool.not.i791 = icmp ne i8 %64, 0
-  %65 = load i8, ptr %d_lemmasAdded, align 8
-  %66 = and i8 %65, 1
-  %tobool2.i = icmp ne i8 %66, 0
-  %67 = select i1 %tobool.not.i791, i1 true, i1 %tobool2.i
+  %63 = load <2 x i8>, ptr %d_lemmasAdded, align 8
+  %64 = trunc <2 x i8> %63 to <2 x i1>
+  %65 = extractelement <2 x i1> %64, i64 0
+  %66 = extractelement <2 x i1> %64, i64 1
+  %67 = select i1 %66, i1 true, i1 %65
   br i1 %67, label %if.end651, label %invoke.cont606
 
 invoke.cont606:                                   ; preds = %land.lhs.true601
@@ -5552,13 +5550,11 @@ invoke.cont660:                                   ; preds = %while.end
   br i1 %tobool.i917.not, label %land.lhs.true662, label %cond.true797
 
 land.lhs.true662:                                 ; preds = %invoke.cont660
-  %76 = load i8, ptr %d_outputChannelUsed, align 1
-  %77 = and i8 %76, 1
-  %tobool.not.i919 = icmp ne i8 %77, 0
-  %78 = load i8, ptr %d_lemmasAdded, align 8
-  %79 = and i8 %78, 1
-  %tobool2.i921 = icmp ne i8 %79, 0
-  %80 = select i1 %tobool.not.i919, i1 true, i1 %tobool2.i921
+  %76 = load <2 x i8>, ptr %d_lemmasAdded, align 8
+  %77 = trunc <2 x i8> %76 to <2 x i1>
+  %78 = extractelement <2 x i1> %77, i64 0
+  %79 = extractelement <2 x i1> %77, i64 1
+  %80 = select i1 %79, i1 true, i1 %78
   br i1 %80, label %cond.true797, label %if.then665
 
 if.then665:                                       ; preds = %land.lhs.true662
@@ -5747,13 +5743,11 @@ invoke.cont868:                                   ; preds = %for.end863
   br i1 %tobool.i1240.not, label %land.lhs.true870, label %try.cont
 
 land.lhs.true870:                                 ; preds = %invoke.cont868
-  %106 = load i8, ptr %d_outputChannelUsed, align 1
-  %107 = and i8 %106, 1
-  %tobool.not.i1242 = icmp ne i8 %107, 0
-  %108 = load i8, ptr %d_lemmasAdded, align 8
-  %109 = and i8 %108, 1
-  %tobool2.i1244 = icmp ne i8 %109, 0
-  %110 = select i1 %tobool.not.i1242, i1 true, i1 %tobool2.i1244
+  %106 = load <2 x i8>, ptr %d_lemmasAdded, align 8
+  %107 = trunc <2 x i8> %106 to <2 x i1>
+  %108 = extractelement <2 x i1> %107, i64 0
+  %109 = extractelement <2 x i1> %107, i64 1
+  %110 = select i1 %109, i1 true, i1 %108
   br i1 %110, label %try.cont, label %if.then873
 
 if.then873:                                       ; preds = %land.lhs.true870
@@ -6616,9 +6610,9 @@ invoke.cont70:                                    ; preds = %invoke.cont65
 
 invoke.cont74:                                    ; preds = %invoke.cont70
   invoke void @_ZN4cvc58internal14LogicExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %exception, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72)
-          to label %invoke.cont76 unwind label %ehcleanup78.thread264
+          to label %invoke.cont76 unwind label %ehcleanup78.thread305
 
-ehcleanup78.thread264:                            ; preds = %invoke.cont74
+ehcleanup78.thread305:                            ; preds = %invoke.cont74
   %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72) #22
@@ -6659,13 +6653,13 @@ ehcleanup78:                                      ; preds = %invoke.cont76
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72) #22
   br label %ehcleanup82
 
-cleanup.action80:                                 ; preds = %ehcleanup78.thread264, %ehcleanup78.thread
-  %.pn5263 = phi { ptr, i32 } [ %10, %ehcleanup78.thread ], [ %6, %ehcleanup78.thread264 ]
+cleanup.action80:                                 ; preds = %ehcleanup78.thread305, %ehcleanup78.thread
+  %.pn5304 = phi { ptr, i32 } [ %10, %ehcleanup78.thread ], [ %6, %ehcleanup78.thread305 ]
   call void @__cxa_free_exception(ptr %exception) #22
   br label %ehcleanup82
 
 ehcleanup82:                                      ; preds = %ehcleanup78, %cleanup.action80, %ehcleanup, %lpad45
-  %.pn5.pn = phi { ptr, i32 } [ %.pn5263, %cleanup.action80 ], [ %11, %ehcleanup78 ], [ %.pn, %ehcleanup ], [ %7, %lpad45 ]
+  %.pn5.pn = phi { ptr, i32 } [ %.pn5304, %cleanup.action80 ], [ %11, %ehcleanup78 ], [ %.pn, %ehcleanup ], [ %7, %lpad45 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #22
   br label %ehcleanup111
 
@@ -8253,7 +8247,7 @@ _ZN4cvc57context3CDOImEaSERKm.exit:               ; preds = %if.then.i.i.i379, %
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont14, %_ZN4cvc57context3CDOImEaSERKm.exit
-  %cmp.i432 = phi i1 [ true, %_ZN4cvc57context3CDOImEaSERKm.exit ], [ false, %invoke.cont14 ]
+  %retval.0 = phi i1 [ true, %_ZN4cvc57context3CDOImEaSERKm.exit ], [ false, %invoke.cont14 ]
   %bf.load.i.i.i382 = load i64, ptr %3, align 8
   %40 = and i64 %bf.load.i.i.i382, 1152920405095219200
   %cmp.not.i.i.i = icmp eq i64 %40, 1152920405095219200
@@ -8307,7 +8301,7 @@ terminate.lpad.i.i399:                            ; preds = %if.then13.i.i.i398
   unreachable
 
 _ZN4cvc58internal14NodeTheoryPairD2Ev.exit400:    ; preds = %_ZN4cvc58internal14NodeTheoryPairD2Ev.exit, %if.then.i.i.i392, %if.then13.i.i.i398
-  ret i1 %cmp.i432
+  ret i1 %retval.0
 
 ehcleanup:                                        ; preds = %lpad11, %lpad7
   %.pn = phi { ptr, i32 } [ %27, %lpad11 ], [ %26, %lpad7 ]

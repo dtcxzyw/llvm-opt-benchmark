@@ -1530,7 +1530,7 @@ for.inc197.i:                                     ; preds = %for.inc193.i, %for.
   br i1 %cmp.i.i.i.not.i, label %cleanup.i, label %invoke.cont23.i, !llvm.loop !55
 
 cleanup.i:                                        ; preds = %for.inc197.i, %_ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit145.i, %invoke.cont8.i
-  %cmp.i.i.i.not319.i = phi i1 [ false, %invoke.cont8.i ], [ true, %_ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit145.i ], [ false, %for.inc197.i ]
+  %cmp.i.i.i.not319.i.not = phi i1 [ false, %invoke.cont8.i ], [ true, %_ZN3ue212_GLOBAL__N_111sls_literalD2Ev.exit145.i ], [ false, %for.inc197.i ]
   %tobool.not.i.i.i.i = icmp eq ptr %read_count.sroa.0.0.i, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i, label %if.then.i.i.i162.i
 
@@ -1610,7 +1610,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i169.i,
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ref.tmp154.i)
   %literals.val = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %cmp = icmp ugt i64 %literals.val, 30
-  %or.cond = select i1 %cmp.i.i.i.not319.i, i1 true, i1 %cmp
+  %or.cond = select i1 %cmp.i.i.i.not319.i.not, i1 true, i1 %cmp
   br i1 %or.cond, label %cleanup, label %if.end20
 
 lpad.loopexit:                                    ; preds = %for.body
@@ -1698,18 +1698,15 @@ for.body:                                         ; preds = %do.end40, %for.inc
   %__begin1.sroa.0.066 = phi ptr [ %call.i, %for.inc ], [ %literals.val8.pre, %do.end40 ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.066, i64 32
   %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.066, i64 104
-  %175 = load i8, ptr %_M_storage.i.i, align 8
-  %176 = and i8 %175, 1
-  %tobool46 = icmp ne i8 %176, 0
-  %eod = getelementptr inbounds i8, ptr %__begin1.sroa.0.066, i64 33
-  %177 = load i8, ptr %eod, align 1
-  %178 = and i8 %177, 1
-  %tobool47 = icmp ne i8 %178, 0
+  %175 = load <2 x i8>, ptr %_M_storage.i.i, align 8
+  %176 = trunc <2 x i8> %175 to <2 x i1>
   %s = getelementptr inbounds i8, ptr %__begin1.sroa.0.066, i64 40
   %vtable = load ptr, ptr %rose, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %179 = load ptr, ptr %vfn, align 8
-  invoke void %179(ptr noundef nonnull align 8 dereferenceable(8) %rose, i1 noundef zeroext %tobool46, i1 noundef zeroext %tobool47, ptr noundef nonnull align 8 dereferenceable(64) %s, ptr noundef nonnull align 8 dereferenceable(32) %second)
+  %177 = load ptr, ptr %vfn, align 8
+  %178 = extractelement <2 x i1> %176, i64 0
+  %179 = extractelement <2 x i1> %176, i64 1
+  invoke void %177(ptr noundef nonnull align 8 dereferenceable(8) %rose, i1 noundef zeroext %178, i1 noundef zeroext %179, ptr noundef nonnull align 8 dereferenceable(64) %s, ptr noundef nonnull align 8 dereferenceable(32) %second)
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %for.body

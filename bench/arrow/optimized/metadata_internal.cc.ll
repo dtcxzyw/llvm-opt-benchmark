@@ -8607,15 +8607,12 @@ invoke.cont12.i:                                  ; preds = %_ZN5arrow3ipc8inter
   store i64 %6, ptr %result.i, align 8, !alias.scope !158, !noalias !148
   store ptr null, ptr %storage_.i.i.i, align 8, !noalias !157
   %.cast.i = inttoptr i64 %6 to ptr
-  %is_cpu_.i.i = getelementptr inbounds i8, ptr %.cast.i, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i, align 1, !noalias !148
-  %8 = and i8 %7, 1
-  %tobool.not.i.i = icmp ne i8 %8, 0
   %is_mutable_.i.i = getelementptr inbounds i8, ptr %.cast.i, i64 8
-  %9 = load i8, ptr %is_mutable_.i.i, align 8, !noalias !148
-  %10 = and i8 %9, 1
-  %tobool2.i.i = icmp ne i8 %10, 0
-  %11 = select i1 %tobool.not.i.i, i1 %tobool2.i.i, i1 false
+  %7 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !148
+  %8 = trunc <2 x i8> %7 to <2 x i1>
+  %9 = extractelement <2 x i1> %8, i64 0
+  %10 = extractelement <2 x i1> %8, i64 1
+  %11 = select i1 %10, i1 %9, i1 false
   %data_.i.i = getelementptr inbounds i8, ptr %.cast.i, i64 16
   %12 = load ptr, ptr %data_.i.i, align 8, !noalias !148
   %cond.i.i = select i1 %11, ptr %12, ptr null

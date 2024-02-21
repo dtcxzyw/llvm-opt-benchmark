@@ -574,15 +574,12 @@ invoke.cont6:                                     ; preds = %invoke.cont
   store i64 %1, ptr %buffer, align 8, !alias.scope !52
   store ptr null, ptr %storage_.i.i, align 8, !noalias !52
   %.cast = inttoptr i64 %1 to ptr
-  %is_cpu_.i = getelementptr inbounds i8, ptr %.cast, i64 9
-  %2 = load i8, ptr %is_cpu_.i, align 1
-  %3 = and i8 %2, 1
-  %tobool.not.i = icmp ne i8 %3, 0
   %is_mutable_.i = getelementptr inbounds i8, ptr %.cast, i64 8
-  %4 = load i8, ptr %is_mutable_.i, align 8
-  %5 = and i8 %4, 1
-  %tobool2.i = icmp ne i8 %5, 0
-  %6 = select i1 %tobool.not.i, i1 %tobool2.i, i1 false
+  %2 = load <2 x i8>, ptr %is_mutable_.i, align 8
+  %3 = trunc <2 x i8> %2 to <2 x i1>
+  %4 = extractelement <2 x i1> %3, i64 0
+  %5 = extractelement <2 x i1> %3, i64 1
+  %6 = select i1 %5, i1 %4, i1 false
   %data_.i = getelementptr inbounds i8, ptr %.cast, i64 16
   %7 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %6, ptr %7, ptr null
@@ -723,13 +720,11 @@ _ZN5arrow6StatusD2Ev.exit81:                      ; preds = %_ZN5arrow6StatusD2E
   br i1 %cmp.not.i82, label %_ZN5arrow6Buffer11ZeroPaddingEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit81
-  %28 = load i8, ptr %is_cpu_.i, align 1
-  %29 = and i8 %28, 1
-  %tobool.not.i.i = icmp ne i8 %29, 0
-  %30 = load i8, ptr %is_mutable_.i, align 8
-  %31 = and i8 %30, 1
-  %tobool2.i.i = icmp ne i8 %31, 0
-  %32 = select i1 %tobool.not.i.i, i1 %tobool2.i.i, i1 false
+  %28 = load <2 x i8>, ptr %is_mutable_.i, align 8
+  %29 = trunc <2 x i8> %28 to <2 x i1>
+  %30 = extractelement <2 x i1> %29, i64 0
+  %31 = extractelement <2 x i1> %29, i64 1
+  %32 = select i1 %31, i1 %30, i1 false
   %33 = load ptr, ptr %data_.i, align 8
   %cond.i.i = select i1 %32, ptr %33, ptr null
   %size_.i = getelementptr inbounds i8, ptr %.cast, i64 24

@@ -3506,26 +3506,23 @@ entry:
   %base = getelementptr inbounds i8, ptr %opaque, i64 40
   %1 = load ptr, ptr %base, align 8
   %include_base = getelementptr inbounds i8, ptr %opaque, i64 48
-  %2 = load i8, ptr %include_base, align 8
-  %3 = and i8 %2, 1
-  %tobool = icmp ne i8 %3, 0
-  %want_zero = getelementptr inbounds i8, ptr %opaque, i64 49
-  %4 = load i8, ptr %want_zero, align 1
-  %5 = and i8 %4, 1
-  %tobool1 = icmp ne i8 %5, 0
+  %2 = load <2 x i8>, ptr %include_base, align 8
+  %3 = trunc <2 x i8> %2 to <2 x i1>
   %offset = getelementptr inbounds i8, ptr %opaque, i64 56
-  %6 = load i64, ptr %offset, align 8
+  %4 = load i64, ptr %offset, align 8
   %bytes = getelementptr inbounds i8, ptr %opaque, i64 64
-  %7 = load i64, ptr %bytes, align 8
+  %5 = load i64, ptr %bytes, align 8
   %pnum = getelementptr inbounds i8, ptr %opaque, i64 72
-  %8 = load ptr, ptr %pnum, align 8
+  %6 = load ptr, ptr %pnum, align 8
   %map = getelementptr inbounds i8, ptr %opaque, i64 80
-  %9 = load ptr, ptr %map, align 8
+  %7 = load ptr, ptr %map, align 8
   %file = getelementptr inbounds i8, ptr %opaque, i64 88
-  %10 = load ptr, ptr %file, align 8
+  %8 = load ptr, ptr %file, align 8
   %depth = getelementptr inbounds i8, ptr %opaque, i64 96
-  %11 = load ptr, ptr %depth, align 8
-  %call = tail call i32 @bdrv_co_common_block_status_above(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool1, i64 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #5
+  %9 = load ptr, ptr %depth, align 8
+  %10 = extractelement <2 x i1> %3, i64 0
+  %11 = extractelement <2 x i1> %3, i64 1
+  %call = tail call i32 @bdrv_co_common_block_status_above(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %10, i1 noundef zeroext %11, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #5
   %ret = getelementptr inbounds i8, ptr %opaque, i64 24
   store i32 %call, ptr %ret, align 8
   tail call void @bdrv_graph_co_rdunlock() #5

@@ -31,21 +31,18 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %m_filter.i9 = getelementptr inbounds i8, ptr %fixtureB, i64 60
   %m_filter.i = getelementptr inbounds i8, ptr %fixtureA, i64 60
-  %maskBits = getelementptr inbounds i8, ptr %fixtureA, i64 62
-  %2 = load i16, ptr %maskBits, align 2
-  %3 = load i16, ptr %m_filter.i9, align 2
-  %and7 = and i16 %3, %2
-  %cmp13.not = icmp ne i16 %and7, 0
-  %4 = load i16, ptr %m_filter.i, align 2
-  %maskBits16 = getelementptr inbounds i8, ptr %fixtureB, i64 62
-  %5 = load i16, ptr %maskBits16, align 2
-  %and188 = and i16 %5, %4
-  %cmp19 = icmp ne i16 %and188, 0
-  %6 = select i1 %cmp13.not, i1 %cmp19, i1 false
+  %2 = load <2 x i16>, ptr %m_filter.i, align 2
+  %3 = load <2 x i16>, ptr %m_filter.i9, align 2
+  %4 = shufflevector <2 x i16> %3, <2 x i16> poison, <2 x i32> <i32 1, i32 0>
+  %5 = and <2 x i16> %4, %2
+  %6 = icmp ne <2 x i16> %5, zeroinitializer
+  %7 = extractelement <2 x i1> %6, i64 0
+  %8 = extractelement <2 x i1> %6, i64 1
+  %9 = select i1 %8, i1 %7, i1 false
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
-  %retval.0 = phi i1 [ %cmp10, %if.then ], [ %6, %if.end ]
+  %retval.0 = phi i1 [ %cmp10, %if.then ], [ %9, %if.end ]
   ret i1 %retval.0
 }
 
