@@ -35,26 +35,26 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.17 = private unnamed_addr constant [35 x i8] c"*** %s received at time=%ld%s ***\0A\00", align 1
 @.str.18 = private unnamed_addr constant [42 x i8] c"*** Signal %d received at time=%ld%s ***\0A\00", align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZN4absl18debugging_internal21FailureSignalToStringEi(i32 noundef %signo) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx5, 168
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.add
   %cmp.not = icmp eq i64 %__begin2.0.add, 1176
   br i1 %cmp.not, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
-  %__begin2.0.ptr6 = phi ptr [ @_ZN4abslL19failure_signal_dataE, %entry ], [ %__begin2.0.ptr, %for.cond ]
   %__begin2.0.idx5 = phi i64 [ 0, %entry ], [ %__begin2.0.add, %for.cond ]
+  %__begin2.0.ptr6 = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5
   %0 = load i32, ptr %__begin2.0.ptr6, align 8
   %cmp2 = icmp eq i32 %0, %signo
   br i1 %cmp2, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %as_string = getelementptr inbounds i8, ptr %__begin2.0.ptr6, i64 8
+  %__begin2.0.ptr6.le = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5
+  %as_string = getelementptr inbounds i8, ptr %__begin2.0.ptr6.le, i64 8
   %1 = load ptr, ptr %as_string, align 8
   br label %return
 
@@ -214,19 +214,19 @@ if.end15:                                         ; preds = %if.then14, %if.end1
 
 for.cond.i:                                       ; preds = %for.body.i
   %__begin1.0.add.i = add nuw nsw i64 %__begin1.0.idx8.i, 168
-  %__begin1.0.ptr.i = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin1.0.add.i
   %cmp.not.i42 = icmp eq i64 %__begin1.0.add.i, 1176
   br i1 %cmp.not.i42, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end15, %for.cond.i
-  %__begin1.0.ptr9.i = phi ptr [ %__begin1.0.ptr.i, %for.cond.i ], [ @_ZN4abslL19failure_signal_dataE, %if.end15 ]
   %__begin1.0.idx8.i = phi i64 [ %__begin1.0.add.i, %for.cond.i ], [ 0, %if.end15 ]
+  %__begin1.0.ptr9.i = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin1.0.idx8.i
   %11 = load i32, ptr %__begin1.0.ptr9.i, align 8
   %cmp2.i41 = icmp eq i32 %11, %signo
   br i1 %cmp2.i41, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %previous_action.i = getelementptr inbounds i8, ptr %__begin1.0.ptr9.i, i64 16
+  %__begin1.0.ptr9.i.le = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin1.0.idx8.i
+  %previous_action.i = getelementptr inbounds i8, ptr %__begin1.0.ptr9.i.le, i64 16
   %call.i43 = tail call i32 @sigaction(i32 noundef %signo, ptr noundef nonnull %previous_action.i, ptr noundef null) #13
   br label %_ZN4abslL22RaiseToPreviousHandlerEi.exit
 
@@ -366,19 +366,19 @@ for.body.i.i.preheader:                           ; preds = %if.then.i, %entry
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %__begin2.0.add.i.i = add nuw nsw i64 %__begin2.0.idx5.i.i, 168
-  %__begin2.0.ptr.i.i = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.add.i.i
   %cmp.not.i.i = icmp eq i64 %__begin2.0.add.i.i, 1176
   br i1 %cmp.not.i.i, label %land.lhs.true.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.cond.i.i
-  %__begin2.0.ptr6.i.i = phi ptr [ %__begin2.0.ptr.i.i, %for.cond.i.i ], [ @_ZN4abslL19failure_signal_dataE, %for.body.i.i.preheader ]
   %__begin2.0.idx5.i.i = phi i64 [ %__begin2.0.add.i.i, %for.cond.i.i ], [ 0, %for.body.i.i.preheader ]
+  %__begin2.0.ptr6.i.i = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5.i.i
   %0 = load i32, ptr %__begin2.0.ptr6.i.i, align 8
   %cmp2.i.i = icmp eq i32 %0, %signo
   br i1 %cmp2.i.i, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i, label %for.cond.i.i
 
 _ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i: ; preds = %for.body.i.i
-  %as_string.i.i = getelementptr inbounds i8, ptr %__begin2.0.ptr6.i.i, i64 8
+  %__begin2.0.ptr6.i.i.le = getelementptr inbounds i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %__begin2.0.idx5.i.i
+  %as_string.i.i = getelementptr inbounds i8, ptr %__begin2.0.ptr6.i.i.le, i64 8
   %1 = load ptr, ptr %as_string.i.i, align 8
   %cmp2.not.i = icmp eq ptr %1, null
   br i1 %cmp2.not.i, label %if.else.i, label %land.lhs.true.i
@@ -464,7 +464,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

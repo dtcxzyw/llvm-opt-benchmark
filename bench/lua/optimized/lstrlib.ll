@@ -3836,8 +3836,8 @@ sw.bb115:                                         ; preds = %if.else102, %sw.bb1
   br i1 %cmp.not.i239616, label %if.else.i241, label %while.body2.i.lr.ph
 
 if.else.i241:                                     ; preds = %sw.bb115, %while.body.i216
-  %add.ptr.i213618 = phi ptr [ %add.ptr.i213, %while.body.i216 ], [ %s.addr.1, %sw.bb115 ]
   %i.0.i617 = phi i64 [ %inc.i217, %while.body.i216 ], [ 0, %sw.bb115 ]
+  %add.ptr.i213618 = getelementptr inbounds i8, ptr %s.addr.1, i64 %i.0.i617
   %71 = load i8, ptr %add.ptr.i213618, align 1
   %conv.i242 = zext i8 %71 to i32
   switch i8 %62, label %sw.default.i282 [

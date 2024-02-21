@@ -87,7 +87,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
   %1 = phi ptr [ %12, %for.body ], [ %0, %entry ]
-  %arrayidx17 = phi ptr [ %arrayidx, %for.body ], [ %worktrees, %entry ]
+  %arrayidx17 = getelementptr inbounds ptr, ptr %worktrees, i64 %indvars.iv
   %2 = load ptr, ptr %1, align 8
   tail call void @free(ptr noundef %2) #17
   %3 = load ptr, ptr %arrayidx17, align 8
@@ -429,7 +429,7 @@ do.end54:                                         ; preds = %do.body32.thread, %
   br i1 %tobool.not7.i, label %mark_current_worktree.exit, label %if.else.i.i67
 
 for.cond.i:                                       ; preds = %get_worktree_git_dir.exit.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i = getelementptr inbounds ptr, ptr %list.4, i64 %indvars.iv.next.i
   %16 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %16, null
@@ -1556,7 +1556,7 @@ entry:
   br i1 %tobool.not7, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds ptr, ptr %worktrees, i64 %indvars.iv.next
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null

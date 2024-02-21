@@ -3373,28 +3373,28 @@ if.end56:                                         ; preds = %while.body
   br label %for.body
 
 for.body:                                         ; preds = %if.end56, %for.body
-  %model.0.ptr58 = phi ptr [ %models, %if.end56 ], [ %model.0.ptr, %for.body ]
   %model.0.idx57 = phi i64 [ 0, %if.end56 ], [ %model.0.add, %for.body ]
+  %model.0.ptr58 = getelementptr inbounds i8, ptr %models, i64 %model.0.idx57
   %call72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %model.0.ptr58) #19
   %call73 = call i32 @strncmp(ptr noundef nonnull %add.ptr58, ptr noundef nonnull %model.0.ptr58, i64 noundef %call72) #19
   %tobool74 = icmp ne i32 %call73, 0
   %model.0.add = add nuw nsw i64 %model.0.idx57, 64
-  %model.0.ptr = getelementptr inbounds i8, ptr %models, i64 %model.0.add
   %cmp67 = icmp ult i64 %model.0.idx57, 448
-  %4 = select i1 %tobool74, i1 %cmp67, i1 false
+  %4 = and i1 %tobool74, %cmp67
   br i1 %4, label %for.body, label %for.end77
 
 for.end77:                                        ; preds = %for.body
+  %model.0.ptr.le = getelementptr inbounds i8, ptr %models, i64 %model.0.add
   %conv60 = trunc i64 %call59 to i32
   br i1 %tobool74, label %while.cond98.preheader, label %if.end80
 
 if.end80:                                         ; preds = %for.end77
-  %5 = load i8, ptr %model.0.ptr, align 1
+  %5 = load i8, ptr %model.0.ptr.le, align 1
   %cmp83 = icmp eq i8 %5, 0
   br i1 %cmp83, label %if.then85, label %if.end88
 
 if.then85:                                        ; preds = %if.end80
-  %call87 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %model.0.ptr, i64 noundef 64, ptr noundef nonnull @.str.15, i32 noundef %conv60, ptr noundef nonnull %add.ptr58) #18
+  %call87 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %model.0.ptr.le, i64 noundef 64, ptr noundef nonnull @.str.15, i32 noundef %conv60, ptr noundef nonnull %add.ptr58) #18
   br label %if.end88
 
 if.end88:                                         ; preds = %if.then85, %if.end80

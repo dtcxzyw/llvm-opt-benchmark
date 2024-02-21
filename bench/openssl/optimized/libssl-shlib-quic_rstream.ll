@@ -88,9 +88,9 @@ for.cond:                                         ; preds = %ring_buf_push.exit
   br i1 %or.cond, label %if.then15, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %for.cond
-  %add49 = phi i64 [ %add, %for.cond ], [ %r.val16, %if.end.i.lr.ph ]
   %copied.048 = phi i64 [ %add26, %for.cond ], [ 0, %if.end.i.lr.ph ]
   %rnew.sroa.9.047 = phi i64 [ %rnew.sroa.9.2, %for.cond ], [ %r.val16, %if.end.i.lr.ph ]
+  %add49 = add i64 %copied.048, %r.val16
   %rem.i = urem i64 %add49, %5
   %sub.i18 = sub i64 %3, %add49
   %sub9.i = sub i64 %5, %rem.i

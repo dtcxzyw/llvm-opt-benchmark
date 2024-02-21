@@ -4855,8 +4855,8 @@ invoke.cont225.preheader:                         ; preds = %if.end, %if.end, %i
   br label %invoke.cont225
 
 invoke.cont225:                                   ; preds = %invoke.cont225.preheader, %for.inc249
-  %__begin3.0.ptr270 = phi ptr [ %__begin3.0.ptr, %for.inc249 ], [ %table, %invoke.cont225.preheader ]
   %__begin3.0.idx269 = phi i64 [ %__begin3.0.add, %for.inc249 ], [ 0, %invoke.cont225.preheader ]
+  %__begin3.0.ptr270 = getelementptr inbounds i8, ptr %table, i64 %__begin3.0.idx269
   %fUnion.i.i145 = getelementptr inbounds i8, ptr %__begin3.0.ptr270, i64 8
   %25 = load i16, ptr %fUnion.i.i145, align 8
   %cmp.i.i146 = icmp slt i16 %25, 0
@@ -4969,7 +4969,6 @@ cleanup:                                          ; preds = %if.end243
 for.inc249:                                       ; preds = %if.else.i, %invoke.cont230, %if.then.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %temp) #13
   %__begin3.0.add = add nuw nsw i64 %__begin3.0.idx269, 128
-  %__begin3.0.ptr = getelementptr inbounds i8, ptr %table, i64 %__begin3.0.add
   %cmp222.not = icmp eq i64 %__begin3.0.add, 2688
   br i1 %cmp222.not, label %invoke.cont263, label %invoke.cont225
 

@@ -10926,8 +10926,8 @@ invoke.cont24:                                    ; preds = %.noexc66
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont24, %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_64ELS3_2ELS3_4ELS3_512ELS3_8192EEEESt14default_deleteIS4_EED2Ev.exit
-  %__begin2.0.ptr198 = phi ptr [ %formats, %invoke.cont24 ], [ %__begin2.0.ptr, %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_64ELS3_2ELS3_4ELS3_512ELS3_8192EEEESt14default_deleteIS4_EED2Ev.exit ]
   %__begin2.0.idx197 = phi i64 [ 0, %invoke.cont24 ], [ %__begin2.0.add, %_ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_64ELS3_2ELS3_4ELS3_512ELS3_8192EEEESt14default_deleteIS4_EED2Ev.exit ]
+  %__begin2.0.ptr198 = getelementptr inbounds i8, ptr %formats, i64 %__begin2.0.idx197
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.0.ptr198) #20
   %6 = extractvalue { i64, ptr } %call, 0
   %7 = extractvalue { i64, ptr } %call, 1
@@ -11455,7 +11455,6 @@ _ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_2
 _ZNSt10unique_ptrIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_64ELS3_2ELS3_4ELS3_512ELS3_8192EEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit133, %_ZNKSt14default_deleteIN4absl19str_format_internal20ExtendedParsedFormatIJLNS0_23FormatConversionCharSetE8ELS3_64ELS3_2ELS3_4ELS3_512ELS3_8192EEEEEclEPS4_.exit.i
   store ptr null, ptr %parsed, align 8
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx197, 32
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr %formats, i64 %__begin2.0.add
   %cmp.not = icmp eq i64 %__begin2.0.add, 160
   br i1 %cmp.not, label %cleanup133, label %for.body
 

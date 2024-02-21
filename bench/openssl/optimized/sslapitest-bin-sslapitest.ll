@@ -19048,7 +19048,6 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %0, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %add13 = phi i64 [ %add, %for.inc ], [ 1, %for.cond.preheader ]
   %j.012 = phi i64 [ %add18, %for.inc ], [ 0, %for.cond.preheader ]
   %i.011 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %arrayidx = getelementptr inbounds i8, ptr %raw, i64 %i.011
@@ -19065,6 +19064,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool8.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
+  %add13 = or disjoint i64 %j.012, 1
   %4 = load i8, ptr %arrayidx9, align 1
   %conv10 = sext i8 %4 to i32
   %arrayidx12 = getelementptr inbounds i8, ptr %hex_encoded, i64 %add13

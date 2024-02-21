@@ -1976,7 +1976,6 @@ sw.epilog:                                        ; preds = %switch.hole_check, 
 
 for.cond.i:                                       ; preds = %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.i
   %__begin1.0.add.i = add nuw nsw i64 %__begin1.0.idx6.i, 16
-  %__begin1.0.ptr.i = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_0L24tiff_output_compressionsE, i64 %__begin1.0.add.i
   %cmp.not.i = icmp eq i64 %__begin1.0.add.i, 96
   br i1 %cmp.not.i, label %_ZN18OpenImageIO_v2_6_0L21tiff_compression_codeENS_17basic_string_viewIcSt11char_traitsIcEEE.exit.thread, label %for.body.i
 
@@ -1990,8 +1989,8 @@ _ZN18OpenImageIO_v2_6_0L21tiff_compression_codeENS_17basic_string_viewIcSt11char
   br label %if.then223
 
 for.body.i:                                       ; preds = %for.cond.i, %sw.epilog
-  %__begin1.0.ptr7.i = phi ptr [ @_ZN18OpenImageIO_v2_6_0L24tiff_output_compressionsE, %sw.epilog ], [ %__begin1.0.ptr.i, %for.cond.i ]
   %__begin1.0.idx6.i = phi i64 [ 0, %sw.epilog ], [ %__begin1.0.add.i, %for.cond.i ]
+  %__begin1.0.ptr7.i = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_0L24tiff_output_compressionsE, i64 %__begin1.0.idx6.i
   store ptr %comp.sroa.0.0, ptr %agg.tmp.i, align 8
   store i64 %comp.sroa.5.0, ptr %m_len.i.i85, align 8
   %second.i86 = getelementptr inbounds i8, ptr %__begin1.0.ptr7.i, i64 8
@@ -31269,9 +31268,9 @@ sw.bb26.i45:                                      ; preds = %if.end18
   %idxprom.i194 = zext nneg i16 %bf.clear.i254 to i64
   %arrayidx.i195 = getelementptr inbounds [4 x i32], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 0, i64 %idxprom.i194
   %46 = load i32, ptr %arrayidx.i195, align 4, !noalias !222
-  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16
+  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16, !alias.scope !222
   %agg.tmp4.i247.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 10
-  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2
+  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2, !alias.scope !222
   %prefix3.i196 = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 16
   store i32 %46, ptr %prefix3.i196, align 16, !alias.scope !222
   %call.i256 = call ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull byval(%"struct.fmt::v8::detail::write_int_arg.147") align 16 %agg.tmp4.i247, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %retval.sroa.0.0.copyload.i156)

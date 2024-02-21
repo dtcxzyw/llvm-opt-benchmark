@@ -12400,7 +12400,7 @@ declare void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 deref
 
 declare void @__cxa_bad_typeid() local_unnamed_addr
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -29233,15 +29233,14 @@ cleanup.cont176:                                  ; preds = %_ZNSt7__cxx1112basi
 
 for.cond:                                         ; preds = %cleanup341
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx1045, 16
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %invalid_args, i64 %__begin1.0.add
   %cmp191.not = icmp eq i64 %__begin1.0.add, 64
   br i1 %cmp191.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond, %cleanup.cont176
-  %__begin1.0.ptr1046 = phi ptr [ %invalid_args, %cleanup.cont176 ], [ %__begin1.0.ptr, %for.cond ]
   %__begin1.0.idx1045 = phi i64 [ 0, %cleanup.cont176 ], [ %__begin1.0.add, %for.cond ]
+  %__begin1.0.ptr1046 = getelementptr inbounds i8, ptr %invalid_args, i64 %__begin1.0.idx1045
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %a_db) #29
-  %182 = load ptr, ptr %__begin1.0.ptr1046, align 8
+  %182 = load ptr, ptr %__begin1.0.ptr1046, align 16
   %len193 = getelementptr inbounds i8, ptr %__begin1.0.ptr1046, i64 8
   %183 = load i64, ptr %len193, align 8
   %call194 = call i32 @hs_deserialize_database(ptr noundef %182, i64 noundef %183, ptr noundef nonnull %a_db)
@@ -29635,18 +29634,16 @@ terminate.lpad.i.i885:                            ; preds = %if.then.i.i.i883
 
 cleanup.cont246:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i893, %if.then2.i.i.i888, %call.i.noexc.i.i886, %cleanup.cont246.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar222) #29
-  %235 = load ptr, ptr %__begin1.0.ptr1046, align 8
-  %236 = load i64, ptr %len193, align 8
-  %237 = load ptr, ptr %new_db, align 8
-  %call250 = call i32 @hs_deserialize_database_at(ptr noundef %235, i64 noundef %236, ptr noundef %237)
+  %235 = load ptr, ptr %new_db, align 8
+  %call250 = call i32 @hs_deserialize_database_at(ptr noundef %182, i64 noundef %183, ptr noundef %235)
   store i32 %call250, ptr %err, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar251) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp252) #29
   store i32 0, ptr %ref.tmp252, align 4
   call void @_ZN7testing8internal11CmpHelperNEIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar251, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp252, ptr noundef nonnull align 4 dereferenceable(4) %err)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp252) #29
-  %238 = load i8, ptr %gtest_ar251, align 8, !range !28, !noundef !29
-  %tobool.i898.not = icmp eq i8 %238, 0
+  %236 = load i8, ptr %gtest_ar251, align 8, !range !28, !noundef !29
+  %tobool.i898.not = icmp eq i8 %236, 0
   br i1 %tobool.i898.not, label %if.else255, label %cleanup.cont275.critedge
 
 if.else255:                                       ; preds = %cleanup.cont246
@@ -29656,16 +29653,16 @@ if.else255:                                       ; preds = %cleanup.cont246
 
 invoke.cont258:                                   ; preds = %if.else255
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp259) #29
-  %239 = load ptr, ptr %message_.i933, align 8
-  %cmp.not.i.i900 = icmp eq ptr %239, null
+  %237 = load ptr, ptr %message_.i933, align 8
+  %cmp.not.i.i900 = icmp eq ptr %237, null
   br i1 %cmp.not.i.i900, label %invoke.cont261, label %cond.true.i.i901
 
 cond.true.i.i901:                                 ; preds = %invoke.cont258
-  %240 = load ptr, ptr %239, align 8
+  %238 = load ptr, ptr %237, align 8
   br label %invoke.cont261
 
 invoke.cont261:                                   ; preds = %cond.true.i.i901, %invoke.cont258
-  %cond.i.i902 = phi ptr [ %240, %cond.true.i.i901 ], [ @.str.64, %invoke.cont258 ]
+  %cond.i.i902 = phi ptr [ %238, %cond.true.i.i901 ], [ @.str.64, %invoke.cont258 ]
   invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp259, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef 558, ptr noundef %cond.i.i902)
           to label %invoke.cont263 unwind label %lpad260
 
@@ -29676,8 +29673,8 @@ invoke.cont263:                                   ; preds = %invoke.cont261
 invoke.cont265:                                   ; preds = %invoke.cont263
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp259) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp259) #29
-  %241 = load ptr, ptr %ref.tmp256, align 8
-  %cmp.not.i.i.i904 = icmp eq ptr %241, null
+  %239 = load ptr, ptr %ref.tmp256, align 8
+  %cmp.not.i.i.i904 = icmp eq ptr %239, null
   br i1 %cmp.not.i.i.i904, label %_ZN7testing7MessageD2Ev.exit915, label %if.then.i.i.i905
 
 if.then.i.i.i905:                                 ; preds = %invoke.cont265
@@ -29688,28 +29685,28 @@ call.i.noexc.i.i908:                              ; preds = %if.then.i.i.i905
   br i1 %call.i2.i.i906, label %if.then2.i.i.i910, label %_ZN7testing7MessageD2Ev.exit915
 
 if.then2.i.i.i910:                                ; preds = %call.i.noexc.i.i908
-  %242 = load ptr, ptr %ref.tmp256, align 8
-  %isnull.i.i.i911 = icmp eq ptr %242, null
+  %240 = load ptr, ptr %ref.tmp256, align 8
+  %isnull.i.i.i911 = icmp eq ptr %240, null
   br i1 %isnull.i.i.i911, label %_ZN7testing7MessageD2Ev.exit915, label %delete.notnull.i.i.i912
 
 delete.notnull.i.i.i912:                          ; preds = %if.then2.i.i.i910
-  %vtable.i.i.i913 = load ptr, ptr %242, align 8
+  %vtable.i.i.i913 = load ptr, ptr %240, align 8
   %vfn.i.i.i914 = getelementptr inbounds i8, ptr %vtable.i.i.i913, i64 8
-  %243 = load ptr, ptr %vfn.i.i.i914, align 8
-  call void %243(ptr noundef nonnull align 8 dereferenceable(128) %242) #29
+  %241 = load ptr, ptr %vfn.i.i.i914, align 8
+  call void %241(ptr noundef nonnull align 8 dereferenceable(128) %240) #29
   br label %_ZN7testing7MessageD2Ev.exit915
 
 terminate.lpad.i.i907:                            ; preds = %if.then.i.i.i905
-  %244 = landingpad { ptr, i32 }
+  %242 = landingpad { ptr, i32 }
           catch ptr null
-  %245 = extractvalue { ptr, i32 } %244, 0
-  call void @__clang_call_terminate(ptr %245) #30
+  %243 = extractvalue { ptr, i32 } %242, 0
+  call void @__clang_call_terminate(ptr %243) #30
   unreachable
 
 _ZN7testing7MessageD2Ev.exit915:                  ; preds = %delete.notnull.i.i.i912, %if.then2.i.i.i910, %call.i.noexc.i.i908, %invoke.cont265
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp256) #29
-  %246 = load ptr, ptr %message_.i933, align 8
-  %cmp.not.i.i.i917 = icmp eq ptr %246, null
+  %244 = load ptr, ptr %message_.i933, align 8
+  %cmp.not.i.i.i917 = icmp eq ptr %244, null
   br i1 %cmp.not.i.i.i917, label %_ZN7testing15AssertionResultD2Ev.exit932, label %if.then.i.i.i918
 
 if.then.i.i.i918:                                 ; preds = %_ZN7testing7MessageD2Ev.exit915
@@ -29720,36 +29717,36 @@ call.i.noexc.i.i921:                              ; preds = %if.then.i.i.i918
   br i1 %call.i2.i.i919, label %if.then2.i.i.i923, label %_ZN7testing15AssertionResultD2Ev.exit932
 
 if.then2.i.i.i923:                                ; preds = %call.i.noexc.i.i921
-  %247 = load ptr, ptr %message_.i933, align 8
-  %isnull.i.i.i924 = icmp eq ptr %247, null
+  %245 = load ptr, ptr %message_.i933, align 8
+  %isnull.i.i.i924 = icmp eq ptr %245, null
   br i1 %isnull.i.i.i924, label %_ZN7testing15AssertionResultD2Ev.exit932, label %delete.notnull.i.i.i925
 
 delete.notnull.i.i.i925:                          ; preds = %if.then2.i.i.i923
-  %248 = load ptr, ptr %247, align 8
-  %249 = getelementptr inbounds i8, ptr %247, i64 16
-  %cmp.i.i.i.i.i.i926 = icmp eq ptr %248, %249
+  %246 = load ptr, ptr %245, align 8
+  %247 = getelementptr inbounds i8, ptr %245, i64 16
+  %cmp.i.i.i.i.i.i926 = icmp eq ptr %246, %247
   br i1 %cmp.i.i.i.i.i.i926, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i929, label %if.then.i.i.i.i.i927
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i929: ; preds = %delete.notnull.i.i.i925
-  %_M_string_length.i.i.i.i.i.i930 = getelementptr inbounds i8, ptr %247, i64 8
-  %250 = load i64, ptr %_M_string_length.i.i.i.i.i.i930, align 8
-  %cmp3.i.i.i.i.i.i931 = icmp ult i64 %250, 16
+  %_M_string_length.i.i.i.i.i.i930 = getelementptr inbounds i8, ptr %245, i64 8
+  %248 = load i64, ptr %_M_string_length.i.i.i.i.i.i930, align 8
+  %cmp3.i.i.i.i.i.i931 = icmp ult i64 %248, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i931)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i928
 
 if.then.i.i.i.i.i927:                             ; preds = %delete.notnull.i.i.i925
-  call void @_ZdlPv(ptr noundef %248) #28
+  call void @_ZdlPv(ptr noundef %246) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i928
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i928: ; preds = %if.then.i.i.i.i.i927, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i929
-  call void @_ZdlPv(ptr noundef nonnull %247) #28
+  call void @_ZdlPv(ptr noundef nonnull %245) #28
   br label %_ZN7testing15AssertionResultD2Ev.exit932
 
 terminate.lpad.i.i920:                            ; preds = %if.then.i.i.i918
-  %251 = landingpad { ptr, i32 }
+  %249 = landingpad { ptr, i32 }
           catch ptr null
-  %252 = extractvalue { ptr, i32 } %251, 0
-  call void @__clang_call_terminate(ptr %252) #30
+  %250 = extractvalue { ptr, i32 } %249, 0
+  call void @__clang_call_terminate(ptr %250) #30
   unreachable
 
 _ZN7testing15AssertionResultD2Ev.exit932:         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i928, %if.then2.i.i.i923, %call.i.noexc.i.i921, %_ZN7testing7MessageD2Ev.exit915
@@ -29757,37 +29754,37 @@ _ZN7testing15AssertionResultD2Ev.exit932:         ; preds = %_ZNSt7__cxx1112basi
   br label %cleanup341.thread1039
 
 lpad257:                                          ; preds = %if.else255
-  %253 = landingpad { ptr, i32 }
+  %251 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup269
 
 lpad260:                                          ; preds = %invoke.cont261
-  %254 = landingpad { ptr, i32 }
+  %252 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup267
 
 lpad264:                                          ; preds = %invoke.cont263
-  %255 = landingpad { ptr, i32 }
+  %253 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp259) #29
   br label %ehcleanup267
 
 ehcleanup267:                                     ; preds = %lpad264, %lpad260
-  %.pn439 = phi { ptr, i32 } [ %255, %lpad264 ], [ %254, %lpad260 ]
+  %.pn439 = phi { ptr, i32 } [ %253, %lpad264 ], [ %252, %lpad260 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp259) #29
   call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp256) #29
   br label %ehcleanup269
 
 ehcleanup269:                                     ; preds = %ehcleanup267, %lpad257
-  %.pn439.pn = phi { ptr, i32 } [ %.pn439, %ehcleanup267 ], [ %253, %lpad257 ]
+  %.pn439.pn = phi { ptr, i32 } [ %.pn439, %ehcleanup267 ], [ %251, %lpad257 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp256) #29
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar251) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar251) #29
   br label %ehcleanup340
 
 cleanup.cont275.critedge:                         ; preds = %cleanup.cont246
-  %256 = load ptr, ptr %message_.i933, align 8
-  %cmp.not.i.i.i934 = icmp eq ptr %256, null
+  %254 = load ptr, ptr %message_.i933, align 8
+  %cmp.not.i.i.i934 = icmp eq ptr %254, null
   br i1 %cmp.not.i.i.i934, label %cleanup.cont275, label %if.then.i.i.i935
 
 if.then.i.i.i935:                                 ; preds = %cleanup.cont275.critedge
@@ -29798,52 +29795,52 @@ call.i.noexc.i.i938:                              ; preds = %if.then.i.i.i935
   br i1 %call.i2.i.i936, label %if.then2.i.i.i940, label %cleanup.cont275
 
 if.then2.i.i.i940:                                ; preds = %call.i.noexc.i.i938
-  %257 = load ptr, ptr %message_.i933, align 8
-  %isnull.i.i.i941 = icmp eq ptr %257, null
+  %255 = load ptr, ptr %message_.i933, align 8
+  %isnull.i.i.i941 = icmp eq ptr %255, null
   br i1 %isnull.i.i.i941, label %cleanup.cont275, label %delete.notnull.i.i.i942
 
 delete.notnull.i.i.i942:                          ; preds = %if.then2.i.i.i940
-  %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds i8, ptr %257, i64 16
-  %cmp.i.i.i.i.i.i943 = icmp eq ptr %258, %259
+  %256 = load ptr, ptr %255, align 8
+  %257 = getelementptr inbounds i8, ptr %255, i64 16
+  %cmp.i.i.i.i.i.i943 = icmp eq ptr %256, %257
   br i1 %cmp.i.i.i.i.i.i943, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i946, label %if.then.i.i.i.i.i944
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i946: ; preds = %delete.notnull.i.i.i942
-  %_M_string_length.i.i.i.i.i.i947 = getelementptr inbounds i8, ptr %257, i64 8
-  %260 = load i64, ptr %_M_string_length.i.i.i.i.i.i947, align 8
-  %cmp3.i.i.i.i.i.i948 = icmp ult i64 %260, 16
+  %_M_string_length.i.i.i.i.i.i947 = getelementptr inbounds i8, ptr %255, i64 8
+  %258 = load i64, ptr %_M_string_length.i.i.i.i.i.i947, align 8
+  %cmp3.i.i.i.i.i.i948 = icmp ult i64 %258, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i948)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i945
 
 if.then.i.i.i.i.i944:                             ; preds = %delete.notnull.i.i.i942
-  call void @_ZdlPv(ptr noundef %258) #28
+  call void @_ZdlPv(ptr noundef %256) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i945
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i945: ; preds = %if.then.i.i.i.i.i944, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i946
-  call void @_ZdlPv(ptr noundef nonnull %257) #28
+  call void @_ZdlPv(ptr noundef nonnull %255) #28
   br label %cleanup.cont275
 
 terminate.lpad.i.i937:                            ; preds = %if.then.i.i.i935
-  %261 = landingpad { ptr, i32 }
+  %259 = landingpad { ptr, i32 }
           catch ptr null
-  %262 = extractvalue { ptr, i32 } %261, 0
-  call void @__clang_call_terminate(ptr %262) #30
+  %260 = extractvalue { ptr, i32 } %259, 0
+  call void @__clang_call_terminate(ptr %260) #30
   unreachable
 
 cleanup.cont275:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i945, %if.then2.i.i.i940, %call.i.noexc.i.i938, %cleanup.cont275.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar251) #29
-  %263 = load ptr, ptr %new_db, align 8
-  call void @free(ptr noundef %263) #29
+  %261 = load ptr, ptr %new_db, align 8
+  call void @free(ptr noundef %261) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %info) #29
-  %call279 = call i32 @hs_serialized_database_info(ptr noundef %235, i64 noundef %236, ptr noundef nonnull %info)
+  %call279 = call i32 @hs_serialized_database_info(ptr noundef %182, i64 noundef %183, ptr noundef nonnull %info)
   store i32 %call279, ptr %err, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar280) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp281) #29
   store i32 0, ptr %ref.tmp281, align 4
   call void @_ZN7testing8internal11CmpHelperNEIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar280, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp281, ptr noundef nonnull align 4 dereferenceable(4) %err)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp281) #29
-  %264 = load i8, ptr %gtest_ar280, align 8, !range !28, !noundef !29
-  %tobool.i950.not = icmp eq i8 %264, 0
+  %262 = load i8, ptr %gtest_ar280, align 8, !range !28, !noundef !29
+  %tobool.i950.not = icmp eq i8 %262, 0
   br i1 %tobool.i950.not, label %if.else284, label %cleanup.cont304.critedge
 
 if.else284:                                       ; preds = %cleanup.cont275
@@ -29853,16 +29850,16 @@ if.else284:                                       ; preds = %cleanup.cont275
 
 invoke.cont287:                                   ; preds = %if.else284
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp288) #29
-  %265 = load ptr, ptr %message_.i985, align 8
-  %cmp.not.i.i952 = icmp eq ptr %265, null
+  %263 = load ptr, ptr %message_.i985, align 8
+  %cmp.not.i.i952 = icmp eq ptr %263, null
   br i1 %cmp.not.i.i952, label %invoke.cont290, label %cond.true.i.i953
 
 cond.true.i.i953:                                 ; preds = %invoke.cont287
-  %266 = load ptr, ptr %265, align 8
+  %264 = load ptr, ptr %263, align 8
   br label %invoke.cont290
 
 invoke.cont290:                                   ; preds = %cond.true.i.i953, %invoke.cont287
-  %cond.i.i954 = phi ptr [ %266, %cond.true.i.i953 ], [ @.str.64, %invoke.cont287 ]
+  %cond.i.i954 = phi ptr [ %264, %cond.true.i.i953 ], [ @.str.64, %invoke.cont287 ]
   invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp288, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef 563, ptr noundef %cond.i.i954)
           to label %invoke.cont292 unwind label %lpad289
 
@@ -29873,8 +29870,8 @@ invoke.cont292:                                   ; preds = %invoke.cont290
 invoke.cont294:                                   ; preds = %invoke.cont292
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp288) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp288) #29
-  %267 = load ptr, ptr %ref.tmp285, align 8
-  %cmp.not.i.i.i956 = icmp eq ptr %267, null
+  %265 = load ptr, ptr %ref.tmp285, align 8
+  %cmp.not.i.i.i956 = icmp eq ptr %265, null
   br i1 %cmp.not.i.i.i956, label %_ZN7testing7MessageD2Ev.exit967, label %if.then.i.i.i957
 
 if.then.i.i.i957:                                 ; preds = %invoke.cont294
@@ -29885,28 +29882,28 @@ call.i.noexc.i.i960:                              ; preds = %if.then.i.i.i957
   br i1 %call.i2.i.i958, label %if.then2.i.i.i962, label %_ZN7testing7MessageD2Ev.exit967
 
 if.then2.i.i.i962:                                ; preds = %call.i.noexc.i.i960
-  %268 = load ptr, ptr %ref.tmp285, align 8
-  %isnull.i.i.i963 = icmp eq ptr %268, null
+  %266 = load ptr, ptr %ref.tmp285, align 8
+  %isnull.i.i.i963 = icmp eq ptr %266, null
   br i1 %isnull.i.i.i963, label %_ZN7testing7MessageD2Ev.exit967, label %delete.notnull.i.i.i964
 
 delete.notnull.i.i.i964:                          ; preds = %if.then2.i.i.i962
-  %vtable.i.i.i965 = load ptr, ptr %268, align 8
+  %vtable.i.i.i965 = load ptr, ptr %266, align 8
   %vfn.i.i.i966 = getelementptr inbounds i8, ptr %vtable.i.i.i965, i64 8
-  %269 = load ptr, ptr %vfn.i.i.i966, align 8
-  call void %269(ptr noundef nonnull align 8 dereferenceable(128) %268) #29
+  %267 = load ptr, ptr %vfn.i.i.i966, align 8
+  call void %267(ptr noundef nonnull align 8 dereferenceable(128) %266) #29
   br label %_ZN7testing7MessageD2Ev.exit967
 
 terminate.lpad.i.i959:                            ; preds = %if.then.i.i.i957
-  %270 = landingpad { ptr, i32 }
+  %268 = landingpad { ptr, i32 }
           catch ptr null
-  %271 = extractvalue { ptr, i32 } %270, 0
-  call void @__clang_call_terminate(ptr %271) #30
+  %269 = extractvalue { ptr, i32 } %268, 0
+  call void @__clang_call_terminate(ptr %269) #30
   unreachable
 
 _ZN7testing7MessageD2Ev.exit967:                  ; preds = %delete.notnull.i.i.i964, %if.then2.i.i.i962, %call.i.noexc.i.i960, %invoke.cont294
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp285) #29
-  %272 = load ptr, ptr %message_.i985, align 8
-  %cmp.not.i.i.i969 = icmp eq ptr %272, null
+  %270 = load ptr, ptr %message_.i985, align 8
+  %cmp.not.i.i.i969 = icmp eq ptr %270, null
   br i1 %cmp.not.i.i.i969, label %cleanup341.thread1042, label %if.then.i.i.i970
 
 if.then.i.i.i970:                                 ; preds = %_ZN7testing7MessageD2Ev.exit967
@@ -29917,36 +29914,36 @@ call.i.noexc.i.i973:                              ; preds = %if.then.i.i.i970
   br i1 %call.i2.i.i971, label %if.then2.i.i.i975, label %cleanup341.thread1042
 
 if.then2.i.i.i975:                                ; preds = %call.i.noexc.i.i973
-  %273 = load ptr, ptr %message_.i985, align 8
-  %isnull.i.i.i976 = icmp eq ptr %273, null
+  %271 = load ptr, ptr %message_.i985, align 8
+  %isnull.i.i.i976 = icmp eq ptr %271, null
   br i1 %isnull.i.i.i976, label %cleanup341.thread1042, label %delete.notnull.i.i.i977
 
 delete.notnull.i.i.i977:                          ; preds = %if.then2.i.i.i975
-  %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds i8, ptr %273, i64 16
-  %cmp.i.i.i.i.i.i978 = icmp eq ptr %274, %275
+  %272 = load ptr, ptr %271, align 8
+  %273 = getelementptr inbounds i8, ptr %271, i64 16
+  %cmp.i.i.i.i.i.i978 = icmp eq ptr %272, %273
   br i1 %cmp.i.i.i.i.i.i978, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i981, label %if.then.i.i.i.i.i979
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i981: ; preds = %delete.notnull.i.i.i977
-  %_M_string_length.i.i.i.i.i.i982 = getelementptr inbounds i8, ptr %273, i64 8
-  %276 = load i64, ptr %_M_string_length.i.i.i.i.i.i982, align 8
-  %cmp3.i.i.i.i.i.i983 = icmp ult i64 %276, 16
+  %_M_string_length.i.i.i.i.i.i982 = getelementptr inbounds i8, ptr %271, i64 8
+  %274 = load i64, ptr %_M_string_length.i.i.i.i.i.i982, align 8
+  %cmp3.i.i.i.i.i.i983 = icmp ult i64 %274, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i983)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i980
 
 if.then.i.i.i.i.i979:                             ; preds = %delete.notnull.i.i.i977
-  call void @_ZdlPv(ptr noundef %274) #28
+  call void @_ZdlPv(ptr noundef %272) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i980
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i980: ; preds = %if.then.i.i.i.i.i979, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i981
-  call void @_ZdlPv(ptr noundef nonnull %273) #28
+  call void @_ZdlPv(ptr noundef nonnull %271) #28
   br label %cleanup341.thread1042
 
 terminate.lpad.i.i972:                            ; preds = %if.then.i.i.i970
-  %277 = landingpad { ptr, i32 }
+  %275 = landingpad { ptr, i32 }
           catch ptr null
-  %278 = extractvalue { ptr, i32 } %277, 0
-  call void @__clang_call_terminate(ptr %278) #30
+  %276 = extractvalue { ptr, i32 } %275, 0
+  call void @__clang_call_terminate(ptr %276) #30
   unreachable
 
 cleanup341.thread1042:                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i980, %if.then2.i.i.i975, %call.i.noexc.i.i973, %_ZN7testing7MessageD2Ev.exit967
@@ -29957,37 +29954,37 @@ cleanup341.thread1042:                            ; preds = %_ZNSt7__cxx1112basi
   br label %cleanup356
 
 lpad286:                                          ; preds = %if.else284
-  %279 = landingpad { ptr, i32 }
+  %277 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup298
 
 lpad289:                                          ; preds = %invoke.cont290
-  %280 = landingpad { ptr, i32 }
+  %278 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup296
 
 lpad293:                                          ; preds = %invoke.cont292
-  %281 = landingpad { ptr, i32 }
+  %279 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp288) #29
   br label %ehcleanup296
 
 ehcleanup296:                                     ; preds = %lpad293, %lpad289
-  %.pn442 = phi { ptr, i32 } [ %281, %lpad293 ], [ %280, %lpad289 ]
+  %.pn442 = phi { ptr, i32 } [ %279, %lpad293 ], [ %278, %lpad289 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp288) #29
   call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp285) #29
   br label %ehcleanup298
 
 ehcleanup298:                                     ; preds = %ehcleanup296, %lpad286
-  %.pn442.pn = phi { ptr, i32 } [ %.pn442, %ehcleanup296 ], [ %279, %lpad286 ]
+  %.pn442.pn = phi { ptr, i32 } [ %.pn442, %ehcleanup296 ], [ %277, %lpad286 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp285) #29
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar280) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar280) #29
   br label %ehcleanup338
 
 cleanup.cont304.critedge:                         ; preds = %cleanup.cont275
-  %282 = load ptr, ptr %message_.i985, align 8
-  %cmp.not.i.i.i986 = icmp eq ptr %282, null
+  %280 = load ptr, ptr %message_.i985, align 8
+  %cmp.not.i.i.i986 = icmp eq ptr %280, null
   br i1 %cmp.not.i.i.i986, label %cleanup.cont304, label %if.then.i.i.i987
 
 if.then.i.i.i987:                                 ; preds = %cleanup.cont304.critedge
@@ -29998,52 +29995,50 @@ call.i.noexc.i.i990:                              ; preds = %if.then.i.i.i987
   br i1 %call.i2.i.i988, label %if.then2.i.i.i992, label %cleanup.cont304
 
 if.then2.i.i.i992:                                ; preds = %call.i.noexc.i.i990
-  %283 = load ptr, ptr %message_.i985, align 8
-  %isnull.i.i.i993 = icmp eq ptr %283, null
+  %281 = load ptr, ptr %message_.i985, align 8
+  %isnull.i.i.i993 = icmp eq ptr %281, null
   br i1 %isnull.i.i.i993, label %cleanup.cont304, label %delete.notnull.i.i.i994
 
 delete.notnull.i.i.i994:                          ; preds = %if.then2.i.i.i992
-  %284 = load ptr, ptr %283, align 8
-  %285 = getelementptr inbounds i8, ptr %283, i64 16
-  %cmp.i.i.i.i.i.i995 = icmp eq ptr %284, %285
+  %282 = load ptr, ptr %281, align 8
+  %283 = getelementptr inbounds i8, ptr %281, i64 16
+  %cmp.i.i.i.i.i.i995 = icmp eq ptr %282, %283
   br i1 %cmp.i.i.i.i.i.i995, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i998, label %if.then.i.i.i.i.i996
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i998: ; preds = %delete.notnull.i.i.i994
-  %_M_string_length.i.i.i.i.i.i999 = getelementptr inbounds i8, ptr %283, i64 8
-  %286 = load i64, ptr %_M_string_length.i.i.i.i.i.i999, align 8
-  %cmp3.i.i.i.i.i.i1000 = icmp ult i64 %286, 16
+  %_M_string_length.i.i.i.i.i.i999 = getelementptr inbounds i8, ptr %281, i64 8
+  %284 = load i64, ptr %_M_string_length.i.i.i.i.i.i999, align 8
+  %cmp3.i.i.i.i.i.i1000 = icmp ult i64 %284, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i1000)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i997
 
 if.then.i.i.i.i.i996:                             ; preds = %delete.notnull.i.i.i994
-  call void @_ZdlPv(ptr noundef %284) #28
+  call void @_ZdlPv(ptr noundef %282) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i997
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i997: ; preds = %if.then.i.i.i.i.i996, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i998
-  call void @_ZdlPv(ptr noundef nonnull %283) #28
+  call void @_ZdlPv(ptr noundef nonnull %281) #28
   br label %cleanup.cont304
 
 terminate.lpad.i.i989:                            ; preds = %if.then.i.i.i987
-  %287 = landingpad { ptr, i32 }
+  %285 = landingpad { ptr, i32 }
           catch ptr null
-  %288 = extractvalue { ptr, i32 } %287, 0
-  call void @__clang_call_terminate(ptr %288) #30
+  %286 = extractvalue { ptr, i32 } %285, 0
+  call void @__clang_call_terminate(ptr %286) #30
   unreachable
 
 cleanup.cont304:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i997, %if.then2.i.i.i992, %call.i.noexc.i.i990, %cleanup.cont304.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar280) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ser_len) #29
-  %289 = load ptr, ptr %__begin1.0.ptr1046, align 8
-  %290 = load i64, ptr %len193, align 8
-  %call308 = call i32 @hs_serialized_database_size(ptr noundef %289, i64 noundef %290, ptr noundef nonnull %ser_len)
+  %call308 = call i32 @hs_serialized_database_size(ptr noundef %182, i64 noundef %183, ptr noundef nonnull %ser_len)
   store i32 %call308, ptr %err, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar309) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp310) #29
   store i32 0, ptr %ref.tmp310, align 4
   call void @_ZN7testing8internal11CmpHelperNEIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar309, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp310, ptr noundef nonnull align 4 dereferenceable(4) %err)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp310) #29
-  %291 = load i8, ptr %gtest_ar309, align 8, !range !28, !noundef !29
-  %tobool.i1002.not.not = icmp eq i8 %291, 0
+  %287 = load i8, ptr %gtest_ar309, align 8, !range !28, !noundef !29
+  %tobool.i1002.not.not = icmp eq i8 %287, 0
   br i1 %tobool.i1002.not.not, label %if.else313, label %cleanup329
 
 if.else313:                                       ; preds = %cleanup.cont304
@@ -30053,16 +30048,16 @@ if.else313:                                       ; preds = %cleanup.cont304
 
 invoke.cont316:                                   ; preds = %if.else313
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp317) #29
-  %292 = load ptr, ptr %message_.i.i1003, align 8
-  %cmp.not.i.i1004 = icmp eq ptr %292, null
+  %288 = load ptr, ptr %message_.i.i1003, align 8
+  %cmp.not.i.i1004 = icmp eq ptr %288, null
   br i1 %cmp.not.i.i1004, label %invoke.cont319, label %cond.true.i.i1005
 
 cond.true.i.i1005:                                ; preds = %invoke.cont316
-  %293 = load ptr, ptr %292, align 8
+  %289 = load ptr, ptr %288, align 8
   br label %invoke.cont319
 
 invoke.cont319:                                   ; preds = %cond.true.i.i1005, %invoke.cont316
-  %cond.i.i1006 = phi ptr [ %293, %cond.true.i.i1005 ], [ @.str.64, %invoke.cont316 ]
+  %cond.i.i1006 = phi ptr [ %289, %cond.true.i.i1005 ], [ @.str.64, %invoke.cont316 ]
   invoke void @_ZN7testing8internal12AssertHelperC1ENS_14TestPartResult4TypeEPKciS5_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp317, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef 567, ptr noundef %cond.i.i1006)
           to label %invoke.cont321 unwind label %lpad318
 
@@ -30073,8 +30068,8 @@ invoke.cont321:                                   ; preds = %invoke.cont319
 invoke.cont323:                                   ; preds = %invoke.cont321
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp317) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp317) #29
-  %294 = load ptr, ptr %ref.tmp314, align 8
-  %cmp.not.i.i.i1008 = icmp eq ptr %294, null
+  %290 = load ptr, ptr %ref.tmp314, align 8
+  %cmp.not.i.i.i1008 = icmp eq ptr %290, null
   br i1 %cmp.not.i.i.i1008, label %_ZN7testing7MessageD2Ev.exit1019, label %if.then.i.i.i1009
 
 if.then.i.i.i1009:                                ; preds = %invoke.cont323
@@ -30085,22 +30080,22 @@ call.i.noexc.i.i1012:                             ; preds = %if.then.i.i.i1009
   br i1 %call.i2.i.i1010, label %if.then2.i.i.i1014, label %_ZN7testing7MessageD2Ev.exit1019
 
 if.then2.i.i.i1014:                               ; preds = %call.i.noexc.i.i1012
-  %295 = load ptr, ptr %ref.tmp314, align 8
-  %isnull.i.i.i1015 = icmp eq ptr %295, null
+  %291 = load ptr, ptr %ref.tmp314, align 8
+  %isnull.i.i.i1015 = icmp eq ptr %291, null
   br i1 %isnull.i.i.i1015, label %_ZN7testing7MessageD2Ev.exit1019, label %delete.notnull.i.i.i1016
 
 delete.notnull.i.i.i1016:                         ; preds = %if.then2.i.i.i1014
-  %vtable.i.i.i1017 = load ptr, ptr %295, align 8
+  %vtable.i.i.i1017 = load ptr, ptr %291, align 8
   %vfn.i.i.i1018 = getelementptr inbounds i8, ptr %vtable.i.i.i1017, i64 8
-  %296 = load ptr, ptr %vfn.i.i.i1018, align 8
-  call void %296(ptr noundef nonnull align 8 dereferenceable(128) %295) #29
+  %292 = load ptr, ptr %vfn.i.i.i1018, align 8
+  call void %292(ptr noundef nonnull align 8 dereferenceable(128) %291) #29
   br label %_ZN7testing7MessageD2Ev.exit1019
 
 terminate.lpad.i.i1011:                           ; preds = %if.then.i.i.i1009
-  %297 = landingpad { ptr, i32 }
+  %293 = landingpad { ptr, i32 }
           catch ptr null
-  %298 = extractvalue { ptr, i32 } %297, 0
-  call void @__clang_call_terminate(ptr %298) #30
+  %294 = extractvalue { ptr, i32 } %293, 0
+  call void @__clang_call_terminate(ptr %294) #30
   unreachable
 
 _ZN7testing7MessageD2Ev.exit1019:                 ; preds = %delete.notnull.i.i.i1016, %if.then2.i.i.i1014, %call.i.noexc.i.i1012, %invoke.cont323
@@ -30108,29 +30103,29 @@ _ZN7testing7MessageD2Ev.exit1019:                 ; preds = %delete.notnull.i.i.
   br label %cleanup329
 
 lpad315:                                          ; preds = %if.else313
-  %299 = landingpad { ptr, i32 }
+  %295 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup327
 
 lpad318:                                          ; preds = %invoke.cont319
-  %300 = landingpad { ptr, i32 }
+  %296 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup325
 
 lpad322:                                          ; preds = %invoke.cont321
-  %301 = landingpad { ptr, i32 }
+  %297 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp317) #29
   br label %ehcleanup325
 
 ehcleanup325:                                     ; preds = %lpad322, %lpad318
-  %.pn445 = phi { ptr, i32 } [ %301, %lpad322 ], [ %300, %lpad318 ]
+  %.pn445 = phi { ptr, i32 } [ %297, %lpad322 ], [ %296, %lpad318 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp317) #29
   call void @_ZN7testing7MessageD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp314) #29
   br label %ehcleanup327
 
 ehcleanup327:                                     ; preds = %ehcleanup325, %lpad315
-  %.pn445.pn = phi { ptr, i32 } [ %.pn445, %ehcleanup325 ], [ %299, %lpad315 ]
+  %.pn445.pn = phi { ptr, i32 } [ %.pn445, %ehcleanup325 ], [ %295, %lpad315 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp314) #29
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_ar309) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar309) #29
@@ -30138,8 +30133,8 @@ ehcleanup327:                                     ; preds = %ehcleanup325, %lpad
   br label %ehcleanup338
 
 cleanup329:                                       ; preds = %_ZN7testing7MessageD2Ev.exit1019, %cleanup.cont304
-  %302 = load ptr, ptr %message_.i.i1003, align 8
-  %cmp.not.i.i.i1021 = icmp eq ptr %302, null
+  %298 = load ptr, ptr %message_.i.i1003, align 8
+  %cmp.not.i.i.i1021 = icmp eq ptr %298, null
   br i1 %cmp.not.i.i.i1021, label %cleanup341, label %if.then.i.i.i1022
 
 if.then.i.i.i1022:                                ; preds = %cleanup329
@@ -30150,36 +30145,36 @@ call.i.noexc.i.i1025:                             ; preds = %if.then.i.i.i1022
   br i1 %call.i2.i.i1023, label %if.then2.i.i.i1027, label %cleanup341
 
 if.then2.i.i.i1027:                               ; preds = %call.i.noexc.i.i1025
-  %303 = load ptr, ptr %message_.i.i1003, align 8
-  %isnull.i.i.i1028 = icmp eq ptr %303, null
+  %299 = load ptr, ptr %message_.i.i1003, align 8
+  %isnull.i.i.i1028 = icmp eq ptr %299, null
   br i1 %isnull.i.i.i1028, label %cleanup341, label %delete.notnull.i.i.i1029
 
 delete.notnull.i.i.i1029:                         ; preds = %if.then2.i.i.i1027
-  %304 = load ptr, ptr %303, align 8
-  %305 = getelementptr inbounds i8, ptr %303, i64 16
-  %cmp.i.i.i.i.i.i1030 = icmp eq ptr %304, %305
+  %300 = load ptr, ptr %299, align 8
+  %301 = getelementptr inbounds i8, ptr %299, i64 16
+  %cmp.i.i.i.i.i.i1030 = icmp eq ptr %300, %301
   br i1 %cmp.i.i.i.i.i.i1030, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i1033, label %if.then.i.i.i.i.i1031
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i1033: ; preds = %delete.notnull.i.i.i1029
-  %_M_string_length.i.i.i.i.i.i1034 = getelementptr inbounds i8, ptr %303, i64 8
-  %306 = load i64, ptr %_M_string_length.i.i.i.i.i.i1034, align 8
-  %cmp3.i.i.i.i.i.i1035 = icmp ult i64 %306, 16
+  %_M_string_length.i.i.i.i.i.i1034 = getelementptr inbounds i8, ptr %299, i64 8
+  %302 = load i64, ptr %_M_string_length.i.i.i.i.i.i1034, align 8
+  %cmp3.i.i.i.i.i.i1035 = icmp ult i64 %302, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i1035)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i1032
 
 if.then.i.i.i.i.i1031:                            ; preds = %delete.notnull.i.i.i1029
-  call void @_ZdlPv(ptr noundef %304) #28
+  call void @_ZdlPv(ptr noundef %300) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i1032
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i1032: ; preds = %if.then.i.i.i.i.i1031, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i1033
-  call void @_ZdlPv(ptr noundef nonnull %303) #28
+  call void @_ZdlPv(ptr noundef nonnull %299) #28
   br label %cleanup341
 
 terminate.lpad.i.i1024:                           ; preds = %if.then.i.i.i1022
-  %307 = landingpad { ptr, i32 }
+  %303 = landingpad { ptr, i32 }
           catch ptr null
-  %308 = extractvalue { ptr, i32 } %307, 0
-  call void @__clang_call_terminate(ptr %308) #30
+  %304 = extractvalue { ptr, i32 } %303, 0
+  call void @__clang_call_terminate(ptr %304) #30
   unreachable
 
 cleanup341.thread1039:                            ; preds = %_ZN7testing15AssertionResultD2Ev.exit932, %_ZN7testing15AssertionResultD2Ev.exit880
@@ -30212,8 +30207,8 @@ ehcleanup344:                                     ; preds = %ehcleanup340, %ehcl
   br label %ehcleanup359
 
 for.end:                                          ; preds = %for.cond
-  %309 = load ptr, ptr %bytes, align 8
-  call void @free(ptr noundef %309) #29
+  %305 = load ptr, ptr %bytes, align 8
+  call void @free(ptr noundef %305) #29
   br label %cleanup356
 
 cleanup356:                                       ; preds = %cleanup341, %for.end, %cleanup341.thread1039, %cleanup341.thread1042, %cleanup341.thread
@@ -32661,7 +32656,7 @@ attributes #13 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="all
 attributes #14 = { inlinehint nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nounwind memory(read) }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #18 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

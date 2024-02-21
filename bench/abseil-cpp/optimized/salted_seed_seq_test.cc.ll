@@ -6785,15 +6785,14 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont4, %invoke.cont7
-  %__begin1.0.ptr90 = phi ptr [ %seed_material, %invoke.cont4 ], [ %__begin1.0.ptr, %invoke.cont7 ]
   %__begin1.0.idx89 = phi i64 [ 0, %invoke.cont4 ], [ %__begin1.0.add, %invoke.cont7 ]
   %call.i18 = invoke noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %urandom)
           to label %invoke.cont7 unwind label %lpad6.loopexit
 
 invoke.cont7:                                     ; preds = %for.body
+  %__begin1.0.ptr90 = getelementptr inbounds i8, ptr %seed_material, i64 %__begin1.0.idx89
   store i32 %call.i18, ptr %__begin1.0.ptr90, align 4
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx89, 4
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %seed_material, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 64
   br i1 %cmp.not, label %for.end, label %for.body
 

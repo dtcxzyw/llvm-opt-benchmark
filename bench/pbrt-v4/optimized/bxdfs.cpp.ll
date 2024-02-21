@@ -12005,9 +12005,9 @@ _ZN4pbrt3ExpERKNS_15SampledSpectrumE.exit:        ; preds = %for.body.i39
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4pbrt3ExpERKNS_15SampledSpectrumE.exit, %_ZNK4pbrt15SampledSpectrum7AverageEv.exit
-  %__begin1.0.ptr66 = phi ptr [ %ap, %_ZN4pbrt3ExpERKNS_15SampledSpectrumE.exit ], [ %__begin1.0.ptr, %_ZNK4pbrt15SampledSpectrum7AverageEv.exit ]
   %sumY.065 = phi float [ 0.000000e+00, %_ZN4pbrt3ExpERKNS_15SampledSpectrumE.exit ], [ %add, %_ZNK4pbrt15SampledSpectrum7AverageEv.exit ]
   %__begin1.0.idx64 = phi i64 [ 0, %_ZN4pbrt3ExpERKNS_15SampledSpectrumE.exit ], [ %__begin1.0.add, %_ZNK4pbrt15SampledSpectrum7AverageEv.exit ]
+  %__begin1.0.ptr66 = getelementptr inbounds i8, ptr %ap, i64 %__begin1.0.idx64
   %9 = load float, ptr %__begin1.0.ptr66, align 4
   br label %for.body.i49
 
@@ -12025,7 +12025,6 @@ _ZNK4pbrt15SampledSpectrum7AverageEv.exit:        ; preds = %for.body.i49
   %div.i = fmul float %add.i, 2.500000e-01
   %add = fadd float %sumY.065, %div.i
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx64, 16
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %ap, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 64
   br i1 %cmp.not, label %for.body34, label %for.body
 

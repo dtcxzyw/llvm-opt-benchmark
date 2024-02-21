@@ -466,8 +466,8 @@ if.then:                                          ; preds = %_ZN4absl13base_inte
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %for.end
-  %__begin2.0.ptr37 = phi ptr [ @_ZN4abslL11synch_eventE, %if.then ], [ %__begin2.0.ptr, %for.end ]
   %__begin2.0.idx36 = phi i64 [ 0, %if.then ], [ %__begin2.0.add, %for.end ]
+  %__begin2.0.ptr37 = getelementptr inbounds i8, ptr @_ZN4abslL11synch_eventE, i64 %__begin2.0.idx36
   %6 = load ptr, ptr %__begin2.0.ptr37, align 8
   %cmp3.not34 = icmp eq ptr %6, null
   br i1 %cmp3.not34, label %for.end, label %for.body4
@@ -493,7 +493,6 @@ if.end:                                           ; preds = %if.then7, %for.body
 for.end:                                          ; preds = %if.end, %for.body
   store ptr null, ptr %__begin2.0.ptr37, align 8
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx36, 8
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr @_ZN4abslL11synch_eventE, i64 %__begin2.0.add
   %cmp1.not = icmp eq i64 %__begin2.0.add, 8248
   br i1 %cmp1.not, label %if.end9, label %for.body
 
@@ -1815,9 +1814,9 @@ if.end81:                                         ; preds = %if.then77, %do.body
   %new_h.0 = phi ptr [ %call80, %if.then77 ], [ null, %do.body70 ]
   %18 = and i64 %15, -504
   %19 = icmp eq i64 %18, 0
-  %clear82.0 = select i1 %19, i64 -34, i64 -41
+  %not = select i1 %19, i64 -34, i64 -41
   %and90 = and i64 %15, 159
-  %and91 = and i64 %and90, %clear82.0
+  %and91 = and i64 %and90, %not
   %cmp93.not = icmp eq ptr %new_h.0, null
   %20 = ptrtoint ptr %new_h.0 to i64
   %or95 = or i64 %20, 4

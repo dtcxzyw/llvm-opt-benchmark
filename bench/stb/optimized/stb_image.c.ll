@@ -4346,7 +4346,6 @@ entry:
 
 for.cond.i:                                       ; preds = %stbi__get8.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds i8, ptr @.str.99, i64 %indvars.iv.next.i
   %exitcond = icmp eq i64 %indvars.iv.next.i, 11
   br i1 %exitcond, label %stbi__hdr_test_core.exit, label %for.body.i, !llvm.loop !32
 
@@ -4354,7 +4353,7 @@ for.body.i:                                       ; preds = %for.cond.i, %entry
   %0 = phi ptr [ %.pre11.i, %entry ], [ %11, %for.cond.i ]
   %1 = phi ptr [ %.pre.i, %entry ], [ %12, %for.cond.i ]
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.cond.i ]
-  %arrayidx9.i = phi ptr [ @.str.99, %entry ], [ %arrayidx.i, %for.cond.i ]
+  %arrayidx9.i = getelementptr inbounds i8, ptr @.str.99, i64 %indvars.iv.i
   %cmp.i.i = icmp ult ptr %1, %0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -4429,7 +4428,6 @@ if.then:                                          ; preds = %stbi__get8.exit.i
 
 for.cond.i43:                                     ; preds = %stbi__get8.exit.i37
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i18, 1
-  %arrayidx.i45 = getelementptr inbounds i8, ptr @.str.100, i64 %indvars.iv.next.i44
   %exitcond64 = icmp eq i64 %indvars.iv.next.i44, 7
   br i1 %exitcond64, label %if.end, label %for.body.i17, !llvm.loop !32
 
@@ -4438,7 +4436,7 @@ for.body.i17:                                     ; preds = %for.cond.i43, %if.t
   %18 = phi ptr [ %16, %if.then ], [ %30, %for.cond.i43 ]
   %19 = phi ptr [ %15, %if.then ], [ %31, %for.cond.i43 ]
   %indvars.iv.i18 = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i44, %for.cond.i43 ]
-  %arrayidx9.i19 = phi ptr [ @.str.100, %if.then ], [ %arrayidx.i45, %for.cond.i43 ]
+  %arrayidx9.i19 = getelementptr inbounds i8, ptr @.str.100, i64 %indvars.iv.i18
   %cmp.i.i20 = icmp ult ptr %19, %18
   br i1 %cmp.i.i20, label %if.then.i.i53, label %if.end.i.i21
 
@@ -30297,7 +30295,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = phi ptr [ %.pre11, %for.body.lr.ph ], [ %13, %for.cond ]
   %3 = phi ptr [ %.pre, %for.body.lr.ph ], [ %14, %for.cond ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx9 = phi ptr [ %signature, %for.body.lr.ph ], [ %arrayidx, %for.cond ]
+  %arrayidx9 = getelementptr inbounds i8, ptr %signature, i64 %indvars.iv
   %cmp.i = icmp ult ptr %3, %2
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 

@@ -488,8 +488,8 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i, %entry
-  %__begin4.0.ptr163.i = phi ptr [ @constinit.20, %entry ], [ %__begin4.0.ptr.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i ]
   %__begin4.0.idx162.i = phi i64 [ 0, %entry ], [ %__begin4.0.add.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i ]
+  %__begin4.0.ptr163.i = getelementptr inbounds i8, ptr @constinit.20, i64 %__begin4.0.idx162.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %_M_rehash_policy.i.i.i.i, i8 0, i64 200, i1 false), !noalias !4
   store ptr %_M_single_bucket.i.i.i.i, ptr %ref.tmp4.i, align 8, !noalias !4
   store i64 1, ptr %_M_bucket_count.i.i.i.i, align 8, !noalias !4
@@ -722,7 +722,6 @@ _ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i: ; preds
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i) #22
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp4.i) #22
   %__begin4.0.add.i = add nuw nsw i64 %__begin4.0.idx162.i, 8
-  %__begin4.0.ptr.i = getelementptr inbounds i8, ptr @constinit.20, i64 %__begin4.0.add.i
   %cmp.not.i = icmp eq i64 %__begin4.0.add.i, 48
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i
 
@@ -1605,8 +1604,8 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i, %entry
-  %__begin4.0.ptr163.i = phi ptr [ @constinit.20, %entry ], [ %__begin4.0.ptr.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i ]
   %__begin4.0.idx162.i = phi i64 [ 0, %entry ], [ %__begin4.0.add.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i ]
+  %__begin4.0.ptr163.i = getelementptr inbounds i8, ptr @constinit.20, i64 %__begin4.0.idx162.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %_M_rehash_policy.i.i.i.i, i8 0, i64 200, i1 false), !noalias !12
   store ptr %_M_single_bucket.i.i.i.i, ptr %ref.tmp4.i, align 8, !noalias !12
   store i64 1, ptr %_M_bucket_count.i.i.i.i, align 8, !noalias !12
@@ -1839,7 +1838,6 @@ _ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i: ; preds
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i) #22
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp4.i) #22
   %__begin4.0.add.i = add nuw nsw i64 %__begin4.0.idx162.i, 8
-  %__begin4.0.ptr.i = getelementptr inbounds i8, ptr @constinit.20, i64 %__begin4.0.add.i
   %cmp.not.i = icmp eq i64 %__begin4.0.add.i, 48
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i
 
@@ -2612,8 +2610,8 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i, %entry
-  %__begin4.0.ptr163.i = phi ptr [ @constinit.20, %entry ], [ %__begin4.0.ptr.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i ]
   %__begin4.0.idx162.i = phi i64 [ 0, %entry ], [ %__begin4.0.add.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i ]
+  %__begin4.0.ptr163.i = getelementptr inbounds i8, ptr @constinit.20, i64 %__begin4.0.idx162.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %_M_rehash_policy.i.i.i.i, i8 0, i64 200, i1 false), !noalias !18
   store ptr %_M_single_bucket.i.i.i.i, ptr %ref.tmp4.i, align 8, !noalias !18
   store i64 1, ptr %_M_bucket_count.i.i.i.i, align 8, !noalias !18
@@ -2846,7 +2844,6 @@ _ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i: ; preds
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i) #22
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp4.i) #22
   %__begin4.0.add.i = add nuw nsw i64 %__begin4.0.idx162.i, 8
-  %__begin4.0.ptr.i = getelementptr inbounds i8, ptr @constinit.20, i64 %__begin4.0.add.i
   %cmp.not.i = icmp eq i64 %__begin4.0.add.i, 48
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i
 
@@ -3619,8 +3616,8 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i, %entry
-  %__begin4.0.ptr163.i = phi ptr [ @constinit.20, %entry ], [ %__begin4.0.ptr.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i ]
   %__begin4.0.idx162.i = phi i64 [ 0, %entry ], [ %__begin4.0.add.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i ]
+  %__begin4.0.ptr163.i = getelementptr inbounds i8, ptr @constinit.20, i64 %__begin4.0.idx162.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %_M_rehash_policy.i.i.i.i, i8 0, i64 200, i1 false), !noalias !24
   store ptr %_M_single_bucket.i.i.i.i, ptr %ref.tmp4.i, align 8, !noalias !24
   store i64 1, ptr %_M_bucket_count.i.i.i.i, align 8, !noalias !24
@@ -3853,7 +3850,6 @@ _ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i: ; preds
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i) #22
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp4.i) #22
   %__begin4.0.add.i = add nuw nsw i64 %__begin4.0.idx162.i, 8
-  %__begin4.0.ptr.i = getelementptr inbounds i8, ptr @constinit.20, i64 %__begin4.0.add.i
   %cmp.not.i = icmp eq i64 %__begin4.0.add.i, 48
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i
 
@@ -4626,8 +4622,8 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i, %entry
-  %__begin4.0.ptr163.i = phi ptr [ @constinit.20, %entry ], [ %__begin4.0.ptr.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i ]
   %__begin4.0.idx162.i = phi i64 [ 0, %entry ], [ %__begin4.0.add.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i ]
+  %__begin4.0.ptr163.i = getelementptr inbounds i8, ptr @constinit.20, i64 %__begin4.0.idx162.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %_M_rehash_policy.i.i.i.i, i8 0, i64 200, i1 false), !noalias !30
   store ptr %_M_single_bucket.i.i.i.i, ptr %ref.tmp4.i, align 8, !noalias !30
   store i64 1, ptr %_M_bucket_count.i.i.i.i, align 8, !noalias !30
@@ -4860,7 +4856,6 @@ _ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i: ; preds
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i) #22
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp4.i) #22
   %__begin4.0.add.i = add nuw nsw i64 %__begin4.0.idx162.i, 8
-  %__begin4.0.ptr.i = getelementptr inbounds i8, ptr @constinit.20, i64 %__begin4.0.add.i
   %cmp.not.i = icmp eq i64 %__begin4.0.add.i, 48
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i
 
@@ -5633,8 +5628,8 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i, %entry
-  %__begin4.0.ptr163.i = phi ptr [ @constinit.20, %entry ], [ %__begin4.0.ptr.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i ]
   %__begin4.0.idx162.i = phi i64 [ 0, %entry ], [ %__begin4.0.add.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i ]
+  %__begin4.0.ptr163.i = getelementptr inbounds i8, ptr @constinit.20, i64 %__begin4.0.idx162.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %_M_rehash_policy.i.i.i.i, i8 0, i64 200, i1 false), !noalias !36
   store ptr %_M_single_bucket.i.i.i.i, ptr %ref.tmp4.i, align 8, !noalias !36
   store i64 1, ptr %_M_bucket_count.i.i.i.i, align 8, !noalias !36
@@ -5867,7 +5862,6 @@ _ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i: ; preds
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i) #22
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp4.i) #22
   %__begin4.0.add.i = add nuw nsw i64 %__begin4.0.idx162.i, 8
-  %__begin4.0.ptr.i = getelementptr inbounds i8, ptr @constinit.20, i64 %__begin4.0.add.i
   %cmp.not.i = icmp eq i64 %__begin4.0.add.i, 48
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i
 
@@ -18027,7 +18021,7 @@ sw.epilog:                                        ; preds = %_ZN8facebook5velox9
 
 declare void @_ZN8facebook5velox10BaseVector14ensureWritableERKNS0_17SelectivityVectorERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolERS5_IS1_EPNS0_10VectorPoolE(ptr noundef nonnull align 8 dereferenceable(38), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -73895,7 +73889,7 @@ attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #13 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind memory(read) }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nofree nosync nounwind memory(none) }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }

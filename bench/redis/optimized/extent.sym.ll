@@ -443,8 +443,9 @@ if.end.i21.i:                                     ; preds = %if.then10.i
 
 while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %if.end.i21.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %while.body.i.i.i ], [ 0, %if.end.i21.i ]
-  %idxprom.i.i.pn.in.i.i.i = phi i32 [ %add2.i.i.i, %while.body.i.i.i ], [ %5, %if.end.i21.i ]
-  %idxprom.i.i.pn.i.i.i = zext i32 %idxprom.i.i.pn.in.i.i.i to i64
+  %6 = trunc i64 %indvars.iv.i.i to i32
+  %7 = add i32 %5, %6
+  %idxprom.i.i.pn.i.i.i = zext i32 %7 to i64
   %storemerge.in.i.i.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %idxprom.i.i.pn.i.i.i
   %storemerge.i.i.i = load i64, ptr %storemerge.in.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %storemerge.i.i.i, %sub.i.i
@@ -452,13 +453,12 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %6 = trunc i64 %indvars.iv.next.i.i to i32
-  %add2.i.i.i = add i32 %5, %6
+  %indvars.i.i = trunc i64 %indvars.iv.next.i.i to i32
+  %add2.i.i.i = add i32 %5, %indvars.i.i
   %cmp4.i.i.i = icmp ugt i32 %add2.i.i.i, 197
   br i1 %cmp4.i.i.i, label %extent_alloc_retained.exit, label %while.cond.i.i.i, !llvm.loop !5
 
 if.end4.i.i:                                      ; preds = %while.cond.i.i.i
-  %7 = trunc i64 %indvars.iv.i.i to i32
   %edata_cache.i.i = getelementptr inbounds i8, ptr %pac, i64 58392
   %8 = load ptr, ptr %edata_cache.i.i, align 8
   %call5.i.i = tail call ptr @edata_cache_get(ptr noundef %tsdn, ptr noundef %8) #9
@@ -622,7 +622,7 @@ if.then50.i.i:                                    ; preds = %if.then47.i.i
 
 if.end53.i.i:                                     ; preds = %if.then47.i.i, %land.lhs.true.i.i, %if.end44.i.i
   %30 = load i32, ptr %exp_grow.i.i, align 4
-  %add.i66.i.i = add i32 %7, 1
+  %add.i66.i.i = add i32 %6, 1
   %add1.i67.i.i = add i32 %add.i66.i.i, %30
   %limit.i.i.i = getelementptr inbounds i8, ptr %pac, i64 58404
   %31 = load i32, ptr %limit.i.i.i, align 4

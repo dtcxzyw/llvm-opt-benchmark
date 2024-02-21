@@ -1528,8 +1528,8 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12, %entry
-  %__begin1.0.ptr16 = phi ptr [ @_ZL20kImplicitStringTests, %entry ], [ %__begin1.0.ptr, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12 ]
   %__begin1.0.idx15 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12 ]
+  %__begin1.0.ptr16 = getelementptr inbounds i8, ptr @_ZL20kImplicitStringTests, i64 %__begin1.0.idx15
   store ptr null, ptr %storage, align 8
   %0 = load ptr, ptr %__begin1.0.ptr16, align 8
   %in_len = getelementptr inbounds i8, ptr %__begin1.0.ptr16, i64 8
@@ -1594,7 +1594,7 @@ if.then18:                                        ; preds = %invoke.cont12, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %invoke.cont12, %if.then18, %if.then
-  %cleanup.dest.slot.0 = phi i1 [ false, %if.then ], [ false, %if.then18 ], [ true, %invoke.cont12 ], [ true, %if.end ]
+  %switch = phi i1 [ false, %if.then ], [ false, %if.then18 ], [ true, %invoke.cont12 ], [ true, %if.end ]
   %cmp.not.i10 = icmp eq ptr %2, null
   br i1 %cmp.not.i10, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12, label %if.then.i11
 
@@ -1604,13 +1604,12 @@ if.then.i11:                                      ; preds = %cleanup
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12:  ; preds = %cleanup, %if.then.i11
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx15, 40
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZL20kImplicitStringTests, i64 %__begin1.0.add
   %cmp.not = icmp ne i64 %__begin1.0.add, 240
-  %or.cond.not = select i1 %cleanup.dest.slot.0, i1 %cmp.not, i1 false
+  %or.cond.not = select i1 %switch, i1 %cmp.not, i1 false
   br i1 %or.cond.not, label %for.body, label %return
 
 return:                                           ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit12
-  ret i1 %cleanup.dest.slot.0
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress norecurse uwtable

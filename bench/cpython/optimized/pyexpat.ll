@@ -6798,8 +6798,8 @@ for.cond:                                         ; preds = %Py_DECREF.exit22
   br i1 %cmp2.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.body:                                         ; preds = %if.end, %for.cond
-  %arrayidx17 = phi ptr [ %arrayidx, %for.cond ], [ %call1, %if.end ]
   %i.016 = phi i64 [ %inc, %for.cond ], [ 0, %if.end ]
+  %arrayidx17 = getelementptr %struct.XML_Feature, ptr %call1, i64 %i.016
   %name = getelementptr inbounds i8, ptr %arrayidx17, i64 8
   %2 = load ptr, ptr %name, align 8
   %value = getelementptr inbounds i8, ptr %arrayidx17, i64 16

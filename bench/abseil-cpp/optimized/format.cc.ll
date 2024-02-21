@@ -231,9 +231,9 @@ if.end.i:                                         ; preds = %while.body.i
   br label %for.body
 
 for.body:                                         ; preds = %"_ZZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEEENK3$_0clEPS3_.exit", %for.inc
-  %__begin1.0.ptr50 = phi ptr [ @_ZZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEEE8literals, %"_ZZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEEENK3$_0clEPS3_.exit" ], [ %__begin1.0.ptr, %for.inc ]
   %__begin1.0.idx49 = phi i64 [ 0, %"_ZZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEEENK3$_0clEPS3_.exit" ], [ %__begin1.0.add, %for.inc ]
-  %1 = load ptr, ptr %__begin1.0.ptr50, align 8
+  %__begin1.0.ptr50 = getelementptr inbounds i8, ptr @_ZZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEEE8literals, i64 %__begin1.0.idx49
+  %1 = load ptr, ptr %__begin1.0.ptr50, align 16
   %size = getelementptr inbounds i8, ptr %__begin1.0.ptr50, i64 8
   %2 = load i64, ptr %size, align 8
   %cmp.i.i14 = icmp eq i64 %2, 0
@@ -279,7 +279,6 @@ if.then5:                                         ; preds = %if.then, %if.end.i2
 
 for.inc:                                          ; preds = %while.body.i21, %lor.rhs.i, %_ZN4absl10StartsWithESt17basic_string_viewIcSt11char_traitsIcEES3_.exit
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx49, 32
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEEE8literals, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 64
   br i1 %cmp.not, label %invoke.cont, label %for.body
 

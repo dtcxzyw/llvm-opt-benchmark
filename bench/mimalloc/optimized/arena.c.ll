@@ -774,8 +774,8 @@ while.cond17.preheader.i:                         ; preds = %if.end42.i, %while.
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body21.i, %while.cond17.preheader.i
-  %add47.i = phi i64 [ %bitidx.051.i, %while.cond17.preheader.i ], [ %add.i, %while.body21.i ]
   %bitlen.046.i = phi i64 [ 0, %while.cond17.preheader.i ], [ %inc.i, %while.body21.i ]
+  %add47.i = add nuw nsw i64 %bitlen.046.i, %bitidx.051.i
   %shl.i = shl nuw i64 1, %add47.i
   %and.i = and i64 %shl.i, %purge.050.i
   %cmp20.not.i = icmp eq i64 %and.i, 0
@@ -783,7 +783,6 @@ land.rhs.i:                                       ; preds = %while.body21.i, %wh
 
 while.body21.i:                                   ; preds = %land.rhs.i
   %inc.i = add nuw nsw i64 %bitlen.046.i, 1
-  %add.i = add nuw nsw i64 %inc.i, %bitidx.051.i
   %exitcond.not.i = icmp eq i64 %inc.i, %14
   br i1 %exitcond.not.i, label %while.body24.preheader.i, label %land.rhs.i, !llvm.loop !8
 
@@ -821,8 +820,8 @@ while.cond1.preheader.i.i:                        ; preds = %if.then31.i, %if.en
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body6.i.i, %while.cond1.preheader.i.i
-  %add215.i.i = phi i64 [ %bitidx.018.i.i, %while.cond1.preheader.i.i ], [ %add2.i.i, %while.body6.i.i ]
   %count.014.i.i = phi i64 [ 0, %while.cond1.preheader.i.i ], [ %inc.i.i, %while.body6.i.i ]
+  %add215.i.i = add i64 %count.014.i.i, %bitidx.018.i.i
   %shl.i.i = shl nuw i64 1, %add215.i.i
   %and.i.i = and i64 %shl.i.i, %17
   %cmp5.not.i.i = icmp eq i64 %and.i.i, 0

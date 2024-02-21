@@ -319,7 +319,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 for.cond:                                         ; preds = %for.body
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i64, ptr %nr, align 8
   %cmp122 = icmp ugt i64 %4, %indvars.iv.next
   br i1 %cmp122, label %for.body, label %for.end, !llvm.loop !5
@@ -1093,7 +1093,7 @@ if.end63:                                         ; preds = %if.else56, %land.lh
 for.inc:                                          ; preds = %land.lhs.true58, %if.end63
   %22 = phi i64 [ %.pre, %if.end63 ], [ %13, %land.lhs.true58 ]
   %last.1 = phi ptr [ %15, %if.end63 ], [ %last.033, %land.lhs.true58 ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp46 = icmp ugt i64 %22, %indvars.iv.next
   br i1 %cmp46, label %for.body, label %for.end, !llvm.loop !12
 
@@ -1596,13 +1596,12 @@ for.end:                                          ; preds = %for.body
 
 for.cond.i:                                       ; preds = %for.body.i
   %p.0.add.i = add nuw nsw i64 %p.0.idx29.i, 56
-  %p.0.ptr.i = getelementptr inbounds i8, ptr %n, i64 %p.0.add.i
   %cmp.i = icmp ult i64 %p.0.idx29.i, 112
   br i1 %cmp.i, label %for.body.i, label %unresolved_directory.exit, !llvm.loop !14
 
 for.body.i:                                       ; preds = %for.cond.i, %for.end
-  %p.0.ptr30.i = phi ptr [ %n, %for.end ], [ %p.0.ptr.i, %for.cond.i ]
   %p.0.idx29.i = phi i64 [ 0, %for.end ], [ %p.0.add.i, %for.cond.i ]
+  %p.0.ptr30.i = getelementptr inbounds i8, ptr %n, i64 %p.0.idx29.i
   %mode.i = getelementptr inbounds i8, ptr %p.0.ptr30.i, i64 52
   %3 = load i32, ptr %mode.i, align 4
   %and.i = and i32 %3, 61440

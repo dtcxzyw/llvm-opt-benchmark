@@ -4,8 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.ossl_algorithm_st = type { ptr, ptr, ptr, ptr }
 %struct.ag_capable_st = type { %struct.ossl_algorithm_st, ptr }
+%struct.ossl_algorithm_st = type { ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"cipher\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"digest\00", align 1
@@ -687,8 +687,8 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
-  %arrayidx116 = phi ptr [ %arrayidx1, %for.inc ], [ %in, %for.cond.preheader ]
   %j.015 = phi i32 [ %j.1, %for.inc ], [ 0, %for.cond.preheader ]
+  %arrayidx116 = getelementptr inbounds %struct.ag_capable_st, ptr %in, i64 %indvars.iv
   %capable = getelementptr inbounds i8, ptr %arrayidx116, i64 32
   %2 = load ptr, ptr %capable, align 8
   %cmp6 = icmp eq ptr %2, null
@@ -708,7 +708,7 @@ if.then10:                                        ; preds = %lor.lhs.false, %for
 
 for.inc:                                          ; preds = %lor.lhs.false, %if.then10
   %j.1 = phi i32 [ %inc, %if.then10 ], [ %j.015, %lor.lhs.false ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx1 = getelementptr inbounds %struct.ag_capable_st, ptr %in, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx1, align 8
   %cmp3.not = icmp eq ptr %3, null

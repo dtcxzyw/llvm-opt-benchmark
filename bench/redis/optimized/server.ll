@@ -6173,7 +6173,7 @@ entry:
 if.end:                                           ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %1 = phi ptr [ %7, %for.inc ], [ %0, %entry ]
-  %add.ptr11 = phi ptr [ %add.ptr, %for.inc ], [ @redisCommandTable, %entry ]
+  %add.ptr11 = getelementptr inbounds %struct.redisCommand, ptr @redisCommandTable, i64 %indvars.iv
   %call = tail call ptr @sdsnew(ptr noundef nonnull %1) #38
   %fullname = getelementptr inbounds i8, ptr %add.ptr11, i64 216
   store ptr %call, ptr %fullname, align 8
@@ -11558,16 +11558,15 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body ], [ 0, %entry ]
-  %arrayidx18 = phi ptr [ %arrayidx, %while.body ], [ %replyFlags, %entry ]
   %count.016 = phi i32 [ %spec.select, %while.body ], [ 0, %entry ]
+  %arrayidx18 = getelementptr inbounds %struct.replyFlagNames, ptr %replyFlags, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx18, align 8
   %and = and i64 %1, %flags
   %tobool3.not = icmp ne i64 %and, 0
   %inc = zext i1 %tobool3.not to i32
   %spec.select = add nuw nsw i32 %count.016, %inc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds %struct.replyFlagNames, ptr %replyFlags, i64 %indvars.iv.next
-  %name = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %name = getelementptr inbounds %struct.replyFlagNames, ptr %replyFlags, i64 %indvars.iv.next, i32 1
   %2 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %while.end.loopexit, label %while.body, !llvm.loop !50
@@ -11586,7 +11585,7 @@ while.end:                                        ; preds = %while.end.loopexit,
 while.body10:                                     ; preds = %while.end, %if.end20
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %if.end20 ], [ 0, %while.end ]
   %5 = phi ptr [ %7, %if.end20 ], [ %4, %while.end ]
-  %arrayidx722 = phi ptr [ %arrayidx7, %if.end20 ], [ %replyFlags, %while.end ]
+  %arrayidx722 = getelementptr inbounds %struct.replyFlagNames, ptr %replyFlags, i64 %indvars.iv24
   %6 = load i64, ptr %arrayidx722, align 8
   %and14 = and i64 %6, %flags
   %tobool15.not = icmp eq i64 %and14, 0
@@ -11598,8 +11597,7 @@ if.then16:                                        ; preds = %while.body10
 
 if.end20:                                         ; preds = %if.then16, %while.body10
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
-  %arrayidx7 = getelementptr inbounds %struct.replyFlagNames, ptr %replyFlags, i64 %indvars.iv.next25
-  %name8 = getelementptr inbounds i8, ptr %arrayidx7, i64 8
+  %name8 = getelementptr inbounds %struct.replyFlagNames, ptr %replyFlags, i64 %indvars.iv.next25, i32 1
   %7 = load ptr, ptr %name8, align 8
   %tobool9.not = icmp eq ptr %7, null
   br i1 %tobool9.not, label %while.end22, label %while.body10, !llvm.loop !51
@@ -11621,15 +11619,14 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %while.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ 0, %entry ]
-  %arrayidx18.i = phi ptr [ %arrayidx.i, %while.body.i ], [ @__const.addReplyFlagsForCommand.flagNames, %entry ]
   %count.016.i = phi i32 [ %spec.select.i, %while.body.i ], [ 0, %entry ]
-  %1 = load i64, ptr %arrayidx18.i, align 8
+  %arrayidx18.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForCommand.flagNames, i64 %indvars.iv.i
+  %1 = load i64, ptr %arrayidx18.i, align 16
   %and.i = and i64 %1, %0
   %tobool3.not.i = icmp ne i64 %and.i, 0
   %inc.i = zext i1 %tobool3.not.i to i32
   %spec.select.i = add nuw nsw i32 %count.016.i, %inc.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForCommand.flagNames, i64 %indvars.iv.next.i
   %exitcond = icmp eq i64 %indvars.iv.next.i, 20
   br i1 %exitcond, label %while.end.i, label %while.body.i, !llvm.loop !50
 
@@ -11641,8 +11638,8 @@ while.end.i:                                      ; preds = %while.body.i
 while.body10.i:                                   ; preds = %while.end.i, %if.end20.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %if.end20.i ], [ 0, %while.end.i ]
   %3 = phi ptr [ %5, %if.end20.i ], [ @.str.220, %while.end.i ]
-  %arrayidx722.i = phi ptr [ %arrayidx7.i, %if.end20.i ], [ @__const.addReplyFlagsForCommand.flagNames, %while.end.i ]
-  %4 = load i64, ptr %arrayidx722.i, align 8
+  %arrayidx722.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForCommand.flagNames, i64 %indvars.iv24.i
+  %4 = load i64, ptr %arrayidx722.i, align 16
   %and14.i = and i64 %4, %0
   %tobool15.not.i = icmp eq i64 %and14.i, 0
   br i1 %tobool15.not.i, label %if.end20.i, label %if.then16.i
@@ -11653,8 +11650,7 @@ if.then16.i:                                      ; preds = %while.body10.i
 
 if.end20.i:                                       ; preds = %if.then16.i, %while.body10.i
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %arrayidx7.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForCommand.flagNames, i64 %indvars.iv.next25.i
-  %name8.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 8
+  %name8.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForCommand.flagNames, i64 %indvars.iv.next25.i, i32 1
   %5 = load ptr, ptr %name8.i, align 8
   %exitcond2 = icmp eq i64 %indvars.iv.next25.i, 20
   br i1 %exitcond2, label %addReplyCommandFlags.exit, label %while.body10.i, !llvm.loop !51
@@ -11673,15 +11669,14 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %while.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ 0, %entry ]
-  %arrayidx18.i = phi ptr [ %arrayidx.i, %while.body.i ], [ @__const.addReplyDocFlagsForCommand.docFlagNames, %entry ]
   %count.016.i = phi i32 [ %spec.select.i, %while.body.i ], [ 0, %entry ]
-  %1 = load i64, ptr %arrayidx18.i, align 8
+  %arrayidx18.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyDocFlagsForCommand.docFlagNames, i64 %indvars.iv.i
+  %1 = load i64, ptr %arrayidx18.i, align 16
   %and.i = and i64 %1, %conv
   %tobool3.not.i = icmp ne i64 %and.i, 0
   %inc.i = zext i1 %tobool3.not.i to i32
   %spec.select.i = add nuw nsw i32 %count.016.i, %inc.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyDocFlagsForCommand.docFlagNames, i64 %indvars.iv.next.i
   %exitcond = icmp eq i64 %indvars.iv.next.i, 2
   br i1 %exitcond, label %while.end.i, label %while.body.i, !llvm.loop !50
 
@@ -11693,8 +11688,8 @@ while.end.i:                                      ; preds = %while.body.i
 while.body10.i:                                   ; preds = %while.end.i, %if.end20.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %if.end20.i ], [ 0, %while.end.i ]
   %3 = phi ptr [ %5, %if.end20.i ], [ @.str.240, %while.end.i ]
-  %arrayidx722.i = phi ptr [ %arrayidx7.i, %if.end20.i ], [ @__const.addReplyDocFlagsForCommand.docFlagNames, %while.end.i ]
-  %4 = load i64, ptr %arrayidx722.i, align 8
+  %arrayidx722.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyDocFlagsForCommand.docFlagNames, i64 %indvars.iv24.i
+  %4 = load i64, ptr %arrayidx722.i, align 16
   %and14.i = and i64 %4, %conv
   %tobool15.not.i = icmp eq i64 %and14.i, 0
   br i1 %tobool15.not.i, label %if.end20.i, label %if.then16.i
@@ -11705,8 +11700,7 @@ if.then16.i:                                      ; preds = %while.body10.i
 
 if.end20.i:                                       ; preds = %if.then16.i, %while.body10.i
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %arrayidx7.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyDocFlagsForCommand.docFlagNames, i64 %indvars.iv.next25.i
-  %name8.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 8
+  %name8.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyDocFlagsForCommand.docFlagNames, i64 %indvars.iv.next25.i, i32 1
   %5 = load ptr, ptr %name8.i, align 8
   %exitcond2 = icmp eq i64 %indvars.iv.next25.i, 2
   br i1 %exitcond2, label %addReplyCommandFlags.exit, label %while.body10.i, !llvm.loop !51
@@ -11722,15 +11716,14 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %while.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ 0, %entry ]
-  %arrayidx18.i = phi ptr [ %arrayidx.i, %while.body.i ], [ @__const.addReplyFlagsForKeyArgs.docFlagNames, %entry ]
   %count.016.i = phi i32 [ %spec.select.i, %while.body.i ], [ 0, %entry ]
-  %0 = load i64, ptr %arrayidx18.i, align 8
+  %arrayidx18.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.i
+  %0 = load i64, ptr %arrayidx18.i, align 16
   %and.i = and i64 %0, %flags
   %tobool3.not.i = icmp ne i64 %and.i, 0
   %inc.i = zext i1 %tobool3.not.i to i32
   %spec.select.i = add nuw nsw i32 %count.016.i, %inc.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.next.i
   %exitcond = icmp eq i64 %indvars.iv.next.i, 11
   br i1 %exitcond, label %while.end.i, label %while.body.i, !llvm.loop !50
 
@@ -11742,8 +11735,8 @@ while.end.i:                                      ; preds = %while.body.i
 while.body10.i:                                   ; preds = %while.end.i, %if.end20.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %if.end20.i ], [ 0, %while.end.i ]
   %2 = phi ptr [ %4, %if.end20.i ], [ @.str.242, %while.end.i ]
-  %arrayidx722.i = phi ptr [ %arrayidx7.i, %if.end20.i ], [ @__const.addReplyFlagsForKeyArgs.docFlagNames, %while.end.i ]
-  %3 = load i64, ptr %arrayidx722.i, align 8
+  %arrayidx722.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv24.i
+  %3 = load i64, ptr %arrayidx722.i, align 16
   %and14.i = and i64 %3, %flags
   %tobool15.not.i = icmp eq i64 %and14.i, 0
   br i1 %tobool15.not.i, label %if.end20.i, label %if.then16.i
@@ -11754,8 +11747,7 @@ if.then16.i:                                      ; preds = %while.body10.i
 
 if.end20.i:                                       ; preds = %if.then16.i, %while.body10.i
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %arrayidx7.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.next25.i
-  %name8.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 8
+  %name8.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.next25.i, i32 1
   %4 = load ptr, ptr %name8.i, align 8
   %exitcond2 = icmp eq i64 %indvars.iv.next25.i, 11
   br i1 %exitcond2, label %addReplyCommandFlags.exit, label %while.body10.i, !llvm.loop !51
@@ -11771,15 +11763,14 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %while.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ 0, %entry ]
-  %arrayidx18.i = phi ptr [ %arrayidx.i, %while.body.i ], [ @__const.addReplyFlagsForArg.argFlagNames, %entry ]
   %count.016.i = phi i32 [ %spec.select.i, %while.body.i ], [ 0, %entry ]
-  %0 = load i64, ptr %arrayidx18.i, align 8
+  %arrayidx18.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForArg.argFlagNames, i64 %indvars.iv.i
+  %0 = load i64, ptr %arrayidx18.i, align 16
   %and.i = and i64 %0, %flags
   %tobool3.not.i = icmp ne i64 %and.i, 0
   %inc.i = zext i1 %tobool3.not.i to i32
   %spec.select.i = add nuw nsw i32 %count.016.i, %inc.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForArg.argFlagNames, i64 %indvars.iv.next.i
   %exitcond = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond, label %while.end.i, label %while.body.i, !llvm.loop !50
 
@@ -11791,8 +11782,8 @@ while.end.i:                                      ; preds = %while.body.i
 while.body10.i:                                   ; preds = %while.end.i, %if.end20.i
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %if.end20.i ], [ 0, %while.end.i ]
   %2 = phi ptr [ %4, %if.end20.i ], [ @.str.262, %while.end.i ]
-  %arrayidx722.i = phi ptr [ %arrayidx7.i, %if.end20.i ], [ @__const.addReplyFlagsForArg.argFlagNames, %while.end.i ]
-  %3 = load i64, ptr %arrayidx722.i, align 8
+  %arrayidx722.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForArg.argFlagNames, i64 %indvars.iv24.i
+  %3 = load i64, ptr %arrayidx722.i, align 16
   %and14.i = and i64 %3, %flags
   %tobool15.not.i = icmp eq i64 %and14.i, 0
   br i1 %tobool15.not.i, label %if.end20.i, label %if.then16.i
@@ -11803,8 +11794,7 @@ if.then16.i:                                      ; preds = %while.body10.i
 
 if.end20.i:                                       ; preds = %if.then16.i, %while.body10.i
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
-  %arrayidx7.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForArg.argFlagNames, i64 %indvars.iv.next25.i
-  %name8.i = getelementptr inbounds i8, ptr %arrayidx7.i, i64 8
+  %name8.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForArg.argFlagNames, i64 %indvars.iv.next25.i, i32 1
   %4 = load ptr, ptr %name8.i, align 8
   %exitcond2 = icmp eq i64 %indvars.iv.next25.i, 3
   br i1 %exitcond2, label %addReplyCommandFlags.exit, label %while.body10.i, !llvm.loop !51
@@ -11958,15 +11948,14 @@ if.then119:                                       ; preds = %if.end114
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %if.then119
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %while.body.i.i ], [ 0, %if.then119 ]
-  %arrayidx18.i.i = phi ptr [ %arrayidx.i.i, %while.body.i.i ], [ @__const.addReplyFlagsForArg.argFlagNames, %if.then119 ]
   %count.016.i.i = phi i32 [ %spec.select.i.i, %while.body.i.i ], [ 0, %if.then119 ]
-  %30 = load i64, ptr %arrayidx18.i.i, align 8
+  %arrayidx18.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForArg.argFlagNames, i64 %indvars.iv.i.i
+  %30 = load i64, ptr %arrayidx18.i.i, align 16
   %and.i.i = and i64 %30, %conv123
   %tobool3.not.i.i = icmp ne i64 %and.i.i, 0
   %inc.i.i = zext i1 %tobool3.not.i.i to i32
   %spec.select.i.i = add nuw nsw i32 %count.016.i.i, %inc.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForArg.argFlagNames, i64 %indvars.iv.next.i.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !50
 
@@ -11978,8 +11967,8 @@ while.end.i.i:                                    ; preds = %while.body.i.i
 while.body10.i.i:                                 ; preds = %if.end20.i.i, %while.end.i.i
   %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %if.end20.i.i ], [ 0, %while.end.i.i ]
   %32 = phi ptr [ %34, %if.end20.i.i ], [ @.str.262, %while.end.i.i ]
-  %arrayidx722.i.i = phi ptr [ %arrayidx7.i.i, %if.end20.i.i ], [ @__const.addReplyFlagsForArg.argFlagNames, %while.end.i.i ]
-  %33 = load i64, ptr %arrayidx722.i.i, align 8
+  %arrayidx722.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForArg.argFlagNames, i64 %indvars.iv24.i.i
+  %33 = load i64, ptr %arrayidx722.i.i, align 16
   %and14.i.i = and i64 %33, %conv123
   %tobool15.not.i.i = icmp eq i64 %and14.i.i, 0
   br i1 %tobool15.not.i.i, label %if.end20.i.i, label %if.then16.i.i
@@ -11990,8 +11979,7 @@ if.then16.i.i:                                    ; preds = %while.body10.i.i
 
 if.end20.i.i:                                     ; preds = %if.then16.i.i, %while.body10.i.i
   %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
-  %arrayidx7.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForArg.argFlagNames, i64 %indvars.iv.next25.i.i
-  %name8.i.i = getelementptr inbounds i8, ptr %arrayidx7.i.i, i64 8
+  %name8.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForArg.argFlagNames, i64 %indvars.iv.next25.i.i, i32 1
   %34 = load ptr, ptr %name8.i.i, align 8
   %exitcond2.i = icmp eq i64 %indvars.iv.next25.i.i, 3
   br i1 %exitcond2.i, label %if.end124, label %while.body10.i.i, !llvm.loop !51
@@ -12139,15 +12127,14 @@ if.end14:                                         ; preds = %if.then9, %for.body
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %if.end14
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %while.body.i.i ], [ 0, %if.end14 ]
-  %arrayidx18.i.i = phi ptr [ %arrayidx.i.i, %while.body.i.i ], [ @__const.addReplyFlagsForKeyArgs.docFlagNames, %if.end14 ]
   %count.016.i.i = phi i32 [ %spec.select.i.i, %while.body.i.i ], [ 0, %if.end14 ]
-  %10 = load i64, ptr %arrayidx18.i.i, align 8
+  %arrayidx18.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.i.i
+  %10 = load i64, ptr %arrayidx18.i.i, align 16
   %and.i.i = and i64 %10, %9
   %tobool3.not.i.i = icmp ne i64 %and.i.i, 0
   %inc.i.i = zext i1 %tobool3.not.i.i to i32
   %spec.select.i.i = add nuw nsw i32 %count.016.i.i, %inc.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.next.i.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 11
   br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !50
 
@@ -12159,8 +12146,8 @@ while.end.i.i:                                    ; preds = %while.body.i.i
 while.body10.i.i:                                 ; preds = %if.end20.i.i, %while.end.i.i
   %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %if.end20.i.i ], [ 0, %while.end.i.i ]
   %12 = phi ptr [ %14, %if.end20.i.i ], [ @.str.242, %while.end.i.i ]
-  %arrayidx722.i.i = phi ptr [ %arrayidx7.i.i, %if.end20.i.i ], [ @__const.addReplyFlagsForKeyArgs.docFlagNames, %while.end.i.i ]
-  %13 = load i64, ptr %arrayidx722.i.i, align 8
+  %arrayidx722.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv24.i.i
+  %13 = load i64, ptr %arrayidx722.i.i, align 16
   %and14.i.i = and i64 %13, %9
   %tobool15.not.i.i = icmp eq i64 %and14.i.i, 0
   br i1 %tobool15.not.i.i, label %if.end20.i.i, label %if.then16.i.i
@@ -12171,8 +12158,7 @@ if.then16.i.i:                                    ; preds = %while.body10.i.i
 
 if.end20.i.i:                                     ; preds = %if.then16.i.i, %while.body10.i.i
   %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
-  %arrayidx7.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.next25.i.i
-  %name8.i.i = getelementptr inbounds i8, ptr %arrayidx7.i.i, i64 8
+  %name8.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.next25.i.i, i32 1
   %14 = load ptr, ptr %name8.i.i, align 8
   %exitcond2.i = icmp eq i64 %indvars.iv.next25.i.i, 11
   br i1 %exitcond2.i, label %addReplyFlagsForKeyArgs.exit, label %while.body10.i.i, !llvm.loop !51
@@ -12523,15 +12509,14 @@ sdslen.exit:                                      ; preds = %if.end10, %sw.bb.i,
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %sdslen.exit
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %while.body.i.i ], [ 0, %sdslen.exit ]
-  %arrayidx18.i.i = phi ptr [ %arrayidx.i.i, %while.body.i.i ], [ @__const.addReplyFlagsForCommand.flagNames, %sdslen.exit ]
   %count.016.i.i = phi i32 [ %spec.select.i.i, %while.body.i.i ], [ 0, %sdslen.exit ]
-  %15 = load i64, ptr %arrayidx18.i.i, align 8
+  %arrayidx18.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForCommand.flagNames, i64 %indvars.iv.i.i
+  %15 = load i64, ptr %arrayidx18.i.i, align 16
   %and.i.i = and i64 %15, %14
   %tobool3.not.i.i = icmp ne i64 %and.i.i, 0
   %inc.i.i = zext i1 %tobool3.not.i.i to i32
   %spec.select.i.i = add nuw nsw i32 %count.016.i.i, %inc.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForCommand.flagNames, i64 %indvars.iv.next.i.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 20
   br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !50
 
@@ -12543,8 +12528,8 @@ while.end.i.i:                                    ; preds = %while.body.i.i
 while.body10.i.i:                                 ; preds = %if.end20.i.i, %while.end.i.i
   %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %if.end20.i.i ], [ 0, %while.end.i.i ]
   %17 = phi ptr [ %19, %if.end20.i.i ], [ @.str.220, %while.end.i.i ]
-  %arrayidx722.i.i = phi ptr [ %arrayidx7.i.i, %if.end20.i.i ], [ @__const.addReplyFlagsForCommand.flagNames, %while.end.i.i ]
-  %18 = load i64, ptr %arrayidx722.i.i, align 8
+  %arrayidx722.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForCommand.flagNames, i64 %indvars.iv24.i.i
+  %18 = load i64, ptr %arrayidx722.i.i, align 16
   %and14.i.i = and i64 %18, %14
   %tobool15.not.i.i = icmp eq i64 %and14.i.i, 0
   br i1 %tobool15.not.i.i, label %if.end20.i.i, label %if.then16.i.i
@@ -12555,8 +12540,7 @@ if.then16.i.i:                                    ; preds = %while.body10.i.i
 
 if.end20.i.i:                                     ; preds = %if.then16.i.i, %while.body10.i.i
   %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
-  %arrayidx7.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForCommand.flagNames, i64 %indvars.iv.next25.i.i
-  %name8.i.i = getelementptr inbounds i8, ptr %arrayidx7.i.i, i64 8
+  %name8.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForCommand.flagNames, i64 %indvars.iv.next25.i.i, i32 1
   %19 = load ptr, ptr %name8.i.i, align 8
   %exitcond2.i = icmp eq i64 %indvars.iv.next25.i.i, 20
   br i1 %exitcond2.i, label %addReplyFlagsForCommand.exit, label %while.body10.i.i, !llvm.loop !51
@@ -12713,15 +12697,14 @@ if.then60:                                        ; preds = %if.end57
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %if.then60
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %while.body.i.i ], [ 0, %if.then60 ]
-  %arrayidx18.i.i = phi ptr [ %arrayidx.i.i, %while.body.i.i ], [ @__const.addReplyDocFlagsForCommand.docFlagNames, %if.then60 ]
   %count.016.i.i = phi i32 [ %spec.select.i.i, %while.body.i.i ], [ 0, %if.then60 ]
-  %27 = load i64, ptr %arrayidx18.i.i, align 8
+  %arrayidx18.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyDocFlagsForCommand.docFlagNames, i64 %indvars.iv.i.i
+  %27 = load i64, ptr %arrayidx18.i.i, align 16
   %and.i.i = and i64 %27, %conv.i
   %tobool3.not.i.i = icmp ne i64 %and.i.i, 0
   %inc.i.i = zext i1 %tobool3.not.i.i to i32
   %spec.select.i.i = add nuw nsw i32 %count.016.i.i, %inc.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyDocFlagsForCommand.docFlagNames, i64 %indvars.iv.next.i.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 2
   br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !50
 
@@ -12733,8 +12716,8 @@ while.end.i.i:                                    ; preds = %while.body.i.i
 while.body10.i.i:                                 ; preds = %if.end20.i.i, %while.end.i.i
   %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %if.end20.i.i ], [ 0, %while.end.i.i ]
   %29 = phi ptr [ %31, %if.end20.i.i ], [ @.str.240, %while.end.i.i ]
-  %arrayidx722.i.i = phi ptr [ %arrayidx7.i.i, %if.end20.i.i ], [ @__const.addReplyDocFlagsForCommand.docFlagNames, %while.end.i.i ]
-  %30 = load i64, ptr %arrayidx722.i.i, align 8
+  %arrayidx722.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyDocFlagsForCommand.docFlagNames, i64 %indvars.iv24.i.i
+  %30 = load i64, ptr %arrayidx722.i.i, align 16
   %and14.i.i = and i64 %30, %conv.i
   %tobool15.not.i.i = icmp eq i64 %and14.i.i, 0
   br i1 %tobool15.not.i.i, label %if.end20.i.i, label %if.then16.i.i
@@ -12745,8 +12728,7 @@ if.then16.i.i:                                    ; preds = %while.body10.i.i
 
 if.end20.i.i:                                     ; preds = %if.then16.i.i, %while.body10.i.i
   %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
-  %arrayidx7.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyDocFlagsForCommand.docFlagNames, i64 %indvars.iv.next25.i.i
-  %name8.i.i = getelementptr inbounds i8, ptr %arrayidx7.i.i, i64 8
+  %name8.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyDocFlagsForCommand.docFlagNames, i64 %indvars.iv.next25.i.i, i32 1
   %31 = load ptr, ptr %name8.i.i, align 8
   %exitcond2.i = icmp eq i64 %indvars.iv.next25.i.i, 2
   br i1 %exitcond2.i, label %if.end61, label %while.body10.i.i, !llvm.loop !51
@@ -12983,15 +12965,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %for.body
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %while.body.i.i ], [ 0, %for.body ]
-  %arrayidx18.i.i = phi ptr [ %arrayidx.i.i, %while.body.i.i ], [ @__const.addReplyFlagsForKeyArgs.docFlagNames, %for.body ]
   %count.016.i.i = phi i32 [ %spec.select.i.i, %while.body.i.i ], [ 0, %for.body ]
-  %31 = load i64, ptr %arrayidx18.i.i, align 8
+  %arrayidx18.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.i.i
+  %31 = load i64, ptr %arrayidx18.i.i, align 16
   %and.i.i = and i64 %31, %conv50
   %tobool3.not.i.i = icmp ne i64 %and.i.i, 0
   %inc.i.i = zext i1 %tobool3.not.i.i to i32
   %spec.select.i.i = add nuw nsw i32 %count.016.i.i, %inc.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.next.i.i
   %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 11
   br i1 %exitcond.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !50
 
@@ -13003,8 +12984,8 @@ while.end.i.i:                                    ; preds = %while.body.i.i
 while.body10.i.i:                                 ; preds = %if.end20.i.i, %while.end.i.i
   %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %if.end20.i.i ], [ 0, %while.end.i.i ]
   %33 = phi ptr [ %35, %if.end20.i.i ], [ @.str.242, %while.end.i.i ]
-  %arrayidx722.i.i = phi ptr [ %arrayidx7.i.i, %if.end20.i.i ], [ @__const.addReplyFlagsForKeyArgs.docFlagNames, %while.end.i.i ]
-  %34 = load i64, ptr %arrayidx722.i.i, align 8
+  %arrayidx722.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv24.i.i
+  %34 = load i64, ptr %arrayidx722.i.i, align 16
   %and14.i.i = and i64 %34, %conv50
   %tobool15.not.i.i = icmp eq i64 %and14.i.i, 0
   br i1 %tobool15.not.i.i, label %if.end20.i.i, label %if.then16.i.i
@@ -13015,8 +12996,7 @@ if.then16.i.i:                                    ; preds = %while.body10.i.i
 
 if.end20.i.i:                                     ; preds = %if.then16.i.i, %while.body10.i.i
   %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
-  %arrayidx7.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.next25.i.i
-  %name8.i.i = getelementptr inbounds i8, ptr %arrayidx7.i.i, i64 8
+  %name8.i.i = getelementptr inbounds %struct.replyFlagNames, ptr @__const.addReplyFlagsForKeyArgs.docFlagNames, i64 %indvars.iv.next25.i.i, i32 1
   %35 = load ptr, ptr %name8.i.i, align 8
   %exitcond2.i = icmp eq i64 %indvars.iv.next25.i.i, 11
   br i1 %exitcond2.i, label %for.inc.loopexit, label %while.body10.i.i, !llvm.loop !51

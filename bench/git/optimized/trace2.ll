@@ -340,7 +340,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %indvars.iv113 = phi i32 [ %indvars.iv.next114, %for.inc ], [ 0, %for.cond.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
   %1 = phi ptr [ %7, %for.inc ], [ %0, %for.cond.preheader ]
-  %arrayidx89 = phi ptr [ %arrayidx, %for.inc ], [ %argv, %for.cond.preheader ]
+  %arrayidx89 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   br i1 %.b.i, label %for.inc, label %do.body.i.preheader.i
 
 do.body.i.preheader.i:                            ; preds = %for.body
@@ -407,7 +407,7 @@ redact_arg.exit:                                  ; preds = %if.end5.i
 
 for.inc:                                          ; preds = %do.cond.i14.i, %if.end5.i, %if.end.i, %for.body, %redact_arg.exit
   %.b.i123132 = phi i1 [ %.b.i.pre, %redact_arg.exit ], [ false, %if.end5.i ], [ false, %if.end.i ], [ true, %for.body ], [ false, %do.cond.i14.i ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.next
   %7 = load ptr, ptr %arrayidx, align 8
   %tobool1.not = icmp eq ptr %7, null
@@ -424,7 +424,7 @@ for.cond13:                                       ; preds = %for.end, %for.cond1
   %arrayidx15 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv107
   %8 = load ptr, ptr %arrayidx15, align 8
   %tobool16.not = icmp eq ptr %8, null
-  %indvars.iv.next108 = add nuw i64 %indvars.iv107, 1
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   br i1 %tobool16.not, label %for.end20, label %for.cond13, !llvm.loop !15
 
 for.end20:                                        ; preds = %for.cond13
@@ -455,7 +455,7 @@ for.body28:                                       ; preds = %for.body28.preheade
 for.end35:                                        ; preds = %for.body28, %for.end20
   %arrayidx37 = getelementptr inbounds ptr, ptr %call22, i64 %indvars.iv
   store ptr %call11.i, ptr %arrayidx37, align 8
-  %i.192 = add i64 %indvars.iv, 1
+  %i.192 = add nuw i64 %indvars.iv, 1
   %idxprom4093 = and i64 %i.192, 4294967295
   %arrayidx4194 = getelementptr inbounds ptr, ptr %argv, i64 %idxprom4093
   %11 = load ptr, ptr %arrayidx4194, align 8
@@ -548,7 +548,7 @@ cond.end:                                         ; preds = %for.body43, %redact
   %cond = phi ptr [ %18, %cond.false ], [ %retval.0.i61, %redact_arg.exit76 ], [ %12, %for.body43 ]
   %arrayidx51 = getelementptr inbounds ptr, ptr %call22, i64 %indvars.iv119
   store ptr %cond, ptr %arrayidx51, align 8
-  %indvars.iv.next120 = add i64 %indvars.iv119, 1
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %arrayidx41 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.next120
   %19 = load ptr, ptr %arrayidx41, align 8
   %tobool42.not = icmp eq ptr %19, null

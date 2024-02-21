@@ -1183,9 +1183,9 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %2 = phi ptr [ %3, %for.body.us ], [ %1, %for.body.lr.ph ]
-  %arrayidx18.us = phi ptr [ %arrayidx.us, %for.body.us ], [ %commands, %for.body.lr.ph ]
   %i.017.us = phi i64 [ %inc.us, %for.body.us ], [ 0, %for.body.lr.ph ]
   %next.016.us = phi ptr [ %call611.us, %for.body.us ], [ %0, %for.body.lr.ph ]
+  %arrayidx18.us = getelementptr inbounds %struct.commandDocs, ptr %commands, i64 %i.017.us
   %call611.us = tail call fastcc ptr @cliLegacyInitCommandHelpEntry(ptr noundef nonnull %2, ptr noundef null, ptr noundef %next.016.us, ptr noundef nonnull %arrayidx18.us, ptr noundef %groups, ptr noundef null)
   %inc.us = add i64 %i.017.us, 1
   %arrayidx.us = getelementptr inbounds %struct.commandDocs, ptr %commands, i64 %inc.us
@@ -1195,9 +1195,9 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %4 = phi ptr [ %6, %for.inc ], [ %1, %for.body.lr.ph ]
-  %arrayidx18 = phi ptr [ %arrayidx, %for.inc ], [ %commands, %for.body.lr.ph ]
   %i.017 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
   %next.016 = phi ptr [ %next.1, %for.inc ], [ %0, %for.body.lr.ph ]
+  %arrayidx18 = getelementptr inbounds %struct.commandDocs, ptr %commands, i64 %i.017
   %since = getelementptr inbounds i8, ptr %arrayidx18, i64 24
   %5 = load ptr, ptr %since, align 8
   %tobool.not.i = icmp eq ptr %5, null
@@ -24004,11 +24004,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %tobool.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %arrayidx17.us = phi ptr [ %arrayidx.us, %for.inc.us ], [ %commands, %for.body.lr.ph ]
   %i.016.us = phi i64 [ %inc11.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %numCommands.015.us = phi i32 [ %numCommands.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %inc.us = add nsw i32 %numCommands.015.us, 1
-  %subcommands.us = getelementptr inbounds i8, ptr %arrayidx17.us, i64 48
+  %subcommands.us = getelementptr inbounds %struct.commandDocs, ptr %commands, i64 %i.016.us, i32 6
   %1 = load ptr, ptr %subcommands.us, align 8
   %cmp4.not.us = icmp eq ptr %1, null
   br i1 %cmp4.not.us, label %for.inc.us, label %if.then5.us
@@ -24028,9 +24027,9 @@ for.inc.us:                                       ; preds = %if.then5.us, %for.b
   br i1 %cmp.not.us, label %for.end, label %for.body.us, !llvm.loop !235
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %arrayidx17 = phi ptr [ %arrayidx, %for.inc ], [ %commands, %for.body.lr.ph ]
   %i.016 = phi i64 [ %inc11, %for.inc ], [ 0, %for.body.lr.ph ]
   %numCommands.015 = phi i32 [ %numCommands.1, %for.inc ], [ 0, %for.body.lr.ph ]
+  %arrayidx17 = getelementptr inbounds %struct.commandDocs, ptr %commands, i64 %i.016
   %since = getelementptr inbounds i8, ptr %arrayidx17, i64 24
   %4 = load ptr, ptr %since, align 8
   %tobool.not.i = icmp eq ptr %4, null

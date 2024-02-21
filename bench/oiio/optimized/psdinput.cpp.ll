@@ -2879,19 +2879,18 @@ while.end:                                        ; preds = %invoke.cont3
   br i1 %9, label %if.end18, label %for.body.i
 
 for.bodythread-pre-split.i:                       ; preds = %for.inc.i
-  %__begin1.0.ptr.i = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 %__begin1.0.add.i
   %.pr.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %while.end, %for.bodythread-pre-split.i
   %10 = phi ptr [ %.pr.i, %for.bodythread-pre-split.i ], [ %8, %while.end ]
-  %__begin1.0.ptr12.i = phi ptr [ %__begin1.0.ptr.i, %for.bodythread-pre-split.i ], [ @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, %while.end ]
   %__begin1.0.idx11.i = phi i64 [ %__begin1.0.add.i, %for.bodythread-pre-split.i ], [ 0, %while.end ]
+  %__begin1.0.ptr12.i = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 %__begin1.0.idx11.i
   %cmp.not5.i.i.i.i9 = icmp eq ptr %10, null
   br i1 %cmp.not5.i.i.i.i9, label %for.inc.i, label %while.body.lr.ph.i.i.i.i10
 
 while.body.lr.ph.i.i.i.i10:                       ; preds = %for.body.i
-  %11 = load i16, ptr %__begin1.0.ptr12.i, align 2
+  %11 = load i16, ptr %__begin1.0.ptr12.i, align 8
   br label %while.body.i.i.i.i11
 
 while.body.i.i.i.i11:                             ; preds = %while.body.i.i.i.i11, %while.body.lr.ph.i.i.i.i10
@@ -7560,19 +7559,18 @@ entry:
   br i1 %1, label %return, label %for.body
 
 for.bodythread-pre-split:                         ; preds = %for.inc
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 %__begin1.0.add
   %.pr = load ptr, ptr %_M_parent.i.i.i.i, align 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.bodythread-pre-split
   %2 = phi ptr [ %.pr, %for.bodythread-pre-split ], [ %0, %entry ]
-  %__begin1.0.ptr12 = phi ptr [ %__begin1.0.ptr, %for.bodythread-pre-split ], [ @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, %entry ]
   %__begin1.0.idx11 = phi i64 [ %__begin1.0.add, %for.bodythread-pre-split ], [ 0, %entry ]
+  %__begin1.0.ptr12 = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_08PSDInput16resource_loadersE, i64 %__begin1.0.idx11
   %cmp.not5.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not5.i.i.i, label %for.inc, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %for.body
-  %3 = load i16, ptr %__begin1.0.ptr12, align 2
+  %3 = load i16, ptr %__begin1.0.ptr12, align 8
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %while.body.lr.ph.i.i.i
@@ -32898,9 +32896,9 @@ sw.bb26.i45:                                      ; preds = %if.end18
   %idxprom.i194 = zext nneg i16 %bf.clear.i254 to i64
   %arrayidx.i195 = getelementptr inbounds [4 x i32], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 0, i64 %idxprom.i194
   %46 = load i32, ptr %arrayidx.i195, align 4, !noalias !256
-  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16
+  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16, !alias.scope !256
   %agg.tmp4.i247.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 10
-  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2
+  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2, !alias.scope !256
   %prefix3.i196 = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 16
   store i32 %46, ptr %prefix3.i196, align 16, !alias.scope !256
   %call.i256 = call ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull byval(%"struct.fmt::v8::detail::write_int_arg.237") align 16 %agg.tmp4.i247, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %retval.sroa.0.0.copyload.i156)

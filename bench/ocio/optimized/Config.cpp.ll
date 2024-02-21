@@ -67346,14 +67346,13 @@ lpad:                                             ; preds = %if.end.i, %for.body
 
 for.cond7:                                        ; preds = %for.body9
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx19, 16
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 %__begin0.0.add
   %cmp8.not = icmp eq i64 %__begin0.0.add, 240
   br i1 %cmp8.not, label %cleanup, label %for.body9
 
 for.body9:                                        ; preds = %for.body9.preheader, %for.cond7
-  %__begin0.0.ptr20 = phi ptr [ %__begin0.0.ptr, %for.cond7 ], [ @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, %for.body9.preheader ]
   %__begin0.0.idx19 = phi i64 [ %__begin0.0.add, %for.cond7 ], [ 0, %for.body9.preheader ]
-  %5 = load ptr, ptr %__begin0.0.ptr20, align 8
+  %__begin0.0.ptr20 = getelementptr inbounds i8, ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 %__begin0.0.idx19
+  %5 = load ptr, ptr %__begin0.0.ptr20, align 16
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__s, ptr noundef %5) #27
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then, label %for.cond7

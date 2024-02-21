@@ -2009,7 +2009,7 @@ lor.lhs.false.i.preheader:                        ; preds = %for.body.i.preheade
   br i1 %cmp11.i39, label %cleanup, label %lor.lhs.false12.i
 
 for.cond.i:                                       ; preds = %lor.lhs.false12.i
-  %inc.i = add nuw i64 %i.018.i2942, 1
+  %inc.i = add nuw i64 %i.018.i2940, 1
   %cmp.i24 = icmp uge i64 %inc.i, %.pre35
   %exitcond.i = icmp eq i64 %inc.i, %.pre35
   br i1 %exitcond.i, label %cleanup, label %for.body.i, !llvm.loop !10
@@ -2025,9 +2025,9 @@ for.body.i:                                       ; preds = %for.cond.i
   br i1 %cmp5.i, label %cleanup, label %lor.lhs.false.i, !llvm.loop !10
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %y.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
+  %y.i = getelementptr inbounds %"class.Imath_2_5::Color3", ptr %cond, i64 %inc.i, i32 0, i32 1
   %15 = load float, ptr %y.i, align 4
-  %y8.i = getelementptr inbounds i8, ptr %arrayidx.i8.i, i64 4
+  %y8.i = getelementptr inbounds %"class.Imath_2_5::Color3", ptr %agg.tmp18.sroa.0.0.copyload, i64 %inc.i, i32 0, i32 1
   %16 = load float, ptr %y8.i, align 4
   %sub9.i = fsub float %15, %16
   %17 = call noundef float @llvm.fabs.f32(float %sub9.i)
@@ -2035,13 +2035,11 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %cmp11.i, label %cleanup, label %lor.lhs.false12.i, !llvm.loop !10
 
 lor.lhs.false12.i:                                ; preds = %lor.lhs.false.i.preheader, %lor.lhs.false.i
-  %cmp19.i2843 = phi i1 [ %cmp.i24, %lor.lhs.false.i ], [ false, %lor.lhs.false.i.preheader ]
-  %i.018.i2942 = phi i64 [ %inc.i, %lor.lhs.false.i ], [ 0, %lor.lhs.false.i.preheader ]
-  %arrayidx.i.i3041 = phi ptr [ %arrayidx.i.i, %lor.lhs.false.i ], [ %cond, %lor.lhs.false.i.preheader ]
-  %arrayidx.i8.i3140 = phi ptr [ %arrayidx.i8.i, %lor.lhs.false.i ], [ %agg.tmp18.sroa.0.0.copyload, %lor.lhs.false.i.preheader ]
-  %z.i = getelementptr inbounds i8, ptr %arrayidx.i.i3041, i64 8
+  %cmp19.i2841 = phi i1 [ %cmp.i24, %lor.lhs.false.i ], [ false, %lor.lhs.false.i.preheader ]
+  %i.018.i2940 = phi i64 [ %inc.i, %lor.lhs.false.i ], [ 0, %lor.lhs.false.i.preheader ]
+  %z.i = getelementptr inbounds %"class.Imath_2_5::Color3", ptr %cond, i64 %i.018.i2940, i32 0, i32 2
   %18 = load float, ptr %z.i, align 4
-  %z15.i = getelementptr inbounds i8, ptr %arrayidx.i8.i3140, i64 8
+  %z15.i = getelementptr inbounds %"class.Imath_2_5::Color3", ptr %agg.tmp18.sroa.0.0.copyload, i64 %i.018.i2940, i32 0, i32 2
   %19 = load float, ptr %z15.i, align 4
   %sub16.i = fsub float %18, %19
   %20 = call noundef float @llvm.fabs.f32(float %sub16.i)
@@ -2055,7 +2053,7 @@ lpad:                                             ; preds = %invoke.cont9
   resume { ptr, i32 } %21
 
 cleanup:                                          ; preds = %lor.lhs.false12.i, %lor.lhs.false.i, %for.body.i, %for.cond.i, %lor.lhs.false.i.preheader, %for.body.i.preheader, %invoke.cont15, %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit15
-  %retval.0 = phi i1 [ false, %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit15 ], [ true, %invoke.cont15 ], [ false, %for.body.i.preheader ], [ false, %lor.lhs.false.i.preheader ], [ %cmp.i24, %for.cond.i ], [ %cmp.i24, %for.body.i ], [ %cmp.i24, %lor.lhs.false.i ], [ %cmp19.i2843, %lor.lhs.false12.i ]
+  %retval.0 = phi i1 [ false, %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit15 ], [ true, %invoke.cont15 ], [ false, %for.body.i.preheader ], [ false, %lor.lhs.false.i.preheader ], [ %cmp.i24, %for.cond.i ], [ %cmp.i24, %for.body.i ], [ %cmp.i24, %lor.lhs.false.i ], [ %cmp19.i2841, %lor.lhs.false12.i ]
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %proc, i64 8
   %22 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %22, null

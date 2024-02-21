@@ -1434,14 +1434,13 @@ entry:
 
 for.cond:                                         ; preds = %if.end5
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx13, 16
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZL13kPaddingTests, i64 %__begin1.0.add
   %cmp1.not = icmp eq i64 %__begin1.0.add, 176
   br i1 %cmp1.not, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
-  %__begin1.0.ptr14 = phi ptr [ %__begin1.0.ptr, %for.cond ], [ @_ZL13kPaddingTests, %entry ]
   %__begin1.0.idx13 = phi i64 [ %__begin1.0.add, %for.cond ], [ 0, %entry ]
-  %0 = load i64, ptr %__begin1.0.ptr14, align 8
+  %__begin1.0.ptr14 = getelementptr inbounds i8, ptr @_ZL13kPaddingTests, i64 %__begin1.0.idx13
+  %0 = load i64, ptr %__begin1.0.ptr14, align 16
   %cmp2 = icmp ugt i64 %call, %0
   br i1 %cmp2, label %if.then3, label %if.end5
 

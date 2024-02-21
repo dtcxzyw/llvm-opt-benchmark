@@ -761,8 +761,8 @@ _ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i: ; preds
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit127.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i
-  %__begin3.0.ptr130.i = phi ptr [ %ref.tmp31.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i ], [ %__begin3.0.ptr.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit127.i ]
   %__begin3.0.idx129.i = phi i64 [ 0, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i ], [ %__begin3.0.add.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit127.i ]
+  %__begin3.0.ptr130.i = getelementptr inbounds i8, ptr %ref.tmp31.i, i64 %__begin3.0.idx129.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %_M_rehash_policy.i.i.i42.i, i8 0, i64 200, i1 false), !noalias !4
   store ptr %_M_single_bucket.i.i.i39.i, ptr %ref.tmp35.i, align 8, !noalias !4
   store i64 1, ptr %_M_bucket_count.i.i.i40.i, align 8, !noalias !4
@@ -1060,7 +1060,6 @@ _ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit127.i: ; pr
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37.i) #29
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp35.i) #29
   %__begin3.0.add.i = add nuw nsw i64 %__begin3.0.idx129.i, 8
-  %__begin3.0.ptr.i = getelementptr inbounds i8, ptr %ref.tmp31.i, i64 %__begin3.0.add.i
   %cmp.not.i = icmp eq i64 %__begin3.0.add.i, 16
   br i1 %cmp.not.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_113SplitFunction10signaturesEv.exit, label %for.body.i
 
@@ -12279,7 +12278,7 @@ return:                                           ; preds = %_ZN5folly3f146detai
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #22
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
@@ -14049,7 +14048,7 @@ _ZN8facebook5velox10StringViewC2EPKci.exit:       ; preds = %if.then2.i, %if.end
   %add = add i64 %spec.select, %conv.i26
   %add.ptr = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %add
   %sub = sub i64 %sinput.sroa.0.0, %add
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = add nuw nsw i64 %indvars.iv, 2
   %cmp24 = icmp eq i64 %54, %limit
   br i1 %cmp24, label %while.end, label %while.body, !llvm.loop !164
@@ -14551,7 +14550,7 @@ attributes #19 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-
 attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #21 = { cold noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #23 = { nofree nounwind memory(read) }
+attributes #23 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #24 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

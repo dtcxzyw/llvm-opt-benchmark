@@ -11709,10 +11709,10 @@ if.then:
   br label %while.body
 
 while.body:                                       ; preds = %if.then, %while.body
-  %dst.019 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
-  %sub = add nsw i64 %dst.019, -4
+  %dst.020 = phi i64 [ 60, %if.then ], [ %dec19, %while.body ]
+  %sub = add nsw i64 %dst.020, -4
   %shr = lshr exact i64 %sub, 1
-  %dec = add nsw i64 %dst.019, -5
+  %dec = add nsw i64 %dst.020, -5
   %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
   %arrayidx10 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec9
@@ -11720,7 +11720,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %1 = load i32, ptr %arrayidx10, align 4
   store i32 %1, ptr %arrayidx, align 4
   store i32 %0, ptr %arrayidx10, align 4
-  %dec11 = add nsw i64 %dst.019, -6
+  %dec11 = add nsw i64 %dst.020, -6
   %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
   %arrayidx14 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec13
@@ -11728,7 +11728,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %3 = load i32, ptr %arrayidx14, align 8
   store i32 %3, ptr %arrayidx12, align 8
   store i32 %2, ptr %arrayidx14, align 8
-  %dec15 = add nsw i64 %dst.019, -7
+  %dec15 = add nsw i64 %dst.020, -7
   %arrayidx16 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec15
   %dec17 = add nsw i64 %shr, -3
   %arrayidx18 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec17
@@ -11736,7 +11736,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %5 = load i32, ptr %arrayidx18, align 4
   store i32 %5, ptr %arrayidx16, align 4
   store i32 %4, ptr %arrayidx18, align 4
-  %dec19 = add nsw i64 %dst.019, -8
+  %dec19 = add nsw i64 %dst.020, -8
   %arrayidx20 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec19
   %dec21 = add nsw i64 %shr, -4
   %arrayidx22 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec21
@@ -17655,7 +17655,7 @@ declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind
 declare i32 @pthread_setspecific(i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
@@ -83054,8 +83054,8 @@ entry:
   br i1 %cmp.i.i.i.i, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %entry, %if.end13.i.i.i.i.i.i.us
-  %__begin2.sroa.0.0.ptr4.us = phi ptr [ %__begin2.sroa.0.0.ptr.us, %if.end13.i.i.i.i.i.i.us ], [ %call5.i.i.i.i2.i.i3, %entry ]
   %__begin2.sroa.0.0.idx3.us = phi i64 [ %__begin2.sroa.0.0.add.us, %if.end13.i.i.i.i.i.i.us ], [ 0, %entry ]
+  %__begin2.sroa.0.0.ptr4.us = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i3, i64 %__begin2.sroa.0.0.idx3.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arg_tuple.i.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %result.i.i.i)
   store i32 6, ptr %arg_tuple.i.i.i, align 4
@@ -83090,7 +83090,6 @@ if.end13.i.i.i.i.i.i.us:                          ; preds = %call.i.i.i16.i.i.i.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i.i.i)
   store i32 %add.i.i.i.i.i.us, ptr %__begin2.sroa.0.0.ptr4.us, align 4
   %__begin2.sroa.0.0.add.us = add nuw nsw i64 %__begin2.sroa.0.0.idx3.us, 4
-  %__begin2.sroa.0.0.ptr.us = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i3, i64 %__begin2.sroa.0.0.add.us
   %cmp.i.not.us = icmp eq i64 %__begin2.sroa.0.0.add.us, 64
   br i1 %cmp.i.not.us, label %nrvo.skipdtor, label %for.body.us
 
@@ -83105,8 +83104,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.loopexit.split.us:  ; preds = %while.body.i.i.i.i.
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 for.body:                                         ; preds = %entry, %invoke.cont7
-  %__begin2.sroa.0.0.ptr4 = phi ptr [ %__begin2.sroa.0.0.ptr, %invoke.cont7 ], [ %call5.i.i.i.i2.i.i3, %entry ]
   %__begin2.sroa.0.0.idx3 = phi i64 [ %__begin2.sroa.0.0.add, %invoke.cont7 ], [ 0, %entry ]
+  %__begin2.sroa.0.0.ptr4 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i3, i64 %__begin2.sroa.0.0.idx3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %arg_tuple.i.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %result.i.i.i)
   store i32 6, ptr %arg_tuple.i.i.i, align 4
@@ -83181,7 +83180,6 @@ invoke.cont7:                                     ; preds = %_ZN4absl24uniform_i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i.i.i)
   store i32 %6, ptr %__begin2.sroa.0.0.ptr4, align 4
   %__begin2.sroa.0.0.add = add nuw nsw i64 %__begin2.sroa.0.0.idx3, 4
-  %__begin2.sroa.0.0.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i3, i64 %__begin2.sroa.0.0.add
   %cmp.i.not = icmp eq i64 %__begin2.sroa.0.0.add, 64
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
@@ -104662,7 +104660,7 @@ attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nounwind memory(read) }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

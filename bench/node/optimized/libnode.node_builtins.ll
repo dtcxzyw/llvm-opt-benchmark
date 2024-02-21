@@ -982,8 +982,8 @@ for.body:                                         ; preds = %arraydestroy.done21
   br label %for.body34
 
 for.body34:                                       ; preds = %for.body, %for.inc
-  %__begin3.sroa.0.0.ptr91 = phi ptr [ %call5.i.i.i.i.i, %for.body ], [ %__begin3.sroa.0.0.ptr, %for.inc ]
   %__begin3.sroa.0.0.idx90 = phi i64 [ 0, %for.body ], [ %__begin3.sroa.0.0.add, %for.inc ]
+  %__begin3.sroa.0.0.ptr91 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %__begin3.sroa.0.0.idx90
   %11 = load i64, ptr %__begin3.sroa.0.0.ptr91, align 8
   %call37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i) #23
   %cmp = icmp ugt i64 %11, %call37
@@ -1091,7 +1091,6 @@ if.then.i8.i:                                     ; preds = %if.end12.i.i
 
 for.inc:                                          ; preds = %if.then.i8.i, %cleanup.thread.i, %if.end, %_ZNKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE5countERKS5_.exit, %for.body34
   %__begin3.sroa.0.0.add = add nuw nsw i64 %__begin3.sroa.0.0.idx90, 16
-  %__begin3.sroa.0.0.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %__begin3.sroa.0.0.add
   %cmp.i24.not = icmp eq i64 %__begin3.sroa.0.0.add, 64
   br i1 %cmp.i24.not, label %for.inc49, label %for.body34
 

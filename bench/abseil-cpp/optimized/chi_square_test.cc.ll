@@ -438,11 +438,11 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN7testing15AssertionResultD2Ev.exit
-  %__begin1.0.ptr213 = phi ptr [ %specs, %entry ], [ %__begin1.0.ptr, %_ZN7testing15AssertionResultD2Ev.exit ]
   %__begin1.0.idx212 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %__begin1.0.ptr213 = getelementptr inbounds i8, ptr %specs, i64 %__begin1.0.idx212
   call void @_ZN7testing11ScopedTraceC2IiEEPKciRKT_(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_92, ptr noundef nonnull @.str.3, i32 noundef 92, ptr noundef nonnull align 4 dereferenceable(4) %__begin1.0.ptr213)
   %df = getelementptr inbounds i8, ptr %__begin1.0.ptr213, i64 16
-  %0 = load i32, ptr %df, align 8
+  %0 = load i32, ptr %df, align 16
   %confidence = getelementptr inbounds i8, ptr %__begin1.0.ptr213, i64 24
   %1 = load double, ptr %confidence, align 8
   %call = invoke noundef double @_ZN4absl15random_internal14ChiSquareValueEid(i32 noundef %0, double noundef %1)
@@ -480,7 +480,7 @@ if.else:                                          ; preds = %invoke.cont7
 invoke.cont12:                                    ; preds = %if.else
   %7 = load ptr, ptr %ref.tmp11, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 16
-  %8 = load i32, ptr %__begin1.0.ptr213, align 4
+  %8 = load i32, ptr %__begin1.0.ptr213, align 16
   %call2.i37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, i32 noundef %8)
           to label %invoke.cont15 unwind label %lpad14
 
@@ -561,7 +561,6 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i.i, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_92) #15
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx212, 32
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %specs, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 1344
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -1553,11 +1552,11 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN7testing15AssertionResultD2Ev.exit
-  %__begin1.0.ptr16 = phi ptr [ @_ZZN12_GLOBAL__N_125ChiSquareTest_PValue_Test8TestBodyEvE5specs, %entry ], [ %__begin1.0.ptr, %_ZN7testing15AssertionResultD2Ev.exit ]
   %__begin1.0.idx15 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %__begin1.0.ptr16 = getelementptr inbounds i8, ptr @_ZZN12_GLOBAL__N_125ChiSquareTest_PValue_Test8TestBodyEvE5specs, i64 %__begin1.0.idx15
   call void @_ZN7testing11ScopedTraceC2IiEEPKciRKT_(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_136, ptr noundef nonnull @.str.3, i32 noundef 136, ptr noundef nonnull align 4 dereferenceable(4) %__begin1.0.ptr16)
   %chi_square = getelementptr inbounds i8, ptr %__begin1.0.ptr16, i64 16
-  %0 = load double, ptr %chi_square, align 8
+  %0 = load double, ptr %chi_square, align 16
   %df = getelementptr inbounds i8, ptr %__begin1.0.ptr16, i64 24
   %1 = load i32, ptr %df, align 8
   %call = invoke noundef double @_ZN4absl15random_internal15ChiSquarePValueEdi(double noundef %0, i32 noundef %1)
@@ -1666,7 +1665,6 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i.i, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_136) #15
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx15, 32
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZZN12_GLOBAL__N_125ChiSquareTest_PValue_Test8TestBodyEvE5specs, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 448
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -1899,8 +1897,8 @@ invoke.cont102:                                   ; preds = %invoke.cont92
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont102, %_ZN7testing15AssertionResultD2Ev.exit
-  %__begin1.0.ptr184 = phi ptr [ %specs, %invoke.cont102 ], [ %__begin1.0.ptr, %_ZN7testing15AssertionResultD2Ev.exit ]
   %__begin1.0.idx183 = phi i64 [ 0, %invoke.cont102 ], [ %__begin1.0.add, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %__begin1.0.ptr184 = getelementptr inbounds i8, ptr %specs, i64 %__begin1.0.idx183
   invoke void @_ZN7testing11ScopedTraceC2IiEEPKciRKT_(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_161, ptr noundef nonnull @.str.3, i32 noundef 161, ptr noundef nonnull align 4 dereferenceable(4) %__begin1.0.ptr184)
           to label %for.cond138.preheader unwind label %lpad136
 
@@ -2130,7 +2128,6 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i.i, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_161) #15
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx183, 56
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %specs, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 280
   br i1 %cmp.not, label %arraydestroy.body197, label %for.body
 

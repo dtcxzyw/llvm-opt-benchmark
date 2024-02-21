@@ -3084,19 +3084,19 @@ if.end288:                                        ; preds = %if.else284, %if.the
 
 for.cond.i:                                       ; preds = %for.body.i
   %__begin1.0.add.i = add nuw nsw i64 %__begin1.0.idx5.i, 16
-  %__begin1.0.ptr.i = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_0L23tiff_input_compressionsE, i64 %__begin1.0.add.i
   %cmp.not.i = icmp eq i64 %__begin1.0.add.i, 464
   br i1 %cmp.not.i, label %if.end297, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %if.end288
-  %__begin1.0.ptr6.i = phi ptr [ @_ZN18OpenImageIO_v2_6_0L23tiff_input_compressionsE, %if.end288 ], [ %__begin1.0.ptr.i, %for.cond.i ]
   %__begin1.0.idx5.i = phi i64 [ 0, %if.end288 ], [ %__begin1.0.add.i, %for.cond.i ]
-  %79 = load i32, ptr %__begin1.0.ptr6.i, align 8
+  %__begin1.0.ptr6.i = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_0L23tiff_input_compressionsE, i64 %__begin1.0.idx5.i
+  %79 = load i32, ptr %__begin1.0.ptr6.i, align 16
   %cmp1.i = icmp eq i32 %79, %conv290
   br i1 %cmp1.i, label %_ZN18OpenImageIO_v2_6_0L21tiff_compression_nameEi.exit, label %for.cond.i
 
 _ZN18OpenImageIO_v2_6_0L21tiff_compression_nameEi.exit: ; preds = %for.body.i
-  %second.i = getelementptr inbounds i8, ptr %__begin1.0.ptr6.i, i64 8
+  %__begin1.0.ptr6.i.le = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_0L23tiff_input_compressionsE, i64 %__begin1.0.idx5.i
+  %second.i = getelementptr inbounds i8, ptr %__begin1.0.ptr6.i.le, i64 8
   %80 = load ptr, ptr %second.i, align 8
   %tobool292.not = icmp eq ptr %80, null
   br i1 %tobool292.not, label %if.end297, label %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit188
@@ -34452,9 +34452,9 @@ sw.bb26.i45:                                      ; preds = %if.end18
   %idxprom.i194 = zext nneg i16 %bf.clear.i254 to i64
   %arrayidx.i195 = getelementptr inbounds [4 x i32], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 0, i64 %idxprom.i194
   %46 = load i32, ptr %arrayidx.i195, align 4, !noalias !254
-  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16
+  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16, !alias.scope !254
   %agg.tmp4.i247.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 10
-  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2
+  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2, !alias.scope !254
   %prefix3.i196 = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 16
   store i32 %46, ptr %prefix3.i196, align 16, !alias.scope !254
   %call.i256 = call ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull byval(%"struct.fmt::v8::detail::write_int_arg.146") align 16 %agg.tmp4.i247, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %retval.sroa.0.0.copyload.i156)

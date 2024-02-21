@@ -3041,14 +3041,13 @@ for.cond87.preheader.i:                           ; preds = %if.then83.i
 
 for.cond87.i:                                     ; preds = %_ZN4llvh9StringRefC2EPKc.exit181.i
   %__begin3.0.add.i = add nuw nsw i64 %__begin3.0.idx312.i, 16
-  %__begin3.0.ptr.i = getelementptr inbounds i8, ptr @_ZZN6hermes2vmL11parseESDateENS0_10StringViewEE8knownTZs, i64 %__begin3.0.add.i
   %cmp88.not.i = icmp eq i64 %__begin3.0.add.i, 144
   br i1 %cmp88.not.i, label %if.end100.i, label %for.body89.i
 
 for.body89.i:                                     ; preds = %for.cond87.i, %for.cond87.preheader.i
-  %__begin3.0.ptr313.i = phi ptr [ @_ZZN6hermes2vmL11parseESDateENS0_10StringViewEE8knownTZs, %for.cond87.preheader.i ], [ %__begin3.0.ptr.i, %for.cond87.i ]
   %__begin3.0.idx312.i = phi i64 [ 0, %for.cond87.preheader.i ], [ %__begin3.0.add.i, %for.cond87.i ]
-  %221 = load ptr, ptr %__begin3.0.ptr313.i, align 8
+  %__begin3.0.ptr313.i = getelementptr inbounds i8, ptr @_ZZN6hermes2vmL11parseESDateENS0_10StringViewEE8knownTZs, i64 %__begin3.0.idx312.i
+  %221 = load ptr, ptr %__begin3.0.ptr313.i, align 16
   %tobool.i176.not.i = icmp eq ptr %221, null
   br i1 %tobool.i176.not.i, label %_ZN4llvh9StringRefC2EPKc.exit181.i, label %cond.true.i179.split.i
 
@@ -3068,7 +3067,8 @@ _ZN4llvh9StringRefC2EPKc.exit181.i:               ; preds = %cond.true.i179.spli
   br i1 %call93.i34, label %if.then94.i, label %for.cond87.i
 
 if.then94.i:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit181.i
-  %tzh95.i = getelementptr inbounds i8, ptr %__begin3.0.ptr313.i, i64 8
+  %__begin3.0.ptr313.i.le = getelementptr inbounds i8, ptr @_ZZN6hermes2vmL11parseESDateENS0_10StringViewEE8knownTZs, i64 %__begin3.0.idx312.i
+  %tzh95.i = getelementptr inbounds i8, ptr %__begin3.0.ptr313.i.le, i64 8
   %224 = load i32, ptr %tzh95.i, align 8
   store i32 %224, ptr %tzh.i8, align 4
   br label %if.end100.i

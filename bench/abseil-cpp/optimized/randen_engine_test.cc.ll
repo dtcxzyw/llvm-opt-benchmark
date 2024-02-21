@@ -1346,8 +1346,8 @@ for.cond.preheader:                               ; preds = %.noexc
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %_ZN7testing15AssertionResultD2Ev.exit
-  %__begin1.0.ptr82 = phi ptr [ %kGolden, %for.cond.preheader ], [ %__begin1.0.ptr, %_ZN7testing15AssertionResultD2Ev.exit ]
   %__begin1.0.idx81 = phi i64 [ 0, %for.cond.preheader ], [ %__begin1.0.add, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %__begin1.0.ptr82 = getelementptr inbounds i8, ptr %kGolden, i64 %__begin1.0.idx81
   %10 = load i64, ptr %next_.i.i.i, align 8
   %cmp.i = icmp ugt i64 %10, 31
   br i1 %cmp.i, label %if.then.i, label %invoke.cont5
@@ -1493,7 +1493,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i.i, align 8
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx81, 8
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %kGolden, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 1016
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -1514,8 +1513,8 @@ for.cond26.preheader:                             ; preds = %for.end
   br label %for.body28
 
 for.body28:                                       ; preds = %for.cond26.preheader, %_ZN7testing15AssertionResultD2Ev.exit69
-  %__begin121.0.ptr84 = phi ptr [ %kGolden, %for.cond26.preheader ], [ %__begin121.0.ptr, %_ZN7testing15AssertionResultD2Ev.exit69 ]
   %__begin121.0.idx83 = phi i64 [ 0, %for.cond26.preheader ], [ %__begin121.0.add, %_ZN7testing15AssertionResultD2Ev.exit69 ]
+  %__begin121.0.ptr84 = getelementptr inbounds i8, ptr %kGolden, i64 %__begin121.0.idx83
   %28 = load i64, ptr %next_.i.i.i, align 8
   %cmp.i31 = icmp ugt i64 %28, 31
   br i1 %cmp.i31, label %if.then.i34, label %invoke.cont32
@@ -1646,7 +1645,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit69:          ; preds = %if.end50, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i68
   store ptr null, ptr %message_.i.i50, align 8
   %__begin121.0.add = add nuw nsw i64 %__begin121.0.idx83, 8
-  %__begin121.0.ptr = getelementptr inbounds i8, ptr %kGolden, i64 %__begin121.0.add
   %cmp27.not = icmp eq i64 %__begin121.0.add, 1016
   br i1 %cmp27.not, label %for.end54, label %for.body28
 
@@ -2475,8 +2473,8 @@ for.cond.preheader:                               ; preds = %.noexc
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %_ZN7testing15AssertionResultD2Ev.exit
-  %__begin1.0.ptr83 = phi ptr [ %kGolden, %for.cond.preheader ], [ %__begin1.0.ptr, %_ZN7testing15AssertionResultD2Ev.exit ]
   %__begin1.0.idx82 = phi i64 [ 0, %for.cond.preheader ], [ %__begin1.0.add, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %__begin1.0.ptr83 = getelementptr inbounds i8, ptr %kGolden, i64 %__begin1.0.idx82
   %10 = load i64, ptr %next_.i.i.i, align 8
   %cmp.i = icmp ugt i64 %10, 63
   br i1 %cmp.i, label %if.then.i, label %invoke.cont5
@@ -2623,7 +2621,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i.i, align 8
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx82, 8
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %kGolden, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 2032
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -2644,8 +2641,8 @@ for.cond26.preheader:                             ; preds = %for.end
   br label %for.body28
 
 for.body28:                                       ; preds = %for.cond26.preheader, %_ZN7testing15AssertionResultD2Ev.exit70
-  %__begin121.0.ptr85 = phi ptr [ %kGolden, %for.cond26.preheader ], [ %__begin121.0.ptr, %_ZN7testing15AssertionResultD2Ev.exit70 ]
   %__begin121.0.idx84 = phi i64 [ 0, %for.cond26.preheader ], [ %__begin121.0.add, %_ZN7testing15AssertionResultD2Ev.exit70 ]
+  %__begin121.0.ptr85 = getelementptr inbounds i8, ptr %kGolden, i64 %__begin121.0.idx84
   %28 = load i64, ptr %next_.i.i.i, align 8
   %cmp.i31 = icmp ugt i64 %28, 63
   br i1 %cmp.i31, label %if.then.i34, label %invoke.cont32
@@ -2777,7 +2774,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit70:          ; preds = %if.end50, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i69
   store ptr null, ptr %message_.i.i51, align 8
   %__begin121.0.add = add nuw nsw i64 %__begin121.0.idx84, 8
-  %__begin121.0.ptr = getelementptr inbounds i8, ptr %kGolden, i64 %__begin121.0.add
   %cmp27.not = icmp eq i64 %__begin121.0.add, 2032
   br i1 %cmp27.not, label %for.end54, label %for.body28
 
@@ -3092,8 +3088,8 @@ _ZN4absl15random_internalrsIcSt11char_traitsIcEEERSt13basic_istreamIT_T0_ES8_RNS
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl15random_internalrsIcSt11char_traitsIcEEERSt13basic_istreamIT_T0_ES8_RNS0_13randen_engineImEE.exit, %_ZN7testing15AssertionResultD2Ev.exit
-  %__begin1.0.ptr35 = phi ptr [ %kGolden, %_ZN4absl15random_internalrsIcSt11char_traitsIcEEERSt13basic_istreamIT_T0_ES8_RNS0_13randen_engineImEE.exit ], [ %__begin1.0.ptr, %_ZN7testing15AssertionResultD2Ev.exit ]
   %__begin1.0.idx34 = phi i64 [ 0, %_ZN4absl15random_internalrsIcSt11char_traitsIcEEERSt13basic_istreamIT_T0_ES8_RNS0_13randen_engineImEE.exit ], [ %__begin1.0.add, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %__begin1.0.ptr35 = getelementptr inbounds i8, ptr %kGolden, i64 %__begin1.0.idx34
   %5 = load i64, ptr %next_.i.i.i, align 8
   %cmp.i = icmp ugt i64 %5, 31
   br i1 %cmp.i, label %if.then.i, label %invoke.cont9
@@ -3255,7 +3251,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i.i, align 8
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx34, 8
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %kGolden, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 1016
   br i1 %cmp.not, label %for.end, label %for.body
 

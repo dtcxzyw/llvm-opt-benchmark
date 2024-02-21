@@ -6677,7 +6677,7 @@ if.end921.i:                                      ; preds = %if.then919.i, %sw.b
 
 for.body.i:                                       ; preds = %if.end921.i, %for.body.i
   %indvars.iv580 = phi i64 [ %indvars.iv.next581, %for.body.i ], [ 0, %if.end921.i ]
-  %add.ptr930.i529 = phi ptr [ %add.ptr930.i, %for.body.i ], [ %359, %if.end921.i ]
+  %add.ptr930.i529 = getelementptr inbounds %struct.lua_TValue, ptr %359, i64 %indvars.iv580
   %add.ptr939.i = getelementptr inbounds %struct.lua_TValue, ptr %358, i64 %indvars.iv580
   %365 = load i64, ptr %add.ptr930.i529, align 8
   store i64 %365, ptr %add.ptr939.i, align 8
@@ -44258,8 +44258,8 @@ if.end89:                                         ; preds = %land.lhs.true, %sw.
   br label %initthread-pre-split.backedge
 
 land.rhs.i:                                       ; preds = %land.rhs.i.lr.ph, %while.body.i213
-  %add.ptr.i204509 = phi ptr [ %s.addr.0, %land.rhs.i.lr.ph ], [ %add.ptr.i204, %while.body.i213 ]
   %i.0.i508 = phi i64 [ 0, %land.rhs.i.lr.ph ], [ %inc.i214, %while.body.i213 ]
+  %add.ptr.i204509 = getelementptr inbounds i8, ptr %s.addr.0, i64 %i.0.i508
   %62 = load i8, ptr %add.ptr.i204509, align 1
   %conv.i = zext i8 %62 to i32
   switch i8 %0, label %sw.default.i299 [
@@ -44353,7 +44353,7 @@ while.end.i:                                      ; preds = %while.body.i213, %s
   br i1 %cmp3.i207512, label %while.body5.i.lr.ph, label %return
 
 while.body5.i.lr.ph:                              ; preds = %while.cond.i.preheader, %while.end.i
-  %i.0.i.lcssa584 = phi i64 [ %i.0.i.lcssa, %while.end.i ], [ 0, %while.cond.i.preheader ]
+  %i.0.i.lcssa585 = phi i64 [ %i.0.i.lcssa, %while.end.i ], [ 0, %while.cond.i.preheader ]
   %add.ptr7.i = getelementptr inbounds i8, ptr %retval.0.i180, i64 1
   br label %while.body5.i
 
@@ -44363,7 +44363,7 @@ while.cond2.i:                                    ; preds = %while.body5.i
   br i1 %cmp3.i207, label %while.body5.i, label %return, !llvm.loop !159
 
 while.body5.i:                                    ; preds = %while.body5.i.lr.ph, %while.cond2.i
-  %i.1.i513 = phi i64 [ %i.0.i.lcssa584, %while.body5.i.lr.ph ], [ %dec.i210, %while.cond2.i ]
+  %i.1.i513 = phi i64 [ %i.0.i.lcssa585, %while.body5.i.lr.ph ], [ %dec.i210, %while.cond2.i ]
   %add.ptr6.i = getelementptr inbounds i8, ptr %s.addr.0, i64 %i.1.i513
   %call8.i = tail call fastcc ptr @match(ptr noundef %ms, ptr noundef %add.ptr6.i, ptr noundef nonnull %add.ptr7.i)
   %tobool9.not.i = icmp eq ptr %call8.i, null
@@ -44382,8 +44382,8 @@ land.rhs.i232.lr.ph:                              ; preds = %cond.true95
   br label %land.rhs.i232
 
 land.rhs.i232:                                    ; preds = %land.rhs.i232.lr.ph, %while.body.i236
-  %add.ptr.i217500 = phi ptr [ %add.ptr96, %land.rhs.i232.lr.ph ], [ %add.ptr.i217, %while.body.i236 ]
   %i.0.i216499 = phi i64 [ 0, %land.rhs.i232.lr.ph ], [ %inc.i237, %while.body.i236 ]
+  %add.ptr.i217500 = getelementptr inbounds i8, ptr %add.ptr96, i64 %i.0.i216499
   %68 = load i8, ptr %add.ptr.i217500, align 1
   %conv.i233 = zext i8 %68 to i32
   switch i8 %0, label %sw.default.i347 [
@@ -44477,7 +44477,7 @@ while.end.i220:                                   ; preds = %while.body.i236, %s
   br i1 %cmp3.i223503, label %while.body5.i225.lr.ph, label %return
 
 while.body5.i225.lr.ph:                           ; preds = %cond.true95, %while.end.i220
-  %i.0.i216.lcssa587 = phi i64 [ %i.0.i216.lcssa, %while.end.i220 ], [ 0, %cond.true95 ]
+  %i.0.i216.lcssa588 = phi i64 [ %i.0.i216.lcssa, %while.end.i220 ], [ 0, %cond.true95 ]
   %add.ptr7.i227 = getelementptr inbounds i8, ptr %retval.0.i180, i64 1
   br label %while.body5.i225
 
@@ -44487,7 +44487,7 @@ while.cond2.i221:                                 ; preds = %while.body5.i225
   br i1 %cmp3.i223, label %while.body5.i225, label %return, !llvm.loop !159
 
 while.body5.i225:                                 ; preds = %while.body5.i225.lr.ph, %while.cond2.i221
-  %i.1.i222504 = phi i64 [ %i.0.i216.lcssa587, %while.body5.i225.lr.ph ], [ %dec.i231, %while.cond2.i221 ]
+  %i.1.i222504 = phi i64 [ %i.0.i216.lcssa588, %while.body5.i225.lr.ph ], [ %dec.i231, %while.cond2.i221 ]
   %add.ptr6.i226 = getelementptr inbounds i8, ptr %add.ptr96, i64 %i.1.i222504
   %call8.i228 = tail call fastcc ptr @match(ptr noundef %ms, ptr noundef nonnull %add.ptr6.i226, ptr noundef nonnull %add.ptr7.i227)
   %tobool9.not.i229 = icmp eq ptr %call8.i228, null

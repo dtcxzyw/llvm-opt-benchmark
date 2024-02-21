@@ -7128,9 +7128,9 @@ for.cond.preheader:                               ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %invoke.cont12
-  %__begin2.0.ptr114 = phi ptr [ @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_111explanationE, %for.cond.preheader ], [ %__begin2.0.ptr, %invoke.cont12 ]
   %exp.0113 = phi ptr [ null, %for.cond.preheader ], [ %spec.select, %invoke.cont12 ]
   %__begin2.0.idx112 = phi i64 [ 0, %for.cond.preheader ], [ %__begin2.0.add, %invoke.cont12 ]
+  %__begin2.0.ptr114 = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_111explanationE, i64 %__begin2.0.idx112
   %9 = load ptr, ptr %__begin2.0.ptr114, align 8
   store ptr %9, ptr %agg.tmp9, align 8
   %tobool.not.i = icmp eq ptr %9, null
@@ -7163,7 +7163,6 @@ _ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv
 invoke.cont12:                                    ; preds = %_ZNK18OpenImageIO_v2_6_07ustringcvNS_17basic_string_viewIcSt11char_traitsIcEEEEv.exit
   %spec.select = select i1 %call13, ptr %__begin2.0.ptr114, ptr %exp.0113
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx112, 24
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_111explanationE, i64 %__begin2.0.add
   %cmp8.not = icmp eq i64 %__begin2.0.add, 888
   br i1 %cmp8.not, label %for.end, label %for.body
 
@@ -34109,9 +34108,9 @@ sw.bb26.i45:                                      ; preds = %if.end18
   %idxprom.i194 = zext nneg i16 %bf.clear.i254 to i64
   %arrayidx.i195 = getelementptr inbounds [4 x i32], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 0, i64 %idxprom.i194
   %46 = load i32, ptr %arrayidx.i195, align 4, !noalias !332
-  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16
+  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16, !alias.scope !332
   %agg.tmp4.i247.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 10
-  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2
+  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2, !alias.scope !332
   %prefix3.i196 = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 16
   store i32 %46, ptr %prefix3.i196, align 16, !alias.scope !332
   %call.i256 = call ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull byval(%"struct.fmt::v8::detail::write_int_arg.102") align 16 %agg.tmp4.i247, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %retval.sroa.0.0.copyload.i156)
@@ -69201,14 +69200,13 @@ lpad:                                             ; preds = %if.end.i, %for.body
 
 for.cond7:                                        ; preds = %for.body9
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx19, 16
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 %__begin0.0.add
   %cmp8.not = icmp eq i64 %__begin0.0.add, 240
   br i1 %cmp8.not, label %cleanup, label %for.body9
 
 for.body9:                                        ; preds = %for.body9.preheader, %for.cond7
-  %__begin0.0.ptr20 = phi ptr [ %__begin0.0.ptr, %for.cond7 ], [ @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, %for.body9.preheader ]
   %__begin0.0.idx19 = phi i64 [ %__begin0.0.add, %for.cond7 ], [ 0, %for.body9.preheader ]
-  %5 = load ptr, ptr %__begin0.0.ptr20, align 8
+  %__begin0.0.ptr20 = getelementptr inbounds i8, ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 %__begin0.0.idx19
+  %5 = load ptr, ptr %__begin0.0.ptr20, align 16
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__s, ptr noundef %5) #28
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then, label %for.cond7

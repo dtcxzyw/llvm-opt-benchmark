@@ -345,8 +345,8 @@ if.end:
   br label %for.cond582.preheader
 
 for.cond582.preheader:                            ; preds = %if.end, %for.inc641
-  %__begin2.0.ptr451 = phi ptr [ %values, %if.end ], [ %__begin2.0.ptr, %for.inc641 ]
   %__begin2.0.idx450 = phi i64 [ 0, %if.end ], [ %__begin2.0.add, %for.inc641 ]
+  %__begin2.0.ptr451 = getelementptr inbounds i8, ptr %values, i64 %__begin2.0.idx450
   %agg.tmp588.sroa.0.0.copyload = load i8, ptr %__begin2.0.ptr451, align 1
   br label %for.body584
 
@@ -575,7 +575,6 @@ _ZN7testing15AssertionResultD2Ev.exit448:         ; preds = %if.end639, %_ZNKSt1
 
 for.inc641:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit448
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx450, 1
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr %values, i64 %__begin2.0.add
   %cmp.not = icmp eq i64 %__begin2.0.add, 4
   br i1 %cmp.not, label %for.end643, label %for.cond582.preheader
 
@@ -807,8 +806,8 @@ if.end:
   br label %for.cond274.preheader
 
 for.cond274.preheader:                            ; preds = %if.end, %for.inc330
-  %__begin2.0.ptr251 = phi ptr [ %values, %if.end ], [ %__begin2.0.ptr, %for.inc330 ]
   %__begin2.0.idx250 = phi i64 [ 0, %if.end ], [ %__begin2.0.add, %for.inc330 ]
+  %__begin2.0.ptr251 = getelementptr inbounds i8, ptr %values, i64 %__begin2.0.idx250
   %agg.tmp280.sroa.0.0.copyload = load i8, ptr %__begin2.0.ptr251, align 1
   br label %for.body276
 
@@ -1037,7 +1036,6 @@ _ZN7testing15AssertionResultD2Ev.exit248:         ; preds = %if.end328, %_ZNKSt1
 
 for.inc330:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit248
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx250, 1
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr %values, i64 %__begin2.0.add
   %cmp.not = icmp eq i64 %__begin2.0.add, 3
   br i1 %cmp.not, label %for.end332, label %for.cond274.preheader
 
@@ -1121,8 +1119,8 @@ if.end:
   br label %for.cond330.preheader
 
 for.cond330.preheader:                            ; preds = %if.end, %for.inc386
-  %__begin2.0.ptr311 = phi ptr [ %values, %if.end ], [ %__begin2.0.ptr, %for.inc386 ]
   %__begin2.0.idx310 = phi i64 [ 0, %if.end ], [ %__begin2.0.add, %for.inc386 ]
+  %__begin2.0.ptr311 = getelementptr inbounds i8, ptr %values, i64 %__begin2.0.idx310
   %agg.tmp336.sroa.0.0.copyload = load i8, ptr %__begin2.0.ptr311, align 1
   br label %for.body332
 
@@ -1351,7 +1349,6 @@ _ZN7testing15AssertionResultD2Ev.exit292:         ; preds = %if.end384, %_ZNKSt1
 
 for.inc386:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit292
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx310, 1
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr %values, i64 %__begin2.0.add
   %cmp.not = icmp eq i64 %__begin2.0.add, 3
   br i1 %cmp.not, label %if.end416, label %for.cond330.preheader
 

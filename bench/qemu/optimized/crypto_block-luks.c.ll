@@ -876,9 +876,8 @@ for.cond1.i:                                      ; preds = %for.body5.i
   br i1 %cmp3.i, label %for.body5.i, label %for.inc12.i, !llvm.loop !14
 
 for.body5.i:                                      ; preds = %for.cond1.preheader.i, %for.cond1.i
-  %arrayidx215.i = phi ptr [ %arrayidx2.i, %for.cond1.i ], [ %7, %for.cond1.preheader.i ]
   %j.014.i = phi i64 [ %inc.i, %for.cond1.i ], [ 0, %for.cond1.preheader.i ]
-  %id.i = getelementptr inbounds i8, ptr %arrayidx215.i, i64 4
+  %id.i = getelementptr %struct.QCryptoBlockLUKSCipherSizeMap, ptr %7, i64 %j.014.i, i32 1
   %10 = load i32, ptr %id.i, align 4
   %cmp9.i = icmp eq i32 %10, %luks_opts.sroa.325.0
   br i1 %cmp9.i, label %qcrypto_block_luks_cipher_alg_lookup.exit, label %for.cond1.i

@@ -2307,10 +2307,10 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont379
-  %__begin0.0.ptr538 = phi ptr [ %ref.tmp3, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.ptr, %invoke.cont379 ]
   %__begin0.0.idx537 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont379 ]
   %gen.sroa.3.0536 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.us-phi529, %invoke.cont379 ]
   %gen.sroa.0.0535 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.us-phi528, %invoke.cont379 ]
+  %__begin0.0.ptr538 = getelementptr inbounds i8, ptr %ref.tmp3, i64 %__begin0.0.idx537
   %hi_.i94 = getelementptr inbounds i8, ptr %__begin0.0.ptr538, i64 4
   %6 = load <2 x float>, ptr %__begin0.0.ptr538, align 4
   store <2 x float> %6, ptr %before, align 8
@@ -4032,7 +4032,6 @@ invoke.cont379:                                   ; preds = %invoke.cont376
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp367) #30
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #23
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx537, 12
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr %ref.tmp3, i64 %__begin0.0.add
   %cmp.not = icmp eq i64 %__begin0.0.add, 240
   br i1 %cmp.not, label %for.end385, label %for.body
 
@@ -6680,10 +6679,10 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %invoke.cont370
-  %__begin0.0.ptr520 = phi ptr [ %ref.tmp3, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.ptr, %invoke.cont370 ]
   %__begin0.0.idx519 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %invoke.cont370 ]
   %gen.sroa.3.0518 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.us-phi511, %invoke.cont370 ]
   %gen.sroa.0.0517 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.us-phi510, %invoke.cont370 ]
+  %__begin0.0.ptr520 = getelementptr inbounds i8, ptr %ref.tmp3, i64 %__begin0.0.idx519
   %hi_.i93 = getelementptr inbounds i8, ptr %__begin0.0.ptr520, i64 8
   %6 = load <2 x double>, ptr %__begin0.0.ptr520, align 8
   store <2 x double> %6, ptr %before, align 16
@@ -8389,7 +8388,6 @@ invoke.cont370:                                   ; preds = %invoke.cont368
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp360) #30
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #23
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx519, 24
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr %ref.tmp3, i64 %__begin0.0.add
   %cmp.not = icmp eq i64 %__begin0.0.add, 480
   br i1 %cmp.not, label %for.end375, label %for.body
 
@@ -10759,10 +10757,10 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit, %for.end
-  %__begin0.0.ptr492 = phi ptr [ %ref.tmp3, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.ptr, %for.end ]
   %__begin0.0.idx491 = phi i64 [ 0, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %__begin0.0.add, %for.end ]
   %gen.sroa.3.0490 = phi i64 [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.us-phi483, %for.end ]
   %gen.sroa.0.0489 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ], [ %.us-phi482, %for.end ]
+  %__begin0.0.ptr492 = getelementptr inbounds i8, ptr %ref.tmp3, i64 %__begin0.0.idx491
   %6 = load x86_fp80, ptr %__begin0.0.ptr492, align 16
   %hi_.i92 = getelementptr inbounds i8, ptr %__begin0.0.ptr492, i64 16
   %7 = load x86_fp80, ptr %hi_.i92, align 16
@@ -12434,7 +12432,6 @@ if.end352:                                        ; preds = %if.end352.sink.spli
 for.end:                                          ; preds = %if.end352
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #23
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx491, 48
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr %ref.tmp3, i64 %__begin0.0.add
   %cmp.not = icmp eq i64 %__begin0.0.add, 960
   br i1 %cmp.not, label %for.end361, label %for.body
 
@@ -19701,10 +19698,10 @@ entry:
 for.body:                                         ; preds = %for.body.backedge, %entry
   %10 = phi float [ 1.000000e+00, %entry ], [ %.pre123, %for.body.backedge ]
   %11 = phi float [ 0.000000e+00, %entry ], [ %.pre, %for.body.backedge ]
-  %__begin0.0.ptr108 = phi ptr [ %ref.tmp3, %entry ], [ %__begin0.0.ptr.old, %for.body.backedge ]
   %__begin0.0.idx107 = phi i64 [ 0, %entry ], [ %__begin0.0.add.old, %for.body.backedge ]
   %rng.sroa.3.0106 = phi i64 [ 5843272855002366918, %entry ], [ %.us-phi103, %for.body.backedge ]
   %rng.sroa.0.0105 = phi i64 [ 3337843704530833496, %entry ], [ %.us-phi102, %for.body.backedge ]
+  %__begin0.0.ptr108 = getelementptr inbounds i8, ptr %ref.tmp3, i64 %__begin0.0.idx107
   %conv9 = fpext float %11 to double
   %hi_.i23 = getelementptr inbounds i8, ptr %__begin0.0.ptr108, i64 4
   %conv11 = fpext float %10 to double
@@ -20172,10 +20169,10 @@ entry:
 for.body:                                         ; preds = %for.body.backedge, %entry
   %10 = phi double [ 1.000000e+00, %entry ], [ %.pre121, %for.body.backedge ]
   %11 = phi double [ 0.000000e+00, %entry ], [ %.pre, %for.body.backedge ]
-  %__begin0.0.ptr106 = phi ptr [ %ref.tmp3, %entry ], [ %__begin0.0.ptr.old, %for.body.backedge ]
   %__begin0.0.idx105 = phi i64 [ 0, %entry ], [ %__begin0.0.add.old, %for.body.backedge ]
   %rng.sroa.3.0104 = phi i64 [ 5843272855002366918, %entry ], [ %.us-phi101, %for.body.backedge ]
   %rng.sroa.0.0103 = phi i64 [ 3337843704530833496, %entry ], [ %.us-phi100, %for.body.backedge ]
+  %__begin0.0.ptr106 = getelementptr inbounds i8, ptr %ref.tmp3, i64 %__begin0.0.idx105
   %hi_.i23 = getelementptr inbounds i8, ptr %__begin0.0.ptr106, i64 8
   %sub = fsub double %10, %11
   %call5.i.i.i.i2.i.i24 = call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #25
@@ -20629,10 +20626,10 @@ entry:
 for.body:                                         ; preds = %for.body.backedge, %entry
   %10 = phi x86_fp80 [ 0xK3FFF8000000000000000, %entry ], [ %.pre124, %for.body.backedge ]
   %11 = phi x86_fp80 [ 0xK00000000000000000000, %entry ], [ %.pre, %for.body.backedge ]
-  %__begin0.0.ptr109 = phi ptr [ %ref.tmp3, %entry ], [ %__begin0.0.ptr.old, %for.body.backedge ]
   %__begin0.0.idx108 = phi i64 [ 0, %entry ], [ %__begin0.0.add.old, %for.body.backedge ]
   %rng.sroa.3.0107 = phi i64 [ 5843272855002366918, %entry ], [ %.us-phi104, %for.body.backedge ]
   %rng.sroa.0.0106 = phi i64 [ 3337843704530833496, %entry ], [ %.us-phi103, %for.body.backedge ]
+  %__begin0.0.ptr109 = getelementptr inbounds i8, ptr %ref.tmp3, i64 %__begin0.0.idx108
   %conv9 = fptrunc x86_fp80 %11 to double
   %hi_.i23 = getelementptr inbounds i8, ptr %__begin0.0.ptr109, i64 16
   %conv11 = fptrunc x86_fp80 %10 to double

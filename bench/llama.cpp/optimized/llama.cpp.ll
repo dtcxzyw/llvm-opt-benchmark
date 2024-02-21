@@ -14205,8 +14205,8 @@ call5.i.i.i.i2.i.i.noexc.i:                       ; preds = %if.end180.i.i
   br label %for.body205.i.i
 
 for.body205.i.i:                                  ; preds = %cleanup.i.i, %call5.i.i.i.i2.i.i.noexc.i
-  %__begin1.sroa.0.0.ptr255.i.i = phi ptr [ %call5.i.i.i.i2.i.i30.i, %call5.i.i.i.i2.i.i.noexc.i ], [ %__begin1.sroa.0.0.ptr.i.i, %cleanup.i.i ]
   %__begin1.sroa.0.0.idx254.i.i = phi i64 [ 0, %call5.i.i.i.i2.i.i.noexc.i ], [ %__begin1.sroa.0.0.add.i.i, %cleanup.i.i ]
+  %__begin1.sroa.0.0.ptr255.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i30.i, i64 %__begin1.sroa.0.0.idx254.i.i
   %52 = load i32, ptr %__begin1.sroa.0.0.ptr255.i.i, align 4
   invoke void @_ZNK6LLM_KVclB5cxx11E6llm_kv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp207.i.i, ptr noundef nonnull align 4 dereferenceable(4) %kv.i.i, i32 noundef %52)
           to label %invoke.cont210.i.i unwind label %lpad209.loopexit.i.i
@@ -14315,7 +14315,6 @@ if.else225.i.i:                                   ; preds = %if.end217.i.i
 cleanup.i.i:                                      ; preds = %if.else225.i.i, %if.then222.i.i, %invoke.cont214.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp207.i.i) #44
   %__begin1.sroa.0.0.add.i.i = add nuw nsw i64 %__begin1.sroa.0.0.idx254.i.i, 16
-  %__begin1.sroa.0.0.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i30.i, i64 %__begin1.sroa.0.0.add.i.i
   %cmp.i158.not.i.i = icmp eq i64 %__begin1.sroa.0.0.add.i.i, 80
   br i1 %cmp.i158.not.i.i, label %for.end230.i.i, label %for.body205.i.i
 

@@ -20122,9 +20122,9 @@ if.end8:                                          ; preds = %if.then5
   br label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit
 
 _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit: ; preds = %if.end8, %if.end26
-  %P.0.ptr80 = phi ptr [ %storage.i.i.i, %if.end8 ], [ %P.0.ptr, %if.end26 ]
   %TmpEnd.079 = phi ptr [ %TmpStorage, %if.end8 ], [ %TmpEnd.1, %if.end26 ]
   %P.0.idx78 = phi i64 [ 0, %if.end8 ], [ %P.0.add, %if.end26 ]
+  %P.0.ptr80 = getelementptr inbounds i8, ptr %storage.i.i.i, i64 %P.0.idx78
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %P.0.ptr80, align 8
   %switch = icmp ugt ptr %agg.tmp.sroa.0.0.copyload, inttoptr (i64 -3 to ptr)
   br i1 %switch, label %if.end26, label %if.then20
@@ -20137,7 +20137,6 @@ if.then20:                                        ; preds = %_ZN4llvh12DenseMapI
 if.end26:                                         ; preds = %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit, %if.then20
   %TmpEnd.1 = phi ptr [ %incdec.ptr, %if.then20 ], [ %TmpEnd.079, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit ]
   %P.0.add = add nuw nsw i64 %P.0.idx78, 16
-  %P.0.ptr = getelementptr inbounds i8, ptr %storage.i.i.i, i64 %P.0.add
   %cmp12.not = icmp eq i64 %P.0.add, 64
   br i1 %cmp12.not, label %for.body.i.i.preheader, label %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit, !llvm.loop !291
 

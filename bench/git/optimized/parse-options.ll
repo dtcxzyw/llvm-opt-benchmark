@@ -2468,7 +2468,7 @@ if.then.i:                                        ; preds = %for.cond.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.cond.i
   %nr_aliases.1.i = phi i32 [ %inc.i, %if.then.i ], [ %nr_aliases.0.i, %for.cond.i ]
-  %indvars.iv.next.i = add i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %indvars.iv.next79.i = add nsw i32 %indvars.iv78.i, 1
   br label %for.cond.i, !llvm.loop !27
 
@@ -2478,7 +2478,7 @@ for.end.i:                                        ; preds = %for.cond.i
   br i1 %tobool.not.i, label %preprocess_options.exit, label %st_mult.exit.i
 
 st_mult.exit.i:                                   ; preds = %for.end.i
-  %add.i = add i64 %indvars.iv.i, 1
+  %add.i = add nuw i64 %indvars.iv.i, 1
   %conv.i = and i64 %add.i, 4294967295
   %mul.i.i = mul nuw nsw i64 %conv.i, 88
   %call8.i = tail call ptr @xmalloc(i64 noundef %mul.i.i) #17
@@ -2731,7 +2731,7 @@ for.cond.preheader.i:                             ; preds = %sw.epilog
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i29
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i30, %for.inc.i29 ], [ 0, %for.cond.preheader.i ]
-  %arrayidx10.i = phi ptr [ %arrayidx.i31, %for.inc.i29 ], [ %retval.0.i, %for.cond.preheader.i ]
+  %arrayidx10.i = getelementptr inbounds %struct.option, ptr %retval.0.i, i64 %indvars.iv.i26
   %flags.i27 = getelementptr inbounds i8, ptr %arrayidx10.i, i64 40
   %31 = load i32, ptr %flags.i27, align 8
   %and.i = and i32 %31, 128

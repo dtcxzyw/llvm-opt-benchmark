@@ -5392,21 +5392,21 @@ if.end8.i.i.i:                                    ; preds = %_ZNSt6vectorIN12_GL
   br i1 %cmp963.i.i.i, label %for.body.i.i.i, label %for.body.i.i.preheader
 
 for.body.i.i.i:                                   ; preds = %if.end8.i.i.i, %if.end26.i.i.i
-  %d.067.i.i.i = phi double [ %mul.i.i.i, %if.end26.i.i.i ], [ 1.000000e+00, %if.end8.i.i.i ]
-  %i.066.i.i.i = phi i64 [ %inc.i.i.i, %if.end26.i.i.i ], [ 1, %if.end8.i.i.i ]
-  %cumulative.065.i.i.i = phi double [ %add.i.i.i, %if.end26.i.i.i ], [ %call5.i.i.i, %if.end8.i.i.i ]
-  %last_result.064.i.i.i = phi double [ %mul12.i.i.i, %if.end26.i.i.i ], [ %call5.i.i.i, %if.end8.i.i.i ]
+  %d.066.i.i.i = phi double [ %mul.i.i.i, %if.end26.i.i.i ], [ 1.000000e+00, %if.end8.i.i.i ]
+  %i.065.i.i.i = phi i64 [ %inc.i.i.i, %if.end26.i.i.i ], [ 1, %if.end8.i.i.i ]
+  %cumulative.064.i.i.i = phi double [ %add.i.i.i, %if.end26.i.i.i ], [ %call5.i.i.i, %if.end8.i.i.i ]
   %this.val.i.i.i = load double, ptr %add.ptr, align 8
-  %conv11.i.i.i = uitofp i64 %i.066.i.i.i to double
+  %conv11.i.i.i = uitofp i64 %i.065.i.i.i to double
   %div.i.i.i = fdiv double %this.val.i.i.i, %conv11.i.i.i
-  %mul.i.i.i = fmul double %d.067.i.i.i, %div.i.i.i
+  %mul.i.i.i = fmul double %d.066.i.i.i, %div.i.i.i
   %mul12.i.i.i = fmul double %call5.i.i.i, %mul.i.i.i
-  %add.i.i.i = fadd double %cumulative.065.i.i.i, %mul12.i.i.i
+  %add.i.i.i = fadd double %cumulative.064.i.i.i, %mul12.i.i.i
   %cmp13.i.i.i = fcmp olt double %mul12.i.i.i, 1.000000e-10
   br i1 %cmp13.i.i.i, label %land.lhs.true.i.i.i, label %if.end18.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.body.i.i.i
-  %cmp14.i.i.i = fcmp olt double %mul12.i.i.i, %last_result.064.i.i.i
+  %last_result.067.i.i.i = fmul double %call5.i.i.i, %d.066.i.i.i
+  %cmp14.i.i.i = fcmp olt double %mul12.i.i.i, %last_result.067.i.i.i
   %cmp16.i.i.i = fcmp ogt double %add.i.i.i, 0x3FEFFFFDE7210BE9
   %or.cond.i.i.i = select i1 %cmp14.i.i.i, i1 %cmp16.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %for.body.i.i.preheader, label %if.end18.i.i.i
@@ -5422,7 +5422,7 @@ if.then20.i.i.i:                                  ; preds = %if.end18.i.i.i
   br i1 %cmp.not.i.i23.i.i.i, label %if.else.i.i26.i.i.i, label %if.then.i.i24.i.i.i
 
 if.then.i.i24.i.i.i:                              ; preds = %if.then20.i.i.i
-  store i64 %i.066.i.i.i, ptr %22, align 8
+  store i64 %i.065.i.i.i, ptr %22, align 8
   %ref.tmp22.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   store double %mul12.i.i.i, ptr %ref.tmp22.sroa.3.0..sroa_idx.i.i.i, align 8
   %ref.tmp22.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %22, i64 16
@@ -5463,7 +5463,7 @@ cond.true.i.i.i.i40.i.i.i:                        ; preds = %_ZNKSt6vectorIN12_G
 _ZNSt12_Vector_baseIN12_GLOBAL__N_112PoissonModel3CDFESaIS2_EE11_M_allocateEm.exit.i.i.i43.i.i.i: ; preds = %cond.true.i.i.i.i40.i.i.i, %_ZNKSt6vectorIN12_GLOBAL__N_112PoissonModel3CDFESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i32.i.i.i
   %cond.i12.i.i.i44.i.i.i = phi ptr [ %call5.i.i.i.i.i.i42.i.i.i, %cond.true.i.i.i.i40.i.i.i ], [ null, %_ZNKSt6vectorIN12_GLOBAL__N_112PoissonModel3CDFESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i32.i.i.i ]
   %add.ptr.i.i.i45.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::PoissonModel::CDF", ptr %cond.i12.i.i.i44.i.i.i, i64 %sub.ptr.div.i.i.i.i.i33.i.i.i
-  store i64 %i.066.i.i.i, ptr %add.ptr.i.i.i45.i.i.i, align 8
+  store i64 %i.065.i.i.i, ptr %add.ptr.i.i.i45.i.i.i, align 8
   %ref.tmp22.sroa.3.0.add.ptr.i.i.i45.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i45.i.i.i, i64 8
   store double %mul12.i.i.i, ptr %ref.tmp22.sroa.3.0.add.ptr.i.i.i45.sroa_idx.i.i.i, align 8
   %ref.tmp22.sroa.4.0.add.ptr.i.i.i45.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i45.i.i.i, i64 16
@@ -5493,7 +5493,7 @@ _ZNSt6vectorIN12_GLOBAL__N_112PoissonModel3CDFESaIS2_EE17_M_realloc_insertIJS2_E
   br label %if.end26.i.i.i
 
 if.end26.i.i.i:                                   ; preds = %_ZNSt6vectorIN12_GLOBAL__N_112PoissonModel3CDFESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i52.i.i.i, %if.then.i.i24.i.i.i, %if.end18.i.i.i
-  %inc.i.i.i = add nuw i64 %i.066.i.i.i, 1
+  %inc.i.i.i = add nuw i64 %i.065.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %conv.i.i.i
   br i1 %exitcond.not.i.i.i, label %for.body.i.i.preheader, label %for.body.i.i.i, !llvm.loop !69
 

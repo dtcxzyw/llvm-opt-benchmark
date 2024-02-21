@@ -26989,15 +26989,14 @@ entry:
   %my_traits2.i.i = getelementptr inbounds i8, ptr %my_context, i64 13
   store i8 4, ptr %my_traits2.i.i, align 1
   call void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128) %my_context) #13
-  %.pre = load i32, ptr %begin, align 1
   %r_type5.i.phi.trans.insert = getelementptr inbounds i8, ptr %begin, i64 7
-  %.pre27 = load i8, ptr %r_type5.i.phi.trans.insert, align 1
+  %.pre = load i8, ptr %r_type5.i.phi.trans.insert, align 1
+  %.pre28 = load i32, ptr %begin, align 1
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.cond.backedge
-  %0 = phi i8 [ %.pre27, %entry ], [ %2, %for.cond.backedge ]
-  %1 = phi i32 [ %.pre, %entry ], [ %3, %for.cond.backedge ]
-  %k.0.ptr26 = phi ptr [ %begin, %entry ], [ %add.ptr1.ptr, %for.cond.backedge ]
+  %0 = phi i32 [ %.pre28, %entry ], [ %3, %for.cond.backedge ]
+  %1 = phi i8 [ %.pre, %entry ], [ %2, %for.cond.backedge ]
   %k.0.idx25 = phi i64 [ 0, %entry ], [ %k.0.add, %for.cond.backedge ]
   %k.0.add = add nuw nsw i64 %k.0.idx25, 12
   %add.ptr1.ptr = getelementptr inbounds i8, ptr %begin, i64 %k.0.add
@@ -27005,13 +27004,14 @@ for.body:                                         ; preds = %entry, %for.cond.ba
   %2 = load i8, ptr %r_type.i, align 1
   %cmp.i.i = icmp ne i8 %2, 22
   %3 = load i32, ptr %add.ptr1.ptr, align 1
-  %cmp.i5.i = icmp ne i8 %0, 22
+  %cmp.i5.i = icmp ne i8 %1, 22
   %4 = xor i1 %cmp.i.i, true
   %cmp.lt.i.i.i.i = and i1 %cmp.i5.i, %4
   %5 = xor i1 %cmp.i.i, %cmp.i5.i
   br i1 %5, label %_ZZN4mold3elf13RelDynSectionINS0_4M68KEE4sortERNS0_7ContextIS2_EEENKUlRKNS0_6ElfRelIS2_EESA_E_clESA_SA_.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body
+  %k.0.ptr26 = getelementptr inbounds i8, ptr %begin, i64 %k.0.idx25
   %ref.tmp3.sroa.5.4.r_sym8.sroa_idx.i = getelementptr inbounds i8, ptr %k.0.ptr26, i64 6
   %ref.tmp3.sroa.5.4.copyload.i = load i8, ptr %ref.tmp3.sroa.5.4.r_sym8.sroa_idx.i, align 1
   %r_sym8.i = getelementptr inbounds i8, ptr %k.0.ptr26, i64 4
@@ -27044,9 +27044,9 @@ if.end.i.i.i:                                     ; preds = %for.body
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i.i.i
   %6 = call noundef i32 @llvm.bswap.i32(i32 %3)
-  %7 = call noundef i32 @llvm.bswap.i32(i32 %1)
+  %7 = call noundef i32 @llvm.bswap.i32(i32 %0)
   %cmp.lt.i.i.i.i.i.i = icmp ult i32 %6, %7
-  %cmp.eq.i.i.i.i.i.i = icmp ne i32 %3, %1
+  %cmp.eq.i.i.i.i.i.i = icmp ne i32 %3, %0
   %8 = and i1 %cmp.eq.i.i.i.i.i.i, %cmp.lt.i.i.i.i.i.i
   br i1 %8, label %if.then, label %for.cond.backedge
 
@@ -27078,7 +27078,7 @@ if.then:                                          ; preds = %if.end.i.i.i.i, %_Z
   br label %cleanup
 
 for.end:                                          ; preds = %for.cond.backedge
-  %add.ptr2 = getelementptr i8, ptr %begin, i64 120
+  %add.ptr2 = getelementptr inbounds i8, ptr %begin, i64 120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i.i)
   %cmp.i.not.i.i = icmp ult ptr %add.ptr2, %end
@@ -34312,7 +34312,7 @@ for.inc:                                          ; preds = %if.then.i, %_ZZN4mo
   br i1 %cmp.i, label %for.end, label %for.body, !llvm.loop !277
 
 for.end:                                          ; preds = %for.inc
-  %add.ptr.i5 = getelementptr i8, ptr %begin.coerce, i64 80
+  %add.ptr.i5 = getelementptr inbounds i8, ptr %begin.coerce, i64 80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alloc.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %wn.i.i)
   %cmp.lt.i.i.i.not.i.i = icmp ult ptr %add.ptr.i5, %end.coerce

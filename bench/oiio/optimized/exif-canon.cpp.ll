@@ -898,8 +898,8 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %__begin2.0.ptr40 = phi ptr [ @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, %entry ], [ %__begin2.0.ptr, %for.inc ]
   %__begin2.0.idx39 = phi i64 [ 0, %entry ], [ %__begin2.0.add, %for.inc ]
+  %__begin2.0.ptr40 = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 %__begin2.0.idx39
   %handler = getelementptr inbounds i8, ptr %__begin2.0.ptr40, i64 24
   %0 = load ptr, ptr %handler, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -937,7 +937,7 @@ if.then3:                                         ; preds = %_ZN18OpenImageIO_v2
   %5 = load ptr, ptr %m_data.i, align 8
   %cond.i32 = select i1 %tobool.not.i31, ptr %m_data.i, ptr %5
   %tifftype = getelementptr inbounds i8, ptr %__begin2.0.ptr40, i64 16
-  %6 = load i32, ptr %tifftype, align 8
+  %6 = load i32, ptr %tifftype, align 16
   %cmp5 = icmp eq i32 %6, 2
   br i1 %cmp5, label %if.then6, label %if.end10
 
@@ -957,20 +957,19 @@ if.end.i.i:                                       ; preds = %if.then6
 _ZNK18OpenImageIO_v2_6_07ustring4sizeEv.exit:     ; preds = %if.then6, %if.end.i.i
   %retval.0.i.i = phi i64 [ %9, %if.end.i.i ], [ 0, %if.then6 ]
   %add = add i64 %retval.0.i.i, 1
-  %.pre = load i32, ptr %tifftype, align 8
+  %.pre = load i32, ptr %tifftype, align 16
   br label %if.end10
 
 if.end10:                                         ; preds = %_ZNK18OpenImageIO_v2_6_07ustring4sizeEv.exit, %if.then3
   %10 = phi i32 [ %.pre, %_ZNK18OpenImageIO_v2_6_07ustring4sizeEv.exit ], [ %6, %if.then3 ]
   %count.0 = phi i64 [ %add, %_ZNK18OpenImageIO_v2_6_07ustring4sizeEv.exit ], [ %conv, %if.then3 ]
   %d.0 = phi ptr [ %7, %_ZNK18OpenImageIO_v2_6_07ustring4sizeEv.exit ], [ %cond.i32, %if.then3 ]
-  %11 = load i32, ptr %__begin2.0.ptr40, align 8
+  %11 = load i32, ptr %__begin2.0.ptr40, align 16
   call void @_ZN18OpenImageIO_v2_6_03pvt21append_tiff_dir_entryERSt6vectorI12TIFFDirEntrySaIS2_EERS1_IcSaIcEEi12TIFFDataTypemPKvmmNS_6endianE(ptr noundef nonnull align 8 dereferenceable(24) %makerdirs, ptr noundef nonnull align 8 dereferenceable(24) %data, i32 noundef %11, i32 noundef %10, i64 noundef %count.0, ptr noundef %d.0, i64 noundef %offset_correction, i64 noundef 0, i32 noundef 1234)
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit, %if.end10, %for.body
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx39, 32
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL21canon_maker_tag_tableE, i64 %__begin2.0.add
   %cmp.not = icmp eq i64 %__begin2.0.add, 704
   br i1 %cmp.not, label %for.end, label %for.body
 

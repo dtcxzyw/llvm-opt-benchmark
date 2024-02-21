@@ -9229,11 +9229,10 @@ if.end362:                                        ; preds = %if.end230, %_ZNKSt1
   br label %cond.end.i466
 
 cond.end.i466:                                    ; preds = %if.end362, %cond.end.i466
-  %it49.sroa.36.0.ptr717 = phi ptr [ %a47, %if.end362 ], [ %it49.sroa.36.0.ptr, %cond.end.i466 ]
   %it49.sroa.36.0.idx716 = phi i64 [ 0, %if.end362 ], [ %it49.sroa.36.0.add, %cond.end.i466 ]
+  %it49.sroa.36.0.ptr717 = getelementptr inbounds i8, ptr %a47, i64 %it49.sroa.36.0.idx716
   store i32 5, ptr %it49.sroa.36.0.ptr717, align 4
   %it49.sroa.36.0.add = add nuw nsw i64 %it49.sroa.36.0.idx716, 4
-  %it49.sroa.36.0.ptr = getelementptr inbounds i8, ptr %a47, i64 %it49.sroa.36.0.add
   %cmp7.i.i460.not = icmp eq i64 %it49.sroa.36.0.add, 16
   br i1 %cmp7.i.i460.not, label %_ZNK3gsl7details13span_iteratorIiEeqIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit494, label %cond.end.i466, !llvm.loop !13
 
@@ -9242,8 +9241,8 @@ _ZNK3gsl7details13span_iteratorIiEeqIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove
   br label %cond.end.i561
 
 cond.end.i561:                                    ; preds = %_ZNK3gsl7details13span_iteratorIiEeqIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit494, %_ZN3gsl7details13span_iteratorIiEppEv.exit595
-  %__begin1.sroa.8.0.ptr719 = phi ptr [ %a47, %_ZNK3gsl7details13span_iteratorIiEeqIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit494 ], [ %__begin1.sroa.8.0.ptr, %_ZN3gsl7details13span_iteratorIiEppEv.exit595 ]
   %__begin1.sroa.8.0.idx718 = phi i64 [ 0, %_ZNK3gsl7details13span_iteratorIiEeqIiTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEiEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit494 ], [ %__begin1.sroa.8.0.add, %_ZN3gsl7details13span_iteratorIiEppEv.exit595 ]
+  %__begin1.sroa.8.0.ptr719 = getelementptr inbounds i8, ptr %a47, i64 %__begin1.sroa.8.0.idx718
   %58 = load i32, ptr %__begin1.sroa.8.0.ptr719, align 4
   %cmp474 = icmp eq i32 %58, 5
   %frombool475 = zext i1 %cmp474 to i8
@@ -9339,7 +9338,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN3gsl7details13span_iteratorIiEppEv.exit595:    ; preds = %cond.end.i561, %if.end495, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i581
   store ptr null, ptr %message_.i567, align 8
   %__begin1.sroa.8.0.add = add nuw nsw i64 %__begin1.sroa.8.0.idx718, 4
-  %__begin1.sroa.8.0.ptr = getelementptr inbounds i8, ptr %a47, i64 %__begin1.sroa.8.0.add
   %cmp7.i.i555.not = icmp eq i64 %__begin1.sroa.8.0.add, 16
   br i1 %cmp7.i.i555.not, label %for.end, label %cond.end.i561
 
@@ -9786,8 +9784,8 @@ _ZSteqIN3gsl7details13span_iteratorIiEEEbRKSt16reverse_iteratorIT_ES8_.exit492: 
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %_ZSteqIN3gsl7details13span_iteratorIiEEEbRKSt16reverse_iteratorIT_ES8_.exit492, %_ZN3gsl7details13span_iteratorIiEppEv.exit
-  %__begin1.sroa.8.0.ptr616 = phi ptr [ %a, %_ZSteqIN3gsl7details13span_iteratorIiEEEbRKSt16reverse_iteratorIT_ES8_.exit492 ], [ %__begin1.sroa.8.0.ptr, %_ZN3gsl7details13span_iteratorIiEppEv.exit ]
   %__begin1.sroa.8.0.idx615 = phi i64 [ 0, %_ZSteqIN3gsl7details13span_iteratorIiEEEbRKSt16reverse_iteratorIT_ES8_.exit492 ], [ %__begin1.sroa.8.0.add, %_ZN3gsl7details13span_iteratorIiEppEv.exit ]
+  %__begin1.sroa.8.0.ptr616 = getelementptr inbounds i8, ptr %a, i64 %__begin1.sroa.8.0.idx615
   %58 = load i32, ptr %__begin1.sroa.8.0.ptr616, align 4
   %cmp421 = icmp eq i32 %58, 5
   %frombool422 = zext i1 %cmp421 to i8
@@ -9883,7 +9881,6 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN3gsl7details13span_iteratorIiEppEv.exit:       ; preds = %cond.end.i, %if.end442, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i572
   store ptr null, ptr %message_.i558, align 8
   %__begin1.sroa.8.0.add = add nuw nsw i64 %__begin1.sroa.8.0.idx615, 4
-  %__begin1.sroa.8.0.ptr = getelementptr inbounds i8, ptr %a, i64 %__begin1.sroa.8.0.add
   %cmp7.i.i555.not = icmp eq i64 %__begin1.sroa.8.0.add, 16
   br i1 %cmp7.i.i555.not, label %for.end, label %cond.end.i
 
@@ -16698,7 +16695,7 @@ declare noundef i64 @_ZNKSt6locale2id5_M_idEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: noreturn
 declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #16
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #17
 
 declare void @__cxa_bad_cast() local_unnamed_addr
@@ -24558,30 +24555,30 @@ lpad:                                             ; preds = %if.end.i, %for.body
 
 for.cond7:                                        ; preds = %for.body9
   %__begin0.0.add = add nuw nsw i64 %__begin0.0.idx19, 16
-  %__begin0.0.ptr = getelementptr inbounds i8, ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 %__begin0.0.add
   %cmp8.not = icmp eq i64 %__begin0.0.add, 240
   br i1 %cmp8.not, label %cleanup, label %for.body9
 
 for.body9:                                        ; preds = %for.body9.preheader, %for.cond7
-  %__begin0.0.ptr20 = phi ptr [ %__begin0.0.ptr, %for.cond7 ], [ @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, %for.body9.preheader ]
   %__begin0.0.idx19 = phi i64 [ %__begin0.0.add, %for.cond7 ], [ 0, %for.body9.preheader ]
-  %5 = load ptr, ptr %__begin0.0.ptr20, align 8
+  %__begin0.0.ptr20 = getelementptr inbounds i8, ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 %__begin0.0.idx19
+  %5 = load ptr, ptr %__begin0.0.ptr20, align 16
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %__s, ptr noundef %5) #26
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %if.then, label %for.cond7
 
 if.then:                                          ; preds = %for.body9
+  %__begin0.0.ptr20.le = getelementptr inbounds i8, ptr @_ZZNKSt7__cxx1112regex_traitsIcE16lookup_classnameIPKcEENS1_10_RegexMaskET_S6_bE12__classnamesB5cxx11, i64 %__begin0.0.idx19
   br i1 %__icase, label %land.end, label %if.end
 
 land.end:                                         ; preds = %if.then
-  %second = getelementptr inbounds i8, ptr %__begin0.0.ptr20, i64 8
-  %6 = load i16, ptr %second, align 2
+  %second = getelementptr inbounds i8, ptr %__begin0.0.ptr20.le, i64 8
+  %6 = load i16, ptr %second, align 8
   %conv4.i = and i16 %6, 768
   %cmp8.i.i.not = icmp eq i16 %conv4.i, 0
   br i1 %cmp8.i.i.not, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %if.then, %land.end
-  %second21 = getelementptr inbounds i8, ptr %__begin0.0.ptr20, i64 8
+  %second21 = getelementptr inbounds i8, ptr %__begin0.0.ptr20.le, i64 8
   %7 = load i32, ptr %second21, align 8
   %retval.sroa.6.0.extract.shift = and i32 %7, -16777216
   %8 = and i32 %7, 16711680
@@ -43629,7 +43626,7 @@ attributes #13 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" 
 attributes #14 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nounwind memory(read) }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

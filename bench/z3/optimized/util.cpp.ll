@@ -174,8 +174,8 @@ for.body:                                         ; preds = %if.end
   br i1 %cmp5, label %return.loopexit, label %if.end, !llvm.loop !4
 
 if.end:                                           ; preds = %for.body.preheader, %for.body
-  %arrayidx15 = phi ptr [ %arrayidx, %for.body ], [ %it, %for.body.preheader ]
   %indvars.iv14 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.preheader ]
+  %arrayidx15 = getelementptr inbounds i32, ptr %it, i64 %indvars.iv14
   store i32 0, ptr %arrayidx15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv14, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %0

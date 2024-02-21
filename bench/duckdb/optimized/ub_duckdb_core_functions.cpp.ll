@@ -1393,8 +1393,8 @@ for.cond.cleanup:                                 ; preds = %if.end89, %entry
   ret void
 
 for.body:                                         ; preds = %if.end89, %for.body.lr.ph
-  %arrayidx326 = phi ptr [ @_ZN6duckdbL18internal_functionsE, %for.body.lr.ph ], [ %arrayidx, %if.end89 ]
   %i.0324 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end89 ]
+  %arrayidx326 = getelementptr inbounds %"struct.duckdb::StaticFunctionDefinition", ptr @_ZN6duckdbL18internal_functionsE, i64 %i.0324
   %get_function = getelementptr inbounds %"struct.duckdb::StaticFunctionDefinition", ptr @_ZN6duckdbL18internal_functionsE, i64 %i.0324, i32 4
   %9 = load ptr, ptr %get_function, align 16, !tbaa !8
   %tobool2.not = icmp eq ptr %9, null
@@ -1651,7 +1651,7 @@ lpad11:                                           ; preds = %if.else
   br label %ehcleanup28
 
 if.end:                                           ; preds = %_ZN6duckdb11FunctionSetINS_14ScalarFunctionEED2Ev.exit, %_ZN6duckdb14ScalarFunctionD2Ev.exit
-  %47 = load ptr, ptr %arrayidx326, align 8, !tbaa !3
+  %47 = load ptr, ptr %arrayidx326, align 16, !tbaa !3
   %48 = load i64, ptr %_M_string_length.i88.i.i.i, align 8, !tbaa !26
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #22
   %call3.i.i126 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef 0, i64 noundef %48, ptr noundef %47, i64 noundef %call.i.i.i)
@@ -2059,7 +2059,7 @@ lpad49:                                           ; preds = %if.else46
   br label %ehcleanup74
 
 if.end53:                                         ; preds = %_ZN6duckdb11FunctionSetINS_17AggregateFunctionEED2Ev.exit, %invoke.cont44
-  %103 = load ptr, ptr %arrayidx326, align 8, !tbaa !3
+  %103 = load ptr, ptr %arrayidx326, align 16, !tbaa !3
   %104 = load i64, ptr %_M_string_length.i88.i.i.i186, align 8, !tbaa !26
   %call.i.i.i241 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %103) #22
   %call3.i.i242 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result35, i64 noundef 0, i64 noundef %104, ptr noundef %103, i64 noundef %call.i.i.i241)

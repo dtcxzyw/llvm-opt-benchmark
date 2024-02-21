@@ -1234,9 +1234,9 @@ for.cond.preheader:                               ; preds = %invoke.cont36
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %__begin2.0.ptr81 = phi ptr [ @_ZN6icu_7512_GLOBAL__N_118gUnitPrefixStringsE, %for.cond.preheader ], [ %__begin2.0.ptr, %for.inc ]
   %__begin2.0.idx80 = phi i64 [ 0, %for.cond.preheader ], [ %__begin2.0.add, %for.inc ]
-  %11 = load ptr, ptr %__begin2.0.ptr81, align 8
+  %__begin2.0.ptr81 = getelementptr inbounds i8, ptr @_ZN6icu_7512_GLOBAL__N_118gUnitPrefixStringsE, i64 %__begin2.0.idx80
+  %11 = load ptr, ptr %__begin2.0.ptr81, align 16
   invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %11)
           to label %invoke.cont43 unwind label %lpad42.loopexit
 
@@ -1251,7 +1251,6 @@ invoke.cont43:                                    ; preds = %for.body
 
 for.inc:                                          ; preds = %invoke.cont43
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx80, 16
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr @_ZN6icu_7512_GLOBAL__N_118gUnitPrefixStringsE, i64 %__begin2.0.add
   %cmp41.not = icmp eq i64 %__begin2.0.add, 512
   br i1 %cmp41.not, label %for.end, label %for.body
 
@@ -2739,13 +2738,12 @@ if.end23:                                         ; preds = %if.end20
 
 for.cond:                                         ; preds = %for.body
   %__begin2.0.add = add nuw nsw i64 %__begin2.0.idx29, 16
-  %__begin2.0.ptr = getelementptr inbounds i8, ptr @_ZN6icu_7512_GLOBAL__N_118gUnitPrefixStringsE, i64 %__begin2.0.add
   %cmp26.not.not = icmp eq i64 %__begin2.0.add, 512
   br i1 %cmp26.not.not, label %if.then34, label %for.body
 
 for.body:                                         ; preds = %if.end23, %for.cond
-  %__begin2.0.ptr30 = phi ptr [ %__begin2.0.ptr, %for.cond ], [ @_ZN6icu_7512_GLOBAL__N_118gUnitPrefixStringsE, %if.end23 ]
   %__begin2.0.idx29 = phi i64 [ %__begin2.0.add, %for.cond ], [ 0, %if.end23 ]
+  %__begin2.0.ptr30 = getelementptr inbounds i8, ptr @_ZN6icu_7512_GLOBAL__N_118gUnitPrefixStringsE, i64 %__begin2.0.idx29
   %value = getelementptr inbounds i8, ptr %__begin2.0.ptr30, i64 8
   %8 = load i32, ptr %value, align 8
   %cmp28 = icmp eq i32 %8, %7

@@ -3149,13 +3149,12 @@ entry:
 
 for.cond:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx42, 16
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZN6duckdbL13BUILTIN_TYPESE, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 1120
   br i1 %cmp.not, label %cleanup11, label %for.body
 
 for.body:                                         ; preds = %for.cond, %entry
-  %__begin1.0.ptr43 = phi ptr [ @_ZN6duckdbL13BUILTIN_TYPESE, %entry ], [ %__begin1.0.ptr, %for.cond ]
   %__begin1.0.idx42 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.cond ]
+  %__begin1.0.ptr43 = getelementptr inbounds i8, ptr @_ZN6duckdbL13BUILTIN_TYPESE, i64 %__begin1.0.idx42
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #21
   %1 = load ptr, ptr %__begin1.0.ptr43, align 8, !tbaa !120
   store ptr %0, ptr %ref.tmp, align 8, !tbaa !56
@@ -3226,7 +3225,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   br i1 %call6, label %cleanup.thread, label %for.cond
 
 cleanup.thread:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %type9 = getelementptr inbounds i8, ptr %__begin1.0.ptr43, i64 8
+  %__begin1.0.ptr43.le = getelementptr inbounds i8, ptr @_ZN6duckdbL13BUILTIN_TYPESE, i64 %__begin1.0.idx42
+  %type9 = getelementptr inbounds i8, ptr %__begin1.0.ptr43.le, i64 8
   %9 = load i8, ptr %type9, align 8, !tbaa !123
   br label %cleanup11
 

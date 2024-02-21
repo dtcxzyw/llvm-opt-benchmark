@@ -1231,15 +1231,15 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %__begin3.sroa.0.08, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i12 = icmp eq ptr %8, null
-  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %if.else
+dynamic_cast.end.i:                               ; preds = %if.else
   %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119CondVarWaitDeadlockEEE, i64 0) #34
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %if.else
-  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %if.else
+  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i13 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %10)
   br i1 %call.i13, label %for.end, label %if.else.i
 
@@ -1680,15 +1680,15 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %__begin3.sroa.0.08, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i12 = icmp eq ptr %8, null
-  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %if.else
+dynamic_cast.end.i:                               ; preds = %if.else
   %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEEE, i64 0) #34
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %if.else
-  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %if.else
+  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i13 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %10)
   br i1 %call.i13, label %for.end, label %if.else.i
 
@@ -2232,15 +2232,15 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %__begin3.sroa.0.08, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i12 = icmp eq ptr %8, null
-  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %if.else
+dynamic_cast.end.i:                               ; preds = %if.else
   %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEEE, i64 0) #34
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %if.else
-  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %if.else
+  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i13 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %10)
   br i1 %call.i13, label %for.end, label %if.else.i
 
@@ -5546,7 +5546,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6400,8 +6400,8 @@ common.resume:                                    ; preds = %arraydestroy.done70
   br label %for.body
 
 for.body:                                         ; preds = %"_ZNSt6threadC2IZN12_GLOBAL__N_124Mutex_LockWhenGuard_Test8TestBodyEvE3$_0JEvEEOT_DpOT0_.exit", %_ZNSt6threadD2Ev.exit
-  %__begin1.0.ptr81 = phi ptr [ %__begin1.0.ptr, %_ZNSt6threadD2Ev.exit ], [ %t2, %"_ZNSt6threadC2IZN12_GLOBAL__N_124Mutex_LockWhenGuard_Test8TestBodyEvE3$_0JEvEEOT_DpOT0_.exit" ]
   %__begin1.0.idx80 = phi i64 [ %__begin1.0.add, %_ZNSt6threadD2Ev.exit ], [ 0, %"_ZNSt6threadC2IZN12_GLOBAL__N_124Mutex_LockWhenGuard_Test8TestBodyEvE3$_0JEvEEOT_DpOT0_.exit" ]
+  %__begin1.0.ptr81 = getelementptr inbounds i8, ptr %t2, i64 %__begin1.0.idx80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i16)
   store i64 0, ptr %ref.tmp6, align 8
   %call.i1730 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #36
@@ -6460,7 +6460,6 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %invoke.cont9
   store i64 %10, ptr %__begin1.0.ptr81, align 8
   store i64 0, ptr %ref.tmp6, align 8
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx80, 8
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr %t2, i64 %__begin1.0.add
   %cmp.not = icmp eq i64 %__begin1.0.add, 80
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -15745,7 +15744,7 @@ lpad:                                             ; preds = %invoke.cont19, %inv
   br label %eh.resume
 
 if.end:                                           ; preds = %cond.true13.i, %cond.true.i, %invoke.cont21, %_ZN4abslltENS_8DurationES0_.exit
-  %cond27.i104 = phi i1 [ true, %cond.true.i ], [ false, %invoke.cont21 ], [ true, %_ZN4abslltENS_8DurationES0_.exit ], [ true, %cond.true13.i ]
+  %pass.0 = phi i1 [ true, %cond.true.i ], [ false, %invoke.cont21 ], [ true, %_ZN4abslltENS_8DurationES0_.exit ], [ true, %cond.true13.i ]
   %cmp.not.i.i = icmp eq i64 %expected_delay.coerce0, 0
   %cmp8.i.i = icmp slt i64 %expected_delay.coerce0, 1
   %cmp25.i.i = icmp eq i32 %expected_delay.coerce1, 0
@@ -15870,7 +15869,7 @@ lpad44:                                           ; preds = %invoke.cont60, %inv
   br label %eh.resume
 
 if.end64:                                         ; preds = %cond.true13.i.i41, %cond.true.i.i34, %invoke.cont62, %_ZN4abslgtENS_8DurationES0_.exit
-  %pass.1 = phi i1 [ false, %invoke.cont62 ], [ %cond27.i104, %_ZN4abslgtENS_8DurationES0_.exit ], [ %cond27.i104, %cond.true.i.i34 ], [ %cond27.i104, %cond.true13.i.i41 ]
+  %pass.1 = phi i1 [ false, %invoke.cont62 ], [ %pass.0, %_ZN4abslgtENS_8DurationES0_.exit ], [ %pass.0, %cond.true.i.i34 ], [ %pass.0, %cond.true13.i.i41 ]
   ret i1 %pass.1
 
 eh.resume:                                        ; preds = %lpad.i.i52, %lpad44, %lpad.i.i80, %lpad.i.i61, %lpad.i.i, %lpad, %lpad.i.i20, %lpad.i.i9
@@ -36425,7 +36424,7 @@ attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #15 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { nofree nounwind memory(read) }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #19 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
