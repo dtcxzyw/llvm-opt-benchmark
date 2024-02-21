@@ -455,7 +455,7 @@ if.then38:                                        ; preds = %lor.lhs.false, %if.
   unreachable
 
 if.end:                                           ; preds = %lor.lhs.false
-  %inc39 = add i64 %nargs, 1
+  %inc39 = add nsw i64 %nargs, 1
   %cmp4163 = icmp sgt i64 %nargs, 0
   br i1 %cmp4163, label %for.body43, label %for.end49
 
@@ -466,7 +466,7 @@ for.body43:                                       ; preds = %if.end, %for.body43
   %arrayidx47 = getelementptr i8, ptr %arrayidx45, i64 4
   store i32 %21, ptr %arrayidx47, align 4
   %dec = add nsw i64 %i.164, -1
-  %cmp41 = icmp sgt i64 %i.164, 2
+  %cmp41 = icmp ugt i64 %i.164, 2
   br i1 %cmp41, label %for.body43, label %for.end49, !llvm.loop !7
 
 for.end49:                                        ; preds = %for.body43, %if.end
