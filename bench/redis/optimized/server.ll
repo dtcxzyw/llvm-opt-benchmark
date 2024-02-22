@@ -2937,43 +2937,43 @@ if.end:                                           ; preds = %if.then.i, %removeC
 
 if.else.i:                                        ; preds = %if.end
   %sub.i21 = sub nuw nsw i32 64, %cast.i
-  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %sub.i21, i32 15)
-  %16 = add nsw i32 %spec.store.select.i, -15
-  %17 = zext nneg i32 %16 to i64
+  %16 = tail call i32 @llvm.umax.i32(i32 %sub.i21, i32 15)
+  %17 = add nsw i32 %16, -15
+  %18 = zext nneg i32 %17 to i64
   br label %getMemUsageBucket.exit
 
 getMemUsageBucket.exit:                           ; preds = %if.end, %if.else.i
-  %bucket_idx.0.i = phi i64 [ %17, %if.else.i ], [ 18, %if.end ]
-  %18 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 63), align 8
-  %arrayidx.i22 = getelementptr inbounds %struct.clientMemUsageBucket, ptr %18, i64 %bucket_idx.0.i
+  %bucket_idx.0.i = phi i64 [ %18, %if.else.i ], [ 18, %if.end ]
+  %19 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 63), align 8
+  %arrayidx.i22 = getelementptr inbounds %struct.clientMemUsageBucket, ptr %19, i64 %bucket_idx.0.i
   %mem_usage_sum = getelementptr inbounds i8, ptr %arrayidx.i22, i64 8
-  %19 = load i64, ptr %mem_usage_sum, align 8
-  %add = add i64 %19, %call.i18
+  %20 = load i64, ptr %mem_usage_sum, align 8
+  %add = add i64 %20, %call.i18
   store i64 %add, ptr %mem_usage_sum, align 8
-  %20 = load ptr, ptr %mem_usage_bucket.i, align 8
-  %cmp5.not = icmp eq ptr %arrayidx.i22, %20
+  %21 = load ptr, ptr %mem_usage_bucket.i, align 8
+  %cmp5.not = icmp eq ptr %arrayidx.i22, %21
   br i1 %cmp5.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %getMemUsageBucket.exit
-  %tobool9.not = icmp eq ptr %20, null
+  %tobool9.not = icmp eq ptr %21, null
   br i1 %tobool9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.then7
-  %21 = load ptr, ptr %20, align 8
+  %22 = load ptr, ptr %21, align 8
   %mem_usage_bucket_node = getelementptr inbounds i8, ptr %c, i64 680
-  %22 = load ptr, ptr %mem_usage_bucket_node, align 8
-  tail call void @listDelNode(ptr noundef %21, ptr noundef %22) #38
+  %23 = load ptr, ptr %mem_usage_bucket_node, align 8
+  tail call void @listDelNode(ptr noundef %22, ptr noundef %23) #38
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.then7
   store ptr %arrayidx.i22, ptr %mem_usage_bucket.i, align 8
-  %23 = load ptr, ptr %arrayidx.i22, align 8
-  %call15 = tail call ptr @listAddNodeTail(ptr noundef %23, ptr noundef nonnull %c) #38
   %24 = load ptr, ptr %arrayidx.i22, align 8
-  %tail = getelementptr inbounds i8, ptr %24, i64 8
-  %25 = load ptr, ptr %tail, align 8
+  %call15 = tail call ptr @listAddNodeTail(ptr noundef %24, ptr noundef nonnull %c) #38
+  %25 = load ptr, ptr %arrayidx.i22, align 8
+  %tail = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = load ptr, ptr %tail, align 8
   %mem_usage_bucket_node17 = getelementptr inbounds i8, ptr %c, i64 680
-  store ptr %25, ptr %mem_usage_bucket_node17, align 8
+  store ptr %26, ptr %mem_usage_bucket_node17, align 8
   br label %return
 
 return:                                           ; preds = %removeClientFromMemUsageBucket.exit.thread, %getMemUsageBucket.exit, %if.end12, %removeClientFromMemUsageBucket.exit

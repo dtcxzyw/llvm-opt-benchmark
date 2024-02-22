@@ -8725,11 +8725,11 @@ entry:
   br i1 %cmp10, label %while.cond.outer.split.preheader, label %while.end
 
 while.cond.outer.split.preheader:                 ; preds = %entry
-  %.sroa.speculated11 = tail call i64 @llvm.smin.i64(i64 %nbytes, i64 2147479552)
+  %0 = tail call i64 @llvm.umin.i64(i64 %nbytes, i64 2147479552)
   br label %while.cond.outer.split
 
 while.cond.outer.split:                           ; preds = %while.cond.outer.split.preheader, %if.end9
-  %.sroa.speculated13 = phi i64 [ %.sroa.speculated, %if.end9 ], [ %.sroa.speculated11, %while.cond.outer.split.preheader ]
+  %.sroa.speculated13 = phi i64 [ %.sroa.speculated, %if.end9 ], [ %0, %while.cond.outer.split.preheader ]
   %bytes_written.0.ph12 = phi i64 [ %add, %if.end9 ], [ 0, %while.cond.outer.split.preheader ]
   %add.ptr14 = getelementptr inbounds i8, ptr %buffer, i64 %bytes_written.0.ph12
   br label %while.cond
@@ -8741,12 +8741,12 @@ while.cond:                                       ; preds = %while.cond.outer.sp
 
 land.lhs.true:                                    ; preds = %while.cond
   %call4 = tail call ptr @__errno_location() #36
-  %0 = load i32, ptr %call4, align 4
-  %cmp5 = icmp eq i32 %0, 4
+  %1 = load i32, ptr %call4, align 4
+  %cmp5 = icmp eq i32 %1, 4
   br i1 %cmp5, label %while.cond, label %if.then7, !llvm.loop !244
 
 if.then7:                                         ; preds = %land.lhs.true
-  tail call void @_ZN5arrow8internal15StatusFromErrnoIJRA28_KcEEENS_6StatusEiNS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i32 noundef %0, i8 noundef signext 5, ptr noundef nonnull align 1 dereferenceable(28) @.str.19)
+  tail call void @_ZN5arrow8internal15StatusFromErrnoIJRA28_KcEEENS_6StatusEiNS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i32 noundef %1, i8 noundef signext 5, ptr noundef nonnull align 1 dereferenceable(28) @.str.19)
   br label %return
 
 if.end9:                                          ; preds = %while.cond

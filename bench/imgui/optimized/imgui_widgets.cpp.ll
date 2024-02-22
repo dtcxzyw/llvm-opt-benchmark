@@ -36630,24 +36630,24 @@ if.end.thread:                                    ; preds = %entry
 
 if.end9:                                          ; preds = %if.end.thread
   %mul = shl nsw i32 %new_text_len, 2
-  %cond.i = tail call noundef i32 @llvm.smax.i32(i32 %new_text_len, i32 256)
+  %6 = tail call i32 @llvm.umax.i32(i32 %new_text_len, i32 256)
   %cmp.i = icmp slt i32 %new_text_len, 8
-  %cond.i31 = tail call i32 @llvm.smin.i32(i32 %mul, i32 %cond.i)
-  %cond5.i = select i1 %cmp.i, i32 32, i32 %cond.i31
+  %7 = tail call i32 @llvm.umin.i32(i32 %mul, i32 %6)
+  %cond5.i = select i1 %cmp.i, i32 32, i32 %7
   %add13 = add nsw i32 %1, %cond5.i
   %add14 = add nsw i32 %add13, 1
   %Capacity.i = getelementptr inbounds i8, ptr %obj, i64 28
-  %6 = load i32, ptr %Capacity.i, align 4
-  %cmp.i32.not = icmp sgt i32 %6, %add13
+  %8 = load i32, ptr %Capacity.i, align 4
+  %cmp.i32.not = icmp sgt i32 %8, %add13
   br i1 %cmp.i32.not, label %_ZN8ImVectorItE6resizeEi.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end9
-  %tobool.not.i.i = icmp eq i32 %6, 0
+  %tobool.not.i.i = icmp eq i32 %8, 0
   br i1 %tobool.not.i.i, label %_ZNK8ImVectorItE14_grow_capacityEi.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.then.i
-  %div.i.i = sdiv i32 %6, 2
-  %add.i.i = add nsw i32 %div.i.i, %6
+  %div.i.i = sdiv i32 %8, 2
+  %add.i.i = add nsw i32 %div.i.i, %8
   br label %_ZNK8ImVectorItE14_grow_capacityEi.exit.i
 
 _ZNK8ImVectorItE14_grow_capacityEi.exit.i:        ; preds = %cond.true.i.i, %if.then.i
@@ -36657,17 +36657,17 @@ _ZNK8ImVectorItE14_grow_capacityEi.exit.i:        ; preds = %cond.true.i.i, %if.
   %mul.i.i = shl nsw i64 %conv.i.i, 1
   %call.i.i = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i)
   %Data.i.i = getelementptr inbounds i8, ptr %obj, i64 32
-  %7 = load ptr, ptr %Data.i.i, align 8
-  %tobool.not.i4.i = icmp eq ptr %7, null
+  %9 = load ptr, ptr %Data.i.i, align 8
+  %tobool.not.i4.i = icmp eq ptr %9, null
   br i1 %tobool.not.i4.i, label %if.end7.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %_ZNK8ImVectorItE14_grow_capacityEi.exit.i
-  %8 = load i32, ptr %TextW34, align 8
-  %conv4.i.i = sext i32 %8 to i64
+  %10 = load i32, ptr %TextW34, align 8
+  %conv4.i.i = sext i32 %10 to i64
   %mul5.i.i = shl nsw i64 %conv4.i.i, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %call.i.i, ptr nonnull align 2 %7, i64 %mul5.i.i, i1 false)
-  %9 = load ptr, ptr %Data.i.i, align 8
-  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %9)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %call.i.i, ptr nonnull align 2 %9, i64 %mul5.i.i, i1 false)
+  %11 = load ptr, ptr %Data.i.i, align 8
+  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %11)
   br label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.then2.i.i, %_ZNK8ImVectorItE14_grow_capacityEi.exit.i
@@ -36681,13 +36681,13 @@ _ZN8ImVectorItE6resizeEi.exit:                    ; preds = %if.end9, %if.end7.i
 
 if.end15:                                         ; preds = %if.end.thread, %_ZN8ImVectorItE6resizeEi.exit, %if.end
   %Data = getelementptr inbounds i8, ptr %obj, i64 32
-  %10 = load ptr, ptr %Data, align 8
+  %12 = load ptr, ptr %Data, align 8
   %cmp17.not = icmp eq i32 %1, %pos
   %.pre = sext i32 %pos to i64
   br i1 %cmp17.not, label %if.end26, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
-  %add.ptr20 = getelementptr inbounds i16, ptr %10, i64 %.pre
+  %add.ptr20 = getelementptr inbounds i16, ptr %12, i64 %.pre
   %add.ptr22 = getelementptr inbounds i16, ptr %add.ptr20, i64 %idx.ext
   %sub = sub nsw i32 %1, %pos
   %conv = sext i32 %sub to i64
@@ -36696,21 +36696,21 @@ if.then18:                                        ; preds = %if.end15
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end15, %if.then18
-  %add.ptr28 = getelementptr inbounds i16, ptr %10, i64 %.pre
+  %add.ptr28 = getelementptr inbounds i16, ptr %12, i64 %.pre
   %mul30 = shl nsw i64 %idx.ext, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %add.ptr28, ptr align 2 %new_text, i64 %mul30, i1 false)
   %Edited = getelementptr inbounds i8, ptr %obj, i64 3718
   store i8 1, ptr %Edited, align 2
-  %11 = load i32, ptr %CurLenW, align 4
-  %add32 = add nsw i32 %11, %new_text_len
+  %13 = load i32, ptr %CurLenW, align 4
+  %add32 = add nsw i32 %13, %new_text_len
   store i32 %add32, ptr %CurLenW, align 4
   %CurLenA33 = getelementptr inbounds i8, ptr %obj, i64 16
-  %12 = load i32, ptr %CurLenA33, align 8
-  %add34 = add nsw i32 %12, %call
+  %14 = load i32, ptr %CurLenA33, align 8
+  %add34 = add nsw i32 %14, %call
   store i32 %add34, ptr %CurLenA33, align 8
-  %13 = load ptr, ptr %Data, align 8
+  %15 = load ptr, ptr %Data, align 8
   %idxprom.i = sext i32 %add32 to i64
-  %arrayidx.i = getelementptr inbounds i16, ptr %13, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds i16, ptr %15, i64 %idxprom.i
   store i16 0, ptr %arrayidx.i, align 2
   br label %return
 

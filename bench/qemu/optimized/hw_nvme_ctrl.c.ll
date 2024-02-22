@@ -1622,7 +1622,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %offset.addr.050 = phi i64 [ %offset.addr.0.be, %while.cond.backedge ], [ %offset.addr.0.ph87, %while.body.lr.ph ]
   %sg_idx.049 = phi i32 [ %sg_idx.0.be, %while.cond.backedge ], [ %sg_idx.0.ph86, %while.body.lr.ph ]
   %idxprom = sext i32 %sg_idx.049 to i64
-  %len7 = getelementptr %struct.ScatterGatherEntry, ptr %20, i64 %idxprom, i32 1
+  %len7 = getelementptr %struct.ScatterGatherEntry, ptr %21, i64 %idxprom, i32 1
   %cond = load i64, ptr %len7, align 8
   %sub = sub i64 %cond, %offset.addr.050
   %cmp = icmp slt i64 %sub, 0
@@ -1647,22 +1647,22 @@ if.end16:                                         ; preds = %if.end12, %if.end12
   %.us-phi52 = phi i64 [ %offset.addr.050.us, %if.end12.us ], [ %offset.addr.050, %if.end12 ]
   %cond21 = tail call i32 @llvm.umin.i32(i32 %len.addr.0.ph88, i32 %count.0.ph85)
   %conv = zext i32 %cond21 to i64
-  %cond29 = tail call i64 @llvm.smin.i64(i64 %.us-phi, i64 %conv)
-  %conv30 = trunc i64 %cond29 to i32
+  %2 = tail call i64 @llvm.umin.i64(i64 %.us-phi, i64 %conv)
+  %conv30 = trunc i64 %2 to i32
   %idxprom38 = sext i32 %.us-phi51 to i64
   br i1 %tobool.not, label %if.else36, label %if.then32
 
 if.then32:                                        ; preds = %if.end16
-  %arrayidx35 = getelementptr %struct.ScatterGatherEntry, ptr %20, i64 %idxprom38
-  %2 = load i64, ptr %arrayidx35, align 8
-  %add = add i64 %2, %.us-phi52
+  %arrayidx35 = getelementptr %struct.ScatterGatherEntry, ptr %21, i64 %idxprom38
+  %3 = load i64, ptr %arrayidx35, align 8
+  %add = add i64 %3, %.us-phi52
   br label %if.end41
 
 if.else36:                                        ; preds = %if.end16
-  %arrayidx39 = getelementptr %struct.iovec, ptr %20, i64 %idxprom38
-  %3 = load ptr, ptr %arrayidx39, align 8
-  %4 = ptrtoint ptr %3 to i64
-  %add40 = add i64 %.us-phi52, %4
+  %arrayidx39 = getelementptr %struct.iovec, ptr %21, i64 %idxprom38
+  %4 = load ptr, ptr %arrayidx39, align 8
+  %5 = ptrtoint ptr %4 to i64
+  %add40 = add i64 %.us-phi52, %5
   br label %if.end41
 
 if.end41:                                         ; preds = %if.else36, %if.then32
@@ -1674,7 +1674,7 @@ if.then44:                                        ; preds = %if.end41
   br label %if.end47
 
 if.else45:                                        ; preds = %if.end41
-  %sext = shl nuw i64 %cond29, 32
+  %sext = shl nuw i64 %2, 32
   %conv.i = ashr exact i64 %sext, 32
   %add.i = add nsw i64 %conv.i, -1
   %sub.i = add i64 %add.i, %addr.0
@@ -1682,19 +1682,19 @@ if.else45:                                        ; preds = %if.end41
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else45
-  %5 = load i32, ptr %cmbsz.i, align 4
-  %tobool.not.i = icmp eq i32 %5, 0
+  %6 = load i32, ptr %cmbsz.i, align 4
+  %tobool.not.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i, label %if.end9.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %6 = load i8, ptr %cmse.i.i, align 8
-  %7 = and i8 %6, 1
-  %tobool.not.i.i = icmp eq i8 %7, 0
+  %7 = load i8, ptr %cmse.i.i, align 8
+  %8 = and i8 %7, 1
+  %tobool.not.i.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i.i, label %if.end9.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i
-  %8 = load i128, ptr %size.i.i, align 16
-  %cmp.i.i.i = icmp ult i128 %8, 18446744073709551616
+  %9 = load i128, ptr %size.i.i, align 16
+  %cmp.i.i.i = icmp ult i128 %9, 18446744073709551616
   br i1 %cmp.i.i.i, label %nvme_addr_is_cmb.exit.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i
@@ -1702,36 +1702,36 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i
   unreachable
 
 nvme_addr_is_cmb.exit.i:                          ; preds = %if.end.i.i
-  %coerce.sroa.0.0.extract.trunc.i.i = trunc i128 %8 to i64
-  %9 = load i8, ptr %legacy_cmb.i.i, align 1
-  %10 = and i8 %9, 1
-  %tobool1.not.i.i = icmp eq i8 %10, 0
+  %coerce.sroa.0.0.extract.trunc.i.i = trunc i128 %9 to i64
+  %10 = load i8, ptr %legacy_cmb.i.i, align 1
+  %11 = and i8 %10, 1
+  %tobool1.not.i.i = icmp eq i8 %11, 0
   %cond.in.v.i.i = select i1 %tobool1.not.i.i, i64 7808, i64 7648
   %cond.in.i.i = getelementptr inbounds i8, ptr %n, i64 %cond.in.v.i.i
   %cond.i.i = load i64, ptr %cond.in.i.i, align 16
   %add.i.i = add i64 %cond.i.i, %coerce.sroa.0.0.extract.trunc.i.i
   %cmp.i.i = icmp ule i64 %cond.i.i, %addr.0
   %cmp7.i.i = icmp ugt i64 %add.i.i, %addr.0
-  %11 = and i1 %cmp.i.i, %cmp7.i.i
+  %12 = and i1 %cmp.i.i, %cmp7.i.i
   %cmp7.i36.i = icmp ugt i64 %add.i.i, %sub.i
-  %or.cond = and i1 %11, %cmp7.i36.i
+  %or.cond = and i1 %12, %cmp7.i36.i
   br i1 %or.cond, label %if.then6.i, label %if.end9.i
 
 if.then6.i:                                       ; preds = %nvme_addr_is_cmb.exit.i
-  %12 = load ptr, ptr %buf.i.i, align 16
+  %13 = load ptr, ptr %buf.i.i, align 16
   br label %if.end50.sink.split
 
 if.end9.i:                                        ; preds = %nvme_addr_is_cmb.exit.i, %land.lhs.true.i, %if.end.i
-  %13 = load i8, ptr %cmse.i44.i, align 8
-  %14 = and i8 %13, 1
-  %tobool.not.i45.i = icmp eq i8 %14, 0
+  %14 = load i8, ptr %cmse.i44.i, align 8
+  %15 = and i8 %14, 1
+  %tobool.not.i45.i = icmp eq i8 %15, 0
   br i1 %tobool.not.i45.i, label %if.end18.i, label %if.end.i46.i
 
 if.end.i46.i:                                     ; preds = %if.end9.i
-  %15 = load ptr, ptr %pmr.i.i, align 16
-  %size.i47.i = getelementptr inbounds i8, ptr %15, i64 224
-  %16 = load i128, ptr %size.i47.i, align 16
-  %cmp.i.i48.i = icmp ult i128 %16, 18446744073709551616
+  %16 = load ptr, ptr %pmr.i.i, align 16
+  %size.i47.i = getelementptr inbounds i8, ptr %16, i64 224
+  %17 = load i128, ptr %size.i47.i, align 16
+  %cmp.i.i48.i = icmp ult i128 %17, 18446744073709551616
   br i1 %cmp.i.i48.i, label %nvme_addr_is_pmr.exit.i, label %if.else.i.i49.i
 
 if.else.i.i49.i:                                  ; preds = %if.end.i46.i
@@ -1739,20 +1739,20 @@ if.else.i.i49.i:                                  ; preds = %if.end.i46.i
   unreachable
 
 nvme_addr_is_pmr.exit.i:                          ; preds = %if.end.i46.i
-  %coerce.sroa.0.0.extract.trunc.i51.i = trunc i128 %16 to i64
-  %17 = load i64, ptr %cba.i.i, align 16
-  %add.i52.i = add i64 %17, %coerce.sroa.0.0.extract.trunc.i51.i
-  %cmp.i53.i = icmp ule i64 %17, %addr.0
+  %coerce.sroa.0.0.extract.trunc.i51.i = trunc i128 %17 to i64
+  %18 = load i64, ptr %cba.i.i, align 16
+  %add.i52.i = add i64 %18, %coerce.sroa.0.0.extract.trunc.i51.i
+  %cmp.i53.i = icmp ule i64 %18, %addr.0
   %cmp5.i.i = icmp ugt i64 %add.i52.i, %addr.0
-  %18 = and i1 %cmp.i53.i, %cmp5.i.i
+  %19 = and i1 %cmp.i53.i, %cmp5.i.i
   %cmp5.i67.i = icmp ugt i64 %add.i52.i, %sub.i
-  %or.cond92 = and i1 %18, %cmp5.i67.i
+  %or.cond92 = and i1 %19, %cmp5.i67.i
   br i1 %or.cond92, label %if.then15.i, label %if.end18.i
 
 if.then15.i:                                      ; preds = %nvme_addr_is_pmr.exit.i
-  %mr.i.i = getelementptr inbounds i8, ptr %15, i64 112
+  %mr.i.i = getelementptr inbounds i8, ptr %16, i64 112
   %call.i.i = tail call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %mr.i.i) #17
-  %19 = load i64, ptr %cba.i.i, align 16
+  %20 = load i64, ptr %cba.i.i, align 16
   br label %if.end50.sink.split
 
 if.end18.i:                                       ; preds = %nvme_addr_is_pmr.exit.i, %if.end9.i
@@ -1769,18 +1769,18 @@ if.end47:                                         ; preds = %if.end18.i, %if.the
   br i1 %tobool48.not, label %if.end50, label %return
 
 if.end50.sink.split:                              ; preds = %if.then6.i, %if.then15.i
-  %.sink = phi i64 [ %19, %if.then15.i ], [ %cond.i.i, %if.then6.i ]
-  %call.i.i.sink = phi ptr [ %call.i.i, %if.then15.i ], [ %12, %if.then6.i ]
+  %.sink = phi i64 [ %20, %if.then15.i ], [ %cond.i.i, %if.then6.i ]
+  %call.i.i.sink = phi ptr [ %call.i.i, %if.then15.i ], [ %13, %if.then6.i ]
   %sub.i72.i = sub i64 %addr.0, %.sink
   %add.ptr.i.i = getelementptr i8, ptr %call.i.i.sink, i64 %sub.i72.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 1 %ptr.addr.0.ph89, i64 %conv.i, i1 false)
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end50.sink.split, %if.end47
-  %add.ptr = getelementptr i8, ptr %ptr.addr.0.ph89, i64 %cond29
+  %add.ptr = getelementptr i8, ptr %ptr.addr.0.ph89, i64 %2
   %sub51 = sub i32 %len.addr.0.ph88, %conv30
   %sub52 = sub i32 %count.0.ph85, %conv30
-  %add54 = add i64 %cond29, %.us-phi52
+  %add54 = add i64 %2, %.us-phi52
   %cmp55 = icmp eq i32 %count.0.ph85, %conv30
   %count.1 = select i1 %cmp55, i32 %bytes, i32 %sub52
   %narrow = select i1 %cmp55, i32 %skip_bytes, i32 0
@@ -1795,14 +1795,14 @@ while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr
   %offset.addr.0.ph87 = phi i64 [ %offset, %while.body.lr.ph.lr.ph ], [ %offset.addr.1, %if.end50 ]
   %sg_idx.0.ph86 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %.us-phi51, %if.end50 ]
   %count.0.ph85 = phi i32 [ %bytes, %while.body.lr.ph.lr.ph ], [ %count.1, %if.end50 ]
-  %20 = load ptr, ptr %1, align 8
+  %21 = load ptr, ptr %1, align 8
   br i1 %tobool.not, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.cond.backedge.us
   %offset.addr.050.us = phi i64 [ %offset.addr.0.be.us, %while.cond.backedge.us ], [ %offset.addr.0.ph87, %while.body.lr.ph ]
   %sg_idx.049.us = phi i32 [ %sg_idx.0.be.us, %while.cond.backedge.us ], [ %sg_idx.0.ph86, %while.body.lr.ph ]
   %idxprom8.us = sext i32 %sg_idx.049.us to i64
-  %iov_len.us = getelementptr %struct.iovec, ptr %20, i64 %idxprom8.us, i32 1
+  %iov_len.us = getelementptr %struct.iovec, ptr %21, i64 %idxprom8.us, i32 1
   %cond.us = load i64, ptr %iov_len.us, align 8
   %sub.us = sub i64 %cond.us, %offset.addr.050.us
   %cmp.us = icmp slt i64 %sub.us, 0
@@ -25057,9 +25057,6 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13

@@ -25617,11 +25617,10 @@ entry:
   br i1 %cmp26.i, label %while.body.i.preheader, label %while.cond1.preheader.i
 
 while.body.i.preheader:                           ; preds = %entry
-  %smax = tail call i32 @llvm.smax.i32(i32 %d.coerce, i32 -146097)
   %0 = icmp ult i32 %d.coerce, -146097
   %umin.neg3 = sext i1 %0 to i32
   %umin = zext i1 %0 to i32
-  %.neg1 = sub nsw i32 %smax, %d.coerce
+  %.neg1 = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %d.coerce)
   %1 = add nsw i32 %.neg1, %umin.neg3
   %2 = udiv i32 %1, 146097
   %3 = add nuw nsw i32 %2, %umin
@@ -27137,11 +27136,10 @@ if.end12:                                         ; preds = %entry
   br i1 %cmp26.i.i, label %while.body.i.preheader.i, label %while.cond1.preheader.i.i
 
 while.body.i.preheader.i:                         ; preds = %if.end12
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %date.coerce, i32 -146097)
   %14 = icmp ult i32 %date.coerce, -146097
   %umin.i.neg95 = sext i1 %14 to i32
   %umin.i = zext i1 %14 to i32
-  %.neg = sub nsw i32 %smax.i, %date.coerce
+  %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %date.coerce)
   %15 = add nsw i32 %.neg, %umin.i.neg95
   %16 = udiv i32 %15, 146097
   %17 = add nuw nsw i32 %16, %umin.i
@@ -27859,11 +27857,10 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp26.i, label %while.body.i.preheader, label %while.cond1.preheader.i
 
 while.body.i.preheader:                           ; preds = %if.end
-  %smax = tail call i32 @llvm.smax.i32(i32 %d.coerce, i32 -146097)
   %3 = icmp ult i32 %d.coerce, -146097
   %umin.neg2 = sext i1 %3 to i32
   %umin = zext i1 %3 to i32
-  %.neg1 = sub nsw i32 %smax, %d.coerce
+  %.neg1 = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %d.coerce)
   %4 = add nsw i32 %.neg1, %umin.neg2
   %5 = udiv i32 %4, 146097
   %6 = add nuw nsw i32 %5, %umin
@@ -27955,11 +27952,10 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %_
   br i1 %cmp26.i.i, label %while.body.i.preheader.i, label %while.cond1.preheader.i.i
 
 while.body.i.preheader.i:                         ; preds = %if.end.i
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %retval.sroa.0.0.i, i32 -146097)
   %3 = icmp ult i32 %retval.sroa.0.0.i, -146097
   %umin.i.neg24 = sext i1 %3 to i32
   %umin.i = zext i1 %3 to i32
-  %.neg = sub nsw i32 %smax.i, %retval.sroa.0.0.i
+  %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %retval.sroa.0.0.i)
   %4 = add nsw i32 %.neg, %umin.i.neg24
   %5 = udiv i32 %4, 146097
   %6 = add nuw nsw i32 %5, %umin.i
@@ -28041,11 +28037,10 @@ entry:
   br i1 %cmp26.i, label %while.body.i.preheader, label %while.cond1.preheader.i
 
 while.body.i.preheader:                           ; preds = %entry
-  %smax = tail call i32 @llvm.smax.i32(i32 %d.coerce, i32 -146097)
   %0 = icmp ult i32 %d.coerce, -146097
   %umin.neg2 = sext i1 %0 to i32
   %umin = zext i1 %0 to i32
-  %.neg1 = sub nsw i32 %smax, %d.coerce
+  %.neg1 = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %d.coerce)
   %1 = add nsw i32 %.neg1, %umin.neg2
   %2 = udiv i32 %1, 146097
   %3 = add nuw nsw i32 %2, %umin
@@ -28098,11 +28093,10 @@ entry:
   br i1 %cmp26.i.i, label %while.body.i.preheader.i, label %while.cond1.preheader.i.i
 
 while.body.i.preheader.i:                         ; preds = %entry
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %date.coerce.fr, i32 -146097)
   %0 = icmp ult i32 %date.coerce.fr, -146097
   %umin.i.neg2 = sext i1 %0 to i32
   %umin.i = zext i1 %0 to i32
-  %.neg = sub nsw i32 %smax.i, %date.coerce.fr
+  %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %date.coerce.fr)
   %1 = add nsw i32 %.neg, %umin.i.neg2
   %2 = udiv i32 %1, 146097
   %3 = add nuw nsw i32 %2, %umin.i
@@ -28163,11 +28157,10 @@ entry:
   br i1 %cmp26.i.i, label %while.body.i.preheader.i, label %while.cond1.preheader.i.i
 
 while.body.i.preheader.i:                         ; preds = %entry
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %date.coerce.fr, i32 -146097)
   %0 = icmp ult i32 %date.coerce.fr, -146097
   %umin.i.neg4 = sext i1 %0 to i32
   %umin.i = zext i1 %0 to i32
-  %.neg = sub nsw i32 %smax.i, %date.coerce.fr
+  %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %date.coerce.fr)
   %1 = add nsw i32 %.neg, %umin.i.neg4
   %2 = udiv i32 %1, 146097
   %3 = add nuw nsw i32 %2, %umin.i
@@ -28234,11 +28227,10 @@ entry:
   br i1 %cmp26.i, label %while.body.i.preheader, label %while.cond1.preheader.i
 
 while.body.i.preheader:                           ; preds = %entry
-  %smax = tail call i32 @llvm.smax.i32(i32 %date.coerce.fr, i32 -146097)
   %0 = icmp ult i32 %date.coerce.fr, -146097
   %umin.neg2 = sext i1 %0 to i32
   %umin = zext i1 %0 to i32
-  %.neg = sub nsw i32 %smax, %date.coerce.fr
+  %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %date.coerce.fr)
   %1 = add nsw i32 %.neg, %umin.neg2
   %2 = udiv i32 %1, 146097
   %3 = add nuw nsw i32 %2, %umin
@@ -28318,11 +28310,10 @@ entry:
   br i1 %cmp26.i.i.i, label %while.body.i.preheader.i.i, label %while.cond1.preheader.i.i.i
 
 while.body.i.preheader.i.i:                       ; preds = %entry
-  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %date.coerce, i32 -146097)
   %0 = icmp ult i32 %date.coerce, -146097
   %umin.i.neg74.i = sext i1 %0 to i32
   %umin.i.i = zext i1 %0 to i32
-  %.neg.i = sub nsw i32 %smax.i.i, %date.coerce
+  %.neg.i = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %date.coerce)
   %1 = add nsw i32 %.neg.i, %umin.i.neg74.i
   %2 = udiv i32 %1, 146097
   %3 = add nuw nsw i32 %2, %umin.i.i
@@ -28507,11 +28498,10 @@ entry:
   br i1 %cmp26.i.i, label %while.body.i.preheader.i, label %while.cond1.preheader.i.i
 
 while.body.i.preheader.i:                         ; preds = %entry
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %date.coerce, i32 -146097)
   %0 = icmp ult i32 %date.coerce, -146097
   %umin.i.neg45 = sext i1 %0 to i32
   %umin.i = zext i1 %0 to i32
-  %.neg = sub nsw i32 %smax.i, %date.coerce
+  %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %date.coerce)
   %1 = add nsw i32 %.neg, %umin.i.neg45
   %2 = udiv i32 %1, 146097
   %3 = add nuw nsw i32 %2, %umin.i
@@ -28719,11 +28709,11 @@ if.end.i:                                         ; preds = %entry
   %add13.i.i29.i = add nuw nsw i32 %add9.i.i28.i, %add.i.i19.i
   %sub5.i30.i = add nuw nsw i32 %add13.i.i29.i, %conv8.i.i23.i
   %add10.i = add nuw nsw i32 %sub5.i30.i, %conv12.i.i25.i
-  %cond.i.i = tail call noundef i32 @llvm.smax.i32(i32 %add8.i, i32 %add10.i)
+  %0 = tail call i32 @llvm.umax.i32(i32 %add8.i, i32 %add10.i)
   br label %_ZN6duckdb15DecimalToString13DecimalLengthIstEEiT_hh.exit
 
 _ZN6duckdb15DecimalToString13DecimalLengthIstEEiT_hh.exit: ; preds = %if.end.i, %if.then.i
-  %retval.0.i = phi i32 [ %sub5.i.i, %if.then.i ], [ %cond.i.i, %if.end.i ]
+  %retval.0.i = phi i32 [ %sub5.i.i, %if.then.i ], [ %0, %if.end.i ]
   %add = add nuw nsw i32 %retval.0.i, 1
   %conv = zext nneg i32 %add to i64
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #39, !noalias !716
@@ -28733,8 +28723,8 @@ _ZN6duckdb15DecimalToString13DecimalLengthIstEEiT_hh.exit: ; preds = %if.end.i, 
           to label %if.end.i17 unwind label %lpad
 
 if.end.i17:                                       ; preds = %_ZN6duckdb15DecimalToString13DecimalLengthIstEEiT_hh.exit
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %0, ptr %agg.result, align 8, !tbaa !116
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store ptr %1, ptr %agg.result, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #38
   store i64 %conv2, ptr %__dnew.i.i, align 8, !tbaa !87
   %cmp.i.i = icmp ugt i32 %retval.0.i, 15
@@ -28746,8 +28736,8 @@ if.then.i.i:                                      ; preds = %if.end.i17
 
 if.end.i.i.thread:                                ; preds = %if.then.i.i
   store ptr %call2.i8.i19, ptr %agg.result, align 8, !tbaa !83
-  %1 = load i64, ptr %__dnew.i.i, align 8, !tbaa !87
-  store i64 %1, ptr %0, align 8, !tbaa !117
+  %2 = load i64, ptr %__dnew.i.i, align 8, !tbaa !87
+  store i64 %2, ptr %1, align 8, !tbaa !117
   br label %if.end.i.i.i.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i17
@@ -28755,40 +28745,40 @@ if.end.i.i:                                       ; preds = %if.end.i17
   br i1 %cond, label %if.then.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
-  %2 = load i8, ptr %call.i, align 1, !tbaa !117
-  store i8 %2, ptr %0, align 8, !tbaa !117
+  %3 = load i8, ptr %call.i, align 1, !tbaa !117
+  store i8 %3, ptr %1, align 8, !tbaa !117
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i, %if.end.i.i.thread
-  %3 = phi ptr [ %call2.i8.i19, %if.end.i.i.thread ], [ %0, %if.end.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 1 %call.i, i64 %conv2, i1 false)
+  %4 = phi ptr [ %call2.i8.i19, %if.end.i.i.thread ], [ %1, %if.end.i.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr nonnull align 1 %call.i, i64 %conv2, i1 false)
   %.pre = load i64, ptr %__dnew.i.i, align 8, !tbaa !87
   %.pre1 = load ptr, ptr %agg.result, align 8, !tbaa !83
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i
-  %4 = phi ptr [ %.pre1, %if.end.i.i.i.i.i ], [ %0, %if.then.i.i.i.i ]
-  %5 = phi i64 [ %.pre, %if.end.i.i.i.i.i ], [ 1, %if.then.i.i.i.i ]
+  %5 = phi ptr [ %.pre1, %if.end.i.i.i.i.i ], [ %1, %if.then.i.i.i.i ]
+  %6 = phi i64 [ %.pre, %if.end.i.i.i.i.i ], [ 1, %if.then.i.i.i.i ]
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %5, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !86
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 %5
+  store i64 %6, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !86
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %6
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !117
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #38
   call void @_ZdaPv(ptr noundef nonnull %call.i) #40
   ret void
 
 lpad:                                             ; preds = %_ZN6duckdb15DecimalToString13DecimalLengthIstEEiT_hh.exit
-  %6 = landingpad { ptr, i32 }
-          cleanup
-  br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit24
-
-lpad5:                                            ; preds = %if.then.i.i
   %7 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit24
 
+lpad5:                                            ; preds = %if.then.i.i
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit24
+
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit24: ; preds = %lpad5, %lpad
-  %.pn = phi { ptr, i32 } [ %7, %lpad5 ], [ %6, %lpad ]
+  %.pn = phi { ptr, i32 } [ %8, %lpad5 ], [ %7, %lpad ]
   call void @_ZdaPv(ptr noundef nonnull %call.i) #40
   resume { ptr, i32 } %.pn
 }
@@ -28881,19 +28871,19 @@ _ZN6duckdb13NumericHelper12SignedLengthIijEEiT_.exit40.i: ; preds = %if.else.i.i
   %add23.i.i29.i = add nuw nsw i32 %add20.i.i28.i, %add17.sink.i.i21.i
   %sub2.i30.i = add nuw nsw i32 %add23.i.i29.i, %conv19.i.i25.i
   %add9.i = add nuw nsw i32 %sub2.i30.i, %conv22.i.i27.i
-  %cond.i.i = tail call noundef i32 @llvm.smax.i32(i32 %add7.i, i32 %add9.i)
+  %0 = tail call i32 @llvm.umax.i32(i32 %add7.i, i32 %add9.i)
   br label %if.end.i16
 
 if.end.i16:                                       ; preds = %_ZN6duckdb13NumericHelper12SignedLengthIijEEiT_.exit40.i, %_ZN6duckdb13NumericHelper12SignedLengthIijEEiT_.exit.i
-  %retval.0.i = phi i32 [ %sub2.i.i, %_ZN6duckdb13NumericHelper12SignedLengthIijEEiT_.exit.i ], [ %cond.i.i, %_ZN6duckdb13NumericHelper12SignedLengthIijEEiT_.exit40.i ]
+  %retval.0.i = phi i32 [ %sub2.i.i, %_ZN6duckdb13NumericHelper12SignedLengthIijEEiT_.exit.i ], [ %0, %_ZN6duckdb13NumericHelper12SignedLengthIijEEiT_.exit40.i ]
   %add = add nuw nsw i32 %retval.0.i, 1
   %conv = zext nneg i32 %add to i64
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #39, !noalias !719
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i, i8 0, i64 %conv, i1 false), !noalias !719
   %conv2 = zext nneg i32 %retval.0.i to i64
   tail call void @_ZN6duckdb15DecimalToString13FormatDecimalIijEEvT_hhPcm(i32 noundef %value, i8 noundef zeroext %width, i8 noundef zeroext %scale, ptr noundef nonnull %call.i, i64 noundef %conv2)
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %0, ptr %agg.result, align 8, !tbaa !116
+  %1 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  store ptr %1, ptr %agg.result, align 8, !tbaa !116
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #38
   store i64 %conv2, ptr %__dnew.i.i, align 8, !tbaa !87
   %cmp.i.i = icmp ugt i32 %retval.0.i, 15
@@ -28905,8 +28895,8 @@ if.then.i.i:                                      ; preds = %if.end.i16
 
 if.end.i.i.thread:                                ; preds = %if.then.i.i
   store ptr %call2.i8.i18, ptr %agg.result, align 8, !tbaa !83
-  %1 = load i64, ptr %__dnew.i.i, align 8, !tbaa !87
-  store i64 %1, ptr %0, align 8, !tbaa !117
+  %2 = load i64, ptr %__dnew.i.i, align 8, !tbaa !87
+  store i64 %2, ptr %1, align 8, !tbaa !117
   br label %if.end.i.i.i.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i16
@@ -28914,33 +28904,33 @@ if.end.i.i:                                       ; preds = %if.end.i16
   br i1 %cond, label %if.then.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i
-  %2 = load i8, ptr %call.i, align 1, !tbaa !117
-  store i8 %2, ptr %0, align 8, !tbaa !117
+  %3 = load i8, ptr %call.i, align 1, !tbaa !117
+  store i8 %3, ptr %1, align 8, !tbaa !117
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i, %if.end.i.i.thread
-  %3 = phi ptr [ %call2.i8.i18, %if.end.i.i.thread ], [ %0, %if.end.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 1 %call.i, i64 %conv2, i1 false)
+  %4 = phi ptr [ %call2.i8.i18, %if.end.i.i.thread ], [ %1, %if.end.i.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr nonnull align 1 %call.i, i64 %conv2, i1 false)
   %.pre = load i64, ptr %__dnew.i.i, align 8, !tbaa !87
   %.pre1 = load ptr, ptr %agg.result, align 8, !tbaa !83
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i
-  %4 = phi ptr [ %.pre1, %if.end.i.i.i.i.i ], [ %0, %if.then.i.i.i.i ]
-  %5 = phi i64 [ %.pre, %if.end.i.i.i.i.i ], [ 1, %if.then.i.i.i.i ]
+  %5 = phi ptr [ %.pre1, %if.end.i.i.i.i.i ], [ %1, %if.then.i.i.i.i ]
+  %6 = phi i64 [ %.pre, %if.end.i.i.i.i.i ], [ 1, %if.then.i.i.i.i ]
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 %5, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !86
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 %5
+  store i64 %6, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !86
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %6
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !117
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #38
   call void @_ZdaPv(ptr noundef nonnull %call.i) #40
   ret void
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit23: ; preds = %if.then.i.i
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdaPv(ptr noundef nonnull %call.i) #40
-  resume { ptr, i32 } %6
+  resume { ptr, i32 } %7
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -32189,7 +32179,7 @@ if.end.i:                                         ; preds = %if.then.i
   %string_val.sroa.0.4.inlined.i.sroa_idx = getelementptr inbounds i8, ptr %string_val.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %string_val.sroa.0.4.inlined.i.sroa_idx, ptr align 1 %value, i64 %conv.i.i, i1 false)
   %string_val.sroa.0.8.string_val.sroa_idx = getelementptr inbounds i8, ptr %string_val.sroa.0, i64 8
-  %string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre = load ptr, ptr %string_val.sroa.0.8.string_val.sroa_idx, align 8, !tbaa.struct !189
+  %string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.string_val.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre = load ptr, ptr %string_val.sroa.0.8.string_val.sroa_idx, align 8, !tbaa !3
   br label %_ZN6duckdb8string_tC2EPKcj.exit
 
 if.else.i:                                        ; preds = %entry
@@ -35047,7 +35037,7 @@ if.then.i:                                        ; preds = %if.end50
 if.end.i:                                         ; preds = %if.then.i
   %conv.i.i = and i64 %sub, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %nr_string.sroa.0.4.inlined.i.sroa_idx, ptr nonnull align 1 %add.ptr, i64 %conv.i.i, i1 false)
-  %nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre = load ptr, ptr %nr_string.sroa.0.8.nr_string.sroa_idx, align 8, !tbaa.struct !189
+  %nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.nr_string.sroa.0.8.agg.tmp.sroa.2.0.copyload.pre = load ptr, ptr %nr_string.sroa.0.8.nr_string.sroa_idx, align 8, !tbaa !3
   br label %invoke.cont
 
 if.else.i:                                        ; preds = %if.end50
@@ -37545,11 +37535,10 @@ entry:
   br i1 %cmp26.i.i, label %while.body.i.preheader.i, label %while.cond1.preheader.i.i
 
 while.body.i.preheader.i:                         ; preds = %entry
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %agg.tmp5.sroa.0.0.copyload, i32 -146097)
   %0 = icmp ult i32 %agg.tmp5.sroa.0.0.copyload, -146097
   %umin.i.neg275 = sext i1 %0 to i32
   %umin.i = zext i1 %0 to i32
-  %.neg = sub nsw i32 %smax.i, %agg.tmp5.sroa.0.0.copyload
+  %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %agg.tmp5.sroa.0.0.copyload)
   %1 = add nsw i32 %.neg, %umin.i.neg275
   %2 = udiv i32 %1, 146097
   %3 = add nuw nsw i32 %2, %umin.i
@@ -37619,11 +37608,10 @@ _ZN6duckdb4Date7ConvertENS_6date_tERiS2_S2_.exit: ; preds = %while.cond7.i.i
   br i1 %cmp26.i.i121, label %while.body.i.preheader.i155, label %while.cond1.preheader.i.i122
 
 while.body.i.preheader.i155:                      ; preds = %_ZN6duckdb4Date7ConvertENS_6date_tERiS2_S2_.exit
-  %smax.i156 = tail call i32 @llvm.smax.i32(i32 %agg.tmp7.sroa.0.0.copyload, i32 -146097)
   %21 = icmp ult i32 %agg.tmp7.sroa.0.0.copyload, -146097
   %umin.i157.neg276 = sext i1 %21 to i32
   %umin.i157 = zext i1 %21 to i32
-  %.neg225 = sub nsw i32 %smax.i156, %agg.tmp7.sroa.0.0.copyload
+  %.neg225 = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %agg.tmp7.sroa.0.0.copyload)
   %22 = add nsw i32 %.neg225, %umin.i157.neg276
   %23 = udiv i32 %22, 146097
   %24 = add nuw nsw i32 %23, %umin.i157
@@ -37760,11 +37748,10 @@ if.end:                                           ; preds = %if.then, %_ZN6duckd
   br i1 %cmp226, label %while.body.preheader, label %while.cond27.preheader
 
 while.body.preheader:                             ; preds = %if.end
-  %smax = tail call i32 @llvm.smax.i32(i32 %micros_diff.0, i32 -1000000)
   %43 = icmp ult i32 %micros_diff.0, -1000000
   %umin.neg40 = sext i1 %43 to i32
   %umin = zext i1 %43 to i32
-  %.neg7 = sub nsw i32 %smax, %micros_diff.0
+  %.neg7 = tail call i32 @llvm.usub.sat.i32(i32 -1000000, i32 %micros_diff.0)
   %44 = add nsw i32 %.neg7, %umin.neg40
   %45 = udiv i32 %44, 1000000
   %46 = add nuw nsw i32 %45, %umin
@@ -37782,11 +37769,10 @@ while.cond27.preheader:                           ; preds = %while.body.preheade
   br i1 %cmp28230, label %while.body29.preheader, label %while.cond33.preheader
 
 while.body29.preheader:                           ; preds = %while.cond27.preheader
-  %smax282 = tail call i32 @llvm.smax.i32(i32 %sec_diff.1.lcssa, i32 -60)
   %52 = icmp ult i32 %sec_diff.1.lcssa, -60
   %umin283.neg41 = sext i1 %52 to i32
   %umin283 = zext i1 %52 to i32
-  %.neg8 = sub nsw i32 %smax282, %sec_diff.1.lcssa
+  %.neg8 = tail call i32 @llvm.usub.sat.i32(i32 -60, i32 %sec_diff.1.lcssa)
   %53 = add nsw i32 %.neg8, %umin283.neg41
   %54 = udiv i32 %53, 60
   %55 = add nuw nsw i32 %54, %umin283
@@ -37804,11 +37790,10 @@ while.cond33.preheader:                           ; preds = %while.body29.prehea
   br i1 %cmp34235, label %while.body35.preheader, label %while.cond39.preheader
 
 while.body35.preheader:                           ; preds = %while.cond33.preheader
-  %smax284 = tail call i32 @llvm.smax.i32(i32 %min_diff.1.lcssa, i32 -60)
   %61 = icmp ult i32 %min_diff.1.lcssa, -60
   %umin285.neg42 = sext i1 %61 to i32
   %umin285 = zext i1 %61 to i32
-  %.neg9 = sub nsw i32 %smax284, %min_diff.1.lcssa
+  %.neg9 = tail call i32 @llvm.usub.sat.i32(i32 -60, i32 %min_diff.1.lcssa)
   %62 = add nsw i32 %.neg9, %umin285.neg42
   %63 = udiv i32 %62, 60
   %64 = add nuw nsw i32 %63, %umin285
@@ -37826,11 +37811,10 @@ while.cond39.preheader:                           ; preds = %while.body35.prehea
   br i1 %cmp40240, label %while.body41.preheader, label %while.cond45.preheader
 
 while.body41.preheader:                           ; preds = %while.cond39.preheader
-  %smax286 = tail call i32 @llvm.smax.i32(i32 %hour_diff.1.lcssa, i32 -24)
   %70 = icmp ult i32 %hour_diff.1.lcssa, -24
   %umin287.neg43 = sext i1 %70 to i32
   %umin287 = zext i1 %70 to i32
-  %.neg10 = sub nsw i32 %smax286, %hour_diff.1.lcssa
+  %.neg10 = tail call i32 @llvm.usub.sat.i32(i32 -24, i32 %hour_diff.1.lcssa)
   %71 = add nsw i32 %.neg10, %umin287.neg43
   %72 = udiv i32 %71, 24
   %73 = add nuw nsw i32 %72, %umin287
@@ -37913,21 +37897,21 @@ middle.block381:                                  ; preds = %vector.body390
 
 middle.block381.while.body47.us.us.us.preheader_crit_edge: ; preds = %middle.block381
   %.pre = add nsw i32 %ind.end387, %cond.pn.us.us.us
-  %.pre84 = tail call i32 @llvm.smax.i32(i32 %.pre, i32 0)
+  %.pre83 = tail call i32 @llvm.smax.i32(i32 %.pre, i32 0)
   br label %while.body47.us.us.us.preheader
 
 while.body47.us.us.us.preheader:                  ; preds = %middle.block381.while.body47.us.us.us.preheader_crit_edge, %while.body47.lr.ph.split.us.split.us.split.us
-  %smax81.pre-phi = phi i32 [ %.pre84, %middle.block381.while.body47.us.us.us.preheader_crit_edge ], [ %smax379, %while.body47.lr.ph.split.us.split.us.split.us ]
+  %smax80.pre-phi = phi i32 [ %.pre83, %middle.block381.while.body47.us.us.us.preheader_crit_edge ], [ %smax379, %while.body47.lr.ph.split.us.split.us.split.us ]
   %.pre-phi = phi i32 [ %.pre, %middle.block381.while.body47.us.us.us.preheader_crit_edge ], [ %80, %while.body47.lr.ph.split.us.split.us.split.us ]
   %month_diff.1247.us.us.us.ph = phi i32 [ %90, %middle.block381.while.body47.us.us.us.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.us.split.us.split.us ]
   %day_diff.2246.us.us.us.ph = phi i32 [ %ind.end387, %middle.block381.while.body47.us.us.us.preheader_crit_edge ], [ %day_diff.1.lcssa, %while.body47.lr.ph.split.us.split.us.split.us ]
-  %91 = icmp ne i32 %smax81.pre-phi, %.pre-phi
-  %umin82 = zext i1 %91 to i32
-  %92 = add i32 %.pre-phi, %umin82
-  %93 = sub i32 %smax81.pre-phi, %92
-  %umax83 = tail call i32 @llvm.umax.i32(i32 %cond.pn.us.us.us, i32 1)
-  %94 = udiv i32 %93, %umax83
-  %95 = add i32 %94, %umin82
+  %91 = icmp ne i32 %smax80.pre-phi, %.pre-phi
+  %umin81 = zext i1 %91 to i32
+  %92 = add i32 %.pre-phi, %umin81
+  %93 = sub i32 %smax80.pre-phi, %92
+  %umax82 = tail call i32 @llvm.umax.i32(i32 %cond.pn.us.us.us, i32 1)
+  %94 = udiv i32 %93, %umax82
+  %95 = add i32 %94, %umin81
   %96 = add i32 %95, 1
   %97 = mul i32 %cond.pn.us.us.us, %96
   %98 = xor i32 %95, -1
@@ -37973,22 +37957,22 @@ middle.block362:                                  ; preds = %vector.body371
   br i1 %cmp.n370, label %while.cond68.preheader, label %middle.block362.while.body47.us.us.preheader_crit_edge
 
 middle.block362.while.body47.us.us.preheader_crit_edge: ; preds = %middle.block362
-  %.pre85 = add nsw i32 %ind.end368, %cond.pn.us.us
-  %.pre87 = tail call i32 @llvm.smax.i32(i32 %.pre85, i32 0)
+  %.pre84 = add nsw i32 %ind.end368, %cond.pn.us.us
+  %.pre86 = tail call i32 @llvm.smax.i32(i32 %.pre84, i32 0)
   br label %while.body47.us.us.preheader
 
 while.body47.us.us.preheader:                     ; preds = %middle.block362.while.body47.us.us.preheader_crit_edge, %while.body47.lr.ph.split.us.split.us.split
-  %smax78.pre-phi = phi i32 [ %.pre87, %middle.block362.while.body47.us.us.preheader_crit_edge ], [ %smax360, %while.body47.lr.ph.split.us.split.us.split ]
-  %.pre-phi86 = phi i32 [ %.pre85, %middle.block362.while.body47.us.us.preheader_crit_edge ], [ %101, %while.body47.lr.ph.split.us.split.us.split ]
+  %smax77.pre-phi = phi i32 [ %.pre86, %middle.block362.while.body47.us.us.preheader_crit_edge ], [ %smax360, %while.body47.lr.ph.split.us.split.us.split ]
+  %.pre-phi85 = phi i32 [ %.pre84, %middle.block362.while.body47.us.us.preheader_crit_edge ], [ %101, %while.body47.lr.ph.split.us.split.us.split ]
   %month_diff.1247.us.us.ph = phi i32 [ %111, %middle.block362.while.body47.us.us.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.us.split.us.split ]
   %day_diff.2246.us.us.ph = phi i32 [ %ind.end368, %middle.block362.while.body47.us.us.preheader_crit_edge ], [ %day_diff.1.lcssa, %while.body47.lr.ph.split.us.split.us.split ]
-  %112 = icmp ne i32 %smax78.pre-phi, %.pre-phi86
-  %umin79 = zext i1 %112 to i32
-  %113 = add i32 %.pre-phi86, %umin79
-  %114 = sub i32 %smax78.pre-phi, %113
-  %umax80 = tail call i32 @llvm.umax.i32(i32 %cond.pn.us.us, i32 1)
-  %115 = udiv i32 %114, %umax80
-  %116 = add i32 %115, %umin79
+  %112 = icmp ne i32 %smax77.pre-phi, %.pre-phi85
+  %umin78 = zext i1 %112 to i32
+  %113 = add i32 %.pre-phi85, %umin78
+  %114 = sub i32 %smax77.pre-phi, %113
+  %umax79 = tail call i32 @llvm.umax.i32(i32 %cond.pn.us.us, i32 1)
+  %115 = udiv i32 %114, %umax79
+  %116 = add i32 %115, %umin78
   %117 = add i32 %116, 1
   %118 = mul i32 %cond.pn.us.us, %117
   %119 = xor i32 %116, -1
@@ -38034,22 +38018,22 @@ middle.block343:                                  ; preds = %vector.body352
   br i1 %cmp.n351, label %while.cond68.preheader, label %middle.block343.while.body47.us.preheader_crit_edge
 
 middle.block343.while.body47.us.preheader_crit_edge: ; preds = %middle.block343
-  %.pre88 = add nsw i32 %ind.end349, %cond.pn.us
-  %.pre90 = tail call i32 @llvm.smax.i32(i32 %.pre88, i32 0)
+  %.pre87 = add nsw i32 %ind.end349, %cond.pn.us
+  %.pre89 = tail call i32 @llvm.smax.i32(i32 %.pre87, i32 0)
   br label %while.body47.us.preheader
 
 while.body47.us.preheader:                        ; preds = %middle.block343.while.body47.us.preheader_crit_edge, %while.body47.lr.ph.split.us.split
-  %smax75.pre-phi = phi i32 [ %.pre90, %middle.block343.while.body47.us.preheader_crit_edge ], [ %smax341, %while.body47.lr.ph.split.us.split ]
-  %.pre-phi89 = phi i32 [ %.pre88, %middle.block343.while.body47.us.preheader_crit_edge ], [ %122, %while.body47.lr.ph.split.us.split ]
+  %smax74.pre-phi = phi i32 [ %.pre89, %middle.block343.while.body47.us.preheader_crit_edge ], [ %smax341, %while.body47.lr.ph.split.us.split ]
+  %.pre-phi88 = phi i32 [ %.pre87, %middle.block343.while.body47.us.preheader_crit_edge ], [ %122, %while.body47.lr.ph.split.us.split ]
   %month_diff.1247.us.ph = phi i32 [ %132, %middle.block343.while.body47.us.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.us.split ]
   %day_diff.2246.us.ph = phi i32 [ %ind.end349, %middle.block343.while.body47.us.preheader_crit_edge ], [ %day_diff.1.lcssa, %while.body47.lr.ph.split.us.split ]
-  %133 = icmp ne i32 %smax75.pre-phi, %.pre-phi89
-  %umin76 = zext i1 %133 to i32
-  %134 = add i32 %.pre-phi89, %umin76
-  %135 = sub i32 %smax75.pre-phi, %134
-  %umax77 = tail call i32 @llvm.umax.i32(i32 %cond.pn.us, i32 1)
-  %136 = udiv i32 %135, %umax77
-  %137 = add i32 %136, %umin76
+  %133 = icmp ne i32 %smax74.pre-phi, %.pre-phi88
+  %umin75 = zext i1 %133 to i32
+  %134 = add i32 %.pre-phi88, %umin75
+  %135 = sub i32 %smax74.pre-phi, %134
+  %umax76 = tail call i32 @llvm.umax.i32(i32 %cond.pn.us, i32 1)
+  %136 = udiv i32 %135, %umax76
+  %137 = add i32 %136, %umin75
   %138 = add i32 %137, 1
   %139 = mul i32 %cond.pn.us, %138
   %140 = xor i32 %137, -1
@@ -38103,22 +38087,22 @@ middle.block324:                                  ; preds = %vector.body333
   br i1 %cmp.n332, label %while.cond68.preheader, label %middle.block324.while.body47.us251.us.preheader_crit_edge
 
 middle.block324.while.body47.us251.us.preheader_crit_edge: ; preds = %middle.block324
-  %.pre91 = add nsw i32 %ind.end330, %cond.pn.us257.us
-  %.pre93 = tail call i32 @llvm.smax.i32(i32 %.pre91, i32 0)
+  %.pre90 = add nsw i32 %ind.end330, %cond.pn.us257.us
+  %.pre92 = tail call i32 @llvm.smax.i32(i32 %.pre90, i32 0)
   br label %while.body47.us251.us.preheader
 
 while.body47.us251.us.preheader:                  ; preds = %middle.block324.while.body47.us251.us.preheader_crit_edge, %while.body47.lr.ph.split.split.us.split.us
-  %smax72.pre-phi = phi i32 [ %.pre93, %middle.block324.while.body47.us251.us.preheader_crit_edge ], [ %smax322, %while.body47.lr.ph.split.split.us.split.us ]
-  %.pre-phi92 = phi i32 [ %.pre91, %middle.block324.while.body47.us251.us.preheader_crit_edge ], [ %144, %while.body47.lr.ph.split.split.us.split.us ]
+  %smax71.pre-phi = phi i32 [ %.pre92, %middle.block324.while.body47.us251.us.preheader_crit_edge ], [ %smax322, %while.body47.lr.ph.split.split.us.split.us ]
+  %.pre-phi91 = phi i32 [ %.pre90, %middle.block324.while.body47.us251.us.preheader_crit_edge ], [ %144, %while.body47.lr.ph.split.split.us.split.us ]
   %month_diff.1247.us252.us.ph = phi i32 [ %154, %middle.block324.while.body47.us251.us.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.split.us.split.us ]
   %day_diff.2246.us253.us.ph = phi i32 [ %ind.end330, %middle.block324.while.body47.us251.us.preheader_crit_edge ], [ %day_diff.1.lcssa, %while.body47.lr.ph.split.split.us.split.us ]
-  %155 = icmp ne i32 %smax72.pre-phi, %.pre-phi92
-  %umin73 = zext i1 %155 to i32
-  %156 = add i32 %.pre-phi92, %umin73
-  %157 = sub i32 %smax72.pre-phi, %156
-  %umax74 = tail call i32 @llvm.umax.i32(i32 %cond.pn.us257.us, i32 1)
-  %158 = udiv i32 %157, %umax74
-  %159 = add i32 %158, %umin73
+  %155 = icmp ne i32 %smax71.pre-phi, %.pre-phi91
+  %umin72 = zext i1 %155 to i32
+  %156 = add i32 %.pre-phi91, %umin72
+  %157 = sub i32 %smax71.pre-phi, %156
+  %umax73 = tail call i32 @llvm.umax.i32(i32 %cond.pn.us257.us, i32 1)
+  %158 = udiv i32 %157, %umax73
+  %159 = add i32 %158, %umin72
   %160 = add i32 %159, 1
   %161 = mul i32 %cond.pn.us257.us, %160
   %162 = xor i32 %159, -1
@@ -38164,22 +38148,22 @@ middle.block305:                                  ; preds = %vector.body314
   br i1 %cmp.n313, label %while.cond68.preheader, label %middle.block305.while.body47.us251.preheader_crit_edge
 
 middle.block305.while.body47.us251.preheader_crit_edge: ; preds = %middle.block305
-  %.pre94 = add nsw i32 %ind.end311, %cond.pn.us257
-  %.pre96 = tail call i32 @llvm.smax.i32(i32 %.pre94, i32 0)
+  %.pre93 = add nsw i32 %ind.end311, %cond.pn.us257
+  %.pre95 = tail call i32 @llvm.smax.i32(i32 %.pre93, i32 0)
   br label %while.body47.us251.preheader
 
 while.body47.us251.preheader:                     ; preds = %middle.block305.while.body47.us251.preheader_crit_edge, %while.body47.lr.ph.split.split.us.split
-  %smax69.pre-phi = phi i32 [ %.pre96, %middle.block305.while.body47.us251.preheader_crit_edge ], [ %smax303, %while.body47.lr.ph.split.split.us.split ]
-  %.pre-phi95 = phi i32 [ %.pre94, %middle.block305.while.body47.us251.preheader_crit_edge ], [ %165, %while.body47.lr.ph.split.split.us.split ]
+  %smax68.pre-phi = phi i32 [ %.pre95, %middle.block305.while.body47.us251.preheader_crit_edge ], [ %smax303, %while.body47.lr.ph.split.split.us.split ]
+  %.pre-phi94 = phi i32 [ %.pre93, %middle.block305.while.body47.us251.preheader_crit_edge ], [ %165, %while.body47.lr.ph.split.split.us.split ]
   %month_diff.1247.us252.ph = phi i32 [ %175, %middle.block305.while.body47.us251.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.split.us.split ]
   %day_diff.2246.us253.ph = phi i32 [ %ind.end311, %middle.block305.while.body47.us251.preheader_crit_edge ], [ %day_diff.1.lcssa, %while.body47.lr.ph.split.split.us.split ]
-  %176 = icmp ne i32 %smax69.pre-phi, %.pre-phi95
-  %umin70 = zext i1 %176 to i32
-  %177 = add i32 %.pre-phi95, %umin70
-  %178 = sub i32 %smax69.pre-phi, %177
-  %umax71 = tail call i32 @llvm.umax.i32(i32 %cond.pn.us257, i32 1)
-  %179 = udiv i32 %178, %umax71
-  %180 = add i32 %179, %umin70
+  %176 = icmp ne i32 %smax68.pre-phi, %.pre-phi94
+  %umin69 = zext i1 %176 to i32
+  %177 = add i32 %.pre-phi94, %umin69
+  %178 = sub i32 %smax68.pre-phi, %177
+  %umax70 = tail call i32 @llvm.umax.i32(i32 %cond.pn.us257, i32 1)
+  %179 = udiv i32 %178, %umax70
+  %180 = add i32 %179, %umin69
   %181 = add i32 %180, 1
   %182 = mul i32 %cond.pn.us257, %181
   %183 = xor i32 %180, -1
@@ -38225,22 +38209,22 @@ middle.block:                                     ; preds = %vector.body
   br i1 %cmp.n, label %while.cond68.preheader, label %middle.block.while.body47.preheader_crit_edge
 
 middle.block.while.body47.preheader_crit_edge:    ; preds = %middle.block
-  %.pre97 = add nsw i32 %ind.end, %cond.pn
-  %.pre99 = tail call i32 @llvm.smax.i32(i32 %.pre97, i32 0)
+  %.pre96 = add nsw i32 %ind.end, %cond.pn
+  %.pre98 = tail call i32 @llvm.smax.i32(i32 %.pre96, i32 0)
   br label %while.body47.preheader
 
 while.body47.preheader:                           ; preds = %middle.block.while.body47.preheader_crit_edge, %while.body47.lr.ph.split.split
-  %smax67.pre-phi = phi i32 [ %.pre99, %middle.block.while.body47.preheader_crit_edge ], [ %smax300, %while.body47.lr.ph.split.split ]
-  %.pre-phi98 = phi i32 [ %.pre97, %middle.block.while.body47.preheader_crit_edge ], [ %186, %while.body47.lr.ph.split.split ]
+  %smax.pre-phi = phi i32 [ %.pre98, %middle.block.while.body47.preheader_crit_edge ], [ %smax300, %while.body47.lr.ph.split.split ]
+  %.pre-phi97 = phi i32 [ %.pre96, %middle.block.while.body47.preheader_crit_edge ], [ %186, %while.body47.lr.ph.split.split ]
   %month_diff.1247.ph = phi i32 [ %196, %middle.block.while.body47.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.split ]
   %day_diff.2246.ph = phi i32 [ %ind.end, %middle.block.while.body47.preheader_crit_edge ], [ %day_diff.1.lcssa, %while.body47.lr.ph.split.split ]
-  %197 = icmp ne i32 %smax67.pre-phi, %.pre-phi98
-  %umin68 = zext i1 %197 to i32
-  %198 = add i32 %.pre-phi98, %umin68
-  %199 = sub i32 %smax67.pre-phi, %198
+  %197 = icmp ne i32 %smax.pre-phi, %.pre-phi97
+  %umin67 = zext i1 %197 to i32
+  %198 = add i32 %.pre-phi97, %umin67
+  %199 = sub i32 %smax.pre-phi, %198
   %umax = tail call i32 @llvm.umax.i32(i32 %cond.pn, i32 1)
   %200 = udiv i32 %199, %umax
-  %201 = add i32 %200, %umin68
+  %201 = add i32 %200, %umin67
   %202 = add i32 %201, 1
   %203 = mul i32 %cond.pn, %202
   %204 = xor i32 %201, -1
@@ -38255,11 +38239,10 @@ while.cond68.preheader:                           ; preds = %while.body47.prehea
   br i1 %cmp69270, label %while.body70.preheader, label %while.end73
 
 while.body70.preheader:                           ; preds = %while.cond68.preheader
-  %smax288 = tail call i32 @llvm.smax.i32(i32 %month_diff.1.lcssa, i32 -12)
   %207 = icmp ult i32 %month_diff.1.lcssa, -12
   %umin289.neg50 = sext i1 %207 to i32
   %umin289 = zext i1 %207 to i32
-  %.neg23 = sub nsw i32 %smax288, %month_diff.1.lcssa
+  %.neg23 = tail call i32 @llvm.usub.sat.i32(i32 -12, i32 %month_diff.1.lcssa)
   %208 = add nsw i32 %.neg23, %umin289.neg50
   %209 = udiv i32 %208, 12
   %210 = add nuw nsw i32 %209, %umin289
@@ -38666,11 +38649,10 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp26.i.i, label %while.body.i.preheader.i, label %while.cond1.preheader.i.i
 
 while.body.i.preheader.i:                         ; preds = %if.then2
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %left.coerce, i32 -146097)
   %0 = icmp ult i32 %left.coerce, -146097
   %umin.i.neg140 = sext i1 %0 to i32
   %umin.i = zext i1 %0 to i32
-  %.neg = sub nsw i32 %smax.i, %left.coerce
+  %.neg = tail call i32 @llvm.usub.sat.i32(i32 -146097, i32 %left.coerce)
   %1 = add nsw i32 %.neg, %umin.i.neg140
   %2 = udiv i32 %1, 146097
   %3 = add nuw nsw i32 %2, %umin.i
@@ -123300,11 +123282,11 @@ _ZN6duckdb13NumericHelper12SignedLengthIlmEEiT_.exit49: ; preds = %if.else42.i.i
   %add55.i.i36 = add nuw nsw i32 %add52.i.i35, %conv48.i.i29
   %sub4.i37 = add nuw nsw i32 %add55.i.i36, %conv51.i.i31
   %add9 = add nuw nsw i32 %sub4.i37, %conv54.i.i33
-  %cond.i = tail call noundef i32 @llvm.smax.i32(i32 %add7, i32 %add9)
+  %0 = tail call i32 @llvm.umax.i32(i32 %add7, i32 %add9)
   br label %return
 
 return:                                           ; preds = %_ZN6duckdb13NumericHelper12SignedLengthIlmEEiT_.exit49, %_ZN6duckdb13NumericHelper12SignedLengthIlmEEiT_.exit
-  %retval.0 = phi i32 [ %sub4.i, %_ZN6duckdb13NumericHelper12SignedLengthIlmEEiT_.exit ], [ %cond.i, %_ZN6duckdb13NumericHelper12SignedLengthIlmEEiT_.exit49 ]
+  %retval.0 = phi i32 [ %sub4.i, %_ZN6duckdb13NumericHelper12SignedLengthIlmEEiT_.exit ], [ %0, %_ZN6duckdb13NumericHelper12SignedLengthIlmEEiT_.exit49 ]
   ret i32 %retval.0
 }
 
@@ -219275,6 +219257,9 @@ declare x86_fp80 @llvm.fabs.f80(x86_fp80) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #37
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #37
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

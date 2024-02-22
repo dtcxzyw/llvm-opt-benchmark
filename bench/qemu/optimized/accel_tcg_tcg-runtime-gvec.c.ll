@@ -3,7 +3,7 @@ source_filename = "bench/qemu/original/accel_tcg_tcg-runtime-gvec.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_add8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -51,7 +51,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_add16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -99,7 +99,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_add32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -147,7 +147,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_add64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -195,7 +195,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_adds8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -242,7 +242,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_adds16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -289,7 +289,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_adds32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -336,7 +336,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_adds64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -382,7 +382,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sub8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -430,7 +430,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sub16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -478,7 +478,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sub32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -526,7 +526,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sub64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -574,7 +574,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_subs8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -621,7 +621,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_subs16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -668,7 +668,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_subs32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -715,7 +715,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_subs64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -761,7 +761,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_mul8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -809,7 +809,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_mul16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -857,7 +857,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_mul32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -905,7 +905,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_mul64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -953,7 +953,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_muls8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1000,7 +1000,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_muls16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1047,7 +1047,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_muls32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1094,7 +1094,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_muls64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1140,7 +1140,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_neg8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1186,7 +1186,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_neg16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1232,7 +1232,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_neg32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1278,7 +1278,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_neg64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1324,7 +1324,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_abs8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1370,7 +1370,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_abs16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1416,7 +1416,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_abs32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1462,7 +1462,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_abs64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1508,7 +1508,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_mov(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #1 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1529,12 +1529,12 @@ for.body.preheader.i:                             ; preds = %entry
   %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
   %0 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %0, i64 %conv.i.i)
-  %1 = xor i64 %cond.i, -1
-  %2 = add nsw i64 %smax.i, %1
-  %3 = and i64 %2, -8
-  %4 = add nsw i64 %3, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
+  %1 = tail call i64 @llvm.umax.i64(i64 %0, i64 %conv.i.i)
+  %2 = xor i64 %cond.i, -1
+  %3 = add nsw i64 %1, %2
+  %4 = and i64 %3, -8
+  %5 = add nsw i64 %4, 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %entry, %for.body.preheader.i
@@ -1544,7 +1544,7 @@ clear_high.exit:                                  ; preds = %entry, %for.body.pr
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
 define dso_local void @helper_gvec_dup64(ptr nocapture noundef writeonly %d, i32 noundef %desc, i64 noundef %c) local_unnamed_addr #3 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1589,7 +1589,7 @@ clear_high.exit:                                  ; preds = %if.end, %for.body.p
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
 define dso_local void @helper_gvec_dup32(ptr nocapture noundef writeonly %d, i32 noundef %desc, i32 noundef %c) local_unnamed_addr #3 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1634,7 +1634,7 @@ clear_high.exit:                                  ; preds = %if.end, %for.body.p
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
 define dso_local void @helper_gvec_dup16(ptr nocapture noundef writeonly %d, i32 noundef %desc, i32 noundef %c) local_unnamed_addr #3 {
 entry:
   %and = and i32 %c, 65535
@@ -1681,7 +1681,7 @@ helper_gvec_dup32.exit:                           ; preds = %if.end.i, %for.body
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: write) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable
 define dso_local void @helper_gvec_dup8(ptr nocapture noundef writeonly %d, i32 noundef %desc, i32 noundef %c) local_unnamed_addr #3 {
 entry:
   %and = and i32 %c, 255
@@ -1728,7 +1728,7 @@ helper_gvec_dup32.exit:                           ; preds = %if.end.i, %for.body
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_not(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1774,7 +1774,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_and(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1822,7 +1822,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_or(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1870,7 +1870,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_xor(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1918,7 +1918,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_andc(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -1967,7 +1967,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_orc(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2016,7 +2016,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_nand(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2065,7 +2065,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_nor(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2114,7 +2114,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_eqv(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2163,7 +2163,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ands(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2209,7 +2209,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_andcs(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2256,7 +2256,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_xors(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2302,7 +2302,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ors(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2348,7 +2348,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shl8i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2397,7 +2397,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shl16i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2446,7 +2446,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shl32i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2493,7 +2493,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shl64i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2541,7 +2541,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shr8i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2590,7 +2590,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shr16i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2639,7 +2639,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shr32i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2686,7 +2686,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shr64i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2734,7 +2734,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sar8i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2783,7 +2783,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sar16i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2832,7 +2832,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sar32i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2879,7 +2879,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sar64i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2927,7 +2927,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_rotl8i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2947,7 +2947,7 @@ for.body:                                         ; preds = %entry, %for.body
   %i.012 = phi i64 [ 0, %entry ], [ %add, %for.body ]
   %add.ptr = getelementptr i8, ptr %a, i64 %i.012
   %1 = load i8, ptr %add.ptr, align 1
-  %conv3.i = tail call i8 @llvm.fshl.i8(i8 %1, i8 %1, i8 %0)
+  %conv3.i = tail call noundef i8 @llvm.fshl.i8(i8 %1, i8 %1, i8 %0)
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.012
   store i8 %conv3.i, ptr %add.ptr3, align 1
   %add = add nuw nsw i64 %i.012, 1
@@ -2975,7 +2975,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_rotl16i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -2995,7 +2995,7 @@ for.body:                                         ; preds = %entry, %for.body
   %i.012 = phi i64 [ 0, %entry ], [ %add, %for.body ]
   %add.ptr = getelementptr i8, ptr %a, i64 %i.012
   %2 = load i16, ptr %add.ptr, align 2
-  %conv3.i = tail call i16 @llvm.fshl.i16(i16 %2, i16 %2, i16 %1)
+  %conv3.i = tail call noundef i16 @llvm.fshl.i16(i16 %2, i16 %2, i16 %1)
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.012
   store i16 %conv3.i, ptr %add.ptr3, align 2
   %add = add nuw nsw i64 %i.012, 2
@@ -3023,7 +3023,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_rotl32i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3042,7 +3042,7 @@ for.body:                                         ; preds = %entry, %for.body
   %i.012 = phi i64 [ 0, %entry ], [ %add, %for.body ]
   %add.ptr = getelementptr i8, ptr %a, i64 %i.012
   %0 = load i32, ptr %add.ptr, align 4
-  %or.i = tail call i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 %shr.i.i8)
+  %or.i = tail call noundef i32 @llvm.fshl.i32(i32 %0, i32 %0, i32 %shr.i.i8)
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.012
   store i32 %or.i, ptr %add.ptr3, align 4
   %add = add nuw nsw i64 %i.012, 4
@@ -3070,7 +3070,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_rotl64i(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3090,7 +3090,7 @@ for.body:                                         ; preds = %entry, %for.body
   %i.012 = phi i64 [ 0, %entry ], [ %add, %for.body ]
   %add.ptr = getelementptr i8, ptr %a, i64 %i.012
   %0 = load i64, ptr %add.ptr, align 8
-  %or.i = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 %sh_prom.i)
+  %or.i = tail call noundef i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 %sh_prom.i)
   %add.ptr3 = getelementptr i8, ptr %d, i64 %i.012
   store i64 %or.i, ptr %add.ptr3, align 8
   %add = add nuw nsw i64 %i.012, 8
@@ -3118,7 +3118,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shl8v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3167,7 +3167,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shl16v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3216,7 +3216,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shl32v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3265,7 +3265,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shl64v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3314,7 +3314,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shr8v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3363,7 +3363,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shr16v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3412,7 +3412,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shr32v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3461,7 +3461,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_shr64v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3510,7 +3510,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sar8v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3559,7 +3559,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sar16v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3608,7 +3608,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sar32v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3657,7 +3657,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sar64v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3706,7 +3706,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_rotl8v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3726,7 +3726,7 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load i8, ptr %add.ptr, align 1
   %add.ptr2 = getelementptr i8, ptr %a, i64 %i.011
   %1 = load i8, ptr %add.ptr2, align 1
-  %conv3.i = tail call i8 @llvm.fshl.i8(i8 %1, i8 %1, i8 %0)
+  %conv3.i = tail call noundef i8 @llvm.fshl.i8(i8 %1, i8 %1, i8 %0)
   %add.ptr5 = getelementptr i8, ptr %d, i64 %i.011
   store i8 %conv3.i, ptr %add.ptr5, align 1
   %add = add nuw nsw i64 %i.011, 1
@@ -3754,7 +3754,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_rotl16v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3774,7 +3774,7 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load i16, ptr %add.ptr, align 2
   %add.ptr2 = getelementptr i8, ptr %a, i64 %i.011
   %1 = load i16, ptr %add.ptr2, align 2
-  %conv3.i = tail call i16 @llvm.fshl.i16(i16 %1, i16 %1, i16 %0)
+  %conv3.i = tail call noundef i16 @llvm.fshl.i16(i16 %1, i16 %1, i16 %0)
   %add.ptr5 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %conv3.i, ptr %add.ptr5, align 2
   %add = add nuw nsw i64 %i.011, 2
@@ -3802,7 +3802,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_rotl32v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3822,7 +3822,7 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load i32, ptr %add.ptr, align 4
   %add.ptr1 = getelementptr i8, ptr %a, i64 %i.011
   %1 = load i32, ptr %add.ptr1, align 4
-  %or.i = tail call i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 %0)
+  %or.i = tail call noundef i32 @llvm.fshl.i32(i32 %1, i32 %1, i32 %0)
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %or.i, ptr %add.ptr4, align 4
   %add = add nuw nsw i64 %i.011, 4
@@ -3850,7 +3850,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_rotl64v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3870,7 +3870,7 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load i64, ptr %add.ptr, align 8
   %add.ptr1 = getelementptr i8, ptr %a, i64 %i.011
   %1 = load i64, ptr %add.ptr1, align 8
-  %or.i = tail call i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 %0)
+  %or.i = tail call noundef i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 %0)
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %or.i, ptr %add.ptr4, align 8
   %add = add nuw nsw i64 %i.011, 8
@@ -3898,7 +3898,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_rotr8v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3918,7 +3918,7 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load i8, ptr %add.ptr, align 1
   %add.ptr2 = getelementptr i8, ptr %a, i64 %i.011
   %1 = load i8, ptr %add.ptr2, align 1
-  %conv3.i = tail call i8 @llvm.fshr.i8(i8 %1, i8 %1, i8 %0)
+  %conv3.i = tail call noundef i8 @llvm.fshr.i8(i8 %1, i8 %1, i8 %0)
   %add.ptr5 = getelementptr i8, ptr %d, i64 %i.011
   store i8 %conv3.i, ptr %add.ptr5, align 1
   %add = add nuw nsw i64 %i.011, 1
@@ -3946,7 +3946,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_rotr16v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -3966,7 +3966,7 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load i16, ptr %add.ptr, align 2
   %add.ptr2 = getelementptr i8, ptr %a, i64 %i.011
   %1 = load i16, ptr %add.ptr2, align 2
-  %conv3.i = tail call i16 @llvm.fshr.i16(i16 %1, i16 %1, i16 %0)
+  %conv3.i = tail call noundef i16 @llvm.fshr.i16(i16 %1, i16 %1, i16 %0)
   %add.ptr5 = getelementptr i8, ptr %d, i64 %i.011
   store i16 %conv3.i, ptr %add.ptr5, align 2
   %add = add nuw nsw i64 %i.011, 2
@@ -3994,7 +3994,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_rotr32v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4014,7 +4014,7 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load i32, ptr %add.ptr, align 4
   %add.ptr1 = getelementptr i8, ptr %a, i64 %i.011
   %1 = load i32, ptr %add.ptr1, align 4
-  %or.i = tail call i32 @llvm.fshr.i32(i32 %1, i32 %1, i32 %0)
+  %or.i = tail call noundef i32 @llvm.fshr.i32(i32 %1, i32 %1, i32 %0)
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i32 %or.i, ptr %add.ptr4, align 4
   %add = add nuw nsw i64 %i.011, 4
@@ -4042,7 +4042,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_rotr64v(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4062,7 +4062,7 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load i64, ptr %add.ptr, align 8
   %add.ptr1 = getelementptr i8, ptr %a, i64 %i.011
   %1 = load i64, ptr %add.ptr1, align 8
-  %or.i = tail call i64 @llvm.fshr.i64(i64 %1, i64 %1, i64 %0)
+  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %1, i64 %1, i64 %0)
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %or.i, ptr %add.ptr4, align 8
   %add = add nuw nsw i64 %i.011, 8
@@ -4090,7 +4090,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_eq8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4139,7 +4139,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ne8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4188,7 +4188,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_lt8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4237,7 +4237,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_le8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4286,7 +4286,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ltu8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4335,7 +4335,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_leu8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4384,7 +4384,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_eq16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4433,7 +4433,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ne16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4482,7 +4482,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_lt16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4531,7 +4531,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_le16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4580,7 +4580,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ltu16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4629,7 +4629,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_leu16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4678,7 +4678,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_eq32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4727,7 +4727,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ne32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4776,7 +4776,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_lt32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4825,7 +4825,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_le32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4874,7 +4874,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ltu32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4923,7 +4923,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_leu32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -4972,7 +4972,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_eq64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5021,7 +5021,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ne64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5070,7 +5070,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_lt64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5119,7 +5119,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_le64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5168,7 +5168,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ltu64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5217,7 +5217,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_leu64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5266,7 +5266,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_eqs8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5318,7 +5318,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_lts8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5373,7 +5373,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_les8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5428,7 +5428,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ltus8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5482,7 +5482,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_leus8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5536,7 +5536,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_eqs16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5588,7 +5588,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_lts16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5643,7 +5643,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_les16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5698,7 +5698,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ltus16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5752,7 +5752,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_leus16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5806,7 +5806,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_eqs32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5857,7 +5857,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_lts32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5908,7 +5908,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_les32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -5959,7 +5959,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ltus32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6010,7 +6010,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_leus32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6061,7 +6061,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_eqs64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6112,7 +6112,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_lts64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6163,7 +6163,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_les64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6214,7 +6214,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ltus64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6265,7 +6265,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_leus64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, i64 noundef %b64, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6316,7 +6316,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ssadd8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6364,7 +6364,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ssadd16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6412,7 +6412,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ssadd32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6465,7 +6465,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ssadd64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6518,7 +6518,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sssub8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6566,7 +6566,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sssub16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6614,7 +6614,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sssub32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6667,7 +6667,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_sssub64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6720,7 +6720,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_usadd8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6772,7 +6772,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_usadd16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6824,7 +6824,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_usadd32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6872,7 +6872,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_usadd64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6920,7 +6920,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ussub8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -6972,7 +6972,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ussub16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7024,7 +7024,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ussub32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7072,7 +7072,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_ussub64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7120,7 +7120,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_smin8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7168,7 +7168,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_smin16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7216,7 +7216,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_smin32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7264,7 +7264,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_smin64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7312,7 +7312,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_smax8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7360,7 +7360,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_smax16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7408,7 +7408,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_smax32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7456,7 +7456,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_smax64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7504,7 +7504,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_umin8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7552,7 +7552,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_umin16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7600,7 +7600,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_umin32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7648,7 +7648,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_umin64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7696,7 +7696,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_umax8(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7744,7 +7744,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_umax16(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7792,7 +7792,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_umax32(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7840,7 +7840,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_umax64(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -7888,7 +7888,7 @@ clear_high.exit:                                  ; preds = %for.end, %for.body.
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @helper_gvec_bitsel(ptr nocapture noundef writeonly %d, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, ptr nocapture noundef readonly %c, i32 noundef %desc) local_unnamed_addr #0 {
 entry:
   %shr.i.i = lshr i32 %desc, 8
@@ -8064,10 +8064,10 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #5
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #5
 
-attributes #0 = { nofree nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nofree nosync nounwind sspstrong memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }

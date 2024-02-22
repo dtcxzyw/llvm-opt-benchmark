@@ -569,7 +569,7 @@ if.end51:                                         ; preds = %if.then22, %if.else
   %rightPos.1 = phi i32 [ %inc23, %if.then22 ], [ %inc38, %if.else29 ], [ %rightPos.070, %if.then14 ]
   %add.ptr.i38 = getelementptr inbounds i32, ptr %merged.sroa.0.0, i64 %indvars.iv
   store i32 %.sink, ptr %add.ptr.i38, align 4
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %conv = sext i32 %leftPos.1 to i64
   %cmp2 = icmp ugt i64 %sub.ptr.div.i, %conv
   %conv3 = sext i32 %rightPos.1 to i64
@@ -593,10 +593,10 @@ while.body67.preheader:                           ; preds = %while.cond64.prehea
 while.body55:                                     ; preds = %while.body55.preheader, %while.body55
   %indvars.iv94 = phi i64 [ %leftPos.0.lcssa, %while.body55.preheader ], [ %indvars.iv.next95, %while.body55 ]
   %indvars.iv92 = phi i64 [ %6, %while.body55.preheader ], [ %indvars.iv.next93, %while.body55 ]
-  %indvars.iv.next95 = add nuw i64 %indvars.iv94, 1
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %add.ptr2.i44 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv94
   %13 = load i32, ptr %add.ptr2.i44, align 4
-  %indvars.iv.next93 = add nuw i64 %indvars.iv92, 1
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %add.ptr.i45 = getelementptr inbounds i32, ptr %merged.sroa.0.0, i64 %indvars.iv92
   store i32 %13, ptr %add.ptr.i45, align 4
   %cmp54 = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next95
@@ -605,10 +605,10 @@ while.body55:                                     ; preds = %while.body55.prehea
 while.body67:                                     ; preds = %while.body67.preheader, %while.body67
   %indvars.iv101 = phi i64 [ %rightPos.0.lcssa, %while.body67.preheader ], [ %indvars.iv.next102, %while.body67 ]
   %indvars.iv99 = phi i64 [ %12, %while.body67.preheader ], [ %indvars.iv.next100, %while.body67 ]
-  %indvars.iv.next102 = add nuw i64 %indvars.iv101, 1
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %arrayidx70 = getelementptr inbounds i32, ptr %otherEntries, i64 %indvars.iv101
   %14 = load i32, ptr %arrayidx70, align 4
-  %indvars.iv.next100 = add nuw i64 %indvars.iv99, 1
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %add.ptr.i46 = getelementptr inbounds i32, ptr %merged.sroa.0.0, i64 %indvars.iv99
   store i32 %14, ptr %add.ptr.i46, align 4
   %cmp66 = icmp ult i64 %indvars.iv.next102, %otherSize
@@ -775,7 +775,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %6 = trunc i32 %zeros.0 to i8
   %conv15 = add nsw i8 %6, 1
   tail call void @_ZN8facebook5velox6common3hll8DenseHll6insertEia(ptr noundef nonnull align 8 dereferenceable(112) %denseHll, i32 noundef %shr, i8 noundef signext %conv15)
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load ptr, ptr %_M_finish.i, align 8
   %8 = load ptr, ptr %add.ptr.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %7 to i64
@@ -871,16 +871,16 @@ if.then.i1.i.i.i:                                 ; preds = %if.end.i.i.i
 _ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i: ; preds = %if.end.i.i.i
   %n.tr.i.i.i = trunc i64 %cond.i to i32
   %conv.i.i.i = shl nuw nsw i32 %n.tr.i.i.i, 2
-  %.sroa.speculated.i.i.i.i = tail call i32 @llvm.smax.i32(i32 %conv.i.i.i, i32 16)
-  %call3.i.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator8allocateEib(ptr noundef nonnull align 8 dereferenceable(37416) %3, i32 noundef %.sroa.speculated.i.i.i.i, i1 noundef zeroext true)
+  %5 = tail call i32 @llvm.umax.i32(i32 %conv.i.i.i, i32 16)
+  %call3.i.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator8allocateEib(ptr noundef nonnull align 8 dereferenceable(37416) %3, i32 noundef %5, i1 noundef zeroext true)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i.i, i64 4
   br label %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIjN8facebook5velox12StlAllocatorIjEEE12_M_check_lenEmPKc.exit, %if.then.i.i.i, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i
   %cond.i10 = phi ptr [ null, %_ZNKSt6vectorIjN8facebook5velox12StlAllocatorIjEEE12_M_check_lenEmPKc.exit ], [ %call.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i, %_ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i ]
   %add.ptr9 = getelementptr inbounds i32, ptr %cond.i10, i64 %sub.ptr.div.i
-  %5 = load i32, ptr %__args, align 4
-  store i32 %5, ptr %add.ptr9, align 4
+  %6 = load i32, ptr %__args, align 4
+  store i32 %6, ptr %add.ptr9, align 4
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit, label %for.body.i.i.i
 
@@ -889,8 +889,8 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %6 = load i32, ptr %__first.addr.06.i.i.i, align 4, !alias.scope !18, !noalias !15
-  store i32 %6, ptr %__cur.07.i.i.i, align 4, !alias.scope !15, !noalias !18
+  %7 = load i32, ptr %__first.addr.06.i.i.i, align 4, !alias.scope !18, !noalias !15
+  store i32 %7, ptr %__cur.07.i.i.i, align 4, !alias.scope !15, !noalias !18
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 4
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 4
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
@@ -907,8 +907,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIjN8fac
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  %7 = load i32, ptr %__first.addr.06.i.i.i14, align 4, !alias.scope !24, !noalias !21
-  store i32 %7, ptr %__cur.07.i.i.i13, align 4, !alias.scope !21, !noalias !24
+  %8 = load i32, ptr %__first.addr.06.i.i.i14, align 4, !alias.scope !24, !noalias !21
+  store i32 %8, ptr %__cur.07.i.i.i13, align 4, !alias.scope !21, !noalias !24
   %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 4
   %incdec.ptr1.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 4
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
@@ -917,31 +917,31 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIjN8fac
 _ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit19: ; preds = %for.body.i.i.i12, %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit
   %__cur.0.lcssa.i.i.i18 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit ], [ %incdec.ptr1.i.i.i16, %for.body.i.i.i12 ]
   %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load ptr, ptr %_M_end_of_storage, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %8 to i64
+  %9 = load ptr, ptr %_M_end_of_storage, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %9 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.i
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE13_M_deallocateEPjm.exit, label %if.then.i20
 
 if.then.i20:                                      ; preds = %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit19
   %cmp.i.i.i21 = icmp ugt i64 %sub.ptr.sub, 3072
-  %9 = load ptr, ptr %this, align 8
+  %10 = load ptr, ptr %this, align 8
   br i1 %cmp.i.i.i21, label %if.then.i.i.i24, label %if.end.i.i.i22
 
 if.then.i.i.i24:                                  ; preds = %if.then.i20
-  invoke void @_ZN8facebook5velox19HashStringAllocator10freeToPoolEPvm(ptr noundef nonnull align 8 dereferenceable(37416) %9, ptr noundef nonnull %1, i64 noundef %sub.ptr.sub)
+  invoke void @_ZN8facebook5velox19HashStringAllocator10freeToPoolEPvm(ptr noundef nonnull align 8 dereferenceable(37416) %10, ptr noundef nonnull %1, i64 noundef %sub.ptr.sub)
           to label %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE13_M_deallocateEPjm.exit unwind label %terminate.lpad.i.i.i
 
 if.end.i.i.i22:                                   ; preds = %if.then.i20
   %add.ptr.i.i.i.i23 = getelementptr inbounds i8, ptr %1, i64 -4
-  invoke void @_ZN8facebook5velox19HashStringAllocator4freeEPNS1_6HeaderE(ptr noundef nonnull align 8 dereferenceable(37416) %9, ptr noundef nonnull %add.ptr.i.i.i.i23)
+  invoke void @_ZN8facebook5velox19HashStringAllocator4freeEPNS1_6HeaderE(ptr noundef nonnull align 8 dereferenceable(37416) %10, ptr noundef nonnull %add.ptr.i.i.i.i23)
           to label %_ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE13_M_deallocateEPjm.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i22, %if.then.i.i.i24
-  %10 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #22
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #22
   unreachable
 
 _ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE13_M_deallocateEPjm.exit: ; preds = %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit19, %if.then.i.i.i24, %if.end.i.i.i22
@@ -1114,11 +1114,11 @@ declare i32 @llvm.smax.i32(i32, i32) #18
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #18
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

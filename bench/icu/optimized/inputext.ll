@@ -231,29 +231,29 @@ lor.lhs.false22:                                  ; preds = %if.end19
   br i1 %or.cond23, label %if.then27.thread, label %if.end45
 
 if.then27.thread:                                 ; preds = %lor.lhs.false22
-  %spec.store.select69 = tail call i32 @llvm.smin.i32(i32 %6, i32 8192)
+  %9 = tail call i32 @llvm.umin.i32(i32 %6, i32 8192)
   br label %for.body34.lr.ph
 
 if.then27:                                        ; preds = %entry, %if.end19
-  %9 = phi i32 [ %6, %if.end19 ], [ %.pre61, %entry ]
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %9, i32 8192)
-  %cmp3345 = icmp sgt i32 %9, 0
+  %10 = phi i32 [ %6, %if.end19 ], [ %.pre61, %entry ]
+  %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 8192)
+  %cmp3345 = icmp sgt i32 %10, 0
   br i1 %cmp3345, label %for.body34.lr.ph, label %for.end43
 
 for.body34.lr.ph:                                 ; preds = %if.then27.thread, %if.then27
-  %spec.store.select71 = phi i32 [ %spec.store.select69, %if.then27.thread ], [ %spec.store.select, %if.then27 ]
+  %spec.store.select71 = phi i32 [ %9, %if.then27.thread ], [ %11, %if.then27 ]
   %fRawInput35 = getelementptr inbounds i8, ptr %this, i64 40
   %wide.trip.count = zext nneg i32 %spec.store.select71 to i64
   br label %for.body34
 
 for.body34:                                       ; preds = %for.body34.lr.ph, %for.body34
   %indvars.iv51 = phi i64 [ 0, %for.body34.lr.ph ], [ %indvars.iv.next52, %for.body34 ]
-  %10 = load ptr, ptr %fRawInput35, align 8
-  %arrayidx37 = getelementptr inbounds i8, ptr %10, i64 %indvars.iv51
-  %11 = load i8, ptr %arrayidx37, align 1
-  %12 = load ptr, ptr %this, align 8
-  %arrayidx40 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv51
-  store i8 %11, ptr %arrayidx40, align 1
+  %12 = load ptr, ptr %fRawInput35, align 8
+  %arrayidx37 = getelementptr inbounds i8, ptr %12, i64 %indvars.iv51
+  %13 = load i8, ptr %arrayidx37, align 1
+  %14 = load ptr, ptr %this, align 8
+  %arrayidx40 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv51
+  store i8 %13, ptr %arrayidx40, align 1
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count
   br i1 %exitcond.not, label %for.end43, label %for.body34, !llvm.loop !6
@@ -266,32 +266,32 @@ for.end43:                                        ; preds = %for.body34, %for.co
 
 if.end45:                                         ; preds = %for.end43, %lor.lhs.false22
   %fByteStats = getelementptr inbounds i8, ptr %this, i64 16
-  %13 = load ptr, ptr %fByteStats, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(512) %13, i8 0, i64 512, i1 false)
+  %15 = load ptr, ptr %fByteStats, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(512) %15, i8 0, i64 512, i1 false)
   %fInputLen47 = getelementptr inbounds i8, ptr %this, i64 8
-  %14 = load i32, ptr %fInputLen47, align 8
-  %cmp4848 = icmp sgt i32 %14, 0
+  %16 = load i32, ptr %fInputLen47, align 8
+  %cmp4848 = icmp sgt i32 %16, 0
   br i1 %cmp4848, label %for.body49, label %for.cond62.preheader
 
 for.cond62.preheader:                             ; preds = %for.body49, %if.end45
-  %15 = load ptr, ptr %fByteStats, align 8
+  %17 = load ptr, ptr %fByteStats, align 8
   br label %for.body64
 
 for.body49:                                       ; preds = %if.end45, %for.body49
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %for.body49 ], [ 0, %if.end45 ]
-  %16 = load ptr, ptr %fByteStats, align 8
-  %17 = load ptr, ptr %this, align 8
-  %arrayidx53 = getelementptr inbounds i8, ptr %17, i64 %indvars.iv54
-  %18 = load i8, ptr %arrayidx53, align 1
-  %idxprom54 = zext i8 %18 to i64
-  %arrayidx55 = getelementptr inbounds i16, ptr %16, i64 %idxprom54
-  %19 = load i16, ptr %arrayidx55, align 2
-  %add57 = add i16 %19, 1
+  %18 = load ptr, ptr %fByteStats, align 8
+  %19 = load ptr, ptr %this, align 8
+  %arrayidx53 = getelementptr inbounds i8, ptr %19, i64 %indvars.iv54
+  %20 = load i8, ptr %arrayidx53, align 1
+  %idxprom54 = zext i8 %20 to i64
+  %arrayidx55 = getelementptr inbounds i16, ptr %18, i64 %idxprom54
+  %21 = load i16, ptr %arrayidx55, align 2
+  %add57 = add i16 %21, 1
   store i16 %add57, ptr %arrayidx55, align 2
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %20 = load i32, ptr %fInputLen47, align 8
-  %21 = sext i32 %20 to i64
-  %cmp48 = icmp slt i64 %indvars.iv.next55, %21
+  %22 = load i32, ptr %fInputLen47, align 8
+  %23 = sext i32 %22 to i64
+  %cmp48 = icmp slt i64 %indvars.iv.next55, %23
   br i1 %cmp48, label %for.body49, label %for.cond62.preheader, !llvm.loop !7
 
 for.cond62:                                       ; preds = %for.body64
@@ -301,9 +301,9 @@ for.cond62:                                       ; preds = %for.body64
 
 for.body64:                                       ; preds = %for.cond62.preheader, %for.cond62
   %indvars.iv57 = phi i64 [ 128, %for.cond62.preheader ], [ %indvars.iv.next58, %for.cond62 ]
-  %arrayidx67 = getelementptr inbounds i16, ptr %15, i64 %indvars.iv57
-  %22 = load i16, ptr %arrayidx67, align 2
-  %cmp69.not = icmp eq i16 %22, 0
+  %arrayidx67 = getelementptr inbounds i16, ptr %17, i64 %indvars.iv57
+  %24 = load i16, ptr %arrayidx67, align 2
+  %cmp69.not = icmp eq i16 %24, 0
   br i1 %cmp69.not, label %for.cond62, label %if.then70
 
 if.then70:                                        ; preds = %for.body64
@@ -319,7 +319,7 @@ for.end74:                                        ; preds = %for.cond62, %if.the
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

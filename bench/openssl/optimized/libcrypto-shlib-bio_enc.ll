@@ -148,9 +148,9 @@ while.cond17.preheader:                           ; preds = %while.end
 while.body19:                                     ; preds = %while.cond17.preheader, %while.end49
   %in.addr.058 = phi ptr [ %in, %while.cond17.preheader ], [ %add.ptr, %while.end49 ]
   %inl.addr.057 = phi i32 [ %inl, %while.cond17.preheader ], [ %sub26, %while.end49 ]
-  %cond = tail call i32 @llvm.smin.i32(i32 %inl.addr.057, i32 4096)
-  %4 = load ptr, ptr %cipher, align 8
-  %call23 = tail call i32 @EVP_CipherUpdate(ptr noundef %4, ptr noundef nonnull %buf21, ptr noundef nonnull %call, ptr noundef %in.addr.058, i32 noundef %cond) #5
+  %4 = tail call i32 @llvm.umin.i32(i32 %inl.addr.057, i32 4096)
+  %5 = load ptr, ptr %cipher, align 8
+  %call23 = tail call i32 @EVP_CipherUpdate(ptr noundef %5, ptr noundef nonnull %buf21, ptr noundef nonnull %call, ptr noundef %in.addr.058, i32 noundef %4) #5
   %tobool.not = icmp eq i32 %call23, 0
   br i1 %tobool.not, label %if.then24, label %if.end25
 
@@ -161,18 +161,18 @@ if.then24:                                        ; preds = %while.body19
   br label %return
 
 if.end25:                                         ; preds = %while.body19
-  %sub26 = sub nsw i32 %inl.addr.057, %cond
-  %idx.ext = zext nneg i32 %cond to i64
+  %sub26 = sub nsw i32 %inl.addr.057, %4
+  %idx.ext = zext nneg i32 %4 to i64
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.058, i64 %idx.ext
   store i32 0, ptr %buf_off, align 4
-  %5 = load i32, ptr %call, align 8
-  %cmp3055 = icmp sgt i32 %5, 0
+  %6 = load i32, ptr %call, align 8
+  %cmp3055 = icmp sgt i32 %6, 0
   br i1 %cmp3055, label %while.body31, label %while.end49
 
 while.body31:                                     ; preds = %if.end25, %if.end45
-  %6 = phi i32 [ %add48, %if.end45 ], [ 0, %if.end25 ]
-  %n.156 = phi i32 [ %sub46, %if.end45 ], [ %5, %if.end25 ]
-  %idxprom34 = sext i32 %6 to i64
+  %7 = phi i32 [ %add48, %if.end45 ], [ 0, %if.end25 ]
+  %n.156 = phi i32 [ %sub46, %if.end45 ], [ %6, %if.end25 ]
+  %idxprom34 = sext i32 %7 to i64
   %arrayidx35 = getelementptr inbounds [4384 x i8], ptr %buf21, i64 0, i64 %idxprom34
   %call36 = tail call i32 @BIO_write(ptr noundef %call1, ptr noundef nonnull %arrayidx35, i32 noundef %n.156) #5
   %cmp37 = icmp slt i32 %call36, 1
@@ -187,8 +187,8 @@ if.then38:                                        ; preds = %while.body31
 
 if.end45:                                         ; preds = %while.body31
   %sub46 = sub nsw i32 %n.156, %call36
-  %7 = load i32, ptr %buf_off, align 4
-  %add48 = add nsw i32 %7, %call36
+  %8 = load i32, ptr %buf_off, align 4
+  %add48 = add nsw i32 %8, %call36
   store i32 %add48, ptr %buf_off, align 4
   %cmp30 = icmp sgt i32 %sub46, 0
   br i1 %cmp30, label %while.body31, label %while.end49, !llvm.loop !6
@@ -386,9 +386,9 @@ if.end102:                                        ; preds = %if.end98, %if.else7
   %i.2 = phi i32 [ %sub92, %if.end98 ], [ %i.1110, %if.else70 ]
   %outl.addr.2 = phi i32 [ %sub91, %if.end98 ], [ %outl.addr.1116, %if.else70 ]
   %out.addr.2 = phi ptr [ %add.ptr90, %if.end98 ], [ %out.addr.1117, %if.else70 ]
-  %spec.store.select1 = call i32 @llvm.smin.i32(i32 %i.2, i32 256)
-  %15 = load ptr, ptr %cipher, align 8
-  %call112 = call i32 @EVP_CipherUpdate(ptr noundef %15, ptr noundef nonnull %buf62, ptr noundef nonnull %call, ptr noundef %14, i32 noundef %spec.store.select1) #5
+  %15 = call i32 @llvm.umin.i32(i32 %i.2, i32 256)
+  %16 = load ptr, ptr %cipher, align 8
+  %call112 = call i32 @EVP_CipherUpdate(ptr noundef %16, ptr noundef nonnull %buf62, ptr noundef nonnull %call, ptr noundef %14, i32 noundef %15) #5
   %tobool113.not = icmp eq i32 %call112, 0
   br i1 %tobool113.not, label %if.then114, label %if.end116
 
@@ -398,21 +398,21 @@ if.then114:                                       ; preds = %if.end102
   br label %return
 
 if.end116:                                        ; preds = %if.end102
-  %16 = load ptr, ptr %read_start, align 8
-  %idx.ext118 = zext nneg i32 %spec.store.select1 to i64
-  %add.ptr119 = getelementptr inbounds i8, ptr %16, i64 %idx.ext118
+  %17 = load ptr, ptr %read_start, align 8
+  %idx.ext118 = zext nneg i32 %15 to i64
+  %add.ptr119 = getelementptr inbounds i8, ptr %17, i64 %idx.ext118
   store ptr %add.ptr119, ptr %read_start, align 8
   store i32 1, ptr %cont, align 8
-  %17 = load i32, ptr %call, align 8
-  %cmp122 = icmp eq i32 %17, 0
+  %18 = load i32, ptr %call, align 8
+  %cmp122 = icmp eq i32 %18, 0
   br i1 %cmp122, label %while.cond.backedge, label %if.end126
 
 if.end126:                                        ; preds = %if.end116, %if.then59
-  %18 = phi i32 [ %.pre123, %if.then59 ], [ %17, %if.end116 ]
+  %19 = phi i32 [ %.pre123, %if.then59 ], [ %18, %if.end116 ]
   %ret.3 = phi i32 [ %ret.1115, %if.then59 ], [ %ret.2, %if.end116 ]
   %outl.addr.3 = phi i32 [ %outl.addr.1116, %if.then59 ], [ %outl.addr.2, %if.end116 ]
   %out.addr.3 = phi ptr [ %out.addr.1117, %if.then59 ], [ %out.addr.2, %if.end116 ]
-  %outl.addr.3. = call i32 @llvm.smin.i32(i32 %18, i32 %outl.addr.3)
+  %outl.addr.3. = call i32 @llvm.smin.i32(i32 %19, i32 %outl.addr.3)
   %cmp134 = icmp slt i32 %outl.addr.3., 1
   br i1 %cmp134, label %while.end, label %if.end137
 
@@ -434,11 +434,11 @@ while.end:                                        ; preds = %while.cond.backedge
 
 cond.true148:                                     ; preds = %while.end
   %cont149 = getelementptr inbounds i8, ptr %call, i64 8
-  %19 = load i32, ptr %cont149, align 8
+  %20 = load i32, ptr %cont149, align 8
   br label %return
 
 return:                                           ; preds = %cond.true148, %while.end, %if.end, %entry, %if.then114, %if.then86
-  %retval.0 = phi i32 [ 0, %if.then114 ], [ 0, %if.then86 ], [ 0, %entry ], [ 0, %if.end ], [ %19, %cond.true148 ], [ %ret.4, %while.end ]
+  %retval.0 = phi i32 [ 0, %if.then114 ], [ 0, %if.then86 ], [ 0, %entry ], [ 0, %if.end ], [ %20, %cond.true148 ], [ %ret.4, %while.end ]
   ret i32 %retval.0
 }
 
@@ -782,6 +782,9 @@ declare i64 @BIO_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unna
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

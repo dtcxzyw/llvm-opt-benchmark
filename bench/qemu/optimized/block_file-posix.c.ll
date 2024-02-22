@@ -3045,7 +3045,7 @@ if.then36:                                        ; preds = %if.end32
   br label %out
 
 if.end51:                                         ; preds = %if.then46.us
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %4, ptr noundef nonnull @.str.14, i32 noundef 2376, ptr noundef nonnull @__func__.handle_aiocb_truncate, i32 noundef %11, ptr noundef nonnull @.str.55) #17
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %4, ptr noundef nonnull @.str.14, i32 noundef 2376, ptr noundef nonnull @__func__.handle_aiocb_truncate, i32 noundef %12, ptr noundef nonnull @.str.55) #17
   br label %out
 
 if.end55:                                         ; preds = %while.body.us, %while.body.lr.ph.split.us
@@ -3057,10 +3057,10 @@ if.end55:                                         ; preds = %while.body.us, %whi
 
 while.body.lr.ph.split.us:                        ; preds = %while.cond.preheader, %if.end55
   %left.0.ph89 = phi i64 [ %sub57, %if.end55 ], [ %sub25, %while.cond.preheader ]
-  %cond = tail call i64 @llvm.smin.i64(i64 %left.0.ph89, i64 65536)
-  %call43.us83 = tail call i64 @write(i32 noundef %0, ptr noundef %call33, i64 noundef %cond) #17
-  %9 = and i64 %call43.us83, 2147483648
-  %cmp44.us85.not = icmp eq i64 %9, 0
+  %9 = tail call i64 @llvm.umin.i64(i64 %left.0.ph89, i64 65536)
+  %call43.us83 = tail call i64 @write(i32 noundef %0, ptr noundef %call33, i64 noundef %9) #17
+  %10 = and i64 %call43.us83, 2147483648
+  %cmp44.us85.not = icmp eq i64 %10, 0
   br i1 %cmp44.us85.not, label %if.end55, label %if.then46.us.lr.ph
 
 if.then46.us.lr.ph:                               ; preds = %while.body.lr.ph.split.us
@@ -3068,14 +3068,14 @@ if.then46.us.lr.ph:                               ; preds = %while.body.lr.ph.sp
   br label %if.then46.us
 
 while.body.us:                                    ; preds = %if.then46.us
-  %call43.us = tail call i64 @write(i32 noundef %0, ptr noundef %call33, i64 noundef %cond) #17
-  %10 = and i64 %call43.us, 2147483648
-  %cmp44.us.not = icmp eq i64 %10, 0
+  %call43.us = tail call i64 @write(i32 noundef %0, ptr noundef %call33, i64 noundef %9) #17
+  %11 = and i64 %call43.us, 2147483648
+  %cmp44.us.not = icmp eq i64 %11, 0
   br i1 %cmp44.us.not, label %if.end55, label %if.then46.us
 
 if.then46.us:                                     ; preds = %if.then46.us.lr.ph, %while.body.us
-  %11 = load i32, ptr %call47.us, align 4
-  %cmp48.us = icmp eq i32 %11, 4
+  %12 = load i32, ptr %call47.us, align 4
+  %cmp48.us = icmp eq i32 %12, 4
   br i1 %cmp48.us, label %while.body.us, label %if.end51, !llvm.loop !14
 
 if.then60:                                        ; preds = %if.end55, %while.cond.preheader
@@ -3085,8 +3085,8 @@ if.then60:                                        ; preds = %if.end55, %while.co
 
 if.then64:                                        ; preds = %if.then60
   %call65 = tail call ptr @__errno_location() #20
-  %12 = load i32, ptr %call65, align 4
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %4, ptr noundef nonnull @.str.14, i32 noundef 2386, ptr noundef nonnull @__func__.handle_aiocb_truncate, i32 noundef %12, ptr noundef nonnull @.str.56) #17
+  %13 = load i32, ptr %call65, align 4
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %4, ptr noundef nonnull @.str.14, i32 noundef 2386, ptr noundef nonnull @__func__.handle_aiocb_truncate, i32 noundef %13, ptr noundef nonnull @.str.56) #17
   br label %out
 
 sw.bb70:                                          ; preds = %if.end8
@@ -3096,9 +3096,9 @@ sw.bb70:                                          ; preds = %if.end8
 
 if.then74:                                        ; preds = %sw.bb70
   %call75 = tail call ptr @__errno_location() #20
-  %13 = load i32, ptr %call75, align 4
-  %sub76 = sub i32 0, %13
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %4, ptr noundef nonnull @.str.14, i32 noundef 2395, ptr noundef nonnull @__func__.handle_aiocb_truncate, i32 noundef %13, ptr noundef nonnull @.str.53) #17
+  %14 = load i32, ptr %call75, align 4
+  %sub76 = sub i32 0, %14
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %4, ptr noundef nonnull @.str.14, i32 noundef 2395, ptr noundef nonnull @__func__.handle_aiocb_truncate, i32 noundef %14, ptr noundef nonnull @.str.53) #17
   br label %return
 
 if.else78:                                        ; preds = %sw.bb70
@@ -3118,7 +3118,7 @@ sw.default:                                       ; preds = %if.end8
 
 out:                                              ; preds = %if.then15, %if.then64, %if.end51, %if.then36, %if.then28
   %buf.0 = phi ptr [ null, %if.then28 ], [ %call33, %if.then36 ], [ %call33, %if.end51 ], [ %call33, %if.then64 ], [ null, %if.then15 ]
-  %.pn = phi i32 [ %7, %if.then28 ], [ %8, %if.then36 ], [ %11, %if.end51 ], [ %12, %if.then64 ], [ %call12, %if.then15 ]
+  %.pn = phi i32 [ %7, %if.then28 ], [ %8, %if.then36 ], [ %12, %if.end51 ], [ %13, %if.then64 ], [ %call12, %if.then15 ]
   %result.2 = sub i32 0, %.pn
   %cmp89 = icmp slt i32 %result.2, 0
   br i1 %cmp89, label %if.then91, label %if.end99
@@ -3130,8 +3130,8 @@ if.then91:                                        ; preds = %out
 
 if.then95:                                        ; preds = %if.then91
   %call96 = tail call ptr @__errno_location() #20
-  %14 = load i32, ptr %call96, align 4
-  %call97 = tail call ptr @strerror(i32 noundef %14) #17
+  %15 = load i32, ptr %call96, align 4
+  %call97 = tail call ptr @strerror(i32 noundef %15) #17
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.58, ptr noundef %call97) #17
   br label %if.end99
 

@@ -2776,9 +2776,9 @@ return:                                           ; preds = %ikcp_malloc.exit, %
 define dso_local noundef i32 @ikcp_interval(ptr nocapture noundef writeonly %kcp, i32 noundef %interval) local_unnamed_addr #5 {
 entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %interval, i32 10)
-  %interval.addr.0 = tail call i32 @llvm.smin.i32(i32 %spec.store.select, i32 5000)
+  %0 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 5000)
   %interval4 = getelementptr inbounds i8, ptr %kcp, i64 80
-  store i32 %interval.addr.0, ptr %interval4, align 8
+  store i32 %0, ptr %interval4, align 8
   ret i32 0
 }
 
@@ -2802,9 +2802,8 @@ if.end4:                                          ; preds = %if.then, %entry
   br i1 %cmp5, label %if.then6, label %if.end15
 
 if.then6:                                         ; preds = %if.end4
-  %cmp7 = icmp ugt i32 %interval, 5000
-  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %interval, i32 10)
-  %interval.addr.0 = select i1 %cmp7, i32 5000, i32 %spec.store.select
+  %0 = tail call i32 @llvm.umax.i32(i32 %interval, i32 10)
+  %interval.addr.0 = tail call i32 @llvm.umin.i32(i32 %0, i32 5000)
   %interval14 = getelementptr inbounds i8, ptr %kcp, i64 80
   store i32 %interval.addr.0, ptr %interval14, align 8
   br label %if.end15

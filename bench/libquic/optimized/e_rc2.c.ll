@@ -32,7 +32,7 @@ entry:
   store i8 0, ptr %ks, align 1
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %call, i32 128)
   %cmp2.i = icmp slt i32 %1, 1
-  %2 = tail call i32 @llvm.smin.i32(i32 %1, i32 1024)
+  %2 = tail call i32 @llvm.umin.i32(i32 %1, i32 1024)
   %spec.store.select1.i = select i1 %cmp2.i, i32 1024, i32 %2
   %cmp843.i = icmp sgt i32 %call, 0
   br i1 %cmp843.i, label %for.body.preheader.i, label %for.body17.preheader.i
@@ -83,9 +83,9 @@ for.body17.i:                                     ; preds = %for.body17.i, %for.
   br i1 %exitcond60.not.i, label %for.end30.i, label %for.body17.i, !llvm.loop !9
 
 for.end30.i:                                      ; preds = %for.body17.i, %for.end.i
-  %add31.i = add nsw i32 %spec.store.select1.i, 7
-  %shr.i = ashr i32 %add31.i, 3
-  %sub32.i = sub nsw i32 128, %shr.i
+  %add31.i = add nuw nsw i32 %spec.store.select1.i, 7
+  %shr.i = lshr i32 %add31.i, 3
+  %sub32.i = sub nuw nsw i32 128, %shr.i
   %sub33.i = sub nsw i32 0, %spec.store.select1.i
   %and34.i = and i32 %sub33.i, 7
   %shr35.i = lshr i32 255, %and34.i
@@ -102,25 +102,24 @@ for.end30.i:                                      ; preds = %for.body17.i, %for.
   br i1 %tobool.not49.i, label %while.end.i, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %for.end30.i
-  %13 = zext nneg i32 %sub32.i to i64
-  %14 = sext i32 %shr.i to i64
-  %invariant.gep68.i = getelementptr i8, ptr %ks, i64 %14
+  %13 = zext nneg i32 %shr.i to i64
+  %invariant.gep68.i = getelementptr i8, ptr %ks, i64 %13
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
-  %indvars.iv61.i = phi i64 [ %13, %while.body.preheader.i ], [ %indvars.iv.next62.i, %while.body.i ]
-  %d.1.in51.i = phi i8 [ %12, %while.body.preheader.i ], [ %16, %while.body.i ]
+  %indvars.iv61.i = phi i64 [ %idxprom36.i, %while.body.preheader.i ], [ %indvars.iv.next62.i, %while.body.i ]
+  %d.1.in51.i = phi i8 [ %12, %while.body.preheader.i ], [ %15, %while.body.i ]
   %indvars.iv.next62.i = add nsw i64 %indvars.iv61.i, -1
   %gep69.i = getelementptr i8, ptr %invariant.gep68.i, i64 %indvars.iv.next62.i
-  %15 = load i8, ptr %gep69.i, align 1
-  %xor42.i = xor i8 %15, %d.1.in51.i
+  %14 = load i8, ptr %gep69.i, align 1
+  %xor42.i = xor i8 %14, %d.1.in51.i
   %idxprom50.i = zext i8 %xor42.i to i64
   %arrayidx51.i = getelementptr inbounds [256 x i8], ptr @key_table, i64 0, i64 %idxprom50.i
-  %16 = load i8, ptr %arrayidx51.i, align 1
+  %15 = load i8, ptr %arrayidx51.i, align 1
   %arrayidx55.i = getelementptr inbounds i8, ptr %ks, i64 %indvars.iv.next62.i
-  store i8 %16, ptr %arrayidx55.i, align 1
-  %17 = icmp eq i64 %indvars.iv.next62.i, 0
-  br i1 %17, label %while.end.i, label %while.body.i, !llvm.loop !10
+  store i8 %15, ptr %arrayidx55.i, align 1
+  %16 = icmp eq i64 %indvars.iv.next62.i, 0
+  br i1 %16, label %while.end.i, label %while.body.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i, %for.end30.i
   %arrayidx57.i = getelementptr inbounds i8, ptr %0, i64 130
@@ -131,9 +130,9 @@ for.body61.i:                                     ; preds = %for.body61.i, %whil
   %indvars.iv64.i = phi i64 [ 127, %while.end.i ], [ %indvars.iv.next65.i, %for.body61.i ]
   %ki.053.i = phi ptr [ %arrayidx57.i, %while.end.i ], [ %incdec.ptr.i, %for.body61.i ]
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv64.i
-  %18 = load i16, ptr %gep.i, align 1
+  %17 = load i16, ptr %gep.i, align 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ki.053.i, i64 -2
-  store i16 %18, ptr %ki.053.i, align 2
+  store i16 %17, ptr %ki.053.i, align 2
   %indvars.iv.next65.i = add nsw i64 %indvars.iv64.i, -2
   %cmp59.i = icmp ugt i64 %indvars.iv64.i, 1
   br i1 %cmp59.i, label %for.body61.i, label %RC2_set_key.exit, !llvm.loop !11
@@ -935,6 +934,9 @@ for.end:                                          ; preds = %if.then
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

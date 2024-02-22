@@ -610,48 +610,48 @@ if.then286:                                       ; preds = %cond.end279
   %107 = and i16 %106, 4095
   %narrow172 = sub nuw nsw i16 4096, %107
   %sub293 = zext nneg i16 %narrow172 to i32
-  %cond300 = call i32 @llvm.smin.i32(i32 %sub218, i32 %sub293)
-  %108 = load i16, ptr %arrayidx165, align 4
-  %109 = and i16 %108, 256
-  %tobool306.not = icmp eq i16 %109, 0
-  %110 = load i32, ptr %rmd102, align 4
+  %108 = call i32 @llvm.umin.i32(i32 %sub218, i32 %sub293)
+  %109 = load i16, ptr %arrayidx165, align 4
+  %110 = and i16 %109, 256
+  %tobool306.not = icmp eq i16 %110, 0
+  %111 = load i32, ptr %rmd102, align 4
   br i1 %tobool306.not, label %cond.false309, label %cond.end317
 
 cond.false309:                                    ; preds = %if.then286
   %arrayidx312 = getelementptr i8, ptr %call, i64 8272
-  %111 = load i16, ptr %arrayidx312, align 4
-  %112 = and i16 %111, -256
-  %and314 = zext i16 %112 to i32
+  %112 = load i16, ptr %arrayidx312, align 4
+  %113 = and i16 %112, -256
+  %and314 = zext i16 %113 to i32
   %shl315 = shl nuw i32 %and314, 16
-  %or316 = or i32 %shl315, %110
+  %or316 = or i32 %shl315, %111
   br label %cond.end317
 
 cond.end317:                                      ; preds = %if.then286, %cond.false309
-  %cond318 = phi i32 [ %or316, %cond.false309 ], [ %110, %if.then286 ]
+  %cond318 = phi i32 [ %or316, %cond.false309 ], [ %111, %if.then286 ]
   %conv319 = zext i32 %cond318 to i64
-  %113 = load ptr, ptr %phys_mem_write, align 16
-  %114 = load ptr, ptr %dma_opaque.i186298, align 8
-  %115 = load i16, ptr %arrayidx213, align 2
-  %116 = lshr i16 %115, 2
-  %.lobit173 = and i16 %116, 1
+  %114 = load ptr, ptr %phys_mem_write, align 16
+  %115 = load ptr, ptr %dma_opaque.i186298, align 8
+  %116 = load i16, ptr %arrayidx213, align 2
+  %117 = lshr i16 %116, 2
+  %.lobit173 = and i16 %117, 1
   %lnot.ext330 = zext nneg i16 %.lobit173 to i32
-  call void %113(ptr noundef %114, i64 noundef %conv319, ptr noundef %add.ptr, i32 noundef %cond300, i32 noundef %lnot.ext330) #11
-  %idx.ext331 = zext nneg i32 %cond300 to i64
+  call void %114(ptr noundef %115, i64 noundef %conv319, ptr noundef %add.ptr, i32 noundef %108, i32 noundef %lnot.ext330) #11
+  %idx.ext331 = zext nneg i32 %108 to i64
   %add.ptr332 = getelementptr i8, ptr %add.ptr, i64 %idx.ext331
-  %sub333 = sub nsw i32 %sub218, %cond300
-  %117 = load i16, ptr %status177, align 2
-  %and336 = and i16 %117, 32767
+  %sub333 = sub nsw i32 %sub218, %108
+  %118 = load i16, ptr %status177, align 2
+  %and336 = and i16 %118, 32767
   store i16 %and336, ptr %status177, align 2
-  %118 = load i16, ptr %arrayidx165, align 4
-  %119 = and i16 %118, 256
-  %tobool344.not = icmp eq i16 %119, 0
+  %119 = load i16, ptr %arrayidx165, align 4
+  %120 = and i16 %119, 256
+  %tobool344.not = icmp eq i16 %120, 0
   br i1 %tobool344.not, label %cond.false346, label %cond.end354
 
 cond.false346:                                    ; preds = %cond.end317
   %arrayidx348 = getelementptr i8, ptr %call, i64 8272
-  %120 = load i16, ptr %arrayidx348, align 4
-  %121 = and i16 %120, -256
-  %and350 = zext i16 %121 to i64
+  %121 = load i16, ptr %arrayidx348, align 4
+  %122 = and i16 %121, -256
+  %and350 = zext i16 %122 to i64
   %shl351 = shl nuw nsw i64 %and350, 16
   %or353 = or i64 %shl351, %conv264
   br label %cond.end354
@@ -664,87 +664,87 @@ cond.end354:                                      ; preds = %cond.end317, %cond.
 
 land.lhs.true360:                                 ; preds = %cond.end354
   %arrayidx362 = getelementptr i8, ptr %call, i64 8340
-  %122 = load i16, ptr %arrayidx362, align 4
-  %conv363 = zext i16 %122 to i64
+  %123 = load i16, ptr %arrayidx362, align 4
+  %conv363 = zext i16 %123 to i64
   %arrayidx365 = getelementptr i8, ptr %call, i64 8342
-  %123 = load i16, ptr %arrayidx365, align 2
-  %conv366 = zext i16 %123 to i64
+  %124 = load i16, ptr %arrayidx365, align 2
+  %conv366 = zext i16 %124 to i64
   %shl367 = shl nuw nsw i64 %conv366, 16
   %or368 = or disjoint i64 %shl367, %conv363
   %tobool370.not = icmp eq i64 %or368, 0
   br i1 %tobool370.not, label %if.end468, label %if.then371
 
 if.then371:                                       ; preds = %land.lhs.true360
-  %124 = load i16, ptr %arrayidx165, align 4
-  %125 = and i16 %124, 256
-  %tobool376.not = icmp eq i16 %125, 0
+  %125 = load i16, ptr %arrayidx165, align 4
+  %126 = and i16 %125, 256
+  %tobool376.not = icmp eq i16 %126, 0
   br i1 %tobool376.not, label %cond.false378, label %cond.end386
 
 cond.false378:                                    ; preds = %if.then371
   %arrayidx380 = getelementptr i8, ptr %call, i64 8272
-  %126 = load i16, ptr %arrayidx380, align 4
-  %127 = and i16 %126, -256
-  %128 = or i16 %127, %123
-  %129 = zext i16 %128 to i64
-  %130 = shl nuw nsw i64 %129, 16
-  %or385 = or disjoint i64 %130, %conv363
+  %127 = load i16, ptr %arrayidx380, align 4
+  %128 = and i16 %127, -256
+  %129 = or i16 %128, %124
+  %130 = zext i16 %129 to i64
+  %131 = shl nuw nsw i64 %130, 16
+  %or385 = or disjoint i64 %131, %conv363
   br label %cond.end386
 
 cond.end386:                                      ; preds = %if.then371, %cond.false378
   %cond387 = phi i64 [ %or385, %cond.false378 ], [ %or368, %if.then371 ]
   call fastcc void @pcnet_rmd_load(ptr noundef nonnull %call, ptr noundef nonnull %rmd102, i64 noundef %cond387)
-  %131 = load i16, ptr %status177, align 2
-  %tobool392.not = icmp sgt i16 %131, -1
+  %132 = load i16, ptr %status177, align 2
+  %tobool392.not = icmp sgt i16 %132, -1
   br i1 %tobool392.not, label %if.end468, label %if.then393
 
 if.then393:                                       ; preds = %cond.end386
-  %132 = load i16, ptr %buf_length, align 4
-  %133 = and i16 %132, 4095
-  %narrow174 = sub nuw nsw i16 4096, %133
+  %133 = load i16, ptr %buf_length, align 4
+  %134 = and i16 %133, 4095
+  %narrow174 = sub nuw nsw i16 4096, %134
   %sub400 = zext nneg i16 %narrow174 to i32
-  %cond407 = call i32 @llvm.smin.i32(i32 %sub333, i32 %sub400)
-  %134 = load i16, ptr %arrayidx165, align 4
-  %135 = and i16 %134, 256
-  %tobool413.not = icmp eq i16 %135, 0
-  %136 = load i32, ptr %rmd102, align 4
+  %135 = call i32 @llvm.umin.i32(i32 %sub333, i32 %sub400)
+  %136 = load i16, ptr %arrayidx165, align 4
+  %137 = and i16 %136, 256
+  %tobool413.not = icmp eq i16 %137, 0
+  %138 = load i32, ptr %rmd102, align 4
   br i1 %tobool413.not, label %cond.false416, label %cond.end424
 
 cond.false416:                                    ; preds = %if.then393
   %arrayidx419 = getelementptr i8, ptr %call, i64 8272
-  %137 = load i16, ptr %arrayidx419, align 4
-  %138 = and i16 %137, -256
-  %and421 = zext i16 %138 to i32
+  %139 = load i16, ptr %arrayidx419, align 4
+  %140 = and i16 %139, -256
+  %and421 = zext i16 %140 to i32
   %shl422 = shl nuw i32 %and421, 16
-  %or423 = or i32 %shl422, %136
+  %or423 = or i32 %shl422, %138
   br label %cond.end424
 
 cond.end424:                                      ; preds = %if.then393, %cond.false416
-  %cond425 = phi i32 [ %or423, %cond.false416 ], [ %136, %if.then393 ]
+  %cond425 = phi i32 [ %or423, %cond.false416 ], [ %138, %if.then393 ]
   %conv426 = zext i32 %cond425 to i64
-  %139 = load ptr, ptr %phys_mem_write, align 16
-  %140 = load ptr, ptr %dma_opaque.i186298, align 8
-  %141 = load i16, ptr %arrayidx213, align 2
-  %142 = lshr i16 %141, 2
-  %.lobit175 = and i16 %142, 1
+  %141 = load ptr, ptr %phys_mem_write, align 16
+  %142 = load ptr, ptr %dma_opaque.i186298, align 8
+  %143 = load i16, ptr %arrayidx213, align 2
+  %144 = lshr i16 %143, 2
+  %.lobit175 = and i16 %144, 1
   %lnot.ext437 = zext nneg i16 %.lobit175 to i32
-  call void %139(ptr noundef %140, i64 noundef %conv426, ptr noundef %add.ptr332, i32 noundef %cond407, i32 noundef %lnot.ext437) #11
-  %sub440 = sub nsw i32 %sub333, %cond407
-  %143 = load i16, ptr %status177, align 2
-  %and443 = and i16 %143, 32767
+  call void %141(ptr noundef %142, i64 noundef %conv426, ptr noundef %add.ptr332, i32 noundef %135, i32 noundef %lnot.ext437) #11
+  %sub440 = sub nsw i32 %sub333, %135
+  %145 = load i16, ptr %status177, align 2
+  %and443 = and i16 %145, 32767
   store i16 %and443, ptr %status177, align 2
-  %144 = load i16, ptr %arrayidx165, align 4
-  %145 = and i16 %144, 256
-  %tobool451.not = icmp eq i16 %145, 0
+  %146 = load i16, ptr %arrayidx165, align 4
+  %147 = and i16 %146, 256
+  %tobool451.not = icmp eq i16 %147, 0
   br i1 %tobool451.not, label %cond.false453, label %cond.end461
 
 cond.false453:                                    ; preds = %cond.end424
   %arrayidx455 = getelementptr i8, ptr %call, i64 8272
-  %146 = load i16, ptr %arrayidx455, align 4
-  %147 = and i16 %146, -256
-  %148 = or i16 %147, %123
-  %149 = zext i16 %148 to i64
-  %150 = shl nuw nsw i64 %149, 16
-  %or460 = or disjoint i64 %150, %conv363
+  %148 = load i16, ptr %arrayidx455, align 4
+  %149 = and i16 %148, -256
+  %150 = or i16 %149, %124
+  %151 = zext i16 %150 to i64
+  %152 = shl nuw nsw i64 %151, 16
+  %or460 = or disjoint i64 %152, %conv363
   br label %cond.end461
 
 cond.end461:                                      ; preds = %cond.end424, %cond.false453
@@ -756,35 +756,35 @@ if.end468:                                        ; preds = %cond.end279, %cond.
   %pktcount.0 = phi i32 [ 2, %cond.end461 ], [ 1, %cond.end386 ], [ 1, %land.lhs.true360 ], [ 1, %cond.end354 ], [ 0, %cond.end279 ], [ 0, %land.lhs.true244 ], [ 0, %pcnet_rmd_store.exit ]
   %crda.0 = phi i64 [ %or368, %cond.end461 ], [ %conv264, %cond.end386 ], [ %conv264, %land.lhs.true360 ], [ %conv264, %cond.end354 ], [ %or100, %cond.end279 ], [ %or100, %land.lhs.true244 ], [ %or100, %pcnet_rmd_store.exit ]
   %remaining.0 = phi i32 [ %sub440, %cond.end461 ], [ 1, %cond.end386 ], [ 1, %land.lhs.true360 ], [ %sub333, %cond.end354 ], [ 1, %cond.end279 ], [ 1, %land.lhs.true244 ], [ %sub218, %pcnet_rmd_store.exit ]
-  %151 = load i16, ptr %arrayidx165, align 4
-  %152 = and i16 %151, 256
-  %tobool473.not = icmp eq i16 %152, 0
+  %153 = load i16, ptr %arrayidx165, align 4
+  %154 = and i16 %153, 256
+  %tobool473.not = icmp eq i16 %154, 0
   br i1 %tobool473.not, label %if.then.i224, label %if.else.i220
 
 if.then.i224:                                     ; preds = %if.end468
   %arrayidx477 = getelementptr i8, ptr %call, i64 8272
-  %153 = load i16, ptr %arrayidx477, align 4
-  %154 = and i16 %153, -256
-  %and479 = zext i16 %154 to i64
+  %155 = load i16, ptr %arrayidx477, align 4
+  %156 = and i16 %155, -256
+  %and479 = zext i16 %156 to i64
   %shl480 = shl nuw nsw i64 %and479, 16
   %or482 = or i64 %shl480, %crda.0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i215)
-  %155 = load ptr, ptr %phys_mem_read.i185296, align 8
-  %156 = load ptr, ptr %dma_opaque.i186298, align 8
-  call void %155(ptr noundef %156, i64 noundef %or482, ptr noundef nonnull %rda.i215, i32 noundef 8, i32 noundef 0) #11
-  %157 = load i32, ptr %rda.i215, align 4
-  %and1.i225 = and i32 %157, 16777215
+  %157 = load ptr, ptr %phys_mem_read.i185296, align 8
+  %158 = load ptr, ptr %dma_opaque.i186298, align 8
+  call void %157(ptr noundef %158, i64 noundef %or482, ptr noundef nonnull %rda.i215, i32 noundef 8, i32 noundef 0) #11
+  %159 = load i32, ptr %rda.i215, align 4
+  %and1.i225 = and i32 %159, 16777215
   store i32 %and1.i225, ptr %rmd102, align 4
   %buf_length.i226 = getelementptr inbounds i8, ptr %rda.i215, i64 4
-  %158 = load i16, ptr %buf_length.i226, align 4
-  store i16 %158, ptr %buf_length, align 4
-  %shr.i228 = lshr i32 %157, 16
-  %159 = trunc i32 %shr.i228 to i16
-  %conv8.i229 = and i16 %159, -256
+  %160 = load i16, ptr %buf_length.i226, align 4
+  store i16 %160, ptr %buf_length, align 4
+  %shr.i228 = lshr i32 %159, 16
+  %161 = trunc i32 %shr.i228 to i16
+  %conv8.i229 = and i16 %161, -256
   store i16 %conv8.i229, ptr %status177, align 2
   %msg_length.i231 = getelementptr inbounds i8, ptr %rda.i215, i64 6
-  %160 = load i16, ptr %msg_length.i231, align 2
-  %conv10.i232 = zext i16 %160 to i32
+  %162 = load i16, ptr %msg_length.i231, align 2
+  %conv10.i232 = zext i16 %162 to i32
   %msg_length11.i233 = getelementptr inbounds i8, ptr %rmd102, i64 8
   store i32 %conv10.i232, ptr %msg_length11.i233, align 4
   %res.i234 = getelementptr inbounds i8, ptr %rmd102, i64 12
@@ -793,20 +793,20 @@ if.then.i224:                                     ; preds = %if.end468
 
 if.else.i220:                                     ; preds = %if.end468
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i215)
-  %161 = load ptr, ptr %phys_mem_read.i185296, align 8
-  %162 = load ptr, ptr %dma_opaque.i186298, align 8
-  call void %161(ptr noundef %162, i64 noundef %crda.0, ptr noundef nonnull %rmd102, i32 noundef 16, i32 noundef 0) #11
-  %163 = load i16, ptr %arrayidx165, align 4
-  %164 = and i16 %163, 255
-  %cmp.i221 = icmp eq i16 %164, 3
+  %163 = load ptr, ptr %phys_mem_read.i185296, align 8
+  %164 = load ptr, ptr %dma_opaque.i186298, align 8
+  call void %163(ptr noundef %164, i64 noundef %crda.0, ptr noundef nonnull %rmd102, i32 noundef 16, i32 noundef 0) #11
+  %165 = load i16, ptr %arrayidx165, align 4
+  %166 = and i16 %165, 255
+  %cmp.i221 = icmp eq i16 %166, 3
   br i1 %cmp.i221, label %if.then24.i222, label %pcnet_rmd_load.exit235
 
 if.then24.i222:                                   ; preds = %if.else.i220
   %msg_length17.i223 = getelementptr inbounds i8, ptr %rmd102, i64 8
-  %165 = load i32, ptr %rmd102, align 4
-  %166 = load i32, ptr %msg_length17.i223, align 4
-  store i32 %166, ptr %rmd102, align 4
-  store i32 %165, ptr %msg_length17.i223, align 4
+  %167 = load i32, ptr %rmd102, align 4
+  %168 = load i32, ptr %msg_length17.i223, align 4
+  store i32 %168, ptr %rmd102, align 4
+  store i32 %167, ptr %msg_length17.i223, align 4
   br label %pcnet_rmd_load.exit235
 
 pcnet_rmd_load.exit235:                           ; preds = %if.then.i224, %if.else.i220, %if.then24.i222
@@ -816,114 +816,114 @@ pcnet_rmd_load.exit235:                           ; preds = %if.then.i224, %if.e
 
 if.then487:                                       ; preds = %pcnet_rmd_load.exit235
   %msg_length = getelementptr inbounds i8, ptr %rmd102, i64 8
-  %167 = load i32, ptr %msg_length, align 4
-  %and488 = and i32 %167, -4096
+  %169 = load i32, ptr %msg_length, align 4
+  %and488 = and i32 %169, -4096
   %conv492 = or i32 %and488, %conv183
   store i32 %conv492, ptr %msg_length, align 4
-  %168 = load i16, ptr %status177, align 2
-  %169 = and i16 %168, -369
-  %170 = or disjoint i16 %169, 256
-  %171 = load i16, ptr %arrayidx, align 2
-  %tobool507.not = icmp sgt i16 %171, -1
-  %172 = and i1 %is_padr.0, %tobool507.not
-  %shl509 = select i1 %172, i16 64, i16 0
-  %or510 = or disjoint i16 %shl509, %170
-  %173 = and i1 %is_ladr.0, %tobool507.not
-  %shl525 = select i1 %173, i16 32, i16 0
+  %170 = load i16, ptr %status177, align 2
+  %171 = and i16 %170, -369
+  %172 = or disjoint i16 %171, 256
+  %173 = load i16, ptr %arrayidx, align 2
+  %tobool507.not = icmp sgt i16 %173, -1
+  %174 = and i1 %is_padr.0, %tobool507.not
+  %shl509 = select i1 %174, i16 64, i16 0
+  %or510 = or disjoint i16 %shl509, %172
+  %175 = and i1 %is_ladr.0, %tobool507.not
+  %shl525 = select i1 %175, i16 32, i16 0
   %or526 = or disjoint i16 %shl525, %or510
-  %174 = and i1 %is_bcast.0, %tobool507.not
-  %shl541 = select i1 %174, i16 16, i16 0
+  %176 = and i1 %is_bcast.0, %tobool507.not
+  %shl541 = select i1 %176, i16 16, i16 0
   %or542 = or disjoint i16 %shl541, %or526
   store i16 %or542, ptr %status177, align 2
   %tobool545.not = icmp eq i32 %crc_err.0, 0
   br i1 %tobool545.not, label %if.end579, label %if.then546
 
 if.then546:                                       ; preds = %if.then487
-  %175 = or i16 %or542, 18432
+  %177 = or i16 %or542, 18432
   br label %if.end579.sink.split
 
 if.else560:                                       ; preds = %pcnet_rmd_load.exit235
-  %176 = load i16, ptr %status177, align 2
-  %177 = or i16 %176, 21504
+  %178 = load i16, ptr %status177, align 2
+  %179 = or i16 %178, 21504
   br label %if.end579.sink.split
 
 if.end579.sink.split:                             ; preds = %if.else560, %if.then546
-  %.sink = phi i16 [ %175, %if.then546 ], [ %177, %if.else560 ]
+  %.sink = phi i16 [ %177, %if.then546 ], [ %179, %if.else560 ]
   store i16 %.sink, ptr %status177, align 2
   br label %if.end579
 
 if.end579:                                        ; preds = %if.end579.sink.split, %if.then487
-  %178 = phi i16 [ %or542, %if.then487 ], [ %.sink, %if.end579.sink.split ]
-  %179 = load i16, ptr %arrayidx165, align 4
-  %180 = and i16 %179, 256
-  %tobool584.not = icmp eq i16 %180, 0
+  %180 = phi i16 [ %or542, %if.then487 ], [ %.sink, %if.end579.sink.split ]
+  %181 = load i16, ptr %arrayidx165, align 4
+  %182 = and i16 %181, 256
+  %tobool584.not = icmp eq i16 %182, 0
   br i1 %tobool584.not, label %if.then.i254, label %if.else.i240
 
 if.then.i254:                                     ; preds = %if.end579
   %arrayidx588 = getelementptr i8, ptr %call, i64 8272
-  %181 = load i16, ptr %arrayidx588, align 4
-  %182 = and i16 %181, -256
-  %and590 = zext i16 %182 to i64
+  %183 = load i16, ptr %arrayidx588, align 4
+  %184 = and i16 %183, -256
+  %and590 = zext i16 %184 to i64
   %shl591 = shl nuw nsw i64 %and590, 16
   %or593 = or i64 %shl591, %crda.0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i236)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rda10.i237)
-  %183 = load i32, ptr %rmd102, align 4
-  %and1.i255 = and i32 %183, 16777215
-  %184 = and i16 %178, -256
-  %and3.i257 = zext i16 %184 to i32
+  %185 = load i32, ptr %rmd102, align 4
+  %and1.i255 = and i32 %185, 16777215
+  %186 = and i16 %180, -256
+  %and3.i257 = zext i16 %186 to i32
   %shl.i258 = shl nuw i32 %and3.i257, 16
   %or.i259 = or disjoint i32 %shl.i258, %and1.i255
   store i32 %or.i259, ptr %rda.i236, align 4
-  %185 = load i16, ptr %buf_length, align 4
+  %187 = load i16, ptr %buf_length, align 4
   %buf_length6.i261 = getelementptr inbounds i8, ptr %rda.i236, i64 4
-  store i16 %185, ptr %buf_length6.i261, align 4
+  store i16 %187, ptr %buf_length6.i261, align 4
   %msg_length.i262 = getelementptr inbounds i8, ptr %rmd102, i64 8
-  %186 = load i32, ptr %msg_length.i262, align 4
-  %conv7.i263 = trunc i32 %186 to i16
+  %188 = load i32, ptr %msg_length.i262, align 4
+  %conv7.i263 = trunc i32 %188 to i16
   %msg_length9.i264 = getelementptr inbounds i8, ptr %rda.i236, i64 6
   store i16 %conv7.i263, ptr %msg_length9.i264, align 2
-  %187 = load ptr, ptr %phys_mem_write, align 16
-  %188 = load ptr, ptr %dma_opaque.i186298, align 8
-  call void %187(ptr noundef %188, i64 noundef %or593, ptr noundef nonnull %rda.i236, i32 noundef 8, i32 noundef 0) #11
+  %189 = load ptr, ptr %phys_mem_write, align 16
+  %190 = load ptr, ptr %dma_opaque.i186298, align 8
+  call void %189(ptr noundef %190, i64 noundef %or593, ptr noundef nonnull %rda.i236, i32 noundef 8, i32 noundef 0) #11
   br label %pcnet_rmd_store.exit267
 
 if.else.i240:                                     ; preds = %if.end579
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rda.i236)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rda10.i237)
-  %189 = load i32, ptr %rmd102, align 4
-  store i32 %189, ptr %rda10.i237, align 4
-  %190 = load i16, ptr %buf_length, align 4
+  %191 = load i32, ptr %rmd102, align 4
+  store i32 %191, ptr %rda10.i237, align 4
+  %192 = load i16, ptr %buf_length, align 4
   %buf_length16.i242 = getelementptr inbounds i8, ptr %rda10.i237, i64 4
-  store i16 %190, ptr %buf_length16.i242, align 4
+  store i16 %192, ptr %buf_length16.i242, align 4
   %status19.i244 = getelementptr inbounds i8, ptr %rda10.i237, i64 6
-  store i16 %178, ptr %status19.i244, align 2
+  store i16 %180, ptr %status19.i244, align 2
   %msg_length20.i245 = getelementptr inbounds i8, ptr %rmd102, i64 8
   %msg_length22.i246 = getelementptr inbounds i8, ptr %rda10.i237, i64 8
-  %191 = load <2 x i32>, ptr %msg_length20.i245, align 4
-  store <2 x i32> %191, ptr %msg_length22.i246, align 4
-  %192 = and i16 %179, 255
-  %cmp.i249 = icmp eq i16 %192, 3
+  %193 = load <2 x i32>, ptr %msg_length20.i245, align 4
+  store <2 x i32> %193, ptr %msg_length22.i246, align 4
+  %194 = and i16 %181, 255
+  %cmp.i249 = icmp eq i16 %194, 3
   br i1 %cmp.i249, label %if.then30.i253, label %if.end.i250
 
 if.then30.i253:                                   ; preds = %if.else.i240
-  %193 = extractelement <2 x i32> %191, i64 0
-  store i32 %193, ptr %rda10.i237, align 4
-  store i32 %189, ptr %msg_length22.i246, align 4
+  %195 = extractelement <2 x i32> %193, i64 0
+  store i32 %195, ptr %rda10.i237, align 4
+  store i32 %191, ptr %msg_length22.i246, align 4
   br label %if.end.i250
 
 if.end.i250:                                      ; preds = %if.then30.i253, %if.else.i240
-  %194 = load ptr, ptr %phys_mem_write, align 16
-  %195 = load ptr, ptr %dma_opaque.i186298, align 8
-  call void %194(ptr noundef %195, i64 noundef %crda.0, ptr noundef nonnull %rda10.i237, i32 noundef 16, i32 noundef 0) #11
+  %196 = load ptr, ptr %phys_mem_write, align 16
+  %197 = load ptr, ptr %dma_opaque.i186298, align 8
+  call void %196(ptr noundef %197, i64 noundef %crda.0, ptr noundef nonnull %rda10.i237, i32 noundef 16, i32 noundef 0) #11
   br label %pcnet_rmd_store.exit267
 
 pcnet_rmd_store.exit267:                          ; preds = %if.then.i254, %if.end.i250
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rda.i236)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rda10.i237)
-  %196 = load i16, ptr %csr, align 4
-  %197 = or i16 %196, 1024
-  store i16 %197, ptr %csr, align 4
+  %198 = load i16, ptr %csr, align 4
+  %199 = or i16 %198, 1024
+  store i16 %199, ptr %csr, align 4
   %arrayidx606 = getelementptr i8, ptr %call, i64 8412
   %arrayidx606.promoted = load i16, ptr %arrayidx606, align 4
   %arrayidx612 = getelementptr i8, ptr %call, i64 8420
@@ -936,7 +936,7 @@ while.body604:                                    ; preds = %pcnet_rmd_store.exi
   br i1 %cmp608, label %if.then610, label %if.else615
 
 if.then610:                                       ; preds = %while.body604
-  %198 = load i16, ptr %arrayidx612, align 4
+  %200 = load i16, ptr %arrayidx612, align 4
   br label %if.end619
 
 if.else615:                                       ; preds = %while.body604
@@ -944,7 +944,7 @@ if.else615:                                       ; preds = %while.body604
   br label %if.end619
 
 if.end619:                                        ; preds = %if.else615, %if.then610
-  %storemerge = phi i16 [ %dec618, %if.else615 ], [ %198, %if.then610 ]
+  %storemerge = phi i16 [ %dec618, %if.else615 ], [ %200, %if.then610 ]
   %dec602 = add nsw i32 %dec602288, -1
   %tobool603.not = icmp eq i32 %dec602288, 0
   br i1 %tobool603.not, label %while.end620, label %while.body604, !llvm.loop !9
@@ -955,9 +955,9 @@ while.end620:                                     ; preds = %if.end619
   br label %if.end622
 
 if.end622:                                        ; preds = %if.then87, %while.end620, %lor.lhs.false34
-  %199 = load i16, ptr %csr, align 4
-  %200 = and i16 %199, 32
-  %tobool.not.i268 = icmp eq i16 %200, 0
+  %201 = load i16, ptr %csr, align 4
+  %202 = and i16 %201, 32
+  %tobool.not.i268 = icmp eq i16 %202, 0
   br i1 %tobool.not.i268, label %if.end.i270, label %if.then.i269
 
 if.then.i269:                                     ; preds = %if.end622
@@ -966,8 +966,8 @@ if.then.i269:                                     ; preds = %if.end622
   br label %if.end.i270
 
 if.end.i270:                                      ; preds = %if.then.i269, %if.end622
-  %201 = phi i16 [ %.pre.i, %if.then.i269 ], [ %199, %if.end622 ]
-  %conv3.i = zext i16 %201 to i32
+  %203 = phi i16 [ %.pre.i, %if.then.i269 ], [ %201, %if.end622 ]
+  %conv3.i = zext i16 %203 to i32
   %and4.i = and i32 %conv3.i, 8
   %tobool5.not.i = icmp eq i32 %and4.i, 0
   br i1 %tobool5.not.i, label %lor.lhs.false.i, label %if.then18.i
@@ -979,9 +979,9 @@ lor.lhs.false.i:                                  ; preds = %if.end.i270
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   %arrayidx12.i = getelementptr i8, ptr %call, i64 8276
-  %202 = load i16, ptr %arrayidx12.i, align 4
-  %203 = and i16 %202, 4096
-  %tobool15.not.i = icmp eq i16 %203, 0
+  %204 = load i16, ptr %arrayidx12.i, align 4
+  %205 = and i16 %204, 4096
+  %tobool15.not.i = icmp eq i16 %205, 0
   br i1 %tobool15.not.i, label %land.lhs.true16.i, label %pcnet_poll.exit
 
 land.lhs.true16.i:                                ; preds = %land.lhs.true.i
@@ -991,8 +991,8 @@ land.lhs.true16.i:                                ; preds = %land.lhs.true.i
 
 if.then18.i:                                      ; preds = %land.lhs.true16.i, %if.end.i270
   %tx_busy.i = getelementptr inbounds i8, ptr %call, i64 13008
-  %204 = load i32, ptr %tx_busy.i, align 16
-  %tobool19.not.i = icmp eq i32 %204, 0
+  %206 = load i32, ptr %tx_busy.i, align 16
+  %tobool19.not.i = icmp eq i32 %206, 0
   br i1 %tobool19.not.i, label %if.end21.i, label %pcnet_poll.exit
 
 if.end21.i:                                       ; preds = %if.then18.i
@@ -4061,6 +4061,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8

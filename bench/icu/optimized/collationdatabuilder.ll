@@ -3805,9 +3805,9 @@ if.then30:                                        ; preds = %land.lhs.true25
   %and32 = shl i32 %conv31, 8
   %shr33 = lshr i64 %5, 16
   %conv34 = trunc i64 %shr33 to i32
-  %6 = or i32 %and32, %conv34
-  %or35 = or i32 %6, %conv
-  %or37 = or i32 %or35, 196
+  %6 = or disjoint i32 %and32, %conv34
+  %or35 = or disjoint i32 %6, %conv
+  %or37 = or disjoint i32 %or35, 196
   br label %return
 
 if.end45.preheader:                               ; preds = %land.lhs.true, %land.lhs.true25, %if.then21, %if.end11
@@ -5987,18 +5987,18 @@ if.then.i.i:                                      ; preds = %if.end
 
 if.else7.i.i.i:                                   ; preds = %if.then.i.i
   %sub.i.i.i = sub nuw nsw i32 %cond.i.i15, %spec.select.i.i
-  %spec.select10.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %cond.i.i15)
-  %cmp.i.not.i = icmp eq i32 %spec.select10.i.i, 0
+  %12 = call i32 @llvm.umin.i32(i32 %sub.i.i.i, i32 %cond.i.i15)
+  %cmp.i.not.i = icmp eq i32 %12, 0
   br i1 %cmp.i.not.i, label %invoke.cont17, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.else7.i.i.i
-  %12 = and i16 %6, 2
-  %tobool.not.i.i.i = icmp eq i16 %12, 0
+  %13 = and i16 %6, 2
+  %tobool.not.i.i.i = icmp eq i16 %13, 0
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %context, i64 10
   %fArray.i.i.i = getelementptr inbounds i8, ptr %context, i64 24
-  %13 = load ptr, ptr %fArray.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %13, ptr %fBuffer.i.i.i
-  %call4.i.i16 = invoke noundef i32 @_ZNK6icu_7513UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %contexts, ptr noundef %cond.i.i.i, i32 noundef %spec.select.i.i, i32 noundef %spec.select10.i.i, i32 noundef 0, i32 noundef %cond.i6.i)
+  %14 = load ptr, ptr %fArray.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %14, ptr %fBuffer.i.i.i
+  %call4.i.i16 = invoke noundef i32 @_ZNK6icu_7513UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %contexts, ptr noundef %cond.i.i.i, i32 noundef %spec.select.i.i, i32 noundef %12, i32 noundef 0, i32 noundef %cond.i6.i)
           to label %invoke.cont13 unwind label %lpad6
 
 invoke.cont13:                                    ; preds = %if.then2.i.i
@@ -6019,14 +6019,14 @@ invoke.cont13.invoke.cont17_crit_edge:            ; preds = %invoke.cont13
 invoke.cont17:                                    ; preds = %invoke.cont13.invoke.cont17_crit_edge, %if.then.i.i, %if.end, %if.else7.i.i.i
   %shr.i.i.i19.pre-phi = phi i32 [ %.pre33, %invoke.cont13.invoke.cont17_crit_edge ], [ %shr.i.i.i13, %if.then.i.i ], [ %shr.i.i.i13, %if.end ], [ %shr.i.i.i13, %if.else7.i.i.i ]
   %shr.i.i.pre-phi = phi i32 [ %.pre30, %invoke.cont13.invoke.cont17_crit_edge ], [ %shr.i.i4.i, %if.then.i.i ], [ %shr.i.i4.i, %if.end ], [ %shr.i.i4.i, %if.else7.i.i.i ]
-  %14 = phi i32 [ %.pre28, %invoke.cont13.invoke.cont17_crit_edge ], [ %8, %if.then.i.i ], [ %8, %if.end ], [ %8, %if.else7.i.i.i ]
-  %15 = phi i16 [ %.pre27, %invoke.cont13.invoke.cont17_crit_edge ], [ %6, %if.then.i.i ], [ %6, %if.end ], [ %6, %if.else7.i.i.i ]
-  %16 = phi i32 [ %.pre26, %invoke.cont13.invoke.cont17_crit_edge ], [ %11, %if.then.i.i ], [ %11, %if.end ], [ %11, %if.else7.i.i.i ]
-  %17 = phi i16 [ %.pre, %invoke.cont13.invoke.cont17_crit_edge ], [ %9, %if.then.i.i ], [ %9, %if.end ], [ %9, %if.else7.i.i.i ]
-  %cmp.i.i = icmp slt i16 %17, 0
-  %cond.i = select i1 %cmp.i.i, i32 %16, i32 %shr.i.i.pre-phi
-  %cmp.i.i.i18 = icmp slt i16 %15, 0
-  %cond.i.i21 = select i1 %cmp.i.i.i18, i32 %14, i32 %shr.i.i.i19.pre-phi
+  %15 = phi i32 [ %.pre28, %invoke.cont13.invoke.cont17_crit_edge ], [ %8, %if.then.i.i ], [ %8, %if.end ], [ %8, %if.else7.i.i.i ]
+  %16 = phi i16 [ %.pre27, %invoke.cont13.invoke.cont17_crit_edge ], [ %6, %if.then.i.i ], [ %6, %if.end ], [ %6, %if.else7.i.i.i ]
+  %17 = phi i32 [ %.pre26, %invoke.cont13.invoke.cont17_crit_edge ], [ %11, %if.then.i.i ], [ %11, %if.end ], [ %11, %if.else7.i.i.i ]
+  %18 = phi i16 [ %.pre, %invoke.cont13.invoke.cont17_crit_edge ], [ %9, %if.then.i.i ], [ %9, %if.end ], [ %9, %if.else7.i.i.i ]
+  %cmp.i.i = icmp slt i16 %18, 0
+  %cond.i = select i1 %cmp.i.i, i32 %17, i32 %shr.i.i.pre-phi
+  %cmp.i.i.i18 = icmp slt i16 %16, 0
+  %cond.i.i21 = select i1 %cmp.i.i.i18, i32 %15, i32 %shr.i.i.i19.pre-phi
   %call2.i22 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %contexts, ptr noundef nonnull align 8 dereferenceable(64) %context, i32 noundef 0, i32 noundef %cond.i.i21)
           to label %cleanup unwind label %lpad6
 
@@ -6655,6 +6655,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16

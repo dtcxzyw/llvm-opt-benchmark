@@ -21,8 +21,8 @@ entry:
   br i1 %cmp, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %mult, i32 31)
-  store i32 %spec.store.select, ptr @bn_limit_bits, align 4
+  %0 = tail call i32 @llvm.umin.i32(i32 %mult, i32 31)
+  store i32 %0, ptr @bn_limit_bits, align 4
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then, %entry
@@ -30,8 +30,8 @@ if.end3:                                          ; preds = %if.then, %entry
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.end3
-  %spec.store.select1 = tail call i32 @llvm.smin.i32(i32 %high, i32 31)
-  store i32 %spec.store.select1, ptr @bn_limit_bits_high, align 4
+  %1 = tail call i32 @llvm.umin.i32(i32 %high, i32 31)
+  store i32 %1, ptr @bn_limit_bits_high, align 4
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then5, %if.end3
@@ -39,8 +39,8 @@ if.end10:                                         ; preds = %if.then5, %if.end3
   br i1 %cmp11, label %if.then12, label %if.end17
 
 if.then12:                                        ; preds = %if.end10
-  %spec.store.select2 = tail call i32 @llvm.smin.i32(i32 %low, i32 31)
-  store i32 %spec.store.select2, ptr @bn_limit_bits_low, align 4
+  %2 = tail call i32 @llvm.umin.i32(i32 %low, i32 31)
+  store i32 %2, ptr @bn_limit_bits_low, align 4
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then12, %if.end10
@@ -48,8 +48,8 @@ if.end17:                                         ; preds = %if.then12, %if.end1
   br i1 %cmp18, label %if.then19, label %if.end24
 
 if.then19:                                        ; preds = %if.end17
-  %spec.store.select3 = tail call i32 @llvm.smin.i32(i32 %mont, i32 31)
-  store i32 %spec.store.select3, ptr @bn_limit_bits_mont, align 4
+  %3 = tail call i32 @llvm.umin.i32(i32 %mont, i32 31)
+  store i32 %3, ptr @bn_limit_bits_mont, align 4
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then19, %if.end17
@@ -2116,11 +2116,11 @@ if.end19:                                         ; preds = %if.end16
 
 if.end22:                                         ; preds = %if.end19
   %div10 = lshr i32 %N, 1
-  %cond = tail call i32 @llvm.smin.i32(i32 %div10, i32 %secbits.0)
+  %0 = tail call i32 @llvm.umin.i32(i32 %div10, i32 %secbits.0)
   br label %return
 
 return:                                           ; preds = %if.end19, %if.end16, %if.else9, %if.end22
-  %retval.0 = phi i32 [ %cond, %if.end22 ], [ 0, %if.else9 ], [ %secbits.0, %if.end16 ], [ 0, %if.end19 ]
+  %retval.0 = phi i32 [ %0, %if.end22 ], [ 0, %if.else9 ], [ %secbits.0, %if.end16 ], [ 0, %if.end19 ]
   ret i32 %retval.0
 }
 
@@ -2427,7 +2427,7 @@ declare noalias ptr @CRYPTO_secure_zalloc(i64 noundef, ptr noundef, i32 noundef)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
+declare i32 @llvm.umin.i32(i32, i32) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

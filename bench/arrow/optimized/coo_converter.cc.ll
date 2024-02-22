@@ -14592,7 +14592,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -14602,17 +14602,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -14620,38 +14620,38 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i8, ptr %add.ptr.i, align 1
-  %cmp9.not = icmp eq i8 %10, 0
+  %11 = load i8, ptr %add.ptr.i, align 1
+  %cmp9.not = icmp eq i8 %11, 0
   br i1 %cmp9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 1
-  store i8 %10, ptr %values.addr.036, align 1
+  store i8 %11, ptr %values.addr.036, align 1
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body15
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.034 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
-  %conv17 = trunc i64 %11 to i8
+  %12 = load i64, ptr %add.ptr.i12, align 8
+  %conv17 = trunc i64 %12 to i8
   %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.133, i64 1
   store i8 %conv17, ptr %indices.addr.133, align 1
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !227
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -14663,30 +14663,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr18, %for.body15 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -14694,8 +14694,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -14717,7 +14717,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end20, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14768,7 +14768,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -14778,17 +14778,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -14796,38 +14796,38 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i16, ptr %add.ptr.i, align 2
-  %cmp9.not = icmp eq i16 %10, 0
+  %11 = load i16, ptr %add.ptr.i, align 2
+  %cmp9.not = icmp eq i16 %11, 0
   br i1 %cmp9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 2
-  store i16 %10, ptr %values.addr.036, align 2
+  store i16 %11, ptr %values.addr.036, align 2
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body15
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.034 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
-  %conv17 = trunc i64 %11 to i8
+  %12 = load i64, ptr %add.ptr.i12, align 8
+  %conv17 = trunc i64 %12 to i8
   %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.133, i64 1
   store i8 %conv17, ptr %indices.addr.133, align 1
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !229
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -14839,30 +14839,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr18, %for.body15 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -14870,8 +14870,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -14893,7 +14893,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end20, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14944,7 +14944,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -14954,17 +14954,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -14972,38 +14972,38 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i32, ptr %add.ptr.i, align 4
-  %cmp8.not = icmp eq i32 %10, 0
+  %11 = load i32, ptr %add.ptr.i, align 4
+  %cmp8.not = icmp eq i32 %11, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 4
-  store i32 %10, ptr %values.addr.036, align 4
+  store i32 %11, ptr %values.addr.036, align 4
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body14
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.034 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
-  %conv16 = trunc i64 %11 to i8
+  %12 = load i64, ptr %add.ptr.i12, align 8
+  %conv16 = trunc i64 %12 to i8
   %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.133, i64 1
   store i8 %conv16, ptr %indices.addr.133, align 1
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !231
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -15015,30 +15015,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr17, %for.body14 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -15046,8 +15046,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -15069,7 +15069,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end19, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15120,7 +15120,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -15130,17 +15130,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -15148,38 +15148,38 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i64, ptr %add.ptr.i, align 8
-  %cmp8.not = icmp eq i64 %10, 0
+  %11 = load i64, ptr %add.ptr.i, align 8
+  %cmp8.not = icmp eq i64 %11, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 8
-  store i64 %10, ptr %values.addr.036, align 8
+  store i64 %11, ptr %values.addr.036, align 8
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body14
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.034 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
-  %conv16 = trunc i64 %11 to i8
+  %12 = load i64, ptr %add.ptr.i12, align 8
+  %conv16 = trunc i64 %12 to i8
   %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.133, i64 1
   store i8 %conv16, ptr %indices.addr.133, align 1
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !233
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -15191,30 +15191,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr17, %for.body14 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -15222,8 +15222,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -15245,7 +15245,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end19, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15296,7 +15296,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -15306,17 +15306,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -15324,38 +15324,38 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i8, ptr %add.ptr.i, align 1
-  %cmp9.not = icmp eq i8 %10, 0
+  %11 = load i8, ptr %add.ptr.i, align 1
+  %cmp9.not = icmp eq i8 %11, 0
   br i1 %cmp9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 1
-  store i8 %10, ptr %values.addr.036, align 1
+  store i8 %11, ptr %values.addr.036, align 1
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body15
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.034 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
-  %conv17 = trunc i64 %11 to i16
+  %12 = load i64, ptr %add.ptr.i12, align 8
+  %conv17 = trunc i64 %12 to i16
   %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.133, i64 2
   store i16 %conv17, ptr %indices.addr.133, align 2
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !235
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -15367,30 +15367,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr18, %for.body15 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -15398,8 +15398,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -15421,7 +15421,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end20, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15472,7 +15472,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -15482,17 +15482,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -15500,38 +15500,38 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i16, ptr %add.ptr.i, align 2
-  %cmp9.not = icmp eq i16 %10, 0
+  %11 = load i16, ptr %add.ptr.i, align 2
+  %cmp9.not = icmp eq i16 %11, 0
   br i1 %cmp9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 2
-  store i16 %10, ptr %values.addr.036, align 2
+  store i16 %11, ptr %values.addr.036, align 2
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body15
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.034 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
-  %conv17 = trunc i64 %11 to i16
+  %12 = load i64, ptr %add.ptr.i12, align 8
+  %conv17 = trunc i64 %12 to i16
   %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.133, i64 2
   store i16 %conv17, ptr %indices.addr.133, align 2
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !237
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -15543,30 +15543,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr18, %for.body15 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -15574,8 +15574,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -15597,7 +15597,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end20, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15648,7 +15648,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -15658,17 +15658,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -15676,38 +15676,38 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i32, ptr %add.ptr.i, align 4
-  %cmp8.not = icmp eq i32 %10, 0
+  %11 = load i32, ptr %add.ptr.i, align 4
+  %cmp8.not = icmp eq i32 %11, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 4
-  store i32 %10, ptr %values.addr.036, align 4
+  store i32 %11, ptr %values.addr.036, align 4
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body14
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.034 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
-  %conv16 = trunc i64 %11 to i16
+  %12 = load i64, ptr %add.ptr.i12, align 8
+  %conv16 = trunc i64 %12 to i16
   %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.133, i64 2
   store i16 %conv16, ptr %indices.addr.133, align 2
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !239
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -15719,30 +15719,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr17, %for.body14 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -15750,8 +15750,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -15773,7 +15773,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end19, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15824,7 +15824,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -15834,17 +15834,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -15852,38 +15852,38 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i64, ptr %add.ptr.i, align 8
-  %cmp8.not = icmp eq i64 %10, 0
+  %11 = load i64, ptr %add.ptr.i, align 8
+  %cmp8.not = icmp eq i64 %11, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 8
-  store i64 %10, ptr %values.addr.036, align 8
+  store i64 %11, ptr %values.addr.036, align 8
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body14
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.034 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
-  %conv16 = trunc i64 %11 to i16
+  %12 = load i64, ptr %add.ptr.i12, align 8
+  %conv16 = trunc i64 %12 to i16
   %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.133, i64 2
   store i16 %conv16, ptr %indices.addr.133, align 2
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !241
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -15895,30 +15895,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr17, %for.body14 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -15926,8 +15926,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -15949,7 +15949,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end19, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16000,7 +16000,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -16010,17 +16010,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -16028,38 +16028,38 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i8, ptr %add.ptr.i, align 1
-  %cmp9.not = icmp eq i8 %10, 0
+  %11 = load i8, ptr %add.ptr.i, align 1
+  %cmp9.not = icmp eq i8 %11, 0
   br i1 %cmp9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 1
-  store i8 %10, ptr %values.addr.036, align 1
+  store i8 %11, ptr %values.addr.036, align 1
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body15
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.034 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
-  %conv17 = trunc i64 %11 to i32
+  %12 = load i64, ptr %add.ptr.i12, align 8
+  %conv17 = trunc i64 %12 to i32
   %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.133, i64 4
   store i32 %conv17, ptr %indices.addr.133, align 4
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !243
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -16071,30 +16071,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr18, %for.body15 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -16102,8 +16102,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -16125,7 +16125,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end20, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16176,7 +16176,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -16186,17 +16186,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -16204,38 +16204,38 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i16, ptr %add.ptr.i, align 2
-  %cmp9.not = icmp eq i16 %10, 0
+  %11 = load i16, ptr %add.ptr.i, align 2
+  %cmp9.not = icmp eq i16 %11, 0
   br i1 %cmp9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 2
-  store i16 %10, ptr %values.addr.036, align 2
+  store i16 %11, ptr %values.addr.036, align 2
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body15
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.034 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr18, %for.body15 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
-  %conv17 = trunc i64 %11 to i32
+  %12 = load i64, ptr %add.ptr.i12, align 8
+  %conv17 = trunc i64 %12 to i32
   %incdec.ptr18 = getelementptr inbounds i8, ptr %indices.addr.133, i64 4
   store i32 %conv17, ptr %indices.addr.133, align 4
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !245
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -16247,30 +16247,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr18, %for.body15 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -16278,8 +16278,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -16301,7 +16301,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end20, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16352,7 +16352,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -16362,17 +16362,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -16380,38 +16380,38 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i32, ptr %add.ptr.i, align 4
-  %cmp8.not = icmp eq i32 %10, 0
+  %11 = load i32, ptr %add.ptr.i, align 4
+  %cmp8.not = icmp eq i32 %11, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 4
-  store i32 %10, ptr %values.addr.036, align 4
+  store i32 %11, ptr %values.addr.036, align 4
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body14
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.034 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
-  %conv16 = trunc i64 %11 to i32
+  %12 = load i64, ptr %add.ptr.i12, align 8
+  %conv16 = trunc i64 %12 to i32
   %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.133, i64 4
   store i32 %conv16, ptr %indices.addr.133, align 4
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !247
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -16423,30 +16423,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr17, %for.body14 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -16454,8 +16454,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -16477,7 +16477,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end19, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16528,7 +16528,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -16538,17 +16538,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -16556,38 +16556,38 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i64, ptr %add.ptr.i, align 8
-  %cmp8.not = icmp eq i64 %10, 0
+  %11 = load i64, ptr %add.ptr.i, align 8
+  %cmp8.not = icmp eq i64 %11, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 8
-  store i64 %10, ptr %values.addr.036, align 8
+  store i64 %11, ptr %values.addr.036, align 8
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body14
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.034 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr17, %for.body14 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
-  %conv16 = trunc i64 %11 to i32
+  %12 = load i64, ptr %add.ptr.i12, align 8
+  %conv16 = trunc i64 %12 to i32
   %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.133, i64 4
   store i32 %conv16, ptr %indices.addr.133, align 4
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !249
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -16599,30 +16599,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr17, %for.body14 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -16630,8 +16630,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -16653,7 +16653,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end19, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16704,7 +16704,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -16714,17 +16714,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -16732,37 +16732,37 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i8, ptr %add.ptr.i, align 1
-  %cmp9.not = icmp eq i8 %10, 0
+  %11 = load i8, ptr %add.ptr.i, align 1
+  %cmp9.not = icmp eq i8 %11, 0
   br i1 %cmp9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 1
-  store i8 %10, ptr %values.addr.036, align 1
+  store i8 %11, ptr %values.addr.036, align 1
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body15
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.034 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr17, %for.body15 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
+  %12 = load i64, ptr %add.ptr.i12, align 8
   %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.133, i64 8
-  store i64 %11, ptr %indices.addr.133, align 8
+  store i64 %12, ptr %indices.addr.133, align 8
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !251
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -16774,30 +16774,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr17, %for.body15 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -16805,8 +16805,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -16828,7 +16828,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end19, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16879,7 +16879,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -16889,17 +16889,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -16907,37 +16907,37 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i16, ptr %add.ptr.i, align 2
-  %cmp9.not = icmp eq i16 %10, 0
+  %11 = load i16, ptr %add.ptr.i, align 2
+  %cmp9.not = icmp eq i16 %11, 0
   br i1 %cmp9.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 2
-  store i16 %10, ptr %values.addr.036, align 2
+  store i16 %11, ptr %values.addr.036, align 2
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body15
 
 for.body15:                                       ; preds = %if.then, %for.body15
   %i.034 = phi i64 [ %inc, %for.body15 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr17, %for.body15 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
+  %12 = load i64, ptr %add.ptr.i12, align 8
   %incdec.ptr17 = getelementptr inbounds i8, ptr %indices.addr.133, i64 8
-  store i64 %11, ptr %indices.addr.133, align 8
+  store i64 %12, ptr %indices.addr.133, align 8
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body15, !llvm.loop !253
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -16949,30 +16949,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body15, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body15 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr17, %for.body15 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -16980,8 +16980,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -17003,7 +17003,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end19, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17054,7 +17054,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -17064,17 +17064,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -17082,37 +17082,37 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i32, ptr %add.ptr.i, align 4
-  %cmp8.not = icmp eq i32 %10, 0
+  %11 = load i32, ptr %add.ptr.i, align 4
+  %cmp8.not = icmp eq i32 %11, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 4
-  store i32 %10, ptr %values.addr.036, align 4
+  store i32 %11, ptr %values.addr.036, align 4
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body14
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.034 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr16, %for.body14 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
+  %12 = load i64, ptr %add.ptr.i12, align 8
   %incdec.ptr16 = getelementptr inbounds i8, ptr %indices.addr.133, i64 8
-  store i64 %11, ptr %indices.addr.133, align 8
+  store i64 %12, ptr %indices.addr.133, align 8
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !255
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -17124,30 +17124,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr16, %for.body14 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -17155,8 +17155,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -17178,7 +17178,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end18, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -17229,7 +17229,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp7.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   %strides_.i.i = getelementptr inbounds i8, ptr %tensor, i64 64
   %data_.i.i = getelementptr inbounds i8, ptr %tensor, i64 24
-  %smax = tail call i64 @llvm.smax.i64(i64 %conv, i64 1)
+  %3 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
@@ -17239,17 +17239,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp7.i.i.i, label %for.body.lr.ph.i.i.i, label %invoke.cont6
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.body
-  %3 = load ptr, ptr %strides_.i.i, align 8
+  %4 = load ptr, ptr %strides_.i.i, align 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %i.09.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %inc.i.i.i, %for.body.i.i.i ]
   %offset.08.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.09.i.i.i
-  %4 = load i64, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %3, i64 %i.09.i.i.i
-  %5 = load i64, ptr %add.ptr.i6.i.i.i, align 8
-  %mul.i.i.i = mul nsw i64 %5, %4
+  %5 = load i64, ptr %add.ptr.i.i.i.i, align 8
+  %add.ptr.i6.i.i.i = getelementptr inbounds i64, ptr %4, i64 %i.09.i.i.i
+  %6 = load i64, ptr %add.ptr.i6.i.i.i, align 8
+  %mul.i.i.i = mul nsw i64 %6, %5
   %add.i.i.i = add nsw i64 %mul.i.i.i, %offset.08.i.i.i
   %inc.i.i.i = add nuw nsw i64 %i.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.div.i.i.i.i
@@ -17257,37 +17257,37 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont6:                                     ; preds = %for.body.i.i.i, %for.body
   %offset.0.lcssa.i.i.i = phi i64 [ 0, %for.body ], [ %add.i.i.i, %for.body.i.i.i ]
-  %6 = load ptr, ptr %data_.i.i, align 8
-  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %6, i64 9
-  %7 = load i8, ptr %is_cpu_.i.i.i, align 1
-  %8 = and i8 %7, 1
-  %tobool.not.i.i.i = icmp eq i8 %8, 0
-  %data_.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = load ptr, ptr %data_.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %9
+  %7 = load ptr, ptr %data_.i.i, align 8
+  %is_cpu_.i.i.i = getelementptr inbounds i8, ptr %7, i64 9
+  %8 = load i8, ptr %is_cpu_.i.i.i, align 1
+  %9 = and i8 %8, 1
+  %tobool.not.i.i.i = icmp eq i8 %9, 0
+  %data_.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = load ptr, ptr %data_.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr null, ptr %10
   %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %offset.0.lcssa.i.i.i
-  %10 = load i64, ptr %add.ptr.i, align 8
-  %cmp8.not = icmp eq i64 %10, 0
+  %11 = load i64, ptr %add.ptr.i, align 8
+  %cmp8.not = icmp eq i64 %11, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont6
   %incdec.ptr = getelementptr inbounds i8, ptr %values.addr.036, i64 8
-  store i64 %10, ptr %values.addr.036, align 8
+  store i64 %11, ptr %values.addr.036, align 8
   br i1 %cmp.not.i.i.i.i, label %if.end, label %for.body14
 
 for.body14:                                       ; preds = %if.then, %for.body14
   %i.034 = phi i64 [ %inc, %for.body14 ], [ 0, %if.then ]
   %indices.addr.133 = phi ptr [ %incdec.ptr16, %for.body14 ], [ %indices.addr.037, %if.then ]
   %add.ptr.i12 = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %i.034
-  %11 = load i64, ptr %add.ptr.i12, align 8
+  %12 = load i64, ptr %add.ptr.i12, align 8
   %incdec.ptr16 = getelementptr inbounds i8, ptr %indices.addr.133, i64 8
-  store i64 %11, ptr %indices.addr.133, align 8
+  store i64 %12, ptr %indices.addr.133, align 8
   %inc = add nuw nsw i64 %i.034, 1
-  %exitcond.not = icmp eq i64 %inc, %smax
+  %exitcond.not = icmp eq i64 %inc, %3
   br i1 %exitcond.not, label %if.end, label %for.body14, !llvm.loop !257
 
 lpad3:                                            ; preds = %invoke.cont
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   %tobool.not.i.i.i13 = icmp eq ptr %coord.sroa.0.0, null
   br i1 %tobool.not.i.i.i13, label %eh.resume, label %if.then.i.i.i
@@ -17299,30 +17299,30 @@ if.then.i.i.i:                                    ; preds = %lpad3
 if.end:                                           ; preds = %for.body14, %if.then, %invoke.cont6
   %values.addr.1 = phi ptr [ %values.addr.036, %invoke.cont6 ], [ %incdec.ptr, %if.then ], [ %incdec.ptr, %for.body14 ]
   %indices.addr.2 = phi ptr [ %indices.addr.037, %invoke.cont6 ], [ %indices.addr.037, %if.then ], [ %incdec.ptr16, %for.body14 ]
-  %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %14 = load ptr, ptr %shape_.i, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %14 to i64
+  %14 = load ptr, ptr %_M_finish.i.i, align 8
+  %15 = load ptr, ptr %shape_.i, align 8
+  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
   %sub.ptr.div.i.i18 = ashr exact i64 %sub.ptr.sub.i.i17, 3
   %sub.i = add nsw i64 %sub.ptr.div.i.i18, -1
   %add.ptr.i.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub.i
-  %15 = load i64, ptr %add.ptr.i.i, align 8
-  %inc.i = add nsw i64 %15, 1
+  %16 = load i64, ptr %add.ptr.i.i, align 8
+  %inc.i = add nsw i64 %16, 1
   store i64 %inc.i, ptr %add.ptr.i.i, align 8
-  %add.ptr.i16.i = getelementptr inbounds i64, ptr %14, i64 %sub.i
-  %16 = load i64, ptr %add.ptr.i16.i, align 8
-  %cmp.i = icmp eq i64 %inc.i, %16
+  %add.ptr.i16.i = getelementptr inbounds i64, ptr %15, i64 %sub.i
+  %17 = load i64, ptr %add.ptr.i16.i, align 8
+  %cmp.i = icmp eq i64 %inc.i, %17
   %cmp721.i = icmp sgt i64 %sub.ptr.div.i.i18, 1
   %or.cond.i = and i1 %cmp.i, %cmp721.i
   br i1 %or.cond.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 land.rhs.i:                                       ; preds = %if.end, %while.body.i
-  %17 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
+  %18 = phi i64 [ %inc14.i, %while.body.i ], [ %inc.i, %if.end ]
   %d.022.i = phi i64 [ %sub12.i, %while.body.i ], [ %sub.i, %if.end ]
-  %add.ptr.i18.i = getelementptr inbounds i64, ptr %14, i64 %d.022.i
-  %18 = load i64, ptr %add.ptr.i18.i, align 8
-  %cmp10.i = icmp eq i64 %17, %18
+  %add.ptr.i18.i = getelementptr inbounds i64, ptr %15, i64 %d.022.i
+  %19 = load i64, ptr %add.ptr.i18.i, align 8
+  %cmp10.i = icmp eq i64 %18, %19
   br i1 %cmp10.i, label %while.body.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -17330,8 +17330,8 @@ while.body.i:                                     ; preds = %land.rhs.i
   store i64 0, ptr %add.ptr.i17.i, align 8
   %sub12.i = add nsw i64 %d.022.i, -1
   %add.ptr.i20.i = getelementptr inbounds i64, ptr %coord.sroa.0.0, i64 %sub12.i
-  %19 = load i64, ptr %add.ptr.i20.i, align 8
-  %inc14.i = add nsw i64 %19, 1
+  %20 = load i64, ptr %add.ptr.i20.i, align 8
+  %inc14.i = add nsw i64 %20, 1
   store i64 %inc14.i, ptr %add.ptr.i20.i, align 8
   %cmp7.i = icmp sgt i64 %d.022.i, 1
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
@@ -17353,7 +17353,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit21:                  ; preds = %for.end18, %if.then
   ret void
 
 eh.resume:                                        ; preds = %if.then.i.i.i, %lpad3
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 declare void @_ZN5arrow14SparseCOOIndex4MakeERKSt10shared_ptrINS_6TensorEEb(ptr sret(%"class.arrow::Result.40") align 8, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #4
@@ -25046,6 +25046,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18

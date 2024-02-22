@@ -349,18 +349,18 @@ if.else73:                                        ; preds = %if.end70
   br i1 %cmp74, label %if.then75, label %return
 
 if.then75:                                        ; preds = %if.else73
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %sub, i32 3)
+  %15 = tail call i32 @llvm.umin.i32(i32 %sub, i32 3)
   %idx.ext = sext i32 %i to i64
   %add.ptr = getelementptr inbounds i8, ptr %s, i64 %idx.ext
-  %sub79 = add nsw i32 %spec.store.select, -1
+  %sub79 = add nsw i32 %15, -1
   %idxprom80 = zext nneg i32 %sub79 to i64
   %arrayidx81 = getelementptr inbounds [6 x i32], ptr @_ZL15utf8_errorValue, i64 0, i64 %idxprom80
-  %15 = load i32, ptr %arrayidx81, align 4
+  %16 = load i32, ptr %arrayidx81, align 4
   %cmp82 = icmp eq i32 %sub79, 0
   br i1 %cmp82, label %if.then83, label %if.else88
 
 if.then83:                                        ; preds = %if.then75
-  %conv84 = trunc i32 %15 to i8
+  %conv84 = trunc i32 %16 to i8
   store i8 %conv84, ptr %add.ptr, align 1
   br label %do.end
 
@@ -369,19 +369,19 @@ if.else88:                                        ; preds = %if.then75
   br i1 %cmp89, label %if.then90, label %if.end120
 
 if.then90:                                        ; preds = %if.else88
-  %shr91 = lshr i32 %15, 6
-  %16 = trunc i32 %shr91 to i8
-  %conv93 = or i8 %16, -64
+  %shr91 = lshr i32 %16, 6
+  %17 = trunc i32 %shr91 to i8
+  %conv93 = or i8 %17, -64
   br label %if.end128
 
 if.end120:                                        ; preds = %if.else88
-  %shr100 = lshr i32 %15, 12
-  %17 = trunc i32 %shr100 to i8
-  %conv102 = or i8 %17, -32
-  %shr121 = lshr i32 %15, 6
-  %18 = trunc i32 %shr121 to i8
-  %19 = and i8 %18, 63
-  %conv124 = or disjoint i8 %19, -128
+  %shr100 = lshr i32 %16, 12
+  %18 = trunc i32 %shr100 to i8
+  %conv102 = or i8 %18, -32
+  %shr121 = lshr i32 %16, 6
+  %19 = trunc i32 %shr121 to i8
+  %20 = and i8 %19, 63
+  %conv124 = or disjoint i8 %20, -128
   %arrayidx127 = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 %conv124, ptr %arrayidx127, align 1
   br label %if.end128
@@ -390,9 +390,9 @@ if.end128:                                        ; preds = %if.end120, %if.then
   %conv102.sink = phi i8 [ %conv93, %if.then90 ], [ %conv102, %if.end120 ]
   %offset.1 = phi i32 [ 1, %if.then90 ], [ 2, %if.end120 ]
   store i8 %conv102.sink, ptr %add.ptr, align 1
-  %20 = trunc i32 %15 to i8
-  %21 = and i8 %20, 63
-  %conv131 = or disjoint i8 %21, -128
+  %21 = trunc i32 %16 to i8
+  %22 = and i8 %21, 63
+  %conv131 = or disjoint i8 %22, -128
   %inc132 = add nuw nsw i32 %offset.1, 1
   %idxprom133 = zext nneg i32 %offset.1 to i64
   %arrayidx134 = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom133
@@ -765,7 +765,7 @@ return:                                           ; preds = %land.lhs.true84, %i
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #3
+declare i32 @llvm.umin.i32(i32, i32) #3
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

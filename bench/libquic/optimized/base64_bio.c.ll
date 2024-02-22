@@ -91,26 +91,26 @@ while.body19:                                     ; preds = %while.cond17.prehea
   %ret.0101 = phi i32 [ 0, %while.cond17.preheader ], [ %ret.1, %while.end103 ]
   %inl.addr.0100 = phi i32 [ %inl, %while.cond17.preheader ], [ %sub77, %while.end103 ]
   %in.addr.099 = phi ptr [ %in, %while.cond17.preheader ], [ %add.ptr, %while.end103 ]
-  %cond = tail call i32 @llvm.smin.i32(i32 %inl.addr.0100, i32 1024)
+  %7 = tail call i32 @llvm.umin.i32(i32 %inl.addr.0100, i32 1024)
   %call21 = tail call i32 @BIO_test_flags(ptr noundef %b, i32 noundef 256) #10
   %tobool.not = icmp eq i32 %call21, 0
   br i1 %tobool.not, label %if.else69, label %if.then22
 
 if.then22:                                        ; preds = %while.body19
-  %7 = load i32, ptr %tmp_len23, align 4
-  %cmp24 = icmp sgt i32 %7, 0
+  %8 = load i32, ptr %tmp_len23, align 4
+  %cmp24 = icmp sgt i32 %8, 0
   br i1 %cmp24, label %if.then25, label %if.else
 
 if.then25:                                        ; preds = %if.then22
-  %sub27 = sub nsw i32 3, %7
+  %sub27 = sub nsw i32 3, %8
   %cmp28 = icmp sgt i32 %sub27, %inl.addr.0100
   %spec.select = select i1 %cmp28, i32 1, i32 %sub27
-  %idxprom32 = zext nneg i32 %7 to i64
+  %idxprom32 = zext nneg i32 %8 to i64
   %arrayidx33 = getelementptr inbounds [1024 x i8], ptr %tmp, i64 0, i64 %idxprom32
   %conv = sext i32 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx33, ptr align 1 %in.addr.099, i64 %conv, i1 false)
-  %8 = load i32, ptr %tmp_len23, align 4
-  %add35 = add nsw i32 %8, %spec.select
+  %9 = load i32, ptr %tmp_len23, align 4
+  %add35 = add nsw i32 %9, %spec.select
   store i32 %add35, ptr %tmp_len23, align 4
   %add36 = add nsw i32 %spec.select, %ret.0101
   %cmp38 = icmp slt i32 %add35, 3
@@ -129,17 +129,17 @@ if.else:                                          ; preds = %if.then22
   br i1 %cmp51, label %if.then53, label %if.end59
 
 if.then53:                                        ; preds = %if.else
-  %conv56 = zext nneg i32 %cond to i64
+  %conv56 = zext nneg i32 %7 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %tmp, ptr align 1 %in.addr.099, i64 %conv56, i1 false)
-  store i32 %cond, ptr %tmp_len23, align 4
-  %add58 = add nsw i32 %ret.0101, %cond
+  store i32 %7, ptr %tmp_len23, align 4
+  %add58 = add nsw i32 %ret.0101, %7
   br label %return
 
 if.end59:                                         ; preds = %if.else
-  %rem.lhs.trunc = trunc i32 %cond to i16
+  %rem.lhs.trunc = trunc i32 %7 to i16
   %rem89 = urem i16 %rem.lhs.trunc, 3
   %rem.zext = zext nneg i16 %rem89 to i32
-  %sub60 = sub nsw i32 %cond, %rem.zext
+  %sub60 = sub nsw i32 %7, %rem.zext
   %conv63 = zext nneg i32 %sub60 to i64
   %call64 = tail call i64 @EVP_EncodeBlock(ptr noundef nonnull %buf61, ptr noundef %in.addr.099, i64 noundef %conv63) #10
   %conv65 = trunc i64 %call64 to i32
@@ -148,30 +148,30 @@ if.end59:                                         ; preds = %if.else
   br label %if.end76
 
 if.else69:                                        ; preds = %while.body19
-  %conv74 = zext nneg i32 %cond to i64
+  %conv74 = zext nneg i32 %7 to i64
   tail call void @EVP_EncodeUpdate(ptr noundef nonnull %base6470, ptr noundef nonnull %buf61, ptr noundef nonnull %0, ptr noundef %in.addr.099, i64 noundef %conv74) #10
-  %add75 = add nsw i32 %ret.0101, %cond
+  %add75 = add nsw i32 %ret.0101, %7
   %.pre = load i32, ptr %0, align 4
   br label %if.end76
 
 if.end76:                                         ; preds = %if.end41, %if.end59, %if.else69
-  %9 = phi i32 [ %conv48, %if.end41 ], [ %conv65, %if.end59 ], [ %.pre, %if.else69 ]
+  %10 = phi i32 [ %conv48, %if.end41 ], [ %conv65, %if.end59 ], [ %.pre, %if.else69 ]
   %ret.1 = phi i32 [ %add36, %if.end41 ], [ %add67, %if.end59 ], [ %add75, %if.else69 ]
-  %n.2 = phi i32 [ %spec.select, %if.end41 ], [ %sub60, %if.end59 ], [ %cond, %if.else69 ]
+  %n.2 = phi i32 [ %spec.select, %if.end41 ], [ %sub60, %if.end59 ], [ %7, %if.else69 ]
   %sub77 = sub nsw i32 %inl.addr.0100, %n.2
   %idx.ext = sext i32 %n.2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.099, i64 %idx.ext
   store i32 0, ptr %buf_off3, align 4
-  %cmp8197 = icmp sgt i32 %9, 0
+  %cmp8197 = icmp sgt i32 %10, 0
   br i1 %cmp8197, label %while.body83, label %while.end103
 
 while.body83:                                     ; preds = %if.end76, %if.end99
-  %10 = phi i32 [ %add102, %if.end99 ], [ 0, %if.end76 ]
-  %n.398 = phi i32 [ %sub100, %if.end99 ], [ %9, %if.end76 ]
-  %11 = load ptr, ptr %next_bio84, align 8
-  %idxprom87 = sext i32 %10 to i64
+  %11 = phi i32 [ %add102, %if.end99 ], [ 0, %if.end76 ]
+  %n.398 = phi i32 [ %sub100, %if.end99 ], [ %10, %if.end76 ]
+  %12 = load ptr, ptr %next_bio84, align 8
+  %idxprom87 = sext i32 %11 to i64
   %arrayidx88 = getelementptr inbounds [1502 x i8], ptr %buf61, i64 0, i64 %idxprom87
-  %call89 = tail call i32 @BIO_write(ptr noundef %11, ptr noundef nonnull %arrayidx88, i32 noundef %n.398) #10
+  %call89 = tail call i32 @BIO_write(ptr noundef %12, ptr noundef nonnull %arrayidx88, i32 noundef %n.398) #10
   %cmp90 = icmp slt i32 %call89, 1
   br i1 %cmp90, label %if.then92, label %if.end99
 
@@ -183,8 +183,8 @@ if.then92:                                        ; preds = %while.body83
 
 if.end99:                                         ; preds = %while.body83
   %sub100 = sub nsw i32 %n.398, %call89
-  %12 = load i32, ptr %buf_off3, align 4
-  %add102 = add nsw i32 %12, %call89
+  %13 = load i32, ptr %buf_off3, align 4
+  %add102 = add nsw i32 %13, %call89
   store i32 %add102, ptr %buf_off3, align 4
   %cmp81 = icmp sgt i32 %sub100, 0
   br i1 %cmp81, label %while.body83, label %while.end103, !llvm.loop !9
@@ -959,6 +959,9 @@ declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

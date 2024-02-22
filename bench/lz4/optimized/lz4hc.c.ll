@@ -33,7 +33,7 @@ if.end:                                           ; preds = %entry
 LZ4_resetStreamHC_fast.exit.thread:               ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(262192) %state, i8 0, i64 262192, i1 false)
   %cmp.i9.i24 = icmp slt i32 %compressionLevel, 1
-  %2 = tail call i32 @llvm.smin.i32(i32 %compressionLevel, i32 12)
+  %2 = tail call i32 @llvm.umin.i32(i32 %compressionLevel, i32 12)
   %3 = trunc i32 %2 to i16
   %conv.i.i25 = select i1 %cmp.i9.i24, i16 9, i16 %3
   %compressionLevel4.i.i26 = getelementptr inbounds i8, ptr %state, i64 262180
@@ -56,7 +56,7 @@ LZ4_resetStreamHC_fast.exit:                      ; preds = %if.end
   store ptr null, ptr %dictCtx.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %end.i, i8 0, i64 16, i1 false)
   %cmp.i9.i = icmp slt i32 %compressionLevel, 1
-  %7 = tail call i32 @llvm.smin.i32(i32 %compressionLevel, i32 12)
+  %7 = tail call i32 @llvm.umin.i32(i32 %compressionLevel, i32 12)
   %8 = trunc i32 %7 to i16
   %conv.i.i = select i1 %cmp.i9.i, i16 9, i16 %8
   %compressionLevel4.i.i = getelementptr inbounds i8, ptr %state, i64 262180
@@ -134,7 +134,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.end6.i, %if.then, %if.else
   %cmp.i9 = icmp slt i32 %compressionLevel, 1
-  %5 = tail call i32 @llvm.smin.i32(i32 %compressionLevel, i32 12)
+  %5 = tail call i32 @llvm.umin.i32(i32 %compressionLevel, i32 12)
   %6 = trunc i32 %5 to i16
   %conv.i = select i1 %cmp.i9, i16 9, i16 %6
   %compressionLevel4.i = getelementptr inbounds i8, ptr %LZ4_streamHCPtr, i64 262180
@@ -288,9 +288,9 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %idx.ext.i.i
   store ptr %add.ptr.i.i, ptr %end.i, align 8
   %cmp5.i.i = icmp slt i32 %cLevel, 1
-  %17 = tail call i32 @llvm.smin.i32(i32 %cLevel, i32 12)
+  %17 = tail call i32 @llvm.umin.i32(i32 %cLevel, i32 12)
   %cond.i.i = select i1 %cmp5.i.i, i32 9, i32 %17
-  %idxprom.i.i = sext i32 %cond.i.i to i64
+  %idxprom.i.i = zext nneg i32 %cond.i.i to i64
   %arrayidx.i.i = getelementptr inbounds [13 x %struct.cParams_t], ptr @LZ4HC_compress_generic_internal.clTable, i64 0, i64 %idxprom.i.i
   %cParam.i.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i.i, align 4
   %cParam.i.sroa.2.0.arrayidx.i.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
@@ -5286,7 +5286,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit:        ; preds = %entry
   %dictCtx.i.i = getelementptr inbounds i8, ptr %state, i64 262184
   store ptr null, ptr %dictCtx.i.i, align 8
   %cmp.i9.i.i = icmp slt i32 %compressionLevel, 1
-  %1 = tail call i32 @llvm.smin.i32(i32 %compressionLevel, i32 12)
+  %1 = tail call i32 @llvm.umin.i32(i32 %compressionLevel, i32 12)
   %2 = trunc i32 %1 to i16
   %conv.i.i.i = select i1 %cmp.i9.i.i, i16 9, i16 %2
   store i16 %conv.i.i.i, ptr %compressionLevel4.i.i, align 4
@@ -5359,7 +5359,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %if.end
   %dictCtx.i.i.i = getelementptr inbounds i8, ptr %call, i64 262184
   store ptr null, ptr %dictCtx.i.i.i, align 8
   %cmp.i9.i.i.i = icmp slt i32 %compressionLevel, 1
-  %1 = tail call i32 @llvm.smin.i32(i32 %compressionLevel, i32 12)
+  %1 = tail call i32 @llvm.umin.i32(i32 %compressionLevel, i32 12)
   %2 = trunc i32 %1 to i16
   %conv.i.i.i.i = select i1 %cmp.i9.i.i.i, i16 9, i16 %2
   store i16 %conv.i.i.i.i, ptr %compressionLevel4.i.i.i, align 4
@@ -5424,7 +5424,7 @@ LZ4HC_init_internal.exit:                         ; preds = %entry
   %lowLimit.i = getelementptr inbounds i8, ptr %state, i64 262172
   store i32 65536, ptr %lowLimit.i, align 4
   %cmp.i7 = icmp slt i32 %cLevel, 1
-  %1 = tail call i32 @llvm.smin.i32(i32 %cLevel, i32 12)
+  %1 = tail call i32 @llvm.umin.i32(i32 %cLevel, i32 12)
   %2 = trunc i32 %1 to i16
   %conv.i8 = select i1 %cmp.i7, i16 9, i16 %2
   store i16 %conv.i8, ptr %compressionLevel4.i.i, align 4
@@ -5440,7 +5440,7 @@ return:                                           ; preds = %entry, %LZ4HC_init_
 define void @LZ4_setCompressionLevel(ptr nocapture noundef writeonly %LZ4_streamHCPtr, i32 noundef %compressionLevel) local_unnamed_addr #4 {
 entry:
   %cmp = icmp slt i32 %compressionLevel, 1
-  %0 = tail call i32 @llvm.smin.i32(i32 %compressionLevel, i32 12)
+  %0 = tail call i32 @llvm.umin.i32(i32 %compressionLevel, i32 12)
   %1 = trunc i32 %0 to i16
   %conv = select i1 %cmp, i16 9, i16 %1
   %compressionLevel4 = getelementptr inbounds i8, ptr %LZ4_streamHCPtr, i64 262180
@@ -5500,7 +5500,7 @@ if.end6.i:                                        ; preds = %entry
 
 LZ4_initStreamHC.exit:                            ; preds = %entry, %if.end6.i
   %cmp.i2 = icmp slt i32 %compressionLevel, 1
-  %1 = tail call i32 @llvm.smin.i32(i32 %compressionLevel, i32 12)
+  %1 = tail call i32 @llvm.umin.i32(i32 %compressionLevel, i32 12)
   %2 = trunc i32 %1 to i16
   %conv.i = select i1 %cmp.i2, i16 9, i16 %2
   %compressionLevel4.i = getelementptr inbounds i8, ptr %LZ4_streamHCPtr, i64 262180
@@ -5539,7 +5539,7 @@ entry:
 LZ4_initStreamHC.exit.thread:                     ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(262192) %LZ4_streamHCPtr, i8 0, i64 262192, i1 false)
   %cmp.i3047 = icmp slt i16 %1, 1
-  %3 = tail call i16 @llvm.smin.i16(i16 %1, i16 12)
+  %3 = tail call i16 @llvm.umin.i16(i16 %1, i16 12)
   %conv.i3148 = select i1 %cmp.i3047, i16 9, i16 %3
   store i16 %conv.i3148, ptr %compressionLevel, align 4
   br label %LZ4HC_init_internal.exit
@@ -5557,7 +5557,7 @@ LZ4_initStreamHC.exit:                            ; preds = %entry
   %7 = zext i32 %.pre45 to i64
   %8 = add i64 %6, %7
   %cmp.i30 = icmp slt i16 %1, 1
-  %9 = tail call i16 @llvm.smin.i16(i16 %1, i16 12)
+  %9 = tail call i16 @llvm.umin.i16(i16 %1, i16 12)
   %conv.i31 = select i1 %cmp.i30, i16 9, i16 %9
   store i16 %conv.i31, ptr %compressionLevel, align 4
   %cmp.i39 = icmp ugt i64 %8, 1073741824
@@ -5731,13 +5731,13 @@ if.then4:                                         ; preds = %if.end
 LZ4_initStreamHC.exit.thread.i:                   ; preds = %if.then4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(262192) %LZ4_streamHCPtr, i8 0, i64 262192, i1 false)
   %cmp.i3047.i = icmp slt i16 %7, 1
-  %9 = tail call i16 @llvm.smin.i16(i16 %7, i16 12)
+  %9 = tail call i16 @llvm.umin.i16(i16 %7, i16 12)
   %conv.i3148.i = select i1 %cmp.i3047.i, i16 9, i16 %9
   br label %LZ4HC_init_internal.exit.i
 
 if.then.i.i:                                      ; preds = %if.then4
   %cmp.i30.i = icmp slt i16 %7, 1
-  %10 = tail call i16 @llvm.smin.i16(i16 %7, i16 12)
+  %10 = tail call i16 @llvm.umin.i16(i16 %7, i16 12)
   %conv.i31.i = select i1 %cmp.i30.i, i16 9, i16 %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131072) %LZ4_streamHCPtr, i8 0, i64 131072, i1 false)
   %chainTable.i.i.i = getelementptr inbounds i8, ptr %LZ4_streamHCPtr, i64 131072
@@ -5943,9 +5943,9 @@ entry:
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %dictSize, i32 65536)
+  %2 = tail call i32 @llvm.umin.i32(i32 %dictSize, i32 65536)
   %cmp2 = icmp slt i32 %dictSize, 4
-  %spec.store.select1 = select i1 %cmp2, i32 0, i32 %spec.store.select
+  %spec.store.select1 = select i1 %cmp2, i32 0, i32 %2
   %spec.select = tail call i32 @llvm.smin.i32(i32 %spec.store.select1, i32 %conv)
   %cmp14 = icmp sgt i32 %spec.select, 0
   br i1 %cmp14, label %if.then16, label %if.end19
@@ -5966,14 +5966,14 @@ if.then16:                                        ; preds = %entry
 if.end19:                                         ; preds = %if.then16, %entry
   %conv25.pre-phi = phi i32 [ %.pre36, %if.then16 ], [ %conv, %entry ]
   %dictLimit = getelementptr inbounds i8, ptr %LZ4_streamHCPtr, i64 262168
-  %2 = load i32, ptr %dictLimit, align 8
+  %3 = load i32, ptr %dictLimit, align 8
   %cmp26 = icmp eq ptr %safeBuffer, null
   %idx.ext28 = sext i32 %spec.select to i64
   %add.ptr29 = getelementptr inbounds i8, ptr %safeBuffer, i64 %idx.ext28
   %cond = select i1 %cmp26, ptr null, ptr %add.ptr29
   store ptr %cond, ptr %end, align 8
   store ptr %safeBuffer, ptr %prefixStart, align 8
-  %add = sub i32 %2, %spec.select
+  %add = sub i32 %3, %spec.select
   %sub = add i32 %add, %conv25.pre-phi
   store i32 %sub, ptr %dictLimit, align 8
   %lowLimit = getelementptr inbounds i8, ptr %LZ4_streamHCPtr, i64 262172
@@ -5981,8 +5981,8 @@ if.end19:                                         ; preds = %if.then16, %entry
   %dictStart = getelementptr inbounds i8, ptr %LZ4_streamHCPtr, i64 262160
   store ptr %safeBuffer, ptr %dictStart, align 8
   %nextToUpdate = getelementptr inbounds i8, ptr %LZ4_streamHCPtr, i64 262176
-  %3 = load i32, ptr %nextToUpdate, align 8
-  %cmp36 = icmp ult i32 %3, %sub
+  %4 = load i32, ptr %nextToUpdate, align 8
+  %cmp36 = icmp ult i32 %4, %sub
   br i1 %cmp36, label %if.then38, label %if.end41
 
 if.then38:                                        ; preds = %if.end19
@@ -6122,7 +6122,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %if.end.i
   %dictCtx.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 262184
   store ptr null, ptr %dictCtx.i.i.i.i, align 8
   %cmp.i9.i.i.i.i = icmp slt i32 %cLevel, 1
-  %1 = tail call i32 @llvm.smin.i32(i32 %cLevel, i32 12)
+  %1 = tail call i32 @llvm.umin.i32(i32 %cLevel, i32 12)
   %2 = trunc i32 %1 to i16
   %conv.i.i.i.i.i = select i1 %cmp.i9.i.i.i.i, i16 9, i16 %2
   store i16 %conv.i.i.i.i.i, ptr %compressionLevel4.i.i.i.i, align 4
@@ -6177,7 +6177,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i.i:    ; preds = %if.end.i
   %dictCtx.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 262184
   store ptr null, ptr %dictCtx.i.i.i.i, align 8
   %cmp.i9.i.i.i.i = icmp slt i32 %cLevel, 1
-  %1 = tail call i32 @llvm.smin.i32(i32 %cLevel, i32 12)
+  %1 = tail call i32 @llvm.umin.i32(i32 %cLevel, i32 12)
   %2 = trunc i32 %1 to i16
   %conv.i.i.i.i.i = select i1 %cmp.i9.i.i.i.i, i16 9, i16 %2
   store i16 %conv.i.i.i.i.i, ptr %compressionLevel4.i.i.i.i, align 4
@@ -6317,7 +6317,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %entry
   %dictCtx.i.i.i = getelementptr inbounds i8, ptr %state, i64 262184
   store ptr null, ptr %dictCtx.i.i.i, align 8
   %cmp.i9.i.i.i = icmp slt i32 %cLevel, 1
-  %1 = tail call i32 @llvm.smin.i32(i32 %cLevel, i32 12)
+  %1 = tail call i32 @llvm.umin.i32(i32 %cLevel, i32 12)
   %2 = trunc i32 %1 to i16
   %conv.i.i.i.i = select i1 %cmp.i9.i.i.i, i16 9, i16 %2
   store i16 %conv.i.i.i.i, ptr %compressionLevel4.i.i.i, align 4
@@ -6364,7 +6364,7 @@ LZ4_compress_HC_extStateHC_fastReset.exit.i:      ; preds = %entry
   %dictCtx.i.i.i = getelementptr inbounds i8, ptr %state, i64 262184
   store ptr null, ptr %dictCtx.i.i.i, align 8
   %cmp.i9.i.i.i = icmp slt i32 %cLevel, 1
-  %1 = tail call i32 @llvm.smin.i32(i32 %cLevel, i32 12)
+  %1 = tail call i32 @llvm.umin.i32(i32 %cLevel, i32 12)
   %2 = trunc i32 %1 to i16
   %conv.i.i.i.i = select i1 %cmp.i9.i.i.i, i16 9, i16 %2
   store i16 %conv.i.i.i.i, ptr %compressionLevel4.i.i.i, align 4
@@ -6567,7 +6567,7 @@ LZ4_resetStreamHC_fast.exit:                      ; preds = %if.then.i, %if.end6
   %idx.ext1 = zext i32 %2 to i64
   %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.ext1
   %cmp.i9.i = icmp slt i16 %3, 1
-  %7 = tail call i16 @llvm.smin.i16(i16 %3, i16 12)
+  %7 = tail call i16 @llvm.umin.i16(i16 %3, i16 12)
   %conv.i.i = select i1 %cmp.i9.i, i16 9, i16 %7
   store i16 %conv.i.i, ptr %compressionLevel, align 4
   ret ptr %add.ptr2
@@ -6599,9 +6599,9 @@ if.end4.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %end.i, align 8
   %cmp5.i = icmp slt i32 %cLevel, 1
-  %2 = tail call i32 @llvm.smin.i32(i32 %cLevel, i32 12)
+  %2 = tail call i32 @llvm.umin.i32(i32 %cLevel, i32 12)
   %cond.i = select i1 %cmp5.i, i32 9, i32 %2
-  %idxprom.i = sext i32 %cond.i to i64
+  %idxprom.i = zext nneg i32 %cond.i to i64
   %arrayidx.i = getelementptr inbounds [13 x %struct.cParams_t], ptr @LZ4HC_compress_generic_internal.clTable, i64 0, i64 %idxprom.i
   %cParam.i.sroa.0.0.copyload = load i32, ptr %arrayidx.i, align 4
   %cParam.i.sroa.2.0.arrayidx.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
@@ -15615,7 +15615,7 @@ declare i32 @llvm.smax.i32(i32, i32) #16
 declare i64 @llvm.smax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #16
+declare i16 @llvm.umin.i16(i16, i16) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

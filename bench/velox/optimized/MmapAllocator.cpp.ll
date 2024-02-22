@@ -1725,7 +1725,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end18
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end18 ]
-  %7 = phi ptr [ %6, %for.body.lr.ph ], [ %21, %if.end18 ]
+  %7 = phi ptr [ %6, %for.body.lr.ph ], [ %22, %if.end18 ]
   %numFreed.034 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %if.end18 ]
   %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.9", ptr %7, i64 %indvars.iv
   %8 = tail call noundef i64 @llvm.x86.rdtsc()
@@ -1764,31 +1764,31 @@ if.end.i.i12:                                     ; preds = %if.then10
   %16 = tail call i64 @llvm.ctlz.i64(i64 %spec.select.i.i, i1 true), !range !25
   %cast.i.i = trunc i64 %16 to i32
   %sub.i13 = xor i32 %cast.i.i, 63
-  %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %sub.i13, i32 19)
+  %17 = tail call i32 @llvm.umin.i32(i32 %sub.i13, i32 19)
   br label %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit
 
 _ZN8facebook5velox6memory5Stats9sizeIndexEl.exit: ; preds = %if.then10, %if.end.i.i12
-  %retval.0.i = phi i32 [ %.sroa.speculated.i, %if.end.i.i12 ], [ 0, %if.then10 ]
+  %retval.0.i = phi i32 [ %17, %if.end.i.i12 ], [ 0, %if.then10 ]
   %conv15 = zext nneg i32 %retval.0.i to i64
   %freeClocks = getelementptr inbounds [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %stats_, i64 0, i64 %conv15, i32 2
-  %17 = atomicrmw add ptr %freeClocks, i64 %sub.i seq_cst, align 8
+  %18 = atomicrmw add ptr %freeClocks, i64 %sub.i seq_cst, align 8
   br label %if.end18
 
 _ZN8facebook5velox10ClockTimerD2Ev.exit22:        ; preds = %for.body
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %19 = tail call noundef i64 @llvm.x86.rdtsc()
-  resume { ptr, i32 } %18
+  %20 = tail call noundef i64 @llvm.x86.rdtsc()
+  resume { ptr, i32 } %19
 
 if.end18:                                         ; preds = %_ZN8facebook5velox6memory5Stats9sizeIndexEl.exit, %land.lhs.true, %_ZN8facebook5velox10ClockTimerD2Ev.exit
   %sext = shl i64 %call7, 32
   %conv19 = ashr exact i64 %sext, 32
   %add = add i64 %conv19, %numFreed.034
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %20 = load ptr, ptr %_M_finish.i, align 8
-  %21 = load ptr, ptr %sizeClasses_, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %21 to i64
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %21 = load ptr, ptr %_M_finish.i, align 8
+  %22 = load ptr, ptr %sizeClasses_, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next
@@ -1800,14 +1800,14 @@ for.end.loopexit:                                 ; preds = %if.end18
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
-  %22 = phi ptr [ %2, %for.cond.preheader ], [ %.pre38, %for.end.loopexit ]
-  %23 = phi ptr [ %1, %for.cond.preheader ], [ %.pre, %for.end.loopexit ]
+  %23 = phi ptr [ %2, %for.cond.preheader ], [ %.pre38, %for.end.loopexit ]
+  %24 = phi ptr [ %1, %for.cond.preheader ], [ %.pre, %for.end.loopexit ]
   %numFreed.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %add, %for.end.loopexit ]
-  %tobool.not.i.i.i = icmp eq ptr %22, %23
+  %tobool.not.i.i.i = icmp eq ptr %23, %24
   br i1 %tobool.not.i.i.i, label %_ZN8facebook5velox6memory10Allocation5clearEv.exit, label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %for.end
-  store ptr %23, ptr %_M_finish.i.i.i, align 8
+  store ptr %24, ptr %_M_finish.i.i.i, align 8
   br label %_ZN8facebook5velox6memory10Allocation5clearEv.exit
 
 _ZN8facebook5velox6memory10Allocation5clearEv.exit: ; preds = %for.end, %invoke.cont.i.i.i
@@ -4249,7 +4249,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %13 = load i8, ptr %arrayidx.i.i.us.i, align 1
   %conv1.i.i.us.i = or i8 %shl.i.i.us.i, %13
   store i8 %conv1.i.i.us.i, ptr %arrayidx.i.i.us.i, align 1
-  %indvars.iv.next12.i = add nuw i64 %indvars.iv11.i, 1
+  %indvars.iv.next12.i = add nuw nsw i64 %indvars.iv11.i, 1
   %cmp12.us.i = icmp ugt i64 %add.i, %indvars.iv.next12.i
   br i1 %cmp12.us.i, label %for.body.us.i, label %invoke.cont, !llvm.loop !53
 
@@ -4265,7 +4265,7 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
   %16 = load i8, ptr %arrayidx2.i.i.i, align 1
   %and3.i.i.i = and i8 %16, %15
   store i8 %and3.i.i.i, ptr %arrayidx2.i.i.i, align 1
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp12.i = icmp ugt i64 %add.i, %indvars.iv.next.i
   br i1 %cmp12.i, label %for.body.i, label %invoke.cont, !llvm.loop !53
 
@@ -5401,7 +5401,7 @@ for.inc55:                                        ; preds = %for.body.for.inc55_
   %anyFound.1 = phi i8 [ %anyFound.050, %for.body.for.inc55_crit_edge ], [ 1, %"_ZN8facebook5velox4bits8testBitsIZNS0_6memory13MmapAllocator9SizeClass22allocateFromMappedFreeEiRNS3_10AllocationEE3$_0EEbPKmiibT_.exit" ]
   %add56 = add nuw i32 %.pre-phi, 4
   %cmp = icmp ult i32 %add56, %add
-  %indvars.iv.next62 = add nsw i64 %indvars.iv61, 4
+  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 4
   br i1 %cmp, label %for.body, label %for.end57, !llvm.loop !64
 
 for.end57:                                        ; preds = %for.inc55, %for.cond
@@ -5578,7 +5578,7 @@ if.then27:                                        ; preds = %for.body
   %conv29 = sext i32 %add28 to i64
   %cmp32.not = icmp ult i64 %sub, %conv29
   %cond = select i1 %cmp32.not, i32 0, i32 %add28
-  %indvars.iv.next = add nuw i64 %indvars.iv, 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %cmp2.not = icmp ult i64 %add, %indvars.iv.next
   br i1 %cmp2.not, label %for.end, label %for.body, !llvm.loop !66
 
@@ -5797,7 +5797,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %15 = load i8, ptr %arrayidx2.i.i.i, align 1
   %and3.i.i.i = and i8 %15, %14
   store i8 %and3.i.i.i, ptr %arrayidx2.i.i.i, align 1
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %cmp12.i = icmp ugt i64 %add.i, %indvars.iv.next.i
   br i1 %cmp12.i, label %for.body.i, label %invoke.cont24, !llvm.loop !53
 
@@ -5898,7 +5898,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %4 = load i8, ptr %arrayidx.i.i.us, align 1
   %conv1.i.i.us = or i8 %4, %shl.i.i.us
   store i8 %conv1.i.i.us, ptr %arrayidx.i.i.us, align 1
-  %indvars.iv.next12 = add nuw i64 %indvars.iv11, 1
+  %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %cmp12.us = icmp ugt i64 %add, %indvars.iv.next12
   br i1 %cmp12.us, label %for.body.us, label %for.end, !llvm.loop !53
 
@@ -5914,7 +5914,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = load i8, ptr %arrayidx2.i.i, align 1
   %and3.i.i = and i8 %7, %6
   store i8 %and3.i.i, ptr %arrayidx2.i.i, align 1
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp12 = icmp ugt i64 %add, %indvars.iv.next
   br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !53
 
@@ -7082,6 +7082,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i4 @llvm.cttz.i4(i4, i1 immarg) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #26
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

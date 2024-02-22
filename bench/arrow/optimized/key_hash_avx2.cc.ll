@@ -492,9 +492,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp6.i = icmp ugt i64 %add35, %add22
   %or.i = select i1 %cmp6.i, i64 %conv43, i64 %conv44
   %or15.i = select i1 %cmp6.i, i64 %conv44, i64 %conv43
-  %or19.i = tail call i64 @llvm.smin.i64(i64 %add35, i64 %add22)
-  %or23.i = tail call i64 @llvm.smax.i64(i64 %add35, i64 %add22)
-  %cmp2457.i = icmp ugt i64 %or19.i, 1
+  %12 = tail call i64 @llvm.umin.i64(i64 %add35, i64 %add22)
+  %13 = tail call i64 @llvm.umax.i64(i64 %add35, i64 %add22)
+  %cmp2457.i = icmp ugt i64 %12, 1
   br i1 %cmp2457.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %for.body
@@ -504,57 +504,57 @@ for.body.lr.ph.i:                                 ; preds = %for.body
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %add59.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %add.i41, %for.body.i ]
-  %12 = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.lr.ph.i ], [ %mul.i.i.i, %for.body.i ]
+  %14 = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.lr.ph.i ], [ %mul.i.i.i, %for.body.i ]
   %istripe.058.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add59.i, %for.body.i ]
   %add.ptr25.i = getelementptr inbounds <2 x i64>, ptr %add.ptr.i, i64 %istripe.058.i
-  %13 = load <2 x i64>, ptr %add.ptr25.i, align 1
+  %15 = load <2 x i64>, ptr %add.ptr25.i, align 1
   %add.ptr29.i = getelementptr inbounds <2 x i64>, ptr %add.ptr28.i, i64 %istripe.058.i
-  %14 = load <2 x i64>, ptr %add.ptr29.i, align 1
-  %insert.i = shufflevector <2 x i64> %13, <2 x i64> %14, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %15 = bitcast <4 x i64> %insert.i to <8 x i32>
-  %mul.i12.i.i = mul <8 x i32> %15, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %add.i.i.i = add <8 x i32> %mul.i12.i.i, %12
+  %16 = load <2 x i64>, ptr %add.ptr29.i, align 1
+  %insert.i = shufflevector <2 x i64> %15, <2 x i64> %16, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %17 = bitcast <4 x i64> %insert.i to <8 x i32>
+  %mul.i12.i.i = mul <8 x i32> %17, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
+  %add.i.i.i = add <8 x i32> %mul.i12.i.i, %14
   %or.i19.i.i = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %add.i.i.i, <8 x i32> %add.i.i.i, <8 x i32> <i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13>)
   %mul.i.i.i = mul <8 x i32> %or.i19.i.i, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
   %add.i41 = add nuw nsw i64 %add59.i, 1
-  %exitcond.not.i = icmp eq i64 %add.i41, %or19.i
+  %exitcond.not.i = icmp eq i64 %add.i41, %12
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !13
 
 for.end.loopexit.i:                               ; preds = %for.body.i
-  %16 = add nsw i64 %or19.i, -1
+  %18 = add nsw i64 %12, -1
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.body
-  %istripe.0.lcssa.i = phi i64 [ 0, %for.body ], [ %16, %for.end.loopexit.i ]
+  %istripe.0.lcssa.i = phi i64 [ 0, %for.body ], [ %18, %for.end.loopexit.i ]
   %.lcssa56.i = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body ], [ %mul.i.i.i, %for.end.loopexit.i ]
   %add.ptr33.i = getelementptr inbounds i8, ptr %concatenated_keys, i64 %or15.i
   %add.ptr34.i = getelementptr inbounds <2 x i64>, ptr %add.ptr33.i, i64 %istripe.0.lcssa.i
-  %17 = load <2 x i64>, ptr %add.ptr34.i, align 1
+  %19 = load <2 x i64>, ptr %add.ptr34.i, align 1
   %add.ptr37.i = getelementptr inbounds i8, ptr %concatenated_keys, i64 %or.i
   %add.ptr38.i = getelementptr inbounds <2 x i64>, ptr %add.ptr37.i, i64 %istripe.0.lcssa.i
-  %18 = load <2 x i64>, ptr %add.ptr38.i, align 1
-  %insert41.i = shufflevector <2 x i64> %17, <2 x i64> %18, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %20 = load <2 x i64>, ptr %add.ptr38.i, align 1
+  %insert41.i = shufflevector <2 x i64> %19, <2 x i64> %20, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %invariant.gep.i = getelementptr i8, ptr %add.ptr33.i, i64 16
   %add4361.i = add nuw nsw i64 %istripe.0.lcssa.i, 1
-  %cmp4462.i = icmp slt i64 %add4361.i, %or23.i
+  %cmp4462.i = icmp slt i64 %add4361.i, %13
   br i1 %cmp4462.i, label %for.body45.i, label %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit
 
 for.body45.i:                                     ; preds = %for.end.i, %for.body45.i
   %add4365.i = phi i64 [ %add43.i, %for.body45.i ], [ %add4361.i, %for.end.i ]
   %stripe32.064.i = phi <4 x i64> [ %insert52.i, %for.body45.i ], [ %insert41.i, %for.end.i ]
-  %19 = phi <8 x i32> [ %mul.i.i51.i, %for.body45.i ], [ %.lcssa56.i, %for.end.i ]
+  %21 = phi <8 x i32> [ %mul.i.i51.i, %for.body45.i ], [ %.lcssa56.i, %for.end.i ]
   %istripe.163.i = phi i64 [ %add4365.i, %for.body45.i ], [ %istripe.0.lcssa.i, %for.end.i ]
-  %20 = bitcast <4 x i64> %stripe32.064.i to <8 x i32>
-  %mul.i12.i48.i = mul <8 x i32> %20, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %add.i.i49.i = add <8 x i32> %mul.i12.i48.i, %19
+  %22 = bitcast <4 x i64> %stripe32.064.i to <8 x i32>
+  %mul.i12.i48.i = mul <8 x i32> %22, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
+  %add.i.i49.i = add <8 x i32> %mul.i12.i48.i, %21
   %or.i19.i50.i = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %add.i.i49.i, <8 x i32> %add.i.i49.i, <8 x i32> <i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13>)
   %mul.i.i51.i = mul <8 x i32> %or.i19.i50.i, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
   %gep.i = getelementptr <2 x i64>, ptr %invariant.gep.i, i64 %istripe.163.i
-  %21 = load <2 x i64>, ptr %gep.i, align 1
-  %widen51.i = shufflevector <2 x i64> %21, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %23 = load <2 x i64>, ptr %gep.i, align 1
+  %widen51.i = shufflevector <2 x i64> %23, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %insert52.i = shufflevector <4 x i64> %widen51.i, <4 x i64> %stripe32.064.i, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %add43.i = add nuw nsw i64 %add4365.i, 1
-  %exitcond68.not.i = icmp eq i64 %add43.i, %or23.i
+  %exitcond68.not.i = icmp eq i64 %add43.i, %13
   br i1 %exitcond68.not.i, label %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit, label %for.body45.i, !llvm.loop !14
 
 _ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit: ; preds = %for.body45.i, %for.end.i
@@ -564,28 +564,28 @@ _ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit: ; p
   %vecinit.i.i.i = insertelement <8 x i32> poison, i32 %conv.i, i64 0
   %vecinit7.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %blend.i40 = shufflevector <8 x i32> %.lcssa.i, <8 x i32> %.lcssa56.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
-  %22 = bitcast <32 x i8> %sext.i.i to <8 x i32>
-  %23 = xor <8 x i32> %vecinit7.i.i.i, <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %24 = tail call <8 x i32> @llvm.x86.avx2.permd(<8 x i32> %22, <8 x i32> %23)
-  %25 = bitcast <4 x i64> %stripe32.0.lcssa.i to <8 x i32>
-  %26 = and <8 x i32> %24, %25
-  %mul.i12.i52.i = mul <8 x i32> %26, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
+  %24 = bitcast <32 x i8> %sext.i.i to <8 x i32>
+  %25 = xor <8 x i32> %vecinit7.i.i.i, <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %26 = tail call <8 x i32> @llvm.x86.avx2.permd(<8 x i32> %24, <8 x i32> %25)
+  %27 = bitcast <4 x i64> %stripe32.0.lcssa.i to <8 x i32>
+  %28 = and <8 x i32> %26, %27
+  %mul.i12.i52.i = mul <8 x i32> %28, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
   %add.i.i53.i = add <8 x i32> %mul.i12.i52.i, %blend.i40
   %or.i19.i54.i = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %add.i.i53.i, <8 x i32> %add.i.i53.i, <8 x i32> <i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13>)
   %mul.i.i55.i = mul <8 x i32> %or.i19.i54.i, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
-  %27 = tail call <8 x i32> @llvm.x86.avx2.permd(<8 x i32> %mul.i.i55.i, <8 x i32> %23)
-  %or.i8.i = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %27, <8 x i32> %27, <8 x i32> <i32 1, i32 7, i32 12, i32 18, i32 1, i32 7, i32 12, i32 18>)
+  %29 = tail call <8 x i32> @llvm.x86.avx2.permd(<8 x i32> %mul.i.i55.i, <8 x i32> %25)
+  %or.i8.i = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %29, <8 x i32> %29, <8 x i32> <i32 1, i32 7, i32 12, i32 18, i32 1, i32 7, i32 12, i32 18>)
   %permil.i = shufflevector <8 x i32> %or.i8.i, <8 x i32> poison, <8 x i32> <i32 2, i32 3, i32 2, i32 3, i32 6, i32 7, i32 6, i32 7>
   %add.i72.i = add <8 x i32> %permil.i, %or.i8.i
-  %28 = bitcast <8 x i32> %add.i72.i to <4 x i64>
-  %29 = lshr <4 x i64> %28, <i64 32, i64 32, i64 32, i64 32>
-  %30 = bitcast <4 x i64> %29 to <8 x i32>
-  %add.i.i = add <8 x i32> %add.i72.i, %30
-  %31 = shufflevector <8 x i32> %add.i.i, <8 x i32> poison, <8 x i32> <i32 0, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %32 = bitcast <8 x i32> %31 to <4 x i64>
-  %33 = extractelement <4 x i64> %32, i64 0
+  %30 = bitcast <8 x i32> %add.i72.i to <4 x i64>
+  %31 = lshr <4 x i64> %30, <i64 32, i64 32, i64 32, i64 32>
+  %32 = bitcast <4 x i64> %31 to <8 x i32>
+  %add.i.i = add <8 x i32> %add.i72.i, %32
+  %33 = shufflevector <8 x i32> %add.i.i, <8 x i32> poison, <8 x i32> <i32 0, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %34 = bitcast <8 x i32> %33 to <4 x i64>
+  %35 = extractelement <4 x i64> %34, i64 0
   %arrayidx48 = getelementptr inbounds i64, ptr %hashes_temp_for_combine, i64 %indvars.iv
-  store i64 %33, ptr %arrayidx48, align 8
+  store i64 %35, ptr %arrayidx48, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
@@ -603,25 +603,25 @@ for.body.preheader.i:                             ; preds = %for.end
 for.body.i42:                                     ; preds = %for.body.i42, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i42 ]
   %add.ptr.i43 = getelementptr inbounds <4 x i64>, ptr %hashes_temp_for_combine, i64 %indvars.iv.i
-  %34 = load <8 x i32>, ptr %add.ptr.i43, align 1
-  %35 = lshr <8 x i32> %34, <i32 15, i32 15, i32 15, i32 15, i32 15, i32 15, i32 15, i32 15>
-  %36 = xor <8 x i32> %35, %34
-  %mul.i12.i.i44 = mul <8 x i32> %36, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %37 = lshr <8 x i32> %mul.i12.i.i44, <i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13>
-  %xor.i4023.i.i = xor <8 x i32> %37, %mul.i12.i.i44
+  %36 = load <8 x i32>, ptr %add.ptr.i43, align 1
+  %37 = lshr <8 x i32> %36, <i32 15, i32 15, i32 15, i32 15, i32 15, i32 15, i32 15, i32 15>
+  %38 = xor <8 x i32> %37, %36
+  %mul.i12.i.i44 = mul <8 x i32> %38, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
+  %39 = lshr <8 x i32> %mul.i12.i.i44, <i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13>
+  %xor.i4023.i.i = xor <8 x i32> %39, %mul.i12.i.i44
   %mul.i.i.i45 = mul <8 x i32> %xor.i4023.i.i, <i32 -1028477379, i32 -1028477379, i32 -1028477379, i32 -1028477379, i32 -1028477379, i32 -1028477379, i32 -1028477379, i32 -1028477379>
-  %38 = lshr <8 x i32> %mul.i.i.i45, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %xor.i24.i.i = xor <8 x i32> %38, %mul.i.i.i45
+  %40 = lshr <8 x i32> %mul.i.i.i45, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %xor.i24.i.i = xor <8 x i32> %40, %mul.i.i.i45
   %add.ptr3.i = getelementptr inbounds <4 x i64>, ptr %hashes, i64 %indvars.iv.i
-  %39 = load <4 x i64>, ptr %add.ptr3.i, align 1
-  %40 = bitcast <4 x i64> %39 to <8 x i32>
-  %41 = shl <8 x i32> %40, <i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6>
-  %42 = lshr <8 x i32> %40, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
-  %add.i9.i.i = add nuw nsw <8 x i32> %42, <i32 -1640531527, i32 -1640531527, i32 -1640531527, i32 -1640531527, i32 -1640531527, i32 -1640531527, i32 -1640531527, i32 -1640531527>
-  %add.i12.i.i = add <8 x i32> %add.i9.i.i, %41
+  %41 = load <4 x i64>, ptr %add.ptr3.i, align 1
+  %42 = bitcast <4 x i64> %41 to <8 x i32>
+  %43 = shl <8 x i32> %42, <i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6>
+  %44 = lshr <8 x i32> %42, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %add.i9.i.i = add nuw nsw <8 x i32> %44, <i32 -1640531527, i32 -1640531527, i32 -1640531527, i32 -1640531527, i32 -1640531527, i32 -1640531527, i32 -1640531527, i32 -1640531527>
+  %add.i12.i.i = add <8 x i32> %add.i9.i.i, %43
   %add.i.i.i46 = add <8 x i32> %add.i12.i.i, %xor.i24.i.i
-  %43 = bitcast <8 x i32> %add.i.i.i46 to <4 x i64>
-  %xor.i.i19.i = xor <4 x i64> %39, %43
+  %45 = bitcast <8 x i32> %add.i.i.i46 to <4 x i64>
+  %xor.i.i19.i = xor <4 x i64> %41, %45
   store <4 x i64> %xor.i.i19.i, ptr %add.ptr3.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -630,38 +630,38 @@ for.body.i42:                                     ; preds = %for.body.i42, %for.
 for.end.i48:                                      ; preds = %while.body, %for.body.i42, %entry, %while.end, %for.end
   %sub75 = phi i32 [ %sub, %for.end ], [ 0, %while.end ], [ 0, %entry ], [ %sub, %for.body.i42 ], [ 0, %while.body ]
   %num_rows_to_process.0.lcssa7074 = phi i32 [ %num_rows_to_process.060, %for.end ], [ 1, %while.end ], [ 0, %entry ], [ %num_rows_to_process.060, %for.body.i42 ], [ 0, %while.body ]
-  %44 = and i32 %num_rows_to_process.0.lcssa7074, 6
-  %cmp1024.not.i = icmp eq i32 %44, 0
+  %46 = and i32 %num_rows_to_process.0.lcssa7074, 6
+  %cmp1024.not.i = icmp eq i32 %46, 0
   br i1 %cmp1024.not.i, label %_ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb1EEEvjPjPKj.exit, label %for.body11.preheader.i
 
 for.body11.preheader.i:                           ; preds = %for.end.i48
-  %45 = zext i32 %sub75 to i64
-  %46 = and i64 %45, 4294967288
+  %47 = zext i32 %sub75 to i64
+  %48 = and i64 %47, 4294967288
   br label %for.body11.i
 
 for.body11.i:                                     ; preds = %for.body11.i, %for.body11.preheader.i
-  %indvars.iv27.i = phi i64 [ %46, %for.body11.preheader.i ], [ %indvars.iv.next28.i, %for.body11.i ]
+  %indvars.iv27.i = phi i64 [ %48, %for.body11.preheader.i ], [ %indvars.iv.next28.i, %for.body11.i ]
   %arrayidx.i = getelementptr inbounds i32, ptr %hashes, i64 %indvars.iv27.i
-  %47 = load i32, ptr %arrayidx.i, align 4
+  %49 = load i32, ptr %arrayidx.i, align 4
   %arrayidx13.i = getelementptr inbounds i32, ptr %hashes_temp_for_combine, i64 %indvars.iv27.i
-  %48 = load i32, ptr %arrayidx13.i, align 4
-  %shr.i.i = lshr i32 %48, 15
-  %xor.i.i = xor i32 %shr.i.i, %48
+  %50 = load i32, ptr %arrayidx13.i, align 4
+  %shr.i.i = lshr i32 %50, 15
+  %xor.i.i = xor i32 %shr.i.i, %50
   %mul.i.i = mul i32 %xor.i.i, -2048144777
   %shr1.i.i = lshr i32 %mul.i.i, 13
   %xor2.i.i = xor i32 %shr1.i.i, %mul.i.i
   %mul3.i.i = mul i32 %xor2.i.i, -1028477379
   %shr4.i.i = lshr i32 %mul3.i.i, 16
   %xor5.i.i = xor i32 %shr4.i.i, %mul3.i.i
-  %shl.i.i = shl i32 %47, 6
-  %shr.i20.i = lshr i32 %47, 2
+  %shl.i.i = shl i32 %49, 6
+  %shr.i20.i = lshr i32 %49, 2
   %add.i.i49 = add i32 %shl.i.i, -1640531527
   %add1.i.i = add i32 %add.i.i49, %shr.i20.i
   %add2.i.i = add i32 %add1.i.i, %xor5.i.i
-  %xor.i21.i = xor i32 %add2.i.i, %47
+  %xor.i21.i = xor i32 %add2.i.i, %49
   store i32 %xor.i21.i, ptr %arrayidx.i, align 4
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
-  %cmp10.i = icmp ult i64 %indvars.iv.next28.i, %45
+  %cmp10.i = icmp ult i64 %indvars.iv.next28.i, %47
   br i1 %cmp10.i, label %for.body11.i, label %_ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb1EEEvjPjPKj.exit, !llvm.loop !11
 
 _ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb1EEEvjPjPKj.exit: ; preds = %for.body11.i, %for.end.i48
@@ -765,9 +765,9 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp6.i = icmp ugt i64 %add35, %add22
   %or.i = select i1 %cmp6.i, i64 %conv43, i64 %conv44
   %or15.i = select i1 %cmp6.i, i64 %conv44, i64 %conv43
-  %or19.i = tail call i64 @llvm.smin.i64(i64 %add35, i64 %add22)
-  %or23.i = tail call i64 @llvm.smax.i64(i64 %add35, i64 %add22)
-  %cmp2457.i = icmp ugt i64 %or19.i, 1
+  %12 = tail call i64 @llvm.umin.i64(i64 %add35, i64 %add22)
+  %13 = tail call i64 @llvm.umax.i64(i64 %add35, i64 %add22)
+  %cmp2457.i = icmp ugt i64 %12, 1
   br i1 %cmp2457.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %for.body
@@ -777,57 +777,57 @@ for.body.lr.ph.i:                                 ; preds = %for.body
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %add59.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %add.i41, %for.body.i ]
-  %12 = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.lr.ph.i ], [ %mul.i.i.i, %for.body.i ]
+  %14 = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.lr.ph.i ], [ %mul.i.i.i, %for.body.i ]
   %istripe.058.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add59.i, %for.body.i ]
   %add.ptr25.i = getelementptr inbounds <2 x i64>, ptr %add.ptr.i, i64 %istripe.058.i
-  %13 = load <2 x i64>, ptr %add.ptr25.i, align 1
+  %15 = load <2 x i64>, ptr %add.ptr25.i, align 1
   %add.ptr29.i = getelementptr inbounds <2 x i64>, ptr %add.ptr28.i, i64 %istripe.058.i
-  %14 = load <2 x i64>, ptr %add.ptr29.i, align 1
-  %insert.i = shufflevector <2 x i64> %13, <2 x i64> %14, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %15 = bitcast <4 x i64> %insert.i to <8 x i32>
-  %mul.i12.i.i = mul <8 x i32> %15, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %add.i.i.i = add <8 x i32> %mul.i12.i.i, %12
+  %16 = load <2 x i64>, ptr %add.ptr29.i, align 1
+  %insert.i = shufflevector <2 x i64> %15, <2 x i64> %16, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %17 = bitcast <4 x i64> %insert.i to <8 x i32>
+  %mul.i12.i.i = mul <8 x i32> %17, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
+  %add.i.i.i = add <8 x i32> %mul.i12.i.i, %14
   %or.i19.i.i = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %add.i.i.i, <8 x i32> %add.i.i.i, <8 x i32> <i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13>)
   %mul.i.i.i = mul <8 x i32> %or.i19.i.i, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
   %add.i41 = add nuw nsw i64 %add59.i, 1
-  %exitcond.not.i = icmp eq i64 %add.i41, %or19.i
+  %exitcond.not.i = icmp eq i64 %add.i41, %12
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !13
 
 for.end.loopexit.i:                               ; preds = %for.body.i
-  %16 = add nsw i64 %or19.i, -1
+  %18 = add nsw i64 %12, -1
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.body
-  %istripe.0.lcssa.i = phi i64 [ 0, %for.body ], [ %16, %for.end.loopexit.i ]
+  %istripe.0.lcssa.i = phi i64 [ 0, %for.body ], [ %18, %for.end.loopexit.i ]
   %.lcssa56.i = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body ], [ %mul.i.i.i, %for.end.loopexit.i ]
   %add.ptr33.i = getelementptr inbounds i8, ptr %concatenated_keys, i64 %or15.i
   %add.ptr34.i = getelementptr inbounds <2 x i64>, ptr %add.ptr33.i, i64 %istripe.0.lcssa.i
-  %17 = load <2 x i64>, ptr %add.ptr34.i, align 1
+  %19 = load <2 x i64>, ptr %add.ptr34.i, align 1
   %add.ptr37.i = getelementptr inbounds i8, ptr %concatenated_keys, i64 %or.i
   %add.ptr38.i = getelementptr inbounds <2 x i64>, ptr %add.ptr37.i, i64 %istripe.0.lcssa.i
-  %18 = load <2 x i64>, ptr %add.ptr38.i, align 1
-  %insert41.i = shufflevector <2 x i64> %17, <2 x i64> %18, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %20 = load <2 x i64>, ptr %add.ptr38.i, align 1
+  %insert41.i = shufflevector <2 x i64> %19, <2 x i64> %20, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %invariant.gep.i = getelementptr i8, ptr %add.ptr33.i, i64 16
   %add4361.i = add nuw nsw i64 %istripe.0.lcssa.i, 1
-  %cmp4462.i = icmp slt i64 %add4361.i, %or23.i
+  %cmp4462.i = icmp slt i64 %add4361.i, %13
   br i1 %cmp4462.i, label %for.body45.i, label %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit
 
 for.body45.i:                                     ; preds = %for.end.i, %for.body45.i
   %add4365.i = phi i64 [ %add43.i, %for.body45.i ], [ %add4361.i, %for.end.i ]
   %stripe32.064.i = phi <4 x i64> [ %insert52.i, %for.body45.i ], [ %insert41.i, %for.end.i ]
-  %19 = phi <8 x i32> [ %mul.i.i51.i, %for.body45.i ], [ %.lcssa56.i, %for.end.i ]
+  %21 = phi <8 x i32> [ %mul.i.i51.i, %for.body45.i ], [ %.lcssa56.i, %for.end.i ]
   %istripe.163.i = phi i64 [ %add4365.i, %for.body45.i ], [ %istripe.0.lcssa.i, %for.end.i ]
-  %20 = bitcast <4 x i64> %stripe32.064.i to <8 x i32>
-  %mul.i12.i48.i = mul <8 x i32> %20, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %add.i.i49.i = add <8 x i32> %mul.i12.i48.i, %19
+  %22 = bitcast <4 x i64> %stripe32.064.i to <8 x i32>
+  %mul.i12.i48.i = mul <8 x i32> %22, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
+  %add.i.i49.i = add <8 x i32> %mul.i12.i48.i, %21
   %or.i19.i50.i = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %add.i.i49.i, <8 x i32> %add.i.i49.i, <8 x i32> <i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13>)
   %mul.i.i51.i = mul <8 x i32> %or.i19.i50.i, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
   %gep.i = getelementptr <2 x i64>, ptr %invariant.gep.i, i64 %istripe.163.i
-  %21 = load <2 x i64>, ptr %gep.i, align 1
-  %widen51.i = shufflevector <2 x i64> %21, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %23 = load <2 x i64>, ptr %gep.i, align 1
+  %widen51.i = shufflevector <2 x i64> %23, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %insert52.i = shufflevector <4 x i64> %widen51.i, <4 x i64> %stripe32.064.i, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %add43.i = add nuw nsw i64 %add4365.i, 1
-  %exitcond68.not.i = icmp eq i64 %add43.i, %or23.i
+  %exitcond68.not.i = icmp eq i64 %add43.i, %13
   br i1 %exitcond68.not.i, label %_ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit, label %for.body45.i, !llvm.loop !14
 
 _ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit: ; preds = %for.body45.i, %for.end.i
@@ -837,28 +837,28 @@ _ZN5arrow7compute9Hashing3219ProcessStripes_avx2ILb0EEEDv4_xllS3_PKhll.exit: ; p
   %vecinit.i.i.i = insertelement <8 x i32> poison, i32 %conv.i, i64 0
   %vecinit7.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %blend.i40 = shufflevector <8 x i32> %.lcssa.i, <8 x i32> %.lcssa56.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 12, i32 13, i32 14, i32 15>
-  %22 = bitcast <32 x i8> %sext.i.i to <8 x i32>
-  %23 = xor <8 x i32> %vecinit7.i.i.i, <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %24 = tail call <8 x i32> @llvm.x86.avx2.permd(<8 x i32> %22, <8 x i32> %23)
-  %25 = bitcast <4 x i64> %stripe32.0.lcssa.i to <8 x i32>
-  %26 = and <8 x i32> %24, %25
-  %mul.i12.i52.i = mul <8 x i32> %26, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
+  %24 = bitcast <32 x i8> %sext.i.i to <8 x i32>
+  %25 = xor <8 x i32> %vecinit7.i.i.i, <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %26 = tail call <8 x i32> @llvm.x86.avx2.permd(<8 x i32> %24, <8 x i32> %25)
+  %27 = bitcast <4 x i64> %stripe32.0.lcssa.i to <8 x i32>
+  %28 = and <8 x i32> %26, %27
+  %mul.i12.i52.i = mul <8 x i32> %28, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
   %add.i.i53.i = add <8 x i32> %mul.i12.i52.i, %blend.i40
   %or.i19.i54.i = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %add.i.i53.i, <8 x i32> %add.i.i53.i, <8 x i32> <i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13>)
   %mul.i.i55.i = mul <8 x i32> %or.i19.i54.i, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
-  %27 = tail call <8 x i32> @llvm.x86.avx2.permd(<8 x i32> %mul.i.i55.i, <8 x i32> %23)
-  %or.i8.i = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %27, <8 x i32> %27, <8 x i32> <i32 1, i32 7, i32 12, i32 18, i32 1, i32 7, i32 12, i32 18>)
+  %29 = tail call <8 x i32> @llvm.x86.avx2.permd(<8 x i32> %mul.i.i55.i, <8 x i32> %25)
+  %or.i8.i = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %29, <8 x i32> %29, <8 x i32> <i32 1, i32 7, i32 12, i32 18, i32 1, i32 7, i32 12, i32 18>)
   %permil.i = shufflevector <8 x i32> %or.i8.i, <8 x i32> poison, <8 x i32> <i32 2, i32 3, i32 2, i32 3, i32 6, i32 7, i32 6, i32 7>
   %add.i72.i = add <8 x i32> %permil.i, %or.i8.i
-  %28 = bitcast <8 x i32> %add.i72.i to <4 x i64>
-  %29 = lshr <4 x i64> %28, <i64 32, i64 32, i64 32, i64 32>
-  %30 = bitcast <4 x i64> %29 to <8 x i32>
-  %add.i.i = add <8 x i32> %add.i72.i, %30
-  %31 = shufflevector <8 x i32> %add.i.i, <8 x i32> poison, <8 x i32> <i32 0, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %32 = bitcast <8 x i32> %31 to <4 x i64>
-  %33 = extractelement <4 x i64> %32, i64 0
+  %30 = bitcast <8 x i32> %add.i72.i to <4 x i64>
+  %31 = lshr <4 x i64> %30, <i64 32, i64 32, i64 32, i64 32>
+  %32 = bitcast <4 x i64> %31 to <8 x i32>
+  %add.i.i = add <8 x i32> %add.i72.i, %32
+  %33 = shufflevector <8 x i32> %add.i.i, <8 x i32> poison, <8 x i32> <i32 0, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %34 = bitcast <8 x i32> %33 to <4 x i64>
+  %35 = extractelement <4 x i64> %34, i64 0
   %arrayidx48 = getelementptr inbounds i64, ptr %hashes, i64 %indvars.iv
-  store i64 %33, ptr %arrayidx48, align 8
+  store i64 %35, ptr %arrayidx48, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
@@ -876,15 +876,15 @@ for.body.preheader.i:                             ; preds = %for.end
 for.body.i42:                                     ; preds = %for.body.i42, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i42 ]
   %add.ptr.i43 = getelementptr inbounds <4 x i64>, ptr %hashes, i64 %indvars.iv.i
-  %34 = load <8 x i32>, ptr %add.ptr.i43, align 1
-  %35 = lshr <8 x i32> %34, <i32 15, i32 15, i32 15, i32 15, i32 15, i32 15, i32 15, i32 15>
-  %36 = xor <8 x i32> %35, %34
-  %mul.i12.i.i44 = mul <8 x i32> %36, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
-  %37 = lshr <8 x i32> %mul.i12.i.i44, <i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13>
-  %xor.i4023.i.i = xor <8 x i32> %37, %mul.i12.i.i44
+  %36 = load <8 x i32>, ptr %add.ptr.i43, align 1
+  %37 = lshr <8 x i32> %36, <i32 15, i32 15, i32 15, i32 15, i32 15, i32 15, i32 15, i32 15>
+  %38 = xor <8 x i32> %37, %36
+  %mul.i12.i.i44 = mul <8 x i32> %38, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
+  %39 = lshr <8 x i32> %mul.i12.i.i44, <i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13>
+  %xor.i4023.i.i = xor <8 x i32> %39, %mul.i12.i.i44
   %mul.i.i.i45 = mul <8 x i32> %xor.i4023.i.i, <i32 -1028477379, i32 -1028477379, i32 -1028477379, i32 -1028477379, i32 -1028477379, i32 -1028477379, i32 -1028477379, i32 -1028477379>
-  %38 = lshr <8 x i32> %mul.i.i.i45, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %xor.i24.i.i = xor <8 x i32> %38, %mul.i.i.i45
+  %40 = lshr <8 x i32> %mul.i.i.i45, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %xor.i24.i.i = xor <8 x i32> %40, %mul.i.i.i45
   store <8 x i32> %xor.i24.i.i, ptr %add.ptr.i43, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -893,21 +893,21 @@ for.body.i42:                                     ; preds = %for.body.i42, %for.
 for.end.i47:                                      ; preds = %while.body, %for.body.i42, %entry, %while.end, %for.end
   %sub74 = phi i32 [ %sub, %for.end ], [ 0, %while.end ], [ 0, %entry ], [ %sub, %for.body.i42 ], [ 0, %while.body ]
   %num_rows_to_process.0.lcssa6973 = phi i32 [ %num_rows_to_process.059, %for.end ], [ 1, %while.end ], [ 0, %entry ], [ %num_rows_to_process.059, %for.body.i42 ], [ 0, %while.body ]
-  %39 = and i32 %num_rows_to_process.0.lcssa6973, 6
-  %cmp617.not.i = icmp eq i32 %39, 0
+  %41 = and i32 %num_rows_to_process.0.lcssa6973, 6
+  %cmp617.not.i = icmp eq i32 %41, 0
   br i1 %cmp617.not.i, label %_ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb0EEEvjPjPKj.exit, label %for.body7.preheader.i
 
 for.body7.preheader.i:                            ; preds = %for.end.i47
-  %40 = zext i32 %sub74 to i64
-  %41 = and i64 %40, 4294967288
+  %42 = zext i32 %sub74 to i64
+  %43 = and i64 %42, 4294967288
   br label %for.body7.i
 
 for.body7.i:                                      ; preds = %for.body7.i, %for.body7.preheader.i
-  %indvars.iv20.i = phi i64 [ %41, %for.body7.preheader.i ], [ %indvars.iv.next21.i, %for.body7.i ]
+  %indvars.iv20.i = phi i64 [ %43, %for.body7.preheader.i ], [ %indvars.iv.next21.i, %for.body7.i ]
   %arrayidx.i = getelementptr inbounds i32, ptr %hashes, i64 %indvars.iv20.i
-  %42 = load i32, ptr %arrayidx.i, align 4
-  %shr.i.i = lshr i32 %42, 15
-  %xor.i.i = xor i32 %shr.i.i, %42
+  %44 = load i32, ptr %arrayidx.i, align 4
+  %shr.i.i = lshr i32 %44, 15
+  %xor.i.i = xor i32 %shr.i.i, %44
   %mul.i.i = mul i32 %xor.i.i, -2048144777
   %shr1.i.i = lshr i32 %mul.i.i, 13
   %xor2.i.i = xor i32 %shr1.i.i, %mul.i.i
@@ -916,7 +916,7 @@ for.body7.i:                                      ; preds = %for.body7.i, %for.b
   %xor5.i.i = xor i32 %shr4.i.i, %mul3.i.i
   store i32 %xor5.i.i, ptr %arrayidx.i, align 4
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
-  %cmp6.i48 = icmp ult i64 %indvars.iv.next21.i, %40
+  %cmp6.i48 = icmp ult i64 %indvars.iv.next21.i, %42
   br i1 %cmp6.i48, label %for.body7.i, label %_ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb0EEEvjPjPKj.exit, !llvm.loop !8
 
 _ZN5arrow7compute9Hashing3217AvalancheAll_avx2ILb0EEEvjPjPKj.exit: ; preds = %for.body7.i, %for.end.i47
@@ -1491,6 +1491,12 @@ declare i64 @llvm.smax.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #3
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="256" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="haswell" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="haswell" "target-features"="+avx,+avx2,+bmi,+bmi2,+cmov,+crc32,+cx16,+cx8,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+popcnt,+rdrnd,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsaveopt" }

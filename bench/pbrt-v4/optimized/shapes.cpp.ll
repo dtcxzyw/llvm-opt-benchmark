@@ -7210,21 +7210,22 @@ if.then133:                                       ; preds = %for.end
   %div = fdiv float %mul142, %mul143
   %call144 = call noundef i32 @_ZN4pbrt7Log2IntEf(float noundef %div)
   %div145 = sdiv i32 %call144, 2
-  %high.val.i = call i32 @llvm.smin.i32(i32 %div145, i32 10)
-  %retval.0.i = call i32 @llvm.smax.i32(i32 %high.val.i, i32 0)
+  %cmp.i144 = icmp slt i32 %call144, -1
+  %123 = call i32 @llvm.umin.i32(i32 %div145, i32 10)
+  %retval.0.i = select i1 %cmp.i144, i32 0, i32 %123
   %.pre169 = load float, ptr %uMin, align 8
   %.pre170 = load float, ptr %uMax, align 4
   br label %if.end147
 
 if.end147:                                        ; preds = %if.then133, %for.end
-  %123 = phi float [ %.pre170, %if.then133 ], [ %121, %for.end ]
-  %124 = phi float [ %.pre169, %if.then133 ], [ %120, %for.end ]
+  %124 = phi float [ %.pre170, %if.then133 ], [ %121, %for.end ]
+  %125 = phi float [ %.pre169, %if.then133 ], [ %120, %for.end ]
   %maxDepth.0 = phi i32 [ %retval.0.i, %if.then133 ], [ 0, %for.end ]
   %mInv.i.i = getelementptr inbounds i8, ptr %rayFromObject, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp149, ptr noundef nonnull align 4 dereferenceable(64) %mInv.i.i, i64 64, i1 false)
   %mInv3.i.i = getelementptr inbounds i8, ptr %ref.tmp149, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i.i, ptr noundef nonnull align 4 dereferenceable(64) %rayFromObject, i64 64, i1 false)
-  %call152 = call noundef zeroext i1 @_ZNK4pbrt5Curve18RecursiveIntersectERKNS_3RayEfN4pstd4spanIKNS_6Point3IfEEEERKNS_9TransformEffiPNS4_8optionalINS_17ShapeIntersectionEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %tMax, ptr nonnull %cp, i64 poison, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp149, float noundef %124, float noundef %123, i32 noundef %maxDepth.0, ptr noundef %si)
+  %call152 = call noundef zeroext i1 @_ZNK4pbrt5Curve18RecursiveIntersectERKNS_3RayEfN4pstd4spanIKNS_6Point3IfEEEERKNS_9TransformEffiPNS4_8optionalINS_17ShapeIntersectionEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %tMax, ptr nonnull %cp, i64 poison, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp149, float noundef %125, float noundef %124, i32 noundef %maxDepth.0, ptr noundef %si)
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN4pbrt8OverlapsIfEEbRKNS_7Bounds3IT_EES5_.exit, %if.end147
@@ -20943,7 +20944,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %19 = load ptr, ptr %ptr.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %19, i64 %indvars.iv.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i) #25
-  %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %20 = load i64, ptr %nStored.i.i, align 8
   %cmp.i.i = icmp ugt i64 %20, %indvars.iv.next.i.i
   br i1 %cmp.i.i, label %for.body.i.i, label %invoke.cont.i, !llvm.loop !120
@@ -31573,7 +31574,7 @@ terminate.lpad.i9.i.i:                            ; preds = %if.end.i.i.i.i4.i.i
   unreachable
 
 _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt19PiecewiseConstant1DEE7destroyIS3_EEvPT_.exit: ; preds = %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i.i, %if.end.i.i.i.i4.i.i
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i64, ptr %nStored, align 8
   %cmp2 = icmp ugt i64 %26, %indvars.iv.next
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !160
@@ -32044,7 +32045,7 @@ terminate.lpad.i9.i.i.i:                          ; preds = %if.end.i.i.i.i4.i.i
   unreachable
 
 _ZN4pstd3pmr21polymorphic_allocatorIN4pbrt19PiecewiseConstant1DEE7destroyIS3_EEvPT_.exit.i: ; preds = %if.end.i.i.i.i4.i.i.i, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEED2Ev.exit.i.i.i
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = load i64, ptr %nStored.i, align 8
   %cmp.i = icmp ugt i64 %14, %indvars.iv.next.i
   br i1 %cmp.i, label %for.body.i, label %_ZN4pstd6vectorIN4pbrt19PiecewiseConstant1DENS_3pmr21polymorphic_allocatorIS2_EEE5clearEv.exit, !llvm.loop !166
@@ -39068,6 +39069,9 @@ declare i32 @llvm.smax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22

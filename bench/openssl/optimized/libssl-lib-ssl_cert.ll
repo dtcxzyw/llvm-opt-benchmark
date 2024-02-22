@@ -126,10 +126,10 @@ if.else.i:                                        ; preds = %entry
 ssl_get_security_level_bits.exit:                 ; preds = %if.then.i, %if.else.i
   %level.0.i = phi i32 [ %call.i, %if.then.i ], [ %call1.i, %if.else.i ]
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %level.0.i, i32 0)
-  %level.1.i = tail call i32 @llvm.smin.i32(i32 %spec.store.select.i, i32 5)
-  %idxprom.i = zext nneg i32 %level.1.i to i64
+  %0 = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 5)
+  %idxprom.i = zext nneg i32 %0 to i64
   %arrayidx.i = getelementptr inbounds [6 x i32], ptr @ssl_get_security_level_bits.minbits_table, i64 0, i64 %idxprom.i
-  %0 = load i32, ptr %arrayidx.i, align 4
+  %1 = load i32, ptr %arrayidx.i, align 4
   %cmp = icmp slt i32 %level.0.i, 1
   br i1 %cmp, label %if.then, label %if.end4
 
@@ -151,26 +151,26 @@ if.end4:                                          ; preds = %ssl_get_security_le
   ]
 
 sw.bb:                                            ; preds = %if.end4, %if.end4, %if.end4
-  %cmp5 = icmp sgt i32 %0, %bits
+  %cmp5 = icmp sgt i32 %1, %bits
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %sw.bb
   %algorithm_auth = getelementptr inbounds i8, ptr %other, i64 32
-  %1 = load i32, ptr %algorithm_auth, align 8
-  %and = and i32 %1, 4
+  %2 = load i32, ptr %algorithm_auth, align 8
+  %and = and i32 %2, 4
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end7
   %algorithm_mac = getelementptr inbounds i8, ptr %other, i64 40
-  %2 = load i32, ptr %algorithm_mac, align 8
-  %and10 = and i32 %2, 1
+  %3 = load i32, ptr %algorithm_mac, align 8
+  %and10 = and i32 %3, 1
   %tobool11.not = icmp eq i32 %and10, 0
   br i1 %tobool11.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.end9
   %cmp14 = icmp ult i32 %level.0.i, 4
-  %and17 = and i32 %2, 2
+  %and17 = and i32 %3, 2
   %tobool18.not = icmp eq i32 %and17, 0
   %or.cond21 = or i1 %cmp14, %tobool18.not
   br i1 %or.cond21, label %if.end20, label %return
@@ -181,14 +181,14 @@ if.end20:                                         ; preds = %if.end13
 
 land.lhs.true22:                                  ; preds = %if.end20
   %min_tls = getelementptr inbounds i8, ptr %other, i64 44
-  %3 = load i32, ptr %min_tls, align 4
-  %cmp23.not = icmp eq i32 %3, 772
+  %4 = load i32, ptr %min_tls, align 4
+  %cmp23.not = icmp eq i32 %4, 772
   br i1 %cmp23.not, label %sw.epilog, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %land.lhs.true22
   %algorithm_mkey = getelementptr inbounds i8, ptr %other, i64 28
-  %4 = load i32, ptr %algorithm_mkey, align 4
-  %and25 = and i32 %4, 390
+  %5 = load i32, ptr %algorithm_mkey, align 4
+  %and25 = and i32 %5, 390
   %tobool26.not = icmp eq i32 %and25, 0
   br i1 %tobool26.not, label %return, label %sw.epilog
 
@@ -197,27 +197,27 @@ sw.bb29:                                          ; preds = %if.end4
   br i1 %cmp30, label %return, label %cond.false
 
 cond.false:                                       ; preds = %sw.bb29
-  %5 = load i32, ptr %s, align 8
-  switch i32 %5, label %return [
+  %6 = load i32, ptr %s, align 8
+  switch i32 %6, label %return [
     i32 0, label %if.end44
     i32 1, label %cond.end40
   ]
 
 cond.end40:                                       ; preds = %cond.false
   %tls = getelementptr inbounds i8, ptr %s, i64 64
-  %6 = load ptr, ptr %tls, align 8
-  %cmp42 = icmp eq ptr %6, null
+  %7 = load ptr, ptr %tls, align 8
+  %cmp42 = icmp eq ptr %7, null
   br i1 %cmp42, label %return, label %if.end44
 
 if.end44:                                         ; preds = %cond.false, %cond.end40
-  %cond4130 = phi ptr [ %6, %cond.end40 ], [ %s, %cond.false ]
+  %cond4130 = phi ptr [ %7, %cond.end40 ], [ %s, %cond.false ]
   %method = getelementptr inbounds i8, ptr %cond4130, i64 24
-  %7 = load ptr, ptr %method, align 8
-  %ssl3_enc = getelementptr inbounds i8, ptr %7, i64 216
-  %8 = load ptr, ptr %ssl3_enc, align 8
-  %enc_flags = getelementptr inbounds i8, ptr %8, i64 80
-  %9 = load i32, ptr %enc_flags, align 8
-  %and45 = and i32 %9, 8
+  %8 = load ptr, ptr %method, align 8
+  %ssl3_enc = getelementptr inbounds i8, ptr %8, i64 216
+  %9 = load ptr, ptr %ssl3_enc, align 8
+  %enc_flags = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = load i32, ptr %enc_flags, align 8
+  %and45 = and i32 %10, 8
   %tobool46.not = icmp eq i32 %and45, 0
   br i1 %tobool46.not, label %if.then47, label %if.else
 
@@ -240,7 +240,7 @@ sw.bb68:                                          ; preds = %if.end4
   br i1 %cmp69, label %return, label %sw.epilog
 
 sw.default:                                       ; preds = %if.end4
-  %cmp72 = icmp sgt i32 %0, %bits
+  %cmp72 = icmp sgt i32 %1, %bits
   br i1 %cmp72, label %return, label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb68, %sw.bb64, %if.then47, %if.else, %if.end20, %land.lhs.true22, %land.lhs.true24
@@ -2538,19 +2538,19 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %if.then
   %level.0 = phi i32 [ %call, %if.then ], [ %call1, %if.else ]
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %level.0, i32 0)
-  %level.1 = tail call i32 @llvm.smin.i32(i32 %spec.store.select, i32 5)
+  %0 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 5)
   %cmp9.not = icmp eq ptr %levelp, null
   br i1 %cmp9.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  store i32 %level.1, ptr %levelp, align 4
+  store i32 %0, ptr %levelp, align 4
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.end
-  %idxprom = zext nneg i32 %level.1 to i64
+  %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr inbounds [6 x i32], ptr @ssl_get_security_level_bits.minbits_table, i64 0, i64 %idxprom
-  %0 = load i32, ptr %arrayidx, align 4
-  ret i32 %0
+  %1 = load i32, ptr %arrayidx, align 4
+  ret i32 %1
 }
 
 declare i32 @SSL_CTX_get_security_level(ptr noundef) local_unnamed_addr #1
@@ -2820,7 +2820,7 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12

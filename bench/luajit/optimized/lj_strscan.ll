@@ -1148,9 +1148,8 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   %20 = add nuw nsw i32 %umax, 1
   %21 = sub nuw nsw i32 %20, %dig.addr.0
   %22 = lshr i32 %21, 1
-  %23 = add nuw i32 %ex10.addr.1, 1
-  %smin = tail call i32 @llvm.smin.i32(i32 %ex10.addr.1, i32 2)
-  %24 = sub nuw i32 %23, %smin
+  %23 = tail call i32 @llvm.usub.sat.i32(i32 %ex10.addr.1, i32 2)
+  %24 = add nuw i32 %23, 1
   %25 = lshr i32 %24, 1
   %26 = tail call i32 @llvm.umin.i32(i32 %22, i32 %25)
   %umin = zext nneg i32 %26 to i64
@@ -1723,9 +1722,6 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5

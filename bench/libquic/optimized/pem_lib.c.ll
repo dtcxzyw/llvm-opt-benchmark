@@ -1217,25 +1217,25 @@ while.body:                                       ; preds = %while.cond.preheade
   %j.044 = phi i32 [ %add42, %if.end40 ], [ 0, %while.cond.preheader ]
   %i.043 = phi i32 [ %add, %if.end40 ], [ 0, %while.cond.preheader ]
   %len.addr.042 = phi i64 [ %sub, %if.end40 ], [ %len, %while.cond.preheader ]
-  %cond = call i64 @llvm.smin.i64(i64 %len.addr.042, i64 5120)
-  %conv34 = trunc i64 %cond to i32
+  %0 = call i64 @llvm.umin.i64(i64 %len.addr.042, i64 5120)
+  %conv34 = trunc i64 %0 to i32
   %idxprom = zext nneg i32 %j.044 to i64
   %arrayidx = getelementptr inbounds i8, ptr %data, i64 %idxprom
-  call void @EVP_EncodeUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %call25, ptr noundef nonnull %outl, ptr noundef %arrayidx, i64 noundef %cond) #11
-  %0 = load i32, ptr %outl, align 4
-  %tobool.not = icmp eq i32 %0, 0
+  call void @EVP_EncodeUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %call25, ptr noundef nonnull %outl, ptr noundef %arrayidx, i64 noundef %0) #11
+  %1 = load i32, ptr %outl, align 4
+  %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end40, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.body
-  %call36 = call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %call25, i32 noundef %0) #11
-  %1 = load i32, ptr %outl, align 4
-  %cmp37.not = icmp eq i32 %call36, %1
+  %call36 = call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %call25, i32 noundef %1) #11
+  %2 = load i32, ptr %outl, align 4
+  %cmp37.not = icmp eq i32 %call36, %2
   br i1 %cmp37.not, label %if.end40, label %if.then66
 
 if.end40:                                         ; preds = %land.lhs.true, %while.body
-  %2 = phi i32 [ %call36, %land.lhs.true ], [ 0, %while.body ]
-  %add = add nsw i32 %2, %i.043
-  %sub = sub nsw i64 %len.addr.042, %cond
+  %3 = phi i32 [ %call36, %land.lhs.true ], [ 0, %while.body ]
+  %add = add nsw i32 %3, %i.043
+  %sub = sub nsw i64 %len.addr.042, %0
   %add42 = add nuw nsw i32 %j.044, %conv34
   %cmp30 = icmp sgt i64 %sub, 0
   br i1 %cmp30, label %while.body, label %while.end, !llvm.loop !15
@@ -1243,14 +1243,14 @@ if.end40:                                         ; preds = %land.lhs.true, %whi
 while.end:                                        ; preds = %if.end40, %while.cond.preheader
   %i.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %add, %if.end40 ]
   call void @EVP_EncodeFinal(ptr noundef nonnull %ctx, ptr noundef nonnull %call25, ptr noundef nonnull %outl) #11
-  %3 = load i32, ptr %outl, align 4
-  %cmp43 = icmp sgt i32 %3, 0
+  %4 = load i32, ptr %outl, align 4
+  %cmp43 = icmp sgt i32 %4, 0
   br i1 %cmp43, label %land.lhs.true45, label %if.end50
 
 land.lhs.true45:                                  ; preds = %while.end
-  %call46 = call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %call25, i32 noundef %3) #11
-  %4 = load i32, ptr %outl, align 4
-  %cmp47.not = icmp eq i32 %call46, %4
+  %call46 = call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %call25, i32 noundef %4) #11
+  %5 = load i32, ptr %outl, align 4
+  %cmp47.not = icmp eq i32 %call46, %5
   br i1 %cmp47.not, label %if.end50, label %if.then66
 
 if.end50:                                         ; preds = %land.lhs.true45, %while.end
@@ -1271,8 +1271,8 @@ lor.lhs.false58:                                  ; preds = %lor.lhs.false54
   br i1 %cmp60.not, label %if.end63, label %if.end67
 
 if.end63:                                         ; preds = %lor.lhs.false58
-  %5 = load i32, ptr %outl, align 4
-  %add64 = add nsw i32 %5, %i.0.lcssa
+  %6 = load i32, ptr %outl, align 4
+  %add64 = add nsw i32 %6, %i.0.lcssa
   br label %return
 
 if.then66:                                        ; preds = %land.lhs.true, %land.lhs.true45
@@ -1532,14 +1532,14 @@ declare ptr @EVP_aes_256_cbc() local_unnamed_addr #1
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #9
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i32 @llvm.smax.i32(i32, i32) #10
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1550,8 +1550,8 @@ attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwri
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind }
 attributes #12 = { nounwind willreturn memory(read) }
 attributes #13 = { nounwind allocsize(0) }

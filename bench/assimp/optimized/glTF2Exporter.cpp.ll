@@ -39821,7 +39821,7 @@ while.body.preheader.i.i:                         ; preds = %entry
   %retval.sroa.0.0.copyload.masked.i.i = and i64 %add.i4, 9007199254740991
   %retval.sroa.0.0.copyload.masked.numleadingzeros.i.i = tail call i64 @llvm.ctlz.i64(i64 %retval.sroa.0.0.copyload.masked.i.i, i1 true), !range !377
   %retval.sroa.0.0.copyload.masked.leadingonepos.i.i = xor i64 %retval.sroa.0.0.copyload.masked.numleadingzeros.i.i, 63
-  %while.body.tripcount.i.i = sub nsw i64 53, %retval.sroa.0.0.copyload.masked.leadingonepos.i.i
+  %while.body.tripcount.i.i = sub nuw nsw i64 53, %retval.sroa.0.0.copyload.masked.leadingonepos.i.i
   %shl.i.i = shl i64 %add.i4, %while.body.tripcount.i.i
   %2 = trunc i64 %retval.sroa.0.0.copyload.masked.numleadingzeros.i.i to i32
   %3 = sub nuw nsw i32 -1065, %2
@@ -40046,10 +40046,10 @@ if.then52:                                        ; preds = %if.else48
 
 for.body63.preheader:                             ; preds = %if.then52
   %scevgep = getelementptr i8, ptr %buffer, i64 2
-  %smax = tail call i32 @llvm.smax.i32(i32 %sub53, i32 3)
-  %13 = add nsw i32 %smax, -2
-  %14 = zext nneg i32 %13 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %14, i1 false)
+  %13 = tail call i32 @llvm.umax.i32(i32 %sub53, i32 3)
+  %14 = add nsw i32 %13, -2
+  %15 = zext nneg i32 %14 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %15, i1 false)
   br label %for.end68
 
 for.end68:                                        ; preds = %for.body63.preheader, %if.then52
@@ -40074,8 +40074,8 @@ for.body76:                                       ; preds = %for.body76.preheade
   %i72.0118 = phi i32 [ %dec87, %for.cond74 ], [ %add73, %for.body76.preheader ]
   %idxprom77 = zext nneg i32 %i72.0118 to i64
   %arrayidx78 = getelementptr inbounds i8, ptr %buffer, i64 %idxprom77
-  %15 = load i8, ptr %arrayidx78, align 1
-  %cmp80.not = icmp eq i8 %15, 48
+  %16 = load i8, ptr %arrayidx78, align 1
+  %cmp80.not = icmp eq i8 %16, 48
   br i1 %cmp80.not, label %for.cond74, label %if.then81
 
 if.then81:                                        ; preds = %for.body76
@@ -40132,21 +40132,21 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 
 if.then2.i:                                       ; preds = %if.end.i
   %div.i = udiv i32 %K.addr.0.i, 100
-  %16 = trunc i32 %div.i to i8
-  %conv4.i = add i8 %16, 48
+  %17 = trunc i32 %div.i to i8
+  %conv4.i = add i8 %17, 48
   %incdec.ptr5.i = getelementptr inbounds i8, ptr %buffer.addr.0.i, i64 1
   store i8 %conv4.i, ptr %buffer.addr.0.i, align 1
   %rem.i = urem i32 %K.addr.0.i, 100
   %mul.i = shl nuw nsw i32 %rem.i, 1
   %idx.ext.i = zext nneg i32 %mul.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idx.ext.i
-  %17 = load i8, ptr %add.ptr.i, align 2
+  %18 = load i8, ptr %add.ptr.i, align 2
   %incdec.ptr6.i = getelementptr inbounds i8, ptr %buffer.addr.0.i, i64 2
-  store i8 %17, ptr %incdec.ptr5.i, align 1
+  store i8 %18, ptr %incdec.ptr5.i, align 1
   %arrayidx7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
-  %18 = load i8, ptr %arrayidx7.i, align 1
+  %19 = load i8, ptr %arrayidx7.i, align 1
   %incdec.ptr8.i = getelementptr inbounds i8, ptr %buffer.addr.0.i, i64 3
-  store i8 %18, ptr %incdec.ptr6.i, align 1
+  store i8 %19, ptr %incdec.ptr6.i, align 1
   br label %return
 
 if.else.i:                                        ; preds = %if.end.i
@@ -40157,18 +40157,18 @@ if.then10.i:                                      ; preds = %if.else.i
   %mul13.i = shl nuw nsw i32 %K.addr.0.i, 1
   %idx.ext14.i = zext nneg i32 %mul13.i to i64
   %add.ptr15.i = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idx.ext14.i
-  %19 = load i8, ptr %add.ptr15.i, align 2
+  %20 = load i8, ptr %add.ptr15.i, align 2
   %incdec.ptr17.i = getelementptr inbounds i8, ptr %buffer.addr.0.i, i64 1
-  store i8 %19, ptr %buffer.addr.0.i, align 1
+  store i8 %20, ptr %buffer.addr.0.i, align 1
   %arrayidx18.i = getelementptr inbounds i8, ptr %add.ptr15.i, i64 1
-  %20 = load i8, ptr %arrayidx18.i, align 1
+  %21 = load i8, ptr %arrayidx18.i, align 1
   %incdec.ptr19.i = getelementptr inbounds i8, ptr %buffer.addr.0.i, i64 2
-  store i8 %20, ptr %incdec.ptr17.i, align 1
+  store i8 %21, ptr %incdec.ptr17.i, align 1
   br label %return
 
 if.else20.i:                                      ; preds = %if.else.i
-  %21 = trunc i32 %K.addr.0.i to i8
-  %conv24.i = or disjoint i8 %21, 48
+  %22 = trunc i32 %K.addr.0.i to i8
+  %conv24.i = or disjoint i8 %22, 48
   %incdec.ptr25.i = getelementptr inbounds i8, ptr %buffer.addr.0.i, i64 1
   store i8 %conv24.i, ptr %buffer.addr.0.i, align 1
   br label %return
@@ -40180,16 +40180,16 @@ if.else108:                                       ; preds = %if.else102
   %conv112 = sext i32 %sub111 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx109, ptr nonnull align 1 %arrayidx110, i64 %conv112, i1 false)
   store i8 46, ptr %arrayidx110, align 1
-  %22 = sext i32 %length to i64
-  %23 = getelementptr i8, ptr %buffer, i64 %22
-  %arrayidx116 = getelementptr i8, ptr %23, i64 1
+  %23 = sext i32 %length to i64
+  %24 = getelementptr i8, ptr %buffer, i64 %23
+  %arrayidx116 = getelementptr i8, ptr %24, i64 1
   store i8 101, ptr %arrayidx116, align 1
-  %arrayidx121 = getelementptr i8, ptr %23, i64 2
+  %arrayidx121 = getelementptr i8, ptr %24, i64 2
   %cmp.i81 = icmp slt i32 %6, 0
   br i1 %cmp.i81, label %if.then.i110, label %if.end.i82
 
 if.then.i110:                                     ; preds = %if.else108
-  %incdec.ptr.i111 = getelementptr i8, ptr %23, i64 3
+  %incdec.ptr.i111 = getelementptr i8, ptr %24, i64 3
   store i8 45, ptr %arrayidx121, align 1
   %sub.i112 = sub i32 1, %add
   br label %if.end.i82
@@ -40202,21 +40202,21 @@ if.end.i82:                                       ; preds = %if.then.i110, %if.e
 
 if.then2.i99:                                     ; preds = %if.end.i82
   %div.i100 = udiv i32 %K.addr.0.i84, 100
-  %24 = trunc i32 %div.i100 to i8
-  %conv4.i101 = add i8 %24, 48
+  %25 = trunc i32 %div.i100 to i8
+  %conv4.i101 = add i8 %25, 48
   %incdec.ptr5.i102 = getelementptr inbounds i8, ptr %buffer.addr.0.i83, i64 1
   store i8 %conv4.i101, ptr %buffer.addr.0.i83, align 1
   %rem.i103 = urem i32 %K.addr.0.i84, 100
   %mul.i104 = shl nuw nsw i32 %rem.i103, 1
   %idx.ext.i105 = zext nneg i32 %mul.i104 to i64
   %add.ptr.i106 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idx.ext.i105
-  %25 = load i8, ptr %add.ptr.i106, align 2
+  %26 = load i8, ptr %add.ptr.i106, align 2
   %incdec.ptr6.i107 = getelementptr inbounds i8, ptr %buffer.addr.0.i83, i64 2
-  store i8 %25, ptr %incdec.ptr5.i102, align 1
+  store i8 %26, ptr %incdec.ptr5.i102, align 1
   %arrayidx7.i108 = getelementptr inbounds i8, ptr %add.ptr.i106, i64 1
-  %26 = load i8, ptr %arrayidx7.i108, align 1
+  %27 = load i8, ptr %arrayidx7.i108, align 1
   %incdec.ptr8.i109 = getelementptr inbounds i8, ptr %buffer.addr.0.i83, i64 3
-  store i8 %26, ptr %incdec.ptr6.i107, align 1
+  store i8 %27, ptr %incdec.ptr6.i107, align 1
   br label %return
 
 if.else.i86:                                      ; preds = %if.end.i82
@@ -40227,18 +40227,18 @@ if.then10.i92:                                    ; preds = %if.else.i86
   %mul13.i93 = shl nuw nsw i32 %K.addr.0.i84, 1
   %idx.ext14.i94 = zext nneg i32 %mul13.i93 to i64
   %add.ptr15.i95 = getelementptr inbounds i8, ptr @_ZZN9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %idx.ext14.i94
-  %27 = load i8, ptr %add.ptr15.i95, align 2
+  %28 = load i8, ptr %add.ptr15.i95, align 2
   %incdec.ptr17.i96 = getelementptr inbounds i8, ptr %buffer.addr.0.i83, i64 1
-  store i8 %27, ptr %buffer.addr.0.i83, align 1
+  store i8 %28, ptr %buffer.addr.0.i83, align 1
   %arrayidx18.i97 = getelementptr inbounds i8, ptr %add.ptr15.i95, i64 1
-  %28 = load i8, ptr %arrayidx18.i97, align 1
+  %29 = load i8, ptr %arrayidx18.i97, align 1
   %incdec.ptr19.i98 = getelementptr inbounds i8, ptr %buffer.addr.0.i83, i64 2
-  store i8 %28, ptr %incdec.ptr17.i96, align 1
+  store i8 %29, ptr %incdec.ptr17.i96, align 1
   br label %return
 
 if.else20.i88:                                    ; preds = %if.else.i86
-  %29 = trunc i32 %K.addr.0.i84 to i8
-  %conv24.i89 = or disjoint i8 %29, 48
+  %30 = trunc i32 %K.addr.0.i84 to i8
+  %conv24.i89 = or disjoint i8 %30, 48
   %incdec.ptr25.i90 = getelementptr inbounds i8, ptr %buffer.addr.0.i83, i64 1
   store i8 %conv24.i89, ptr %buffer.addr.0.i83, align 1
   br label %return
@@ -58019,6 +58019,9 @@ declare i32 @llvm.smax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #21

@@ -1517,12 +1517,12 @@ entry:
   br i1 %cmp, label %if.end.thread, label %if.end
 
 if.end.thread:                                    ; preds = %entry
-  %cond = tail call i32 @llvm.smin.i32(i32 %verbosity, i32 3)
+  %0 = tail call i32 @llvm.umin.i32(i32 %verbosity, i32 3)
   %verbose = getelementptr inbounds i8, ptr %transport, i64 120
-  %0 = trunc i32 %cond to i8
+  %1 = trunc i32 %0 to i8
   %bf.load = load i8, ptr %verbose, align 8
   %bf.clear = and i8 %bf.load, -8
-  %bf.set = or disjoint i8 %bf.clear, %0
+  %bf.set = or disjoint i8 %bf.clear, %1
   store i8 %bf.set, ptr %verbose, align 8
   br label %if.end8
 
@@ -1564,14 +1564,14 @@ if.else:                                          ; preds = %if.end8
 land.rhs:                                         ; preds = %if.end8.thread, %if.else
   %call = tail call i32 @isatty(i32 noundef 2) #20
   %tobool18.not = icmp eq i32 %call, 0
-  %1 = select i1 %tobool18.not, i8 0, i8 8
+  %2 = select i1 %tobool18.not, i8 0, i8 8
   %progress19.phi.trans.insert = getelementptr inbounds i8, ptr %transport, i64 120
   %bf.load20.pre = load i8, ptr %progress19.phi.trans.insert, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else, %land.rhs, %if.then10
   %bf.load20.sink = phi i8 [ %bf.load12, %if.then10 ], [ %bf.load2013, %if.else ], [ %bf.load20.pre, %land.rhs ]
-  %bf.shl22.sink = phi i8 [ %bf.shl, %if.then10 ], [ 0, %if.else ], [ %1, %land.rhs ]
+  %bf.shl22.sink = phi i8 [ %bf.shl, %if.then10 ], [ 0, %if.else ], [ %2, %land.rhs ]
   %progress19.sink = getelementptr inbounds i8, ptr %transport, i64 120
   %bf.clear23 = and i8 %bf.load20.sink, -9
   %bf.set24 = or disjoint i8 %bf.clear23, %bf.shl22.sink
@@ -2325,7 +2325,7 @@ for.body:                                         ; preds = %_.exit, %for.body
   %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
   %call3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.118, ptr noundef %5) #21
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %6, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
@@ -2536,7 +2536,7 @@ if.then24:                                        ; preds = %for.end
 for.body30:                                       ; preds = %if.then24, %for.body30
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body30 ], [ 0, %if.then24 ]
   %rm.145 = phi ptr [ %14, %for.body30 ], [ %refs, %if.then24 ]
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx33 = getelementptr inbounds ptr, ptr %call27, i64 %indvars.iv
   store ptr %rm.145, ptr %arrayidx33, align 8
   %14 = load ptr, ptr %rm.145, align 8
@@ -2663,7 +2663,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %arrayidx8.us = getelementptr inbounds %struct.string_list_item, ptr %1, i64 %indvars.iv13
   %2 = load ptr, ptr %arrayidx8.us, align 8
   %call10.us = tail call i32 @unlink_or_warn(ptr noundef %2) #20
-  %indvars.iv.next14 = add nuw i64 %indvars.iv13, 1
+  %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %3 = load i64, ptr %nr, align 8
   %cmp.us = icmp ugt i64 %3, %indvars.iv.next14
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !25
@@ -2674,7 +2674,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr inbounds %struct.string_list_item, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @unlink(ptr noundef %5) #20
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %6, %indvars.iv.next
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !25
@@ -4132,7 +4132,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %algo3.i = getelementptr inbounds i8, ptr %call, i64 40
   store i32 %9, ptr %algo3.i, align 4
   store ptr %result.011, ptr %call, align 8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %10, %indvars.iv.next
   br i1 %cmp, label %for.body, label %return, !llvm.loop !28
@@ -4302,9 +4302,6 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
-
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #17
 
@@ -4316,6 +4313,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #16
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

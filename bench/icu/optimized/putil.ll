@@ -1243,7 +1243,7 @@ land.lhs.true:                                    ; preds = %entry, %while.body
   br i1 %or.cond27, label %while.end.loopexit.split.loop.exit, label %while.body
 
 while.body:                                       ; preds = %land.lhs.true
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %inc = add nuw nsw i32 %idx.029, 1
   %arrayidx = getelementptr inbounds i8, ptr %id, i64 %indvars.iv.next
   %3 = load i8, ptr %arrayidx, align 1
@@ -1570,12 +1570,12 @@ if.end30.i:                                       ; preds = %call24.i.noexc, %if
 while.body.i:                                     ; preds = %if.end30.i, %if.end45.i
   %sizeFileLeft.07.i = phi i64 [ %sub.i, %if.end45.i ], [ %call16.i, %if.end30.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %bufferFile.i, i8 0, i64 512, i1 false)
-  %cond.i = call i64 @llvm.smin.i64(i64 %sizeFileLeft.07.i, i64 512)
-  %call36.i = call i64 @fread(ptr noundef nonnull %bufferFile.i, i64 noundef 1, i64 noundef %cond.i, ptr noundef nonnull %call2.i)
-  %25 = load ptr, ptr %tzInfo, align 8
-  %26 = load i32, ptr %defaultTZPosition.i, align 4
-  %idx.ext.i = sext i32 %26 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %25, i64 %idx.ext.i
+  %25 = call i64 @llvm.umin.i64(i64 %sizeFileLeft.07.i, i64 512)
+  %call36.i = call i64 @fread(ptr noundef nonnull %bufferFile.i, i64 noundef 1, i64 noundef %25, ptr noundef nonnull %call2.i)
+  %26 = load ptr, ptr %tzInfo, align 8
+  %27 = load i32, ptr %defaultTZPosition.i, align 4
+  %idx.ext.i = sext i32 %27 to i64
+  %add.ptr.i = getelementptr inbounds i8, ptr %26, i64 %idx.ext.i
   %sext.i = shl i64 %call36.i, 32
   %conv41.i = ashr exact i64 %sext.i, 32
   %bcmp.i = call i32 @bcmp(ptr %add.ptr.i, ptr nonnull %bufferFile.i, i64 %conv41.i)
@@ -1585,7 +1585,7 @@ while.body.i:                                     ; preds = %if.end30.i, %if.end
 if.end45.i:                                       ; preds = %while.body.i
   %conv37.i = trunc i64 %call36.i to i32
   %sub.i = sub nsw i64 %sizeFileLeft.07.i, %conv41.i
-  %add.i = add nsw i32 %26, %conv37.i
+  %add.i = add nsw i32 %27, %conv37.i
   store i32 %add.i, ptr %defaultTZPosition.i, align 4
   %cmp31.i = icmp sgt i64 %sub.i, 0
   br i1 %cmp31.i, label %while.body.i, label %if.then62, !llvm.loop !9
@@ -1598,11 +1598,11 @@ invoke.cont59.thread37:                           ; preds = %while.body.i, %land
 if.then62:                                        ; preds = %if.end30.i, %if.end45.i
   %call53.i = call i32 @fclose(ptr noundef nonnull %call2.i)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %bufferFile.i)
-  %27 = load i32, ptr %len.i15, align 8
-  %spec.select = call i32 @llvm.smin.i32(i32 %27, i32 20)
-  %28 = load ptr, ptr %newpath, align 8
+  %28 = load i32, ptr %len.i15, align 8
+  %spec.select = call i32 @llvm.smin.i32(i32 %28, i32 20)
+  %29 = load ptr, ptr %newpath, align 8
   %idx.ext = sext i32 %spec.select to i64
-  %add.ptr = getelementptr inbounds i8, ptr %28, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %29, i64 %idx.ext
   %call.i25 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(7) @.str.18, i64 noundef 6) #32
   %cmp.i26 = icmp eq i32 %call.i25, 0
   br i1 %cmp.i26, label %if.then.i28, label %lor.lhs.false.i
@@ -1618,26 +1618,26 @@ if.then.i28:                                      ; preds = %lor.lhs.false.i, %i
 
 _ZL16skipZoneIDPrefixPPKc.exit:                   ; preds = %lor.lhs.false.i, %if.then.i28
   %zoneid.0 = phi ptr [ %add.ptr.i29, %if.then.i28 ], [ %add.ptr, %lor.lhs.false.i ]
-  %29 = load ptr, ptr @_ZL19gSearchTZFileResult, align 8
-  %len.i30 = getelementptr inbounds i8, ptr %29, i64 56
+  %30 = load ptr, ptr @_ZL19gSearchTZFileResult, align 8
+  %len.i30 = getelementptr inbounds i8, ptr %30, i64 56
   store i32 0, ptr %len.i30, align 8
-  %30 = load ptr, ptr %29, align 8
-  store i8 0, ptr %30, align 1
-  %call75 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %29, ptr noundef %zoneid.0, i32 noundef -1, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %31 = load ptr, ptr %30, align 8
+  store i8 0, ptr %31, align 1
+  %call75 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %30, ptr noundef %zoneid.0, i32 noundef -1, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont74 unwind label %lpad29.loopexit.split-lp
 
 invoke.cont74:                                    ; preds = %_ZL16skipZoneIDPrefixPPKc.exit
-  %31 = load i32, ptr %status, align 4
-  %cmp.i31 = icmp slt i32 %31, 1
+  %32 = load i32, ptr %status, align 4
+  %cmp.i31 = icmp slt i32 %32, 1
   br i1 %cmp.i31, label %if.end79, label %cleanup.thread
 
 if.end79:                                         ; preds = %invoke.cont74
-  %32 = load ptr, ptr @_ZL19gSearchTZFileResult, align 8
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr @_ZL19gSearchTZFileResult, align 8
+  %34 = load ptr, ptr %33, align 8
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %invoke.cont30, %invoke.cont44, %invoke.cont52, %if.end79, %invoke.cont74
-  %result.2.ph = phi ptr [ null, %invoke.cont74 ], [ %33, %if.end79 ], [ null, %invoke.cont30 ], [ null, %invoke.cont44 ], [ %call53, %invoke.cont52 ]
+  %result.2.ph = phi ptr [ null, %invoke.cont74 ], [ %34, %if.end79 ], [ null, %invoke.cont30 ], [ null, %invoke.cont44 ], [ %call53, %invoke.cont52 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %newpath) #29
   br label %if.then86
 
@@ -2645,14 +2645,14 @@ declare i32 @llvm.smin.i32(i32, i32) #26
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #26
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #26
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #26
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

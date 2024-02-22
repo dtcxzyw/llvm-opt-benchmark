@@ -1790,10 +1790,10 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %cond = tail call i64 @llvm.smin.i64(i64 %call, i64 1048575)
-  %add = add nuw nsw i64 %cond, 1
+  %2 = tail call i64 @llvm.umin.i64(i64 %call, i64 1048575)
+  %add = add nuw nsw i64 %2, 1
   %call7 = tail call noalias ptr @g_malloc(i64 noundef %add) #18
-  %call8 = tail call i32 @bdrv_pread(ptr noundef nonnull %file, i64 noundef %desc_offset, i64 noundef %cond, ptr noundef %call7, i32 noundef 0) #15
+  %call8 = tail call i32 @bdrv_pread(ptr noundef nonnull %file, i64 noundef %desc_offset, i64 noundef %2, ptr noundef %call7, i32 noundef 0) #15
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %if.then11, label %if.end13
 
@@ -1804,7 +1804,7 @@ if.then11:                                        ; preds = %if.end4
   br label %return
 
 if.end13:                                         ; preds = %if.end4
-  %arrayidx = getelementptr i8, ptr %call7, i64 %cond
+  %arrayidx = getelementptr i8, ptr %call7, i64 %2
   store i8 0, ptr %arrayidx, align 1
   br label %return
 

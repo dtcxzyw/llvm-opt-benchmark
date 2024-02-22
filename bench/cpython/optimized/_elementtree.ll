@@ -5642,7 +5642,7 @@ for.body:                                         ; preds = %if.else, %for.body
   %i.027 = phi i64 [ %add, %for.body ], [ %index, %if.else ]
   %children22 = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load ptr, ptr %children22, align 8
-  %add = add nsw i64 %i.027, 1
+  %add = add nuw nsw i64 %i.027, 1
   %arrayidx23 = getelementptr ptr, ptr %16, i64 %add
   %17 = load ptr, ptr %arrayidx23, align 8
   %arrayidx26 = getelementptr ptr, ptr %16, i64 %i.027
@@ -13925,32 +13925,32 @@ if.else25:                                        ; preds = %if.end9
 
 if.then28:                                        ; preds = %if.else25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %message, ptr noundef nonnull align 16 dereferenceable(128) @__const.expat_default_handler.message, i64 128, i1 false)
-  %cond = tail call i32 @llvm.smin.i32(i32 %data_len, i32 100)
-  %conv31 = zext nneg i32 %cond to i64
+  %9 = tail call i32 @llvm.umin.i32(i32 %data_len, i32 100)
+  %conv31 = zext nneg i32 %9 to i64
   %call32 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %message, ptr noundef nonnull %data_in, i64 noundef %conv31) #11
   %expat_capi = getelementptr inbounds i8, ptr %2, i64 136
-  %9 = load ptr, ptr %expat_capi, align 8
-  %GetErrorLineNumber = getelementptr inbounds i8, ptr %9, i64 48
-  %10 = load ptr, ptr %GetErrorLineNumber, align 8
+  %10 = load ptr, ptr %expat_capi, align 8
+  %GetErrorLineNumber = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = load ptr, ptr %GetErrorLineNumber, align 8
   %parser = getelementptr inbounds i8, ptr %self, i64 16
-  %11 = load ptr, ptr %parser, align 8
-  %call33 = call i64 %10(ptr noundef %11) #11
-  %12 = load ptr, ptr %expat_capi, align 8
-  %GetErrorColumnNumber = getelementptr inbounds i8, ptr %12, i64 40
-  %13 = load ptr, ptr %GetErrorColumnNumber, align 8
-  %14 = load ptr, ptr %parser, align 8
-  %call36 = call i64 %13(ptr noundef %14) #11
+  %12 = load ptr, ptr %parser, align 8
+  %call33 = call i64 %11(ptr noundef %12) #11
+  %13 = load ptr, ptr %expat_capi, align 8
+  %GetErrorColumnNumber = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = load ptr, ptr %GetErrorColumnNumber, align 8
+  %15 = load ptr, ptr %parser, align 8
+  %call36 = call i64 %14(ptr noundef %15) #11
   call fastcc void @expat_set_error(ptr noundef %2, i32 noundef 11, i64 noundef %call33, i64 noundef %call36, ptr noundef nonnull %message)
   br label %if.end39
 
 if.end39:                                         ; preds = %if.else, %if.then1.i.i, %if.end.i.i, %if.then.i, %if.end24, %if.else25, %if.then28
-  %15 = load i64, ptr %call6, align 8
-  %16 = and i64 %15, 2147483648
-  %cmp.i41.not = icmp eq i64 %16, 0
+  %16 = load i64, ptr %call6, align 8
+  %17 = and i64 %16, 2147483648
+  %cmp.i41.not = icmp eq i64 %17, 0
   br i1 %cmp.i41.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end39
-  %dec.i = add i64 %15, -1
+  %dec.i = add i64 %16, -1
   store i64 %dec.i, ptr %call6, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
@@ -14426,14 +14426,14 @@ declare i64 @llvm.umax.i64(i64, i64) #8
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #8
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10

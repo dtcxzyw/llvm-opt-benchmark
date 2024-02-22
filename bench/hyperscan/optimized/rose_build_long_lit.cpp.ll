@@ -8748,11 +8748,11 @@ entry:
   br i1 %cmp118.i, label %while.body.preheader.i, label %if.end
 
 while.body.preheader.i:                           ; preds = %entry
-  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %__original_len, i64 230584300921369395)
+  %0 = tail call i64 @llvm.umin.i64(i64 %__original_len, i64 230584300921369395)
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end4.i, %while.body.preheader.i
-  %__len.addr.019.i = phi i64 [ %div17.i, %if.end4.i ], [ %spec.select.i, %while.body.preheader.i ]
+  %__len.addr.019.i = phi i64 [ %div17.i, %if.end4.i ], [ %0, %while.body.preheader.i ]
   %mul.i = mul nuw nsw i64 %__len.addr.019.i, 40
   %call.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #29
   %cmp2.not.i = icmp eq ptr %call.i, null
@@ -8775,31 +8775,31 @@ invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  %2 = tail call ptr @__cxa_begin_catch(ptr %1) #24
+  %2 = extractvalue { ptr, i32 } %1, 0
+  %3 = tail call ptr @__cxa_begin_catch(ptr %2) #24
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #24
   invoke void @__cxa_rethrow() #26
           to label %unreachable unwind label %lpad12
 
 lpad12:                                           ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont14 unwind label %terminate.lpad
 
 invoke.cont14:                                    ; preds = %lpad12
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %4
 
 if.end:                                           ; preds = %if.end4.i, %invoke.cont, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %lpad12
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #27
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #27
   unreachable
 
 unreachable:                                      ; preds = %lpad

@@ -11929,9 +11929,8 @@ if.end55:                                         ; preds = %if.end51, %if.end37
 land.rhs.preheader:                               ; preds = %if.end55
   %10 = zext nneg i32 %nPositionResult.1 to i64
   %11 = add nuw i32 %nPositionResult.1, %9
-  %smax = call i32 @llvm.smax.i32(i32 %nPositionResult.1, i32 %nResultCapacity)
-  %12 = sub nsw i32 %smax, %nPositionResult.1
-  %wide.trip.count = zext i32 %12 to i64
+  %12 = call i32 @llvm.usub.sat.i32(i32 %nResultCapacity, i32 %nPositionResult.1)
+  %wide.trip.count = zext nneg i32 %12 to i64
   %wide.trip.count153 = zext nneg i32 %9 to i64
   br label %land.rhs
 
@@ -11986,11 +11985,11 @@ while.cond86:                                     ; preds = %if.end81, %if.end96
   ]
 
 while.cond86.if.end96_crit_edge:                  ; preds = %while.cond86
-  %.pre174 = add nuw i64 %indvars.iv155, 1
+  %.pre174 = add nuw nsw i64 %indvars.iv155, 1
   br label %if.end96
 
 if.then95:                                        ; preds = %while.cond86
-  %20 = add nuw i64 %indvars.iv155, 1
+  %20 = add nuw nsw i64 %indvars.iv155, 1
   %21 = trunc i64 %20 to i32
   br label %if.end96
 
@@ -12348,9 +12347,8 @@ if.end55:                                         ; preds = %if.end51, %if.end37
 land.rhs.preheader:                               ; preds = %if.end55
   %15 = zext nneg i32 %nPositionResult.1 to i64
   %16 = add nuw i32 %nPositionResult.1, %14
-  %smax = call i32 @llvm.smax.i32(i32 %nPositionResult.1, i32 %nResultCapacity)
-  %17 = sub nsw i32 %smax, %nPositionResult.1
-  %wide.trip.count = zext i32 %17 to i64
+  %17 = call i32 @llvm.usub.sat.i32(i32 %nResultCapacity, i32 %nPositionResult.1)
+  %wide.trip.count = zext nneg i32 %17 to i64
   %wide.trip.count150 = zext nneg i32 %14 to i64
   br label %land.rhs
 
@@ -12405,11 +12403,11 @@ while.cond87:                                     ; preds = %if.end82, %if.end97
   ]
 
 while.cond87.if.end97_crit_edge:                  ; preds = %while.cond87
-  %.pre171 = add nuw i64 %indvars.iv152, 1
+  %.pre171 = add nuw nsw i64 %indvars.iv152, 1
   br label %if.end97
 
 if.then96:                                        ; preds = %while.cond87
-  %25 = add nuw i64 %indvars.iv152, 1
+  %25 = add nuw nsw i64 %indvars.iv152, 1
   %26 = trunc i64 %25 to i32
   br label %if.end97
 
@@ -12713,9 +12711,8 @@ if.end55:                                         ; preds = %if.end51, %if.end37
 land.rhs.preheader:                               ; preds = %if.end55
   %9 = zext nneg i32 %nPositionResult.1 to i64
   %10 = add nuw i32 %nPositionResult.1, %8
-  %smax = call i32 @llvm.smax.i32(i32 %nPositionResult.1, i32 %nResultCapacity)
-  %11 = sub nsw i32 %smax, %nPositionResult.1
-  %wide.trip.count = zext i32 %11 to i64
+  %11 = call i32 @llvm.usub.sat.i32(i32 %nResultCapacity, i32 %nPositionResult.1)
+  %wide.trip.count = zext nneg i32 %11 to i64
   %wide.trip.count143 = zext nneg i32 %8 to i64
   br label %land.rhs
 
@@ -12770,11 +12767,11 @@ while.cond87:                                     ; preds = %if.end82, %if.end97
   ]
 
 while.cond87.if.end97_crit_edge:                  ; preds = %while.cond87
-  %.pre164 = add nuw i64 %indvars.iv145, 1
+  %.pre164 = add nuw nsw i64 %indvars.iv145, 1
   br label %if.end97
 
 if.then96:                                        ; preds = %while.cond87
-  %19 = add nuw i64 %indvars.iv145, 1
+  %19 = add nuw nsw i64 %indvars.iv145, 1
   %20 = trunc i64 %19 to i32
   br label %if.end97
 
@@ -13241,6 +13238,9 @@ declare i64 @llvm.umax.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #28
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #27
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -3049,69 +3049,69 @@ update_tm.exit302.i.i:                            ; preds = %if.then15.i296.i.i,
 
 while.body105.lr.ph.i.i:                          ; preds = %update_tm.exit302.i.i
   %tm_year.i288.promoted.i.i = load i32, ptr %tm_year.i, align 4
-  %smax.i.i = call i32 @llvm.smax.i32(i32 %sub101.i.i, i32 -12)
-  %117 = add i32 %smax.i.i, %116
-  %118 = icmp ne i32 %117, %115
-  %umin.i.neg26.i = sext i1 %118 to i32
-  %umin.i.i = zext i1 %118 to i32
-  %.neg1.i = sub i32 %117, %115
-  %119 = add i32 %.neg1.i, %umin.i.neg26.i
-  %120 = udiv i32 %119, 12
-  %121 = add nuw nsw i32 %120, %umin.i.i
-  %122 = mul i32 %121, 12
-  %123 = add i32 %115, 12
-  %124 = sub i32 %123, %116
-  %125 = add i32 %124, %122
-  %126 = xor i32 %121, -1
-  %127 = add i32 %tm_year.i288.promoted.i.i, %126
-  store i32 %127, ptr %tm_year.i, align 4
+  %117 = call i32 @llvm.umax.i32(i32 %sub101.i.i, i32 -12)
+  %118 = add i32 %117, %116
+  %119 = icmp ne i32 %118, %115
+  %umin.i.neg26.i = sext i1 %119 to i32
+  %umin.i.i = zext i1 %119 to i32
+  %.neg1.i = sub i32 %118, %115
+  %120 = add i32 %.neg1.i, %umin.i.neg26.i
+  %121 = udiv i32 %120, 12
+  %122 = add nuw nsw i32 %121, %umin.i.i
+  %123 = mul i32 %122, 12
+  %124 = add i32 %115, 12
+  %125 = sub i32 %124, %116
+  %126 = add i32 %125, %123
+  %127 = xor i32 %122, -1
+  %128 = add i32 %tm_year.i288.promoted.i.i, %127
+  store i32 %128, ptr %tm_year.i, align 4
   br label %while.end107.i.i
 
 while.end107.i.i:                                 ; preds = %while.body105.lr.ph.i.i, %update_tm.exit302.i.i
-  %n98.0.lcssa.i.i = phi i32 [ %125, %while.body105.lr.ph.i.i ], [ %sub101.i.i, %update_tm.exit302.i.i ]
+  %n98.0.lcssa.i.i = phi i32 [ %126, %while.body105.lr.ph.i.i ], [ %sub101.i.i, %update_tm.exit302.i.i ]
   store i32 %n98.0.lcssa.i.i, ptr %tm_mon.i, align 8
   br label %for.cond.backedge.i
 
 for.body.i304.i.i:                                ; preds = %for.body.i304.i.i.preheader, %for.inc.i327.i.i
-  %128 = phi i8 [ %135, %for.inc.i327.i.i ], [ %2, %for.body.i304.i.i.preheader ]
+  %129 = phi i8 [ %136, %for.inc.i327.i.i ], [ %2, %for.body.i304.i.i.preheader ]
   %i.019.i305.i.i = phi i32 [ %inc.i330.i.i, %for.inc.i327.i.i ], [ 0, %for.body.i304.i.i.preheader ]
   %str.addr.018.i306.i.i = phi ptr [ %incdec.ptr15.i329.i.i, %for.inc.i327.i.i ], [ @.str.132, %for.body.i304.i.i.preheader ]
   %date.addr.017.i307.i.i = phi ptr [ %incdec.ptr.i328.i.i, %for.inc.i327.i.i ], [ %date.addr.025.i, %for.body.i304.i.i.preheader ]
-  %129 = load i8, ptr %str.addr.018.i306.i.i, align 1
-  %cmp.i308.i.i = icmp eq i8 %128, %129
+  %130 = load i8, ptr %str.addr.018.i306.i.i, align 1
+  %cmp.i308.i.i = icmp eq i8 %129, %130
   br i1 %cmp.i308.i.i, label %for.inc.i327.i.i, label %if.end.i309.i.i
 
 if.end.i309.i.i:                                  ; preds = %for.body.i304.i.i
-  %conv3.i310.i.i = zext i8 %128 to i32
-  %idxprom.i.i311.i.i = zext i8 %128 to i64
+  %conv3.i310.i.i = zext i8 %129 to i32
+  %idxprom.i.i311.i.i = zext i8 %129 to i64
   %arrayidx.i.i312.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i311.i.i
-  %130 = load i8, ptr %arrayidx.i.i312.i.i, align 1
-  %131 = and i8 %130, 4
-  %cmp.not.i.i313.i.i = icmp eq i8 %131, 0
+  %131 = load i8, ptr %arrayidx.i.i312.i.i, align 1
+  %132 = and i8 %131, 4
+  %cmp.not.i.i313.i.i = icmp eq i8 %132, 0
   %and3.i.i314.i.i = and i32 %conv3.i310.i.i, 223
   %spec.select.i.i315.i.i = select i1 %cmp.not.i.i313.i.i, i32 %conv3.i310.i.i, i32 %and3.i.i314.i.i
-  %conv4.i316.i.i = zext i8 %129 to i32
-  %idxprom.i8.i317.i.i = zext i8 %129 to i64
+  %conv4.i316.i.i = zext i8 %130 to i32
+  %idxprom.i8.i317.i.i = zext i8 %130 to i64
   %arrayidx.i9.i318.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i8.i317.i.i
-  %132 = load i8, ptr %arrayidx.i9.i318.i.i, align 1
-  %133 = and i8 %132, 4
-  %cmp.not.i10.i319.i.i = icmp eq i8 %133, 0
+  %133 = load i8, ptr %arrayidx.i9.i318.i.i, align 1
+  %134 = and i8 %133, 4
+  %cmp.not.i10.i319.i.i = icmp eq i8 %134, 0
   %and3.i11.i320.i.i = and i32 %conv4.i316.i.i, 223
   %spec.select.i12.i321.i.i = select i1 %cmp.not.i10.i319.i.i, i32 %conv4.i316.i.i, i32 %and3.i11.i320.i.i
   %cmp6.i322.i.i = icmp eq i32 %spec.select.i.i315.i.i, %spec.select.i12.i321.i.i
   br i1 %cmp6.i322.i.i, label %for.inc.i327.i.i, label %if.end9.i323.i.i
 
 if.end9.i323.i.i:                                 ; preds = %if.end.i309.i.i
-  %134 = and i8 %130, 6
-  %cmp11.not.i324.i.i = icmp eq i8 %134, 0
+  %135 = and i8 %131, 6
+  %cmp11.not.i324.i.i = icmp eq i8 %135, 0
   br i1 %cmp11.not.i324.i.i, label %match_string.exit332.i.i, label %for.cond.backedge.i
 
 for.inc.i327.i.i:                                 ; preds = %if.end.i309.i.i, %for.body.i304.i.i
   %incdec.ptr.i328.i.i = getelementptr inbounds i8, ptr %date.addr.017.i307.i.i, i64 1
   %incdec.ptr15.i329.i.i = getelementptr inbounds i8, ptr %str.addr.018.i306.i.i, i64 1
   %inc.i330.i.i = add nuw nsw i32 %i.019.i305.i.i, 1
-  %135 = load i8, ptr %incdec.ptr.i328.i.i, align 1
-  %tobool.not.i331.i.i = icmp eq i8 %135, 0
+  %136 = load i8, ptr %incdec.ptr.i328.i.i, align 1
+  %tobool.not.i331.i.i = icmp eq i8 %136, 0
   br i1 %tobool.not.i331.i.i, label %match_string.exit332.i.i, label %for.body.i304.i.i, !llvm.loop !6
 
 match_string.exit332.i.i:                         ; preds = %for.inc.i327.i.i, %if.end9.i323.i.i
@@ -3121,40 +3121,40 @@ match_string.exit332.i.i:                         ; preds = %for.inc.i327.i.i, %
 
 if.then113.i.i:                                   ; preds = %match_string.exit332.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i54.i)
-  %136 = load i32, ptr %tm_mday.i, align 4
-  %cmp.i56.i = icmp slt i32 %136, 0
+  %137 = load i32, ptr %tm_mday.i, align 4
+  %cmp.i56.i = icmp slt i32 %137, 0
   br i1 %cmp.i56.i, label %if.then.i73.i, label %if.end.i57.i
 
 if.then.i73.i:                                    ; preds = %if.then113.i.i
-  %137 = load i32, ptr %tm_mday1.i.i.i, align 4
-  store i32 %137, ptr %tm_mday.i, align 4
+  %138 = load i32, ptr %tm_mday1.i.i.i, align 4
+  store i32 %138, ptr %tm_mday.i, align 4
   br label %if.end.i57.i
 
 if.end.i57.i:                                     ; preds = %if.then.i73.i, %if.then113.i.i
-  %138 = load i32, ptr %tm_mon.i, align 8
-  %cmp3.i59.i = icmp slt i32 %138, 0
+  %139 = load i32, ptr %tm_mon.i, align 8
+  %cmp3.i59.i = icmp slt i32 %139, 0
   br i1 %cmp3.i59.i, label %if.then4.i71.i, label %if.end7.i60.i
 
 if.then4.i71.i:                                   ; preds = %if.end.i57.i
-  %139 = load i32, ptr %tm_mon5.i.i.i, align 8
-  store i32 %139, ptr %tm_mon.i, align 8
+  %140 = load i32, ptr %tm_mon5.i.i.i, align 8
+  store i32 %140, ptr %tm_mon.i, align 8
   br label %if.end7.i60.i
 
 if.end7.i60.i:                                    ; preds = %if.then4.i71.i, %if.end.i57.i
-  %140 = phi i32 [ %139, %if.then4.i71.i ], [ %138, %if.end.i57.i ]
-  %141 = load i32, ptr %tm_year.i, align 4
-  %cmp8.i62.i = icmp slt i32 %141, 0
+  %141 = phi i32 [ %140, %if.then4.i71.i ], [ %139, %if.end.i57.i ]
+  %142 = load i32, ptr %tm_year.i, align 4
+  %cmp8.i62.i = icmp slt i32 %142, 0
   br i1 %cmp8.i62.i, label %if.then9.i65.i, label %update_tm.exit75.i
 
 if.then9.i65.i:                                   ; preds = %if.end7.i60.i
-  %142 = load i32, ptr %tm_year10.i.i.i, align 4
-  store i32 %142, ptr %tm_year.i, align 4
-  %143 = load i32, ptr %tm_mon5.i.i.i, align 8
-  %cmp14.i68.i = icmp sgt i32 %140, %143
+  %143 = load i32, ptr %tm_year10.i.i.i, align 4
+  store i32 %143, ptr %tm_year.i, align 4
+  %144 = load i32, ptr %tm_mon5.i.i.i, align 8
+  %cmp14.i68.i = icmp sgt i32 %141, %144
   br i1 %cmp14.i68.i, label %if.then15.i69.i, label %update_tm.exit75.i
 
 if.then15.i69.i:                                  ; preds = %if.then9.i65.i
-  %dec.i70.i = add nsw i32 %142, -1
+  %dec.i70.i = add nsw i32 %143, -1
   store i32 %dec.i70.i, ptr %tm_year.i, align 4
   br label %update_tm.exit75.i
 
@@ -3163,34 +3163,34 @@ update_tm.exit75.i:                               ; preds = %if.then15.i69.i, %i
   store i64 %call.i63.i, ptr %n.i54.i, align 8
   %call19.i64.i = call ptr @localtime_r(ptr noundef nonnull %n.i54.i, ptr noundef nonnull %tm.i) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i54.i)
-  %144 = load i32, ptr %number.i, align 4
-  %145 = load i32, ptr %tm_year.i, align 4
-  %sub116.i.i = sub nsw i32 %145, %144
+  %145 = load i32, ptr %number.i, align 4
+  %146 = load i32, ptr %tm_year.i, align 4
+  %sub116.i.i = sub nsw i32 %146, %145
   store i32 %sub116.i.i, ptr %tm_year.i, align 4
   store i32 0, ptr %number.i, align 4
   br label %for.cond.backedge.i
 
 for.end.i:                                        ; preds = %for.cond.backedge.i
   %.pre.i = load i32, ptr %number.i, align 4
-  %146 = icmp ne i32 %touched.0.be.i, 0
+  %147 = icmp ne i32 %touched.0.be.i, 0
   %tobool.not.i18.i = icmp eq i32 %.pre.i, 0
   br i1 %tobool.not.i18.i, label %pending_number.exit46.i, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %for.end.i
   store i32 0, ptr %number.i, align 4
-  %147 = load i32, ptr %tm_mday.i, align 4
-  %cmp.i21.i = icmp slt i32 %147, 0
+  %148 = load i32, ptr %tm_mday.i, align 4
+  %cmp.i21.i = icmp slt i32 %148, 0
   %cmp1.i22.i = icmp slt i32 %.pre.i, 32
   %or.cond.i23.i = and i1 %cmp1.i22.i, %cmp.i21.i
   br i1 %or.cond.i23.i, label %if.then2.i45.i, label %if.else.i24.i
 
 if.then2.i45.i:                                   ; preds = %if.then.i19.i
   store i32 %.pre.i, ptr %tm_mday.i, align 4
-  br i1 %146, label %if.end17.i, label %if.then16.i
+  br i1 %147, label %if.end17.i, label %if.then16.i
 
 if.else.i24.i:                                    ; preds = %if.then.i19.i
-  %148 = load i32, ptr %tm_mon.i, align 8
-  %cmp4.i26.i = icmp slt i32 %148, 0
+  %149 = load i32, ptr %tm_mon.i, align 8
+  %cmp4.i26.i = icmp slt i32 %149, 0
   %cmp6.i27.i = icmp slt i32 %.pre.i, 13
   %or.cond1.i28.i = and i1 %cmp6.i27.i, %cmp4.i26.i
   br i1 %or.cond1.i28.i, label %if.then7.i43.i, label %if.else9.i29.i
@@ -3198,33 +3198,33 @@ if.else.i24.i:                                    ; preds = %if.then.i19.i
 if.then7.i43.i:                                   ; preds = %if.else.i24.i
   %sub.i44.i = add nsw i32 %.pre.i, -1
   store i32 %sub.i44.i, ptr %tm_mon.i, align 8
-  %brmerge14 = or i1 %tobool.not, %146
+  %brmerge14 = or i1 %tobool.not, %147
   br i1 %brmerge14, label %if.end17thread-pre-split.i, label %if.then16.i.else
 
 if.else9.i29.i:                                   ; preds = %if.else.i24.i
-  %149 = load i32, ptr %tm_year.i, align 4
-  %cmp10.i31.i = icmp slt i32 %149, 0
+  %150 = load i32, ptr %tm_year.i, align 4
+  %cmp10.i31.i = icmp slt i32 %150, 0
   br i1 %cmp10.i31.i, label %if.then11.i32.i, label %pending_number.exit46.i
 
 if.then11.i32.i:                                  ; preds = %if.else9.i29.i
-  %150 = add i32 %.pre.i, -1970
-  %or.cond2.i33.i = icmp ult i32 %150, 130
+  %151 = add i32 %.pre.i, -1970
+  %or.cond2.i33.i = icmp ult i32 %151, 130
   br i1 %or.cond2.i33.i, label %if.then15.i41.i, label %if.else18.i34.i
 
 if.then15.i41.i:                                  ; preds = %if.then11.i32.i
   %sub16.i42.i = add nsw i32 %.pre.i, -1900
   store i32 %sub16.i42.i, ptr %tm_year.i, align 4
-  %brmerge12 = or i1 %tobool.not, %146
+  %brmerge12 = or i1 %tobool.not, %147
   br i1 %brmerge12, label %if.end17thread-pre-split.i, label %if.then16.i.else
 
 if.else18.i34.i:                                  ; preds = %if.then11.i32.i
-  %151 = add i32 %.pre.i, -70
-  %or.cond3.i35.i = icmp ult i32 %151, 30
+  %152 = add i32 %.pre.i, -70
+  %or.cond3.i35.i = icmp ult i32 %152, 30
   br i1 %or.cond3.i35.i, label %if.then22.i40.i, label %if.else24.i36.i
 
 if.then22.i40.i:                                  ; preds = %if.else18.i34.i
   store i32 %.pre.i, ptr %tm_year.i, align 4
-  %brmerge10 = or i1 %tobool.not, %146
+  %brmerge10 = or i1 %tobool.not, %147
   br i1 %brmerge10, label %if.end17thread-pre-split.i, label %if.then16.i.else
 
 if.else24.i36.i:                                  ; preds = %if.else18.i34.i
@@ -3234,11 +3234,11 @@ if.else24.i36.i:                                  ; preds = %if.else18.i34.i
 if.then26.i38.i:                                  ; preds = %if.else24.i36.i
   %add.i39.i = add nsw i32 %.pre.i, 100
   store i32 %add.i39.i, ptr %tm_year.i, align 4
-  %brmerge8 = or i1 %tobool.not, %146
+  %brmerge8 = or i1 %tobool.not, %147
   br i1 %brmerge8, label %if.end17thread-pre-split.i, label %if.then16.i.else
 
 pending_number.exit46.i:                          ; preds = %if.else24.i36.i, %if.else9.i29.i, %for.end.i
-  %brmerge = or i1 %tobool.not, %146
+  %brmerge = or i1 %tobool.not, %147
   br i1 %brmerge, label %if.end17thread-pre-split.i, label %if.then16.i.else
 
 if.then16.i:                                      ; preds = %if.then2.i45.i, %get_time.exit
@@ -3253,45 +3253,45 @@ if.end17thread-pre-split.i:                       ; preds = %if.then7.i43.i, %if
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.end17thread-pre-split.i, %if.then2.i45.i
-  %152 = phi i32 [ %.pr.i, %if.end17thread-pre-split.i ], [ %.pre.i, %if.then2.i45.i ]
+  %153 = phi i32 [ %.pr.i, %if.end17thread-pre-split.i ], [ %.pre.i, %if.then2.i45.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i.i)
-  %cmp.i48.i = icmp slt i32 %152, 0
+  %cmp.i48.i = icmp slt i32 %153, 0
   br i1 %cmp.i48.i, label %if.then.i53.i, label %if.end.i.i
 
 if.then.i53.i:                                    ; preds = %if.end17.i
   %tm_mday1.i.i = getelementptr inbounds i8, ptr %now.i, i64 12
-  %153 = load i32, ptr %tm_mday1.i.i, align 4
-  store i32 %153, ptr %tm_mday.i, align 4
+  %154 = load i32, ptr %tm_mday1.i.i, align 4
+  store i32 %154, ptr %tm_mday.i, align 4
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i53.i, %if.end17.i
-  %154 = load i32, ptr %tm_mon.i, align 8
-  %cmp3.i.i = icmp slt i32 %154, 0
+  %155 = load i32, ptr %tm_mon.i, align 8
+  %cmp3.i.i = icmp slt i32 %155, 0
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end7.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
   %tm_mon5.i.i = getelementptr inbounds i8, ptr %now.i, i64 16
-  %155 = load i32, ptr %tm_mon5.i.i, align 8
-  store i32 %155, ptr %tm_mon.i, align 8
+  %156 = load i32, ptr %tm_mon5.i.i, align 8
+  store i32 %156, ptr %tm_mon.i, align 8
   br label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.then4.i.i, %if.end.i.i
-  %156 = phi i32 [ %155, %if.then4.i.i ], [ %154, %if.end.i.i ]
-  %157 = load i32, ptr %tm_year.i, align 4
-  %cmp8.i.i = icmp slt i32 %157, 0
+  %157 = phi i32 [ %156, %if.then4.i.i ], [ %155, %if.end.i.i ]
+  %158 = load i32, ptr %tm_year.i, align 4
+  %cmp8.i.i = icmp slt i32 %158, 0
   br i1 %cmp8.i.i, label %if.then9.i.i, label %approxidate_str.exit
 
 if.then9.i.i:                                     ; preds = %if.end7.i.i
   %tm_year10.i.i = getelementptr inbounds i8, ptr %now.i, i64 20
-  %158 = load i32, ptr %tm_year10.i.i, align 4
-  store i32 %158, ptr %tm_year.i, align 4
+  %159 = load i32, ptr %tm_year10.i.i, align 4
+  store i32 %159, ptr %tm_year.i, align 4
   %tm_mon13.i.i = getelementptr inbounds i8, ptr %now.i, i64 16
-  %159 = load i32, ptr %tm_mon13.i.i, align 8
-  %cmp14.i.i = icmp sgt i32 %156, %159
+  %160 = load i32, ptr %tm_mon13.i.i, align 8
+  %cmp14.i.i = icmp sgt i32 %157, %160
   br i1 %cmp14.i.i, label %if.then15.i52.i, label %approxidate_str.exit
 
 if.then15.i52.i:                                  ; preds = %if.then9.i.i
-  %dec.i.i = add nsw i32 %158, -1
+  %dec.i.i = add nsw i32 %159, -1
   store i32 %dec.i.i, ptr %tm_year.i, align 4
   br label %approxidate_str.exit
 
@@ -3299,7 +3299,7 @@ approxidate_str.exit:                             ; preds = %if.end7.i.i, %if.th
   %call.i51.i = call i64 @mktime(ptr noundef nonnull %tm.i) #19
   store i64 %call.i51.i, ptr %n.i.i, align 8
   %call19.i.i = call ptr @localtime_r(ptr noundef nonnull %n.i.i, ptr noundef nonnull %tm.i) #19
-  %160 = load i64, ptr %n.i.i, align 8
+  %161 = load i64, ptr %n.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %number.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tm.i)
@@ -3308,7 +3308,7 @@ approxidate_str.exit:                             ; preds = %if.end7.i.i, %if.th
   br label %return
 
 return:                                           ; preds = %approxidate_str.exit, %if.then2.cont
-  %retval.0 = phi i64 [ %160, %approxidate_str.exit ], [ %0, %if.then2.cont ]
+  %retval.0 = phi i64 [ %161, %approxidate_str.exit ], [ %0, %if.then2.cont ]
   ret i64 %retval.0
 }
 
@@ -4828,9 +4828,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.vector.reduce.and.v4i32(<4 x i32>) #17

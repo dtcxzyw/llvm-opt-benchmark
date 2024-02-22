@@ -1356,8 +1356,8 @@ for.body40.i:                                     ; preds = %for.body40.i, %if.e
   %add.i.i = fadd float %mul44.i, 0x4168000000000000
   %12 = bitcast float %add.i.i to i32
   %and.i.i = and i32 %12, 8388607
-  %13 = tail call i32 @llvm.smin.i32(i32 %and.i.i, i32 4194307)
-  %14 = tail call i32 @llvm.smax.i32(i32 %13, i32 4194304)
+  %13 = tail call i32 @llvm.umin.i32(i32 %and.i.i, i32 4194307)
+  %14 = tail call i32 @llvm.umax.i32(i32 %13, i32 4194304)
   %spec.select.i = add nsw i32 %14, -4194304
   %conv59.i = trunc i32 %14 to i8
   %arrayidx61.i = getelementptr inbounds i8, ptr %add.ptr13, i64 %indvars.iv179.i
@@ -1397,8 +1397,8 @@ for.body102.i:                                    ; preds = %for.body102.i, %for
   %add.i132.i = fadd float %mul107.i, 0x4168000000000000
   %21 = bitcast float %add.i132.i to i32
   %and.i133.i = and i32 %21, 8388607
-  %22 = tail call i32 @llvm.smin.i32(i32 %and.i133.i, i32 4194307)
-  %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 4194304)
+  %22 = tail call i32 @llvm.umin.i32(i32 %and.i133.i, i32 4194307)
+  %23 = tail call i32 @llvm.umax.i32(i32 %22, i32 4194304)
   %spec.select131.i = add nsw i32 %23, -4194304
   %conv127.i = trunc i32 %23 to i8
   %arrayidx129.i = getelementptr inbounds i8, ptr %Laux, i64 %indvars.iv184.i
@@ -1604,8 +1604,8 @@ for.body154:                                      ; preds = %if.end138, %for.bod
   %add.i87 = fadd float %div161, 0x4168000000000000
   %58 = bitcast float %add.i87 to i32
   %and.i88 = and i32 %58, 8388607
-  %59 = tail call i32 @llvm.smin.i32(i32 %and.i88, i32 4194307)
-  %60 = tail call i32 @llvm.smax.i32(i32 %59, i32 4194304)
+  %59 = tail call i32 @llvm.umin.i32(i32 %and.i88, i32 4194307)
+  %60 = tail call i32 @llvm.umax.i32(i32 %59, i32 4194304)
   %conv177 = trunc i32 %60 to i8
   %arrayidx181 = getelementptr inbounds [256 x i8], ptr %L, i64 0, i64 %56
   store i8 %conv177, ptr %arrayidx181, align 1
@@ -1810,7 +1810,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr = getelementptr inbounds %struct.block_q2_K, ptr %dst, i64 %idx.ext
   %add.ptr2 = getelementptr inbounds float, ptr %src, i64 %indvars.iv
   tail call void @quantize_row_q2_K_reference(ptr noundef %add.ptr2, ptr noundef %add.ptr, i32 noundef %k)
-  %indvars.iv.next = add i64 %indvars.iv, %0
+  %indvars.iv.next = add nsw i64 %indvars.iv, %0
   %cmp = icmp slt i64 %indvars.iv.next, %1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !87
 
@@ -1886,8 +1886,8 @@ for.body21.i:                                     ; preds = %for.body21.i, %if.e
   %4 = fsub float 0x4168000000000000, %mul.i
   %5 = bitcast float %4 to i32
   %and.i.i = and i32 %5, 8388607
-  %6 = tail call i32 @llvm.smin.i32(i32 %and.i.i, i32 4194307)
-  %7 = tail call i32 @llvm.smax.i32(i32 %6, i32 4194300)
+  %6 = tail call i32 @llvm.umin.i32(i32 %and.i.i, i32 4194307)
+  %7 = tail call i32 @llvm.umax.i32(i32 %6, i32 4194300)
   %cond43.i = add nsw i32 %7, -4194304
   %conv44.i = trunc i32 %7 to i8
   %arrayidx46.i = getelementptr inbounds i8, ptr %add.ptr6, i64 %indvars.iv142.i
@@ -1933,8 +1933,8 @@ if.then89.i:                                      ; preds = %for.body72.i
   %add.i119.i = fadd float %div104.i, 0x4168000000000000
   %15 = bitcast float %add.i119.i to i32
   %and.i120.i = and i32 %15, 8388607
-  %16 = tail call i32 @llvm.smin.i32(i32 %and.i120.i, i32 4194307)
-  %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 4194300)
+  %16 = tail call i32 @llvm.umin.i32(i32 %and.i120.i, i32 4194307)
+  %17 = tail call i32 @llvm.umax.i32(i32 %16, i32 4194300)
   %cond129.i = add nsw i32 %17, -4194304
   %conv132.i = sext i8 %11 to i32
   %cmp133.not.i = icmp eq i32 %cond129.i, %conv132.i
@@ -2136,8 +2136,8 @@ for.body155:                                      ; preds = %for.cond152.prehead
   %add.i92 = fadd float %div161, 0x4168000000000000
   %49 = bitcast float %add.i92 to i32
   %and.i93 = and i32 %49, 8388607
-  %50 = tail call i32 @llvm.smin.i32(i32 %and.i93, i32 4194307)
-  %51 = tail call i32 @llvm.smax.i32(i32 %50, i32 4194300)
+  %50 = tail call i32 @llvm.umin.i32(i32 %and.i93, i32 4194307)
+  %51 = tail call i32 @llvm.umax.i32(i32 %50, i32 4194300)
   %52 = trunc i32 %51 to i8
   %conv182 = add nsw i8 %52, 4
   %arrayidx186 = getelementptr inbounds [256 x i8], ptr %L, i64 0, i64 %47
@@ -2403,7 +2403,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr = getelementptr inbounds %struct.block_q3_K, ptr %dst, i64 %idx.ext
   %add.ptr2 = getelementptr inbounds float, ptr %src, i64 %indvars.iv
   tail call void @quantize_row_q3_K_reference(ptr noundef %add.ptr2, ptr noundef %add.ptr, i32 noundef %k)
-  %indvars.iv.next = add i64 %indvars.iv, %0
+  %indvars.iv.next = add nsw i64 %indvars.iv, %0
   %cmp = icmp slt i64 %indvars.iv.next, %1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !111
 
@@ -2535,8 +2535,8 @@ for.body40.i:                                     ; preds = %for.body40.i, %if.e
   %add.i.i = fadd float %mul44.i, 0x4168000000000000
   %14 = bitcast float %add.i.i to i32
   %and.i.i = and i32 %14, 8388607
-  %15 = tail call i32 @llvm.smin.i32(i32 %and.i.i, i32 4194319)
-  %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 4194304)
+  %15 = tail call i32 @llvm.umin.i32(i32 %and.i.i, i32 4194319)
+  %16 = tail call i32 @llvm.umax.i32(i32 %15, i32 4194304)
   %spec.select.i = add nsw i32 %16, -4194304
   %conv59.i = trunc i32 %16 to i8
   %arrayidx61.i = getelementptr inbounds i8, ptr %add.ptr31, i64 %indvars.iv179.i
@@ -2576,8 +2576,8 @@ for.body102.i:                                    ; preds = %for.body102.i, %for
   %add.i132.i = fadd float %mul107.i, 0x4168000000000000
   %22 = bitcast float %add.i132.i to i32
   %and.i133.i = and i32 %22, 8388607
-  %23 = tail call i32 @llvm.smin.i32(i32 %and.i133.i, i32 4194319)
-  %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 4194304)
+  %23 = tail call i32 @llvm.umin.i32(i32 %and.i133.i, i32 4194319)
+  %24 = tail call i32 @llvm.umax.i32(i32 %23, i32 4194304)
   %spec.select131.i = add nsw i32 %24, -4194304
   %conv127.i = trunc i32 %24 to i8
   %arrayidx129.i = getelementptr inbounds i8, ptr %Laux, i64 %indvars.iv184.i
@@ -2806,8 +2806,8 @@ for.body183:                                      ; preds = %if.end172, %for.bod
   %add.i99 = fadd float %div190, 0x4168000000000000
   %71 = bitcast float %add.i99 to i32
   %and.i100 = and i32 %71, 8388607
-  %72 = tail call i32 @llvm.smin.i32(i32 %and.i100, i32 4194319)
-  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 4194304)
+  %72 = tail call i32 @llvm.umin.i32(i32 %and.i100, i32 4194319)
+  %73 = tail call i32 @llvm.umax.i32(i32 %72, i32 4194304)
   %conv210 = trunc i32 %73 to i8
   %arrayidx214 = getelementptr inbounds [256 x i8], ptr %L, i64 0, i64 %69
   store i8 %conv210, ptr %arrayidx214, align 1
@@ -3044,7 +3044,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr = getelementptr inbounds %struct.block_q4_K, ptr %dst, i64 %idx.ext
   %add.ptr2 = getelementptr inbounds float, ptr %src, i64 %indvars.iv
   tail call void @quantize_row_q4_K_reference(ptr noundef %add.ptr2, ptr noundef %add.ptr, i32 noundef %k)
-  %indvars.iv.next = add i64 %indvars.iv, %0
+  %indvars.iv.next = add nsw i64 %indvars.iv, %0
   %cmp = icmp slt i64 %indvars.iv.next, %1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !161
 
@@ -3176,8 +3176,8 @@ for.body40.i:                                     ; preds = %for.body40.i, %if.e
   %add.i.i = fadd float %mul44.i, 0x4168000000000000
   %14 = bitcast float %add.i.i to i32
   %and.i.i = and i32 %14, 8388607
-  %15 = tail call i32 @llvm.smin.i32(i32 %and.i.i, i32 4194335)
-  %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 4194304)
+  %15 = tail call i32 @llvm.umin.i32(i32 %and.i.i, i32 4194335)
+  %16 = tail call i32 @llvm.umax.i32(i32 %15, i32 4194304)
   %spec.select.i = add nsw i32 %16, -4194304
   %conv59.i = trunc i32 %16 to i8
   %arrayidx61.i = getelementptr inbounds i8, ptr %add.ptr31, i64 %indvars.iv179.i
@@ -3217,8 +3217,8 @@ for.body102.i:                                    ; preds = %for.body102.i, %for
   %add.i132.i = fadd float %mul107.i, 0x4168000000000000
   %22 = bitcast float %add.i132.i to i32
   %and.i133.i = and i32 %22, 8388607
-  %23 = tail call i32 @llvm.smin.i32(i32 %and.i133.i, i32 4194335)
-  %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 4194304)
+  %23 = tail call i32 @llvm.umin.i32(i32 %and.i133.i, i32 4194335)
+  %24 = tail call i32 @llvm.umax.i32(i32 %23, i32 4194304)
   %spec.select131.i = add nsw i32 %24, -4194304
   %conv127.i = trunc i32 %24 to i8
   %arrayidx129.i = getelementptr inbounds i8, ptr %Laux, i64 %indvars.iv184.i
@@ -3447,8 +3447,8 @@ for.body183:                                      ; preds = %if.end172, %for.bod
   %add.i113 = fadd float %div190, 0x4168000000000000
   %71 = bitcast float %add.i113 to i32
   %and.i114 = and i32 %71, 8388607
-  %72 = tail call i32 @llvm.smin.i32(i32 %and.i114, i32 4194335)
-  %73 = tail call i32 @llvm.smax.i32(i32 %72, i32 4194304)
+  %72 = tail call i32 @llvm.umin.i32(i32 %and.i114, i32 4194335)
+  %73 = tail call i32 @llvm.umax.i32(i32 %72, i32 4194304)
   %conv210 = trunc i32 %73 to i8
   %arrayidx214 = getelementptr inbounds [256 x i8], ptr %L, i64 0, i64 %69
   store i8 %conv210, ptr %arrayidx214, align 1
@@ -3733,7 +3733,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr = getelementptr inbounds %struct.block_q5_K, ptr %dst, i64 %idx.ext
   %add.ptr2 = getelementptr inbounds float, ptr %src, i64 %indvars.iv
   tail call void @quantize_row_q5_K_reference(ptr noundef %add.ptr2, ptr noundef %add.ptr, i32 noundef %k)
-  %indvars.iv.next = add i64 %indvars.iv, %0
+  %indvars.iv.next = add nsw i64 %indvars.iv, %0
   %cmp = icmp slt i64 %indvars.iv.next, %1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !211
 
@@ -3809,8 +3809,8 @@ for.body63.i:                                     ; preds = %for.body63.i, %if.e
   %4 = fsub float 0x4168000000000000, %mul67.i
   %5 = bitcast float %4 to i32
   %and.i.i = and i32 %5, 8388607
-  %6 = tail call i32 @llvm.smin.i32(i32 %and.i.i, i32 4194335)
-  %7 = tail call i32 @llvm.smax.i32(i32 %6, i32 4194272)
+  %6 = tail call i32 @llvm.umin.i32(i32 %and.i.i, i32 4194335)
+  %7 = tail call i32 @llvm.umax.i32(i32 %6, i32 4194272)
   %cond92.i = add nsw i32 %7, -4194304
   %8 = trunc i32 %7 to i8
   %conv94.i = add nsw i8 %8, 32
@@ -3855,8 +3855,8 @@ for.body150.i:                                    ; preds = %for.body150.i, %if.
   %add.i123.i = fadd float %mul154.i, 0x4168000000000000
   %13 = bitcast float %add.i123.i to i32
   %and.i124.i = and i32 %13, 8388607
-  %14 = tail call i32 @llvm.smin.i32(i32 %and.i124.i, i32 4194335)
-  %15 = tail call i32 @llvm.smax.i32(i32 %14, i32 4194272)
+  %14 = tail call i32 @llvm.umin.i32(i32 %and.i124.i, i32 4194335)
+  %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 4194272)
   %cond179.i = add nsw i32 %15, -4194304
   %mul188.i = fmul float %12, %12
   %mul194.i = fmul float %12, %mul188.i
@@ -3886,8 +3886,8 @@ for.body215.i:                                    ; preds = %land.lhs.true.i, %f
   %add.i126.i = fadd float %mul219.i, 0x4168000000000000
   %19 = bitcast float %add.i126.i to i32
   %and.i127.i = and i32 %19, 8388607
-  %20 = tail call i32 @llvm.smin.i32(i32 %and.i127.i, i32 4194335)
-  %21 = tail call i32 @llvm.smax.i32(i32 %20, i32 4194272)
+  %20 = tail call i32 @llvm.umin.i32(i32 %and.i127.i, i32 4194335)
+  %21 = tail call i32 @llvm.umax.i32(i32 %20, i32 4194272)
   %22 = trunc i32 %21 to i8
   %conv246.i = add nsw i8 %22, 32
   %arrayidx248.i = getelementptr inbounds i8, ptr %add.ptr6, i64 %indvars.iv157.i
@@ -3960,7 +3960,7 @@ for.body29:                                       ; preds = %if.end14, %for.body
   %add.i = fadd float %mul32, 0x4168000000000000
   %29 = bitcast float %add.i to i32
   %and.i = and i32 %29, 8388607
-  %30 = tail call i32 @llvm.smin.i32(i32 %and.i, i32 4194431)
+  %30 = tail call i32 @llvm.umin.i32(i32 %and.i, i32 4194431)
   %conv = trunc i32 %30 to i8
   %arrayidx43 = getelementptr inbounds [16 x i8], ptr %scales41, i64 0, i64 %indvars.iv100
   store i8 %conv, ptr %arrayidx43, align 1
@@ -3990,8 +3990,8 @@ for.body70:                                       ; preds = %for.cond67.preheade
   %add.i76 = fadd float %div74, 0x4168000000000000
   %35 = bitcast float %add.i76 to i32
   %and.i77 = and i32 %35, 8388607
-  %36 = tail call i32 @llvm.smin.i32(i32 %and.i77, i32 4194335)
-  %37 = tail call i32 @llvm.smax.i32(i32 %36, i32 4194272)
+  %36 = tail call i32 @llvm.umin.i32(i32 %and.i77, i32 4194335)
+  %37 = tail call i32 @llvm.umax.i32(i32 %36, i32 4194272)
   %38 = trunc i32 %37 to i8
   %conv95 = add nsw i8 %38, 32
   %arrayidx99 = getelementptr inbounds [256 x i8], ptr %L, i64 0, i64 %33
@@ -4220,7 +4220,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr = getelementptr inbounds %struct.block_q6_K, ptr %dst, i64 %idx.ext
   %add.ptr2 = getelementptr inbounds float, ptr %src, i64 %indvars.iv
   tail call void @quantize_row_q6_K_reference(ptr noundef %add.ptr2, ptr noundef %add.ptr, i32 noundef %k)
-  %indvars.iv.next = add i64 %indvars.iv, %0
+  %indvars.iv.next = add nsw i64 %indvars.iv, %0
   %cmp = icmp slt i64 %indvars.iv.next, %1
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !232
 
@@ -4282,7 +4282,7 @@ for.body17:                                       ; preds = %if.end12, %for.body
   %add.i = fadd float %mul, 0x4168000000000000
   %3 = bitcast float %add.i to i32
   %and.i = and i32 %3, 8388607
-  %4 = tail call i32 @llvm.smin.i32(i32 %and.i, i32 4194431)
+  %4 = tail call i32 @llvm.umin.i32(i32 %and.i, i32 4194431)
   %conv = trunc i32 %4 to i8
   %arrayidx25 = getelementptr inbounds %struct.block_q8_K, ptr %y, i64 %indvars.iv57, i32 1, i64 %indvars.iv44
   store i8 %conv, ptr %arrayidx25, align 1
@@ -4424,7 +4424,7 @@ for.body17.i:                                     ; preds = %for.body17.i, %if.e
   %add.i.i = fadd float %mul.i, 0x4168000000000000
   %3 = bitcast float %add.i.i to i32
   %and.i.i = and i32 %3, 8388607
-  %4 = tail call i32 @llvm.smin.i32(i32 %and.i.i, i32 4194431)
+  %4 = tail call i32 @llvm.umin.i32(i32 %and.i.i, i32 4194431)
   %conv.i = trunc i32 %4 to i8
   %arrayidx25.i = getelementptr inbounds %struct.block_q8_K, ptr %y, i64 %indvars.iv57.i, i32 1, i64 %indvars.iv44.i
   store i8 %conv.i, ptr %arrayidx25.i, align 1, !alias.scope !243, !noalias !240
@@ -5636,6 +5636,9 @@ declare i32 @llvm.umin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #18
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

@@ -532,45 +532,45 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %conv5 = trunc i64 %rem to i32
   %sub = sub i32 %2, %conv5
   %conv7 = zext i32 %sub to i64
-  %cond = call i64 @llvm.smin.i64(i64 %bytes.addr.029, i64 %conv7)
+  %3 = call i64 @llvm.umin.i64(i64 %bytes.addr.029, i64 %conv7)
   call void @qemu_co_rwlock_rdlock(ptr noundef nonnull %bmap_lock) #13
-  %3 = load ptr, ptr %0, align 8
+  %4 = load ptr, ptr %0, align 8
   %idxprom = and i64 %div, 4294967295
-  %arrayidx = getelementptr i32, ptr %3, i64 %idxprom
-  %4 = load i32, ptr %arrayidx, align 4
+  %arrayidx = getelementptr i32, ptr %4, i64 %idxprom
+  %5 = load i32, ptr %arrayidx, align 4
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %bmap_lock) #13
-  %cmp14 = icmp ult i32 %4, -2
+  %cmp14 = icmp ult i32 %5, -2
   br i1 %cmp14, label %if.else, label %if.then
 
 if.then:                                          ; preds = %while.body
-  %call17 = call i64 @qemu_iovec_memset(ptr noundef %qiov, i64 noundef %bytes_done.028, i32 noundef 0, i64 noundef %cond) #13
+  %call17 = call i64 @qemu_iovec_memset(ptr noundef %qiov, i64 noundef %bytes_done.028, i32 noundef 0, i64 noundef %3) #13
   br label %do.end28
 
 if.else:                                          ; preds = %while.body
-  %5 = load i32, ptr %offset_data, align 8
-  %conv18 = zext i32 %5 to i64
-  %conv19 = zext i32 %4 to i64
-  %6 = load i32, ptr %block_size, align 8
-  %conv21 = zext i32 %6 to i64
+  %6 = load i32, ptr %offset_data, align 8
+  %conv18 = zext i32 %6 to i64
+  %conv19 = zext i32 %5 to i64
+  %7 = load i32, ptr %block_size, align 8
+  %conv21 = zext i32 %7 to i64
   %mul = mul nuw i64 %conv21, %conv19
   %conv22 = and i64 %rem, 4294967295
   %add = add nuw nsw i64 %conv22, %conv18
   %add23 = add nuw i64 %add, %mul
   call void @qemu_iovec_reset(ptr noundef nonnull %local_qiov) #13
-  call void @qemu_iovec_concat(ptr noundef nonnull %local_qiov, ptr noundef %qiov, i64 noundef %bytes_done.028, i64 noundef %cond) #13
-  %7 = load ptr, ptr %file, align 8
-  %call26 = call i32 @bdrv_co_preadv(ptr noundef %7, i64 noundef %add23, i64 noundef %cond, ptr noundef nonnull %local_qiov, i32 noundef 0) #13
+  call void @qemu_iovec_concat(ptr noundef nonnull %local_qiov, ptr noundef %qiov, i64 noundef %bytes_done.028, i64 noundef %3) #13
+  %8 = load ptr, ptr %file, align 8
+  %call26 = call i32 @bdrv_co_preadv(ptr noundef %8, i64 noundef %add23, i64 noundef %3, ptr noundef nonnull %local_qiov, i32 noundef 0) #13
   br label %do.end28
 
 do.end28:                                         ; preds = %if.else, %if.then
   %ret.1 = phi i32 [ %call26, %if.else ], [ 0, %if.then ]
-  %sub30 = sub nsw i64 %bytes.addr.029, %cond
-  %add32 = add i64 %cond, %offset.addr.030
-  %add34 = add i64 %cond, %bytes_done.028
+  %sub30 = sub nsw i64 %bytes.addr.029, %3
+  %add32 = add i64 %3, %offset.addr.030
+  %add34 = add i64 %3, %bytes_done.028
   %cmp = icmp sgt i32 %ret.1, -1
   %cmp1 = icmp sgt i64 %sub30, 0
-  %8 = select i1 %cmp, i1 %cmp1, i1 false
-  br i1 %8, label %while.body, label %while.end, !llvm.loop !6
+  %9 = select i1 %cmp, i1 %cmp1, i1 false
+  br i1 %9, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %do.end28, %entry
   %ret.0.lcssa = phi i32 [ 0, %entry ], [ %ret.1, %do.end28 ]
@@ -624,22 +624,22 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %conv5 = trunc i64 %rem to i32
   %sub = sub i32 %3, %conv5
   %conv7 = zext i32 %sub to i64
-  %cond = call i64 @llvm.smin.i64(i64 %bytes.addr.094, i64 %conv7)
-  %conv10 = trunc i64 %cond to i32
+  %4 = call i64 @llvm.umin.i64(i64 %bytes.addr.094, i64 %conv7)
+  %conv10 = trunc i64 %4 to i32
   call void @qemu_co_rwlock_rdlock(ptr noundef nonnull %bmap_lock) #13
-  %4 = load ptr, ptr %0, align 8
+  %5 = load ptr, ptr %0, align 8
   %idxprom = and i64 %div, 4294967295
-  %arrayidx = getelementptr i32, ptr %4, i64 %idxprom
-  %5 = load i32, ptr %arrayidx, align 4
-  %cmp13 = icmp ult i32 %5, -2
+  %arrayidx = getelementptr i32, ptr %5, i64 %idxprom
+  %6 = load i32, ptr %arrayidx, align 4
+  %cmp13 = icmp ult i32 %6, -2
   br i1 %cmp13, label %nonallocating_write, label %if.then
 
 if.then:                                          ; preds = %while.body
   call void @qemu_co_rwlock_upgrade(ptr noundef nonnull %bmap_lock) #13
-  %6 = load ptr, ptr %0, align 8
-  %arrayidx18 = getelementptr i32, ptr %6, i64 %idxprom
-  %7 = load i32, ptr %arrayidx18, align 4
-  %cmp20 = icmp ult i32 %7, -2
+  %7 = load ptr, ptr %0, align 8
+  %arrayidx18 = getelementptr i32, ptr %7, i64 %idxprom
+  %8 = load i32, ptr %arrayidx18, align 4
+  %cmp20 = icmp ult i32 %8, -2
   br i1 %cmp20, label %if.then22, label %if.end
 
 if.then22:                                        ; preds = %if.then
@@ -647,15 +647,15 @@ if.then22:                                        ; preds = %if.then
   br label %nonallocating_write
 
 if.end:                                           ; preds = %if.then
-  %8 = load i32, ptr %blocks_allocated, align 4
-  store i32 %8, ptr %arrayidx18, align 4
-  %inc = add i32 %8, 1
+  %9 = load i32, ptr %blocks_allocated, align 4
+  store i32 %9, ptr %arrayidx18, align 4
+  %inc = add i32 %9, 1
   store i32 %inc, ptr %blocks_allocated, align 4
-  %9 = load i32, ptr %offset_data, align 8
-  %conv31 = zext i32 %9 to i64
-  %conv32 = zext i32 %8 to i64
-  %10 = load i32, ptr %block_size, align 8
-  %conv34 = zext i32 %10 to i64
+  %10 = load i32, ptr %offset_data, align 8
+  %conv31 = zext i32 %10 to i64
+  %conv32 = zext i32 %9 to i64
+  %11 = load i32, ptr %block_size, align 8
+  %conv34 = zext i32 %11 to i64
   %mul = mul nuw i64 %conv34, %conv32
   %add = add nuw i64 %mul, %conv31
   %cmp35 = icmp eq ptr %block.089, null
@@ -671,16 +671,16 @@ if.end41:                                         ; preds = %if.then37, %if.end
   %conv42 = and i64 %rem, 4294967295
   call void @llvm.memset.p0.i64(ptr align 1 %block.1, i8 0, i64 %conv42, i1 false)
   %add.ptr = getelementptr i8, ptr %block.1, i64 %conv42
-  %call44 = call i64 @qemu_iovec_to_buf(ptr noundef %qiov, i64 noundef %bytes_done.090, ptr noundef %add.ptr, i64 noundef %cond) #13
-  %add.ptr48 = getelementptr i8, ptr %add.ptr, i64 %cond
-  %11 = load i32, ptr %block_size, align 8
-  %12 = add i32 %conv10, %conv5
-  %sub51 = sub i32 %11, %12
+  %call44 = call i64 @qemu_iovec_to_buf(ptr noundef %qiov, i64 noundef %bytes_done.090, ptr noundef %add.ptr, i64 noundef %4) #13
+  %add.ptr48 = getelementptr i8, ptr %add.ptr, i64 %4
+  %12 = load i32, ptr %block_size, align 8
+  %13 = add i32 %conv10, %conv5
+  %sub51 = sub i32 %12, %13
   %conv52 = zext i32 %sub51 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %add.ptr48, i8 0, i64 %conv52, i1 false)
-  %13 = load ptr, ptr %file, align 8
-  %14 = load i32, ptr %block_size, align 8
-  %conv54 = zext i32 %14 to i64
+  %14 = load ptr, ptr %file, align 8
+  %15 = load i32, ptr %block_size, align 8
+  %conv54 = zext i32 %15 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
   store ptr %local_iov.i, ptr %qiov.i, align 8
   store i32 1, ptr %niov.i, align 8
@@ -688,27 +688,27 @@ if.end41:                                         ; preds = %if.then37, %if.end
   store ptr %block.1, ptr %local_iov.i, align 8
   store i64 %conv54, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #13
-  %call.i = call i32 @bdrv_co_pwritev(ptr noundef %13, i64 noundef %add, i64 noundef %conv54, ptr noundef nonnull %qiov.i, i32 noundef 0) #13
+  %call.i = call i32 @bdrv_co_pwritev(ptr noundef %14, i64 noundef %add, i64 noundef %conv54, ptr noundef nonnull %qiov.i, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i)
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %bmap_lock) #13
   br label %if.end72
 
 nonallocating_write:                              ; preds = %while.body, %if.then22
-  %bmap_entry.0 = phi i32 [ %5, %while.body ], [ %7, %if.then22 ]
-  %15 = load i32, ptr %offset_data, align 8
-  %conv59 = zext i32 %15 to i64
+  %bmap_entry.0 = phi i32 [ %6, %while.body ], [ %8, %if.then22 ]
+  %16 = load i32, ptr %offset_data, align 8
+  %conv59 = zext i32 %16 to i64
   %conv60 = zext i32 %bmap_entry.0 to i64
-  %16 = load i32, ptr %block_size, align 8
-  %conv62 = zext i32 %16 to i64
+  %17 = load i32, ptr %block_size, align 8
+  %conv62 = zext i32 %17 to i64
   %mul63 = mul nuw i64 %conv62, %conv60
   %conv65 = and i64 %rem, 4294967295
   %add64 = add nuw nsw i64 %conv65, %conv59
   %add66 = add nuw i64 %add64, %mul63
   call void @qemu_co_rwlock_unlock(ptr noundef nonnull %bmap_lock) #13
   call void @qemu_iovec_reset(ptr noundef nonnull %local_qiov) #13
-  call void @qemu_iovec_concat(ptr noundef nonnull %local_qiov, ptr noundef %qiov, i64 noundef %bytes_done.090, i64 noundef %cond) #13
-  %17 = load ptr, ptr %file, align 8
-  %call71 = call i32 @bdrv_co_pwritev(ptr noundef %17, i64 noundef %add66, i64 noundef %cond, ptr noundef nonnull %local_qiov, i32 noundef 0) #13
+  call void @qemu_iovec_concat(ptr noundef nonnull %local_qiov, ptr noundef %qiov, i64 noundef %bytes_done.090, i64 noundef %4) #13
+  %18 = load ptr, ptr %file, align 8
+  %call71 = call i32 @bdrv_co_pwritev(ptr noundef %18, i64 noundef %add66, i64 noundef %4, ptr noundef nonnull %local_qiov, i32 noundef 0) #13
   br label %if.end72
 
 if.end72:                                         ; preds = %nonallocating_write, %if.end41
@@ -716,16 +716,16 @@ if.end72:                                         ; preds = %nonallocating_write
   %ret.1 = phi i32 [ %call71, %nonallocating_write ], [ %call.i, %if.end41 ]
   %bmap_last.1 = phi i32 [ %bmap_last.092, %nonallocating_write ], [ %conv2, %if.end41 ]
   %bmap_first.2 = phi i32 [ %bmap_first.093, %nonallocating_write ], [ %bmap_first.1, %if.end41 ]
-  %sub74 = sub nsw i64 %bytes.addr.094, %cond
-  %add76 = add i64 %cond, %offset.addr.095
-  %add78 = add i64 %cond, %bytes_done.090
+  %sub74 = sub nsw i64 %bytes.addr.094, %4
+  %add76 = add i64 %4, %offset.addr.095
+  %add78 = add i64 %4, %bytes_done.090
   %cmp = icmp sgt i32 %ret.1, -1
   %cmp1 = icmp sgt i64 %sub74, 0
-  %18 = select i1 %cmp, i1 %cmp1, i1 false
-  br i1 %18, label %while.body, label %while.end, !llvm.loop !8
+  %19 = select i1 %cmp, i1 %cmp1, i1 false
+  br i1 %19, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end72
-  %19 = lshr i32 %bmap_last.1, 7
+  %20 = lshr i32 %bmap_last.1, 7
   call void @qemu_iovec_destroy(ptr noundef nonnull %local_qiov) #13
   %cmp83 = icmp slt i32 %ret.1, 0
   br i1 %cmp83, label %if.then85, label %if.end86
@@ -752,88 +752,88 @@ if.end96:                                         ; preds = %if.then87
   %header97 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %call89, ptr noundef nonnull align 8 dereferenceable(512) %header97, i64 512, i1 false)
   %uuid_image.i = getelementptr inbounds i8, ptr %call89, i64 392
-  %20 = load i64, ptr %uuid_image.i, align 1
-  %21 = getelementptr inbounds i8, ptr %call89, i64 400
-  %22 = load i64, ptr %21, align 1
-  %call33.i = call { i64, i64 } @qemu_uuid_bswap(i64 %20, i64 %22) #13
-  %23 = extractvalue { i64, i64 } %call33.i, 0
-  %24 = extractvalue { i64, i64 } %call33.i, 1
-  store i64 %23, ptr %uuid_image.i, align 1
-  store i64 %24, ptr %21, align 1
+  %21 = load i64, ptr %uuid_image.i, align 1
+  %22 = getelementptr inbounds i8, ptr %call89, i64 400
+  %23 = load i64, ptr %22, align 1
+  %call33.i = call { i64, i64 } @qemu_uuid_bswap(i64 %21, i64 %23) #13
+  %24 = extractvalue { i64, i64 } %call33.i, 0
+  %25 = extractvalue { i64, i64 } %call33.i, 1
+  store i64 %24, ptr %uuid_image.i, align 1
+  store i64 %25, ptr %22, align 1
   %uuid_last_snap.i = getelementptr inbounds i8, ptr %call89, i64 408
-  %25 = load i64, ptr %uuid_last_snap.i, align 1
-  %26 = getelementptr inbounds i8, ptr %call89, i64 416
-  %27 = load i64, ptr %26, align 1
-  %call37.i = call { i64, i64 } @qemu_uuid_bswap(i64 %25, i64 %27) #13
-  %28 = extractvalue { i64, i64 } %call37.i, 0
-  %29 = extractvalue { i64, i64 } %call37.i, 1
-  store i64 %28, ptr %uuid_last_snap.i, align 1
-  store i64 %29, ptr %26, align 1
+  %26 = load i64, ptr %uuid_last_snap.i, align 1
+  %27 = getelementptr inbounds i8, ptr %call89, i64 416
+  %28 = load i64, ptr %27, align 1
+  %call37.i = call { i64, i64 } @qemu_uuid_bswap(i64 %26, i64 %28) #13
+  %29 = extractvalue { i64, i64 } %call37.i, 0
+  %30 = extractvalue { i64, i64 } %call37.i, 1
+  store i64 %29, ptr %uuid_last_snap.i, align 1
+  store i64 %30, ptr %27, align 1
   %uuid_link.i = getelementptr inbounds i8, ptr %call89, i64 424
-  %30 = load i64, ptr %uuid_link.i, align 1
-  %31 = getelementptr inbounds i8, ptr %call89, i64 432
-  %32 = load i64, ptr %31, align 1
-  %call42.i = call { i64, i64 } @qemu_uuid_bswap(i64 %30, i64 %32) #13
-  %33 = extractvalue { i64, i64 } %call42.i, 0
-  %34 = extractvalue { i64, i64 } %call42.i, 1
-  store i64 %33, ptr %uuid_link.i, align 1
-  store i64 %34, ptr %31, align 1
+  %31 = load i64, ptr %uuid_link.i, align 1
+  %32 = getelementptr inbounds i8, ptr %call89, i64 432
+  %33 = load i64, ptr %32, align 1
+  %call42.i = call { i64, i64 } @qemu_uuid_bswap(i64 %31, i64 %33) #13
+  %34 = extractvalue { i64, i64 } %call42.i, 0
+  %35 = extractvalue { i64, i64 } %call42.i, 1
+  store i64 %34, ptr %uuid_link.i, align 1
+  store i64 %35, ptr %32, align 1
   %uuid_parent.i = getelementptr inbounds i8, ptr %call89, i64 440
-  %35 = load i64, ptr %uuid_parent.i, align 1
-  %36 = getelementptr inbounds i8, ptr %call89, i64 448
-  %37 = load i64, ptr %36, align 1
-  %call47.i = call { i64, i64 } @qemu_uuid_bswap(i64 %35, i64 %37) #13
-  %38 = extractvalue { i64, i64 } %call47.i, 0
-  %39 = extractvalue { i64, i64 } %call47.i, 1
-  store i64 %38, ptr %uuid_parent.i, align 1
-  store i64 %39, ptr %36, align 1
+  %36 = load i64, ptr %uuid_parent.i, align 1
+  %37 = getelementptr inbounds i8, ptr %call89, i64 448
+  %38 = load i64, ptr %37, align 1
+  %call47.i = call { i64, i64 } @qemu_uuid_bswap(i64 %36, i64 %38) #13
+  %39 = extractvalue { i64, i64 } %call47.i, 0
+  %40 = extractvalue { i64, i64 } %call47.i, 1
+  store i64 %39, ptr %uuid_parent.i, align 1
+  store i64 %40, ptr %37, align 1
   %file98 = getelementptr inbounds i8, ptr %bs, i64 16840
-  %40 = load ptr, ptr %file98, align 8
+  %41 = load ptr, ptr %file98, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i78)
-  %41 = getelementptr inbounds i8, ptr %qiov.i78, i64 16
+  %42 = getelementptr inbounds i8, ptr %qiov.i78, i64 16
   %local_iov.i79 = getelementptr inbounds i8, ptr %qiov.i78, i64 24
   store ptr %local_iov.i79, ptr %qiov.i78, align 8
   %niov.i80 = getelementptr inbounds i8, ptr %qiov.i78, i64 8
   store i32 1, ptr %niov.i80, align 8
-  store i32 -1, ptr %41, align 8
+  store i32 -1, ptr %42, align 8
   store ptr %call89, ptr %local_iov.i79, align 8
   %iov_len.i81 = getelementptr inbounds i8, ptr %qiov.i78, i64 32
   store i64 512, ptr %iov_len.i81, align 8
   call void @assert_bdrv_graph_readable() #13
-  %call.i82 = call i32 @bdrv_co_pwritev(ptr noundef %40, i64 noundef 0, i64 noundef 512, ptr noundef nonnull %qiov.i78, i32 noundef 0) #13
+  %call.i82 = call i32 @bdrv_co_pwritev(ptr noundef %41, i64 noundef 0, i64 noundef 512, ptr noundef nonnull %qiov.i78, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i78)
   call void @g_free(ptr noundef %call89) #13
   %cmp100 = icmp slt i32 %call.i82, 0
   br i1 %cmp100, label %return, label %do.end105
 
 do.end105:                                        ; preds = %if.end96
-  %42 = lshr i32 %bmap_first.2, 7
-  %sub112 = sub nsw i32 %19, %42
+  %43 = lshr i32 %bmap_first.2, 7
+  %sub112 = sub nsw i32 %20, %43
   %bmap_sector = getelementptr inbounds i8, ptr %0, i64 12
-  %43 = load i32, ptr %bmap_sector, align 4
-  %add114 = add i32 %43, %42
+  %44 = load i32, ptr %bmap_sector, align 4
+  %add114 = add i32 %44, %43
   %conv115 = zext i32 %add114 to i64
-  %44 = load ptr, ptr %0, align 8
-  %mul118 = shl i32 %42, 9
+  %45 = load ptr, ptr %0, align 8
+  %mul118 = shl i32 %43, 9
   %idx.ext119 = zext i32 %mul118 to i64
-  %add.ptr120 = getelementptr i8, ptr %44, i64 %idx.ext119
-  %45 = load ptr, ptr %file98, align 8
+  %add.ptr120 = getelementptr i8, ptr %45, i64 %idx.ext119
+  %46 = load ptr, ptr %file98, align 8
   %mul124 = shl nuw nsw i64 %conv115, 9
   %add113 = shl i32 %sub112, 9
   %mul125 = add i32 %add113, 512
   %conv126 = zext i32 %mul125 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i83)
-  %46 = getelementptr inbounds i8, ptr %qiov.i83, i64 16
+  %47 = getelementptr inbounds i8, ptr %qiov.i83, i64 16
   %local_iov.i84 = getelementptr inbounds i8, ptr %qiov.i83, i64 24
   store ptr %local_iov.i84, ptr %qiov.i83, align 8
   %niov.i85 = getelementptr inbounds i8, ptr %qiov.i83, i64 8
   store i32 1, ptr %niov.i85, align 8
-  store i32 -1, ptr %46, align 8
+  store i32 -1, ptr %47, align 8
   store ptr %add.ptr120, ptr %local_iov.i84, align 8
   %iov_len.i86 = getelementptr inbounds i8, ptr %qiov.i83, i64 32
   store i64 %conv126, ptr %iov_len.i86, align 8
   call void @assert_bdrv_graph_readable() #13
-  %call.i87 = call i32 @bdrv_co_pwritev(ptr noundef %45, i64 noundef %mul124, i64 noundef %conv126, ptr noundef nonnull %qiov.i83, i32 noundef 0) #13
+  %call.i87 = call i32 @bdrv_co_pwritev(ptr noundef %46, i64 noundef %mul124, i64 noundef %conv126, ptr noundef nonnull %qiov.i83, i32 noundef 0) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i83)
   br label %return
 
@@ -1376,9 +1376,6 @@ declare noalias ptr @g_try_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
