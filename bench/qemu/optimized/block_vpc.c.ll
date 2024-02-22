@@ -1798,7 +1798,6 @@ if.end25:                                         ; preds = %if.end9
   %15 = load ptr, ptr %file, align 8
   %footer.i = getelementptr inbounds i8, ptr %13, i64 48
   %call.i = tail call i32 @bdrv_co_pwrite_sync(ptr noundef %15, i64 noundef %14, i64 noundef 512, ptr noundef nonnull %footer.i, i32 noundef 0) #15
-  %call..i = tail call i32 @llvm.smin.i32(i32 %call.i, i32 0)
   %cmp32 = icmp slt i32 %call.i, 0
   br i1 %cmp32, label %fail, label %if.end35
 
@@ -1851,7 +1850,7 @@ if.end10.i:                                       ; preds = %lor.lhs.false.i
   br label %cleanup
 
 fail:                                             ; preds = %if.end35, %if.end25
-  %ret.0 = phi i32 [ %call..i, %if.end25 ], [ %call45, %if.end35 ]
+  %ret.0 = phi i32 [ %call.i, %if.end25 ], [ %call45, %if.end35 ]
   %27 = load i32, ptr %block_size, align 8
   %28 = load i32, ptr %bitmap_size, align 4
   %add53 = add i32 %28, %27

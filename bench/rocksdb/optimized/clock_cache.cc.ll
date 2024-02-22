@@ -5238,7 +5238,6 @@ _ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleI
 for.cond3.preheader:                              ; preds = %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit, %if.end58
   %i.0279 = phi i32 [ 0, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit ], [ %inc60, %if.end58 ]
   %zero_head_lock.sroa.7.0278 = phi i64 [ %or.i.i, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit ], [ %.sink.i236, %if.end58 ]
-  %smax = tail call i32 @llvm.smax.i32(i32 %i.0279, i32 4095)
   br label %if.end6
 
 if.then:                                          ; preds = %if.end58
@@ -5291,7 +5290,7 @@ if.end31:                                         ; preds = %if.then26, %if.then
   %chain_next_with_shift = getelementptr inbounds i8, ptr %arrayidx13, i64 56
   %6 = load atomic i64, ptr %chain_next_with_shift acquire, align 8
   %inc = add nsw i32 %i.1276, 1
-  %exitcond = icmp eq i32 %i.1276, %smax
+  %exitcond = icmp eq i32 %i.1276, 4095
   br i1 %exitcond, label %if.then5, label %if.end6, !llvm.loop !57
 
 for.end:                                          ; preds = %if.end6

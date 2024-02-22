@@ -6666,7 +6666,6 @@ for.body.i:                                       ; preds = %if.end8.i, %for.bod
 if.end177:                                        ; preds = %for.body.i, %if.end8.i
   %idx.0.lcssa.i = phi i32 [ %add.i, %if.end8.i ], [ %inc15.i, %for.body.i ]
   %sub18.i = sub i32 %idx.0.lcssa.i, %add171
-  %spec.store.select = call i32 @llvm.smin.i32(i32 %sub18.i, i32 0)
   %cmp178 = icmp sgt i32 %sub18.i, -1
   br i1 %cmp178, label %if.end.thread.i.i480, label %return
 
@@ -6759,7 +6758,7 @@ SetOctetString.exit650:                           ; preds = %if.end9.thread.i.i.
   br label %return
 
 return:                                           ; preds = %if.end4.i, %if.end.i475, %entry, %if.else3.i, %if.then5, %if.then2.i, %if.end12, %if.then20, %if.end99, %if.end107, %if.end177, %SetOctetString.exit650, %SetLength.exit107
-  %retval.0 = phi i32 [ -202, %SetLength.exit107 ], [ %add210, %SetOctetString.exit650 ], [ %spec.store.select, %if.end177 ], [ %call106, %if.end107 ], [ %call91, %if.end99 ], [ %call46, %if.then20 ], [ -133, %if.end12 ], [ -133, %if.else3.i ], [ -133, %if.then5 ], [ -154, %if.then2.i ], [ -173, %entry ], [ -140, %if.end4.i ], [ -132, %if.end.i475 ]
+  %retval.0 = phi i32 [ -202, %SetLength.exit107 ], [ %add210, %SetOctetString.exit650 ], [ %sub18.i, %if.end177 ], [ %call106, %if.end107 ], [ %call91, %if.end99 ], [ %call46, %if.then20 ], [ -133, %if.end12 ], [ -133, %if.else3.i ], [ -133, %if.then5 ], [ -154, %if.then2.i ], [ -173, %entry ], [ -140, %if.end4.i ], [ -132, %if.end.i475 ]
   ret i32 %retval.0
 }
 
@@ -21736,7 +21735,7 @@ while.end59:                                      ; preds = %while.end59.loopexi
 
 if.then66:                                        ; preds = %while.end59
   %add.ptr = getelementptr inbounds i8, ptr %p.2.lcssa, i64 1
-  %sub = add i32 %count.1.lcssa, %nameSz
+  %sub = add nsw i32 %count.1.lcssa, %nameSz
   br label %land.lhs.true75
 
 land.lhs.true75:                                  ; preds = %while.cond.preheader, %while.end, %if.then66, %while.end59

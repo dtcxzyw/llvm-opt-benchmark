@@ -1049,7 +1049,6 @@ for.body:                                         ; preds = %entry, %invoke.cont
   %idxprom = sext i32 %c.010 to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr %bytemap_, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
-  %smax = call i32 @llvm.smax.i32(i32 %c.010, i32 255)
   br label %while.cond
 
 while.cond:                                       ; preds = %land.rhs, %for.body
@@ -1069,7 +1068,7 @@ invoke.cont.split.loop.exit:                      ; preds = %land.rhs
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %while.cond, %invoke.cont.split.loop.exit
-  %c.1.lcssa = phi i32 [ %2, %invoke.cont.split.loop.exit ], [ %smax, %while.cond ]
+  %c.1.lcssa = phi i32 [ %2, %invoke.cont.split.loop.exit ], [ 255, %while.cond ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %c.010 to i64
   %3 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
@@ -3034,7 +3033,7 @@ _ZN3re28PODArrayIiED2Ev.exit.i61:                 ; preds = %if.end4.i.i.i60
 invoke.cont14:                                    ; preds = %_ZSt8__copy_nIPN3re211SparseArrayIiE10IndexValueEiS4_ET1_T_T0_S5_St26random_access_iterator_tag.exit.i.i, %invoke.cont8.i
   %idx.ext.i = sext i32 %13 to i64
   %add.ptr.i68.idx = shl nsw i64 %idx.ext.i, 3
-  %add.ptr.i68.ptr = getelementptr inbounds i8, ptr %call5.i3.i1517.i, i64 %add.ptr.i68.idx
+  %add.ptr.i68 = getelementptr inbounds i8, ptr %call5.i3.i1517.i, i64 %add.ptr.i68.idx
   %cmp.not.i.i69 = icmp eq i32 %13, 0
   br i1 %cmp.not.i.i69, label %invoke.cont20, label %if.then.i.i70
 
@@ -3043,7 +3042,7 @@ if.then.i.i70:                                    ; preds = %invoke.cont14
   %20 = tail call i64 @llvm.ctlz.i64(i64 %idx.ext.i, i1 true), !range !85
   %sub.i.i.i = shl nuw nsw i64 %20, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
-  invoke void @_ZSt16__introsort_loopIPN3re211SparseArrayIiE10IndexValueElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_T0_T1_(ptr noundef nonnull %call5.i3.i1517.i, ptr noundef nonnull %add.ptr.i68.ptr, i64 noundef %mul.i.i, ptr nonnull @_ZN3re211SparseArrayIiE4lessERKNS1_10IndexValueES4_)
+  invoke void @_ZSt16__introsort_loopIPN3re211SparseArrayIiE10IndexValueElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_T0_T1_(ptr noundef nonnull %call5.i3.i1517.i, ptr noundef nonnull %add.ptr.i68, i64 noundef %mul.i.i, ptr nonnull @_ZN3re211SparseArrayIiE4lessERKNS1_10IndexValueES4_)
           to label %.noexc75 unwind label %lpad15.loopexit.split-lp
 
 .noexc75:                                         ; preds = %if.then.i.i70
@@ -3118,7 +3117,7 @@ _ZSt25__unguarded_linear_insertIPN3re211SparseArrayIiE10IndexValueEN9__gnu_cxx5_
   %__last.addr.0.lcssa.i.i11.i = phi ptr [ %__i.04.i.i, %for.body.i8.i ], [ %__next.011.i.i13.i, %while.body.i.i12.i ]
   store i64 %27, ptr %__last.addr.0.lcssa.i.i11.i, align 4
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__i.04.i.i, i64 8
-  %cmp.not.i.i238 = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i68.ptr
+  %cmp.not.i.i238 = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i68
   br i1 %cmp.not.i.i238, label %invoke.cont20, label %for.body.i8.i, !llvm.loop !88
 
 if.else.i:                                        ; preds = %.noexc75
@@ -3168,7 +3167,7 @@ for.inc.i28.i:                                    ; preds = %while.body.i.i31.i,
   %__last.addr.0.lcssa.i.i27.i.sink = phi ptr [ %call5.i3.i1517.i, %if.then2.i36.i ], [ %__i.015.i21.i, %if.else.i24.i ], [ %__next.011.i.i32.i, %while.body.i.i31.i ]
   store i64 %33, ptr %__last.addr.0.lcssa.i.i27.i.sink, align 4
   %__i.0.i29.i = getelementptr inbounds i8, ptr %__i.015.i21.i, i64 8
-  %cmp1.not.i30.i = icmp eq ptr %__i.0.i29.i, %add.ptr.i68.ptr
+  %cmp1.not.i30.i = icmp eq ptr %__i.0.i29.i, %add.ptr.i68
   br i1 %cmp1.not.i30.i, label %invoke.cont20, label %for.body.i20.i, !llvm.loop !87
 
 invoke.cont20:                                    ; preds = %for.inc.i28.i, %_ZSt25__unguarded_linear_insertIPN3re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops14_Val_comp_iterIPFbRKS3_S9_EEEEvT_T0_.exit.i10.i, %invoke.cont14, %if.else.i

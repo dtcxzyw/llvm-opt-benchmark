@@ -2007,8 +2007,7 @@ _ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit:   ; preds = %land.lhs.true8.i
 
 if.then12:                                        ; preds = %_ZNK18OpenImageIO_v2_6_08TypeDesceqERKS0_.exit
   %25 = load i32, ptr %val, align 4
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %25, i32 0)
-  %val.i204.1 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 512)
+  %val.i204.1 = tail call i32 @llvm.umin.i32(i32 %25, i32 512)
   %cmp = icmp slt i32 %25, 1
   br i1 %cmp, label %if.then15, label %if.end17
 
@@ -30813,9 +30812,9 @@ sw.bb26.i45:                                      ; preds = %if.end18
   %idxprom.i194 = zext nneg i16 %bf.clear.i254 to i64
   %arrayidx.i195 = getelementptr inbounds [4 x i32], ptr @__const._ZN3fmt2v86detail18make_write_int_argIoEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4sign4typeE.prefixes, i64 0, i64 %idxprom.i194
   %46 = load i32, ptr %arrayidx.i195, align 4, !noalias !236
-  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16
+  store i80 %arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.305, ptr %agg.tmp4.i247, align 16, !alias.scope !236
   %agg.tmp4.i247.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 10
-  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2
+  store i48 %arg.sroa.0.10.arg.sroa.0.0.arg.sroa.0.0.arg.sroa.0.0.306, ptr %agg.tmp4.i247.sroa_idx, align 2, !alias.scope !236
   %prefix3.i196 = getelementptr inbounds i8, ptr %agg.tmp4.i247, i64 16
   store i32 %46, ptr %prefix3.i196, align 16, !alias.scope !236
   %call.i256 = call ptr @_ZN3fmt2v86detail18write_int_noinlineIcNS0_8appenderEoEET0_S4_NS1_13write_int_argIT1_EERKNS0_18basic_format_specsIT_EENS1_10locale_refE(ptr %retval.sroa.0.0.copyload.i, ptr noundef nonnull byval(%"struct.fmt::v8::detail::write_int_arg.107") align 16 %agg.tmp4.i247, ptr noundef nonnull align 4 dereferenceable(16) %specs, ptr %retval.sroa.0.0.copyload.i156)

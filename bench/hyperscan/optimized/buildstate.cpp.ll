@@ -2150,7 +2150,6 @@ _ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212Po
   %mul6.i.i.i = shl i64 %14, 3
   %25 = call i64 @llvm.umin.i64(i64 %mul6.i.i.i, i64 2305843009213693951)
   %26 = select i1 %cmp3.i.i.i, i64 2305843009213693951, i64 %25
-  %27 = call noundef i64 @llvm.umax.i64(i64 %reass.sub, i64 %26)
   %cmp3.i.i = icmp ugt i64 %reass.sub, 2305843009213693951
   br i1 %cmp3.i.i, label %if.then.i5.i, label %if.end.i4.i
 
@@ -2159,8 +2158,8 @@ if.then.i5.i:                                     ; preds = %_ZNK5boost9containe
   unreachable
 
 if.end.i4.i:                                      ; preds = %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212PositionInfoESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212PositionInfoESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i
-  %28 = phi i64 [ %24, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212PositionInfoESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread ], [ %27, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212PositionInfoESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i ]
-  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %28, 1152921504606846975
+  %27 = phi i64 [ %24, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212PositionInfoESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i.thread ], [ %26, %_ZNK5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212PositionInfoESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE13next_capacityINS0_16growth_factor_60EEEmm.exit.i ]
+  %cmp.i.i.i.i.i.i.i = icmp ugt i64 %27, 1152921504606846975
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212PositionInfoESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i4.i
@@ -2168,7 +2167,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i4.i
   unreachable
 
 _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212PositionInfoESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit.i: ; preds = %if.end.i4.i
-  %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %28, 3
+  %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %27, 3
   %call5.i.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #22, !noalias !57
   %tobool.not.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i, label %invoke.cont14.thread.i.i, label %invoke.cont8.i.i
@@ -2225,15 +2224,15 @@ _ZN5boost9container6vectorIN3ue212PositionInfoENS0_22small_vector_allocatorIS3_S
   %sub.ptr.sub37.i.i = sub i64 %sub.ptr.lhs.cast35.i.i, %sub.ptr.rhs.cast36.i.i
   %sub.ptr.div38.i.i = ashr exact i64 %sub.ptr.sub37.i.i, 3
   store i64 %sub.ptr.div38.i.i, ptr %m_size.i.i36, align 8, !noalias !57
-  store i64 %28, ptr %m_capacity.i.i, align 8, !noalias !57
+  store i64 %27, ptr %m_capacity.i.i, align 8, !noalias !57
   br label %for.inc
 
 if.then3.i.i.i.i.i:                               ; preds = %if.then.i41
   %clone.sroa.0.0.insert.ext56 = zext i32 %add to i64
   %clone.sroa.0.0.insert.insert58 = or disjoint i64 %clone.sroa.9.0.extract.shift, %clone.sroa.0.0.insert.ext56
   store i64 %clone.sroa.0.0.insert.insert58, ptr %add.ptr.i.i37, align 4, !noalias !60
-  %29 = load i64, ptr %m_size.i.i36, align 8, !noalias !60
-  %add.i.i.i.i.i = add i64 %29, 1
+  %28 = load i64, ptr %m_size.i.i36, align 8, !noalias !60
+  %add.i.i.i.i.i = add i64 %28, 1
   store i64 %add.i.i.i.i.i, ptr %m_size.i.i36, align 8, !noalias !60
   br label %for.inc
 
@@ -2244,14 +2243,14 @@ if.then6.i.i.i.i.i:                               ; preds = %if.then.thread.i
   br i1 %tobool.i.i.not.i.i.i.i.i, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212PositionInfoESaIvEvEEPS4_S7_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SB_E4typeERT_SA_SA_SB_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then6.i.i.i.i.i
-  %30 = load i64, ptr %add.ptr.i.i.i.i.i, align 4, !noalias !60
-  store i64 %30, ptr %add.ptr.i.i37, align 4, !noalias !60
+  %29 = load i64, ptr %add.ptr.i.i.i.i.i, align 4, !noalias !60
+  store i64 %29, ptr %add.ptr.i.i37, align 4, !noalias !60
   %.pre.i.i.i.i.i = load i64, ptr %m_size.i.i36, align 8, !noalias !60
   br label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212PositionInfoESaIvEvEEPS4_S7_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SB_E4typeERT_SA_SA_SB_.exit.i.i.i.i.i
 
 _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue212PositionInfoESaIvEvEEPS4_S7_EENS0_3dtl40enable_if_memtransfer_copy_constructibleIT0_T1_SB_E4typeERT_SA_SA_SB_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.then6.i.i.i.i.i
-  %31 = phi i64 [ %14, %if.then6.i.i.i.i.i ], [ %.pre.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ]
-  %add12.i.i.i.i.i = add i64 %31, 1
+  %30 = phi i64 [ %14, %if.then6.i.i.i.i.i ], [ %.pre.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ]
+  %add12.i.i.i.i.i = add i64 %30, 1
   store i64 %add12.i.i.i.i.i, ptr %m_size.i.i36, align 8, !noalias !60
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i, %19
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN5boost9container13move_backwardIPN3ue212PositionInfoES4_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S8_E4typeES7_S7_S8_.exit.i.i.i.i.i, label %invoke.cont3.i.i.i.i.i.i
@@ -2277,8 +2276,8 @@ for.inc:                                          ; preds = %if.then3.i.i.i.i.i,
   br i1 %cmp.i.i.i.i.not, label %for.inc14, label %for.body4
 
 for.inc14:                                        ; preds = %for.inc, %_ZNSt3mapIjN3ue28flat_setINS0_12PositionInfoESt4lessIS2_ESaIS2_EEES3_IjESaISt4pairIKjS6_EEEixERS9_.exit
-  %32 = load i32, ptr %i, align 4
-  %inc = add i32 %32, 1
+  %31 = load i32, ptr %i, align 4
+  %inc = add i32 %31, 1
   store i32 %inc, ptr %i, align 4
   %cmp.not = icmp ugt i32 %inc, %last
   br i1 %cmp.not, label %for.end15, label %for.body, !llvm.loop !67

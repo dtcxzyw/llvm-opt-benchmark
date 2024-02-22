@@ -553,7 +553,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %HUF_
   %arrayidx.i16 = getelementptr inbounds %struct.nodeElt_s, ptr %add.ptr, i64 %indvars.iv.i15
   %16 = load i32, ptr %arrayidx.i16, align 4
   %cmp.i = icmp eq i32 %16, 0
-  %indvars.iv.next.i17 = add i64 %indvars.iv.i15, -1
+  %indvars.iv.next.i17 = add nsw i64 %indvars.iv.i15, -1
   %indvars.iv.next82.i = add i32 %indvars.iv81.i, -1
   %indvars.iv.next90.i = add i32 %indvars.iv89.i, -1
   %indvars.iv.next = add i32 %indvars.iv, -1
@@ -741,7 +741,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %sub14.i = add i32 %totalCost.080.i, %shl.i
   %add.i = add i32 %sub14.i, %shl13.neg.i
   store i8 %conv15.i, ptr %nbBits481.i, align 1
-  %indvars.iv.next.i33 = add i64 %indvars.iv.i32, -1
+  %indvars.iv.next.i33 = add nsw i64 %indvars.iv.i32, -1
   %nbBits4.i = getelementptr inbounds %struct.nodeElt_s, ptr %add.ptr, i64 %indvars.iv.next.i33, i32 3
   %36 = load i8, ptr %nbBits4.i, align 1
   %conv5.i = zext i8 %36 to i32
@@ -755,7 +755,7 @@ while.cond19.i:                                   ; preds = %while.cond19.i, %wh
   %37 = load i8, ptr %nbBits22.i, align 1
   %conv23.i = zext i8 %37 to i32
   %cmp24.i = icmp eq i32 %spec.store.select, %conv23.i
-  %indvars.iv.next110.i = add i64 %indvars.iv109.i, -1
+  %indvars.iv.next110.i = add nsw i64 %indvars.iv109.i, -1
   %indvars.iv.next113.i = add i32 %indvars.iv112.i, -1
   br i1 %cmp24.i, label %while.cond19.i, label %while.end28.i, !llvm.loop !24
 
@@ -936,7 +936,7 @@ while.cond145.i:                                  ; preds = %while.cond145.i, %w
   %59 = load i8, ptr %nbBits148.i, align 1
   %conv149.i = zext i8 %59 to i32
   %cmp150.i = icmp eq i32 %spec.store.select, %conv149.i
-  %indvars.iv.next126.i = add i64 %indvars.iv125.i, -1
+  %indvars.iv.next126.i = add nsw i64 %indvars.iv125.i, -1
   br i1 %cmp150.i, label %while.cond145.i, label %while.end154.i, !llvm.loop !29
 
 while.end154.i:                                   ; preds = %while.cond145.i
@@ -955,7 +955,6 @@ while.body140.lr.ph.i:                            ; preds = %while.end154.i, %wh
   %add155106.i = phi i32 [ %arrayidx141.promoted105.i, %while.body140.lr.ph.lr.ph.i ], [ %add155.i, %while.end154.i ]
   %totalCost.2.ph104.i = phi i32 [ %totalCost.1.lcssa.i, %while.body140.lr.ph.lr.ph.i ], [ %inc162.i, %while.end154.i ]
   %n.2.ph103.i = phi i64 [ %indvars.iv109.i, %while.body140.lr.ph.lr.ph.i ], [ %indvars.iv125.i, %while.end154.i ]
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %totalCost.2.ph104.i, i32 -1)
   br label %while.body140.i
 
 if.end163.i:                                      ; preds = %while.body140.i
@@ -966,7 +965,7 @@ if.end163.i:                                      ; preds = %while.body140.i
   %dec169.i = add i8 %62, -1
   store i8 %dec169.i, ptr %nbBits168.i, align 1
   %inc172.i = add i32 %totalCost.2100.i, 1
-  %exitcond124.not.i = icmp eq i32 %totalCost.2100.i, %smax.i
+  %exitcond124.not.i = icmp eq i32 %totalCost.2100.i, -1
   br i1 %exitcond124.not.i, label %HUF_setMaxHeight.exit, label %while.body140.i, !llvm.loop !30
 
 HUF_setMaxHeight.exit:                            ; preds = %while.end154.i, %if.end163.i, %HUF_buildTree.exit, %while.cond137.preheader.i
@@ -4826,9 +4825,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #12

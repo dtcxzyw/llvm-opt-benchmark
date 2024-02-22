@@ -13869,7 +13869,6 @@ ecc_test_vector.exit:                             ; preds = %sw.epilog.i, %if.en
   call void @llvm.lifetime.end.p0(i64 141, ptr nonnull %sigRaw.i.i)
   call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %r.i.i)
   call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %s.i.i)
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %ret.2.i.fr.i, i32 0)
   %cmp7 = icmp slt i32 %ret.2.i.fr.i, 0
   br i1 %cmp7, label %return.sink.split, label %if.end11
 
@@ -14048,7 +14047,7 @@ ecc_test_key_gen.exit:                            ; preds = %do.body.i32, %do.bo
 
 return.sink.split:                                ; preds = %ecc_test_key_gen.exit, %ecc_test_key_decode.exit, %ecc_test_vector.exit, %ecc_test_vector_item.exit.thread.i, %if.end5, %ecc_test_curve_size.exit
   %.str.231.sink = phi ptr [ @.str.228, %ecc_test_curve_size.exit ], [ @.str.229, %if.end5 ], [ @.str.229, %ecc_test_vector_item.exit.thread.i ], [ @.str.229, %ecc_test_vector.exit ], [ @.str.230, %ecc_test_key_decode.exit ], [ @.str.231, %ecc_test_key_gen.exit ]
-  %retval.0.ph = phi i32 [ %ret.16.i, %ecc_test_curve_size.exit ], [ -174, %if.end5 ], [ %ret.2.i.ph.i, %ecc_test_vector_item.exit.thread.i ], [ %spec.select.i, %ecc_test_vector.exit ], [ %ret.0.i24, %ecc_test_key_decode.exit ], [ %ret.0.i34, %ecc_test_key_gen.exit ]
+  %retval.0.ph = phi i32 [ %ret.16.i, %ecc_test_curve_size.exit ], [ -174, %if.end5 ], [ %ret.2.i.ph.i, %ecc_test_vector_item.exit.thread.i ], [ %ret.2.i.fr.i, %ecc_test_vector.exit ], [ %ret.0.i24, %ecc_test_key_decode.exit ], [ %ret.0.i34, %ecc_test_key_gen.exit ]
   %call28 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.231.sink, i32 noundef %keySize)
   %45 = load ptr, ptr @stdout, align 8
   %call29 = call i32 @fflush(ptr noundef %45)

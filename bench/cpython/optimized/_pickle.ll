@@ -20031,7 +20031,6 @@ for.body6.i:                                      ; preds = %if.end, %for.body6.
   br i1 %exitcond.not.i, label %calc_binsize.exit, label %for.body6.i, !llvm.loop !34
 
 calc_binsize.exit:                                ; preds = %for.body6.i
-  %.x.0.i = tail call i64 @llvm.smax.i64(i64 %or.i, i64 -1)
   %cmp10 = icmp slt i64 %or.i, 0
   br i1 %cmp10, label %if.then12, label %if.end14
 
@@ -20041,7 +20040,7 @@ if.then12:                                        ; preds = %calc_binsize.exit
   br label %return
 
 if.end14:                                         ; preds = %if.end, %calc_binsize.exit
-  %.x.0.i33 = phi i64 [ %.x.0.i, %calc_binsize.exit ], [ 0, %if.end ]
+  %.x.0.i33 = phi i64 [ %or.i, %calc_binsize.exit ], [ 0, %if.end ]
   %call15 = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %.x.0.i33) #11
   %cmp16 = icmp eq ptr %call15, null
   br i1 %cmp16, label %return, label %if.end19
@@ -20208,7 +20207,6 @@ for.body6.i:                                      ; preds = %if.end, %for.body6.
   br i1 %exitcond.not.i, label %calc_binsize.exit, label %for.body6.i, !llvm.loop !34
 
 calc_binsize.exit:                                ; preds = %for.body6.i
-  %.x.0.i = tail call i64 @llvm.smax.i64(i64 %or.i, i64 -1)
   %cmp10 = icmp slt i64 %or.i, 0
   br i1 %cmp10, label %if.then12, label %if.end14
 
@@ -20219,8 +20217,7 @@ if.then12:                                        ; preds = %calc_binsize.exit
   br label %return
 
 if.end14:                                         ; preds = %if.end, %calc_binsize.exit
-  %.x.0.i66 = phi i64 [ %.x.0.i, %calc_binsize.exit ], [ 0, %if.end ]
-  %x.0.lcssa.i65 = phi i64 [ %or.i, %calc_binsize.exit ], [ 0, %if.end ]
+  %.x.0.i66 = phi i64 [ %or.i, %calc_binsize.exit ], [ 0, %if.end ]
   %12 = load i64, ptr %input_len, align 8
   %sub17 = sub i64 %12, %9
   %cmp18.not = icmp sgt i64 %.x.0.i66, %sub17
@@ -20260,7 +20257,7 @@ if.end2.i35:                                      ; preds = %if.end.i32
   br i1 %cmp4.i37, label %return, label %if.end7.i38
 
 if.end7.i38:                                      ; preds = %if.end2.i35
-  %cmp8.i39 = icmp ugt i64 %x.0.lcssa.i65, %call3.i36
+  %cmp8.i39 = icmp ugt i64 %.x.0.i66, %call3.i36
   br i1 %cmp8.i39, label %if.then10.i43, label %_Unpickler_ReadImpl.exit49
 
 if.then10.i43:                                    ; preds = %if.end7.i38
@@ -20439,7 +20436,6 @@ for.body6.i:                                      ; preds = %if.end, %for.body6.
   br i1 %exitcond.not.i, label %calc_binsize.exit, label %for.body6.i, !llvm.loop !34
 
 calc_binsize.exit:                                ; preds = %for.body6.i
-  %.x.0.i = tail call i64 @llvm.smax.i64(i64 %or.i, i64 -1)
   %cmp10 = icmp slt i64 %or.i, 0
   br i1 %cmp10, label %if.then12, label %if.end14
 
@@ -20449,8 +20445,7 @@ if.then12:                                        ; preds = %calc_binsize.exit
   br label %return
 
 if.end14:                                         ; preds = %if.end, %calc_binsize.exit
-  %.x.0.i60 = phi i64 [ %.x.0.i, %calc_binsize.exit ], [ 0, %if.end ]
-  %x.0.lcssa.i59 = phi i64 [ %or.i, %calc_binsize.exit ], [ 0, %if.end ]
+  %.x.0.i60 = phi i64 [ %or.i, %calc_binsize.exit ], [ 0, %if.end ]
   %12 = load i64, ptr %input_len, align 8
   %sub17 = sub i64 %12, %9
   %cmp18.not = icmp sgt i64 %.x.0.i60, %sub17
@@ -20490,7 +20485,7 @@ if.end2.i30:                                      ; preds = %if.end.i27
   br i1 %cmp4.i32, label %return, label %if.end7.i33
 
 if.end7.i33:                                      ; preds = %if.end2.i30
-  %cmp8.i34 = icmp ugt i64 %x.0.lcssa.i59, %call3.i31
+  %cmp8.i34 = icmp ugt i64 %.x.0.i60, %call3.i31
   br i1 %cmp8.i34, label %if.then10.i38, label %_Unpickler_ReadImpl.exit44
 
 if.then10.i38:                                    ; preds = %if.end7.i33

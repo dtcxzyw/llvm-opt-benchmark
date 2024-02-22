@@ -13466,7 +13466,7 @@ land.rhs.i:                                       ; preds = %land.lhs.true.i
   br i1 %tobool16.not.i, label %do.body.i, label %do.end.i, !llvm.loop !27
 
 do.end.i:                                         ; preds = %land.rhs.i, %land.lhs.true.i, %do.body.i
-  %async_err.1.i = phi i1 [ false, %do.body.i ], [ %cmp13.i, %land.lhs.true.i ], [ %cmp13.i, %land.rhs.i ]
+  %async_err.1.not.i = phi i1 [ false, %do.body.i ], [ %cmp13.i, %land.lhs.true.i ], [ %cmp13.i, %land.rhs.i ]
   %8 = load i32, ptr %.pre.i, align 4
   %9 = load ptr, ptr %buf.i, align 8
   tail call void @PyMem_Free(ptr noundef %6) #22
@@ -13487,7 +13487,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 iov_cleanup.exit.i:                               ; preds = %for.body.i.i, %do.end.i
   tail call void @PyMem_Free(ptr noundef %9) #22
-  %brmerge.i = or i1 %cmp10.i, %async_err.1.i
+  %brmerge.i = or i1 %cmp10.i, %async_err.1.not.i
   br i1 %brmerge.i, label %os_preadv_impl.exit, label %if.then23.i
 
 if.then23.i:                                      ; preds = %iov_cleanup.exit.i
@@ -13502,7 +13502,6 @@ os_preadv_impl.exit.thread:                       ; preds = %if.then.i, %if.end.
   br label %land.lhs.true28
 
 os_preadv_impl.exit:                              ; preds = %iov_cleanup.exit.i
-  %call9.mux.i = tail call i64 @llvm.smax.i64(i64 %call9.i, i64 -1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iov.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
   %cmp27 = icmp slt i64 %call9.i, 0
@@ -13514,7 +13513,7 @@ land.lhs.true28:                                  ; preds = %os_preadv_impl.exit
   br i1 %tobool30.not, label %if.end32, label %exit
 
 if.end32:                                         ; preds = %land.lhs.true28, %os_preadv_impl.exit
-  %retval.0.i15 = phi i64 [ -1, %land.lhs.true28 ], [ %call9.mux.i, %os_preadv_impl.exit ]
+  %retval.0.i15 = phi i64 [ -1, %land.lhs.true28 ], [ %call9.i, %os_preadv_impl.exit ]
   %call33 = tail call ptr @PyLong_FromSsize_t(i64 noundef %retval.0.i15) #22
   br label %exit
 
@@ -23179,7 +23178,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %tobool16.not, label %do.body, label %do.end, !llvm.loop !46
 
 do.end:                                           ; preds = %land.lhs.true, %land.rhs, %do.body
-  %async_err.1 = phi i1 [ false, %do.body ], [ %cmp13, %land.rhs ], [ %cmp13, %land.lhs.true ]
+  %async_err.1.not = phi i1 [ false, %do.body ], [ %cmp13, %land.rhs ], [ %cmp13, %land.lhs.true ]
   %3 = load i32, ptr %.pre, align 4
   %4 = load ptr, ptr %buf, align 8
   tail call void @PyMem_Free(ptr noundef %1) #22
@@ -23200,7 +23199,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 iov_cleanup.exit:                                 ; preds = %for.body.i, %do.end
   tail call void @PyMem_Free(ptr noundef %4) #22
-  %brmerge = or i1 %cmp10, %async_err.1
+  %brmerge = or i1 %cmp10, %async_err.1.not
   %call9.mux = tail call i64 @llvm.smax.i64(i64 %call9, i64 -1)
   br i1 %brmerge, label %return, label %if.then23
 

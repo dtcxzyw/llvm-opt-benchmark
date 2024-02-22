@@ -750,7 +750,6 @@ padded_write.exit:                                ; preds = %if.then3, %if.end.i
   %6 = load ptr, ptr %write_arg14.i, align 8
   %call15.i = call i64 %5(ptr noundef %6, ptr noundef nonnull %header, i64 noundef %conv7) #13
   %conv16.i = trunc i64 %call15.i to i32
-  %conv16..i = call i32 @llvm.smin.i32(i32 %conv16.i, i32 0)
   %cmp9 = icmp slt i32 %conv16.i, 0
   br i1 %cmp9, label %done, label %if.end13
 
@@ -995,7 +994,7 @@ padded_write.exit151:                             ; preds = %if.then.i142, %if.e
   br label %done
 
 done:                                             ; preds = %if.then.i, %padded_write.exit151, %padded_write.exit, %entry
-  %err.0 = phi i32 [ %call, %entry ], [ %conv16..i, %padded_write.exit ], [ %spec.store.select, %padded_write.exit151 ], [ %conv6.i, %if.then.i ]
+  %err.0 = phi i32 [ %call, %entry ], [ %conv16.i, %padded_write.exit ], [ %spec.store.select, %padded_write.exit151 ], [ %conv6.i, %if.then.i ]
   %block_writer_data = getelementptr inbounds i8, ptr %w, i64 120
   call void @block_writer_release(ptr noundef nonnull %block_writer_data) #13
   %index_len.i = getelementptr inbounds i8, ptr %w, i64 208
@@ -1012,7 +1011,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %22 = load ptr, ptr %index.i, align 8
   %last_key.i = getelementptr inbounds %struct.reftable_index_record, ptr %22, i64 %indvars.iv.i, i32 1
   call void @strbuf_release(ptr noundef nonnull %last_key.i) #13
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %23 = load i64, ptr %index_len.i, align 8
   %cmp.i152 = icmp ugt i64 %23, %indvars.iv.next.i
   br i1 %cmp.i152, label %for.body.i, label %writer_clear_index.exit, !llvm.loop !10
@@ -1452,7 +1451,6 @@ padded_write.exit.i:                              ; preds = %if.end.i.i, %if.end
   %23 = load ptr, ptr %write_arg14.i.i, align 8
   %call15.i.i = tail call i64 %22(ptr noundef %23, ptr noundef %17, i64 noundef %conv28.i) #13
   %conv16.i.i = trunc i64 %call15.i.i to i32
-  %conv16..i.i = tail call i32 @llvm.smin.i32(i32 %conv16.i.i, i32 0)
   %cmp30.i = icmp slt i32 %conv16.i.i, 0
   br i1 %cmp30.i, label %writer_flush_nonempty_block.exit, label %if.end33.i
 
@@ -1501,7 +1499,7 @@ strbuf_setlen.exit.i:                             ; preds = %if.then36.i, %if.en
   br label %writer_flush_nonempty_block.exit
 
 writer_flush_nonempty_block.exit:                 ; preds = %cond.end.i, %if.then.i.i, %padded_write.exit.i, %strbuf_setlen.exit.i
-  %retval.0.i = phi i32 [ 0, %strbuf_setlen.exit.i ], [ %call3.i, %cond.end.i ], [ %conv16..i.i, %padded_write.exit.i ], [ %conv6.i.i, %if.then.i.i ]
+  %retval.0.i = phi i32 [ 0, %strbuf_setlen.exit.i ], [ %call3.i, %cond.end.i ], [ %conv16.i.i, %padded_write.exit.i ], [ %conv6.i.i, %if.then.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ir.i)
   br label %return
 
@@ -1706,7 +1704,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %21 = load ptr, ptr %index.i, align 8
   %last_key.i57 = getelementptr inbounds %struct.reftable_index_record, ptr %21, i64 %indvars.iv.i, i32 1
   call void @strbuf_release(ptr noundef nonnull %last_key.i57) #13
-  %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %22 = load i64, ptr %index_len, align 8
   %cmp.i58 = icmp ugt i64 %22, %indvars.iv.next.i
   br i1 %cmp.i58, label %for.body.i, label %writer_clear_index.exit, !llvm.loop !10

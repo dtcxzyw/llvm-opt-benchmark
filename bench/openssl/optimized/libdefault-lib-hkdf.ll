@@ -427,8 +427,7 @@ kdf_hkdf_size.exit.thread:                        ; preds = %if.end.i
 
 kdf_hkdf_size.exit:                               ; preds = %if.end.i
   %call4.i = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %call.i) #7
-  %narrow.i = tail call i32 @llvm.smax.i32(i32 %call4.i, i32 0)
-  %spec.select.i = zext nneg i32 %narrow.i to i64
+  %spec.select.i = zext nneg i32 %call4.i to i64
   %cmp2 = icmp slt i32 %call4.i, 1
   br i1 %cmp2, label %return, label %if.end
 
@@ -1062,9 +1061,6 @@ declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6

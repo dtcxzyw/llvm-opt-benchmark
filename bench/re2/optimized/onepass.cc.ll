@@ -881,7 +881,7 @@ lpad91:                                           ; preds = %invoke.cont94, %inv
   br label %ehcleanup
 
 sw.bb:                                            ; preds = %invoke.cont85
-  %indvars.iv.next675 = add i64 %indvars.iv674, 1
+  %indvars.iv.next675 = add nsw i64 %indvars.iv674, 1
   %41 = trunc i64 %indvars.iv.next675 to i32
   %cmp.i158 = icmp eq i32 %41, 0
   br i1 %cmp.i158, label %invoke.cont85.backedge, label %if.end.i159
@@ -1027,7 +1027,6 @@ for.body140:                                      ; preds = %for.body140.lr.ph, 
   %idxprom142 = sext i32 %c.0565 to i64
   %arrayidx143 = getelementptr inbounds [256 x i8], ptr %bytemap_, i64 0, i64 %idxprom142
   %65 = load i8, ptr %arrayidx143, align 1
-  %smax = call i32 @llvm.smax.i32(i32 %c.0565, i32 255)
   br label %while.cond145
 
 while.cond145:                                    ; preds = %land.rhs, %for.body140
@@ -1047,7 +1046,7 @@ while.end.split.loop.exit784:                     ; preds = %land.rhs
   br label %while.end
 
 while.end:                                        ; preds = %while.cond145, %while.end.split.loop.exit784
-  %c.1.lcssa = phi i32 [ %67, %while.end.split.loop.exit784 ], [ %smax, %while.cond145 ]
+  %c.1.lcssa = phi i32 [ %67, %while.end.split.loop.exit784 ], [ 255, %while.cond145 ]
   %idxprom156 = zext i8 %65 to i64
   %arrayidx157 = getelementptr inbounds [0 x i32], ptr %action155, i64 0, i64 %idxprom156
   %68 = load i32, ptr %arrayidx157, align 4
