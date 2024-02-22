@@ -5355,8 +5355,7 @@ entry:
   %COMMIT_CACHE_SIZE = getelementptr inbounds i8, ptr %this, i64 776
   %0 = load i64, ptr %COMMIT_CACHE_SIZE, align 8
   %div = udiv i64 %0, 100
-  %cmp.i = icmp ult i64 %0, 100
-  %.sroa.speculated = select i1 %cmp.i, i64 1, i64 %div
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %div, i64 1)
   %INC_STEP_FOR_MAX_EVICTED = getelementptr inbounds i8, ptr %this, i64 856
   store i64 %.sroa.speculated, ptr %INC_STEP_FOR_MAX_EVICTED, align 8
   %SNAPSHOT_CACHE_SIZE = getelementptr inbounds i8, ptr %this, i64 528
@@ -14055,7 +14054,7 @@ if.end67:                                         ; preds = %if.else56, %land.lh
 cleanup:                                          ; preds = %if.end3.i.i.i.i, %lor.lhs.false.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %if.end67, %if.then64, %if.else
   %max_evicted_seq_ub.0 = phi i64 [ %2, %if.else ], [ %2, %if.then64 ], [ %37, %if.end67 ], [ %2, %if.end15.i.i ], [ %2, %for.cond.i.i ], [ %2, %lor.lhs.false.i.i.i.i ], [ %2, %if.end3.i.i.i.i ]
   %retval.1 = phi i1 [ %cmp55, %if.else ], [ %cmp66, %if.then64 ], [ %retval.0, %if.end67 ], [ false, %if.end15.i.i ], [ false, %for.cond.i.i ], [ false, %lor.lhs.false.i.i.i.i ], [ false, %if.end3.i.i.i.i ]
-  %cleanup.dest.slot.0 = phi i1 [ false, %if.else ], [ false, %if.then64 ], [ true, %if.end67 ], [ false, %if.end15.i.i ], [ false, %for.cond.i.i ], [ false, %lor.lhs.false.i.i.i.i ], [ false, %if.end3.i.i.i.i ]
+  %switch = phi i1 [ false, %if.else ], [ false, %if.then64 ], [ true, %if.end67 ], [ false, %if.end15.i.i ], [ false, %for.cond.i.i ], [ false, %lor.lhs.false.i.i.i.i ], [ false, %if.end3.i.i.i.i ]
   invoke void @_ZN7rocksdb4port7RWMutex10ReadUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %prepared_mutex_)
           to label %_ZN7rocksdb8ReadLockD2Ev.exit38 unwind label %terminate.lpad.i37
 
@@ -14067,7 +14066,7 @@ terminate.lpad.i37:                               ; preds = %cleanup
   unreachable
 
 _ZN7rocksdb8ReadLockD2Ev.exit38:                  ; preds = %cleanup
-  br i1 %cleanup.dest.slot.0, label %do.cond, label %return
+  br i1 %switch, label %do.cond, label %return
 
 do.cond:                                          ; preds = %_ZN7rocksdb8ReadLockD2Ev.exit38, %if.end18
   %max_evicted_seq_ub.1 = phi i64 [ %10, %if.end18 ], [ %max_evicted_seq_ub.0, %_ZN7rocksdb8ReadLockD2Ev.exit38 ]
@@ -14166,7 +14165,7 @@ if.else104:                                       ; preds = %_ZNK7rocksdb18Write
   br label %cleanup109
 
 cleanup109:                                       ; preds = %invoke.cont101, %if.else104
-  %cleanup.dest.slot.1 = phi i1 [ true, %if.else104 ], [ %not.call102, %invoke.cont101 ]
+  %switch16 = phi i1 [ true, %if.else104 ], [ %not.call102, %invoke.cont101 ]
   invoke void @_ZN7rocksdb4port7RWMutex10ReadUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %old_commit_map_mutex_)
           to label %return unwind label %terminate.lpad.i71
 
@@ -14178,7 +14177,7 @@ terminate.lpad.i71:                               ; preds = %cleanup109
   unreachable
 
 return:                                           ; preds = %_ZN7rocksdb8ReadLockD2Ev.exit38, %if.end23, %cleanup109, %do.end, %if.end4, %if.end, %entry, %if.then77, %if.then16
-  %retval.4 = phi i1 [ %cmp17, %if.then16 ], [ true, %if.then77 ], [ true, %entry ], [ false, %if.end ], [ true, %if.end4 ], [ true, %do.end ], [ %cleanup.dest.slot.1, %cleanup109 ], [ false, %if.end23 ], [ %retval.1, %_ZN7rocksdb8ReadLockD2Ev.exit38 ]
+  %retval.4 = phi i1 [ %cmp17, %if.then16 ], [ true, %if.then77 ], [ true, %entry ], [ false, %if.end ], [ true, %if.end4 ], [ true, %do.end ], [ %switch16, %cleanup109 ], [ false, %if.end23 ], [ %retval.1, %_ZN7rocksdb8ReadLockD2Ev.exit38 ]
   ret i1 %retval.4
 
 eh.resume:                                        ; preds = %lpad80, %lpad29, %lpad

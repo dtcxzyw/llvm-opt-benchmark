@@ -997,9 +997,8 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 
 _ZNKSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 104
-  %cmp.i.i.i.i = icmp eq ptr %3, %this.val.i.i
-  %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
-  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
+  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %6 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 88686269585142075)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 88686269585142075, i64 %6
@@ -1025,7 +1024,8 @@ _ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_alloca
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ws_key9.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #19
   %host10.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %host10.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #19
-  br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27.i.i, label %for.body.i.i.i.i.i
+  %cmp.not1.i.i.i.i.i = icmp eq ptr %this.val.i.i, %3
+  br i1 %cmp.not1.i.i.i.i.i, label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i
   %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i12.i.i, %_ZNSt12_Vector_baseIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_M_allocateEm.exit.i.i ]

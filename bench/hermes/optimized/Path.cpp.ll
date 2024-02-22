@@ -371,9 +371,8 @@ land.rhs.i:                                       ; preds = %lor.lhs.false
 if.then34:                                        ; preds = %land.rhs.i, %if.then27
   %.sroa.speculated59 = tail call i64 @llvm.umin.i64(i64 %2, i64 %add)
   %add.ptr.i132 = getelementptr inbounds i8, ptr %10, i64 %.sroa.speculated59
-  %sub.i = sub i64 %2, %.sroa.speculated59
-  %cmp.i40.not = icmp ugt i64 %2, %add
-  %.sroa.speculated = select i1 %cmp.i40.not, i64 1, i64 %sub.i
+  %14 = icmp ugt i64 %2, %add
+  %.sroa.speculated = zext i1 %14 to i64
   store ptr %add.ptr.i132, ptr %Component, align 8
   store i64 %.sroa.speculated, ptr %Length.i90, align 8
   br label %return
@@ -386,29 +385,29 @@ land.rhs45.preheader:                             ; preds = %land.rhs.i, %land.r
   br label %land.rhs45
 
 land.rhs45.us:                                    ; preds = %land.rhs45.lr.ph, %while.body.us
-  %14 = phi i64 [ %inc.us, %while.body.us ], [ %add, %land.rhs45.lr.ph ]
-  %arrayidx.i42.us = getelementptr inbounds i8, ptr %10, i64 %14
-  %15 = load i8, ptr %arrayidx.i42.us, align 1
-  %cmp.i43.us = icmp eq i8 %15, 47
+  %15 = phi i64 [ %inc.us, %while.body.us ], [ %add, %land.rhs45.lr.ph ]
+  %arrayidx.i42.us = getelementptr inbounds i8, ptr %10, i64 %15
+  %16 = load i8, ptr %arrayidx.i42.us, align 1
+  %cmp.i43.us = icmp eq i8 %16, 47
   br i1 %cmp.i43.us, label %while.body.us, label %_ZN4llvh9StringRefC2EPKc.exit127
 
 while.body.us:                                    ; preds = %land.rhs45.us
-  %inc.us = add i64 %14, 1
+  %inc.us = add i64 %15, 1
   store i64 %inc.us, ptr %Position, align 8
   %cmp44.not.us = icmp eq i64 %inc.us, %2
   br i1 %cmp44.not.us, label %land.lhs.true57, label %land.rhs45.us, !llvm.loop !4
 
 land.rhs45:                                       ; preds = %land.rhs45.preheader, %while.body
-  %16 = phi i64 [ %inc, %while.body ], [ %add, %land.rhs45.preheader ]
-  %arrayidx.i42 = getelementptr inbounds i8, ptr %10, i64 %16
-  %17 = load i8, ptr %arrayidx.i42, align 1
-  switch i8 %17, label %_ZN4llvh9StringRefC2EPKc.exit127 [
+  %17 = phi i64 [ %inc, %while.body ], [ %add, %land.rhs45.preheader ]
+  %arrayidx.i42 = getelementptr inbounds i8, ptr %10, i64 %17
+  %18 = load i8, ptr %arrayidx.i42, align 1
+  switch i8 %18, label %_ZN4llvh9StringRefC2EPKc.exit127 [
     i8 47, label %while.body
     i8 92, label %while.body
   ]
 
 while.body:                                       ; preds = %land.rhs45, %land.rhs45
-  %inc = add i64 %16, 1
+  %inc = add i64 %17, 1
   store i64 %inc, ptr %Position, align 8
   %cmp44.not = icmp eq i64 %inc, %2
   br i1 %cmp44.not, label %land.lhs.true57, label %land.rhs45, !llvm.loop !4
@@ -431,20 +430,20 @@ if.then62:                                        ; preds = %land.lhs.true57, %i
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit127:                 ; preds = %land.rhs45.us, %land.rhs45, %if.end.i.i, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit36
-  %18 = phi i64 [ %2, %if.end.i.i ], [ %add, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit36 ], [ %16, %land.rhs45 ], [ %14, %land.rhs45.us ]
+  %19 = phi i64 [ %2, %if.end.i.i ], [ %add, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit36 ], [ %17, %land.rhs45 ], [ %15, %land.rhs45.us ]
   %cmp.i.not.i50 = icmp eq i32 %.fr, 0
   %.str.11..str.1.i = select i1 %cmp.i.not.i50, ptr @.str.11, ptr @.str.1
   %call.i126 = select i1 %cmp.i.not.i50, i64 2, i64 1
-  %call73 = tail call noundef i64 @_ZNK4llvh9StringRef13find_first_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nonnull %.str.11..str.1.i, i64 %call.i126, i64 noundef %18) #29
-  %19 = load i64, ptr %Position, align 8
-  %20 = load i64, ptr %Length.i87, align 8
-  %21 = tail call i64 @llvm.umin.i64(i64 %20, i64 %19)
-  %22 = tail call i64 @llvm.umax.i64(i64 %21, i64 %call73)
-  %cmp.i55 = icmp ugt i64 %call73, %20
-  %23 = select i1 %cmp.i55, i64 %20, i64 %22
-  %24 = load ptr, ptr %this, align 8
-  %add.ptr.i142 = getelementptr inbounds i8, ptr %24, i64 %21
-  %sub.i143 = sub i64 %23, %21
+  %call73 = tail call noundef i64 @_ZNK4llvh9StringRef13find_first_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nonnull %.str.11..str.1.i, i64 %call.i126, i64 noundef %19) #29
+  %20 = load i64, ptr %Position, align 8
+  %21 = load i64, ptr %Length.i87, align 8
+  %22 = tail call i64 @llvm.umin.i64(i64 %21, i64 %20)
+  %23 = tail call i64 @llvm.umax.i64(i64 %22, i64 %call73)
+  %cmp.i55 = icmp ugt i64 %call73, %21
+  %24 = select i1 %cmp.i55, i64 %21, i64 %23
+  %25 = load ptr, ptr %this, align 8
+  %add.ptr.i142 = getelementptr inbounds i8, ptr %25, i64 %22
+  %sub.i143 = sub i64 %24, %22
   store ptr %add.ptr.i142, ptr %Component, align 8
   store i64 %sub.i143, ptr %Length.i90, align 8
   br label %return
@@ -3852,7 +3851,7 @@ if.end:                                           ; preds = %_ZN4llvh3sys4pathL1
 
 cleanup:                                          ; preds = %if.end.i, %_ZNK4llvh15SmallVectorImplIcEeqERKS1_.exit, %if.end
   %34 = phi ptr [ %.pre14, %_ZNK4llvh15SmallVectorImplIcEeqERKS1_.exit ], [ %.pre, %if.end ], [ %.pre14, %if.end.i ]
-  %retval.0.i10 = phi i1 [ false, %_ZNK4llvh15SmallVectorImplIcEeqERKS1_.exit ], [ true, %if.end ], [ false, %if.end.i ]
+  %retval.0 = phi i1 [ false, %_ZNK4llvh15SmallVectorImplIcEeqERKS1_.exit ], [ true, %if.end ], [ false, %if.end.i ]
   %cmp.i.i.i.i7 = icmp eq ptr %34, %add.ptr.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i7, label %_ZN4llvh11SmallStringILj256EED2Ev.exit, label %if.then.i.i.i8
 
@@ -3861,7 +3860,7 @@ if.then.i.i.i8:                                   ; preds = %cleanup
   br label %_ZN4llvh11SmallStringILj256EED2Ev.exit
 
 _ZN4llvh11SmallStringILj256EED2Ev.exit:           ; preds = %cleanup, %if.then.i.i.i8
-  ret i1 %retval.0.i10
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

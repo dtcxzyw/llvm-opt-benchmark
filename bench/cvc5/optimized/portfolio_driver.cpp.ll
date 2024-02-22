@@ -506,14 +506,14 @@ invoke.cont21:                                    ; preds = %if.end19
 invoke.cont25:                                    ; preds = %invoke.cont21
   %call26.not = xor i1 %call26, true
   %brmerge = or i1 %call22, %call26.not
-  br i1 %brmerge, label %dynamic_cast.notnull, label %while.end
+  br i1 %brmerge, label %dynamic_cast.end, label %while.end
 
-dynamic_cast.notnull:                             ; preds = %invoke.cont25
+dynamic_cast.end:                                 ; preds = %invoke.cont25
   %25 = call ptr @__dynamic_cast(ptr nonnull %24, ptr nonnull @_ZTIN4cvc56parser3CmdE, ptr nonnull @_ZTIN4cvc56parser11QuitCommandE, i64 0) #20
   %cmp30.not = icmp eq ptr %25, null
   br i1 %cmp30.not, label %if.end32, label %while.end
 
-if.end32:                                         ; preds = %dynamic_cast.notnull
+if.end32:                                         ; preds = %dynamic_cast.end
   br i1 %stopAtSetLogic, label %dynamic_cast.notnull35, label %if.end44
 
 dynamic_cast.notnull35:                           ; preds = %if.end32
@@ -549,8 +549,8 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9
 if.end44:                                         ; preds = %dynamic_cast.notnull35, %if.end32
   br i1 %call22, label %if.end, label %while.end, !llvm.loop !4
 
-while.end:                                        ; preds = %invoke.cont25, %dynamic_cast.notnull, %invoke.cont16, %if.end44, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit
-  %status.1 = phi i1 [ %call22, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit ], [ false, %invoke.cont25 ], [ false, %if.end44 ], [ %call22, %dynamic_cast.notnull ], [ true, %invoke.cont16 ]
+while.end:                                        ; preds = %invoke.cont25, %dynamic_cast.end, %invoke.cont16, %if.end44, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit
+  %status.1 = phi i1 [ %call22, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_.exit ], [ false, %invoke.cont25 ], [ false, %if.end44 ], [ %call22, %dynamic_cast.end ], [ true, %invoke.cont16 ]
   %29 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
   %cmp.not.i.i.i.i9 = icmp eq ptr %29, null
   br i1 %cmp.not.i.i.i.i9, label %_ZN4cvc56parser7CommandD2Ev.exit39, label %if.then.i.i.i.i10
@@ -722,7 +722,7 @@ declare noundef zeroext i1 @_ZN4cvc54main15CommandExecutor9doCommandEPNS_6parser
 
 declare noundef zeroext i1 @_ZNK4cvc56parser3Cmd11interruptedEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #6
 
 declare void @_ZNK4cvc56parser24SetBenchmarkLogicCommand8getLogicB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
@@ -1018,17 +1018,17 @@ entry:
   %cmp.i.not7 = icmp eq ptr %0, %1
   br i1 %cmp.i.not7, label %for.end, label %for.body
 
-for.body:                                         ; preds = %entry, %dynamic_cast.notnull
-  %__begin2.sroa.0.08 = phi ptr [ %incdec.ptr.i, %dynamic_cast.notnull ], [ %0, %entry ]
+for.body:                                         ; preds = %entry, %dynamic_cast.end
+  %__begin2.sroa.0.08 = phi ptr [ %incdec.ptr.i, %dynamic_cast.end ], [ %0, %entry ]
   %2 = load ptr, ptr %this, align 8
   %call13 = tail call noundef zeroext i1 @_ZN4cvc54main15CommandExecutor9doCommandEPNS_6parser7CommandE(ptr noundef nonnull align 8 dereferenceable(41) %2, ptr noundef nonnull %__begin2.sroa.0.08)
   %3 = load ptr, ptr %__begin2.sroa.0.08, align 8
   %call15 = tail call noundef zeroext i1 @_ZNK4cvc56parser3Cmd11interruptedEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %call15.not = xor i1 %call15, true
   %brmerge = or i1 %call13, %call15.not
-  br i1 %brmerge, label %dynamic_cast.notnull, label %for.end
+  br i1 %brmerge, label %dynamic_cast.end, label %for.end
 
-dynamic_cast.notnull:                             ; preds = %for.body
+dynamic_cast.end:                                 ; preds = %for.body
   %4 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN4cvc56parser3CmdE, ptr nonnull @_ZTIN4cvc56parser11QuitCommandE, i64 0) #20
   %cmp19.not = icmp ne ptr %4, null
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08, i64 16
@@ -1036,8 +1036,8 @@ dynamic_cast.notnull:                             ; preds = %for.body
   %or.cond = select i1 %cmp19.not, i1 true, i1 %cmp.i.not
   br i1 %or.cond, label %for.end, label %for.body
 
-for.end:                                          ; preds = %dynamic_cast.notnull, %for.body, %entry
-  %status.1 = phi i1 [ true, %entry ], [ %call13, %dynamic_cast.notnull ], [ false, %for.body ]
+for.end:                                          ; preds = %dynamic_cast.end, %for.body, %entry
+  %status.1 = phi i1 [ true, %entry ], [ %call13, %dynamic_cast.end ], [ false, %for.body ]
   ret i1 %status.1
 }
 
@@ -1593,9 +1593,8 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 
 _ZNKSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 6
-  %cmp.i.i.i.i.i = icmp eq ptr %add.ptr19.i.i.i224, %this.val.i.i.i230
-  %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i
-  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
+  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %52 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 144115188075855871)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 144115188075855871, i64 %52
@@ -1620,7 +1619,8 @@ _ZNSt12_Vector_baseIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE
   store double %51, ptr %d_timeout.i.i.i.i.i.i.i, align 8
   %d_worker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %d_worker.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %d_worker.i, i64 28, i1 false)
-  br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit29.i.i.i, label %for.body.i.i.i.i.i.i
+  %cmp.not1.i.i.i.i.i.i = icmp eq ptr %this.val.i.i.i230, %add.ptr19.i.i.i224
+  br i1 %cmp.not1.i.i.i.i.i.i, label %_ZNSt6vectorIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit29.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
   %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseIN4cvc54main12_GLOBAL__N_120PortfolioProcessPool3JobESaIS4_EE11_M_allocateEm.exit.i.i.i ]
@@ -20007,7 +20007,7 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind memory(read) }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

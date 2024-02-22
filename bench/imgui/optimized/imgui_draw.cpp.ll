@@ -4540,13 +4540,12 @@ _ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit: ; preds = %if.then.i69, %i
 
 if.end4:                                          ; preds = %_ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit, %if.end
   %a_step.addr.0 = phi i32 [ %div.zext, %_ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit ], [ %a_step, %if.end ]
-  %cmp.i72 = icmp eq i32 %a_step.addr.0, 0
   %13 = tail call i32 @llvm.umin.i32(i32 %a_step.addr.0, i32 12)
-  %cond5.i = select i1 %cmp.i72, i32 1, i32 %13
+  %cond5.i = tail call i32 @llvm.umax.i32(i32 %13, i32 1)
   %sub = sub nsw i32 %a_max_sample, %a_min_sample
   %cond.i73 = tail call noundef i32 @llvm.abs.i32(i32 %sub, i1 true)
   %add = add nuw nsw i32 %cond.i73, 1
-  %cmp7 = icmp ugt i32 %cond5.i, 1
+  %cmp7 = icmp ugt i32 %a_step.addr.0, 1
   br i1 %cmp7, label %if.then8, label %if.end20
 
 if.then8:                                         ; preds = %if.end4

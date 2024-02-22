@@ -5015,9 +5015,7 @@ land.lhs.true23.i:                                ; preds = %land.lhs.true14.i
 if.end28.i:                                       ; preds = %land.lhs.true23.i
   %sub.ptr.lhs.cast31.i = ptrtoint ptr %arrayidx15.i to i64
   %sub.ptr.sub33.i = sub i64 %sub.ptr.lhs.cast31.i, %sub.ptr.rhs.cast.i
-  %cmp.i17.not.i = icmp eq ptr %arrayidx15.i, %originalStr.sroa.0.0.copyload.i
-  %.sroa.speculated35.i = select i1 %cmp.i17.not.i, i64 0, i64 %sub.ptr.sub33.i
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %originalStr.sroa.7.0.copyload.i, i64 %.sroa.speculated35.i)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %originalStr.sroa.7.0.copyload.i, i64 %sub.ptr.sub33.i)
   %stringTable_.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %call.i.i.i = tail call noundef ptr @_ZN6hermes11StringTable9getStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %stringTable_.i.i, ptr %originalStr.sroa.0.0.copyload.i, i64 %.sroa.speculated.i)
   br label %_ZL23stripInternalNameSuffixRN6hermes7ContextENS_10IdentifierE.exit

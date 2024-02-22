@@ -21769,9 +21769,8 @@ if.then.i.i:                                      ; preds = %if.else
 
 _ZNKSt6vectorIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 48
-  %cmp.i.i.i = icmp eq ptr %0, %this.val.i
-  %.sroa.speculated.i.i = select i1 %cmp.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i
-  %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
+  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %8 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 192153584101141162)
   %cond.i.i = select i1 %cmp7.i.i, i64 192153584101141162, i64 %8
@@ -21835,7 +21834,8 @@ invoke.cont.i.i.i.i.i.i:                          ; preds = %while.cond.i.i4.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EE11_M_allocateEm.exit.i
-  br i1 %cmp.i.i.i, label %_ZNSt6vectorIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit45.i, label %for.body.i.i.i.i
+  %cmp.not1.i.i.i.i = icmp eq ptr %this.val.i, %0
+  br i1 %cmp.not1.i.i.i.i, label %_ZNSt6vectorIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit45.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %_ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i
   %__cur.03.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %cond.i19.i, %invoke.cont.i ]

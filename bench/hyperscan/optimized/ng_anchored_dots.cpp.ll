@@ -1231,7 +1231,7 @@ invoke.cont191.i.i:                               ; preds = %invoke.cont187.i.i
 cleanup.i104.i:                                   ; preds = %for.body.i.i99.i, %for.cond19.i.i.i.i, %for.cond.i.i.i.i, %invoke.cont191.i.i, %invoke.cont110.i.i, %invoke.cont102.i.i, %do.end71.i.i, %do.end47.i.i, %invoke.cont3.i56.i
   %91 = phi i32 [ %64, %invoke.cont3.i56.i ], [ %retval.sroa.0.0.i.i64.i.i, %invoke.cont191.i.i ], [ %64, %invoke.cont110.i.i ], [ %64, %invoke.cont102.i.i ], [ %64, %do.end47.i.i ], [ 2147483647, %do.end71.i.i ], [ %64, %for.cond.i.i.i.i ], [ %64, %for.cond19.i.i.i.i ], [ %64, %for.body.i.i99.i ]
   %startBegin.sroa.0.3 = phi i32 [ %startBegin.sroa.0.2, %invoke.cont3.i56.i ], [ %retval.sroa.0.0.i.i53.i.i, %invoke.cont191.i.i ], [ %startBegin.sroa.0.2, %invoke.cont110.i.i ], [ %startBegin.sroa.0.2, %invoke.cont102.i.i ], [ %startBegin.sroa.0.2, %do.end47.i.i ], [ %startBegin.sroa.0.2, %do.end71.i.i ], [ %startBegin.sroa.0.2, %for.cond.i.i.i.i ], [ %startBegin.sroa.0.2, %for.cond19.i.i.i.i ], [ %startBegin.sroa.0.2, %for.body.i.i99.i ]
-  %cleanup.dest.slot.0.i.i = phi i1 [ false, %invoke.cont3.i56.i ], [ true, %invoke.cont191.i.i ], [ false, %invoke.cont110.i.i ], [ false, %invoke.cont102.i.i ], [ false, %do.end47.i.i ], [ false, %do.end71.i.i ], [ false, %for.cond.i.i.i.i ], [ false, %for.cond19.i.i.i.i ], [ false, %for.body.i.i99.i ]
+  %switch.i.i = phi i1 [ false, %invoke.cont3.i56.i ], [ true, %invoke.cont191.i.i ], [ false, %invoke.cont110.i.i ], [ false, %invoke.cont102.i.i ], [ false, %do.end47.i.i ], [ false, %do.end71.i.i ], [ false, %for.cond.i.i.i.i ], [ false, %for.cond19.i.i.i.i ], [ false, %for.body.i.i99.i ]
   %92 = load ptr, ptr %_M_parent.i.i.i.i.i.i44.i, align 8
   invoke void @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %otherV.i42.i, ptr noundef %92)
           to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit.i.i unwind label %terminate.lpad.i.i105.i.i
@@ -1245,7 +1245,7 @@ terminate.lpad.i.i105.i.i:                        ; preds = %cleanup.i104.i
   unreachable
 
 _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit.i.i: ; preds = %cleanup.i104.i
-  br i1 %cleanup.dest.slot.0.i.i, label %while.body.i.i, label %invoke.cont5.i
+  br i1 %switch.i.i, label %while.body.i.i, label %invoke.cont5.i
 
 invoke.cont5.i:                                   ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit.i.i
   store i32 %91, ptr %startEnd, align 4
@@ -2330,9 +2330,8 @@ if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i15
 
 _ZNKSt6vectorIN3ue212_GLOBAL__N_17DotInfoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %if.else.i.i.i15
   %sub.ptr.div.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, 24
-  %cmp.i.i.i.i.i.i = icmp eq ptr %dotq.sroa.8.032, %dotq.sroa.0.033
-  %.sroa.speculated.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i.i
-  %add.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i, i64 1)
+  %add.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
   %cmp7.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i
   %8 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i, i64 384307168202282325)
   %cond.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i, i64 384307168202282325, i64 %8
@@ -2356,7 +2355,8 @@ _ZNSt12_Vector_baseIN3ue212_GLOBAL__N_17DotInfoESaIS2_EE11_M_allocateEm.exit.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %ref.tmp.sroa.5.0.add.ptr.i.i.i.i.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %ref.tmp.sroa.5, i64 3, i1 false)
   %ref.tmp.sroa.54.0.add.ptr.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 20
   store i32 %conv, ptr %ref.tmp.sroa.54.0.add.ptr.i.i.i.i.sroa_idx, align 4
-  br i1 %cmp.i.i.i.i.i.i, label %_ZNSt6vectorIN3ue212_GLOBAL__N_17DotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i.i, label %for.body.i.i.i.i.i.i.i
+  %cmp.not1.i.i.i.i.i.i.i = icmp eq ptr %dotq.sroa.0.033, %dotq.sroa.8.032
+  br i1 %cmp.not1.i.i.i.i.i.i.i, label %_ZNSt6vectorIN3ue212_GLOBAL__N_17DotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_17DotInfoESaIS2_EE11_M_allocateEm.exit.i.i.i.i, %for.body.i.i.i.i.i.i.i
   %__cur.03.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %cond.i12.i.i.i.i, %_ZNSt12_Vector_baseIN3ue212_GLOBAL__N_17DotInfoESaIS2_EE11_M_allocateEm.exit.i.i.i.i ]
@@ -5630,6 +5630,9 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -5637,9 +5640,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

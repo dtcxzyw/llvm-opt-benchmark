@@ -26183,9 +26183,8 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 
 _ZNKSt6vectorIN7testing7MatcherIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEESaISB_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
-  %cmp.i.i.i.i = icmp eq ptr %0, %this.val.i.i
-  %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
-  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
+  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 384307168202282325)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 384307168202282325, i64 %5
@@ -26210,7 +26209,8 @@ invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i, %_
   store i64 %7, ptr %buffer_.i.i.i.i.i.i, align 8
   store ptr null, ptr %vtable_2.i.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt4pairIKN4absl18container_internal12_GLOBAL__N_113NonMovableKeyEiEEE, i64 0, inrange i32 0, i64 2), ptr %add.ptr.i.i, align 8
-  br i1 %cmp.i.i.i.i, label %invoke.cont14.i.thread.i, label %for.body.i.i.i.i.i.i.i
+  %cmp.not7.i.i.i.i.i.i.i = icmp eq ptr %this.val.i.i, %0
+  br i1 %cmp.not7.i.i.i.i.i.i.i, label %invoke.cont14.i.thread.i, label %for.body.i.i.i.i.i.i.i
 
 invoke.cont14.i.thread.i:                         ; preds = %invoke.cont.i.i
   %incdec.ptr.i4.i = getelementptr inbounds i8, ptr %cond.i21.i.i, i64 24

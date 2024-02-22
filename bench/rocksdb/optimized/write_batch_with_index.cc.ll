@@ -4822,9 +4822,8 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 
 _ZNKSt6vectorIZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS0_2DBERKNS0_11ReadOptionsEPNS0_18ColumnFamilyHandleEmPKNS0_5SliceEPNS0_13PinnableSliceEPNS0_6StatusEbPNS0_12ReadCallbackEE10MergeTupleSaISI_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i, 176
-  %cmp.i.i.i.i.i = icmp eq ptr %40, %this.val.i.i.i
-  %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i
-  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
+  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %47 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 52405522936674862)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 52405522936674862, i64 %47
@@ -4870,7 +4869,8 @@ invoke.cont.i.i.i:                                ; preds = %_ZNSt12_Vector_base
   store i8 %51, ptr %operands_reversed_.i.i.i.i.i.i.i, align 8
   %value.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 168
   store ptr %args5.val.i, ptr %value.i.i.i.i.i.i, align 8
-  br i1 %cmp.i.i.i.i.i, label %invoke.cont20.i.i.thread.i, label %for.body.i.i.i.i.i5.i
+  %cmp.i.i.not7.i.i.i.i.i.i = icmp eq ptr %this.val.i.i.i, %40
+  br i1 %cmp.i.i.not7.i.i.i.i.i.i, label %invoke.cont20.i.i.thread.i, label %for.body.i.i.i.i.i5.i
 
 invoke.cont20.i.i.thread.i:                       ; preds = %invoke.cont.i.i.i
   %incdec.ptr.i.i10.i = getelementptr inbounds i8, ptr %cond.i21.i.i.i, i64 176

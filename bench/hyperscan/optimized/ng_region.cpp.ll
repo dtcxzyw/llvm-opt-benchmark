@@ -9848,9 +9848,8 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 
 _ZNKSt6vectorIN3ue212_GLOBAL__N_19exit_infoESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i, 56
-  %cmp.i.i.i.i.i = icmp eq ptr %44, %this.val.i.i.i
-  %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i
-  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
+  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %54 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 164703072086692425)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 164703072086692425, i64 %54
@@ -9913,7 +9912,8 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:      ; preds = %if.then.i.i.i.i.i.i
   br label %if.else.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i19
-  br i1 %cmp.i.i.i.i.i, label %invoke.cont14.i.i.thread.i, label %for.body.i.i.i.i.i1.i
+  %cmp.not10.i.i.i.i.i.i = icmp eq ptr %this.val.i.i.i, %44
+  br i1 %cmp.not10.i.i.i.i.i.i, label %invoke.cont14.i.i.thread.i, label %for.body.i.i.i.i.i1.i
 
 invoke.cont14.i.i.thread.i:                       ; preds = %invoke.cont.i.i.i
   %incdec.ptr.i.i12.i = getelementptr inbounds i8, ptr %cond.i21.i.i.i, i64 56

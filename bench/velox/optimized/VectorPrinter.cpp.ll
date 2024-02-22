@@ -1211,9 +1211,8 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 
 _ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
-  %cmp.i.i.i.i.i = icmp eq ptr %7, %this.val.i.i.i
-  %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i
-  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
+  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %10 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 1152921504606846975)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 1152921504606846975, i64 %10
@@ -1230,7 +1229,8 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinter
   %add.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i12.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   %__u.val.i.i.i.i.i.i.i.i = load i64, ptr %ref.tmp.i, align 8, !noalias !15
   store i64 %__u.val.i.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i, align 8, !noalias !15
-  br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i, label %for.body.i.i.i.i.i.i
+  %cmp.not1.i.i.i.i.i.i = icmp eq ptr %this.val.i.i.i, %7
+  br i1 %cmp.not1.i.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
   %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i ]
@@ -1379,30 +1379,30 @@ if.then.i.i.i.i89:                                ; preds = %if.else.i.i54
 
 _ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i60: ; preds = %if.else.i.i54
   %sub.ptr.div.i.i.i.i.i61 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i58, 3
-  %cmp.i.i.i.i.i62 = icmp eq ptr %21, %this.val.i.i.i55
-  %.sroa.speculated.i.i.i.i63 = select i1 %cmp.i.i.i.i.i62, i64 1, i64 %sub.ptr.div.i.i.i.i.i61
-  %add.i.i.i.i64 = add nsw i64 %.sroa.speculated.i.i.i.i63, %sub.ptr.div.i.i.i.i.i61
-  %cmp7.i.i.i.i65 = icmp ult i64 %add.i.i.i.i64, %sub.ptr.div.i.i.i.i.i61
-  %24 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i64, i64 1152921504606846975)
-  %cond.i.i.i.i66 = select i1 %cmp7.i.i.i.i65, i64 1152921504606846975, i64 %24
-  %cmp.not.i.i.i.i67 = icmp eq i64 %cond.i.i.i.i66, 0
-  br i1 %cmp.not.i.i.i.i67, label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i71, label %cond.true.i.i.i.i68
+  %.sroa.speculated.i.i.i.i62 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i61, i64 1)
+  %add.i.i.i.i63 = add i64 %.sroa.speculated.i.i.i.i62, %sub.ptr.div.i.i.i.i.i61
+  %cmp7.i.i.i.i64 = icmp ult i64 %add.i.i.i.i63, %sub.ptr.div.i.i.i.i.i61
+  %24 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i63, i64 1152921504606846975)
+  %cond.i.i.i.i65 = select i1 %cmp7.i.i.i.i64, i64 1152921504606846975, i64 %24
+  %cmp.not.i.i.i.i66 = icmp eq i64 %cond.i.i.i.i65, 0
+  br i1 %cmp.not.i.i.i.i66, label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i70, label %cond.true.i.i.i.i67
 
-cond.true.i.i.i.i68:                              ; preds = %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i60
-  %mul.i.i.i.i.i.i69 = shl nuw nsw i64 %cond.i.i.i.i66, 3
-  %call5.i.i.i.i.i3.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i69) #21
-          to label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i71 unwind label %lpad7.i, !noalias !26
+cond.true.i.i.i.i67:                              ; preds = %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i60
+  %mul.i.i.i.i.i.i68 = shl nuw nsw i64 %cond.i.i.i.i65, 3
+  %call5.i.i.i.i.i3.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i68) #21
+          to label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i70 unwind label %lpad7.i, !noalias !26
 
-_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i71: ; preds = %cond.true.i.i.i.i68, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i60
-  %cond.i12.i.i.i72 = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i60 ], [ %call5.i.i.i.i.i3.i, %cond.true.i.i.i.i68 ]
-  %add.ptr.i.i.i73 = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i12.i.i.i72, i64 %sub.ptr.div.i.i.i.i.i61
-  %__u.val.i.i.i.i.i.i.i.i74 = load i64, ptr %ref.tmp.i20, align 8, !noalias !26
-  store i64 %__u.val.i.i.i.i.i.i.i.i74, ptr %add.ptr.i.i.i73, align 8, !noalias !26
-  br i1 %cmp.i.i.i.i.i62, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i82, label %for.body.i.i.i.i.i.i75
+_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i70: ; preds = %cond.true.i.i.i.i67, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i60
+  %cond.i12.i.i.i71 = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i60 ], [ %call5.i.i.i.i.i3.i, %cond.true.i.i.i.i67 ]
+  %add.ptr.i.i.i72 = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i12.i.i.i71, i64 %sub.ptr.div.i.i.i.i.i61
+  %__u.val.i.i.i.i.i.i.i.i73 = load i64, ptr %ref.tmp.i20, align 8, !noalias !26
+  store i64 %__u.val.i.i.i.i.i.i.i.i73, ptr %add.ptr.i.i.i72, align 8, !noalias !26
+  %cmp.not1.i.i.i.i.i.i74 = icmp eq ptr %this.val.i.i.i55, %21
+  br i1 %cmp.not1.i.i.i.i.i.i74, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i82, label %for.body.i.i.i.i.i.i75
 
-for.body.i.i.i.i.i.i75:                           ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i71, %for.body.i.i.i.i.i.i75
-  %__cur.03.i.i.i.i.i.i76 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i80, %for.body.i.i.i.i.i.i75 ], [ %cond.i12.i.i.i72, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i71 ]
-  %__first.addr.02.i.i.i.i.i.i77 = phi ptr [ %incdec.ptr.i.i.i.i.i.i79, %for.body.i.i.i.i.i.i75 ], [ %this.val.i.i.i55, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i71 ]
+for.body.i.i.i.i.i.i75:                           ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i70, %for.body.i.i.i.i.i.i75
+  %__cur.03.i.i.i.i.i.i76 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i80, %for.body.i.i.i.i.i.i75 ], [ %cond.i12.i.i.i71, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i70 ]
+  %__first.addr.02.i.i.i.i.i.i77 = phi ptr [ %incdec.ptr.i.i.i.i.i.i79, %for.body.i.i.i.i.i.i75 ], [ %this.val.i.i.i55, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i70 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29), !noalias !26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32), !noalias !26
   %__u.val.i.i.i.i.i.i.i.i.i.i.i.i78 = load i64, ptr %__first.addr.02.i.i.i.i.i.i77, align 8, !alias.scope !32, !noalias !34
@@ -1413,8 +1413,8 @@ for.body.i.i.i.i.i.i75:                           ; preds = %_ZNSt12_Vector_base
   %cmp.not.i.i.i.i.i.i81 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i79, %21
   br i1 %cmp.not.i.i.i.i.i.i81, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i82, label %for.body.i.i.i.i.i.i75, !llvm.loop !25
 
-_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i82: ; preds = %for.body.i.i.i.i.i.i75, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i71
-  %__cur.0.lcssa.i.i.i.i.i.i83 = phi ptr [ %cond.i12.i.i.i72, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i71 ], [ %incdec.ptr1.i.i.i.i.i.i80, %for.body.i.i.i.i.i.i75 ]
+_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i82: ; preds = %for.body.i.i.i.i.i.i75, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i70
+  %__cur.0.lcssa.i.i.i.i.i.i83 = phi ptr [ %cond.i12.i.i.i71, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i70 ], [ %incdec.ptr1.i.i.i.i.i.i80, %for.body.i.i.i.i.i.i75 ]
   %incdec.ptr.i.i.i84 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i83, i64 8
   %tobool.not.i.i.i.i85 = icmp eq ptr %this.val.i.i.i55, null
   br i1 %tobool.not.i.i.i.i85, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS7_EEERS7_DpOT_.exit.i49, label %if.then.i23.i.i.i86
@@ -1424,9 +1424,9 @@ if.then.i23.i.i.i86:                              ; preds = %_ZNSt6vectorISt10un
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS7_EEERS7_DpOT_.exit.i49
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS7_EEERS7_DpOT_.exit.i49: ; preds = %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i82, %if.then.i23.i.i.i86
-  store ptr %cond.i12.i.i.i72, ptr %children_.i.i36, align 8, !noalias !26
+  store ptr %cond.i12.i.i.i71, ptr %children_.i.i36, align 8, !noalias !26
   store ptr %incdec.ptr.i.i.i84, ptr %_M_finish.i.i43, align 8, !noalias !26
-  %add.ptr19.i.i.i88 = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i12.i.i.i72, i64 %cond.i.i.i.i66
+  %add.ptr19.i.i.i88 = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i12.i.i.i71, i64 %cond.i.i.i.i65
   store ptr %add.ptr19.i.i.i88, ptr %_M_end_of_storage.i.i44, align 8, !noalias !26
   br label %_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS3_EED2Ev.exit.i
 
@@ -1467,30 +1467,30 @@ if.then.i.i.i45.i:                                ; preds = %if.else.i11.i
 
 _ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i17.i: ; preds = %if.else.i11.i
   %sub.ptr.div.i.i.i.i18.i = ashr exact i64 %sub.ptr.sub.i.i.i.i15.i, 3
-  %cmp.i.i.i.i19.i = icmp eq ptr %26, %this.val.i.i12.i
-  %.sroa.speculated.i.i.i20.i = select i1 %cmp.i.i.i.i19.i, i64 1, i64 %sub.ptr.div.i.i.i.i18.i
-  %add.i.i.i21.i = add nsw i64 %.sroa.speculated.i.i.i20.i, %sub.ptr.div.i.i.i.i18.i
-  %cmp7.i.i.i22.i = icmp ult i64 %add.i.i.i21.i, %sub.ptr.div.i.i.i.i18.i
-  %29 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i21.i, i64 1152921504606846975)
-  %cond.i.i.i23.i = select i1 %cmp7.i.i.i22.i, i64 1152921504606846975, i64 %29
-  %cmp.not.i.i.i24.i = icmp eq i64 %cond.i.i.i23.i, 0
-  br i1 %cmp.not.i.i.i24.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i27.i, label %cond.true.i.i.i25.i
+  %.sroa.speculated.i.i.i19.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i18.i, i64 1)
+  %add.i.i.i20.i = add i64 %.sroa.speculated.i.i.i19.i, %sub.ptr.div.i.i.i.i18.i
+  %cmp7.i.i.i21.i = icmp ult i64 %add.i.i.i20.i, %sub.ptr.div.i.i.i.i18.i
+  %29 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i20.i, i64 1152921504606846975)
+  %cond.i.i.i22.i = select i1 %cmp7.i.i.i21.i, i64 1152921504606846975, i64 %29
+  %cmp.not.i.i.i23.i = icmp eq i64 %cond.i.i.i22.i, 0
+  br i1 %cmp.not.i.i.i23.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i26.i, label %cond.true.i.i.i24.i
 
-cond.true.i.i.i25.i:                              ; preds = %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i17.i
-  %mul.i.i.i.i.i26.i = shl nuw nsw i64 %cond.i.i.i23.i, 3
-  %call5.i.i.i.i.i48.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i26.i) #21
-          to label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i27.i unwind label %lpad16.i, !noalias !26
+cond.true.i.i.i24.i:                              ; preds = %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i17.i
+  %mul.i.i.i.i.i25.i = shl nuw nsw i64 %cond.i.i.i22.i, 3
+  %call5.i.i.i.i.i48.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i25.i) #21
+          to label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i26.i unwind label %lpad16.i, !noalias !26
 
-_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i27.i: ; preds = %cond.true.i.i.i25.i, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i17.i
-  %cond.i12.i.i28.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i17.i ], [ %call5.i.i.i.i.i48.i, %cond.true.i.i.i25.i ]
-  %add.ptr.i.i29.i = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i12.i.i28.i, i64 %sub.ptr.div.i.i.i.i18.i
-  %__u.val.i.i.i.i.i.i.i30.i = load i64, ptr %ref.tmp11.i, align 8, !noalias !26
-  store i64 %__u.val.i.i.i.i.i.i.i30.i, ptr %add.ptr.i.i29.i, align 8, !noalias !26
-  br i1 %cmp.i.i.i.i19.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i38.i, label %for.body.i.i.i.i.i31.i
+_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i26.i: ; preds = %cond.true.i.i.i24.i, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i17.i
+  %cond.i12.i.i27.i = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i17.i ], [ %call5.i.i.i.i.i48.i, %cond.true.i.i.i24.i ]
+  %add.ptr.i.i28.i = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i12.i.i27.i, i64 %sub.ptr.div.i.i.i.i18.i
+  %__u.val.i.i.i.i.i.i.i29.i = load i64, ptr %ref.tmp11.i, align 8, !noalias !26
+  store i64 %__u.val.i.i.i.i.i.i.i29.i, ptr %add.ptr.i.i28.i, align 8, !noalias !26
+  %cmp.not1.i.i.i.i.i30.i = icmp eq ptr %this.val.i.i12.i, %26
+  br i1 %cmp.not1.i.i.i.i.i30.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i38.i, label %for.body.i.i.i.i.i31.i
 
-for.body.i.i.i.i.i31.i:                           ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i27.i, %for.body.i.i.i.i.i31.i
-  %__cur.03.i.i.i.i.i32.i = phi ptr [ %incdec.ptr1.i.i.i.i.i36.i, %for.body.i.i.i.i.i31.i ], [ %cond.i12.i.i28.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i27.i ]
-  %__first.addr.02.i.i.i.i.i33.i = phi ptr [ %incdec.ptr.i.i.i.i.i35.i, %for.body.i.i.i.i.i31.i ], [ %this.val.i.i12.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i27.i ]
+for.body.i.i.i.i.i31.i:                           ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i26.i, %for.body.i.i.i.i.i31.i
+  %__cur.03.i.i.i.i.i32.i = phi ptr [ %incdec.ptr1.i.i.i.i.i36.i, %for.body.i.i.i.i.i31.i ], [ %cond.i12.i.i27.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i26.i ]
+  %__first.addr.02.i.i.i.i.i33.i = phi ptr [ %incdec.ptr.i.i.i.i.i35.i, %for.body.i.i.i.i.i31.i ], [ %this.val.i.i12.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i26.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36), !noalias !26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39), !noalias !26
   %__u.val.i.i.i.i.i.i.i.i.i.i.i34.i = load i64, ptr %__first.addr.02.i.i.i.i.i33.i, align 8, !alias.scope !39, !noalias !41
@@ -1501,8 +1501,8 @@ for.body.i.i.i.i.i31.i:                           ; preds = %_ZNSt12_Vector_base
   %cmp.not.i.i.i.i.i37.i = icmp eq ptr %incdec.ptr.i.i.i.i.i35.i, %26
   br i1 %cmp.not.i.i.i.i.i37.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i38.i, label %for.body.i.i.i.i.i31.i, !llvm.loop !25
 
-_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i38.i: ; preds = %for.body.i.i.i.i.i31.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i27.i
-  %__cur.0.lcssa.i.i.i.i.i39.i = phi ptr [ %cond.i12.i.i28.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i27.i ], [ %incdec.ptr1.i.i.i.i.i36.i, %for.body.i.i.i.i.i31.i ]
+_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i38.i: ; preds = %for.body.i.i.i.i.i31.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i26.i
+  %__cur.0.lcssa.i.i.i.i.i39.i = phi ptr [ %cond.i12.i.i27.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i26.i ], [ %incdec.ptr1.i.i.i.i.i36.i, %for.body.i.i.i.i.i31.i ]
   %incdec.ptr.i.i40.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i39.i, i64 8
   %tobool.not.i.i.i41.i = icmp eq ptr %this.val.i.i12.i, null
   br i1 %tobool.not.i.i.i41.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS7_EEERS7_DpOT_.exit49.i, label %if.then.i23.i.i42.i
@@ -1512,9 +1512,9 @@ if.then.i23.i.i42.i:                              ; preds = %_ZNSt6vectorISt10un
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS7_EEERS7_DpOT_.exit49.i
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS7_EEERS7_DpOT_.exit49.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i38.i, %if.then.i23.i.i42.i
-  store ptr %cond.i12.i.i28.i, ptr %children_.i.i36, align 8, !noalias !26
+  store ptr %cond.i12.i.i27.i, ptr %children_.i.i36, align 8, !noalias !26
   store ptr %incdec.ptr.i.i40.i, ptr %_M_finish.i.i43, align 8, !noalias !26
-  %add.ptr19.i.i44.i = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i12.i.i28.i, i64 %cond.i.i.i23.i
+  %add.ptr19.i.i44.i = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i12.i.i27.i, i64 %cond.i.i.i22.i
   store ptr %add.ptr19.i.i44.i, ptr %_M_end_of_storage.i.i44, align 8, !noalias !26
   br label %_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_116MapVectorPrinterESt14default_deleteIS3_EED2Ev.exit
 
@@ -1523,7 +1523,7 @@ lpad.i40:                                         ; preds = %_ZNSt10unique_ptrIN
           cleanup
   br label %ehcleanup.i41
 
-lpad7.i:                                          ; preds = %cond.true.i.i.i.i68, %if.then.i.i.i.i89
+lpad7.i:                                          ; preds = %cond.true.i.i.i.i67, %if.then.i.i.i.i89
   %31 = landingpad { ptr, i32 }
           cleanup
   %32 = load ptr, ptr %ref.tmp.i20, align 8, !noalias !26
@@ -1537,7 +1537,7 @@ _ZNKSt14default_deleteIN8facebook5velox12_GLOBAL__N_113VectorPrinterEEclEPS3_.ex
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(152) %32) #20, !noalias !26
   br label %ehcleanup.i41
 
-lpad16.i:                                         ; preds = %cond.true.i.i.i25.i, %if.then.i.i.i45.i
+lpad16.i:                                         ; preds = %cond.true.i.i.i24.i, %if.then.i.i.i45.i
   %34 = landingpad { ptr, i32 }
           cleanup
   %35 = load ptr, ptr %ref.tmp11.i, align 8, !noalias !26
@@ -1655,30 +1655,30 @@ if.then.i.i.i.i161:                               ; preds = %if.else.i.i126
 
 _ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i132: ; preds = %if.else.i.i126
   %sub.ptr.div.i.i.i.i.i133 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i130, 3
-  %cmp.i.i.i.i.i134 = icmp eq ptr %45, %this.val.i.i.i127
-  %.sroa.speculated.i.i.i.i135 = select i1 %cmp.i.i.i.i.i134, i64 1, i64 %sub.ptr.div.i.i.i.i.i133
-  %add.i.i.i.i136 = add nsw i64 %.sroa.speculated.i.i.i.i135, %sub.ptr.div.i.i.i.i.i133
-  %cmp7.i.i.i.i137 = icmp ult i64 %add.i.i.i.i136, %sub.ptr.div.i.i.i.i.i133
-  %48 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i136, i64 1152921504606846975)
-  %cond.i.i.i.i138 = select i1 %cmp7.i.i.i.i137, i64 1152921504606846975, i64 %48
-  %cmp.not.i.i.i.i139 = icmp eq i64 %cond.i.i.i.i138, 0
-  br i1 %cmp.not.i.i.i.i139, label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i143, label %cond.true.i.i.i.i140
+  %.sroa.speculated.i.i.i.i134 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i133, i64 1)
+  %add.i.i.i.i135 = add i64 %.sroa.speculated.i.i.i.i134, %sub.ptr.div.i.i.i.i.i133
+  %cmp7.i.i.i.i136 = icmp ult i64 %add.i.i.i.i135, %sub.ptr.div.i.i.i.i.i133
+  %48 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i135, i64 1152921504606846975)
+  %cond.i.i.i.i137 = select i1 %cmp7.i.i.i.i136, i64 1152921504606846975, i64 %48
+  %cmp.not.i.i.i.i138 = icmp eq i64 %cond.i.i.i.i137, 0
+  br i1 %cmp.not.i.i.i.i138, label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i142, label %cond.true.i.i.i.i139
 
-cond.true.i.i.i.i140:                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i132
-  %mul.i.i.i.i.i.i141 = shl nuw nsw i64 %cond.i.i.i.i138, 3
-  %call5.i.i.i.i.i5.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i141) #21
-          to label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i143 unwind label %lpad12.i.loopexit, !noalias !43
+cond.true.i.i.i.i139:                             ; preds = %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i132
+  %mul.i.i.i.i.i.i140 = shl nuw nsw i64 %cond.i.i.i.i137, 3
+  %call5.i.i.i.i.i5.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i140) #21
+          to label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i142 unwind label %lpad12.i.loopexit, !noalias !43
 
-_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i143: ; preds = %cond.true.i.i.i.i140, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i132
-  %cond.i12.i.i.i144 = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i132 ], [ %call5.i.i.i.i.i5.i, %cond.true.i.i.i.i140 ]
-  %add.ptr.i.i.i145 = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i12.i.i.i144, i64 %sub.ptr.div.i.i.i.i.i133
-  %__u.val.i.i.i.i.i.i.i.i146 = load i64, ptr %ref.tmp.i92, align 8, !noalias !43
-  store i64 %__u.val.i.i.i.i.i.i.i.i146, ptr %add.ptr.i.i.i145, align 8, !noalias !43
-  br i1 %cmp.i.i.i.i.i134, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i154, label %for.body.i.i.i.i.i.i147
+_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i142: ; preds = %cond.true.i.i.i.i139, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i132
+  %cond.i12.i.i.i143 = phi ptr [ null, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i132 ], [ %call5.i.i.i.i.i5.i, %cond.true.i.i.i.i139 ]
+  %add.ptr.i.i.i144 = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i12.i.i.i143, i64 %sub.ptr.div.i.i.i.i.i133
+  %__u.val.i.i.i.i.i.i.i.i145 = load i64, ptr %ref.tmp.i92, align 8, !noalias !43
+  store i64 %__u.val.i.i.i.i.i.i.i.i145, ptr %add.ptr.i.i.i144, align 8, !noalias !43
+  %cmp.not1.i.i.i.i.i.i146 = icmp eq ptr %this.val.i.i.i127, %45
+  br i1 %cmp.not1.i.i.i.i.i.i146, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i154, label %for.body.i.i.i.i.i.i147
 
-for.body.i.i.i.i.i.i147:                          ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i143, %for.body.i.i.i.i.i.i147
-  %__cur.03.i.i.i.i.i.i148 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i152, %for.body.i.i.i.i.i.i147 ], [ %cond.i12.i.i.i144, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i143 ]
-  %__first.addr.02.i.i.i.i.i.i149 = phi ptr [ %incdec.ptr.i.i.i.i.i.i151, %for.body.i.i.i.i.i.i147 ], [ %this.val.i.i.i127, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i143 ]
+for.body.i.i.i.i.i.i147:                          ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i142, %for.body.i.i.i.i.i.i147
+  %__cur.03.i.i.i.i.i.i148 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i152, %for.body.i.i.i.i.i.i147 ], [ %cond.i12.i.i.i143, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i142 ]
+  %__first.addr.02.i.i.i.i.i.i149 = phi ptr [ %incdec.ptr.i.i.i.i.i.i151, %for.body.i.i.i.i.i.i147 ], [ %this.val.i.i.i127, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i142 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46), !noalias !43
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49), !noalias !43
   %__u.val.i.i.i.i.i.i.i.i.i.i.i.i150 = load i64, ptr %__first.addr.02.i.i.i.i.i.i149, align 8, !alias.scope !49, !noalias !51
@@ -1689,8 +1689,8 @@ for.body.i.i.i.i.i.i147:                          ; preds = %_ZNSt12_Vector_base
   %cmp.not.i.i.i.i.i.i153 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i151, %45
   br i1 %cmp.not.i.i.i.i.i.i153, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i154, label %for.body.i.i.i.i.i.i147, !llvm.loop !25
 
-_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i154: ; preds = %for.body.i.i.i.i.i.i147, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i143
-  %__cur.0.lcssa.i.i.i.i.i.i155 = phi ptr [ %cond.i12.i.i.i144, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i143 ], [ %incdec.ptr1.i.i.i.i.i.i152, %for.body.i.i.i.i.i.i147 ]
+_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i154: ; preds = %for.body.i.i.i.i.i.i147, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i142
+  %__cur.0.lcssa.i.i.i.i.i.i155 = phi ptr [ %cond.i12.i.i.i143, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_M_allocateEm.exit.i.i.i142 ], [ %incdec.ptr1.i.i.i.i.i.i152, %for.body.i.i.i.i.i.i147 ]
   %incdec.ptr.i.i.i156 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i155, i64 8
   %tobool.not.i.i.i.i157 = icmp eq ptr %this.val.i.i.i127, null
   br i1 %tobool.not.i.i.i.i157, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS7_EEERS7_DpOT_.exit.i121, label %if.then.i23.i.i.i158
@@ -1700,9 +1700,9 @@ if.then.i23.i.i.i158:                             ; preds = %_ZNSt6vectorISt10un
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS7_EEERS7_DpOT_.exit.i121
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS7_EEERS7_DpOT_.exit.i121: ; preds = %_ZNSt6vectorISt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i154, %if.then.i23.i.i.i158
-  store ptr %cond.i12.i.i.i144, ptr %children_.i.i108, align 8, !noalias !43
+  store ptr %cond.i12.i.i.i143, ptr %children_.i.i108, align 8, !noalias !43
   store ptr %incdec.ptr.i.i.i156, ptr %_M_finish.i4.i, align 8, !noalias !43
-  %add.ptr19.i.i.i160 = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i12.i.i.i144, i64 %cond.i.i.i.i138
+  %add.ptr19.i.i.i160 = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i12.i.i.i143, i64 %cond.i.i.i.i137
   store ptr %add.ptr19.i.i.i160, ptr %_M_end_of_storage.i.i116, align 8, !noalias !43
   br label %_ZNSt10unique_ptrIN8facebook5velox12_GLOBAL__N_113VectorPrinterESt14default_deleteIS3_EED2Ev.exit.i125
 
@@ -1717,7 +1717,7 @@ lpad.i112:                                        ; preds = %for.body.i
           cleanup
   br label %ehcleanup.i113
 
-lpad12.i.loopexit:                                ; preds = %cond.true.i.i.i.i140
+lpad12.i.loopexit:                                ; preds = %cond.true.i.i.i.i139
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %lpad12.i

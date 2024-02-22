@@ -1077,11 +1077,11 @@ if.then2.i:                                       ; preds = %if.else.i
 
 if.else3.i:                                       ; preds = %if.else.i
   %mul4.i = shl nuw nsw i32 %spec.store.select, 1
-  %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %mul4.i, i32 1114113)
+  %1 = tail call i32 @llvm.umin.i32(i32 %mul4.i, i32 1114113)
   br label %_ZN6icu_7510UnicodeSet12nextCapacityEi.exit
 
 _ZN6icu_7510UnicodeSet12nextCapacityEi.exit:      ; preds = %if.then.i, %if.then2.i, %if.else3.i
-  %retval.0.i = phi i32 [ %add.i, %if.then.i ], [ %mul.i, %if.then2.i ], [ %spec.store.select.i, %if.else3.i ]
+  %retval.0.i = phi i32 [ %add.i, %if.then.i ], [ %mul.i, %if.then2.i ], [ %1, %if.else3.i ]
   %conv = sext i32 %retval.0.i to i64
   %mul = shl nsw i64 %conv, 2
   %call5 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul) #23
@@ -1090,27 +1090,27 @@ _ZN6icu_7510UnicodeSet12nextCapacityEi.exit:      ; preds = %if.then.i, %if.then
 
 if.then7:                                         ; preds = %_ZN6icu_7510UnicodeSet12nextCapacityEi.exit
   %bmpSet.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %bmpSet.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %bmpSet.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   %stringSpan.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %2 = load ptr, ptr %stringSpan.i.i.i, align 8
-  %cmp2.i.i.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %stringSpan.i.i.i, align 8
+  %cmp2.i.i.i = icmp eq ptr %3, null
   %narrow.i.not.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %narrow.i.not.i.i, label %if.end.i.i, label %_ZN6icu_7510UnicodeSet10setToBogusEv.exit
 
 if.end.i.i:                                       ; preds = %if.then7
   %list.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load ptr, ptr %list.i.i, align 8
-  store i32 1114112, ptr %3, align 4
+  %4 = load ptr, ptr %list.i.i, align 8
+  store i32 1114112, ptr %4, align 4
   %len.i.i = getelementptr inbounds i8, ptr %this, i64 28
   store i32 1, ptr %len.i.i, align 4
   %pat.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %4 = load ptr, ptr %pat.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %pat.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZN6icu_7510UnicodeSet14releasePatternEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  tail call void @uprv_free_75(ptr noundef nonnull %4)
+  tail call void @uprv_free_75(ptr noundef nonnull %5)
   store ptr null, ptr %pat.i.i.i, align 8
   %patLen.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %patLen.i.i.i, align 8
@@ -1118,12 +1118,12 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 
 _ZN6icu_7510UnicodeSet14releasePatternEv.exit.i.i: ; preds = %if.then.i.i.i, %if.end.i.i
   %strings.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %5 = load ptr, ptr %strings.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %strings.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i, label %_ZN6icu_7510UnicodeSet10setToBogusEv.exit, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %_ZN6icu_7510UnicodeSet14releasePatternEv.exit.i.i
-  tail call void @_ZN6icu_757UVector17removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
+  tail call void @_ZN6icu_757UVector17removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
   br label %_ZN6icu_7510UnicodeSet10setToBogusEv.exit
 
 _ZN6icu_7510UnicodeSet10setToBogusEv.exit:        ; preds = %if.then7, %_ZN6icu_7510UnicodeSet14releasePatternEv.exit.i.i, %if.then2.i.i
@@ -1133,18 +1133,18 @@ _ZN6icu_7510UnicodeSet10setToBogusEv.exit:        ; preds = %if.then7, %_ZN6icu_
 
 do.body:                                          ; preds = %_ZN6icu_7510UnicodeSet12nextCapacityEi.exit
   %list = getelementptr inbounds i8, ptr %this, i64 16
-  %6 = load ptr, ptr %list, align 8
+  %7 = load ptr, ptr %list, align 8
   %len = getelementptr inbounds i8, ptr %this, i64 28
-  %7 = load i32, ptr %len, align 4
-  %conv9 = sext i32 %7 to i64
+  %8 = load i32, ptr %len, align 4
+  %conv9 = sext i32 %8 to i64
   %mul10 = shl nsw i64 %conv9, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5, ptr align 4 %6, i64 %mul10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5, ptr align 4 %7, i64 %mul10, i1 false)
   %stackList = getelementptr inbounds i8, ptr %this, i64 96
-  %cmp12.not = icmp eq ptr %6, %stackList
+  %cmp12.not = icmp eq ptr %7, %stackList
   br i1 %cmp12.not, label %if.end15, label %if.then13
 
 if.then13:                                        ; preds = %do.body
-  tail call void @uprv_free_75(ptr noundef %6)
+  tail call void @uprv_free_75(ptr noundef %7)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %do.body
@@ -3837,7 +3837,7 @@ if.then11:                                        ; preds = %if.end5
   br label %return
 
 if.end12:                                         ; preds = %if.end5
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %sub13 = sub i32 %n.015, %.pn
   %add14 = add i32 %sub13, %3
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
@@ -7173,7 +7173,7 @@ if.then2:                                         ; preds = %if.else
 
 if.else3:                                         ; preds = %if.else
   %mul4 = shl nuw nsw i32 %minCapacity, 1
-  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %mul4, i32 1114113)
+  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %mul4, i32 1114113)
   br label %return
 
 return:                                           ; preds = %if.else3, %if.then2, %if.then
@@ -7208,11 +7208,11 @@ if.then2.i:                                       ; preds = %if.else.i
 
 if.else3.i:                                       ; preds = %if.else.i
   %mul4.i = shl nuw nsw i32 %spec.store.select, 1
-  %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %mul4.i, i32 1114113)
+  %1 = tail call i32 @llvm.umin.i32(i32 %mul4.i, i32 1114113)
   br label %_ZN6icu_7510UnicodeSet12nextCapacityEi.exit
 
 _ZN6icu_7510UnicodeSet12nextCapacityEi.exit:      ; preds = %if.then.i, %if.then2.i, %if.else3.i
-  %retval.0.i = phi i32 [ %add.i, %if.then.i ], [ %mul.i, %if.then2.i ], [ %spec.store.select.i, %if.else3.i ]
+  %retval.0.i = phi i32 [ %add.i, %if.then.i ], [ %mul.i, %if.then2.i ], [ %1, %if.else3.i ]
   %conv = sext i32 %retval.0.i to i64
   %mul = shl nsw i64 %conv, 2
   %call5 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul) #23
@@ -7221,27 +7221,27 @@ _ZN6icu_7510UnicodeSet12nextCapacityEi.exit:      ; preds = %if.then.i, %if.then
 
 if.then7:                                         ; preds = %_ZN6icu_7510UnicodeSet12nextCapacityEi.exit
   %bmpSet.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %1 = load ptr, ptr %bmpSet.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %1, null
+  %2 = load ptr, ptr %bmpSet.i.i.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %2, null
   %stringSpan.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  %2 = load ptr, ptr %stringSpan.i.i.i, align 8
-  %cmp2.i.i.i = icmp eq ptr %2, null
+  %3 = load ptr, ptr %stringSpan.i.i.i, align 8
+  %cmp2.i.i.i = icmp eq ptr %3, null
   %narrow.i.not.i.i = select i1 %cmp.not.i.i.i, i1 %cmp2.i.i.i, i1 false
   br i1 %narrow.i.not.i.i, label %if.end.i.i, label %_ZN6icu_7510UnicodeSet10setToBogusEv.exit
 
 if.end.i.i:                                       ; preds = %if.then7
   %list.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %3 = load ptr, ptr %list.i.i, align 8
-  store i32 1114112, ptr %3, align 4
+  %4 = load ptr, ptr %list.i.i, align 8
+  store i32 1114112, ptr %4, align 4
   %len.i.i = getelementptr inbounds i8, ptr %this, i64 28
   store i32 1, ptr %len.i.i, align 4
   %pat.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
-  %4 = load ptr, ptr %pat.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %4, null
+  %5 = load ptr, ptr %pat.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZN6icu_7510UnicodeSet14releasePatternEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  tail call void @uprv_free_75(ptr noundef nonnull %4)
+  tail call void @uprv_free_75(ptr noundef nonnull %5)
   store ptr null, ptr %pat.i.i.i, align 8
   %patLen.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %patLen.i.i.i, align 8
@@ -7249,12 +7249,12 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 
 _ZN6icu_7510UnicodeSet14releasePatternEv.exit.i.i: ; preds = %if.then.i.i.i, %if.end.i.i
   %strings.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  %5 = load ptr, ptr %strings.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %5, null
+  %6 = load ptr, ptr %strings.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i, label %_ZN6icu_7510UnicodeSet10setToBogusEv.exit, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %_ZN6icu_7510UnicodeSet14releasePatternEv.exit.i.i
-  tail call void @_ZN6icu_757UVector17removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(40) %5)
+  tail call void @_ZN6icu_757UVector17removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
   br label %_ZN6icu_7510UnicodeSet10setToBogusEv.exit
 
 _ZN6icu_7510UnicodeSet10setToBogusEv.exit:        ; preds = %if.then7, %_ZN6icu_7510UnicodeSet14releasePatternEv.exit.i.i, %if.then2.i.i
@@ -7264,13 +7264,13 @@ _ZN6icu_7510UnicodeSet10setToBogusEv.exit:        ; preds = %if.then7, %_ZN6icu_
 
 if.end8:                                          ; preds = %_ZN6icu_7510UnicodeSet12nextCapacityEi.exit
   %buffer = getelementptr inbounds i8, ptr %this, i64 48
-  %6 = load ptr, ptr %buffer, align 8
+  %7 = load ptr, ptr %buffer, align 8
   %stackList = getelementptr inbounds i8, ptr %this, i64 96
-  %cmp9.not = icmp eq ptr %6, %stackList
+  %cmp9.not = icmp eq ptr %7, %stackList
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  tail call void @uprv_free_75(ptr noundef %6)
+  tail call void @uprv_free_75(ptr noundef %7)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end8
@@ -8835,10 +8835,10 @@ declare void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 de
 declare i32 @llvm.smin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #19
+declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
+declare i32 @llvm.umin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20

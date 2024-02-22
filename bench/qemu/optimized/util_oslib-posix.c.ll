@@ -605,8 +605,7 @@ get_memset_num_threads.exit.i:                    ; preds = %if.then.i.i, %if.en
   %conv19.i.i = ashr exact i64 %sext15.i.i, 32
   %mul.i.i = mul i64 %div, %call
   %div16.i.i = lshr i64 %mul.i.i, 26
-  %cmp21.i.i = icmp ult i64 %mul.i.i, 67108864
-  %cond26.i.i = select i1 %cmp21.i.i, i64 1, i64 %div16.i.i
+  %cond26.i.i = call i64 @llvm.umax.i64(i64 %div16.i.i, i64 1)
   %cond33.i.i = call i64 @llvm.umin.i64(i64 %conv19.i.i, i64 %cond26.i.i)
   %conv34.i.i = trunc i64 %cond33.i.i to i32
   store i32 %conv34.i.i, ptr %num_threads.i, align 8

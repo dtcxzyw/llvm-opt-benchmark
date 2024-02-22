@@ -1176,15 +1176,15 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %__begin3.sroa.0.08, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i12 = icmp eq ptr %8, null
-  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %if.else
+dynamic_cast.end.i:                               ; preds = %if.else
   %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEEE, i64 0) #15
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %if.else
-  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %if.else
+  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i13 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %10)
   br i1 %call.i13, label %for.end, label %if.else.i
 
@@ -1547,15 +1547,15 @@ if.else:                                          ; preds = %if.then
   %8 = load ptr, ptr %__begin3.sroa.0.08, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %cmp.i12 = icmp eq ptr %8, null
-  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.notnull.i
+  br i1 %cmp.i12, label %lor.end.i, label %dynamic_cast.end.i
 
-dynamic_cast.notnull.i:                           ; preds = %if.else
+dynamic_cast.end.i:                               ; preds = %if.else
   %9 = tail call ptr @__dynamic_cast(ptr nonnull %8, ptr nonnull @_ZTIN7testing8internal30ParameterizedTestSuiteInfoBaseE, ptr nonnull @_ZTIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEEE, i64 0) #15
   %cmp1.i = icmp ne ptr %9, null
   br label %lor.end.i
 
-lor.end.i:                                        ; preds = %dynamic_cast.notnull.i, %if.else
-  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.notnull.i ]
+lor.end.i:                                        ; preds = %dynamic_cast.end.i, %if.else
+  %10 = phi i1 [ true, %if.else ], [ %cmp1.i, %dynamic_cast.end.i ]
   %call.i13 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %10)
   br i1 %call.i13, label %for.end, label %if.else.i
 
@@ -2289,7 +2289,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 ; Function Attrs: nounwind
 declare void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #12
 
 declare void @__cxa_rethrow() local_unnamed_addr
@@ -4984,9 +4984,8 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 
 _ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
-  %cmp.i.i.i.i.i = icmp eq ptr %17, %this.val10.i.i.i
-  %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i
-  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
+  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %20 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 576460752303423487)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 576460752303423487, i64 %20
@@ -5004,7 +5003,8 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInf
   store ptr %call, ptr %add.ptr.i.i.i, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
-  br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit23.i.i.i, label %for.body.i.i.i.i.i.i
+  %cmp.not1.i.i.i.i.i.i = icmp eq ptr %this.val10.i.i.i, %17
+  br i1 %cmp.not1.i.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit23.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
   %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE8TestInfoEESaIS9_EE11_M_allocateEm.exit.i.i.i ]
@@ -9455,9 +9455,8 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i
 
 _ZNKSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %if.else.i.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 4
-  %cmp.i.i.i.i.i = icmp eq ptr %17, %this.val10.i.i.i
-  %.sroa.speculated.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i
-  %add.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i, i64 1)
+  %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %cmp7.i.i.i.i = icmp ult i64 %add.i.i.i.i, %sub.ptr.div.i.i.i.i.i
   %20 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i, i64 576460752303423487)
   %cond.i.i.i.i = select i1 %cmp7.i.i.i.i, i64 576460752303423487, i64 %20
@@ -9475,7 +9474,8 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInf
   store ptr %call, ptr %add.ptr.i.i.i, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   store ptr %call.i.i.i.i, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
-  br i1 %cmp.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit23.i.i.i, label %for.body.i.i.i.i.i.i
+  %cmp.not1.i.i.i.i.i.i = icmp eq ptr %this.val10.i.i.i, %17
+  br i1 %cmp.not1.i.i.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit23.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
   %__cur.03.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i12.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE8TestInfoEESaIS9_EE11_M_allocateEm.exit.i.i.i ]
@@ -10145,10 +10145,10 @@ call2.i.noexc:                                    ; preds = %call4.i.noexc
 
 invoke.cont34:                                    ; preds = %call3.i.noexc, %call2.i.noexc, %call2.i.noexc.us, %call22.i.noexc
   %tobool.i28.not = phi i1 [ false, %call22.i.noexc ], [ false, %call2.i.noexc.us ], [ %cmp.i44, %call2.i.noexc ], [ %cmp.i44, %call3.i.noexc ]
-  %call2.lcssa.i = phi i8 [ 1, %call22.i.noexc ], [ 1, %call2.i.noexc.us ], [ 0, %call3.i.noexc ], [ 1, %call2.i.noexc ]
+  %lnot = phi i8 [ 1, %call22.i.noexc ], [ 1, %call2.i.noexc.us ], [ 0, %call3.i.noexc ], [ 1, %call2.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__begin1.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__end1.i)
-  store i8 %call2.lcssa.i, ptr %gtest_ar_, align 8
+  store i8 %lnot, ptr %gtest_ar_, align 8
   %message_.i27 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i27, align 8
   call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp31) #15
@@ -12689,10 +12689,10 @@ call2.i.noexc:                                    ; preds = %call4.i.noexc
 
 invoke.cont33:                                    ; preds = %call3.i.noexc, %call2.i.noexc, %call2.i.noexc.us, %call22.i.noexc
   %tobool.i28.not = phi i1 [ false, %call22.i.noexc ], [ false, %call2.i.noexc.us ], [ %cmp.i49, %call2.i.noexc ], [ %cmp.i49, %call3.i.noexc ]
-  %call2.lcssa.i = phi i8 [ 1, %call22.i.noexc ], [ 1, %call2.i.noexc.us ], [ 0, %call3.i.noexc ], [ 1, %call2.i.noexc ]
+  %lnot = phi i8 [ 1, %call22.i.noexc ], [ 1, %call2.i.noexc.us ], [ 0, %call3.i.noexc ], [ 1, %call2.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__begin1.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__end1.i)
-  store i8 %call2.lcssa.i, ptr %gtest_ar_, align 8
+  store i8 %lnot, ptr %gtest_ar_, align 8
   %message_.i27 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i27, align 8
   call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp30) #15
@@ -13175,10 +13175,10 @@ call2.i.noexc:                                    ; preds = %call4.i.noexc
 
 invoke.cont33:                                    ; preds = %call3.i.noexc, %call2.i.noexc, %call2.i.noexc.us, %call22.i.noexc
   %tobool.i28.not = phi i1 [ false, %call22.i.noexc ], [ false, %call2.i.noexc.us ], [ %cmp.i49, %call2.i.noexc ], [ %cmp.i49, %call3.i.noexc ]
-  %call2.lcssa.i = phi i8 [ 1, %call22.i.noexc ], [ 1, %call2.i.noexc.us ], [ 0, %call3.i.noexc ], [ 1, %call2.i.noexc ]
+  %lnot = phi i8 [ 1, %call22.i.noexc ], [ 1, %call2.i.noexc.us ], [ 0, %call3.i.noexc ], [ 1, %call2.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__begin1.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__end1.i)
-  store i8 %call2.lcssa.i, ptr %gtest_ar_, align 8
+  store i8 %lnot, ptr %gtest_ar_, align 8
   %message_.i27 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i27, align 8
   call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp30) #15
@@ -14923,10 +14923,10 @@ call2.i.noexc:                                    ; preds = %call4.i.noexc
   br i1 %call2.i31, label %for.body.i, label %invoke.cont38
 
 invoke.cont38:                                    ; preds = %call3.i.noexc, %call2.i.noexc, %call2.i.noexc.us, %call22.i.noexc
-  %call2.lcssa.i = phi i8 [ 1, %call22.i.noexc ], [ 1, %call2.i.noexc.us ], [ 1, %call2.i.noexc ], [ 0, %call3.i.noexc ]
+  %lnot = phi i8 [ 1, %call22.i.noexc ], [ 1, %call2.i.noexc.us ], [ 1, %call2.i.noexc ], [ 0, %call3.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__begin1.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__end1.i)
-  store i8 %call2.lcssa.i, ptr %gtest_ar_, align 8
+  store i8 %lnot, ptr %gtest_ar_, align 8
   %message_.i32 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
   store ptr null, ptr %message_.i32, align 8
   call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp35) #15
@@ -29692,9 +29692,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i
 
 _ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 6
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %5, %this.val10.i.i.i.i.i
-  %.sroa.speculated.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i.i.i
-  %add.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
+  %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i, i64 1)
+  %add.i.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %8 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 144115188075855871)
   %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 144115188075855871, i64 %8
@@ -29712,7 +29711,8 @@ _ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOB
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #15
   %generator.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %generator.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(28) %generator.i.i.i, i64 28, i1 false)
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
+  %cmp.not1.i.i.i.i.i.i.i.i = icmp eq ptr %this.val10.i.i.i.i.i, %5
+  br i1 %cmp.not1.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
   %__cur.03.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %cond.i12.i.i.i.i.i, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzUpdateTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i ]
@@ -29930,37 +29930,37 @@ if.else.i.i.i.i50:                                ; preds = %.noexc16.i39
 
 if.then.i.i.i.i.i.i83:                            ; preds = %if.else.i.i.i.i50
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.97) #28
-          to label %.noexc.i.i84 unwind label %lpad.i15.i66
+          to label %.noexc.i.i84 unwind label %lpad.i15.i65
 
 .noexc.i.i84:                                     ; preds = %if.then.i.i.i.i.i.i83
   unreachable
 
 _ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i50
   %sub.ptr.div.i.i.i.i.i.i.i56 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i54, 6
-  %cmp.i.i.i.i.i.i.i57 = icmp eq ptr %19, %this.val10.i.i.i.i.i51
-  %.sroa.speculated.i.i.i.i.i.i58 = select i1 %cmp.i.i.i.i.i.i.i57, i64 1, i64 %sub.ptr.div.i.i.i.i.i.i.i56
-  %add.i.i.i.i.i.i59 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i58, %sub.ptr.div.i.i.i.i.i.i.i56
-  %cmp7.i.i.i.i.i.i60 = icmp ult i64 %add.i.i.i.i.i.i59, %sub.ptr.div.i.i.i.i.i.i.i56
-  %22 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i59, i64 144115188075855871)
-  %cond.i.i.i.i.i.i61 = select i1 %cmp7.i.i.i.i.i.i60, i64 144115188075855871, i64 %22
-  %cmp.not.i.i.i.i.i.i62 = icmp eq i64 %cond.i.i.i.i.i.i61, 0
-  br i1 %cmp.not.i.i.i.i.i.i62, label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i, label %cond.true.i.i.i.i.i.i63
+  %.sroa.speculated.i.i.i.i.i.i57 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i56, i64 1)
+  %add.i.i.i.i.i.i58 = add i64 %.sroa.speculated.i.i.i.i.i.i57, %sub.ptr.div.i.i.i.i.i.i.i56
+  %cmp7.i.i.i.i.i.i59 = icmp ult i64 %add.i.i.i.i.i.i58, %sub.ptr.div.i.i.i.i.i.i.i56
+  %22 = call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i58, i64 144115188075855871)
+  %cond.i.i.i.i.i.i60 = select i1 %cmp7.i.i.i.i.i.i59, i64 144115188075855871, i64 %22
+  %cmp.not.i.i.i.i.i.i61 = icmp eq i64 %cond.i.i.i.i.i.i60, 0
+  br i1 %cmp.not.i.i.i.i.i.i61, label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i, label %cond.true.i.i.i.i.i.i62
 
-cond.true.i.i.i.i.i.i63:                          ; preds = %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
-  %mul.i.i.i.i.i.i.i.i64 = shl nuw nsw i64 %cond.i.i.i.i.i.i61, 6
-  %call5.i.i.i.i.i.i1.i.i65 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i64) #29
-          to label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i unwind label %lpad.i15.i66
+cond.true.i.i.i.i.i.i62:                          ; preds = %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
+  %mul.i.i.i.i.i.i.i.i63 = shl nuw nsw i64 %cond.i.i.i.i.i.i60, 6
+  %call5.i.i.i.i.i.i1.i.i64 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i.i63) #29
+          to label %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i unwind label %lpad.i15.i65
 
-_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i63, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
-  %cond.i12.i.i.i.i.i67 = phi ptr [ null, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %call5.i.i.i.i.i.i1.i.i65, %cond.true.i.i.i.i.i.i63 ]
-  %add.ptr.i.i.i.i.i68 = getelementptr inbounds %"struct.testing::internal::ParameterizedTestSuiteInfo<absl::(anonymous namespace)::CordzStringTest>::InstantiationInfo", ptr %cond.i12.i.i.i.i.i67, i64 %sub.ptr.div.i.i.i.i.i.i.i56
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i68, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i1) #15
-  %generator.i.i.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i68, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %generator.i.i.i.i.i.i.i.i69, ptr noundef nonnull align 8 dereferenceable(28) %generator.i.i.i40, i64 28, i1 false)
-  br i1 %cmp.i.i.i.i.i.i.i57, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i70
+_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i: ; preds = %cond.true.i.i.i.i.i.i62, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
+  %cond.i12.i.i.i.i.i66 = phi ptr [ null, %_ZNKSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %call5.i.i.i.i.i.i1.i.i64, %cond.true.i.i.i.i.i.i62 ]
+  %add.ptr.i.i.i.i.i67 = getelementptr inbounds %"struct.testing::internal::ParameterizedTestSuiteInfo<absl::(anonymous namespace)::CordzStringTest>::InstantiationInfo", ptr %cond.i12.i.i.i.i.i66, i64 %sub.ptr.div.i.i.i.i.i.i.i56
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i67, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i1) #15
+  %generator.i.i.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i67, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %generator.i.i.i.i.i.i.i.i68, ptr noundef nonnull align 8 dereferenceable(28) %generator.i.i.i40, i64 28, i1 false)
+  %cmp.not1.i.i.i.i.i.i.i.i69 = icmp eq ptr %this.val10.i.i.i.i.i51, %19
+  br i1 %cmp.not1.i.i.i.i.i.i.i.i69, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i70
 
 for.body.i.i.i.i.i.i.i.i70:                       ; preds = %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i70
-  %__cur.03.i.i.i.i.i.i.i.i71 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i76, %for.body.i.i.i.i.i.i.i.i70 ], [ %cond.i12.i.i.i.i.i67, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i ]
+  %__cur.03.i.i.i.i.i.i.i.i71 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i76, %for.body.i.i.i.i.i.i.i.i70 ], [ %cond.i12.i.i.i.i.i66, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i ]
   %__first.addr.02.i.i.i.i.i.i.i.i72 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i75, %for.body.i.i.i.i.i.i.i.i70 ], [ %this.val10.i.i.i.i.i51, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.03.i.i.i.i.i.i.i.i71, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.02.i.i.i.i.i.i.i.i72) #15
   %generator.i.i.i.i.i.i.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i.i.i.i.i71, i64 32
@@ -29973,7 +29973,7 @@ for.body.i.i.i.i.i.i.i.i70:                       ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.not.i.i.i.i.i.i.i.i77, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i70, !llvm.loop !328
 
 _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i70, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i
-  %__cur.0.lcssa.i.i.i.i.i.i.i.i78 = phi ptr [ %cond.i12.i.i.i.i.i67, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i76, %for.body.i.i.i.i.i.i.i.i70 ]
+  %__cur.0.lcssa.i.i.i.i.i.i.i.i78 = phi ptr [ %cond.i12.i.i.i.i.i66, %_ZNSt12_Vector_baseIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_M_allocateEm.exit.i.i.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i.i.i76, %for.body.i.i.i.i.i.i.i.i70 ]
   %incdec.ptr.i.i.i.i.i79 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i78, i64 64
   %tobool.not.i.i.i.i.i.i80 = icmp eq ptr %this.val10.i.i.i.i.i51, null
   br i1 %tobool.not.i.i.i.i.i.i80, label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i.i, label %if.then.i24.i.i.i.i.i81
@@ -29983,13 +29983,13 @@ if.then.i24.i.i.i.i.i81:                          ; preds = %_ZNSt6vectorIN7test
   br label %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i.i: ; preds = %if.then.i24.i.i.i.i.i81, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN4absl12_GLOBAL__N_115CordzStringTestEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit23.i.i.i.i.i
-  store ptr %cond.i12.i.i.i.i.i67, ptr %instantiations_.i.i35, align 8
+  store ptr %cond.i12.i.i.i.i.i66, ptr %instantiations_.i.i35, align 8
   store ptr %incdec.ptr.i.i.i.i.i79, ptr %_M_finish.i.i.i.i44, align 8
-  %add.ptr19.i.i.i.i.i82 = getelementptr inbounds %"struct.testing::internal::ParameterizedTestSuiteInfo<absl::(anonymous namespace)::CordzStringTest>::InstantiationInfo", ptr %cond.i12.i.i.i.i.i67, i64 %cond.i.i.i.i.i.i61
+  %add.ptr19.i.i.i.i.i82 = getelementptr inbounds %"struct.testing::internal::ParameterizedTestSuiteInfo<absl::(anonymous namespace)::CordzStringTest>::InstantiationInfo", ptr %cond.i12.i.i.i.i.i66, i64 %cond.i.i.i.i.i.i60
   store ptr %add.ptr19.i.i.i.i.i82, ptr %_M_end_of_storage.i.i.i.i45, align 8
   br label %__cxx_global_var_init.4.exit
 
-lpad.i15.i66:                                     ; preds = %cond.true.i.i.i.i.i.i63, %if.then.i.i.i.i.i.i83
+lpad.i15.i65:                                     ; preds = %cond.true.i.i.i.i.i.i62, %if.then.i.i.i.i.i.i83
   %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i1) #15
@@ -30020,8 +30020,8 @@ lpad12.i36:                                       ; preds = %invoke.cont11.i34
           cleanup
   br label %lpad12.body.i37
 
-lpad12.body.i37:                                  ; preds = %lpad12.i36, %lpad.i15.i66
-  %eh.lpad-body17.i38 = phi { ptr, i32 } [ %28, %lpad12.i36 ], [ %23, %lpad.i15.i66 ]
+lpad12.body.i37:                                  ; preds = %lpad12.i36, %lpad.i15.i65
+  %eh.lpad-body17.i38 = phi { ptr, i32 } [ %28, %lpad12.i36 ], [ %23, %lpad.i15.i65 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i5) #15
   br label %ehcleanup.i29
 
@@ -34571,7 +34571,7 @@ attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nofree nounwind memory(read) }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nounwind }

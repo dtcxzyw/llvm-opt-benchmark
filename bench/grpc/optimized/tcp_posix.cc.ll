@@ -1735,8 +1735,7 @@ if.then6:                                         ; preds = %invoke.cont4
   %min_progress_size.i = getelementptr inbounds i8, ptr %arg, i64 628
   %7 = load i32, ptr %min_progress_size.i, align 4
   %conv.i = sext i32 %7 to i64
-  %cmp.i.i = icmp eq i32 %7, 0
-  %.sroa.speculated42.i = select i1 %cmp.i.i, i64 1, i64 %conv.i
+  %.sroa.speculated42.i = call i64 @llvm.umax.i64(i64 %conv.i, i64 1)
   %cmp.i24 = icmp ult i64 %6, %.sroa.speculated42.i
   br i1 %cmp.i24, label %if.end.i.i, label %invoke.cont7
 

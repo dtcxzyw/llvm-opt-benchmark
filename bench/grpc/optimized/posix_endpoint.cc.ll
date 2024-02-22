@@ -1841,8 +1841,7 @@ entry:
   %min_progress_size_ = getelementptr inbounds i8, ptr %this, i64 872
   %2 = load i32, ptr %min_progress_size_, align 8
   %conv = sext i32 %2 to i64
-  %cmp.i = icmp eq i32 %2, 0
-  %.sroa.speculated17 = select i1 %cmp.i, i64 1, i64 %conv
+  %.sroa.speculated17 = tail call i64 @llvm.umax.i64(i64 %conv, i64 1)
   %cmp = icmp ult i64 %1, %.sroa.speculated17
   br i1 %cmp, label %if.then, label %if.end43
 

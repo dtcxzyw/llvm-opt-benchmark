@@ -5199,9 +5199,8 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 
 _ZNKSt6vectorIN3ue212_GLOBAL__N_14pathESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 192
-  %cmp.i.i.i.i = icmp eq ptr %0, %this.val.i.i
-  %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
-  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
+  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %11 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 48038396025285290)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 48038396025285290, i64 %11
@@ -5272,7 +5271,8 @@ invoke.cont.i.i:                                  ; preds = %.noexc.i.i.i.i.i.i,
 
 invoke.cont14.i.i:                                ; preds = %invoke.cont.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call2.i22.i.i, i64 192
-  br i1 %cmp.i.i.i.i, label %_ZSt8_DestroyIPN3ue212_GLOBAL__N_14pathES2_EvT_S4_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i
+  %cmp.not3.i.i.i.i.i = icmp eq ptr %this.val.i.i, %0
+  br i1 %cmp.not3.i.i.i.i.i, label %_ZSt8_DestroyIPN3ue212_GLOBAL__N_14pathES2_EvT_S4_RSaIT0_E.exit.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont14.i.i, %_ZSt8_DestroyIN3ue212_GLOBAL__N_14pathEEvPT_.exit.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyIN3ue212_GLOBAL__N_14pathEEvPT_.exit.i.i.i.i.i ], [ %this.val.i.i, %invoke.cont14.i.i ]
@@ -6149,9 +6149,8 @@ if.then.i.i:                                      ; preds = %if.else
 
 _ZNKSt6vectorIN3ue212_GLOBAL__N_14pathESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 192
-  %cmp.i.i.i = icmp eq ptr %0, %this.val.i
-  %.sroa.speculated.i.i = select i1 %cmp.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i
-  %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
+  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %9 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 48038396025285290)
   %cond.i.i = select i1 %cmp7.i.i, i64 48038396025285290, i64 %9
@@ -6216,7 +6215,8 @@ invoke.cont10.i:                                  ; preds = %invoke.cont.i
           to label %invoke.cont14.i unwind label %lpad.body.i
 
 invoke.cont14.i:                                  ; preds = %invoke.cont10.i
-  br i1 %cmp.i.i.i, label %_ZSt8_DestroyIPN3ue212_GLOBAL__N_14pathES2_EvT_S4_RSaIT0_E.exit.i, label %for.body.i.i.i.i
+  %cmp.not3.i.i.i.i = icmp eq ptr %this.val.i, %0
+  br i1 %cmp.not3.i.i.i.i, label %_ZSt8_DestroyIPN3ue212_GLOBAL__N_14pathES2_EvT_S4_RSaIT0_E.exit.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %invoke.cont14.i, %_ZSt8_DestroyIN3ue212_GLOBAL__N_14pathEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN3ue212_GLOBAL__N_14pathEEvPT_.exit.i.i.i.i ], [ %this.val.i, %invoke.cont14.i ]

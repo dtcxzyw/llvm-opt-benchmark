@@ -6756,9 +6756,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i
 
 _ZNKSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %if.else.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 56
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %21, %this.val.i.i.i.i.i
-  %.sroa.speculated.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i.i.i.i
-  %add.i.i.i.i.i.i = add nsw i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
+  %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i.i.i.i, i64 1)
+  %add.i.i.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %cmp7.i.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i.i, %sub.ptr.div.i.i.i.i.i.i.i
   %24 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 164703072086692425)
   %cond.i.i.i.i.i.i = select i1 %cmp7.i.i.i.i.i.i, i64 164703072086692425, i64 %24
@@ -6788,7 +6787,8 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_111DiagMessageESaIS1_EE11_M_allocateEm.exit.i.
   store ptr %call.i.i6.i.i.i, ptr %ref.tmp7.sroa.8.0.add.ptr.i.i.i6.sroa_idx.i.i, align 8
   %ref.tmp7.sroa.9.0.add.ptr.i.i.i6.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i6.i.i, i64 48
   store i64 %call2.i.i7.i.i.i, ptr %ref.tmp7.sroa.9.0.add.ptr.i.i.i6.sroa_idx.i.i, align 8
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
+  %cmp.not1.i.i.i.i.i.i.i.i = icmp eq ptr %this.val.i.i.i.i.i, %21
+  br i1 %cmp.not1.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN12_GLOBAL__N_111DiagMessageESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_111DiagMessageESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i
   %__cur.03.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %cond.i12.i.i.i.i.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_111DiagMessageESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i ]

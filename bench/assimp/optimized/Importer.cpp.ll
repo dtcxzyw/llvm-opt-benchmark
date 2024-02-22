@@ -2779,9 +2779,8 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 
 _ZNKSt6vectorIZN6Assimp8Importer8ReadFileEPKcjE16ImporterAndIndexSaIS4_EE12_M_check_lenEmS3_.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 4
-  %cmp.i.i.i.i = icmp eq ptr %possibleImporters.sroa.11.0496, %possibleImporters.sroa.0.0497
-  %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
-  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
+  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %40 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %40
@@ -4846,7 +4845,7 @@ if.end.i:                                         ; preds = %_ZNSt3mapIjiSt4less
   br label %_Z18SetGenericPropertyIiEbRSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKcRKS1_.exit
 
 _Z18SetGenericPropertyIiEbRSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKcRKS1_.exit: ; preds = %if.then.i, %if.end.i
-  %cmp.i8.i = phi i1 [ true, %if.end.i ], [ false, %if.then.i ]
+  %retval.0.i = phi i1 [ true, %if.end.i ], [ false, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp5.i)
   br label %return
 
@@ -4859,7 +4858,7 @@ lpad:                                             ; preds = %if.then.i
   br label %return
 
 return:                                           ; preds = %_Z18SetGenericPropertyIiEbRSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKcRKS1_.exit, %lpad
-  %retval.0 = phi i1 [ false, %lpad ], [ %cmp.i8.i, %_Z18SetGenericPropertyIiEbRSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKcRKS1_.exit ]
+  %retval.0 = phi i1 [ false, %lpad ], [ %retval.0.i, %_Z18SetGenericPropertyIiEbRSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKcRKS1_.exit ]
   ret i1 %retval.0
 }
 
@@ -6653,7 +6652,7 @@ if.end.i:                                         ; preds = %_ZNSt3mapIjfSt4less
   br label %_Z18SetGenericPropertyIfEbRSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKcRKS1_.exit
 
 _Z18SetGenericPropertyIfEbRSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKcRKS1_.exit: ; preds = %if.then.i, %if.end.i
-  %cmp.i8.i = phi i1 [ true, %if.end.i ], [ false, %if.then.i ]
+  %retval.0.i = phi i1 [ true, %if.end.i ], [ false, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp5.i)
   br label %return
 
@@ -6666,7 +6665,7 @@ lpad:                                             ; preds = %if.then.i
   br label %return
 
 return:                                           ; preds = %_Z18SetGenericPropertyIfEbRSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKcRKS1_.exit, %lpad
-  %retval.0 = phi i1 [ false, %lpad ], [ %cmp.i8.i, %_Z18SetGenericPropertyIfEbRSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKcRKS1_.exit ]
+  %retval.0 = phi i1 [ false, %lpad ], [ %retval.0.i, %_Z18SetGenericPropertyIfEbRSt3mapIjT_St4lessIjESaISt4pairIKjS1_EEEPKcRKS1_.exit ]
   ret i1 %retval.0
 }
 
@@ -6760,8 +6759,8 @@ if.end:                                           ; preds = %_ZNSt3mapIjNSt7__cx
   br label %return
 
 return:                                           ; preds = %if.end, %invoke.cont
-  %cmp.i11 = phi i1 [ true, %if.end ], [ false, %invoke.cont ]
-  ret i1 %cmp.i11
+  %retval.0 = phi i1 [ true, %if.end ], [ false, %invoke.cont ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6814,7 +6813,7 @@ if.end.i:                                         ; preds = %_ZNSt3mapIj12aiMatr
   br label %_Z18SetGenericPropertyI12aiMatrix4x4tIfEEbRSt3mapIjT_St4lessIjESaISt4pairIKjS3_EEEPKcRKS3_.exit
 
 _Z18SetGenericPropertyI12aiMatrix4x4tIfEEbRSt3mapIjT_St4lessIjESaISt4pairIKjS3_EEEPKcRKS3_.exit: ; preds = %if.then.i, %if.end.i
-  %cmp.i8.i = phi i1 [ true, %if.end.i ], [ false, %if.then.i ]
+  %retval.0.i = phi i1 [ true, %if.end.i ], [ false, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %ref.tmp5.i)
   br label %return
 
@@ -6827,7 +6826,7 @@ lpad:                                             ; preds = %if.then.i
   br label %return
 
 return:                                           ; preds = %_Z18SetGenericPropertyI12aiMatrix4x4tIfEEbRSt3mapIjT_St4lessIjESaISt4pairIKjS3_EEEPKcRKS3_.exit, %lpad
-  %retval.0 = phi i1 [ false, %lpad ], [ %cmp.i8.i, %_Z18SetGenericPropertyI12aiMatrix4x4tIfEEbRSt3mapIjT_St4lessIjESaISt4pairIKjS3_EEEPKcRKS3_.exit ]
+  %retval.0 = phi i1 [ false, %lpad ], [ %retval.0.i, %_Z18SetGenericPropertyI12aiMatrix4x4tIfEEbRSt3mapIjT_St4lessIjESaISt4pairIKjS3_EEEPKcRKS3_.exit ]
   ret i1 %retval.0
 }
 
@@ -6881,7 +6880,7 @@ if.end.i:                                         ; preds = %_ZNSt3mapIjPvSt4les
   br label %_Z18SetGenericPropertyIPvEbRSt3mapIjT_St4lessIjESaISt4pairIKjS2_EEEPKcRKS2_.exit
 
 _Z18SetGenericPropertyIPvEbRSt3mapIjT_St4lessIjESaISt4pairIKjS2_EEEPKcRKS2_.exit: ; preds = %if.then.i, %if.end.i
-  %cmp.i8.i = phi i1 [ true, %if.end.i ], [ false, %if.then.i ]
+  %retval.0.i = phi i1 [ true, %if.end.i ], [ false, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp5.i)
   br label %return
 
@@ -6894,7 +6893,7 @@ lpad:                                             ; preds = %if.then.i
   br label %return
 
 return:                                           ; preds = %_Z18SetGenericPropertyIPvEbRSt3mapIjT_St4lessIjESaISt4pairIKjS2_EEEPKcRKS2_.exit, %lpad
-  %retval.0 = phi i1 [ false, %lpad ], [ %cmp.i8.i, %_Z18SetGenericPropertyIPvEbRSt3mapIjT_St4lessIjESaISt4pairIKjS2_EEEPKcRKS2_.exit ]
+  %retval.0 = phi i1 [ false, %lpad ], [ %retval.0.i, %_Z18SetGenericPropertyIPvEbRSt3mapIjT_St4lessIjESaISt4pairIKjS2_EEEPKcRKS2_.exit ]
   ret i1 %retval.0
 }
 

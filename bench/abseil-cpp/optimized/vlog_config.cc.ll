@@ -2196,9 +2196,8 @@ if.then.i:                                        ; preds = %entry
 
 _ZNKSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 40
-  %cmp.i.i = icmp eq ptr %this.val18, %this.val17
-  %.sroa.speculated.i = select i1 %cmp.i.i, i64 1, i64 %sub.ptr.div.i.i
-  %add.i = add nsw i64 %.sroa.speculated.i, %sub.ptr.div.i.i
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i, i64 1)
+  %add.i = add i64 %.sroa.speculated.i, %sub.ptr.div.i.i
   %cmp7.i = icmp ult i64 %add.i, %sub.ptr.div.i.i
   %1 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 230584300921369395)
   %cond.i = select i1 %cmp7.i, i64 230584300921369395, i64 %1

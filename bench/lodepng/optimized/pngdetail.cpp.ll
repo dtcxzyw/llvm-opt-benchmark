@@ -1325,10 +1325,10 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %.sroa.speculated37 = zext i8 %1 to i32
-  %.sroa.speculated = zext i8 %3 to i32
-  %add = add nuw nsw i32 %.sroa.speculated, %.sroa.speculated37
-  %sub = sub nsw i32 %.sroa.speculated37, %.sroa.speculated
+  %4 = zext i8 %1 to i32
+  %5 = zext i8 %3 to i32
+  %add = add nuw nsw i32 %5, %4
+  %sub = sub nsw i32 %4, %5
   %div39 = lshr i32 %add, 1
   %conv14 = trunc i32 %div39 to i8
   store i8 %conv14, ptr %l, align 1
@@ -1385,20 +1385,19 @@ entry:
   %conv4 = zext i8 %b to i32
   %0 = tail call i8 @llvm.umax.i8(i8 %g, i8 %b)
   %1 = tail call i8 @llvm.umax.i8(i8 %r, i8 %0)
-  %.sroa.speculated22 = zext i8 %1 to i32
-  %2 = tail call i8 @llvm.umin.i8(i8 %b, i8 %g)
-  %3 = tail call i8 @llvm.umin.i8(i8 %2, i8 %r)
-  %.sroa.speculated = zext i8 %3 to i32
-  %cmp.i19 = icmp eq i8 %3, %1
-  br i1 %cmp.i19, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %entry
-  store i8 0, ptr %h, align 1
-  %.pre = sub nsw i32 %.sroa.speculated22, %.sroa.speculated
-  br label %_Z8RGBtoHSLhhhPhS_S_.exit
+  %2 = zext i8 %1 to i32
+  %3 = tail call i8 @llvm.umin.i8(i8 %b, i8 %g)
+  %4 = tail call i8 @llvm.umin.i8(i8 %3, i8 %r)
+  %5 = zext i8 %4 to i32
+  %6 = tail call i8 @llvm.umax.i8(i8 %r, i8 %0)
+  %7 = tail call i8 @llvm.umin.i8(i8 %3, i8 %r)
+  %cmp.i19 = icmp eq i8 %7, %6
+  br i1 %cmp.i19, label %_Z8RGBtoHSLhhhPhS_S_.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %sub.i = sub nsw i32 %.sroa.speculated22, %.sroa.speculated
+  %8 = zext i8 %6 to i32
+  %9 = zext i8 %7 to i32
+  %sub.i = sub nsw i32 %8, %9
   %cmp21.not.i = icmp ugt i8 %0, %r
   br i1 %cmp21.not.i, label %cond.false28.i, label %cond.true22.i
 
@@ -1409,7 +1408,7 @@ cond.true22.i:                                    ; preds = %if.else.i
   br label %cond.end47.i
 
 cond.false28.i:                                   ; preds = %if.else.i
-  %cmp30.i = icmp eq i8 %1, %g
+  %cmp30.i = icmp eq i8 %6, %g
   br i1 %cmp30.i, label %cond.true31.i, label %cond.false38.i
 
 cond.true31.i:                                    ; preds = %cond.false28.i
@@ -1430,29 +1429,30 @@ cond.end47.i:                                     ; preds = %cond.false38.i, %co
   %cond48.i = phi i32 [ %div27.i, %cond.true22.i ], [ %add37.i, %cond.true31.i ], [ %add44.i, %cond.false38.i ]
   %div49.i = sdiv i32 %cond48.i, 6
   %conv50.i = trunc i32 %div49.i to i8
-  store i8 %conv50.i, ptr %h, align 1
   br label %_Z8RGBtoHSLhhhPhS_S_.exit
 
-_Z8RGBtoHSLhhhPhS_S_.exit:                        ; preds = %if.then.i, %cond.end47.i
-  %sub.pre-phi = phi i32 [ %.pre, %if.then.i ], [ %sub.i, %cond.end47.i ]
-  %conv14 = trunc i32 %sub.pre-phi to i8
+_Z8RGBtoHSLhhhPhS_S_.exit:                        ; preds = %entry, %cond.end47.i
+  %.sink = phi i8 [ %conv50.i, %cond.end47.i ], [ 0, %entry ]
+  store i8 %.sink, ptr %h, align 1
+  %sub = sub nsw i32 %2, %5
+  %conv14 = trunc i32 %sub to i8
   store i8 %conv14, ptr %c, align 1
-  %conv15 = and i32 %sub.pre-phi, 255
+  %conv15 = and i32 %sub, 255
   %cmp = icmp eq i32 %conv15, 255
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit
-  %add = add nuw nsw i32 %.sroa.speculated, 255
-  %sub16 = sub nuw nsw i32 %add, %.sroa.speculated22
-  %4 = zext i8 %3 to i16
-  %div.lhs.trunc = mul nuw i16 %4, 255
+  %add = add nuw nsw i32 %5, 255
+  %sub16 = sub nuw nsw i32 %add, %2
+  %10 = zext i8 %4 to i16
+  %div.lhs.trunc = mul nuw i16 %10, 255
   %div.rhs.trunc = trunc i32 %sub16 to i16
   %div24 = udiv i16 %div.lhs.trunc, %div.rhs.trunc
-  %5 = trunc i16 %div24 to i8
+  %11 = trunc i16 %div24 to i8
   br label %cond.end
 
 cond.end:                                         ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit, %cond.false
-  %cond = phi i8 [ %5, %cond.false ], [ 0, %_Z8RGBtoHSLhhhPhS_S_.exit ]
+  %cond = phi i8 [ %11, %cond.false ], [ 0, %_Z8RGBtoHSLhhhPhS_S_.exit ]
   store i8 %cond, ptr %t, align 1
   ret void
 }
@@ -1561,23 +1561,23 @@ if.then:                                          ; preds = %entry
   %conv3 = zext i8 %r to i32
   %mul = mul nuw nsw i32 %conv, %conv3
   %div.lhs.trunc = trunc i32 %mul to i16
-  %div157 = udiv i16 %div.lhs.trunc, 255
-  %conv4 = trunc i16 %div157 to i8
+  %div156 = udiv i16 %div.lhs.trunc, 255
+  %conv4 = trunc i16 %div156 to i8
   %conv6 = zext i8 %g to i32
   %mul7 = mul nuw nsw i32 %conv, %conv6
   %div8.lhs.trunc = trunc i32 %mul7 to i16
-  %div8158 = udiv i16 %div8.lhs.trunc, 255
-  %conv9 = trunc i16 %div8158 to i8
+  %div8157 = udiv i16 %div8.lhs.trunc, 255
+  %conv9 = trunc i16 %div8157 to i8
   %conv11 = zext i8 %b to i32
   %mul12 = mul nuw nsw i32 %conv, %conv11
   %div13.lhs.trunc = trunc i32 %mul12 to i16
-  %div13159 = udiv i16 %div13.lhs.trunc, 255
-  %conv14 = trunc i16 %div13159 to i8
+  %div13158 = udiv i16 %div13.lhs.trunc, 255
+  %conv14 = trunc i16 %div13158 to i8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %g.addr.0 = phi i8 [ %g, %entry ], [ %conv9, %if.then ]
   %b.addr.0 = phi i8 [ %b, %entry ], [ %conv14, %if.then ]
+  %g.addr.0 = phi i8 [ %g, %entry ], [ %conv9, %if.then ]
   %r.addr.0 = phi i8 [ %r, %entry ], [ %conv4, %if.then ]
   %conv.i = zext i8 %r.addr.0 to i32
   %conv2.i = zext i8 %g.addr.0 to i32
@@ -1587,12 +1587,12 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %dither, label %if.then15, label %if.else46
 
 if.then15:                                        ; preds = %if.end
-  %.sroa.speculated22.i = zext i8 %1 to i32
-  %2 = tail call i8 @llvm.umin.i8(i8 %b.addr.0, i8 %g.addr.0)
-  %3 = tail call i8 @llvm.umin.i8(i8 %2, i8 %r.addr.0)
-  %.sroa.speculated.i = zext i8 %3 to i32
-  %cmp.i19.i = icmp eq i8 %3, %1
-  %.pre.i = sub nsw i32 %.sroa.speculated22.i, %.sroa.speculated.i
+  %2 = zext i8 %1 to i32
+  %3 = tail call i8 @llvm.umin.i8(i8 %b.addr.0, i8 %g.addr.0)
+  %4 = tail call i8 @llvm.umin.i8(i8 %3, i8 %r.addr.0)
+  %5 = zext i8 %4 to i32
+  %cmp.i19.i = icmp eq i8 %4, %1
+  %.pre = sub nsw i32 %2, %5
   br i1 %cmp.i19.i, label %_Z8RGBtoHSLhhhPhS_S_.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then15
@@ -1602,7 +1602,7 @@ if.else.i.i:                                      ; preds = %if.then15
 cond.true22.i.i:                                  ; preds = %if.else.i.i
   %sub25.i.i = sub nsw i32 %conv2.i, %conv4.i
   %mul26.i.i = mul nsw i32 %sub25.i.i, 255
-  %div27.i.i = sdiv i32 %mul26.i.i, %.pre.i
+  %div27.i.i = sdiv i32 %mul26.i.i, %.pre
   br label %cond.end47.i.i
 
 cond.false28.i.i:                                 ; preds = %if.else.i.i
@@ -1612,14 +1612,14 @@ cond.false28.i.i:                                 ; preds = %if.else.i.i
 cond.true31.i.i:                                  ; preds = %cond.false28.i.i
   %sub34.i.i = sub nsw i32 %conv4.i, %conv.i
   %mul35.i.i = mul nsw i32 %sub34.i.i, 255
-  %div36.i.i = sdiv i32 %mul35.i.i, %.pre.i
+  %div36.i.i = sdiv i32 %mul35.i.i, %.pre
   %add37.i.i = add nsw i32 %div36.i.i, 512
   br label %cond.end47.i.i
 
 cond.false38.i.i:                                 ; preds = %cond.false28.i.i
   %sub41.i.i = sub nsw i32 %conv.i, %conv2.i
   %mul42.i.i = mul nsw i32 %sub41.i.i, 255
-  %div43.i.i = sdiv i32 %mul42.i.i, %.pre.i
+  %div43.i.i = sdiv i32 %mul42.i.i, %.pre
   %add44.i.i = add nsw i32 %div43.i.i, 1024
   br label %cond.end47.i.i
 
@@ -1629,40 +1629,40 @@ cond.end47.i.i:                                   ; preds = %cond.false38.i.i, %
   br label %_Z8RGBtoHSLhhhPhS_S_.exit.i
 
 _Z8RGBtoHSLhhhPhS_S_.exit.i:                      ; preds = %if.then15, %cond.end47.i.i
-  %h.0 = phi i32 [ %div49.i.i, %cond.end47.i.i ], [ 0, %if.then15 ]
-  %.sroa.speculated140 = tail call i8 @llvm.umax.i8(i8 %r.addr.0, i8 %g.addr.0)
-  %.sroa.speculated126 = tail call i8 @llvm.umax.i8(i8 %.sroa.speculated140, i8 %b.addr.0)
-  %conv17 = zext i8 %.sroa.speculated126 to i32
-  %.sroa.speculated137 = tail call i8 @llvm.umin.i8(i8 %g.addr.0, i8 %r.addr.0)
-  %.sroa.speculated = tail call i8 @llvm.umin.i8(i8 %b.addr.0, i8 %.sroa.speculated137)
+  %.sink.i = phi i32 [ %div49.i.i, %cond.end47.i.i ], [ 0, %if.then15 ]
+  %.sroa.speculated139 = tail call i8 @llvm.umax.i8(i8 %r.addr.0, i8 %g.addr.0)
+  %.sroa.speculated125 = tail call i8 @llvm.umax.i8(i8 %.sroa.speculated139, i8 %b.addr.0)
+  %conv17 = zext i8 %.sroa.speculated125 to i32
+  %.sroa.speculated136 = tail call i8 @llvm.umin.i8(i8 %g.addr.0, i8 %r.addr.0)
+  %.sroa.speculated = tail call i8 @llvm.umin.i8(i8 %b.addr.0, i8 %.sroa.speculated136)
   %conv20 = zext i8 %.sroa.speculated to i32
   %add = add nuw nsw i32 %conv17, %conv20
   %div2115 = lshr i32 %add, 1
   %sub = xor i32 %div2115, 255
-  %spec.select160 = select i1 %inverted, i32 %sub, i32 %div2115
-  %conv28 = and i32 %.pre.i, 255
+  %spec.select159 = select i1 %inverted, i32 %sub, i32 %div2115
+  %conv28 = and i32 %.pre, 255
   %and.i = and i32 %x, 3
   %and1.i = shl i32 %y, 2
   %mul.i = and i32 %and1.i, 12
   %add.i23 = or disjoint i32 %mul.i, %and.i
   %idxprom.i = zext nneg i32 %add.i23 to i64
   %arrayidx.i = getelementptr inbounds [16 x i32], ptr @_ZZL11applyDitheriiiibE7pattern, i64 0, i64 %idxprom.i
-  %4 = load i32, ptr %arrayidx.i, align 4
-  %mul2.i = mul nsw i32 %4, 17
-  %sub.i = add nsw i32 %mul2.i, -128
-  %mul3.i = mul nsw i32 %sub.i, 254
+  %6 = load i32, ptr %arrayidx.i, align 4
+  %mul2.i = mul nsw i32 %6, 17
+  %sub.i24 = add nsw i32 %mul2.i, -128
+  %mul3.i = mul nsw i32 %sub.i24, 254
   %div.i = sdiv i32 %mul3.i, 256
   %add4.i = add nsw i32 %div.i, %conv28
   %cmp30 = icmp sgt i32 %add4.i, 127
   br i1 %cmp30, label %if.then31, label %if.else
 
 if.then31:                                        ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit.i
-  %mul3.i33 = mul nsw i32 %sub.i, 21
+  %mul3.i33 = mul nsw i32 %sub.i24, 21
   %div.i34 = sdiv i32 %mul3.i33, 256
-  %add4.i35 = add nsw i32 %div.i34, %h.0
+  %add4.i35 = add nsw i32 %div.i34, %.sink.i
   %and5.i = and i32 %add4.i35, 255
-  %5 = add nsw i32 %and5.i, -244
-  %or.cond.i = icmp ult i32 %5, -233
+  %7 = add nsw i32 %and5.i, -244
+  %or.cond.i = icmp ult i32 %7, -233
   br i1 %or.cond.i, label %_Z11HueToLetteri.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then31
@@ -1711,20 +1711,20 @@ _Z11HueToLetteri.exit:                            ; preds = %if.then31, %if.else
   %add.i39 = xor i32 %add.i23, 10
   %idxprom.i40 = zext nneg i32 %add.i39 to i64
   %arrayidx.i41 = getelementptr inbounds [16 x i32], ptr @_ZZL11applyDitheriiiibE7pattern, i64 0, i64 %idxprom.i40
-  %6 = load i32, ptr %arrayidx.i41, align 4
-  %sub.i43 = mul i32 %6, 1088
+  %8 = load i32, ptr %arrayidx.i41, align 4
+  %sub.i43 = mul i32 %8, 1088
   %mul3.i44 = add i32 %sub.i43, -8192
   %div.i45 = sdiv i32 %mul3.i44, 256
-  %add4.i46 = add nsw i32 %div.i45, %spec.select160
+  %add4.i46 = add nsw i32 %div.i45, %spec.select159
   %cmp38 = icmp slt i32 %add4.i46, 80
   %cond = select i1 %cmp38, i8 32, i8 0
   %add42 = or disjoint i8 %cond, %hl.0.i
   br label %return
 
 if.else:                                          ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit.i
-  %mul3.i57 = mul nsw i32 %sub.i, 31
+  %mul3.i57 = mul nsw i32 %sub.i24, 31
   %div.i58 = sdiv i32 %mul3.i57, 256
-  %add4.i59 = add nsw i32 %div.i58, %spec.select160
+  %add4.i59 = add nsw i32 %div.i58, %spec.select159
   %cmp.i62 = icmp slt i32 %add4.i59, 16
   br i1 %cmp.i62, label %return, label %if.else.i63
 
@@ -1758,35 +1758,35 @@ if.else18.i:                                      ; preds = %if.else15.i65
   br label %return
 
 if.else46:                                        ; preds = %if.end
-  %7 = tail call i8 @llvm.umin.i8(i8 %b.addr.0, i8 %g.addr.0)
-  %8 = tail call i8 @llvm.umin.i8(i8 %7, i8 %r.addr.0)
-  %cmp.i69 = icmp eq i8 %8, %1
-  br i1 %cmp.i69, label %_Z11HueToLetteri.exit100.thread, label %if.else.i70
+  %9 = tail call i8 @llvm.umin.i8(i8 %b.addr.0, i8 %g.addr.0)
+  %10 = tail call i8 @llvm.umin.i8(i8 %9, i8 %r.addr.0)
+  %cmp.i69 = icmp eq i8 %10, %1
+  br i1 %cmp.i69, label %_Z11HueToLetteri.exit99.thread, label %if.else.i70
 
-_Z11HueToLetteri.exit100.thread:                  ; preds = %if.else46
-  %9 = sext i1 %inverted to i8
-  %spec.select161166 = xor i8 %r.addr.0, %9
+_Z11HueToLetteri.exit99.thread:                   ; preds = %if.else46
+  %11 = sext i1 %inverted to i8
+  %spec.select160165 = xor i8 %r.addr.0, %11
   br label %if.then65
 
 if.else.i70:                                      ; preds = %if.else46
-  %.sroa.speculated37.i = zext i8 %1 to i32
-  %.sroa.speculated.i71 = zext i8 %8 to i32
-  %add.i72 = add nuw nsw i32 %.sroa.speculated.i71, %.sroa.speculated37.i
-  %sub.i73 = sub nsw i32 %.sroa.speculated37.i, %.sroa.speculated.i71
-  %div39.i = lshr i32 %add.i72, 1
-  %conv14.i74 = trunc i32 %div39.i to i8
-  %mul.i75 = mul nsw i32 %sub.i73, 255
-  %cmp16.not.not.i = icmp ult i32 %add.i72, 256
-  %sub17.i = sub nuw nsw i32 512, %add.i72
-  %cond.i76 = select i1 %cmp16.not.not.i, i32 %add.i72, i32 %sub17.i
-  %div18.i = sdiv i32 %mul.i75, %cond.i76
+  %12 = zext i8 %1 to i32
+  %13 = zext i8 %10 to i32
+  %add.i71 = add nuw nsw i32 %13, %12
+  %sub.i72 = sub nsw i32 %12, %13
+  %div39.i = lshr i32 %add.i71, 1
+  %conv14.i73 = trunc i32 %div39.i to i8
+  %mul.i74 = mul nsw i32 %sub.i72, 255
+  %cmp16.not.not.i = icmp ult i32 %add.i71, 256
+  %sub17.i = sub nuw nsw i32 512, %add.i71
+  %cond.i75 = select i1 %cmp16.not.not.i, i32 %add.i71, i32 %sub17.i
+  %div18.i = sdiv i32 %mul.i74, %cond.i75
   %cmp21.not.i = icmp ugt i8 %0, %r.addr.0
   br i1 %cmp21.not.i, label %cond.false28.i, label %cond.true22.i
 
 cond.true22.i:                                    ; preds = %if.else.i70
   %sub25.i = sub nsw i32 %conv2.i, %conv4.i
   %mul26.i = mul nsw i32 %sub25.i, 255
-  %div27.i = sdiv i32 %mul26.i, %sub.i73
+  %div27.i = sdiv i32 %mul26.i, %sub.i72
   br label %_Z8RGBtoHSLhhhPhS_S_.exit
 
 cond.false28.i:                                   ; preds = %if.else.i70
@@ -1796,119 +1796,119 @@ cond.false28.i:                                   ; preds = %if.else.i70
 cond.true31.i:                                    ; preds = %cond.false28.i
   %sub34.i = sub nsw i32 %conv4.i, %conv.i
   %mul35.i = mul nsw i32 %sub34.i, 255
-  %div36.i = sdiv i32 %mul35.i, %sub.i73
+  %div36.i = sdiv i32 %mul35.i, %sub.i72
   %add37.i = add nsw i32 %div36.i, 512
   br label %_Z8RGBtoHSLhhhPhS_S_.exit
 
 cond.false38.i:                                   ; preds = %cond.false28.i
   %sub41.i = sub nsw i32 %conv.i, %conv2.i
   %mul42.i = mul nsw i32 %sub41.i, 255
-  %div43.i = sdiv i32 %mul42.i, %sub.i73
+  %div43.i = sdiv i32 %mul42.i, %sub.i72
   %add44.i = add nsw i32 %div43.i, 1024
   br label %_Z8RGBtoHSLhhhPhS_S_.exit
 
 _Z8RGBtoHSLhhhPhS_S_.exit:                        ; preds = %cond.true22.i, %cond.true31.i, %cond.false38.i
   %cond48.i = phi i32 [ %div27.i, %cond.true22.i ], [ %add37.i, %cond.true31.i ], [ %add44.i, %cond.false38.i ]
   %div49.i = sdiv i32 %cond48.i, 6
-  %10 = and i32 %div49.i, 255
-  %11 = and i32 %div18.i, 192
-  %12 = icmp eq i32 %11, 0
-  %13 = sext i1 %inverted to i8
-  %spec.select161 = xor i8 %conv14.i74, %13
-  %14 = add nsw i32 %10, -244
-  %or.cond.i77 = icmp ult i32 %14, -233
-  br i1 %or.cond.i77, label %_Z11HueToLetteri.exit100, label %if.else.i78
+  %14 = and i32 %div49.i, 255
+  %15 = and i32 %div18.i, 192
+  %16 = icmp eq i32 %15, 0
+  %17 = sext i1 %inverted to i8
+  %spec.select160 = xor i8 %conv14.i73, %17
+  %18 = add nsw i32 %14, -244
+  %or.cond.i76 = icmp ult i32 %18, -233
+  br i1 %or.cond.i76, label %_Z11HueToLetteri.exit99, label %if.else.i77
 
-if.else.i78:                                      ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit
-  %cmp3.i79 = icmp ult i32 %10, 32
-  br i1 %cmp3.i79, label %_Z11HueToLetteri.exit100, label %if.else5.i80
+if.else.i77:                                      ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit
+  %cmp3.i78 = icmp ult i32 %14, 32
+  br i1 %cmp3.i78, label %_Z11HueToLetteri.exit99, label %if.else5.i79
 
-if.else5.i80:                                     ; preds = %if.else.i78
-  %cmp8.i81 = icmp ult i32 %10, 53
-  br i1 %cmp8.i81, label %_Z11HueToLetteri.exit100, label %if.else10.i82
+if.else5.i79:                                     ; preds = %if.else.i77
+  %cmp8.i80 = icmp ult i32 %14, 53
+  br i1 %cmp8.i80, label %_Z11HueToLetteri.exit99, label %if.else10.i81
 
-if.else10.i82:                                    ; preds = %if.else5.i80
-  %cmp13.i83 = icmp ult i32 %10, 74
-  br i1 %cmp13.i83, label %_Z11HueToLetteri.exit100, label %if.else15.i84
+if.else10.i81:                                    ; preds = %if.else5.i79
+  %cmp13.i82 = icmp ult i32 %14, 74
+  br i1 %cmp13.i82, label %_Z11HueToLetteri.exit99, label %if.else15.i83
 
-if.else15.i84:                                    ; preds = %if.else10.i82
-  %cmp18.i85 = icmp ult i32 %10, 96
-  br i1 %cmp18.i85, label %_Z11HueToLetteri.exit100, label %if.else20.i86
+if.else15.i83:                                    ; preds = %if.else10.i81
+  %cmp18.i84 = icmp ult i32 %14, 96
+  br i1 %cmp18.i84, label %_Z11HueToLetteri.exit99, label %if.else20.i85
 
-if.else20.i86:                                    ; preds = %if.else15.i84
-  %cmp23.i87 = icmp ult i32 %10, 117
-  br i1 %cmp23.i87, label %_Z11HueToLetteri.exit100, label %if.else25.i88
+if.else20.i85:                                    ; preds = %if.else15.i83
+  %cmp23.i86 = icmp ult i32 %14, 117
+  br i1 %cmp23.i86, label %_Z11HueToLetteri.exit99, label %if.else25.i87
 
-if.else25.i88:                                    ; preds = %if.else20.i86
-  %cmp28.i89 = icmp ult i32 %10, 138
-  br i1 %cmp28.i89, label %_Z11HueToLetteri.exit100, label %if.else30.i90
+if.else25.i87:                                    ; preds = %if.else20.i85
+  %cmp28.i88 = icmp ult i32 %14, 138
+  br i1 %cmp28.i88, label %_Z11HueToLetteri.exit99, label %if.else30.i89
 
-if.else30.i90:                                    ; preds = %if.else25.i88
-  %cmp33.i91 = icmp ult i32 %10, 159
-  br i1 %cmp33.i91, label %_Z11HueToLetteri.exit100, label %if.else35.i92
+if.else30.i89:                                    ; preds = %if.else25.i87
+  %cmp33.i90 = icmp ult i32 %14, 159
+  br i1 %cmp33.i90, label %_Z11HueToLetteri.exit99, label %if.else35.i91
 
-if.else35.i92:                                    ; preds = %if.else30.i90
-  %cmp38.i93 = icmp ult i32 %10, 181
-  br i1 %cmp38.i93, label %_Z11HueToLetteri.exit100, label %if.else40.i94
+if.else35.i91:                                    ; preds = %if.else30.i89
+  %cmp38.i92 = icmp ult i32 %14, 181
+  br i1 %cmp38.i92, label %_Z11HueToLetteri.exit99, label %if.else40.i93
 
-if.else40.i94:                                    ; preds = %if.else35.i92
-  %cmp43.i95 = icmp ult i32 %10, 202
-  br i1 %cmp43.i95, label %_Z11HueToLetteri.exit100, label %if.else45.i96
+if.else40.i93:                                    ; preds = %if.else35.i91
+  %cmp43.i94 = icmp ult i32 %14, 202
+  br i1 %cmp43.i94, label %_Z11HueToLetteri.exit99, label %if.else45.i95
 
-if.else45.i96:                                    ; preds = %if.else40.i94
-  %cmp48.i97 = icmp ult i32 %10, 223
-  %spec.select.i98 = select i1 %cmp48.i97, i8 77, i8 70
-  br label %_Z11HueToLetteri.exit100
+if.else45.i95:                                    ; preds = %if.else40.i93
+  %cmp48.i96 = icmp ult i32 %14, 223
+  %spec.select.i97 = select i1 %cmp48.i96, i8 77, i8 70
+  br label %_Z11HueToLetteri.exit99
 
-_Z11HueToLetteri.exit100:                         ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit, %if.else.i78, %if.else5.i80, %if.else10.i82, %if.else15.i84, %if.else20.i86, %if.else25.i88, %if.else30.i90, %if.else35.i92, %if.else40.i94, %if.else45.i96
-  %hl.0.i99 = phi i8 [ 82, %_Z8RGBtoHSLhhhPhS_S_.exit ], [ 79, %if.else.i78 ], [ 89, %if.else5.i80 ], [ 76, %if.else10.i82 ], [ 71, %if.else15.i84 ], [ 84, %if.else20.i86 ], [ 67, %if.else25.i88 ], [ 65, %if.else30.i90 ], [ 66, %if.else35.i92 ], [ 86, %if.else40.i94 ], [ %spec.select.i98, %if.else45.i96 ]
-  %15 = add i8 %spec.select161, 23
-  %or.cond = icmp ult i8 %15, 47
-  %or.cond1 = select i1 %or.cond, i1 true, i1 %12
+_Z11HueToLetteri.exit99:                          ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit, %if.else.i77, %if.else5.i79, %if.else10.i81, %if.else15.i83, %if.else20.i85, %if.else25.i87, %if.else30.i89, %if.else35.i91, %if.else40.i93, %if.else45.i95
+  %hl.0.i98 = phi i8 [ 82, %_Z8RGBtoHSLhhhPhS_S_.exit ], [ 79, %if.else.i77 ], [ 89, %if.else5.i79 ], [ 76, %if.else10.i81 ], [ 71, %if.else15.i83 ], [ 84, %if.else20.i85 ], [ 67, %if.else25.i87 ], [ 65, %if.else30.i89 ], [ 66, %if.else35.i91 ], [ 86, %if.else40.i93 ], [ %spec.select.i97, %if.else45.i95 ]
+  %19 = add i8 %spec.select160, 23
+  %or.cond = icmp ult i8 %19, 47
+  %or.cond1 = select i1 %or.cond, i1 true, i1 %16
   br i1 %or.cond1, label %if.then65, label %if.else68
 
-if.then65:                                        ; preds = %_Z11HueToLetteri.exit100.thread, %_Z11HueToLetteri.exit100
-  %spec.select161169175 = phi i8 [ %spec.select161166, %_Z11HueToLetteri.exit100.thread ], [ %spec.select161, %_Z11HueToLetteri.exit100 ]
-  %cmp.i101 = icmp ult i8 %spec.select161169175, 16
-  br i1 %cmp.i101, label %return, label %if.else.i102
+if.then65:                                        ; preds = %_Z11HueToLetteri.exit99.thread, %_Z11HueToLetteri.exit99
+  %spec.select160168174 = phi i8 [ %spec.select160165, %_Z11HueToLetteri.exit99.thread ], [ %spec.select160, %_Z11HueToLetteri.exit99 ]
+  %cmp.i100 = icmp ult i8 %spec.select160168174, 16
+  br i1 %cmp.i100, label %return, label %if.else.i101
 
-if.else.i102:                                     ; preds = %if.then65
-  %cmp1.i103 = icmp ult i8 %spec.select161169175, 48
-  br i1 %cmp1.i103, label %return, label %if.else3.i104
+if.else.i101:                                     ; preds = %if.then65
+  %cmp1.i102 = icmp ult i8 %spec.select160168174, 48
+  br i1 %cmp1.i102, label %return, label %if.else3.i103
 
-if.else3.i104:                                    ; preds = %if.else.i102
-  %cmp4.i105 = icmp ult i8 %spec.select161169175, 80
-  br i1 %cmp4.i105, label %return, label %if.else6.i106
+if.else3.i103:                                    ; preds = %if.else.i101
+  %cmp4.i104 = icmp ult i8 %spec.select160168174, 80
+  br i1 %cmp4.i104, label %return, label %if.else6.i105
 
-if.else6.i106:                                    ; preds = %if.else3.i104
-  %cmp7.i107 = icmp ult i8 %spec.select161169175, 112
-  br i1 %cmp7.i107, label %return, label %if.else9.i108
+if.else6.i105:                                    ; preds = %if.else3.i103
+  %cmp7.i106 = icmp ult i8 %spec.select160168174, 112
+  br i1 %cmp7.i106, label %return, label %if.else9.i107
 
-if.else9.i108:                                    ; preds = %if.else6.i106
-  %cmp10.i109 = icmp ult i8 %spec.select161169175, -112
-  br i1 %cmp10.i109, label %return, label %if.else12.i110
+if.else9.i107:                                    ; preds = %if.else6.i105
+  %cmp10.i108 = icmp ult i8 %spec.select160168174, -112
+  br i1 %cmp10.i108, label %return, label %if.else12.i109
 
-if.else12.i110:                                   ; preds = %if.else9.i108
-  %cmp13.i111 = icmp ult i8 %spec.select161169175, -80
-  br i1 %cmp13.i111, label %return, label %if.else15.i112
+if.else12.i109:                                   ; preds = %if.else9.i107
+  %cmp13.i110 = icmp ult i8 %spec.select160168174, -80
+  br i1 %cmp13.i110, label %return, label %if.else15.i111
 
-if.else15.i112:                                   ; preds = %if.else12.i110
-  %cmp16.i113 = icmp ult i8 %spec.select161169175, -48
-  br i1 %cmp16.i113, label %return, label %if.else18.i114
+if.else15.i111:                                   ; preds = %if.else12.i109
+  %cmp16.i112 = icmp ult i8 %spec.select160168174, -48
+  br i1 %cmp16.i112, label %return, label %if.else18.i113
 
-if.else18.i114:                                   ; preds = %if.else15.i112
-  %cmp19.i115 = icmp ult i8 %spec.select161169175, -16
-  %..i116 = select i1 %cmp19.i115, i8 61, i8 35
+if.else18.i113:                                   ; preds = %if.else15.i111
+  %cmp19.i114 = icmp ult i8 %spec.select160168174, -16
+  %..i115 = select i1 %cmp19.i114, i8 61, i8 35
   br label %return
 
-if.else68:                                        ; preds = %_Z11HueToLetteri.exit100
-  %16 = or disjoint i8 %hl.0.i99, 32
-  %cmp70162 = icmp slt i8 %spec.select161, 0
-  %spec.select = select i1 %cmp70162, i8 %hl.0.i99, i8 %16
+if.else68:                                        ; preds = %_Z11HueToLetteri.exit99
+  %20 = or disjoint i8 %hl.0.i98, 32
+  %cmp70161 = icmp slt i8 %spec.select160, 0
+  %spec.select = select i1 %cmp70161, i8 %hl.0.i98, i8 %20
   br label %return
 
-return:                                           ; preds = %if.else18.i114, %if.else15.i112, %if.else12.i110, %if.else9.i108, %if.else6.i106, %if.else3.i104, %if.else.i102, %if.then65, %if.else18.i, %if.else15.i65, %if.else12.i, %if.else9.i, %if.else6.i, %if.else3.i, %if.else.i63, %if.else, %if.else68, %_Z11HueToLetteri.exit
-  %retval.0 = phi i8 [ %add42, %_Z11HueToLetteri.exit ], [ %spec.select, %if.else68 ], [ 32, %if.else ], [ 46, %if.else.i63 ], [ 58, %if.else3.i ], [ 45, %if.else6.i ], [ 33, %if.else9.i ], [ 42, %if.else12.i ], [ 43, %if.else15.i65 ], [ %..i, %if.else18.i ], [ 32, %if.then65 ], [ 46, %if.else.i102 ], [ 58, %if.else3.i104 ], [ 45, %if.else6.i106 ], [ 33, %if.else9.i108 ], [ 42, %if.else12.i110 ], [ 43, %if.else15.i112 ], [ %..i116, %if.else18.i114 ]
+return:                                           ; preds = %if.else18.i113, %if.else15.i111, %if.else12.i109, %if.else9.i107, %if.else6.i105, %if.else3.i103, %if.else.i101, %if.then65, %if.else18.i, %if.else15.i65, %if.else12.i, %if.else9.i, %if.else6.i, %if.else3.i, %if.else.i63, %if.else, %if.else68, %_Z11HueToLetteri.exit
+  %retval.0 = phi i8 [ %add42, %_Z11HueToLetteri.exit ], [ %spec.select, %if.else68 ], [ 32, %if.else ], [ 46, %if.else.i63 ], [ 58, %if.else3.i ], [ 45, %if.else6.i ], [ 33, %if.else9.i ], [ 42, %if.else12.i ], [ 43, %if.else15.i65 ], [ %..i, %if.else18.i ], [ 32, %if.then65 ], [ 46, %if.else.i101 ], [ 58, %if.else3.i103 ], [ 45, %if.else6.i105 ], [ 33, %if.else9.i107 ], [ 42, %if.else12.i109 ], [ 43, %if.else15.i111 ], [ %..i115, %if.else18.i113 ]
   ret i8 %retval.0
 }
 
@@ -2503,35 +2503,35 @@ if.then.i:                                        ; preds = %for.body30
   %conv3.i = zext i8 %3 to i32
   %mul.i = mul nuw nsw i32 %conv.i, %conv3.i
   %div.lhs.trunc.i = trunc i32 %mul.i to i16
-  %div157.i = udiv i16 %div.lhs.trunc.i, 255
-  %conv4.i = trunc i16 %div157.i to i8
+  %div156.i = udiv i16 %div.lhs.trunc.i, 255
+  %conv4.i = trunc i16 %div156.i to i8
   %conv6.i = zext i8 %4 to i32
   %mul7.i = mul nuw nsw i32 %conv.i, %conv6.i
   %div8.lhs.trunc.i = trunc i32 %mul7.i to i16
-  %div8158.i = udiv i16 %div8.lhs.trunc.i, 255
-  %conv9.i = trunc i16 %div8158.i to i8
+  %div8157.i = udiv i16 %div8.lhs.trunc.i, 255
+  %conv9.i = trunc i16 %div8157.i to i8
   %conv11.i = zext i8 %5 to i32
   %mul12.i = mul nuw nsw i32 %conv.i, %conv11.i
   %div13.lhs.trunc.i = trunc i32 %mul12.i to i16
-  %div13159.i = udiv i16 %div13.lhs.trunc.i, 255
-  %conv14.i = trunc i16 %div13159.i to i8
+  %div13158.i = udiv i16 %div13.lhs.trunc.i, 255
+  %conv14.i = trunc i16 %div13158.i to i8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.body30
-  %g.addr.0.i = phi i8 [ %4, %for.body30 ], [ %conv9.i, %if.then.i ]
   %b.addr.0.i = phi i8 [ %5, %for.body30 ], [ %conv14.i, %if.then.i ]
+  %g.addr.0.i = phi i8 [ %4, %for.body30 ], [ %conv9.i, %if.then.i ]
   %r.addr.0.i = phi i8 [ %3, %for.body30 ], [ %conv4.i, %if.then.i ]
   %conv.i.i = zext i8 %r.addr.0.i to i32
   %conv2.i.i = zext i8 %g.addr.0.i to i32
   %conv4.i.i = zext i8 %b.addr.0.i to i32
   %7 = tail call i8 @llvm.umax.i8(i8 %g.addr.0.i, i8 %b.addr.0.i)
   %8 = tail call i8 @llvm.umax.i8(i8 %r.addr.0.i, i8 %7)
-  %.sroa.speculated22.i.i = zext i8 %8 to i32
-  %9 = tail call i8 @llvm.umin.i8(i8 %b.addr.0.i, i8 %g.addr.0.i)
-  %10 = tail call i8 @llvm.umin.i8(i8 %9, i8 %r.addr.0.i)
-  %.sroa.speculated.i.i = zext i8 %10 to i32
-  %cmp.i19.i.i = icmp eq i8 %10, %8
-  %.pre.i.i = sub nsw i32 %.sroa.speculated22.i.i, %.sroa.speculated.i.i
+  %9 = zext i8 %8 to i32
+  %10 = tail call i8 @llvm.umin.i8(i8 %b.addr.0.i, i8 %g.addr.0.i)
+  %11 = tail call i8 @llvm.umin.i8(i8 %10, i8 %r.addr.0.i)
+  %12 = zext i8 %11 to i32
+  %cmp.i19.i.i = icmp eq i8 %11, %8
+  %.pre.i = sub nsw i32 %9, %12
   br i1 %cmp.i19.i.i, label %_Z8RGBtoHSLhhhPhS_S_.exit.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i
@@ -2541,7 +2541,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i
 cond.true22.i.i.i:                                ; preds = %if.else.i.i.i
   %sub25.i.i.i = sub nsw i32 %conv2.i.i, %conv4.i.i
   %mul26.i.i.i = mul nsw i32 %sub25.i.i.i, 255
-  %div27.i.i.i = sdiv i32 %mul26.i.i.i, %.pre.i.i
+  %div27.i.i.i = sdiv i32 %mul26.i.i.i, %.pre.i
   br label %cond.end47.i.i.i
 
 cond.false28.i.i.i:                               ; preds = %if.else.i.i.i
@@ -2551,14 +2551,14 @@ cond.false28.i.i.i:                               ; preds = %if.else.i.i.i
 cond.true31.i.i.i:                                ; preds = %cond.false28.i.i.i
   %sub34.i.i.i = sub nsw i32 %conv4.i.i, %conv.i.i
   %mul35.i.i.i = mul nsw i32 %sub34.i.i.i, 255
-  %div36.i.i.i = sdiv i32 %mul35.i.i.i, %.pre.i.i
+  %div36.i.i.i = sdiv i32 %mul35.i.i.i, %.pre.i
   %add37.i.i.i = add nsw i32 %div36.i.i.i, 512
   br label %cond.end47.i.i.i
 
 cond.false38.i.i.i:                               ; preds = %cond.false28.i.i.i
   %sub41.i.i.i = sub nsw i32 %conv.i.i, %conv2.i.i
   %mul42.i.i.i = mul nsw i32 %sub41.i.i.i, 255
-  %div43.i.i.i = sdiv i32 %mul42.i.i.i, %.pre.i.i
+  %div43.i.i.i = sdiv i32 %mul42.i.i.i, %.pre.i
   %add44.i.i.i = add nsw i32 %div43.i.i.i, 1024
   br label %cond.end47.i.i.i
 
@@ -2568,36 +2568,36 @@ cond.end47.i.i.i:                                 ; preds = %cond.false38.i.i.i,
   br label %_Z8RGBtoHSLhhhPhS_S_.exit.i.i
 
 _Z8RGBtoHSLhhhPhS_S_.exit.i.i:                    ; preds = %cond.end47.i.i.i, %if.end.i
-  %h.0.i = phi i32 [ %div49.i.i.i, %cond.end47.i.i.i ], [ 0, %if.end.i ]
-  %.sroa.speculated140.i = tail call i8 @llvm.umax.i8(i8 %r.addr.0.i, i8 %g.addr.0.i)
-  %.sroa.speculated126.i = tail call i8 @llvm.umax.i8(i8 %.sroa.speculated140.i, i8 %b.addr.0.i)
-  %conv17.i = zext i8 %.sroa.speculated126.i to i32
-  %.sroa.speculated137.i = tail call i8 @llvm.umin.i8(i8 %g.addr.0.i, i8 %r.addr.0.i)
-  %.sroa.speculated.i = tail call i8 @llvm.umin.i8(i8 %b.addr.0.i, i8 %.sroa.speculated137.i)
+  %.sink.i.i = phi i32 [ %div49.i.i.i, %cond.end47.i.i.i ], [ 0, %if.end.i ]
+  %.sroa.speculated139.i = tail call i8 @llvm.umax.i8(i8 %r.addr.0.i, i8 %g.addr.0.i)
+  %.sroa.speculated125.i = tail call i8 @llvm.umax.i8(i8 %.sroa.speculated139.i, i8 %b.addr.0.i)
+  %conv17.i = zext i8 %.sroa.speculated125.i to i32
+  %.sroa.speculated136.i = tail call i8 @llvm.umin.i8(i8 %g.addr.0.i, i8 %r.addr.0.i)
+  %.sroa.speculated.i = tail call i8 @llvm.umin.i8(i8 %b.addr.0.i, i8 %.sroa.speculated136.i)
   %conv20.i = zext i8 %.sroa.speculated.i to i32
   %add.i = add nuw nsw i32 %conv17.i, %conv20.i
   %div2115.i = lshr i32 %add.i, 1
-  %conv28.i = and i32 %.pre.i.i, 255
+  %conv28.i = and i32 %.pre.i, 255
   %and.i.i = and i32 %1, 3
   %add.i23.i = or disjoint i32 %and.i.i, %mul.i.i
   %idxprom.i.i = zext nneg i32 %add.i23.i to i64
   %arrayidx.i.i = getelementptr inbounds [16 x i32], ptr @_ZZL11applyDitheriiiibE7pattern, i64 0, i64 %idxprom.i.i
-  %11 = load i32, ptr %arrayidx.i.i, align 4
-  %mul2.i.i = mul nsw i32 %11, 17
-  %sub.i.i = add nsw i32 %mul2.i.i, -128
-  %mul3.i.i = mul nsw i32 %sub.i.i, 254
+  %13 = load i32, ptr %arrayidx.i.i, align 4
+  %mul2.i.i = mul nsw i32 %13, 17
+  %sub.i24.i = add nsw i32 %mul2.i.i, -128
+  %mul3.i.i = mul nsw i32 %sub.i24.i, 254
   %div.i.i = sdiv i32 %mul3.i.i, 256
   %add4.i.i = add nsw i32 %div.i.i, %conv28.i
   %cmp30.i = icmp sgt i32 %add4.i.i, 127
   br i1 %cmp30.i, label %if.then31.i, label %if.else.i
 
 if.then31.i:                                      ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit.i.i
-  %mul3.i33.i = mul nsw i32 %sub.i.i, 21
+  %mul3.i33.i = mul nsw i32 %sub.i24.i, 21
   %div.i34.i = sdiv i32 %mul3.i33.i, 256
-  %add4.i35.i = add nsw i32 %div.i34.i, %h.0.i
+  %add4.i35.i = add nsw i32 %div.i34.i, %.sink.i.i
   %and5.i.i = and i32 %add4.i35.i, 255
-  %12 = add nsw i32 %and5.i.i, -244
-  %or.cond.i.i = icmp ult i32 %12, -233
+  %14 = add nsw i32 %and5.i.i, -244
+  %or.cond.i.i = icmp ult i32 %14, -233
   br i1 %or.cond.i.i, label %_Z11HueToLetteri.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.then31.i
@@ -2646,8 +2646,8 @@ _Z11HueToLetteri.exit.i:                          ; preds = %if.else45.i.i, %if.
   %add.i39.i = xor i32 %add.i23.i, 10
   %idxprom.i40.i = zext nneg i32 %add.i39.i to i64
   %arrayidx.i41.i = getelementptr inbounds [16 x i32], ptr @_ZZL11applyDitheriiiibE7pattern, i64 0, i64 %idxprom.i40.i
-  %13 = load i32, ptr %arrayidx.i41.i, align 4
-  %sub.i43.i = mul i32 %13, 1088
+  %15 = load i32, ptr %arrayidx.i41.i, align 4
+  %sub.i43.i = mul i32 %15, 1088
   %mul3.i44.i = add i32 %sub.i43.i, -8192
   %div.i45.i = sdiv i32 %mul3.i44.i, 256
   %add4.i46.i = add nsw i32 %div.i45.i, %div2115.i
@@ -2657,7 +2657,7 @@ _Z11HueToLetteri.exit.i:                          ; preds = %if.else45.i.i, %if.
   br label %invoke.cont66
 
 if.else.i:                                        ; preds = %_Z8RGBtoHSLhhhPhS_S_.exit.i.i
-  %mul3.i57.i = mul nsw i32 %sub.i.i, 31
+  %mul3.i57.i = mul nsw i32 %sub.i24.i, 31
   %div.i58.i = sdiv i32 %mul3.i57.i, 256
   %add4.i59.i = add nsw i32 %div.i58.i, %div2115.i
   %cmp.i62.i = icmp slt i32 %add4.i59.i, 16

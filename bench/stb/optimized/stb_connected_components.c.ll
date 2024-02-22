@@ -568,7 +568,7 @@ for.body132:                                      ; preds = %for.body132.lr.ph, 
   %35 = load i8, ptr %arrayidx134, align 1
   %conv135 = zext i8 %35 to i32
   %add136 = add nuw nsw i32 %extra.0, %conv135
-  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %add136, i32 64)
+  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %add136, i32 64)
   %conv141 = trunc i32 %total.494 to i8
   %arrayidx143 = getelementptr inbounds [512 x %struct.stbcc__clump], ptr %clump, i64 0, i64 %indvars.iv106
   %adjacent_clump_list_index = getelementptr inbounds i8, ptr %arrayidx143, i64 6
@@ -2211,7 +2211,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+declare i32 @llvm.smin.i32(i32, i32) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

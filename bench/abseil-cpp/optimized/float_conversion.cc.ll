@@ -466,8 +466,7 @@ if.else9.i.i:                                     ; preds = %if.end37.i
   br label %if.end116.i
 
 if.then45.i:                                      ; preds = %if.end10.i
-  %cmp.i66.i = icmp eq i32 %narrow.i, 0
-  %.sroa.speculated.i = select i1 %cmp.i66.i, i64 1, i64 %spec.select.i
+  %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %spec.select.i, i64 1)
   %sub.i = add nsw i64 %.sroa.speculated.i, -1
   %call49.i = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_113FloatToBufferILNS1_11FormatStyleE1EeEEbNS1_10DecomposedIT0_EEmPNS1_6BufferEPi(ptr noundef nonnull byval(%"struct.absl::str_format_internal::(anonymous namespace)::Decomposed") align 16 %decomposed.i, i64 noundef %sub.i, ptr noundef nonnull %buffer.i, ptr noundef nonnull %exp.i)
   br i1 %call49.i, label %if.end52.i, label %if.then50.i
@@ -1425,8 +1424,7 @@ if.else9.i:                                       ; preds = %if.end37
   br label %if.end115
 
 if.then45:                                        ; preds = %if.end10
-  %cmp.i74 = icmp eq i32 %narrow, 0
-  %.sroa.speculated = select i1 %cmp.i74, i64 1, i64 %spec.select
+  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %spec.select, i64 1)
   %sub = add nsw i64 %.sroa.speculated, -1
   %call49 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_113FloatToBufferILNS1_11FormatStyleE1EdEEbNS1_10DecomposedIT0_EEmPNS1_6BufferEPi(i64 %conv.i, i32 %sub.i, i64 noundef %sub, ptr noundef nonnull %buffer, ptr noundef nonnull %exp)
   br i1 %call49, label %if.end52, label %if.then50
@@ -6787,6 +6785,9 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #13

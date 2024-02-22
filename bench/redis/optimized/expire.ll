@@ -217,11 +217,10 @@ if.end21:                                         ; preds = %if.end20, %if.end
   %div = udiv i64 %mul27, %conv28
   %div29 = udiv i64 %div, 100
   store i1 false, ptr @activeExpireCycle.timelimit_exit, align 4
-  %cmp30 = icmp ult i64 %div, 100
-  %spec.store.select = select i1 %cmp30, i64 1, i64 %div29
-  %timelimit.0 = select i1 %cmp, i64 %add2, i64 %spec.store.select
-  %6 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 248, i32 1), align 8
-  %cmp38 = icmp eq i32 %6, 0
+  %6 = tail call i64 @llvm.umax.i64(i64 %div29, i64 1)
+  %timelimit.0 = select i1 %cmp, i64 %add2, i64 %6
+  %7 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 248, i32 1), align 8
+  %cmp38 = icmp eq i32 %7, 0
   br i1 %cmp38, label %for.cond.preheader, label %cond.false
 
 for.cond.preheader:                               ; preds = %if.end21
@@ -248,18 +247,18 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
   %total_expired.071 = phi i64 [ 0, %land.rhs.lr.ph ], [ %total_expired.2, %for.inc ]
   %total_sampled.070 = phi i64 [ 0, %land.rhs.lr.ph ], [ %total_sampled.2, %for.inc ]
   %dbs_performed.069 = phi i32 [ 0, %land.rhs.lr.ph ], [ %spec.select43, %for.inc ]
-  %7 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 173), align 8
-  %cmp48 = icmp slt i32 %j.073, %7
+  %8 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 173), align 8
+  %cmp48 = icmp slt i32 %j.073, %8
   br i1 %cmp48, label %for.body, label %for.end.loopexit
 
 for.body:                                         ; preds = %land.rhs
-  %8 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 10), align 8
-  %9 = load i32, ptr @activeExpireCycle.current_db, align 4
-  %rem = urem i32 %9, %7
+  %9 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 10), align 8
+  %10 = load i32, ptr @activeExpireCycle.current_db, align 4
+  %rem = urem i32 %10, %8
   %idx.ext = zext i32 %rem to i64
-  %add.ptr = getelementptr inbounds %struct.redisDb, ptr %8, i64 %idx.ext
+  %add.ptr = getelementptr inbounds %struct.redisDb, ptr %9, i64 %idx.ext
   store ptr %add.ptr, ptr %data, align 8
-  %inc = add i32 %9, 1
+  %inc = add i32 %10, 1
   store i32 %inc, ptr @activeExpireCycle.current_db, align 4
   %call51 = call i64 @dbSize(ptr noundef %add.ptr, i32 noundef 1) #9
   %tobool52.not = icmp ne i64 %call51, 0
@@ -293,9 +292,9 @@ if.end61:                                         ; preds = %if.end61.lr.ph, %do
   %spec.select44 = call i64 @llvm.umin.i64(i64 %call5763, i64 %add)
   %mul67 = mul i64 %spec.select44, 20
   %cmp7255 = icmp sgt i64 %mul67, 0
-  %10 = select i1 %cmp6954, i1 %cmp7255, i1 false
+  %11 = select i1 %cmp6954, i1 %cmp7255, i1 false
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %sampled, i8 0, i64 28, i1 false)
-  br i1 %10, label %while.body.preheader, label %if.end107
+  br i1 %11, label %while.body.preheader, label %if.end107
 
 while.body.preheader:                             ; preds = %if.end61
   %.pre = load i64, ptr %expires_cursor, align 8
@@ -305,13 +304,13 @@ while.cond:                                       ; preds = %while.body
   %inc82 = add nuw nsw i64 %checked_buckets.056, 1
   %cmp69 = icmp ult i64 %.pre86.pre, %spec.select44
   %cmp72 = icmp slt i64 %inc82, %mul67
-  %11 = select i1 %cmp69, i1 %cmp72, i1 false
-  br i1 %11, label %while.body, label %while.end, !llvm.loop !6
+  %12 = select i1 %cmp69, i1 %cmp72, i1 false
+  br i1 %12, label %while.body, label %while.end, !llvm.loop !6
 
 while.body:                                       ; preds = %while.body.preheader, %while.cond
-  %12 = phi i64 [ %call75, %while.cond ], [ %.pre, %while.body.preheader ]
+  %13 = phi i64 [ %call75, %while.cond ], [ %.pre, %while.body.preheader ]
   %checked_buckets.056 = phi i64 [ %inc82, %while.cond ], [ 0, %while.body.preheader ]
-  %call75 = call i64 @dbScan(ptr noundef nonnull %add.ptr, i32 noundef 1, i64 noundef %12, i32 noundef -1, ptr noundef nonnull @expireScanCallback, ptr noundef nonnull @isExpiryDictValidForSamplingCb, ptr noundef nonnull %data) #9
+  %call75 = call i64 @dbScan(ptr noundef nonnull %add.ptr, i32 noundef 1, i64 noundef %13, i32 noundef -1, ptr noundef nonnull @expireScanCallback, ptr noundef nonnull @isExpiryDictValidForSamplingCb, ptr noundef nonnull %data) #9
   store i64 %call75, ptr %expires_cursor, align 8
   %cmp78 = icmp eq i64 %call75, 0
   %.pre86.pre = load i64, ptr %sampled, align 8
@@ -326,12 +325,12 @@ while.end:                                        ; preds = %while.cond, %while.
   br i1 %tobool88.not, label %if.end107, label %if.then89
 
 if.then89:                                        ; preds = %while.end
-  %13 = load i64, ptr %ttl_sum, align 8
+  %14 = load i64, ptr %ttl_sum, align 8
   %conv93 = sext i32 %.pre87 to i64
-  %div94 = sdiv i64 %13, %conv93
-  %14 = load i64, ptr %avg_ttl95, align 8
-  %cmp96 = icmp eq i64 %14, 0
-  %spec.select100 = select i1 %cmp96, i64 %div94, i64 %14
+  %div94 = sdiv i64 %14, %conv93
+  %15 = load i64, ptr %avg_ttl95, align 8
+  %cmp96 = icmp eq i64 %15, 0
+  %spec.select100 = select i1 %cmp96, i64 %div94, i64 %15
   %div102 = sdiv i64 %spec.select100, 50
   %mul103 = mul nsw i64 %div102, 49
   %div104 = sdiv i64 %div94, 50
@@ -354,20 +353,20 @@ if.then110:                                       ; preds = %if.end107
 
 if.then115:                                       ; preds = %if.then110
   store i1 true, ptr @activeExpireCycle.timelimit_exit, align 4
-  %15 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 93), align 8
-  %inc116 = add nsw i64 %15, 1
+  %16 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 93), align 8
+  %inc116 = add nsw i64 %16, 1
   store i64 %inc116, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 93), align 8
   br label %for.inc
 
 do.cond:                                          ; preds = %if.end107, %if.then110
-  %16 = load i64, ptr %sampled, align 8
-  %cmp120 = icmp eq i64 %16, 0
+  %17 = load i64, ptr %sampled, align 8
+  %cmp120 = icmp eq i64 %17, 0
   br i1 %cmp120, label %do.body.backedge, label %lor.rhs
 
 lor.rhs:                                          ; preds = %do.cond
-  %17 = load i64, ptr %expired, align 8
-  %mul123 = mul i64 %17, 100
-  %div125 = udiv i64 %mul123, %16
+  %18 = load i64, ptr %expired, align 8
+  %mul123 = mul i64 %18, 100
+  %div125 = udiv i64 %mul123, %17
   %cmp126 = icmp ugt i64 %div125, %sub5
   br i1 %cmp126, label %do.body.backedge, label %for.inc
 
@@ -390,24 +389,24 @@ for.inc:                                          ; preds = %lor.rhs, %if.then60
 for.end.loopexit:                                 ; preds = %for.inc, %land.rhs
   %total_sampled.0.lcssa.ph = phi i64 [ %total_sampled.070, %land.rhs ], [ %total_sampled.2, %for.inc ]
   %total_expired.0.lcssa.ph = phi i64 [ %total_expired.071, %land.rhs ], [ %total_expired.2, %for.inc ]
-  %18 = sitofp i64 %total_expired.0.lcssa.ph to double
+  %19 = sitofp i64 %total_expired.0.lcssa.ph to double
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
   %total_sampled.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %total_sampled.0.lcssa.ph, %for.end.loopexit ]
-  %total_expired.0.lcssa = phi double [ 0.000000e+00, %for.cond.preheader ], [ %18, %for.end.loopexit ]
+  %total_expired.0.lcssa = phi double [ 0.000000e+00, %for.cond.preheader ], [ %19, %for.end.loopexit ]
   %call129 = call i64 @ustime() #9
   %sub130 = sub nsw i64 %call129, %call
-  %19 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 94), align 8
-  %add131 = add nsw i64 %19, %sub130
+  %20 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 94), align 8
+  %add131 = add nsw i64 %20, %sub130
   store i64 %add131, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 94), align 8
-  %20 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 393), align 8
-  %tobool132.not = icmp eq i64 %20, 0
+  %21 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 393), align 8
+  %tobool132.not = icmp eq i64 %21, 0
   br i1 %tobool132.not, label %if.end139, label %land.lhs.true133
 
 land.lhs.true133:                                 ; preds = %for.end
   %div134 = sdiv i64 %sub130, 1000
-  %cmp135.not = icmp slt i64 %div134, %20
+  %cmp135.not = icmp slt i64 %div134, %21
   br i1 %cmp135.not, label %if.end139, label %if.then137
 
 if.then137:                                       ; preds = %land.lhs.true133
@@ -419,10 +418,10 @@ if.end139:                                        ; preds = %if.then137, %land.l
   %conv143 = sitofp i64 %total_sampled.0.lcssa to double
   %div144 = fdiv double %total_expired.0.lcssa, %conv143
   %current_perc.0 = select i1 %tobool140.not, double 0.000000e+00, double %div144
-  %21 = load double, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 92), align 8
-  %mul147 = fmul double %21, 0x3FEE666666666666
-  %22 = call double @llvm.fmuladd.f64(double %current_perc.0, double 5.000000e-02, double %mul147)
-  store double %22, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 92), align 8
+  %22 = load double, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 92), align 8
+  %mul147 = fmul double %22, 0x3FEE666666666666
+  %23 = call double @llvm.fmuladd.f64(double %current_perc.0, double 5.000000e-02, double %mul147)
+  store double %23, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 92), align 8
   br label %return
 
 return:                                           ; preds = %if.end14, %land.lhs.true, %entry, %if.end139
@@ -1405,6 +1404,9 @@ declare ptr @lookupKeyRead(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7

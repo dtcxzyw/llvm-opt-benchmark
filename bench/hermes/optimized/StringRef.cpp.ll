@@ -1511,9 +1511,7 @@ _ZNK4llvh9StringRef4findEcm.exit.us:              ; preds = %if.then.i.us
   br i1 %cmp2.us, label %if.then12, label %if.end.us
 
 if.end.us:                                        ; preds = %_ZNK4llvh9StringRef4findEcm.exit.us
-  %cmp.i20.not.us = icmp eq ptr %call4.i38.us, %S.sroa.0.0110.us
-  %.sroa.speculated83.us = select i1 %cmp.i20.not.us, i64 0, i64 %sub.ptr.sub.i.us
-  %.sroa.speculated56.us = tail call i64 @llvm.umin.i64(i64 %S.sroa.6.0111.us, i64 %.sroa.speculated83.us)
+  %.sroa.speculated56.us = tail call i64 @llvm.umin.i64(i64 %S.sroa.6.0111.us, i64 %sub.ptr.sub.i.us)
   %0 = load i32, ptr %Size.i.i, align 8
   %1 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i.us = icmp ult i32 %0, %1

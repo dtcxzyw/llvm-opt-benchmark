@@ -824,23 +824,19 @@ for.inc:                                          ; preds = %if.end21, %for.inc
 
 for.end:                                          ; preds = %for.inc, %if.end21
   %ndigits.0.lcssa = phi i32 [ 0, %if.end21 ], [ %inc25, %for.inc ]
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %ndigits.0.lcssa, i32 4)
-  %tobool3048 = icmp ne i32 %code, 0
-  %cmp3149 = icmp sgt i32 %spec.store.select, 0
-  %or.cond50 = select i1 %tobool3048, i1 true, i1 %cmp3149
-  %tobool3251 = icmp ne i16 %bufferLength.addr.3, 0
-  %or.cond152 = and i1 %or.cond50, %tobool3251
-  br i1 %or.cond152, label %for.body33.preheader, label %for.end48
+  %spec.store.select = tail call i32 @llvm.smax.i32(i32 %ndigits.0.lcssa, i32 4)
+  %tobool3249.not = icmp eq i16 %bufferLength.addr.3, 0
+  br i1 %tobool3249.not, label %if.end60, label %for.body33.preheader
 
 for.body33.preheader:                             ; preds = %for.end
-  %5 = sext i32 %spec.store.select to i64
+  %5 = zext nneg i32 %spec.store.select to i64
   br label %for.body33
 
 for.body33:                                       ; preds = %for.body33.preheader, %for.body33
   %indvars.iv = phi i64 [ %5, %for.body33.preheader ], [ %indvars.iv.next, %for.body33 ]
-  %cp.154 = phi i32 [ %code, %for.body33.preheader ], [ %shr46, %for.body33 ]
-  %bufferLength.addr.453 = phi i16 [ %bufferLength.addr.3, %for.body33.preheader ], [ %dec47, %for.body33 ]
-  %conv34 = and i32 %cp.154, 15
+  %cp.151 = phi i32 [ %code, %for.body33.preheader ], [ %shr46, %for.body33 ]
+  %bufferLength.addr.450 = phi i16 [ %bufferLength.addr.3, %for.body33.preheader ], [ %dec47, %for.body33 ]
+  %conv34 = and i32 %cp.151, 15
   %cmp36 = icmp ult i32 %conv34, 10
   %add = or disjoint i32 %conv34, 48
   %sub40 = add nuw nsw i32 %conv34, 55
@@ -849,19 +845,18 @@ for.body33:                                       ; preds = %for.body33.preheade
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %arrayidx44 = getelementptr inbounds i8, ptr %buffer.addr.3, i64 %indvars.iv.next
   store i8 %conv41, ptr %arrayidx44, align 1
-  %shr46 = ashr i32 %cp.154, 4
-  %dec47 = add i16 %bufferLength.addr.453, -1
-  %tobool30 = icmp ugt i32 %cp.154, 15
+  %shr46 = ashr i32 %cp.151, 4
+  %dec47 = add i16 %bufferLength.addr.450, -1
+  %tobool30 = icmp ugt i32 %cp.151, 15
   %cmp31 = icmp sgt i64 %indvars.iv, 1
   %or.cond = or i1 %tobool30, %cmp31
   %tobool32 = icmp ne i16 %dec47, 0
   %or.cond1 = select i1 %or.cond, i1 %tobool32, i1 false
   br i1 %or.cond1, label %for.body33, label %for.end48, !llvm.loop !21
 
-for.end48:                                        ; preds = %for.body33, %for.end
-  %bufferLength.addr.4.lcssa = phi i16 [ %bufferLength.addr.3, %for.end ], [ %dec47, %for.body33 ]
-  %cmp56.not = icmp eq i16 %bufferLength.addr.4.lcssa, 0
-  br i1 %cmp56.not, label %if.end60, label %if.then57
+for.end48:                                        ; preds = %for.body33
+  %6 = icmp eq i16 %dec47, 0
+  br i1 %6, label %if.end60, label %if.then57
 
 if.then57:                                        ; preds = %for.end48
   %idx.ext = zext nneg i32 %spec.store.select to i64
@@ -869,9 +864,9 @@ if.then57:                                        ; preds = %for.end48
   store i8 62, ptr %add.ptr, align 1
   br label %if.end60
 
-if.end60:                                         ; preds = %if.then57, %for.end48
-  %6 = trunc i32 %spec.store.select to i16
-  %inc61 = add i16 %length.0.lcssa, %6
+if.end60:                                         ; preds = %for.end, %if.then57, %for.end48
+  %7 = trunc i32 %spec.store.select to i16
+  %inc61 = add i16 %length.0.lcssa, %7
   ret i16 %inc61
 }
 
@@ -4960,7 +4955,7 @@ return:                                           ; preds = %if.then24.us, %if.e
 declare void @u_charsToUChars_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
@@ -4981,7 +4976,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

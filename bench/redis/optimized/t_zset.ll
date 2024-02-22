@@ -199,7 +199,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   br i1 %cmp, label %while.cond, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
-  %cond = tail call i32 @llvm.umin.i32(i32 %level.0, i32 32)
+  %cond = tail call i32 @llvm.smin.i32(i32 %level.0, i32 32)
   ret i32 %cond
 }
 
@@ -297,16 +297,14 @@ while.cond.i.preheader:                           ; preds = %while.end, %cond.en
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %while.cond.i
-  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %while.cond.i ], [ 1, %while.cond.i.preheader ]
   %level.0.i = phi i32 [ %add.i, %while.cond.i ], [ 1, %while.cond.i.preheader ]
   %call.i = tail call i64 @random() #19
   %cmp.i = icmp slt i64 %call.i, 536870911
   %add.i = add nuw nsw i32 %level.0.i, 1
-  %indvars.iv.next103 = add nuw i64 %indvars.iv102, 1
   br i1 %cmp.i, label %while.cond.i, label %zslRandomLevel.exit, !llvm.loop !7
 
 zslRandomLevel.exit:                              ; preds = %while.cond.i
-  %cond.i = tail call i32 @llvm.umin.i32(i32 %level.0.i, i32 32)
+  %cond.i = tail call i32 @llvm.smin.i32(i32 %level.0.i, i32 32)
   %15 = load i32, ptr %level3, align 8
   %cmp55 = icmp sgt i32 %cond.i, %15
   br i1 %cmp55, label %for.cond58.preheader, label %if.end
@@ -359,11 +357,7 @@ if.end:                                           ; preds = %for.end74, %zslRand
 for.cond126.preheader:                            ; preds = %for.body80
   %27 = load i32, ptr %level3, align 8
   %cmp12892 = icmp slt i32 %cond.i, %27
-  br i1 %cmp12892, label %for.body130.preheader, label %for.end140
-
-for.body130.preheader:                            ; preds = %for.cond126.preheader
-  %umin104 = tail call i64 @llvm.umin.i64(i64 %indvars.iv102, i64 32)
-  br label %for.body130
+  br i1 %cmp12892, label %for.body130, label %for.end140
 
 for.body80:                                       ; preds = %if.end, %for.body80
   %indvars.iv98 = phi i64 [ 0, %if.end ], [ %indvars.iv.next99, %for.body80 ]
@@ -389,19 +383,19 @@ for.body80:                                       ; preds = %if.end, %for.body80
   %exitcond.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count
   br i1 %exitcond.not, label %for.cond126.preheader, label %for.body80, !llvm.loop !11
 
-for.body130:                                      ; preds = %for.body130.preheader, %for.body130
-  %indvars.iv105 = phi i64 [ %umin104, %for.body130.preheader ], [ %indvars.iv.next106, %for.body130 ]
-  %arrayidx132 = getelementptr inbounds [32 x ptr], ptr %update, i64 0, i64 %indvars.iv105
+for.body130:                                      ; preds = %for.cond126.preheader, %for.body130
+  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %for.body130 ], [ %wide.trip.count, %for.cond126.preheader ]
+  %arrayidx132 = getelementptr inbounds [32 x ptr], ptr %update, i64 0, i64 %indvars.iv104
   %32 = load ptr, ptr %arrayidx132, align 8
   %level133 = getelementptr inbounds i8, ptr %32, i64 24
-  %span136 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level133, i64 0, i64 %indvars.iv105, i32 1
+  %span136 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level133, i64 0, i64 %indvars.iv104, i32 1
   %33 = load i64, ptr %span136, align 8
   %inc137 = add i64 %33, 1
   store i64 %inc137, ptr %span136, align 8
-  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %34 = load i32, ptr %level3, align 8
   %35 = sext i32 %34 to i64
-  %cmp128 = icmp slt i64 %indvars.iv.next106, %35
+  %cmp128 = icmp slt i64 %indvars.iv.next105, %35
   br i1 %cmp128, label %for.body130, label %for.end140, !llvm.loop !12
 
 for.end140:                                       ; preds = %for.body130, %for.cond126.preheader
@@ -15603,6 +15597,9 @@ cond.end:                                         ; preds = %entry
 declare ptr @addReplyDeferredLen(ptr noundef) local_unnamed_addr #2
 
 declare void @setDeferredArrayLen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16

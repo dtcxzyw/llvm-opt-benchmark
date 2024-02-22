@@ -9377,9 +9377,8 @@ if.then.i.i:                                      ; preds = %if.else
 
 _ZNKSt6vectorIN8facebook5velox6memory12_GLOBAL__N_111MemoryUsageESaIS4_EE12_M_check_lenEmPKc.exit.i: ; preds = %if.else
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 56
-  %cmp.i.i.i = icmp eq ptr %0, %this.val.i
-  %.sroa.speculated.i.i = select i1 %cmp.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i
-  %add.i.i = add nsw i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
+  %add.i.i = add i64 %.sroa.speculated.i.i, %sub.ptr.div.i.i.i
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %3 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 164703072086692425)
   %cond.i.i = select i1 %cmp7.i.i, i64 164703072086692425, i64 %3
@@ -9401,7 +9400,8 @@ invoke.cont.i:                                    ; preds = %_ZNSt12_Vector_base
   %currentUsage.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %currentUsage3.i.i.i.i = getelementptr inbounds i8, ptr %__x, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %currentUsage.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %currentUsage3.i.i.i.i, i64 24, i1 false)
-  br i1 %cmp.i.i.i, label %_ZNSt6vectorIN8facebook5velox6memory12_GLOBAL__N_111MemoryUsageESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit30.i, label %for.body.i.i.i.i
+  %cmp.not1.i.i.i.i = icmp eq ptr %this.val.i, %0
+  br i1 %cmp.not1.i.i.i.i, label %_ZNSt6vectorIN8facebook5velox6memory12_GLOBAL__N_111MemoryUsageESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit30.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %for.body.i.i.i.i
   %__cur.03.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %cond.i19.i, %invoke.cont.i ]

@@ -42423,9 +42423,8 @@ if.then.i.i.i:                                    ; preds = %if.else.i
 
 _ZNKSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 48
-  %cmp.i.i.i.i = icmp eq ptr %17, %this.val.i.i
-  %.sroa.speculated.i.i.i = select i1 %cmp.i.i.i.i, i64 1, i64 %sub.ptr.div.i.i.i.i
-  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
+  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %21 = call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 192153584101141162)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 192153584101141162, i64 %21
@@ -42450,7 +42449,8 @@ invoke.cont.i.i:                                  ; preds = %_ZNSt12_Vector_base
   %fmt.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 40
   %23 = load ptr, ptr %fmt39, align 8
   store ptr %23, ptr %fmt.i.i.i.i.i, align 8
-  br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i, label %for.body.i.i.i.i.i
+  %cmp.not1.i.i.i.i.i = icmp eq ptr %this.val.i.i, %17
+  br i1 %cmp.not1.i.i.i.i.i, label %_ZNSt6vectorIZN4absl19str_format_internal12_GLOBAL__N_134FormatConvertTest_IntAsDouble_Test8TestBodyEvE11ExpectationSaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i.i, %for.body.i.i.i.i.i
   %__cur.03.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i19.i.i, %invoke.cont.i.i ]
