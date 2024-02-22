@@ -9355,11 +9355,11 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp23, label %if.end31, label %if.else
 
 if.else:                                          ; preds = %if.then3
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %val.addr.1, i32 4096)
+  %15 = tail call i32 @llvm.umin.i32(i32 %val.addr.1, i32 4096)
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then3, %if.else, %if.end
-  %val.addr.2 = phi i32 [ %spec.store.select, %if.else ], [ %val, %if.end ], [ 1, %if.then3 ]
+  %val.addr.2 = phi i32 [ %15, %if.else ], [ %val, %if.end ], [ 1, %if.then3 ]
   ret i32 %val.addr.2
 }
 
@@ -11708,6 +11708,9 @@ declare i32 @llvm.smin.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #23
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

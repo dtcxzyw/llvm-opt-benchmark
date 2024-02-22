@@ -1500,7 +1500,7 @@ if.end.i:                                         ; preds = %if.then34
   %and.i.i80 = and i32 %22, 2147483647
   store i32 %and.i.i80, ptr %add.ptr.i.i74, align 4
   %and.i5.i = and i32 %22, 536870911
-  %23 = tail call i32 @llvm.smin.i32(i32 %and.i5.i, i32 3073)
+  %23 = tail call i32 @llvm.umin.i32(i32 %and.i5.i, i32 3073)
   %.sroa.speculated.i.i = add nsw i32 %23, -16
   %add.ptr.i.i81 = getelementptr inbounds i8, ptr %add.ptr.i.i74, i64 4
   %24 = load i32, ptr %add.ptr.i.i81, align 4
@@ -1642,7 +1642,7 @@ if.then14.i:                                      ; preds = %if.end10.i
 if.end.i105:                                      ; preds = %if.end10.i
   %and.i.i106 = and i32 %45, 1610612735
   store i32 %and.i.i106, ptr %add.ptr3.i, align 4
-  %46 = tail call i32 @llvm.smin.i32(i32 %44, i32 3073)
+  %46 = tail call i32 @llvm.umin.i32(i32 %44, i32 3073)
   %.sroa.speculated.i.i108 = add nsw i32 %46, -16
   %add.ptr.i.i109 = getelementptr inbounds i8, ptr %add.ptr.i101, i64 -4
   %47 = load i32, ptr %add.ptr.i.i109, align 4
@@ -1742,7 +1742,7 @@ if.end62:                                         ; preds = %if.else60, %_ZN8fac
   %66 = phi i32 [ %or.i155, %_ZN8facebook5velox19HashStringAllocator6Header7setSizeEi.exit157 ], [ %.pre, %if.else60 ]
   %header.1 = phi ptr [ %add.ptr3.i, %_ZN8facebook5velox19HashStringAllocator6Header7setSizeEi.exit157 ], [ %header.0, %if.else60 ]
   %and.i158 = and i32 %66, 536870911
-  %67 = tail call i32 @llvm.smin.i32(i32 %and.i158, i32 3073)
+  %67 = tail call i32 @llvm.umin.i32(i32 %and.i158, i32 3073)
   %.sroa.speculated.i = add nsw i32 %67, -16
   %rem.i = and i32 %67, 7
   %shl.i = shl nuw nsw i32 1, %rem.i
@@ -2354,7 +2354,7 @@ if.end:                                           ; preds = %entry
   %and.i = and i32 %0, 2147483647
   store i32 %and.i, ptr %header, align 4
   %and.i5 = and i32 %0, 536870911
-  %1 = tail call i32 @llvm.smin.i32(i32 %and.i5, i32 3073)
+  %1 = tail call i32 @llvm.umin.i32(i32 %and.i5, i32 3073)
   %.sroa.speculated.i = add nsw i32 %1, -16
   %add.ptr.i = getelementptr inbounds i8, ptr %header, i64 4
   %2 = load i32, ptr %add.ptr.i, align 4
@@ -2440,7 +2440,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %preferredSize, i32 16)
-  %1 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated, i32 3073)
+  %1 = tail call i32 @llvm.umin.i32(i32 %.sroa.speculated, i32 3073)
   %.sroa.speculated.i = add nsw i32 %1, -16
   %freeNonEmpty_ = getelementptr inbounds i8, ptr %this, i64 36848
   %add.i.i.i = add nuw nsw i32 %1, 47
@@ -2488,40 +2488,41 @@ _ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i: ; preds =
   br label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread
 
 if.end18.i.i:                                     ; preds = %if.then11.i.i, %if.end9.i.i
-  %narrow = add nuw nsw i32 %1, 47
-  %4 = and i32 %narrow, 8128
-  %5 = zext nneg i32 %4 to i64
+  %4 = tail call i32 @llvm.umin.i32(i32 %.sroa.speculated, i32 3073)
+  %narrow = add nuw nsw i32 %4, 47
+  %5 = and i32 %narrow, 8128
+  %6 = zext nneg i32 %5 to i64
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.end18.i.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i.i ], [ %5, %if.end18.i.i ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i.i ], [ %6, %if.end18.i.i ]
   %cmp19.not.i.i = icmp ugt i64 %indvars.iv, 2944
   br i1 %cmp19.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
-  %6 = lshr exact i64 %indvars.iv, 6
-  %arrayidx.i43.i.i = getelementptr inbounds i64, ptr %freeNonEmpty_, i64 %6
-  %7 = load i64, ptr %arrayidx.i43.i.i, align 8
-  %tobool.not.i44.i.i = icmp eq i64 %7, 0
+  %7 = lshr exact i64 %indvars.iv, 6
+  %arrayidx.i43.i.i = getelementptr inbounds i64, ptr %freeNonEmpty_, i64 %7
+  %8 = load i64, ptr %arrayidx.i43.i.i, align 8
+  %tobool.not.i44.i.i = icmp eq i64 %8, 0
   br i1 %tobool.not.i44.i.i, label %for.cond.i.i, label %return.sink.split.i.i.loopexit, !llvm.loop !30
 
 for.end.i.i:                                      ; preds = %for.cond.i.i
   %arrayidx.i53.i.i = getelementptr inbounds i8, ptr %this, i64 37224
-  %8 = load i64, ptr %arrayidx.i53.i.i, align 8
-  %and.i54.i.i = and i64 %8, 1125899906842623
+  %9 = load i64, ptr %arrayidx.i53.i.i, align 8
+  %and.i54.i.i = and i64 %9, 1125899906842623
   %tobool.not.i55.i.i = icmp eq i64 %and.i54.i.i, 0
   br i1 %tobool.not.i55.i.i, label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit, label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread
 
 return.sink.split.i.i.loopexit:                   ; preds = %for.body.i.i
-  %9 = trunc i64 %indvars.iv to i32
+  %10 = trunc i64 %indvars.iv to i32
   br label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread
 
 _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread: ; preds = %if.then3.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i, %for.end.i.i, %return.sink.split.i.i.loopexit
-  %and.i54.sink.i.i = phi i64 [ %and.i35.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i ], [ %and.i.i.i, %if.then3.i.i ], [ %and.i54.i.i, %for.end.i.i ], [ %7, %return.sink.split.i.i.loopexit ]
-  %.sink.i.i = phi i32 [ %mul.i38.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i ], [ 3008, %if.then3.i.i ], [ 3008, %for.end.i.i ], [ %9, %return.sink.split.i.i.loopexit ]
-  %10 = tail call i64 @llvm.cttz.i64(i64 %and.i54.sink.i.i, i1 true), !range !31
-  %cast.i58.i.i = trunc i64 %10 to i32
+  %and.i54.sink.i.i = phi i64 [ %and.i35.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i ], [ %and.i.i.i, %if.then3.i.i ], [ %and.i54.i.i, %for.end.i.i ], [ %8, %return.sink.split.i.i.loopexit ]
+  %.sink.i.i = phi i32 [ %mul.i38.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i ], [ 3008, %if.then3.i.i ], [ 3008, %for.end.i.i ], [ %10, %return.sink.split.i.i.loopexit ]
+  %11 = tail call i64 @llvm.cttz.i64(i64 %and.i54.sink.i.i, i1 true), !range !31
+  %cast.i58.i.i = trunc i64 %11 to i32
   %add.i59.i.i = or disjoint i32 %.sink.i.i, %cast.i58.i.i
   br label %if.end13
 
@@ -2531,8 +2532,8 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit: ; preds = %if.then3.i.i, %for.
   br i1 %or.cond.not, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit
-  %11 = and i32 %.sroa.speculated.i, -64
-  %cmp10.not.i = icmp eq i32 %11, %.sroa.speculated.i
+  %12 = and i32 %.sroa.speculated.i, -64
+  %cmp10.not.i = icmp eq i32 %12, %.sroa.speculated.i
   br i1 %cmp10.not.i, label %for.cond.i.preheader, label %if.then11.i
 
 for.cond.i.preheader:                             ; preds = %if.then11.i, %if.end.i
@@ -2546,20 +2547,20 @@ if.then11.i:                                      ; preds = %if.end.i
   %sub.i30.i = xor i64 %notmask.i29.i, -1
   %idxprom2.i31.i = zext nneg i32 %div12.i to i64
   %arrayidx3.i32.i = getelementptr inbounds i64, ptr %freeNonEmpty_, i64 %idxprom2.i31.i
-  %12 = load i64, ptr %arrayidx3.i32.i, align 8
-  %and.i36.i = and i64 %12, %sub.i30.i
+  %13 = load i64, ptr %arrayidx3.i32.i, align 8
+  %and.i36.i = and i64 %13, %sub.i30.i
   %tobool4.not.i37.i = icmp eq i64 %and.i36.i, 0
   br i1 %tobool4.not.i37.i, label %for.cond.i.preheader, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit43.i
 
 _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit43.i: ; preds = %if.then11.i
   %add.i40.i = or i32 %.sroa.speculated.i, 63
-  %13 = tail call i64 @llvm.ctlz.i64(i64 %and.i36.i, i1 true), !range !31
-  %cast.i41.i = trunc i64 %13 to i32
+  %14 = tail call i64 @llvm.ctlz.i64(i64 %and.i36.i, i1 true), !range !31
+  %cast.i41.i = trunc i64 %14 to i32
   %sub.i42.i = sub nuw nsw i32 %add.i40.i, %cast.i41.i
   br label %if.end13
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %for.body.i
-  %i.0.in.i = phi i32 [ %i.0.i, %for.body.i ], [ %11, %for.cond.i.preheader ]
+  %i.0.in.i = phi i32 [ %i.0.i, %for.body.i ], [ %12, %for.cond.i.preheader ]
   %cmp20.not.i = icmp slt i32 %i.0.in.i, 64
   br i1 %cmp20.not.i, label %return, label %for.body.i
 
@@ -2568,15 +2569,15 @@ for.body.i:                                       ; preds = %for.cond.i
   %div21.i = lshr exact i32 %i.0.i, 6
   %idxprom2.i44.i = zext nneg i32 %div21.i to i64
   %arrayidx3.i45.i = getelementptr inbounds i64, ptr %freeNonEmpty_, i64 %idxprom2.i44.i
-  %14 = load i64, ptr %arrayidx3.i45.i, align 8
-  %tobool4.not.i49.i = icmp eq i64 %14, 0
+  %15 = load i64, ptr %arrayidx3.i45.i, align 8
+  %tobool4.not.i49.i = icmp eq i64 %15, 0
   br i1 %tobool4.not.i49.i, label %for.cond.i, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i, !llvm.loop !32
 
 _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i: ; preds = %for.body.i
-  %15 = tail call i64 @llvm.ctlz.i64(i64 %14, i1 true), !range !31
-  %cast.i52.i = trunc i64 %15 to i32
-  %16 = xor i32 %cast.i52.i, -1
-  %sub.i53.i = add nsw i32 %i.0.in.i, %16
+  %16 = tail call i64 @llvm.ctlz.i64(i64 %15, i1 true), !range !31
+  %cast.i52.i = trunc i64 %16 to i32
+  %17 = xor i32 %cast.i52.i, -1
+  %sub.i53.i = add nsw i32 %i.0.in.i, %17
   br label %if.end13
 
 if.end13:                                         ; preds = %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit43.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread
@@ -2655,7 +2656,7 @@ if.end.i:                                         ; preds = %if.end11
   %and.i.i = and i32 %7, 2147483647
   store i32 %and.i.i, ptr %add.ptr.i, align 4
   %and.i5.i = and i32 %7, 536870911
-  %8 = tail call i32 @llvm.smin.i32(i32 %and.i5.i, i32 3073)
+  %8 = tail call i32 @llvm.umin.i32(i32 %and.i5.i, i32 3073)
   %.sroa.speculated.i.i = add nsw i32 %8, -16
   %9 = load i32, ptr %2, align 4
   %nextHigh_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -5392,13 +5393,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 declare i32 @llvm.smin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #22

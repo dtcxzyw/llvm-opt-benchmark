@@ -94029,9 +94029,8 @@ if.then80:                                        ; preds = %land.lhs.true74
   br i1 %cmp6.i, label %while.body.preheader.i, label %_ZNSt7__cxx1115basic_stringbufIhSt11char_traitsIhESaIhEE8_M_pbumpEPhS5_l.exit
 
 while.body.preheader.i:                           ; preds = %if.then80
-  %11 = add nuw i64 %__newoffo.0, 2147483646
-  %smin.i = tail call i64 @llvm.smin.i64(i64 %__newoffo.0, i64 4294967294)
-  %12 = sub nuw i64 %11, %smin.i
+  %11 = tail call i64 @llvm.usub.sat.i64(i64 %__newoffo.0, i64 4294967294)
+  %12 = add nuw nsw i64 %11, 2147483646
   %13 = urem i64 %12, 2147483647
   %14 = sub nuw nsw i64 %12, %13
   %15 = add nsw i64 %__newoffo.0, -2147483647
@@ -94138,9 +94137,8 @@ if.then29:                                        ; preds = %if.end
   br i1 %cmp6.i, label %while.body.preheader.i, label %_ZNSt7__cxx1115basic_stringbufIhSt11char_traitsIhESaIhEE8_M_pbumpEPhS5_l.exit
 
 while.body.preheader.i:                           ; preds = %if.then29
-  %9 = add nuw i64 %__sp.coerce0, 2147483646
-  %smin.i = tail call i64 @llvm.smin.i64(i64 %__sp.coerce0, i64 4294967294)
-  %10 = sub nuw i64 %9, %smin.i
+  %9 = tail call i64 @llvm.usub.sat.i64(i64 %__sp.coerce0, i64 4294967294)
+  %10 = add nuw nsw i64 %9, 2147483646
   %11 = urem i64 %10, 2147483647
   %12 = sub nuw nsw i64 %10, %11
   %13 = add nsw i64 %__sp.coerce0, -2147483647
@@ -94517,9 +94515,8 @@ if.then14:                                        ; preds = %_ZNKSt7__cxx1112bas
   br i1 %cmp6.i, label %while.body.preheader.i, label %_ZNSt7__cxx1115basic_stringbufIhSt11char_traitsIhESaIhEE8_M_pbumpEPhS5_l.exit
 
 while.body.preheader.i:                           ; preds = %if.then14
-  %8 = add nuw i64 %sub.ptr.sub21, 2147483646
-  %smin.i = tail call i64 @llvm.smin.i64(i64 %sub.ptr.sub21, i64 4294967294)
-  %9 = sub nuw i64 %8, %smin.i
+  %8 = tail call i64 @llvm.usub.sat.i64(i64 %sub.ptr.sub21, i64 4294967294)
+  %9 = add nuw nsw i64 %8, 2147483646
   %10 = urem i64 %9, 2147483647
   %11 = sub nuw nsw i64 %9, %10
   %12 = add nsw i64 %sub.ptr.sub21, -2147483647
@@ -94820,9 +94817,8 @@ if.then18.i:                                      ; preds = %if.end16.i
   br i1 %cmp6.i.i, label %while.body.preheader.i.i, label %_ZNSt7__cxx1115basic_stringbufIhSt11char_traitsIhESaIhEE8_M_pbumpEPhS5_l.exit.i
 
 while.body.preheader.i.i:                         ; preds = %if.then18.i
-  %52 = add nuw i64 %sub.ptr.sub88, 2147483646
-  %smin.i.i = call i64 @llvm.smin.i64(i64 %sub.ptr.sub88, i64 4294967294)
-  %53 = sub nuw i64 %52, %smin.i.i
+  %52 = call i64 @llvm.usub.sat.i64(i64 %sub.ptr.sub88, i64 4294967294)
+  %53 = add nuw nsw i64 %52, 2147483646
   %54 = urem i64 %53, 2147483647
   %55 = sub nuw nsw i64 %53, %54
   %56 = add nsw i64 %sub.ptr.sub88, -2147483647
@@ -166975,6 +166971,9 @@ declare i64 @llvm.smax.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.usub.sat.i64(i64, i64) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -21,8 +21,8 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %spec.store.select = tail call i64 @llvm.smin.i64(i64 %timeout_ms, i64 2147483647)
-  %conv = trunc i64 %spec.store.select to i32
+  %0 = tail call i64 @llvm.umin.i64(i64 %timeout_ms, i64 2147483647)
+  %conv = trunc i64 %0 to i32
   %call6 = tail call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef %conv) #5
   switch i32 %call6, label %if.else [
     i32 0, label %return
@@ -31,8 +31,8 @@ if.end2:                                          ; preds = %if.end
 
 land.lhs.true:                                    ; preds = %if.end2
   %call11 = tail call ptr @__errno_location() #4
-  %0 = load i32, ptr %call11, align 4
-  %cmp12 = icmp eq i32 %0, 4
+  %1 = load i32, ptr %call11, align 4
+  %cmp12 = icmp eq i32 %1, 4
   br i1 %cmp12, label %return, label %if.else
 
 if.else:                                          ; preds = %if.end2, %land.lhs.true
@@ -71,8 +71,8 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end2.i:                                        ; preds = %if.end.i
-  %spec.store.select.i = tail call i64 @llvm.smin.i64(i64 %timeout_ms, i64 2147483647)
-  %conv.i = trunc i64 %spec.store.select.i to i32
+  %2 = tail call i64 @llvm.umin.i64(i64 %timeout_ms, i64 2147483647)
+  %conv.i = trunc i64 %2 to i32
   %call6.i = tail call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef %conv.i) #5
   switch i32 %call6.i, label %if.else.i [
     i32 0, label %return
@@ -81,8 +81,8 @@ if.end2.i:                                        ; preds = %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end2.i
   %call11.i = tail call ptr @__errno_location() #4
-  %2 = load i32, ptr %call11.i, align 4
-  %cmp12.i = icmp eq i32 %2, 4
+  %3 = load i32, ptr %call11.i, align 4
+  %cmp12.i = icmp eq i32 %3, 4
   br i1 %cmp12.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end2.i
@@ -143,12 +143,12 @@ if.end40:                                         ; preds = %if.end36
 
 if.then42:                                        ; preds = %if.end40
   %revents45 = getelementptr inbounds i8, ptr %pfd, i64 6
-  %3 = load i16, ptr %revents45, align 2
-  %4 = and i16 %3, 89
-  %tobool.not = icmp ne i16 %4, 0
+  %4 = load i16, ptr %revents45, align 2
+  %5 = and i16 %4, 89
+  %tobool.not = icmp ne i16 %5, 0
   %spec.select = zext i1 %tobool.not to i32
-  %5 = and i16 %3, 34
-  %tobool53.not = icmp eq i16 %5, 0
+  %6 = and i16 %4, 34
+  %tobool53.not = icmp eq i16 %6, 0
   %or55 = or disjoint i32 %spec.select, 4
   %r.1 = select i1 %tobool53.not, i32 %spec.select, i32 %or55
   br label %if.end58
@@ -161,13 +161,13 @@ if.end58:                                         ; preds = %if.then42, %if.end4
 if.then61:                                        ; preds = %if.end58
   %idxprom62 = zext nneg i32 %num.3 to i64
   %revents64 = getelementptr inbounds [3 x %struct.pollfd], ptr %pfd, i64 0, i64 %idxprom62, i32 2
-  %6 = load i16, ptr %revents64, align 2
-  %7 = and i16 %6, 89
-  %tobool67.not = icmp eq i16 %7, 0
+  %7 = load i16, ptr %revents64, align 2
+  %8 = and i16 %7, 89
+  %tobool67.not = icmp eq i16 %8, 0
   %or69 = or i32 %r.2, 8
   %spec.select40 = select i1 %tobool67.not, i32 %r.2, i32 %or69
-  %8 = and i16 %6, 34
-  %tobool76.not = icmp eq i16 %8, 0
+  %9 = and i16 %7, 34
+  %tobool76.not = icmp eq i16 %9, 0
   %or78 = or i32 %spec.select40, 4
   %r.4 = select i1 %tobool76.not, i32 %spec.select40, i32 %or78
   %inc80 = add nuw nsw i32 %num.3, 1
@@ -181,13 +181,13 @@ if.end81:                                         ; preds = %if.then61, %if.end5
 if.then84:                                        ; preds = %if.end81
   %idxprom85 = zext nneg i32 %num.4 to i64
   %revents87 = getelementptr inbounds [3 x %struct.pollfd], ptr %pfd, i64 0, i64 %idxprom85, i32 2
-  %9 = load i16, ptr %revents87, align 2
-  %10 = and i16 %9, 260
-  %tobool90.not = icmp eq i16 %10, 0
+  %10 = load i16, ptr %revents87, align 2
+  %11 = and i16 %10, 260
+  %tobool90.not = icmp eq i16 %11, 0
   %or92 = or i32 %r.5, 2
   %spec.select41 = select i1 %tobool90.not, i32 %r.5, i32 %or92
-  %11 = and i16 %9, 58
-  %tobool99.not = icmp eq i16 %11, 0
+  %12 = and i16 %10, 58
+  %tobool99.not = icmp eq i16 %12, 0
   %or101 = or i32 %spec.select41, 4
   %spec.select42 = select i1 %tobool99.not, i32 %spec.select41, i32 %or101
   br label %return
@@ -235,8 +235,8 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end2.i:                                        ; preds = %if.end.i
-  %spec.store.select.i = tail call i64 @llvm.smin.i64(i64 %timeout_ms, i64 2147483647)
-  %conv.i = trunc i64 %spec.store.select.i to i32
+  %1 = tail call i64 @llvm.umin.i64(i64 %timeout_ms, i64 2147483647)
+  %conv.i = trunc i64 %1 to i32
   %call6.i = tail call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef %conv.i) #5
   switch i32 %call6.i, label %if.else.i [
     i32 0, label %return
@@ -245,8 +245,8 @@ if.end2.i:                                        ; preds = %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end2.i
   %call11.i = tail call ptr @__errno_location() #4
-  %1 = load i32, ptr %call11.i, align 4
-  %cmp12.i = icmp eq i32 %1, 4
+  %2 = load i32, ptr %call11.i, align 4
+  %cmp12.i = icmp eq i32 %2, 4
   br i1 %cmp12.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.end2.i
@@ -257,8 +257,8 @@ if.end6:                                          ; preds = %for.body
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.end6
-  %spec.store.select = tail call i64 @llvm.smin.i64(i64 %timeout_ms, i64 2147483647)
-  %conv = trunc i64 %spec.store.select to i32
+  %3 = tail call i64 @llvm.umin.i64(i64 %timeout_ms, i64 2147483647)
+  %conv = trunc i64 %3 to i32
   br label %if.end17
 
 if.else:                                          ; preds = %if.end6
@@ -283,36 +283,36 @@ if.then22:                                        ; preds = %if.end17
 
 land.lhs.true:                                    ; preds = %if.then22
   %call25 = tail call ptr @__errno_location() #4
-  %2 = load i32, ptr %call25, align 4
-  %cmp26 = icmp ne i32 %2, 4
+  %4 = load i32, ptr %call25, align 4
+  %cmp26 = icmp ne i32 %4, 4
   %spec.select = sext i1 %cmp26 to i32
   br label %return
 
 for.body34:                                       ; preds = %for.body34.preheader, %for.inc67
   %indvars.iv31 = phi i64 [ 0, %for.body34.preheader ], [ %indvars.iv.next32, %for.inc67 ]
   %arrayidx36 = getelementptr inbounds %struct.pollfd, ptr %ufds, i64 %indvars.iv31
-  %3 = load i32, ptr %arrayidx36, align 4
-  %cmp38 = icmp eq i32 %3, -1
+  %5 = load i32, ptr %arrayidx36, align 4
+  %cmp38 = icmp eq i32 %5, -1
   br i1 %cmp38, label %for.inc67, label %if.end41
 
 if.end41:                                         ; preds = %for.body34
   %revents = getelementptr inbounds i8, ptr %arrayidx36, i64 6
-  %4 = load i16, ptr %revents, align 2
-  %5 = and i16 %4, 24
-  %.not = icmp eq i16 %5, 0
-  br i1 %.not, label %for.inc67, label %6
+  %6 = load i16, ptr %revents, align 2
+  %7 = and i16 %6, 24
+  %.not = icmp eq i16 %7, 0
+  br i1 %.not, label %for.inc67, label %8
 
-6:                                                ; preds = %if.end41
-  %7 = and i16 %4, 8
-  %tobool58.not.not = icmp eq i16 %7, 0
-  %8 = lshr i16 %4, 4
-  %9 = and i16 %8, 1
-  %simplifycfg.merge.v = select i1 %tobool58.not.not, i16 %9, i16 5
-  %simplifycfg.merge = or i16 %4, %simplifycfg.merge.v
+8:                                                ; preds = %if.end41
+  %9 = and i16 %6, 8
+  %tobool58.not.not = icmp eq i16 %9, 0
+  %10 = lshr i16 %6, 4
+  %11 = and i16 %10, 1
+  %simplifycfg.merge.v = select i1 %tobool58.not.not, i16 %11, i16 5
+  %simplifycfg.merge = or i16 %6, %simplifycfg.merge.v
   store i16 %simplifycfg.merge, ptr %revents, align 2
   br label %for.inc67
 
-for.inc67:                                        ; preds = %6, %if.end41, %for.body34
+for.inc67:                                        ; preds = %8, %if.end41, %for.body34
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
   br i1 %exitcond35.not, label %return, label %for.body34, !llvm.loop !6
@@ -323,7 +323,7 @@ return:                                           ; preds = %for.inc67, %if.else
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #3
+declare i64 @llvm.umin.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #3

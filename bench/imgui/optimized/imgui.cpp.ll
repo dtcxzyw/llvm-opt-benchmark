@@ -39588,51 +39588,51 @@ if.then66:                                        ; preds = %if.end60
   br i1 %cmp317.i, label %while.body.lr.ph.i, label %_ZN5ImGui11PopStyleVarEi.exit
 
 while.body.lr.ph.i:                               ; preds = %if.then66
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %46, i32 3)
+  %47 = tail call i32 @llvm.umin.i32(i32 %46, i32 3)
   %Data.i.i123 = getelementptr inbounds i8, ptr %45, i64 19032
   %Style.i124 = getelementptr inbounds i8, ptr %45, i64 14576
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end22.i, %while.body.lr.ph.i
-  %47 = phi i32 [ %46, %while.body.lr.ph.i ], [ %dec.i.i, %if.end22.i ]
-  %count.addr.118.i = phi i32 [ %spec.select.i, %while.body.lr.ph.i ], [ %dec.i, %if.end22.i ]
-  %48 = load ptr, ptr %Data.i.i123, align 8
-  %49 = sext i32 %47 to i64
-  %50 = getelementptr %struct.ImGuiStyleMod, ptr %48, i64 %49
-  %arrayidx.i.i125 = getelementptr i8, ptr %50, i64 -12
-  %51 = load i32, ptr %arrayidx.i.i125, align 4
-  %idxprom.i.i126 = sext i32 %51 to i64
+  %48 = phi i32 [ %46, %while.body.lr.ph.i ], [ %dec.i.i, %if.end22.i ]
+  %count.addr.118.i = phi i32 [ %47, %while.body.lr.ph.i ], [ %dec.i, %if.end22.i ]
+  %49 = load ptr, ptr %Data.i.i123, align 8
+  %50 = sext i32 %48 to i64
+  %51 = getelementptr %struct.ImGuiStyleMod, ptr %49, i64 %50
+  %arrayidx.i.i125 = getelementptr i8, ptr %51, i64 -12
+  %52 = load i32, ptr %arrayidx.i.i125, align 4
+  %idxprom.i.i126 = sext i32 %52 to i64
   %arrayidx.i16.i = getelementptr inbounds [29 x %struct.ImGuiDataVarInfo], ptr @_ZL13GStyleVarInfo, i64 0, i64 %idxprom.i.i126
   %Offset.i.i = getelementptr inbounds i8, ptr %arrayidx.i16.i, i64 8
-  %52 = load i32, ptr %Offset.i.i, align 4
-  %idx.ext.i.i = zext i32 %52 to i64
+  %53 = load i32, ptr %Offset.i.i, align 4
+  %idx.ext.i.i = zext i32 %53 to i64
   %add.ptr.i.i127 = getelementptr inbounds i8, ptr %Style.i124, i64 %idx.ext.i.i
   %Count.i = getelementptr inbounds i8, ptr %arrayidx.i16.i, i64 4
-  %53 = load i32, ptr %Count.i, align 4
-  switch i32 %53, label %if.end22.i [
+  %54 = load i32, ptr %Count.i, align 4
+  switch i32 %54, label %if.end22.i [
     i32 1, label %if.then9.i
     i32 2, label %if.then16.i
   ]
 
 if.then9.i:                                       ; preds = %while.body.i
-  %54 = getelementptr i8, ptr %50, i64 -8
-  %55 = load float, ptr %54, align 4
-  store float %55, ptr %add.ptr.i.i127, align 4
+  %55 = getelementptr i8, ptr %51, i64 -8
+  %56 = load float, ptr %55, align 4
+  store float %56, ptr %add.ptr.i.i127, align 4
   br label %if.end22.i
 
 if.then16.i:                                      ; preds = %while.body.i
-  %56 = getelementptr i8, ptr %50, i64 -8
-  %57 = load float, ptr %56, align 4
-  store float %57, ptr %add.ptr.i.i127, align 4
-  %arrayidx19.i = getelementptr i8, ptr %50, i64 -4
-  %58 = load float, ptr %arrayidx19.i, align 4
+  %57 = getelementptr i8, ptr %51, i64 -8
+  %58 = load float, ptr %57, align 4
+  store float %58, ptr %add.ptr.i.i127, align 4
+  %arrayidx19.i = getelementptr i8, ptr %51, i64 -4
+  %59 = load float, ptr %arrayidx19.i, align 4
   %arrayidx20.i = getelementptr inbounds i8, ptr %add.ptr.i.i127, i64 4
-  store float %58, ptr %arrayidx20.i, align 4
+  store float %59, ptr %arrayidx20.i, align 4
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.then16.i, %if.then9.i, %while.body.i
-  %59 = load i32, ptr %StyleVarStack.i122, align 8
-  %dec.i.i = add nsw i32 %59, -1
+  %60 = load i32, ptr %StyleVarStack.i122, align 8
+  %dec.i.i = add nsw i32 %60, -1
   store i32 %dec.i.i, ptr %StyleVarStack.i122, align 8
   %dec.i = add nsw i32 %count.addr.118.i, -1
   %cmp3.i128 = icmp sgt i32 %count.addr.118.i, 1
@@ -39643,43 +39643,43 @@ _ZN5ImGui11PopStyleVarEi.exit.loopexit:           ; preds = %if.end22.i
   br label %_ZN5ImGui11PopStyleVarEi.exit
 
 _ZN5ImGui11PopStyleVarEi.exit:                    ; preds = %_ZN5ImGui11PopStyleVarEi.exit.loopexit, %if.then66
-  %60 = phi ptr [ %.pre140, %_ZN5ImGui11PopStyleVarEi.exit.loopexit ], [ %45, %if.then66 ]
-  %ColorStack.i129 = getelementptr inbounds i8, ptr %60, i64 19008
-  %61 = load i32, ptr %ColorStack.i129, align 8
-  %cmp38.i = icmp sgt i32 %61, 0
+  %61 = phi ptr [ %.pre140, %_ZN5ImGui11PopStyleVarEi.exit.loopexit ], [ %45, %if.then66 ]
+  %ColorStack.i129 = getelementptr inbounds i8, ptr %61, i64 19008
+  %62 = load i32, ptr %ColorStack.i129, align 8
+  %cmp38.i = icmp sgt i32 %62, 0
   br i1 %cmp38.i, label %while.body.lr.ph.i131, label %if.end67
 
 while.body.lr.ph.i131:                            ; preds = %_ZN5ImGui11PopStyleVarEi.exit
-  %Data.i.i132 = getelementptr inbounds i8, ptr %60, i64 19016
-  %Colors.i133 = getelementptr inbounds i8, ptr %60, i64 14804
-  %62 = load ptr, ptr %Data.i.i132, align 8
-  %63 = zext nneg i32 %61 to i64
-  %64 = getelementptr %struct.ImGuiColorMod, ptr %62, i64 %63
-  %arrayidx.i.i135 = getelementptr i8, ptr %64, i64 -20
-  %BackupValue.i = getelementptr i8, ptr %64, i64 -16
-  %65 = load i32, ptr %arrayidx.i.i135, align 4
-  %idxprom.i = sext i32 %65 to i64
+  %Data.i.i132 = getelementptr inbounds i8, ptr %61, i64 19016
+  %Colors.i133 = getelementptr inbounds i8, ptr %61, i64 14804
+  %63 = load ptr, ptr %Data.i.i132, align 8
+  %64 = zext nneg i32 %62 to i64
+  %65 = getelementptr %struct.ImGuiColorMod, ptr %63, i64 %64
+  %arrayidx.i.i135 = getelementptr i8, ptr %65, i64 -20
+  %BackupValue.i = getelementptr i8, ptr %65, i64 -16
+  %66 = load i32, ptr %arrayidx.i.i135, align 4
+  %idxprom.i = sext i32 %66 to i64
   %arrayidx.i136 = getelementptr inbounds [53 x %struct.ImVec4], ptr %Colors.i133, i64 0, i64 %idxprom.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i136, ptr noundef nonnull align 4 dereferenceable(16) %BackupValue.i, i64 16, i1 false)
-  %66 = load i32, ptr %ColorStack.i129, align 8
-  %dec.i.i137 = add nsw i32 %66, -1
+  %67 = load i32, ptr %ColorStack.i129, align 8
+  %dec.i.i137 = add nsw i32 %67, -1
   store i32 %dec.i.i137, ptr %ColorStack.i129, align 8
   br label %if.end67
 
 if.end67:                                         ; preds = %while.body.lr.ph.i131, %_ZN5ImGui11PopStyleVarEi.exit, %if.end60
-  %67 = load ptr, ptr %CurrentWindow, align 8
-  %ChildId = getelementptr inbounds i8, ptr %67, i64 136
+  %68 = load ptr, ptr %CurrentWindow, align 8
+  %ChildId = getelementptr inbounds i8, ptr %68, i64 136
   store i32 %id, ptr %ChildId, align 8
-  %BeginCount = getelementptr inbounds i8, ptr %67, i64 204
-  %68 = load i16, ptr %BeginCount, align 4
-  %cmp69 = icmp eq i16 %68, 1
+  %BeginCount = getelementptr inbounds i8, ptr %68, i64 204
+  %69 = load i16, ptr %BeginCount, align 4
+  %cmp69 = icmp eq i16 %69, 1
   br i1 %cmp69, label %if.then70, label %if.end71
 
 if.then70:                                        ; preds = %if.end67
-  %Pos = getelementptr inbounds i8, ptr %67, i64 40
+  %Pos = getelementptr inbounds i8, ptr %68, i64 40
   %DC = getelementptr inbounds i8, ptr %1, i64 272
-  %69 = load i64, ptr %Pos, align 8
-  store i64 %69, ptr %DC, align 8
+  %70 = load i64, ptr %Pos, align 8
+  store i64 %70, ptr %DC, align 8
   br label %if.end71
 
 if.end71:                                         ; preds = %if.then70, %if.end67
@@ -39687,13 +39687,13 @@ if.end71:                                         ; preds = %if.then70, %if.end6
   br label %while.body18.i
 
 while.body18.i:                                   ; preds = %if.end30.i, %if.end71
-  %70 = phi i8 [ %.pre.i, %if.end30.i ], [ 35, %if.end71 ]
+  %71 = phi i8 [ %.pre.i, %if.end30.i ], [ 35, %if.end71 ]
   %crc.228.i = phi i32 [ %xor37.i, %if.end30.i ], [ %not.i, %if.end71 ]
   %data.127.i.idx = phi i64 [ %data.127.i.add, %if.end30.i ], [ 0, %if.end71 ]
   %data.127.i.add = add nuw nsw i64 %data.127.i.idx, 1
   %incdec.ptr1729.i.ptr = getelementptr inbounds i8, ptr @.str.78, i64 %data.127.i.add
-  %conv19.i = zext i8 %70 to i32
-  %cmp20.i = icmp eq i8 %70, 35
+  %conv19.i = zext i8 %71 to i32
+  %cmp20.i = icmp eq i8 %71, 35
   %.pre.i = load i8, ptr %incdec.ptr1729.i.ptr, align 1
   %cmp24.i = icmp eq i8 %.pre.i, 35
   %or.cond32.i = select i1 %cmp20.i, i1 %cmp24.i, i1 false
@@ -39701,8 +39701,8 @@ while.body18.i:                                   ; preds = %if.end30.i, %if.end
 
 land.lhs.true25.i:                                ; preds = %while.body18.i
   %gep = getelementptr inbounds i8, ptr getelementptr inbounds ([8 x i8], ptr @.str.78, i64 0, i64 2), i64 %data.127.i.idx
-  %71 = load i8, ptr %gep, align 1
-  %cmp28.i = icmp eq i8 %71, 35
+  %72 = load i8, ptr %gep, align 1
+  %cmp28.i = icmp eq i8 %72, 35
   %spec.select19.i = select i1 %cmp28.i, i32 %not.i, i32 %crc.228.i
   br label %if.end30.i
 
@@ -39713,16 +39713,16 @@ if.end30.i:                                       ; preds = %land.lhs.true25.i, 
   %xor34.i = xor i32 %and32.i, %conv19.i
   %idxprom35.i = zext nneg i32 %xor34.i to i64
   %arrayidx36.i = getelementptr inbounds i32, ptr @_ZL17GCrc32LookupTable, i64 %idxprom35.i
-  %72 = load i32, ptr %arrayidx36.i, align 4
-  %xor37.i = xor i32 %shr31.i, %72
+  %73 = load i32, ptr %arrayidx36.i, align 4
+  %xor37.i = xor i32 %shr31.i, %73
   %exitcond = icmp eq i64 %data.127.i.add, 7
   br i1 %exitcond, label %_Z9ImHashStrPKcmj.exit, label %while.body18.i, !llvm.loop !24
 
 _Z9ImHashStrPKcmj.exit:                           ; preds = %if.end30.i
   %not40.i = xor i32 %xor37.i, -1
   %ActiveId = getelementptr inbounds i8, ptr %0, i64 16492
-  %73 = load i32, ptr %ActiveId, align 4
-  %cmp73 = icmp eq i32 %73, %not40.i
+  %74 = load i32, ptr %ActiveId, align 4
+  %cmp73 = icmp eq i32 %74, %not40.i
   br i1 %cmp73, label %if.then74, label %if.end75
 
 if.then74:                                        ; preds = %_Z9ImHashStrPKcmj.exit
@@ -39731,34 +39731,34 @@ if.then74:                                        ; preds = %_Z9ImHashStrPKcmj.e
 
 if.end75:                                         ; preds = %if.then74, %_Z9ImHashStrPKcmj.exit
   %NavActivateId = getelementptr inbounds i8, ptr %0, i64 19192
-  %74 = load i32, ptr %NavActivateId, align 8
-  %cmp76 = icmp eq i32 %74, %id
+  %75 = load i32, ptr %NavActivateId, align 8
+  %cmp76 = icmp eq i32 %75, %id
   %and77 = and i32 %window_flags.addr.2, 8388608
   %tobool78.not = icmp eq i32 %and77, 0
   %or.cond = select i1 %cmp76, i1 %tobool78.not, i1 false
   br i1 %or.cond, label %land.lhs.true79, label %if.end86
 
 land.lhs.true79:                                  ; preds = %if.end75
-  %NavLayersActiveMask = getelementptr inbounds i8, ptr %67, i64 364
-  %75 = load i16, ptr %NavLayersActiveMask, align 4
-  %cmp82.not = icmp eq i16 %75, 0
+  %NavLayersActiveMask = getelementptr inbounds i8, ptr %68, i64 364
+  %76 = load i16, ptr %NavLayersActiveMask, align 4
+  %cmp82.not = icmp eq i16 %76, 0
   br i1 %cmp82.not, label %lor.lhs.false, label %if.then85
 
 lor.lhs.false:                                    ; preds = %land.lhs.true79
-  %NavWindowHasScrollY = getelementptr inbounds i8, ptr %67, i64 370
-  %76 = load i8, ptr %NavWindowHasScrollY, align 2
-  %77 = and i8 %76, 1
-  %tobool84.not = icmp eq i8 %77, 0
+  %NavWindowHasScrollY = getelementptr inbounds i8, ptr %68, i64 370
+  %77 = load i8, ptr %NavWindowHasScrollY, align 2
+  %78 = and i8 %77, 1
+  %tobool84.not = icmp eq i8 %78, 0
   br i1 %tobool84.not, label %if.end86, label %if.then85
 
 if.then85:                                        ; preds = %lor.lhs.false, %land.lhs.true79
-  tail call void @_ZN5ImGui11FocusWindowEP11ImGuiWindowi(ptr noundef nonnull %67, i32 noundef 0)
-  tail call void @_ZN5ImGui13NavInitWindowEP11ImGuiWindowb(ptr noundef nonnull %67, i1 noundef zeroext false)
-  tail call void @_ZN5ImGui11SetActiveIDEjP11ImGuiWindow(i32 noundef %not40.i, ptr noundef nonnull %67)
+  tail call void @_ZN5ImGui11FocusWindowEP11ImGuiWindowi(ptr noundef nonnull %68, i32 noundef 0)
+  tail call void @_ZN5ImGui13NavInitWindowEP11ImGuiWindowb(ptr noundef nonnull %68, i1 noundef zeroext false)
+  tail call void @_ZN5ImGui11SetActiveIDEjP11ImGuiWindow(i32 noundef %not40.i, ptr noundef nonnull %68)
   %NavInputSource = getelementptr inbounds i8, ptr %0, i64 19228
-  %78 = load i32, ptr %NavInputSource, align 4
+  %79 = load i32, ptr %NavInputSource, align 4
   %ActiveIdSource = getelementptr inbounds i8, ptr %0, i64 16528
-  store i32 %78, ptr %ActiveIdSource, align 8
+  store i32 %79, ptr %ActiveIdSource, align 8
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then85, %lor.lhs.false, %if.end75
@@ -79834,6 +79834,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #53
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #53
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #51
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #51

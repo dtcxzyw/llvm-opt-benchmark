@@ -3259,7 +3259,7 @@ if.end29.i:                                       ; preds = %if.then24.i
   br label %for.cond.backedge
 
 if.end32.i:                                       ; preds = %if.end20.i
-  %26 = tail call i32 @llvm.smin.i32(i32 %.session.2772.val.i.i, i32 16384)
+  %26 = tail call i32 @llvm.umin.i32(i32 %.session.2772.val.i.i, i32 16384)
   %cond.i.i = zext nneg i32 %26 to i64
   %aux_data.i = getelementptr inbounds i8, ptr %call5, i64 96
   %call34.i = tail call i32 @nghttp2_session_pack_data(ptr noundef nonnull %session, ptr noundef nonnull %framebufs3, i64 noundef %cond.i.i, ptr noundef nonnull %call5, ptr noundef nonnull %aux_data.i, ptr noundef nonnull %call.i.i)

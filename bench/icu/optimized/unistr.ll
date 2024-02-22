@@ -1372,7 +1372,7 @@ if.then18:                                        ; preds = %lor.lhs.false15, %l
 
 if.else:                                          ; preds = %if.then18
   %cmp21 = icmp slt i32 %newCapacity.addr.0, 28
-  %9 = tail call i32 @llvm.smin.i32(i32 %growCapacity, i32 27)
+  %9 = tail call i32 @llvm.umin.i32(i32 %growCapacity, i32 27)
   %spec.store.select = select i1 %cmp21, i32 %9, i32 %growCapacity
   br label %if.end26
 
@@ -6650,6 +6650,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19

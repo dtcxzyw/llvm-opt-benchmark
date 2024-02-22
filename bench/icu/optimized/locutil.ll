@@ -1236,34 +1236,34 @@ if.then.i.i:                                      ; preds = %entry
 
 if.else7.i.i.i:                                   ; preds = %if.then.i.i
   %sub.i.i.i = sub nuw nsw i32 %cond.i.i, %spec.select.i.i
-  %spec.select10.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i, i32 %cond.i.i)
-  %cmp.i.not.i = icmp eq i32 %spec.select10.i.i, 0
+  %6 = tail call i32 @llvm.umin.i32(i32 %sub.i.i.i, i32 %cond.i.i)
+  %cmp.i.not.i = icmp eq i32 %6, 0
   br i1 %cmp.i.not.i, label %land.end, label %_ZNK6icu_7513UnicodeString7indexOfERKS0_.exit
 
 _ZNK6icu_7513UnicodeString7indexOfERKS0_.exit:    ; preds = %if.else7.i.i.i
-  %6 = and i16 %0, 2
-  %tobool.not.i.i.i = icmp eq i16 %6, 0
+  %7 = and i16 %0, 2
+  %tobool.not.i.i.i = icmp eq i16 %7, 0
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %root, i64 10
   %fArray.i.i.i = getelementptr inbounds i8, ptr %root, i64 24
-  %7 = load ptr, ptr %fArray.i.i.i, align 8
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %7, ptr %fBuffer.i.i.i
-  %call4.i.i = tail call noundef i32 @_ZNK6icu_7513UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %child, ptr noundef %cond.i.i.i, i32 noundef %spec.select.i.i, i32 noundef %spec.select10.i.i, i32 noundef 0, i32 noundef %cond.i6.i)
+  %8 = load ptr, ptr %fArray.i.i.i, align 8
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %8, ptr %fBuffer.i.i.i
+  %call4.i.i = tail call noundef i32 @_ZNK6icu_7513UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %child, ptr noundef %cond.i.i.i, i32 noundef %spec.select.i.i, i32 noundef %6, i32 noundef 0, i32 noundef %cond.i6.i)
   %cmp = icmp eq i32 %call4.i.i, 0
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %_ZNK6icu_7513UnicodeString7indexOfERKS0_.exit
-  %8 = load i16, ptr %fUnion.i.i2.i, align 8
-  %cmp.i.i = icmp slt i16 %8, 0
-  %9 = ashr i16 %8, 5
-  %shr.i.i = sext i16 %9 to i32
-  %10 = load i32, ptr %fLength.i5.i, align 4
-  %cond.i = select i1 %cmp.i.i, i32 %10, i32 %shr.i.i
-  %11 = load i16, ptr %fUnion.i.i.i, align 8
-  %cmp.i.i6 = icmp slt i16 %11, 0
-  %12 = ashr i16 %11, 5
-  %shr.i.i7 = sext i16 %12 to i32
-  %13 = load i32, ptr %fLength.i.i, align 4
-  %cond.i9 = select i1 %cmp.i.i6, i32 %13, i32 %shr.i.i7
+  %9 = load i16, ptr %fUnion.i.i2.i, align 8
+  %cmp.i.i = icmp slt i16 %9, 0
+  %10 = ashr i16 %9, 5
+  %shr.i.i = sext i16 %10 to i32
+  %11 = load i32, ptr %fLength.i5.i, align 4
+  %cond.i = select i1 %cmp.i.i, i32 %11, i32 %shr.i.i
+  %12 = load i16, ptr %fUnion.i.i.i, align 8
+  %cmp.i.i6 = icmp slt i16 %12, 0
+  %13 = ashr i16 %12, 5
+  %shr.i.i7 = sext i16 %13 to i32
+  %14 = load i32, ptr %fLength.i.i, align 4
+  %cond.i9 = select i1 %cmp.i.i6, i32 %14, i32 %shr.i.i7
   %cmp3 = icmp eq i32 %cond.i, %cond.i9
   br i1 %cmp3, label %land.end, label %lor.rhs
 
@@ -1272,21 +1272,21 @@ lor.rhs:                                          ; preds = %land.rhs
   br i1 %cmp.i.i16, label %if.then.i.i18, label %land.end
 
 if.then.i.i18:                                    ; preds = %lor.rhs
-  %14 = and i16 %8, 2
-  %tobool.not.i.i.i19 = icmp eq i16 %14, 0
+  %15 = and i16 %9, 2
+  %tobool.not.i.i.i19 = icmp eq i16 %15, 0
   %fBuffer.i.i.i20 = getelementptr inbounds i8, ptr %child, i64 10
   %fArray.i.i.i21 = getelementptr inbounds i8, ptr %child, i64 24
-  %15 = load ptr, ptr %fArray.i.i.i21, align 8
-  %cond.i2.i.i = select i1 %tobool.not.i.i.i19, ptr %15, ptr %fBuffer.i.i.i20
+  %16 = load ptr, ptr %fArray.i.i.i21, align 8
+  %cond.i2.i.i = select i1 %tobool.not.i.i.i19, ptr %16, ptr %fBuffer.i.i.i20
   %idxprom.i.i = sext i32 %cond.i9 to i64
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %idxprom.i.i
-  %16 = load i16, ptr %arrayidx.i.i, align 2
-  %17 = icmp eq i16 %16, 95
-  %18 = zext i1 %17 to i8
+  %17 = load i16, ptr %arrayidx.i.i, align 2
+  %18 = icmp eq i16 %17, 95
+  %19 = zext i1 %18 to i8
   br label %land.end
 
 land.end:                                         ; preds = %if.then.i.i18, %lor.rhs, %if.then.i.i, %entry, %if.else7.i.i.i, %land.rhs, %_ZNK6icu_7513UnicodeString7indexOfERKS0_.exit
-  %conv7 = phi i8 [ 0, %_ZNK6icu_7513UnicodeString7indexOfERKS0_.exit ], [ 1, %land.rhs ], [ 0, %if.else7.i.i.i ], [ 0, %entry ], [ 0, %if.then.i.i ], [ %18, %if.then.i.i18 ], [ 0, %lor.rhs ]
+  %conv7 = phi i8 [ 0, %_ZNK6icu_7513UnicodeString7indexOfERKS0_.exit ], [ 1, %land.rhs ], [ 0, %if.else7.i.i.i ], [ 0, %entry ], [ 0, %if.then.i.i ], [ %19, %if.then.i.i18 ], [ 0, %lor.rhs ]
   ret i8 %conv7
 }
 
@@ -1360,6 +1360,9 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString7indexOfEPKDsiiii(ptr noundef non
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

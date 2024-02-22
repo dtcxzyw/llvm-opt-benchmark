@@ -154,19 +154,19 @@ while.body59:                                     ; preds = %while.cond57.prehea
   %in.addr.0178 = phi ptr [ %in, %while.cond57.preheader ], [ %add.ptr, %while.end223 ]
   %ret.0177 = phi i32 [ 0, %while.cond57.preheader ], [ %ret.1, %while.end223 ]
   %inl.addr.0176 = phi i32 [ %inl, %while.cond57.preheader ], [ %sub177, %while.end223 ]
-  %cond64 = tail call i32 @llvm.smin.i32(i32 %inl.addr.0176, i32 1024)
+  %7 = tail call i32 @llvm.umin.i32(i32 %inl.addr.0176, i32 1024)
   %call65 = tail call i32 @BIO_test_flags(ptr noundef %b, i32 noundef -1) #7
   %and = and i32 %call65, 256
   %cmp66.not = icmp eq i32 %and, 0
   br i1 %cmp66.not, label %if.else146, label %if.then67
 
 if.then67:                                        ; preds = %while.body59
-  %7 = load i32, ptr %tmp_len68, align 8
-  %cmp69 = icmp sgt i32 %7, 0
+  %8 = load i32, ptr %tmp_len68, align 8
+  %cmp69 = icmp sgt i32 %8, 0
   br i1 %cmp69, label %if.then70, label %if.else
 
 if.then70:                                        ; preds = %if.then67
-  %cmp72 = icmp ult i32 %7, 4
+  %cmp72 = icmp ult i32 %8, 4
   br i1 %cmp72, label %cond.end75, label %cond.false74
 
 cond.false74:                                     ; preds = %if.then70
@@ -174,15 +174,15 @@ cond.false74:                                     ; preds = %if.then70
   unreachable
 
 cond.end75:                                       ; preds = %if.then70
-  %sub78 = xor i32 %7, 3
+  %sub78 = xor i32 %8, 3
   %cmp79 = icmp ugt i32 %sub78, %inl.addr.0176
   %spec.select = select i1 %cmp79, i32 1, i32 %sub78
-  %idxprom83 = zext nneg i32 %7 to i64
+  %idxprom83 = zext nneg i32 %8 to i64
   %arrayidx84 = getelementptr inbounds [1024 x i8], ptr %tmp, i64 0, i64 %idxprom83
   %conv = zext nneg i32 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx84, ptr align 1 %in.addr.0178, i64 %conv, i1 false)
-  %8 = load i32, ptr %tmp_len68, align 8
-  %add86 = add nsw i32 %8, %spec.select
+  %9 = load i32, ptr %tmp_len68, align 8
+  %add86 = add nsw i32 %9, %spec.select
   store i32 %add86, ptr %tmp_len68, align 8
   %add87 = add nsw i32 %spec.select, %ret.0177
   %cmp89 = icmp slt i32 %add86, 3
@@ -199,8 +199,8 @@ cond.false103:                                    ; preds = %if.end92
   unreachable
 
 cond.end104:                                      ; preds = %if.end92
-  %9 = load i32, ptr %buf_off7, align 4
-  %cmp108.not = icmp slt i32 %call97, %9
+  %10 = load i32, ptr %buf_off7, align 4
+  %cmp108.not = icmp slt i32 %call97, %10
   br i1 %cmp108.not, label %cond.false111, label %cond.end112
 
 cond.false111:                                    ; preds = %cond.end104
@@ -216,17 +216,17 @@ if.else:                                          ; preds = %if.then67
   br i1 %cmp115, label %if.then117, label %if.end123
 
 if.then117:                                       ; preds = %if.else
-  %conv120 = zext nneg i32 %cond64 to i64
+  %conv120 = zext nneg i32 %7 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %tmp, ptr align 1 %in.addr.0178, i64 %conv120, i1 false)
-  store i32 %cond64, ptr %tmp_len68, align 8
-  %add122 = add nsw i32 %ret.0177, %cond64
+  store i32 %7, ptr %tmp_len68, align 8
+  %add122 = add nsw i32 %ret.0177, %7
   br label %return
 
 if.end123:                                        ; preds = %if.else
-  %rem.lhs.trunc = trunc i32 %cond64 to i16
+  %rem.lhs.trunc = trunc i32 %7 to i16
   %rem121 = urem i16 %rem.lhs.trunc, 3
   %rem.zext = zext nneg i16 %rem121 to i32
-  %sub124 = sub nsw i32 %cond64, %rem.zext
+  %sub124 = sub nsw i32 %7, %rem.zext
   %call127 = tail call i32 @EVP_EncodeBlock(ptr noundef nonnull %buf125, ptr noundef %in.addr.0178, i32 noundef %sub124) #7
   store i32 %call127, ptr %call, align 8
   %cmp130 = icmp slt i32 %call127, 1503
@@ -237,8 +237,8 @@ cond.false133:                                    ; preds = %if.end123
   unreachable
 
 cond.end134:                                      ; preds = %if.end123
-  %10 = load i32, ptr %buf_off7, align 4
-  %cmp138.not = icmp slt i32 %call127, %10
+  %11 = load i32, ptr %buf_off7, align 4
+  %cmp138.not = icmp slt i32 %call127, %11
   br i1 %cmp138.not, label %cond.false141, label %cond.end142
 
 cond.false141:                                    ; preds = %cond.end134
@@ -250,8 +250,8 @@ cond.end142:                                      ; preds = %cond.end134
   br label %if.end176
 
 if.else146:                                       ; preds = %while.body59
-  %11 = load ptr, ptr %base64147, align 8
-  %call151 = tail call i32 @EVP_EncodeUpdate(ptr noundef %11, ptr noundef nonnull %buf125, ptr noundef nonnull %call, ptr noundef %in.addr.0178, i32 noundef %cond64) #7
+  %12 = load ptr, ptr %base64147, align 8
+  %call151 = tail call i32 @EVP_EncodeUpdate(ptr noundef %12, ptr noundef nonnull %buf125, ptr noundef nonnull %call, ptr noundef %in.addr.0178, i32 noundef %7) #7
   %tobool.not = icmp eq i32 %call151, 0
   br i1 %tobool.not, label %if.then152, label %if.end159
 
@@ -261,8 +261,8 @@ if.then152:                                       ; preds = %if.else146
   br label %return
 
 if.end159:                                        ; preds = %if.else146
-  %12 = load i32, ptr %call, align 8
-  %cmp161 = icmp slt i32 %12, 1503
+  %13 = load i32, ptr %call, align 8
+  %cmp161 = icmp slt i32 %13, 1503
   br i1 %cmp161, label %cond.end165, label %cond.false164
 
 cond.false164:                                    ; preds = %if.end159
@@ -270,8 +270,8 @@ cond.false164:                                    ; preds = %if.end159
   unreachable
 
 cond.end165:                                      ; preds = %if.end159
-  %13 = load i32, ptr %buf_off7, align 4
-  %cmp169.not = icmp slt i32 %12, %13
+  %14 = load i32, ptr %buf_off7, align 4
+  %cmp169.not = icmp slt i32 %13, %14
   br i1 %cmp169.not, label %cond.false172, label %cond.end173
 
 cond.false172:                                    ; preds = %cond.end165
@@ -279,13 +279,13 @@ cond.false172:                                    ; preds = %cond.end165
   unreachable
 
 cond.end173:                                      ; preds = %cond.end165
-  %add175 = add nsw i32 %ret.0177, %cond64
+  %add175 = add nsw i32 %ret.0177, %7
   br label %if.end176
 
 if.end176:                                        ; preds = %cond.end112, %cond.end142, %cond.end173
-  %14 = phi i32 [ %call97, %cond.end112 ], [ %call127, %cond.end142 ], [ %12, %cond.end173 ]
+  %15 = phi i32 [ %call97, %cond.end112 ], [ %call127, %cond.end142 ], [ %13, %cond.end173 ]
   %ret.1 = phi i32 [ %add87, %cond.end112 ], [ %add144, %cond.end142 ], [ %add175, %cond.end173 ]
-  %n.2 = phi i32 [ %spec.select, %cond.end112 ], [ %sub124, %cond.end142 ], [ %cond64, %cond.end173 ]
+  %n.2 = phi i32 [ %spec.select, %cond.end112 ], [ %sub124, %cond.end142 ], [ %7, %cond.end173 ]
   %sub177 = sub nsw i32 %inl.addr.0176, %n.2
   %idx.ext = zext nneg i32 %n.2 to i64
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.0178, i64 %idx.ext
@@ -293,13 +293,13 @@ if.end176:                                        ; preds = %cond.end112, %cond.
   br label %while.cond180
 
 while.cond180:                                    ; preds = %cond.end213, %if.end176
-  %15 = phi i32 [ 0, %if.end176 ], [ %add207, %cond.end213 ]
-  %n.3 = phi i32 [ %14, %if.end176 ], [ %sub205, %cond.end213 ]
+  %16 = phi i32 [ 0, %if.end176 ], [ %add207, %cond.end213 ]
+  %n.3 = phi i32 [ %15, %if.end176 ], [ %sub205, %cond.end213 ]
   %cmp181 = icmp sgt i32 %n.3, 0
   br i1 %cmp181, label %while.body183, label %while.end223
 
 while.body183:                                    ; preds = %while.cond180
-  %idxprom186 = sext i32 %15 to i64
+  %idxprom186 = sext i32 %16 to i64
   %arrayidx187 = getelementptr inbounds [1502 x i8], ptr %buf125, i64 0, i64 %idxprom186
   %call188 = tail call i32 @BIO_write(ptr noundef %call1, ptr noundef nonnull %arrayidx187, i32 noundef %n.3) #7
   %cmp189 = icmp slt i32 %call188, 1
@@ -320,8 +320,8 @@ cond.false202:                                    ; preds = %if.end198
   unreachable
 
 cond.end203:                                      ; preds = %if.end198
-  %16 = load i32, ptr %buf_off7, align 4
-  %add207 = add nsw i32 %16, %call188
+  %17 = load i32, ptr %buf_off7, align 4
+  %add207 = add nsw i32 %17, %call188
   store i32 %add207, ptr %buf_off7, align 4
   %cmp209 = icmp slt i32 %add207, 1503
   br i1 %cmp209, label %cond.end213, label %cond.false212
@@ -332,8 +332,8 @@ cond.false212:                                    ; preds = %cond.end203
 
 cond.end213:                                      ; preds = %cond.end203
   %sub205 = sub nsw i32 %n.3, %call188
-  %17 = load i32, ptr %call, align 8
-  %cmp217.not = icmp slt i32 %17, %add207
+  %18 = load i32, ptr %call, align 8
+  %cmp217.not = icmp slt i32 %18, %add207
   br i1 %cmp217.not, label %cond.false220, label %while.cond180, !llvm.loop !6
 
 cond.false220:                                    ; preds = %cond.end213
@@ -1109,6 +1109,9 @@ declare i64 @BIO_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unna
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6

@@ -907,8 +907,8 @@ while.body:                                       ; preds = %while.cond.preheade
   %len.addr.053 = phi i64 [ %sub, %if.end54 ], [ %len, %while.cond.preheader ]
   %j.052 = phi i32 [ %add56, %if.end54 ], [ 0, %while.cond.preheader ]
   %i.051 = phi i32 [ %add, %if.end54 ], [ 0, %while.cond.preheader ]
-  %cond44 = call i64 @llvm.smin.i64(i64 %len.addr.053, i64 5120)
-  %conv45 = trunc i64 %cond44 to i32
+  %1 = call i64 @llvm.umin.i64(i64 %len.addr.053, i64 5120)
+  %conv45 = trunc i64 %1 to i32
   %idxprom = zext nneg i32 %j.052 to i64
   %arrayidx = getelementptr inbounds i8, ptr %data, i64 %idxprom
   %call46 = call i32 @EVP_EncodeUpdate(ptr noundef nonnull %call, ptr noundef nonnull %call32, ptr noundef nonnull %outl, ptr noundef %arrayidx, i32 noundef %conv45) #10
@@ -916,20 +916,20 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %tobool.not, label %if.then84, label %if.end48
 
 if.end48:                                         ; preds = %while.body
-  %1 = load i32, ptr %outl, align 4
-  %tobool49.not = icmp eq i32 %1, 0
+  %2 = load i32, ptr %outl, align 4
+  %tobool49.not = icmp eq i32 %2, 0
   br i1 %tobool49.not, label %if.end54, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end48
-  %call50 = call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %call32, i32 noundef %1) #10
-  %2 = load i32, ptr %outl, align 4
-  %cmp51.not = icmp eq i32 %call50, %2
+  %call50 = call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %call32, i32 noundef %2) #10
+  %3 = load i32, ptr %outl, align 4
+  %cmp51.not = icmp eq i32 %call50, %3
   br i1 %cmp51.not, label %if.end54, label %if.then84
 
 if.end54:                                         ; preds = %land.lhs.true, %if.end48
-  %3 = phi i32 [ %call50, %land.lhs.true ], [ 0, %if.end48 ]
-  %add = add nsw i32 %3, %i.051
-  %sub = sub nsw i64 %len.addr.053, %cond44
+  %4 = phi i32 [ %call50, %land.lhs.true ], [ 0, %if.end48 ]
+  %add = add nsw i32 %4, %i.051
+  %sub = sub nsw i64 %len.addr.053, %1
   %add56 = add nuw nsw i32 %j.052, %conv45
   %cmp37 = icmp sgt i64 %sub, 0
   br i1 %cmp37, label %while.body, label %while.end, !llvm.loop !8
@@ -937,14 +937,14 @@ if.end54:                                         ; preds = %land.lhs.true, %if.
 while.end:                                        ; preds = %if.end54, %while.cond.preheader
   %i.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %add, %if.end54 ]
   call void @EVP_EncodeFinal(ptr noundef nonnull %call, ptr noundef nonnull %call32, ptr noundef nonnull %outl) #10
-  %4 = load i32, ptr %outl, align 4
-  %cmp57 = icmp sgt i32 %4, 0
+  %5 = load i32, ptr %outl, align 4
+  %cmp57 = icmp sgt i32 %5, 0
   br i1 %cmp57, label %land.lhs.true59, label %if.end64
 
 land.lhs.true59:                                  ; preds = %while.end
-  %call60 = call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %call32, i32 noundef %4) #10
-  %5 = load i32, ptr %outl, align 4
-  %cmp61.not = icmp eq i32 %call60, %5
+  %call60 = call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %call32, i32 noundef %5) #10
+  %6 = load i32, ptr %outl, align 4
+  %cmp61.not = icmp eq i32 %call60, %6
   br i1 %cmp61.not, label %if.end64, label %if.then84
 
 if.end64:                                         ; preds = %land.lhs.true59, %while.end
@@ -963,8 +963,8 @@ lor.lhs.false72:                                  ; preds = %lor.lhs.false68
   br i1 %cmp74.not, label %if.end77, label %if.then84
 
 if.end77:                                         ; preds = %lor.lhs.false72
-  %6 = load i32, ptr %outl, align 4
-  %add78 = add nsw i32 %6, %i.0.lcssa
+  %7 = load i32, ptr %outl, align 4
+  %add78 = add nsw i32 %7, %i.0.lcssa
   br label %if.end85
 
 if.then84:                                        ; preds = %while.body, %land.lhs.true, %entry, %lor.lhs.false9, %lor.lhs.false, %if.end, %lor.lhs.false25, %if.then21, %land.lhs.true59, %lor.lhs.false72, %lor.lhs.false68, %if.end64
@@ -2108,9 +2108,6 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #6
-
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
 
@@ -2122,6 +2119,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

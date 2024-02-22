@@ -358,11 +358,11 @@ while.body.preheader:                             ; preds = %if.end3.i, %if.end.
 while.body:                                       ; preds = %while.body.preheader, %if.then57
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %if.then57 ], [ 0, %while.body.preheader ]
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %if.then57 ], [ %indvars.iv, %while.body.preheader ]
-  %smin = tail call i64 @llvm.smin.i64(i64 %indvars.iv48, i64 16)
+  %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv48, i64 16)
   br label %for.cond44
 
 for.cond44:                                       ; preds = %for.cond44, %while.body
-  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %for.cond44 ], [ %smin, %while.body ]
+  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %for.cond44 ], [ %umin, %while.body ]
   %l.0 = phi i64 [ %or, %for.cond44 ], [ 0, %while.body ]
   %6 = sub nsw i64 %indvars.iv48, %indvars.iv50
   %arrayidx46 = getelementptr inbounds i8, ptr %a.addr.0, i64 %6
@@ -643,7 +643,7 @@ declare ptr @bn_expand2(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @llvm.smax.i32(i32, i32) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #2
+declare i64 @llvm.umin.i64(i64, i64) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

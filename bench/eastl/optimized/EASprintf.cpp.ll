@@ -196,8 +196,8 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %_ZN2EA4StdC9VsnprintfEPcmPKcP13__va_list_tag.exit
 
 if.then.i:                                        ; preds = %entry
-  %narrow = call i32 @llvm.smin.i32(i32 %call.i, i32 2147483646)
-  %arrayidx.sink.i.v = zext nneg i32 %narrow to i64
+  %0 = call i32 @llvm.umin.i32(i32 %call.i, i32 2147483646)
+  %arrayidx.sink.i.v = zext nneg i32 %0 to i64
   %arrayidx.sink.i = getelementptr i8, ptr %pDestination, i64 %arrayidx.sink.i.v
   store i8 0, ptr %arrayidx.sink.i, align 1, !alias.scope !11, !noalias !16
   br label %_ZN2EA4StdC9VsnprintfEPcmPKcP13__va_list_tag.exit
@@ -959,7 +959,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #6
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

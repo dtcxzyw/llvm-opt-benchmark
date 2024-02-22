@@ -325,7 +325,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end.i.i.i, %if.e
   %storemerge27.i.i.in.in.i.i.i = phi i64 [ %storemerge27.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i, %if.end.i.i.i ]
   %storemerge27.i.i.in.i.i.i = add nuw nsw i64 %storemerge27.i.i.in.in.i.i.i, 1
   %storemerge27.i.i.i.i.i = lshr i64 %storemerge27.i.i.in.i.i.i, 1
-  %mul.i.i.i.i.i = shl i64 %storemerge27.i.i.i.i.i, 3
+  %mul.i.i.i.i.i = shl nuw nsw i64 %storemerge27.i.i.i.i.i, 3
   %call.i.i.i.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
   %cmp2.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
   br i1 %cmp2.not.i.i.i.i.i, label %if.end4.i.i.i.i.i, label %if.else.i.i.i
@@ -1121,11 +1121,11 @@ if.end.i.i.i:                                     ; preds = %_ZN3tbb6detail2d117
 while.body.preheader.i.i.i.i.i:                   ; preds = %if.end.i.i.i
   %add.i.i.i11 = add nuw nsw i64 %.sroa.speculated.i.i.i, 1
   %div33.i.i.i = lshr i64 %add.i.i.i11, 1
-  %spec.select.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %div33.i.i.i, i64 1152921504606846975)
+  %15 = call i64 @llvm.umin.i64(i64 %div33.i.i.i, i64 1152921504606846975)
   br label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.end4.i.i.i.i.i, %while.body.preheader.i.i.i.i.i
-  %storemerge27.i.i.i.i.i = phi i64 [ %div5.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %while.body.preheader.i.i.i.i.i ]
+  %storemerge27.i.i.i.i.i = phi i64 [ %div5.i.i.i.i.i, %if.end4.i.i.i.i.i ], [ %15, %while.body.preheader.i.i.i.i.i ]
   %mul.i.i.i.i.i = shl nuw nsw i64 %storemerge27.i.i.i.i.i, 3
   %call.i.i.i.i.i = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
   %cmp2.not.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
@@ -1171,20 +1171,20 @@ if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp5.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp7.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp8.i.i.i)
-  %15 = load atomic i64, ptr %my_size.i.i.i acquire, align 8, !noalias !44
-  %16 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i acquire, align 8, !noalias !44
-  %atomic-temp.i.0.i.i.i.i.i.i12 = inttoptr i64 %16 to ptr
+  %16 = load atomic i64, ptr %my_size.i.i.i acquire, align 8, !noalias !44
+  %17 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i acquire, align 8, !noalias !44
+  %atomic-temp.i.0.i.i.i.i.i.i12 = inttoptr i64 %17 to ptr
   %cmp.i.i.i.i.i13 = icmp eq ptr %my_embedded_table.i.i.i.i.i.i, %atomic-temp.i.0.i.i.i.i.i.i12
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i13, i64 3, i64 64
-  %17 = load ptr, ptr %children, align 8, !noalias !44
+  %18 = load ptr, ptr %children, align 8, !noalias !44
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %"_ZN4mold4sortIN3tbb6detail2d117concurrent_vectorIPNS_11TimerRecordENS3_23cache_aligned_allocatorIS6_EEEEZNS_L9print_recERS5_lE3$_0EEvRT_T0_.exit"
   %seg_index.07.i.i.i.i = phi i64 [ 0, %"_ZN4mold4sortIN3tbb6detail2d117concurrent_vectorIPNS_11TimerRecordENS3_23cache_aligned_allocatorIS6_EEEEZNS_L9print_recERS5_lE3$_0EEvRT_T0_.exit" ], [ %inc.i.i.i.i, %for.inc.i.i.i.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i.i.i12, i64 %seg_index.07.i.i.i.i
-  %18 = load atomic i64, ptr %arrayidx.i.i.i.i monotonic, align 8, !noalias !44
-  %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %18 to ptr
-  %cmp4.not.i.i.i.i = icmp ult ptr %17, %atomic-temp.i.0.i.i.i.i.i
+  %19 = load atomic i64, ptr %arrayidx.i.i.i.i monotonic, align 8, !noalias !44
+  %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %19 to ptr
+  %cmp4.not.i.i.i.i = icmp ult ptr %18, %atomic-temp.i.0.i.i.i.i.i
   br i1 %cmp4.not.i.i.i.i, label %for.inc.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
@@ -1199,7 +1199,7 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
 
 _ZN3tbb6detail2d117concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS5_EEE3endEv.exit: ; preds = %for.inc.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi i64 [ %and.i.i.i.i.i, %if.then.i.i.i.i ], [ 8, %for.inc.i.i.i.i ]
-  %.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %retval.0.i.i.i.i, i64 %15)
+  %.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %retval.0.i.i.i.i, i64 %16)
   %cmp3.i.i.not32 = icmp eq i64 %.sroa.speculated.i.i, 0
   br i1 %cmp3.i.i.not32, label %for.end, label %for.body.lr.ph
 
@@ -1210,16 +1210,16 @@ for.body.lr.ph:                                   ; preds = %_ZN3tbb6detail2d117
 _ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit: ; preds = %for.body.lr.ph, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit
   %__begin1.sroa.3.034 = phi i64 [ 0, %for.body.lr.ph ], [ %inc.i, %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit ]
   %or.i.i.i.i = or i64 %__begin1.sroa.3.034, 1
-  %19 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !12
-  %xor.i.i.i.i.i.i = xor i64 %19, 63
-  %20 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i acquire, align 8
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %20 to ptr
+  %20 = call noundef i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !12
+  %xor.i.i.i.i.i.i = xor i64 %20, 63
+  %21 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i acquire, align 8
+  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %21 to ptr
   %arrayidx.i.i.i17 = getelementptr inbounds %"struct.std::atomic.17", ptr %atomic-temp.i.0.i.i.i.i, i64 %xor.i.i.i.i.i.i
-  %21 = load atomic i64, ptr %arrayidx.i.i.i17 acquire, align 8
-  %atomic-temp.i.0.i2.i.i.i = inttoptr i64 %21 to ptr
+  %22 = load atomic i64, ptr %arrayidx.i.i.i17 acquire, align 8
+  %atomic-temp.i.0.i2.i.i.i = inttoptr i64 %22 to ptr
   %arrayidx4.i.i.i = getelementptr inbounds ptr, ptr %atomic-temp.i.0.i2.i.i.i, i64 %__begin1.sroa.3.034
-  %22 = load ptr, ptr %arrayidx4.i.i.i, align 8
-  call fastcc void @_ZN4moldL9print_recERNS_11TimerRecordEl(ptr noundef nonnull align 8 dereferenceable(145) %22, i64 noundef %add)
+  %23 = load ptr, ptr %arrayidx4.i.i.i, align 8
+  call fastcc void @_ZN4moldL9print_recERNS_11TimerRecordEl(ptr noundef nonnull align 8 dereferenceable(145) %23, i64 noundef %add)
   %inc.i = add nuw i64 %__begin1.sroa.3.034, 1
   %cmp3.i.i.not = icmp eq i64 %inc.i, %.sroa.speculated.i.i
   br i1 %cmp3.i.i.not, label %for.end, label %_ZNK3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorIPN4mold11TimerRecordENS1_23cache_aligned_allocatorIS6_EEEES6_EdeEv.exit
@@ -5732,7 +5732,7 @@ if.then22:                                        ; preds = %for.cond
 if.then24:                                        ; preds = %if.then22
   %2 = load ptr, ptr %__p.sroa.0.0, align 8
   %add.ptr.i15.idx73 = shl nsw i64 %__n.0, 3
-  %add.ptr.i15.ptr = getelementptr inbounds i8, ptr %__p.sroa.0.0, i64 %add.ptr.i15.idx73
+  %add.ptr.i15 = getelementptr inbounds i8, ptr %__p.sroa.0.0, i64 %add.ptr.i15.idx73
   %tobool.not.i.i.i.i.i = icmp eq i64 %__n.0, 1
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit, label %if.then.i.i.i.i.i
 
@@ -5743,7 +5743,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then24
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4mold7CounterESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit: ; preds = %if.then24, %if.then.i.i.i.i.i
-  %add.ptr.i17 = getelementptr inbounds i8, ptr %add.ptr.i15.ptr, i64 -8
+  %add.ptr.i17 = getelementptr inbounds i8, ptr %add.ptr.i15, i64 -8
   store ptr %2, ptr %add.ptr.i17, align 8
   br label %return
 

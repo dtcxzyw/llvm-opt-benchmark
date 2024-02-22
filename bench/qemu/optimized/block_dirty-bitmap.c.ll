@@ -1053,8 +1053,8 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %cond = call i32 @llvm.smax.i32(i32 %0, i32 4096)
-  %cond9 = call i32 @llvm.umin.i32(i32 %cond, i32 65536)
+  %1 = call i32 @llvm.umax.i32(i32 %0, i32 4096)
+  %cond9 = call i32 @llvm.umin.i32(i32 %1, i32 65536)
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
@@ -1892,9 +1892,6 @@ declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) loca
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1902,6 +1899,9 @@ declare i32 @llvm.ctpop.i32(i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

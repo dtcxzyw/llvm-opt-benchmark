@@ -11,7 +11,7 @@ entry:
   store i8 0, ptr %key, align 1
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %len, i32 128)
   %cmp2 = icmp slt i32 %bits, 1
-  %0 = tail call i32 @llvm.smin.i32(i32 %bits, i32 1024)
+  %0 = tail call i32 @llvm.umin.i32(i32 %bits, i32 1024)
   %spec.store.select1 = select i1 %cmp2, i32 1024, i32 %0
   %cmp843 = icmp sgt i32 %len, 0
   br i1 %cmp843, label %for.body.preheader, label %for.body17.preheader
@@ -62,9 +62,9 @@ for.body17:                                       ; preds = %for.body17.preheade
   br i1 %exitcond60.not, label %for.end30, label %for.body17, !llvm.loop !6
 
 for.end30:                                        ; preds = %for.body17, %for.end
-  %add31 = add nsw i32 %spec.store.select1, 7
-  %shr = ashr i32 %add31, 3
-  %sub32 = sub nsw i32 128, %shr
+  %add31 = add nuw nsw i32 %spec.store.select1, 7
+  %shr = lshr i32 %add31, 3
+  %sub32 = sub nuw nsw i32 128, %shr
   %sub33 = sub nsw i32 0, %spec.store.select1
   %and34 = and i32 %sub33, 7
   %shr35 = lshr i32 255, %and34
@@ -83,7 +83,7 @@ for.end30:                                        ; preds = %for.body17, %for.en
 while.body.preheader:                             ; preds = %for.end30
   %narrow = sub nsw i32 128, %shr
   %11 = sext i32 %narrow to i64
-  %12 = sext i32 %shr to i64
+  %12 = zext nneg i32 %shr to i64
   %invariant.gep68 = getelementptr i8, ptr %key, i64 %12
   br label %while.body
 
@@ -125,6 +125,9 @@ for.end72:                                        ; preds = %for.body61
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #1
 
 attributes #0 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

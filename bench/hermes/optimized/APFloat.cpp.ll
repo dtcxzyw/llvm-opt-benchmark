@@ -2430,10 +2430,10 @@ if.then16:                                        ; preds = %land.lhs.true14
   br i1 %cmp34, label %if.end42, label %land.lhs.true44
 
 if.end42:                                         ; preds = %if.then16
-  %exponentChange.1 = tail call i32 @llvm.smax.i32(i32 %spec.select, i32 %sub)
-  %sub36 = sub nsw i32 %sub, %exponentChange.1
-  %13 = trunc i32 %exponentChange.1 to i16
-  %conv40 = add i16 %11, %13
+  %13 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %sub)
+  %sub36 = sub nsw i32 %sub, %13
+  %14 = trunc i32 %13 to i16
+  %conv40 = add i16 %11, %14
   store i16 %conv40, ptr %exponent, align 8
   %cmp43 = icmp slt i32 %sub36, 0
   br i1 %cmp43, label %land.lhs.true44, label %if.end56
@@ -2442,23 +2442,23 @@ land.lhs.true44:                                  ; preds = %land.lhs.true14, %i
   %shift.097 = phi i32 [ %sub36, %if.end42 ], [ %sub, %if.then16 ], [ %sub, %land.lhs.true14 ]
   %bf.load.i.i.i40 = load i8, ptr %category.i.i.i, align 2
   %bf.clear.i.i.i41 = and i8 %bf.load.i.i.i40, 6
-  %14 = icmp ne i8 %bf.clear.i.i.i41, 0
+  %15 = icmp ne i8 %bf.clear.i.i.i41, 0
   %bf.clear.i.i42 = and i8 %bf.load.i.i.i40, 7
   %cmp.i.i43 = icmp ne i8 %bf.clear.i.i42, 3
-  %15 = and i1 %14, %cmp.i.i43
+  %16 = and i1 %15, %cmp.i.i43
   %cmp51 = icmp eq i8 %bf.clear.i.i42, 1
-  %or.cond102 = or i1 %cmp51, %15
+  %or.cond102 = or i1 %cmp51, %16
   br i1 %or.cond102, label %if.then52, label %if.end56
 
 if.then52:                                        ; preds = %land.lhs.true44
-  %16 = load ptr, ptr %this, align 8
-  %precision.i.i44 = getelementptr inbounds i8, ptr %16, i64 4
-  %17 = load i32, ptr %precision.i.i44, align 4
-  %18 = add i32 %17, -64
-  %cmp.i45 = icmp ult i32 %18, -128
+  %17 = load ptr, ptr %this, align 8
+  %precision.i.i44 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = load i32, ptr %precision.i.i44, align 4
+  %19 = add i32 %18, -64
+  %cmp.i45 = icmp ult i32 %19, -128
   %significand.i46 = getelementptr inbounds i8, ptr %this, i64 8
-  %19 = load ptr, ptr %significand.i46, align 8
-  %retval.0.i47 = select i1 %cmp.i45, ptr %19, ptr %significand.i46
+  %20 = load ptr, ptr %significand.i46, align 8
+  %retval.0.i47 = select i1 %cmp.i45, ptr %20, ptr %significand.i46
   %sub54 = sub nsw i32 0, %shift.097
   %call.i.i = tail call noundef i32 @_ZN4llvh5APInt5tcLSBEPKmj(ptr noundef %retval.0.i47, i32 noundef %div1.i.i) #26
   %cmp.not.i.i = icmp ult i32 %call.i.i, %sub54
@@ -2495,49 +2495,49 @@ if.end56:                                         ; preds = %land.lhs.true44, %i
   br i1 %cmp57, label %if.then58, label %if.else
 
 if.then58:                                        ; preds = %if.end56
-  %20 = shl nuw nsw i32 %div1.i, 3
-  %21 = zext nneg i32 %20 to i64
-  %call60 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %21) #24
+  %21 = shl nuw nsw i32 %div1.i, 3
+  %22 = zext nneg i32 %21 to i64
+  %call60 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #24
   tail call void @_ZN4llvh5APInt5tcSetEPmmj(ptr noundef nonnull %call60, i64 noundef 0, i32 noundef %div1.i) #26
   %category.i.i.i49 = getelementptr inbounds i8, ptr %this, i64 18
   %bf.load.i.i.i50 = load i8, ptr %category.i.i.i49, align 2
   %bf.clear.i.i.i51 = and i8 %bf.load.i.i.i50, 6
-  %22 = icmp ne i8 %bf.clear.i.i.i51, 0
+  %23 = icmp ne i8 %bf.clear.i.i.i51, 0
   %bf.clear.i.i52 = and i8 %bf.load.i.i.i50, 7
   %cmp.i.i53 = icmp ne i8 %bf.clear.i.i52, 3
-  %23 = and i1 %22, %cmp.i.i53
+  %24 = and i1 %23, %cmp.i.i53
   %cmp67 = icmp eq i8 %bf.clear.i.i52, 1
-  %or.cond103 = or i1 %cmp67, %23
+  %or.cond103 = or i1 %cmp67, %24
   br i1 %or.cond103, label %if.then68, label %if.end70
 
 if.then68:                                        ; preds = %if.then58
-  %24 = load ptr, ptr %this, align 8
-  %precision.i.i54 = getelementptr inbounds i8, ptr %24, i64 4
-  %25 = load i32, ptr %precision.i.i54, align 4
-  %26 = add i32 %25, -64
-  %cmp.i55 = icmp ult i32 %26, -128
+  %25 = load ptr, ptr %this, align 8
+  %precision.i.i54 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = load i32, ptr %precision.i.i54, align 4
+  %27 = add i32 %26, -64
+  %cmp.i55 = icmp ult i32 %27, -128
   %significand.i56 = getelementptr inbounds i8, ptr %this, i64 8
-  %27 = load ptr, ptr %significand.i56, align 8
-  %retval.0.i57 = select i1 %cmp.i55, ptr %27, ptr %significand.i56
+  %28 = load ptr, ptr %significand.i56, align 8
+  %retval.0.i57 = select i1 %cmp.i55, ptr %28, ptr %significand.i56
   tail call void @_ZN4llvh5APInt8tcAssignEPmPKmj(ptr noundef nonnull %call60, ptr noundef %retval.0.i57, i32 noundef %div1.i.i) #26
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then58, %if.then68
-  %28 = load ptr, ptr %this, align 8
-  %precision.i.i.i = getelementptr inbounds i8, ptr %28, i64 4
-  %29 = load i32, ptr %precision.i.i.i, align 4
-  %30 = add i32 %29, -64
-  %cmp.i.i58 = icmp ult i32 %30, -128
+  %29 = load ptr, ptr %this, align 8
+  %precision.i.i.i = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = load i32, ptr %precision.i.i.i, align 4
+  %31 = add i32 %30, -64
+  %cmp.i.i58 = icmp ult i32 %31, -128
   br i1 %cmp.i.i58, label %if.then.i, label %_ZN4llvh6detail9IEEEFloat15freeSignificandEv.exit
 
 if.then.i:                                        ; preds = %if.end70
   %significand.i59 = getelementptr inbounds i8, ptr %this, i64 8
-  %31 = load ptr, ptr %significand.i59, align 8
-  %isnull.i = icmp eq ptr %31, null
+  %32 = load ptr, ptr %significand.i59, align 8
+  %isnull.i = icmp eq ptr %32, null
   br i1 %isnull.i, label %_ZN4llvh6detail9IEEEFloat15freeSignificandEv.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %if.then.i
-  tail call void @_ZdaPv(ptr noundef nonnull %31) #25
+  tail call void @_ZdaPv(ptr noundef nonnull %32) #25
   br label %_ZN4llvh6detail9IEEEFloat15freeSignificandEv.exit
 
 _ZN4llvh6detail9IEEEFloat15freeSignificandEv.exit: ; preds = %if.end70, %if.then.i, %delete.notnull.i
@@ -2555,39 +2555,39 @@ if.then74:                                        ; preds = %if.else
   %category.i.i.i60 = getelementptr inbounds i8, ptr %this, i64 18
   %bf.load.i.i.i61 = load i8, ptr %category.i.i.i60, align 2
   %bf.clear.i.i.i62 = and i8 %bf.load.i.i.i61, 6
-  %32 = icmp ne i8 %bf.clear.i.i.i62, 0
+  %33 = icmp ne i8 %bf.clear.i.i.i62, 0
   %bf.clear.i.i63 = and i8 %bf.load.i.i.i61, 7
   %cmp.i.i64 = icmp ne i8 %bf.clear.i.i63, 3
-  %33 = and i1 %32, %cmp.i.i64
+  %34 = and i1 %33, %cmp.i.i64
   %cmp81 = icmp eq i8 %bf.clear.i.i63, 1
-  %or.cond104 = or i1 %cmp81, %33
+  %or.cond104 = or i1 %cmp81, %34
   %.pre = load ptr, ptr %this, align 8
   %precision.i.i65 = getelementptr inbounds i8, ptr %.pre, i64 4
-  %34 = load i32, ptr %precision.i.i65, align 4
-  %35 = add i32 %34, -64
+  %35 = load i32, ptr %precision.i.i65, align 4
+  %36 = add i32 %35, -64
   br i1 %or.cond104, label %if.then82, label %if.end84
 
 if.then82:                                        ; preds = %if.then74
-  %cmp.i66 = icmp ult i32 %35, -128
+  %cmp.i66 = icmp ult i32 %36, -128
   %significand.i67 = getelementptr inbounds i8, ptr %this, i64 8
-  %36 = load ptr, ptr %significand.i67, align 8
-  %retval.0.i68 = select i1 %cmp.i66, ptr %36, ptr %significand.i67
-  %37 = load i64, ptr %retval.0.i68, align 8
+  %37 = load ptr, ptr %significand.i67, align 8
+  %retval.0.i68 = select i1 %cmp.i66, ptr %37, ptr %significand.i67
+  %38 = load i64, ptr %retval.0.i68, align 8
   br label %if.end84
 
 if.end84:                                         ; preds = %if.then74, %if.then82
-  %newPart.0 = phi i64 [ %37, %if.then82 ], [ 0, %if.then74 ]
-  %cmp.i.i70 = icmp ult i32 %35, -128
+  %newPart.0 = phi i64 [ %38, %if.then82 ], [ 0, %if.then74 ]
+  %cmp.i.i70 = icmp ult i32 %36, -128
   br i1 %cmp.i.i70, label %if.then.i71, label %_ZN4llvh6detail9IEEEFloat15freeSignificandEv.exit75
 
 if.then.i71:                                      ; preds = %if.end84
   %significand.i72 = getelementptr inbounds i8, ptr %this, i64 8
-  %38 = load ptr, ptr %significand.i72, align 8
-  %isnull.i73 = icmp eq ptr %38, null
+  %39 = load ptr, ptr %significand.i72, align 8
+  %isnull.i73 = icmp eq ptr %39, null
   br i1 %isnull.i73, label %_ZN4llvh6detail9IEEEFloat15freeSignificandEv.exit75, label %delete.notnull.i74
 
 delete.notnull.i74:                               ; preds = %if.then.i71
-  tail call void @_ZdaPv(ptr noundef nonnull %38) #25
+  tail call void @_ZdaPv(ptr noundef nonnull %39) #25
   br label %_ZN4llvh6detail9IEEEFloat15freeSignificandEv.exit75
 
 _ZN4llvh6detail9IEEEFloat15freeSignificandEv.exit75: ; preds = %if.end84, %if.then.i71, %delete.notnull.i74
@@ -2604,21 +2604,21 @@ land.lhs.true90:                                  ; preds = %if.end87
   %category.i.i.i76 = getelementptr inbounds i8, ptr %this, i64 18
   %bf.load.i.i.i77 = load i8, ptr %category.i.i.i76, align 2
   %bf.clear.i.i.i78 = and i8 %bf.load.i.i.i77, 6
-  %39 = icmp ne i8 %bf.clear.i.i.i78, 0
+  %40 = icmp ne i8 %bf.clear.i.i.i78, 0
   %bf.clear.i.i79 = and i8 %bf.load.i.i.i77, 7
   %cmp.i.i80 = icmp ne i8 %bf.clear.i.i79, 3
-  %40 = and i1 %39, %cmp.i.i80
+  %41 = and i1 %40, %cmp.i.i80
   %cmp97 = icmp eq i8 %bf.clear.i.i79, 1
-  %or.cond105 = or i1 %cmp97, %40
+  %or.cond105 = or i1 %cmp97, %41
   br i1 %or.cond105, label %if.then98, label %if.end100
 
 if.then98:                                        ; preds = %land.lhs.true90
-  %41 = load i32, ptr %precision, align 4
-  %42 = add i32 %41, -64
-  %cmp.i82 = icmp ult i32 %42, -128
+  %42 = load i32, ptr %precision, align 4
+  %43 = add i32 %42, -64
+  %cmp.i82 = icmp ult i32 %43, -128
   %significand.i83 = getelementptr inbounds i8, ptr %this, i64 8
-  %43 = load ptr, ptr %significand.i83, align 8
-  %retval.0.i84 = select i1 %cmp.i82, ptr %43, ptr %significand.i83
+  %44 = load ptr, ptr %significand.i83, align 8
+  %retval.0.i84 = select i1 %cmp.i82, ptr %44, ptr %significand.i83
   tail call void @_ZN4llvh5APInt11tcShiftLeftEPmjj(ptr noundef %retval.0.i84, i32 noundef %div1.i, i32 noundef %shift.096) #26
   br label %if.end100
 
@@ -2626,11 +2626,11 @@ if.end100:                                        ; preds = %land.lhs.true90, %i
   %category.i.i.i85 = getelementptr inbounds i8, ptr %this, i64 18
   %bf.load.i.i.i86 = load i8, ptr %category.i.i.i85, align 2
   %bf.clear.i.i.i87 = and i8 %bf.load.i.i.i86, 6
-  %44 = icmp ne i8 %bf.clear.i.i.i87, 0
+  %45 = icmp ne i8 %bf.clear.i.i.i87, 0
   %bf.clear.i.i88 = and i8 %bf.load.i.i.i86, 7
   %cmp.i.i89 = icmp ne i8 %bf.clear.i.i88, 3
-  %45 = and i1 %44, %cmp.i.i89
-  br i1 %45, label %if.then102, label %if.else105
+  %46 = and i1 %45, %cmp.i.i89
+  br i1 %46, label %if.then102, label %if.else105
 
 if.then102:                                       ; preds = %if.end100
   %call103 = tail call noundef i32 @_ZN4llvh6detail9IEEEFloat9normalizeENS_11APFloatBase12roundingModeENS_12lostFractionE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %rounding_mode, i32 noundef %lostFraction.0), !range !8
@@ -2645,18 +2645,18 @@ if.else105:                                       ; preds = %if.end100
 
 if.then111:                                       ; preds = %if.else105
   %cmp112 = icmp ne i32 %lostFraction.0, 0
-  %46 = or i1 %X86SpecialNan.0, %cmp112
-  %frombool114 = zext i1 %46 to i8
+  %47 = or i1 %X86SpecialNan.0, %cmp112
+  %frombool114 = zext i1 %47 to i8
   store i8 %frombool114, ptr %losesInfo, align 1
-  %47 = load ptr, ptr %this, align 8
-  %cmp118 = icmp ne ptr %47, @_ZN4llvhL20semX87DoubleExtendedE
+  %48 = load ptr, ptr %this, align 8
+  %cmp118 = icmp ne ptr %48, @_ZN4llvhL20semX87DoubleExtendedE
   %or.cond34.not = select i1 %X86SpecialNan.0, i1 true, i1 %cmp118
   br i1 %or.cond34.not, label %if.end127, label %if.then119
 
 if.then119:                                       ; preds = %if.then111
   %significand.i92 = getelementptr inbounds i8, ptr %this, i64 8
-  %48 = load ptr, ptr %significand.i92, align 8
-  tail call void @_ZN4llvh5APInt8tcSetBitEPmj(ptr noundef %48, i32 noundef 63) #26
+  %49 = load ptr, ptr %significand.i92, align 8
+  tail call void @_ZN4llvh5APInt8tcSetBitEPmj(ptr noundef %49, i32 noundef 63) #26
   br label %if.end127
 
 if.else125:                                       ; preds = %if.else105
@@ -22059,6 +22059,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20

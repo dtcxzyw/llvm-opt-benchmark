@@ -262,17 +262,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp512, label %for.body.preheader, label %if.end10
 
 for.body.preheader:                               ; preds = %if.then
-  %cond = call i32 @llvm.smin.i32(i32 %call2, i32 1024)
-  %wide.trip.count = zext nneg i32 %cond to i64
+  %0 = call i32 @llvm.umin.i32(i32 %call2, i32 1024)
+  %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr [1024 x ptr], ptr %ncs, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx, align 8
-  %name = getelementptr inbounds i8, ptr %0, i64 56
-  %1 = load ptr, ptr %name, align 8
-  call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %1) #4
+  %1 = load ptr, ptr %arrayidx, align 8
+  %name = getelementptr inbounds i8, ptr %1, i64 56
+  %2 = load ptr, ptr %name, align 8
+  call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %2) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end10, label %for.body, !llvm.loop !8
@@ -304,24 +304,24 @@ if.end:                                           ; preds = %entry
   br i1 %cmp48, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end
-  %cond = call i32 @llvm.smin.i32(i32 %call1, i32 1024)
-  %wide.trip.count = zext nneg i32 %cond to i64
+  %0 = call i32 @llvm.umin.i32(i32 %call1, i32 1024)
+  %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr [1024 x ptr], ptr %ncs, i64 0, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx, align 8
-  %is_netdev = getelementptr inbounds i8, ptr %0, i64 352
-  %1 = load i8, ptr %is_netdev, align 8
-  %2 = and i8 %1, 1
-  %tobool.not = icmp eq i8 %2, 0
+  %1 = load ptr, ptr %arrayidx, align 8
+  %is_netdev = getelementptr inbounds i8, ptr %1, i64 352
+  %2 = load i8, ptr %is_netdev, align 8
+  %3 = and i8 %2, 1
+  %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %for.body
-  %name = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = load ptr, ptr %name, align 8
-  call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %3) #4
+  %name = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = load ptr, ptr %name, align 8
+  call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %4) #4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then6
@@ -337,7 +337,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #3
+declare i32 @llvm.umin.i32(i32, i32) #3
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

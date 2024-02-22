@@ -942,7 +942,7 @@ for.body52:                                       ; preds = %if.else, %for.body5
   %cmp.i51 = icmp eq i32 %3, 0
   %shr.i52 = lshr i32 %3, 23
   %and.i53 = and i32 %shr.i52, 255
-  %4 = tail call i32 @llvm.smax.i32(i32 %and.i53, i32 26)
+  %4 = tail call i32 @llvm.umax.i32(i32 %and.i53, i32 26)
   %5 = add nsw i32 %4, -126
   %cond60 = select i1 %cmp.i51, i32 0, i32 %5
   %arrayidx61 = getelementptr inbounds [64 x i32], ptr %component_exp, i64 0, i64 %j49.065
@@ -1033,6 +1033,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x float> @llvm.fmuladd.v2f32(<2 x float>, <2 x float>, <2 x float>) #6

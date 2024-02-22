@@ -384,15 +384,15 @@ entry:
   br i1 %cmp1, label %if.then2, label %if.end11
 
 if.then2:                                         ; preds = %entry
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %off, i32 128)
-  %conv = zext nneg i32 %spec.store.select to i64
+  %0 = tail call i32 @llvm.umin.i32(i32 %off, i32 128)
+  %conv = zext nneg i32 %0 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %str, i8 32, i64 %conv, i1 false)
-  %call = call i32 @BIO_write(ptr noundef %fp, ptr noundef nonnull %str, i32 noundef %spec.store.select) #4
+  %call = call i32 @BIO_write(ptr noundef %fp, ptr noundef nonnull %str, i32 noundef %0) #4
   %cmp7 = icmp slt i32 %call, 1
   br i1 %cmp7, label %return, label %if.end11
 
 if.end11:                                         ; preds = %entry, %if.then2
-  %off.addr.0 = phi i32 [ %spec.store.select, %if.then2 ], [ 0, %entry ]
+  %off.addr.0 = phi i32 [ %0, %if.then2 ], [ 0, %entry ]
   %call12 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %fp, ptr noundef nonnull @.str.16, ptr noundef %name) #4
   %cmp13 = icmp slt i32 %call12, 1
   br i1 %cmp13, label %return, label %for.cond.preheader
@@ -423,8 +423,8 @@ if.then21:                                        ; preds = %for.body
 
 if.end32:                                         ; preds = %if.then21, %for.body
   %arrayidx33 = getelementptr inbounds i8, ptr %buf, i64 %i.0
-  %0 = load i8, ptr %arrayidx33, align 1
-  %conv34 = zext i8 %0 to i32
+  %1 = load i8, ptr %arrayidx33, align 1
+  %conv34 = zext i8 %1 to i32
   %add35 = add i64 %i.0, 1
   %cmp36 = icmp eq i64 %add35, %len
   %cond = select i1 %cmp36, ptr @.str.18, ptr @.str.19
@@ -455,7 +455,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #3
+declare i32 @llvm.umin.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

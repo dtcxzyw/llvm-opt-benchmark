@@ -7189,9 +7189,9 @@ while.body.lr.ph:                                 ; preds = %trace_bdrv_co_do_co
   %conv18 = zext nneg i32 %cond12 to i64
   %and137 = and i32 %flags, 512
   %tobool138.not = icmp eq i32 %and137, 0
-  %cond90 = call i32 @llvm.smin.i32(i32 %cond12, i32 16777216)
-  %conv91 = zext nneg i32 %cond90 to i64
-  %14 = getelementptr inbounds i8, ptr %local_qiov, i64 16
+  %14 = call i32 @llvm.umin.i32(i32 %cond12, i32 16777216)
+  %conv91 = zext nneg i32 %14 to i64
+  %15 = getelementptr inbounds i8, ptr %local_qiov, i64 16
   %local_iov.i = getelementptr inbounds i8, ptr %local_qiov, i64 24
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %local_qiov, i64 8
   %.compoundliteral.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %local_qiov, i64 32
@@ -7222,14 +7222,14 @@ if.then37.us:                                     ; preds = %while.body.us
   br label %if.end46.us
 
 if.end46.us:                                      ; preds = %while.body.us.if.end46.us_crit_edge, %if.then37.us
-  %15 = phi i64 [ %.pre, %while.body.us.if.end46.us_crit_edge ], [ %cond33.us, %if.then37.us ]
+  %16 = phi i64 [ %.pre, %while.body.us.if.end46.us_crit_edge ], [ %cond33.us, %if.then37.us ]
   %cmp47.us = icmp eq i32 %retval.0.i.us, 0
-  %cmp49.us = icmp eq i64 %15, 0
+  %cmp49.us = icmp eq i64 %16, 0
   %or.cond.us = select i1 %cmp47.us, i1 %cmp49.us, i1 false
   br i1 %or.cond.us, label %if.then51, label %if.end57.us
 
 if.end57.us:                                      ; preds = %if.end46.us
-  %cmp58.us = icmp slt i64 %skip_bytes.0103.us, %15
+  %cmp58.us = icmp slt i64 %skip_bytes.0103.us, %16
   br i1 %cmp58.us, label %if.end63.us, label %if.else61
 
 if.end63.us:                                      ; preds = %if.end57.us
@@ -7241,7 +7241,7 @@ if.else136.us:                                    ; preds = %if.end63.us
 
 if.then139.us:                                    ; preds = %if.else136.us
   %add140.us = add i64 %progress.0101.us, %offset
-  %sub141.us = sub i64 %15, %skip_bytes.0103.us
+  %sub141.us = sub i64 %16, %skip_bytes.0103.us
   %sub142.us = sub i64 %bytes, %progress.0101.us
   %cond149.us = call i64 @llvm.smin.i64(i64 %sub141.us, i64 %sub142.us)
   %add150.us = add i64 %progress.0101.us, %qiov_offset
@@ -7250,7 +7250,7 @@ if.then139.us:                                    ; preds = %if.else136.us
   br i1 %cmp152.us, label %err, label %if.end157.us
 
 if.then66.us:                                     ; preds = %if.end63.us
-  %cond73.us = call i64 @llvm.smin.i64(i64 %15, i64 16777216)
+  %cond73.us = call i64 @llvm.smin.i64(i64 %16, i64 16777216)
   store i64 %cond73.us, ptr %pnum, align 8
   %tobool74.not.us = icmp eq ptr %bounce_buffer.0104.us, null
   br i1 %tobool74.not.us, label %if.then75.us, label %if.end103.us
@@ -7275,37 +7275,37 @@ qemu_try_blockalign.exit.us.if.end103.us_crit_edge: ; preds = %qemu_try_blockali
   br label %if.end103.us
 
 if.end103.us:                                     ; preds = %qemu_try_blockalign.exit.us.if.end103.us_crit_edge, %if.then66.us
-  %16 = phi i64 [ %cond73.us, %if.then66.us ], [ %.pre160, %qemu_try_blockalign.exit.us.if.end103.us_crit_edge ]
+  %17 = phi i64 [ %cond73.us, %if.then66.us ], [ %.pre160, %qemu_try_blockalign.exit.us.if.end103.us_crit_edge ]
   %bounce_buffer.1.us = phi ptr [ %bounce_buffer.0104.us, %if.then66.us ], [ %call4.i.us, %qemu_try_blockalign.exit.us.if.end103.us_crit_edge ]
   store ptr %local_iov.i, ptr %local_qiov, align 8
   store i32 1, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
-  store i32 -1, ptr %14, align 8
+  store i32 -1, ptr %15, align 8
   store ptr %bounce_buffer.1.us, ptr %local_iov.i, align 8
-  store i64 %16, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
-  %call104.us = call i32 @bdrv_driver_preadv(ptr noundef nonnull %0, i64 noundef %align_offset.097.us, i64 noundef %16, ptr noundef nonnull %local_qiov, i64 noundef 0, i32 noundef 0)
+  store i64 %17, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
+  %call104.us = call i32 @bdrv_driver_preadv(ptr noundef nonnull %0, i64 noundef %align_offset.097.us, i64 noundef %17, ptr noundef nonnull %local_qiov, i64 noundef 0, i32 noundef 0)
   %cmp105.us = icmp slt i32 %call104.us, 0
   br i1 %cmp105.us, label %err, label %if.end108.us
 
 if.end108.us:                                     ; preds = %if.end103.us
   call void @bdrv_co_debug_event(ptr noundef nonnull %0, i32 noundef 45) #14
-  %17 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwrite_zeroes, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 574, ptr null)
-  %18 = load ptr, ptr %17, align 8
-  %tobool109.not.us = icmp eq ptr %18, null
+  %18 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwrite_zeroes, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 574, ptr null)
+  %19 = load ptr, ptr %18, align 8
+  %tobool109.not.us = icmp eq ptr %19, null
   br i1 %tobool109.not.us, label %if.else115.us, label %land.lhs.true110.us
 
 land.lhs.true110.us:                              ; preds = %if.end108.us
-  %19 = load i64, ptr %pnum, align 8
-  %call111.us = call zeroext i1 @buffer_is_zero(ptr noundef nonnull %bounce_buffer.1.us, i64 noundef %19) #14
+  %20 = load i64, ptr %pnum, align 8
+  %call111.us = call zeroext i1 @buffer_is_zero(ptr noundef nonnull %bounce_buffer.1.us, i64 noundef %20) #14
   br i1 %call111.us, label %if.then113.us, label %if.else115.us
 
 if.then113.us:                                    ; preds = %land.lhs.true110.us
-  %20 = load i64, ptr %pnum, align 8
-  %call114.us = call i32 @bdrv_co_do_pwrite_zeroes(ptr noundef nonnull %0, i64 noundef %align_offset.097.us, i64 noundef %20, i32 noundef 64)
+  %21 = load i64, ptr %pnum, align 8
+  %call114.us = call i32 @bdrv_co_do_pwrite_zeroes(ptr noundef nonnull %0, i64 noundef %align_offset.097.us, i64 noundef %21, i32 noundef 64)
   br label %if.end117.us
 
 if.else115.us:                                    ; preds = %land.lhs.true110.us, %if.end108.us
-  %21 = load i64, ptr %pnum, align 8
-  %call116.us = call i32 @bdrv_driver_pwritev(ptr noundef nonnull %0, i64 noundef %align_offset.097.us, i64 noundef %21, ptr noundef nonnull %local_qiov, i64 noundef 0, i32 noundef 64)
+  %22 = load i64, ptr %pnum, align 8
+  %call116.us = call i32 @bdrv_driver_pwritev(ptr noundef nonnull %0, i64 noundef %align_offset.097.us, i64 noundef %22, ptr noundef nonnull %local_qiov, i64 noundef 0, i32 noundef 64)
   br label %if.end117.us
 
 if.end117.us:                                     ; preds = %if.else115.us, %if.then113.us
@@ -7319,8 +7319,8 @@ if.end121.us:                                     ; preds = %if.end117.us
 if.then124.us:                                    ; preds = %if.end121.us
   %add.us = add i64 %progress.0101.us, %qiov_offset
   %add.ptr.us = getelementptr i8, ptr %bounce_buffer.1.us, i64 %skip_bytes.0103.us
-  %22 = load i64, ptr %pnum, align 8
-  %sub125.us = sub i64 %22, %skip_bytes.0103.us
+  %23 = load i64, ptr %pnum, align 8
+  %sub125.us = sub i64 %23, %skip_bytes.0103.us
   %sub126.us = sub i64 %bytes, %progress.0101.us
   %cond133.us = call i64 @llvm.smin.i64(i64 %sub125.us, i64 %sub126.us)
   %call134.us = call i64 @qemu_iovec_from_buf(ptr noundef %qiov, i64 noundef %add.us, ptr noundef %add.ptr.us, i64 noundef %cond133.us) #14
@@ -7328,11 +7328,11 @@ if.then124.us:                                    ; preds = %if.end121.us
 
 if.end157.us:                                     ; preds = %if.then124.us, %if.end121.us, %if.then139.us, %if.else136.us
   %bounce_buffer.2.us = phi ptr [ %bounce_buffer.1.us, %if.end121.us ], [ %bounce_buffer.1.us, %if.then124.us ], [ %bounce_buffer.0104.us, %if.else136.us ], [ %bounce_buffer.0104.us, %if.then139.us ]
-  %23 = load i64, ptr %pnum, align 8
-  %add158.us = add i64 %23, %align_offset.097.us
-  %sub159.us = sub i64 %align_bytes.0100.us, %23
+  %24 = load i64, ptr %pnum, align 8
+  %add158.us = add i64 %24, %align_offset.097.us
+  %sub159.us = sub i64 %align_bytes.0100.us, %24
   %sub160.us = sub i64 %progress.0101.us, %skip_bytes.0103.us
-  %add161.us = add i64 %sub160.us, %23
+  %add161.us = add i64 %sub160.us, %24
   %tobool15.not.us = icmp eq i64 %sub159.us, 0
   br i1 %tobool15.not.us, label %err, label %while.body.us, !llvm.loop !39
 
@@ -7654,10 +7654,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool62.not, label %if.else90, label %if.then63
 
 if.then63:                                        ; preds = %while.body
-  %cond71 = call i64 @llvm.smin.i64(i64 %bytes.addr.0122, i64 %conv64)
+  %10 = call i64 @llvm.umin.i64(i64 %bytes.addr.0122, i64 %conv64)
   %sub = sub i32 %cond15, %head.0119
   %conv72 = sext i32 %sub to i64
-  %cond79 = call i64 @llvm.smin.i64(i64 %cond71, i64 %conv72)
+  %cond79 = call i64 @llvm.smin.i64(i64 %10, i64 %conv72)
   %conv80 = sext i32 %head.0119 to i64
   %add81 = add nsw i64 %cond79, %conv80
   %rem83 = srem i64 %add81, %conv
@@ -7680,17 +7680,17 @@ if.end99:                                         ; preds = %if.else90, %if.then
   %num.0 = phi i64 [ %cond79, %if.then63 ], [ %spec.select126, %if.else90 ]
   %head.1 = phi i32 [ %conv84, %if.then63 ], [ 0, %if.else90 ]
   %spec.select = call i64 @llvm.smin.i64(i64 %num.0, i64 %mul)
-  %10 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwrite_zeroes, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 574, ptr null)
-  %11 = load ptr, ptr %10, align 8
-  %tobool104.not = icmp eq ptr %11, null
+  %11 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwrite_zeroes, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 574, ptr null)
+  %12 = load ptr, ptr %11, align 8
+  %tobool104.not = icmp eq ptr %12, null
   br i1 %tobool104.not, label %if.else121, label %if.then105
 
 if.then105:                                       ; preds = %if.end99
-  %12 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwrite_zeroes, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 574, ptr null)
-  %13 = load ptr, ptr %12, align 8
-  %14 = load i32, ptr %supported_zero_flags, align 8
-  %and108 = and i32 %14, %flags
-  %call109 = call i32 %13(ptr noundef %bs, i64 noundef %offset.addr.0123, i64 noundef %spec.select, i32 noundef %and108) #14
+  %13 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwrite_zeroes, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 574, ptr null)
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i32, ptr %supported_zero_flags, align 8
+  %and108 = and i32 %15, %flags
+  %call109 = call i32 %14(ptr noundef %bs, i64 noundef %offset.addr.0123, i64 noundef %spec.select, i32 noundef %and108) #14
   %cmp110.not = icmp eq i32 %call109, -95
   br i1 %cmp110.not, label %land.lhs.true130, label %land.lhs.true112
 
@@ -7698,15 +7698,15 @@ land.lhs.true112:                                 ; preds = %if.then105
   br i1 %tobool114.not, label %if.end166, label %land.lhs.true115
 
 land.lhs.true115:                                 ; preds = %land.lhs.true112
-  %15 = load i32, ptr %supported_zero_flags, align 8
-  %and117 = and i32 %15, 16
+  %16 = load i32, ptr %supported_zero_flags, align 8
+  %and117 = and i32 %16, 16
   %tobool118.not = icmp eq i32 %and117, 0
   %spec.select94 = select i1 %tobool118.not, i8 1, i8 %need_flush.0120
   br label %if.end166
 
 if.else121:                                       ; preds = %if.end99
-  %16 = load i32, ptr %supported_zero_flags, align 8
-  %tobool123.not = icmp eq i32 %16, 0
+  %17 = load i32, ptr %supported_zero_flags, align 8
+  %tobool123.not = icmp eq i32 %17, 0
   br i1 %tobool123.not, label %land.lhs.true130, label %if.else125
 
 if.else125:                                       ; preds = %if.else121
@@ -7720,8 +7720,8 @@ if.then133:                                       ; preds = %land.lhs.true130
   br i1 %tobool114.not, label %if.end142, label %land.lhs.true137
 
 land.lhs.true137:                                 ; preds = %if.then133
-  %17 = load i32, ptr %supported_write_flags, align 4
-  %and138 = and i32 %17, 16
+  %18 = load i32, ptr %supported_write_flags, align 4
+  %and138 = and i32 %18, 16
   %tobool139.not = icmp eq i32 %and138, 0
   %spec.select95 = select i1 %tobool139.not, i8 1, i8 %need_flush.0120
   %spec.select96 = select i1 %tobool139.not, i32 %and141, i32 %and134
@@ -7778,14 +7778,14 @@ if.end166:                                        ; preds = %land.lhs.true112, %
   %sub168 = sub i64 %bytes.addr.0122, %num.2
   %cmp59 = icmp sgt i64 %sub168, 0
   %tobool61.not = icmp eq i32 %ret.2, 0
-  %18 = select i1 %cmp59, i1 %tobool61.not, i1 false
-  br i1 %18, label %while.body, label %fail, !llvm.loop !40
+  %19 = select i1 %cmp59, i1 %tobool61.not, i1 false
+  br i1 %19, label %while.body, label %fail, !llvm.loop !40
 
 fail:                                             ; preds = %if.end166
-  %19 = and i8 %need_flush.3, 1
-  %20 = icmp eq i8 %19, 0
+  %20 = and i8 %need_flush.3, 1
+  %21 = icmp eq i8 %20, 0
   %cmp169 = icmp ne i32 %ret.2, 0
-  %brmerge = select i1 %cmp169, i1 true, i1 %20
+  %brmerge = select i1 %cmp169, i1 true, i1 %21
   br i1 %brmerge, label %if.end176, label %if.then174
 
 if.then174:                                       ; preds = %fail

@@ -304,9 +304,8 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br i1 %1, label %while.body, label %while.body.us.preheader
 
 while.body.us.preheader:                          ; preds = %while.body.lr.ph
-  %2 = add nuw i32 %exponent, 26
-  %smin = tail call i32 @llvm.smin.i32(i32 %exponent, i32 53)
-  %3 = sub nuw i32 %2, %smin
+  %2 = tail call i32 @llvm.usub.sat.i32(i32 %exponent, i32 53)
+  %3 = add nuw i32 %2, 26
   %4 = urem i32 %3, 27
   %.neg = sub nsw i32 %4, %3
   %5 = add nsw i32 %exponent, -27
@@ -316,7 +315,8 @@ while.body.us.preheader:                          ; preds = %while.body.lr.ph
 while.cond6.preheader:                            ; preds = %_ZN17double_conversion6Bignum16MultiplyByUInt64Em.exit, %while.body.us.preheader, %while.cond.preheader
   %7 = phi i16 [ %0, %while.cond.preheader ], [ %0, %while.body.us.preheader ], [ %20, %_ZN17double_conversion6Bignum16MultiplyByUInt64Em.exit ]
   %remaining_exponent.0.lcssa = phi i32 [ %exponent, %while.cond.preheader ], [ %6, %while.body.us.preheader ], [ %sub, %_ZN17double_conversion6Bignum16MultiplyByUInt64Em.exit ]
-  %cmp765 = icmp sgt i32 %remaining_exponent.0.lcssa, 12
+  %remaining_exponent.0.lcssa.fr = freeze i32 %remaining_exponent.0.lcssa
+  %cmp765 = icmp sgt i32 %remaining_exponent.0.lcssa.fr, 12
   br i1 %cmp765, label %while.body8.lr.ph, label %while.end10
 
 while.body8.lr.ph:                                ; preds = %while.cond6.preheader
@@ -325,13 +325,11 @@ while.body8.lr.ph:                                ; preds = %while.cond6.prehead
   br i1 %8, label %while.body8, label %while.body8.us.preheader
 
 while.body8.us.preheader:                         ; preds = %while.body8.lr.ph
-  %9 = add nuw i32 %remaining_exponent.0.lcssa, 12
-  %smin71 = tail call i32 @llvm.smin.i32(i32 %remaining_exponent.0.lcssa, i32 25)
-  %10 = sub nuw i32 %9, %smin71
-  %.fr = freeze i32 %10
-  %11 = urem i32 %.fr, 13
-  %.neg73 = sub i32 %11, %.fr
-  %12 = add nsw i32 %remaining_exponent.0.lcssa, -13
+  %9 = tail call i32 @llvm.usub.sat.i32(i32 %remaining_exponent.0.lcssa.fr, i32 25)
+  %10 = add nuw i32 %9, 12
+  %11 = urem i32 %10, 13
+  %.neg73 = sub i32 %11, %10
+  %12 = add nsw i32 %remaining_exponent.0.lcssa.fr, -13
   %13 = add i32 %.neg73, %12
   br label %while.end10
 
@@ -401,7 +399,7 @@ _ZN17double_conversion6Bignum16MultiplyByUInt64Em.exit: ; preds = %_ZN17double_c
 
 while.body8:                                      ; preds = %while.body8.lr.ph, %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit
   %21 = phi i16 [ %27, %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit ], [ %7, %while.body8.lr.ph ]
-  %remaining_exponent.166 = phi i32 [ %sub9, %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit ], [ %remaining_exponent.0.lcssa, %while.body8.lr.ph ]
+  %remaining_exponent.166 = phi i32 [ %sub9, %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit ], [ %remaining_exponent.0.lcssa.fr, %while.body8.lr.ph ]
   %cmp1016.i = icmp sgt i16 %21, 0
   br i1 %cmp1016.i, label %for.body.lr.ph.i8, label %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit
 
@@ -460,7 +458,7 @@ _ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit: ; preds = %_ZN17double_c
 
 while.end10:                                      ; preds = %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit, %while.body8.us.preheader, %while.cond6.preheader
   %.pr = phi i16 [ %7, %while.cond6.preheader ], [ %7, %while.body8.us.preheader ], [ %27, %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit ]
-  %remaining_exponent.1.lcssa = phi i32 [ %remaining_exponent.0.lcssa, %while.cond6.preheader ], [ %13, %while.body8.us.preheader ], [ %sub9, %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit ]
+  %remaining_exponent.1.lcssa = phi i32 [ %remaining_exponent.0.lcssa.fr, %while.cond6.preheader ], [ %13, %while.body8.us.preheader ], [ %sub9, %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit ]
   %cmp11 = icmp sgt i32 %remaining_exponent.1.lcssa, 0
   br i1 %cmp11, label %if.then12, label %if.end14
 
@@ -986,7 +984,7 @@ cond.end38:                                       ; preds = %while.body, %cond.t
   %arrayidx.i38 = getelementptr inbounds [128 x i32], ptr %bigits_buffer_.i33, i64 0, i64 %indvars.iv71
   store i32 %and42, ptr %arrayidx.i38, align 4
   %shr44 = lshr i32 %add41, 28
-  %indvars.iv.next72 = add i64 %indvars.iv71, 1
+  %indvars.iv.next72 = add nsw i64 %indvars.iv71, 1
   %cmp30.not = icmp ult i32 %add41, 268435456
   br i1 %cmp30.not, label %while.end.loopexit, label %while.body, !llvm.loop !21
 
@@ -1200,7 +1198,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub14 = add i32 %28, -1
   %and15 = and i32 %sub14, 268435455
   store i32 %and15, ptr %arrayidx.i26, align 4
-  %indvars.iv.next49 = add nuw i64 %indvars.iv48, 1
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %cmp10.not = icmp sgt i32 %sub14, -1
   br i1 %cmp10.not, label %while.end, label %while.body, !llvm.loop !23
 
@@ -2845,7 +2843,7 @@ return:                                           ; preds = %if.else, %_ZNK17dou
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
+declare i32 @llvm.usub.sat.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9

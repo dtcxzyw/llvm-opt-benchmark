@@ -5039,8 +5039,8 @@ if.end46.i.i:                                     ; preds = %if.else42.i.i, %if.
   %self.val.i.i.i = load ptr, ptr %23, align 8
   %call1.i.i.i = call ptr @PyType_GetModuleState(ptr noundef %self.val.i.i.i) #6
   %or.cond.i.i.i = icmp ugt i64 %max_length.0, 9223372036854775806
-  %spec.store.select.i.i.i = call i64 @llvm.smin.i64(i64 %max_length.0, i64 16777216)
-  %obuflen.0.i.i.i = select i1 %or.cond.i.i.i, i64 16384, i64 %spec.store.select.i.i.i
+  %24 = call i64 @llvm.umin.i64(i64 %max_length.0, i64 16777216)
+  %obuflen.0.i.i.i = select i1 %or.cond.i.i.i, i64 16384, i64 %24
   %hard_limit.0.i.i.i = select i1 %or.cond.i.i.i, i64 9223372036854775807, i64 %max_length.0
   %avail_in_real.i.i.i = getelementptr inbounds i8, ptr %self, i64 168
   %avail_in.i.i.i.i = getelementptr inbounds i8, ptr %self, i64 24
@@ -5051,21 +5051,21 @@ if.end46.i.i:                                     ; preds = %if.else42.i.i, %if.
   br label %do.body.i.i.i
 
 do.body.i.i.i:                                    ; preds = %land.rhs.i.i.i, %if.end46.i.i
-  %24 = phi i64 [ %.pre.i.i.i, %if.end46.i.i ], [ %30, %land.rhs.i.i.i ]
+  %25 = phi i64 [ %.pre.i.i.i, %if.end46.i.i ], [ %31, %land.rhs.i.i.i ]
   %err.0.i.i.i = phi i32 [ 0, %if.end46.i.i ], [ %err.2.i.i.i, %land.rhs.i.i.i ]
   %obuflen.1.i.i.i = phi i64 [ %obuflen.0.i.i.i, %if.end46.i.i ], [ %retval.0.i46.i.i.i, %land.rhs.i.i.i ]
-  %spec.select4.i.i.i.i = call i64 @llvm.umin.i64(i64 %24, i64 4294967295)
+  %spec.select4.i.i.i.i = call i64 @llvm.umin.i64(i64 %25, i64 4294967295)
   %spec.select.i.i.i.i = trunc i64 %spec.select4.i.i.i.i to i32
   store i32 %spec.select.i.i.i.i, ptr %avail_in.i.i.i.i, align 8
-  %sub.i.i.i.i = sub i64 %24, %spec.select4.i.i.i.i
+  %sub.i.i.i.i = sub i64 %25, %spec.select4.i.i.i.i
   store i64 %sub.i.i.i.i, ptr %avail_in_real.i.i.i, align 8
   br label %do.body6.i.i.i
 
 do.body6.i.i.i:                                   ; preds = %do.cond.i.i.i, %do.body.i.i.i
   %err.1.i.i.i = phi i32 [ %err.0.i.i.i, %do.body.i.i.i ], [ %call19.i.i.i, %do.cond.i.i.i ]
   %obuflen.2.i.i.i = phi i64 [ %obuflen.1.i.i.i, %do.body.i.i.i ], [ %length.addr.0.i.i.i.i, %do.cond.i.i.i ]
-  %25 = load ptr, ptr %return_value.i.i.i, align 8
-  %cmp.i38.i.i.i = icmp eq ptr %25, null
+  %26 = load ptr, ptr %return_value.i.i.i, align 8
+  %cmp.i38.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.i38.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body6.i.i.i
@@ -5075,9 +5075,9 @@ if.then.i.i.i.i:                                  ; preds = %do.body6.i.i.i
   br i1 %tobool.not.i.i.i.i, label %if.then11.i.i.i, label %arrange_output_buffer_with_maximum.exit.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %do.body6.i.i.i
-  %26 = load ptr, ptr %next_out.i.i.i, align 8
-  %ob_sval.i.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 32
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %26 to i64
+  %27 = load ptr, ptr %next_out.i.i.i, align 8
+  %ob_sval.i.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 32
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %27 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %ob_sval.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp3.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, %obuflen.2.i.i.i
@@ -5100,14 +5100,14 @@ if.end7.i.arrange_output_buffer_with_maximum.exit_crit_edge.i.i.i: ; preds = %if
   br label %arrange_output_buffer_with_maximum.exit.i.i.i
 
 arrange_output_buffer_with_maximum.exit.i.i.i:    ; preds = %if.end7.i.arrange_output_buffer_with_maximum.exit_crit_edge.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i
-  %27 = phi ptr [ %25, %if.else.i.i.i.i ], [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %.pre61.i.i.i, %if.end7.i.arrange_output_buffer_with_maximum.exit_crit_edge.i.i.i ]
+  %28 = phi ptr [ %26, %if.else.i.i.i.i ], [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %.pre61.i.i.i, %if.end7.i.arrange_output_buffer_with_maximum.exit_crit_edge.i.i.i ]
   %length.addr.0.i.i.i.i = phi i64 [ %obuflen.2.i.i.i, %if.else.i.i.i.i ], [ %obuflen.2.i.i.i, %if.then.i.i.i.i ], [ %new_length.0.i.i.i.i, %if.end7.i.arrange_output_buffer_with_maximum.exit_crit_edge.i.i.i ]
   %occupied.0.i.i.i.i = phi i64 [ %sub.ptr.sub.i.i.i.i, %if.else.i.i.i.i ], [ 0, %if.then.i.i.i.i ], [ %obuflen.2.i.i.i, %if.end7.i.arrange_output_buffer_with_maximum.exit_crit_edge.i.i.i ]
   %sub.i39.i.i.i = sub i64 %length.addr.0.i.i.i.i, %occupied.0.i.i.i.i
   %cond.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i39.i.i.i, i64 4294967295)
   %conv.i.i.i.i = trunc i64 %cond.i.i.i.i to i32
   store i32 %conv.i.i.i.i, ptr %avail_out.i.i.i, align 4
-  %ob_sval.i19.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 32
+  %ob_sval.i19.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 32
   %add.ptr.i.i.i.i = getelementptr i8, ptr %ob_sval.i19.i.i.i.i, i64 %occupied.0.i.i.i.i
   store ptr %add.ptr.i.i.i.i, ptr %next_out.i.i.i, align 8
   switch i64 %length.addr.0.i.i.i.i, label %if.end16.i.i.i [
@@ -5116,8 +5116,8 @@ arrange_output_buffer_with_maximum.exit.i.i.i:    ; preds = %if.end7.i.arrange_o
   ]
 
 if.then11.i.i.i:                                  ; preds = %arrange_output_buffer_with_maximum.exit.i.i.i, %if.end7.i.i.i.i, %if.then.i.i.i.i
-  %28 = load ptr, ptr @PyExc_MemoryError, align 8
-  call void @PyErr_SetString(ptr noundef %28, ptr noundef nonnull @.str.94) #6
+  %29 = load ptr, ptr @PyExc_MemoryError, align 8
+  call void @PyErr_SetString(ptr noundef %29, ptr noundef nonnull @.str.94) #6
   br label %do.body56.i.i.i
 
 if.end16.i.i.i:                                   ; preds = %arrange_output_buffer_with_maximum.exit.i.i.i
@@ -5128,8 +5128,8 @@ if.end16.i.i.i:                                   ; preds = %arrange_output_buff
   br i1 %cond.i.i.i, label %do.body56.i.i.i, label %do.cond.i.i.i
 
 do.cond.i.i.i:                                    ; preds = %if.end16.i.i.i
-  %29 = load i32, ptr %avail_out.i.i.i, align 8
-  %cmp25.i.i.i = icmp eq i32 %29, 0
+  %30 = load i32, ptr %avail_out.i.i.i, align 8
+  %cmp25.i.i.i = icmp eq i32 %30, 0
   br i1 %cmp25.i.i.i, label %do.body6.i.i.i, label %do.cond26.i.i.i, !llvm.loop !20
 
 do.cond26.i.i.i:                                  ; preds = %do.cond.i.i.i, %arrange_output_buffer_with_maximum.exit.i.i.i, %if.then4.i.i.i.i
@@ -5139,8 +5139,8 @@ do.cond26.i.i.i:                                  ; preds = %do.cond.i.i.i, %arr
   br i1 %cond36.i.i.i, label %if.then32.i.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %do.cond26.i.i.i
-  %30 = load i64, ptr %avail_in_real.i.i.i, align 8
-  %cmp29.not.i.i.i = icmp eq i64 %30, 0
+  %31 = load i64, ptr %avail_in_real.i.i.i, align 8
+  %cmp29.not.i.i.i = icmp eq i64 %31, 0
   br i1 %cmp29.not.i.i.i, label %do.end30.i.i.i, label %do.body.i.i.i, !llvm.loop !21
 
 do.end30.i.i.i:                                   ; preds = %land.rhs.i.i.i
@@ -5162,8 +5162,8 @@ if.then32.if.end45_crit_edge.i.i.i:               ; preds = %if.then32.i.i.i
   br label %if.end45.i.i.i
 
 if.then36.i.i.i:                                  ; preds = %if.then32.i.i.i
-  %31 = getelementptr i8, ptr %self, i64 64
-  %zst.val37.i.i.i = load ptr, ptr %31, align 8
+  %32 = getelementptr i8, ptr %self, i64 64
+  %zst.val37.i.i.i = load ptr, ptr %32, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %call34.i.i.i, -6
   %zmsg.0.i.i.i.i = select i1 %cmp.not.i.i.i.i, ptr @.str.15, ptr %zst.val37.i.i.i
   %cmp5.i40.i.i.i = icmp eq ptr %zmsg.0.i.i.i.i, null
@@ -5184,33 +5184,33 @@ sw.bb8.i.i.i.i:                                   ; preds = %if.then6.i.i.i.i
 
 if.then11.i.i.i.i:                                ; preds = %if.then6.i.i.i.i
   %ZlibError.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 24
-  %32 = load ptr, ptr %ZlibError.i.i.i.i, align 8
-  %call.i42.i.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %32, ptr noundef nonnull @.str.19, i32 noundef %call34.i.i.i, ptr noundef nonnull @.str.38) #6
+  %33 = load ptr, ptr %ZlibError.i.i.i.i, align 8
+  %call.i42.i.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %33, ptr noundef nonnull @.str.19, i32 noundef %call34.i.i.i, ptr noundef nonnull @.str.38) #6
   br label %do.body56.i.i.i
 
 if.else.i41.i.i.i:                                ; preds = %sw.bb8.i.i.i.i, %sw.bb7.i.i.i.i, %if.then6.i.i.i.i, %if.then36.i.i.i
   %zmsg.1.ph.i.i.i.i = phi ptr [ %zmsg.0.i.i.i.i, %if.then36.i.i.i ], [ @.str.17, %sw.bb7.i.i.i.i ], [ @.str.18, %sw.bb8.i.i.i.i ], [ @.str.16, %if.then6.i.i.i.i ]
   %ZlibError12.i.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 24
-  %33 = load ptr, ptr %ZlibError12.i.i.i.i, align 8
-  %call13.i.i.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %33, ptr noundef nonnull @.str.20, i32 noundef %call34.i.i.i, ptr noundef nonnull @.str.38, ptr noundef nonnull %zmsg.1.ph.i.i.i.i) #6
+  %34 = load ptr, ptr %ZlibError12.i.i.i.i, align 8
+  %call13.i.i.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %34, ptr noundef nonnull @.str.20, i32 noundef %call34.i.i.i, ptr noundef nonnull @.str.38, ptr noundef nonnull %zmsg.1.ph.i.i.i.i) #6
   br label %do.body56.i.i.i
 
 if.then42.i.i.i:                                  ; preds = %do.end30.i.i.i
-  %34 = getelementptr i8, ptr %self, i64 64
-  %zst.val.i.i.i = load ptr, ptr %34, align 8
+  %35 = getelementptr i8, ptr %self, i64 64
+  %zst.val.i.i.i = load ptr, ptr %35, align 8
   call fastcc void @zlib_error(ptr noundef %call1.i.i.i, ptr %zst.val.i.i.i, i32 noundef %err.2.i.i.i, ptr noundef nonnull @.str.37)
   br label %do.body56.i.i.i
 
 if.end45.i.i.i:                                   ; preds = %if.then32.if.end45_crit_edge.i.i.i, %do.end30.i.i.i, %do.end30.i.i.i
-  %35 = phi i64 [ %.pre62.i.i.i, %if.then32.if.end45_crit_edge.i.i.i ], [ 0, %do.end30.i.i.i ], [ 0, %do.end30.i.i.i ]
-  %36 = load i32, ptr %avail_in.i.i.i.i, align 8
-  %conv.i.i.i = zext i32 %36 to i64
-  %add.i.i.i = add i64 %35, %conv.i.i.i
+  %36 = phi i64 [ %.pre62.i.i.i, %if.then32.if.end45_crit_edge.i.i.i ], [ 0, %do.end30.i.i.i ], [ 0, %do.end30.i.i.i ]
+  %37 = load i32, ptr %avail_in.i.i.i.i, align 8
+  %conv.i.i.i = zext i32 %37 to i64
+  %add.i.i.i = add i64 %36, %conv.i.i.i
   store i64 %add.i.i.i, ptr %avail_in_real.i.i.i, align 8
-  %37 = load ptr, ptr %next_out.i.i.i, align 8
-  %38 = load ptr, ptr %return_value.i.i.i, align 8
-  %ob_sval.i.i.i.i = getelementptr inbounds i8, ptr %38, i64 32
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %37 to i64
+  %38 = load ptr, ptr %next_out.i.i.i, align 8
+  %39 = load ptr, ptr %return_value.i.i.i, align 8
+  %ob_sval.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 32
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %38 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %ob_sval.i.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %call51.i.i.i = call i32 @_PyBytes_Resize(ptr noundef nonnull %return_value.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #6
@@ -5218,25 +5218,25 @@ if.end45.i.i.i:                                   ; preds = %if.then32.if.end45_
   br i1 %cmp52.not.i.i.i, label %decompress_buf.exit.i.i, label %do.body56.i.i.i
 
 do.body56.i.i.i:                                  ; preds = %if.end16.i.i.i, %if.end45.i.i.i, %if.then42.i.i.i, %if.else.i41.i.i.i, %if.then11.i.i.i.i, %if.then11.i.i.i
-  %39 = load ptr, ptr %return_value.i.i.i, align 8
-  %cmp57.not.i.i.i = icmp eq ptr %39, null
+  %40 = load ptr, ptr %return_value.i.i.i, align 8
+  %cmp57.not.i.i.i = icmp eq ptr %40, null
   br i1 %cmp57.not.i.i.i, label %decompress_buf.exit.thread.i.i, label %if.then59.i.i.i
 
 if.then59.i.i.i:                                  ; preds = %do.body56.i.i.i
   store ptr null, ptr %return_value.i.i.i, align 8
-  %40 = load i64, ptr %39, align 8
-  %41 = and i64 %40, 2147483648
-  %cmp.i64.not.i.i.i = icmp eq i64 %41, 0
+  %41 = load i64, ptr %40, align 8
+  %42 = and i64 %41, 2147483648
+  %cmp.i64.not.i.i.i = icmp eq i64 %42, 0
   br i1 %cmp.i64.not.i.i.i, label %if.end.i.i.i.i, label %decompress_buf.exit.thread.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then59.i.i.i
-  %dec.i.i.i.i = add i64 %40, -1
-  store i64 %dec.i.i.i.i, ptr %39, align 8
+  %dec.i.i.i.i = add i64 %41, -1
+  store i64 %dec.i.i.i.i, ptr %40, align 8
   %cmp.i.i.i.i = icmp eq i64 %dec.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.then1.i.i.i.i, label %decompress_buf.exit.i.i
 
 if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %39) #6
+  call void @_Py_Dealloc(ptr noundef nonnull %40) #6
   br label %decompress_buf.exit.i.i
 
 decompress_buf.exit.thread.i.i:                   ; preds = %if.then59.i.i.i, %do.body56.i.i.i
@@ -5254,49 +5254,49 @@ if.then49.i.i:                                    ; preds = %decompress_buf.exit
   br label %zlib_ZlibDecompressor_decompress_impl.exit
 
 if.end52.i.i:                                     ; preds = %decompress_buf.exit.i.i
-  %42 = load i8, ptr %eof.i, align 1
-  %tobool.not.i.i = icmp eq i8 %42, 0
+  %43 = load i8, ptr %eof.i, align 1
+  %tobool.not.i.i = icmp eq i8 %43, 0
   br i1 %tobool.not.i.i, label %if.else66.i.i, label %if.then53.i.i
 
 if.then53.i.i:                                    ; preds = %if.end52.i.i
   %needs_input.i.i = getelementptr inbounds i8, ptr %self, i64 178
   store i8 0, ptr %needs_input.i.i, align 2
-  %43 = load i64, ptr %avail_in_real.i.i.i, align 8
-  %cmp55.i.i = icmp sgt i64 %43, 0
+  %44 = load i64, ptr %avail_in_real.i.i.i, align 8
+  %cmp55.i.i = icmp sgt i64 %44, 0
   br i1 %cmp55.i.i, label %if.then56.i.i, label %zlib_ZlibDecompressor_decompress_impl.exit
 
 if.then56.i.i:                                    ; preds = %if.then53.i.i
-  %44 = load ptr, ptr %zst.i.i, align 8
-  %call60.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef %44, i64 noundef %43) #6
+  %45 = load ptr, ptr %zst.i.i, align 8
+  %call60.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef %45, i64 noundef %44) #6
   %cmp61.i.i = icmp eq ptr %call60.i.i, null
   br i1 %cmp61.i.i, label %if.then.i73.i.i, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.then56.i.i
   %unused_data64.i.i = getelementptr inbounds i8, ptr %self, i64 144
-  %45 = load ptr, ptr %unused_data64.i.i, align 8
+  %46 = load ptr, ptr %unused_data64.i.i, align 8
   store ptr %call60.i.i, ptr %unused_data64.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %45, null
+  %cmp.not.i.i.i = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i, label %zlib_ZlibDecompressor_decompress_impl.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.body.i.i
-  %46 = load i64, ptr %45, align 8
-  %47 = and i64 %46, 2147483648
-  %cmp.i2.not.i.i.i = icmp eq i64 %47, 0
+  %47 = load i64, ptr %46, align 8
+  %48 = and i64 %47, 2147483648
+  %cmp.i2.not.i.i.i = icmp eq i64 %48, 0
   br i1 %cmp.i2.not.i.i.i, label %if.end.i.i68.i.i, label %zlib_ZlibDecompressor_decompress_impl.exit
 
 if.end.i.i68.i.i:                                 ; preds = %if.then.i.i.i
-  %dec.i.i69.i.i = add i64 %46, -1
-  store i64 %dec.i.i69.i.i, ptr %45, align 8
+  %dec.i.i69.i.i = add i64 %47, -1
+  store i64 %dec.i.i69.i.i, ptr %46, align 8
   %cmp.i.i70.i.i = icmp eq i64 %dec.i.i69.i.i, 0
   br i1 %cmp.i.i70.i.i, label %if.then1.i.i71.i.i, label %zlib_ZlibDecompressor_decompress_impl.exit
 
 if.then1.i.i71.i.i:                               ; preds = %if.end.i.i68.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %45) #6
+  call void @_Py_Dealloc(ptr noundef nonnull %46) #6
   br label %zlib_ZlibDecompressor_decompress_impl.exit
 
 if.else66.i.i:                                    ; preds = %if.end52.i.i
-  %48 = load i64, ptr %avail_in_real.i.i.i, align 8
-  %cmp68.i.i = icmp eq i64 %48, 0
+  %49 = load i64, ptr %avail_in_real.i.i.i, align 8
+  %cmp68.i.i = icmp eq i64 %49, 0
   br i1 %cmp68.i.i, label %if.then69.i.i, label %if.else73.i.i
 
 if.then69.i.i:                                    ; preds = %if.else66.i.i
@@ -5312,57 +5312,57 @@ if.else73.i.i:                                    ; preds = %if.else66.i.i
 
 if.then76.i.i:                                    ; preds = %if.else73.i.i
   %input_buffer77.i.i = getelementptr inbounds i8, ptr %self, i64 152
-  %49 = load ptr, ptr %input_buffer77.i.i, align 8
-  %cmp78.not.i.i = icmp eq ptr %49, null
+  %50 = load ptr, ptr %input_buffer77.i.i, align 8
+  %cmp78.not.i.i = icmp eq ptr %50, null
   br i1 %cmp78.not.i.i, label %if.then88.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then76.i.i
   %input_buffer_size79.i.i = getelementptr inbounds i8, ptr %self, i64 160
-  %50 = load i64, ptr %input_buffer_size79.i.i, align 8
-  %cmp81.i.i = icmp slt i64 %50, %48
+  %51 = load i64, ptr %input_buffer_size79.i.i, align 8
+  %cmp81.i.i = icmp slt i64 %51, %49
   br i1 %cmp81.i.i, label %if.then82.i.i, label %if.end98.i.i
 
 if.then82.i.i:                                    ; preds = %land.lhs.true.i.i
-  call void @PyMem_Free(ptr noundef nonnull %49) #6
+  call void @PyMem_Free(ptr noundef nonnull %50) #6
   store ptr null, ptr %input_buffer77.i.i, align 8
   %.pre.i.i = load i64, ptr %avail_in_real.i.i.i, align 8
   br label %if.then88.i.i
 
 if.then88.i.i:                                    ; preds = %if.then82.i.i, %if.then76.i.i
-  %51 = phi i64 [ %48, %if.then76.i.i ], [ %.pre.i.i, %if.then82.i.i ]
-  %call90.i.i = call ptr @PyMem_Malloc(i64 noundef %51) #6
+  %52 = phi i64 [ %49, %if.then76.i.i ], [ %.pre.i.i, %if.then82.i.i ]
+  %call90.i.i = call ptr @PyMem_Malloc(i64 noundef %52) #6
   store ptr %call90.i.i, ptr %input_buffer77.i.i, align 8
   %cmp93.i.i = icmp eq ptr %call90.i.i, null
   br i1 %cmp93.i.i, label %if.then94.i.i, label %if.end95.i.i
 
 if.then94.i.i:                                    ; preds = %if.then88.i.i
-  %52 = load ptr, ptr @PyExc_MemoryError, align 8
-  call void @PyErr_SetNone(ptr noundef %52) #6
+  %53 = load ptr, ptr @PyExc_MemoryError, align 8
+  call void @PyErr_SetNone(ptr noundef %53) #6
   br label %if.then.i73.i.i
 
 if.end95.i.i:                                     ; preds = %if.then88.i.i
-  %53 = load i64, ptr %avail_in_real.i.i.i, align 8
+  %54 = load i64, ptr %avail_in_real.i.i.i, align 8
   %input_buffer_size97.i.i = getelementptr inbounds i8, ptr %self, i64 160
-  store i64 %53, ptr %input_buffer_size97.i.i, align 8
+  store i64 %54, ptr %input_buffer_size97.i.i, align 8
   br label %if.end98.i.i
 
 if.end98.i.i:                                     ; preds = %if.end95.i.i, %land.lhs.true.i.i
-  %54 = phi i64 [ %53, %if.end95.i.i ], [ %48, %land.lhs.true.i.i ]
-  %55 = phi ptr [ %call90.i.i, %if.end95.i.i ], [ %49, %land.lhs.true.i.i ]
-  %56 = load ptr, ptr %zst.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr align 1 %56, i64 %54, i1 false)
-  %57 = load ptr, ptr %input_buffer77.i.i, align 8
-  store ptr %57, ptr %zst.i.i, align 8
+  %55 = phi i64 [ %54, %if.end95.i.i ], [ %49, %land.lhs.true.i.i ]
+  %56 = phi ptr [ %call90.i.i, %if.end95.i.i ], [ %50, %land.lhs.true.i.i ]
+  %57 = load ptr, ptr %zst.i.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr align 1 %57, i64 %55, i1 false)
+  %58 = load ptr, ptr %input_buffer77.i.i, align 8
+  store ptr %58, ptr %zst.i.i, align 8
   br label %zlib_ZlibDecompressor_decompress_impl.exit
 
 if.then.i73.i.i:                                  ; preds = %if.then94.i.i, %if.then56.i.i
-  %58 = load i64, ptr %.pr.i.i, align 8
-  %59 = and i64 %58, 2147483648
-  %cmp.i2.not.i74.i.i = icmp eq i64 %59, 0
+  %59 = load i64, ptr %.pr.i.i, align 8
+  %60 = and i64 %59, 2147483648
+  %cmp.i2.not.i74.i.i = icmp eq i64 %60, 0
   br i1 %cmp.i2.not.i74.i.i, label %if.end.i.i75.i.i, label %zlib_ZlibDecompressor_decompress_impl.exit
 
 if.end.i.i75.i.i:                                 ; preds = %if.then.i73.i.i
-  %dec.i.i76.i.i = add i64 %58, -1
+  %dec.i.i76.i.i = add i64 %59, -1
   store i64 %dec.i.i76.i.i, ptr %.pr.i.i, align 8
   %cmp.i.i77.i.i = icmp eq i64 %dec.i.i76.i.i, 0
   br i1 %cmp.i.i77.i.i, label %if.then1.i.i78.i.i, label %zlib_ZlibDecompressor_decompress_impl.exit
@@ -5373,15 +5373,15 @@ if.then1.i.i78.i.i:                               ; preds = %if.end.i.i75.i.i
 
 zlib_ZlibDecompressor_decompress_impl.exit:       ; preds = %if.then5.i, %if.then18.i.i, %if.then49.i.i, %if.then53.i.i, %do.body.i.i, %if.then.i.i.i, %if.end.i.i68.i.i, %if.then1.i.i71.i.i, %if.then69.i.i, %if.else73.i.i, %if.end98.i.i, %if.then.i73.i.i, %if.end.i.i75.i.i, %if.then1.i.i78.i.i
   %result.0.i = phi ptr [ null, %if.then5.i ], [ null, %if.then18.i.i ], [ null, %if.then49.i.i ], [ %.pr.i.i, %if.then69.i.i ], [ %.pr.i.i, %if.end98.i.i ], [ %.pr.i.i, %if.else73.i.i ], [ %.pr.i.i, %if.then53.i.i ], [ %.pr.i.i, %do.body.i.i ], [ %.pr.i.i, %if.then.i.i.i ], [ %.pr.i.i, %if.end.i.i68.i.i ], [ %.pr.i.i, %if.then1.i.i71.i.i ], [ null, %if.then.i73.i.i ], [ null, %if.end.i.i75.i.i ], [ null, %if.then1.i.i78.i.i ]
-  %60 = load ptr, ptr %lock.i, align 8
-  call void @PyThread_release_lock(ptr noundef %60) #6
+  %61 = load ptr, ptr %lock.i, align 8
+  call void @PyThread_release_lock(ptr noundef %61) #6
   br label %exit
 
 exit:                                             ; preds = %land.lhs.true26, %if.end, %cond.end9, %zlib_ZlibDecompressor_decompress_impl.exit
   %return_value.0 = phi ptr [ null, %if.end ], [ null, %land.lhs.true26 ], [ %result.0.i, %zlib_ZlibDecompressor_decompress_impl.exit ], [ null, %cond.end9 ]
   %obj = getelementptr inbounds i8, ptr %data, i64 8
-  %61 = load ptr, ptr %obj, align 8
-  %tobool32.not = icmp eq ptr %61, null
+  %62 = load ptr, ptr %obj, align 8
+  %tobool32.not = icmp eq ptr %62, null
   br i1 %tobool32.not, label %if.end34, label %if.then33
 
 if.then33:                                        ; preds = %exit

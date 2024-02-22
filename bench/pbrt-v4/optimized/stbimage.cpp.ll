@@ -17188,17 +17188,17 @@ for.body46:                                       ; preds = %for.body46.lr.ph, %
   %shr62 = ashr i32 %add59, 20
   %shr63 = ashr i32 %add61, 20
   %30 = tail call i32 @llvm.smax.i32(i32 %shr, i32 0)
-  %r.0 = tail call i32 @llvm.smin.i32(i32 %30, i32 255)
-  %31 = tail call i32 @llvm.smax.i32(i32 %shr62, i32 0)
-  %g.0 = tail call i32 @llvm.smin.i32(i32 %31, i32 255)
-  %32 = tail call i32 @llvm.smax.i32(i32 %shr63, i32 0)
-  %b.0 = tail call i32 @llvm.smin.i32(i32 %32, i32 255)
-  %conv84 = trunc i32 %r.0 to i8
+  %31 = tail call i32 @llvm.umin.i32(i32 %30, i32 255)
+  %32 = tail call i32 @llvm.smax.i32(i32 %shr62, i32 0)
+  %33 = tail call i32 @llvm.umin.i32(i32 %32, i32 255)
+  %34 = tail call i32 @llvm.smax.i32(i32 %shr63, i32 0)
+  %35 = tail call i32 @llvm.umin.i32(i32 %34, i32 255)
+  %conv84 = trunc i32 %31 to i8
   store i8 %conv84, ptr %out.addr.2117, align 1
-  %conv86 = trunc i32 %g.0 to i8
+  %conv86 = trunc i32 %33 to i8
   %arrayidx87 = getelementptr inbounds i8, ptr %out.addr.2117, i64 1
   store i8 %conv86, ptr %arrayidx87, align 1
-  %conv88 = trunc i32 %b.0 to i8
+  %conv88 = trunc i32 %35 to i8
   %arrayidx89 = getelementptr inbounds i8, ptr %out.addr.2117, i64 2
   store i8 %conv88, ptr %arrayidx89, align 1
   %arrayidx90 = getelementptr inbounds i8, ptr %out.addr.2117, i64 3
@@ -22955,7 +22955,7 @@ declare i32 @llvm.smax.i32(i32, i32) #33
 declare i32 @llvm.umax.i32(i32, i32) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #33
+declare i32 @llvm.umin.i32(i32, i32) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #34

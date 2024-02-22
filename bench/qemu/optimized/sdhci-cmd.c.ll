@@ -55,9 +55,9 @@ while.body.i:                                     ; preds = %entry, %while.cond.
   br i1 %cmp414.i, label %while.body6.preheader.i, label %while.cond.loopexit.i
 
 while.body6.preheader.i:                          ; preds = %while.body.i
-  %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %conv.i, i32 4)
-  %0 = trunc i64 %index.019.i to i32
-  %1 = add i32 %spec.store.select.i, %0
+  %0 = tail call i32 @llvm.umin.i32(i32 %conv.i, i32 4)
+  %1 = trunc i64 %index.019.i to i32
+  %2 = add i32 %0, %1
   br label %while.body6.i
 
 while.body6.i:                                    ; preds = %if.end13.i, %while.body6.preheader.i
@@ -74,7 +74,7 @@ while.body6.i:                                    ; preds = %if.end13.i, %while.
 if.end13.i:                                       ; preds = %while.body6.i
   %shr.i = lshr i32 %msg_frag.016.i, 8
   %lftr.wideiv = trunc i64 %inc.i to i32
-  %exitcond = icmp eq i32 %1, %lftr.wideiv
+  %exitcond = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond, label %while.cond.loopexit.i, label %while.body6.i, !llvm.loop !7
 
 read_fifo.exit:                                   ; preds = %while.cond.loopexit.i, %while.body6.i, %entry
@@ -113,9 +113,9 @@ while.body.i:                                     ; preds = %entry, %while.end.i
   br i1 %cmp48.i, label %while.body6.preheader.i, label %while.end.i
 
 while.body6.preheader.i:                          ; preds = %while.body.i
-  %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %conv.i, i32 4)
-  %0 = add nsw i32 %spec.store.select.i, -1
-  %1 = zext nneg i32 %0 to i64
+  %0 = tail call i32 @llvm.umin.i32(i32 %conv.i, i32 4)
+  %1 = add nsw i32 %0, -1
+  %2 = zext nneg i32 %1 to i64
   br label %while.body6.i
 
 while.body6.i:                                    ; preds = %while.body6.i, %while.body6.preheader.i
@@ -124,22 +124,22 @@ while.body6.i:                                    ; preds = %while.body6.i, %whi
   %index.19.i = phi i64 [ %inc.i, %while.body6.i ], [ %index.014.i, %while.body6.preheader.i ]
   %inc.i = add i64 %index.19.i, 1
   %arrayidx.i = getelementptr i8, ptr %msg, i64 %index.19.i
-  %2 = load i8, ptr %arrayidx.i, align 1
-  %conv7.i = sext i8 %2 to i32
+  %3 = load i8, ptr %arrayidx.i, align 1
+  %conv7.i = sext i8 %3 to i32
   %mul.i = shl i32 %frag_i.011.i, 3
   %shl.i = shl i32 %conv7.i, %mul.i
   %or.i = or i32 %shl.i, %msg_frag.010.i
   %inc8.i = add nuw nsw i32 %frag_i.011.i, 1
-  %exitcond.not.i = icmp eq i32 %inc8.i, %spec.store.select.i
+  %exitcond.not.i = icmp eq i32 %inc8.i, %0
   br i1 %exitcond.not.i, label %while.end.i.loopexit, label %while.body6.i, !llvm.loop !8
 
 while.end.i.loopexit:                             ; preds = %while.body6.i
-  %3 = add i64 %index.014.i, 1
-  %4 = add i64 %3, %1
+  %4 = add i64 %index.014.i, 1
+  %5 = add i64 %4, %2
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.i.loopexit, %while.body.i
-  %index.1.lcssa.i = phi i64 [ %index.014.i, %while.body.i ], [ %4, %while.end.i.loopexit ]
+  %index.1.lcssa.i = phi i64 [ %index.014.i, %while.body.i ], [ %5, %while.end.i.loopexit ]
   %msg_frag.0.lcssa.i = phi i32 [ 0, %while.body.i ], [ %or.i, %while.end.i.loopexit ]
   tail call void @qtest_writel(ptr noundef %qts, i64 noundef %add, i32 noundef %msg_frag.0.lcssa.i) #3
   %cmp.i = icmp ult i64 %index.1.lcssa.i, %count
@@ -172,7 +172,7 @@ fill_block.exit:                                  ; preds = %while.body.i11, %wr
 declare i32 @qtest_readl(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #2
+declare i32 @llvm.umin.i32(i32, i32) #2
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -27,10 +27,10 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.18 = private unnamed_addr constant [17 x i8] c"0123456789ABCDEF\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaopen_bit(ptr noundef %L) local_unnamed_addr #0 {
+define dso_local noundef i32 @luaopen_bit(ptr noundef %L) local_unnamed_addr #0 {
 entry:
-  tail call void @lua_pushnumber(ptr noundef %L, double noundef 0x41D56A8CDDC00000) #4
-  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef -1) #4
+  tail call void @lua_pushnumber(ptr noundef %L, double noundef 0x41D56A8CDDC00000) #5
+  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef -1) #5
   %add.i = fadd double %call.i, 0x4338000000000000
   %0 = bitcast double %add.i to i64
   %conv.i = trunc i64 %0 to i32
@@ -40,22 +40,22 @@ entry:
   ]
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef -1) #4
+  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef -1) #5
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.then
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef -1, ptr noundef nonnull @.str.4) #4
+  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef -1, ptr noundef nonnull @.str.4) #5
   br label %if.then
 
 if.then:                                          ; preds = %if.then.i, %land.lhs.true.i, %entry
   %cmp1 = icmp eq i32 %conv.i, 1127743488
   %spec.store.select = select i1 %cmp1, ptr @.str.1, ptr @.str
-  %call3 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.2, ptr noundef nonnull %spec.store.select) #4
+  %call3 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %L, ptr noundef nonnull @.str.2, ptr noundef nonnull %spec.store.select) #5
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then, %entry
-  tail call void @luaL_register(ptr noundef %L, ptr noundef nonnull @.str.3, ptr noundef nonnull @bit_funcs) #4
+  tail call void @luaL_register(ptr noundef %L, ptr noundef nonnull @.str.3, ptr noundef nonnull @bit_funcs) #5
   ret i32 1
 }
 
@@ -78,9 +78,9 @@ declare i32 @lua_isnumber(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @luaL_typerror(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_tobit(ptr noundef %L) #0 {
+define internal noundef i32 @bit_tobit(ptr noundef %L) #0 {
 entry:
-  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
+  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #5
   %add.i = fadd double %call.i, 0x4338000000000000
   %0 = bitcast double %add.i to i64
   %conv.i = trunc i64 %0 to i32
@@ -88,24 +88,24 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %barg.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #4
+  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #5
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %barg.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #4
+  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #5
   br label %barg.exit
 
 barg.exit:                                        ; preds = %if.then.i, %land.lhs.true.i, %entry
   %conv = sitofp i32 %conv.i to double
-  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #4
+  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #5
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_bnot(ptr noundef %L) #0 {
+define internal noundef i32 @bit_bnot(ptr noundef %L) #0 {
 entry:
-  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
+  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #5
   %add.i = fadd double %call.i, 0x4338000000000000
   %0 = bitcast double %add.i to i64
   %conv.i = trunc i64 %0 to i32
@@ -113,25 +113,25 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %barg.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #4
+  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #5
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %barg.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #4
+  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #5
   br label %barg.exit
 
 barg.exit:                                        ; preds = %if.then.i, %land.lhs.true.i, %entry
   %not = xor i32 %conv.i, -1
   %conv = sitofp i32 %not to double
-  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #4
+  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #5
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_band(ptr noundef %L) #0 {
+define internal noundef i32 @bit_band(ptr noundef %L) #0 {
 entry:
-  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
+  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #5
   %add.i = fadd double %call.i, 0x4338000000000000
   %0 = bitcast double %add.i to i64
   %conv.i = trunc i64 %0 to i32
@@ -139,23 +139,23 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %barg.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #4
+  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #5
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %barg.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #4
+  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #5
   br label %barg.exit
 
 barg.exit:                                        ; preds = %if.then.i, %land.lhs.true.i, %entry
-  %call1 = tail call i32 @lua_gettop(ptr noundef %L) #4
+  %call1 = tail call i32 @lua_gettop(ptr noundef %L) #5
   %cmp19 = icmp sgt i32 %call1, 1
   br i1 %cmp19, label %for.body, label %for.end
 
 for.body:                                         ; preds = %barg.exit, %barg.exit18
   %b.021 = phi i32 [ %and, %barg.exit18 ], [ %conv.i, %barg.exit ]
   %i.020 = phi i32 [ %dec, %barg.exit18 ], [ %call1, %barg.exit ]
-  %call.i9 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef %i.020) #4
+  %call.i9 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef %i.020) #5
   %add.i10 = fadd double %call.i9, 0x4338000000000000
   %1 = bitcast double %add.i10 to i64
   %conv.i11 = trunc i64 %1 to i32
@@ -163,12 +163,12 @@ for.body:                                         ; preds = %barg.exit, %barg.ex
   br i1 %cmp.i12, label %land.lhs.true.i13, label %barg.exit18
 
 land.lhs.true.i13:                                ; preds = %for.body
-  %call2.i14 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef %i.020) #4
+  %call2.i14 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef %i.020) #5
   %tobool.not.i15 = icmp eq i32 %call2.i14, 0
   br i1 %tobool.not.i15, label %if.then.i16, label %barg.exit18
 
 if.then.i16:                                      ; preds = %land.lhs.true.i13
-  %call3.i17 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef %i.020, ptr noundef nonnull @.str.4) #4
+  %call3.i17 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef %i.020, ptr noundef nonnull @.str.4) #5
   br label %barg.exit18
 
 barg.exit18:                                      ; preds = %if.then.i16, %land.lhs.true.i13, %for.body
@@ -180,14 +180,14 @@ barg.exit18:                                      ; preds = %if.then.i16, %land.
 for.end:                                          ; preds = %barg.exit18, %barg.exit
   %b.0.lcssa = phi i32 [ %conv.i, %barg.exit ], [ %and, %barg.exit18 ]
   %conv = sitofp i32 %b.0.lcssa to double
-  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #4
+  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #5
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_bor(ptr noundef %L) #0 {
+define internal noundef i32 @bit_bor(ptr noundef %L) #0 {
 entry:
-  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
+  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #5
   %add.i = fadd double %call.i, 0x4338000000000000
   %0 = bitcast double %add.i to i64
   %conv.i = trunc i64 %0 to i32
@@ -195,23 +195,23 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %barg.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #4
+  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #5
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %barg.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #4
+  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #5
   br label %barg.exit
 
 barg.exit:                                        ; preds = %if.then.i, %land.lhs.true.i, %entry
-  %call1 = tail call i32 @lua_gettop(ptr noundef %L) #4
+  %call1 = tail call i32 @lua_gettop(ptr noundef %L) #5
   %cmp19 = icmp sgt i32 %call1, 1
   br i1 %cmp19, label %for.body, label %for.end
 
 for.body:                                         ; preds = %barg.exit, %barg.exit18
   %b.021 = phi i32 [ %or, %barg.exit18 ], [ %conv.i, %barg.exit ]
   %i.020 = phi i32 [ %dec, %barg.exit18 ], [ %call1, %barg.exit ]
-  %call.i9 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef %i.020) #4
+  %call.i9 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef %i.020) #5
   %add.i10 = fadd double %call.i9, 0x4338000000000000
   %1 = bitcast double %add.i10 to i64
   %conv.i11 = trunc i64 %1 to i32
@@ -219,12 +219,12 @@ for.body:                                         ; preds = %barg.exit, %barg.ex
   br i1 %cmp.i12, label %land.lhs.true.i13, label %barg.exit18
 
 land.lhs.true.i13:                                ; preds = %for.body
-  %call2.i14 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef %i.020) #4
+  %call2.i14 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef %i.020) #5
   %tobool.not.i15 = icmp eq i32 %call2.i14, 0
   br i1 %tobool.not.i15, label %if.then.i16, label %barg.exit18
 
 if.then.i16:                                      ; preds = %land.lhs.true.i13
-  %call3.i17 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef %i.020, ptr noundef nonnull @.str.4) #4
+  %call3.i17 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef %i.020, ptr noundef nonnull @.str.4) #5
   br label %barg.exit18
 
 barg.exit18:                                      ; preds = %if.then.i16, %land.lhs.true.i13, %for.body
@@ -236,14 +236,14 @@ barg.exit18:                                      ; preds = %if.then.i16, %land.
 for.end:                                          ; preds = %barg.exit18, %barg.exit
   %b.0.lcssa = phi i32 [ %conv.i, %barg.exit ], [ %or, %barg.exit18 ]
   %conv = sitofp i32 %b.0.lcssa to double
-  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #4
+  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #5
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_bxor(ptr noundef %L) #0 {
+define internal noundef i32 @bit_bxor(ptr noundef %L) #0 {
 entry:
-  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
+  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #5
   %add.i = fadd double %call.i, 0x4338000000000000
   %0 = bitcast double %add.i to i64
   %conv.i = trunc i64 %0 to i32
@@ -251,23 +251,23 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %barg.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #4
+  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #5
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %barg.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #4
+  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #5
   br label %barg.exit
 
 barg.exit:                                        ; preds = %if.then.i, %land.lhs.true.i, %entry
-  %call1 = tail call i32 @lua_gettop(ptr noundef %L) #4
+  %call1 = tail call i32 @lua_gettop(ptr noundef %L) #5
   %cmp19 = icmp sgt i32 %call1, 1
   br i1 %cmp19, label %for.body, label %for.end
 
 for.body:                                         ; preds = %barg.exit, %barg.exit18
   %b.021 = phi i32 [ %xor, %barg.exit18 ], [ %conv.i, %barg.exit ]
   %i.020 = phi i32 [ %dec, %barg.exit18 ], [ %call1, %barg.exit ]
-  %call.i9 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef %i.020) #4
+  %call.i9 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef %i.020) #5
   %add.i10 = fadd double %call.i9, 0x4338000000000000
   %1 = bitcast double %add.i10 to i64
   %conv.i11 = trunc i64 %1 to i32
@@ -275,12 +275,12 @@ for.body:                                         ; preds = %barg.exit, %barg.ex
   br i1 %cmp.i12, label %land.lhs.true.i13, label %barg.exit18
 
 land.lhs.true.i13:                                ; preds = %for.body
-  %call2.i14 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef %i.020) #4
+  %call2.i14 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef %i.020) #5
   %tobool.not.i15 = icmp eq i32 %call2.i14, 0
   br i1 %tobool.not.i15, label %if.then.i16, label %barg.exit18
 
 if.then.i16:                                      ; preds = %land.lhs.true.i13
-  %call3.i17 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef %i.020, ptr noundef nonnull @.str.4) #4
+  %call3.i17 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef %i.020, ptr noundef nonnull @.str.4) #5
   br label %barg.exit18
 
 barg.exit18:                                      ; preds = %if.then.i16, %land.lhs.true.i13, %for.body
@@ -292,14 +292,14 @@ barg.exit18:                                      ; preds = %if.then.i16, %land.
 for.end:                                          ; preds = %barg.exit18, %barg.exit
   %b.0.lcssa = phi i32 [ %conv.i, %barg.exit ], [ %xor, %barg.exit18 ]
   %conv = sitofp i32 %b.0.lcssa to double
-  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #4
+  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #5
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_lshift(ptr noundef %L) #0 {
+define internal noundef i32 @bit_lshift(ptr noundef %L) #0 {
 entry:
-  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
+  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #5
   %add.i = fadd double %call.i, 0x4338000000000000
   %0 = bitcast double %add.i to i64
   %conv.i = trunc i64 %0 to i32
@@ -307,16 +307,16 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %barg.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #4
+  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #5
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %barg.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #4
+  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #5
   br label %barg.exit
 
 barg.exit:                                        ; preds = %if.then.i, %land.lhs.true.i, %entry
-  %call.i4 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 2) #4
+  %call.i4 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 2) #5
   %add.i5 = fadd double %call.i4, 0x4338000000000000
   %1 = bitcast double %add.i5 to i64
   %conv.i6 = trunc i64 %1 to i32
@@ -324,26 +324,26 @@ barg.exit:                                        ; preds = %if.then.i, %land.lh
   br i1 %cmp.i7, label %land.lhs.true.i8, label %barg.exit13
 
 land.lhs.true.i8:                                 ; preds = %barg.exit
-  %call2.i9 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 2) #4
+  %call2.i9 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 2) #5
   %tobool.not.i10 = icmp eq i32 %call2.i9, 0
   br i1 %tobool.not.i10, label %if.then.i11, label %barg.exit13
 
 if.then.i11:                                      ; preds = %land.lhs.true.i8
-  %call3.i12 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.4) #4
+  %call3.i12 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.4) #5
   br label %barg.exit13
 
 barg.exit13:                                      ; preds = %if.then.i11, %land.lhs.true.i8, %barg.exit
   %and = and i32 %conv.i6, 31
   %shl = shl i32 %conv.i, %and
   %conv = sitofp i32 %shl to double
-  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #4
+  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #5
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_rshift(ptr noundef %L) #0 {
+define internal noundef i32 @bit_rshift(ptr noundef %L) #0 {
 entry:
-  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
+  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #5
   %add.i = fadd double %call.i, 0x4338000000000000
   %0 = bitcast double %add.i to i64
   %conv.i = trunc i64 %0 to i32
@@ -351,16 +351,16 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %barg.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #4
+  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #5
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %barg.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #4
+  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #5
   br label %barg.exit
 
 barg.exit:                                        ; preds = %if.then.i, %land.lhs.true.i, %entry
-  %call.i4 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 2) #4
+  %call.i4 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 2) #5
   %add.i5 = fadd double %call.i4, 0x4338000000000000
   %1 = bitcast double %add.i5 to i64
   %conv.i6 = trunc i64 %1 to i32
@@ -368,26 +368,26 @@ barg.exit:                                        ; preds = %if.then.i, %land.lh
   br i1 %cmp.i7, label %land.lhs.true.i8, label %barg.exit13
 
 land.lhs.true.i8:                                 ; preds = %barg.exit
-  %call2.i9 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 2) #4
+  %call2.i9 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 2) #5
   %tobool.not.i10 = icmp eq i32 %call2.i9, 0
   br i1 %tobool.not.i10, label %if.then.i11, label %barg.exit13
 
 if.then.i11:                                      ; preds = %land.lhs.true.i8
-  %call3.i12 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.4) #4
+  %call3.i12 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.4) #5
   br label %barg.exit13
 
 barg.exit13:                                      ; preds = %if.then.i11, %land.lhs.true.i8, %barg.exit
   %and = and i32 %conv.i6, 31
   %shr = lshr i32 %conv.i, %and
   %conv = sitofp i32 %shr to double
-  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #4
+  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #5
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_arshift(ptr noundef %L) #0 {
+define internal noundef i32 @bit_arshift(ptr noundef %L) #0 {
 entry:
-  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
+  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #5
   %add.i = fadd double %call.i, 0x4338000000000000
   %0 = bitcast double %add.i to i64
   %conv.i = trunc i64 %0 to i32
@@ -395,16 +395,16 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %barg.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #4
+  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #5
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %barg.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #4
+  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #5
   br label %barg.exit
 
 barg.exit:                                        ; preds = %if.then.i, %land.lhs.true.i, %entry
-  %call.i4 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 2) #4
+  %call.i4 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 2) #5
   %add.i5 = fadd double %call.i4, 0x4338000000000000
   %1 = bitcast double %add.i5 to i64
   %conv.i6 = trunc i64 %1 to i32
@@ -412,26 +412,26 @@ barg.exit:                                        ; preds = %if.then.i, %land.lh
   br i1 %cmp.i7, label %land.lhs.true.i8, label %barg.exit13
 
 land.lhs.true.i8:                                 ; preds = %barg.exit
-  %call2.i9 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 2) #4
+  %call2.i9 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 2) #5
   %tobool.not.i10 = icmp eq i32 %call2.i9, 0
   br i1 %tobool.not.i10, label %if.then.i11, label %barg.exit13
 
 if.then.i11:                                      ; preds = %land.lhs.true.i8
-  %call3.i12 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.4) #4
+  %call3.i12 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.4) #5
   br label %barg.exit13
 
 barg.exit13:                                      ; preds = %if.then.i11, %land.lhs.true.i8, %barg.exit
   %and = and i32 %conv.i6, 31
   %shr = ashr i32 %conv.i, %and
   %conv = sitofp i32 %shr to double
-  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #4
+  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #5
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_rol(ptr noundef %L) #0 {
+define internal noundef i32 @bit_rol(ptr noundef %L) #0 {
 entry:
-  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
+  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #5
   %add.i = fadd double %call.i, 0x4338000000000000
   %0 = bitcast double %add.i to i64
   %conv.i = trunc i64 %0 to i32
@@ -439,16 +439,16 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %barg.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #4
+  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #5
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %barg.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #4
+  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #5
   br label %barg.exit
 
 barg.exit:                                        ; preds = %if.then.i, %land.lhs.true.i, %entry
-  %call.i6 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 2) #4
+  %call.i6 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 2) #5
   %add.i7 = fadd double %call.i6, 0x4338000000000000
   %1 = bitcast double %add.i7 to i64
   %conv.i8 = trunc i64 %1 to i32
@@ -456,25 +456,25 @@ barg.exit:                                        ; preds = %if.then.i, %land.lh
   br i1 %cmp.i9, label %land.lhs.true.i10, label %barg.exit15
 
 land.lhs.true.i10:                                ; preds = %barg.exit
-  %call2.i11 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 2) #4
+  %call2.i11 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 2) #5
   %tobool.not.i12 = icmp eq i32 %call2.i11, 0
   br i1 %tobool.not.i12, label %if.then.i13, label %barg.exit15
 
 if.then.i13:                                      ; preds = %land.lhs.true.i10
-  %call3.i14 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.4) #4
+  %call3.i14 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.4) #5
   br label %barg.exit15
 
 barg.exit15:                                      ; preds = %if.then.i13, %land.lhs.true.i10, %barg.exit
   %or = tail call i32 @llvm.fshl.i32(i32 %conv.i, i32 %conv.i, i32 %conv.i8)
   %conv = sitofp i32 %or to double
-  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #4
+  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #5
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_ror(ptr noundef %L) #0 {
+define internal noundef i32 @bit_ror(ptr noundef %L) #0 {
 entry:
-  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
+  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #5
   %add.i = fadd double %call.i, 0x4338000000000000
   %0 = bitcast double %add.i to i64
   %conv.i = trunc i64 %0 to i32
@@ -482,16 +482,16 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %barg.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #4
+  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #5
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %barg.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #4
+  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #5
   br label %barg.exit
 
 barg.exit:                                        ; preds = %if.then.i, %land.lhs.true.i, %entry
-  %call.i6 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 2) #4
+  %call.i6 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 2) #5
   %add.i7 = fadd double %call.i6, 0x4338000000000000
   %1 = bitcast double %add.i7 to i64
   %conv.i8 = trunc i64 %1 to i32
@@ -499,25 +499,25 @@ barg.exit:                                        ; preds = %if.then.i, %land.lh
   br i1 %cmp.i9, label %land.lhs.true.i10, label %barg.exit15
 
 land.lhs.true.i10:                                ; preds = %barg.exit
-  %call2.i11 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 2) #4
+  %call2.i11 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 2) #5
   %tobool.not.i12 = icmp eq i32 %call2.i11, 0
   br i1 %tobool.not.i12, label %if.then.i13, label %barg.exit15
 
 if.then.i13:                                      ; preds = %land.lhs.true.i10
-  %call3.i14 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.4) #4
+  %call3.i14 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.4) #5
   br label %barg.exit15
 
 barg.exit15:                                      ; preds = %if.then.i13, %land.lhs.true.i10, %barg.exit
   %or = tail call i32 @llvm.fshr.i32(i32 %conv.i, i32 %conv.i, i32 %conv.i8)
   %conv = sitofp i32 %or to double
-  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #4
+  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #5
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_bswap(ptr noundef %L) #0 {
+define internal noundef i32 @bit_bswap(ptr noundef %L) #0 {
 entry:
-  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
+  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #5
   %add.i = fadd double %call.i, 0x4338000000000000
   %0 = bitcast double %add.i to i64
   %conv.i = trunc i64 %0 to i32
@@ -525,26 +525,26 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %barg.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #4
+  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #5
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %barg.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #4
+  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #5
   br label %barg.exit
 
 barg.exit:                                        ; preds = %if.then.i, %land.lhs.true.i, %entry
   %or5 = tail call i32 @llvm.bswap.i32(i32 %conv.i)
   %conv = sitofp i32 %or5 to double
-  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #4
+  tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv) #5
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bit_tohex(ptr noundef %L) #0 {
+define internal noundef i32 @bit_tohex(ptr noundef %L) #0 {
 entry:
   %buf = alloca [8 x i8], align 1
-  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #4
+  %call.i = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 1) #5
   %add.i = fadd double %call.i, 0x4338000000000000
   %0 = bitcast double %add.i to i64
   %1 = and i64 %0, 4294967295
@@ -552,21 +552,21 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %barg.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #4
+  %call2.i = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 1) #5
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %barg.exit
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #4
+  %call3.i = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 1, ptr noundef nonnull @.str.4) #5
   br label %barg.exit
 
 barg.exit:                                        ; preds = %if.then.i, %land.lhs.true.i, %entry
-  %call1 = tail call i32 @lua_type(ptr noundef %L, i32 noundef 2) #4
+  %call1 = tail call i32 @lua_type(ptr noundef %L, i32 noundef 2) #5
   %cmp = icmp eq i32 %call1, -1
   br i1 %cmp, label %3, label %cond.false
 
 cond.false:                                       ; preds = %barg.exit
-  %call.i20 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 2) #4
+  %call.i20 = tail call double @lua_tonumber(ptr noundef %L, i32 noundef 2) #5
   %call.i20.fr = freeze double %call.i20
   %add.i21 = fadd double %call.i20.fr, 0x4338000000000000
   %2 = bitcast double %add.i21 to i64
@@ -575,26 +575,26 @@ cond.false:                                       ; preds = %barg.exit
   br i1 %cmp.i23, label %land.lhs.true.i24, label %cond.end
 
 land.lhs.true.i24:                                ; preds = %cond.false
-  %call2.i25 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 2) #4
+  %call2.i25 = tail call i32 @lua_isnumber(ptr noundef %L, i32 noundef 2) #5
   %tobool.not.i26 = icmp eq i32 %call2.i25, 0
   br i1 %tobool.not.i26, label %if.then.i27, label %.thread43
 
 if.then.i27:                                      ; preds = %land.lhs.true.i24
-  %call3.i28 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.4) #4
+  %call3.i28 = tail call i32 @luaL_typerror(ptr noundef %L, i32 noundef 2, ptr noundef nonnull @.str.4) #5
   br label %.thread43
 
 cond.end:                                         ; preds = %cond.false
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf) #5
   %cmp3 = icmp slt i32 %conv.i22, 0
   %spec.select46 = select i1 %cmp3, ptr @.str.18, ptr @.str.17
   br label %for.body.preheader
 
 .thread43:                                        ; preds = %if.then.i27, %land.lhs.true.i24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf) #5
   br label %for.end
 
 3:                                                ; preds = %barg.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf) #5
   br label %for.body.preheader
 
 for.body.preheader:                               ; preds = %3, %cond.end
@@ -705,10 +705,10 @@ for.body.7:                                       ; preds = %for.body.6
 for.end:                                          ; preds = %for.body.7, %for.body.6, %for.body.5, %for.body.4, %for.body.3, %for.body.2, %for.body.1, %for.body.preheader, %.thread43
   %cond3741 = phi i32 [ 0, %.thread43 ], [ %cond3740, %for.body.7 ], [ %cond3740, %for.body.6 ], [ %cond3740, %for.body.5 ], [ %cond3740, %for.body.4 ], [ %cond3740, %for.body.3 ], [ %cond3740, %for.body.2 ], [ %cond3740, %for.body.1 ], [ %cond3740, %for.body.preheader ]
   %spec.select = tail call i32 @llvm.abs.i32(i32 %cond3741, i1 true)
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 8)
-  %conv = zext nneg i32 %spec.store.select to i64
-  call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull %buf, i64 noundef %conv) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf) #4
+  %20 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 8)
+  %conv = zext nneg i32 %20 to i64
+  call void @lua_pushlstring(ptr noundef %L, ptr noundef nonnull %buf, i64 noundef %conv) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf) #5
   ret i32 1
 }
 
@@ -733,11 +733,15 @@ declare i32 @llvm.smin.i32(i32, i32) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #3
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #4
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

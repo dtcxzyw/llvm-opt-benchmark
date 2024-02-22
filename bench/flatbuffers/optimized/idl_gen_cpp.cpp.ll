@@ -31106,12 +31106,12 @@ entry:
   br i1 %cmp16.i, label %while.body.preheader.i, label %if.end
 
 while.body.preheader.i:                           ; preds = %entry
-  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %__original_len, i64 144115188075855871)
+  %0 = tail call i64 @llvm.umin.i64(i64 %__original_len, i64 144115188075855871)
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end4.i, %while.body.preheader.i
-  %storemerge27.i = phi i64 [ %div5.i, %if.end4.i ], [ %spec.select.i, %while.body.preheader.i ]
-  %mul.i = shl i64 %storemerge27.i, 6
+  %storemerge27.i = phi i64 [ %div5.i, %if.end4.i ], [ %0, %while.body.preheader.i ]
+  %mul.i = shl nuw nsw i64 %storemerge27.i, 6
   %call.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #27
   %cmp2.not.i = icmp eq ptr %call.i, null
   br i1 %cmp2.not.i, label %if.end4.i, label %if.then
@@ -31123,7 +31123,7 @@ if.end4.i:                                        ; preds = %while.body.i
   br i1 %cmp1.not.i, label %if.end, label %while.body.i, !llvm.loop !141
 
 if.then:                                          ; preds = %while.body.i
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %call.i, i64 %mul.i
+  %add.ptr = getelementptr inbounds i8, ptr %call.i, i64 %mul.i
   %cmp.i.i = icmp eq i64 %storemerge27.i, 0
   br i1 %cmp.i.i, label %invoke.cont, label %if.end.i.i
 
@@ -31148,7 +31148,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(32) %filename3.i.i11.i.i) #22
   %incdec.ptr4.i.i = getelementptr inbounds i8, ptr %__prev.016.i.i, i64 64
   %__cur.0.i.i = getelementptr inbounds i8, ptr %__cur.017.i.i, i64 64
-  %cmp1.not.i.i = icmp eq ptr %__cur.0.i.i, %add.ptr.ptr
+  %cmp1.not.i.i = icmp eq ptr %__cur.0.i.i, %add.ptr
   br i1 %cmp1.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !142
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %if.end.i.i

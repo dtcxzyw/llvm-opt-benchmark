@@ -5406,8 +5406,9 @@ if.else.i177:                                     ; preds = %if.then50
   br i1 %tobool56.not, label %return, label %if.end58
 
 if.end58:                                         ; preds = %if.else.i177
-  %max.call.i = tail call i32 @llvm.smin.i32(i32 %conv.i.i, i32 255)
-  %retval.0.i178.ph = tail call i32 @llvm.smax.i32(i32 %max.call.i, i32 1)
+  %cmp1.i = icmp slt i32 %conv.i.i, 1
+  %14 = tail call i32 @llvm.umin.i32(i32 %conv.i.i, i32 255)
+  %retval.0.i178.ph = select i1 %cmp1.i, i32 1, i32 %14
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.80, i32 noundef %retval.0.i178.ph)
   %global_max_nameserver_timeout = getelementptr inbounds i8, ptr %base, i64 80
   store i32 %retval.0.i178.ph, ptr %global_max_nameserver_timeout, align 8
@@ -5441,9 +5442,9 @@ if.else72:                                        ; preds = %if.else59
 if.then75:                                        ; preds = %if.else72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i179)
   %call.i180 = call i64 @strtol(ptr noundef %val, ptr noundef nonnull %endptr.i179, i32 noundef 10) #18
-  %14 = load ptr, ptr %endptr.i179, align 8
-  %15 = load i8, ptr %14, align 1
-  %tobool.not.i181 = icmp ne i8 %15, 0
+  %15 = load ptr, ptr %endptr.i179, align 8
+  %16 = load i8, ptr %15, align 1
+  %tobool.not.i181 = icmp ne i8 %16, 0
   %conv.i182 = trunc i64 %call.i180 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i179)
   %cmp77223 = icmp eq i32 %conv.i182, -1
@@ -5470,9 +5471,9 @@ if.else87:                                        ; preds = %if.else72
 if.then90:                                        ; preds = %if.else87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i184)
   %call.i185 = call i64 @strtol(ptr noundef %val, ptr noundef nonnull %endptr.i184, i32 noundef 10) #18
-  %16 = load ptr, ptr %endptr.i184, align 8
-  %17 = load i8, ptr %16, align 1
-  %tobool.not.i186 = icmp ne i8 %17, 0
+  %17 = load ptr, ptr %endptr.i184, align 8
+  %18 = load i8, ptr %17, align 1
+  %tobool.not.i186 = icmp ne i8 %18, 0
   %conv.i187 = trunc i64 %call.i185 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i184)
   %cmp92224 = icmp eq i32 %conv.i187, -1
@@ -5507,9 +5508,9 @@ if.end106:                                        ; preds = %if.then102
   br i1 %tobool108.not, label %if.end110, label %return
 
 if.end110:                                        ; preds = %if.end106
-  %18 = load i32, ptr %len, align 4
+  %19 = load i32, ptr %len, align 4
   %global_outgoing_addrlen = getelementptr inbounds i8, ptr %base, i64 264
-  store i32 %18, ptr %global_outgoing_addrlen, align 8
+  store i32 %19, ptr %global_outgoing_addrlen, align 8
   br label %return
 
 if.else111:                                       ; preds = %if.else99
@@ -5523,8 +5524,8 @@ if.then114:                                       ; preds = %if.else111
   br i1 %cmp117, label %return, label %if.end119
 
 if.end119:                                        ; preds = %if.then114
-  %19 = load i64, ptr %tv115, align 8
-  %spec.store.select221 = tail call i64 @llvm.smin.i64(i64 %19, i64 3600)
+  %20 = load i64, ptr %tv115, align 8
+  %spec.store.select221 = tail call i64 @llvm.smin.i64(i64 %20, i64 3600)
   store i64 %spec.store.select221, ptr %tv115, align 8
   %and124 = and i32 %flags, 4
   %tobool125.not = icmp eq i32 %and124, 0
@@ -5556,9 +5557,9 @@ if.end139:                                        ; preds = %if.end135
   %ns_max_probe_timeout = getelementptr inbounds i8, ptr %base, i64 348
   store i32 %call132, ptr %ns_max_probe_timeout, align 4
   %global_nameserver_probe_initial_timeout140 = getelementptr inbounds i8, ptr %base, i64 96
-  %20 = load i64, ptr %global_nameserver_probe_initial_timeout140, align 8
+  %21 = load i64, ptr %global_nameserver_probe_initial_timeout140, align 8
   %conv = zext nneg i32 %call132 to i64
-  %cmp142 = icmp sgt i64 %20, %conv
+  %cmp142 = icmp sgt i64 %21, %conv
   br i1 %cmp142, label %if.then144, label %return
 
 if.then144:                                       ; preds = %if.end139
@@ -5597,9 +5598,9 @@ if.else163:                                       ; preds = %if.else150
 if.then166:                                       ; preds = %if.else163
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i189)
   %call.i190 = call i64 @strtol(ptr noundef %val, ptr noundef nonnull %endptr.i189, i32 noundef 10) #18
-  %21 = load ptr, ptr %endptr.i189, align 8
-  %22 = load i8, ptr %21, align 1
-  %tobool.not.i191 = icmp ne i8 %22, 0
+  %22 = load ptr, ptr %endptr.i189, align 8
+  %23 = load i8, ptr %22, align 1
+  %tobool.not.i191 = icmp ne i8 %23, 0
   %conv.i192 = trunc i64 %call.i190 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i189)
   %cmp168225 = icmp eq i32 %conv.i192, -1
@@ -5625,9 +5626,9 @@ if.else176:                                       ; preds = %if.else163
 if.then179:                                       ; preds = %if.else176
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i194)
   %call.i195 = call i64 @strtol(ptr noundef %val, ptr noundef nonnull %endptr.i194, i32 noundef 10) #18
-  %23 = load ptr, ptr %endptr.i194, align 8
-  %24 = load i8, ptr %23, align 1
-  %tobool.not.i196 = icmp ne i8 %24, 0
+  %24 = load ptr, ptr %endptr.i194, align 8
+  %25 = load i8, ptr %24, align 1
+  %tobool.not.i196 = icmp ne i8 %25, 0
   %conv.i197 = trunc i64 %call.i195 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i194)
   %cmp182226 = icmp eq i32 %conv.i197, -1
@@ -5688,9 +5689,9 @@ land.lhs.true213:                                 ; preds = %if.end211
 if.end217:                                        ; preds = %land.lhs.true213, %if.end211
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.100)
   %global_tcp_flags = getelementptr inbounds i8, ptr %base, i64 112
-  %25 = load i16, ptr %global_tcp_flags, align 8
-  %26 = or i16 %25, 2
-  store i16 %26, ptr %global_tcp_flags, align 8
+  %26 = load i16, ptr %global_tcp_flags, align 8
+  %27 = or i16 %26, 2
+  store i16 %27, ptr %global_tcp_flags, align 8
   br label %return
 
 if.else220:                                       ; preds = %if.else204
@@ -5715,9 +5716,9 @@ land.lhs.true229:                                 ; preds = %if.end227
 if.end233:                                        ; preds = %land.lhs.true229, %if.end227
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.102)
   %global_tcp_flags234 = getelementptr inbounds i8, ptr %base, i64 112
-  %27 = load i16, ptr %global_tcp_flags234, align 8
-  %28 = or i16 %27, 4
-  store i16 %28, ptr %global_tcp_flags234, align 8
+  %28 = load i16, ptr %global_tcp_flags234, align 8
+  %29 = or i16 %28, 4
+  store i16 %29, ptr %global_tcp_flags234, align 8
   br label %return
 
 if.else238:                                       ; preds = %if.else220

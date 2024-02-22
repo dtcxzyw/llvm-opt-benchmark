@@ -1557,7 +1557,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit"
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
-  %6 = phi ptr [ %1, %for.body.lr.ph ], [ %20, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
+  %6 = phi ptr [ %1, %for.body.lr.ph ], [ %21, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
   %numFreed.047 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
   %add.ptr.i.i = getelementptr inbounds %"class.facebook::velox::memory::Allocation::PageRun", ptr %6, i64 %indvars.iv
   %retval.sroa.0.0.copyload.i = load i64, ptr %add.ptr.i.i, align 8
@@ -1620,19 +1620,19 @@ if.end.i.i.i:                                     ; preds = %if.then.i
   %14 = call i64 @llvm.ctlz.i64(i64 %spec.select.i.i.i, i1 true), !range !6
   %cast.i.i.i = trunc i64 %14 to i32
   %sub.i.i = xor i32 %cast.i.i.i, 63
-  %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i, i32 19)
-  %15 = zext nneg i32 %.sroa.speculated.i.i to i64
+  %15 = call i32 @llvm.umin.i32(i32 %sub.i.i, i32 19)
+  %16 = zext nneg i32 %15 to i64
   br label %_ZN8facebook5velox10ClockTimerD2Ev.exit.i
 
 _ZN8facebook5velox10ClockTimerD2Ev.exit.i:        ; preds = %if.end.i.i.i, %if.then.i
-  %retval.0.i.i = phi i64 [ %15, %if.end.i.i.i ], [ 0, %if.then.i ]
+  %retval.0.i.i = phi i64 [ %16, %if.end.i.i.i ], [ 0, %if.then.i ]
   %freeClocks.i = getelementptr inbounds [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %stats_, i64 0, i64 %retval.0.i.i, i32 2
-  %16 = call noundef i64 @llvm.x86.rdtsc()
+  %17 = call noundef i64 @llvm.x86.rdtsc()
   %op.val.val.i = load ptr, ptr %ptr, align 8
   call void @free(ptr noundef %op.val.val.i) #21
-  %17 = call noundef i64 @llvm.x86.rdtsc()
-  %sub.i3.i = sub i64 %17, %16
-  %18 = atomicrmw add ptr %freeClocks.i, i64 %sub.i3.i seq_cst, align 8
+  %18 = call noundef i64 @llvm.x86.rdtsc()
+  %sub.i3.i = sub i64 %18, %17
+  %19 = atomicrmw add ptr %freeClocks.i, i64 %sub.i3.i seq_cst, align 8
   br label %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit"
 
 if.else.i:                                        ; preds = %if.end9
@@ -1642,22 +1642,22 @@ if.else.i:                                        ; preds = %if.end9
 
 "_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit": ; preds = %_ZN8facebook5velox10ClockTimerD2Ev.exit.i, %if.else.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %20 = load ptr, ptr %runs_.i.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %20 to i64
+  %20 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %21 = load ptr, ptr %runs_.i.i, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %20 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %21 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
-  %21 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp = icmp ult i64 %indvars.iv.next, %21
+  %22 = and i64 %sub.ptr.div.i.i, 4294967295
+  %cmp = icmp ult i64 %indvars.iv.next, %22
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit", %for.cond.preheader
   %numFreed.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %add, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
   %mul.i = shl i64 %numFreed.0.lcssa, 12
   %allocatedBytes_.i = getelementptr inbounds i8, ptr %this, i64 896
-  %22 = atomicrmw sub ptr %allocatedBytes_.i, i64 %mul.i seq_cst, align 8
-  %cmp.i24 = icmp slt i64 %22, %mul.i
+  %23 = atomicrmw sub ptr %allocatedBytes_.i, i64 %mul.i seq_cst, align 8
+  %cmp.i24 = icmp slt i64 %23, %mul.i
   br i1 %cmp.i24, label %if.then.i25, label %_ZN8facebook5velox6memory15MallocAllocator14decrementUsageEl.exit
 
 if.then.i25:                                      ; preds = %for.end
@@ -1666,14 +1666,14 @@ if.then.i25:                                      ; preds = %for.end
 
 _ZN8facebook5velox6memory15MallocAllocator14decrementUsageEl.exit: ; preds = %for.end
   %numAllocated_ = getelementptr inbounds i8, ptr %this, i64 48
-  %23 = atomicrmw sub ptr %numAllocated_, i64 %numFreed.0.lcssa seq_cst, align 8
-  %24 = load ptr, ptr %runs_.i.i, align 8
-  %25 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %25, %24
+  %24 = atomicrmw sub ptr %numAllocated_, i64 %numFreed.0.lcssa seq_cst, align 8
+  %25 = load ptr, ptr %runs_.i.i, align 8
+  %26 = load ptr, ptr %_M_finish.i.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %26, %25
   br i1 %tobool.not.i.i.i, label %_ZN8facebook5velox6memory10Allocation5clearEv.exit, label %invoke.cont.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %_ZN8facebook5velox6memory15MallocAllocator14decrementUsageEl.exit
-  store ptr %24, ptr %_M_finish.i.i.i, align 8
+  store ptr %25, ptr %_M_finish.i.i.i, align 8
   br label %_ZN8facebook5velox6memory10Allocation5clearEv.exit
 
 _ZN8facebook5velox6memory10Allocation5clearEv.exit: ; preds = %_ZN8facebook5velox6memory15MallocAllocator14decrementUsageEl.exit, %invoke.cont.i.i.i
@@ -3666,6 +3666,9 @@ declare i64 @llvm.umin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #24
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

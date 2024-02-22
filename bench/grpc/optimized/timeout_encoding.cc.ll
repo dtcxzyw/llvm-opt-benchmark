@@ -182,8 +182,8 @@ if.end23.i.i:                                     ; preds = %if.then12.i.i, %if.
   %div.i1729.i = phi i64 [ %div.i173341.i, %if.then12.i.i ], [ %div.i173341.i, %if.else10.i.i ], [ %div.i173538.i, %if.then4.i.i ], [ %div.i1730.i, %if.then.i.i ]
   %add.i16.i.i = add nuw nsw i64 %div.i1729.i, 59
   %div.i17.i.i32 = udiv i64 %add.i16.i.i, 60
-  %spec.select3.i.i.i = tail call i64 @llvm.smin.i64(i64 %div.i17.i.i32, i64 27000)
-  %spec.select.i.i.i = trunc i64 %spec.select3.i.i.i to i16
+  %7 = tail call i64 @llvm.umin.i64(i64 %div.i17.i.i32, i64 27000)
+  %spec.select.i.i.i = trunc i64 %7 to i16
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.then.i, %if.then11, %if.end23.i.i, %if.then18.i.i, %if.then4.i.i, %if.then18.i, %if.then4.i, %if.then5, %if.else19, %entry, %if.then2
@@ -931,6 +931,9 @@ entry:
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10

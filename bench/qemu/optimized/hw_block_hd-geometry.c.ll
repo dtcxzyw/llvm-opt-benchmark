@@ -150,15 +150,15 @@ if.then5:                                         ; preds = %for.inc.i, %if.else
   %div.i27 = udiv i64 %18, 1008
   %conv.i = trunc i64 %div.i27 to i32
   %spec.store.select.i = call i32 @llvm.smax.i32(i32 %conv.i, i32 2)
-  %cylinders.0.i = call i32 @llvm.smin.i32(i32 %spec.store.select.i, i32 16383)
-  store i32 %cylinders.0.i, ptr %pcyls, align 4
+  %19 = call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 16383)
+  store i32 %19, ptr %pcyls, align 4
   store i32 16, ptr %pheads, align 4
   store i32 63, ptr %psecs, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nb_sectors.i26)
-  %19 = load i32, ptr %pcyls, align 4
-  %20 = load i32, ptr %pheads, align 4
-  %cmp.i28 = icmp ult i32 %19, 1025
-  %cmp1.i29 = icmp ult i32 %20, 17
+  %20 = load i32, ptr %pcyls, align 4
+  %21 = load i32, ptr %pheads, align 4
+  %cmp.i28 = icmp ult i32 %20, 1025
+  %cmp1.i29 = icmp ult i32 %21, 17
   %or.cond.i30 = and i1 %cmp.i28, %cmp1.i29
   %cond.i = select i1 %or.cond.i30, i32 1, i32 2
   br label %if.end13
@@ -173,18 +173,18 @@ if.else7:                                         ; preds = %if.else.i.i.i, %if.
 if.then9:                                         ; preds = %if.else7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %nb_sectors.i31)
   call void @blk_get_geometry(ptr noundef %blk, ptr noundef nonnull %nb_sectors.i31) #6
-  %21 = load i64, ptr %nb_sectors.i31, align 8
-  %div.i32 = udiv i64 %21, 1008
+  %22 = load i64, ptr %nb_sectors.i31, align 8
+  %div.i32 = udiv i64 %22, 1008
   %conv.i33 = trunc i64 %div.i32 to i32
   %spec.store.select.i34 = call i32 @llvm.smax.i32(i32 %conv.i33, i32 2)
-  %cylinders.0.i35 = call i32 @llvm.smin.i32(i32 %spec.store.select.i34, i32 16383)
-  store i32 %cylinders.0.i35, ptr %pcyls, align 4
+  %23 = call i32 @llvm.umin.i32(i32 %spec.store.select.i34, i32 16383)
+  store i32 %23, ptr %pcyls, align 4
   store i32 16, ptr %pheads, align 4
   store i32 63, ptr %psecs, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nb_sectors.i31)
-  %22 = load i32, ptr %pcyls, align 4
-  %23 = load i32, ptr %pheads, align 4
-  %mul = mul i32 %23, %22
+  %24 = load i32, ptr %pcyls, align 4
+  %25 = load i32, ptr %pheads, align 4
+  %mul = mul i32 %25, %24
   %cmp10 = icmp ult i32 %mul, 131073
   %cond = select i1 %cmp10, i32 3, i32 2
   br label %if.end13
@@ -201,8 +201,8 @@ if.end13:                                         ; preds = %if.then5, %if.else1
   br i1 %tobool.not, label %if.end19, label %if.then14
 
 if.then14:                                        ; preds = %if.end13
-  %24 = load i32, ptr %ptrans, align 4
-  %cmp15 = icmp eq i32 %24, 0
+  %26 = load i32, ptr %ptrans, align 4
+  %cmp15 = icmp eq i32 %26, 0
   br i1 %cmp15, label %if.then16, label %if.end19
 
 if.then16:                                        ; preds = %if.then14
@@ -210,41 +210,41 @@ if.then16:                                        ; preds = %if.then14
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then14, %if.then16, %if.end13
-  %translation.1 = phi i32 [ %translation.0, %if.then16 ], [ %translation.0, %if.end13 ], [ %24, %if.then14 ]
-  %25 = load i32, ptr %pcyls, align 4
-  %26 = load i32, ptr %pheads, align 4
-  %27 = load i32, ptr %psecs, align 4
+  %translation.1 = phi i32 [ %translation.0, %if.then16 ], [ %translation.0, %if.end13 ], [ %26, %if.then14 ]
+  %27 = load i32, ptr %pcyls, align 4
+  %28 = load i32, ptr %pheads, align 4
+  %29 = load i32, ptr %psecs, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
-  %28 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i = icmp ne i32 %28, 0
-  %29 = load i16, ptr @_TRACE_HD_GEOMETRY_GUESS_DSTATE, align 2
-  %tobool4.i.i = icmp ne i16 %29, 0
+  %30 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i = icmp ne i32 %30, 0
+  %31 = load i16, ptr @_TRACE_HD_GEOMETRY_GUESS_DSTATE, align 2
+  %tobool4.i.i = icmp ne i16 %31, 0
   %or.cond.i.i = select i1 %tobool.i.i, i1 %tobool4.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true5.i.i, label %trace_hd_geometry_guess.exit
 
 land.lhs.true5.i.i:                               ; preds = %if.end19
-  %30 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i = and i32 %30, 32768
+  %32 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i = and i32 %32, 32768
   %cmp.i.not.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %trace_hd_geometry_guess.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
-  %31 = load i8, ptr @message_with_timestamp, align 1
-  %32 = and i8 %31, 1
-  %tobool7.not.i.i = icmp eq i8 %32, 0
+  %33 = load i8, ptr @message_with_timestamp, align 1
+  %34 = and i8 %33, 1
+  %tobool7.not.i.i = icmp eq i8 %34, 0
   br i1 %tobool7.not.i.i, label %if.else.i.i, label %if.then8.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = call i32 @qemu_get_thread_id() #6
-  %33 = load i64, ptr %_now.i.i, align 8
+  %35 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
-  %34 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %33, i64 noundef %34, ptr noundef %blk, i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %translation.1) #6
+  %36 = load i64, ptr %tv_usec.i.i, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call10.i.i, i64 noundef %35, i64 noundef %36, ptr noundef %blk, i32 noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef %translation.1) #6
   br label %trace_hd_geometry_guess.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, ptr noundef %blk, i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %translation.1) #6
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, ptr noundef %blk, i32 noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef %translation.1) #6
   br label %trace_hd_geometry_guess.exit
 
 trace_hd_geometry_guess.exit:                     ; preds = %if.end19, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -287,7 +287,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #4
+declare i32 @llvm.umin.i32(i32, i32) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

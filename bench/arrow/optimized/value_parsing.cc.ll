@@ -3381,13 +3381,13 @@ if.end.i36:                                       ; preds = %_ZNK14arrow_vendore
   %spec.select158 = add nsw i32 %spec.select158.v, %am.coerce1
   %22 = and i64 %add23.i.i128, 25165823
   %cmp28.i51.not = icmp ult i32 %spec.select158, 255
-  %spec.select160 = call i32 @llvm.smin.i32(i32 %spec.select158, i32 255)
-  %23 = select i1 %cmp28.i51.not, i1 %cmp14.i42.not, i1 false
-  %spec.select161 = select i1 %23, i64 %22, i64 0
+  %23 = call i32 @llvm.umin.i32(i32 %spec.select158, i32 255)
+  %24 = select i1 %cmp28.i51.not, i1 %cmp14.i42.not, i1 false
+  %spec.select161 = select i1 %24, i64 %22, i64 0
   br label %_ZN14arrow_vendored10fast_float5roundIfZNS0_19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES3_iEUlRS3_iE0_EEvS6_T0_.exit
 
 _ZN14arrow_vendored10fast_float5roundIfZNS0_19negative_digit_compIfEENS0_17adjusted_mantissaERNS0_6bigintES3_iEUlRS3_iE0_EEvS6_T0_.exit: ; preds = %if.end.i36, %if.then.i61
-  %retval.sroa.12.1 = phi i32 [ %cond.i71, %if.then.i61 ], [ %spec.select160, %if.end.i36 ]
+  %retval.sroa.12.1 = phi i32 [ %cond.i71, %if.then.i61 ], [ %23, %if.end.i36 ]
   %retval.sroa.0.1 = phi i64 [ %add23.i.i, %if.then.i61 ], [ %spec.select161, %if.end.i36 ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.1, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %retval.sroa.12.1, 1
@@ -4506,13 +4506,13 @@ if.end.i37:                                       ; preds = %_ZNK14arrow_vendore
   %spec.select158 = add nsw i32 %spec.select158.v, %am.coerce1
   %22 = and i64 %add23.i.i128, 13510798882111487
   %cmp28.i52.not = icmp ult i32 %spec.select158, 2047
-  %spec.select160 = call i32 @llvm.smin.i32(i32 %spec.select158, i32 2047)
-  %23 = select i1 %cmp28.i52.not, i1 %cmp14.i43.not, i1 false
-  %spec.select161 = select i1 %23, i64 %22, i64 0
+  %23 = call i32 @llvm.umin.i32(i32 %spec.select158, i32 2047)
+  %24 = select i1 %cmp28.i52.not, i1 %cmp14.i43.not, i1 false
+  %spec.select161 = select i1 %24, i64 %22, i64 0
   br label %_ZN14arrow_vendored10fast_float5roundIdZNS0_19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES3_iEUlRS3_iE0_EEvS6_T0_.exit
 
 _ZN14arrow_vendored10fast_float5roundIdZNS0_19negative_digit_compIdEENS0_17adjusted_mantissaERNS0_6bigintES3_iEUlRS3_iE0_EEvS6_T0_.exit: ; preds = %if.end.i37, %if.then.i62
-  %retval.sroa.12.1 = phi i32 [ %cond.i72, %if.then.i62 ], [ %spec.select160, %if.end.i37 ]
+  %retval.sroa.12.1 = phi i32 [ %cond.i72, %if.then.i62 ], [ %23, %if.end.i37 ]
   %retval.sroa.0.1 = phi i64 [ %add23.i.i, %if.then.i62 ], [ %spec.select161, %if.end.i37 ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.1, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %retval.sroa.12.1, 1

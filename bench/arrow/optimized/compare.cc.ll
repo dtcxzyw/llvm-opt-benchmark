@@ -20546,7 +20546,7 @@ if.then11.i:                                      ; preds = %if.else.i74
   %shl20.i = shl i64 %and.i.i83, %sub.i
   %or21.i = or i64 %shl20.i, %left_reader.sroa.17.1
   %shr24.i = lshr i64 %and.i.i83, %sub.i72
-  %33 = tail call i64 @llvm.smax.i64(i64 %left_reader.sroa.11.0, i64 64)
+  %33 = tail call i64 @llvm.umax.i64(i64 %left_reader.sroa.11.0, i64 64)
   %.sroa.speculated.i = add nsw i64 %33, -64
   br label %_ZN5arrow8internal18BitmapUInt64Reader8NextWordEv.exit
 
@@ -23569,6 +23569,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15

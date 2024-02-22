@@ -6458,8 +6458,8 @@ if.then4:                                         ; preds = %if.end
 if.end5:                                          ; preds = %if.end
   %win6 = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load ptr, ptr %win6, align 8
-  %cond = call i32 @llvm.smin.i32(i32 %1, i32 1023)
-  %call9 = call i32 @winnstr(ptr noundef %3, ptr noundef nonnull %rtn, i32 noundef %cond) #8
+  %4 = call i32 @llvm.umin.i32(i32 %1, i32 1023)
+  %call9 = call i32 @winnstr(ptr noundef %3, ptr noundef nonnull %rtn, i32 noundef %4) #8
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry
@@ -6469,16 +6469,16 @@ sw.bb10:                                          ; preds = %entry
 
 if.end14:                                         ; preds = %sw.bb10
   %win15 = getelementptr inbounds i8, ptr %self, i64 16
-  %4 = load ptr, ptr %win15, align 8
-  %5 = load i32, ptr %y, align 4
-  %6 = load i32, ptr %x, align 4
-  %call16 = call i32 @wmove(ptr noundef %4, i32 noundef %5, i32 noundef %6) #8
+  %5 = load ptr, ptr %win15, align 8
+  %6 = load i32, ptr %y, align 4
+  %7 = load i32, ptr %x, align 4
+  %call16 = call i32 @wmove(ptr noundef %5, i32 noundef %6, i32 noundef %7) #8
   %cmp17 = icmp eq i32 %call16, -1
   br i1 %cmp17, label %if.then49, label %cond.false19
 
 cond.false19:                                     ; preds = %if.end14
-  %7 = load ptr, ptr %win15, align 8
-  %call22 = call i32 @winnstr(ptr noundef %7, ptr noundef nonnull %rtn, i32 noundef 1023) #8
+  %8 = load ptr, ptr %win15, align 8
+  %call22 = call i32 @winnstr(ptr noundef %8, ptr noundef nonnull %rtn, i32 noundef 1023) #8
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry
@@ -6487,34 +6487,34 @@ sw.bb25:                                          ; preds = %entry
   br i1 %tobool27.not, label %return, label %if.end29
 
 if.end29:                                         ; preds = %sw.bb25
-  %8 = load i32, ptr %n, align 4
-  %cmp30 = icmp slt i32 %8, 0
+  %9 = load i32, ptr %n, align 4
+  %cmp30 = icmp slt i32 %9, 0
   br i1 %cmp30, label %if.then31, label %if.end32
 
 if.then31:                                        ; preds = %if.end29
-  %9 = load ptr, ptr @PyExc_ValueError, align 8
-  call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.198) #8
+  %10 = load ptr, ptr @PyExc_ValueError, align 8
+  call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.198) #8
   br label %return
 
 if.end32:                                         ; preds = %if.end29
   %win33 = getelementptr inbounds i8, ptr %self, i64 16
-  %10 = load ptr, ptr %win33, align 8
-  %11 = load i32, ptr %y, align 4
-  %12 = load i32, ptr %x, align 4
-  %call34 = call i32 @wmove(ptr noundef %10, i32 noundef %11, i32 noundef %12) #8
+  %11 = load ptr, ptr %win33, align 8
+  %12 = load i32, ptr %y, align 4
+  %13 = load i32, ptr %x, align 4
+  %call34 = call i32 @wmove(ptr noundef %11, i32 noundef %12, i32 noundef %13) #8
   %cmp35 = icmp eq i32 %call34, -1
   br i1 %cmp35, label %if.then49, label %cond.false37
 
 cond.false37:                                     ; preds = %if.end32
-  %13 = load ptr, ptr %win33, align 8
-  %14 = load i32, ptr %n, align 4
-  %cond44 = call i32 @llvm.smin.i32(i32 %14, i32 1023)
-  %call45 = call i32 @winnstr(ptr noundef %13, ptr noundef nonnull %rtn, i32 noundef %cond44) #8
+  %14 = load ptr, ptr %win33, align 8
+  %15 = load i32, ptr %n, align 4
+  %cond44 = call i32 @llvm.smin.i32(i32 %15, i32 1023)
+  %call45 = call i32 @winnstr(ptr noundef %14, ptr noundef nonnull %rtn, i32 noundef %cond44) #8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %15 = load ptr, ptr @PyExc_TypeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.230) #8
+  %16 = load ptr, ptr @PyExc_TypeError, align 8
+  tail call void @PyErr_SetString(ptr noundef %16, ptr noundef nonnull @.str.230) #8
   br label %return
 
 sw.epilog:                                        ; preds = %cond.false37, %cond.false19, %if.end5, %sw.bb
@@ -14360,6 +14360,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7

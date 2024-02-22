@@ -5919,12 +5919,12 @@ entry:
   br i1 %cmp16.i, label %while.body.preheader.i, label %if.end
 
 while.body.preheader.i:                           ; preds = %entry
-  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %__original_len, i64 88686269585142075)
+  %0 = tail call i64 @llvm.umin.i64(i64 %__original_len, i64 88686269585142075)
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end4.i, %while.body.preheader.i
-  %storemerge27.i = phi i64 [ %div5.i, %if.end4.i ], [ %spec.select.i, %while.body.preheader.i ]
-  %mul.i = mul i64 %storemerge27.i, 104
+  %storemerge27.i = phi i64 [ %div5.i, %if.end4.i ], [ %0, %while.body.preheader.i ]
+  %mul.i = mul nuw nsw i64 %storemerge27.i, 104
   %call.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #25
   %cmp2.not.i = icmp eq ptr %call.i, null
   br i1 %cmp2.not.i, label %if.end4.i, label %if.then
@@ -5946,16 +5946,16 @@ invoke.cont:                                      ; preds = %if.then
   br label %if.end
 
 lpad:                                             ; preds = %if.then
-  %0 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  %2 = tail call ptr @__cxa_begin_catch(ptr %1) #19
+  %2 = extractvalue { ptr, i32 } %1, 0
+  %3 = tail call ptr @__cxa_begin_catch(ptr %2) #19
   tail call void @_ZdlPv(ptr noundef nonnull %call.i) #19
   invoke void @__cxa_rethrow() #22
           to label %unreachable unwind label %lpad12
 
 lpad12:                                           ; preds = %lpad
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
@@ -5964,13 +5964,13 @@ if.end:                                           ; preds = %if.end4.i, %entry, 
   ret void
 
 eh.resume:                                        ; preds = %lpad12
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %4
 
 terminate.lpad:                                   ; preds = %lpad12
-  %4 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  tail call void @__clang_call_terminate(ptr %5) #23
+  %6 = extractvalue { ptr, i32 } %5, 0
+  tail call void @__clang_call_terminate(ptr %6) #23
   unreachable
 
 unreachable:                                      ; preds = %lpad
@@ -11752,14 +11752,14 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #16
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #16
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

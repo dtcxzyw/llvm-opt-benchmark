@@ -4204,54 +4204,54 @@ if.then.i.i126:                                   ; preds = %_ZNK6icu_7513Unicod
 
 if.else7.i.i.i:                                   ; preds = %if.then.i.i126
   %sub.i.i.i129 = sub nuw nsw i32 %cond.i.i122, %spec.select.i.i127
-  %spec.select10.i.i = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i129, i32 %cond.i.i122)
-  %cmp.i8.not.i = icmp eq i32 %spec.select10.i.i, 0
+  %44 = tail call i32 @llvm.umin.i32(i32 %sub.i.i.i129, i32 %cond.i.i122)
+  %cmp.i8.not.i = icmp eq i32 %44, 0
   br i1 %cmp.i8.not.i, label %return, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.else7.i.i.i
-  %44 = and i16 %41, 2
-  %tobool.not.i.i.i130 = icmp eq i16 %44, 0
+  %45 = and i16 %41, 2
+  %tobool.not.i.i.i130 = icmp eq i16 %45, 0
   %fBuffer.i.i.i131 = getelementptr inbounds i8, ptr %key, i64 10
   %fArray.i.i.i132 = getelementptr inbounds i8, ptr %key, i64 24
-  %45 = load ptr, ptr %fArray.i.i.i132, align 8
-  %cond.i.i9.i = select i1 %tobool.not.i.i.i130, ptr %45, ptr %fBuffer.i.i.i131
-  %call4.i.i = tail call noundef i32 @_ZNK6icu_7513UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef %cond.i.i9.i, i32 noundef %spec.select.i.i127, i32 noundef %spec.select10.i.i, i32 noundef %start.addr.0.i119, i32 noundef %sub.i123)
+  %46 = load ptr, ptr %fArray.i.i.i132, align 8
+  %cond.i.i9.i = select i1 %tobool.not.i.i.i130, ptr %46, ptr %fBuffer.i.i.i131
+  %call4.i.i = tail call noundef i32 @_ZNK6icu_7513UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef %cond.i.i9.i, i32 noundef %spec.select.i.i127, i32 noundef %44, i32 noundef %start.addr.0.i119, i32 noundef %sub.i123)
   br label %return
 
 if.else:                                          ; preds = %if.end56
-  br i1 %cmp.i.i110, label %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i175, label %if.else.i.i142
+  br i1 %cmp.i.i110, label %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i174, label %if.else.i.i142
 
-entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i175: ; preds = %if.else
-  %fLength.i5.phi.trans.insert.i176 = getelementptr inbounds i8, ptr %str, i64 12
-  %.pre12.i177 = load i32, ptr %fLength.i5.phi.trans.insert.i176, align 4
-  %.pre13.i178 = ashr i16 %.pre.i111, 5
-  %.pre14.i179 = sext i16 %.pre13.i178 to i32
+entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i174: ; preds = %if.else
+  %fLength.i5.phi.trans.insert.i175 = getelementptr inbounds i8, ptr %str, i64 12
+  %.pre12.i176 = load i32, ptr %fLength.i5.phi.trans.insert.i175, align 4
+  %.pre13.i177 = ashr i16 %.pre.i111, 5
+  %.pre14.i178 = sext i16 %.pre13.i177 to i32
   br label %_ZNK6icu_7513UnicodeString8pinIndexERi.exit.i148
 
 if.else.i.i142:                                   ; preds = %if.else
   %cmp.i.i.i.i143 = icmp slt i16 %.pre.i111, 0
-  %46 = ashr i16 %.pre.i111, 5
-  %shr.i.i.i.i144 = sext i16 %46 to i32
+  %47 = ashr i16 %.pre.i111, 5
+  %shr.i.i.i.i144 = sext i16 %47 to i32
   %fLength.i.i.i145 = getelementptr inbounds i8, ptr %str, i64 12
-  %47 = load i32, ptr %fLength.i.i.i145, align 4
-  %cond.i.i.i146 = select i1 %cmp.i.i.i.i143, i32 %47, i32 %shr.i.i.i.i144
+  %48 = load i32, ptr %fLength.i.i.i145, align 4
+  %cond.i.i.i146 = select i1 %cmp.i.i.i.i143, i32 %48, i32 %shr.i.i.i.i144
   %spec.select.i147 = tail call i32 @llvm.smin.i32(i32 %cond.i.i.i146, i32 %startingAt)
   br label %_ZNK6icu_7513UnicodeString8pinIndexERi.exit.i148
 
-_ZNK6icu_7513UnicodeString8pinIndexERi.exit.i148: ; preds = %if.else.i.i142, %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i175
-  %shr.i.i4.pre-phi.i149 = phi i32 [ %.pre14.i179, %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i175 ], [ %shr.i.i.i.i144, %if.else.i.i142 ]
-  %48 = phi i32 [ %.pre12.i177, %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i175 ], [ %47, %if.else.i.i142 ]
-  %start.addr.0.i150 = phi i32 [ 0, %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i175 ], [ %spec.select.i147, %if.else.i.i142 ]
-  %49 = load i16, ptr %fUnion.i.i105, align 8
-  %cmp.i.i.i152 = icmp slt i16 %49, 0
-  %50 = ashr i16 %49, 5
-  %shr.i.i.i153 = sext i16 %50 to i32
-  %51 = load i32, ptr %fLength.i108, align 4
-  %cond.i.i155 = select i1 %cmp.i.i.i152, i32 %51, i32 %shr.i.i.i153
+_ZNK6icu_7513UnicodeString8pinIndexERi.exit.i148: ; preds = %if.else.i.i142, %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i174
+  %shr.i.i4.pre-phi.i149 = phi i32 [ %.pre14.i178, %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i174 ], [ %shr.i.i.i.i144, %if.else.i.i142 ]
+  %49 = phi i32 [ %.pre12.i176, %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i174 ], [ %48, %if.else.i.i142 ]
+  %start.addr.0.i150 = phi i32 [ 0, %entry._ZNK6icu_7513UnicodeString8pinIndexERi.exit_crit_edge.i174 ], [ %spec.select.i147, %if.else.i.i142 ]
+  %50 = load i16, ptr %fUnion.i.i105, align 8
+  %cmp.i.i.i152 = icmp slt i16 %50, 0
+  %51 = ashr i16 %50, 5
+  %shr.i.i.i153 = sext i16 %51 to i32
+  %52 = load i32, ptr %fLength.i108, align 4
+  %cond.i.i155 = select i1 %cmp.i.i.i152, i32 %52, i32 %shr.i.i.i153
   %cmp.i.i3.i156 = icmp slt i16 %.pre.i111, 0
-  %cond.i6.i157 = select i1 %cmp.i.i3.i156, i32 %48, i32 %shr.i.i4.pre-phi.i149
+  %cond.i6.i157 = select i1 %cmp.i.i3.i156, i32 %49, i32 %shr.i.i4.pre-phi.i149
   %sub.i158 = sub nsw i32 %cond.i6.i157, %start.addr.0.i150
-  %conv2.i11.i.i159 = and i16 %49, 1
+  %conv2.i11.i.i159 = and i16 %50, 1
   %tobool.not.i.i160 = icmp eq i16 %conv2.i11.i.i159, 0
   br i1 %tobool.not.i.i160, label %if.then.i.i162, label %if.else66
 
@@ -4262,27 +4262,27 @@ if.then.i.i162:                                   ; preds = %_ZNK6icu_7513Unicod
 
 if.else7.i.i.i165:                                ; preds = %if.then.i.i162
   %sub.i.i.i166 = sub nuw nsw i32 %cond.i.i155, %spec.select.i.i163
-  %spec.select10.i.i167 = tail call i32 @llvm.smin.i32(i32 %sub.i.i.i166, i32 %cond.i.i155)
-  %cmp.i8.not.i168 = icmp eq i32 %spec.select10.i.i167, 0
-  br i1 %cmp.i8.not.i168, label %if.else66, label %_ZNK6icu_7513UnicodeString7indexOfERKS0_i.exit180
+  %53 = tail call i32 @llvm.umin.i32(i32 %sub.i.i.i166, i32 %cond.i.i155)
+  %cmp.i8.not.i167 = icmp eq i32 %53, 0
+  br i1 %cmp.i8.not.i167, label %if.else66, label %_ZNK6icu_7513UnicodeString7indexOfERKS0_i.exit179
 
-_ZNK6icu_7513UnicodeString7indexOfERKS0_i.exit180: ; preds = %if.else7.i.i.i165
-  %52 = and i16 %49, 2
-  %tobool.not.i.i.i170 = icmp eq i16 %52, 0
-  %fBuffer.i.i.i171 = getelementptr inbounds i8, ptr %key, i64 10
-  %fArray.i.i.i172 = getelementptr inbounds i8, ptr %key, i64 24
-  %53 = load ptr, ptr %fArray.i.i.i172, align 8
-  %cond.i.i9.i173 = select i1 %tobool.not.i.i.i170, ptr %53, ptr %fBuffer.i.i.i171
-  %call4.i.i174 = tail call noundef i32 @_ZNK6icu_7513UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef %cond.i.i9.i173, i32 noundef %spec.select.i.i163, i32 noundef %spec.select10.i.i167, i32 noundef %start.addr.0.i150, i32 noundef %sub.i158)
-  %cmp64 = icmp sgt i32 %call4.i.i174, -1
+_ZNK6icu_7513UnicodeString7indexOfERKS0_i.exit179: ; preds = %if.else7.i.i.i165
+  %54 = and i16 %50, 2
+  %tobool.not.i.i.i169 = icmp eq i16 %54, 0
+  %fBuffer.i.i.i170 = getelementptr inbounds i8, ptr %key, i64 10
+  %fArray.i.i.i171 = getelementptr inbounds i8, ptr %key, i64 24
+  %55 = load ptr, ptr %fArray.i.i.i171, align 8
+  %cond.i.i9.i172 = select i1 %tobool.not.i.i.i169, ptr %55, ptr %fBuffer.i.i.i170
+  %call4.i.i173 = tail call noundef i32 @_ZNK6icu_7513UnicodeString7indexOfEPKDsiiii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef %cond.i.i9.i172, i32 noundef %spec.select.i.i163, i32 noundef %53, i32 noundef %start.addr.0.i150, i32 noundef %sub.i158)
+  %cmp64 = icmp sgt i32 %call4.i.i173, -1
   br i1 %cmp64, label %return, label %if.else66
 
-if.else66:                                        ; preds = %if.then.i.i162, %_ZNK6icu_7513UnicodeString8pinIndexERi.exit.i148, %if.else7.i.i.i165, %_ZNK6icu_7513UnicodeString7indexOfERKS0_i.exit180
+if.else66:                                        ; preds = %if.then.i.i162, %_ZNK6icu_7513UnicodeString8pinIndexERi.exit.i148, %if.else7.i.i.i165, %_ZNK6icu_7513UnicodeString7indexOfERKS0_i.exit179
   %call67 = tail call noundef i32 @_ZNK6icu_756NFRule15findTextLenientERKNS_13UnicodeStringES3_iPi(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef nonnull align 8 dereferenceable(64) %key, i32 noundef %startingAt, ptr noundef nonnull %length)
   br label %return
 
-return:                                           ; preds = %if.then2.i.i, %if.else7.i.i.i, %if.then.i.i126, %_ZNK6icu_7513UnicodeString8pinIndexERi.exit.i118, %_ZNK6icu_7513UnicodeString7indexOfERKS0_i.exit180, %if.else66, %cleanup52
-  %retval.2 = phi i32 [ %retval.1, %cleanup52 ], [ %call67, %if.else66 ], [ %call4.i.i174, %_ZNK6icu_7513UnicodeString7indexOfERKS0_i.exit180 ], [ %call4.i.i, %if.then2.i.i ], [ -1, %if.else7.i.i.i ], [ -1, %_ZNK6icu_7513UnicodeString8pinIndexERi.exit.i118 ], [ -1, %if.then.i.i126 ]
+return:                                           ; preds = %if.then2.i.i, %if.else7.i.i.i, %if.then.i.i126, %_ZNK6icu_7513UnicodeString8pinIndexERi.exit.i118, %_ZNK6icu_7513UnicodeString7indexOfERKS0_i.exit179, %if.else66, %cleanup52
+  %retval.2 = phi i32 [ %retval.1, %cleanup52 ], [ %call67, %if.else66 ], [ %call4.i.i173, %_ZNK6icu_7513UnicodeString7indexOfERKS0_i.exit179 ], [ %call4.i.i, %if.then2.i.i ], [ -1, %if.else7.i.i.i ], [ -1, %_ZNK6icu_7513UnicodeString8pinIndexERi.exit.i118 ], [ -1, %if.then.i.i126 ]
   ret i32 %retval.2
 }
 
@@ -4468,6 +4468,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #6

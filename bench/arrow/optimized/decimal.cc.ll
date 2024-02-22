@@ -2421,7 +2421,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.
 
 if.end:                                           ; preds = %entry
   %15 = load i8, ptr %bytes, align 1
-  %16 = tail call i32 @llvm.smax.i32(i32 %length, i32 8)
+  %16 = tail call i32 @llvm.umax.i32(i32 %length, i32 8)
   %.sroa.speculated27 = add nsw i32 %16, -8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result.i)
   store i64 0, ptr %result.i, align 8
@@ -9193,6 +9193,9 @@ declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

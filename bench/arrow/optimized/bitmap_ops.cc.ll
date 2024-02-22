@@ -200,9 +200,9 @@ if.end.i.lr.ph:                                   ; preds = %entry
   %cmp4.i = icmp eq i64 %rem5.i, 0
   %add9.i = sub nsw i64 128, %rem5.i
   %cond11.i = select i1 %cmp4.i, i64 64, i64 %add9.i
-  %.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %spec.select.i, i64 %cond11.i)
-  %0 = or i64 %rem5.i, %rem.i
-  %or.cond.i = icmp eq i64 %0, 0
+  %0 = tail call i64 @llvm.umax.i64(i64 %spec.select.i, i64 %cond11.i)
+  %1 = or i64 %rem5.i, %rem.i
+  %or.cond.i = icmp eq i64 %1, 0
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %if.end
@@ -210,7 +210,7 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %if
   %bit_counter.sroa.0.035 = phi ptr [ %add.ptr.i, %if.end.i.lr.ph ], [ %bit_counter.sroa.0.130, %if.end ]
   %bit_counter.sroa.15.034 = phi i64 [ %length, %if.end.i.lr.ph ], [ %bit_counter.sroa.15.129, %if.end ]
   %bit_counter.sroa.7.033 = phi ptr [ %add.ptr4.i, %if.end.i.lr.ph ], [ %bit_counter.sroa.7.128, %if.end ]
-  %cmp13.i = icmp slt i64 %bit_counter.sroa.15.034, %.sroa.speculated.i
+  %cmp13.i = icmp slt i64 %bit_counter.sroa.15.034, %0
   br i1 %cmp13.i, label %if.then14.i, label %if.end42.i
 
 if.then14.i:                                      ; preds = %if.end.i
@@ -227,23 +227,23 @@ for.body.i:                                       ; preds = %if.then14.i, %for.b
   %add21.i = add nsw i64 %i.031.i, %rem.i
   %shr.i.i = lshr i64 %add21.i, 3
   %arrayidx.i.i = getelementptr inbounds i8, ptr %bit_counter.sroa.0.035, i64 %shr.i.i
-  %1 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i = zext i8 %1 to i32
-  %2 = trunc i64 %add21.i to i32
-  %sh_prom.i.i = and i32 %2, 7
-  %3 = shl nuw nsw i32 1, %sh_prom.i.i
-  %4 = and i32 %3, %conv.i.i
-  %tobool.i.i = icmp ne i32 %4, 0
+  %2 = load i8, ptr %arrayidx.i.i, align 1
+  %conv.i.i = zext i8 %2 to i32
+  %3 = trunc i64 %add21.i to i32
+  %sh_prom.i.i = and i32 %3, 7
+  %4 = shl nuw nsw i32 1, %sh_prom.i.i
+  %5 = and i32 %4, %conv.i.i
+  %tobool.i.i = icmp ne i32 %5, 0
   %add24.i = add nsw i64 %i.031.i, %rem5.i
   %shr.i13.i = lshr i64 %add24.i, 3
   %arrayidx.i14.i = getelementptr inbounds i8, ptr %bit_counter.sroa.7.033, i64 %shr.i13.i
-  %5 = load i8, ptr %arrayidx.i14.i, align 1
-  %conv.i15.i = zext i8 %5 to i32
-  %6 = trunc i64 %add24.i to i32
-  %sh_prom.i16.i = and i32 %6, 7
-  %7 = shl nuw nsw i32 1, %sh_prom.i16.i
-  %8 = and i32 %7, %conv.i15.i
-  %tobool.i17.i = icmp ne i32 %8, 0
+  %6 = load i8, ptr %arrayidx.i14.i, align 1
+  %conv.i15.i = zext i8 %6 to i32
+  %7 = trunc i64 %add24.i to i32
+  %sh_prom.i16.i = and i32 %7, 7
+  %8 = shl nuw nsw i32 1, %sh_prom.i16.i
+  %9 = and i32 %8, %conv.i15.i
+  %tobool.i17.i = icmp ne i32 %9, 0
   %and1.i.i = and i1 %tobool.i.i, %tobool.i17.i
   %inc.i = zext i1 %and1.i.i to i16
   %spec.select10.i = add i16 %popcount17.030.i, %inc.i
@@ -273,7 +273,7 @@ if.else.i:                                        ; preds = %if.end42.i
 
 _ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.thread18: ; preds = %if.then48.i, %if.else.i
   %and.i24.sink.i = phi i64 [ %and.i24.i, %if.else.i ], [ %and.i.i, %if.then48.i ]
-  %9 = tail call noundef i64 @llvm.ctpop.i64(i64 %and.i24.sink.i), !range !6
+  %10 = tail call noundef i64 @llvm.ctpop.i64(i64 %and.i24.sink.i), !range !6
   %add.ptr73.i = getelementptr inbounds i8, ptr %bit_counter.sroa.0.035, i64 8
   %add.ptr75.i = getelementptr inbounds i8, ptr %bit_counter.sroa.7.033, i64 8
   %sub77.i = add nsw i64 %bit_counter.sroa.15.034, -64
@@ -281,18 +281,18 @@ _ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS
 
 _ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit: ; preds = %for.body.i, %if.then14.i
   %popcount17.0.lcssa.i = phi i16 [ 0, %if.then14.i ], [ %spec.select10.i, %for.body.i ]
-  %10 = sdiv i16 %conv.i, 8
-  %idx.ext.i = sext i16 %10 to i64
+  %11 = sdiv i16 %conv.i, 8
+  %idx.ext.i = sext i16 %11 to i64
   %add.ptr.i6 = getelementptr inbounds i8, ptr %bit_counter.sroa.0.035, i64 %idx.ext.i
   %add.ptr36.i = getelementptr inbounds i8, ptr %bit_counter.sroa.7.033, i64 %idx.ext.i
   %sub39.i = sub nsw i64 %bit_counter.sroa.15.034, %conv18.i
   %retval.sroa.4.0.insert.ext.i = zext i16 %popcount17.0.lcssa.i to i64
-  %11 = and i64 %.sroa.speculated27.i, 65535
-  %cmp = icmp eq i64 %11, 0
+  %12 = and i64 %.sroa.speculated27.i, 65535
+  %cmp = icmp eq i64 %12, 0
   br i1 %cmp, label %while.end, label %if.end
 
 if.end:                                           ; preds = %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.thread18, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit
-  %retval.sroa.4.0.insert.ext.i31 = phi i64 [ %9, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.thread18 ], [ %retval.sroa.4.0.insert.ext.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit ]
+  %retval.sroa.4.0.insert.ext.i31 = phi i64 [ %10, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.thread18 ], [ %retval.sroa.4.0.insert.ext.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit ]
   %bit_counter.sroa.0.130 = phi ptr [ %add.ptr73.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.thread18 ], [ %add.ptr.i6, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit ]
   %bit_counter.sroa.15.129 = phi i64 [ %sub77.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.thread18 ], [ %sub39.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit ]
   %bit_counter.sroa.7.128 = phi ptr [ %add.ptr75.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.thread18 ], [ %add.ptr36.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit ]
@@ -5401,7 +5401,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 declare i64 @llvm.fshr.i64(i64, i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18

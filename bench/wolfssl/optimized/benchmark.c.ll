@@ -1298,7 +1298,7 @@ do.body:                                          ; preds = %bench_stats_check.e
   br i1 %cmp236, label %for.body, label %for.end
 
 for.body:                                         ; preds = %do.body, %for.inc
-  %10 = phi i32 [ %13, %for.inc ], [ %9, %do.body ]
+  %10 = phi i32 [ %14, %for.inc ], [ %9, %do.body ]
   %i.038 = phi i32 [ %inc, %for.inc ], [ 0, %do.body ]
   %ret.137 = phi i32 [ %ret.2.lcssa, %for.inc ], [ %ret.0, %do.body ]
   %11 = load i32, ptr @bench_size, align 4
@@ -1312,17 +1312,17 @@ while.body.preheader:                             ; preds = %for.body
 while.body:                                       ; preds = %while.body.preheader, %if.end14
   %remain.035 = phi i64 [ %sub, %if.end14 ], [ %conv, %while.body.preheader ]
   %pos.034 = phi i64 [ %add, %if.end14 ], [ 0, %while.body.preheader ]
-  %spec.store.select = call i64 @llvm.smin.i64(i64 %remain.035, i64 65536)
-  %12 = load ptr, ptr %8, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %12, i64 %pos.034
-  %conv9 = trunc i64 %spec.store.select to i32
+  %12 = call i64 @llvm.umin.i64(i64 %remain.035, i64 65536)
+  %13 = load ptr, ptr %8, align 8
+  %arrayidx = getelementptr inbounds i8, ptr %13, i64 %pos.034
+  %conv9 = trunc i64 %12 to i32
   %call10 = call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %myrng, ptr noundef %arrayidx, i32 noundef %conv9) #16
   %cmp11 = icmp slt i32 %call10, 0
   br i1 %cmp11, label %exit_rng, label %if.end14
 
 if.end14:                                         ; preds = %while.body
-  %sub = sub nsw i64 %remain.035, %spec.store.select
-  %add = add nuw nsw i64 %spec.store.select, %pos.034
+  %sub = sub nsw i64 %remain.035, %12
+  %add = add nuw nsw i64 %12, %pos.034
   %cmp3 = icmp sgt i64 %sub, 0
   br i1 %cmp3, label %while.body, label %for.inc.loopexit, !llvm.loop !10
 
@@ -1331,10 +1331,10 @@ for.inc.loopexit:                                 ; preds = %if.end14
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.loopexit, %for.body
-  %13 = phi i32 [ %10, %for.body ], [ %.pre, %for.inc.loopexit ]
+  %14 = phi i32 [ %10, %for.body ], [ %.pre, %for.inc.loopexit ]
   %ret.2.lcssa = phi i32 [ %ret.137, %for.body ], [ %call10, %for.inc.loopexit ]
   %inc = add nuw nsw i32 %i.038, 1
-  %cmp2 = icmp slt i32 %inc, %13
+  %cmp2 = icmp slt i32 %inc, %14
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %do.body
@@ -1347,19 +1347,19 @@ for.end:                                          ; preds = %for.inc, %do.body
 
 if.then.i.i20:                                    ; preds = %for.end
   %call1.i.i21 = tail call ptr @__errno_location() #17
-  %14 = load i32, ptr %call1.i.i21, align 4
-  %call2.i.i22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %14, ptr noundef nonnull @.str.78)
-  %15 = load ptr, ptr @stdout, align 8
-  %call3.i.i23 = call i32 @fflush(ptr noundef %15)
+  %15 = load i32, ptr %call1.i.i21, align 4
+  %call2.i.i22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %15, ptr noundef nonnull @.str.78)
+  %16 = load ptr, ptr @stdout, align 8
+  %call3.i.i23 = call i32 @fflush(ptr noundef %16)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %for.end
   %add16 = add nuw nsw i32 %i.0.lcssa, %count.0
-  %16 = load i64, ptr %tv.i.i12, align 8
-  %conv.i.i15 = sitofp i64 %16 to double
-  %17 = load i64, ptr %tv_nsec.i.i16, align 8
-  %conv4.i.i17 = sitofp i64 %17 to double
+  %17 = load i64, ptr %tv.i.i12, align 8
+  %conv.i.i15 = sitofp i64 %17 to double
+  %18 = load i64, ptr %tv_nsec.i.i16, align 8
+  %conv4.i.i17 = sitofp i64 %18 to double
   %div.i.i18 = fdiv double %conv4.i.i17, 1.000000e+09
   %add.i.i19 = fadd double %div.i.i18, %conv.i.i15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i12)
@@ -1370,8 +1370,8 @@ bench_stats_check.exit:                           ; preds = %for.end
 exit_rng:                                         ; preds = %bench_stats_check.exit, %while.body
   %count.1 = phi i32 [ %count.0, %while.body ], [ %add16, %bench_stats_check.exit ]
   %ret.3 = phi i32 [ %call10, %while.body ], [ %ret.1.lcssa, %bench_stats_check.exit ]
-  %18 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.6, i32 noundef %count.1, i32 noundef %18, double noundef %add.i.i, i32 noundef %ret.3)
+  %19 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.6, i32 noundef %count.1, i32 noundef %19, double noundef %add.i.i, i32 noundef %ret.3)
   %call19 = call i32 @wc_FreeRng(ptr noundef nonnull %myrng) #16
   br label %return
 
@@ -8606,20 +8606,20 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #14
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
+declare i64 @llvm.umin.i64(i64, i64) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8635,8 +8635,8 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nounwind }
 attributes #17 = { nounwind willreturn memory(none) }
 attributes #18 = { noreturn nounwind }
