@@ -2391,7 +2391,6 @@ do_perform_cow_write.exit125:                     ; preds = %do.body.i116, %if.t
   %55 = load ptr, ptr %data_file.i121, align 8
   %56 = load i64, ptr %size.i109, align 8
   %call13.i122 = call i32 @bdrv_co_pwritev(ptr noundef %55, i64 noundef %add.i113, i64 noundef %56, ptr noundef nonnull %qiov, i32 noundef 0) #13
-  %call13..i123 = call i32 @llvm.smin.i32(i32 %call13.i122, i32 0)
   %cmp172 = icmp slt i32 %call13.i122, 0
   br i1 %cmp172, label %fail.thread, label %if.end175
 
@@ -2406,7 +2405,7 @@ if.end175:                                        ; preds = %if.else166, %do_per
   br label %fail
 
 fail.thread:                                      ; preds = %if.end103, %if.then109, %if.end123, %do_perform_cow_write.exit125, %if.else88, %if.end.i, %if.end.i111
-  %ret.1.ph = phi i32 [ %call.i, %if.end.i ], [ %call93, %if.else88 ], [ %call13..i123, %do_perform_cow_write.exit125 ], [ %call134, %if.end123 ], [ %call119, %if.then109 ], [ %call102, %if.end103 ], [ %call.i114, %if.end.i111 ]
+  %ret.1.ph = phi i32 [ %call.i, %if.end.i ], [ %call93, %if.else88 ], [ %call13.i122, %do_perform_cow_write.exit125 ], [ %call134, %if.end123 ], [ %call119, %if.then109 ], [ %call102, %if.end103 ], [ %call.i114, %if.end.i111 ]
   call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #13
   br label %if.end186
 

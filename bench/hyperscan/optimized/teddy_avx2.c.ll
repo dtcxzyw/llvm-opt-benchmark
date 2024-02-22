@@ -11069,10 +11069,9 @@ if.else.i2361:                                    ; preds = %if.then
 
 for.body.i2372.preheader:                         ; preds = %if.else.i2361
   %scevgep = getelementptr i8, ptr %u.i, i64 %sub50.i
-  %umin = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub21.i, i64 %cond.i2365)
-  %10 = sub i64 %8, %umin
+  %10 = sub i64 %8, %cond.i2365
   %scevgep3219 = getelementptr i8, ptr %7, i64 %10
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep, ptr align 1 %scevgep3219, i64 %umin, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep, ptr align 1 %scevgep3219, i64 %cond.i2365, i1 false)
   br label %for.end.i2370
 
 for.end.i2370:                                    ; preds = %for.body.i2372.preheader, %if.else.i2361
@@ -16624,10 +16623,9 @@ if.else.i2361:                                    ; preds = %if.then
 
 for.body.i2372.preheader:                         ; preds = %if.else.i2361
   %scevgep = getelementptr i8, ptr %u.i, i64 %sub50.i
-  %umin = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub21.i, i64 %cond.i2365)
-  %10 = sub i64 %8, %umin
+  %10 = sub i64 %8, %cond.i2365
   %scevgep3219 = getelementptr i8, ptr %7, i64 %10
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep, ptr align 1 %scevgep3219, i64 %umin, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep, ptr align 1 %scevgep3219, i64 %cond.i2365, i1 false)
   br label %for.end.i2370
 
 for.end.i2370:                                    ; preds = %for.body.i2372.preheader, %if.else.i2361

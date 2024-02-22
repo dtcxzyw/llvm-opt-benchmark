@@ -1452,8 +1452,7 @@ for.inc25.i.i:                                    ; preds = %for.body16.i.i
 
 find_snapshot_by_id_and_name.exit.i:              ; preds = %for.body16.i.i
   %cmp.i55 = icmp sgt i32 %i.19.i.i, -1
-  %i.19.i.mux.i = tail call i32 @llvm.smax.i32(i32 %i.19.i.i, i32 -1)
-  br i1 %cmp.i55, label %find_snapshot_by_id_or_name.exit, label %for.body34.i.i.preheader
+  br i1 %cmp.i55, label %if.end3, label %for.body34.i.i.preheader
 
 for.body34.i.i.preheader:                         ; preds = %for.inc25.i.i, %find_snapshot_by_id_and_name.exit.i
   br label %for.body34.i.i
@@ -1472,13 +1471,13 @@ for.inc43.i.i:                                    ; preds = %for.body34.i.i
   %exitcond.not.i.i = icmp eq i32 %inc44.i.i, %3
   br i1 %exitcond.not.i.i, label %return, label %for.body34.i.i, !llvm.loop !15
 
-find_snapshot_by_id_or_name.exit:                 ; preds = %for.body34.i.i, %find_snapshot_by_id_and_name.exit.i
-  %retval.0.i = phi i32 [ %i.19.i.mux.i, %find_snapshot_by_id_and_name.exit.i ], [ %i.26.i.i, %for.body34.i.i ]
-  %cmp = icmp slt i32 %retval.0.i, 0
+find_snapshot_by_id_or_name.exit:                 ; preds = %for.body34.i.i
+  %cmp = icmp slt i32 %i.26.i.i, 0
   br i1 %cmp, label %return, label %if.end3
 
-if.end3:                                          ; preds = %find_snapshot_by_id_or_name.exit
-  %idxprom = zext nneg i32 %retval.0.i to i64
+if.end3:                                          ; preds = %find_snapshot_by_id_and_name.exit.i, %find_snapshot_by_id_or_name.exit
+  %retval.0.i67 = phi i32 [ %i.26.i.i, %find_snapshot_by_id_or_name.exit ], [ %i.19.i.i, %find_snapshot_by_id_and_name.exit.i ]
+  %idxprom = zext nneg i32 %retval.0.i67 to i64
   %arrayidx = getelementptr %struct.QCowSnapshot, ptr %4, i64 %idxprom
   %7 = load i64, ptr %arrayidx, align 8
   %l1_size = getelementptr inbounds i8, ptr %arrayidx, i64 8
@@ -2054,9 +2053,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

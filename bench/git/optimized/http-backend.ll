@@ -1477,8 +1477,7 @@ while.body.loopexit.us.i:                         ; preds = %while.cond24thread-
   %spec.select.i = call i64 @llvm.umin.i64(i64 %spec.select.us53.i, i64 8192)
   %call10.us.i = call i64 @xread(i32 noundef 0, ptr noundef nonnull %in_buf.i, i64 noundef %spec.select.i) #18
   store ptr %in_buf.i, ptr %next_in.i, align 8
-  %10 = call i64 @llvm.smax.i64(i64 %call10.us.i, i64 0)
-  %spec.select.us.i = sub i64 %spec.select.us53.i, %10
+  %spec.select.us.i = sub i64 %spec.select.us53.i, %call10.us.i
   %cmp20.us.i = icmp slt i64 %call10.us.i, 1
   br i1 %cmp20.us.i, label %if.then22.i, label %if.end23.us.i
 
@@ -1491,7 +1490,7 @@ if.end.thread.i:                                  ; preds = %while.body.loopexit
   br label %if.then22.i
 
 if.end.i:                                         ; preds = %if.then48, %while.body.loopexit.i
-  %cnt.0.i66 = phi i64 [ %11, %while.body.loopexit.i ], [ 0, %if.then48 ]
+  %cnt.0.i66 = phi i64 [ %10, %while.body.loopexit.i ], [ 0, %if.then48 ]
   %call.i21 = call fastcc i64 @read_request(ptr noundef nonnull %full_request.i, i64 noundef %1)
   %.pre.i22 = load ptr, ptr %full_request.i, align 8
   store ptr %.pre.i22, ptr %next_in.i, align 8
@@ -1507,13 +1506,13 @@ if.end23.i:                                       ; preds = %if.end.i
   br label %while.body28.i
 
 while.cond24thread-pre-split.i:                   ; preds = %write_to_child.exit.i
-  %11 = load i64, ptr %total_out.i, align 8
+  %10 = load i64, ptr %total_out.i, align 8
   %.pr.i = load i64, ptr %avail_in.i, align 8
   %cmp26.not.i = icmp eq i64 %.pr.i, 0
   br i1 %cmp26.not.i, label %while.body.loopexit.i, label %while.body28.i, !llvm.loop !14
 
 while.body28.i:                                   ; preds = %while.cond24thread-pre-split.i, %if.end23.i
-  %cnt.121.i = phi i64 [ %cnt.0.i66, %if.end23.i ], [ %11, %while.cond24thread-pre-split.i ]
+  %cnt.121.i = phi i64 [ %cnt.0.i66, %if.end23.i ], [ %10, %while.cond24thread-pre-split.i ]
   store ptr %out_buf.i, ptr %next_out.i, align 8
   store i64 8192, ptr %avail_out.i, align 8
   %call30.i = call i32 @git_inflate(ptr noundef nonnull %stream.i, i32 noundef 0) #18
@@ -1526,8 +1525,8 @@ if.then36.i:                                      ; preds = %while.body28.i, %wh
   unreachable
 
 if.end37.i:                                       ; preds = %while.body28.i
-  %12 = load i64, ptr %total_out.i, align 8
-  %sub41.i = sub i64 %12, %cnt.121.i
+  %11 = load i64, ptr %total_out.i, align 8
+  %sub41.i = sub i64 %11, %cnt.121.i
   %call.i.i = call i64 @write_in_full(i32 noundef %5, ptr noundef nonnull %out_buf.i, i64 noundef %sub41.i) #18
   %cmp.i.i = icmp slt i64 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %write_to_child.exit.i
@@ -1541,10 +1540,10 @@ write_to_child.exit.i:                            ; preds = %if.end37.i
   br i1 %cmp43.i, label %inflate_request.exit, label %while.cond24thread-pre-split.i, !llvm.loop !13
 
 inflate_request.exit:                             ; preds = %write_to_child.exit.i, %write_to_child.exit.us.us.i, %write_to_child.exit.us.i
-  %13 = phi ptr [ null, %write_to_child.exit.us.i ], [ null, %write_to_child.exit.us.us.i ], [ %.pre.i22, %write_to_child.exit.i ]
+  %12 = phi ptr [ null, %write_to_child.exit.us.i ], [ null, %write_to_child.exit.us.us.i ], [ %.pre.i22, %write_to_child.exit.i ]
   call void @git_inflate_end(ptr noundef nonnull %stream.i) #18
   %call47.i = call i32 @close(i32 noundef %5) #18
-  call void @free(ptr noundef %13) #18
+  call void @free(ptr noundef %12) #18
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %stream.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %full_request.i)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %in_buf.i)
@@ -1555,9 +1554,9 @@ if.else:                                          ; preds = %if.end45
   br i1 %tobool29, label %if.then51, label %if.else54
 
 if.then51:                                        ; preds = %if.else
-  %14 = load ptr, ptr %argv, align 8
+  %13 = load ptr, ptr %argv, align 8
   %in53 = getelementptr inbounds i8, ptr %cld, i64 80
-  %15 = load i32, ptr %in53, align 8
+  %14 = load i32, ptr %in53, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i)
   %call.i23 = call fastcc i64 @read_request(ptr noundef nonnull %buf.i, i64 noundef %1)
   %cmp.i24 = icmp slt i64 %call.i23, 0
@@ -1568,18 +1567,18 @@ if.then.i30:                                      ; preds = %if.then51
   unreachable
 
 if.end.i25:                                       ; preds = %if.then51
-  %16 = load ptr, ptr %buf.i, align 8
-  %call.i.i26 = call i64 @write_in_full(i32 noundef %15, ptr noundef %16, i64 noundef %call.i23) #18
+  %15 = load ptr, ptr %buf.i, align 8
+  %call.i.i26 = call i64 @write_in_full(i32 noundef %14, ptr noundef %15, i64 noundef %call.i23) #18
   %cmp.i.i27 = icmp slt i64 %call.i.i26, 0
   br i1 %cmp.i.i27, label %if.then.i.i29, label %copy_request.exit
 
 if.then.i.i29:                                    ; preds = %if.end.i25
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.81, ptr noundef %14) #19
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.81, ptr noundef %13) #19
   unreachable
 
 copy_request.exit:                                ; preds = %if.end.i25
-  %call1.i = call i32 @close(i32 noundef %15) #18
-  call void @free(ptr noundef %16) #18
+  %call1.i = call i32 @close(i32 noundef %14) #18
+  call void @free(ptr noundef %15) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i)
   br label %if.end63
 
@@ -1587,9 +1586,9 @@ if.else54:                                        ; preds = %if.else
   br i1 %cmp, label %if.then56, label %if.else59
 
 if.then56:                                        ; preds = %if.else54
-  %17 = load ptr, ptr %argv, align 8
+  %16 = load ptr, ptr %argv, align 8
   %in58 = getelementptr inbounds i8, ptr %cld, i64 80
-  %18 = load i32, ptr %in58, align 8
+  %17 = load i32, ptr %in58, align 8
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %buf.i31)
   %cmp.not7.i = icmp eq i64 %1, 0
   br i1 %cmp.not7.i, label %pipe_fixed_length.exit, label %while.body.i32
@@ -1611,16 +1610,16 @@ if.then.i38:                                      ; preds = %while.body.i32
   unreachable
 
 if.end.i34:                                       ; preds = %while.body.i32
-  %call.i.i35 = call i64 @write_in_full(i32 noundef %18, ptr noundef nonnull %buf.i31, i64 noundef %call.i33) #18
+  %call.i.i35 = call i64 @write_in_full(i32 noundef %17, ptr noundef nonnull %buf.i31, i64 noundef %call.i33) #18
   %cmp.i.i36 = icmp slt i64 %call.i.i35, 0
   br i1 %cmp.i.i36, label %if.then.i.i37, label %while.cond.i
 
 if.then.i.i37:                                    ; preds = %if.end.i34
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.81, ptr noundef %17) #19
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.81, ptr noundef %16) #19
   unreachable
 
 pipe_fixed_length.exit:                           ; preds = %while.cond.i, %if.then56
-  %call4.i = call i32 @close(i32 noundef %18) #18
+  %call4.i = call i32 @close(i32 noundef %17) #18
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buf.i31)
   br label %if.end63
 
@@ -1938,9 +1937,6 @@ declare i32 @git_config_get_ulong(ptr noundef, ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17

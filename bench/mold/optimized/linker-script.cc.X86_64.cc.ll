@@ -730,8 +730,7 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp.i.not.i.i, label %if.end13, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %if.end
-  %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %input.sroa.0.0226, i64 2)
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %input.sroa.22.0227, ptr nonnull @.str.26, i64 %.sroa.speculated.i.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %input.sroa.22.0227, ptr noundef nonnull dereferenceable(2) @.str.26, i64 2)
   %cmp.i.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %if.end.i.i, label %if.end13
 

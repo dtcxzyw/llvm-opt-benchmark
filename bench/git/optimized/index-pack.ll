@@ -5683,7 +5683,7 @@ land.rhs:                                         ; preds = %if.then, %do.end
   br i1 %tobool5.not, label %do.body, label %while.end.split.loop.exit
 
 do.body:                                          ; preds = %land.rhs
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32
   %5 = sext i32 %delta_alloc.047 to i64
   %cmp.not = icmp slt i64 %indvars.iv, %5
@@ -5911,32 +5911,30 @@ while.cond.preheader.i:                           ; preds = %find_ref_delta.exit
 
 land.rhs.lr.ph.i:                                 ; preds = %while.cond.preheader.i
   %10 = zext nneg i32 %retval.0.i.i to i64
-  %smin.i = tail call i32 @llvm.smin.i32(i32 %retval.0.i.i, i32 1)
-  %11 = add nsw i32 %smin.i, -1
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
   %indvars.iv.i = phi i64 [ %10, %land.rhs.lr.ph.i ], [ %indvars.iv.next.i, %while.body.i ]
-  %12 = getelementptr %struct.ref_delta_entry, ptr %1, i64 %indvars.iv.i
-  %arrayidx.i = getelementptr i8, ptr %12, i64 -40
-  %algo.i.i = getelementptr i8, ptr %12, i64 -8
-  %13 = load i32, ptr %algo.i.i, align 4
-  %tobool.not.i14.i = icmp eq i32 %13, 0
+  %11 = getelementptr %struct.ref_delta_entry, ptr %1, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr i8, ptr %11, i64 -40
+  %algo.i.i = getelementptr i8, ptr %11, i64 -8
+  %12 = load i32, ptr %algo.i.i, align 4
+  %tobool.not.i14.i = icmp eq i32 %12, 0
   br i1 %tobool.not.i14.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %land.rhs.i
-  %14 = load ptr, ptr %hash_algo.i.i.i.i, align 8
+  %13 = load ptr, ptr %hash_algo.i.i.i.i, align 8
   br label %if.end.i17.i
 
 if.else.i.i:                                      ; preds = %land.rhs.i
-  %idxprom.i15.i = sext i32 %13 to i64
+  %idxprom.i15.i = sext i32 %12 to i64
   %arrayidx.i16.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i15.i
   br label %if.end.i17.i
 
 if.end.i17.i:                                     ; preds = %if.else.i.i, %if.then.i.i
-  %algop.0.i.i = phi ptr [ %arrayidx.i16.i, %if.else.i.i ], [ %14, %if.then.i.i ]
-  %15 = getelementptr i8, ptr %algop.0.i.i, i64 16
-  %algop.0.val.i.i = load i64, ptr %15, align 8
+  %algop.0.i.i = phi ptr [ %arrayidx.i16.i, %if.else.i.i ], [ %13, %if.then.i.i ]
+  %14 = getelementptr i8, ptr %algop.0.i.i, i64 16
+  %algop.0.val.i.i = load i64, ptr %14, align 8
   %cmp.i.i.i = icmp eq i64 %algop.0.val.i.i, 32
   br i1 %cmp.i.i.i, label %if.then.i.i20.i, label %if.end.i.i18.i
 
@@ -5959,42 +5957,42 @@ while.body.i:                                     ; preds = %oideq.exit.i
   br i1 %cmp1.i, label %land.rhs.i, label %while.end.i, !llvm.loop !38
 
 while.end.loopexit.split.loop.exit53.i:           ; preds = %oideq.exit.i
-  %16 = trunc i64 %indvars.iv.i to i32
+  %15 = trunc i64 %indvars.iv.i to i32
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.body.i, %while.end.loopexit.split.loop.exit53.i, %while.cond.preheader.i
   %.pre-phi.i = phi i64 [ 0, %while.cond.preheader.i ], [ %10, %while.end.loopexit.split.loop.exit53.i ], [ %10, %while.body.i ]
-  %first.0.lcssa.i = phi i32 [ 0, %while.cond.preheader.i ], [ %16, %while.end.loopexit.split.loop.exit53.i ], [ %11, %while.body.i ]
+  %first.0.lcssa.i = phi i32 [ 0, %while.cond.preheader.i ], [ %15, %while.end.loopexit.split.loop.exit53.i ], [ 0, %while.body.i ]
   %smax.i = tail call i32 @llvm.smax.i32(i32 %retval.0.i.i, i32 %sub.i)
   br label %while.cond5.i
 
 while.cond5.i:                                    ; preds = %oideq.exit39.i, %while.end.i
   %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %oideq.exit39.i ], [ %.pre-phi.i, %while.end.i ]
-  %17 = trunc i64 %indvars.iv49.i to i32
-  %cmp6.i = icmp sgt i32 %sub.i, %17
+  %16 = trunc i64 %indvars.iv49.i to i32
+  %cmp6.i = icmp sgt i32 %sub.i, %16
   br i1 %cmp6.i, label %land.rhs7.i, label %find_ref_delta_children.exit
 
 land.rhs7.i:                                      ; preds = %while.cond5.i
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %arrayidx9.i = getelementptr inbounds %struct.ref_delta_entry, ptr %1, i64 %indvars.iv.next50.i
   %algo.i21.i = getelementptr inbounds i8, ptr %arrayidx9.i, i64 32
-  %18 = load i32, ptr %algo.i21.i, align 4
-  %tobool.not.i22.i = icmp eq i32 %18, 0
+  %17 = load i32, ptr %algo.i21.i, align 4
+  %tobool.not.i22.i = icmp eq i32 %17, 0
   br i1 %tobool.not.i22.i, label %if.then.i37.i, label %if.else.i23.i
 
 if.then.i37.i:                                    ; preds = %land.rhs7.i
-  %19 = load ptr, ptr %hash_algo.i.i.i.i, align 8
+  %18 = load ptr, ptr %hash_algo.i.i.i.i, align 8
   br label %if.end.i26.i
 
 if.else.i23.i:                                    ; preds = %land.rhs7.i
-  %idxprom.i24.i = sext i32 %18 to i64
+  %idxprom.i24.i = sext i32 %17 to i64
   %arrayidx.i25.i = getelementptr inbounds [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %idxprom.i24.i
   br label %if.end.i26.i
 
 if.end.i26.i:                                     ; preds = %if.else.i23.i, %if.then.i37.i
-  %algop.0.i27.i = phi ptr [ %arrayidx.i25.i, %if.else.i23.i ], [ %19, %if.then.i37.i ]
-  %20 = getelementptr i8, ptr %algop.0.i27.i, i64 16
-  %algop.0.val.i28.i = load i64, ptr %20, align 8
+  %algop.0.i27.i = phi ptr [ %arrayidx.i25.i, %if.else.i23.i ], [ %18, %if.then.i37.i ]
+  %19 = getelementptr i8, ptr %algop.0.i27.i, i64 16
+  %algop.0.val.i28.i = load i64, ptr %19, align 8
   %cmp.i.i29.i = icmp eq i64 %algop.0.val.i28.i, 32
   br i1 %cmp.i.i29.i, label %if.then.i.i35.i, label %if.end.i.i30.i
 
@@ -6013,55 +6011,55 @@ oideq.exit39.i:                                   ; preds = %if.end.i.i30.i, %if
 
 find_ref_delta_children.exit:                     ; preds = %while.cond5.i, %oideq.exit39.i, %entry, %find_ref_delta.exit.i
   %storemerge13.i = phi i32 [ 0, %find_ref_delta.exit.i ], [ 0, %entry ], [ %first.0.lcssa.i, %oideq.exit39.i ], [ %first.0.lcssa.i, %while.cond5.i ]
-  %storemerge.i = phi i32 [ -1, %find_ref_delta.exit.i ], [ -1, %entry ], [ %smax.i, %while.cond5.i ], [ %17, %oideq.exit39.i ]
+  %storemerge.i = phi i32 [ -1, %find_ref_delta.exit.i ], [ -1, %entry ], [ %smax.i, %while.cond5.i ], [ %16, %oideq.exit39.i ]
   store i32 %storemerge13.i, ptr %ref_first, align 4
   store i32 %storemerge.i, ptr %ref_last, align 4
   %offset = getelementptr inbounds i8, ptr %obj, i64 40
-  %21 = load i64, ptr %offset, align 8
-  %22 = load i32, ptr @nr_ofs_deltas, align 4
-  %cmp15.i.i = icmp sgt i32 %22, 0
+  %20 = load i64, ptr %offset, align 8
+  %21 = load i32, ptr @nr_ofs_deltas, align 4
+  %cmp15.i.i = icmp sgt i32 %21, 0
   br i1 %cmp15.i.i, label %while.body.lr.ph.i.i16, label %find_ofs_delta_children.exit
 
 while.body.lr.ph.i.i16:                           ; preds = %find_ref_delta_children.exit
-  %23 = load ptr, ptr @ofs_deltas, align 8
-  %24 = load ptr, ptr @objects, align 8
+  %22 = load ptr, ptr @ofs_deltas, align 8
+  %23 = load ptr, ptr @objects, align 8
   br label %while.body.i.i17
 
 while.body.i.i17:                                 ; preds = %if.end.i.i32, %while.body.lr.ph.i.i16
   %first.017.i.i = phi i32 [ 0, %while.body.lr.ph.i.i16 ], [ %spec.select10.i.i36, %if.end.i.i32 ]
-  %last.016.i.i = phi i32 [ %22, %while.body.lr.ph.i.i16 ], [ %spec.select.i.i35, %if.end.i.i32 ]
+  %last.016.i.i = phi i32 [ %21, %while.body.lr.ph.i.i16 ], [ %spec.select.i.i35, %if.end.i.i32 ]
   %sub.i.i18 = sub nsw i32 %last.016.i.i, %first.017.i.i
   %div.i.i19 = sdiv i32 %sub.i.i18, 2
   %add.i.i20 = add nsw i32 %div.i.i19, %first.017.i.i
   %idxprom.i.i21 = sext i32 %add.i.i20 to i64
-  %arrayidx.i.i22 = getelementptr inbounds %struct.ofs_delta_entry, ptr %23, i64 %idxprom.i.i21
+  %arrayidx.i.i22 = getelementptr inbounds %struct.ofs_delta_entry, ptr %22, i64 %idxprom.i.i21
   %obj_no.i.i23 = getelementptr inbounds i8, ptr %arrayidx.i.i22, i64 8
-  %25 = load i32, ptr %obj_no.i.i23, align 8
-  %idxprom3.i.i24 = sext i32 %25 to i64
-  %type.i.i25 = getelementptr inbounds %struct.object_entry, ptr %24, i64 %idxprom3.i.i24, i32 3
-  %26 = load i8, ptr %type.i.i25, align 1
-  %tobool.not.i.i.i26 = icmp eq i8 %26, 6
-  br i1 %tobool.not.i.i.i26, label %if.end.i.i.i57, label %if.then.i.i.i27
+  %24 = load i32, ptr %obj_no.i.i23, align 8
+  %idxprom3.i.i24 = sext i32 %24 to i64
+  %type.i.i25 = getelementptr inbounds %struct.object_entry, ptr %23, i64 %idxprom3.i.i24, i32 3
+  %25 = load i8, ptr %type.i.i25, align 1
+  %tobool.not.i.i.i26 = icmp eq i8 %25, 6
+  br i1 %tobool.not.i.i.i26, label %if.end.i.i.i56, label %if.then.i.i.i27
 
 if.then.i.i.i27:                                  ; preds = %while.body.i.i17
-  %conv.i.i28 = sext i8 %26 to i32
+  %conv.i.i28 = sext i8 %25 to i32
   %sub.i.i.i29 = sub nsw i32 6, %conv.i.i28
   br label %compare_ofs_delta_bases.exit.i.i
 
-if.end.i.i.i57:                                   ; preds = %while.body.i.i17
-  %27 = load i64, ptr %arrayidx.i.i22, align 8
-  %cmp1.i.i.i = icmp sgt i64 %27, %21
-  %cmp2.i.i.i = icmp slt i64 %27, %21
+if.end.i.i.i56:                                   ; preds = %while.body.i.i17
+  %26 = load i64, ptr %arrayidx.i.i22, align 8
+  %cmp1.i.i.i = icmp sgt i64 %26, %20
+  %cmp2.i.i.i = icmp slt i64 %26, %20
   %cond.i.i.i = zext i1 %cmp2.i.i.i to i32
   br i1 %cmp1.i.i.i, label %if.end.i.i32, label %compare_ofs_delta_bases.exit.i.i
 
-compare_ofs_delta_bases.exit.i.i:                 ; preds = %if.end.i.i.i57, %if.then.i.i.i27
-  %retval.0.i.i.i30 = phi i32 [ %sub.i.i.i29, %if.then.i.i.i27 ], [ %cond.i.i.i, %if.end.i.i.i57 ]
+compare_ofs_delta_bases.exit.i.i:                 ; preds = %if.end.i.i.i56, %if.then.i.i.i27
+  %retval.0.i.i.i30 = phi i32 [ %sub.i.i.i29, %if.then.i.i.i27 ], [ %cond.i.i.i, %if.end.i.i.i56 ]
   %tobool.not.i.i31 = icmp eq i32 %retval.0.i.i.i30, 0
   br i1 %tobool.not.i.i31, label %find_ofs_delta.exit.i, label %if.end.i.i32
 
-if.end.i.i32:                                     ; preds = %compare_ofs_delta_bases.exit.i.i, %if.end.i.i.i57
-  %retval.0.i13.i.i = phi i32 [ %retval.0.i.i.i30, %compare_ofs_delta_bases.exit.i.i ], [ -1, %if.end.i.i.i57 ]
+if.end.i.i32:                                     ; preds = %compare_ofs_delta_bases.exit.i.i, %if.end.i.i.i56
+  %retval.0.i13.i.i = phi i32 [ %retval.0.i.i.i30, %compare_ofs_delta_bases.exit.i.i ], [ -1, %if.end.i.i.i56 ]
   %cmp5.i.i33 = icmp slt i32 %retval.0.i13.i.i, 0
   %add9.i.i34 = add nsw i32 %add.i.i20, 1
   %spec.select.i.i35 = select i1 %cmp5.i.i33, i32 %add.i.i20, i32 %last.016.i.i
@@ -6070,67 +6068,65 @@ if.end.i.i32:                                     ; preds = %compare_ofs_delta_b
   br i1 %cmp.i.i37, label %while.body.i.i17, label %while.end.loopexit.i.i38, !llvm.loop !40
 
 while.end.loopexit.i.i38:                         ; preds = %if.end.i.i32
-  %28 = xor i32 %spec.select10.i.i36, -1
+  %27 = xor i32 %spec.select10.i.i36, -1
   br label %find_ofs_delta.exit.i
 
 find_ofs_delta.exit.i:                            ; preds = %compare_ofs_delta_bases.exit.i.i, %while.end.loopexit.i.i38
-  %retval.0.i.i39 = phi i32 [ %28, %while.end.loopexit.i.i38 ], [ %add.i.i20, %compare_ofs_delta_bases.exit.i.i ]
-  %sub.i40 = add nsw i32 %22, -1
+  %retval.0.i.i39 = phi i32 [ %27, %while.end.loopexit.i.i38 ], [ %add.i.i20, %compare_ofs_delta_bases.exit.i.i ]
+  %sub.i40 = add nsw i32 %21, -1
   %cmp.i41 = icmp slt i32 %retval.0.i.i39, 0
   br i1 %cmp.i41, label %find_ofs_delta_children.exit, label %while.cond.preheader.i42
 
 while.cond.preheader.i42:                         ; preds = %find_ofs_delta.exit.i
   %cmp118.not.i = icmp eq i32 %retval.0.i.i39, 0
-  br i1 %cmp118.not.i, label %while.end.i46, label %land.rhs.lr.ph.i43
+  br i1 %cmp118.not.i, label %while.end.i45, label %land.rhs.lr.ph.i43
 
 land.rhs.lr.ph.i43:                               ; preds = %while.cond.preheader.i42
-  %invariant.gep.i = getelementptr i8, ptr %23, i64 -16
-  %smin.i44 = tail call i32 @llvm.smin.i32(i32 %retval.0.i.i39, i32 1)
-  %29 = add nsw i32 %smin.i44, -1
-  br label %land.rhs.i45
+  %invariant.gep.i = getelementptr i8, ptr %22, i64 -16
+  br label %land.rhs.i44
 
-land.rhs.i45:                                     ; preds = %while.body.i55, %land.rhs.lr.ph.i43
-  %first.019.i = phi i32 [ %retval.0.i.i39, %land.rhs.lr.ph.i43 ], [ %dec.i, %while.body.i55 ]
-  %30 = zext nneg i32 %first.019.i to i64
-  %gep.i = getelementptr %struct.ofs_delta_entry, ptr %invariant.gep.i, i64 %30
-  %31 = load i64, ptr %gep.i, align 8
-  %cmp4.i = icmp eq i64 %31, %21
-  br i1 %cmp4.i, label %while.body.i55, label %while.end.i46
+land.rhs.i44:                                     ; preds = %while.body.i54, %land.rhs.lr.ph.i43
+  %first.019.i = phi i32 [ %retval.0.i.i39, %land.rhs.lr.ph.i43 ], [ %dec.i, %while.body.i54 ]
+  %28 = zext nneg i32 %first.019.i to i64
+  %gep.i = getelementptr %struct.ofs_delta_entry, ptr %invariant.gep.i, i64 %28
+  %29 = load i64, ptr %gep.i, align 8
+  %cmp4.i = icmp eq i64 %29, %20
+  br i1 %cmp4.i, label %while.body.i54, label %while.end.i45
 
-while.body.i55:                                   ; preds = %land.rhs.i45
+while.body.i54:                                   ; preds = %land.rhs.i44
   %dec.i = add nsw i32 %first.019.i, -1
-  %cmp1.i56 = icmp sgt i32 %first.019.i, 1
-  br i1 %cmp1.i56, label %land.rhs.i45, label %while.end.i46, !llvm.loop !41
+  %cmp1.i55 = icmp sgt i32 %first.019.i, 1
+  br i1 %cmp1.i55, label %land.rhs.i44, label %while.end.i45, !llvm.loop !41
 
-while.end.i46:                                    ; preds = %while.body.i55, %land.rhs.i45, %while.cond.preheader.i42
-  %first.0.lcssa.i47 = phi i32 [ 0, %while.cond.preheader.i42 ], [ %first.019.i, %land.rhs.i45 ], [ %29, %while.body.i55 ]
-  %32 = zext nneg i32 %retval.0.i.i39 to i64
-  %smax.i48 = tail call i32 @llvm.smax.i32(i32 %retval.0.i.i39, i32 %sub.i40)
-  br label %while.cond5.i49
+while.end.i45:                                    ; preds = %while.body.i54, %land.rhs.i44, %while.cond.preheader.i42
+  %first.0.lcssa.i46 = phi i32 [ 0, %while.cond.preheader.i42 ], [ %first.019.i, %land.rhs.i44 ], [ 0, %while.body.i54 ]
+  %30 = zext nneg i32 %retval.0.i.i39 to i64
+  %smax.i47 = tail call i32 @llvm.smax.i32(i32 %retval.0.i.i39, i32 %sub.i40)
+  br label %while.cond5.i48
 
-while.cond5.i49:                                  ; preds = %land.rhs7.i52, %while.end.i46
-  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i53, %land.rhs7.i52 ], [ %32, %while.end.i46 ]
-  %33 = trunc i64 %indvars.iv.i50 to i32
-  %cmp6.i51 = icmp sgt i32 %sub.i40, %33
-  br i1 %cmp6.i51, label %land.rhs7.i52, label %find_ofs_delta_children.exit
+while.cond5.i48:                                  ; preds = %land.rhs7.i51, %while.end.i45
+  %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i52, %land.rhs7.i51 ], [ %30, %while.end.i45 ]
+  %31 = trunc i64 %indvars.iv.i49 to i32
+  %cmp6.i50 = icmp sgt i32 %sub.i40, %31
+  br i1 %cmp6.i50, label %land.rhs7.i51, label %find_ofs_delta_children.exit
 
-land.rhs7.i52:                                    ; preds = %while.cond5.i49
-  %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i50, 1
-  %arrayidx9.i54 = getelementptr inbounds %struct.ofs_delta_entry, ptr %23, i64 %indvars.iv.next.i53
-  %34 = load i64, ptr %arrayidx9.i54, align 8
-  %cmp11.i = icmp eq i64 %34, %21
-  br i1 %cmp11.i, label %while.cond5.i49, label %find_ofs_delta_children.exit, !llvm.loop !42
+land.rhs7.i51:                                    ; preds = %while.cond5.i48
+  %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i49, 1
+  %arrayidx9.i53 = getelementptr inbounds %struct.ofs_delta_entry, ptr %22, i64 %indvars.iv.next.i52
+  %32 = load i64, ptr %arrayidx9.i53, align 8
+  %cmp11.i = icmp eq i64 %32, %20
+  br i1 %cmp11.i, label %while.cond5.i48, label %find_ofs_delta_children.exit, !llvm.loop !42
 
-find_ofs_delta_children.exit:                     ; preds = %while.cond5.i49, %land.rhs7.i52, %find_ref_delta_children.exit, %find_ofs_delta.exit.i
-  %storemerge13.i14 = phi i32 [ 0, %find_ofs_delta.exit.i ], [ 0, %find_ref_delta_children.exit ], [ %first.0.lcssa.i47, %land.rhs7.i52 ], [ %first.0.lcssa.i47, %while.cond5.i49 ]
-  %storemerge.i15 = phi i32 [ -1, %find_ofs_delta.exit.i ], [ -1, %find_ref_delta_children.exit ], [ %smax.i48, %while.cond5.i49 ], [ %33, %land.rhs7.i52 ]
+find_ofs_delta_children.exit:                     ; preds = %while.cond5.i48, %land.rhs7.i51, %find_ref_delta_children.exit, %find_ofs_delta.exit.i
+  %storemerge13.i14 = phi i32 [ 0, %find_ofs_delta.exit.i ], [ 0, %find_ref_delta_children.exit ], [ %first.0.lcssa.i46, %land.rhs7.i51 ], [ %first.0.lcssa.i46, %while.cond5.i48 ]
+  %storemerge.i15 = phi i32 [ -1, %find_ofs_delta.exit.i ], [ -1, %find_ref_delta_children.exit ], [ %smax.i47, %while.cond5.i48 ], [ %31, %land.rhs7.i51 ]
   %ofs_last = getelementptr inbounds i8, ptr %call, i64 28
   %ofs_first = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %storemerge13.i14, ptr %ofs_first, align 4
   store i32 %storemerge.i15, ptr %ofs_last, align 4
-  %35 = add i32 %storemerge.i, 2
-  %36 = add i32 %storemerge13.i, %storemerge13.i14
-  %sub8 = sub i32 %35, %36
+  %33 = add i32 %storemerge.i, 2
+  %34 = add i32 %storemerge13.i, %storemerge13.i14
+  %sub8 = sub i32 %33, %34
   %add9 = add i32 %sub8, %storemerge.i15
   %children_remaining = getelementptr inbounds i8, ptr %call, i64 36
   store i32 %add9, ptr %children_remaining, align 4
@@ -6406,9 +6402,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20

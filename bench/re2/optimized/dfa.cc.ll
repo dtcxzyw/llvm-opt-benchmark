@@ -1922,7 +1922,7 @@ sw.bb:                                            ; preds = %_ZN3re23DFA5Workq10
   br i1 %tobool.not, label %Loop.backedge, label %while.cond.backedge
 
 Loop.backedge:                                    ; preds = %_ZN3re23DFA5Workq10insert_newEi.exit, %sw.bb
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %Loop
 
 sw.bb23:                                          ; preds = %_ZN3re23DFA5Workq10insert_newEi.exit, %_ZN3re23DFA5Workq10insert_newEi.exit
@@ -10462,8 +10462,9 @@ invoke.cont25:                                    ; preds = %if.end.i.i.i.i.i.i.
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont25, %while.end
-  %c.0248 = phi i32 [ 0, %invoke.cont25 ], [ %inc43, %while.end ]
-  %idxprom = sext i32 %c.0248 to i64
+  %c.0248 = phi i64 [ 0, %invoke.cont25 ], [ %inc43, %while.end ]
+  %sext = shl i64 %c.0248, 32
+  %idxprom = ashr exact i64 %sext, 32
   %arrayidx = getelementptr inbounds i8, ptr %bytemap_.i, i64 %idxprom
   %27 = load i8, ptr %arrayidx, align 1
   br label %while.cond
@@ -10474,10 +10475,9 @@ while.cond:                                       ; preds = %land.rhs, %for.body
   br i1 %cmp32, label %land.rhs, label %while.end.thread
 
 while.end.thread:                                 ; preds = %while.cond
-  %smax.le = call i32 @llvm.smax.i32(i32 %c.0248, i32 255)
   %conv41271 = zext i8 %27 to i64
   %add.ptr.i25272 = getelementptr inbounds i32, ptr %input.sroa.0.0, i64 %conv41271
-  store i32 %smax.le, ptr %add.ptr.i25272, align 4
+  store i32 255, ptr %add.ptr.i25272, align 4
   br label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i29
 
 land.rhs:                                         ; preds = %while.cond
@@ -10507,7 +10507,7 @@ while.end:                                        ; preds = %land.rhs
   %conv41 = zext i8 %27 to i64
   %add.ptr.i25 = getelementptr inbounds i32, ptr %input.sroa.0.0, i64 %conv41
   store i32 %32, ptr %add.ptr.i25, align 4
-  %inc43 = add nsw i32 %32, 1
+  %inc43 = add i64 %indvars.iv, 1
   %cmp26 = icmp slt i32 %32, 255
   br i1 %cmp26, label %for.body, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i29, !llvm.loop !85
 
@@ -13685,9 +13685,6 @@ declare i16 @llvm.cttz.i16(i16, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

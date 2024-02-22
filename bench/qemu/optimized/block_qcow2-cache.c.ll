@@ -661,15 +661,15 @@ qcow2_cache_flush.exit.i:                         ; preds = %if.then
   %2 = load ptr, ptr %1, align 8
   %call2.i.i = tail call i32 @bdrv_flush(ptr noundef %2) #12
   %cmp.i = icmp slt i32 %call2.i.i, 0
-  br i1 %cmp.i, label %return, label %qcow2_cache_flush_dependency.exit.thread25
+  br i1 %cmp.i, label %return, label %qcow2_cache_flush_dependency.exit
 
-qcow2_cache_flush_dependency.exit.thread25:       ; preds = %qcow2_cache_flush.exit.i
+qcow2_cache_flush_dependency.exit:                ; preds = %qcow2_cache_flush.exit.i
   store ptr null, ptr %depends, align 8
   %depends_on_flush.i = getelementptr inbounds i8, ptr %dependency, i64 24
   store i8 0, ptr %depends_on_flush.i, align 8
   br label %if.end2
 
-if.end2:                                          ; preds = %qcow2_cache_flush_dependency.exit.thread25, %entry
+if.end2:                                          ; preds = %qcow2_cache_flush_dependency.exit, %entry
   %depends3 = getelementptr inbounds i8, ptr %c, i64 8
   %3 = load ptr, ptr %depends3, align 8
   %tobool4.not = icmp eq ptr %3, null
@@ -687,20 +687,20 @@ qcow2_cache_flush.exit.i15:                       ; preds = %if.then7
   %4 = load ptr, ptr %file.i.i16, align 8
   %5 = load ptr, ptr %4, align 8
   %call2.i.i17 = tail call i32 @bdrv_flush(ptr noundef %5) #12
-  %cmp.i19 = icmp slt i32 %call2.i.i17, 0
-  br i1 %cmp.i19, label %return, label %qcow2_cache_flush_dependency.exit22.thread30
+  %cmp.i18 = icmp slt i32 %call2.i.i17, 0
+  br i1 %cmp.i18, label %return, label %qcow2_cache_flush_dependency.exit21
 
-qcow2_cache_flush_dependency.exit22.thread30:     ; preds = %qcow2_cache_flush.exit.i15
-  %depends_on_flush.i21 = getelementptr inbounds i8, ptr %c, i64 24
-  store i8 0, ptr %depends_on_flush.i21, align 8
+qcow2_cache_flush_dependency.exit21:              ; preds = %qcow2_cache_flush.exit.i15
+  %depends_on_flush.i20 = getelementptr inbounds i8, ptr %c, i64 24
+  store i8 0, ptr %depends_on_flush.i20, align 8
   br label %if.end12
 
-if.end12:                                         ; preds = %qcow2_cache_flush_dependency.exit22.thread30, %if.end2
+if.end12:                                         ; preds = %qcow2_cache_flush_dependency.exit21, %if.end2
   store ptr %dependency, ptr %depends3, align 8
   br label %return
 
-return:                                           ; preds = %qcow2_cache_flush.exit.i15, %qcow2_cache_flush.exit.i, %if.then7, %if.then, %if.end12
-  %retval.0 = phi i32 [ 0, %if.end12 ], [ %call.i.i, %if.then ], [ %call.i.i12, %if.then7 ], [ %call2.i.i, %qcow2_cache_flush.exit.i ], [ %call2.i.i17, %qcow2_cache_flush.exit.i15 ]
+return:                                           ; preds = %if.then7, %qcow2_cache_flush.exit.i15, %if.then, %qcow2_cache_flush.exit.i, %if.end12
+  %retval.0 = phi i32 [ 0, %if.end12 ], [ %call.i.i, %if.then ], [ %call2.i.i, %qcow2_cache_flush.exit.i ], [ %call.i.i12, %if.then7 ], [ %call2.i.i17, %qcow2_cache_flush.exit.i15 ]
   ret i32 %retval.0
 }
 
@@ -724,7 +724,6 @@ qcow2_cache_flush.exit:                           ; preds = %entry
   %0 = load ptr, ptr %file.i, align 8
   %1 = load ptr, ptr %0, align 8
   %call2.i = tail call i32 @bdrv_flush(ptr noundef %1) #12
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %call2.i, i32 0)
   %cmp = icmp slt i32 %call2.i, 0
   br i1 %cmp, label %return, label %for.cond.preheader
 
@@ -799,7 +798,7 @@ qcow2_cache_table_release.exit:                   ; preds = %for.end, %if.then.i
   br label %return
 
 return:                                           ; preds = %entry, %qcow2_cache_flush.exit, %qcow2_cache_table_release.exit
-  %retval.0 = phi i32 [ 0, %qcow2_cache_table_release.exit ], [ %spec.select.i, %qcow2_cache_flush.exit ], [ %call.i, %entry ]
+  %retval.0 = phi i32 [ 0, %qcow2_cache_table_release.exit ], [ %call2.i, %qcow2_cache_flush.exit ], [ %call.i, %entry ]
   ret i32 %retval.0
 }
 

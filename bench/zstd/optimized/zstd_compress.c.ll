@@ -1244,30 +1244,28 @@ if.end.i185:                                      ; preds = %entry
 sw.bb297:                                         ; preds = %entry
   %cmp298.not = icmp eq i32 %value, 0
   %9 = tail call i32 @llvm.smax.i32(i32 %value, i32 524288)
-  %spec.select481 = select i1 %cmp298.not, i32 0, i32 %9
-  %cmp6.not.i203 = icmp ugt i32 %spec.select481, 1073741824
-  %simplifycfg.merge.i204 = tail call i32 @llvm.smin.i32(i32 %spec.select481, i32 1073741824)
-  %value.addr.3 = select i1 %cmp6.not.i203, i32 %simplifycfg.merge.i204, i32 %spec.select481
+  %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 1073741824)
+  %value.addr.3 = select i1 %cmp298.not, i32 0, i32 %10
   %conv320 = zext nneg i32 %value.addr.3 to i64
   %jobSize = getelementptr inbounds i8, ptr %CCtxParams, i64 80
   store i64 %conv320, ptr %jobSize, align 8
   br label %sw.epilog
 
 if.end.i211:                                      ; preds = %entry
-  %10 = tail call i32 @llvm.smax.i32(i32 %value, i32 0)
-  %11 = icmp ugt i32 %value, 9
-  %simplifycfg.merge.i217 = tail call i32 @llvm.smin.i32(i32 %10, i32 9)
-  %value.addr.4 = select i1 %11, i32 %simplifycfg.merge.i217, i32 %value
+  %11 = tail call i32 @llvm.smax.i32(i32 %value, i32 0)
+  %12 = icmp ugt i32 %value, 9
+  %simplifycfg.merge.i217 = tail call i32 @llvm.smin.i32(i32 %11, i32 9)
+  %value.addr.4 = select i1 %12, i32 %simplifycfg.merge.i217, i32 %value
   %overlapLog = getelementptr inbounds i8, ptr %CCtxParams, i64 88
   store i32 %value.addr.4, ptr %overlapLog, align 8
   %conv340 = zext nneg i32 %value.addr.4 to i64
   br label %sw.epilog
 
 if.end.i224:                                      ; preds = %entry
-  %12 = tail call i32 @llvm.smax.i32(i32 %value, i32 0)
-  %13 = icmp ugt i32 %value, 9
-  %simplifycfg.merge.i230 = tail call i32 @llvm.smin.i32(i32 %12, i32 9)
-  %value.addr.5 = select i1 %13, i32 %simplifycfg.merge.i230, i32 %value
+  %13 = tail call i32 @llvm.smax.i32(i32 %value, i32 0)
+  %14 = icmp ugt i32 %value, 9
+  %simplifycfg.merge.i230 = tail call i32 @llvm.smin.i32(i32 %13, i32 9)
+  %value.addr.5 = select i1 %14, i32 %simplifycfg.merge.i230, i32 %value
   %rsyncable = getelementptr inbounds i8, ptr %CCtxParams, i64 92
   store i32 %value.addr.5, ptr %rsyncable, align 4
   %conv359 = zext nneg i32 %value.addr.5 to i64
@@ -1293,8 +1291,8 @@ do.end381:                                        ; preds = %do.body367
 
 sw.bb385:                                         ; preds = %entry
   %cmp386.not = icmp ne i32 %value, 0
-  %14 = add i32 %value, -31
-  %narrow.i252 = icmp ult i32 %14, -25
+  %15 = add i32 %value, -31
+  %narrow.i252 = icmp ult i32 %15, -25
   %or.cond487 = and i1 %cmp386.not, %narrow.i252
   br i1 %or.cond487, label %sw.epilog, label %if.end405
 
@@ -1306,8 +1304,8 @@ if.end405:                                        ; preds = %sw.bb385
 
 sw.bb411:                                         ; preds = %entry
   %cmp412.not = icmp ne i32 %value, 0
-  %15 = add i32 %value, -4097
-  %narrow.i262 = icmp ult i32 %15, -4093
+  %16 = add i32 %value, -4097
+  %narrow.i262 = icmp ult i32 %16, -4093
   %or.cond488 = and i1 %cmp412.not, %narrow.i262
   br i1 %or.cond488, label %sw.epilog, label %if.end431
 
@@ -1339,8 +1337,8 @@ if.end481:                                        ; preds = %sw.bb461
 
 sw.bb486:                                         ; preds = %entry
   %cmp487.not = icmp ne i32 %value, 0
-  %16 = add i32 %value, -131073
-  %narrow.i292 = icmp ult i32 %16, -131009
+  %17 = add i32 %value, -131073
+  %narrow.i292 = icmp ult i32 %17, -131009
   %or.cond491 = and i1 %cmp487.not, %narrow.i292
   br i1 %or.cond491, label %sw.epilog, label %if.end506
 
@@ -1452,8 +1450,8 @@ do.end705:                                        ; preds = %do.body691
 
 sw.bb708:                                         ; preds = %entry
   %cmp709.not = icmp ne i32 %value, 0
-  %17 = add i32 %value, -131073
-  %narrow.i402 = icmp ult i32 %17, -130049
+  %18 = add i32 %value, -131073
+  %narrow.i402 = icmp ult i32 %18, -130049
   %or.cond493 = and i1 %cmp709.not, %narrow.i402
   br i1 %or.cond493, label %sw.epilog, label %if.end728
 

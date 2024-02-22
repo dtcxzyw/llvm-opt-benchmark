@@ -22638,12 +22638,11 @@ _ZN8ImVectorItE9push_backERKt.exit:               ; preds = %if.then._ZN8ImVecto
   %inc.i = add nsw i32 %10, 1
   store i32 %inc.i, ptr %out_ranges, align 8
   %11 = load ptr, ptr %Data.i.i, align 8
-  %smax = tail call i32 @llvm.smax.i32(i32 %n.071, i32 65535)
   br label %while.cond
 
 while.cond:                                       ; preds = %land.rhs, %_ZN8ImVectorItE9push_backERKt.exit
   %n.1 = phi i32 [ %n.071, %_ZN8ImVectorItE9push_backERKt.exit ], [ %add, %land.rhs ]
-  %exitcond.not = icmp eq i32 %n.1, %smax
+  %exitcond.not = icmp eq i32 %n.1, 65535
   br i1 %exitcond.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
@@ -22659,8 +22658,7 @@ land.rhs:                                         ; preds = %while.cond
   br i1 %cmp.i18.not, label %while.end, label %while.cond, !llvm.loop !133
 
 while.end:                                        ; preds = %while.cond, %land.rhs
-  %n.1.lcssa = phi i32 [ %smax, %while.cond ], [ %n.1, %land.rhs ]
-  %conv7 = trunc i32 %n.1.lcssa to i16
+  %conv7 = trunc i32 %n.1 to i16
   %14 = load i32, ptr %Capacity.i, align 4
   %cmp.i20 = icmp eq i32 %inc.i, %14
   br i1 %cmp.i20, label %if.then.i25, label %while.end._ZN8ImVectorItE9push_backERKt.exit44_crit_edge
@@ -22716,7 +22714,7 @@ _ZN8ImVectorItE9push_backERKt.exit44:             ; preds = %while.end._ZN8ImVec
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZN8ImVectorItE9push_backERKt.exit44
-  %n.2 = phi i32 [ %n.1.lcssa, %_ZN8ImVectorItE9push_backERKt.exit44 ], [ %n.071, %for.body ]
+  %n.2 = phi i32 [ %n.1, %_ZN8ImVectorItE9push_backERKt.exit44 ], [ %n.071, %for.body ]
   %inc8 = add nsw i32 %n.2, 1
   %cmp = icmp slt i32 %n.2, 65535
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !134

@@ -883,15 +883,13 @@ if.then17:                                        ; preds = %if.end9
 land.rhs.preheader:                               ; preds = %if.end9, %if.then17
   %xor.0 = phi i32 [ %cond, %if.then17 ], [ 0, %if.end9 ]
   %carry.0 = phi i32 [ %lnot.ext, %if.then17 ], [ 0, %if.end9 ]
-  %smin = tail call i32 @llvm.smin.i32(i32 %len, i32 1)
-  %3 = add nsw i32 %smin, -1
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.inc
   %s2.164 = phi ptr [ %add.ptr27, %for.inc ], [ %add.ptr12.s, %land.rhs.preheader ]
   %len.addr.063 = phi i32 [ %dec, %for.inc ], [ %len, %land.rhs.preheader ]
-  %4 = load i8, ptr %s2.164, align 1
-  %conv23 = zext i8 %4 to i32
+  %3 = load i8, ptr %s2.164, align 1
+  %conv23 = zext i8 %3 to i32
   %cmp24 = icmp eq i32 %xor.0, %conv23
   br i1 %cmp24, label %for.inc, label %for.end
 
@@ -902,7 +900,7 @@ for.inc:                                          ; preds = %land.rhs
   br i1 %cmp21, label %land.rhs, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %land.rhs, %for.inc
-  %len.addr.0.lcssa.ph = phi i32 [ %len.addr.063, %land.rhs ], [ %3, %for.inc ]
+  %len.addr.0.lcssa.ph = phi i32 [ %len.addr.063, %land.rhs ], [ 0, %for.inc ]
   %s2.1.lcssa.ph = phi ptr [ %s2.164, %land.rhs ], [ %add.ptr27, %for.inc ]
   %cmp28 = icmp eq i32 %xor.0, 255
   %cmp31 = icmp eq i32 %len.addr.0.lcssa.ph, 0
@@ -912,8 +910,8 @@ if.then30:                                        ; preds = %for.end
   br i1 %cmp31, label %if.then36, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then30
-  %5 = load i8, ptr %s2.1.lcssa.ph, align 1
-  %tobool35.not = icmp sgt i8 %5, -1
+  %4 = load i8, ptr %s2.1.lcssa.ph, align 1
+  %tobool35.not = icmp sgt i8 %4, -1
   br i1 %tobool35.not, label %if.then36, label %if.end43
 
 if.then36:                                        ; preds = %lor.lhs.false, %if.then30
@@ -934,8 +932,8 @@ if.end43:                                         ; preds = %lor.lhs.false, %if.
   %div42 = lshr i32 %sub44, 3
   %add = add nuw nsw i32 %div42, 1
   %dmax.i45 = getelementptr inbounds i8, ptr %ret.addr.0.ph, i64 12
-  %6 = load i32, ptr %dmax.i45, align 4
-  %cmp.not.i.not = icmp sgt i32 %6, %div42
+  %5 = load i32, ptr %dmax.i45, align 4
+  %cmp.not.i.not = icmp sgt i32 %5, %div42
   br i1 %cmp.not.i.not, label %if.end49, label %bn_wexpand.exit
 
 bn_wexpand.exit:                                  ; preds = %if.end43
@@ -949,32 +947,32 @@ if.then48:                                        ; preds = %bn_wexpand.exit
 
 if.end.i48:                                       ; preds = %if.then48
   %flags.i.i = getelementptr inbounds i8, ptr %bn.0.ph, i64 20
-  %7 = load i32, ptr %flags.i.i, align 4
-  %and.i.i = and i32 %7, 2
+  %6 = load i32, ptr %flags.i.i, align 4
+  %and.i.i = and i32 %6, 2
   %tobool.not.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i, label %if.then1.i, label %if.end2.i
 
 if.then1.i:                                       ; preds = %if.end.i48
-  %and.i.i.i = and i32 %7, 8
+  %and.i.i.i = and i32 %6, 8
   %tobool.not.i.i = icmp eq i32 %and.i.i.i, 0
-  %8 = load ptr, ptr %bn.0.ph, align 8
+  %7 = load ptr, ptr %bn.0.ph, align 8
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then1.i
   %dmax.i.i = getelementptr inbounds i8, ptr %bn.0.ph, i64 12
-  %9 = load i32, ptr %dmax.i.i, align 4
-  %conv.i.i = sext i32 %9 to i64
+  %8 = load i32, ptr %dmax.i.i, align 4
+  %conv.i.i = sext i32 %8 to i64
   %mul.i.i = shl nsw i64 %conv.i.i, 3
-  tail call void @CRYPTO_secure_clear_free(ptr noundef %8, i64 noundef %mul.i.i, ptr noundef nonnull @.str, i32 noundef 205) #17
+  tail call void @CRYPTO_secure_clear_free(ptr noundef %7, i64 noundef %mul.i.i, ptr noundef nonnull @.str, i32 noundef 205) #17
   br label %if.end2.i
 
 if.else.i.i:                                      ; preds = %if.then1.i
-  tail call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 209) #17
+  tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 209) #17
   br label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.else.i.i, %if.then.i.i, %if.end.i48
-  %10 = load i32, ptr %flags.i.i, align 4
-  %and.i = and i32 %10, 1
+  %9 = load i32, ptr %flags.i.i, align 4
+  %and.i = and i32 %9, 1
   %tobool3.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool3.not.i, label %return, label %if.then4.i
 
@@ -1004,8 +1002,8 @@ for.body64:                                       ; preds = %for.cond57.preheade
   %l.071 = phi i64 [ %or, %for.body64 ], [ 0, %for.cond57.preheader ]
   %carry.270 = phi i32 [ %conv72, %for.body64 ], [ %carry.179, %for.cond57.preheader ]
   %len.addr.369 = phi i32 [ %dec74, %for.body64 ], [ %len.addr.278, %for.cond57.preheader ]
-  %11 = load i8, ptr %s.addr.273, align 1
-  %conv65 = zext i8 %11 to i32
+  %10 = load i8, ptr %s.addr.273, align 1
+  %conv65 = zext i8 %10 to i32
   %xor66 = xor i32 %xor.0, %conv65
   %conv67 = zext nneg i32 %xor66 to i64
   %conv68 = zext nneg i32 %carry.270 to i64
@@ -1013,23 +1011,23 @@ for.body64:                                       ; preds = %for.cond57.preheade
   %and70 = and i64 %add69, 255
   %cmp71 = icmp ult i64 %and70, %conv67
   %conv72 = zext i1 %cmp71 to i32
-  %shl = shl i64 %and70, %indvars.iv
+  %shl = shl nuw i64 %and70, %indvars.iv
   %or = or i64 %shl, %l.071
   %dec74 = add nsw i32 %len.addr.369, -1
   %add.ptr76 = getelementptr inbounds i8, ptr %s.addr.273, i64 %.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %cmp58 = icmp ugt i32 %len.addr.369, 1
   %cmp61 = icmp ult i64 %indvars.iv, 56
-  %12 = select i1 %cmp58, i1 %cmp61, i1 false
-  br i1 %12, label %for.body64, label %for.end78, !llvm.loop !7
+  %11 = select i1 %cmp58, i1 %cmp61, i1 false
+  br i1 %11, label %for.body64, label %for.end78, !llvm.loop !7
 
 for.end78:                                        ; preds = %for.body64, %for.cond57.preheader
   %len.addr.3.lcssa = phi i32 [ %len.addr.278, %for.cond57.preheader ], [ %dec74, %for.body64 ]
   %carry.2.lcssa = phi i32 [ %carry.179, %for.cond57.preheader ], [ %conv72, %for.body64 ]
   %l.0.lcssa = phi i64 [ 0, %for.cond57.preheader ], [ %or, %for.body64 ]
   %s.addr.2.lcssa = phi ptr [ %s.addr.181, %for.cond57.preheader ], [ %add.ptr76, %for.body64 ]
-  %13 = load ptr, ptr %ret.addr.0.ph, align 8
-  %arrayidx = getelementptr inbounds i64, ptr %13, i64 %indvars.iv84
+  %12 = load ptr, ptr %ret.addr.0.ph, align 8
+  %arrayidx = getelementptr inbounds i64, ptr %12, i64 %indvars.iv84
   store i64 %l.0.lcssa, ptr %arrayidx, align 8
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %dec53 = add nsw i32 %dec5382, -1
@@ -1037,22 +1035,22 @@ for.end78:                                        ; preds = %for.body64, %for.co
   br i1 %cmp54.not, label %for.end81, label %for.cond57.preheader, !llvm.loop !8
 
 for.end81:                                        ; preds = %for.end78
-  %14 = load i32, ptr %top50, align 8
-  %cmp.i50 = icmp sgt i32 %14, 0
+  %13 = load i32, ptr %top50, align 8
+  %cmp.i50 = icmp sgt i32 %13, 0
   br i1 %cmp.i50, label %if.then.i, label %if.end5.i
 
 if.then.i:                                        ; preds = %for.end81
-  %15 = load ptr, ptr %ret.addr.0.ph, align 8
-  %idxprom.i = zext nneg i32 %14 to i64
-  %arrayidx.i = getelementptr inbounds i64, ptr %15, i64 %idxprom.i
+  %14 = load ptr, ptr %ret.addr.0.ph, align 8
+  %idxprom.i = zext nneg i32 %13 to i64
+  %arrayidx.i = getelementptr inbounds i64, ptr %14, i64 %idxprom.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then.i
-  %tmp_top.012.i = phi i32 [ %14, %if.then.i ], [ %dec.i, %for.inc.i ]
+  %tmp_top.012.i = phi i32 [ %13, %if.then.i ], [ %dec.i, %for.inc.i ]
   %ftl.011.i = phi ptr [ %arrayidx.i, %if.then.i ], [ %incdec.ptr.i, %for.inc.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %ftl.011.i, i64 -8
-  %16 = load i64, ptr %incdec.ptr.i, align 8
-  %cmp2.not.i = icmp eq i64 %16, 0
+  %15 = load i64, ptr %incdec.ptr.i, align 8
+  %cmp2.not.i = icmp eq i64 %15, 0
   br i1 %cmp2.not.i, label %for.inc.i, label %for.end.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -1066,8 +1064,8 @@ for.end.i:                                        ; preds = %for.inc.i, %for.bod
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %for.end.i, %for.end81
-  %17 = phi i32 [ %tmp_top.0.lcssa.i, %for.end.i ], [ %14, %for.end81 ]
-  %cmp7.i = icmp eq i32 %17, 0
+  %16 = phi i32 [ %tmp_top.0.lcssa.i, %for.end.i ], [ %13, %for.end81 ]
+  %cmp7.i = icmp eq i32 %16, 0
   br i1 %cmp7.i, label %if.then8.i, label %return
 
 if.then8.i:                                       ; preds = %if.end5.i
