@@ -653,12 +653,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp10, label %cond.false20, label %cond.end25
 
 cond.false20:                                     ; preds = %for.body
-  %12 = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %13 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %12)
-  %14 = fcmp oge <2 x float> %11, zeroinitializer
-  %15 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %13
+  %12 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %11)
+  %13 = fcmp oge <2 x float> %11, zeroinitializer
+  %14 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %12
+  %15 = shufflevector <2 x float> %14, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %16 = fneg <2 x float> %15
-  %17 = select <2 x i1> %14, <2 x float> %15, <2 x float> %16
+  %17 = select <2 x i1> %13, <2 x float> %15, <2 x float> %16
   br label %cond.end25
 
 cond.end25:                                       ; preds = %for.body, %cond.false20

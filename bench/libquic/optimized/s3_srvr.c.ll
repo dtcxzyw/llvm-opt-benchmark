@@ -3015,12 +3015,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %good.099 = phi i8 [ %and131, %for.body ], [ %and12173, %for.body.preheader ]
   %arrayidx126 = getelementptr inbounds i8, ptr %call58, i64 %i.0100
   %25 = load i8, ptr %arrayidx126, align 1
-  %conv127 = zext i8 %25 to i32
-  %sub.i.i = add nsw i32 %conv127, -1
-  %shr.i.i.i = ashr i32 %sub.i.i, 31
-  %conv.i = trunc i32 %shr.i.i.i to i8
-  %not = xor i8 %conv.i, -1
-  %and131 = and i8 %good.099, %not
+  %.not = icmp eq i8 %25, 0
+  %and131 = select i1 %.not, i8 0, i8 %good.099
   %inc = add nuw i64 %i.0100, 1
   %exitcond.not = icmp eq i64 %inc, %sub123
   br i1 %exitcond.not, label %for.body161.lr.ph, label %for.body, !llvm.loop !13

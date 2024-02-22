@@ -455,27 +455,28 @@ if.end37:                                         ; preds = %if.else, %if.then28
   %36 = load <2 x float>, ptr %c39, align 4
   %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %38 = load <2 x float>, ptr %q.i, align 4
-  %39 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %40 = fneg <2 x float> %38
-  %41 = shufflevector <2 x float> %40, <2 x float> %38, <2 x i32> <i32 0, i32 3>
-  %42 = fmul <2 x float> %39, %41
-  %43 = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %44 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> zeroinitializer
-  %45 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %38, <2 x float> %44, <2 x float> %43)
-  %46 = load <2 x float>, ptr %m_xf43, align 4
-  %47 = shufflevector <2 x float> %46, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %48 = fadd <2 x float> %45, %47
-  %49 = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %49, ptr %c39, align 4
-  store <2 x float> %49, ptr %c050, align 4
-  %50 = fsub <2 x float> %48, %37
-  %51 = shufflevector <4 x float> %35, <4 x float> poison, <2 x i32> zeroinitializer
-  %52 = fmul <2 x float> %51, %50
-  %53 = load <2 x float>, ptr %m_linearVelocity, align 8
-  %54 = fsub <2 x float> %53, %52
-  %55 = fadd <2 x float> %53, %52
-  %56 = shufflevector <2 x float> %54, <2 x float> %55, <2 x i32> <i32 0, i32 3>
-  store <2 x float> %56, ptr %m_linearVelocity, align 8
+  %39 = extractelement <2 x float> %38, i64 0
+  %40 = fneg float %39
+  %41 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %42 = shufflevector <2 x float> %38, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %43 = insertelement <2 x float> %42, float %40, i64 1
+  %44 = fmul <2 x float> %41, %43
+  %45 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> zeroinitializer
+  %46 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %38, <2 x float> %45, <2 x float> %44)
+  %47 = load <2 x float>, ptr %m_xf43, align 4
+  %48 = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %49 = fadd <2 x float> %46, %48
+  %50 = shufflevector <2 x float> %49, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x float> %50, ptr %c39, align 4
+  store <2 x float> %50, ptr %c050, align 4
+  %51 = fsub <2 x float> %49, %37
+  %52 = shufflevector <4 x float> %35, <4 x float> poison, <2 x i32> zeroinitializer
+  %53 = fmul <2 x float> %52, %51
+  %54 = load <2 x float>, ptr %m_linearVelocity, align 8
+  %55 = fsub <2 x float> %54, %53
+  %56 = fadd <2 x float> %54, %53
+  %57 = shufflevector <2 x float> %55, <2 x float> %56, <2 x i32> <i32 0, i32 3>
+  store <2 x float> %57, ptr %m_linearVelocity, align 8
   br label %return
 
 return:                                           ; preds = %if.end37, %if.then
@@ -848,31 +849,32 @@ if.end24:                                         ; preds = %if.then15, %land.lh
   %17 = load <2 x float>, ptr %c, align 4
   %18 = shufflevector <2 x float> %17, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %19 = load <2 x float>, ptr %q.i, align 4
-  %20 = fneg <2 x float> %19
-  %21 = shufflevector <2 x float> %20, <2 x float> %19, <2 x i32> <i32 0, i32 3>
-  %22 = insertelement <2 x i32> poison, i32 %15, i64 0
-  %23 = bitcast <2 x i32> %22 to <2 x float>
-  %24 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> zeroinitializer
-  %25 = fmul <2 x float> %21, %24
-  %26 = shufflevector <2 x float> %25, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %27 = insertelement <2 x i32> poison, i32 %13, i64 0
-  %28 = bitcast <2 x i32> %27 to <2 x float>
-  %29 = shufflevector <2 x float> %28, <2 x float> poison, <2 x i32> zeroinitializer
-  %30 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %19, <2 x float> %29, <2 x float> %26)
-  %31 = load <2 x float>, ptr %m_xf, align 4
-  %32 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %33 = fadd <2 x float> %30, %32
-  %34 = shufflevector <2 x float> %33, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x float> %34, ptr %c, align 4
-  store <2 x float> %34, ptr %c0, align 4
-  %35 = fsub <2 x float> %33, %18
-  %36 = shufflevector <4 x float> %16, <4 x float> poison, <2 x i32> zeroinitializer
-  %37 = fmul <2 x float> %36, %35
-  %38 = load <2 x float>, ptr %m_linearVelocity, align 8
-  %39 = fsub <2 x float> %38, %37
-  %40 = fadd <2 x float> %38, %37
-  %41 = shufflevector <2 x float> %39, <2 x float> %40, <2 x i32> <i32 0, i32 3>
-  store <2 x float> %41, ptr %m_linearVelocity, align 8
+  %20 = extractelement <2 x float> %19, i64 0
+  %21 = fneg float %20
+  %22 = shufflevector <2 x float> %19, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %23 = insertelement <2 x float> %22, float %21, i64 1
+  %24 = insertelement <2 x i32> poison, i32 %15, i64 0
+  %25 = bitcast <2 x i32> %24 to <2 x float>
+  %26 = shufflevector <2 x float> %25, <2 x float> poison, <2 x i32> zeroinitializer
+  %27 = fmul <2 x float> %23, %26
+  %28 = insertelement <2 x i32> poison, i32 %13, i64 0
+  %29 = bitcast <2 x i32> %28 to <2 x float>
+  %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> zeroinitializer
+  %31 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %19, <2 x float> %30, <2 x float> %27)
+  %32 = load <2 x float>, ptr %m_xf, align 4
+  %33 = shufflevector <2 x float> %32, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %34 = fadd <2 x float> %31, %33
+  %35 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  store <2 x float> %35, ptr %c, align 4
+  store <2 x float> %35, ptr %c0, align 4
+  %36 = fsub <2 x float> %34, %18
+  %37 = shufflevector <4 x float> %16, <4 x float> poison, <2 x i32> zeroinitializer
+  %38 = fmul <2 x float> %37, %36
+  %39 = load <2 x float>, ptr %m_linearVelocity, align 8
+  %40 = fsub <2 x float> %39, %38
+  %41 = fadd <2 x float> %39, %38
+  %42 = shufflevector <2 x float> %40, <2 x float> %41, <2 x i32> <i32 0, i32 3>
+  store <2 x float> %42, ptr %m_linearVelocity, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end24

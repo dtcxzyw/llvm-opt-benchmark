@@ -383,17 +383,23 @@ entry:
   %2 = fdiv <2 x float> %1, <float 6.553500e+04, float 6.553500e+04>
   %3 = fmul <2 x float> %2, <float 2.000000e+00, float 2.000000e+00>
   %4 = fadd <2 x float> %3, <float -1.000000e+00, float -1.000000e+00>
-  %5 = shufflevector <2 x float> %4, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %6 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %5)
-  %shift = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %7 = fadd <2 x float> %shift, %6
-  %add13.i = extractelement <2 x float> %7, i64 0
+  %5 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %4)
+  %shift = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %6 = fadd <2 x float> %5, %shift
+  %add13.i = extractelement <2 x float> %6, i64 0
   %sub.i = fsub float 1.000000e+00, %add13.i
   %cmp.i = fcmp olt float %sub.i, 0.000000e+00
-  %8 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %6
+  br i1 %cmp.i, label %if.then.i, label %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
+
+if.then.i:                                        ; preds = %entry
+  %7 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %5
+  %8 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %9 = tail call <2 x float> @llvm.copysign.v2f32(<2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %4)
   %10 = fmul <2 x float> %9, %8
-  %v.sroa.0.0.i = select i1 %cmp.i, <2 x float> %10, <2 x float> %4
+  br label %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
+
+_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %entry, %if.then.i
+  %v.sroa.0.0.i = phi <2 x float> [ %10, %if.then.i ], [ %4, %entry ]
   %11 = fmul <2 x float> %v.sroa.0.0.i, %v.sroa.0.0.i
   %shift10 = shufflevector <2 x float> %11, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %12 = fadd <2 x float> %11, %shift10
@@ -433,13 +439,13 @@ entry:
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKtJS3_S3_S3_S3_S3_RKNS_16OctahedralVectorENS_7Vector3IfEERKfRKjfSC_fSC_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.5, ptr noundef nonnull align 2 dereferenceable(2) %qb, ptr noundef nonnull align 2 dereferenceable(2) %arrayidx5, ptr noundef nonnull align 2 dereferenceable(2) %arrayidx8, ptr noundef nonnull align 2 dereferenceable(2) %arrayidx10, ptr noundef nonnull align 2 dereferenceable(2) %arrayidx14, ptr noundef nonnull align 2 dereferenceable(2) %arrayidx17, ptr noundef nonnull align 2 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %phi, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp22, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp27)
           to label %_ZN4pbrt12StringPrintfIJRKtS2_S2_S2_S2_S2_RKNS_16OctahedralVectorENS_7Vector3IfEERKfRKjfSB_fSB_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
 
-lpad.i:                                           ; preds = %entry
+lpad.i:                                           ; preds = %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
   %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
   resume { ptr, i32 } %17
 
-_ZN4pbrt12StringPrintfIJRKtS2_S2_S2_S2_S2_RKNS_16OctahedralVectorENS_7Vector3IfEERKfRKjfSB_fSB_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit: ; preds = %entry
+_ZN4pbrt12StringPrintfIJRKtS2_S2_S2_S2_S2_RKNS_16OctahedralVectorENS_7Vector3IfEERKfRKjfSB_fSB_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit: ; preds = %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
   ret void
 }
 
@@ -519,17 +525,23 @@ entry:
   %39 = fdiv <2 x float> %38, <float 6.553500e+04, float 6.553500e+04>
   %40 = fmul <2 x float> %39, <float 2.000000e+00, float 2.000000e+00>
   %41 = fadd <2 x float> %40, <float -1.000000e+00, float -1.000000e+00>
-  %42 = shufflevector <2 x float> %41, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %43 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %42)
-  %shift = shufflevector <2 x float> %43, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %44 = fadd <2 x float> %shift, %43
-  %add13.i = extractelement <2 x float> %44, i64 0
+  %42 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %41)
+  %shift = shufflevector <2 x float> %42, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %43 = fadd <2 x float> %42, %shift
+  %add13.i = extractelement <2 x float> %43, i64 0
   %sub.i = fsub float 1.000000e+00, %add13.i
   %cmp.i = fcmp olt float %sub.i, 0.000000e+00
-  %45 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %43
+  br i1 %cmp.i, label %if.then.i, label %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
+
+if.then.i:                                        ; preds = %entry
+  %44 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %42
+  %45 = shufflevector <2 x float> %44, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %46 = tail call <2 x float> @llvm.copysign.v2f32(<2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %41)
   %47 = fmul <2 x float> %46, %45
-  %v.sroa.0.0.i = select i1 %cmp.i, <2 x float> %47, <2 x float> %41
+  br label %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
+
+_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %entry, %if.then.i
+  %v.sroa.0.0.i = phi <2 x float> [ %47, %if.then.i ], [ %41, %entry ]
   %48 = fmul <2 x float> %v.sroa.0.0.i, %v.sroa.0.0.i
   %shift14 = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %49 = fadd <2 x float> %48, %shift14
@@ -569,13 +581,13 @@ entry:
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveINS_7Bounds3IfEEJRKtS5_S5_S5_S5_S5_RKNS_16OctahedralVectorENS_7Vector3IfEERKfRKjfSE_fSE_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.6, ptr noundef nonnull align 4 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 2 dereferenceable(2) %qb.i, ptr noundef nonnull align 2 dereferenceable(2) %arrayidx7.i, ptr noundef nonnull align 2 dereferenceable(2) %arrayidx17.i, ptr noundef nonnull align 2 dereferenceable(2) %arrayidx27.i, ptr noundef nonnull align 2 dereferenceable(2) %arrayidx39.i, ptr noundef nonnull align 2 dereferenceable(2) %arrayidx50.i, ptr noundef nonnull align 2 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp18, ptr noundef nonnull align 4 dereferenceable(4) %phi, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp20, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp21, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp23, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp26, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp28)
           to label %_ZN4pbrt12StringPrintfIJNS_7Bounds3IfEERKtS4_S4_S4_S4_S4_RKNS_16OctahedralVectorENS_7Vector3IfEERKfRKjfSD_fSD_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
 
-lpad.i:                                           ; preds = %entry
+lpad.i:                                           ; preds = %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
   %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
   resume { ptr, i32 } %54
 
-_ZN4pbrt12StringPrintfIJNS_7Bounds3IfEERKtS4_S4_S4_S4_S4_RKNS_16OctahedralVectorENS_7Vector3IfEERKfRKjfSD_fSD_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit: ; preds = %entry
+_ZN4pbrt12StringPrintfIJNS_7Bounds3IfEERKtS4_S4_S4_S4_S4_RKNS_16OctahedralVectorENS_7Vector3IfEERKfRKjfSD_fSD_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit: ; preds = %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
   ret void
 }
 

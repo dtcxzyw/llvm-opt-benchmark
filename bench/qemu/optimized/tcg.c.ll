@@ -19694,51 +19694,50 @@ if.then:                                          ; preds = %entry
   %code_ptr = getelementptr inbounds i8, ptr %s, i64 128
   %1 = load ptr, ptr %code_ptr, align 8
   %2 = ptrtoint ptr %1 to i64
-  %not = xor i32 %rm, -1
-  %conv = zext nneg i32 %not to i64
-  %3 = add i64 %offset, -5
-  %4 = add i64 %conv, %2
-  %sub = sub i64 %3, %4
-  %5 = add i64 %sub, 2147483648
-  %cmp5 = icmp ult i64 %5, 4294967296
+  %3 = sext i32 %rm to i64
+  %add.neg = add nsw i64 %3, -4
+  %add2.neg = add i64 %add.neg, %offset
+  %sub = sub i64 %add2.neg, %2
+  %4 = add i64 %sub, 2147483648
+  %cmp5 = icmp ult i64 %4, 4294967296
   br i1 %cmp5, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %if.then
   %conv3 = trunc i64 %sub to i32
   %r.tr36 = trunc i32 %r to i8
-  %6 = shl i8 %r.tr36, 3
-  %7 = and i8 %6, 56
-  %conv8 = or disjoint i8 %7, 5
+  %5 = shl i8 %r.tr36, 3
+  %6 = and i8 %5, 56
+  %conv8 = or disjoint i8 %6, 5
   %incdec.ptr.i = getelementptr i8, ptr %1, i64 1
   store ptr %incdec.ptr.i, ptr %code_ptr, align 8
   store i8 %conv8, ptr %1, align 1
-  %8 = load ptr, ptr %code_ptr, align 8
-  store i32 %conv3, ptr %8, align 1
-  %add.ptr.i = getelementptr i8, ptr %8, i64 4
+  %7 = load ptr, ptr %code_ptr, align 8
+  store i32 %conv3, ptr %7, align 1
+  %add.ptr.i = getelementptr i8, ptr %7, i64 4
   store ptr %add.ptr.i, ptr %code_ptr, align 8
   br label %if.end90
 
 if.end:                                           ; preds = %if.then
-  %9 = add i64 %offset, 2147483648
-  %cmp12 = icmp ult i64 %9, 4294967296
+  %8 = add i64 %offset, 2147483648
+  %cmp12 = icmp ult i64 %8, 4294967296
   br i1 %cmp12, label %if.then14, label %do.body
 
 if.then14:                                        ; preds = %if.end
   %conv10 = trunc i64 %offset to i32
   %r.tr = trunc i32 %r to i8
-  %10 = shl i8 %r.tr, 3
-  %11 = and i8 %10, 56
-  %conv18 = or disjoint i8 %11, 4
+  %9 = shl i8 %r.tr, 3
+  %10 = and i8 %9, 56
+  %conv18 = or disjoint i8 %10, 4
   %incdec.ptr.i41 = getelementptr i8, ptr %1, i64 1
   store ptr %incdec.ptr.i41, ptr %code_ptr, align 8
   store i8 %conv18, ptr %1, align 1
-  %12 = load ptr, ptr %code_ptr, align 8
-  %incdec.ptr.i43 = getelementptr i8, ptr %12, i64 1
+  %11 = load ptr, ptr %code_ptr, align 8
+  %incdec.ptr.i43 = getelementptr i8, ptr %11, i64 1
   store ptr %incdec.ptr.i43, ptr %code_ptr, align 8
-  store i8 37, ptr %12, align 1
-  %13 = load ptr, ptr %code_ptr, align 8
-  store i32 %conv10, ptr %13, align 1
-  %add.ptr.i45 = getelementptr i8, ptr %13, i64 4
+  store i8 37, ptr %11, align 1
+  %12 = load ptr, ptr %code_ptr, align 8
+  store i32 %conv10, ptr %12, align 1
+  %add.ptr.i45 = getelementptr i8, ptr %12, i64 4
   store ptr %add.ptr.i45, ptr %code_ptr, align 8
   br label %if.end90
 
@@ -19758,8 +19757,8 @@ if.else:                                          ; preds = %if.end21
   br i1 %or.cond, label %if.else32, label %if.end41
 
 if.else32:                                        ; preds = %if.else
-  %14 = add i64 %offset, 128
-  %cmp35 = icmp ult i64 %14, 256
+  %13 = add i64 %offset, 128
+  %cmp35 = icmp ult i64 %13, 256
   %. = select i1 %cmp35, i32 64, i32 128
   %not.cmp35 = xor i1 %cmp35, true
   br label %if.end41
@@ -19783,41 +19782,41 @@ if.then48:                                        ; preds = %land.lhs.true44
   %or53 = or disjoint i32 %or51, %and45
   %conv54 = trunc i32 %or53 to i8
   %code_ptr.i46 = getelementptr inbounds i8, ptr %s, i64 128
-  %15 = load ptr, ptr %code_ptr.i46, align 8
-  %incdec.ptr.i47 = getelementptr i8, ptr %15, i64 1
+  %14 = load ptr, ptr %code_ptr.i46, align 8
+  %incdec.ptr.i47 = getelementptr i8, ptr %14, i64 1
   store ptr %incdec.ptr.i47, ptr %code_ptr.i46, align 8
-  store i8 %conv54, ptr %15, align 1
+  store i8 %conv54, ptr %14, align 1
   br label %if.end79
 
 do.body60:                                        ; preds = %if.end41
   %cmp61 = icmp ne i32 %index, 4
   tail call void @llvm.assume(i1 %cmp61)
-  %16 = shl i32 %index, 3
-  %17 = and i32 %16, 56
+  %15 = shl i32 %index, 3
+  %16 = and i32 %15, 56
   %.pre = and i32 %rm.addr.0, 7
   br label %if.end66
 
 if.end66:                                         ; preds = %land.lhs.true44, %do.body60
   %and76.pre-phi = phi i32 [ 4, %land.lhs.true44 ], [ %.pre, %do.body60 ]
-  %index.addr.0 = phi i32 [ 32, %land.lhs.true44 ], [ %17, %do.body60 ]
+  %index.addr.0 = phi i32 [ 32, %land.lhs.true44 ], [ %16, %do.body60 ]
   %and67 = shl i32 %r, 3
   %shl68 = and i32 %and67, 56
   %or69 = or disjoint i32 %mod.0, %shl68
-  %18 = trunc i32 %or69 to i8
-  %conv71 = or disjoint i8 %18, 4
+  %17 = trunc i32 %or69 to i8
+  %conv71 = or disjoint i8 %17, 4
   %code_ptr.i48 = getelementptr inbounds i8, ptr %s, i64 128
-  %19 = load ptr, ptr %code_ptr.i48, align 8
-  %incdec.ptr.i49 = getelementptr i8, ptr %19, i64 1
+  %18 = load ptr, ptr %code_ptr.i48, align 8
+  %incdec.ptr.i49 = getelementptr i8, ptr %18, i64 1
   store ptr %incdec.ptr.i49, ptr %code_ptr.i48, align 8
-  store i8 %conv71, ptr %19, align 1
+  store i8 %conv71, ptr %18, align 1
   %shl72 = shl i32 %shift, 6
   %or75 = or disjoint i32 %index.addr.0, %shl72
   %or77 = or disjoint i32 %or75, %and76.pre-phi
   %conv78 = trunc i32 %or77 to i8
-  %20 = load ptr, ptr %code_ptr.i48, align 8
-  %incdec.ptr.i51 = getelementptr i8, ptr %20, i64 1
+  %19 = load ptr, ptr %code_ptr.i48, align 8
+  %incdec.ptr.i51 = getelementptr i8, ptr %19, i64 1
   store ptr %incdec.ptr.i51, ptr %code_ptr.i48, align 8
-  store i8 %conv78, ptr %20, align 1
+  store i8 %conv78, ptr %19, align 1
   br label %if.end79
 
 if.end79:                                         ; preds = %if.end66, %if.then48
@@ -19826,10 +19825,10 @@ if.end79:                                         ; preds = %if.end66, %if.then4
 if.then82:                                        ; preds = %if.end79
   %conv83 = trunc i64 %offset to i8
   %code_ptr.i52 = getelementptr inbounds i8, ptr %s, i64 128
-  %21 = load ptr, ptr %code_ptr.i52, align 8
-  %incdec.ptr.i53 = getelementptr i8, ptr %21, i64 1
+  %20 = load ptr, ptr %code_ptr.i52, align 8
+  %incdec.ptr.i53 = getelementptr i8, ptr %20, i64 1
   store ptr %incdec.ptr.i53, ptr %code_ptr.i52, align 8
-  store i8 %conv83, ptr %21, align 1
+  store i8 %conv83, ptr %20, align 1
   br label %if.end90
 
 if.else84:                                        ; preds = %if.end79
@@ -19838,9 +19837,9 @@ if.else84:                                        ; preds = %if.end79
 if.then87:                                        ; preds = %if.else84
   %conv88 = trunc i64 %offset to i32
   %code_ptr.i54 = getelementptr inbounds i8, ptr %s, i64 128
-  %22 = load ptr, ptr %code_ptr.i54, align 8
-  store i32 %conv88, ptr %22, align 1
-  %add.ptr.i55 = getelementptr i8, ptr %22, i64 4
+  %21 = load ptr, ptr %code_ptr.i54, align 8
+  store i32 %conv88, ptr %21, align 1
+  %add.ptr.i55 = getelementptr i8, ptr %21, i64 4
   store ptr %add.ptr.i55, ptr %code_ptr.i54, align 8
   br label %if.end90
 
@@ -22388,152 +22387,152 @@ if.then110.i:                                     ; preds = %if.then100.i
 if.then.i.i:                                      ; preds = %if.then110.i
   %23 = load ptr, ptr %code_ptr.i36.i148.i, align 8
   %24 = ptrtoint ptr %23 to i64
-  %not.i.i = xor i32 %spec.select76.i, -1
-  %conv.i153.i = zext nneg i32 %not.i.i to i64
-  %25 = add i64 %24, %conv.i153.i
-  %26 = add i64 %25, 2147483652
+  %25 = sext i32 %spec.select76.i to i64
+  %add.neg.i.i = add nsw i64 %25, -4
+  %sub.i.i = sub i64 %add.neg.i.i, %24
+  %26 = add i64 %sub.i.i, 2147483648
   %cmp5.i.i = icmp ult i64 %26, 4294967296
   br i1 %cmp5.i.i, label %if.then7.i.i, label %if.end.i.i
 
 if.then7.i.i:                                     ; preds = %if.then.i.i
-  %27 = trunc i64 %25 to i32
-  %conv3.i.i = sub i32 -5, %27
+  %conv3.i.i = trunc i64 %sub.i.i to i32
   %r.tr36.i.i = trunc i32 %spec.select77.i to i8
-  %28 = shl i8 %r.tr36.i.i, 3
-  %29 = and i8 %28, 56
-  %conv8.i.i = or disjoint i8 %29, 5
-  %incdec.ptr.i.i154.i = getelementptr i8, ptr %23, i64 1
-  store ptr %incdec.ptr.i.i154.i, ptr %code_ptr.i36.i148.i, align 8
+  %27 = shl i8 %r.tr36.i.i, 3
+  %28 = and i8 %27, 56
+  %conv8.i.i = or disjoint i8 %28, 5
+  %incdec.ptr.i.i153.i = getelementptr i8, ptr %23, i64 1
+  store ptr %incdec.ptr.i.i153.i, ptr %code_ptr.i36.i148.i, align 8
   store i8 %conv8.i.i, ptr %23, align 1
-  %30 = load ptr, ptr %code_ptr.i36.i148.i, align 8
-  store i32 %conv3.i.i, ptr %30, align 1
-  br label %if.then.i157.i
+  %29 = load ptr, ptr %code_ptr.i36.i148.i, align 8
+  store i32 %conv3.i.i, ptr %29, align 1
+  br label %if.then.i156.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
   %r.tr.i.i = trunc i32 %spec.select77.i to i8
-  %31 = shl i8 %r.tr.i.i, 3
-  %32 = and i8 %31, 56
-  %conv18.i.i = or disjoint i8 %32, 4
+  %30 = shl i8 %r.tr.i.i, 3
+  %31 = and i8 %30, 56
+  %conv18.i.i = or disjoint i8 %31, 4
   %incdec.ptr.i41.i.i = getelementptr i8, ptr %23, i64 1
   store ptr %incdec.ptr.i41.i.i, ptr %code_ptr.i36.i148.i, align 8
   store i8 %conv18.i.i, ptr %23, align 1
-  %33 = load ptr, ptr %code_ptr.i36.i148.i, align 8
-  %incdec.ptr.i43.i.i = getelementptr i8, ptr %33, i64 1
+  %32 = load ptr, ptr %code_ptr.i36.i148.i, align 8
+  %incdec.ptr.i43.i.i = getelementptr i8, ptr %32, i64 1
   store ptr %incdec.ptr.i43.i.i, ptr %code_ptr.i36.i148.i, align 8
-  store i8 37, ptr %33, align 1
-  %34 = load ptr, ptr %code_ptr.i36.i148.i, align 8
-  store i32 0, ptr %34, align 1
-  br label %if.then.i157.i
+  store i8 37, ptr %32, align 1
+  %33 = load ptr, ptr %code_ptr.i36.i148.i, align 8
+  store i32 0, ptr %33, align 1
+  br label %if.then.i156.i
 
 if.else.i.i:                                      ; preds = %if.then110.i
   %and28.i.i = and i32 %spec.select76.i, 7
   %cmp46.not.i.i = icmp eq i32 %and28.i.i, 4
   %and67.i.i = shl i32 %spec.select77.i, 3
   %shl68.i.i = and i32 %and67.i.i, 56
-  %35 = load ptr, ptr %code_ptr.i36.i148.i, align 8
-  %incdec.ptr.i49.i.i = getelementptr i8, ptr %35, i64 1
+  %34 = load ptr, ptr %code_ptr.i36.i148.i, align 8
+  %incdec.ptr.i49.i.i = getelementptr i8, ptr %34, i64 1
   store ptr %incdec.ptr.i49.i.i, ptr %code_ptr.i36.i148.i, align 8
-  br i1 %cmp46.not.i.i, label %if.end66.i204.i, label %if.end79.i.i
+  br i1 %cmp46.not.i.i, label %if.end66.i202.i, label %if.end79.i.i
 
 if.end79.i.i:                                     ; preds = %if.else.i.i
   %cmp29.not.i.i = icmp eq i32 %and28.i.i, 5
-  %spec.select214.i = select i1 %cmp29.not.i.i, i32 64, i32 0
-  %36 = or disjoint i32 %and28.i.i, %spec.select214.i
-  %or53.i.i = or disjoint i32 %36, %shl68.i.i
+  %spec.select212.i = select i1 %cmp29.not.i.i, i32 64, i32 0
+  %35 = or disjoint i32 %and28.i.i, %spec.select212.i
+  %or53.i.i = or disjoint i32 %35, %shl68.i.i
   %conv54.i.i = trunc i32 %or53.i.i to i8
-  store i8 %conv54.i.i, ptr %35, align 1
-  br i1 %cmp29.not.i.i, label %if.then82.i.i, label %if.then48.i188.i
+  store i8 %conv54.i.i, ptr %34, align 1
+  br i1 %cmp29.not.i.i, label %if.then82.i.i, label %if.then48.i186.i
 
 if.then82.i.i:                                    ; preds = %if.end79.i.i
-  %37 = load ptr, ptr %code_ptr.i36.i148.i, align 8
-  %incdec.ptr.i53.i.i = getelementptr i8, ptr %37, i64 1
+  %36 = load ptr, ptr %code_ptr.i36.i148.i, align 8
+  %incdec.ptr.i53.i.i = getelementptr i8, ptr %36, i64 1
   store ptr %incdec.ptr.i53.i.i, ptr %code_ptr.i36.i148.i, align 8
-  store i8 0, ptr %37, align 1
-  br label %if.then48.i188.i
+  store i8 0, ptr %36, align 1
+  br label %if.then48.i186.i
 
-if.then.i157.i:                                   ; preds = %if.end.i.i, %if.then7.i.i
-  %.pn.i = phi ptr [ %34, %if.end.i.i ], [ %30, %if.then7.i.i ]
+if.then.i156.i:                                   ; preds = %if.end.i.i, %if.then7.i.i
+  %.pn.i = phi ptr [ %33, %if.end.i.i ], [ %29, %if.then7.i.i ]
   %storemerge.i = getelementptr i8, ptr %.pn.i, i64 4
   store ptr %storemerge.i, ptr %code_ptr.i36.i148.i, align 8
   tail call fastcc void @tcg_out_opc(ptr noundef nonnull %s, i32 noundef %add117.i, i32 noundef %spec.select76.i, i32 noundef %cond.i.i.i, i32 noundef 0)
-  %38 = load ptr, ptr %code_ptr.i36.i148.i, align 8
-  %39 = ptrtoint ptr %38 to i64
-  %40 = add i64 %39, %conv.i153.i
-  %41 = add i64 %40, 2147483644
-  %cmp5.i162.i = icmp ult i64 %41, 4294967296
-  br i1 %cmp5.i162.i, label %if.then7.i169.i, label %if.end.i163.i
+  %37 = load ptr, ptr %code_ptr.i36.i148.i, align 8
+  %38 = ptrtoint ptr %37 to i64
+  %narrow.i = add nsw i32 %spec.select76.i, 4
+  %add2.neg.i.i = sext i32 %narrow.i to i64
+  %sub.i159.i = sub i64 %add2.neg.i.i, %38
+  %39 = add i64 %sub.i159.i, 2147483648
+  %cmp5.i160.i = icmp ult i64 %39, 4294967296
+  br i1 %cmp5.i160.i, label %if.then7.i167.i, label %if.end.i161.i
 
-if.then7.i169.i:                                  ; preds = %if.then.i157.i
-  %42 = trunc i64 %40 to i32
-  %conv3.i170.i = sub i32 3, %42
-  %r.tr36.i171.i = trunc i32 %spec.select76.i to i8
-  %43 = shl i8 %r.tr36.i171.i, 3
+if.then7.i167.i:                                  ; preds = %if.then.i156.i
+  %conv3.i168.i = trunc i64 %sub.i159.i to i32
+  %r.tr36.i169.i = trunc i32 %spec.select76.i to i8
+  %40 = shl i8 %r.tr36.i169.i, 3
+  %41 = and i8 %40, 56
+  %conv8.i170.i = or disjoint i8 %41, 5
+  %incdec.ptr.i.i171.i = getelementptr i8, ptr %37, i64 1
+  store ptr %incdec.ptr.i.i171.i, ptr %code_ptr.i36.i148.i, align 8
+  store i8 %conv8.i170.i, ptr %37, align 1
+  %42 = load ptr, ptr %code_ptr.i36.i148.i, align 8
+  store i32 %conv3.i168.i, ptr %42, align 1
+  %add.ptr.i.i172.i = getelementptr i8, ptr %42, i64 4
+  store ptr %add.ptr.i.i172.i, ptr %code_ptr.i36.i148.i, align 8
+  br label %tcg_out_qemu_ld_direct.exit
+
+if.end.i161.i:                                    ; preds = %if.then.i156.i
+  %r.tr.i162.i = trunc i32 %spec.select76.i to i8
+  %43 = shl i8 %r.tr.i162.i, 3
   %44 = and i8 %43, 56
-  %conv8.i172.i = or disjoint i8 %44, 5
-  %incdec.ptr.i.i173.i = getelementptr i8, ptr %38, i64 1
-  store ptr %incdec.ptr.i.i173.i, ptr %code_ptr.i36.i148.i, align 8
-  store i8 %conv8.i172.i, ptr %38, align 1
+  %conv18.i163.i = or disjoint i8 %44, 4
+  %incdec.ptr.i41.i164.i = getelementptr i8, ptr %37, i64 1
+  store ptr %incdec.ptr.i41.i164.i, ptr %code_ptr.i36.i148.i, align 8
+  store i8 %conv18.i163.i, ptr %37, align 1
   %45 = load ptr, ptr %code_ptr.i36.i148.i, align 8
-  store i32 %conv3.i170.i, ptr %45, align 1
-  %add.ptr.i.i174.i = getelementptr i8, ptr %45, i64 4
-  store ptr %add.ptr.i.i174.i, ptr %code_ptr.i36.i148.i, align 8
+  %incdec.ptr.i43.i165.i = getelementptr i8, ptr %45, i64 1
+  store ptr %incdec.ptr.i43.i165.i, ptr %code_ptr.i36.i148.i, align 8
+  store i8 37, ptr %45, align 1
+  %46 = load ptr, ptr %code_ptr.i36.i148.i, align 8
+  store i32 8, ptr %46, align 1
+  %add.ptr.i45.i166.i = getelementptr i8, ptr %46, i64 4
+  store ptr %add.ptr.i45.i166.i, ptr %code_ptr.i36.i148.i, align 8
   br label %tcg_out_qemu_ld_direct.exit
 
-if.end.i163.i:                                    ; preds = %if.then.i157.i
-  %r.tr.i164.i = trunc i32 %spec.select76.i to i8
-  %46 = shl i8 %r.tr.i164.i, 3
-  %47 = and i8 %46, 56
-  %conv18.i165.i = or disjoint i8 %47, 4
-  %incdec.ptr.i41.i166.i = getelementptr i8, ptr %38, i64 1
-  store ptr %incdec.ptr.i41.i166.i, ptr %code_ptr.i36.i148.i, align 8
-  store i8 %conv18.i165.i, ptr %38, align 1
+if.then48.i186.i:                                 ; preds = %if.then82.i.i, %if.end79.i.i
+  tail call fastcc void @tcg_out_opc(ptr noundef nonnull %s, i32 noundef %add117.i, i32 noundef %spec.select76.i, i32 noundef %cond.i.i.i, i32 noundef 0)
+  %and49.i187.i = shl i32 %spec.select76.i, 3
+  %shl50.i188.i = and i32 %and49.i187.i, 56
+  %or51.i189.i = or disjoint i32 %shl50.i188.i, %and28.i.i
+  %47 = trunc i32 %or51.i189.i to i8
+  %conv54.i191.i = or disjoint i8 %47, 64
   %48 = load ptr, ptr %code_ptr.i36.i148.i, align 8
-  %incdec.ptr.i43.i167.i = getelementptr i8, ptr %48, i64 1
-  store ptr %incdec.ptr.i43.i167.i, ptr %code_ptr.i36.i148.i, align 8
-  store i8 37, ptr %48, align 1
-  %49 = load ptr, ptr %code_ptr.i36.i148.i, align 8
-  store i32 8, ptr %49, align 1
-  %add.ptr.i45.i168.i = getelementptr i8, ptr %49, i64 4
-  store ptr %add.ptr.i45.i168.i, ptr %code_ptr.i36.i148.i, align 8
-  br label %tcg_out_qemu_ld_direct.exit
+  %incdec.ptr.i47.i193.i = getelementptr i8, ptr %48, i64 1
+  store ptr %incdec.ptr.i47.i193.i, ptr %code_ptr.i36.i148.i, align 8
+  store i8 %conv54.i191.i, ptr %48, align 1
+  br label %if.then82.i199.i
 
-if.then48.i188.i:                                 ; preds = %if.then82.i.i, %if.end79.i.i
-  tail call fastcc void @tcg_out_opc(ptr noundef nonnull %s, i32 noundef %add117.i, i32 noundef %spec.select76.i, i32 noundef %cond.i.i.i, i32 noundef 0)
-  %and49.i189.i = shl i32 %spec.select76.i, 3
-  %shl50.i190.i = and i32 %and49.i189.i, 56
-  %or51.i191.i = or disjoint i32 %shl50.i190.i, %and28.i.i
-  %50 = trunc i32 %or51.i191.i to i8
-  %conv54.i193.i = or disjoint i8 %50, 64
-  %51 = load ptr, ptr %code_ptr.i36.i148.i, align 8
-  %incdec.ptr.i47.i195.i = getelementptr i8, ptr %51, i64 1
-  store ptr %incdec.ptr.i47.i195.i, ptr %code_ptr.i36.i148.i, align 8
-  store i8 %conv54.i193.i, ptr %51, align 1
-  br label %if.then82.i201.i
-
-if.end66.i204.i:                                  ; preds = %if.else.i.i
-  %52 = trunc i32 %shl68.i.i to i8
-  %conv71.i.i = or disjoint i8 %52, 4
-  store i8 %conv71.i.i, ptr %35, align 1
-  %53 = load ptr, ptr %code_ptr.i36.i148.i, align 8
-  %incdec.ptr.i51.i.i = getelementptr i8, ptr %53, i64 1
+if.end66.i202.i:                                  ; preds = %if.else.i.i
+  %49 = trunc i32 %shl68.i.i to i8
+  %conv71.i.i = or disjoint i8 %49, 4
+  store i8 %conv71.i.i, ptr %34, align 1
+  %50 = load ptr, ptr %code_ptr.i36.i148.i, align 8
+  %incdec.ptr.i51.i.i = getelementptr i8, ptr %50, i64 1
   store ptr %incdec.ptr.i51.i.i, ptr %code_ptr.i36.i148.i, align 8
-  store i8 36, ptr %53, align 1
+  store i8 36, ptr %50, align 1
   tail call fastcc void @tcg_out_opc(ptr noundef nonnull %s, i32 noundef %add117.i, i32 noundef %spec.select76.i, i32 noundef %cond.i.i.i, i32 noundef 0)
-  %54 = load ptr, ptr %code_ptr.i36.i148.i, align 8
-  %incdec.ptr.i49.i210.i = getelementptr i8, ptr %54, i64 1
-  store ptr %incdec.ptr.i49.i210.i, ptr %code_ptr.i36.i148.i, align 8
-  store i8 100, ptr %54, align 1
-  %55 = load ptr, ptr %code_ptr.i36.i148.i, align 8
-  %incdec.ptr.i51.i211.i = getelementptr i8, ptr %55, i64 1
-  store ptr %incdec.ptr.i51.i211.i, ptr %code_ptr.i36.i148.i, align 8
-  store i8 36, ptr %55, align 1
-  br label %if.then82.i201.i
+  %51 = load ptr, ptr %code_ptr.i36.i148.i, align 8
+  %incdec.ptr.i49.i208.i = getelementptr i8, ptr %51, i64 1
+  store ptr %incdec.ptr.i49.i208.i, ptr %code_ptr.i36.i148.i, align 8
+  store i8 100, ptr %51, align 1
+  %52 = load ptr, ptr %code_ptr.i36.i148.i, align 8
+  %incdec.ptr.i51.i209.i = getelementptr i8, ptr %52, i64 1
+  store ptr %incdec.ptr.i51.i209.i, ptr %code_ptr.i36.i148.i, align 8
+  store i8 36, ptr %52, align 1
+  br label %if.then82.i199.i
 
-if.then82.i201.i:                                 ; preds = %if.end66.i204.i, %if.then48.i188.i
-  %56 = load ptr, ptr %code_ptr.i36.i148.i, align 8
-  %incdec.ptr.i53.i203.i = getelementptr i8, ptr %56, i64 1
-  store ptr %incdec.ptr.i53.i203.i, ptr %code_ptr.i36.i148.i, align 8
-  store i8 8, ptr %56, align 1
+if.then82.i199.i:                                 ; preds = %if.end66.i202.i, %if.then48.i186.i
+  %53 = load ptr, ptr %code_ptr.i36.i148.i, align 8
+  %incdec.ptr.i53.i201.i = getelementptr i8, ptr %53, i64 1
+  store ptr %incdec.ptr.i53.i201.i, ptr %code_ptr.i36.i148.i, align 8
+  store i8 8, ptr %53, align 1
   br label %tcg_out_qemu_ld_direct.exit
 
 if.else121.i:                                     ; preds = %if.then100.i
@@ -22560,8 +22559,8 @@ if.then142.i:                                     ; preds = %if.end138.i
   br label %if.end175.i
 
 if.else149.i:                                     ; preds = %if.end138.i
-  %57 = load i32, ptr @cpuinfo, align 4
-  %and150.i = and i32 %57, 131072
+  %54 = load i32, ptr @cpuinfo, align 4
+  %and150.i = and i32 %54, 131072
   %tobool151.not.i = icmp eq i32 %and150.i, 0
   br i1 %tobool151.not.i, label %if.else159.i, label %if.then152.i
 
@@ -22581,31 +22580,31 @@ if.else159.i:                                     ; preds = %if.else149.i
   tail call fastcc void @tcg_out_vex_modrm_sib_offset(ptr noundef %s, i32 noundef %add163.i, i32 noundef 21, i32 noundef 0, i32 noundef %h11.sroa.0.0.copyload, i32 noundef %h11.sroa.20.0.copyload, i64 noundef %conv167.i)
   tail call fastcc void @tcg_out_jxx(ptr noundef %s, i32 noundef -1, ptr noundef %call160.i, i1 noundef zeroext true)
   %has_value.i.i = getelementptr inbounds i8, ptr %call.i, i64 1
-  %58 = load i8, ptr %has_value.i.i, align 1
-  %59 = and i8 %58, 1
-  %tobool.not.i.i = icmp eq i8 %59, 0
+  %55 = load i8, ptr %has_value.i.i, align 1
+  %56 = and i8 %55, 1
+  %tobool.not.i.i = icmp eq i8 %56, 0
   tail call void @llvm.assume(i1 %tobool.not.i.i)
   store i8 1, ptr %has_value.i.i, align 1
   %code_ptr.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %60 = load ptr, ptr %code_ptr.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %60, null
-  %61 = load i64, ptr @tcg_splitwx_diff, align 8
-  %add.ptr.i.i.i = getelementptr i8, ptr %60, i64 %61
+  %57 = load ptr, ptr %code_ptr.i.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %57, null
+  %58 = load i64, ptr @tcg_splitwx_diff, align 8
+  %add.ptr.i.i.i = getelementptr i8, ptr %57, i64 %58
   %cond.i.i125.i = select i1 %tobool.not.i.i.i, ptr null, ptr %add.ptr.i.i.i
   %u.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %cond.i.i125.i, ptr %u.i.i, align 8
   %add169.i = add i32 %h11.sroa.53.0.copyload, 131439
   tail call fastcc void @tcg_out_vex_modrm_sib_offset(ptr noundef %s, i32 noundef %add169.i, i32 noundef 21, i32 noundef 0, i32 noundef %h11.sroa.0.0.copyload, i32 noundef %h11.sroa.20.0.copyload, i64 noundef %conv167.i)
   %has_value.i126.i = getelementptr inbounds i8, ptr %call160.i, i64 1
-  %62 = load i8, ptr %has_value.i126.i, align 1
-  %63 = and i8 %62, 1
-  %tobool.not.i127.i = icmp eq i8 %63, 0
+  %59 = load i8, ptr %has_value.i126.i, align 1
+  %60 = and i8 %59, 1
+  %tobool.not.i127.i = icmp eq i8 %60, 0
   tail call void @llvm.assume(i1 %tobool.not.i127.i)
   store i8 1, ptr %has_value.i126.i, align 1
-  %64 = load ptr, ptr %code_ptr.i.i, align 8
-  %tobool.not.i.i129.i = icmp eq ptr %64, null
-  %65 = load i64, ptr @tcg_splitwx_diff, align 8
-  %add.ptr.i.i130.i = getelementptr i8, ptr %64, i64 %65
+  %61 = load ptr, ptr %code_ptr.i.i, align 8
+  %tobool.not.i.i129.i = icmp eq ptr %61, null
+  %62 = load i64, ptr @tcg_splitwx_diff, align 8
+  %add.ptr.i.i130.i = getelementptr i8, ptr %61, i64 %62
   %cond.i.i131.i = select i1 %tobool.not.i.i129.i, ptr null, ptr %add.ptr.i.i130.i
   %u.i132.i = getelementptr inbounds i8, ptr %call160.i, i64 8
   store ptr %cond.i.i131.i, ptr %u.i132.i, align 8
@@ -22613,69 +22612,69 @@ if.else159.i:                                     ; preds = %if.else149.i
 
 if.end175.i:                                      ; preds = %if.else159.i, %if.then152.i, %if.then142.i
   %code_ptr.i30.i.i.i = getelementptr inbounds i8, ptr %s, i64 128
-  %66 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
-  %incdec.ptr.i31.i.i.i = getelementptr i8, ptr %66, i64 1
+  %63 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
+  %incdec.ptr.i31.i.i.i = getelementptr i8, ptr %63, i64 1
   store ptr %incdec.ptr.i31.i.i.i, ptr %code_ptr.i30.i.i.i, align 8
-  store i8 -60, ptr %66, align 1
+  store i8 -60, ptr %63, align 1
   %l.tr.i.i = trunc i32 %datalo to i8
-  %67 = shl i8 %l.tr.i.i, 2
-  %68 = and i8 %67, 32
-  %conv.i10.i.i = xor i8 %68, -31
-  %69 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
-  %incdec.ptr.i33.i.i.i = getelementptr i8, ptr %69, i64 1
+  %64 = shl i8 %l.tr.i.i, 2
+  %65 = and i8 %64, 32
+  %conv.i10.i.i = xor i8 %65, -31
+  %66 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
+  %incdec.ptr.i33.i.i.i = getelementptr i8, ptr %66, i64 1
   store ptr %incdec.ptr.i33.i.i.i, ptr %code_ptr.i30.i.i.i, align 8
-  store i8 %conv.i10.i.i, ptr %69, align 1
-  %70 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
-  %incdec.ptr.i35.i.i.i = getelementptr i8, ptr %70, i64 1
+  store i8 %conv.i10.i.i, ptr %66, align 1
+  %67 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
+  %incdec.ptr.i35.i.i.i = getelementptr i8, ptr %67, i64 1
   store ptr %incdec.ptr.i35.i.i.i, ptr %code_ptr.i30.i.i.i, align 8
-  store i8 -7, ptr %70, align 1
-  %71 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
-  %incdec.ptr.i37.i.i133.i = getelementptr i8, ptr %71, i64 1
+  store i8 -7, ptr %67, align 1
+  %68 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
+  %incdec.ptr.i37.i.i133.i = getelementptr i8, ptr %68, i64 1
   store ptr %incdec.ptr.i37.i.i133.i, ptr %code_ptr.i30.i.i.i, align 8
-  store i8 126, ptr %71, align 1
-  %72 = and i8 %l.tr.i.i, 7
-  %conv.i.i134.i = or disjoint i8 %72, -24
-  %73 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
-  %incdec.ptr.i.i.i135.i = getelementptr i8, ptr %73, i64 1
+  store i8 126, ptr %68, align 1
+  %69 = and i8 %l.tr.i.i, 7
+  %conv.i.i134.i = or disjoint i8 %69, -24
+  %70 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
+  %incdec.ptr.i.i.i135.i = getelementptr i8, ptr %70, i64 1
   store ptr %incdec.ptr.i.i.i135.i, ptr %code_ptr.i30.i.i.i, align 8
-  store i8 %conv.i.i134.i, ptr %73, align 1
-  %74 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
-  %incdec.ptr.i31.i12.i.i = getelementptr i8, ptr %74, i64 1
+  store i8 %conv.i.i134.i, ptr %70, align 1
+  %71 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
+  %incdec.ptr.i31.i12.i.i = getelementptr i8, ptr %71, i64 1
   store ptr %incdec.ptr.i31.i12.i.i, ptr %code_ptr.i30.i.i.i, align 8
-  store i8 -60, ptr %74, align 1
+  store i8 -60, ptr %71, align 1
   %h.tr.i.i = trunc i32 %datahi to i8
-  %75 = shl i8 %h.tr.i.i, 2
-  %76 = and i8 %75, 32
-  %conv.i14.i.i = xor i8 %76, -29
-  %77 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
-  %incdec.ptr.i33.i15.i.i = getelementptr i8, ptr %77, i64 1
+  %72 = shl i8 %h.tr.i.i, 2
+  %73 = and i8 %72, 32
+  %conv.i14.i.i = xor i8 %73, -29
+  %74 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
+  %incdec.ptr.i33.i15.i.i = getelementptr i8, ptr %74, i64 1
   store ptr %incdec.ptr.i33.i15.i.i, ptr %code_ptr.i30.i.i.i, align 8
-  store i8 %conv.i14.i.i, ptr %77, align 1
-  %78 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
-  %incdec.ptr.i35.i18.i.i = getelementptr i8, ptr %78, i64 1
+  store i8 %conv.i14.i.i, ptr %74, align 1
+  %75 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
+  %incdec.ptr.i35.i18.i.i = getelementptr i8, ptr %75, i64 1
   store ptr %incdec.ptr.i35.i18.i.i, ptr %code_ptr.i30.i.i.i, align 8
-  store i8 -7, ptr %78, align 1
-  %79 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
-  %incdec.ptr.i37.i19.i.i = getelementptr i8, ptr %79, i64 1
+  store i8 -7, ptr %75, align 1
+  %76 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
+  %incdec.ptr.i37.i19.i.i = getelementptr i8, ptr %76, i64 1
   store ptr %incdec.ptr.i37.i19.i.i, ptr %code_ptr.i30.i.i.i, align 8
-  store i8 22, ptr %79, align 1
-  %80 = and i8 %h.tr.i.i, 7
-  %conv.i7.i.i = or disjoint i8 %80, -24
-  %81 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
-  %incdec.ptr.i.i9.i.i = getelementptr i8, ptr %81, i64 1
+  store i8 22, ptr %76, align 1
+  %77 = and i8 %h.tr.i.i, 7
+  %conv.i7.i.i = or disjoint i8 %77, -24
+  %78 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
+  %incdec.ptr.i.i9.i.i = getelementptr i8, ptr %78, i64 1
   store ptr %incdec.ptr.i.i9.i.i, ptr %code_ptr.i30.i.i.i, align 8
-  store i8 %conv.i7.i.i, ptr %81, align 1
-  %82 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %82, i64 1
+  store i8 %conv.i7.i.i, ptr %78, align 1
+  %79 = load ptr, ptr %code_ptr.i30.i.i.i, align 8
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %79, i64 1
   store ptr %incdec.ptr.i.i.i, ptr %code_ptr.i30.i.i.i, align 8
-  store i8 1, ptr %82, align 1
+  store i8 1, ptr %79, align 1
   br label %tcg_out_qemu_ld_direct.exit
 
 do.body176.i:                                     ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 2248, ptr noundef nonnull @__func__.tcg_out_qemu_ld_direct, ptr noundef null) #27
   unreachable
 
-tcg_out_qemu_ld_direct.exit:                      ; preds = %sw.bb.i, %sw.bb6.i, %tcg_out_opc.exit.i, %tcg_out_ext16u.exit.i, %if.else37.i, %if.then47.i, %if.else54.i, %sw.bb63.i, %if.then72.i, %if.else79.i, %sw.bb87.i, %if.then7.i169.i, %if.end.i163.i, %if.then82.i201.i, %if.else121.i, %if.end175.i
+tcg_out_qemu_ld_direct.exit:                      ; preds = %sw.bb.i, %sw.bb6.i, %tcg_out_opc.exit.i, %tcg_out_ext16u.exit.i, %if.else37.i, %if.then47.i, %if.else54.i, %sw.bb63.i, %if.then72.i, %if.else79.i, %sw.bb87.i, %if.then7.i167.i, %if.end.i161.i, %if.then82.i199.i, %if.else121.i, %if.end175.i
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -22687,10 +22686,10 @@ if.then:                                          ; preds = %tcg_out_qemu_ld_dir
   %datahi_reg = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %datahi, ptr %datahi_reg, align 8
   %code_ptr = getelementptr inbounds i8, ptr %s, i64 128
-  %83 = load ptr, ptr %code_ptr, align 8
-  %tobool.not.i = icmp eq ptr %83, null
-  %84 = load i64, ptr @tcg_splitwx_diff, align 8
-  %add.ptr.i = getelementptr i8, ptr %83, i64 %84
+  %80 = load ptr, ptr %code_ptr, align 8
+  %tobool.not.i = icmp eq ptr %80, null
+  %81 = load i64, ptr @tcg_splitwx_diff, align 8
+  %add.ptr.i = getelementptr i8, ptr %80, i64 %81
   %cond.i12 = select i1 %tobool.not.i, ptr null, ptr %add.ptr.i
   %raddr = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %cond.i12, ptr %raddr, align 8

@@ -3142,6 +3142,7 @@ entry:
   %singleUnit = alloca %"struct.icu_75::SingleUnitImpl", align 4
   %singleFactor = alloca %"struct.icu_75::units::Factor", align 16
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
+  %factorDen.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %agg.result, align 8
   %offset.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store double 0.000000e+00, ptr %offset.i, align 8
@@ -3186,21 +3187,22 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6icu_755units6Factor10multiplyByERKS1_.exit
-  %6 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %44, %_ZN6icu_755units6Factor10multiplyByERKS1_.exit ]
+  %6 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %42, %_ZN6icu_755units6Factor10multiplyByERKS1_.exit ]
+  %7 = phi double [ 1.000000e+00, %for.body.lr.ph ], [ %mul4.i, %_ZN6icu_755units6Factor10multiplyByERKS1_.exit ]
+  %8 = phi double [ 1.000000e+00, %for.body.lr.ph ], [ %mul.i15, %_ZN6icu_755units6Factor10multiplyByERKS1_.exit ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN6icu_755units6Factor10multiplyByERKS1_.exit ]
-  %7 = phi <2 x double> [ <double 1.000000e+00, double 1.000000e+00>, %for.body.lr.ph ], [ %41, %_ZN6icu_755units6Factor10multiplyByERKS1_.exit ]
-  %8 = load ptr, ptr %fPool.i, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
-  %9 = load ptr, ptr %arrayidx.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %singleUnit, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false)
+  %9 = load ptr, ptr %fPool.i, align 8
+  %arrayidx.i.i = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = load ptr, ptr %arrayidx.i.i, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %singleUnit, ptr noundef nonnull align 4 dereferenceable(12) %10, i64 12, i1 false)
   %call3 = call noundef ptr @_ZNK6icu_7514SingleUnitImpl15getSimpleUnitIDEv(ptr noundef nonnull align 4 dereferenceable(12) %singleUnit)
   call void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %call3)
-  %10 = load ptr, ptr %agg.tmp, align 8
-  %11 = load i32, ptr %1, align 8
+  %11 = load ptr, ptr %agg.tmp, align 8
+  %12 = load i32, ptr %1, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !18)
-  %call.i = call noundef ptr @_ZNK6icu_755units15ConversionRates21extractConversionInfoENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr %10, i32 %11, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !18
-  %12 = load i32, ptr %status, align 4
-  %cmp.i.i = icmp slt i32 %12, 1
+  %call.i = call noundef ptr @_ZNK6icu_755units15ConversionRates21extractConversionInfoENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr %11, i32 %12, ptr noundef nonnull align 4 dereferenceable(4) %status), !noalias !18
+  %13 = load i32, ptr %status, align 4
+  %cmp.i.i = icmp slt i32 %13, 1
   br i1 %cmp.i.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %for.body
@@ -3213,56 +3215,56 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end3.i:                                        ; preds = %if.end.i
   %factor.i = getelementptr inbounds i8, ptr %call.i, i64 136
-  %13 = load ptr, ptr %factor.i, align 8, !noalias !18
+  %14 = load ptr, ptr %factor.i, align 8, !noalias !18
   %len.i.i = getelementptr inbounds i8, ptr %call.i, i64 192
-  %14 = load i32, ptr %len.i.i, align 8, !noalias !18
+  %15 = load i32, ptr %len.i.i, align 8, !noalias !18
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %stringFactor.i.i), !noalias !18
-  store ptr %13, ptr %stringFactor.i.i, align 8, !noalias !24
-  store i32 %14, ptr %3, align 8, !noalias !24
+  store ptr %14, ptr %stringFactor.i.i, align 8, !noalias !24
+  store i32 %15, ptr %3, align 8, !noalias !24
   store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %singleFactor, align 16, !alias.scope !24
   store double 0.000000e+00, ptr %offset.i.i, align 16, !alias.scope !24
   store i8 0, ptr %2, align 8, !alias.scope !24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %scevgep.i.i, i8 0, i64 60, i1 false), !alias.scope !24
-  %cmp22.i.i = icmp sgt i32 %14, 0
+  %cmp22.i.i = icmp sgt i32 %15, 0
   br i1 %cmp22.i.i, label %for.body.lr.ph.i.i, label %_ZN6icu_755units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UErrorCode.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end3.i
-  %sub8.i.i = add nsw i32 %14, -1
-  %15 = zext nneg i32 %sub8.i.i to i64
-  %wide.trip.count.i.i = zext nneg i32 %14 to i64
+  %sub8.i.i = add nsw i32 %15, -1
+  %16 = zext nneg i32 %sub8.i.i to i64
+  %wide.trip.count.i.i = zext nneg i32 %15 to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end14.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %if.end14.i.i ]
   %signum.025.i.i = phi i32 [ 1, %for.body.lr.ph.i.i ], [ %spec.select.i.i, %if.end14.i.i ]
   %start.023.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %start.1.i.i, %if.end14.i.i ]
-  %arrayidx.i.i6 = getelementptr inbounds i8, ptr %13, i64 %indvars.iv.i.i
-  %16 = load i8, ptr %arrayidx.i.i6, align 1, !noalias !24
-  switch i8 %16, label %if.else.i.i [
+  %arrayidx.i.i6 = getelementptr inbounds i8, ptr %14, i64 %indvars.iv.i.i
+  %17 = load i8, ptr %arrayidx.i.i6, align 1, !noalias !24
+  switch i8 %17, label %if.else.i.i [
     i8 42, label %if.then.i.i
     i8 47, label %if.then.i.i
   ]
 
 if.then.i.i:                                      ; preds = %for.body.i.i, %for.body.i.i
-  %17 = trunc i64 %indvars.iv.i.i to i32
-  %sub.i.i = sub nsw i32 %17, %start.023.i.i
+  %18 = trunc i64 %indvars.iv.i.i to i32
+  %sub.i.i = sub nsw i32 %18, %start.023.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i.i), !noalias !24
   call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %stringFactor.i.i, i32 noundef %start.023.i.i, i32 noundef %sub.i.i), !noalias !24
   %.fca.0.load.i.i.i = load ptr, ptr %retval.i.i.i, align 8, !noalias !24
   %.fca.1.load.i.i.i = load i32, ptr %.fca.1.gep.i.i.i, align 8, !noalias !24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i.i), !noalias !24
   call fastcc void @_ZN6icu_755units12_GLOBAL__N_116addFactorElementERNS0_6FactorENS_11StringPieceENS0_6SignumER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %singleFactor, ptr %.fca.0.load.i.i.i, i32 %.fca.1.load.i.i.i, i32 noundef %signum.025.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %18 = add i32 %17, 1
+  %19 = add i32 %18, 1
   br label %if.end14.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %cmp9.i.i = icmp eq i64 %indvars.iv.i.i, %15
+  %cmp9.i.i = icmp eq i64 %indvars.iv.i.i, %16
   br i1 %cmp9.i.i, label %if.then10.i.i, label %if.end14.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i16.i.i), !noalias !24
-  call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i16.i.i, ptr noundef nonnull align 8 dereferenceable(12) %stringFactor.i.i, i32 noundef %start.023.i.i, i32 noundef %14), !noalias !24
+  call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i16.i.i, ptr noundef nonnull align 8 dereferenceable(12) %stringFactor.i.i, i32 noundef %start.023.i.i, i32 noundef %15), !noalias !24
   %.fca.0.load.i17.i.i = load ptr, ptr %retval.i16.i.i, align 8, !noalias !24
   %.fca.1.load.i20.i.i = load i32, ptr %.fca.1.gep.i19.i.i, align 8, !noalias !24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i16.i.i), !noalias !24
@@ -3270,9 +3272,9 @@ if.then10.i.i:                                    ; preds = %if.else.i.i
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.else.i.i, %if.then.i.i
-  %start.1.i.i = phi i32 [ %18, %if.then.i.i ], [ %start.023.i.i, %if.then10.i.i ], [ %start.023.i.i, %if.else.i.i ]
-  %19 = load i8, ptr %arrayidx.i.i6, align 1, !noalias !24
-  %cmp18.i.i = icmp eq i8 %19, 47
+  %start.1.i.i = phi i32 [ %19, %if.then.i.i ], [ %start.023.i.i, %if.then10.i.i ], [ %start.023.i.i, %if.else.i.i ]
+  %20 = load i8, ptr %arrayidx.i.i6, align 1, !noalias !24
+  %cmp18.i.i = icmp eq i8 %20, 47
   %spec.select.i.i = select i1 %cmp18.i.i, i32 -1, i32 %signum.025.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -3281,24 +3283,24 @@ if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.
 _ZN6icu_755units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UErrorCode.exit.i: ; preds = %if.end14.i.i, %if.end3.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stringFactor.i.i), !noalias !18
   %offset.i5 = getelementptr inbounds i8, ptr %call.i, i64 200
-  %20 = load ptr, ptr %offset.i5, align 8, !noalias !18
+  %21 = load ptr, ptr %offset.i5, align 8, !noalias !18
   %len.i11.i = getelementptr inbounds i8, ptr %call.i, i64 256
-  %21 = load i32, ptr %len.i11.i, align 8, !noalias !18
+  %22 = load i32, ptr %len.i11.i, align 8, !noalias !18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %strWithDivide.i.i), !noalias !18
-  store ptr %20, ptr %strWithDivide.i.i, align 8, !noalias !18
-  store i32 %21, ptr %4, align 8, !noalias !18
-  %cmp37.i.i = icmp sgt i32 %21, 0
+  store ptr %21, ptr %strWithDivide.i.i, align 8, !noalias !18
+  store i32 %22, ptr %4, align 8, !noalias !18
+  %cmp37.i.i = icmp sgt i32 %22, 0
   br i1 %cmp37.i.i, label %for.body.preheader.i.i, label %if.end10.i.i
 
 for.body.preheader.i.i:                           ; preds = %_ZN6icu_755units12_GLOBAL__N_124extractFactorConversionsENS_11StringPieceER10UErrorCode.exit.i
-  %wide.trip.count.i15.i = zext nneg i32 %21 to i64
+  %wide.trip.count.i15.i = zext nneg i32 %22 to i64
   br label %for.body.i16.i
 
 for.body.i16.i:                                   ; preds = %for.inc.i.i, %for.body.preheader.i.i
   %indvars.iv.i17.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i19.i, %for.inc.i.i ]
-  %arrayidx.i18.i = getelementptr inbounds i8, ptr %20, i64 %indvars.iv.i17.i
-  %22 = load i8, ptr %arrayidx.i18.i, align 1, !noalias !18
-  %cmp2.i.i = icmp eq i8 %22, 47
+  %arrayidx.i18.i = getelementptr inbounds i8, ptr %21, i64 %indvars.iv.i17.i
+  %23 = load i8, ptr %arrayidx.i18.i, align 1, !noalias !18
+  %cmp2.i.i = icmp eq i8 %23, 47
   br i1 %cmp2.i.i, label %if.then4.i.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i16.i
@@ -3307,9 +3309,9 @@ for.inc.i.i:                                      ; preds = %for.body.i16.i
   br i1 %exitcond.not.i20.i, label %if.end10.i.i, label %for.body.i16.i, !llvm.loop !26
 
 if.then4.i.i:                                     ; preds = %for.body.i16.i
-  %23 = trunc i64 %indvars.iv.i17.i to i32
+  %24 = trunc i64 %indvars.iv.i17.i to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i.i14.i), !noalias !18
-  call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i.i14.i, ptr noundef nonnull align 8 dereferenceable(12) %strWithDivide.i.i, i32 noundef 0, i32 noundef %23), !noalias !18
+  call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i.i14.i, ptr noundef nonnull align 8 dereferenceable(12) %strWithDivide.i.i, i32 noundef 0, i32 noundef %24), !noalias !18
   %.fca.0.load.i.i21.i = load ptr, ptr %retval.i.i14.i, align 8, !noalias !18
   %.fca.1.load.i.i23.i = load i32, ptr %.fca.1.gep.i.i22.i, align 8, !noalias !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %retval.i.i14.i), !noalias !18
@@ -3321,8 +3323,8 @@ if.then4.i.i:                                     ; preds = %for.body.i16.i
   store ptr @.str.19, ptr %nan_symbol_.i.i.i.i, align 8, !noalias !18
   store i16 0, ptr %separator_.i.i.i.i, align 8, !noalias !18
   %call2.i.i.i = call noundef double @_ZNK6icu_7517double_conversion23StringToDoubleConverter14StringToDoubleEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) %converter.i.i.i, ptr noundef %.fca.0.load.i.i21.i, i32 noundef %.fca.1.load.i.i23.i, ptr noundef nonnull %count.i.i.i), !noalias !18
-  %24 = load i32, ptr %count.i.i.i, align 4, !noalias !18
-  %cmp.not.i.i.i = icmp eq i32 %24, %.fca.1.load.i.i23.i
+  %25 = load i32, ptr %count.i.i.i, align 4, !noalias !18
+  %cmp.not.i.i.i = icmp eq i32 %25, %.fca.1.load.i.i23.i
   br i1 %cmp.not.i.i.i, label %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then4.i.i
@@ -3332,7 +3334,7 @@ if.then.i.i.i:                                    ; preds = %if.then4.i.i
 _ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit.i.i: ; preds = %if.then.i.i.i, %if.then4.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %converter.i.i.i), !noalias !18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %count.i.i.i), !noalias !18
-  %add.i.i = add nuw nsw i32 %23, 1
+  %add.i.i = add nuw nsw i32 %24, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %retval.i8.i.i), !noalias !18
   call void @_ZN6icu_7511StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %retval.i8.i.i, ptr noundef nonnull align 8 dereferenceable(12) %strWithDivide.i.i, i32 noundef %add.i.i, i32 noundef %5), !noalias !18
   %.fca.0.load.i9.i.i = load ptr, ptr %retval.i8.i.i, align 8, !noalias !18
@@ -3346,8 +3348,8 @@ _ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit.
   store ptr @.str.19, ptr %nan_symbol_.i.i18.i.i, align 8, !noalias !18
   store i16 0, ptr %separator_.i.i19.i.i, align 8, !noalias !18
   %call2.i20.i.i = call noundef double @_ZNK6icu_7517double_conversion23StringToDoubleConverter14StringToDoubleEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) %converter.i14.i.i, ptr noundef %.fca.0.load.i9.i.i, i32 noundef %.fca.1.load.i12.i.i, ptr noundef nonnull %count.i15.i.i), !noalias !18
-  %25 = load i32, ptr %count.i15.i.i, align 4, !noalias !18
-  %cmp.not.i21.i.i = icmp eq i32 %25, %.fca.1.load.i12.i.i
+  %26 = load i32, ptr %count.i15.i.i, align 4, !noalias !18
+  %cmp.not.i21.i.i = icmp eq i32 %26, %.fca.1.load.i12.i.i
   br i1 %cmp.not.i21.i.i, label %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit23.i.i, label %if.then.i22.i.i
 
 if.then.i22.i.i:                                  ; preds = %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit.i.i
@@ -3368,9 +3370,9 @@ if.end10.i.i:                                     ; preds = %for.inc.i.i, %_ZN6i
   store ptr @.str.19, ptr %infinity_symbol_.i.i27.i.i, align 8, !noalias !18
   store ptr @.str.19, ptr %nan_symbol_.i.i28.i.i, align 8, !noalias !18
   store i16 0, ptr %separator_.i.i29.i.i, align 8, !noalias !18
-  %call2.i30.i.i = call noundef double @_ZNK6icu_7517double_conversion23StringToDoubleConverter14StringToDoubleEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) %converter.i24.i.i, ptr noundef %20, i32 noundef %21, ptr noundef nonnull %count.i25.i.i), !noalias !18
-  %26 = load i32, ptr %count.i25.i.i, align 4, !noalias !18
-  %cmp.not.i31.i.i = icmp eq i32 %26, %21
+  %call2.i30.i.i = call noundef double @_ZNK6icu_7517double_conversion23StringToDoubleConverter14StringToDoubleEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) %converter.i24.i.i, ptr noundef %21, i32 noundef %22, ptr noundef nonnull %count.i25.i.i), !noalias !18
+  %27 = load i32, ptr %count.i25.i.i, align 4, !noalias !18
+  %cmp.not.i31.i.i = icmp eq i32 %27, %22
   br i1 %cmp.not.i31.i.i, label %_ZN6icu_755units12_GLOBAL__N_111strToDoubleENS_11StringPieceER10UErrorCode.exit33.i.i, label %if.then.i32.i.i
 
 if.then.i32.i.i:                                  ; preds = %if.end10.i.i
@@ -3391,73 +3393,73 @@ _ZN6icu_755units12_GLOBAL__N_116loadSingleFactorENS_11StringPieceERKNS0_15Conver
   br i1 %cmp.i7, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN6icu_755units12_GLOBAL__N_116loadSingleFactorENS_11StringPieceERKNS0_15ConversionRatesER10UErrorCode.exit
-  %27 = load i32, ptr %unitPrefix, align 4
-  %cmp.i8 = icmp eq i32 %27, 30
+  %28 = load i32, ptr %unitPrefix, align 4
+  %cmp.i8 = icmp eq i32 %28, 30
   br i1 %cmp.i8, label %_ZN6icu_755units6Factor11applyPrefixENS_14UMeasurePrefixE.exit, label %if.end.i9
 
 if.end.i9:                                        ; preds = %if.end
-  %call.i10 = call i32 @umeas_getPrefixPower_75(i32 noundef %27)
-  %call2.i = call i32 @umeas_getPrefixBase_75(i32 noundef %27)
+  %call.i10 = call i32 @umeas_getPrefixPower_75(i32 noundef %28)
+  %call2.i = call i32 @umeas_getPrefixBase_75(i32 noundef %28)
   %conv.i11 = sitofp i32 %call2.i to double
-  %28 = call i32 @llvm.abs.i32(i32 %call.i10, i1 true)
-  %conv3.i = sitofp i32 %28 to double
+  %29 = call i32 @llvm.abs.i32(i32 %call.i10, i1 true)
+  %conv3.i = sitofp i32 %29 to double
   %call4.i = call double @pow(double noundef %conv.i11, double noundef %conv3.i) #16
-  %29 = lshr i32 %call.i10, 28
-  %30 = and i32 %29, 8
-  %factorDen.sink5.idx.i = zext nneg i32 %30 to i64
+  %30 = lshr i32 %call.i10, 28
+  %31 = and i32 %30, 8
+  %factorDen.sink5.idx.i = zext nneg i32 %31 to i64
   %factorDen.sink5.i = getelementptr inbounds i8, ptr %singleFactor, i64 %factorDen.sink5.idx.i
-  %31 = load double, ptr %factorDen.sink5.i, align 8
-  %mul7.i = fmul double %call4.i, %31
+  %32 = load double, ptr %factorDen.sink5.i, align 8
+  %mul7.i = fmul double %call4.i, %32
   store double %mul7.i, ptr %factorDen.sink5.i, align 8
   br label %_ZN6icu_755units6Factor11applyPrefixENS_14UMeasurePrefixE.exit
 
 _ZN6icu_755units6Factor11applyPrefixENS_14UMeasurePrefixE.exit: ; preds = %if.end, %if.end.i9
-  %32 = load i32, ptr %dimensionality, align 4
+  %33 = load i32, ptr %dimensionality, align 4
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %_ZN6icu_755units6Factor11applyPrefixENS_14UMeasurePrefixE.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN6icu_755units6Factor11applyPrefixENS_14UMeasurePrefixE.exit ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [15 x i32], ptr %scevgep.i.i, i64 0, i64 %indvars.iv.i
-  %33 = load i32, ptr %arrayidx.i, align 4
-  %mul.i = mul nsw i32 %33, %32
+  %34 = load i32, ptr %arrayidx.i, align 4
+  %mul.i = mul nsw i32 %34, %33
   store i32 %mul.i, ptr %arrayidx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.body.i
-  %cmp2.i = icmp slt i32 %32, 0
-  %34 = load double, ptr %singleFactor, align 16
-  %35 = call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %conv.i.i = sitofp i32 %35 to double
-  %call.i.i = call noundef double @pow(double noundef %34, double noundef %conv.i.i) #16
+  %cmp2.i = icmp slt i32 %33, 0
+  %35 = load double, ptr %singleFactor, align 16
+  %36 = call i32 @llvm.abs.i32(i32 %33, i1 true)
+  %conv.i.i = sitofp i32 %36 to double
+  %call.i.i = call noundef double @pow(double noundef %35, double noundef %conv.i.i) #16
   store double %call.i.i, ptr %singleFactor, align 16
-  %36 = load double, ptr %factorDen.i.i, align 8
-  %call.i7.i = call noundef double @pow(double noundef %36, double noundef %conv.i.i) #16
+  %37 = load double, ptr %factorDen.i.i, align 8
+  %call.i7.i = call noundef double @pow(double noundef %37, double noundef %conv.i.i) #16
   store double %call.i7.i, ptr %factorDen.i.i, align 8
-  %37 = insertelement <2 x double> poison, double %call.i.i, i64 0
-  %38 = insertelement <2 x double> %37, double %call.i7.i, i64 1
   br i1 %cmp2.i, label %if.then.i14, label %_ZN6icu_755units6Factor5powerEi.exit
 
 if.then.i14:                                      ; preds = %for.end.i
   store double %call.i7.i, ptr %singleFactor, align 16
   store double %call.i.i, ptr %factorDen.i.i, align 8
-  %39 = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   br label %_ZN6icu_755units6Factor5powerEi.exit
 
 _ZN6icu_755units6Factor5powerEi.exit:             ; preds = %for.end.i, %if.then.i14
-  %40 = phi <2 x double> [ %38, %for.end.i ], [ %39, %if.then.i14 ]
-  %41 = fmul <2 x double> %40, %7
-  store <2 x double> %41, ptr %agg.result, align 8
+  %38 = phi double [ %call.i7.i, %for.end.i ], [ %call.i.i, %if.then.i14 ]
+  %39 = phi double [ %call.i.i, %for.end.i ], [ %call.i7.i, %if.then.i14 ]
+  %mul.i15 = fmul double %39, %8
+  store double %mul.i15, ptr %agg.result, align 8
+  %mul4.i = fmul double %38, %7
+  store double %mul4.i, ptr %factorDen.i, align 8
   br label %for.body.i18
 
 for.body.i18:                                     ; preds = %for.body.i18, %_ZN6icu_755units6Factor5powerEi.exit
   %indvars.iv.i19 = phi i64 [ 0, %_ZN6icu_755units6Factor5powerEi.exit ], [ %indvars.iv.next.i21, %for.body.i18 ]
   %arrayidx.i20 = getelementptr inbounds [15 x i32], ptr %scevgep.i.i, i64 0, i64 %indvars.iv.i19
-  %42 = load i32, ptr %arrayidx.i20, align 4
+  %40 = load i32, ptr %arrayidx.i20, align 4
   %arrayidx7.i = getelementptr inbounds [15 x i32], ptr %scevgep.i, i64 0, i64 %indvars.iv.i19
-  %43 = load i32, ptr %arrayidx7.i, align 4
-  %add.i = add nsw i32 %43, %42
+  %41 = load i32, ptr %arrayidx7.i, align 4
+  %add.i = add nsw i32 %41, %40
   store i32 %add.i, ptr %arrayidx7.i, align 4
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 15
@@ -3465,8 +3467,8 @@ for.body.i18:                                     ; preds = %for.body.i18, %_ZN6
 
 _ZN6icu_755units6Factor10multiplyByERKS1_.exit:   ; preds = %for.body.i18
   %cmp.i.i25 = fcmp olt double %retval.0.i.i, %6
-  %44 = select i1 %cmp.i.i25, double %6, double %retval.0.i.i
-  store double %44, ptr %offset.i, align 8
+  %42 = select i1 %cmp.i.i25, double %6, double %retval.0.i.i
+  store double %42, ptr %offset.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !27

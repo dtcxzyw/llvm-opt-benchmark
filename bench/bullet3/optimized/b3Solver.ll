@@ -305,8 +305,8 @@ entry:
   %3 = load float, ptr %r0, align 16
   %4 = load <2 x float>, ptr %arrayidx.i.i, align 4
   %5 = load <2 x float>, ptr %y, align 4
-  %6 = insertelement <2 x float> %4, float %3, i64 0
-  %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %6 = shufflevector <2 x float> %4, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %7 = insertelement <2 x float> %6, float %3, i64 1
   %8 = fneg <2 x float> %7
   %9 = fmul <2 x float> %5, %8
   %10 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
@@ -326,8 +326,8 @@ entry:
   %18 = load float, ptr %r1, align 16
   %19 = load <2 x float>, ptr %arrayidx.i.i5, align 4
   %20 = load <2 x float>, ptr %y, align 4
-  %21 = insertelement <2 x float> %19, float %18, i64 0
-  %22 = shufflevector <2 x float> %21, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %21 = shufflevector <2 x float> %19, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %22 = insertelement <2 x float> %21, float %18, i64 1
   %23 = fneg <2 x float> %22
   %24 = fmul <2 x float> %20, %23
   %25 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> <i32 1, i32 poison>

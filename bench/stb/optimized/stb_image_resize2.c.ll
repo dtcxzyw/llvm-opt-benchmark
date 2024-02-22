@@ -2176,8 +2176,8 @@ if.end:                                           ; preds = %do.body169, %do.bod
   br i1 %cmp221.not237, label %while.end294, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end
-  %sub = add i32 %num_contributors, -1
-  %mul217 = mul i32 %sub, %widest
+  %sub = add nsw i32 %num_contributors, -1
+  %mul217 = mul nsw i32 %sub, %widest
   %idx.ext218 = sext i32 %mul217 to i64
   %add.ptr219 = getelementptr inbounds float, ptr %coefficents, i64 %idx.ext218
   %mul222 = shl nsw i32 %widest, 1
@@ -2223,7 +2223,7 @@ if.end243:                                        ; preds = %if.then230, %if.the
   br i1 %cmp246, label %if.then247, label %if.end290
 
 if.then247:                                       ; preds = %if.end243
-  %sub248 = sub i32 %row_width, %stop_range.0
+  %sub248 = sub nsw i32 %row_width, %stop_range.0
   %n1249 = getelementptr inbounds i8, ptr %add.ptr214.pn238, i64 -4
   %33 = load i32, ptr %n1249, align 4
   %sub251 = sub nsw i32 %33, %29
@@ -2589,7 +2589,7 @@ define void @stbir__decode_uint8_linear_scaled(ptr noundef %decodep, i32 noundef
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i8, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 15
@@ -2604,7 +2604,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -64
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -2650,13 +2650,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp29 = icmp eq ptr %add.ptr24, %add.ptr.ptr
+  %cmp29 = icmp eq ptr %add.ptr24, %add.ptr
   br i1 %cmp29, label %while.end61, label %for.cond.backedge
 
 while.cond51.preheader:                           ; preds = %while.body, %while.cond.preheader
   %input.1.lcssa = phi ptr [ %inputp, %while.cond.preheader ], [ %add.ptr49, %while.body ]
   %decodep.pn.lcssa = phi ptr [ %decodep, %while.cond.preheader ], [ %decode.157, %while.body ]
-  %cmp5259 = icmp ult ptr %decodep.pn.lcssa, %add.ptr.ptr
+  %cmp5259 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp5259, label %while.body54, label %while.end61
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -2688,7 +2688,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %mul46, ptr %arrayidx47, align 4
   %add.ptr49 = getelementptr inbounds i8, ptr %input.155, i64 4
   %decode.1 = getelementptr inbounds i8, ptr %decode.157, i64 16
-  %cmp34.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp34.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp34.not, label %while.cond51.preheader, label %while.body, !llvm.loop !86
 
 while.body54:                                     ; preds = %while.cond51.preheader, %while.body54
@@ -2701,7 +2701,7 @@ while.body54:                                     ; preds = %while.cond51.prehea
   store float %mul57, ptr %decode.261, align 4
   %add.ptr59 = getelementptr inbounds i8, ptr %decode.261, i64 4
   %add.ptr60 = getelementptr inbounds i8, ptr %input.260, i64 1
-  %cmp52 = icmp ult ptr %add.ptr59, %add.ptr.ptr
+  %cmp52 = icmp ult ptr %add.ptr59, %add.ptr
   br i1 %cmp52, label %while.body54, label %while.end61, !llvm.loop !88
 
 while.end61:                                      ; preds = %while.body54, %if.end, %while.cond51.preheader
@@ -2821,7 +2821,7 @@ define void @stbir__decode_uint8_linear(ptr noundef %decodep, i32 noundef %width
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i8, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 15
@@ -2836,7 +2836,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -64
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -2878,13 +2878,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp25 = icmp eq ptr %add.ptr20, %add.ptr.ptr
+  %cmp25 = icmp eq ptr %add.ptr20, %add.ptr
   br i1 %cmp25, label %while.end53, label %for.cond.backedge
 
 while.cond44.preheader:                           ; preds = %while.body, %while.cond.preheader
   %input.1.lcssa = phi ptr [ %inputp, %while.cond.preheader ], [ %add.ptr42, %while.body ]
   %decodep.pn.lcssa = phi ptr [ %decodep, %while.cond.preheader ], [ %decode.153, %while.body ]
-  %cmp4555 = icmp ult ptr %decodep.pn.lcssa, %add.ptr.ptr
+  %cmp4555 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp4555, label %while.body47, label %while.end53
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -2912,7 +2912,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %conv39, ptr %arrayidx40, align 4
   %add.ptr42 = getelementptr inbounds i8, ptr %input.151, i64 4
   %decode.1 = getelementptr inbounds i8, ptr %decode.153, i64 16
-  %cmp30.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp30.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp30.not, label %while.cond44.preheader, label %while.body, !llvm.loop !96
 
 while.body47:                                     ; preds = %while.cond44.preheader, %while.body47
@@ -2924,7 +2924,7 @@ while.body47:                                     ; preds = %while.cond44.prehea
   store float %conv49, ptr %decode.257, align 4
   %add.ptr51 = getelementptr inbounds i8, ptr %decode.257, i64 4
   %add.ptr52 = getelementptr inbounds i8, ptr %input.256, i64 1
-  %cmp45 = icmp ult ptr %add.ptr51, %add.ptr.ptr
+  %cmp45 = icmp ult ptr %add.ptr51, %add.ptr
   br i1 %cmp45, label %while.body47, label %while.end53, !llvm.loop !98
 
 while.end53:                                      ; preds = %while.body47, %if.end, %while.cond44.preheader
@@ -3039,7 +3039,7 @@ define void @stbir__decode_uint8_srgb(ptr noundef %decodep, i32 noundef %width_t
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp.not21 = icmp slt i32 %width_times_channels, 4
   br i1 %cmp.not21, label %while.cond19.preheader, label %while.body.preheader
 
@@ -3050,7 +3050,7 @@ while.body.preheader:                             ; preds = %entry
 while.cond19.preheader:                           ; preds = %while.body, %entry
   %decodep.pn.lcssa = phi ptr [ %decodep, %entry ], [ %decode.024, %while.body ]
   %input.0.lcssa = phi ptr [ %inputp, %entry ], [ %add.ptr17, %while.body ]
-  %cmp2026 = icmp ult ptr %decodep.pn.lcssa, %add.ptr.ptr
+  %cmp2026 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp2026, label %while.body21, label %while.end28
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -3085,7 +3085,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %7, ptr %arrayidx15, align 4
   %add.ptr17 = getelementptr inbounds i8, ptr %input.023, i64 4
   %decode.0 = getelementptr inbounds i8, ptr %decode.024, i64 16
-  %cmp.not = icmp ugt ptr %decode.0, %add.ptr.ptr
+  %cmp.not = icmp ugt ptr %decode.0, %add.ptr
   br i1 %cmp.not, label %while.cond19.preheader, label %while.body, !llvm.loop !104
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -3099,7 +3099,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   store float %9, ptr %decode.127, align 4
   %add.ptr26 = getelementptr inbounds i8, ptr %decode.127, i64 4
   %add.ptr27 = getelementptr inbounds i8, ptr %input.128, i64 1
-  %cmp20 = icmp ult ptr %add.ptr26, %add.ptr.ptr
+  %cmp20 = icmp ult ptr %add.ptr26, %add.ptr
   br i1 %cmp20, label %while.body21, label %while.end28, !llvm.loop !106
 
 while.end28:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -3584,7 +3584,7 @@ define void @stbir__decode_uint8_srgb2_linearalpha(ptr noundef writeonly %decode
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp.not19 = icmp slt i32 %width_times_channels, 4
   br i1 %cmp.not19, label %while.end, label %while.body.preheader
 
@@ -3622,13 +3622,13 @@ while.body:                                       ; preds = %while.body.preheade
   store float %mul12, ptr %arrayidx13, align 4
   %add.ptr14 = getelementptr inbounds i8, ptr %input.021, i64 4
   %decode.0 = getelementptr inbounds i8, ptr %decode.022, i64 16
-  %cmp.not = icmp ugt ptr %decode.0, %add.ptr.ptr
+  %cmp.not = icmp ugt ptr %decode.0, %add.ptr
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !116
 
 while.end:                                        ; preds = %while.body, %entry
   %decodep.pn.lcssa = phi ptr [ %decodep, %entry ], [ %decode.022, %while.body ]
   %input.0.lcssa = phi ptr [ %inputp, %entry ], [ %add.ptr14, %while.body ]
-  %cmp17 = icmp ult ptr %decodep.pn.lcssa, %add.ptr.ptr
+  %cmp17 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp17, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
@@ -3805,7 +3805,7 @@ define void @stbir__decode_uint16_linear_scaled(ptr noundef %decodep, i32 nounde
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i16, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 7
@@ -3820,7 +3820,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -3850,13 +3850,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp19 = icmp eq ptr %add.ptr14, %add.ptr.ptr
+  %cmp19 = icmp eq ptr %add.ptr14, %add.ptr
   br i1 %cmp19, label %while.end51, label %for.cond.backedge
 
 while.cond41.preheader:                           ; preds = %while.body, %while.cond.preheader
   %input.1.lcssa = phi ptr [ %inputp, %while.cond.preheader ], [ %add.ptr39, %while.body ]
   %decodep.pn.lcssa = phi ptr [ %decodep, %while.cond.preheader ], [ %decode.145, %while.body ]
-  %cmp4247 = icmp ult ptr %decodep.pn.lcssa, %add.ptr.ptr
+  %cmp4247 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp4247, label %while.body44, label %while.end51
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -3888,7 +3888,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %mul36, ptr %arrayidx37, align 4
   %add.ptr39 = getelementptr inbounds i8, ptr %input.143, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.145, i64 16
-  %cmp24.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp24.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp24.not, label %while.cond41.preheader, label %while.body, !llvm.loop !122
 
 while.body44:                                     ; preds = %while.cond41.preheader, %while.body44
@@ -3901,7 +3901,7 @@ while.body44:                                     ; preds = %while.cond41.prehea
   store float %mul47, ptr %decode.249, align 4
   %add.ptr49 = getelementptr inbounds i8, ptr %decode.249, i64 4
   %add.ptr50 = getelementptr inbounds i8, ptr %input.248, i64 2
-  %cmp42 = icmp ult ptr %add.ptr49, %add.ptr.ptr
+  %cmp42 = icmp ult ptr %add.ptr49, %add.ptr
   br i1 %cmp42, label %while.body44, label %while.end51, !llvm.loop !124
 
 while.end51:                                      ; preds = %while.body44, %if.end, %while.cond41.preheader
@@ -3913,7 +3913,7 @@ define void @stbir__encode_uint16_linear_scaled(ptr noundef writeonly %outputp, 
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -3928,7 +3928,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -16
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -3966,13 +3966,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp28 = icmp eq ptr %add.ptr24, %add.ptr.ptr
+  %cmp28 = icmp eq ptr %add.ptr24, %add.ptr
   br i1 %cmp28, label %while.end71, label %for.cond.backedge
 
 while.cond56.preheader:                           ; preds = %while.body, %while.cond.preheader
   %outputp.pn.lcssa = phi ptr [ %outputp, %while.cond.preheader ], [ %output.147, %while.body ]
   %encode.addr.1.lcssa = phi ptr [ %encode, %while.cond.preheader ], [ %add.ptr54, %while.body ]
-  %cmp5749 = icmp ult ptr %outputp.pn.lcssa, %add.ptr.ptr
+  %cmp5749 = icmp ult ptr %outputp.pn.lcssa, %add.ptr
   br i1 %cmp5749, label %while.body58, label %while.end71
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -3996,7 +3996,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i64 %vecext.i, ptr %outputp.pn45, align 1
   %add.ptr54 = getelementptr inbounds i8, ptr %encode.addr.146, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.147, i64 8
-  %cmp33.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp33.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp33.not, label %while.cond56.preheader, label %while.body, !llvm.loop !127
 
 while.body58:                                     ; preds = %while.cond56.preheader, %while.body58
@@ -4015,7 +4015,7 @@ while.body58:                                     ; preds = %while.cond56.prehea
   store i16 %conv, ptr %output.250, align 2
   %add.ptr69 = getelementptr inbounds i8, ptr %output.250, i64 2
   %add.ptr70 = getelementptr inbounds i8, ptr %encode.addr.251, i64 4
-  %cmp57 = icmp ult ptr %add.ptr69, %add.ptr.ptr
+  %cmp57 = icmp ult ptr %add.ptr69, %add.ptr
   br i1 %cmp57, label %while.body58, label %while.end71, !llvm.loop !129
 
 while.end71:                                      ; preds = %while.body58, %if.end, %while.cond56.preheader
@@ -4027,7 +4027,7 @@ define void @stbir__decode_uint16_linear(ptr noundef %decodep, i32 noundef %widt
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i16, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 7
@@ -4042,7 +4042,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -4070,13 +4070,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp17 = icmp eq ptr %add.ptr12, %add.ptr.ptr
+  %cmp17 = icmp eq ptr %add.ptr12, %add.ptr
   br i1 %cmp17, label %while.end45, label %for.cond.backedge
 
 while.cond36.preheader:                           ; preds = %while.body, %while.cond.preheader
   %input.1.lcssa = phi ptr [ %inputp, %while.cond.preheader ], [ %add.ptr34, %while.body ]
   %decodep.pn.lcssa = phi ptr [ %decodep, %while.cond.preheader ], [ %decode.143, %while.body ]
-  %cmp3745 = icmp ult ptr %decodep.pn.lcssa, %add.ptr.ptr
+  %cmp3745 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp3745, label %while.body39, label %while.end45
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -4104,7 +4104,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %conv31, ptr %arrayidx32, align 4
   %add.ptr34 = getelementptr inbounds i8, ptr %input.141, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.143, i64 16
-  %cmp22.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp22.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp22.not, label %while.cond36.preheader, label %while.body, !llvm.loop !132
 
 while.body39:                                     ; preds = %while.cond36.preheader, %while.body39
@@ -4116,7 +4116,7 @@ while.body39:                                     ; preds = %while.cond36.prehea
   store float %conv41, ptr %decode.247, align 4
   %add.ptr43 = getelementptr inbounds i8, ptr %decode.247, i64 4
   %add.ptr44 = getelementptr inbounds i8, ptr %input.246, i64 2
-  %cmp37 = icmp ult ptr %add.ptr43, %add.ptr.ptr
+  %cmp37 = icmp ult ptr %add.ptr43, %add.ptr
   br i1 %cmp37, label %while.body39, label %while.end45, !llvm.loop !134
 
 while.end45:                                      ; preds = %while.body39, %if.end, %while.cond36.preheader
@@ -4128,7 +4128,7 @@ define void @stbir__encode_uint16_linear(ptr noundef writeonly %outputp, i32 nou
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -4143,7 +4143,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -16
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -4179,13 +4179,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp26 = icmp eq ptr %add.ptr22, %add.ptr.ptr
+  %cmp26 = icmp eq ptr %add.ptr22, %add.ptr
   br i1 %cmp26, label %while.end65, label %for.cond.backedge
 
 while.cond53.preheader:                           ; preds = %while.body, %while.cond.preheader
   %outputp.pn.lcssa = phi ptr [ %outputp, %while.cond.preheader ], [ %output.145, %while.body ]
   %encode.addr.1.lcssa = phi ptr [ %encode, %while.cond.preheader ], [ %add.ptr51, %while.body ]
-  %cmp5447 = icmp ult ptr %outputp.pn.lcssa, %add.ptr.ptr
+  %cmp5447 = icmp ult ptr %outputp.pn.lcssa, %add.ptr
   br i1 %cmp5447, label %while.body55, label %while.end65
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -4208,7 +4208,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i64 %vecext.i, ptr %outputp.pn43, align 1
   %add.ptr51 = getelementptr inbounds i8, ptr %encode.addr.144, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.145, i64 8
-  %cmp31.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp31.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp31.not, label %while.cond53.preheader, label %while.body, !llvm.loop !137
 
 while.body55:                                     ; preds = %while.cond53.preheader, %while.body55
@@ -4225,7 +4225,7 @@ while.body55:                                     ; preds = %while.cond53.prehea
   store i16 %conv, ptr %output.248, align 2
   %add.ptr63 = getelementptr inbounds i8, ptr %output.248, i64 2
   %add.ptr64 = getelementptr inbounds i8, ptr %encode.addr.249, i64 4
-  %cmp54 = icmp ult ptr %add.ptr63, %add.ptr.ptr
+  %cmp54 = icmp ult ptr %add.ptr63, %add.ptr
   br i1 %cmp54, label %while.body55, label %while.end65, !llvm.loop !139
 
 while.end65:                                      ; preds = %while.body55, %if.end, %while.cond53.preheader
@@ -4237,7 +4237,7 @@ define void @stbir__decode_half_float_linear(ptr noundef %decodep, i32 noundef %
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -4252,7 +4252,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds %union.stbir__FP16, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -4271,13 +4271,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp10 = icmp eq ptr %add.ptr5, %add.ptr.ptr
+  %cmp10 = icmp eq ptr %add.ptr5, %add.ptr
   br i1 %cmp10, label %while.end41, label %for.cond.backedge
 
 while.cond32.preheader:                           ; preds = %while.body, %while.cond.preheader
   %input.1.lcssa = phi ptr [ %inputp, %while.cond.preheader ], [ %add.ptr30, %while.body ]
   %decodep.pn.lcssa = phi ptr [ %decodep, %while.cond.preheader ], [ %decode.140, %while.body ]
-  %cmp3342 = icmp ult ptr %decodep.pn.lcssa, %add.ptr.ptr
+  %cmp3342 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp3342, label %while.body34, label %while.end41
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -4305,7 +4305,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %call27, ptr %arrayidx28, align 4
   %add.ptr30 = getelementptr inbounds i8, ptr %input.138, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.140, i64 16
-  %cmp15.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp15.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp15.not, label %while.cond32.preheader, label %while.body, !llvm.loop !142
 
 while.body34:                                     ; preds = %while.cond32.preheader, %while.body34
@@ -4317,7 +4317,7 @@ while.body34:                                     ; preds = %while.cond32.prehea
   store float %call37, ptr %decode.244, align 4
   %add.ptr39 = getelementptr inbounds i8, ptr %decode.244, i64 4
   %add.ptr40 = getelementptr inbounds i8, ptr %input.243, i64 2
-  %cmp33 = icmp ult ptr %add.ptr39, %add.ptr.ptr
+  %cmp33 = icmp ult ptr %add.ptr39, %add.ptr
   br i1 %cmp33, label %while.body34, label %while.end41, !llvm.loop !144
 
 while.end41:                                      ; preds = %while.body34, %if.end, %while.cond32.preheader
@@ -4333,7 +4333,7 @@ define void @stbir__encode_half_float_linear(ptr noundef %outputp, i32 noundef %
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -4348,7 +4348,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -16
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -4367,13 +4367,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp10 = icmp eq ptr %add.ptr6, %add.ptr.ptr
+  %cmp10 = icmp eq ptr %add.ptr6, %add.ptr
   br i1 %cmp10, label %while.end45, label %for.cond.backedge
 
 while.cond35.preheader:                           ; preds = %while.body, %while.cond.preheader
   %outputp.pn.lcssa = phi ptr [ %outputp, %while.cond.preheader ], [ %output.140, %while.body ]
   %encode.addr.1.lcssa = phi ptr [ %encode, %while.cond.preheader ], [ %add.ptr33, %while.body ]
-  %cmp3642 = icmp ult ptr %outputp.pn.lcssa, %add.ptr.ptr
+  %cmp3642 = icmp ult ptr %outputp.pn.lcssa, %add.ptr
   br i1 %cmp3642, label %while.body37, label %while.end45
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -4401,7 +4401,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i16 %call30, ptr %arrayidx27, align 2
   %add.ptr33 = getelementptr inbounds i8, ptr %encode.addr.139, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.140, i64 8
-  %cmp15.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp15.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp15.not, label %while.cond35.preheader, label %while.body, !llvm.loop !147
 
 while.body37:                                     ; preds = %while.cond35.preheader, %while.body37
@@ -4413,7 +4413,7 @@ while.body37:                                     ; preds = %while.cond35.prehea
   store i16 %call41, ptr %output.243, align 2
   %add.ptr43 = getelementptr inbounds i8, ptr %output.243, i64 2
   %add.ptr44 = getelementptr inbounds i8, ptr %encode.addr.244, i64 4
-  %cmp36 = icmp ult ptr %add.ptr43, %add.ptr.ptr
+  %cmp36 = icmp ult ptr %add.ptr43, %add.ptr
   br i1 %cmp36, label %while.body37, label %while.end45, !llvm.loop !149
 
 while.end45:                                      ; preds = %while.body37, %if.end, %while.cond35.preheader
@@ -4464,7 +4464,7 @@ define void @stbir__decode_uint8_linear_scaled_BGRA(ptr noundef %decodep, i32 no
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i8, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 15
@@ -4479,7 +4479,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -64
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -4529,7 +4529,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp40 = icmp eq ptr %add.ptr35, %add.ptr.ptr
+  %cmp40 = icmp eq ptr %add.ptr35, %add.ptr
   br i1 %cmp40, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -4561,7 +4561,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %mul57, ptr %arrayidx58, align 4
   %add.ptr60 = getelementptr inbounds i8, ptr %input.152, i64 4
   %decode.1 = getelementptr inbounds i8, ptr %decode.154, i64 16
-  %cmp45.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp45.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp45.not, label %return, label %while.body, !llvm.loop !152
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -4659,7 +4659,7 @@ define void @stbir__decode_uint8_linear_BGRA(ptr noundef %decodep, i32 noundef %
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i8, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 15
@@ -4674,7 +4674,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -64
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -4720,7 +4720,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp36 = icmp eq ptr %add.ptr31, %add.ptr.ptr
+  %cmp36 = icmp eq ptr %add.ptr31, %add.ptr
   br i1 %cmp36, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -4748,7 +4748,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %conv50, ptr %arrayidx51, align 4
   %add.ptr53 = getelementptr inbounds i8, ptr %input.148, i64 4
   %decode.1 = getelementptr inbounds i8, ptr %decode.150, i64 16
-  %cmp41.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp41.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp41.not, label %return, label %while.body, !llvm.loop !158
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -4843,7 +4843,7 @@ define void @stbir__decode_uint8_srgb_BGRA(ptr noundef writeonly %decodep, i32 n
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp.not14 = icmp slt i32 %width_times_channels, 4
   br i1 %cmp.not14, label %while.end, label %while.body.preheader
 
@@ -4883,7 +4883,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %7, ptr %arrayidx15, align 4
   %add.ptr17 = getelementptr inbounds i8, ptr %input.016, i64 4
   %decode.0 = getelementptr inbounds i8, ptr %decode.017, i64 16
-  %cmp.not = icmp ugt ptr %decode.0, %add.ptr.ptr
+  %cmp.not = icmp ugt ptr %decode.0, %add.ptr
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !162
 
 while.end:                                        ; preds = %while.body, %entry
@@ -5348,7 +5348,7 @@ define void @stbir__decode_uint16_linear_scaled_BGRA(ptr noundef %decodep, i32 n
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i16, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 7
@@ -5363,7 +5363,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -5395,7 +5395,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp24 = icmp eq ptr %add.ptr19, %add.ptr.ptr
+  %cmp24 = icmp eq ptr %add.ptr19, %add.ptr
   br i1 %cmp24, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -5427,7 +5427,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %mul41, ptr %arrayidx42, align 4
   %add.ptr44 = getelementptr inbounds i8, ptr %input.138, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.140, i64 16
-  %cmp29.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp29.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp29.not, label %return, label %while.body, !llvm.loop !172
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -5439,7 +5439,7 @@ define void @stbir__encode_uint16_linear_scaled_BGRA(ptr noundef writeonly %outp
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -5454,7 +5454,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -16
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -5494,7 +5494,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp33 = icmp eq ptr %add.ptr29, %add.ptr.ptr
+  %cmp33 = icmp eq ptr %add.ptr29, %add.ptr
   br i1 %cmp33, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -5519,7 +5519,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i64 %vecext.i, ptr %outputp.pn37, align 1
   %add.ptr62 = getelementptr inbounds i8, ptr %encode.addr.138, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.139, i64 8
-  %cmp38.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp38.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp38.not, label %return, label %while.body, !llvm.loop !175
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -5531,7 +5531,7 @@ define void @stbir__decode_uint16_linear_BGRA(ptr noundef %decodep, i32 noundef 
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i16, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 7
@@ -5546,7 +5546,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -5576,7 +5576,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp22 = icmp eq ptr %add.ptr17, %add.ptr.ptr
+  %cmp22 = icmp eq ptr %add.ptr17, %add.ptr
   br i1 %cmp22, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -5604,7 +5604,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %conv36, ptr %arrayidx37, align 4
   %add.ptr39 = getelementptr inbounds i8, ptr %input.136, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.138, i64 16
-  %cmp27.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp27.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp27.not, label %return, label %while.body, !llvm.loop !178
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -5616,7 +5616,7 @@ define void @stbir__encode_uint16_linear_BGRA(ptr noundef writeonly %outputp, i3
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -5631,7 +5631,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -16
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -5669,7 +5669,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp31 = icmp eq ptr %add.ptr27, %add.ptr.ptr
+  %cmp31 = icmp eq ptr %add.ptr27, %add.ptr
   br i1 %cmp31, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -5693,7 +5693,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i64 %vecext.i, ptr %outputp.pn37, align 1
   %add.ptr59 = getelementptr inbounds i8, ptr %encode.addr.138, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.139, i64 8
-  %cmp36.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp36.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp36.not, label %return, label %while.body, !llvm.loop !181
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -5705,7 +5705,7 @@ define void @stbir__decode_half_float_linear_BGRA(ptr noundef %decodep, i32 noun
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -5720,7 +5720,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds %union.stbir__FP16, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -5746,7 +5746,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp18 = icmp eq ptr %add.ptr13, %add.ptr.ptr
+  %cmp18 = icmp eq ptr %add.ptr13, %add.ptr
   br i1 %cmp18, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -5774,7 +5774,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %call36, ptr %arrayidx37, align 4
   %add.ptr39 = getelementptr inbounds i8, ptr %input.137, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.139, i64 16
-  %cmp23.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp23.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp23.not, label %return, label %while.body, !llvm.loop !184
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -5787,7 +5787,7 @@ entry:
   %of = alloca [2 x <4 x float>], align 16
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -5802,7 +5802,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -16
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   %arrayidx7 = getelementptr inbounds i8, ptr %of, i64 16
   br label %for.cond
 
@@ -5829,7 +5829,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp22 = icmp eq ptr %add.ptr18, %add.ptr.ptr
+  %cmp22 = icmp eq ptr %add.ptr18, %add.ptr
   br i1 %cmp22, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -5857,7 +5857,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i16 %call44, ptr %arrayidx41, align 2
   %add.ptr47 = getelementptr inbounds i8, ptr %encode.addr.133, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.134, i64 8
-  %cmp27.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp27.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp27.not, label %return, label %while.body, !llvm.loop !187
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -5869,7 +5869,7 @@ define void @stbir__decode_float_linear_BGRA(ptr noundef %decodep, i32 noundef %
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 15
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -5884,7 +5884,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -64
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -64
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -5920,7 +5920,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp30 = icmp eq ptr %add.ptr25, %add.ptr.ptr
+  %cmp30 = icmp eq ptr %add.ptr25, %add.ptr
   br i1 %cmp30, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -5944,7 +5944,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %11, ptr %arrayidx42, align 4
   %add.ptr44 = getelementptr inbounds i8, ptr %input.141, i64 16
   %decode.1 = getelementptr inbounds i8, ptr %decode.143, i64 16
-  %cmp35.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp35.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp35.not, label %return, label %while.body, !llvm.loop !190
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -5956,7 +5956,7 @@ define void @stbir__encode_float_linear_BGRA(ptr noundef writeonly %outputp, i32
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -5971,7 +5971,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -5997,7 +5997,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp18 = icmp eq ptr %add.ptr14, %add.ptr.ptr
+  %cmp18 = icmp eq ptr %add.ptr14, %add.ptr
   br i1 %cmp18, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -6010,7 +6010,7 @@ while.body:                                       ; preds = %while.body.preheade
   store <4 x float> %5, ptr %outputp.pn30, align 1
   %add.ptr31 = getelementptr inbounds i8, ptr %encode.addr.131, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.132, i64 16
-  %cmp23.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp23.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp23.not, label %return, label %while.body, !llvm.loop !193
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -6022,7 +6022,7 @@ define void @stbir__decode_uint8_linear_scaled_ARGB(ptr noundef %decodep, i32 no
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i8, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 15
@@ -6037,7 +6037,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -64
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -6087,7 +6087,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp40 = icmp eq ptr %add.ptr35, %add.ptr.ptr
+  %cmp40 = icmp eq ptr %add.ptr35, %add.ptr
   br i1 %cmp40, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -6119,7 +6119,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %mul57, ptr %arrayidx58, align 4
   %add.ptr60 = getelementptr inbounds i8, ptr %input.152, i64 4
   %decode.1 = getelementptr inbounds i8, ptr %decode.154, i64 16
-  %cmp45.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp45.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp45.not, label %return, label %while.body, !llvm.loop !196
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -6217,7 +6217,7 @@ define void @stbir__decode_uint8_linear_ARGB(ptr noundef %decodep, i32 noundef %
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i8, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 15
@@ -6232,7 +6232,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -64
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -6278,7 +6278,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp36 = icmp eq ptr %add.ptr31, %add.ptr.ptr
+  %cmp36 = icmp eq ptr %add.ptr31, %add.ptr
   br i1 %cmp36, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -6306,7 +6306,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %conv50, ptr %arrayidx51, align 4
   %add.ptr53 = getelementptr inbounds i8, ptr %input.148, i64 4
   %decode.1 = getelementptr inbounds i8, ptr %decode.150, i64 16
-  %cmp41.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp41.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp41.not, label %return, label %while.body, !llvm.loop !202
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -6401,7 +6401,7 @@ define void @stbir__decode_uint8_srgb_ARGB(ptr noundef writeonly %decodep, i32 n
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp.not14 = icmp slt i32 %width_times_channels, 4
   br i1 %cmp.not14, label %while.end, label %while.body.preheader
 
@@ -6441,7 +6441,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %7, ptr %arrayidx15, align 4
   %add.ptr17 = getelementptr inbounds i8, ptr %input.016, i64 4
   %decode.0 = getelementptr inbounds i8, ptr %decode.017, i64 16
-  %cmp.not = icmp ugt ptr %decode.0, %add.ptr.ptr
+  %cmp.not = icmp ugt ptr %decode.0, %add.ptr
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !206
 
 while.end:                                        ; preds = %while.body, %entry
@@ -6906,7 +6906,7 @@ define void @stbir__decode_uint16_linear_scaled_ARGB(ptr noundef %decodep, i32 n
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i16, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 7
@@ -6921,7 +6921,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -6953,7 +6953,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp24 = icmp eq ptr %add.ptr19, %add.ptr.ptr
+  %cmp24 = icmp eq ptr %add.ptr19, %add.ptr
   br i1 %cmp24, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -6985,7 +6985,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %mul41, ptr %arrayidx42, align 4
   %add.ptr44 = getelementptr inbounds i8, ptr %input.138, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.140, i64 16
-  %cmp29.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp29.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp29.not, label %return, label %while.body, !llvm.loop !216
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -6997,7 +6997,7 @@ define void @stbir__encode_uint16_linear_scaled_ARGB(ptr noundef writeonly %outp
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -7012,7 +7012,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -16
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -7052,7 +7052,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp33 = icmp eq ptr %add.ptr29, %add.ptr.ptr
+  %cmp33 = icmp eq ptr %add.ptr29, %add.ptr
   br i1 %cmp33, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -7077,7 +7077,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i64 %vecext.i, ptr %outputp.pn37, align 1
   %add.ptr62 = getelementptr inbounds i8, ptr %encode.addr.138, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.139, i64 8
-  %cmp38.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp38.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp38.not, label %return, label %while.body, !llvm.loop !219
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -7089,7 +7089,7 @@ define void @stbir__decode_uint16_linear_ARGB(ptr noundef %decodep, i32 noundef 
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i16, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 7
@@ -7104,7 +7104,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -7134,7 +7134,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp22 = icmp eq ptr %add.ptr17, %add.ptr.ptr
+  %cmp22 = icmp eq ptr %add.ptr17, %add.ptr
   br i1 %cmp22, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -7162,7 +7162,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %conv36, ptr %arrayidx37, align 4
   %add.ptr39 = getelementptr inbounds i8, ptr %input.136, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.138, i64 16
-  %cmp27.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp27.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp27.not, label %return, label %while.body, !llvm.loop !222
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -7174,7 +7174,7 @@ define void @stbir__encode_uint16_linear_ARGB(ptr noundef writeonly %outputp, i3
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -7189,7 +7189,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -16
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -7227,7 +7227,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp31 = icmp eq ptr %add.ptr27, %add.ptr.ptr
+  %cmp31 = icmp eq ptr %add.ptr27, %add.ptr
   br i1 %cmp31, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -7251,7 +7251,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i64 %vecext.i, ptr %outputp.pn37, align 1
   %add.ptr59 = getelementptr inbounds i8, ptr %encode.addr.138, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.139, i64 8
-  %cmp36.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp36.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp36.not, label %return, label %while.body, !llvm.loop !225
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -7263,7 +7263,7 @@ define void @stbir__decode_half_float_linear_ARGB(ptr noundef %decodep, i32 noun
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -7278,7 +7278,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds %union.stbir__FP16, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -7304,7 +7304,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp18 = icmp eq ptr %add.ptr13, %add.ptr.ptr
+  %cmp18 = icmp eq ptr %add.ptr13, %add.ptr
   br i1 %cmp18, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -7332,7 +7332,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %call36, ptr %arrayidx37, align 4
   %add.ptr39 = getelementptr inbounds i8, ptr %input.137, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.139, i64 16
-  %cmp23.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp23.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp23.not, label %return, label %while.body, !llvm.loop !228
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -7345,7 +7345,7 @@ entry:
   %of = alloca [2 x <4 x float>], align 16
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -7360,7 +7360,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -16
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   %arrayidx7 = getelementptr inbounds i8, ptr %of, i64 16
   br label %for.cond
 
@@ -7387,7 +7387,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp22 = icmp eq ptr %add.ptr18, %add.ptr.ptr
+  %cmp22 = icmp eq ptr %add.ptr18, %add.ptr
   br i1 %cmp22, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -7415,7 +7415,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i16 %call44, ptr %arrayidx41, align 2
   %add.ptr47 = getelementptr inbounds i8, ptr %encode.addr.133, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.134, i64 8
-  %cmp27.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp27.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp27.not, label %return, label %while.body, !llvm.loop !231
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -7427,7 +7427,7 @@ define void @stbir__decode_float_linear_ARGB(ptr noundef %decodep, i32 noundef %
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 15
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -7442,7 +7442,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -64
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -64
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -7478,7 +7478,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp30 = icmp eq ptr %add.ptr25, %add.ptr.ptr
+  %cmp30 = icmp eq ptr %add.ptr25, %add.ptr
   br i1 %cmp30, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -7502,7 +7502,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %11, ptr %arrayidx42, align 4
   %add.ptr44 = getelementptr inbounds i8, ptr %input.141, i64 16
   %decode.1 = getelementptr inbounds i8, ptr %decode.143, i64 16
-  %cmp35.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp35.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp35.not, label %return, label %while.body, !llvm.loop !234
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -7514,7 +7514,7 @@ define void @stbir__encode_float_linear_ARGB(ptr noundef writeonly %outputp, i32
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -7529,7 +7529,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -7555,7 +7555,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp18 = icmp eq ptr %add.ptr14, %add.ptr.ptr
+  %cmp18 = icmp eq ptr %add.ptr14, %add.ptr
   br i1 %cmp18, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -7568,7 +7568,7 @@ while.body:                                       ; preds = %while.body.preheade
   store <4 x float> %5, ptr %outputp.pn30, align 1
   %add.ptr31 = getelementptr inbounds i8, ptr %encode.addr.131, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.132, i64 16
-  %cmp23.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp23.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp23.not, label %return, label %while.body, !llvm.loop !237
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -7580,7 +7580,7 @@ define void @stbir__decode_uint8_linear_scaled_ABGR(ptr noundef %decodep, i32 no
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i8, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 15
@@ -7595,7 +7595,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -64
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -7645,7 +7645,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp40 = icmp eq ptr %add.ptr35, %add.ptr.ptr
+  %cmp40 = icmp eq ptr %add.ptr35, %add.ptr
   br i1 %cmp40, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -7677,7 +7677,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %mul57, ptr %arrayidx58, align 4
   %add.ptr60 = getelementptr inbounds i8, ptr %input.152, i64 4
   %decode.1 = getelementptr inbounds i8, ptr %decode.154, i64 16
-  %cmp45.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp45.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp45.not, label %return, label %while.body, !llvm.loop !240
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -7775,7 +7775,7 @@ define void @stbir__decode_uint8_linear_ABGR(ptr noundef %decodep, i32 noundef %
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i8, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 15
@@ -7790,7 +7790,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -64
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -7836,7 +7836,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp36 = icmp eq ptr %add.ptr31, %add.ptr.ptr
+  %cmp36 = icmp eq ptr %add.ptr31, %add.ptr
   br i1 %cmp36, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -7864,7 +7864,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %conv50, ptr %arrayidx51, align 4
   %add.ptr53 = getelementptr inbounds i8, ptr %input.148, i64 4
   %decode.1 = getelementptr inbounds i8, ptr %decode.150, i64 16
-  %cmp41.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp41.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp41.not, label %return, label %while.body, !llvm.loop !246
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -7959,7 +7959,7 @@ define void @stbir__decode_uint8_srgb_ABGR(ptr noundef writeonly %decodep, i32 n
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp.not14 = icmp slt i32 %width_times_channels, 4
   br i1 %cmp.not14, label %while.end, label %while.body.preheader
 
@@ -7999,7 +7999,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %7, ptr %arrayidx15, align 4
   %add.ptr17 = getelementptr inbounds i8, ptr %input.016, i64 4
   %decode.0 = getelementptr inbounds i8, ptr %decode.017, i64 16
-  %cmp.not = icmp ugt ptr %decode.0, %add.ptr.ptr
+  %cmp.not = icmp ugt ptr %decode.0, %add.ptr
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !250
 
 while.end:                                        ; preds = %while.body, %entry
@@ -8464,7 +8464,7 @@ define void @stbir__decode_uint16_linear_scaled_ABGR(ptr noundef %decodep, i32 n
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i16, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 7
@@ -8479,7 +8479,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -8511,7 +8511,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp24 = icmp eq ptr %add.ptr19, %add.ptr.ptr
+  %cmp24 = icmp eq ptr %add.ptr19, %add.ptr
   br i1 %cmp24, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -8543,7 +8543,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %mul41, ptr %arrayidx42, align 4
   %add.ptr44 = getelementptr inbounds i8, ptr %input.138, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.140, i64 16
-  %cmp29.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp29.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp29.not, label %return, label %while.body, !llvm.loop !260
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -8555,7 +8555,7 @@ define void @stbir__encode_uint16_linear_scaled_ABGR(ptr noundef writeonly %outp
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -8570,7 +8570,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -16
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -8610,7 +8610,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp33 = icmp eq ptr %add.ptr29, %add.ptr.ptr
+  %cmp33 = icmp eq ptr %add.ptr29, %add.ptr
   br i1 %cmp33, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -8635,7 +8635,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i64 %vecext.i, ptr %outputp.pn37, align 1
   %add.ptr62 = getelementptr inbounds i8, ptr %encode.addr.138, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.139, i64 8
-  %cmp38.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp38.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp38.not, label %return, label %while.body, !llvm.loop !263
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -8647,7 +8647,7 @@ define void @stbir__decode_uint16_linear_ABGR(ptr noundef %decodep, i32 noundef 
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i16, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 7
@@ -8662,7 +8662,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -8692,7 +8692,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp22 = icmp eq ptr %add.ptr17, %add.ptr.ptr
+  %cmp22 = icmp eq ptr %add.ptr17, %add.ptr
   br i1 %cmp22, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -8720,7 +8720,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %conv36, ptr %arrayidx37, align 4
   %add.ptr39 = getelementptr inbounds i8, ptr %input.136, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.138, i64 16
-  %cmp27.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp27.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp27.not, label %return, label %while.body, !llvm.loop !266
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -8732,7 +8732,7 @@ define void @stbir__encode_uint16_linear_ABGR(ptr noundef writeonly %outputp, i3
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -8747,7 +8747,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -16
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -8785,7 +8785,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp31 = icmp eq ptr %add.ptr27, %add.ptr.ptr
+  %cmp31 = icmp eq ptr %add.ptr27, %add.ptr
   br i1 %cmp31, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -8809,7 +8809,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i64 %vecext.i, ptr %outputp.pn37, align 1
   %add.ptr59 = getelementptr inbounds i8, ptr %encode.addr.138, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.139, i64 8
-  %cmp36.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp36.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp36.not, label %return, label %while.body, !llvm.loop !269
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -8821,7 +8821,7 @@ define void @stbir__decode_half_float_linear_ABGR(ptr noundef %decodep, i32 noun
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -8836,7 +8836,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds %union.stbir__FP16, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -8862,7 +8862,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp18 = icmp eq ptr %add.ptr13, %add.ptr.ptr
+  %cmp18 = icmp eq ptr %add.ptr13, %add.ptr
   br i1 %cmp18, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -8890,7 +8890,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %call36, ptr %arrayidx37, align 4
   %add.ptr39 = getelementptr inbounds i8, ptr %input.137, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.139, i64 16
-  %cmp23.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp23.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp23.not, label %return, label %while.body, !llvm.loop !272
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -8903,7 +8903,7 @@ entry:
   %of = alloca [2 x <4 x float>], align 16
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -8918,7 +8918,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -16
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   %arrayidx7 = getelementptr inbounds i8, ptr %of, i64 16
   br label %for.cond
 
@@ -8945,7 +8945,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp22 = icmp eq ptr %add.ptr18, %add.ptr.ptr
+  %cmp22 = icmp eq ptr %add.ptr18, %add.ptr
   br i1 %cmp22, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -8973,7 +8973,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i16 %call44, ptr %arrayidx41, align 2
   %add.ptr47 = getelementptr inbounds i8, ptr %encode.addr.133, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.134, i64 8
-  %cmp27.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp27.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp27.not, label %return, label %while.body, !llvm.loop !275
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -8985,7 +8985,7 @@ define void @stbir__decode_float_linear_ABGR(ptr noundef %decodep, i32 noundef %
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 15
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -9000,7 +9000,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -64
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -64
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -9036,7 +9036,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp30 = icmp eq ptr %add.ptr25, %add.ptr.ptr
+  %cmp30 = icmp eq ptr %add.ptr25, %add.ptr
   br i1 %cmp30, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -9060,7 +9060,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %11, ptr %arrayidx42, align 4
   %add.ptr44 = getelementptr inbounds i8, ptr %input.141, i64 16
   %decode.1 = getelementptr inbounds i8, ptr %decode.143, i64 16
-  %cmp35.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp35.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp35.not, label %return, label %while.body, !llvm.loop !278
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -9072,7 +9072,7 @@ define void @stbir__encode_float_linear_ABGR(ptr noundef writeonly %outputp, i32
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -9087,7 +9087,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -9113,7 +9113,7 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp18 = icmp eq ptr %add.ptr14, %add.ptr.ptr
+  %cmp18 = icmp eq ptr %add.ptr14, %add.ptr
   br i1 %cmp18, label %return, label %for.cond.backedge
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -9126,7 +9126,7 @@ while.body:                                       ; preds = %while.body.preheade
   store <4 x float> %5, ptr %outputp.pn30, align 1
   %add.ptr31 = getelementptr inbounds i8, ptr %encode.addr.131, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.132, i64 16
-  %cmp23.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp23.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp23.not, label %return, label %while.body, !llvm.loop !281
 
 return:                                           ; preds = %while.body, %if.end, %while.cond.preheader
@@ -9138,7 +9138,7 @@ define void @stbir__decode_uint8_linear_scaled_AR(ptr noundef %decodep, i32 noun
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i8, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 15
@@ -9153,7 +9153,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -64
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -9203,13 +9203,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp40 = icmp eq ptr %add.ptr35, %add.ptr.ptr
+  %cmp40 = icmp eq ptr %add.ptr35, %add.ptr
   br i1 %cmp40, label %while.end76, label %for.cond.backedge
 
 while.cond62.preheader:                           ; preds = %while.body, %while.cond.preheader
   %input.1.lcssa = phi ptr [ %inputp, %while.cond.preheader ], [ %add.ptr60, %while.body ]
   %decodep.pn.lcssa = phi ptr [ %decodep, %while.cond.preheader ], [ %decode.163, %while.body ]
-  %cmp6365 = icmp ult ptr %decodep.pn.lcssa, %add.ptr.ptr
+  %cmp6365 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp6365, label %while.body65, label %while.end76
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -9241,7 +9241,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %mul57, ptr %arrayidx58, align 4
   %add.ptr60 = getelementptr inbounds i8, ptr %input.161, i64 4
   %decode.1 = getelementptr inbounds i8, ptr %decode.163, i64 16
-  %cmp45.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp45.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp45.not, label %while.cond62.preheader, label %while.body, !llvm.loop !284
 
 while.body65:                                     ; preds = %while.cond62.preheader, %while.body65
@@ -9260,7 +9260,7 @@ while.body65:                                     ; preds = %while.cond62.prehea
   store float %mul72, ptr %arrayidx73, align 4
   %add.ptr74 = getelementptr inbounds i8, ptr %decode.267, i64 8
   %add.ptr75 = getelementptr inbounds i8, ptr %input.266, i64 2
-  %cmp63 = icmp ult ptr %add.ptr74, %add.ptr.ptr
+  %cmp63 = icmp ult ptr %add.ptr74, %add.ptr
   br i1 %cmp63, label %while.body65, label %while.end76, !llvm.loop !286
 
 while.end76:                                      ; preds = %while.body65, %if.end, %while.cond62.preheader
@@ -9395,7 +9395,7 @@ define void @stbir__decode_uint8_linear_AR(ptr noundef %decodep, i32 noundef %wi
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i8, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 15
@@ -9410,7 +9410,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -64
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -9456,13 +9456,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp36 = icmp eq ptr %add.ptr31, %add.ptr.ptr
+  %cmp36 = icmp eq ptr %add.ptr31, %add.ptr
   br i1 %cmp36, label %while.end67, label %for.cond.backedge
 
 while.cond55.preheader:                           ; preds = %while.body, %while.cond.preheader
   %input.1.lcssa = phi ptr [ %inputp, %while.cond.preheader ], [ %add.ptr53, %while.body ]
   %decodep.pn.lcssa = phi ptr [ %decodep, %while.cond.preheader ], [ %decode.159, %while.body ]
-  %cmp5661 = icmp ult ptr %decodep.pn.lcssa, %add.ptr.ptr
+  %cmp5661 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp5661, label %while.body58, label %while.end67
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -9490,7 +9490,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %conv50, ptr %arrayidx51, align 4
   %add.ptr53 = getelementptr inbounds i8, ptr %input.157, i64 4
   %decode.1 = getelementptr inbounds i8, ptr %decode.159, i64 16
-  %cmp41.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp41.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp41.not, label %while.cond55.preheader, label %while.body, !llvm.loop !294
 
 while.body58:                                     ; preds = %while.cond55.preheader, %while.body58
@@ -9507,7 +9507,7 @@ while.body58:                                     ; preds = %while.cond55.prehea
   store float %conv63, ptr %arrayidx64, align 4
   %add.ptr65 = getelementptr inbounds i8, ptr %decode.263, i64 8
   %add.ptr66 = getelementptr inbounds i8, ptr %input.262, i64 2
-  %cmp56 = icmp ult ptr %add.ptr65, %add.ptr.ptr
+  %cmp56 = icmp ult ptr %add.ptr65, %add.ptr
   br i1 %cmp56, label %while.body58, label %while.end67, !llvm.loop !296
 
 while.end67:                                      ; preds = %while.body58, %if.end, %while.cond55.preheader
@@ -9635,7 +9635,7 @@ define void @stbir__decode_uint8_srgb_AR(ptr noundef %decodep, i32 noundef %widt
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp.not23 = icmp slt i32 %width_times_channels, 4
   br i1 %cmp.not23, label %while.cond19.preheader, label %while.body.preheader
 
@@ -9646,7 +9646,7 @@ while.body.preheader:                             ; preds = %entry
 while.cond19.preheader:                           ; preds = %while.body, %entry
   %decodep.pn.lcssa = phi ptr [ %decodep, %entry ], [ %decode.026, %while.body ]
   %input.0.lcssa = phi ptr [ %inputp, %entry ], [ %add.ptr17, %while.body ]
-  %cmp2028 = icmp ult ptr %decodep.pn.lcssa, %add.ptr.ptr
+  %cmp2028 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp2028, label %while.body21, label %while.end32
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -9681,7 +9681,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %7, ptr %arrayidx15, align 4
   %add.ptr17 = getelementptr inbounds i8, ptr %input.025, i64 4
   %decode.0 = getelementptr inbounds i8, ptr %decode.026, i64 16
-  %cmp.not = icmp ugt ptr %decode.0, %add.ptr.ptr
+  %cmp.not = icmp ugt ptr %decode.0, %add.ptr
   br i1 %cmp.not, label %while.cond19.preheader, label %while.body, !llvm.loop !302
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -9702,7 +9702,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   store float %11, ptr %arrayidx29, align 4
   %add.ptr30 = getelementptr inbounds i8, ptr %decode.129, i64 8
   %add.ptr31 = getelementptr inbounds i8, ptr %input.130, i64 2
-  %cmp20 = icmp ult ptr %add.ptr30, %add.ptr.ptr
+  %cmp20 = icmp ult ptr %add.ptr30, %add.ptr
   br i1 %cmp20, label %while.body21, label %while.end32, !llvm.loop !304
 
 while.end32:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -9956,7 +9956,7 @@ define void @stbir__decode_uint8_srgb2_linearalpha_AR(ptr noundef writeonly %dec
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp.not19 = icmp slt i32 %width_times_channels, 4
   br i1 %cmp.not19, label %while.end, label %while.body.preheader
 
@@ -9994,13 +9994,13 @@ while.body:                                       ; preds = %while.body.preheade
   store float %mul12, ptr %arrayidx13, align 4
   %add.ptr14 = getelementptr inbounds i8, ptr %input.021, i64 4
   %decode.0 = getelementptr inbounds i8, ptr %decode.022, i64 16
-  %cmp.not = icmp ugt ptr %decode.0, %add.ptr.ptr
+  %cmp.not = icmp ugt ptr %decode.0, %add.ptr
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !310
 
 while.end:                                        ; preds = %while.body, %entry
   %decodep.pn.lcssa = phi ptr [ %decodep, %entry ], [ %decode.022, %while.body ]
   %input.0.lcssa = phi ptr [ %inputp, %entry ], [ %add.ptr14, %while.body ]
-  %cmp17 = icmp ult ptr %decodep.pn.lcssa, %add.ptr.ptr
+  %cmp17 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp17, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
@@ -10176,7 +10176,7 @@ define void @stbir__decode_uint16_linear_scaled_AR(ptr noundef %decodep, i32 nou
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i16, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 7
@@ -10191,7 +10191,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -10223,13 +10223,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp24 = icmp eq ptr %add.ptr19, %add.ptr.ptr
+  %cmp24 = icmp eq ptr %add.ptr19, %add.ptr
   br i1 %cmp24, label %while.end60, label %for.cond.backedge
 
 while.cond46.preheader:                           ; preds = %while.body, %while.cond.preheader
   %input.1.lcssa = phi ptr [ %inputp, %while.cond.preheader ], [ %add.ptr44, %while.body ]
   %decodep.pn.lcssa = phi ptr [ %decodep, %while.cond.preheader ], [ %decode.149, %while.body ]
-  %cmp4751 = icmp ult ptr %decodep.pn.lcssa, %add.ptr.ptr
+  %cmp4751 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp4751, label %while.body49, label %while.end60
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -10261,7 +10261,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %mul41, ptr %arrayidx42, align 4
   %add.ptr44 = getelementptr inbounds i8, ptr %input.147, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.149, i64 16
-  %cmp29.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp29.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp29.not, label %while.cond46.preheader, label %while.body, !llvm.loop !316
 
 while.body49:                                     ; preds = %while.cond46.preheader, %while.body49
@@ -10280,7 +10280,7 @@ while.body49:                                     ; preds = %while.cond46.prehea
   store float %mul56, ptr %arrayidx57, align 4
   %add.ptr58 = getelementptr inbounds i8, ptr %decode.253, i64 8
   %add.ptr59 = getelementptr inbounds i8, ptr %input.252, i64 4
-  %cmp47 = icmp ult ptr %add.ptr58, %add.ptr.ptr
+  %cmp47 = icmp ult ptr %add.ptr58, %add.ptr
   br i1 %cmp47, label %while.body49, label %while.end60, !llvm.loop !318
 
 while.end60:                                      ; preds = %while.body49, %if.end, %while.cond46.preheader
@@ -10292,7 +10292,7 @@ define void @stbir__encode_uint16_linear_scaled_AR(ptr noundef writeonly %output
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -10307,7 +10307,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -16
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -10347,13 +10347,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp33 = icmp eq ptr %add.ptr29, %add.ptr.ptr
+  %cmp33 = icmp eq ptr %add.ptr29, %add.ptr
   br i1 %cmp33, label %while.end90, label %for.cond.backedge
 
 while.cond64.preheader:                           ; preds = %while.body, %while.cond.preheader
   %outputp.pn.lcssa = phi ptr [ %outputp, %while.cond.preheader ], [ %output.157, %while.body ]
   %encode.addr.1.lcssa = phi ptr [ %encode, %while.cond.preheader ], [ %add.ptr62, %while.body ]
-  %cmp6559 = icmp ult ptr %outputp.pn.lcssa, %add.ptr.ptr
+  %cmp6559 = icmp ult ptr %outputp.pn.lcssa, %add.ptr
   br i1 %cmp6559, label %while.body66, label %while.end90
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -10378,7 +10378,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i64 %vecext.i, ptr %outputp.pn55, align 1
   %add.ptr62 = getelementptr inbounds i8, ptr %encode.addr.156, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.157, i64 8
-  %cmp38.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp38.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp38.not, label %while.cond64.preheader, label %while.body, !llvm.loop !321
 
 while.body66:                                     ; preds = %while.cond64.preheader, %while.body66
@@ -10409,7 +10409,7 @@ while.body66:                                     ; preds = %while.cond64.prehea
   store i16 %conv86, ptr %arrayidx87, align 2
   %add.ptr88 = getelementptr inbounds i8, ptr %output.260, i64 4
   %add.ptr89 = getelementptr inbounds i8, ptr %encode.addr.261, i64 8
-  %cmp65 = icmp ult ptr %add.ptr88, %add.ptr.ptr
+  %cmp65 = icmp ult ptr %add.ptr88, %add.ptr
   br i1 %cmp65, label %while.body66, label %while.end90, !llvm.loop !323
 
 while.end90:                                      ; preds = %while.body66, %if.end, %while.cond64.preheader
@@ -10421,7 +10421,7 @@ define void @stbir__decode_uint16_linear_AR(ptr noundef %decodep, i32 noundef %w
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %add.ptr2 = getelementptr inbounds i16, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
   %cmp = icmp sgt i32 %width_times_channels, 7
@@ -10436,7 +10436,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
   br label %while.body
 
 if.then:                                          ; preds = %entry
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -10466,13 +10466,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp22 = icmp eq ptr %add.ptr17, %add.ptr.ptr
+  %cmp22 = icmp eq ptr %add.ptr17, %add.ptr
   br i1 %cmp22, label %while.end53, label %for.cond.backedge
 
 while.cond41.preheader:                           ; preds = %while.body, %while.cond.preheader
   %input.1.lcssa = phi ptr [ %inputp, %while.cond.preheader ], [ %add.ptr39, %while.body ]
   %decodep.pn.lcssa = phi ptr [ %decodep, %while.cond.preheader ], [ %decode.147, %while.body ]
-  %cmp4249 = icmp ult ptr %decodep.pn.lcssa, %add.ptr.ptr
+  %cmp4249 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp4249, label %while.body44, label %while.end53
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -10500,7 +10500,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %conv36, ptr %arrayidx37, align 4
   %add.ptr39 = getelementptr inbounds i8, ptr %input.145, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.147, i64 16
-  %cmp27.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp27.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp27.not, label %while.cond41.preheader, label %while.body, !llvm.loop !326
 
 while.body44:                                     ; preds = %while.cond41.preheader, %while.body44
@@ -10517,7 +10517,7 @@ while.body44:                                     ; preds = %while.cond41.prehea
   store float %conv49, ptr %arrayidx50, align 4
   %add.ptr51 = getelementptr inbounds i8, ptr %decode.251, i64 8
   %add.ptr52 = getelementptr inbounds i8, ptr %input.250, i64 4
-  %cmp42 = icmp ult ptr %add.ptr51, %add.ptr.ptr
+  %cmp42 = icmp ult ptr %add.ptr51, %add.ptr
   br i1 %cmp42, label %while.body44, label %while.end53, !llvm.loop !328
 
 while.end53:                                      ; preds = %while.body44, %if.end, %while.cond41.preheader
@@ -10529,7 +10529,7 @@ define void @stbir__encode_uint16_linear_AR(ptr noundef writeonly %outputp, i32 
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -10544,7 +10544,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -16
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -10582,13 +10582,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp31 = icmp eq ptr %add.ptr27, %add.ptr.ptr
+  %cmp31 = icmp eq ptr %add.ptr27, %add.ptr
   br i1 %cmp31, label %while.end87, label %for.cond.backedge
 
 while.cond61.preheader:                           ; preds = %while.body, %while.cond.preheader
   %outputp.pn.lcssa = phi ptr [ %outputp, %while.cond.preheader ], [ %output.153, %while.body ]
   %encode.addr.1.lcssa = phi ptr [ %encode, %while.cond.preheader ], [ %add.ptr59, %while.body ]
-  %cmp6255 = icmp ult ptr %outputp.pn.lcssa, %add.ptr.ptr
+  %cmp6255 = icmp ult ptr %outputp.pn.lcssa, %add.ptr
   br i1 %cmp6255, label %while.body63, label %while.end87
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -10612,7 +10612,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i64 %vecext.i, ptr %outputp.pn51, align 1
   %add.ptr59 = getelementptr inbounds i8, ptr %encode.addr.152, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.153, i64 8
-  %cmp36.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp36.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp36.not, label %while.cond61.preheader, label %while.body, !llvm.loop !331
 
 while.body63:                                     ; preds = %while.cond61.preheader, %while.body63
@@ -10639,7 +10639,7 @@ while.body63:                                     ; preds = %while.cond61.prehea
   store i16 %conv83, ptr %arrayidx84, align 2
   %add.ptr85 = getelementptr inbounds i8, ptr %output.256, i64 4
   %add.ptr86 = getelementptr inbounds i8, ptr %encode.addr.257, i64 8
-  %cmp62 = icmp ult ptr %add.ptr85, %add.ptr.ptr
+  %cmp62 = icmp ult ptr %add.ptr85, %add.ptr
   br i1 %cmp62, label %while.body63, label %while.end87, !llvm.loop !333
 
 while.end87:                                      ; preds = %while.body63, %if.end, %while.cond61.preheader
@@ -10651,7 +10651,7 @@ define void @stbir__decode_half_float_linear_AR(ptr noundef %decodep, i32 nounde
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -10666,7 +10666,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds %union.stbir__FP16, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -16
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -10692,13 +10692,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp18 = icmp eq ptr %add.ptr13, %add.ptr.ptr
+  %cmp18 = icmp eq ptr %add.ptr13, %add.ptr
   br i1 %cmp18, label %while.end54, label %for.cond.backedge
 
 while.cond41.preheader:                           ; preds = %while.body, %while.cond.preheader
   %input.1.lcssa = phi ptr [ %inputp, %while.cond.preheader ], [ %add.ptr39, %while.body ]
   %decodep.pn.lcssa = phi ptr [ %decodep, %while.cond.preheader ], [ %decode.148, %while.body ]
-  %cmp4250 = icmp ult ptr %decodep.pn.lcssa, %add.ptr.ptr
+  %cmp4250 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp4250, label %while.body43, label %while.end54
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -10726,7 +10726,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %call36, ptr %arrayidx37, align 4
   %add.ptr39 = getelementptr inbounds i8, ptr %input.146, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.148, i64 16
-  %cmp23.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp23.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp23.not, label %while.cond41.preheader, label %while.body, !llvm.loop !336
 
 while.body43:                                     ; preds = %while.cond41.preheader, %while.body43
@@ -10743,7 +10743,7 @@ while.body43:                                     ; preds = %while.cond41.prehea
   store float %call50, ptr %arrayidx51, align 4
   %add.ptr52 = getelementptr inbounds i8, ptr %decode.252, i64 8
   %add.ptr53 = getelementptr inbounds i8, ptr %input.251, i64 4
-  %cmp42 = icmp ult ptr %add.ptr52, %add.ptr.ptr
+  %cmp42 = icmp ult ptr %add.ptr52, %add.ptr
   br i1 %cmp42, label %while.body43, label %while.end54, !llvm.loop !338
 
 while.end54:                                      ; preds = %while.body43, %if.end, %while.cond41.preheader
@@ -10756,7 +10756,7 @@ entry:
   %of = alloca [2 x <4 x float>], align 16
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -10771,7 +10771,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -16
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -16
   %arrayidx7 = getelementptr inbounds i8, ptr %of, i64 16
   br label %for.cond
 
@@ -10798,13 +10798,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp22 = icmp eq ptr %add.ptr18, %add.ptr.ptr
+  %cmp22 = icmp eq ptr %add.ptr18, %add.ptr
   br i1 %cmp22, label %while.end64, label %for.cond.backedge
 
 while.cond49.preheader:                           ; preds = %while.body, %while.cond.preheader
   %outputp.pn.lcssa = phi ptr [ %outputp, %while.cond.preheader ], [ %output.143, %while.body ]
   %encode.addr.1.lcssa = phi ptr [ %encode, %while.cond.preheader ], [ %add.ptr47, %while.body ]
-  %cmp5045 = icmp ult ptr %outputp.pn.lcssa, %add.ptr.ptr
+  %cmp5045 = icmp ult ptr %outputp.pn.lcssa, %add.ptr
   br i1 %cmp5045, label %while.body51, label %while.end64
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -10832,7 +10832,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i16 %call44, ptr %arrayidx41, align 2
   %add.ptr47 = getelementptr inbounds i8, ptr %encode.addr.142, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.143, i64 8
-  %cmp27.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp27.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp27.not, label %while.cond49.preheader, label %while.body, !llvm.loop !341
 
 while.body51:                                     ; preds = %while.cond49.preheader, %while.body51
@@ -10849,7 +10849,7 @@ while.body51:                                     ; preds = %while.cond49.prehea
   store i16 %call60, ptr %arrayidx57, align 2
   %add.ptr62 = getelementptr inbounds i8, ptr %output.246, i64 4
   %add.ptr63 = getelementptr inbounds i8, ptr %encode.addr.247, i64 8
-  %cmp50 = icmp ult ptr %add.ptr62, %add.ptr.ptr
+  %cmp50 = icmp ult ptr %add.ptr62, %add.ptr
   br i1 %cmp50, label %while.body51, label %while.end64, !llvm.loop !343
 
 while.end64:                                      ; preds = %while.body51, %if.end, %while.cond49.preheader
@@ -10861,7 +10861,7 @@ define void @stbir__decode_float_linear_AR(ptr noundef %decodep, i32 noundef %wi
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decodep, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 15
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -10876,7 +10876,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %inputp, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -64
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -64
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -10912,13 +10912,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp30 = icmp eq ptr %add.ptr25, %add.ptr.ptr
+  %cmp30 = icmp eq ptr %add.ptr25, %add.ptr
   br i1 %cmp30, label %while.end55, label %for.cond.backedge
 
 while.cond46.preheader:                           ; preds = %while.body, %while.cond.preheader
   %input.1.lcssa = phi ptr [ %inputp, %while.cond.preheader ], [ %add.ptr44, %while.body ]
   %decodep.pn.lcssa = phi ptr [ %decodep, %while.cond.preheader ], [ %decode.152, %while.body ]
-  %cmp4754 = icmp ult ptr %decodep.pn.lcssa, %add.ptr.ptr
+  %cmp4754 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp4754, label %while.body48, label %while.end55
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -10942,7 +10942,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %11, ptr %arrayidx42, align 4
   %add.ptr44 = getelementptr inbounds i8, ptr %input.150, i64 16
   %decode.1 = getelementptr inbounds i8, ptr %decode.152, i64 16
-  %cmp35.not = icmp ugt ptr %decode.1, %add.ptr.ptr
+  %cmp35.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp35.not, label %while.cond46.preheader, label %while.body, !llvm.loop !346
 
 while.body48:                                     ; preds = %while.cond46.preheader, %while.body48
@@ -10957,7 +10957,7 @@ while.body48:                                     ; preds = %while.cond46.prehea
   store float %13, ptr %arrayidx52, align 4
   %add.ptr53 = getelementptr inbounds i8, ptr %decode.256, i64 8
   %add.ptr54 = getelementptr inbounds i8, ptr %input.255, i64 8
-  %cmp47 = icmp ult ptr %add.ptr53, %add.ptr.ptr
+  %cmp47 = icmp ult ptr %add.ptr53, %add.ptr
   br i1 %cmp47, label %while.body48, label %while.end55, !llvm.loop !348
 
 while.end55:                                      ; preds = %while.body48, %if.end, %while.cond46.preheader
@@ -10969,7 +10969,7 @@ define void @stbir__encode_float_linear_AR(ptr noundef writeonly %outputp, i32 n
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %outputp, i64 %add.ptr.idx
   %cmp = icmp sgt i32 %width_times_channels, 7
   br i1 %cmp, label %if.then, label %while.cond.preheader
 
@@ -10984,7 +10984,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 if.then:                                          ; preds = %entry
   %add.ptr2 = getelementptr inbounds float, ptr %encode, i64 %idx.ext
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr2, i64 -32
-  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr.ptr, i64 -32
+  %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 -32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
@@ -11010,13 +11010,13 @@ for.cond.backedge:                                ; preds = %for.cond, %if.end
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %cmp18 = icmp eq ptr %add.ptr14, %add.ptr.ptr
+  %cmp18 = icmp eq ptr %add.ptr14, %add.ptr
   br i1 %cmp18, label %while.end41, label %for.cond.backedge
 
 while.cond33.preheader:                           ; preds = %while.body, %while.cond.preheader
   %outputp.pn.lcssa = phi ptr [ %outputp, %while.cond.preheader ], [ %output.142, %while.body ]
   %encode.addr.1.lcssa = phi ptr [ %encode, %while.cond.preheader ], [ %add.ptr31, %while.body ]
-  %cmp3444 = icmp ult ptr %outputp.pn.lcssa, %add.ptr.ptr
+  %cmp3444 = icmp ult ptr %outputp.pn.lcssa, %add.ptr
   br i1 %cmp3444, label %while.body35, label %while.end41
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -11029,7 +11029,7 @@ while.body:                                       ; preds = %while.body.preheade
   store <4 x float> %5, ptr %outputp.pn40, align 1
   %add.ptr31 = getelementptr inbounds i8, ptr %encode.addr.141, i64 16
   %output.1 = getelementptr inbounds i8, ptr %output.142, i64 16
-  %cmp23.not = icmp ugt ptr %output.1, %add.ptr.ptr
+  %cmp23.not = icmp ugt ptr %output.1, %add.ptr
   br i1 %cmp23.not, label %while.cond33.preheader, label %while.body, !llvm.loop !351
 
 while.body35:                                     ; preds = %while.cond33.preheader, %while.body35
@@ -11044,7 +11044,7 @@ while.body35:                                     ; preds = %while.cond33.prehea
   store float %7, ptr %arrayidx38, align 4
   %add.ptr39 = getelementptr inbounds i8, ptr %output.245, i64 8
   %add.ptr40 = getelementptr inbounds i8, ptr %encode.addr.246, i64 8
-  %cmp34 = icmp ult ptr %add.ptr39, %add.ptr.ptr
+  %cmp34 = icmp ult ptr %add.ptr39, %add.ptr
   br i1 %cmp34, label %while.body35, label %while.end41, !llvm.loop !353
 
 while.end41:                                      ; preds = %while.body35, %if.end, %while.cond33.preheader
@@ -11270,7 +11270,7 @@ define void @stbir__simple_alpha_weight_4ch(ptr noundef %decode_buffer, i32 noun
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decode_buffer, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decode_buffer, i64 %add.ptr.idx
   %cmp.not22 = icmp slt i32 %width_times_channels, 8
   br i1 %cmp.not22, label %while.end, label %while.body.preheader
 
@@ -11294,12 +11294,12 @@ while.body:                                       ; preds = %while.body.preheade
   store <4 x float> %mul.i41, ptr %decode_buffer.pn23, align 1
   store <4 x float> %mul.i38, ptr %add.ptr4, align 1
   %decode.0 = getelementptr inbounds i8, ptr %decode.024, i64 32
-  %cmp.not = icmp ugt ptr %decode.0, %add.ptr.ptr
+  %cmp.not = icmp ugt ptr %decode.0, %add.ptr
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !364
 
 while.end:                                        ; preds = %while.body, %entry
   %decode_buffer.pn.lcssa = phi ptr [ %decode_buffer, %entry ], [ %decode.024, %while.body ]
-  %cmp20 = icmp ult ptr %decode_buffer.pn.lcssa, %add.ptr.ptr
+  %cmp20 = icmp ult ptr %decode_buffer.pn.lcssa, %add.ptr
   br i1 %cmp20, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.end
@@ -11319,7 +11319,7 @@ define void @stbir__simple_alpha_weight_2ch(ptr noundef %decode_buffer, i32 noun
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decode_buffer, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decode_buffer, i64 %add.ptr.idx
   %cmp.not21 = icmp slt i32 %width_times_channels, 8
   br i1 %cmp.not21, label %while.cond21.preheader, label %while.body.preheader
 
@@ -11329,7 +11329,7 @@ while.body.preheader:                             ; preds = %entry
 
 while.cond21.preheader:                           ; preds = %while.body, %entry
   %decode_buffer.pn.lcssa = phi ptr [ %decode_buffer, %entry ], [ %decode.023, %while.body ]
-  %cmp2224 = icmp ult ptr %decode_buffer.pn.lcssa, %add.ptr.ptr
+  %cmp2224 = icmp ult ptr %decode_buffer.pn.lcssa, %add.ptr
   br i1 %cmp2224, label %while.body23, label %while.end26
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -11354,7 +11354,7 @@ while.body:                                       ; preds = %while.body.preheade
   store <4 x float> %mul.i34, ptr %decode_buffer.pn22, align 1
   store <4 x float> %mul.i, ptr %add.ptr4, align 1
   %decode.0 = getelementptr inbounds i8, ptr %decode.023, i64 32
-  %cmp.not = icmp ugt ptr %decode.0, %add.ptr.ptr
+  %cmp.not = icmp ugt ptr %decode.0, %add.ptr
   br i1 %cmp.not, label %while.cond21.preheader, label %while.body, !llvm.loop !366
 
 while.body23:                                     ; preds = %while.cond21.preheader, %while.body23
@@ -11366,7 +11366,7 @@ while.body23:                                     ; preds = %while.cond21.prehea
   %mul = fmul float %10, %11
   store float %mul, ptr %decode.125, align 4
   %add.ptr25 = getelementptr inbounds i8, ptr %decode.125, i64 8
-  %cmp22 = icmp ult ptr %add.ptr25, %add.ptr.ptr
+  %cmp22 = icmp ult ptr %add.ptr25, %add.ptr
   br i1 %cmp22, label %while.body23, label %while.end26, !llvm.loop !368
 
 while.end26:                                      ; preds = %while.body23, %while.cond21.preheader
@@ -11441,7 +11441,7 @@ define void @stbir__simple_flip_3ch(ptr noundef %decode_buffer, i32 noundef %wid
 entry:
   %idx.ext = sext i32 %width_times_channels to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 2
-  %add.ptr.ptr = getelementptr inbounds i8, ptr %decode_buffer, i64 %add.ptr.idx
+  %add.ptr = getelementptr inbounds i8, ptr %decode_buffer, i64 %add.ptr.idx
   %cmp.not31 = icmp slt i32 %width_times_channels, 12
   br i1 %cmp.not31, label %while.cond19.preheader, label %while.body.preheader
 
@@ -11451,7 +11451,7 @@ while.body.preheader:                             ; preds = %entry
 
 while.cond19.preheader:                           ; preds = %while.body, %entry
   %decode_buffer.pn.lcssa = phi ptr [ %decode_buffer, %entry ], [ %decode.033, %while.body ]
-  %cmp2034 = icmp ult ptr %decode_buffer.pn.lcssa, %add.ptr.ptr
+  %cmp2034 = icmp ult ptr %decode_buffer.pn.lcssa, %add.ptr
   br i1 %cmp2034, label %while.body21, label %while.end27
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -11482,7 +11482,7 @@ while.body:                                       ; preds = %while.body.preheade
   store float %2, ptr %arrayidx9, align 4
   store float %3, ptr %arrayidx11, align 4
   %decode.0 = getelementptr inbounds i8, ptr %decode.033, i64 48
-  %cmp.not = icmp ugt ptr %decode.0, %add.ptr.ptr
+  %cmp.not = icmp ugt ptr %decode.0, %add.ptr
   br i1 %cmp.not, label %while.cond19.preheader, label %while.body, !llvm.loop !373
 
 while.body21:                                     ; preds = %while.cond19.preheader, %while.body21
@@ -11494,7 +11494,7 @@ while.body21:                                     ; preds = %while.cond19.prehea
   store float %9, ptr %decode.135, align 4
   store float %8, ptr %arrayidx23, align 4
   %add.ptr26 = getelementptr inbounds i8, ptr %decode.135, i64 12
-  %cmp20 = icmp ult ptr %add.ptr26, %add.ptr.ptr
+  %cmp20 = icmp ult ptr %add.ptr26, %add.ptr
   br i1 %cmp20, label %while.body21, label %while.end27, !llvm.loop !375
 
 while.end27:                                      ; preds = %while.body21, %while.cond19.preheader
@@ -26468,13 +26468,13 @@ if.end19:                                         ; preds = %if.else12, %if.else
   %7 = insertelement <2 x float> poison, float %5, i64 0
   %8 = insertelement <2 x float> %7, float %3, i64 1
   %9 = fmul <2 x float> %8, %2
-  %10 = shufflevector <2 x float> %2, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %11 = insertelement <2 x float> poison, float %vertical_scale, i64 0
-  %12 = insertelement <2 x float> %11, float %horizontal_scale, i64 1
-  %13 = fmul <2 x float> %10, %12
-  %14 = insertelement <2 x float> poison, float %6, i64 0
-  %15 = insertelement <2 x float> %14, float %4, i64 1
-  %16 = fmul <2 x float> %13, %15
+  %10 = insertelement <2 x float> poison, float %horizontal_scale, i64 0
+  %11 = insertelement <2 x float> %10, float %vertical_scale, i64 1
+  %12 = fmul <2 x float> %11, %2
+  %13 = insertelement <2 x float> poison, float %4, i64 0
+  %14 = insertelement <2 x float> %13, float %6, i64 1
+  %15 = fmul <2 x float> %12, %14
+  %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %17 = fadd <2 x float> %9, %16
   %18 = extractelement <2 x float> %17, i64 0
   %19 = extractelement <2 x float> %17, i64 1

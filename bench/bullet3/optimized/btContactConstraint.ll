@@ -146,7 +146,7 @@ entry:
   %13 = insertelement <2 x float> poison, float %10, i64 0
   %14 = insertelement <2 x float> %13, float %7, i64 1
   %15 = fsub <2 x float> %12, %14
-  %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %retval.sroa.0.4.vec.insert.i30 = insertelement <2 x float> %16, float %sub8.i25, i64 1
   %17 = insertelement <2 x float> %15, float 0.000000e+00, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i30, ptr %rel_pos2, align 8
@@ -187,11 +187,11 @@ cond.true:                                        ; preds = %entry
   %arrayidx.i.i36 = getelementptr inbounds i8, ptr %.colObj.i, i64 440
   %33 = load float, ptr %m_angularVelocity.i35, align 4
   %34 = load <2 x float>, ptr %arrayidx.i.i36, align 4
-  %35 = insertelement <2 x float> %34, float %33, i64 0
-  %36 = fneg <2 x float> %35
-  %37 = insertelement <2 x float> %15, float %sub8.i25, i64 1
-  %38 = fmul <2 x float> %37, %36
-  %39 = shufflevector <2 x float> %38, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %35 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %36 = insertelement <2 x float> %35, float %33, i64 1
+  %37 = fneg <2 x float> %36
+  %38 = insertelement <2 x float> %16, float %sub8.i25, i64 0
+  %39 = fmul <2 x float> %38, %37
   %40 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %34, <2 x float> %15, <2 x float> %39)
   %41 = extractelement <2 x float> %34, i64 0
   %42 = fneg float %41

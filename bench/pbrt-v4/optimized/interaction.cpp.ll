@@ -838,25 +838,26 @@ if.end90:                                         ; preds = %if.else, %if.then11
   %107 = fadd <4 x float> %106, %102
   %108 = insertelement <4 x float> poison, float %add7.i202, i64 0
   %109 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> zeroinitializer
-  %110 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %111 = fmul <4 x float> %109, %110
+  %110 = fmul <4 x float> %109, %107
+  %111 = shufflevector <4 x float> %110, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %112 = fneg <4 x float> %111
   %113 = tail call <4 x float> @llvm.fma.v4f32(<4 x float> %90, <4 x float> %107, <4 x float> %112)
   %114 = insertelement <4 x float> poison, float %fneg1.i, i64 0
   %115 = shufflevector <4 x float> %114, <4 x float> poison, <4 x i32> zeroinitializer
-  %116 = tail call <4 x float> @llvm.fma.v4f32(<4 x float> %115, <4 x float> %110, <4 x float> %111)
-  %117 = fadd <4 x float> %113, %116
-  %118 = insertelement <4 x float> poison, float %cond, i64 0
-  %119 = shufflevector <4 x float> %118, <4 x float> poison, <4 x i32> zeroinitializer
-  %120 = fmul <4 x float> %117, %119
-  %121 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %120)
-  %122 = fcmp one <4 x float> %121, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
-  %123 = fcmp olt <4 x float> %120, <float -1.000000e+08, float -1.000000e+08, float -1.000000e+08, float -1.000000e+08>
-  %124 = fcmp ogt <4 x float> %120, <float 1.000000e+08, float 1.000000e+08, float 1.000000e+08, float 1.000000e+08>
-  %125 = select <4 x i1> %124, <4 x float> <float 1.000000e+08, float 1.000000e+08, float 1.000000e+08, float 1.000000e+08>, <4 x float> %120
-  %126 = select <4 x i1> %123, <4 x float> <float -1.000000e+08, float -1.000000e+08, float -1.000000e+08, float -1.000000e+08>, <4 x float> %125
-  %127 = select <4 x i1> %122, <4 x float> %126, <4 x float> zeroinitializer
-  store <4 x float> %127, ptr %dudx128, align 8
+  %116 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %117 = tail call <4 x float> @llvm.fma.v4f32(<4 x float> %115, <4 x float> %116, <4 x float> %111)
+  %118 = fadd <4 x float> %113, %117
+  %119 = insertelement <4 x float> poison, float %cond, i64 0
+  %120 = shufflevector <4 x float> %119, <4 x float> poison, <4 x i32> zeroinitializer
+  %121 = fmul <4 x float> %118, %120
+  %122 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %121)
+  %123 = fcmp one <4 x float> %122, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %124 = fcmp olt <4 x float> %121, <float -1.000000e+08, float -1.000000e+08, float -1.000000e+08, float -1.000000e+08>
+  %125 = fcmp ogt <4 x float> %121, <float 1.000000e+08, float 1.000000e+08, float 1.000000e+08, float 1.000000e+08>
+  %126 = select <4 x i1> %125, <4 x float> <float 1.000000e+08, float 1.000000e+08, float 1.000000e+08, float 1.000000e+08>, <4 x float> %121
+  %127 = select <4 x i1> %124, <4 x float> <float -1.000000e+08, float -1.000000e+08, float -1.000000e+08, float -1.000000e+08>, <4 x float> %126
+  %128 = select <4 x i1> %123, <4 x float> %127, <4 x float> zeroinitializer
+  store <4 x float> %128, ptr %dudx128, align 8
   br label %return
 
 return:                                           ; preds = %if.end90, %if.then
@@ -2430,100 +2431,98 @@ entry:
   %71 = insertelement <2 x float> poison, float %sqrt.i.i109, i64 0
   %72 = shufflevector <2 x float> %71, <2 x float> poison, <2 x i32> zeroinitializer
   %73 = fdiv <2 x float> %agg.tmp29.sroa.0.0.copyload, %72
-  %74 = insertelement <2 x float> %agg.tmp35.sroa.0.0.copyload, float %agg.tmp35.sroa.2.0.copyload, i64 1
-  %75 = insertelement <2 x float> %73, float %div3.i.i112, i64 0
-  %76 = fmul <2 x float> %74, %75
-  %77 = shufflevector <2 x float> %76, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %78 = fneg <2 x float> %77
-  %79 = shufflevector <2 x float> %agg.tmp35.sroa.0.0.copyload, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %80 = insertelement <2 x float> %79, float %agg.tmp35.sroa.2.0.copyload, i64 1
-  %81 = shufflevector <2 x float> %75, <2 x float> %73, <2 x i32> <i32 0, i32 2>
-  %82 = tail call <2 x float> @llvm.fma.v2f32(<2 x float> %80, <2 x float> %81, <2 x float> %78)
-  %83 = shufflevector <2 x float> %74, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %84 = fneg <2 x float> %83
-  %85 = shufflevector <2 x float> %75, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %86 = tail call <2 x float> @llvm.fma.v2f32(<2 x float> %84, <2 x float> %85, <2 x float> %77)
-  %87 = fadd <2 x float> %82, %86
-  %88 = extractelement <2 x float> %73, i64 0
-  %mul.i15.i.i = fmul float %65, %88
+  %74 = shufflevector <2 x float> %agg.tmp35.sroa.0.0.copyload, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %75 = insertelement <2 x float> %74, float %agg.tmp35.sroa.2.0.copyload, i64 0
+  %76 = shufflevector <2 x float> %73, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %77 = insertelement <2 x float> %76, float %div3.i.i112, i64 1
+  %78 = fmul <2 x float> %75, %77
+  %79 = fneg <2 x float> %78
+  %80 = insertelement <2 x float> %74, float %agg.tmp35.sroa.2.0.copyload, i64 1
+  %81 = shufflevector <2 x float> %77, <2 x float> %73, <2 x i32> <i32 1, i32 2>
+  %82 = tail call <2 x float> @llvm.fma.v2f32(<2 x float> %80, <2 x float> %81, <2 x float> %79)
+  %83 = fneg <2 x float> %75
+  %84 = tail call <2 x float> @llvm.fma.v2f32(<2 x float> %83, <2 x float> %77, <2 x float> %78)
+  %85 = fadd <2 x float> %82, %84
+  %86 = extractelement <2 x float> %73, i64 0
+  %mul.i15.i.i = fmul float %65, %86
   %fneg.i16.i.i = fneg float %mul.i15.i.i
-  %89 = extractelement <2 x float> %agg.tmp35.sroa.0.0.copyload, i64 0
-  %90 = extractelement <2 x float> %73, i64 1
-  %91 = tail call noundef float @llvm.fma.f32(float %89, float %90, float %fneg.i16.i.i)
-  %92 = tail call noundef float @llvm.fma.f32(float %fneg1.i17.i.i, float %88, float %mul.i15.i.i)
-  %add.i18.i.i = fadd float %91, %92
-  %93 = shufflevector <2 x float> %62, <2 x float> poison, <2 x i32> <i32 1, i32 1>
-  %94 = fmul <2 x float> %73, %93
-  %95 = insertelement <2 x float> poison, float %div2.i.i, i64 0
-  %96 = shufflevector <2 x float> %95, <2 x float> poison, <2 x i32> zeroinitializer
-  %97 = fmul <2 x float> %87, %96
+  %87 = extractelement <2 x float> %agg.tmp35.sroa.0.0.copyload, i64 0
+  %88 = extractelement <2 x float> %73, i64 1
+  %89 = tail call noundef float @llvm.fma.f32(float %87, float %88, float %fneg.i16.i.i)
+  %90 = tail call noundef float @llvm.fma.f32(float %fneg1.i17.i.i, float %86, float %mul.i15.i.i)
+  %add.i18.i.i = fadd float %89, %90
+  %91 = shufflevector <2 x float> %62, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %92 = fmul <2 x float> %73, %91
+  %93 = insertelement <2 x float> poison, float %div2.i.i, i64 0
+  %94 = shufflevector <2 x float> %93, <2 x float> poison, <2 x i32> zeroinitializer
+  %95 = fmul <2 x float> %85, %94
   %mul3.i.i5.i = fmul float %add.i18.i.i, %div2.i.i
-  %98 = fadd <2 x float> %94, %97
-  %99 = extractelement <2 x float> %68, i64 1
-  %add6.i.i = fadd float %99, %mul3.i.i5.i
-  %100 = shufflevector <2 x float> %62, <2 x float> poison, <2 x i32> zeroinitializer
-  %101 = fmul <2 x float> %agg.tmp35.sroa.0.0.copyload, %100
-  %102 = fadd <2 x float> %101, %98
-  %103 = extractelement <2 x float> %68, i64 0
-  %add6.i25.i = fadd float %103, %add6.i.i
-  %104 = shufflevector <2 x float> %102, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %105 = fmul <2 x float> %agg.tmp29.sroa.0.0.copyload, %102
-  %shift218 = shufflevector <2 x float> %105, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %106 = fadd <2 x float> %105, %shift218
-  %add.i.i139 = extractelement <2 x float> %106, i64 0
+  %96 = fadd <2 x float> %92, %95
+  %97 = extractelement <2 x float> %68, i64 1
+  %add6.i.i = fadd float %97, %mul3.i.i5.i
+  %98 = shufflevector <2 x float> %62, <2 x float> poison, <2 x i32> zeroinitializer
+  %99 = fmul <2 x float> %agg.tmp35.sroa.0.0.copyload, %98
+  %100 = fadd <2 x float> %99, %96
+  %101 = extractelement <2 x float> %68, i64 0
+  %add6.i25.i = fadd float %101, %add6.i.i
+  %102 = fmul <2 x float> %agg.tmp29.sroa.0.0.copyload, %100
+  %shift218 = shufflevector <2 x float> %102, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %103 = fadd <2 x float> %102, %shift218
+  %add.i.i139 = extractelement <2 x float> %103, i64 0
   %mul6.i.i = fmul float %agg.tmp29.sroa.2.0.copyload, %add6.i25.i
   %add7.i.i = fadd float %mul6.i.i, %add.i.i139
-  %107 = insertelement <2 x float> poison, float %add7.i.i, i64 0
-  %108 = shufflevector <2 x float> %107, <2 x float> poison, <2 x i32> zeroinitializer
-  %109 = fmul <2 x float> %102, %108
+  %104 = insertelement <2 x float> poison, float %add7.i.i, i64 0
+  %105 = shufflevector <2 x float> %104, <2 x float> poison, <2 x i32> zeroinitializer
+  %106 = fmul <2 x float> %100, %105
   %mul3.i.i.i142 = fmul float %add6.i25.i, %add7.i.i
-  %110 = fsub <2 x float> %agg.tmp29.sroa.0.0.copyload, %109
+  %107 = fsub <2 x float> %agg.tmp29.sroa.0.0.copyload, %106
   %sub6.i.i = fsub float %agg.tmp29.sroa.2.0.copyload, %mul3.i.i.i142
-  %111 = fmul <2 x float> %110, %110
-  %shift219 = shufflevector <2 x float> %111, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %112 = fadd <2 x float> %111, %shift219
-  %add.i.i.i151 = extractelement <2 x float> %112, i64 0
+  %108 = fmul <2 x float> %107, %107
+  %shift219 = shufflevector <2 x float> %108, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %109 = fadd <2 x float> %108, %shift219
+  %add.i.i.i151 = extractelement <2 x float> %109, i64 0
   %mul.i2.i.i.i152 = fmul float %sub6.i.i, %sub6.i.i
   %add3.i.i.i153 = fadd float %mul.i2.i.i.i152, %add.i.i.i151
   %sqrt.i.i154 = tail call noundef float @llvm.sqrt.f32(float %add3.i.i.i153)
-  %113 = insertelement <2 x float> poison, float %sqrt.i.i154, i64 0
-  %114 = shufflevector <2 x float> %113, <2 x float> poison, <2 x i32> zeroinitializer
-  %115 = fdiv <2 x float> %110, %114
+  %110 = insertelement <2 x float> poison, float %sqrt.i.i154, i64 0
+  %111 = shufflevector <2 x float> %110, <2 x float> poison, <2 x i32> zeroinitializer
+  %112 = fdiv <2 x float> %107, %111
   %div3.i.i157 = fdiv float %sub6.i.i, %sqrt.i.i154
-  %116 = fmul <2 x float> %72, %115
+  %113 = fmul <2 x float> %72, %112
   %mul3.i = fmul float %sqrt.i.i109, %div3.i.i157
-  store <2 x float> %116, ptr %dpdu, align 4
+  store <2 x float> %113, ptr %dpdu, align 4
   %ref.tmp50.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %dpdu, i64 8
   store float %mul3.i, ptr %ref.tmp50.sroa.2.0..sroa_idx, align 4
-  %117 = shufflevector <2 x float> %116, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %118 = extractelement <2 x float> %102, i64 0
-  %mul.i11.i = fmul float %118, %mul3.i
+  %114 = extractelement <2 x float> %100, i64 0
+  %mul.i11.i = fmul float %114, %mul3.i
   %fneg.i12.i = fneg float %mul.i11.i
-  %119 = extractelement <2 x float> %116, i64 0
-  %120 = tail call noundef float @llvm.fma.f32(float %add6.i25.i, float %119, float %fneg.i12.i)
-  %fneg1.i13.i = fneg float %118
-  %121 = tail call noundef float @llvm.fma.f32(float %fneg1.i13.i, float %mul3.i, float %mul.i11.i)
-  %add.i14.i = fadd float %120, %121
+  %115 = extractelement <2 x float> %113, i64 0
+  %116 = tail call noundef float @llvm.fma.f32(float %add6.i25.i, float %115, float %fneg.i12.i)
+  %fneg1.i13.i = fneg float %114
+  %117 = tail call noundef float @llvm.fma.f32(float %fneg1.i13.i, float %mul3.i, float %mul.i11.i)
+  %add.i14.i = fadd float %116, %117
   %mul.i1.i.i.i174 = fmul float %add.i14.i, %add.i14.i
-  %122 = insertelement <2 x float> %102, float %add6.i25.i, i64 0
-  %123 = fmul <2 x float> %122, %117
-  %124 = fneg <2 x float> %123
-  %125 = insertelement <2 x float> %116, float %mul3.i, i64 0
-  %126 = tail call <2 x float> @llvm.fma.v2f32(<2 x float> %104, <2 x float> %125, <2 x float> %124)
-  %127 = fneg <2 x float> %122
-  %128 = tail call <2 x float> @llvm.fma.v2f32(<2 x float> %127, <2 x float> %117, <2 x float> %123)
-  %129 = fadd <2 x float> %126, %128
-  %130 = fmul <2 x float> %129, %129
-  %131 = extractelement <2 x float> %130, i64 0
-  %add.i.i.i175 = fadd float %131, %mul.i1.i.i.i174
-  %132 = extractelement <2 x float> %130, i64 1
-  %add3.i.i.i177 = fadd float %132, %add.i.i.i175
+  %118 = shufflevector <2 x float> %100, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %119 = insertelement <2 x float> %118, float %add6.i25.i, i64 1
+  %120 = fmul <2 x float> %119, %113
+  %121 = fneg <2 x float> %120
+  %122 = shufflevector <2 x float> %113, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %123 = insertelement <2 x float> %122, float %mul3.i, i64 1
+  %124 = tail call <2 x float> @llvm.fma.v2f32(<2 x float> %100, <2 x float> %123, <2 x float> %121)
+  %125 = fneg <2 x float> %119
+  %126 = tail call <2 x float> @llvm.fma.v2f32(<2 x float> %125, <2 x float> %113, <2 x float> %120)
+  %127 = fadd <2 x float> %124, %126
+  %128 = fmul <2 x float> %127, %127
+  %129 = extractelement <2 x float> %128, i64 1
+  %add.i.i.i175 = fadd float %129, %mul.i1.i.i.i174
+  %130 = extractelement <2 x float> %128, i64 0
+  %add3.i.i.i177 = fadd float %130, %add.i.i.i175
   %sqrt.i.i178 = tail call noundef float @llvm.sqrt.f32(float %add3.i.i.i177)
-  %133 = extractelement <2 x float> %129, i64 0
-  %div.i.i179 = fdiv float %133, %sqrt.i.i178
+  %131 = extractelement <2 x float> %127, i64 1
+  %div.i.i179 = fdiv float %131, %sqrt.i.i178
   %div2.i.i180 = fdiv float %add.i14.i, %sqrt.i.i178
-  %134 = extractelement <2 x float> %129, i64 1
-  %div3.i.i181 = fdiv float %134, %sqrt.i.i178
+  %132 = extractelement <2 x float> %127, i64 0
+  %div3.i.i181 = fdiv float %132, %sqrt.i.i178
   %mul.i186 = fmul float %sqrt.i134, %div.i.i179
   %mul2.i188 = fmul float %sqrt.i134, %div2.i.i180
   %mul3.i190 = fmul float %sqrt.i134, %div3.i.i181
@@ -7174,7 +7173,7 @@ if.then.i:                                        ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
   %v.1.i = phi i32 [ %xor.i, %if.then.i ], [ %v.08.i, %for.body.i ]
   %shr.i = ashr i64 %a.addr.07.i, 1
-  %indvars.iv.next.i = add i64 %indvars.iv.i, 1
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %cmp.not.i = icmp ult i64 %a.addr.07.i, 2
   br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !107
 
@@ -7235,7 +7234,7 @@ if.then.i16:                                      ; preds = %for.body.i10
 for.inc.i19:                                      ; preds = %if.then.i16, %for.body.i10
   %v.1.i20 = phi i32 [ %xor.i18, %if.then.i16 ], [ %v.08.i12, %for.body.i10 ]
   %shr.i21 = ashr i64 %a.addr.07.i13, 1
-  %indvars.iv.next.i22 = add i64 %indvars.iv.i11, 1
+  %indvars.iv.next.i22 = add nsw i64 %indvars.iv.i11, 1
   %cmp.not.i23 = icmp ult i64 %a.addr.07.i13, 2
   br i1 %cmp.not.i23, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit, label %for.body.i10, !llvm.loop !108
 
@@ -7271,7 +7270,7 @@ if.then.i36:                                      ; preds = %for.body.i30
 for.inc.i39:                                      ; preds = %if.then.i36, %for.body.i30
   %v.1.i40 = phi i32 [ %xor.i38, %if.then.i36 ], [ %v.08.i32, %for.body.i30 ]
   %shr.i41 = ashr i64 %a.addr.07.i33, 1
-  %indvars.iv.next.i42 = add i64 %indvars.iv.i31, 1
+  %indvars.iv.next.i42 = add nsw i64 %indvars.iv.i31, 1
   %cmp.not.i43 = icmp ult i64 %a.addr.07.i33, 2
   br i1 %cmp.not.i43, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, label %for.body.i30, !llvm.loop !109
 
@@ -7318,7 +7317,7 @@ if.then.i61:                                      ; preds = %for.body.i55
 for.inc.i64:                                      ; preds = %if.then.i61, %for.body.i55
   %v.1.i65 = phi i32 [ %xor.i63, %if.then.i61 ], [ %v.08.i57, %for.body.i55 ]
   %shr.i66 = ashr i64 %a.addr.07.i58, 1
-  %indvars.iv.next.i67 = add i64 %indvars.iv.i56, 1
+  %indvars.iv.next.i67 = add nsw i64 %indvars.iv.i56, 1
   %cmp.not.i68 = icmp ult i64 %a.addr.07.i58, 2
   br i1 %cmp.not.i68, label %for.end.i, label %for.body.i55, !llvm.loop !110
 
@@ -7506,7 +7505,7 @@ if.then.i11:                                      ; preds = %for.body.i8
 for.inc.i:                                        ; preds = %if.then.i11, %for.body.i8
   %v.1.i = phi i32 [ %xor.i12, %if.then.i11 ], [ %v.08.i, %for.body.i8 ]
   %shr.i13 = ashr i64 %a.addr.07.i, 1
-  %indvars.iv.next.i14 = add i64 %indvars.iv.i9, 1
+  %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i9, 1
   %cmp.not.i = icmp ult i64 %a.addr.07.i, 2
   br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i8, !llvm.loop !107
 
@@ -7535,7 +7534,7 @@ if.then.i24:                                      ; preds = %for.body.i18
 for.inc.i27:                                      ; preds = %if.then.i24, %for.body.i18
   %v.1.i28 = phi i32 [ %xor.i26, %if.then.i24 ], [ %v.08.i20, %for.body.i18 ]
   %shr.i29 = ashr i64 %a.addr.07.i21, 1
-  %indvars.iv.next.i30 = add i64 %indvars.iv.i19, 1
+  %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i19, 1
   %cmp.not.i31 = icmp ult i64 %a.addr.07.i21, 2
   br i1 %cmp.not.i31, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit, label %for.body.i18, !llvm.loop !108
 
@@ -7566,7 +7565,7 @@ if.then.i46:                                      ; preds = %for.body.i40
 for.inc.i49:                                      ; preds = %if.then.i46, %for.body.i40
   %v.1.i50 = phi i32 [ %xor.i48, %if.then.i46 ], [ %v.08.i42, %for.body.i40 ]
   %shr.i51 = ashr i64 %a.addr.07.i43, 1
-  %indvars.iv.next.i52 = add i64 %indvars.iv.i41, 1
+  %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i41, 1
   %cmp.not.i53 = icmp ult i64 %a.addr.07.i43, 2
   br i1 %cmp.not.i53, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, label %for.body.i40, !llvm.loop !109
 
@@ -7608,7 +7607,7 @@ if.then.i72:                                      ; preds = %for.body.i66
 for.inc.i75:                                      ; preds = %if.then.i72, %for.body.i66
   %v.1.i76 = phi i32 [ %xor.i74, %if.then.i72 ], [ %v.08.i68, %for.body.i66 ]
   %shr.i77 = ashr i64 %a.addr.07.i69, 1
-  %indvars.iv.next.i78 = add i64 %indvars.iv.i67, 1
+  %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i67, 1
   %cmp.not.i79 = icmp ult i64 %a.addr.07.i69, 2
   br i1 %cmp.not.i79, label %for.end.i80, label %for.body.i66, !llvm.loop !110
 
@@ -8350,7 +8349,7 @@ if.then.i18:                                      ; preds = %for.body.i15
 for.inc.i:                                        ; preds = %if.then.i18, %for.body.i15
   %v.1.i = phi i32 [ %xor.i19, %if.then.i18 ], [ %v.08.i, %for.body.i15 ]
   %shr.i20 = ashr i64 %a.addr.07.i, 1
-  %indvars.iv.next.i21 = add i64 %indvars.iv.i16, 1
+  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i16, 1
   %cmp.not.i = icmp ult i64 %a.addr.07.i, 2
   br i1 %cmp.not.i, label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit, label %for.body.i15, !llvm.loop !107
 
@@ -8377,7 +8376,7 @@ if.then.i31:                                      ; preds = %for.body.i25
 for.inc.i34:                                      ; preds = %if.then.i31, %for.body.i25
   %v.1.i35 = phi i32 [ %xor.i33, %if.then.i31 ], [ %v.08.i27, %for.body.i25 ]
   %shr.i36 = ashr i64 %a.addr.07.i28, 1
-  %indvars.iv.next.i37 = add i64 %indvars.iv.i26, 1
+  %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i26, 1
   %cmp.not.i38 = icmp ult i64 %a.addr.07.i28, 2
   br i1 %cmp.not.i38, label %for.end.loopexit.i39, label %for.body.i25, !llvm.loop !107
 
@@ -8414,7 +8413,7 @@ if.then.i53:                                      ; preds = %for.body.i47
 for.inc.i56:                                      ; preds = %if.then.i53, %for.body.i47
   %v.1.i57 = phi i32 [ %xor.i55, %if.then.i53 ], [ %v.08.i49, %for.body.i47 ]
   %shr.i58 = ashr i64 %a.addr.07.i50, 1
-  %indvars.iv.next.i59 = add i64 %indvars.iv.i48, 1
+  %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i48, 1
   %cmp.not.i60 = icmp ult i64 %a.addr.07.i50, 2
   br i1 %cmp.not.i60, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit, label %for.body.i47, !llvm.loop !108
 
@@ -8442,7 +8441,7 @@ if.then.i75:                                      ; preds = %for.body.i69
 for.inc.i78:                                      ; preds = %if.then.i75, %for.body.i69
   %v.1.i79 = phi i32 [ %xor.i77, %if.then.i75 ], [ %v.08.i71, %for.body.i69 ]
   %shr.i80 = ashr i64 %a.addr.07.i72, 1
-  %indvars.iv.next.i81 = add i64 %indvars.iv.i70, 1
+  %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i70, 1
   %cmp.not.i82 = icmp ult i64 %a.addr.07.i72, 2
   br i1 %cmp.not.i82, label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit90.loopexit, label %for.body.i69, !llvm.loop !108
 
@@ -8478,7 +8477,7 @@ if.then.i100:                                     ; preds = %for.body.i94
 for.inc.i103:                                     ; preds = %if.then.i100, %for.body.i94
   %v.1.i104 = phi i32 [ %xor.i102, %if.then.i100 ], [ %v.08.i96, %for.body.i94 ]
   %shr.i105 = ashr i64 %a.addr.07.i97, 1
-  %indvars.iv.next.i106 = add i64 %indvars.iv.i95, 1
+  %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i95, 1
   %cmp.not.i107 = icmp ult i64 %a.addr.07.i97, 2
   br i1 %cmp.not.i107, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, label %for.body.i94, !llvm.loop !109
 
@@ -8519,7 +8518,7 @@ if.then.i126:                                     ; preds = %for.body.i120
 for.inc.i129:                                     ; preds = %if.then.i126, %for.body.i120
   %v.1.i130 = phi i32 [ %xor.i128, %if.then.i126 ], [ %v.08.i122, %for.body.i120 ]
   %shr.i131 = ashr i64 %a.addr.07.i123, 1
-  %indvars.iv.next.i132 = add i64 %indvars.iv.i121, 1
+  %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i121, 1
   %cmp.not.i133 = icmp ult i64 %a.addr.07.i123, 2
   br i1 %cmp.not.i133, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit152, label %for.body.i120, !llvm.loop !109
 
@@ -8561,7 +8560,7 @@ if.then.i162:                                     ; preds = %for.body.i156
 for.inc.i165:                                     ; preds = %if.then.i162, %for.body.i156
   %v.1.i166 = phi i32 [ %xor.i164, %if.then.i162 ], [ %v.08.i158, %for.body.i156 ]
   %shr.i167 = ashr i64 %a.addr.07.i159, 1
-  %indvars.iv.next.i168 = add i64 %indvars.iv.i157, 1
+  %indvars.iv.next.i168 = add nuw nsw i64 %indvars.iv.i157, 1
   %cmp.not.i169 = icmp ult i64 %a.addr.07.i159, 2
   br i1 %cmp.not.i169, label %for.end.i170, label %for.body.i156, !llvm.loop !110
 
@@ -8623,7 +8622,7 @@ if.then.i185:                                     ; preds = %for.body.i179
 for.inc.i188:                                     ; preds = %if.then.i185, %for.body.i179
   %v.1.i189 = phi i32 [ %xor.i187, %if.then.i185 ], [ %v.08.i181, %for.body.i179 ]
   %shr.i190 = ashr i64 %a.addr.07.i182, 1
-  %indvars.iv.next.i191 = add i64 %indvars.iv.i180, 1
+  %indvars.iv.next.i191 = add nuw nsw i64 %indvars.iv.i180, 1
   %cmp.not.i192 = icmp ult i64 %a.addr.07.i182, 2
   br i1 %cmp.not.i192, label %for.end.i193, label %for.body.i179, !llvm.loop !110
 

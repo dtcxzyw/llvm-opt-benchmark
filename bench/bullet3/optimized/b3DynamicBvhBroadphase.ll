@@ -1091,11 +1091,11 @@ do.body:                                          ; preds = %do.cond, %_ZN20b3Al
   br i1 %or.cond.i, label %do.cond, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body
-  %43 = shufflevector <2 x float> %38, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %44 = fcmp olt <2 x float> %43, %34
-  %45 = extractelement <2 x i1> %44, i64 1
+  %43 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %44 = fcmp olt <2 x float> %38, %43
+  %45 = extractelement <2 x i1> %44, i64 0
   %46 = select i1 %45, float %42, float %39
-  %47 = extractelement <2 x i1> %44, i64 0
+  %47 = extractelement <2 x i1> %44, i64 1
   %tmax.0.i = select i1 %47, float %40, float %41
   %48 = load i32, ptr %arrayidx37.i, align 4
   %idxprom38.i = zext i32 %48 to i64
@@ -2955,7 +2955,7 @@ while.cond5.preheader:                            ; preds = %_ZNK29b3BroadphaseP
   br label %while.cond5
 
 while.body:                                       ; preds = %while.cond, %_ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br label %while.cond, !llvm.loop !19
 
 while.cond5:                                      ; preds = %while.cond5.preheader, %while.body10
@@ -2974,7 +2974,7 @@ _ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit30: ; preds = %while.cond
   br i1 %9, label %while.body10, label %while.end11
 
 while.body10:                                     ; preds = %while.cond5, %_ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit30
-  %indvars.iv.next35 = add i64 %indvars.iv34, -1
+  %indvars.iv.next35 = add nsw i64 %indvars.iv34, -1
   br label %while.cond5, !llvm.loop !20
 
 while.end11:                                      ; preds = %_ZNK29b3BroadphasePairSortPredicateclERK6b3Int4S2_.exit30

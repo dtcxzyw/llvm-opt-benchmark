@@ -3193,7 +3193,8 @@ entry:
   %sb = alloca [16 x i8], align 16
   %cmp = icmp eq i32 %indexing_mode, 0
   %add = add i64 %idx, 1
-  %sub.i = select i1 %cmp, i32 63, i32 15
+  %notmask.i = select i1 %cmp, i32 -64, i32 -16
+  %sub.i = xor i32 %notmask.i, -1
   %conv.i = zext nneg i32 %sub.i to i64
   %cmp.i = icmp ult i64 %add, %conv.i
   br i1 %cmp.i, label %if.end3, label %if.end.i
@@ -3230,19 +3231,19 @@ switch.lookup:                                    ; preds = %if.end3
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 1048640, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
-  %2 = trunc i32 %sub.i to i8
+  %2 = trunc i32 %notmask.i to i8
+  %conv2.i = and i8 %switch.masked, %2
   br i1 %cmp.i, label %if.then.i, label %if.end.i17
 
 if.then.i:                                        ; preds = %switch.lookup
-  %3 = xor i8 %2, -1
-  %conv2.i = and i8 %switch.masked, %3
-  %4 = trunc i64 %add to i8
-  %conv5.i = or i8 %conv2.i, %4
+  %3 = trunc i64 %add to i8
+  %conv5.i = or i8 %conv2.i, %3
   store i8 %conv5.i, ptr %sb, align 16
   br label %encode_length.exit
 
 if.end.i17:                                       ; preds = %switch.lookup
-  %conv8.i = or i8 %switch.masked, %2
+  %4 = trunc i32 %sub.i to i8
+  %conv8.i = or i8 %conv2.i, %4
   store i8 %conv8.i, ptr %sb, align 16
   %sub9.i = sub i64 %add, %conv.i
   %buf.addr.020.i = getelementptr inbounds i8, ptr %sb, i64 1

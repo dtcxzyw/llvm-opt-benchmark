@@ -34202,8 +34202,8 @@ for.body.lr.ph.i926:                              ; preds = %land.lhs.true88.i
   %wide.trip.count.i927 = zext nneg i32 %cond699 to i64
   %973 = insertelement <2 x float> poison, float %add132.i, i64 0
   %974 = shufflevector <2 x float> %973, <2 x float> poison, <2 x i32> zeroinitializer
-  %975 = insertelement <2 x float> poison, float %831, i64 0
-  %976 = insertelement <2 x float> %975, float %conv706, i64 1
+  %975 = insertelement <2 x float> poison, float %conv706, i64 0
+  %976 = insertelement <2 x float> %975, float %831, i64 1
   %977 = shufflevector <2 x float> %976, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   br label %for.body.i928
 
@@ -34223,16 +34223,16 @@ if.end96.i:                                       ; preds = %for.body.i928
   %980 = insertelement <2 x i1> poison, i1 %tobool110.not.i, i64 0
   %981 = shufflevector <2 x i1> %980, <2 x i1> poison, <2 x i32> zeroinitializer
   %982 = select <2 x i1> %981, <2 x float> %976, <2 x float> %977
-  %983 = load <2 x float>, ptr %Pos656, align 4
-  %984 = load <2 x float>, ptr %Size547, align 4
-  %985 = fadd <2 x float> %983, %984
-  %986 = load <2 x float>, ptr %arrayidx98.i, align 8
-  %987 = fsub <2 x float> %985, %983
-  %988 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %987, <2 x float> %986, <2 x float> %983)
-  %989 = load <2 x float>, ptr %InnerDir.i933, align 8
-  %990 = shufflevector <2 x float> %982, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %991 = fmul <2 x float> %990, %989
-  %992 = fadd <2 x float> %988, %991
+  %983 = shufflevector <2 x float> %982, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %984 = load <2 x float>, ptr %Pos656, align 4
+  %985 = load <2 x float>, ptr %Size547, align 4
+  %986 = fadd <2 x float> %984, %985
+  %987 = load <2 x float>, ptr %arrayidx98.i, align 8
+  %988 = fsub <2 x float> %986, %984
+  %989 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %988, <2 x float> %987, <2 x float> %984)
+  %990 = load <2 x float>, ptr %InnerDir.i933, align 8
+  %991 = fmul <2 x float> %982, %990
+  %992 = fadd <2 x float> %989, %991
   %_Path.i.i = getelementptr inbounds i8, ptr %979, i64 120
   %993 = load i32, ptr %_Path.i.i, align 8
   %Capacity.i.i.i936 = getelementptr inbounds i8, ptr %979, i64 124
@@ -34268,8 +34268,8 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit.i:     ; preds = %_ZNK8ImVectorI6ImVe
   %inc.i.i.i940 = add nsw i32 %997, 1
   store i32 %inc.i.i.i940, ptr %_Path.i.i, align 8
   %998 = load ptr, ptr %DrawList, align 8
-  %999 = fmul <2 x float> %982, %989
-  %1000 = fadd <2 x float> %988, %999
+  %999 = fmul <2 x float> %983, %990
+  %1000 = fadd <2 x float> %989, %999
   %_Path.i313.i = getelementptr inbounds i8, ptr %998, i64 120
   %1001 = load i32, ptr %_Path.i313.i, align 8
   %Capacity.i.i314.i = getelementptr inbounds i8, ptr %998, i64 124
@@ -34305,7 +34305,7 @@ _ZN10ImDrawList10PathLineToERK6ImVec2.exit330.i:  ; preds = %_ZNK8ImVectorI6ImVe
   %inc.i.i319.i = add nsw i32 %1005, 1
   store i32 %inc.i.i319.i, ptr %_Path.i313.i, align 8
   %1006 = load ptr, ptr %DrawList, align 8
-  %1007 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %989, <2 x float> %974, <2 x float> %988)
+  %1007 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %990, <2 x float> %974, <2 x float> %989)
   store <2 x float> %1007, ptr %ref.tmp129.i, align 8
   %AngleMin12.i = getelementptr inbounds i8, ptr %arrayidx98.i, i64 16
   %1008 = load i32, ptr %AngleMin12.i, align 8

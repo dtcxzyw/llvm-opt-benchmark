@@ -691,8 +691,8 @@ invoke.cont71:                                    ; preds = %invoke.cont55.threa
   %52 = load float, ptr %edges33, align 16
   %53 = load <2 x float>, ptr %arrayidx.i144, align 4
   %54 = load <2 x float>, ptr %arrayidx4.i, align 4
-  %55 = insertelement <2 x float> %53, float %52, i64 0
-  %56 = shufflevector <2 x float> %55, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %55 = shufflevector <2 x float> %53, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %56 = insertelement <2 x float> %55, float %52, i64 1
   %57 = fneg <2 x float> %56
   %58 = fmul <2 x float> %54, %57
   %59 = shufflevector <2 x float> %54, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
@@ -2931,7 +2931,7 @@ for.inc80.loopexit:                               ; preds = %land.rhs.critedge, 
 for.inc80:                                        ; preds = %for.inc80.loopexit, %land.rhs.preheader
   %113 = phi i32 [ %.pre214, %for.inc80.loopexit ], [ %76, %land.rhs.preheader ]
   %114 = phi i32 [ %112, %for.inc80.loopexit ], [ %77, %land.rhs.preheader ]
-  %indvars.iv.next210 = add nuw i64 %indvars.iv209, 1
+  %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %115 = zext i32 %113 to i64
   %cmp51.not = icmp eq i64 %indvars.iv.next210, %115
   br i1 %cmp51.not, label %for.end82, label %land.rhs.preheader, !llvm.loop !37
@@ -4331,7 +4331,7 @@ _ZNK18b3AngleCompareFuncclERK15b3GrahamVector3S2_.exit: ; preds = %if.else.i
   br i1 %cmp19.i, label %while.body, label %while.cond5.preheader
 
 while.body:                                       ; preds = %if.then15.i, %if.then.i, %_ZNK18b3AngleCompareFuncclERK15b3GrahamVector3S2_.exit
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br label %while.cond, !llvm.loop !51
 
 while.cond5:                                      ; preds = %while.cond5.preheader, %while.body10
@@ -4372,7 +4372,7 @@ _ZNK18b3AngleCompareFuncclERK15b3GrahamVector3S2_.exit52: ; preds = %if.else.i27
   br i1 %cmp19.i46, label %while.body10, label %while.end11
 
 while.body10:                                     ; preds = %if.then15.i48, %if.then.i50, %_ZNK18b3AngleCompareFuncclERK15b3GrahamVector3S2_.exit52
-  %indvars.iv.next61 = add i64 %indvars.iv60, -1
+  %indvars.iv.next61 = add nsw i64 %indvars.iv60, -1
   br label %while.cond5, !llvm.loop !52
 
 while.end11:                                      ; preds = %if.then15.i48, %if.then.i50, %_ZNK18b3AngleCompareFuncclERK15b3GrahamVector3S2_.exit52

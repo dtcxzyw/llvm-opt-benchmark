@@ -1054,10 +1054,10 @@ if.else99:                                        ; preds = %entry, %if.else55
   %cmp.i200 = fcmp une float %103, 0.000000e+00
   %div.i = fdiv float 1.000000e+00, %103
   %det.0.i = select i1 %cmp.i200, float %div.i, float %103
-  %104 = shufflevector <2 x float> %64, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %105 = insertelement <2 x float> poison, float %101, i64 0
-  %106 = shufflevector <2 x float> %105, <2 x float> poison, <2 x i32> zeroinitializer
-  %107 = fmul <2 x float> %104, %106
+  %104 = insertelement <2 x float> poison, float %101, i64 0
+  %105 = shufflevector <2 x float> %104, <2 x float> poison, <2 x i32> zeroinitializer
+  %106 = fmul <2 x float> %64, %105
+  %107 = shufflevector <2 x float> %106, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %108 = insertelement <2 x float> poison, float %k22109.0, i64 0
   %109 = insertelement <2 x float> %108, float %100, i64 1
   %110 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %109, <2 x float> %65, <2 x float> %107)
@@ -1834,18 +1834,16 @@ entry:
   %22 = fneg float %21
   %23 = load <2 x float>, ptr %m_xf.i, align 4
   %24 = shufflevector <4 x float> %3, <4 x float> poison, <2 x i32> zeroinitializer
-  %25 = insertelement <2 x float> %20, float %22, i64 1
+  %25 = insertelement <2 x float> %19, float %22, i64 0
   %26 = fmul <2 x float> %24, %25
-  %27 = shufflevector <2 x float> %26, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %28 = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> zeroinitializer
-  %29 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %20, <2 x float> %28, <2 x float> %27)
-  %30 = fadd <2 x float> %23, %29
-  store <2 x float> %30, ptr %pA, align 8
-  %31 = shufflevector <4 x float> %18, <4 x float> poison, <2 x i32> zeroinitializer
-  %32 = insertelement <2 x float> %19, float %22, i64 0
-  %33 = fmul <2 x float> %31, %32
-  %34 = shufflevector <4 x float> %17, <4 x float> poison, <2 x i32> zeroinitializer
-  %35 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %20, <2 x float> %34, <2 x float> %33)
+  %27 = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> zeroinitializer
+  %28 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %20, <2 x float> %27, <2 x float> %26)
+  %29 = fadd <2 x float> %23, %28
+  store <2 x float> %29, ptr %pA, align 8
+  %30 = shufflevector <4 x float> %18, <4 x float> poison, <2 x i32> zeroinitializer
+  %31 = fmul <2 x float> %30, %25
+  %32 = shufflevector <4 x float> %17, <4 x float> poison, <2 x i32> zeroinitializer
+  %33 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %20, <2 x float> %32, <2 x float> %31)
   store <4 x float> <float 0x3FE6666660000000, float 0x3FE6666660000000, float 0x3FE6666660000000, float 1.000000e+00>, ptr %c1, align 16
   store <4 x float> <float 0x3FD3333340000000, float 0x3FECCCCCC0000000, float 0x3FD3333340000000, float 1.000000e+00>, ptr %c2, align 16
   store <4 x float> <float 0x3FECCCCCC0000000, float 0x3FD3333340000000, float 0x3FD3333340000000, float 1.000000e+00>, ptr %c3, align 16
@@ -1853,87 +1851,87 @@ entry:
   store <4 x float> <float 0x3FD99999A0000000, float 0x3FD99999A0000000, float 0x3FD99999A0000000, float 1.000000e+00>, ptr %c5, align 16
   %vtable = load ptr, ptr %draw, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
-  %36 = load ptr, ptr %vfn, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pA, ptr noundef nonnull align 4 dereferenceable(8) %pB, ptr noundef nonnull align 4 dereferenceable(16) %c5)
+  %34 = load ptr, ptr %vfn, align 8
+  call void %34(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pA, ptr noundef nonnull align 4 dereferenceable(8) %pB, ptr noundef nonnull align 4 dereferenceable(16) %c5)
   %m_enableLimit = getelementptr inbounds i8, ptr %this, i64 200
-  %37 = load i8, ptr %m_enableLimit, align 8
-  %38 = and i8 %37, 1
-  %tobool.not = icmp eq i8 %38, 0
+  %35 = load i8, ptr %m_enableLimit, align 8
+  %36 = and i8 %35, 1
+  %tobool.not = icmp eq i8 %36, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %m_lowerTranslation = getelementptr inbounds i8, ptr %this, i64 184
-  %39 = load <4 x float>, ptr %m_lowerTranslation, align 8
-  %40 = shufflevector <4 x float> %39, <4 x float> poison, <2 x i32> zeroinitializer
-  %41 = fmul <2 x float> %35, %40
-  %42 = load <2 x float>, ptr %pA, align 8
-  %43 = fadd <2 x float> %42, %41
-  store <2 x float> %43, ptr %lower, align 8
+  %37 = load <4 x float>, ptr %m_lowerTranslation, align 8
+  %38 = shufflevector <4 x float> %37, <4 x float> poison, <2 x i32> zeroinitializer
+  %39 = fmul <2 x float> %33, %38
+  %40 = load <2 x float>, ptr %pA, align 8
+  %41 = fadd <2 x float> %40, %39
+  store <2 x float> %41, ptr %lower, align 8
   %m_upperTranslation = getelementptr inbounds i8, ptr %this, i64 188
-  %44 = load <4 x float>, ptr %m_upperTranslation, align 4
-  %45 = shufflevector <4 x float> %44, <4 x float> poison, <2 x i32> zeroinitializer
-  %46 = fmul <2 x float> %35, %45
-  %47 = fadd <2 x float> %42, %46
-  store <2 x float> %47, ptr %upper, align 8
+  %42 = load <4 x float>, ptr %m_upperTranslation, align 4
+  %43 = shufflevector <4 x float> %42, <4 x float> poison, <2 x i32> zeroinitializer
+  %44 = fmul <2 x float> %33, %43
+  %45 = fadd <2 x float> %40, %44
+  store <2 x float> %45, ptr %upper, align 8
   %m_localYAxisA = getelementptr inbounds i8, ptr %this, i64 152
-  %48 = load <4 x float>, ptr %m_localYAxisA, align 8
+  %46 = load <4 x float>, ptr %m_localYAxisA, align 8
   %y.i56 = getelementptr inbounds i8, ptr %this, i64 156
-  %49 = load <4 x float>, ptr %y.i56, align 4
+  %47 = load <4 x float>, ptr %y.i56, align 4
   %vtable13 = load ptr, ptr %draw, align 8
   %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 48
-  %50 = load ptr, ptr %vfn14, align 8
-  %51 = load <2 x float>, ptr %q.i, align 4
-  %52 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %53 = extractelement <2 x float> %51, i64 0
-  %54 = fneg float %53
-  %55 = shufflevector <4 x float> %49, <4 x float> poison, <2 x i32> zeroinitializer
-  %56 = insertelement <2 x float> %51, float %54, i64 0
-  %57 = fmul <2 x float> %55, %56
-  %58 = shufflevector <4 x float> %48, <4 x float> poison, <2 x i32> zeroinitializer
-  %59 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %52, <2 x float> %58, <2 x float> %57)
-  call void %50(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %lower, ptr noundef nonnull align 4 dereferenceable(8) %upper, ptr noundef nonnull align 4 dereferenceable(16) %c1)
-  %60 = fmul <2 x float> %59, <float 5.000000e-01, float 5.000000e-01>
-  %61 = load <2 x float>, ptr %lower, align 8
-  %62 = fsub <2 x float> %61, %60
-  store <2 x float> %62, ptr %ref.tmp15, align 8
-  %63 = fadd <2 x float> %60, %61
-  store <2 x float> %63, ptr %ref.tmp19, align 8
+  %48 = load ptr, ptr %vfn14, align 8
+  %49 = load <2 x float>, ptr %q.i, align 4
+  %50 = shufflevector <2 x float> %49, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %51 = extractelement <2 x float> %49, i64 0
+  %52 = fneg float %51
+  %53 = shufflevector <4 x float> %47, <4 x float> poison, <2 x i32> zeroinitializer
+  %54 = insertelement <2 x float> %49, float %52, i64 0
+  %55 = fmul <2 x float> %53, %54
+  %56 = shufflevector <4 x float> %46, <4 x float> poison, <2 x i32> zeroinitializer
+  %57 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %50, <2 x float> %56, <2 x float> %55)
+  call void %48(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %lower, ptr noundef nonnull align 4 dereferenceable(8) %upper, ptr noundef nonnull align 4 dereferenceable(16) %c1)
+  %58 = fmul <2 x float> %57, <float 5.000000e-01, float 5.000000e-01>
+  %59 = load <2 x float>, ptr %lower, align 8
+  %60 = fsub <2 x float> %59, %58
+  store <2 x float> %60, ptr %ref.tmp15, align 8
+  %61 = fadd <2 x float> %58, %59
+  store <2 x float> %61, ptr %ref.tmp19, align 8
   %vtable23 = load ptr, ptr %draw, align 8
   %vfn24 = getelementptr inbounds i8, ptr %vtable23, i64 48
-  %64 = load ptr, ptr %vfn24, align 8
-  call void %64(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(16) %c2)
-  %65 = load <2 x float>, ptr %upper, align 8
-  %66 = fsub <2 x float> %65, %60
-  store <2 x float> %66, ptr %ref.tmp25, align 8
-  %67 = fadd <2 x float> %60, %65
-  store <2 x float> %67, ptr %ref.tmp29, align 8
+  %62 = load ptr, ptr %vfn24, align 8
+  call void %62(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(16) %c2)
+  %63 = load <2 x float>, ptr %upper, align 8
+  %64 = fsub <2 x float> %63, %58
+  store <2 x float> %64, ptr %ref.tmp25, align 8
+  %65 = fadd <2 x float> %58, %63
+  store <2 x float> %65, ptr %ref.tmp29, align 8
   %vtable33 = load ptr, ptr %draw, align 8
   %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 48
-  %68 = load ptr, ptr %vfn34, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp29, ptr noundef nonnull align 4 dereferenceable(16) %c3)
+  %66 = load ptr, ptr %vfn34, align 8
+  call void %66(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp25, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp29, ptr noundef nonnull align 4 dereferenceable(16) %c3)
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %69 = load <2 x float>, ptr %pA, align 8
-  %70 = fsub <2 x float> %69, %35
-  store <2 x float> %70, ptr %ref.tmp35, align 8
-  %71 = fadd <2 x float> %35, %69
-  store <2 x float> %71, ptr %ref.tmp39, align 8
+  %67 = load <2 x float>, ptr %pA, align 8
+  %68 = fsub <2 x float> %67, %33
+  store <2 x float> %68, ptr %ref.tmp35, align 8
+  %69 = fadd <2 x float> %33, %67
+  store <2 x float> %69, ptr %ref.tmp39, align 8
   %vtable43 = load ptr, ptr %draw, align 8
   %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 48
-  %72 = load ptr, ptr %vfn44, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp35, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp39, ptr noundef nonnull align 4 dereferenceable(16) %c1)
+  %70 = load ptr, ptr %vfn44, align 8
+  call void %70(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp35, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp39, ptr noundef nonnull align 4 dereferenceable(16) %c1)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %vtable45 = load ptr, ptr %draw, align 8
   %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 64
-  %73 = load ptr, ptr %vfn46, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pA, float noundef 5.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c1)
+  %71 = load ptr, ptr %vfn46, align 8
+  call void %71(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pA, float noundef 5.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c1)
   %vtable47 = load ptr, ptr %draw, align 8
   %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 64
-  %74 = load ptr, ptr %vfn48, align 8
-  call void %74(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pB, float noundef 5.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c4)
+  %72 = load ptr, ptr %vfn48, align 8
+  call void %72(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %pB, float noundef 5.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c4)
   ret void
 }
 

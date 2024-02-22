@@ -702,56 +702,54 @@ entry:
   %5 = fneg float %4
   %6 = load <2 x float>, ptr %xf, align 4
   %7 = shufflevector <4 x float> %1, <4 x float> poison, <2 x i32> zeroinitializer
-  %8 = insertelement <2 x float> %3, float %5, i64 1
+  %8 = insertelement <2 x float> %2, float %5, i64 0
   %9 = fmul <2 x float> %7, %8
-  %10 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %11 = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> zeroinitializer
-  %12 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %3, <2 x float> %11, <2 x float> %10)
-  %13 = fadd <2 x float> %6, %12
+  %10 = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> zeroinitializer
+  %11 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %3, <2 x float> %10, <2 x float> %9)
+  %12 = fadd <2 x float> %6, %11
   %m_count = getelementptr inbounds i8, ptr %this, i64 152
-  %14 = load i32, ptr %m_count, align 8
-  %cmp50 = icmp sgt i32 %14, 1
+  %13 = load i32, ptr %m_count, align 8
+  %cmp50 = icmp sgt i32 %13, 1
   br i1 %cmp50, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %wide.trip.count = zext nneg i32 %14 to i64
-  %15 = insertelement <2 x float> %2, float %5, i64 0
+  %wide.trip.count = zext nneg i32 %13 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %lower.sroa.0.052 = phi <2 x float> [ %13, %for.body.preheader ], [ %26, %for.body ]
-  %upper.sroa.0.051 = phi <2 x float> [ %13, %for.body.preheader ], [ %28, %for.body ]
+  %lower.sroa.0.052 = phi <2 x float> [ %12, %for.body.preheader ], [ %24, %for.body ]
+  %upper.sroa.0.051 = phi <2 x float> [ %12, %for.body.preheader ], [ %26, %for.body ]
   %arrayidx3 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %m_vertices, i64 0, i64 %indvars.iv
-  %16 = load float, ptr %arrayidx3, align 8
+  %14 = load float, ptr %arrayidx3, align 8
   %y.i7 = getelementptr inbounds i8, ptr %arrayidx3, i64 4
-  %17 = load float, ptr %y.i7, align 4
-  %18 = insertelement <2 x float> poison, float %17, i64 0
-  %19 = shufflevector <2 x float> %18, <2 x float> poison, <2 x i32> zeroinitializer
-  %20 = fmul <2 x float> %19, %15
-  %21 = insertelement <2 x float> poison, float %16, i64 0
-  %22 = shufflevector <2 x float> %21, <2 x float> poison, <2 x i32> zeroinitializer
-  %23 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %3, <2 x float> %22, <2 x float> %20)
-  %24 = fadd <2 x float> %6, %23
-  %25 = fcmp olt <2 x float> %lower.sroa.0.052, %24
-  %26 = select <2 x i1> %25, <2 x float> %lower.sroa.0.052, <2 x float> %24
-  %27 = fcmp ogt <2 x float> %upper.sroa.0.051, %24
-  %28 = select <2 x i1> %27, <2 x float> %upper.sroa.0.051, <2 x float> %24
+  %15 = load float, ptr %y.i7, align 4
+  %16 = insertelement <2 x float> poison, float %15, i64 0
+  %17 = shufflevector <2 x float> %16, <2 x float> poison, <2 x i32> zeroinitializer
+  %18 = fmul <2 x float> %17, %8
+  %19 = insertelement <2 x float> poison, float %14, i64 0
+  %20 = shufflevector <2 x float> %19, <2 x float> poison, <2 x i32> zeroinitializer
+  %21 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %3, <2 x float> %20, <2 x float> %18)
+  %22 = fadd <2 x float> %6, %21
+  %23 = fcmp olt <2 x float> %lower.sroa.0.052, %22
+  %24 = select <2 x i1> %23, <2 x float> %lower.sroa.0.052, <2 x float> %22
+  %25 = fcmp ogt <2 x float> %upper.sroa.0.051, %22
+  %26 = select <2 x i1> %25, <2 x float> %upper.sroa.0.051, <2 x float> %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body, %entry
-  %upper.sroa.0.0.lcssa = phi <2 x float> [ %13, %entry ], [ %28, %for.body ]
-  %lower.sroa.0.0.lcssa = phi <2 x float> [ %13, %entry ], [ %26, %for.body ]
+  %upper.sroa.0.0.lcssa = phi <2 x float> [ %12, %entry ], [ %26, %for.body ]
+  %lower.sroa.0.0.lcssa = phi <2 x float> [ %12, %entry ], [ %24, %for.body ]
   %m_radius = getelementptr inbounds i8, ptr %this, i64 12
-  %29 = load <4 x float>, ptr %m_radius, align 4
-  %30 = shufflevector <4 x float> %29, <4 x float> poison, <2 x i32> zeroinitializer
-  %31 = fsub <2 x float> %lower.sroa.0.0.lcssa, %30
-  store <2 x float> %31, ptr %aabb, align 4
-  %32 = fadd <2 x float> %upper.sroa.0.0.lcssa, %30
+  %27 = load <4 x float>, ptr %m_radius, align 4
+  %28 = shufflevector <4 x float> %27, <4 x float> poison, <2 x i32> zeroinitializer
+  %29 = fsub <2 x float> %lower.sroa.0.0.lcssa, %28
+  store <2 x float> %29, ptr %aabb, align 4
+  %30 = fadd <2 x float> %upper.sroa.0.0.lcssa, %28
   %upperBound = getelementptr inbounds i8, ptr %aabb, i64 8
-  store <2 x float> %32, ptr %upperBound, align 4
+  store <2 x float> %30, ptr %upperBound, align 4
   ret void
 }
 

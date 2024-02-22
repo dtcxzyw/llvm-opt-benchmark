@@ -51188,52 +51188,48 @@ nk_layout_peek.exit:                              ; preds = %if.end17.i, %if.the
   %y17 = getelementptr inbounds i8, ptr %bounds, i64 4
   %16 = load float, ptr %y17, align 4
   %w19 = getelementptr inbounds i8, ptr %bounds, i64 8
-  %17 = load float, ptr %w19, align 8
-  %h21 = getelementptr inbounds i8, ptr %bounds, i64 12
-  %18 = load float, ptr %h21, align 4
-  %19 = shufflevector <2 x float> %5, <2 x float> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %20 = insertelement <4 x float> %19, float %15, i64 0
-  %21 = insertelement <4 x float> %20, float %16, i64 1
-  %22 = shufflevector <2 x float> %8, <2 x float> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %23 = insertelement <4 x float> %22, float %17, i64 0
-  %24 = insertelement <4 x float> %23, float %18, i64 1
-  %25 = fadd <4 x float> %21, %24
-  %26 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %27 = fcmp ogt <4 x float> %25, %26
-  %28 = freeze <4 x i1> %27
-  %29 = bitcast <4 x i1> %28 to i4
-  %30 = icmp eq i4 %29, -1
-  br i1 %30, label %if.end.i11, label %return
+  %17 = load <2 x float>, ptr %w19, align 8
+  %18 = shufflevector <2 x float> %5, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %19 = insertelement <4 x float> %18, float %15, i64 2
+  %20 = insertelement <4 x float> %19, float %16, i64 3
+  %21 = shufflevector <2 x float> %8, <2 x float> %17, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %22 = fadd <4 x float> %20, %21
+  %23 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %24 = fcmp ogt <4 x float> %22, %23
+  %25 = freeze <4 x i1> %24
+  %26 = bitcast <4 x i1> %25 to i4
+  %27 = icmp eq i4 %26, -1
+  br i1 %27, label %if.end.i11, label %return
 
 if.end.i11:                                       ; preds = %nk_layout_peek.exit
-  %31 = load <2 x float>, ptr %bounds, align 8
-  %32 = load <2 x float>, ptr %w19, align 8
-  %rect.sroa.0.0.vec.extract.i = extractelement <2 x float> %31, i64 0
+  %28 = load <2 x float>, ptr %bounds, align 8
+  %29 = load <2 x float>, ptr %w19, align 8
+  %rect.sroa.0.0.vec.extract.i = extractelement <2 x float> %28, i64 0
   %pos.i = getelementptr inbounds i8, ptr %ctx, i64 324
-  %33 = load float, ptr %pos.i, align 4
-  %cmp.i12 = fcmp ole float %rect.sroa.0.0.vec.extract.i, %33
-  %34 = fadd <2 x float> %31, %32
-  %add.i13 = extractelement <2 x float> %34, i64 0
-  %cmp6.i = fcmp olt float %33, %add.i13
+  %30 = load float, ptr %pos.i, align 4
+  %cmp.i12 = fcmp ole float %rect.sroa.0.0.vec.extract.i, %30
+  %31 = fadd <2 x float> %28, %29
+  %add.i13 = extractelement <2 x float> %31, i64 0
+  %cmp6.i = fcmp olt float %30, %add.i13
   %or.cond.i = select i1 %cmp.i12, i1 %cmp6.i, i1 false
   br i1 %or.cond.i, label %land.rhs.i, label %return
 
 land.rhs.i:                                       ; preds = %if.end.i11
-  %rect.sroa.0.4.vec.extract.i = extractelement <2 x float> %31, i64 1
+  %rect.sroa.0.4.vec.extract.i = extractelement <2 x float> %28, i64 1
   %y9.i = getelementptr inbounds i8, ptr %ctx, i64 328
-  %35 = load float, ptr %y9.i, align 4
-  %cmp10.i = fcmp ugt float %rect.sroa.0.4.vec.extract.i, %35
+  %32 = load float, ptr %y9.i, align 4
+  %cmp10.i = fcmp ugt float %rect.sroa.0.4.vec.extract.i, %32
   br i1 %cmp10.i, label %return, label %land.rhs11.i
 
 land.rhs11.i:                                     ; preds = %land.rhs.i
-  %36 = fadd <2 x float> %31, %32
-  %add16.i = extractelement <2 x float> %36, i64 1
-  %cmp17.i = fcmp olt float %35, %add16.i
-  %37 = zext i1 %cmp17.i to i32
+  %33 = fadd <2 x float> %28, %29
+  %add16.i = extractelement <2 x float> %33, i64 1
+  %cmp17.i = fcmp olt float %32, %add16.i
+  %34 = zext i1 %cmp17.i to i32
   br label %return
 
 return:                                           ; preds = %land.rhs11.i, %land.rhs.i, %if.end.i11, %nk_layout_peek.exit, %entry, %lor.lhs.false, %lor.lhs.false2
-  %retval.0 = phi i32 [ 0, %lor.lhs.false2 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %nk_layout_peek.exit ], [ 0, %if.end.i11 ], [ 0, %land.rhs.i ], [ %37, %land.rhs11.i ]
+  %retval.0 = phi i32 [ 0, %lor.lhs.false2 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %nk_layout_peek.exit ], [ 0, %if.end.i11 ], [ 0, %land.rhs.i ], [ %34, %land.rhs11.i ]
   ret i32 %retval.0
 }
 
@@ -51305,27 +51301,23 @@ nk_layout_peek.exit:                              ; preds = %if.end17.i, %if.the
   %y17 = getelementptr inbounds i8, ptr %bounds, i64 4
   %16 = load float, ptr %y17, align 4
   %w19 = getelementptr inbounds i8, ptr %bounds, i64 8
-  %17 = load float, ptr %w19, align 8
-  %h21 = getelementptr inbounds i8, ptr %bounds, i64 12
-  %18 = load float, ptr %h21, align 4
-  %19 = shufflevector <2 x float> %5, <2 x float> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %20 = insertelement <4 x float> %19, float %15, i64 0
-  %21 = insertelement <4 x float> %20, float %16, i64 1
-  %22 = shufflevector <2 x float> %8, <2 x float> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %23 = insertelement <4 x float> %22, float %17, i64 0
-  %24 = insertelement <4 x float> %23, float %18, i64 1
-  %25 = fadd <4 x float> %21, %24
-  %26 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %27 = fcmp ogt <4 x float> %25, %26
-  %28 = freeze <4 x i1> %27
-  %29 = bitcast <4 x i1> %28 to i4
-  %30 = icmp eq i4 %29, -1
-  br i1 %30, label %if.end50, label %return
+  %17 = load <2 x float>, ptr %w19, align 8
+  %18 = shufflevector <2 x float> %5, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %19 = insertelement <4 x float> %18, float %15, i64 2
+  %20 = insertelement <4 x float> %19, float %16, i64 3
+  %21 = shufflevector <2 x float> %8, <2 x float> %17, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %22 = fadd <4 x float> %20, %21
+  %23 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %24 = fcmp ogt <4 x float> %22, %23
+  %25 = freeze <4 x i1> %24
+  %26 = bitcast <4 x i1> %25 to i4
+  %27 = icmp eq i4 %26, -1
+  br i1 %27, label %if.end50, label %return
 
 if.end50:                                         ; preds = %nk_layout_peek.exit
-  %31 = load <2 x float>, ptr %bounds, align 8
-  %32 = load <2 x float>, ptr %w19, align 8
-  %call = tail call i32 @nk_input_mouse_clicked(ptr noundef nonnull %ctx, i32 noundef %btn, <2 x float> %31, <2 x float> %32), !range !14
+  %28 = load <2 x float>, ptr %bounds, align 8
+  %29 = load <2 x float>, ptr %w19, align 8
+  %call = tail call i32 @nk_input_mouse_clicked(ptr noundef nonnull %ctx, i32 noundef %btn, <2 x float> %28, <2 x float> %29), !range !14
   br label %return
 
 return:                                           ; preds = %nk_layout_peek.exit, %entry, %lor.lhs.false, %lor.lhs.false2, %if.end50
@@ -51401,58 +51393,54 @@ nk_layout_peek.exit:                              ; preds = %if.end17.i, %if.the
   %y17 = getelementptr inbounds i8, ptr %bounds, i64 4
   %16 = load float, ptr %y17, align 4
   %w19 = getelementptr inbounds i8, ptr %bounds, i64 8
-  %17 = load float, ptr %w19, align 8
-  %h21 = getelementptr inbounds i8, ptr %bounds, i64 12
-  %18 = load float, ptr %h21, align 4
-  %19 = shufflevector <2 x float> %5, <2 x float> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %20 = insertelement <4 x float> %19, float %15, i64 0
-  %21 = insertelement <4 x float> %20, float %16, i64 1
-  %22 = shufflevector <2 x float> %8, <2 x float> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %23 = insertelement <4 x float> %22, float %17, i64 0
-  %24 = insertelement <4 x float> %23, float %18, i64 1
-  %25 = fadd <4 x float> %21, %24
-  %26 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %27 = fcmp ogt <4 x float> %25, %26
-  %28 = freeze <4 x i1> %27
-  %29 = bitcast <4 x i1> %28 to i4
-  %30 = icmp eq i4 %29, -1
-  br i1 %30, label %if.end.i.i, label %return
+  %17 = load <2 x float>, ptr %w19, align 8
+  %18 = shufflevector <2 x float> %5, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %19 = insertelement <4 x float> %18, float %15, i64 2
+  %20 = insertelement <4 x float> %19, float %16, i64 3
+  %21 = shufflevector <2 x float> %8, <2 x float> %17, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %22 = fadd <4 x float> %20, %21
+  %23 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %24 = fcmp ogt <4 x float> %22, %23
+  %25 = freeze <4 x i1> %24
+  %26 = bitcast <4 x i1> %25 to i4
+  %27 = icmp eq i4 %26, -1
+  br i1 %27, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %nk_layout_peek.exit
-  %31 = load <2 x float>, ptr %bounds, align 8
-  %32 = load <2 x float>, ptr %w19, align 8
+  %28 = load <2 x float>, ptr %bounds, align 8
+  %29 = load <2 x float>, ptr %w19, align 8
   %mouse.i.i = getelementptr inbounds i8, ptr %ctx, i64 260
   %idxprom.i.i = zext i32 %btn to i64
-  %b.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %31, i64 0
+  %b.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %28, i64 0
   %clicked_pos.i.i = getelementptr inbounds [4 x %struct.nk_mouse_button], ptr %mouse.i.i, i64 0, i64 %idxprom.i.i, i32 2
-  %33 = load float, ptr %clicked_pos.i.i, align 4
-  %cmp.i.i = fcmp ole float %b.sroa.0.0.vec.extract.i.i, %33
-  %34 = fadd <2 x float> %31, %32
-  %add.i.i = extractelement <2 x float> %34, i64 0
-  %cmp5.i.i = fcmp olt float %33, %add.i.i
+  %30 = load float, ptr %clicked_pos.i.i, align 4
+  %cmp.i.i = fcmp ole float %b.sroa.0.0.vec.extract.i.i, %30
+  %31 = fadd <2 x float> %28, %29
+  %add.i.i = extractelement <2 x float> %31, i64 0
+  %cmp5.i.i = fcmp olt float %30, %add.i.i
   %or.cond.i.i = select i1 %cmp.i.i, i1 %cmp5.i.i, i1 false
   br i1 %or.cond.i.i, label %nk_input_has_mouse_click_in_rect.exit.i, label %return
 
 nk_input_has_mouse_click_in_rect.exit.i:          ; preds = %if.end.i.i
-  %b.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %31, i64 1
+  %b.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %28, i64 1
   %y8.i.i = getelementptr inbounds i8, ptr %clicked_pos.i.i, i64 4
-  %35 = load float, ptr %y8.i.i, align 4
-  %cmp9.i.i = fcmp ugt float %b.sroa.0.4.vec.extract.i.i, %35
-  %36 = fadd <2 x float> %31, %32
-  %add14.i.i = extractelement <2 x float> %36, i64 1
-  %cmp15.i.i = fcmp uge float %35, %add14.i.i
+  %32 = load float, ptr %y8.i.i, align 4
+  %cmp9.i.i = fcmp ugt float %b.sroa.0.4.vec.extract.i.i, %32
+  %33 = fadd <2 x float> %28, %29
+  %add14.i.i = extractelement <2 x float> %33, i64 1
+  %cmp15.i.i = fcmp uge float %32, %add14.i.i
   %or.cond10.i.not.i = select i1 %cmp9.i.i, i1 true, i1 %cmp15.i.i
   br i1 %or.cond10.i.not.i, label %return, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %nk_input_has_mouse_click_in_rect.exit.i
   %arrayidx.i = getelementptr inbounds [4 x %struct.nk_mouse_button], ptr %mouse.i.i, i64 0, i64 %idxprom.i.i
-  %37 = load i32, ptr %arrayidx.i, align 4
-  %cmp.i11 = icmp eq i32 %37, %down
-  %38 = zext i1 %cmp.i11 to i32
+  %34 = load i32, ptr %arrayidx.i, align 4
+  %cmp.i11 = icmp eq i32 %34, %down
+  %35 = zext i1 %cmp.i11 to i32
   br label %return
 
 return:                                           ; preds = %land.rhs.i, %nk_input_has_mouse_click_in_rect.exit.i, %if.end.i.i, %nk_layout_peek.exit, %entry, %lor.lhs.false, %lor.lhs.false2
-  %retval.0 = phi i32 [ 0, %lor.lhs.false2 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %nk_layout_peek.exit ], [ 0, %nk_input_has_mouse_click_in_rect.exit.i ], [ %38, %land.rhs.i ], [ 0, %if.end.i.i ]
+  %retval.0 = phi i32 [ 0, %lor.lhs.false2 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 0, %nk_layout_peek.exit ], [ 0, %nk_input_has_mouse_click_in_rect.exit.i ], [ %35, %land.rhs.i ], [ 0, %if.end.i.i ]
   ret i32 %retval.0
 }
 

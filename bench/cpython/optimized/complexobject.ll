@@ -962,18 +962,18 @@ entry:
 define dso_local { double, double } @_Py_c_prod(double %a.coerce0, double %a.coerce1, double %b.coerce0, double %b.coerce1) local_unnamed_addr #0 {
 entry:
   %0 = fneg double %a.coerce1
-  %1 = insertelement <2 x double> poison, double %0, i64 0
-  %2 = insertelement <2 x double> %1, double %a.coerce1, i64 1
-  %3 = insertelement <2 x double> poison, double %b.coerce1, i64 0
-  %4 = insertelement <2 x double> %3, double %b.coerce0, i64 1
+  %1 = insertelement <2 x double> poison, double %a.coerce1, i64 0
+  %2 = insertelement <2 x double> %1, double %0, i64 1
+  %3 = insertelement <2 x double> poison, double %b.coerce0, i64 0
+  %4 = insertelement <2 x double> %3, double %b.coerce1, i64 1
   %5 = fmul <2 x double> %2, %4
   %6 = insertelement <2 x double> poison, double %a.coerce0, i64 0
   %7 = shufflevector <2 x double> %6, <2 x double> poison, <2 x i32> zeroinitializer
   %8 = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %9 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %7, <2 x double> %8, <2 x double> %5)
-  %10 = extractelement <2 x double> %9, i64 0
+  %10 = extractelement <2 x double> %9, i64 1
   %.fca.0.insert = insertvalue { double, double } poison, double %10, 0
-  %11 = extractelement <2 x double> %9, i64 1
+  %11 = extractelement <2 x double> %9, i64 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %11, 1
   ret { double, double } %.fca.1.insert
 }
@@ -2668,10 +2668,10 @@ if.end.i.i.i29:                                   ; preds = %if.end14.i26
 if.end13:                                         ; preds = %if.then11.i24, %land.lhs.true.i15, %if.then.i11, %if.then6
   %11 = phi <2 x double> [ %5, %if.then6 ], [ %9, %if.then11.i24 ], [ <double -1.000000e+00, double 0.000000e+00>, %land.lhs.true.i15 ], [ %8, %if.then.i11 ]
   %12 = fneg double %a.sroa.5.0
-  %13 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %14 = insertelement <2 x double> poison, double %12, i64 0
-  %15 = insertelement <2 x double> %14, double %a.sroa.5.0, i64 1
-  %16 = fmul <2 x double> %13, %15
+  %13 = insertelement <2 x double> poison, double %a.sroa.5.0, i64 0
+  %14 = insertelement <2 x double> %13, double %12, i64 1
+  %15 = fmul <2 x double> %11, %14
+  %16 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %17 = insertelement <2 x double> poison, double %a.sroa.0.1, i64 0
   %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
   %19 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %11, <2 x double> %16)
@@ -2872,11 +2872,11 @@ while.body.i.i:                                   ; preds = %if.then24, %if.end.
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
-  %17 = extractelement <2 x double> %16, i64 1
-  %18 = fneg double %17
-  %19 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %20 = insertelement <2 x double> %16, double %18, i64 0
-  %21 = fmul <2 x double> %19, %20
+  %17 = shufflevector <2 x double> %16, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %18 = fneg <2 x double> %16
+  %19 = shufflevector <2 x double> %17, <2 x double> %18, <2 x i32> <i32 0, i32 3>
+  %20 = fmul <2 x double> %15, %19
+  %21 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %22 = shufflevector <2 x double> %16, <2 x double> poison, <2 x i32> zeroinitializer
   %23 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %22, <2 x double> %15, <2 x double> %21)
   br label %if.end.i.i
@@ -2910,11 +2910,11 @@ while.body.i11.i:                                 ; preds = %if.else.i, %if.end.
   br i1 %tobool.not.i18.i, label %if.end.i22.i, label %if.then.i19.i
 
 if.then.i19.i:                                    ; preds = %while.body.i11.i
-  %35 = extractelement <2 x double> %34, i64 1
-  %36 = fneg double %35
-  %37 = shufflevector <2 x double> %33, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %38 = insertelement <2 x double> %34, double %36, i64 0
-  %39 = fmul <2 x double> %37, %38
+  %35 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %36 = fneg <2 x double> %34
+  %37 = shufflevector <2 x double> %35, <2 x double> %36, <2 x i32> <i32 0, i32 3>
+  %38 = fmul <2 x double> %33, %37
+  %39 = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %40 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> zeroinitializer
   %41 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %40, <2 x double> %33, <2 x double> %39)
   br label %if.end.i22.i

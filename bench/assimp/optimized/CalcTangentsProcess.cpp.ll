@@ -513,14 +513,14 @@ if.then233:                                       ; preds = %lor.end226
   br i1 %123, label %invoke.cont239, label %invoke.cont247
 
 invoke.cont239:                                   ; preds = %if.then233
-  %128 = insertelement <2 x float> %82, float %81, i64 0
-  %129 = fneg <2 x float> %128
-  %130 = insertelement <2 x float> %localBitangent.sroa.0.0, float %localBitangent.sroa.15.0, i64 0
-  %131 = fmul <2 x float> %130, %129
-  %132 = shufflevector <2 x float> %131, <2 x float> poison, <2 x i32> <i32 1, i32 0>
-  %133 = shufflevector <2 x float> %localBitangent.sroa.0.0, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
-  %134 = insertelement <2 x float> %133, float %localBitangent.sroa.15.0, i64 0
-  %135 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %82, <2 x float> %134, <2 x float> %132)
+  %128 = shufflevector <2 x float> %82, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %129 = insertelement <2 x float> %128, float %81, i64 1
+  %130 = fneg <2 x float> %129
+  %131 = shufflevector <2 x float> %localBitangent.sroa.0.0, <2 x float> poison, <2 x i32> <i32 1, i32 0>
+  %132 = insertelement <2 x float> %131, float %localBitangent.sroa.15.0, i64 1
+  %133 = fmul <2 x float> %132, %130
+  %134 = insertelement <2 x float> %131, float %localBitangent.sroa.15.0, i64 0
+  %135 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %82, <2 x float> %134, <2 x float> %133)
   %136 = fneg float %83
   %neg14.i = fmul float %localBitangent.sroa.0.0.vec.extract, %136
   %137 = tail call float @llvm.fmuladd.f32(float %81, float %localBitangent.sroa.0.4.vec.extract, float %neg14.i)

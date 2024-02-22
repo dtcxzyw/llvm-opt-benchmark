@@ -6820,12 +6820,12 @@ entry:
   %height = getelementptr inbounds i8, ptr %extents, i64 12
   %5 = load i32, ptr %height, align 4
   %add8 = add nsw i32 %5, %2
-  %6 = insertelement <2 x i32> poison, i32 %add, i64 0
-  %7 = insertelement <2 x i32> %6, i32 %0, i64 1
+  %6 = insertelement <2 x i32> poison, i32 %0, i64 0
+  %7 = insertelement <2 x i32> %6, i32 %add, i64 1
   %8 = trunc <2 x i32> %7 to <2 x i16>
   %9 = sitofp <2 x i16> %8 to <2 x float>
-  %10 = insertelement <2 x i32> poison, i32 %2, i64 0
-  %11 = insertelement <2 x i32> %10, i32 %add8, i64 1
+  %10 = insertelement <2 x i32> poison, i32 %add8, i64 0
+  %11 = insertelement <2 x i32> %10, i32 %2, i64 1
   %12 = trunc <2 x i32> %11 to <2 x i16>
   %13 = sitofp <2 x i16> %12 to <2 x float>
   %14 = shufflevector <4 x float> %1, <4 x float> poison, <2 x i32> zeroinitializer
@@ -6843,21 +6843,21 @@ if.then:                                          ; preds = %entry
   %21 = fmul <2 x float> %17, %20
   %22 = shufflevector <2 x float> %21, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %23 = fcmp oge <2 x float> %21, %22
-  %24 = shufflevector <2 x float> %21, <2 x float> poison, <2 x i32> zeroinitializer
-  %25 = shufflevector <2 x float> %21, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %24 = shufflevector <2 x float> %21, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %25 = shufflevector <2 x float> %21, <2 x float> poison, <2 x i32> zeroinitializer
   %26 = select <2 x i1> %23, <2 x float> %24, <2 x float> %25
   %27 = fadd <2 x float> %15, %26
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %28 = phi <2 x float> [ %27, %if.then ], [ %15, %entry ]
-  %29 = extractelement <2 x float> %28, i64 1
+  %29 = extractelement <2 x float> %28, i64 0
   %30 = tail call float @llvm.floor.f32(float %29)
   %conv25 = fptosi float %30 to i32
   store i32 %conv25, ptr %extents, align 4
-  %31 = extractelement <2 x float> %17, i64 0
+  %31 = extractelement <2 x float> %17, i64 1
   %32 = tail call float @llvm.floor.f32(float %31)
-  %33 = extractelement <2 x float> %28, i64 0
+  %33 = extractelement <2 x float> %28, i64 1
   %34 = tail call float @llvm.ceil.f32(float %33)
   %conv30 = sitofp i32 %conv25 to float
   %sub = fsub float %34, %conv30
@@ -6865,7 +6865,7 @@ if.end:                                           ; preds = %if.then, %entry
   %36 = insertelement <2 x float> %35, float %sub, i64 1
   %37 = fptosi <2 x float> %36 to <2 x i32>
   store <2 x i32> %37, ptr %y_bearing, align 4
-  %38 = extractelement <2 x float> %17, i64 1
+  %38 = extractelement <2 x float> %17, i64 0
   %39 = tail call float @llvm.ceil.f32(float %38)
   %40 = extractelement <2 x i32> %37, i64 0
   %conv34 = sitofp i32 %40 to float

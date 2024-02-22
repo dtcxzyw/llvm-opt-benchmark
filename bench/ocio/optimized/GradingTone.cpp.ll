@@ -2772,23 +2772,25 @@ cond.end148:                                      ; preds = %cond.true133, %cond
   %cond149 = phi float [ %.sroa.speculated, %cond.false143.critedge ], [ 1.000000e+00, %cond.true133 ]
   store float %.sroa.speculated95.sink, ptr %arrayidx66, align 8
   store float %cond149, ptr %arrayidx75, align 4
-  %23 = load float, ptr %arrayidx37, align 4
-  %24 = load float, ptr %arrayidx29, align 4
-  %sub150 = fsub float %23, %24
-  %25 = load float, ptr %arrayidx20, align 4
-  %sub151 = fsub float %24, %25
-  %add = fadd float %sub150, %sub151
+  %23 = load float, ptr %arrayidx20, align 4
+  %24 = load <2 x float>, ptr %arrayidx29, align 4
+  %25 = insertelement <2 x float> poison, float %23, i64 0
+  %26 = shufflevector <2 x float> %25, <2 x float> %24, <2 x i32> <i32 0, i32 2>
+  %27 = fsub <2 x float> %24, %26
+  %28 = extractelement <2 x float> %27, i64 0
+  %29 = extractelement <2 x float> %27, i64 1
+  %add = fadd float %29, %28
   %div152 = fdiv float 5.000000e-01, %add
-  %26 = load float, ptr %arrayidx43, align 4
-  %mul155 = fmul float %sub151, %.sroa.speculated95.sink
-  %27 = tail call float @llvm.fmuladd.f32(float %26, float 2.000000e+00, float %mul155)
-  %28 = load float, ptr %arrayidx60, align 4
-  %29 = fneg float %cond149
-  %neg161 = fmul float %sub150, %29
-  %30 = tail call float @llvm.fmuladd.f32(float %28, float 2.000000e+00, float %neg161)
-  %mul163 = fmul float %sub151, %30
-  %31 = tail call float @llvm.fmuladd.f32(float %27, float %sub150, float %mul163)
-  %mul164 = fmul float %div152, %31
+  %30 = load float, ptr %arrayidx43, align 4
+  %mul155 = fmul float %28, %.sroa.speculated95.sink
+  %31 = tail call float @llvm.fmuladd.f32(float %30, float 2.000000e+00, float %mul155)
+  %32 = load float, ptr %arrayidx60, align 4
+  %33 = fneg float %cond149
+  %neg161 = fmul float %29, %33
+  %34 = tail call float @llvm.fmuladd.f32(float %32, float 2.000000e+00, float %neg161)
+  %mul163 = fmul float %28, %34
+  %35 = tail call float @llvm.fmuladd.f32(float %31, float %29, float %mul163)
+  %mul164 = fmul float %div152, %35
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.end119, %cond.end148
