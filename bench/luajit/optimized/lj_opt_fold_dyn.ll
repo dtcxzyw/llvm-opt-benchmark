@@ -4036,8 +4036,8 @@ if.then15:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end24:                                         ; preds = %entry, %land.lhs.true
-  %cmp28.not = icmp eq i32 %and3, %2
-  br i1 %cmp28.not, label %if.end35, label %if.then30
+  %cmp28.not.not = icmp ugt i32 %2, %cond
+  br i1 %cmp28.not.not, label %if.then30, label %if.end35
 
 if.then30:                                        ; preds = %if.end24
   %call = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %and3) #11
@@ -4054,7 +4054,7 @@ if.end35:                                         ; preds = %if.end24
 
 if.then42:                                        ; preds = %if.end35
   store i8 39, ptr %o38, align 1
-  %sub = sub nsw i32 0, %2
+  %sub = sub nsw i32 0, %and3
   %and46 = and i32 %cond, %sub
   %call47 = tail call i32 @lj_ir_kint(ptr noundef nonnull %J, i32 noundef %and46) #11
   %conv48 = trunc i32 %call47 to i16
@@ -5984,7 +5984,7 @@ if.end.i:                                         ; preds = %lor.lhs.false45.i, 
   br i1 %or.cond.i, label %if.then64.i, label %return
 
 if.then64.i:                                      ; preds = %if.end.i
-  %add.i = add i8 %17, -12
+  %add.i = add nsw i8 %17, -12
   store i8 %add.i, ptr %t.i, align 4
   br label %return
 
@@ -6122,7 +6122,7 @@ if.end.i:                                         ; preds = %lor.lhs.false45.i, 
   br i1 %or.cond.i, label %if.then64.i, label %return
 
 if.then64.i:                                      ; preds = %if.end.i
-  %add.i = add i8 %6, -12
+  %add.i = add nsw i8 %6, -12
   store i8 %add.i, ptr %t.i, align 4
   br label %return
 
