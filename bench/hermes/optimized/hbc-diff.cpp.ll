@@ -3233,8 +3233,8 @@ if.end12:                                         ; preds = %if.end6
   %sub = add nsw i64 %conv, -1
   %arrayidx = getelementptr inbounds [4 x i8], ptr @.str.33, i64 0, i64 %sub
   %6 = load i8, ptr %arrayidx, align 1
-  %conv1.i = uitofp i64 %conv to double
-  %mul = fmul double %conv1.i, 1.000000e+01
+  %7 = mul nuw nsw i64 %conv, 10
+  %mul = uitofp i64 %7 to double
   %exp2 = tail call double @exp2(double %mul) #19
   %div16 = fdiv double %conv.i, %exp2
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -3242,8 +3242,8 @@ if.end12:                                         ; preds = %if.end6
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdcEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !38
   %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 %6, ptr %Vals.i.i, align 8, !alias.scope !38
-  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  store double %div16, ptr %7, align 8, !alias.scope !38
+  %8 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  store double %div16, ptr %8, align 8, !alias.scope !38
   %call17 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #19
   br label %return
 

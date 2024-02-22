@@ -47,23 +47,23 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   store i64 %and.i, ptr %this, align 8
   %shr = lshr i64 %and.i, 22
   %conv = trunc i64 %shr to i32
-  %conv3 = uitofp i32 %conv to double
-  %add = fadd double %conv3, 1.000000e+00
+  %5 = add nuw nsw i32 %conv, 1
+  %add = uitofp i32 %5 to double
   %bias_ = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load double, ptr %bias_, align 8
+  %6 = load double, ptr %bias_, align 8
   %call4 = tail call double @log2(double noundef %add) #4
   %sub = fadd double %call4, -2.600000e+01
   %conv6 = sitofp i64 %mean to double
   %mul = fmul double %conv6, 0xBFE62E42FEFA39EF
-  %6 = tail call double @llvm.fmuladd.f64(double %sub, double %mul, double %5)
-  %cmp = fcmp ogt double %6, 0x43D0000000000000
+  %7 = tail call double @llvm.fmuladd.f64(double %sub, double %mul, double %6)
+  %cmp = fcmp ogt double %7, 0x43D0000000000000
   br i1 %cmp, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end
-  %7 = tail call double @llvm.rint.f64(double %6)
-  %sub14 = fsub double %6, %7
+  %8 = tail call double @llvm.rint.f64(double %7)
+  %sub14 = fsub double %7, %8
   store double %sub14, ptr %bias_, align 8
-  %conv16 = fptosi double %7 to i64
+  %conv16 = fptosi double %8 to i64
   br label %return
 
 return:                                           ; preds = %if.end, %if.end13
@@ -148,28 +148,28 @@ if.end.i:                                         ; preds = %_ZN4absl18profiling
   store i64 %and.i.i, ptr %this, align 8
   %shr.i = lshr i64 %and.i.i, 22
   %conv.i = trunc i64 %shr.i to i32
-  %conv3.i = uitofp i32 %conv.i to double
-  %add.i = fadd double %conv3.i, 1.000000e+00
+  %5 = add nuw nsw i32 %conv.i, 1
+  %add.i = uitofp i32 %5 to double
   %bias_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %5 = load double, ptr %bias_.i, align 8
+  %6 = load double, ptr %bias_.i, align 8
   %call4.i = tail call double @log2(double noundef %add.i) #4
   %sub.i = fadd double %call4.i, -2.600000e+01
   %conv6.i = sitofp i64 %sub to double
   %mul.i = fmul double %conv6.i, 0xBFE62E42FEFA39EF
-  %6 = tail call double @llvm.fmuladd.f64(double %sub.i, double %mul.i, double %5)
-  %cmp.i = fcmp ogt double %6, 0x43D0000000000000
+  %7 = tail call double @llvm.fmuladd.f64(double %sub.i, double %mul.i, double %6)
+  %cmp.i = fcmp ogt double %7, 0x43D0000000000000
   br i1 %cmp.i, label %_ZN4absl18profiling_internal17ExponentialBiased12GetSkipCountEl.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end.i
-  %7 = tail call double @llvm.rint.f64(double %6)
-  %sub14.i = fsub double %6, %7
+  %8 = tail call double @llvm.rint.f64(double %7)
+  %sub14.i = fsub double %7, %8
   store double %sub14.i, ptr %bias_.i, align 8
-  %conv16.i = fptosi double %7 to i64
-  %8 = add nsw i64 %conv16.i, 1
+  %conv16.i = fptosi double %8 to i64
+  %9 = add nsw i64 %conv16.i, 1
   br label %_ZN4absl18profiling_internal17ExponentialBiased12GetSkipCountEl.exit
 
 _ZN4absl18profiling_internal17ExponentialBiased12GetSkipCountEl.exit: ; preds = %if.end.i, %if.end13.i
-  %retval.0.i = phi i64 [ %8, %if.end13.i ], [ 4611686018427387904, %if.end.i ]
+  %retval.0.i = phi i64 [ %9, %if.end13.i ], [ 4611686018427387904, %if.end.i ]
   ret i64 %retval.0.i
 }
 

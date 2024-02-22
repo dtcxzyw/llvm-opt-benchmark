@@ -4681,14 +4681,14 @@ arraydestroy.body20:                              ; preds = %arraydestroy.body20
 
 ehcleanup:                                        ; preds = %arraydestroy.body20, %lpad12
   %.pn = phi { ptr, i32 } [ %7, %lpad12 ], [ %8, %arraydestroy.body20 ]
-  %cleanup.isactive.0 = phi i1 [ false, %lpad12 ], [ true, %arraydestroy.body20 ]
+  %10 = phi i1 [ false, %lpad12 ], [ true, %arraydestroy.body20 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #32
   br label %ehcleanup26
 
 ehcleanup26:                                      ; preds = %lpad7, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %6, %lpad7 ]
   %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element9, %ehcleanup ], [ %arrayinit.element, %lpad7 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %ehcleanup ], [ false, %lpad7 ]
+  %cleanup.isactive.1 = phi i1 [ %10, %ehcleanup ], [ false, %lpad7 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #32
   br i1 %cleanup.isactive.1, label %cleanup.action35, label %arraydestroy.body28
@@ -8531,25 +8531,25 @@ for.end:                                          ; preds = %_ZN7rocksdb12_GLOBA
 
 if.then13:                                        ; preds = %for.end
   %num_probes_ = getelementptr inbounds i8, ptr %this, i64 12
-  %conv.i18 = uitofp i32 %div48.i.i to double
-  %mul.i = fmul double %conv.i18, 8.000000e+00
+  %9 = and i32 %spec.select.i.sink.i.i, -8
+  %mul.i = uitofp i32 %9 to double
   %conv1.i = uitofp i64 %sub.ptr.div.i to double
   %div.i = fdiv double %mul.i, %conv1.i
   %cmp.i.i = fcmp ugt double %div.i, 0.000000e+00
   br i1 %cmp.i.i, label %if.end.i.i, label %cdce.end.i
 
 if.end.i.i:                                       ; preds = %if.then13
-  %9 = load i32, ptr %num_probes_, align 4
+  %10 = load i32, ptr %num_probes_, align 4
   %div.i.i = fdiv double 5.120000e+02, %div.i
   %sqrt.i = tail call double @llvm.sqrt.f64(double %div.i.i)
   %add.i.i21 = fadd double %div.i.i, %sqrt.i
   %div2.i.i = fdiv double 5.120000e+02, %add.i.i21
-  %sub.i.i.i22 = sub nsw i32 0, %9
+  %sub.i.i.i22 = sub nsw i32 0, %10
   %conv.i.i.i = sitofp i32 %sub.i.i.i22 to double
   %div.i.i.i = fdiv double %conv.i.i.i, %div2.i.i
   %call.i.i.i = tail call double @exp(double noundef %div.i.i.i) #32
   %sub1.i.i.i = fsub double 1.000000e+00, %call.i.i.i
-  %conv.i.i.i.i = sitofp i32 %9 to double
+  %conv.i.i.i.i = sitofp i32 %10 to double
   %call.i.i.i.i = tail call noundef double @pow(double noundef %sub1.i.i.i, double noundef %conv.i.i.i.i) #32
   %sub.i.i = fsub double %div.i.i, %sqrt.i
   %div5.i.i = fdiv double 5.120000e+02, %sub.i.i
@@ -8575,38 +8575,36 @@ if.then.i.i20:                                    ; preds = %cdce.end.i
 
 if.else.i.i:                                      ; preds = %cdce.end.i
   %neg.i.i = fmul double %mul.i.i19, %fneg.i.i
-  %10 = tail call double @llvm.fmuladd.f64(double %neg.i.i, double 5.000000e-01, double %mul.i.i19)
+  %11 = tail call double @llvm.fmuladd.f64(double %neg.i.i, double 5.000000e-01, double %mul.i.i19)
   br label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit
 
 _ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit: ; preds = %if.then.i.i20, %if.else.i.i
-  %retval.0.i5.i = phi double [ %sub.i6.i, %if.then.i.i20 ], [ %10, %if.else.i.i ]
-  %11 = tail call double @llvm.fmuladd.f64(double %div.i, double 7.500000e-01, double 2.200000e+01)
-  %div3.i = fdiv double 1.000000e-01, %11
+  %retval.0.i5.i = phi double [ %sub.i6.i, %if.then.i.i20 ], [ %11, %if.else.i.i ]
+  %12 = tail call double @llvm.fmuladd.f64(double %div.i, double 7.500000e-01, double 2.200000e+01)
+  %div3.i = fdiv double 1.000000e-01, %12
   %add.i = fadd double %div3.i, %retval.0.i.i
   %add.i7.i = fadd double %add.i, %retval.0.i5.i
   %neg.i8.i = fneg double %add.i
-  %12 = tail call noundef double @llvm.fmuladd.f64(double %neg.i8.i, double %retval.0.i5.i, double %add.i7.i)
-  %13 = load i32, ptr %2, align 8
-  %14 = shl i32 %13, 13
-  %div1612 = and i32 %14, 536862720
-  %conv.i24 = uitofp i32 %div1612 to double
-  %mul.i25 = fmul double %conv.i24, 8.000000e+00
+  %13 = tail call noundef double @llvm.fmuladd.f64(double %neg.i8.i, double %retval.0.i5.i, double %add.i7.i)
+  %14 = load i32, ptr %2, align 8
+  %15 = shl i32 %14, 16
+  %mul.i25 = uitofp i32 %15 to double
   %div.i26 = fmul double %mul.i25, 0x3EF0000000000000
   %cmp.i.i27 = fcmp ugt double %div.i26, 0.000000e+00
   br i1 %cmp.i.i27, label %if.end.i.i36, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit56
 
 if.end.i.i36:                                     ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit
-  %15 = load i32, ptr %num_probes_, align 4
+  %16 = load i32, ptr %num_probes_, align 4
   %div.i.i37 = fdiv double 5.120000e+02, %div.i26
   %sqrt.i38 = tail call double @llvm.sqrt.f64(double %div.i.i37)
   %add.i.i39 = fadd double %div.i.i37, %sqrt.i38
   %div2.i.i40 = fdiv double 5.120000e+02, %add.i.i39
-  %sub.i.i.i41 = sub nsw i32 0, %15
+  %sub.i.i.i41 = sub nsw i32 0, %16
   %conv.i.i.i42 = sitofp i32 %sub.i.i.i41 to double
   %div.i.i.i43 = fdiv double %conv.i.i.i42, %div2.i.i40
   %call.i.i.i44 = tail call double @exp(double noundef %div.i.i.i43) #32
   %sub1.i.i.i45 = fsub double 1.000000e+00, %call.i.i.i44
-  %conv.i.i.i.i46 = sitofp i32 %15 to double
+  %conv.i.i.i.i46 = sitofp i32 %16 to double
   %call.i.i.i.i47 = tail call noundef double @pow(double noundef %sub1.i.i.i45, double noundef %conv.i.i.i.i46) #32
   %sub.i.i48 = fsub double %div.i.i37, %sqrt.i38
   %div5.i.i49 = fdiv double 5.120000e+02, %sub.i.i48
@@ -8620,51 +8618,51 @@ if.end.i.i36:                                     ; preds = %_ZN7rocksdb23Legacy
 
 _ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit56: ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit, %if.end.i.i36
   %retval.0.i.i29 = phi double [ %div8.i.i55, %if.end.i.i36 ], [ 1.000000e+00, %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit ]
-  %16 = tail call double @llvm.fmuladd.f64(double %div.i26, double 7.500000e-01, double 2.200000e+01)
-  %div3.i32 = fdiv double 1.000000e-01, %16
+  %17 = tail call double @llvm.fmuladd.f64(double %div.i26, double 7.500000e-01, double 2.200000e+01)
+  %div3.i32 = fdiv double 1.000000e-01, %17
   %add.i33 = fadd double %div3.i32, %retval.0.i.i29
   %add.i7.i34 = fadd double %add.i33, 0x3EEFFFF000000000
   %neg.i8.i35 = fneg double %add.i33
-  %17 = tail call noundef double @llvm.fmuladd.f64(double %neg.i8.i35, double 0x3EEFFFF000000000, double %add.i7.i34)
-  %mul20 = fmul double %17, 1.500000e+00
-  %cmp21 = fcmp ult double %12, %mul20
+  %18 = tail call noundef double @llvm.fmuladd.f64(double %neg.i8.i35, double 0x3EEFFFF000000000, double %add.i7.i34)
+  %mul20 = fmul double %18, 1.500000e+00
+  %cmp21 = fcmp ult double %13, %mul20
   br i1 %cmp21, label %if.end29, label %if.then22
 
 if.then22:                                        ; preds = %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit56
   %info_log_ = getelementptr inbounds i8, ptr %this, i64 40
-  %18 = load ptr, ptr %info_log_, align 8
+  %19 = load ptr, ptr %info_log_, align 8
   %div25 = fdiv double %conv1.i, 1.000000e+06
-  %19 = load i32, ptr %2, align 8
-  %div27 = fdiv double %12, %17
-  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 2, ptr noundef %18, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds ([128 x i8], ptr @.str.8, i64 0, i64 93), double noundef %div25, i32 noundef %19, double noundef %div27)
+  %20 = load i32, ptr %2, align 8
+  %div27 = fdiv double %13, %18
+  tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 2, ptr noundef %19, ptr noundef nonnull @.str.25, ptr noundef nonnull getelementptr inbounds ([128 x i8], ptr @.str.8, i64 0, i64 93), double noundef %div25, i32 noundef %20, double noundef %div27)
   br label %if.end29
 
 if.end29:                                         ; preds = %for.end, %if.then22, %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit56, %_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder12ReserveSpaceEmPjS2_.exit
   %num_probes_30 = getelementptr inbounds i8, ptr %this, i64 12
-  %20 = load i32, ptr %num_probes_30, align 4
-  %conv31 = trunc i32 %20 to i8
+  %21 = load i32, ptr %num_probes_30, align 4
+  %conv31 = trunc i32 %21 to i8
   %idxprom = zext nneg i32 %div48.i.i to i64
   %arrayidx = getelementptr inbounds i8, ptr %call2.i, i64 %idxprom
   store i8 %conv31, ptr %arrayidx, align 1
   %add.ptr34 = getelementptr inbounds i8, ptr %arrayidx, i64 1
   store i32 %storemerge.i.i, ptr %add.ptr34, align 1
-  %21 = load ptr, ptr %buf, align 8
+  %22 = load ptr, ptr %buf, align 8
   store ptr %call2.i, ptr %buf, align 8
-  %tobool.not.i.i = icmp eq ptr %21, null
+  %tobool.not.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %if.end29
-  tail call void @_ZdaPv(ptr noundef nonnull %21) #31
+  tail call void @_ZdaPv(ptr noundef nonnull %22) #31
   br label %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit
 
 _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit: ; preds = %if.end29, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
-  %22 = load ptr, ptr %hash_entries_, align 8
-  %23 = load ptr, ptr %_M_finish.i, align 8
-  %tobool.not.i.i57 = icmp eq ptr %23, %22
+  %23 = load ptr, ptr %hash_entries_, align 8
+  %24 = load ptr, ptr %_M_finish.i, align 8
+  %tobool.not.i.i57 = icmp eq ptr %24, %23
   br i1 %tobool.not.i.i57, label %_ZNSt6vectorIjSaIjEE5clearEv.exit, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit
-  store ptr %22, ptr %_M_finish.i, align 8
+  store ptr %23, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIjSaIjEE5clearEv.exit
 
 _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %_ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit, %invoke.cont.i.i
