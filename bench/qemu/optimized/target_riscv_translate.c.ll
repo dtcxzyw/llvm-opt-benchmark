@@ -2366,7 +2366,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.get_gpr = private unnamed_addr constant [8 x i8] c"get_gpr\00", align 1
 @__func__.gen_set_gpr = private unnamed_addr constant [12 x i8] c"gen_set_gpr\00", align 1
 @ld_us_op.fns = internal unnamed_addr constant [2 x [4 x ptr]] [[4 x ptr] [ptr @gen_helper_vle8_v_mask, ptr @gen_helper_vle16_v_mask, ptr @gen_helper_vle32_v_mask, ptr @gen_helper_vle64_v_mask], [4 x ptr] [ptr @gen_helper_vle8_v, ptr @gen_helper_vle16_v, ptr @gen_helper_vle32_v, ptr @gen_helper_vle64_v]], align 16
-@ldff_op.fns = internal unnamed_addr constant [4 x ptr] [ptr @gen_helper_vle8ff_v, ptr @gen_helper_vle16ff_v, ptr @gen_helper_vle32ff_v, ptr @gen_helper_vle64ff_v], align 16
 @ld_index_op.fns = internal unnamed_addr constant [4 x [4 x ptr]] [[4 x ptr] [ptr @gen_helper_vlxei8_8_v, ptr @gen_helper_vlxei8_16_v, ptr @gen_helper_vlxei8_32_v, ptr @gen_helper_vlxei8_64_v], [4 x ptr] [ptr @gen_helper_vlxei16_8_v, ptr @gen_helper_vlxei16_16_v, ptr @gen_helper_vlxei16_32_v, ptr @gen_helper_vlxei16_64_v], [4 x ptr] [ptr @gen_helper_vlxei32_8_v, ptr @gen_helper_vlxei32_16_v, ptr @gen_helper_vlxei32_32_v, ptr @gen_helper_vlxei32_64_v], [4 x ptr] [ptr @gen_helper_vlxei64_8_v, ptr @gen_helper_vlxei64_16_v, ptr @gen_helper_vlxei64_32_v, ptr @gen_helper_vlxei64_64_v]], align 16
 @.str.1171 = private unnamed_addr constant [19 x i8] c"ctx->pc_save != -1\00", align 1
 @__PRETTY_FUNCTION__.gen_pc_plus_diff = private unnamed_addr constant [57 x i8] c"void gen_pc_plus_diff(TCGv, DisasContext *, target_long)\00", align 1
@@ -2490,7 +2489,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @trans_vror_vx.fns = internal unnamed_addr constant [4 x ptr] [ptr @gen_helper_vror_vx_b, ptr @gen_helper_vror_vx_h, ptr @gen_helper_vror_vx_w, ptr @gen_helper_vror_vx_d], align 16
 @trans_vrol_vx.fns = internal unnamed_addr constant [4 x ptr] [ptr @gen_helper_vrol_vx_b, ptr @gen_helper_vrol_vx_h, ptr @gen_helper_vrol_vx_w, ptr @gen_helper_vrol_vx_d], align 16
 @trans_vmerge_vxm.fns = internal unnamed_addr constant [4 x ptr] [ptr @gen_helper_vmerge_vxm_b, ptr @gen_helper_vmerge_vxm_h, ptr @gen_helper_vmerge_vxm_w, ptr @gen_helper_vmerge_vxm_d], align 16
-@trans_vmv_v_x.fns = internal unnamed_addr constant [4 x ptr] [ptr @gen_helper_vmv_v_x_b, ptr @gen_helper_vmv_v_x_h, ptr @gen_helper_vmv_v_x_w, ptr @gen_helper_vmv_v_x_d], align 16
 @trans_vmseq_vx.fns = internal unnamed_addr constant [4 x ptr] [ptr @gen_helper_vmseq_vx_b, ptr @gen_helper_vmseq_vx_h, ptr @gen_helper_vmseq_vx_w, ptr @gen_helper_vmseq_vx_d], align 16
 @trans_vmsne_vx.fns = internal unnamed_addr constant [4 x ptr] [ptr @gen_helper_vmsne_vx_b, ptr @gen_helper_vmsne_vx_h, ptr @gen_helper_vmsne_vx_w, ptr @gen_helper_vmsne_vx_d], align 16
 @trans_vmsltu_vx.fns = internal unnamed_addr constant [4 x ptr] [ptr @gen_helper_vmsltu_vx_b, ptr @gen_helper_vmsltu_vx_h, ptr @gen_helper_vmsltu_vx_w, ptr @gen_helper_vmsltu_vx_d], align 16
@@ -2511,7 +2509,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @trans_vfslide1down_vf.fns = internal unnamed_addr constant [3 x ptr] [ptr @gen_helper_vfslide1down_vf_h, ptr @gen_helper_vfslide1down_vf_w, ptr @gen_helper_vfslide1down_vf_d], align 16
 @__func__.store_element = private unnamed_addr constant [14 x i8] c"store_element\00", align 1
 @trans_vfmerge_vfm.fns = internal unnamed_addr constant [3 x ptr] [ptr @gen_helper_vfmerge_vfm_h, ptr @gen_helper_vfmerge_vfm_w, ptr @gen_helper_vfmerge_vfm_d], align 16
-@trans_vfmv_v_f.fns = internal unnamed_addr constant [3 x ptr] [ptr @gen_helper_vmv_v_x_h, ptr @gen_helper_vmv_v_x_w, ptr @gen_helper_vmv_v_x_d], align 16
 @trans_vmfeq_vf.fns = internal unnamed_addr constant [3 x ptr] [ptr @gen_helper_vmfeq_vf_h, ptr @gen_helper_vmfeq_vf_w, ptr @gen_helper_vmfeq_vf_d], align 16
 @trans_vmfle_vf.fns = internal unnamed_addr constant [3 x ptr] [ptr @gen_helper_vmfle_vf_h, ptr @gen_helper_vmfle_vf_w, ptr @gen_helper_vmfle_vf_d], align 16
 @trans_vmflt_vf.fns = internal unnamed_addr constant [3 x ptr] [ptr @gen_helper_vmflt_vf_h, ptr @gen_helper_vmflt_vf_w, ptr @gen_helper_vmflt_vf_d], align 16
@@ -64513,16 +64510,39 @@ if.else:                                          ; preds = %if.then, %land.lhs.
   tail call void @tcg_gen_addi_i64(ptr noundef %call38, ptr noundef %20, i64 noundef %conv48) #13
   %sew49 = getelementptr inbounds i8, ptr %s, i64 138
   %23 = load i8, ptr %sew49, align 2
-  %idxprom = zext i8 %23 to i64
-  %arrayidx = getelementptr [4 x ptr], ptr @trans_vmv_v_x.fns, i64 0, i64 %idxprom
-  %24 = load ptr, ptr %arrayidx, align 8
-  %25 = load ptr, ptr @tcg_env, align 8
-  tail call void %24(ptr noundef %call38, ptr noundef %call37, ptr noundef %25, ptr noundef %call45) #13
+  %24 = load ptr, ptr @tcg_env, align 8
+  switch i8 %23, label %default.switch.case.unreachable [
+    i8 0, label %call.0
+    i8 1, label %call.1
+    i8 2, label %call.2
+    i8 3, label %call.3
+  ]
+
+default.switch.case.unreachable:                  ; preds = %if.else
+  unreachable
+
+call.0:                                           ; preds = %if.else
+  tail call fastcc void @gen_helper_vmv_v_x_b(ptr noundef %call38, ptr noundef %call37, ptr noundef %24, ptr noundef %call45) #13
+  br label %if.else.tail
+
+call.1:                                           ; preds = %if.else
+  tail call fastcc void @gen_helper_vmv_v_x_h(ptr noundef %call38, ptr noundef %call37, ptr noundef %24, ptr noundef %call45) #13
+  br label %if.else.tail
+
+call.2:                                           ; preds = %if.else
+  tail call fastcc void @gen_helper_vmv_v_x_w(ptr noundef %call38, ptr noundef %call37, ptr noundef %24, ptr noundef %call45) #13
+  br label %if.else.tail
+
+call.3:                                           ; preds = %if.else
+  tail call fastcc void @gen_helper_vmv_v_x_d(ptr noundef %call38, ptr noundef %call37, ptr noundef %24, ptr noundef %call45) #13
+  br label %if.else.tail
+
+if.else.tail:                                     ; preds = %call.3, %call.2, %call.1, %call.0
   tail call void @gen_set_label(ptr noundef %call36) #13
   br label %return
 
-return:                                           ; preds = %require_align.exit.i, %entry, %land.lhs.true, %if.then12, %if.else
-  %retval.0 = phi i1 [ true, %if.else ], [ true, %if.then12 ], [ false, %land.lhs.true ], [ false, %entry ], [ false, %require_align.exit.i ]
+return:                                           ; preds = %require_align.exit.i, %entry, %land.lhs.true, %if.then12, %if.else.tail
+  %retval.0 = phi i1 [ true, %if.else.tail ], [ true, %if.then12 ], [ false, %land.lhs.true ], [ false, %entry ], [ false, %require_align.exit.i ]
   ret i1 %retval.0
 }
 
@@ -67210,14 +67230,34 @@ if.else:                                          ; preds = %land.lhs.true6, %ge
   tail call void @tcg_gen_addi_i64(ptr noundef %call18, ptr noundef %28, i64 noundef %conv46) #13
   %sew47 = getelementptr inbounds i8, ptr %s, i64 138
   %31 = load i8, ptr %sew47, align 2
-  %idxprom = zext i8 %31 to i64
-  %arrayidx = getelementptr [4 x ptr], ptr @trans_vmv_v_x.fns, i64 0, i64 %idxprom
-  %32 = load ptr, ptr %arrayidx, align 8
-  %33 = load ptr, ptr @tcg_env, align 8
-  tail call void %32(ptr noundef %call18, ptr noundef %call17, ptr noundef %33, ptr noundef %call43) #13
+  %32 = load ptr, ptr @tcg_env, align 8
+  switch i8 %31, label %default.switch.case.unreachable [
+    i8 0, label %call.0
+    i8 1, label %call.1
+    i8 2, label %call.2
+    i8 3, label %call.3
+  ]
+
+default.switch.case.unreachable:                  ; preds = %if.else
+  unreachable
+
+call.0:                                           ; preds = %if.else
+  tail call fastcc void @gen_helper_vmv_v_x_b(ptr noundef %call18, ptr noundef %call17, ptr noundef %32, ptr noundef %call43) #13
   br label %if.end
 
-if.end:                                           ; preds = %if.else, %if.then11
+call.1:                                           ; preds = %if.else
+  tail call fastcc void @gen_helper_vmv_v_x_h(ptr noundef %call18, ptr noundef %call17, ptr noundef %32, ptr noundef %call43) #13
+  br label %if.end
+
+call.2:                                           ; preds = %if.else
+  tail call fastcc void @gen_helper_vmv_v_x_w(ptr noundef %call18, ptr noundef %call17, ptr noundef %32, ptr noundef %call43) #13
+  br label %if.end
+
+call.3:                                           ; preds = %if.else
+  tail call fastcc void @gen_helper_vmv_v_x_d(ptr noundef %call18, ptr noundef %call17, ptr noundef %32, ptr noundef %call43) #13
+  br label %if.end
+
+if.end:                                           ; preds = %call.0, %call.1, %call.2, %call.3, %if.then11
   tail call void @gen_set_label(ptr noundef %call4) #13
   br label %return
 
@@ -69000,17 +69040,34 @@ if.else:                                          ; preds = %gen_set_rm.exit.if.
   %conv67 = zext i32 %narrow.i69 to i64
   tail call void @tcg_gen_addi_i64(ptr noundef %call57, ptr noundef %50, i64 noundef %conv67) #13
   %53 = load i8, ptr %sew.i, align 2
-  %conv69 = zext i8 %53 to i64
-  %sub = add nsw i64 %conv69, -1
-  %arrayidx71 = getelementptr [3 x ptr], ptr @trans_vfmv_v_f.fns, i64 0, i64 %sub
-  %54 = load ptr, ptr %arrayidx71, align 8
-  %55 = load ptr, ptr @tcg_env, align 8
-  tail call void %54(ptr noundef %call57, ptr noundef %call53, ptr noundef %55, ptr noundef %call64) #13
+  %54 = load ptr, ptr @tcg_env, align 8
+  switch i8 %53, label %default.switch.case.unreachable [
+    i8 1, label %call.0
+    i8 2, label %call.1
+    i8 3, label %call.2
+  ]
+
+default.switch.case.unreachable:                  ; preds = %if.else
+  unreachable
+
+call.0:                                           ; preds = %if.else
+  tail call fastcc void @gen_helper_vmv_v_x_h(ptr noundef %call57, ptr noundef %call53, ptr noundef %54, ptr noundef %call64) #13
+  br label %if.else.tail
+
+call.1:                                           ; preds = %if.else
+  tail call fastcc void @gen_helper_vmv_v_x_w(ptr noundef %call57, ptr noundef %call53, ptr noundef %54, ptr noundef %call64) #13
+  br label %if.else.tail
+
+call.2:                                           ; preds = %if.else
+  tail call fastcc void @gen_helper_vmv_v_x_d(ptr noundef %call57, ptr noundef %call53, ptr noundef %54, ptr noundef %call64) #13
+  br label %if.else.tail
+
+if.else.tail:                                     ; preds = %call.2, %call.1, %call.0
   tail call void @gen_set_label(ptr noundef %call52) #13
   br label %return
 
-return:                                           ; preds = %if.end.i, %land.lhs.true, %sw.bb1.i, %sw.bb4.i, %entry, %require_rvf.exit, %land.lhs.true2, %require_align.exit, %if.then15, %if.else
-  %retval.0 = phi i1 [ true, %if.else ], [ true, %if.then15 ], [ false, %require_align.exit ], [ false, %land.lhs.true2 ], [ false, %require_rvf.exit ], [ false, %entry ], [ false, %sw.bb4.i ], [ false, %sw.bb1.i ], [ false, %land.lhs.true ], [ false, %if.end.i ]
+return:                                           ; preds = %if.end.i, %land.lhs.true, %sw.bb1.i, %sw.bb4.i, %entry, %require_rvf.exit, %land.lhs.true2, %require_align.exit, %if.then15, %if.else.tail
+  %retval.0 = phi i1 [ true, %if.else.tail ], [ true, %if.then15 ], [ false, %require_align.exit ], [ false, %land.lhs.true2 ], [ false, %require_rvf.exit ], [ false, %entry ], [ false, %sw.bb4.i ], [ false, %sw.bb1.i ], [ false, %land.lhs.true ], [ false, %if.end.i ]
   ret i1 %retval.0
 }
 
@@ -88725,31 +88782,47 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc noundef zeroext i1 @ldff_op(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %a, i8 noundef zeroext %eew) unnamed_addr #2 {
 entry:
-  %idxprom = zext nneg i8 %eew to i64
-  %arrayidx = getelementptr [4 x ptr], ptr @ldff_op.fns, i64 0, i64 %idxprom
-  %0 = load ptr, ptr %arrayidx, align 8
-  %1 = getelementptr i8, ptr %s, i64 137
-  %s.val = load i8, ptr %1, align 1
-  %2 = getelementptr i8, ptr %s, i64 138
-  %s.val19 = load i8, ptr %2, align 2
+  %0 = getelementptr i8, ptr %s, i64 137
+  %s.val = load i8, ptr %0, align 1
+  %1 = getelementptr i8, ptr %s, i64 138
+  %s.val19 = load i8, ptr %1, align 2
+  %sub.i = add i8 %s.val, %eew
+  %add.i = sub i8 %sub.i, %s.val19
+  %2 = tail call i8 @llvm.smax.i8(i8 %add.i, i8 0)
   %3 = load i32, ptr %a, align 4
+  %bf.value = and i32 %3, 1
+  %4 = shl nuw i8 %2, 1
+  %5 = and i8 %4, 14
+  %and6.i = zext nneg i8 %5 to i32
   %nf = getelementptr inbounds i8, ptr %a, i64 12
-  %4 = load i32, ptr %nf, align 4
+  %6 = load i32, ptr %nf, align 4
+  %bf.value17 = shl i32 %6, 7
+  %and6.i20 = and i32 %bf.value17, 1920
   %vta = getelementptr inbounds i8, ptr %s, i64 139
-  %5 = load i8, ptr %vta, align 1
+  %7 = load i8, ptr %vta, align 1
+  %8 = shl i8 %7, 4
+  %9 = and i8 %8, 16
+  %and6.i24 = zext nneg i8 %9 to i32
   %vma = getelementptr inbounds i8, ptr %s, i64 140
-  %6 = load i8, ptr %vma, align 4
+  %10 = load i8, ptr %vma, align 4
+  %11 = shl i8 %10, 6
+  %12 = and i8 %11, 64
+  %and6.i28 = zext nneg i8 %12 to i32
+  %or.i = or disjoint i32 %and6.i20, %bf.value
+  %or.i21 = or disjoint i32 %or.i, %and6.i
+  %or.i25 = or disjoint i32 %or.i21, %and6.i24
+  %or.i29 = or disjoint i32 %or.i25, %and6.i28
   %rd = getelementptr inbounds i8, ptr %a, i64 4
-  %7 = load i32, ptr %rd, align 4
+  %13 = load i32, ptr %rd, align 4
   %rs1 = getelementptr inbounds i8, ptr %a, i64 8
-  %8 = load i32, ptr %rs1, align 4
+  %14 = load i32, ptr %rs1, align 4
   %call.i = tail call ptr @gen_new_label() #13
-  %9 = load ptr, ptr @cpu_vstart, align 8
-  %10 = load ptr, ptr @cpu_vl, align 8
-  tail call void @tcg_gen_brcond_i64(i32 noundef 5, ptr noundef %9, ptr noundef %10, ptr noundef %call.i) #13
+  %15 = load ptr, ptr @cpu_vstart, align 8
+  %16 = load ptr, ptr @cpu_vl, align 8
+  tail call void @tcg_gen_brcond_i64(i32 noundef 5, ptr noundef %15, ptr noundef %16, ptr noundef %call.i) #13
   %call1.i = tail call ptr @tcg_temp_new_ptr() #13
   %call2.i = tail call ptr @tcg_temp_new_ptr() #13
-  %cmp.i.i = icmp eq i32 %8, 0
+  %cmp.i.i = icmp eq i32 %14, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
@@ -88758,8 +88831,8 @@ if.then.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %ol.i.i = getelementptr inbounds i8, ptr %s, i64 120
-  %11 = load i32, ptr %ol.i.i, align 8
-  %.off.i = add i32 %11, -1
+  %17 = load i32, ptr %ol.i.i, align 8
+  %.off.i = add i32 %17, -1
   %switch.i = icmp ult i32 %.off.i, 3
   br i1 %switch.i, label %sw.epilog11.i.i, label %do.body9.i.i
 
@@ -88768,60 +88841,67 @@ do.body9.i.i:                                     ; preds = %if.end.i.i
   unreachable
 
 sw.epilog11.i.i:                                  ; preds = %if.end.i.i
-  %idxprom12.i.i = sext i32 %8 to i64
+  %idxprom12.i.i = sext i32 %14 to i64
   %arrayidx13.i.i = getelementptr [32 x ptr], ptr @cpu_gpr, i64 0, i64 %idxprom12.i.i
   br label %ldff_trans.exit
 
 ldff_trans.exit:                                  ; preds = %if.then.i.i, %sw.epilog11.i.i
   %retval.0.i.in.i = phi ptr [ %zero.i.i, %if.then.i.i ], [ %arrayidx13.i.i, %sw.epilog11.i.i ]
-  %bf.value = and i32 %3, 1
-  %sub.i = add i8 %s.val, %eew
-  %add.i = sub i8 %sub.i, %s.val19
-  %12 = tail call i8 @llvm.smax.i8(i8 %add.i, i8 0)
-  %13 = shl nuw i8 %12, 1
-  %14 = and i8 %13, 14
-  %and6.i = zext nneg i8 %14 to i32
-  %bf.value17 = shl i32 %4, 7
-  %and6.i20 = and i32 %bf.value17, 1920
-  %15 = shl i8 %5, 4
-  %16 = and i8 %15, 16
-  %and6.i24 = zext nneg i8 %16 to i32
-  %17 = shl i8 %6, 6
-  %18 = and i8 %17, 64
-  %and6.i28 = zext nneg i8 %18 to i32
-  %or.i = or disjoint i32 %and6.i20, %bf.value
-  %or.i21 = or disjoint i32 %or.i, %and6.i
-  %or.i25 = or disjoint i32 %or.i21, %and6.i24
-  %or.i29 = or disjoint i32 %or.i25, %and6.i28
   %retval.0.i.i = load ptr, ptr %retval.0.i.in.i, align 8
   %cfg_ptr.i = getelementptr inbounds i8, ptr %s, i64 128
-  %19 = load ptr, ptr %cfg_ptr.i, align 8
-  %vlen.i = getelementptr inbounds i8, ptr %19, i64 152
-  %20 = load i16, ptr %vlen.i, align 8
-  %21 = lshr i16 %20, 3
-  %div.i = zext nneg i16 %21 to i32
+  %18 = load ptr, ptr %cfg_ptr.i, align 8
+  %vlen.i = getelementptr inbounds i8, ptr %18, i64 152
+  %19 = load i16, ptr %vlen.i, align 8
+  %20 = lshr i16 %19, 3
+  %div.i = zext nneg i16 %20 to i32
   %call8.i = tail call i32 @simd_desc(i32 noundef %div.i, i32 noundef %div.i, i32 noundef %or.i29) #13
   %call9.i = tail call ptr @tcg_constant_i32(i32 noundef %call8.i) #13
-  %22 = load ptr, ptr @tcg_env, align 8
+  %21 = load ptr, ptr @tcg_env, align 8
   %s.val9.i = load ptr, ptr %cfg_ptr.i, align 8
-  %23 = getelementptr i8, ptr %s.val9.i, i64 152
-  %s.val9.val.i = load i16, ptr %23, align 8
+  %22 = getelementptr i8, ptr %s.val9.i, i64 152
+  %s.val9.val.i = load i16, ptr %22, align 8
   %conv.i.i = zext i16 %s.val9.val.i to i32
-  %mul.i.i = mul i32 %7, %conv.i.i
+  %mul.i.i = mul i32 %13, %conv.i.i
   %div.i.i = sdiv i32 %mul.i.i, 8
   %narrow.i.i = add nsw i32 %div.i.i, 512
   %conv11.i = zext i32 %narrow.i.i to i64
-  tail call void @tcg_gen_addi_i64(ptr noundef %call1.i, ptr noundef %22, i64 noundef %conv11.i) #13
+  tail call void @tcg_gen_addi_i64(ptr noundef %call1.i, ptr noundef %21, i64 noundef %conv11.i) #13
+  %23 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_addi_i64(ptr noundef %call2.i, ptr noundef %23, i64 noundef 512) #13
   %24 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_addi_i64(ptr noundef %call2.i, ptr noundef %24, i64 noundef 512) #13
-  %25 = load ptr, ptr @tcg_env, align 8
-  tail call void %0(ptr noundef %call1.i, ptr noundef %call2.i, ptr noundef %retval.0.i.i, ptr noundef %25, ptr noundef %call9.i) #13
+  switch i8 %eew, label %default.switch.case.unreachable [
+    i8 0, label %call.0
+    i8 1, label %call.1
+    i8 2, label %call.2
+    i8 3, label %call.3
+  ]
+
+default.switch.case.unreachable:                  ; preds = %ldff_trans.exit
+  unreachable
+
+call.0:                                           ; preds = %ldff_trans.exit
+  tail call fastcc void @gen_helper_vle8ff_v(ptr noundef %call1.i, ptr noundef %call2.i, ptr noundef %retval.0.i.i, ptr noundef %24, ptr noundef %call9.i) #13
+  br label %ldff_trans.exit.tail
+
+call.1:                                           ; preds = %ldff_trans.exit
+  tail call fastcc void @gen_helper_vle16ff_v(ptr noundef %call1.i, ptr noundef %call2.i, ptr noundef %retval.0.i.i, ptr noundef %24, ptr noundef %call9.i) #13
+  br label %ldff_trans.exit.tail
+
+call.2:                                           ; preds = %ldff_trans.exit
+  tail call fastcc void @gen_helper_vle32ff_v(ptr noundef %call1.i, ptr noundef %call2.i, ptr noundef %retval.0.i.i, ptr noundef %24, ptr noundef %call9.i) #13
+  br label %ldff_trans.exit.tail
+
+call.3:                                           ; preds = %ldff_trans.exit
+  tail call fastcc void @gen_helper_vle64ff_v(ptr noundef %call1.i, ptr noundef %call2.i, ptr noundef %retval.0.i.i, ptr noundef %24, ptr noundef %call9.i) #13
+  br label %ldff_trans.exit.tail
+
+ldff_trans.exit.tail:                             ; preds = %call.3, %call.2, %call.1, %call.0
   tail call void @gen_set_label(ptr noundef %call.i) #13
   ret i1 true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_vle8ff_v(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) #2 {
+define internal fastcc void @gen_helper_vle8ff_v(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) unnamed_addr #2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
@@ -88840,7 +88920,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_vle16ff_v(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) #2 {
+define internal fastcc void @gen_helper_vle16ff_v(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) unnamed_addr #2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
@@ -88859,7 +88939,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_vle32ff_v(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) #2 {
+define internal fastcc void @gen_helper_vle32ff_v(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) unnamed_addr #2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
@@ -88878,7 +88958,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_vle64ff_v(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) #2 {
+define internal fastcc void @gen_helper_vle64ff_v(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4, ptr noundef %arg5) unnamed_addr #2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
@@ -102345,7 +102425,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_vmv_v_x_b(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #2 {
+define internal fastcc void @gen_helper_vmv_v_x_b(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) unnamed_addr #2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
@@ -102362,7 +102442,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_vmv_v_x_h(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #2 {
+define internal fastcc void @gen_helper_vmv_v_x_h(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) unnamed_addr #2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
@@ -102379,7 +102459,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_vmv_v_x_w(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #2 {
+define internal fastcc void @gen_helper_vmv_v_x_w(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) unnamed_addr #2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
@@ -102396,7 +102476,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gen_helper_vmv_v_x_d(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) #2 {
+define internal fastcc void @gen_helper_vmv_v_x_d(ptr noundef %arg1, ptr noundef %arg2, ptr noundef %arg3, ptr noundef %arg4) unnamed_addr #2 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
