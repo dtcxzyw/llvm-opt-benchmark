@@ -191,7 +191,7 @@ lor.lhs.false23:                                  ; preds = %if.end21
   %10 = load i8, ptr %zero_copy_write_lock, align 2
   %tobool24.not = icmp eq i8 %10, 0
   %cmp26 = icmp eq i64 %7, %bytes_read
-  %or.cond = select i1 %tobool24.not, i1 %cmp26, i1 false
+  %or.cond = and i1 %cmp26, %tobool24.not
   %spec.select = select i1 %or.cond, i64 0, i64 %add
   br label %if.end31
 

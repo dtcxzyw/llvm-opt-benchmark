@@ -14455,7 +14455,7 @@ while.body53:                                     ; preds = %if.end50, %while.bo
   %and63 = and i64 %25, 1024
   %tobool64 = icmp eq i64 %and63, 0
   %tobool52 = icmp ne i64 %sub59, 0
-  %or.cond1 = select i1 %tobool64, i1 %tobool52, i1 false
+  %or.cond1 = and i1 %tobool52, %tobool64
   br i1 %or.cond1, label %while.body53, label %while.end67, !llvm.loop !94
 
 while.end67:                                      ; preds = %while.body53

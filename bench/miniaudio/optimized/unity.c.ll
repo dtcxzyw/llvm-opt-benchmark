@@ -12070,7 +12070,7 @@ for.end139.i:                                     ; preds = %for.cond.i, %if.end
   %cmp140.i = icmp ne i32 %capturedDeviceFramesProcessed.1.i, 0
   %add144.i = add i32 %capturedDeviceFramesProcessed.1.i, %totalCapturedDeviceFramesProcessed.0312.i
   %cmp47.i = icmp ult i32 %add144.i, %..i
-  %or.cond323.i = select i1 %cmp140.i, i1 %cmp47.i, i1 false
+  %or.cond323.i = and i1 %cmp140.i, %cmp47.i
   br i1 %or.cond323.i, label %while.body49.i, label %sw.epilog.i, !llvm.loop !54
 
 sw.bb145.i:                                       ; preds = %while.body.i, %while.body.i
@@ -12813,7 +12813,7 @@ if.end197.i:                                      ; preds = %while.body180.i
   %cmp198.i = icmp ne i32 %170, 0
   %add202.i = add i32 %170, %framesWrittenThisPeriod.0297.i
   %cmp178.i = icmp ult i32 %add202.i, %167
-  %or.cond324.i = select i1 %cmp198.i, i1 %cmp178.i, i1 false
+  %or.cond324.i = and i1 %cmp198.i, %cmp178.i
   br i1 %or.cond324.i, label %while.body180.i, label %sw.epilog.i, !llvm.loop !58
 
 sw.epilog.i.thread:                               ; preds = %while.body180.i, %while.body151.i, %while.body49.i
@@ -47721,7 +47721,7 @@ while.body.us.us:                                 ; preds = %while.cond.preheade
   %add22.us.us = add i64 %1, %spec.select.us.us
   %cmp25.us.us = icmp ne i64 %add22.us.us, %0
   %cmp4.us.us = icmp ult i64 %add.us.us, %frameCount
-  %or.cond51 = select i1 %cmp25.us.us, i1 %cmp4.us.us, i1 false
+  %or.cond51 = and i1 %cmp25.us.us, %cmp4.us.us
   br i1 %or.cond51, label %while.body.us.us, label %return.loopexit.split.us, !llvm.loop !509
 
 while.body.us:                                    ; preds = %while.cond.preheader.split.us, %while.body.us
@@ -124042,7 +124042,7 @@ while.body.us.us.i:                               ; preds = %while.cond.preheade
   %add22.us.us.i = add i64 %spec.select.us.us.i, %1
   %cmp25.us.us.i = icmp ne i64 %add22.us.us.i, %0
   %cmp4.us.us.i = icmp ult i64 %add.us.us.i, %frameCount
-  %or.cond51.i = select i1 %cmp25.us.us.i, i1 %cmp4.us.us.i, i1 false
+  %or.cond51.i = and i1 %cmp25.us.us.i, %cmp4.us.us.i
   br i1 %or.cond51.i, label %while.body.us.us.i, label %return.loopexit.split.us.i, !llvm.loop !509
 
 return.loopexit.split.us.i:                       ; preds = %while.body.us.us.i

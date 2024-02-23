@@ -8373,7 +8373,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i: ; preds = %while.body.i.i.i
   %cmp5.i.i.i.i.i = icmp eq i32 %call4.i.i.i.i.i, 0
   %cmp8.i.i.i.i.i = icmp ult i64 %4, %2
-  %spec.select.i.i.i.i.i = select i1 %cmp5.i.i.i.i.i, i1 %cmp8.i.i.i.i.i, i1 false
+  %spec.select.i.i.i.i.i = and i1 %cmp8.i.i.i.i.i, %cmp5.i.i.i.i.i
   br i1 %spec.select.i.i.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i, %while.body.i.i.i
@@ -8404,7 +8404,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZNKSt8_Rb_treeIN3z
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i:   ; preds = %lor.lhs.false.i.i
   %cmp5.i.i.i.i = icmp eq i32 %call4.i.i.i.i, 0
   %cmp8.i.i.i.i = icmp ult i64 %2, %7
-  %spec.select.i.i.i.i = select i1 %cmp5.i.i.i.i, i1 %cmp8.i.i.i.i, i1 false
+  %spec.select.i.i.i.i = and i1 %cmp8.i.i.i.i, %cmp5.i.i.i.i
   %spec.select.i.i = select i1 %spec.select.i.i.i.i, ptr %add.ptr.i.i.i, ptr %__y.addr.1.i.i.i
   br label %_ZNKSt3mapIN3zmq6blob_tENS0_21routing_socket_base_t10out_pipe_tESt4lessIS1_ESaISt4pairIKS1_S3_EEE5countERS7_.exit
 
@@ -8444,7 +8444,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i: ; preds = %while.body.i.i.i
   %cmp5.i.i.i.i.i = icmp eq i32 %call4.i.i.i.i.i, 0
   %cmp8.i.i.i.i.i = icmp ult i64 %4, %2
-  %spec.select.i.i.i.i.i = select i1 %cmp5.i.i.i.i.i, i1 %cmp8.i.i.i.i.i, i1 false
+  %spec.select.i.i.i.i.i = and i1 %cmp8.i.i.i.i.i, %cmp5.i.i.i.i.i
   br i1 %spec.select.i.i.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i, %while.body.i.i.i
@@ -8475,7 +8475,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeIN3zm
 _ZNSt3mapIN3zmq6blob_tENS0_21routing_socket_base_t10out_pipe_tESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit: ; preds = %lor.lhs.false.i.i
   %cmp5.i.i.i.i = icmp eq i32 %call4.i.i.i.i, 0
   %cmp8.i.i.i.i = icmp ult i64 %2, %7
-  %spec.select.i.i.i.i = select i1 %cmp5.i.i.i.i, i1 %cmp8.i.i.i.i, i1 false
+  %spec.select.i.i.i.i = and i1 %cmp8.i.i.i.i, %cmp5.i.i.i.i
   %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 56
   %spec.select = select i1 %spec.select.i.i.i.i, ptr null, ptr %second
   br label %cond.end
@@ -8515,7 +8515,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i: ; preds = %while.body.i.i.i
   %cmp5.i.i.i.i.i = icmp eq i32 %call4.i.i.i.i.i, 0
   %cmp8.i.i.i.i.i = icmp ult i64 %4, %2
-  %spec.select.i.i.i.i.i = select i1 %cmp5.i.i.i.i.i, i1 %cmp8.i.i.i.i.i, i1 false
+  %spec.select.i.i.i.i.i = and i1 %cmp8.i.i.i.i.i, %cmp5.i.i.i.i.i
   br i1 %spec.select.i.i.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i, %while.body.i.i.i
@@ -8546,7 +8546,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZNKSt8_Rb_treeIN3z
 _ZNKSt3mapIN3zmq6blob_tENS0_21routing_socket_base_t10out_pipe_tESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit: ; preds = %lor.lhs.false.i.i
   %cmp5.i.i.i.i = icmp eq i32 %call4.i.i.i.i, 0
   %cmp8.i.i.i.i = icmp ult i64 %2, %7
-  %spec.select.i.i.i.i = select i1 %cmp5.i.i.i.i, i1 %cmp8.i.i.i.i, i1 false
+  %spec.select.i.i.i.i = and i1 %cmp8.i.i.i.i, %cmp5.i.i.i.i
   %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 56
   %spec.select = select i1 %spec.select.i.i.i.i, ptr null, ptr %second
   br label %cond.end
@@ -8615,7 +8615,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i: ; preds = %while.body.i.i.i
   %cmp5.i.i.i.i.i = icmp eq i32 %call4.i.i.i.i.i, 0
   %cmp8.i.i.i.i.i = icmp ult i64 %4, %2
-  %spec.select.i.i.i.i.i = select i1 %cmp5.i.i.i.i.i, i1 %cmp8.i.i.i.i.i, i1 false
+  %spec.select.i.i.i.i.i = and i1 %cmp8.i.i.i.i.i, %cmp5.i.i.i.i.i
   br i1 %spec.select.i.i.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i.i.i, %while.body.i.i.i
@@ -8646,7 +8646,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeIN3zm
 _ZNSt3mapIN3zmq6blob_tENS0_21routing_socket_base_t10out_pipe_tESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit: ; preds = %lor.lhs.false.i.i
   %cmp5.i.i.i.i = icmp eq i32 %call4.i.i.i.i, 0
   %cmp8.i.i.i.i = icmp ult i64 %2, %7
-  %spec.select.i.i.i.i = select i1 %cmp5.i.i.i.i, i1 %cmp8.i.i.i.i, i1 false
+  %spec.select.i.i.i.i = and i1 %cmp8.i.i.i.i, %cmp5.i.i.i.i
   br i1 %spec.select.i.i.i.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNSt3mapIN3zmq6blob_tENS0_21routing_socket_base_t10out_pipe_tESt4lessIS1_ESaISt4pairIKS1_S3_EEE4findERS7_.exit
@@ -10208,7 +10208,7 @@ lor.rhs.i.i:                                      ; preds = %if.then
 lor.rhs.i.i.i.i:                                  ; preds = %lor.rhs.i.i
   %cmp5.i.i.i.i = icmp eq i32 %call4.i.i.i.i, 0
   %cmp8.i.i.i.i = icmp ult i64 %9, %8
-  %spec.select.i.i.i.i = select i1 %cmp5.i.i.i.i, i1 %cmp8.i.i.i.i, i1 false
+  %spec.select.i.i.i.i = and i1 %cmp8.i.i.i.i, %cmp5.i.i.i.i
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.then, %lor.rhs.i.i, %lor.rhs.i.i.i.i
@@ -10275,8 +10275,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cmp.i.i = icmp slt i32 %call4.i.i, 0
   %cmp5.i.i = icmp eq i32 %call4.i.i, 0
   %cmp8.i.i = icmp ult i64 %1, %3
-  %spec.select.i.i = select i1 %cmp5.i.i, i1 %cmp8.i.i, i1 false
-  %5 = select i1 %cmp.i.i, i1 true, i1 %spec.select.i.i
+  %spec.select.i.i = and i1 %cmp8.i.i, %cmp5.i.i
+  %5 = or i1 %cmp.i.i, %spec.select.i.i
   %.sink = select i1 %5, i64 16, i64 24
   %_M_right.i = getelementptr inbounds i8, ptr %__x.028, i64 %.sink
   %__x.0 = load ptr, ptr %_M_right.i, align 8
@@ -10284,7 +10284,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !48
 
 while.end:                                        ; preds = %while.body
-  %6 = select i1 %cmp.i.i, i1 true, i1 %spec.select.i.i
+  %6 = or i1 %cmp.i.i, %spec.select.i.i
   br i1 %6, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %entry, %while.end
@@ -10316,7 +10316,7 @@ if.end12:                                         ; preds = %if.else, %while.end
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit12:     ; preds = %if.end12
   %cmp5.i.i9 = icmp eq i32 %call4.i.i6, 0
   %cmp8.i.i10 = icmp ult i64 %11, %10
-  %spec.select.i.i11 = select i1 %cmp5.i.i9, i1 %cmp8.i.i10, i1 false
+  %spec.select.i.i11 = and i1 %cmp8.i.i10, %cmp5.i.i9
   %spec.select = select i1 %spec.select.i.i11, ptr null, ptr %__j.sroa.0.0
   %spec.select25 = select i1 %spec.select.i.i11, ptr %__y.0.lcssa32, ptr null
   br label %return
@@ -10394,7 +10394,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit:       ; preds = %while.body
   %cmp5.i.i = icmp eq i32 %call4.i.i, 0
   %cmp8.i.i = icmp ult i64 %3, %1
-  %spec.select.i.i = select i1 %cmp5.i.i, i1 %cmp8.i.i, i1 false
+  %spec.select.i.i = and i1 %cmp8.i.i, %cmp5.i.i
   br i1 %spec.select.i.i, label %if.end19, label %if.else
 
 if.else:                                          ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit
@@ -10405,7 +10405,7 @@ if.else:                                          ; preds = %_ZNKSt4lessIN3zmq6b
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit26:     ; preds = %if.else
   %cmp5.i.i23 = icmp eq i32 %call4.i.i20, 0
   %cmp8.i.i24 = icmp ult i64 %1, %3
-  %spec.select.i.i25 = select i1 %cmp5.i.i23, i1 %cmp8.i.i24, i1 false
+  %spec.select.i.i25 = and i1 %cmp8.i.i24, %cmp5.i.i23
   br i1 %spec.select.i.i25, label %if.end19, label %if.else12
 
 if.else12:                                        ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit26
@@ -10431,7 +10431,7 @@ while.body.i:                                     ; preds = %if.else12, %if.end.
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i:     ; preds = %while.body.i
   %cmp5.i.i.i = icmp eq i32 %call4.i.i.i, 0
   %cmp8.i.i.i = icmp ult i64 %8, %1
-  %spec.select.i.i.i = select i1 %cmp5.i.i.i, i1 %cmp8.i.i.i, i1 false
+  %spec.select.i.i.i = and i1 %cmp8.i.i.i, %cmp5.i.i.i
   br i1 %spec.select.i.i.i, label %if.else.i, label %if.end.i
 
 if.else.i:                                        ; preds = %_ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i, %while.body.i
@@ -10465,7 +10465,7 @@ while.body.i32:                                   ; preds = %_ZNSt8_Rb_treeIN3zm
 _ZNKSt4lessIN3zmq6blob_tEEclERKS1_S4_.exit.i39:   ; preds = %while.body.i32
   %cmp5.i.i.i40 = icmp eq i32 %call4.i.i.i37, 0
   %cmp8.i.i.i41 = icmp ult i64 %1, %11
-  %spec.select.i.i.i42 = select i1 %cmp5.i.i.i40, i1 %cmp8.i.i.i41, i1 false
+  %spec.select.i.i.i42 = and i1 %cmp8.i.i.i41, %cmp5.i.i.i40
   %spec.select.i = select i1 %spec.select.i.i.i42, i64 16, i64 24
   %spec.select8.i = select i1 %spec.select.i.i.i42, ptr %__x.addr.07.i33, ptr %__y.addr.06.i34
   br label %if.end.i43

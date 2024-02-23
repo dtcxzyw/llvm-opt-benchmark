@@ -185,7 +185,7 @@ if.end92.us:                                      ; preds = %land.lhs.true71.us
   %sub94.us = add nsw i32 %patternLen.addr.3.us, -2
   %cmp95.not.us = icmp slt i8 %.pre146, %spec.select7783.us
   %cmp98.not.us = icmp sgt i8 %.pre146, %spec.select7884.us
-  %or.cond79.us = select i1 %cmp95.not.us, i1 true, i1 %cmp98.not.us
+  %or.cond79.us = or i1 %cmp95.not.us, %cmp98.not.us
   %spec.select82.us = select i1 %or.cond79.us, i32 %match.0.us, i32 1
   br label %if.end128.us
 

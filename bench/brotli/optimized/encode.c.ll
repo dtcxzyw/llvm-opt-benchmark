@@ -4909,7 +4909,7 @@ if.then3:                                         ; preds = %entry
   %4 = load i32, ptr %stream_state_.i, align 4
   %cmp.i = icmp eq i32 %4, 1
   %cmp1.i = icmp eq i64 %0, %consumed_size.0
-  %or.cond = select i1 %cmp.i, i1 %cmp1.i, i1 false
+  %or.cond = and i1 %cmp1.i, %cmp.i
   br i1 %or.cond, label %if.then.i, label %if.end6
 
 if.then.i:                                        ; preds = %if.then3

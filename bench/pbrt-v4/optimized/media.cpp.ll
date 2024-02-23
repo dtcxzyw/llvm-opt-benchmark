@@ -23250,7 +23250,7 @@ entry:
   %p.sroa.3.0.extract.trunc.i = trunc i64 %p.sroa.3.0.extract.shift.i to i32
   %cmp.not.i = icmp sle i32 %.sroa.speculated10.i.i, %p.sroa.0.0.extract.trunc.i
   %cmp4.i = icmp sgt i32 %.sroa.speculated10.i11.i, %p.sroa.0.0.extract.trunc.i
-  %or.cond.not12.not.not.i.not = select i1 %cmp.not.i, i1 %cmp4.i, i1 false
+  %or.cond.not12.not.not.i.not = and i1 %cmp.not.i, %cmp4.i
   %cmp8.not.i = icmp sle i32 %.sroa.speculated7.i.i, %p.sroa.3.0.extract.trunc.i
   %or.cond9.i = select i1 %or.cond.not12.not.not.i.not, i1 %cmp8.not.i, i1 false
   %cmp13.i = icmp sgt i32 %.sroa.speculated7.i12.i, %p.sroa.3.0.extract.trunc.i

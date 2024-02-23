@@ -6928,7 +6928,7 @@ if.end.i:                                         ; preds = %_ZN6google8protobuf
   %12 = load i32, ptr %11, align 8
   %current_size_4.i = getelementptr inbounds i8, ptr %this, i64 344
   %13 = load i32, ptr %current_size_4.i, align 8
-  %sub.i = sub i32 %12, %13
+  %sub.i = sub nsw i32 %12, %13
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %9)
   %14 = icmp sgt i32 %invariant.smin, 0
   br i1 %14, label %for.body.i.preheader, label %for.end.i
@@ -6957,14 +6957,10 @@ for.body8.i.lr.ph:                                ; preds = %for.end.i
   %cmp.i.i463 = icmp eq ptr %17, null
   %hooks_cookie_.i.i = getelementptr inbounds i8, ptr %17, i64 112
   %18 = sext i32 %sub.i to i64
-  br i1 %cmp.i.i463, label %for.body8.i.us.preheader, label %for.body8.i
+  br i1 %cmp.i.i463, label %for.body8.i.us, label %for.body8.i
 
-for.body8.i.us.preheader:                         ; preds = %for.body8.i.lr.ph
-  %wide.trip.count477 = sext i32 %9 to i64
-  br label %for.body8.i.us
-
-for.body8.i.us:                                   ; preds = %for.body8.i.us.preheader, %for.body8.i.us
-  %indvars.iv474 = phi i64 [ %18, %for.body8.i.us.preheader ], [ %indvars.iv.next475, %for.body8.i.us ]
+for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, %for.body8.i.us
+  %indvars.iv474 = phi i64 [ %indvars.iv.next475, %for.body8.i.us ], [ %18, %for.body8.i.lr.ph ]
   %arrayidx11.i.us = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv474
   %19 = load ptr, ptr %arrayidx11.i.us, align 8
   %call.i.i.us = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
@@ -6981,7 +6977,8 @@ for.body8.i.us:                                   ; preds = %for.body8.i.us.preh
   %arrayidx15.i.us = getelementptr inbounds ptr, ptr %call.i453, i64 %indvars.iv474
   store ptr %call.i.i.us, ptr %arrayidx15.i.us, align 8
   %indvars.iv.next475 = add nsw i64 %indvars.iv474, 1
-  %exitcond478.not = icmp eq i64 %indvars.iv.next475, %wide.trip.count477
+  %lftr.wideiv477 = trunc i64 %indvars.iv.next475 to i32
+  %exitcond478.not = icmp eq i32 %9, %lftr.wideiv477
   br i1 %exitcond478.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN22protobuf_test_messages6proto220ForeignMessageProto2EE11TypeHandlerEEEvPPvSB_ii.exit, label %for.body8.i.us, !llvm.loop !30
 
 for.body8.i:                                      ; preds = %for.body8.i.lr.ph, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
@@ -149679,7 +149676,7 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %2, align 8
   %current_size_4.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %current_size_4.i, align 8
-  %sub.i = sub i32 %3, %4
+  %sub.i = sub nsw i32 %3, %4
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %0)
   %5 = icmp sgt i32 %invariant.smin, 0
   br i1 %5, label %for.body.i.preheader, label %for.end.i

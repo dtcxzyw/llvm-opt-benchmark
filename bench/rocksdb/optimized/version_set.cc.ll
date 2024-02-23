@@ -2915,7 +2915,7 @@ _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit463: ; preds = %while.cond.i
   %223 = load i8, ptr %agg.result, align 8
   %cmp.i97 = icmp ne i8 %223, 0
   %cmp.i104.not = icmp eq i64 %inc.i454.lcssa, %215
-  %or.cond526 = select i1 %cmp.i97, i1 true, i1 %cmp.i104.not
+  %or.cond526 = or i1 %cmp.i97, %cmp.i104.not
   br i1 %or.cond526, label %for.end310, label %invoke.cont89, !llvm.loop !17
 
 for.end310:                                       ; preds = %while.cond.i.i93, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit463, %_ZNK7rocksdb15MultiGetContext5Range5beginEv.exit96

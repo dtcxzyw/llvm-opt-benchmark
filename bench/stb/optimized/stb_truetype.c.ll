@@ -16406,7 +16406,7 @@ if.then81:                                        ; preds = %for.body
   %cmp165 = fcmp ogt float %y.addr.0, %conv164
   %conv168 = sitofp i16 %cond163144 to float
   %cmp169 = fcmp olt float %y.addr.0, %conv168
-  %or.cond128 = select i1 %cmp165, i1 %cmp169, i1 false
+  %or.cond128 = and i1 %cmp165, %cmp169
   %conv172 = sitofp i16 %. to float
   %cmp173 = fcmp olt float %conv172, %x
   %or.cond129 = select i1 %or.cond128, i1 %cmp173, i1 false
@@ -16425,7 +16425,7 @@ if.then175:                                       ; preds = %if.then81
   %21 = extractelement <2 x float> %16, i64 1
   %22 = extractelement <2 x float> %17, i64 1
   %cmp4.i = fcmp une float %21, %22
-  %or.cond145 = select i1 %cmp.i, i1 true, i1 %cmp4.i
+  %or.cond145 = or i1 %cmp.i, %cmp4.i
   br i1 %or.cond145, label %lor.lhs.false, label %if.then194
 
 lor.lhs.false:                                    ; preds = %if.then175
@@ -16433,7 +16433,7 @@ lor.lhs.false:                                    ; preds = %if.then175
   %cmp.i130 = fcmp une float %20, %23
   %24 = extractelement <2 x float> %18, i64 1
   %cmp4.i135 = fcmp une float %22, %24
-  %or.cond146 = select i1 %cmp.i130, i1 true, i1 %cmp4.i135
+  %or.cond146 = or i1 %cmp.i130, %cmp4.i135
   br i1 %or.cond146, label %if.else261, label %if.then194
 
 if.then194:                                       ; preds = %lor.lhs.false, %if.then175

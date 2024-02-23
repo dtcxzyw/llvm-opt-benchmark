@@ -3618,7 +3618,7 @@ if.end.i95.i:                                     ; preds = %while.body.i92.i
   %cond.i97.i = call i64 @llvm.umin.i64(i64 %div.i96.i, i64 %live.addr.0.i.i)
   %tobool7.not.i.i = icmp eq ptr %call.i94.i, null
   %tobool.not16.i.i.i = icmp eq i64 %cond.i97.i, 0
-  %or.cond31.i.i = select i1 %tobool7.not.i.i, i1 true, i1 %tobool.not16.i.i.i
+  %or.cond31.i.i = or i1 %tobool7.not.i.i, %tobool.not16.i.i.i
   br i1 %or.cond31.i.i, label %if.end9.i.i, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %if.end.i95.i
@@ -3679,7 +3679,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end9.i.i
   %sub.i100.i = sub i64 %live.addr.0.i.i, %div19.i.i
   %cmp27.i.i = icmp uge i64 %div19.i.i, %cond.i97.i
   %tobool.i.i = icmp ne i64 %sub.i100.i, 0
-  %or.cond.i.i = select i1 %cmp27.i.i, i1 %tobool.i.i, i1 false
+  %or.cond.i.i = and i1 %cmp27.i.i, %tobool.i.i
   br i1 %or.cond.i.i, label %while.body.i92.i, label %while.end.i.i, !llvm.loop !22
 
 while.end.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.end9.i.i, %while.body.i92.i

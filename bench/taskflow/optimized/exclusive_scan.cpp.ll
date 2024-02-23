@@ -20941,7 +20941,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i64 %w.0111, 1
   %cmp22 = icmp ult i64 %inc, %spec.select
   %cmp23 = icmp ult i64 %add35, %sub.ptr.div.i.i.i
-  %25 = select i1 %cmp22, i1 %cmp23, i1 false
+  %25 = and i1 %cmp22, %cmp23
   br i1 %25, label %for.body, label %for.cond39.preheader, !llvm.loop !270
 
 lpad33.loopexit:                                  ; preds = %if.then.i

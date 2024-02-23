@@ -1233,7 +1233,7 @@ while.end143:                                     ; preds = %while.body140, %whi
   %and144 = and i32 %spec.select6985, 256
   %tobool145.not = icmp ne i32 %and144, 0
   %cmp149110 = icmp ugt i32 %width.3, %add89
-  %or.cond114 = select i1 %tobool145.not, i1 %cmp149110, i1 false
+  %or.cond114 = and i1 %tobool145.not, %cmp149110
   br i1 %or.cond114, label %while.body151.preheader, label %if.end154
 
 while.body151.preheader:                          ; preds = %while.end143

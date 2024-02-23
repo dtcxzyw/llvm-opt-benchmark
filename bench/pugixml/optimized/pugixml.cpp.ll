@@ -42832,7 +42832,7 @@ land.rhs.i.i:                                     ; preds = %while.cond.i.i
 
 _ZN4pugi4impl12_GLOBAL__N_135convert_number_to_mantissa_exponentEdRA32_cPPcPi.exit: ; preds = %while.cond.i.i, %land.rhs.i.i
   %end.addr.0.lcssa.i.i = phi ptr [ %scevgep.i.i, %while.cond.i.i ], [ %end.addr.0.i.i, %land.rhs.i.i ]
-  %inc.i = add i32 %call3.i, 1
+  %inc.i = add nsw i32 %call3.i, 1
   store i8 0, ptr %end.addr.0.lcssa.i.i, align 1
   %call1 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %mantissa_buffer) #43
   %cond = call i32 @llvm.abs.i32(i32 %inc.i, i1 true)
@@ -42897,21 +42897,12 @@ if.then8:                                         ; preds = %if.end6
 if.end9:                                          ; preds = %if.then8, %if.end6
   %s.0 = phi ptr [ %incdec.ptr, %if.then8 ], [ %retval.0.i16, %if.end6 ]
   %cmp10 = icmp slt i32 %call3.i, 0
-  br i1 %cmp10, label %if.then11, label %while.body.preheader
+  br i1 %cmp10, label %if.end21, label %while.body
 
-while.body.preheader:                             ; preds = %if.end9
-  %smin = call i32 @llvm.smin.i32(i32 %inc.i, i32 1)
-  br label %while.body
-
-if.then11:                                        ; preds = %if.end9
-  %incdec.ptr12 = getelementptr inbounds i8, ptr %s.0, i64 1
-  store i8 48, ptr %s.0, align 1
-  br label %if.end21
-
-while.body:                                       ; preds = %while.body.preheader, %while.body
-  %s.137 = phi ptr [ %incdec.ptr20, %while.body ], [ %s.0, %while.body.preheader ]
-  %exponent.036 = phi i32 [ %dec, %while.body ], [ %inc.i, %while.body.preheader ]
-  %mantissa.035 = phi ptr [ %spec.select, %while.body ], [ %arrayidx8.i, %while.body.preheader ]
+while.body:                                       ; preds = %if.end9, %while.body
+  %s.137 = phi ptr [ %incdec.ptr20, %while.body ], [ %s.0, %if.end9 ]
+  %exponent.036 = phi i32 [ %dec, %while.body ], [ %inc.i, %if.end9 ]
+  %mantissa.035 = phi ptr [ %spec.select, %while.body ], [ %arrayidx8.i, %if.end9 ]
   %12 = load i8, ptr %mantissa.035, align 1
   %tobool14.not = icmp ne i8 %12, 0
   %spec.select.idx = zext i1 %tobool14.not to i64
@@ -42920,46 +42911,52 @@ while.body:                                       ; preds = %while.body.preheade
   %incdec.ptr20 = getelementptr inbounds i8, ptr %s.137, i64 1
   store i8 %spec.select33, ptr %s.137, align 1
   %dec = add nsw i32 %exponent.036, -1
-  %cmp13 = icmp sgt i32 %exponent.036, 1
-  br i1 %cmp13, label %while.body, label %if.end21.loopexit, !llvm.loop !379
+  %cmp13 = icmp ugt i32 %exponent.036, 1
+  br i1 %cmp13, label %while.body, label %if.end21.thread, !llvm.loop !379
 
-if.end21.loopexit:                                ; preds = %while.body
-  %13 = add i32 %smin, -1
-  br label %if.end21
-
-if.end21:                                         ; preds = %if.end21.loopexit, %if.then11
-  %mantissa.2 = phi ptr [ %arrayidx8.i, %if.then11 ], [ %spec.select, %if.end21.loopexit ]
-  %exponent.1 = phi i32 [ %inc.i, %if.then11 ], [ %13, %if.end21.loopexit ]
-  %s.2 = phi ptr [ %incdec.ptr12, %if.then11 ], [ %incdec.ptr20, %if.end21.loopexit ]
-  %14 = load i8, ptr %mantissa.2, align 1
-  %tobool22.not = icmp eq i8 %14, 0
+if.end21:                                         ; preds = %if.end9
+  %incdec.ptr12 = getelementptr inbounds i8, ptr %s.0, i64 1
+  store i8 48, ptr %s.0, align 1
+  %13 = load i8, ptr %arrayidx8.i, align 1
+  %tobool22.not = icmp eq i8 %13, 0
   br i1 %tobool22.not, label %if.end36, label %if.then23
 
+if.end21.thread:                                  ; preds = %while.body
+  %14 = load i8, ptr %spec.select, align 1
+  %tobool22.not53 = icmp eq i8 %14, 0
+  br i1 %tobool22.not53, label %if.end36, label %if.then23.thread
+
+if.then23.thread:                                 ; preds = %if.end21.thread
+  store i8 46, ptr %incdec.ptr20, align 1
+  %s.34060 = getelementptr i8, ptr %s.137, i64 2
+  br label %while.cond30.preheader
+
 if.then23:                                        ; preds = %if.end21
-  store i8 46, ptr %s.2, align 1
-  %s.340 = getelementptr i8, ptr %s.2, i64 1
-  %cmp2641 = icmp slt i32 %exponent.1, 0
-  br i1 %cmp2641, label %while.body27.preheader, label %while.cond30.preheader
+  store i8 46, ptr %incdec.ptr12, align 1
+  %s.340 = getelementptr i8, ptr %s.0, i64 2
+  %cmp2641.not = icmp eq i32 %call3.i, -1
+  br i1 %cmp2641.not, label %while.cond30.preheader, label %while.body27.preheader
 
 while.body27.preheader:                           ; preds = %if.then23
-  %15 = xor i32 %exponent.1, -1
+  %15 = sub nsw i32 -2, %call3.i
   %16 = zext nneg i32 %15 to i64
   %17 = add nuw nsw i64 %16, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %s.340, i8 48, i64 %17, i1 false)
-  %18 = add nuw nsw i64 %16, 2
-  %scevgep = getelementptr i8, ptr %s.2, i64 %18
+  %18 = getelementptr i8, ptr %incdec.ptr12, i64 %16
+  %scevgep = getelementptr i8, ptr %18, i64 2
   br label %while.cond30.preheader
 
-while.cond30.preheader:                           ; preds = %while.body27.preheader, %if.then23
-  %s.3.lcssa = phi ptr [ %s.340, %if.then23 ], [ %scevgep, %while.body27.preheader ]
-  %19 = load i8, ptr %mantissa.2, align 1
+while.cond30.preheader:                           ; preds = %if.then23.thread, %while.body27.preheader, %if.then23
+  %mantissa.25462 = phi ptr [ %arrayidx8.i, %if.then23 ], [ %arrayidx8.i, %while.body27.preheader ], [ %spec.select, %if.then23.thread ]
+  %s.3.lcssa = phi ptr [ %s.340, %if.then23 ], [ %scevgep, %while.body27.preheader ], [ %s.34060, %if.then23.thread ]
+  %19 = load i8, ptr %mantissa.25462, align 1
   %tobool31.not45 = icmp eq i8 %19, 0
   br i1 %tobool31.not45, label %if.end36, label %while.body32
 
 while.body32:                                     ; preds = %while.cond30.preheader, %while.body32
   %20 = phi i8 [ %21, %while.body32 ], [ %19, %while.cond30.preheader ]
   %s.447 = phi ptr [ %incdec.ptr34, %while.body32 ], [ %s.3.lcssa, %while.cond30.preheader ]
-  %mantissa.346 = phi ptr [ %incdec.ptr33, %while.body32 ], [ %mantissa.2, %while.cond30.preheader ]
+  %mantissa.346 = phi ptr [ %incdec.ptr33, %while.body32 ], [ %mantissa.25462, %while.cond30.preheader ]
   %incdec.ptr33 = getelementptr inbounds i8, ptr %mantissa.346, i64 1
   %incdec.ptr34 = getelementptr inbounds i8, ptr %s.447, i64 1
   store i8 %20, ptr %s.447, align 1
@@ -42967,8 +42964,8 @@ while.body32:                                     ; preds = %while.cond30.prehea
   %tobool31.not = icmp eq i8 %21, 0
   br i1 %tobool31.not, label %if.end36, label %while.body32, !llvm.loop !380
 
-if.end36:                                         ; preds = %while.body32, %while.cond30.preheader, %if.end21
-  %s.5 = phi ptr [ %s.2, %if.end21 ], [ %s.3.lcssa, %while.cond30.preheader ], [ %incdec.ptr34, %while.body32 ]
+if.end36:                                         ; preds = %while.body32, %if.end21.thread, %while.cond30.preheader, %if.end21
+  %s.5 = phi ptr [ %incdec.ptr12, %if.end21 ], [ %s.3.lcssa, %while.cond30.preheader ], [ %incdec.ptr20, %if.end21.thread ], [ %incdec.ptr34, %while.body32 ]
   store i8 0, ptr %s.5, align 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %s.5 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %retval.0.i16 to i64
@@ -48193,9 +48190,6 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #40
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #38
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

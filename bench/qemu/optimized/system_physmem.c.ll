@@ -10896,7 +10896,7 @@ while.body6:                                      ; preds = %while.body6, %while
   %cmp14.not = icmp uge i64 %call13, %sub10
   %inc = add nuw nsw i64 %idx.019, 1
   %cmp5.not = icmp ult i64 %add7, %shr
-  %or.cond = select i1 %cmp14.not, i1 %cmp5.not, i1 false
+  %or.cond = and i1 %cmp14.not, %cmp5.not
   br i1 %or.cond, label %while.body6, label %if.then.i.i, !llvm.loop !101
 
 if.then.i.i:                                      ; preds = %while.body6, %rcu_read_auto_lock.exit

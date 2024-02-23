@@ -12224,7 +12224,7 @@ while.body6.i:                                    ; preds = %while.body6.i, %whi
   %cmp14.i = icmp ult i64 %call13.i, %sub10.i
   %inc.i = add nuw nsw i64 %idx.025.i, 1
   %cmp5.i = icmp uge i64 %add7.i, %shr.i
-  %or.cond.not = select i1 %cmp14.i, i1 true, i1 %cmp5.i
+  %or.cond.not = or i1 %cmp5.i, %cmp14.i
   br i1 %or.cond.not, label %for.inc.i, label %while.body6.i, !llvm.loop !187
 
 for.inc.i:                                        ; preds = %while.body6.i, %rcu_read_auto_lock.exit.i
@@ -12626,7 +12626,7 @@ tlb_fill.exit:                                    ; preds = %if.then9
   br label %if.end
 
 if.end:                                           ; preds = %qemu_spin_lock.exit.i, %tlb_fill.exit
-  %cmp19.i58 = phi i1 [ true, %tlb_fill.exit ], [ false, %qemu_spin_lock.exit.i ]
+  %maybe_resized.0 = phi i1 [ true, %tlb_fill.exit ], [ false, %qemu_spin_lock.exit.i ]
   %entry2.0 = phi ptr [ %arrayidx1.i54, %tlb_fill.exit ], [ %arrayidx1.i, %qemu_spin_lock.exit.i ]
   %index.0 = phi i64 [ %and.i47, %tlb_fill.exit ], [ %and.i, %qemu_spin_lock.exit.i ]
   %arrayidx.i56 = getelementptr [4 x i64], ptr %entry2.0, i64 0, i64 %idxprom.i
@@ -12636,7 +12636,7 @@ if.end:                                           ; preds = %qemu_spin_lock.exit
 
 if.end16:                                         ; preds = %if.end, %entry
   %tlb_addr.0 = phi i64 [ %3, %entry ], [ %and15, %if.end ]
-  %maybe_resized.1 = phi i1 [ false, %entry ], [ %cmp19.i58, %if.end ]
+  %maybe_resized.1 = phi i1 [ false, %entry ], [ %maybe_resized.0, %if.end ]
   %entry2.1 = phi ptr [ %arrayidx1.i, %entry ], [ %entry2.0, %if.end ]
   %index.1 = phi i64 [ %and.i, %entry ], [ %index.0, %if.end ]
   %d = getelementptr inbounds i8, ptr %cpu, i64 816

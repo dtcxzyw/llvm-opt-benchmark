@@ -3150,7 +3150,7 @@ if.then15.i.i:                                    ; preds = %if.end.i.i
   store i64 %mul.i33.i, ptr %reservationBytes_.i.i, align 8
   %cmp.i21.i.i = icmp slt i64 %mul.i33.i, %sub.i.i
   %cmp3.i.i.i = icmp slt i64 %mul.i33.i, %11
-  %or.cond.i = select i1 %cmp.i21.i.i, i1 true, i1 %cmp3.i.i.i
+  %or.cond.i = or i1 %cmp.i21.i.i, %cmp3.i.i.i
   %cmp5.i.i.i = icmp slt i64 %sub.i.i, 0
   %or.cond16.i = or i1 %cmp5.i.i.i, %or.cond.i
   br i1 %or.cond16.i, label %if.then.i.i.i, label %_ZNK8facebook5velox6memory14MemoryPoolImpl17sanityCheckLockedEv.exit.i.i
@@ -3547,7 +3547,7 @@ if.then15.i:                                      ; preds = %if.end12.i
   store i64 %newQuantized.i.0, ptr %reservationBytes_.i, align 8
   %cmp.i21.i = icmp slt i64 %newQuantized.i.0, %11
   %cmp3.i.i = icmp slt i64 %newQuantized.i.0, %10
-  %or.cond = select i1 %cmp.i21.i, i1 true, i1 %cmp3.i.i
+  %or.cond = or i1 %cmp.i21.i, %cmp3.i.i
   %cmp5.i.i = icmp slt i64 %11, 0
   %or.cond16 = or i1 %cmp5.i.i, %or.cond
   br i1 %or.cond16, label %if.then.i.i, label %_ZNK8facebook5velox6memory14MemoryPoolImpl17sanityCheckLockedEv.exit.i
@@ -3838,7 +3838,7 @@ if.then15.i.i:                                    ; preds = %if.end.i.i
   store i64 %mul.i33.i, ptr %reservationBytes_.i.i, align 8
   %cmp.i21.i.i = icmp slt i64 %mul.i33.i, %sub.i.i
   %cmp3.i.i.i = icmp slt i64 %mul.i33.i, %10
-  %or.cond.i = select i1 %cmp.i21.i.i, i1 true, i1 %cmp3.i.i.i
+  %or.cond.i = or i1 %cmp.i21.i.i, %cmp3.i.i.i
   %cmp5.i.i.i = icmp slt i64 %sub.i.i, 0
   %or.cond16.i = or i1 %cmp5.i.i.i, %or.cond.i
   br i1 %or.cond16.i, label %if.then.i.i.i, label %_ZNK8facebook5velox6memory14MemoryPoolImpl17sanityCheckLockedEv.exit.i.i
@@ -4078,7 +4078,7 @@ if.then15.i.i:                                    ; preds = %if.end.i.i
   store i64 %mul.i33.i, ptr %reservationBytes_.i.i, align 8
   %cmp.i21.i.i = icmp slt i64 %mul.i33.i, %sub.i.i
   %cmp3.i.i.i = icmp slt i64 %mul.i33.i, %11
-  %or.cond.i = select i1 %cmp.i21.i.i, i1 true, i1 %cmp3.i.i.i
+  %or.cond.i = or i1 %cmp.i21.i.i, %cmp3.i.i.i
   %cmp5.i.i.i = icmp slt i64 %sub.i.i, 0
   %or.cond16.i = or i1 %cmp5.i.i.i, %or.cond.i
   br i1 %or.cond16.i, label %if.then.i.i.i, label %_ZNK8facebook5velox6memory14MemoryPoolImpl17sanityCheckLockedEv.exit.i.i
@@ -4352,7 +4352,7 @@ if.then15.i.i:                                    ; preds = %if.end.i.i
   store i64 %mul.i33.i, ptr %reservationBytes_.i.i, align 8
   %cmp.i21.i.i = icmp slt i64 %mul.i33.i, %sub.i.i
   %cmp3.i.i.i = icmp slt i64 %mul.i33.i, %13
-  %or.cond.i = select i1 %cmp.i21.i.i, i1 true, i1 %cmp3.i.i.i
+  %or.cond.i = or i1 %cmp.i21.i.i, %cmp3.i.i.i
   %cmp5.i.i.i = icmp slt i64 %sub.i.i, 0
   %or.cond16.i = or i1 %cmp5.i.i.i, %or.cond.i
   br i1 %or.cond16.i, label %if.then.i.i.i, label %_ZNK8facebook5velox6memory14MemoryPoolImpl17sanityCheckLockedEv.exit.i.i
@@ -5223,7 +5223,7 @@ if.then15.i.i:                                    ; preds = %if.end.i.i6
   store i64 %mul.i33.i, ptr %reservationBytes_.i.i, align 8
   %cmp.i21.i.i = icmp slt i64 %mul.i33.i, %sub.i.i
   %cmp3.i.i.i = icmp slt i64 %mul.i33.i, %23
-  %or.cond.i = select i1 %cmp.i21.i.i, i1 true, i1 %cmp3.i.i.i
+  %or.cond.i = or i1 %cmp.i21.i.i, %cmp3.i.i.i
   %cmp5.i.i.i = icmp slt i64 %sub.i.i, 0
   %or.cond16.i = or i1 %cmp5.i.i.i, %or.cond.i
   br i1 %or.cond16.i, label %if.then.i.i.i7, label %_ZNK8facebook5velox6memory14MemoryPoolImpl17sanityCheckLockedEv.exit.i.i
@@ -5902,7 +5902,7 @@ if.then15.i.i:                                    ; preds = %if.end.i.i8
   store i64 %mul.i33.i, ptr %reservationBytes_.i.i, align 8
   %cmp.i21.i.i = icmp slt i64 %mul.i33.i, %sub.i.i
   %cmp3.i.i.i = icmp slt i64 %mul.i33.i, %23
-  %or.cond.i = select i1 %cmp.i21.i.i, i1 true, i1 %cmp3.i.i.i
+  %or.cond.i = or i1 %cmp.i21.i.i, %cmp3.i.i.i
   %cmp5.i.i.i = icmp slt i64 %sub.i.i, 0
   %or.cond16.i = or i1 %cmp5.i.i.i, %or.cond.i
   br i1 %or.cond16.i, label %if.then.i.i.i9, label %_ZNK8facebook5velox6memory14MemoryPoolImpl17sanityCheckLockedEv.exit.i.i
@@ -6937,7 +6937,7 @@ if.end19:                                         ; preds = %if.then17, %if.end1
   %9 = phi i64 [ %newQuantized.0, %if.then17 ], [ %8, %if.end14 ]
   %cmp.i28 = icmp slt i64 %9, %7
   %cmp3.i = icmp slt i64 %9, %6
-  %or.cond = select i1 %cmp.i28, i1 true, i1 %cmp3.i
+  %or.cond = or i1 %cmp.i28, %cmp3.i
   %cmp5.i = icmp slt i64 %7, 0
   %or.cond16 = or i1 %cmp5.i, %or.cond
   br i1 %or.cond16, label %if.then.i, label %cleanup
@@ -10845,7 +10845,7 @@ if.then15.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   store i64 %mul.i33.i.i.i.i, ptr %reservationBytes_.i.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i = icmp slt i64 %mul.i33.i.i.i.i, %sub.i.i.i.i.i
   %cmp3.i.i.i.i.i.i = icmp slt i64 %mul.i33.i.i.i.i, %7
-  %or.cond.i.i.i.i = select i1 %cmp.i21.i.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i.i.i
+  %or.cond.i.i.i.i = or i1 %cmp.i21.i.i.i.i.i, %cmp3.i.i.i.i.i.i
   %cmp5.i.i.i.i.i.i = icmp slt i64 %sub.i.i.i.i.i, 0
   %or.cond16.i.i.i.i = or i1 %cmp5.i.i.i.i.i.i, %or.cond.i.i.i.i
   br i1 %or.cond16.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNK8facebook5velox6memory14MemoryPoolImpl17sanityCheckLockedEv.exit.i.i.i.i.i
@@ -10958,7 +10958,7 @@ if.then15.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   store i64 %mul.i33.i.i.i.i, ptr %reservationBytes_.i.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i = icmp slt i64 %mul.i33.i.i.i.i, %sub.i.i.i.i.i
   %cmp3.i.i.i.i.i.i = icmp slt i64 %mul.i33.i.i.i.i, %7
-  %or.cond.i.i.i.i = select i1 %cmp.i21.i.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i.i.i
+  %or.cond.i.i.i.i = or i1 %cmp.i21.i.i.i.i.i, %cmp3.i.i.i.i.i.i
   %cmp5.i.i.i.i.i.i = icmp slt i64 %sub.i.i.i.i.i, 0
   %or.cond16.i.i.i.i = or i1 %cmp5.i.i.i.i.i.i, %or.cond.i.i.i.i
   br i1 %or.cond16.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNK8facebook5velox6memory14MemoryPoolImpl17sanityCheckLockedEv.exit.i.i.i.i.i
@@ -11071,7 +11071,7 @@ if.then15.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   store i64 %mul.i33.i.i.i.i, ptr %reservationBytes_.i.i.i.i.i, align 8
   %cmp.i21.i.i.i.i.i = icmp slt i64 %mul.i33.i.i.i.i, %sub.i.i.i.i.i
   %cmp3.i.i.i.i.i.i = icmp slt i64 %mul.i33.i.i.i.i, %7
-  %or.cond.i.i.i.i = select i1 %cmp.i21.i.i.i.i.i, i1 true, i1 %cmp3.i.i.i.i.i.i
+  %or.cond.i.i.i.i = or i1 %cmp.i21.i.i.i.i.i, %cmp3.i.i.i.i.i.i
   %cmp5.i.i.i.i.i.i = icmp slt i64 %sub.i.i.i.i.i, 0
   %or.cond16.i.i.i.i = or i1 %cmp5.i.i.i.i.i.i, %or.cond.i.i.i.i
   br i1 %or.cond16.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNK8facebook5velox6memory14MemoryPoolImpl17sanityCheckLockedEv.exit.i.i.i.i.i

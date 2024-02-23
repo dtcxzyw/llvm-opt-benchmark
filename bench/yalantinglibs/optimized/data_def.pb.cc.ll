@@ -13818,7 +13818,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
@@ -13943,7 +13943,7 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %2, align 8
   %current_size_4.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %current_size_4.i, align 8
-  %sub.i = sub i32 %3, %4
+  %sub.i = sub nsw i32 %3, %4
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %0)
   %5 = icmp sgt i32 %invariant.smin, 0
   br i1 %5, label %for.body.i.preheader, label %for.end.i
@@ -14022,7 +14022,7 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %2, align 8
   %current_size_4.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %current_size_4.i, align 8
-  %sub.i = sub i32 %3, %4
+  %sub.i = sub nsw i32 %3, %4
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %0)
   %5 = icmp sgt i32 %invariant.smin, 0
   br i1 %5, label %for.body.i.preheader, label %for.end.i
@@ -14051,14 +14051,10 @@ for.body8.i.lr.ph:                                ; preds = %for.end.i
   %cmp.i.i.i.i = icmp eq ptr %8, null
   %hooks_cookie_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %9 = sext i32 %sub.i to i64
-  br i1 %cmp.i.i.i.i, label %for.body8.i.us.preheader, label %for.body8.i
+  br i1 %cmp.i.i.i.i, label %for.body8.i.us, label %for.body8.i
 
-for.body8.i.us.preheader:                         ; preds = %for.body8.i.lr.ph
-  %wide.trip.count16 = sext i32 %0 to i64
-  br label %for.body8.i.us
-
-for.body8.i.us:                                   ; preds = %for.body8.i.us.preheader, %for.body8.i.us
-  %indvars.iv13 = phi i64 [ %9, %for.body8.i.us.preheader ], [ %indvars.iv.next14, %for.body8.i.us ]
+for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, %for.body8.i.us
+  %indvars.iv13 = phi i64 [ %indvars.iv.next14, %for.body8.i.us ], [ %9, %for.body8.i.lr.ph ]
   %arrayidx11.i.us = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv13
   %10 = load ptr, ptr %arrayidx11.i.us, align 8
   %call.i.i.i.i.us = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
@@ -14071,7 +14067,8 @@ for.body8.i.us:                                   ; preds = %for.body8.i.us.preh
   %arrayidx15.i.us = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv13
   store ptr %call.i.i.i.i.us, ptr %arrayidx15.i.us, align 8
   %indvars.iv.next14 = add nsw i64 %indvars.iv13, 1
-  %exitcond17.not = icmp eq i64 %indvars.iv.next14, %wide.trip.count16
+  %lftr.wideiv16 = trunc i64 %indvars.iv.next14 to i32
+  %exitcond17.not = icmp eq i32 %0, %lftr.wideiv16
   br i1 %exitcond17.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame4Vec3EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i.us, !llvm.loop !39
 
 for.body8.i:                                      ; preds = %for.body8.i.lr.ph, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
@@ -14136,7 +14133,7 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %2, align 8
   %current_size_4.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %current_size_4.i, align 8
-  %sub.i = sub i32 %3, %4
+  %sub.i = sub nsw i32 %3, %4
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %0)
   %5 = icmp sgt i32 %invariant.smin, 0
   br i1 %5, label %for.body.i.preheader, label %for.end.i
@@ -14315,7 +14312,7 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %2, align 8
   %current_size_4.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %current_size_4.i, align 8
-  %sub.i = sub i32 %3, %4
+  %sub.i = sub nsw i32 %3, %4
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %0)
   %5 = icmp sgt i32 %invariant.smin, 0
   br i1 %5, label %for.body.i.preheader, label %for.end.i
@@ -14344,14 +14341,10 @@ for.body8.i.lr.ph:                                ; preds = %for.end.i
   %cmp.i.i.i.i = icmp eq ptr %8, null
   %hooks_cookie_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %9 = sext i32 %sub.i to i64
-  br i1 %cmp.i.i.i.i, label %for.body8.i.us.preheader, label %for.body8.i
+  br i1 %cmp.i.i.i.i, label %for.body8.i.us, label %for.body8.i
 
-for.body8.i.us.preheader:                         ; preds = %for.body8.i.lr.ph
-  %wide.trip.count16 = sext i32 %0 to i64
-  br label %for.body8.i.us
-
-for.body8.i.us:                                   ; preds = %for.body8.i.us.preheader, %for.body8.i.us
-  %indvars.iv13 = phi i64 [ %9, %for.body8.i.us.preheader ], [ %indvars.iv.next14, %for.body8.i.us ]
+for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, %for.body8.i.us
+  %indvars.iv13 = phi i64 [ %indvars.iv.next14, %for.body8.i.us ], [ %9, %for.body8.i.lr.ph ]
   %arrayidx11.i.us = getelementptr inbounds ptr, ptr %elements.i, i64 %indvars.iv13
   %10 = load ptr, ptr %arrayidx11.i.us, align 8
   %call.i.i.i.i.us = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
@@ -14364,7 +14357,8 @@ for.body8.i.us:                                   ; preds = %for.body8.i.us.preh
   %arrayidx15.i.us = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv13
   store ptr %call.i.i.i.i.us, ptr %arrayidx15.i.us, align 8
   %indvars.iv.next14 = add nsw i64 %indvars.iv13, 1
-  %exitcond17.not = icmp eq i64 %indvars.iv.next14, %wide.trip.count16
+  %lftr.wideiv16 = trunc i64 %indvars.iv.next14 to i32
+  %exitcond17.not = icmp eq i32 %0, %lftr.wideiv16
   br i1 %exitcond17.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase18MergeFromInnerLoopINS0_16RepeatedPtrFieldIN6mygame6rect32EE11TypeHandlerEEEvPPvSA_ii.exit, label %for.body8.i.us, !llvm.loop !44
 
 for.body8.i:                                      ; preds = %for.body8.i.lr.ph, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
@@ -14429,7 +14423,7 @@ if.end:                                           ; preds = %entry
   %3 = load i32, ptr %2, align 8
   %current_size_4.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %current_size_4.i, align 8
-  %sub.i = sub i32 %3, %4
+  %sub.i = sub nsw i32 %3, %4
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %0)
   %5 = icmp sgt i32 %invariant.smin, 0
   br i1 %5, label %for.body.i.preheader, label %for.end.i
@@ -14523,7 +14517,7 @@ attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nofree nounwind memory(read) }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

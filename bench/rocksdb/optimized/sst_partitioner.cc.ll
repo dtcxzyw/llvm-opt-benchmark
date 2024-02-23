@@ -442,8 +442,8 @@ entry:
   %bcmp = tail call i32 @bcmp(ptr %last_key_fixed.sroa.0.0.copyload, ptr %current_key_fixed.sroa.0.0.copyload, i64 %..i)
   %cmp6.not.i = icmp ne i32 %bcmp, 0
   %cmp13.i = icmp ult i64 %current_key_fixed.sroa.2.0.copyload, %spec.select
-  %3 = select i1 %cmp6.not.i, i1 true, i1 %cmp.i
-  %cmp11.not = select i1 %3, i1 true, i1 %cmp13.i
+  %cmp11.not7 = or i1 %cmp13.i, %cmp.i
+  %cmp11.not = select i1 %cmp6.not.i, i1 true, i1 %cmp11.not7
   %cond = zext i1 %cmp11.not to i8
   ret i8 %cond
 }

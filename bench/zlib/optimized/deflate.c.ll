@@ -3344,7 +3344,7 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end49:                                         ; preds = %land.lhs.true, %if.end
   %cmp55 = icmp eq i32 %len.1, %add27
-  %spec.select265 = select i1 %cmp50, i1 %cmp55, i1 false
+  %spec.select265 = and i1 %cmp50, %cmp55
   %cond57 = zext i1 %spec.select265 to i32
   tail call void @_tr_stored_block(ptr noundef nonnull %s, ptr noundef null, i64 noundef 0, i32 noundef %cond57) #10
   %conv58 = trunc i32 %len.1 to i8

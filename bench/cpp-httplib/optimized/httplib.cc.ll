@@ -8420,7 +8420,7 @@ while.body:                                       ; preds = %entry, %while.body
   %cmp2 = icmp sgt i64 %call1, 0
   %add = add i64 %call1, %r.08
   %cmp = icmp ult i64 %add, %len
-  %or.cond = select i1 %cmp2, i1 %cmp, i1 false
+  %or.cond = and i1 %cmp2, %cmp
   br i1 %or.cond, label %while.body, label %while.end, !llvm.loop !42
 
 while.end:                                        ; preds = %while.body, %entry
@@ -99342,7 +99342,7 @@ while.body.i:                                     ; preds = %if.then28, %while.b
   %cmp2.i = icmp sgt i64 %call1.i, 0
   %add.i83 = add i64 %call1.i, %r.08.i
   %cmp.i84 = icmp ult i64 %add.i83, %retval.0.i78
-  %or.cond.i = select i1 %cmp2.i, i1 %cmp.i84, i1 false
+  %or.cond.i = and i1 %cmp2.i, %cmp.i84
   br i1 %or.cond.i, label %while.body.i, label %if.end44.thread159, !llvm.loop !42
 
 if.end44.thread159:                               ; preds = %while.body.i
@@ -103914,7 +103914,7 @@ while.body.i:                                     ; preds = %if.then28, %while.b
   %cmp2.i = icmp sgt i64 %call1.i, 0
   %add.i83 = add i64 %call1.i, %r.08.i
   %cmp.i84 = icmp ult i64 %add.i83, %retval.0.i78
-  %or.cond.i = select i1 %cmp2.i, i1 %cmp.i84, i1 false
+  %or.cond.i = and i1 %cmp2.i, %cmp.i84
   br i1 %or.cond.i, label %while.body.i, label %if.end44.thread159, !llvm.loop !42
 
 if.end44.thread159:                               ; preds = %while.body.i

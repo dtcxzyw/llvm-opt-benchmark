@@ -1087,7 +1087,7 @@ _ZN3net17QuicPacketCreator9BytesFreeEv.exit64:    ; preds = %_ZN3net17QuicPacket
   %sub61 = sub i64 %36, %60
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 %sub61)
   %cmp64 = icmp ule i64 %sub, %sub61
-  %61 = select i1 %fin, i1 %cmp64, i1 false
+  %61 = and i1 %cmp64, %fin
   %buffer_allocator_ = getelementptr inbounds i8, ptr %this, i64 48
   %62 = load ptr, ptr %buffer_allocator_, align 8
   call void @_ZN3net15NewStreamBufferEPNS_19QuicBufferAllocatorEm(ptr nonnull sret(%"class.std::unique_ptr.40") align 8 %buffer, ptr noundef %62, i64 noundef %.sroa.speculated)
@@ -2979,7 +2979,7 @@ invoke.cont43:                                    ; preds = %cleanup.done38
   %sub48 = sub i64 %25, %27
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 %sub48)
   %cmp52 = icmp ule i64 %sub, %sub48
-  %28 = select i1 %fin, i1 %cmp52, i1 false
+  %28 = and i1 %cmp52, %fin
   %buffer_allocator_ = getelementptr inbounds i8, ptr %this, i64 48
   %29 = load ptr, ptr %buffer_allocator_, align 8
   invoke void @_ZN3net15NewStreamBufferEPNS_19QuicBufferAllocatorEm(ptr nonnull sret(%"class.std::unique_ptr.40") align 8 %stream_buffer, ptr noundef %29, i64 noundef %.sroa.speculated)

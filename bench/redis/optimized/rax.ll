@@ -4786,7 +4786,7 @@ if.end24:                                         ; preds = %if.else, %if.end, %
 
 if.then35:                                        ; preds = %if.end24
   %cmp39 = icmp eq i64 %3, %key_len
-  %spec.select = select i1 %cmp36, i1 %cmp39, i1 false
+  %spec.select = and i1 %cmp36, %cmp39
   br label %return
 
 if.end41:                                         ; preds = %if.end24
@@ -4806,7 +4806,7 @@ if.then52:                                        ; preds = %if.else50
 
 if.else56:                                        ; preds = %if.else50
   %not.cmp823 = xor i1 %cmp8, true
-  %narrow = select i1 %not.cmp823, i1 %cmp26, i1 false
+  %narrow = and i1 %cmp26, %not.cmp823
   br label %return
 
 if.else63:                                        ; preds = %if.end41

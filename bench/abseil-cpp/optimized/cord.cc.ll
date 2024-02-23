@@ -13028,9 +13028,8 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp6.i, label %_ZNK4absl4Cord15CompareSlowPathESt17basic_string_viewIcSt11char_traitsIcEEmm.exit, label %while.cond.i, !llvm.loop !36
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end.i.i
-  %rhs.sroa.0.0.i.lcssa = phi i64 [ 0, %land.rhs.i ], [ %rhs.sroa.0.0.i, %if.end.i.i ]
   %lhs_chunk.sroa.0.232.i = phi i64 [ %lhs_chunk.sroa.0.2.ph.i, %land.rhs.i ], [ 0, %if.end.i.i ]
-  %cmp.i10.i = icmp eq i64 %rhs.sroa.0.0.i.lcssa, 0
+  %cmp.i10.i = icmp eq i64 %rhs.sroa.0.0.i, 0
   %conv.i = zext i1 %cmp.i10.i to i32
   %cmp.i11.i = icmp eq i64 %lhs_chunk.sroa.0.232.i, 0
   %conv11.neg.i = sext i1 %cmp.i11.i to i32

@@ -71330,7 +71330,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i.i, %whil
 _ZNK11flexbuffers7Builder19StringOffsetCompareclERKSt4pairImmES5_.exit.i.i.i: ; preds = %while.body.i.i.i
   %cmp9.i.i.i.i = icmp eq i32 %call8.i.i.i.i, 0
   %cmp12.i.i.i.i = icmp ult i64 %7, %len
-  %spec.select.i.i.i.i = select i1 %cmp9.i.i.i.i, i1 %cmp12.i.i.i.i, i1 false
+  %spec.select.i.i.i.i = and i1 %cmp12.i.i.i.i, %cmp9.i.i.i.i
   br i1 %spec.select.i.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
 
 if.else.i.i.i:                                    ; preds = %_ZNK11flexbuffers7Builder19StringOffsetCompareclERKSt4pairImmES5_.exit.i.i.i, %while.body.i.i.i
@@ -71363,7 +71363,7 @@ lor.lhs.false.i.i:                                ; preds = %_ZNSt8_Rb_treeISt4p
 _ZNSt3setISt4pairImmEN11flexbuffers7Builder19StringOffsetCompareESaIS1_EE4findERKS1_.exit: ; preds = %lor.lhs.false.i.i
   %cmp9.i.i.i = icmp eq i32 %call8.i.i.i, 0
   %cmp12.i.i.i = icmp ugt i64 %10, %len
-  %spec.select.i.i.i = select i1 %cmp9.i.i.i, i1 %cmp12.i.i.i, i1 false
+  %spec.select.i.i.i = and i1 %cmp12.i.i.i, %cmp9.i.i.i
   br i1 %spec.select.i.i.i, label %if.else, label %if.then8
 
 if.then8:                                         ; preds = %_ZNSt3setISt4pairImmEN11flexbuffers7Builder19StringOffsetCompareESaIS1_EE4findERKS1_.exit
@@ -71677,7 +71677,7 @@ lor.rhs.i:                                        ; preds = %if.then
 lor.rhs.i.i:                                      ; preds = %lor.rhs.i
   %cmp9.i.i = icmp eq i32 %call8.i.i, 0
   %cmp12.i.i = icmp ult i64 %7, %6
-  %spec.select.i.i = select i1 %cmp9.i.i, i1 %cmp12.i.i, i1 false
+  %spec.select.i.i = and i1 %cmp12.i.i, %cmp9.i.i
   br label %_ZNSt8_Rb_treeISt4pairImmES1_St9_IdentityIS1_EN11flexbuffers7Builder19StringOffsetCompareESaIS1_EE10_M_insert_IRKS1_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit
 
 _ZNSt8_Rb_treeISt4pairImmES1_St9_IdentityIS1_EN11flexbuffers7Builder19StringOffsetCompareESaIS1_EE10_M_insert_IRKS1_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSG_OT_RT0_.exit: ; preds = %if.then, %lor.rhs.i, %lor.rhs.i.i
@@ -71731,8 +71731,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cmp.i = icmp slt i32 %call8.i, 0
   %cmp9.i = icmp eq i32 %call8.i, 0
   %cmp12.i = icmp ult i64 %3, %5
-  %spec.select.i = select i1 %cmp9.i, i1 %cmp12.i, i1 false
-  %7 = select i1 %cmp.i, i1 true, i1 %spec.select.i
+  %spec.select.i = and i1 %cmp12.i, %cmp9.i
+  %7 = or i1 %cmp.i, %spec.select.i
   %.sink = select i1 %7, i64 16, i64 24
   %_M_right.i = getelementptr inbounds i8, ptr %__x.034, i64 %.sink
   %__x.0 = load ptr, ptr %_M_right.i, align 8
@@ -71740,7 +71740,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !1442
 
 while.end:                                        ; preds = %while.body
-  %8 = select i1 %cmp.i, i1 true, i1 %spec.select.i
+  %8 = or i1 %cmp.i, %spec.select.i
   br i1 %8, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %entry, %while.end
@@ -71777,7 +71777,7 @@ if.end12:                                         ; preds = %if.else, %while.end
 _ZNK11flexbuffers7Builder19StringOffsetCompareclERKSt4pairImmES5_.exit18: ; preds = %if.end12
   %cmp9.i15 = icmp eq i32 %call8.i12, 0
   %cmp12.i16 = icmp ult i64 %15, %14
-  %spec.select.i17 = select i1 %cmp9.i15, i1 %cmp12.i16, i1 false
+  %spec.select.i17 = and i1 %cmp12.i16, %cmp9.i15
   %spec.select = select i1 %spec.select.i17, ptr null, ptr %__j.sroa.0.0
   %spec.select31 = select i1 %spec.select.i17, ptr %__y.0.lcssa38, ptr null
   br label %return
@@ -72118,7 +72118,7 @@ while.body.i.i:                                   ; preds = %if.end, %if.end4.i.
   %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div, %if.end ]
   %storemerge27.i.i.in = add nuw nsw i64 %storemerge27.i.i.in.in, 1
   %storemerge27.i.i = lshr i64 %storemerge27.i.i.in, 1
-  %mul.i.i = shl nuw i64 %storemerge27.i.i, 2
+  %mul.i.i = shl nuw nsw i64 %storemerge27.i.i, 2
   %call.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #36
   %cmp2.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then.i
@@ -79674,7 +79674,7 @@ while.body.i.i:                                   ; preds = %if.end, %if.end4.i.
   %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div, %if.end ]
   %storemerge27.i.i.in = add nuw nsw i64 %storemerge27.i.i.in.in, 1
   %storemerge27.i.i = lshr i64 %storemerge27.i.i.in, 1
-  %mul.i.i = shl nuw i64 %storemerge27.i.i, 2
+  %mul.i.i = shl nuw nsw i64 %storemerge27.i.i, 2
   %call.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #36
   %cmp2.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then.i
@@ -81622,7 +81622,7 @@ while.body.i.i:                                   ; preds = %if.end, %if.end4.i.
   %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div, %if.end ]
   %storemerge27.i.i.in = add nuw nsw i64 %storemerge27.i.i.in.in, 1
   %storemerge27.i.i = lshr i64 %storemerge27.i.i.in, 1
-  %mul.i.i = shl nuw i64 %storemerge27.i.i, 2
+  %mul.i.i = shl nuw nsw i64 %storemerge27.i.i, 2
   %call.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #36
   %cmp2.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then.i
@@ -83570,7 +83570,7 @@ while.body.i.i:                                   ; preds = %if.end, %if.end4.i.
   %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div, %if.end ]
   %storemerge27.i.i.in = add nuw nsw i64 %storemerge27.i.i.in.in, 1
   %storemerge27.i.i = lshr i64 %storemerge27.i.i.in, 1
-  %mul.i.i = shl nuw i64 %storemerge27.i.i, 2
+  %mul.i.i = shl nuw nsw i64 %storemerge27.i.i, 2
   %call.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #36
   %cmp2.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then.i
@@ -85518,7 +85518,7 @@ while.body.i.i:                                   ; preds = %if.end, %if.end4.i.
   %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div, %if.end ]
   %storemerge27.i.i.in = add nuw nsw i64 %storemerge27.i.i.in.in, 1
   %storemerge27.i.i = lshr i64 %storemerge27.i.i.in, 1
-  %mul.i.i = shl nuw i64 %storemerge27.i.i, 2
+  %mul.i.i = shl nuw nsw i64 %storemerge27.i.i, 2
   %call.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #36
   %cmp2.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then.i
@@ -87466,7 +87466,7 @@ while.body.i.i:                                   ; preds = %if.end, %if.end4.i.
   %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div, %if.end ]
   %storemerge27.i.i.in = add nuw nsw i64 %storemerge27.i.i.in.in, 1
   %storemerge27.i.i = lshr i64 %storemerge27.i.i.in, 1
-  %mul.i.i = shl nuw i64 %storemerge27.i.i, 2
+  %mul.i.i = shl nuw nsw i64 %storemerge27.i.i, 2
   %call.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #36
   %cmp2.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then.i

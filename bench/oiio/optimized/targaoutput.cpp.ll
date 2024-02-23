@@ -1716,7 +1716,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %la
   %call2.i.i = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %zero.i.i, i64 noundef %.sroa.speculated.i.i, i64 noundef 1)
   %sub.i.i = sub i64 %n.addr.07.i.i, %.sroa.speculated.i.i
   %cmp.not.i.i = icmp ne i64 %sub.i.i, 0
-  %or.cond163.not = select i1 %call2.i.i, i1 %cmp.not.i.i, i1 false
+  %or.cond163.not = and i1 %cmp.not.i.i, %call2.i.i
   br i1 %or.cond163.not, label %while.body.i.i, label %_ZN18OpenImageIO_v2_6_09TGAOutput3padEm.exit.i, !llvm.loop !10
 
 _ZN18OpenImageIO_v2_6_09TGAOutput3padEm.exit.i:   ; preds = %while.body.i.i
@@ -1748,7 +1748,7 @@ while.body.i.i44:                                 ; preds = %while.body.i.i44, %
   %call2.i.i47 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %zero.i.i37, i64 noundef %.sroa.speculated.i.i46, i64 noundef 1)
   %sub.i.i51 = sub i64 %n.addr.07.i.i45, %.sroa.speculated.i.i46
   %cmp.not.i.i52 = icmp ne i64 %sub.i.i51, 0
-  %or.cond164.not = select i1 %call2.i.i47, i1 %cmp.not.i.i52, i1 false
+  %or.cond164.not = and i1 %cmp.not.i.i52, %call2.i.i47
   br i1 %or.cond164.not, label %while.body.i.i44, label %_ZN18OpenImageIO_v2_6_09TGAOutput3padEm.exit.i48, !llvm.loop !10
 
 _ZN18OpenImageIO_v2_6_09TGAOutput3padEm.exit.i48: ; preds = %while.body.i.i44
@@ -2137,7 +2137,7 @@ while.body.i:                                     ; preds = %land.rhs, %while.bo
   %call2.i = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %zero.i, i64 noundef %.sroa.speculated.i, i64 noundef 1)
   %sub.i = sub i64 %n.addr.07.i, %.sroa.speculated.i
   %cmp.not.i = icmp ne i64 %sub.i, 0
-  %or.cond.not = select i1 %call2.i, i1 %cmp.not.i, i1 false
+  %or.cond.not = and i1 %cmp.not.i, %call2.i
   br i1 %or.cond.not, label %while.body.i, label %_ZN18OpenImageIO_v2_6_09TGAOutput3padEm.exit, !llvm.loop !10
 
 _ZN18OpenImageIO_v2_6_09TGAOutput3padEm.exit:     ; preds = %while.body.i, %land.rhs
@@ -2167,7 +2167,7 @@ while.body:                                       ; preds = %entry, %while.body
   %call2 = call noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull %zero, i64 noundef %.sroa.speculated, i64 noundef 1)
   %sub = sub i64 %n.addr.07, %.sroa.speculated
   %cmp.not = icmp ne i64 %sub, 0
-  %or.cond.not = select i1 %call2, i1 %cmp.not, i1 false
+  %or.cond.not = and i1 %cmp.not, %call2
   br i1 %or.cond.not, label %while.body, label %return, !llvm.loop !10
 
 return:                                           ; preds = %while.body, %entry
@@ -33425,7 +33425,7 @@ _ZN3fmt2v86detail9normalizeILi0EEENS1_2fpES3_.exit: ; preds = %if.end42, %while.
   %ptr_.i93 = getelementptr inbounds i8, ptr %buf, i64 8
   %24 = load ptr, ptr %ptr_.i93, align 8
   %sub54 = sub nsw i32 348, %mul6.i
-  %sh_prom.i = zext i32 %add3.i.neg to i64
+  %sh_prom.i = zext nneg i32 %add3.i.neg to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %shr.i = lshr i64 %cond.i.i, %sh_prom.i
   %conv.i = trunc i64 %shr.i to i32

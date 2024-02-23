@@ -3662,7 +3662,7 @@ if.end81.us:                                      ; preds = %while.body.us
   %sub104.us = sub i64 %bytes_remaining.092.us, %conv82.us
   %bytes_remaining.0.neg.us = sub i64 0, %sub104.us
   %tobool68.not.us = icmp eq i64 %sub104.us, 0
-  %or.cond96 = select i1 %cmp99.us, i1 true, i1 %tobool68.not.us
+  %or.cond96 = or i1 %cmp99.us, %tobool68.not.us
   br i1 %or.cond96, label %if.end108, label %while.body.us, !llvm.loop !28
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end93
@@ -3699,7 +3699,7 @@ if.end93:                                         ; preds = %land.lhs.true88, %i
   %sub104 = sub i64 %bytes_remaining.092, %conv82
   %bytes_remaining.0.neg = sub i64 0, %sub104
   %tobool68.not = icmp eq i64 %sub104, 0
-  %or.cond97 = select i1 %cmp99, i1 true, i1 %tobool68.not
+  %or.cond97 = or i1 %cmp99, %tobool68.not
   br i1 %or.cond97, label %if.end108, label %while.body, !llvm.loop !28
 
 if.end108:                                        ; preds = %if.end93, %if.end81.us, %if.else67, %if.end17, %if.then54, %if.then65, %if.then59
