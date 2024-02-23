@@ -28103,7 +28103,7 @@ if.then81.i.us:                                   ; preds = %for.body.i.us
   %cmp165.i.us = fcmp ogt float %y.addr.0.i.us, %conv164.i.us
   %conv168.i.us = sitofp i16 %cond163153.i.us to float
   %cmp169.i.us = fcmp olt float %y.addr.0.i.us, %conv168.i.us
-  %or.cond128.i.us = select i1 %cmp165.i.us, i1 %cmp169.i.us, i1 false
+  %or.cond128.i.us = and i1 %cmp165.i.us, %cmp169.i.us
   %conv172.i.us = sitofp i16 %..i.us to float
   %cmp173.i.us = fcmp ogt float %div149.us, %conv172.i.us
   %or.cond129.i.us = select i1 %or.cond128.i.us, i1 %cmp173.i.us, i1 false
@@ -28122,7 +28122,7 @@ if.then175.i.us:                                  ; preds = %if.then81.i.us
   %cmp.i.i.us = fcmp une float %49, %conv180.i.us
   %50 = extractelement <2 x float> %48, i64 1
   %cmp4.i.i.us = fcmp une float %50, %conv182.i.us
-  %narrow.i.not.i.us = select i1 %cmp.i.i.us, i1 true, i1 %cmp4.i.i.us
+  %narrow.i.not.i.us = or i1 %cmp.i.i.us, %cmp4.i.i.us
   br i1 %narrow.i.not.i.us, label %lor.lhs.false.i.us, label %if.then194.i.us
 
 lor.lhs.false.i.us:                               ; preds = %if.then175.i.us
@@ -28130,7 +28130,7 @@ lor.lhs.false.i.us:                               ; preds = %if.then175.i.us
   %cmp.i135.i.us = fcmp une float %51, %conv180.i.us
   %52 = extractelement <2 x float> %48, i64 0
   %cmp4.i136.i.us = fcmp une float %52, %conv182.i.us
-  %narrow.i137.not.i.us = select i1 %cmp.i135.i.us, i1 true, i1 %cmp4.i136.i.us
+  %narrow.i137.not.i.us = or i1 %cmp.i135.i.us, %cmp4.i136.i.us
   br i1 %narrow.i137.not.i.us, label %if.else261.i.us, label %if.then194.i.us
 
 if.then194.i.us:                                  ; preds = %lor.lhs.false.i.us, %if.then175.i.us
@@ -28212,9 +28212,9 @@ if.then30.i.i.us:                                 ; preds = %if.then.i.i.us
   %or.cond.not.not.not.i.i.us = and i1 %cmp37.i.i.us, %cmp40.i.i.us
   %cmp44.i.i.us = fcmp ule float %sqrtf.i.i.us, 0.000000e+00
   %cmp48.i.i.us = fcmp ult float %mul35.i.i.us, 0.000000e+00
-  %or.cond77.i.i.us = select i1 %cmp44.i.i.us, i1 true, i1 %cmp48.i.i.us
+  %or.cond77.i.i.us = or i1 %cmp44.i.i.us, %cmp48.i.i.us
   %cmp52.i.i.us = fcmp ugt float %mul35.i.i.us, 1.000000e+00
-  %or.cond78.i.i.us = select i1 %or.cond77.i.i.us, i1 true, i1 %cmp52.i.i.us
+  %or.cond78.i.i.us = or i1 %cmp52.i.i.us, %or.cond77.i.i.us
   br i1 %or.cond78.i.i.us, label %if.end72.i.i.us, label %if.then54.i.i.us
 
 if.then54.i.i.us:                                 ; preds = %if.then30.i.i.us

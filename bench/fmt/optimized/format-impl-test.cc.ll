@@ -6692,7 +6692,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.082 = add nsw i32 %i.0.in80, -1
   %cmp.not.i = icmp slt i32 %1, %i.0.in80
   %cmp2.i = icmp sge i32 %add.i, %i.0.in80
-  %or.cond = select i1 %cmp.not.i, i1 %cmp2.i, i1 false
+  %or.cond = and i1 %cmp.not.i, %cmp2.i
   br i1 %or.cond, label %cond.true.i, label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit
 
 cond.true.i:                                      ; preds = %for.body
@@ -6731,7 +6731,7 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit: ; 
   %conv = zext i32 %cond.i31 to i64
   %cmp.not.i33 = icmp slt i32 %3, %i.0.in80
   %cmp2.i38 = icmp sge i32 %add.i23, %i.0.in80
-  %or.cond72 = select i1 %cmp.not.i33, i1 %cmp2.i38, i1 false
+  %or.cond72 = and i1 %cmp.not.i33, %cmp2.i38
   br i1 %or.cond72, label %cond.true.i40, label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit51
 
 cond.true.i40:                                    ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit

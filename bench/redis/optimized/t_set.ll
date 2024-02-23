@@ -4532,7 +4532,7 @@ for.end:                                          ; preds = %for.inc, %while.bod
   %and = and i64 %17, 1024
   %tobool43 = icmp eq i64 %and, 0
   %tobool24 = icmp ne i64 %sub30, 0
-  %or.cond2 = select i1 %tobool43, i1 %tobool24, i1 false
+  %or.cond2 = and i1 %tobool24, %tobool43
   br i1 %or.cond2, label %while.body, label %while.end, !llvm.loop !34
 
 while.end:                                        ; preds = %for.end

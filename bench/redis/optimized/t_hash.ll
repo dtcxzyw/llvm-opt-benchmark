@@ -2232,7 +2232,7 @@ for.body:                                         ; preds = %if.end3, %for.body
   %call14 = tail call i32 @hashTypeSet(ptr noundef nonnull %retval.0.i29, ptr noundef %11, ptr noundef %14, i32 noundef 0), !range !10
   %lnot.ext = xor i32 %call14, 1
   %add15 = add nuw nsw i32 %lnot.ext, %created.031
-  %indvars.iv.next = add nuw i64 %indvars.iv, 2
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %15 = load i32, ptr %argc, align 8
   %16 = trunc i64 %indvars.iv.next to i32
   %cmp7 = icmp sgt i32 %15, %16
@@ -3704,7 +3704,7 @@ while.body54:                                     ; preds = %if.end51, %while.bo
   %and64 = and i64 %28, 1024
   %tobool65 = icmp eq i64 %and64, 0
   %tobool53 = icmp ne i64 %sub60, 0
-  %or.cond1 = select i1 %tobool65, i1 %tobool53, i1 false
+  %or.cond1 = and i1 %tobool53, %tobool65
   br i1 %or.cond1, label %while.body54, label %while.end68, !llvm.loop !16
 
 while.end68:                                      ; preds = %while.body54

@@ -2749,7 +2749,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %sub6 = sub i32 %8, %add
   %cmp.i5 = icmp sgt i32 %sub6, -1
   %cmp2.not.i = icmp sgt i32 %2, %sub6
-  %or.cond6.i = select i1 %cmp.i5, i1 %cmp2.not.i, i1 false
+  %or.cond6.i = and i1 %cmp.i5, %cmp2.not.i
   br i1 %or.cond6.i, label %if.end.i, label %_ZNK6icu_756number4impl15DecimalQuantity11getDigitPosEi.exit
 
 if.end.i:                                         ; preds = %for.body

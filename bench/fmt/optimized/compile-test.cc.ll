@@ -39937,7 +39937,7 @@ for.body.i519:                                    ; preds = %for.cond.i, %for.bo
   %i.067.i = add nsw i32 %i.0.in65.i, -1
   %cmp.not.i.i520 = icmp slt i32 %135, %i.0.in65.i
   %cmp2.i.i = icmp sge i32 %add.i.i514, %i.0.in65.i
-  %or.cond.i = select i1 %cmp.not.i.i520, i1 %cmp2.i.i, i1 false
+  %or.cond.i = and i1 %cmp.not.i.i520, %cmp2.i.i
   br i1 %or.cond.i, label %cond.true.i.i, label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit.i
 
 cond.true.i.i:                                    ; preds = %for.body.i519
@@ -39952,7 +39952,7 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit.i: 
   %conv.i = zext i32 %cond.i31.i to i64
   %cmp.not.i33.i = icmp slt i32 %137, %i.0.in65.i
   %cmp2.i38.i = icmp sge i32 %add.i23.i, %i.0.in65.i
-  %or.cond60.i = select i1 %cmp.not.i33.i, i1 %cmp2.i38.i, i1 false
+  %or.cond60.i = and i1 %cmp.not.i33.i, %cmp2.i38.i
   br i1 %or.cond60.i, label %cond.true.i40.i, label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit45.i
 
 cond.true.i40.i:                                  ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit.i
@@ -40348,7 +40348,7 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit.i65
   %conv.i659 = zext i32 %cond.i31.i658 to i64
   %cmp.not.i33.i660 = icmp slt i32 %187, %i.0.in65.i652
   %cmp2.i38.i661 = icmp sge i32 %add.i23.i631, %i.0.in65.i652
-  %or.cond60.i662 = select i1 %cmp.not.i33.i660, i1 %cmp2.i38.i661, i1 false
+  %or.cond60.i662 = and i1 %cmp.not.i33.i660, %cmp2.i38.i661
   br i1 %or.cond60.i662, label %cond.true.i40.i686, label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit45.i663
 
 cond.true.i40.i686:                               ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit.i657
@@ -53924,7 +53924,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %entry
   %bcmp.i = tail call i32 @bcmp(ptr %arg_name.coerce0, ptr %0, i64 %.other.coerce1.i.i)
   %cmp6.i.i = icmp eq i32 %bcmp.i, 0
   %cmp9.i.i = icmp eq i64 %call.i4, %arg_name.coerce1
-  %or.cond = select i1 %cmp6.i.i, i1 %cmp9.i.i, i1 false
+  %or.cond = and i1 %cmp9.i.i, %cmp6.i.i
   br i1 %or.cond, label %if.then, label %return
 
 _ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit: ; preds = %entry
@@ -54060,7 +54060,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %entry
   %bcmp.i = tail call i32 @bcmp(ptr %arg_name.coerce0, ptr %0, i64 %.other.coerce1.i.i)
   %cmp6.i.i = icmp eq i32 %bcmp.i, 0
   %cmp9.i.i = icmp eq i64 %call.i4, %arg_name.coerce1
-  %or.cond = select i1 %cmp6.i.i, i1 %cmp9.i.i, i1 false
+  %or.cond = and i1 %cmp6.i.i, %cmp9.i.i
   br i1 %or.cond, label %if.then, label %return
 
 _ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit: ; preds = %entry

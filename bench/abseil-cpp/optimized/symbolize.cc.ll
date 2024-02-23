@@ -126,7 +126,7 @@ while.body.us.preheader.i.i:                      ; preds = %if.then.i.i, %entry
   %read.0.ph46.i.i = phi i64 [ 0, %entry ], [ %add.i.i, %if.then.i.i ]
   %cmp2.not.us.i12.i = icmp sge i64 %offset.addr.0.ph48.i.i, %file.sroa.19.0
   %cmp3.us.i13.i = icmp slt i64 %offset.addr.0.ph48.i.i, %file.sroa.35.0
-  %or.cond.i14.i = select i1 %cmp2.not.us.i12.i, i1 %cmp3.us.i13.i, i1 false
+  %or.cond.i14.i = and i1 %cmp2.not.us.i12.i, %cmp3.us.i13.i
   br i1 %or.cond.i14.i, label %if.then.i.i, label %if.end.us.i.i
 
 if.end.us.i.i:                                    ; preds = %while.body.us.preheader.i.i, %while.cond.backedge.us.i.i
@@ -204,7 +204,7 @@ while.body.us.preheader.i.i9:                     ; preds = %if.then.i.i27, %if.
   %read.0.ph46.i.i12 = phi i64 [ 0, %if.end2 ], [ %add.i.i36, %if.then.i.i27 ]
   %cmp2.not.us.i12.i13 = icmp sge i64 %offset.addr.0.ph48.i.i10, %file.sroa.19.5
   %cmp3.us.i13.i14 = icmp slt i64 %offset.addr.0.ph48.i.i10, %file.sroa.35.5
-  %or.cond.i14.i15 = select i1 %cmp2.not.us.i12.i13, i1 %cmp3.us.i13.i14, i1 false
+  %or.cond.i14.i15 = and i1 %cmp2.not.us.i12.i13, %cmp3.us.i13.i14
   br i1 %or.cond.i14.i15, label %if.then.i.i27, label %if.end.us.i.i16
 
 if.end.us.i.i16:                                  ; preds = %while.body.us.preheader.i.i9, %while.cond.backedge.us.i.i23
@@ -291,7 +291,7 @@ while.body.us.preheader.i.i54:                    ; preds = %if.then.i.i72, %for
   %read.0.ph46.i.i57 = phi i64 [ 0, %for.body ], [ %add.i.i81, %if.then.i.i72 ]
   %cmp2.not.us.i12.i58 = icmp sge i64 %offset.addr.0.ph48.i.i55, %file.sroa.19.11
   %cmp3.us.i13.i59 = icmp slt i64 %offset.addr.0.ph48.i.i55, %file.sroa.35.11
-  %or.cond.i14.i60 = select i1 %cmp2.not.us.i12.i58, i1 %cmp3.us.i13.i59, i1 false
+  %or.cond.i14.i60 = and i1 %cmp2.not.us.i12.i58, %cmp3.us.i13.i59
   br i1 %or.cond.i14.i60, label %if.then.i.i72, label %if.end.us.i.i61
 
 if.end.us.i.i61:                                  ; preds = %while.body.us.preheader.i.i54, %while.cond.backedge.us.i.i68
@@ -361,7 +361,7 @@ while.body.us.preheader.i:                        ; preds = %if.then.i, %if.end2
   %read.0.ph46.i = phi i64 [ 0, %if.end20 ], [ %add.i, %if.then.i ]
   %cmp2.not.us.i172 = icmp sge i64 %offset.addr.0.ph48.i, %file.sroa.19.16
   %cmp3.us.i173 = icmp slt i64 %offset.addr.0.ph48.i, %file.sroa.35.16
-  %or.cond.i174 = select i1 %cmp2.not.us.i172, i1 %cmp3.us.i173, i1 false
+  %or.cond.i174 = and i1 %cmp2.not.us.i172, %cmp3.us.i173
   br i1 %or.cond.i174, label %if.then.i, label %if.end.us.i
 
 if.end.us.i:                                      ; preds = %while.body.us.preheader.i, %while.cond.backedge.us.i
@@ -472,7 +472,7 @@ while.body.us.preheader.i.i:                      ; preds = %entry, %if.then.i.i
   %read.0.ph46.i.i = phi i64 [ %add.i.i, %if.then.i.i ], [ 0, %entry ]
   %cmp2.not.us.i12.i = icmp sge i64 %offset.addr.0.ph48.i.i, %file.sroa.19.0
   %cmp3.us.i13.i = icmp slt i64 %offset.addr.0.ph48.i.i, %file.sroa.35.0
-  %or.cond.i14.i = select i1 %cmp2.not.us.i12.i, i1 %cmp3.us.i13.i, i1 false
+  %or.cond.i14.i = and i1 %cmp2.not.us.i12.i, %cmp3.us.i13.i
   br i1 %or.cond.i14.i, label %if.then.i.i, label %if.end.us.i.i
 
 if.end.us.i.i:                                    ; preds = %while.body.us.preheader.i.i, %while.cond.backedge.us.i.i
@@ -550,7 +550,7 @@ while.body.us.preheader.i.i14:                    ; preds = %if.then.i.i32, %if.
   %read.0.ph46.i.i17 = phi i64 [ 0, %if.end5 ], [ %add.i.i41, %if.then.i.i32 ]
   %cmp2.not.us.i12.i18 = icmp sge i64 %offset.addr.0.ph48.i.i15, %file.sroa.19.5
   %cmp3.us.i13.i19 = icmp slt i64 %offset.addr.0.ph48.i.i15, %file.sroa.35.5
-  %or.cond.i14.i20 = select i1 %cmp2.not.us.i12.i18, i1 %cmp3.us.i13.i19, i1 false
+  %or.cond.i14.i20 = and i1 %cmp2.not.us.i12.i18, %cmp3.us.i13.i19
   br i1 %or.cond.i14.i20, label %if.then.i.i32, label %if.end.us.i.i21
 
 if.end.us.i.i21:                                  ; preds = %while.body.us.preheader.i.i14, %while.cond.backedge.us.i.i28
@@ -635,7 +635,7 @@ while.body.us.preheader.i.i59:                    ; preds = %if.then.i.i77, %for
   %read.0.ph46.i.i62 = phi i64 [ 0, %for.body ], [ %add.i.i86, %if.then.i.i77 ]
   %cmp2.not.us.i12.i63 = icmp sge i64 %offset.addr.0.ph48.i.i60, %file.sroa.19.11
   %cmp3.us.i13.i64 = icmp slt i64 %offset.addr.0.ph48.i.i60, %file.sroa.35.11
-  %or.cond.i14.i65 = select i1 %cmp2.not.us.i12.i63, i1 %cmp3.us.i13.i64, i1 false
+  %or.cond.i14.i65 = and i1 %cmp2.not.us.i12.i63, %cmp3.us.i13.i64
   br i1 %or.cond.i14.i65, label %if.then.i.i77, label %if.end.us.i.i66
 
 if.end.us.i.i66:                                  ; preds = %while.body.us.preheader.i.i59, %while.cond.backedge.us.i.i73
@@ -708,7 +708,7 @@ while.body.us.preheader.i:                        ; preds = %while.body.us.prehe
   %read.0.ph46.i = phi i64 [ %add.i, %if.then.i ], [ 0, %while.body.us.preheader.i.preheader ]
   %cmp2.not.us.i182 = icmp sge i64 %offset.addr.0.ph48.i, %file.sroa.19.16
   %cmp3.us.i183 = icmp slt i64 %offset.addr.0.ph48.i, %file.sroa.35.16
-  %or.cond.i184 = select i1 %cmp2.not.us.i182, i1 %cmp3.us.i183, i1 false
+  %or.cond.i184 = and i1 %cmp2.not.us.i182, %cmp3.us.i183
   br i1 %or.cond.i184, label %if.then.i, label %if.end.us.i
 
 if.end.us.i:                                      ; preds = %while.body.us.preheader.i, %while.cond.backedge.us.i
@@ -2254,7 +2254,7 @@ while.body.us.preheader.i.i83.i.i.i:              ; preds = %if.then.i.i101.i.i.
   %read.0.ph46.i.i86.i.i.i = phi i64 [ 0, %if.end20.i.i.i ], [ %add.i.i110.i.i.i, %if.then.i.i101.i.i.i ]
   %cmp2.not.us.i12.i87.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i84.i.i.i, %file.sroa.15.0.i.i.i
   %cmp3.us.i13.i88.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i84.i.i.i, %file.sroa.28.0.i.i.i
-  %or.cond.i14.i89.i.i.i = select i1 %cmp2.not.us.i12.i87.i.i.i, i1 %cmp3.us.i13.i88.i.i.i, i1 false
+  %or.cond.i14.i89.i.i.i = and i1 %cmp2.not.us.i12.i87.i.i.i, %cmp3.us.i13.i88.i.i.i
   br i1 %or.cond.i14.i89.i.i.i, label %if.then.i.i101.i.i.i, label %if.end.us.i.i90.i.i.i
 
 if.end.us.i.i90.i.i.i:                            ; preds = %while.body.us.preheader.i.i83.i.i.i, %while.cond.backedge.us.i.i97.i.i.i
@@ -2337,7 +2337,7 @@ while.body.us.preheader.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i, 
   %read.0.ph46.i.i.i.i.i = phi i64 [ 0, %if.end31.i.i.i ], [ %add.i.i.i42.i.i, %if.then.i.i.i.i.i ]
   %cmp2.not.us.i12.i.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i.i.i.i, %file.sroa.15.5.i.i.i
   %cmp3.us.i13.i.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i.i.i.i, %file.sroa.28.5.i.i.i
-  %or.cond.i14.i.i.i.i = select i1 %cmp2.not.us.i12.i.i.i.i, i1 %cmp3.us.i13.i.i.i.i, i1 false
+  %or.cond.i14.i.i.i.i = and i1 %cmp2.not.us.i12.i.i.i.i, %cmp3.us.i13.i.i.i.i
   br i1 %or.cond.i14.i.i.i.i, label %if.then.i.i.i.i.i, label %if.end.us.i.i.i.i.i
 
 if.end.us.i.i.i.i.i:                              ; preds = %while.body.us.preheader.i.i.i.i.i, %while.cond.backedge.us.i.i.i.i.i
@@ -2431,7 +2431,7 @@ while.body.us.preheader.i.i37.i.i.i:              ; preds = %if.then.i.i55.i.i.i
   %read.0.ph46.i.i40.i.i.i = phi i64 [ %add.i.i64.i.i.i, %if.then.i.i55.i.i.i ], [ 0, %while.body.us.preheader.i.i37.preheader.i.i.i ]
   %cmp2.not.us.i12.i41.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i38.i.i.i, %file.sroa.15.11.i.i.i
   %cmp3.us.i13.i42.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i38.i.i.i, %file.sroa.28.11.i.i.i
-  %or.cond.i14.i43.i.i.i = select i1 %cmp2.not.us.i12.i41.i.i.i, i1 %cmp3.us.i13.i42.i.i.i, i1 false
+  %or.cond.i14.i43.i.i.i = and i1 %cmp2.not.us.i12.i41.i.i.i, %cmp3.us.i13.i42.i.i.i
   br i1 %or.cond.i14.i43.i.i.i, label %if.then.i.i55.i.i.i, label %if.end.us.i.i44.i.i.i
 
 if.end.us.i.i44.i.i.i:                            ; preds = %while.body.us.preheader.i.i37.i.i.i, %while.cond.backedge.us.i.i51.i.i.i
@@ -2792,7 +2792,7 @@ while.body.us.preheader.i.i14.i.i.i:              ; preds = %if.then.i.i29.i.i.i
   %read.0.ph46.i.i17.i.i.i = phi i64 [ 0, %if.end.i96.i.i ], [ %add.i.i37.i.i.i, %if.then.i.i29.i.i.i ]
   %cmp2.not.us.i12.i.i99.i.i = icmp sge i64 %offset.addr.0.ph48.i.i15.i.i.i, %file.sroa.20.10.i.i.i
   %cmp3.us.i13.i.i100.i.i = icmp slt i64 %offset.addr.0.ph48.i.i15.i.i.i, %file.sroa.37.10.i.i.i
-  %or.cond.i14.i.i101.i.i = select i1 %cmp2.not.us.i12.i.i99.i.i, i1 %cmp3.us.i13.i.i100.i.i, i1 false
+  %or.cond.i14.i.i101.i.i = and i1 %cmp2.not.us.i12.i.i99.i.i, %cmp3.us.i13.i.i100.i.i
   br i1 %or.cond.i14.i.i101.i.i, label %if.then.i.i29.i.i.i, label %if.end.us.i.i18.i.i.i
 
 if.end.us.i.i18.i.i.i:                            ; preds = %while.body.us.preheader.i.i14.i.i.i, %while.cond.backedge.us.i.i25.i.i.i
@@ -2875,7 +2875,7 @@ while.body.us.preheader.i.i57.i.i.i:              ; preds = %if.then.i.i72.i.i.i
   %read.0.ph46.i.i60.i.i.i = phi i64 [ 0, %for.body.i54.i.i.i ], [ %add.i.i79.i.i.i, %if.then.i.i72.i.i.i ]
   %cmp2.not.us.i44.i.i.i.i = icmp sge i64 %offset.addr.0.ph48.i.i58.i.i.i, %file.sroa.20.16.i.i.i
   %cmp3.us.i45.i.i.i.i = icmp slt i64 %offset.addr.0.ph48.i.i58.i.i.i, %file.sroa.37.16.i.i.i
-  %or.cond.i46.i.i.i.i = select i1 %cmp2.not.us.i44.i.i.i.i, i1 %cmp3.us.i45.i.i.i.i, i1 false
+  %or.cond.i46.i.i.i.i = and i1 %cmp2.not.us.i44.i.i.i.i, %cmp3.us.i45.i.i.i.i
   br i1 %or.cond.i46.i.i.i.i, label %if.then.i.i72.i.i.i, label %if.end.us.i.i61.i.i.i
 
 if.end.us.i.i61.i.i.i:                            ; preds = %while.body.us.preheader.i.i57.i.i.i, %while.cond.backedge.us.i.i68.i.i.i
@@ -3049,7 +3049,7 @@ while.body.us.preheader.i49.i.i.i.i:              ; preds = %if.then.i70.i.i.i.i
   %read.0.ph46.i52.i.i.i.i = phi i64 [ 0, %if.then43.i.i.i.i ], [ %add.i77.i.i.i.i, %if.then.i70.i.i.i.i ]
   %cmp2.not.us.i5463.i.i.i.i = icmp sge i64 %offset.addr.0.ph48.i50.i.i.i.i, %file.sroa.20.21.i.i.i
   %cmp3.us.i5564.i.i.i.i = icmp slt i64 %offset.addr.0.ph48.i50.i.i.i.i, %file.sroa.37.21.i.i.i
-  %or.cond.i5665.i.i.i.i = select i1 %cmp2.not.us.i5463.i.i.i.i, i1 %cmp3.us.i5564.i.i.i.i, i1 false
+  %or.cond.i5665.i.i.i.i = and i1 %cmp2.not.us.i5463.i.i.i.i, %cmp3.us.i5564.i.i.i.i
   br i1 %or.cond.i5665.i.i.i.i, label %if.then.i70.i.i.i.i, label %if.end.us.i57.i.i.i.i
 
 if.end.us.i57.i.i.i.i:                            ; preds = %while.body.us.preheader.i49.i.i.i.i, %while.cond.backedge.us.i64.i.i.i.i

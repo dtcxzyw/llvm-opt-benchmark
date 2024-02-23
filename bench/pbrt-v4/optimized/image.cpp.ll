@@ -4478,7 +4478,7 @@ sw.bb:                                            ; preds = %do.end
   %.sroa.speculated.i10.i = tail call i32 @llvm.smax.i32(i32 %t1.sroa.3.0.extract.trunc.i.i, i32 0)
   %cmp.i.i = icmp sle i32 %.sroa.speculated5.i.i, %p.sroa.0.0.extract.trunc.i.i
   %cmp4.i.i = icmp sle i32 %.sroa.speculated.i.i, %p.sroa.2.0.extract.trunc.i.i
-  %4 = select i1 %cmp.i.i, i1 %cmp4.i.i, i1 false
+  %4 = and i1 %cmp.i.i, %cmp4.i.i
   br i1 %4, label %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit, label %sw.bb.if.else_crit_edge
 
 sw.bb.if.else_crit_edge:                          ; preds = %sw.bb
@@ -4493,7 +4493,7 @@ _ZNK4pbrt7Bounds2IiEeqERKS1_.exit:                ; preds = %sw.bb
   %t0.sroa.0.0.extract.trunc.i3.i = trunc i64 %agg.tmp5.sroa.0.0.copyload.i to i32
   %cmp.i3.i = icmp sge i32 %.sroa.speculated5.i9.i, %t0.sroa.0.0.extract.trunc.i3.i
   %cmp4.i7.i = icmp eq i32 %1, %.sroa.speculated.i10.i31
-  %5 = select i1 %cmp.i3.i, i1 %cmp4.i7.i, i1 false
+  %5 = and i1 %cmp.i3.i, %cmp4.i7.i
   br i1 %5, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit
@@ -4596,7 +4596,7 @@ if.then10.i:                                      ; preds = %do.body3.i
 do.end12.i:                                       ; preds = %do.body3.i
   %sub.i = sub i32 %14, %p.sroa.0.0.extract.trunc.i.i
   %cmp.i.i.i = icmp sle i32 %.sroa.speculated5.i.i, %p.sroa.0.0.extract.trunc.i.i
-  %15 = select i1 %cmp.i.i.i, i1 %cmp4.i.i, i1 false
+  %15 = and i1 %cmp.i.i.i, %cmp4.i.i
   br i1 %15, label %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i, label %if.else.i
 
 _ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i:              ; preds = %do.end12.i
@@ -4607,7 +4607,7 @@ _ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i:              ; preds = %do.end12.i
   %t0.sroa.0.0.extract.trunc.i3.i.i = trunc i64 %agg.tmp5.sroa.0.0.copyload.i.i to i32
   %cmp.i3.i.i = icmp sge i32 %.sroa.speculated5.i9.i, %t0.sroa.0.0.extract.trunc.i3.i.i
   %cmp4.i7.i.i = icmp eq i32 %1, %.sroa.speculated.i10.i47.i
-  %16 = select i1 %cmp.i3.i.i, i1 %cmp4.i7.i.i, i1 false
+  %16 = and i1 %cmp.i3.i.i, %cmp4.i7.i.i
   br i1 %16, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i
@@ -4864,7 +4864,7 @@ for.body.i.us.i:                                  ; preds = %for.body62.us.i, %f
   %.sroa.speculated100.i.us.i.v = select i1 %cmp.i.i70.us.i, i64 %agg.tmp6.sroa.0.0.copyload, i64 %t1.sroa.3.0.extract.shift.i.i
   %.sroa.speculated100.i.us.i = trunc i64 %.sroa.speculated100.i.us.i.v to i32
   %cmp76.i.us.i = icmp slt i32 %.sroa.speculated.us.i, %.sroa.speculated100.i.us.i
-  %or.cond.i.us.i = select i1 %cmp73.i.us.i, i1 %cmp76.i.us.i, i1 false
+  %or.cond.i.us.i = and i1 %cmp73.i.us.i, %cmp76.i.us.i
   br i1 %or.cond.i.us.i, label %for.inc.i.us.i, label %if.end78.i.us.i
 
 if.end78.i.us.i:                                  ; preds = %for.body.i.us.i
@@ -4959,7 +4959,7 @@ do.end12.i64:                                     ; preds = %do.body3.i59
   %.sroa.speculated.i.i.i74 = tail call i32 @llvm.smin.i32(i32 %t1.sroa.3.0.extract.trunc.i.i.i72, i32 0)
   %cmp.i.i.i80 = icmp sle i32 %.sroa.speculated5.i.i.i73, %p.sroa.0.0.extract.trunc.i.i
   %cmp4.i.i.i81 = icmp sle i32 %.sroa.speculated.i.i.i74, %p.sroa.2.0.extract.trunc.i.i
-  %35 = select i1 %cmp.i.i.i80, i1 %cmp4.i.i.i81, i1 false
+  %35 = and i1 %cmp.i.i.i80, %cmp4.i.i.i81
   br i1 %35, label %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i161, label %if.else.i82
 
 _ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i161:           ; preds = %do.end12.i64
@@ -4972,7 +4972,7 @@ _ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i161:           ; preds = %do.end12.i64
   %t0.sroa.0.0.extract.trunc.i3.i.i168 = trunc i64 %agg.tmp5.sroa.0.0.copyload.i.i163 to i32
   %cmp.i3.i.i169 = icmp sge i32 %.sroa.speculated5.i9.i.i167, %t0.sroa.0.0.extract.trunc.i3.i.i168
   %cmp4.i7.i.i170 = icmp eq i32 %1, %.sroa.speculated.i10.i47.i166
-  %36 = select i1 %cmp.i3.i.i169, i1 %cmp4.i7.i.i170, i1 false
+  %36 = and i1 %cmp.i3.i.i169, %cmp4.i7.i.i170
   br i1 %36, label %for.cond.preheader.i171, label %if.else.i82
 
 for.cond.preheader.i171:                          ; preds = %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i161
@@ -5230,7 +5230,7 @@ for.body.i.us.i93:                                ; preds = %for.body62.us.i88, 
   %.sroa.speculated100.i.us.i98.v = select i1 %cmp.i.i72.us.i, i64 %retval.sroa.0.0.copyload.i.i69, i64 %t1.sroa.3.0.extract.shift.i.i.i71
   %.sroa.speculated100.i.us.i98 = trunc i64 %.sroa.speculated100.i.us.i98.v to i32
   %cmp76.i.us.i99 = icmp slt i32 %.sroa.speculated.us.i96, %.sroa.speculated100.i.us.i98
-  %or.cond.i.us.i100 = select i1 %cmp73.i.us.i97, i1 %cmp76.i.us.i99, i1 false
+  %or.cond.i.us.i100 = and i1 %cmp73.i.us.i97, %cmp76.i.us.i99
   br i1 %or.cond.i.us.i100, label %for.inc.i.us.i125, label %if.end78.i.us.i101
 
 if.end78.i.us.i101:                               ; preds = %for.body.i.us.i93
@@ -5325,7 +5325,7 @@ do.end12.i206:                                    ; preds = %do.body3.i201
   %.sroa.speculated.i.i.i216 = tail call i32 @llvm.smin.i32(i32 %t1.sroa.3.0.extract.trunc.i.i.i214, i32 0)
   %cmp.i.i.i222 = icmp sle i32 %.sroa.speculated5.i.i.i215, %p.sroa.0.0.extract.trunc.i.i
   %cmp4.i.i.i223 = icmp sle i32 %.sroa.speculated.i.i.i216, %p.sroa.2.0.extract.trunc.i.i
-  %57 = select i1 %cmp.i.i.i222, i1 %cmp4.i.i.i223, i1 false
+  %57 = and i1 %cmp.i.i.i222, %cmp4.i.i.i223
   br i1 %57, label %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i273, label %if.else.i224
 
 _ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i273:           ; preds = %do.end12.i206
@@ -5338,7 +5338,7 @@ _ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i273:           ; preds = %do.end12.i206
   %t0.sroa.0.0.extract.trunc.i3.i.i280 = trunc i64 %agg.tmp5.sroa.0.0.copyload.i.i275 to i32
   %cmp.i3.i.i281 = icmp sge i32 %.sroa.speculated5.i9.i.i279, %t0.sroa.0.0.extract.trunc.i3.i.i280
   %cmp4.i7.i.i282 = icmp eq i32 %1, %.sroa.speculated.i10.i47.i278
-  %58 = select i1 %cmp.i3.i.i281, i1 %cmp4.i7.i.i282, i1 false
+  %58 = and i1 %cmp.i3.i.i281, %cmp4.i7.i.i282
   br i1 %58, label %for.cond.preheader.i283, label %if.else.i224
 
 for.cond.preheader.i283:                          ; preds = %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i273
@@ -5528,7 +5528,7 @@ for.body.i.us.i230:                               ; preds = %for.inc.i.us.i264, 
   %.sroa.speculated100.i.us.v.i = select i1 %cmp.i.i70.us.i232, i64 %retval.sroa.0.0.copyload.i.i211, i64 %t1.sroa.3.0.extract.shift.i.i.i213
   %.sroa.speculated100.i.us.i236 = trunc i64 %.sroa.speculated100.i.us.v.i to i32
   %cmp76.i.us.i237 = icmp slt i32 %.sroa.speculated.us.i234, %.sroa.speculated100.i.us.i236
-  %or.cond.i.us.i238 = select i1 %cmp73.i.us.i235, i1 %cmp76.i.us.i237, i1 false
+  %or.cond.i.us.i238 = and i1 %cmp73.i.us.i235, %cmp76.i.us.i237
   br i1 %or.cond.i.us.i238, label %for.inc.i.us.i264, label %if.end78.i.us.i239
 
 if.end78.i.us.i239:                               ; preds = %for.body.i.us.i230
@@ -10716,7 +10716,7 @@ sw.bb:                                            ; preds = %do.end
   %.sroa.speculated.i10.i = tail call i32 @llvm.smax.i32(i32 %t1.sroa.3.0.extract.trunc.i.i, i32 0)
   %cmp.i.i = icmp sle i32 %.sroa.speculated5.i.i, %p.sroa.0.0.extract.trunc.i.i
   %cmp4.i.i = icmp sle i32 %.sroa.speculated.i.i, %p.sroa.2.0.extract.trunc.i.i
-  %4 = select i1 %cmp.i.i, i1 %cmp4.i.i, i1 false
+  %4 = and i1 %cmp.i.i, %cmp4.i.i
   br i1 %4, label %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit, label %sw.bb.if.else_crit_edge
 
 sw.bb.if.else_crit_edge:                          ; preds = %sw.bb
@@ -10731,7 +10731,7 @@ _ZNK4pbrt7Bounds2IiEeqERKS1_.exit:                ; preds = %sw.bb
   %t0.sroa.0.0.extract.trunc.i3.i = trunc i64 %agg.tmp5.sroa.0.0.copyload.i to i32
   %cmp.i3.i = icmp sge i32 %.sroa.speculated5.i9.i, %t0.sroa.0.0.extract.trunc.i3.i
   %cmp4.i7.i = icmp eq i32 %1, %.sroa.speculated.i10.i33
-  %5 = select i1 %cmp.i3.i, i1 %cmp4.i7.i, i1 false
+  %5 = and i1 %cmp.i3.i, %cmp4.i7.i
   br i1 %5, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit
@@ -10829,7 +10829,7 @@ if.then10.i:                                      ; preds = %do.body3.i
 do.end12.i:                                       ; preds = %do.body3.i
   %sub.i = sub i32 %14, %p.sroa.0.0.extract.trunc.i.i
   %cmp.i.i.i = icmp sle i32 %.sroa.speculated5.i.i, %p.sroa.0.0.extract.trunc.i.i
-  %15 = select i1 %cmp.i.i.i, i1 %cmp4.i.i, i1 false
+  %15 = and i1 %cmp.i.i.i, %cmp4.i.i
   br i1 %15, label %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i, label %if.else.i
 
 _ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i:              ; preds = %do.end12.i
@@ -10840,7 +10840,7 @@ _ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i:              ; preds = %do.end12.i
   %t0.sroa.0.0.extract.trunc.i3.i.i = trunc i64 %agg.tmp5.sroa.0.0.copyload.i.i to i32
   %cmp.i3.i.i = icmp sge i32 %.sroa.speculated5.i9.i, %t0.sroa.0.0.extract.trunc.i3.i.i
   %cmp4.i7.i.i = icmp eq i32 %1, %.sroa.speculated.i10.i44.i
-  %16 = select i1 %cmp.i3.i.i, i1 %cmp4.i7.i.i, i1 false
+  %16 = and i1 %cmp.i3.i.i, %cmp4.i7.i.i
   br i1 %16, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i
@@ -11218,7 +11218,7 @@ for.body.i.us.i:                                  ; preds = %for.inc.i.us.i, %fo
   %.sroa.speculated100.i.us.v.i = select i1 %cmp.i.i67.us.i, i64 %agg.tmp7.sroa.0.0.copyload, i64 %t1.sroa.3.0.extract.shift.i.i
   %.sroa.speculated100.i.us.i = trunc i64 %.sroa.speculated100.i.us.v.i to i32
   %cmp76.i.us.i = icmp slt i32 %.sroa.speculated.us.i, %.sroa.speculated100.i.us.i
-  %or.cond.i.us.i = select i1 %cmp73.i.us.i, i1 %cmp76.i.us.i, i1 false
+  %or.cond.i.us.i = and i1 %cmp73.i.us.i, %cmp76.i.us.i
   br i1 %or.cond.i.us.i, label %for.inc.i.us.i, label %if.end78.i.us.i
 
 if.end78.i.us.i:                                  ; preds = %for.body.i.us.i
@@ -11318,7 +11318,7 @@ do.end12.i65:                                     ; preds = %do.body3.i60
   %.sroa.speculated.i.i.i75 = tail call i32 @llvm.smin.i32(i32 %t1.sroa.3.0.extract.trunc.i.i.i73, i32 0)
   %cmp.i.i.i77 = icmp sle i32 %.sroa.speculated5.i.i.i74, %p.sroa.0.0.extract.trunc.i.i
   %cmp4.i.i.i78 = icmp sle i32 %.sroa.speculated.i.i.i75, %p.sroa.2.0.extract.trunc.i.i
-  %48 = select i1 %cmp.i.i.i77, i1 %cmp4.i.i.i78, i1 false
+  %48 = and i1 %cmp.i.i.i77, %cmp4.i.i.i78
   br i1 %48, label %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i176, label %if.else.i79
 
 _ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i176:           ; preds = %do.end12.i65
@@ -11331,7 +11331,7 @@ _ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i176:           ; preds = %do.end12.i65
   %t0.sroa.0.0.extract.trunc.i3.i.i182 = trunc i64 %agg.tmp5.sroa.0.0.copyload.i.i178 to i32
   %cmp.i3.i.i183 = icmp sge i32 %.sroa.speculated5.i9.i.i181, %t0.sroa.0.0.extract.trunc.i3.i.i182
   %cmp4.i7.i.i184 = icmp eq i32 %1, %.sroa.speculated.i10.i47.i
-  %49 = select i1 %cmp.i3.i.i183, i1 %cmp4.i7.i.i184, i1 false
+  %49 = and i1 %cmp.i3.i.i183, %cmp4.i7.i.i184
   br i1 %49, label %for.cond.preheader.i185, label %if.else.i79
 
 for.cond.preheader.i185:                          ; preds = %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i176
@@ -11718,7 +11718,7 @@ for.body.i.us.i86:                                ; preds = %for.inc.i.us.i119, 
   %.sroa.speculated100.i.us.v.i91 = select i1 %cmp.i.i72.us.i, i64 %retval.sroa.0.0.copyload.i.i70, i64 %t1.sroa.3.0.extract.shift.i.i.i72
   %.sroa.speculated100.i.us.i92 = trunc i64 %.sroa.speculated100.i.us.v.i91 to i32
   %cmp76.i.us.i93 = icmp slt i32 %.sroa.speculated.us.i89, %.sroa.speculated100.i.us.i92
-  %or.cond.i.us.i94 = select i1 %cmp73.i.us.i90, i1 %cmp76.i.us.i93, i1 false
+  %or.cond.i.us.i94 = and i1 %cmp73.i.us.i90, %cmp76.i.us.i93
   br i1 %or.cond.i.us.i94, label %for.inc.i.us.i119, label %if.end78.i.us.i95
 
 if.end78.i.us.i95:                                ; preds = %for.body.i.us.i86
@@ -11818,7 +11818,7 @@ do.end12.i216:                                    ; preds = %do.body3.i211
   %.sroa.speculated.i.i.i226 = tail call i32 @llvm.smin.i32(i32 %t1.sroa.3.0.extract.trunc.i.i.i224, i32 0)
   %cmp.i.i.i232 = icmp sle i32 %.sroa.speculated5.i.i.i225, %p.sroa.0.0.extract.trunc.i.i
   %cmp4.i.i.i233 = icmp sle i32 %.sroa.speculated.i.i.i226, %p.sroa.2.0.extract.trunc.i.i
-  %80 = select i1 %cmp.i.i.i232, i1 %cmp4.i.i.i233, i1 false
+  %80 = and i1 %cmp.i.i.i232, %cmp4.i.i.i233
   br i1 %80, label %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i333, label %if.else.i234
 
 _ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i333:           ; preds = %do.end12.i216
@@ -11831,7 +11831,7 @@ _ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i333:           ; preds = %do.end12.i216
   %t0.sroa.0.0.extract.trunc.i3.i.i340 = trunc i64 %agg.tmp5.sroa.0.0.copyload.i.i335 to i32
   %cmp.i3.i.i341 = icmp sge i32 %.sroa.speculated5.i9.i.i339, %t0.sroa.0.0.extract.trunc.i3.i.i340
   %cmp4.i7.i.i342 = icmp eq i32 %1, %.sroa.speculated.i10.i47.i338
-  %81 = select i1 %cmp.i3.i.i341, i1 %cmp4.i7.i.i342, i1 false
+  %81 = and i1 %cmp.i3.i.i341, %cmp4.i7.i.i342
   br i1 %81, label %for.cond.preheader.i343, label %if.else.i234
 
 for.cond.preheader.i343:                          ; preds = %_ZNK4pbrt7Bounds2IiEeqERKS1_.exit.i333
@@ -12134,7 +12134,7 @@ for.body.i.us.i241:                               ; preds = %for.inc.i.us.i275, 
   %.sroa.speculated100.i.us.v.i246 = select i1 %cmp.i.i70.us.i, i64 %retval.sroa.0.0.copyload.i.i221, i64 %t1.sroa.3.0.extract.shift.i.i.i223
   %.sroa.speculated100.i.us.i247 = trunc i64 %.sroa.speculated100.i.us.v.i246 to i32
   %cmp76.i.us.i248 = icmp slt i32 %.sroa.speculated.us.i244, %.sroa.speculated100.i.us.i247
-  %or.cond.i.us.i249 = select i1 %cmp73.i.us.i245, i1 %cmp76.i.us.i248, i1 false
+  %or.cond.i.us.i249 = and i1 %cmp73.i.us.i245, %cmp76.i.us.i248
   br i1 %or.cond.i.us.i249, label %for.inc.i.us.i275, label %if.end78.i.us.i250
 
 if.end78.i.us.i250:                               ; preds = %for.body.i.us.i241

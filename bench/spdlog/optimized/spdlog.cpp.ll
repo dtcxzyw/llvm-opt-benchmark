@@ -38876,7 +38876,7 @@ for.body.i511:                                    ; preds = %for.cond.i, %for.bo
   %i.067.i = add nsw i32 %i.0.in65.i, -1
   %cmp.not.i.i512 = icmp slt i32 %133, %i.0.in65.i
   %cmp2.i.i = icmp sge i32 %add.i.i506, %i.0.in65.i
-  %or.cond.i = select i1 %cmp.not.i.i512, i1 %cmp2.i.i, i1 false
+  %or.cond.i = and i1 %cmp.not.i.i512, %cmp2.i.i
   br i1 %or.cond.i, label %cond.true.i.i, label %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit.i
 
 cond.true.i.i:                                    ; preds = %for.body.i511
@@ -38891,7 +38891,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit.i: ;
   %conv.i = zext i32 %cond.i31.i to i64
   %cmp.not.i33.i = icmp slt i32 %135, %i.0.in65.i
   %cmp2.i38.i = icmp sge i32 %add.i23.i, %i.0.in65.i
-  %or.cond60.i = select i1 %cmp.not.i33.i, i1 %cmp2.i38.i, i1 false
+  %or.cond60.i = and i1 %cmp.not.i33.i, %cmp2.i38.i
   br i1 %or.cond60.i, label %cond.true.i40.i, label %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit45.i
 
 cond.true.i40.i:                                  ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit.i
@@ -39289,7 +39289,7 @@ _ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit.i649
   %conv.i651 = zext i32 %cond.i31.i650 to i64
   %cmp.not.i33.i652 = icmp slt i32 %185, %i.0.in65.i644
   %cmp2.i38.i653 = icmp sge i32 %add.i23.i623, %i.0.in65.i644
-  %or.cond60.i654 = select i1 %cmp.not.i33.i652, i1 %cmp2.i38.i653, i1 false
+  %or.cond60.i654 = and i1 %cmp.not.i33.i652, %cmp2.i38.i653
   br i1 %or.cond60.i654, label %cond.true.i40.i678, label %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit45.i655
 
 cond.true.i40.i678:                               ; preds = %_ZZN3fmt2v96detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit.i649
@@ -53452,7 +53452,7 @@ _ZN3fmt2v96detail9normalizeILi0EyEENS1_8basic_fpIT0_EES5_.exit: ; preds = %if.el
   %ptr_.i89 = getelementptr inbounds i8, ptr %buf, i64 8
   %23 = load ptr, ptr %ptr_.i89, align 8
   %sub46 = sub nsw i32 348, %mul6.i
-  %sh_prom.i = zext i32 %add3.i.neg to i64
+  %sh_prom.i = zext nneg i32 %add3.i.neg to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %shr.i = lshr i64 %cond.i.i, %sh_prom.i
   %conv.i = trunc i64 %shr.i to i32

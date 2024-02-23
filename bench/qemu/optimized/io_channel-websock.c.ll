@@ -1998,7 +1998,7 @@ for.body:                                         ; preds = %trace_qio_channel_w
   %inc = add nuw i64 %i.030, 1
   %cmp22 = icmp ult i64 %inc, %niov
   %cmp24 = icmp ne i64 %sub32, 0
-  %14 = select i1 %cmp22, i1 %cmp24, i1 false
+  %14 = and i1 %cmp22, %cmp24
   br i1 %14, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %trace_qio_channel_websock_encode.exit

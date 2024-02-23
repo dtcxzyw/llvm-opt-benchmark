@@ -988,7 +988,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
 if.end111.us:                                     ; preds = %for.body.us
   %tobool112.us = icmp ne ptr %buffer.addr.3120.us, null
   %cmp114.us = icmp sgt i32 %len.addr.2119.us, 0
-  %or.cond1.us = select i1 %tobool112.us, i1 %cmp114.us, i1 false
+  %or.cond1.us = and i1 %tobool112.us, %cmp114.us
   br i1 %or.cond1.us, label %if.then116.us, label %if.end120.us
 
 if.then116.us:                                    ; preds = %if.end111.us

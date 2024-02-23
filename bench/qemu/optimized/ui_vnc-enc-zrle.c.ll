@@ -249,7 +249,7 @@ if.then35.i.i.us.i:                               ; preds = %if.then17.i.i.us.i
   %div44.i.i.us.i = sdiv i32 %mul43.i.i.us.i, 8
   %add45.i.i.us.i = add i32 %div44.i.i.us.i, %24
   %cmp47.i.i.us.i = icmp ugt i32 %estimated_bytes.2.i.v.i.us.i, %add45.i.i.us.i
-  %brmerge.i.us.i = select i1 %cmp47.i.i.us.i, i1 true, i1 %cmp27.i.not.i.us.i
+  %brmerge.i.us.i = or i1 %cmp27.i.not.i.us.i, %cmp47.i.i.us.i
   %.mux.i.us.i = select i1 %cmp47.i.i.us.i, i8 0, i8 %use_rle.1.i.us.i
   br i1 %brmerge.i.us.i, label %if.else30.i.us.i, label %if.end43.thread.i.us.i
 

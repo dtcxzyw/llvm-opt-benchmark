@@ -8094,7 +8094,7 @@ invoke.cont12:                                    ; preds = %if.end
   %add.i.i = add i32 %sub1.i.i.i, %value.addr.0.i.i.i
   %cmp.i62 = icmp eq i32 %add.i.i, %ybegin
   %cmp2.i = icmp eq i32 %2, %ybegin
-  %4 = select i1 %cmp.i62, i1 true, i1 %cmp2.i
+  %4 = or i1 %cmp.i62, %cmp2.i
   br i1 %4, label %invoke.cont15, label %if.then30
 
 invoke.cont15:                                    ; preds = %invoke.cont12
@@ -8107,7 +8107,7 @@ invoke.cont15:                                    ; preds = %invoke.cont12
   %add.i.i72 = sub i32 %sub1.i.i.i71, %rem.i.i.i70
   %cmp.i73 = icmp eq i32 %add.i.i72, %.sroa.speculated165
   %cmp2.i75 = icmp eq i32 %2, %.sroa.speculated165
-  %5 = select i1 %cmp.i73, i1 true, i1 %cmp2.i75
+  %5 = or i1 %cmp.i73, %cmp2.i75
   br i1 %5, label %land.lhs.true17, label %if.then30
 
 land.lhs.true17:                                  ; preds = %invoke.cont15
@@ -43196,7 +43196,7 @@ _ZN3fmt2v86detail9normalizeILi0EEENS1_2fpES3_.exit: ; preds = %if.end42, %while.
   %ptr_.i93 = getelementptr inbounds i8, ptr %buf, i64 8
   %24 = load ptr, ptr %ptr_.i93, align 8
   %sub54 = sub nsw i32 348, %mul6.i
-  %sh_prom.i = zext i32 %add3.i.neg to i64
+  %sh_prom.i = zext nneg i32 %add3.i.neg to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
   %shr.i = lshr i64 %cond.i.i, %sh_prom.i
   %conv.i = trunc i64 %shr.i to i32

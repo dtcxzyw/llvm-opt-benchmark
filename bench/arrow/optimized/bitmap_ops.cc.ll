@@ -3,6 +3,7 @@ source_filename = "bench/arrow/original/bitmap_ops.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
+%"class.arrow::internal::BinaryBitBlockCounter" = type { ptr, i64, ptr, i64, i64 }
 %"class.arrow::Result" = type { %"class.arrow::Status", %"class.arrow::internal::AlignedStorage" }
 %"class.arrow::Status" = type { ptr }
 %"class.arrow::internal::AlignedStorage" = type { %"union.std::aligned_storage<16, 8>::type" }
@@ -30,13 +31,15 @@ $_ZNSt10shared_ptrIN5arrow6BufferEED2Ev = comdat any
 
 $_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev = comdat any
 
+$_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv = comdat any
+
 $__clang_call_terminate = comdat any
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
 
 $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
 
-@_ZN5arrow4util8internalL14kNonNullFillerE = internal unnamed_addr constant i8 0, align 1
+@_ZN5arrow4util8internalL14kNonNullFillerE = internal constant i8 0, align 1
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @_ZN5arrow8bit_utilL8kBitmaskE = internal unnamed_addr constant [8 x i8] c"\01\02\04\08\10 @\80", align 1
 @_ZN5arrow8bit_utilL15kFlippedBitmaskE = internal unnamed_addr constant [8 x i8] c"\FE\FD\FB\F7\EF\DF\BF\7F", align 1
@@ -177,145 +180,61 @@ for.end68:                                        ; preds = %for.body61, %if.end
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN5arrow8internal15CountAndSetBitsEPKhlS2_ll(ptr noundef readonly %left_bitmap, i64 noundef %left_offset, ptr noundef readonly %right_bitmap, i64 noundef %right_offset, i64 noundef %length) local_unnamed_addr #0 {
+; Function Attrs: mustprogress uwtable
+define noundef i64 @_ZN5arrow8internal15CountAndSetBitsEPKhlS2_ll(ptr noundef %left_bitmap, i64 noundef %left_offset, ptr noundef %right_bitmap, i64 noundef %right_offset, i64 noundef %length) local_unnamed_addr #2 {
 entry:
-  %rem.i = srem i64 %left_offset, 8
-  %div.i = sdiv i64 %left_offset, 8
-  %rem5.i = srem i64 %right_offset, 8
-  %div3.i = sdiv i64 %right_offset, 8
-  %tobool.not.i32 = icmp eq i64 %length, 0
-  br i1 %tobool.not.i32, label %while.end, label %if.end.i.lr.ph
-
-if.end.i.lr.ph:                                   ; preds = %entry
-  %cmp.not.i3.i = icmp eq ptr %right_bitmap, null
-  %_ZN5arrow4util8internalL14kNonNullFillerE.maybe_null.i4.i = select i1 %cmp.not.i3.i, ptr @_ZN5arrow4util8internalL14kNonNullFillerE, ptr %right_bitmap
-  %add.ptr4.i = getelementptr inbounds i8, ptr %_ZN5arrow4util8internalL14kNonNullFillerE.maybe_null.i4.i, i64 %div3.i
+  %bit_counter = alloca %"class.arrow::internal::BinaryBitBlockCounter", align 8
   %cmp.not.i.i = icmp eq ptr %left_bitmap, null
   %_ZN5arrow4util8internalL14kNonNullFillerE.maybe_null.i.i = select i1 %cmp.not.i.i, ptr @_ZN5arrow4util8internalL14kNonNullFillerE, ptr %left_bitmap
+  %div.i = sdiv i64 %left_offset, 8
   %add.ptr.i = getelementptr inbounds i8, ptr %_ZN5arrow4util8internalL14kNonNullFillerE.maybe_null.i.i, i64 %div.i
-  %cmp.i = icmp eq i64 %rem.i, 0
-  %add.i = sub nsw i64 128, %rem.i
-  %spec.select.i = select i1 %cmp.i, i64 64, i64 %add.i
-  %cmp4.i = icmp eq i64 %rem5.i, 0
-  %add9.i = sub nsw i64 128, %rem5.i
-  %cond11.i = select i1 %cmp4.i, i64 64, i64 %add9.i
-  %0 = tail call i64 @llvm.umax.i64(i64 %spec.select.i, i64 %cond11.i)
-  %1 = or i64 %rem5.i, %rem.i
-  %or.cond.i = icmp eq i64 %1, 0
-  br label %if.end.i
+  store ptr %add.ptr.i, ptr %bit_counter, align 8
+  %left_offset_.i = getelementptr inbounds i8, ptr %bit_counter, i64 8
+  %rem.i = srem i64 %left_offset, 8
+  store i64 %rem.i, ptr %left_offset_.i, align 8
+  %right_bitmap_.i = getelementptr inbounds i8, ptr %bit_counter, i64 16
+  %cmp.not.i3.i = icmp eq ptr %right_bitmap, null
+  %_ZN5arrow4util8internalL14kNonNullFillerE.maybe_null.i4.i = select i1 %cmp.not.i3.i, ptr @_ZN5arrow4util8internalL14kNonNullFillerE, ptr %right_bitmap
+  %div3.i = sdiv i64 %right_offset, 8
+  %add.ptr4.i = getelementptr inbounds i8, ptr %_ZN5arrow4util8internalL14kNonNullFillerE.maybe_null.i4.i, i64 %div3.i
+  store ptr %add.ptr4.i, ptr %right_bitmap_.i, align 8
+  %right_offset_.i = getelementptr inbounds i8, ptr %bit_counter, i64 24
+  %rem5.i = srem i64 %right_offset, 8
+  store i64 %rem5.i, ptr %right_offset_.i, align 8
+  %bits_remaining_.i = getelementptr inbounds i8, ptr %bit_counter, i64 32
+  store i64 %length, ptr %bits_remaining_.i, align 8
+  %call.i2 = call i32 @_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv(ptr noundef nonnull align 8 dereferenceable(40) %bit_counter)
+  %sext.mask3 = and i32 %call.i2, 65535
+  %cmp4 = icmp eq i32 %sext.mask3, 0
+  br i1 %cmp4, label %while.end, label %if.end
 
-if.end.i:                                         ; preds = %if.end.i.lr.ph, %if.end
-  %count.036 = phi i64 [ 0, %if.end.i.lr.ph ], [ %add, %if.end ]
-  %bit_counter.sroa.0.035 = phi ptr [ %add.ptr.i, %if.end.i.lr.ph ], [ %bit_counter.sroa.0.130, %if.end ]
-  %bit_counter.sroa.15.034 = phi i64 [ %length, %if.end.i.lr.ph ], [ %bit_counter.sroa.15.129, %if.end ]
-  %bit_counter.sroa.7.033 = phi ptr [ %add.ptr4.i, %if.end.i.lr.ph ], [ %bit_counter.sroa.7.128, %if.end ]
-  %cmp13.i = icmp slt i64 %bit_counter.sroa.15.034, %0
-  br i1 %cmp13.i, label %if.then14.i, label %if.end42.i
-
-if.then14.i:                                      ; preds = %if.end.i
-  %.sroa.speculated27.i = tail call i64 @llvm.smin.i64(i64 %bit_counter.sroa.15.034, i64 64)
-  %conv.i = trunc i64 %.sroa.speculated27.i to i16
-  %sext.i = shl i64 %.sroa.speculated27.i, 48
-  %conv18.i = ashr exact i64 %sext.i, 48
-  %cmp1929.i = icmp sgt i64 %conv18.i, 0
-  br i1 %cmp1929.i, label %for.body.i, label %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit
-
-for.body.i:                                       ; preds = %if.then14.i, %for.body.i
-  %i.031.i = phi i64 [ %inc29.i, %for.body.i ], [ 0, %if.then14.i ]
-  %popcount17.030.i = phi i16 [ %spec.select10.i, %for.body.i ], [ 0, %if.then14.i ]
-  %add21.i = add nsw i64 %i.031.i, %rem.i
-  %shr.i.i = lshr i64 %add21.i, 3
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %bit_counter.sroa.0.035, i64 %shr.i.i
-  %2 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i = zext i8 %2 to i32
-  %3 = trunc i64 %add21.i to i32
-  %sh_prom.i.i = and i32 %3, 7
-  %4 = shl nuw nsw i32 1, %sh_prom.i.i
-  %5 = and i32 %4, %conv.i.i
-  %tobool.i.i = icmp ne i32 %5, 0
-  %add24.i = add nsw i64 %i.031.i, %rem5.i
-  %shr.i13.i = lshr i64 %add24.i, 3
-  %arrayidx.i14.i = getelementptr inbounds i8, ptr %bit_counter.sroa.7.033, i64 %shr.i13.i
-  %6 = load i8, ptr %arrayidx.i14.i, align 1
-  %conv.i15.i = zext i8 %6 to i32
-  %7 = trunc i64 %add24.i to i32
-  %sh_prom.i16.i = and i32 %7, 7
-  %8 = shl nuw nsw i32 1, %sh_prom.i16.i
-  %9 = and i32 %8, %conv.i15.i
-  %tobool.i17.i = icmp ne i32 %9, 0
-  %and1.i.i = and i1 %tobool.i.i, %tobool.i17.i
-  %inc.i = zext i1 %and1.i.i to i16
-  %spec.select10.i = add i16 %popcount17.030.i, %inc.i
-  %inc29.i = add nuw nsw i64 %i.031.i, 1
-  %exitcond.not.i = icmp eq i64 %inc29.i, %conv18.i
-  br i1 %exitcond.not.i, label %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit, label %for.body.i, !llvm.loop !12
-
-if.end42.i:                                       ; preds = %if.end.i
-  %ret.0.copyload.i.i.i = load i64, ptr %bit_counter.sroa.0.035, align 1
-  br i1 %or.cond.i, label %if.then48.i, label %if.else.i
-
-if.then48.i:                                      ; preds = %if.end42.i
-  %ret.0.copyload.i.i18.i = load i64, ptr %bit_counter.sroa.7.033, align 1
-  %and.i.i = and i64 %ret.0.copyload.i.i18.i, %ret.0.copyload.i.i.i
-  br label %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.thread18
-
-if.else.i:                                        ; preds = %if.end42.i
-  %add.ptr58.i = getelementptr inbounds i8, ptr %bit_counter.sroa.0.035, i64 8
-  %ret.0.copyload.i.i20.i = load i64, ptr %add.ptr58.i, align 1
-  %retval.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %ret.0.copyload.i.i20.i, i64 %ret.0.copyload.i.i.i, i64 %rem.i)
-  %ret.0.copyload.i.i21.i = load i64, ptr %bit_counter.sroa.7.033, align 1
-  %add.ptr65.i = getelementptr inbounds i8, ptr %bit_counter.sroa.7.033, i64 8
-  %ret.0.copyload.i.i22.i = load i64, ptr %add.ptr65.i, align 1
-  %retval.0.i23.i = tail call noundef i64 @llvm.fshr.i64(i64 %ret.0.copyload.i.i22.i, i64 %ret.0.copyload.i.i21.i, i64 %rem5.i)
-  %and.i24.i = and i64 %retval.0.i23.i, %retval.0.i.i
-  br label %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.thread18
-
-_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.thread18: ; preds = %if.then48.i, %if.else.i
-  %and.i24.sink.i = phi i64 [ %and.i24.i, %if.else.i ], [ %and.i.i, %if.then48.i ]
-  %10 = tail call noundef i64 @llvm.ctpop.i64(i64 %and.i24.sink.i), !range !6
-  %add.ptr73.i = getelementptr inbounds i8, ptr %bit_counter.sroa.0.035, i64 8
-  %add.ptr75.i = getelementptr inbounds i8, ptr %bit_counter.sroa.7.033, i64 8
-  %sub77.i = add nsw i64 %bit_counter.sroa.15.034, -64
-  br label %if.end
-
-_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit: ; preds = %for.body.i, %if.then14.i
-  %popcount17.0.lcssa.i = phi i16 [ 0, %if.then14.i ], [ %spec.select10.i, %for.body.i ]
-  %11 = sdiv i16 %conv.i, 8
-  %idx.ext.i = sext i16 %11 to i64
-  %add.ptr.i6 = getelementptr inbounds i8, ptr %bit_counter.sroa.0.035, i64 %idx.ext.i
-  %add.ptr36.i = getelementptr inbounds i8, ptr %bit_counter.sroa.7.033, i64 %idx.ext.i
-  %sub39.i = sub nsw i64 %bit_counter.sroa.15.034, %conv18.i
-  %retval.sroa.4.0.insert.ext.i = zext i16 %popcount17.0.lcssa.i to i64
-  %12 = and i64 %.sroa.speculated27.i, 65535
-  %cmp = icmp eq i64 %12, 0
-  br i1 %cmp, label %while.end, label %if.end
-
-if.end:                                           ; preds = %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.thread18, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit
-  %retval.sroa.4.0.insert.ext.i31 = phi i64 [ %10, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.thread18 ], [ %retval.sroa.4.0.insert.ext.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit ]
-  %bit_counter.sroa.0.130 = phi ptr [ %add.ptr73.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.thread18 ], [ %add.ptr.i6, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit ]
-  %bit_counter.sroa.15.129 = phi i64 [ %sub77.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.thread18 ], [ %sub39.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit ]
-  %bit_counter.sroa.7.128 = phi ptr [ %add.ptr75.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit.thread18 ], [ %add.ptr36.i, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit ]
-  %sext = shl nuw i64 %retval.sroa.4.0.insert.ext.i31, 48
+if.end:                                           ; preds = %entry, %if.end
+  %call.i6 = phi i32 [ %call.i, %if.end ], [ %call.i2, %entry ]
+  %count.05 = phi i64 [ %add, %if.end ], [ 0, %entry ]
+  %block.sroa.2.0.extract.shift = lshr i32 %call.i6, 16
+  %block.sroa.2.0.extract.trunc = zext nneg i32 %block.sroa.2.0.extract.shift to i64
+  %sext = shl nuw i64 %block.sroa.2.0.extract.trunc, 48
   %conv2 = ashr exact i64 %sext, 48
-  %add = add nsw i64 %conv2, %count.036
-  %tobool.not.i = icmp eq i64 %bit_counter.sroa.15.129, 0
-  br i1 %tobool.not.i, label %while.end, label %if.end.i, !llvm.loop !13
+  %add = add nsw i64 %conv2, %count.05
+  %call.i = call i32 @_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv(ptr noundef nonnull align 8 dereferenceable(40) %bit_counter)
+  %sext.mask = and i32 %call.i, 65535
+  %cmp = icmp eq i32 %sext.mask, 0
+  br i1 %cmp, label %while.end, label %if.end, !llvm.loop !12
 
-while.end:                                        ; preds = %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit, %if.end, %entry
-  %count.0.lcssa = phi i64 [ 0, %entry ], [ %add, %if.end ], [ %count.036, %_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv.exit ]
+while.end:                                        ; preds = %if.end, %entry
+  %count.0.lcssa = phi i64 [ 0, %entry ], [ %add, %if.end ]
   ret i64 %count.0.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_ZN5arrow8internal12ReverseUint8Eh(i8 noundef zeroext %num) local_unnamed_addr #2 {
+define noundef zeroext i8 @_ZN5arrow8internal12ReverseUint8Eh(i8 noundef zeroext %num) local_unnamed_addr #3 {
 entry:
   %rev = tail call i8 @llvm.bitreverse.i8(i8 %num)
   ret i8 %rev
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_ZN5arrow8internal16GetReversedBlockEhhh(i8 noundef zeroext %block_left, i8 noundef zeroext %block_right, i8 noundef zeroext %length) local_unnamed_addr #2 {
+define noundef zeroext i8 @_ZN5arrow8internal16GetReversedBlockEhhh(i8 noundef zeroext %block_left, i8 noundef zeroext %block_right, i8 noundef zeroext %length) local_unnamed_addr #3 {
 entry:
   %conv = zext i8 %block_right to i32
   %shl = shl nuw nsw i32 %conv, 8
@@ -329,7 +248,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8internal19ReverseBlockOffsetsEPKhlllPh(ptr nocapture noundef readonly %data, i64 noundef %offset, i64 noundef %length, i64 noundef %dest_offset, ptr nocapture noundef %dest) local_unnamed_addr #3 {
+define void @_ZN5arrow8internal19ReverseBlockOffsetsEPKhlllPh(ptr nocapture noundef readonly %data, i64 noundef %offset, i64 noundef %length, i64 noundef %dest_offset, ptr nocapture noundef %dest) local_unnamed_addr #4 {
 entry:
   %div = sdiv i64 %offset, 8
   %rem = srem i64 %offset, 8
@@ -426,21 +345,21 @@ if.end36:                                         ; preds = %if.else, %if.then29
   %spec.select = add nsw i64 %j_src.049, %dec
   %inc = add nuw nsw i64 %i_dest.050, 1
   %cmp = icmp sgt i64 %sub53, 0
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !14
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %if.end36, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal10CopyBitmapEPKhllPhl(ptr noundef %data, i64 noundef %offset, i64 noundef %length, ptr noundef %dest, i64 noundef %dest_offset) local_unnamed_addr #4 {
+define void @_ZN5arrow8internal10CopyBitmapEPKhllPhl(ptr noundef %data, i64 noundef %offset, i64 noundef %length, ptr noundef %dest, i64 noundef %dest_offset) local_unnamed_addr #2 {
 entry:
   tail call void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE0EEEvPKhlllPh(ptr noundef %data, i64 noundef %offset, i64 noundef %length, i64 noundef %dest_offset, ptr noundef %dest)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE0EEEvPKhlllPh(ptr noundef %data, i64 noundef %offset, i64 noundef %length, i64 noundef %dest_offset, ptr noundef %dest) local_unnamed_addr #4 comdat {
+define linkonce_odr void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE0EEEvPKhlllPh(ptr noundef %data, i64 noundef %offset, i64 noundef %length, i64 noundef %dest_offset, ptr noundef %dest) local_unnamed_addr #2 comdat {
 entry:
   %0 = or i64 %dest_offset, %offset
   %1 = and i64 %0, 7
@@ -549,7 +468,7 @@ while.body.us:                                    ; preds = %while.body.us.prehe
   store i64 %word.0.i.us, ptr %writer.sroa.4.0156.us, align 1
   %add.ptr21.i.us = getelementptr inbounds i8, ptr %writer.sroa.4.0156.us, i64 8
   %tobool3.not.us = icmp eq i64 %dec.us, 0
-  br i1 %tobool3.not.us, label %while.cond6.preheader, label %while.body.us, !llvm.loop !15
+  br i1 %tobool3.not.us, label %while.cond6.preheader, label %while.body.us, !llvm.loop !14
 
 while.cond6.preheader:                            ; preds = %while.body, %while.body.us, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
   %reader.sroa.4.0.lcssa = phi ptr [ %add.ptr.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %add.ptr.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %add.ptr.i39.us, %while.body.us ], [ %add.ptr.i39, %while.body ]
@@ -603,7 +522,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i64 %or13.i, ptr %add.ptr.i45, align 1
   %writer.sroa.20.32.extract.trunc113 = trunc i64 %or13.i to i8
   %tobool3.not = icmp eq i64 %dec, 0
-  br i1 %tobool3.not, label %while.cond6.preheader, label %while.body, !llvm.loop !15
+  br i1 %tobool3.not, label %while.cond6.preheader, label %while.body, !llvm.loop !14
 
 while.body9:                                      ; preds = %while.body9.lr.ph, %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit
   %nbytes.0172 = phi i32 [ %conv15.i, %while.body9.lr.ph ], [ %dec7, %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit ]
@@ -660,7 +579,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i:   ; preds = %if.then11.i.i, %if.
   %reader.sroa.11.1.i = phi i64 [ %inc6.i.i, %if.then11.i.i ], [ %inc6.i.i, %if.then.i20.i ], [ %reader.sroa.11.028.i, %for.body.i ]
   %reader.sroa.14.1.i = phi i64 [ 0, %if.then11.i.i ], [ 0, %if.then.i20.i ], [ %inc.i.i, %for.body.i ]
   %exitcond.not.i = icmp eq i64 %inc2.i.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit, label %for.body.i, !llvm.loop !15
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.thread: ; preds = %while.body9
   %incdec.ptr.i = getelementptr inbounds i8, ptr %reader.sroa.4.1166, i64 1
@@ -758,7 +677,7 @@ _ZN5arrow8internal12BitmapWriter4NextEv.exit.i:   ; preds = %if.then12.i.i, %if.
   %writer.sroa.27.1.i = phi i64 [ %inc7.i.i, %if.then12.i.i ], [ %inc7.i.i, %if.then.i18.i ], [ %writer.sroa.27.048.i, %for.body.i75 ]
   %shr43.i = lshr i8 %byte.addr.049.i, 1
   %exitcond.not.i78 = icmp eq i64 %inc.i.i77, %wide.trip.count.i
-  br i1 %exitcond.not.i78, label %land.lhs.true.i.i, label %for.body.i75, !llvm.loop !17
+  br i1 %exitcond.not.i78, label %land.lhs.true.i.i, label %for.body.i75, !llvm.loop !16
 
 land.lhs.true.i.i:                                ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i
   %cmp2.not.i.not.i = icmp eq i8 %writer.sroa.20.1.i, 1
@@ -776,7 +695,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit: ; pred
   %writer.sroa.20.5 = phi i8 [ %writer.sroa.20.4, %if.end.i ], [ %writer.sroa.20.3168, %land.lhs.true.i.i ], [ %writer.sroa.20.3168, %if.then.i27.i ], [ %writer.sroa.20.3168, %if.then.i60 ]
   %writer.sroa.4.2 = phi ptr [ %incdec.ptr.i93, %if.end.i ], [ %writer.sroa.4.1171, %land.lhs.true.i.i ], [ %writer.sroa.4.1171, %if.then.i27.i ], [ %writer.sroa.4.1171, %if.then.i60 ]
   %tobool8.not = icmp eq i32 %dec7, 0
-  br i1 %tobool8.not, label %if.end35, label %while.body9, !llvm.loop !18
+  br i1 %tobool8.not, label %if.end35, label %while.body9, !llvm.loop !17
 
 if.else:                                          ; preds = %entry
   %tobool13.not = icmp eq i64 %length, 0
@@ -816,14 +735,14 @@ if.end35:                                         ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal12InvertBitmapEPKhllPhl(ptr noundef %data, i64 noundef %offset, i64 noundef %length, ptr noundef %dest, i64 noundef %dest_offset) local_unnamed_addr #4 {
+define void @_ZN5arrow8internal12InvertBitmapEPKhllPhl(ptr noundef %data, i64 noundef %offset, i64 noundef %length, ptr noundef %dest, i64 noundef %dest_offset) local_unnamed_addr #2 {
 entry:
   tail call void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE1EEEvPKhlllPh(ptr noundef %data, i64 noundef %offset, i64 noundef %length, i64 noundef %dest_offset, ptr noundef %dest)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE1EEEvPKhlllPh(ptr noundef %data, i64 noundef %offset, i64 noundef %length, i64 noundef %dest_offset, ptr noundef %dest) local_unnamed_addr #4 comdat {
+define linkonce_odr void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE1EEEvPKhlllPh(ptr noundef %data, i64 noundef %offset, i64 noundef %length, i64 noundef %dest_offset, ptr noundef %dest) local_unnamed_addr #2 comdat {
 entry:
   %0 = or i64 %dest_offset, %offset
   %1 = and i64 %0, 7
@@ -933,7 +852,7 @@ while.body.us:                                    ; preds = %while.body.us.prehe
   store i64 %not.us, ptr %writer.sroa.4.0161.us, align 1
   %add.ptr21.i.us = getelementptr inbounds i8, ptr %writer.sroa.4.0161.us, i64 8
   %tobool3.not.us = icmp eq i64 %dec.us, 0
-  br i1 %tobool3.not.us, label %while.cond6.preheader, label %while.body.us, !llvm.loop !19
+  br i1 %tobool3.not.us, label %while.cond6.preheader, label %while.body.us, !llvm.loop !18
 
 while.cond6.preheader:                            ; preds = %while.body, %while.body.us, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
   %reader.sroa.4.0.lcssa = phi ptr [ %add.ptr.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %add.ptr.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %add.ptr.i42.us, %while.body.us ], [ %add.ptr.i42, %while.body ]
@@ -988,7 +907,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i64 %or13.i, ptr %add.ptr.i48, align 1
   %writer.sroa.20.32.extract.trunc116 = trunc i64 %or13.i to i8
   %tobool3.not = icmp eq i64 %dec, 0
-  br i1 %tobool3.not, label %while.cond6.preheader, label %while.body, !llvm.loop !19
+  br i1 %tobool3.not, label %while.cond6.preheader, label %while.body, !llvm.loop !18
 
 while.body9:                                      ; preds = %while.body9.lr.ph, %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit
   %nbytes.0177 = phi i32 [ %conv15.i, %while.body9.lr.ph ], [ %dec7, %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit ]
@@ -1045,7 +964,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i:   ; preds = %if.then11.i.i, %if.
   %reader.sroa.11.1.i = phi i64 [ %inc6.i.i, %if.then11.i.i ], [ %inc6.i.i, %if.then.i20.i ], [ %reader.sroa.11.028.i, %for.body.i ]
   %reader.sroa.14.1.i = phi i64 [ 0, %if.then11.i.i ], [ 0, %if.then.i20.i ], [ %inc.i.i, %for.body.i ]
   %exitcond.not.i = icmp eq i64 %inc2.i.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit, label %for.body.i, !llvm.loop !15
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.thread: ; preds = %while.body9
   %incdec.ptr.i = getelementptr inbounds i8, ptr %reader.sroa.4.1171, i64 1
@@ -1145,7 +1064,7 @@ _ZN5arrow8internal12BitmapWriter4NextEv.exit.i:   ; preds = %if.then12.i.i, %if.
   %writer.sroa.27.1.i = phi i64 [ %inc7.i.i, %if.then12.i.i ], [ %inc7.i.i, %if.then.i18.i ], [ %writer.sroa.27.048.i, %for.body.i78 ]
   %shr43.i = lshr i8 %byte.addr.049.i, 1
   %exitcond.not.i81 = icmp eq i64 %inc.i.i80, %wide.trip.count.i
-  br i1 %exitcond.not.i81, label %land.lhs.true.i.i, label %for.body.i78, !llvm.loop !17
+  br i1 %exitcond.not.i81, label %land.lhs.true.i.i, label %for.body.i78, !llvm.loop !16
 
 land.lhs.true.i.i:                                ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i
   %cmp2.not.i.not.i = icmp eq i8 %writer.sroa.20.1.i, 1
@@ -1163,7 +1082,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit: ; pred
   %writer.sroa.20.5 = phi i8 [ %writer.sroa.20.4, %if.end.i ], [ %writer.sroa.20.3173, %land.lhs.true.i.i ], [ %writer.sroa.20.3173, %if.then.i27.i ], [ %writer.sroa.20.3173, %if.then.i63 ]
   %writer.sroa.4.2 = phi ptr [ %incdec.ptr.i96, %if.end.i ], [ %writer.sroa.4.1176, %land.lhs.true.i.i ], [ %writer.sroa.4.1176, %if.then.i27.i ], [ %writer.sroa.4.1176, %if.then.i63 ]
   %tobool8.not = icmp eq i32 %dec7, 0
-  br i1 %tobool8.not, label %if.end45, label %while.body9, !llvm.loop !20
+  br i1 %tobool8.not, label %if.end45, label %while.body9, !llvm.loop !19
 
 if.else:                                          ; preds = %entry
   %tobool14.not = icmp eq i64 %length, 0
@@ -1197,7 +1116,7 @@ for.body:                                         ; preds = %if.then15, %for.bod
   store i8 %not24, ptr %arrayidx26, align 1
   %inc = add nuw nsw i64 %i.0179, 1
   %exitcond.not = icmp eq i64 %inc, %sub22
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
 
 for.end:                                          ; preds = %for.body, %if.then15
   %arrayidx28 = getelementptr inbounds i8, ptr %add.ptr, i64 %sub22
@@ -1217,7 +1136,7 @@ if.end45:                                         ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8internal13ReverseBitmapEPKhllPhl(ptr nocapture noundef readonly %data, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef %dest, i64 noundef %dest_offset) local_unnamed_addr #3 {
+define void @_ZN5arrow8internal13ReverseBitmapEPKhllPhl(ptr nocapture noundef readonly %data, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef %dest, i64 noundef %dest_offset) local_unnamed_addr #4 {
 entry:
   %div.i = sdiv i64 %offset, 8
   %rem.i = srem i64 %offset, 8
@@ -1314,21 +1233,21 @@ if.end36.i:                                       ; preds = %if.else.i, %if.then
   %spec.select.i = add nsw i64 %j_src.049.i, %dec.i
   %inc.i = add nuw nsw i64 %i_dest.050.i, 1
   %cmp.i = icmp sgt i64 %sub53.i, 0
-  br i1 %cmp.i, label %while.body.i, label %_ZN5arrow8internal19ReverseBlockOffsetsEPKhlllPh.exit, !llvm.loop !14
+  br i1 %cmp.i, label %while.body.i, label %_ZN5arrow8internal19ReverseBlockOffsetsEPKhlllPh.exit, !llvm.loop !13
 
 _ZN5arrow8internal19ReverseBlockOffsetsEPKhlllPh.exit: ; preds = %if.end36.i, %entry
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal10CopyBitmapEPNS_10MemoryPoolEPKhll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #4 {
+define void @_ZN5arrow8internal10CopyBitmapEPNS_10MemoryPoolEPKhll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #2 {
 entry:
   tail call void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE0EEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhll(ptr sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef %data, i64 noundef %offset, i64 noundef %length)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE0EEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE0EEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.arrow::Result", align 8
   %buffer = alloca %"class.std::shared_ptr", align 8
@@ -1342,17 +1261,17 @@ if.then:                                          ; preds = %invoke.cont
   br label %cleanup
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %1 = load ptr, ptr %storage_.i.i, align 8, !noalias !28
-  store ptr %1, ptr %buffer, align 8, !alias.scope !28
+  %1 = load ptr, ptr %storage_.i.i, align 8, !noalias !27
+  store ptr %1, ptr %buffer, align 8, !alias.scope !27
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %2 = load ptr, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !28
-  store ptr null, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !28
-  store ptr %2, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !28
-  store ptr null, ptr %storage_.i.i, align 8, !noalias !28
+  %2 = load ptr, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !27
+  store ptr null, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !27
+  store ptr %2, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !27
+  store ptr null, ptr %storage_.i.i, align 8, !noalias !27
   %is_mutable_.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load <2 x i8>, ptr %is_mutable_.i, align 8
   %4 = trunc <2 x i8> %3 to <2 x i1>
@@ -1386,7 +1305,7 @@ for.body:                                         ; preds = %invoke.cont8, %for.
   store i8 %and2.i, ptr %arrayidx1.i, align 1
   %inc = add nsw i64 %i.016, 1
   %exitcond.not = icmp eq i64 %inc, %mul
-  br i1 %exitcond.not, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, label %for.body, !llvm.loop !29
+  br i1 %exitcond.not, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, label %for.body, !llvm.loop !28
 
 lpad7:                                            ; preds = %invoke.cont4
   %11 = landingpad { ptr, i32 }
@@ -1409,14 +1328,14 @@ cleanup:                                          ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal12InvertBitmapEPNS_10MemoryPoolEPKhll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #4 {
+define void @_ZN5arrow8internal12InvertBitmapEPNS_10MemoryPoolEPKhll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #2 {
 entry:
   tail call void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE1EEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhll(ptr sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef %data, i64 noundef %offset, i64 noundef %length)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE1EEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5arrow8internal14TransferBitmapILNS0_12TransferModeE1EEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr noundef %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.arrow::Result", align 8
   %buffer = alloca %"class.std::shared_ptr", align 8
@@ -1430,17 +1349,17 @@ if.then:                                          ; preds = %invoke.cont
   br label %cleanup
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %1 = load ptr, ptr %storage_.i.i, align 8, !noalias !36
-  store ptr %1, ptr %buffer, align 8, !alias.scope !36
+  %1 = load ptr, ptr %storage_.i.i, align 8, !noalias !35
+  store ptr %1, ptr %buffer, align 8, !alias.scope !35
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %2 = load ptr, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !36
-  store ptr null, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !36
-  store ptr %2, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !36
-  store ptr null, ptr %storage_.i.i, align 8, !noalias !36
+  %2 = load ptr, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !35
+  store ptr null, ptr %_M_refcount4.i.i.i.i, align 8, !noalias !35
+  store ptr %2, ptr %_M_refcount.i.i.i.i, align 8, !alias.scope !35
+  store ptr null, ptr %storage_.i.i, align 8, !noalias !35
   %is_mutable_.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load <2 x i8>, ptr %is_mutable_.i, align 8
   %4 = trunc <2 x i8> %3 to <2 x i1>
@@ -1474,7 +1393,7 @@ for.body:                                         ; preds = %invoke.cont8, %for.
   store i8 %and2.i, ptr %arrayidx1.i, align 1
   %inc = add nsw i64 %i.016, 1
   %exitcond.not = icmp eq i64 %inc, %mul
-  br i1 %exitcond.not, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, label %for.body, !llvm.loop !37
+  br i1 %exitcond.not, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, label %for.body, !llvm.loop !36
 
 lpad7:                                            ; preds = %invoke.cont4
   %11 = landingpad { ptr, i32 }
@@ -1497,7 +1416,7 @@ cleanup:                                          ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal13ReverseBitmapEPNS_10MemoryPoolEPKhll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal13ReverseBitmapEPNS_10MemoryPoolEPKhll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.arrow::Result", align 8
   call void @_ZN5arrow19AllocateEmptyBitmapElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result") align 8 %ref.tmp, i64 noundef %length, ptr noundef %pool)
@@ -1511,7 +1430,7 @@ if.then:                                          ; preds = %invoke.cont
 
 invoke.cont5:                                     ; preds = %invoke.cont
   %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %1 = load <2 x ptr>, ptr %storage_.i.i, align 8, !noalias !38
+  %1 = load <2 x ptr>, ptr %storage_.i.i, align 8, !noalias !37
   %2 = extractelement <2 x ptr> %1, i64 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i, i8 0, i64 16, i1 false)
   %is_mutable_.i = getelementptr inbounds i8, ptr %2, i64 8
@@ -1615,7 +1534,7 @@ if.end36.i:                                       ; preds = %if.else.i, %if.then
   %spec.select.i = add nsw i64 %j_src.049.i, %dec.i
   %inc.i = add nuw nsw i64 %i_dest.050.i, 1
   %cmp.i = icmp sgt i64 %sub53.i, 0
-  br i1 %cmp.i, label %while.body.i, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, !llvm.loop !14
+  br i1 %cmp.i, label %while.body.i, label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, !llvm.loop !13
 
 _ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit:      ; preds = %if.end36.i, %invoke.cont5
   store ptr null, ptr %agg.result, align 8
@@ -1720,15 +1639,15 @@ invoke.cont5:                                     ; preds = %.noexc
           to label %invoke.cont7 unwind label %terminate.lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #19, !noalias !43
-  %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #19, !noalias !43
+  %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #19, !noalias !42
+  %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #19, !noalias !42
   %add.i = add i64 %call1.i, %call.i
-  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #19, !noalias !43
+  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #19, !noalias !42
   %cmp.i9 = icmp ugt i64 %add.i, %call2.i
   br i1 %cmp.i9, label %land.lhs.true.i, label %if.end7.i
 
 land.lhs.true.i:                                  ; preds = %invoke.cont7
-  %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #19, !noalias !43
+  %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #19, !noalias !42
   %cmp4.not.i = icmp ugt i64 %add.i, %call3.i
   br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
 
@@ -2069,7 +1988,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %inc = add i64 %i.0174, 1
   %exitcond.not = icmp eq i64 %inc, %length
   %or.cond213 = or i1 %10, %exitcond.not
-  br i1 %or.cond213, label %return.loopexit, label %for.body, !llvm.loop !46
+  br i1 %or.cond213, label %return.loopexit, label %for.body, !llvm.loop !45
 
 if.end17:                                         ; preds = %entry
   %rem.i = srem i64 %left_offset, 8
@@ -2173,7 +2092,7 @@ while.body:                                       ; preds = %while.cond
   %right_reader.sroa.19.40.extract.trunc154 = trunc i64 %15 to i8
   %right_reader.sroa.25.40.extract.shift155 = and i64 %15, -256
   %cmp22.not = icmp eq i64 %word.0.i, %word.0.i70
-  br i1 %cmp22.not, label %while.cond, label %return, !llvm.loop !47
+  br i1 %cmp22.not, label %while.cond, label %return, !llvm.loop !46
 
 while.cond26:                                     ; preds = %while.cond26.preheader, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit147
   %left_reader.sroa.4.1 = phi ptr [ %left_reader.sroa.4.2, %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit147 ], [ %scevgep, %while.cond26.preheader ]
@@ -2235,7 +2154,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i:   ; preds = %if.then11.i.i, %if.
   %reader.sroa.11.1.i = phi i64 [ %inc6.i.i, %if.then11.i.i ], [ %inc6.i.i, %if.then.i20.i ], [ %reader.sroa.11.028.i, %for.body.i ]
   %reader.sroa.14.1.i = phi i64 [ 0, %if.then11.i.i ], [ 0, %if.then.i20.i ], [ %inc.i.i, %for.body.i ]
   %exitcond.not.i = icmp eq i64 %inc2.i.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !15
 
 for.end.loopexit.i:                               ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i
   %20 = zext i8 %spec.select.i85 to i32
@@ -2313,7 +2232,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i136: ; preds = %if.then11.i.i145, 
   %reader.sroa.11.1.i138 = phi i64 [ %inc6.i.i143, %if.then11.i.i145 ], [ %inc6.i.i143, %if.then.i20.i142 ], [ %reader.sroa.11.028.i125, %for.body.i121 ]
   %reader.sroa.14.1.i139 = phi i64 [ 0, %if.then11.i.i145 ], [ 0, %if.then.i20.i142 ], [ %inc.i.i133, %for.body.i121 ]
   %exitcond.not.i140 = icmp eq i64 %inc2.i.i134, %wide.trip.count.i120
-  br i1 %exitcond.not.i140, label %for.end.loopexit.i141, label %for.body.i121, !llvm.loop !16
+  br i1 %exitcond.not.i140, label %for.end.loopexit.i141, label %for.body.i121, !llvm.loop !15
 
 for.end.loopexit.i141:                            ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i136
   %25 = zext i8 %spec.select.i132 to i32
@@ -2345,7 +2264,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit147: ; pred
   %right_reader.sroa.4.2 = phi ptr [ %right_reader.sroa.4.1, %for.end.i111 ], [ %incdec.ptr.i90, %if.else.i88 ]
   %byte.3.i106 = phi i8 [ %conv12.i115, %for.end.i111 ], [ %byte.2.i102, %if.else.i88 ]
   %cmp34.not = icmp eq i8 %byte.3.i, %byte.3.i106
-  br i1 %cmp34.not, label %while.cond26, label %return, !llvm.loop !48
+  br i1 %cmp34.not, label %while.cond26, label %return, !llvm.loop !47
 
 return.loopexit:                                  ; preds = %for.body
   %retval.0.ph = xor i1 %10, true
@@ -2461,14 +2380,14 @@ _ZN5arrow8internal20OptionalBitmapEqualsEPKhlS2_ll.exit: ; preds = %cond.end8, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal9BitmapAndEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal9BitmapAndEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %add.i = add nsw i64 %out_offset, %length
-  call void @_ZN5arrow19AllocateEmptyBitmapElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result") align 8 %ref.tmp.i, i64 noundef %add.i, ptr noundef %pool), !noalias !49
-  %0 = load ptr, ptr %ref.tmp.i, align 8, !noalias !49
+  call void @_ZN5arrow19AllocateEmptyBitmapElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result") align 8 %ref.tmp.i, i64 noundef %add.i, ptr noundef %pool), !noalias !48
+  %0 = load ptr, ptr %ref.tmp.i, align 8, !noalias !48
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %invoke.cont4.i, label %if.then.i
 
@@ -2479,21 +2398,21 @@ if.then.i:                                        ; preds = %entry
 invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !52
+  %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !51
   %2 = extractelement <2 x ptr> %1, i64 0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !49
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !48
   %is_mutable_.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !49
+  %3 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !48
   %4 = trunc <2 x i8> %3 to <2 x i1>
   %5 = extractelement <2 x i1> %4, i64 0
   %6 = extractelement <2 x i1> %4, i64 1
   %7 = select i1 %6, i1 %5, i1 false
   %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = load ptr, ptr %data_.i.i, align 8, !noalias !49
+  %8 = load ptr, ptr %data_.i.i, align 8, !noalias !48
   %cond.i.i = select i1 %7, ptr %8, ptr null
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !49
-  store ptr null, ptr %agg.result, align 8, !alias.scope !49
-  store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !49
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !48
+  store ptr null, ptr %agg.result, align 8, !alias.scope !48
+  store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !48
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
 _ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit: ; preds = %if.then.i, %invoke.cont4.i
@@ -2550,7 +2469,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store i8 %and1.i.i, ptr %arrayidx27.i, align 1
   %inc.i = add nuw nsw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i.i
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !57
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !56
 
 if.else:                                          ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %left, i64 %div.i.i
@@ -2671,7 +2590,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   store i64 %and.i.us.i, ptr %writer.sroa.4.0222.us.i, align 1
   %add.ptr21.i.us.i = getelementptr inbounds i8, ptr %writer.sroa.4.0222.us.i, i64 8
   %tobool.not.us.i = icmp eq i64 %dec.us.i, 0
-  br i1 %tobool.not.us.i, label %while.cond6.preheader.i, label %while.body.us.i, !llvm.loop !58
+  br i1 %tobool.not.us.i, label %while.cond6.preheader.i, label %while.body.us.i, !llvm.loop !57
 
 while.cond6.preheader.i:                          ; preds = %while.body.i, %while.body.us.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
   %right_reader.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i6262.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %add.ptr.i6262.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %add.ptr.i62.us.i, %while.body.us.i ], [ %add.ptr.i62.i, %while.body.i ]
@@ -2742,7 +2661,7 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   store i64 %or13.i.i, ptr %add.ptr.i70.i, align 1
   %writer.sroa.20.32.extract.trunc196.i = trunc i64 %or13.i.i to i8
   %tobool.not.i = icmp eq i64 %dec.i, 0
-  br i1 %tobool.not.i, label %while.cond6.preheader.i, label %while.body.i, !llvm.loop !58
+  br i1 %tobool.not.i, label %while.cond6.preheader.i, label %while.body.i, !llvm.loop !57
 
 while.body9.i:                                    ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, %while.body9.lr.ph.i
   %nbytes.0248.i = phi i32 [ %conv15.i.i, %while.body9.lr.ph.i ], [ %dec7.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i ]
@@ -2802,7 +2721,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i.i: ; preds = %if.then11.i.i.i, %i
   %reader.sroa.11.1.i.i = phi i64 [ %inc6.i.i.i, %if.then11.i.i.i ], [ %inc6.i.i.i, %if.then.i20.i.i ], [ %reader.sroa.11.028.i.i, %for.body.i.i ]
   %reader.sroa.14.1.i.i = phi i64 [ 0, %if.then11.i.i.i ], [ 0, %if.then.i20.i.i ], [ %inc.i.i.i, %for.body.i.i ]
   %exitcond.not.i.i = icmp eq i64 %inc2.i.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !15
 
 for.end.loopexit.i.i:                             ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i
   %10 = zext i8 %spec.select.i93.i to i32
@@ -2881,7 +2800,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i144.i: ; preds = %if.then11.i.i153
   %reader.sroa.11.1.i146.i = phi i64 [ %inc6.i.i151.i, %if.then11.i.i153.i ], [ %inc6.i.i151.i, %if.then.i20.i150.i ], [ %reader.sroa.11.028.i133.i, %for.body.i129.i ]
   %reader.sroa.14.1.i147.i = phi i64 [ 0, %if.then11.i.i153.i ], [ 0, %if.then.i20.i150.i ], [ %inc.i.i141.i, %for.body.i129.i ]
   %exitcond.not.i148.i = icmp eq i64 %inc2.i.i142.i, %wide.trip.count.i128.i
-  br i1 %exitcond.not.i148.i, label %for.end.loopexit.i149.i, label %for.body.i129.i, !llvm.loop !16
+  br i1 %exitcond.not.i148.i, label %for.end.loopexit.i149.i, label %for.body.i129.i, !llvm.loop !15
 
 for.end.loopexit.i149.i:                          ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i144.i
   %15 = zext i8 %spec.select.i140.i to i32
@@ -2993,7 +2912,7 @@ _ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i: ; preds = %if.then12.i.i.i, %i
   %writer.sroa.27.1.i.i = phi i64 [ %inc7.i.i.i, %if.then12.i.i.i ], [ %inc7.i.i.i, %if.then.i18.i.i ], [ %writer.sroa.27.048.i.i, %for.body.i163.i ]
   %shr43.i.i = lshr i8 %byte.addr.049.i.i, 1
   %exitcond.not.i166.i = icmp eq i64 %inc.i.i165.i, %wide.trip.count.i162.i
-  br i1 %exitcond.not.i166.i, label %land.lhs.true.i.i.i, label %for.body.i163.i, !llvm.loop !17
+  br i1 %exitcond.not.i166.i, label %land.lhs.true.i.i.i, label %for.body.i163.i, !llvm.loop !16
 
 land.lhs.true.i.i.i:                              ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i
   %cmp2.not.i.not.i.i = icmp eq i8 %writer.sroa.20.1.i.i, 1
@@ -3008,21 +2927,21 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i: ; pr
   %writer.sroa.20.5.i = phi i8 [ %writer.sroa.20.4.i, %if.end.i.i ], [ %writer.sroa.20.3241.i, %land.lhs.true.i.i.i ], [ %writer.sroa.20.3241.i, %if.then.i27.i.i ], [ %writer.sroa.20.3241.i, %if.else34.i.i ]
   %writer.sroa.4.2.i = phi ptr [ %incdec.ptr.i181.i, %if.end.i.i ], [ %writer.sroa.4.1243.i, %land.lhs.true.i.i.i ], [ %writer.sroa.4.1243.i, %if.then.i27.i.i ], [ %writer.sroa.4.1243.i, %if.else34.i.i ]
   %tobool8.not.i = icmp eq i32 %dec7.i, 0
-  br i1 %tobool8.not.i, label %if.end, label %while.body9.i, !llvm.loop !59
+  br i1 %tobool8.not.i, label %if.end, label %while.body9.i, !llvm.loop !58
 
 if.end:                                           ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, %for.body.i, %while.cond6.preheader.i, %if.then
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal8BitmapOrEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal8BitmapOrEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %add.i = add nsw i64 %out_offset, %length
-  call void @_ZN5arrow19AllocateEmptyBitmapElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result") align 8 %ref.tmp.i, i64 noundef %add.i, ptr noundef %pool), !noalias !60
-  %0 = load ptr, ptr %ref.tmp.i, align 8, !noalias !60
+  call void @_ZN5arrow19AllocateEmptyBitmapElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result") align 8 %ref.tmp.i, i64 noundef %add.i, ptr noundef %pool), !noalias !59
+  %0 = load ptr, ptr %ref.tmp.i, align 8, !noalias !59
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %invoke.cont4.i, label %if.then.i
 
@@ -3033,21 +2952,21 @@ if.then.i:                                        ; preds = %entry
 invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !63
+  %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !62
   %2 = extractelement <2 x ptr> %1, i64 0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !60
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !59
   %is_mutable_.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !60
+  %3 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !59
   %4 = trunc <2 x i8> %3 to <2 x i1>
   %5 = extractelement <2 x i1> %4, i64 0
   %6 = extractelement <2 x i1> %4, i64 1
   %7 = select i1 %6, i1 %5, i1 false
   %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = load ptr, ptr %data_.i.i, align 8, !noalias !60
+  %8 = load ptr, ptr %data_.i.i, align 8, !noalias !59
   %cond.i.i = select i1 %7, ptr %8, ptr null
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !60
-  store ptr null, ptr %agg.result, align 8, !alias.scope !60
-  store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !60
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !59
+  store ptr null, ptr %agg.result, align 8, !alias.scope !59
+  store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !59
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
 _ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit: ; preds = %if.then.i, %invoke.cont4.i
@@ -3104,7 +3023,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store i8 %or1.i.i, ptr %arrayidx27.i, align 1
   %inc.i = add nuw nsw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i.i
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !68
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !67
 
 if.else:                                          ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %left, i64 %div.i.i
@@ -3225,7 +3144,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   store i64 %or.i.us.i, ptr %writer.sroa.4.0222.us.i, align 1
   %add.ptr21.i.us.i = getelementptr inbounds i8, ptr %writer.sroa.4.0222.us.i, i64 8
   %tobool.not.us.i = icmp eq i64 %dec.us.i, 0
-  br i1 %tobool.not.us.i, label %while.cond6.preheader.i, label %while.body.us.i, !llvm.loop !69
+  br i1 %tobool.not.us.i, label %while.cond6.preheader.i, label %while.body.us.i, !llvm.loop !68
 
 while.cond6.preheader.i:                          ; preds = %while.body.i, %while.body.us.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
   %right_reader.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i6262.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %add.ptr.i6262.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %add.ptr.i62.us.i, %while.body.us.i ], [ %add.ptr.i62.i, %while.body.i ]
@@ -3296,7 +3215,7 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   store i64 %or13.i.i, ptr %add.ptr.i71.i, align 1
   %writer.sroa.20.32.extract.trunc196.i = trunc i64 %or13.i.i to i8
   %tobool.not.i = icmp eq i64 %dec.i, 0
-  br i1 %tobool.not.i, label %while.cond6.preheader.i, label %while.body.i, !llvm.loop !69
+  br i1 %tobool.not.i, label %while.cond6.preheader.i, label %while.body.i, !llvm.loop !68
 
 while.body9.i:                                    ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, %while.body9.lr.ph.i
   %nbytes.0248.i = phi i32 [ %conv15.i.i, %while.body9.lr.ph.i ], [ %dec7.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i ]
@@ -3356,7 +3275,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i.i: ; preds = %if.then11.i.i.i, %i
   %reader.sroa.11.1.i.i = phi i64 [ %inc6.i.i.i, %if.then11.i.i.i ], [ %inc6.i.i.i, %if.then.i20.i.i ], [ %reader.sroa.11.028.i.i, %for.body.i.i ]
   %reader.sroa.14.1.i.i = phi i64 [ 0, %if.then11.i.i.i ], [ 0, %if.then.i20.i.i ], [ %inc.i.i.i, %for.body.i.i ]
   %exitcond.not.i.i = icmp eq i64 %inc2.i.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !15
 
 for.end.loopexit.i.i:                             ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i
   %10 = zext i8 %spec.select.i93.i to i32
@@ -3435,7 +3354,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i144.i: ; preds = %if.then11.i.i153
   %reader.sroa.11.1.i146.i = phi i64 [ %inc6.i.i151.i, %if.then11.i.i153.i ], [ %inc6.i.i151.i, %if.then.i20.i150.i ], [ %reader.sroa.11.028.i133.i, %for.body.i129.i ]
   %reader.sroa.14.1.i147.i = phi i64 [ 0, %if.then11.i.i153.i ], [ 0, %if.then.i20.i150.i ], [ %inc.i.i141.i, %for.body.i129.i ]
   %exitcond.not.i148.i = icmp eq i64 %inc2.i.i142.i, %wide.trip.count.i128.i
-  br i1 %exitcond.not.i148.i, label %for.end.loopexit.i149.i, label %for.body.i129.i, !llvm.loop !16
+  br i1 %exitcond.not.i148.i, label %for.end.loopexit.i149.i, label %for.body.i129.i, !llvm.loop !15
 
 for.end.loopexit.i149.i:                          ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i144.i
   %15 = zext i8 %spec.select.i140.i to i32
@@ -3547,7 +3466,7 @@ _ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i: ; preds = %if.then12.i.i.i, %i
   %writer.sroa.27.1.i.i = phi i64 [ %inc7.i.i.i, %if.then12.i.i.i ], [ %inc7.i.i.i, %if.then.i18.i.i ], [ %writer.sroa.27.048.i.i, %for.body.i163.i ]
   %shr43.i.i = lshr i8 %byte.addr.049.i.i, 1
   %exitcond.not.i166.i = icmp eq i64 %inc.i.i165.i, %wide.trip.count.i162.i
-  br i1 %exitcond.not.i166.i, label %land.lhs.true.i.i.i, label %for.body.i163.i, !llvm.loop !17
+  br i1 %exitcond.not.i166.i, label %land.lhs.true.i.i.i, label %for.body.i163.i, !llvm.loop !16
 
 land.lhs.true.i.i.i:                              ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i
   %cmp2.not.i.not.i.i = icmp eq i8 %writer.sroa.20.1.i.i, 1
@@ -3562,21 +3481,21 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i: ; pr
   %writer.sroa.20.5.i = phi i8 [ %writer.sroa.20.4.i, %if.end.i.i ], [ %writer.sroa.20.3241.i, %land.lhs.true.i.i.i ], [ %writer.sroa.20.3241.i, %if.then.i27.i.i ], [ %writer.sroa.20.3241.i, %if.else34.i.i ]
   %writer.sroa.4.2.i = phi ptr [ %incdec.ptr.i181.i, %if.end.i.i ], [ %writer.sroa.4.1243.i, %land.lhs.true.i.i.i ], [ %writer.sroa.4.1243.i, %if.then.i27.i.i ], [ %writer.sroa.4.1243.i, %if.else34.i.i ]
   %tobool8.not.i = icmp eq i32 %dec7.i, 0
-  br i1 %tobool8.not.i, label %if.end, label %while.body9.i, !llvm.loop !70
+  br i1 %tobool8.not.i, label %if.end, label %while.body9.i, !llvm.loop !69
 
 if.end:                                           ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, %for.body.i, %while.cond6.preheader.i, %if.then
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal9BitmapXorEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal9BitmapXorEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %add.i = add nsw i64 %out_offset, %length
-  call void @_ZN5arrow19AllocateEmptyBitmapElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result") align 8 %ref.tmp.i, i64 noundef %add.i, ptr noundef %pool), !noalias !71
-  %0 = load ptr, ptr %ref.tmp.i, align 8, !noalias !71
+  call void @_ZN5arrow19AllocateEmptyBitmapElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result") align 8 %ref.tmp.i, i64 noundef %add.i, ptr noundef %pool), !noalias !70
+  %0 = load ptr, ptr %ref.tmp.i, align 8, !noalias !70
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %invoke.cont4.i, label %if.then.i
 
@@ -3587,21 +3506,21 @@ if.then.i:                                        ; preds = %entry
 invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !74
+  %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !73
   %2 = extractelement <2 x ptr> %1, i64 0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !71
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !70
   %is_mutable_.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !71
+  %3 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !70
   %4 = trunc <2 x i8> %3 to <2 x i1>
   %5 = extractelement <2 x i1> %4, i64 0
   %6 = extractelement <2 x i1> %4, i64 1
   %7 = select i1 %6, i1 %5, i1 false
   %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = load ptr, ptr %data_.i.i, align 8, !noalias !71
+  %8 = load ptr, ptr %data_.i.i, align 8, !noalias !70
   %cond.i.i = select i1 %7, ptr %8, ptr null
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !71
-  store ptr null, ptr %agg.result, align 8, !alias.scope !71
-  store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !71
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !70
+  store ptr null, ptr %agg.result, align 8, !alias.scope !70
+  store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !70
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
 _ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit: ; preds = %if.then.i, %invoke.cont4.i
@@ -3658,7 +3577,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store i8 %xor1.i.i, ptr %arrayidx27.i, align 1
   %inc.i = add nuw nsw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i.i
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !79
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !78
 
 if.else:                                          ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %left, i64 %div.i.i
@@ -3779,7 +3698,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   store i64 %xor.i.us.i, ptr %writer.sroa.4.0221.us.i, align 1
   %add.ptr21.i.us.i = getelementptr inbounds i8, ptr %writer.sroa.4.0221.us.i, i64 8
   %tobool.not.us.i = icmp eq i64 %dec.us.i, 0
-  br i1 %tobool.not.us.i, label %while.cond6.preheader.i, label %while.body.us.i, !llvm.loop !80
+  br i1 %tobool.not.us.i, label %while.cond6.preheader.i, label %while.body.us.i, !llvm.loop !79
 
 while.cond6.preheader.i:                          ; preds = %while.body.i, %while.body.us.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
   %right_reader.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i6261.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %add.ptr.i6261.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %add.ptr.i62.us.i, %while.body.us.i ], [ %add.ptr.i62.i, %while.body.i ]
@@ -3850,7 +3769,7 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   store i64 %or13.i.i, ptr %add.ptr.i70.i, align 1
   %writer.sroa.20.32.extract.trunc195.i = trunc i64 %or13.i.i to i8
   %tobool.not.i = icmp eq i64 %dec.i, 0
-  br i1 %tobool.not.i, label %while.cond6.preheader.i, label %while.body.i, !llvm.loop !80
+  br i1 %tobool.not.i, label %while.cond6.preheader.i, label %while.body.i, !llvm.loop !79
 
 while.body9.i:                                    ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, %while.body9.lr.ph.i
   %nbytes.0247.i = phi i32 [ %conv15.i.i, %while.body9.lr.ph.i ], [ %dec7.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i ]
@@ -3910,7 +3829,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i.i: ; preds = %if.then11.i.i.i, %i
   %reader.sroa.11.1.i.i = phi i64 [ %inc6.i.i.i, %if.then11.i.i.i ], [ %inc6.i.i.i, %if.then.i20.i.i ], [ %reader.sroa.11.028.i.i, %for.body.i.i ]
   %reader.sroa.14.1.i.i = phi i64 [ 0, %if.then11.i.i.i ], [ 0, %if.then.i20.i.i ], [ %inc.i.i.i, %for.body.i.i ]
   %exitcond.not.i.i = icmp eq i64 %inc2.i.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !15
 
 for.end.loopexit.i.i:                             ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i
   %10 = zext i8 %spec.select.i92.i to i32
@@ -3989,7 +3908,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i143.i: ; preds = %if.then11.i.i152
   %reader.sroa.11.1.i145.i = phi i64 [ %inc6.i.i150.i, %if.then11.i.i152.i ], [ %inc6.i.i150.i, %if.then.i20.i149.i ], [ %reader.sroa.11.028.i132.i, %for.body.i128.i ]
   %reader.sroa.14.1.i146.i = phi i64 [ 0, %if.then11.i.i152.i ], [ 0, %if.then.i20.i149.i ], [ %inc.i.i140.i, %for.body.i128.i ]
   %exitcond.not.i147.i = icmp eq i64 %inc2.i.i141.i, %wide.trip.count.i127.i
-  br i1 %exitcond.not.i147.i, label %for.end.loopexit.i148.i, label %for.body.i128.i, !llvm.loop !16
+  br i1 %exitcond.not.i147.i, label %for.end.loopexit.i148.i, label %for.body.i128.i, !llvm.loop !15
 
 for.end.loopexit.i148.i:                          ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i143.i
   %15 = zext i8 %spec.select.i139.i to i32
@@ -4101,7 +4020,7 @@ _ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i: ; preds = %if.then12.i.i.i, %i
   %writer.sroa.27.1.i.i = phi i64 [ %inc7.i.i.i, %if.then12.i.i.i ], [ %inc7.i.i.i, %if.then.i18.i.i ], [ %writer.sroa.27.048.i.i, %for.body.i162.i ]
   %shr43.i.i = lshr i8 %byte.addr.049.i.i, 1
   %exitcond.not.i165.i = icmp eq i64 %inc.i.i164.i, %wide.trip.count.i161.i
-  br i1 %exitcond.not.i165.i, label %land.lhs.true.i.i.i, label %for.body.i162.i, !llvm.loop !17
+  br i1 %exitcond.not.i165.i, label %land.lhs.true.i.i.i, label %for.body.i162.i, !llvm.loop !16
 
 land.lhs.true.i.i.i:                              ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i
   %cmp2.not.i.not.i.i = icmp eq i8 %writer.sroa.20.1.i.i, 1
@@ -4116,21 +4035,21 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i: ; pr
   %writer.sroa.20.5.i = phi i8 [ %writer.sroa.20.4.i, %if.end.i.i ], [ %writer.sroa.20.3240.i, %land.lhs.true.i.i.i ], [ %writer.sroa.20.3240.i, %if.then.i27.i.i ], [ %writer.sroa.20.3240.i, %if.else34.i.i ]
   %writer.sroa.4.2.i = phi ptr [ %incdec.ptr.i180.i, %if.end.i.i ], [ %writer.sroa.4.1242.i, %land.lhs.true.i.i.i ], [ %writer.sroa.4.1242.i, %if.then.i27.i.i ], [ %writer.sroa.4.1242.i, %if.else34.i.i ]
   %tobool8.not.i = icmp eq i32 %dec7.i, 0
-  br i1 %tobool8.not.i, label %if.end, label %while.body9.i, !llvm.loop !81
+  br i1 %tobool8.not.i, label %if.end, label %while.body9.i, !llvm.loop !80
 
 if.end:                                           ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, %for.body.i, %while.cond6.preheader.i, %if.then
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal12BitmapAndNotEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal12BitmapAndNotEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %add.i = add nsw i64 %out_offset, %length
-  call void @_ZN5arrow19AllocateEmptyBitmapElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result") align 8 %ref.tmp.i, i64 noundef %add.i, ptr noundef %pool), !noalias !82
-  %0 = load ptr, ptr %ref.tmp.i, align 8, !noalias !82
+  call void @_ZN5arrow19AllocateEmptyBitmapElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result") align 8 %ref.tmp.i, i64 noundef %add.i, ptr noundef %pool), !noalias !81
+  %0 = load ptr, ptr %ref.tmp.i, align 8, !noalias !81
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %invoke.cont4.i, label %if.then.i
 
@@ -4141,21 +4060,21 @@ if.then.i:                                        ; preds = %entry
 invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !85
+  %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !84
   %2 = extractelement <2 x ptr> %1, i64 0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !82
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !81
   %is_mutable_.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !82
+  %3 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !81
   %4 = trunc <2 x i8> %3 to <2 x i1>
   %5 = extractelement <2 x i1> %4, i64 0
   %6 = extractelement <2 x i1> %4, i64 1
   %7 = select i1 %6, i1 %5, i1 false
   %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = load ptr, ptr %data_.i.i, align 8, !noalias !82
+  %8 = load ptr, ptr %data_.i.i, align 8, !noalias !81
   %cond.i.i = select i1 %7, ptr %8, ptr null
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !82
-  store ptr null, ptr %agg.result, align 8, !alias.scope !82
-  store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !82
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !81
+  store ptr null, ptr %agg.result, align 8, !alias.scope !81
+  store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !81
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
 _ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit: ; preds = %if.then.i, %invoke.cont4.i
@@ -4213,7 +4132,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store i8 %and.i9.i, ptr %arrayidx27.i, align 1
   %inc.i = add nuw nsw i64 %i.011.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i.i
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !90
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !89
 
 if.else:                                          ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %left, i64 %div.i.i
@@ -4335,7 +4254,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   store i64 %and.i.us.i, ptr %writer.sroa.4.0225.us.i, align 1
   %add.ptr21.i.us.i = getelementptr inbounds i8, ptr %writer.sroa.4.0225.us.i, i64 8
   %tobool.not.us.i = icmp eq i64 %dec.us.i, 0
-  br i1 %tobool.not.us.i, label %while.cond6.preheader.i, label %while.body.us.i, !llvm.loop !91
+  br i1 %tobool.not.us.i, label %while.cond6.preheader.i, label %while.body.us.i, !llvm.loop !90
 
 while.cond6.preheader.i:                          ; preds = %while.body.i, %while.body.us.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
   %right_reader.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i6265.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %add.ptr.i6265.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %add.ptr.i62.us.i, %while.body.us.i ], [ %add.ptr.i62.i, %while.body.i ]
@@ -4407,7 +4326,7 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   store i64 %or13.i.i, ptr %add.ptr.i70.i, align 1
   %writer.sroa.20.32.extract.trunc199.i = trunc i64 %or13.i.i to i8
   %tobool.not.i = icmp eq i64 %dec.i, 0
-  br i1 %tobool.not.i, label %while.cond6.preheader.i, label %while.body.i, !llvm.loop !91
+  br i1 %tobool.not.i, label %while.cond6.preheader.i, label %while.body.i, !llvm.loop !90
 
 while.body9.i:                                    ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, %while.body9.lr.ph.i
   %nbytes.0251.i = phi i32 [ %conv15.i.i, %while.body9.lr.ph.i ], [ %dec7.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i ]
@@ -4467,7 +4386,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i.i: ; preds = %if.then11.i.i.i, %i
   %reader.sroa.11.1.i.i = phi i64 [ %inc6.i.i.i, %if.then11.i.i.i ], [ %inc6.i.i.i, %if.then.i20.i.i ], [ %reader.sroa.11.028.i.i, %for.body.i.i ]
   %reader.sroa.14.1.i.i = phi i64 [ 0, %if.then11.i.i.i ], [ 0, %if.then.i20.i.i ], [ %inc.i.i.i, %for.body.i.i ]
   %exitcond.not.i.i = icmp eq i64 %inc2.i.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !15
 
 for.end.loopexit.i.i:                             ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i
   %10 = zext i8 %spec.select.i94.i to i32
@@ -4546,7 +4465,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i145.i: ; preds = %if.then11.i.i154
   %reader.sroa.11.1.i147.i = phi i64 [ %inc6.i.i152.i, %if.then11.i.i154.i ], [ %inc6.i.i152.i, %if.then.i20.i151.i ], [ %reader.sroa.11.028.i134.i, %for.body.i130.i ]
   %reader.sroa.14.1.i148.i = phi i64 [ 0, %if.then11.i.i154.i ], [ 0, %if.then.i20.i151.i ], [ %inc.i.i142.i, %for.body.i130.i ]
   %exitcond.not.i149.i = icmp eq i64 %inc2.i.i143.i, %wide.trip.count.i129.i
-  br i1 %exitcond.not.i149.i, label %for.end.loopexit.i150.i, label %for.body.i130.i, !llvm.loop !16
+  br i1 %exitcond.not.i149.i, label %for.end.loopexit.i150.i, label %for.body.i130.i, !llvm.loop !15
 
 for.end.loopexit.i150.i:                          ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i145.i
   %15 = zext i8 %spec.select.i141.i to i32
@@ -4659,7 +4578,7 @@ _ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i: ; preds = %if.then12.i.i.i, %i
   %writer.sroa.27.1.i.i = phi i64 [ %inc7.i.i.i, %if.then12.i.i.i ], [ %inc7.i.i.i, %if.then.i18.i.i ], [ %writer.sroa.27.048.i.i, %for.body.i166.i ]
   %shr43.i.i = lshr i8 %byte.addr.049.i.i, 1
   %exitcond.not.i169.i = icmp eq i64 %inc.i.i168.i, %wide.trip.count.i165.i
-  br i1 %exitcond.not.i169.i, label %land.lhs.true.i.i.i, label %for.body.i166.i, !llvm.loop !17
+  br i1 %exitcond.not.i169.i, label %land.lhs.true.i.i.i, label %for.body.i166.i, !llvm.loop !16
 
 land.lhs.true.i.i.i:                              ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i
   %cmp2.not.i.not.i.i = icmp eq i8 %writer.sroa.20.1.i.i, 1
@@ -4674,21 +4593,21 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i: ; pr
   %writer.sroa.20.5.i = phi i8 [ %writer.sroa.20.4.i, %if.end.i.i ], [ %writer.sroa.20.3244.i, %land.lhs.true.i.i.i ], [ %writer.sroa.20.3244.i, %if.then.i27.i.i ], [ %writer.sroa.20.3244.i, %if.else34.i.i ]
   %writer.sroa.4.2.i = phi ptr [ %incdec.ptr.i184.i, %if.end.i.i ], [ %writer.sroa.4.1246.i, %land.lhs.true.i.i.i ], [ %writer.sroa.4.1246.i, %if.then.i27.i.i ], [ %writer.sroa.4.1246.i, %if.else34.i.i ]
   %tobool8.not.i = icmp eq i32 %dec7.i, 0
-  br i1 %tobool8.not.i, label %if.end, label %while.body9.i, !llvm.loop !92
+  br i1 %tobool8.not.i, label %if.end, label %while.body9.i, !llvm.loop !91
 
 if.end:                                           ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, %for.body.i, %while.cond6.preheader.i, %if.then
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal11BitmapOrNotEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal11BitmapOrNotEPNS_10MemoryPoolEPKhlS4_lll(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %pool, ptr nocapture noundef readonly %left, i64 noundef %left_offset, ptr nocapture noundef readonly %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %add.i = add nsw i64 %out_offset, %length
-  call void @_ZN5arrow19AllocateEmptyBitmapElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result") align 8 %ref.tmp.i, i64 noundef %add.i, ptr noundef %pool), !noalias !93
-  %0 = load ptr, ptr %ref.tmp.i, align 8, !noalias !93
+  call void @_ZN5arrow19AllocateEmptyBitmapElPNS_10MemoryPoolE(ptr nonnull sret(%"class.arrow::Result") align 8 %ref.tmp.i, i64 noundef %add.i, ptr noundef %pool), !noalias !92
+  %0 = load ptr, ptr %ref.tmp.i, align 8, !noalias !92
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %invoke.cont4.i, label %if.then.i
 
@@ -4699,21 +4618,21 @@ if.then.i:                                        ; preds = %entry
 invoke.cont4.i:                                   ; preds = %entry
   %storage_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %storage_.i.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !96
+  %1 = load <2 x ptr>, ptr %storage_.i.i.i, align 8, !noalias !95
   %2 = extractelement <2 x ptr> %1, i64 0
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !93
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %storage_.i.i.i, i8 0, i64 16, i1 false), !noalias !92
   %is_mutable_.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %3 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !93
+  %3 = load <2 x i8>, ptr %is_mutable_.i.i, align 8, !noalias !92
   %4 = trunc <2 x i8> %3 to <2 x i1>
   %5 = extractelement <2 x i1> %4, i64 0
   %6 = extractelement <2 x i1> %4, i64 1
   %7 = select i1 %6, i1 %5, i1 false
   %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = load ptr, ptr %data_.i.i, align 8, !noalias !93
+  %8 = load ptr, ptr %data_.i.i, align 8, !noalias !92
   %cond.i.i = select i1 %7, ptr %8, ptr null
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !93
-  store ptr null, ptr %agg.result, align 8, !alias.scope !93
-  store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !93
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEEvPKhlS5_lllPh(ptr noundef %left, i64 noundef %left_offset, ptr noundef %right, i64 noundef %right_offset, i64 noundef %length, i64 noundef %out_offset, ptr noundef %cond.i.i), !noalias !92
+  store ptr null, ptr %agg.result, align 8, !alias.scope !92
+  store <2 x ptr> %1, ptr %storage_.i.i6.i, align 8, !alias.scope !92
   br label %_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit
 
 _ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll.exit: ; preds = %if.then.i, %invoke.cont4.i
@@ -4771,7 +4690,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store i8 %or.i.i, ptr %arrayidx27.i, align 1
   %inc.i = add nuw nsw i64 %i.010.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %add.i.i
-  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !101
+  br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !100
 
 if.else:                                          ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %left, i64 %div.i.i
@@ -4893,7 +4812,7 @@ while.body.us.i:                                  ; preds = %_ZN5arrow8internal1
   store i64 %or.i.us.i, ptr %writer.sroa.4.0225.us.i, align 1
   %add.ptr21.i.us.i = getelementptr inbounds i8, ptr %writer.sroa.4.0225.us.i, i64 8
   %tobool.not.us.i = icmp eq i64 %dec.us.i, 0
-  br i1 %tobool.not.us.i, label %while.cond6.preheader.i, label %while.body.us.i, !llvm.loop !102
+  br i1 %tobool.not.us.i, label %while.cond6.preheader.i, label %while.body.us.i, !llvm.loop !101
 
 while.cond6.preheader.i:                          ; preds = %while.body.i, %while.body.us.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
   %right_reader.sroa.4.0.lcssa.i = phi ptr [ %add.ptr.i6265.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %add.ptr.i6265.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %add.ptr.i62.us.i, %while.body.us.i ], [ %add.ptr.i62.i, %while.body.i ]
@@ -4965,7 +4884,7 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   store i64 %or13.i.i, ptr %add.ptr.i71.i, align 1
   %writer.sroa.20.32.extract.trunc199.i = trunc i64 %or13.i.i to i8
   %tobool.not.i = icmp eq i64 %dec.i, 0
-  br i1 %tobool.not.i, label %while.cond6.preheader.i, label %while.body.i, !llvm.loop !102
+  br i1 %tobool.not.i, label %while.cond6.preheader.i, label %while.body.i, !llvm.loop !101
 
 while.body9.i:                                    ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, %while.body9.lr.ph.i
   %nbytes.0251.i = phi i32 [ %conv15.i.i, %while.body9.lr.ph.i ], [ %dec7.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i ]
@@ -5025,7 +4944,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i.i: ; preds = %if.then11.i.i.i, %i
   %reader.sroa.11.1.i.i = phi i64 [ %inc6.i.i.i, %if.then11.i.i.i ], [ %inc6.i.i.i, %if.then.i20.i.i ], [ %reader.sroa.11.028.i.i, %for.body.i.i ]
   %reader.sroa.14.1.i.i = phi i64 [ 0, %if.then11.i.i.i ], [ 0, %if.then.i20.i.i ], [ %inc.i.i.i, %for.body.i.i ]
   %exitcond.not.i.i = icmp eq i64 %inc2.i.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %for.end.loopexit.i.i, label %for.body.i.i, !llvm.loop !15
 
 for.end.loopexit.i.i:                             ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i
   %10 = zext i8 %spec.select.i94.i to i32
@@ -5104,7 +5023,7 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i145.i: ; preds = %if.then11.i.i154
   %reader.sroa.11.1.i147.i = phi i64 [ %inc6.i.i152.i, %if.then11.i.i154.i ], [ %inc6.i.i152.i, %if.then.i20.i151.i ], [ %reader.sroa.11.028.i134.i, %for.body.i130.i ]
   %reader.sroa.14.1.i148.i = phi i64 [ 0, %if.then11.i.i154.i ], [ 0, %if.then.i20.i151.i ], [ %inc.i.i142.i, %for.body.i130.i ]
   %exitcond.not.i149.i = icmp eq i64 %inc2.i.i143.i, %wide.trip.count.i129.i
-  br i1 %exitcond.not.i149.i, label %for.end.loopexit.i150.i, label %for.body.i130.i, !llvm.loop !16
+  br i1 %exitcond.not.i149.i, label %for.end.loopexit.i150.i, label %for.body.i130.i, !llvm.loop !15
 
 for.end.loopexit.i150.i:                          ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i145.i
   %15 = zext i8 %spec.select.i141.i to i32
@@ -5217,7 +5136,7 @@ _ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i: ; preds = %if.then12.i.i.i, %i
   %writer.sroa.27.1.i.i = phi i64 [ %inc7.i.i.i, %if.then12.i.i.i ], [ %inc7.i.i.i, %if.then.i18.i.i ], [ %writer.sroa.27.048.i.i, %for.body.i166.i ]
   %shr43.i.i = lshr i8 %byte.addr.049.i.i, 1
   %exitcond.not.i169.i = icmp eq i64 %inc.i.i168.i, %wide.trip.count.i165.i
-  br i1 %exitcond.not.i169.i, label %land.lhs.true.i.i.i, label %for.body.i166.i, !llvm.loop !17
+  br i1 %exitcond.not.i169.i, label %land.lhs.true.i.i.i, label %for.body.i166.i, !llvm.loop !16
 
 land.lhs.true.i.i.i:                              ; preds = %_ZN5arrow8internal12BitmapWriter4NextEv.exit.i.i
   %cmp2.not.i.not.i.i = icmp eq i8 %writer.sroa.20.1.i.i, 1
@@ -5232,7 +5151,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i: ; pr
   %writer.sroa.20.5.i = phi i8 [ %writer.sroa.20.4.i, %if.end.i.i ], [ %writer.sroa.20.3244.i, %land.lhs.true.i.i.i ], [ %writer.sroa.20.3244.i, %if.then.i27.i.i ], [ %writer.sroa.20.3244.i, %if.else34.i.i ]
   %writer.sroa.4.2.i = phi ptr [ %incdec.ptr.i184.i, %if.end.i.i ], [ %writer.sroa.4.1246.i, %land.lhs.true.i.i.i ], [ %writer.sroa.4.1246.i, %if.then.i27.i.i ], [ %writer.sroa.4.1246.i, %if.else34.i.i ]
   %tobool8.not.i = icmp eq i32 %dec7.i, 0
-  br i1 %tobool8.not.i, label %if.end, label %while.body9.i, !llvm.loop !103
+  br i1 %tobool8.not.i, label %if.end, label %while.body9.i, !llvm.loop !102
 
 if.end:                                           ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, %for.body.i, %while.cond6.preheader.i, %if.then
   ret void
@@ -5240,6 +5159,135 @@ if.end:                                           ; preds = %_ZN5arrow8internal1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #9
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr i32 @_ZN5arrow8internal21BinaryBitBlockCounter8NextWordINS0_6detail11BitBlockAndEEENS0_13BitBlockCountEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #2 comdat align 2 {
+entry:
+  %bits_remaining_ = getelementptr inbounds i8, ptr %this, i64 32
+  %0 = load i64, ptr %bits_remaining_, align 8
+  %tobool.not = icmp eq i64 %0, 0
+  br i1 %tobool.not, label %return, label %if.end
+
+if.end:                                           ; preds = %entry
+  %left_offset_ = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = load i64, ptr %left_offset_, align 8
+  %cmp = icmp eq i64 %1, 0
+  %add = sub i64 128, %1
+  %spec.select = select i1 %cmp, i64 64, i64 %add
+  %right_offset_ = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = load i64, ptr %right_offset_, align 8
+  %cmp4 = icmp eq i64 %2, 0
+  %add9 = sub i64 128, %2
+  %cond11 = select i1 %cmp4, i64 64, i64 %add9
+  %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %spec.select, i64 %cond11)
+  %cmp13 = icmp slt i64 %0, %.sroa.speculated
+  br i1 %cmp13, label %if.then14, label %if.end42
+
+if.then14:                                        ; preds = %if.end
+  %.sroa.speculated27 = tail call i64 @llvm.smin.i64(i64 %0, i64 64)
+  %conv = trunc i64 %.sroa.speculated27 to i16
+  %sext = shl i64 %.sroa.speculated27, 48
+  %conv18 = ashr exact i64 %sext, 48
+  %cmp1929 = icmp sgt i64 %conv18, 0
+  %.pre = load ptr, ptr %this, align 8
+  %right_bitmap_ = getelementptr inbounds i8, ptr %this, i64 16
+  %3 = load ptr, ptr %right_bitmap_, align 8
+  br i1 %cmp1929, label %for.body, label %for.end
+
+for.body:                                         ; preds = %if.then14, %for.body
+  %i.031 = phi i64 [ %inc29, %for.body ], [ 0, %if.then14 ]
+  %popcount17.030 = phi i16 [ %spec.select10, %for.body ], [ 0, %if.then14 ]
+  %add21 = add nsw i64 %i.031, %1
+  %shr.i = lshr i64 %add21, 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %.pre, i64 %shr.i
+  %4 = load i8, ptr %arrayidx.i, align 1
+  %conv.i = zext i8 %4 to i32
+  %5 = trunc i64 %add21 to i32
+  %sh_prom.i = and i32 %5, 7
+  %6 = shl nuw nsw i32 1, %sh_prom.i
+  %7 = and i32 %6, %conv.i
+  %tobool.i = icmp ne i32 %7, 0
+  %add24 = add nsw i64 %i.031, %2
+  %shr.i13 = lshr i64 %add24, 3
+  %arrayidx.i14 = getelementptr inbounds i8, ptr %3, i64 %shr.i13
+  %8 = load i8, ptr %arrayidx.i14, align 1
+  %conv.i15 = zext i8 %8 to i32
+  %9 = trunc i64 %add24 to i32
+  %sh_prom.i16 = and i32 %9, 7
+  %10 = shl nuw nsw i32 1, %sh_prom.i16
+  %11 = and i32 %10, %conv.i15
+  %tobool.i17 = icmp ne i32 %11, 0
+  %and1.i = and i1 %tobool.i, %tobool.i17
+  %inc = zext i1 %and1.i to i16
+  %spec.select10 = add i16 %popcount17.030, %inc
+  %inc29 = add nuw nsw i64 %i.031, 1
+  %exitcond.not = icmp eq i64 %inc29, %conv18
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !103
+
+for.end:                                          ; preds = %for.body, %if.then14
+  %popcount17.0.lcssa = phi i16 [ 0, %if.then14 ], [ %spec.select10, %for.body ]
+  %12 = sdiv i16 %conv, 8
+  %idx.ext = sext i16 %12 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %.pre, i64 %idx.ext
+  store ptr %add.ptr, ptr %this, align 8
+  %right_bitmap_34 = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr36 = getelementptr inbounds i8, ptr %3, i64 %idx.ext
+  store ptr %add.ptr36, ptr %right_bitmap_34, align 8
+  %sub39 = sub nsw i64 %0, %conv18
+  store i64 %sub39, ptr %bits_remaining_, align 8
+  %13 = trunc i64 %.sroa.speculated27 to i32
+  %14 = and i32 %13, 65535
+  br label %return
+
+if.end42:                                         ; preds = %if.end
+  %15 = or i64 %2, %1
+  %or.cond = icmp eq i64 %15, 0
+  %16 = load ptr, ptr %this, align 8
+  %ret.0.copyload.i.i = load i64, ptr %16, align 1
+  br i1 %or.cond, label %if.then48, label %if.else
+
+if.then48:                                        ; preds = %if.end42
+  %right_bitmap_51 = getelementptr inbounds i8, ptr %this, i64 16
+  %17 = load ptr, ptr %right_bitmap_51, align 8
+  %ret.0.copyload.i.i18 = load i64, ptr %17, align 1
+  %and.i = and i64 %ret.0.copyload.i.i18, %ret.0.copyload.i.i
+  br label %if.end71
+
+if.else:                                          ; preds = %if.end42
+  %add.ptr58 = getelementptr inbounds i8, ptr %16, i64 8
+  %ret.0.copyload.i.i20 = load i64, ptr %add.ptr58, align 1
+  %retval.0.i = tail call noundef i64 @llvm.fshr.i64(i64 %ret.0.copyload.i.i20, i64 %ret.0.copyload.i.i, i64 %1)
+  %right_bitmap_62 = getelementptr inbounds i8, ptr %this, i64 16
+  %18 = load ptr, ptr %right_bitmap_62, align 8
+  %ret.0.copyload.i.i21 = load i64, ptr %18, align 1
+  %add.ptr65 = getelementptr inbounds i8, ptr %18, i64 8
+  %ret.0.copyload.i.i22 = load i64, ptr %add.ptr65, align 1
+  %retval.0.i23 = tail call noundef i64 @llvm.fshr.i64(i64 %ret.0.copyload.i.i22, i64 %ret.0.copyload.i.i21, i64 %2)
+  %and.i24 = and i64 %retval.0.i23, %retval.0.i
+  br label %if.end71
+
+if.end71:                                         ; preds = %if.else, %if.then48
+  %and.i24.sink = phi i64 [ %and.i24, %if.else ], [ %and.i, %if.then48 ]
+  %19 = phi ptr [ %18, %if.else ], [ %17, %if.then48 ]
+  %20 = tail call noundef i64 @llvm.ctpop.i64(i64 %and.i24.sink), !range !6
+  %add.ptr73 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %add.ptr73, ptr %this, align 8
+  %right_bitmap_74 = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr75 = getelementptr inbounds i8, ptr %19, i64 8
+  store ptr %add.ptr75, ptr %right_bitmap_74, align 8
+  %sub77 = add nsw i64 %0, -64
+  store i64 %sub77, ptr %bits_remaining_, align 8
+  %conv80 = trunc i64 %20 to i16
+  br label %return
+
+return:                                           ; preds = %entry, %if.end71, %for.end
+  %retval.sroa.0.0 = phi i32 [ %14, %for.end ], [ 64, %if.end71 ], [ 0, %entry ]
+  %retval.sroa.4.0 = phi i16 [ %popcount17.0.lcssa, %for.end ], [ %conv80, %if.end71 ], [ 0, %entry ]
+  %retval.sroa.4.0.insert.ext = zext i16 %retval.sroa.4.0 to i32
+  %retval.sroa.4.0.insert.shift = shl nuw i32 %retval.sroa.4.0.insert.ext, 16
+  %retval.sroa.0.0.insert.insert = or disjoint i32 %retval.sroa.4.0.insert.shift, %retval.sroa.0.0
+  ret i32 %retval.sroa.0.0.insert.insert
+}
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
@@ -5294,7 +5342,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew = alloca i64, align 8
   %__guard = alloca %struct._Guard, align 8
@@ -5401,7 +5449,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 declare i64 @llvm.fshr.i64(i64, i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.smax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
@@ -5411,9 +5459,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
@@ -5456,86 +5504,86 @@ attributes #22 = { noreturn nounwind }
 !18 = distinct !{!18, !5}
 !19 = distinct !{!19, !5}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
-!24 = distinct !{!24, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
-!27 = distinct !{!27, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
-!28 = !{!26, !23}
-!29 = distinct !{!29, !5}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
-!32 = distinct !{!32, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
-!35 = distinct !{!35, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
-!36 = !{!34, !31}
-!37 = distinct !{!37, !5}
-!38 = !{!39, !41}
-!39 = distinct !{!39, !40, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
-!40 = distinct !{!40, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
-!41 = distinct !{!41, !42, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
-!42 = distinct !{!42, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
-!45 = distinct !{!45, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
+!23 = distinct !{!23, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
+!26 = distinct !{!26, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
+!27 = !{!25, !22}
+!28 = distinct !{!28, !5}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
+!31 = distinct !{!31, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
+!34 = distinct !{!34, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
+!35 = !{!33, !30}
+!36 = distinct !{!36, !5}
+!37 = !{!38, !40}
+!38 = distinct !{!38, !39, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
+!39 = distinct !{!39, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
+!40 = distinct !{!40, !41, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
+!41 = distinct !{!41, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
+!44 = distinct !{!44, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
+!45 = distinct !{!45, !5}
 !46 = distinct !{!46, !5}
 !47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll: %agg.result"}
-!51 = distinct !{!51, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll"}
-!52 = !{!53, !55, !50}
-!53 = distinct !{!53, !54, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
-!54 = distinct !{!54, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
-!55 = distinct !{!55, !56, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
-!56 = distinct !{!56, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll: %agg.result"}
+!50 = distinct !{!50, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_andEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll"}
+!51 = !{!52, !54, !49}
+!52 = distinct !{!52, !53, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
+!53 = distinct !{!53, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
+!54 = distinct !{!54, !55, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
+!55 = distinct !{!55, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
+!56 = distinct !{!56, !5}
 !57 = distinct !{!57, !5}
 !58 = distinct !{!58, !5}
-!59 = distinct !{!59, !5}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll: %agg.result"}
-!62 = distinct !{!62, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll"}
-!63 = !{!64, !66, !61}
-!64 = distinct !{!64, !65, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
-!65 = distinct !{!65, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
-!66 = distinct !{!66, !67, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
-!67 = distinct !{!67, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
+!59 = !{!60}
+!60 = distinct !{!60, !61, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll: %agg.result"}
+!61 = distinct !{!61, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_orEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll"}
+!62 = !{!63, !65, !60}
+!63 = distinct !{!63, !64, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
+!64 = distinct !{!64, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
+!65 = distinct !{!65, !66, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
+!66 = distinct !{!66, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
+!67 = distinct !{!67, !5}
 !68 = distinct !{!68, !5}
 !69 = distinct !{!69, !5}
-!70 = distinct !{!70, !5}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll: %agg.result"}
-!73 = distinct !{!73, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll"}
-!74 = !{!75, !77, !72}
-!75 = distinct !{!75, !76, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
-!76 = distinct !{!76, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
-!77 = distinct !{!77, !78, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
-!78 = distinct !{!78, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll: %agg.result"}
+!72 = distinct !{!72, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xorEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll"}
+!73 = !{!74, !76, !71}
+!74 = distinct !{!74, !75, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
+!75 = distinct !{!75, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
+!76 = distinct !{!76, !77, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
+!77 = distinct !{!77, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
+!78 = distinct !{!78, !5}
 !79 = distinct !{!79, !5}
 !80 = distinct !{!80, !5}
-!81 = distinct !{!81, !5}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll: %agg.result"}
-!84 = distinct !{!84, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll"}
-!85 = !{!86, !88, !83}
-!86 = distinct !{!86, !87, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
-!87 = distinct !{!87, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
-!88 = distinct !{!88, !89, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
-!89 = distinct !{!89, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll: %agg.result"}
+!83 = distinct !{!83, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll"}
+!84 = !{!85, !87, !82}
+!85 = distinct !{!85, !86, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
+!86 = distinct !{!86, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
+!87 = distinct !{!87, !88, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
+!88 = distinct !{!88, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
+!89 = distinct !{!89, !5}
 !90 = distinct !{!90, !5}
 !91 = distinct !{!91, !5}
-!92 = distinct !{!92, !5}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll: %agg.result"}
-!95 = distinct !{!95, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll"}
-!96 = !{!97, !99, !94}
-!97 = distinct !{!97, !98, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
-!98 = distinct !{!98, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
-!99 = distinct !{!99, !100, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
-!100 = distinct !{!100, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll: %agg.result"}
+!94 = distinct !{!94, !"_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNotOpEEENS_6ResultISt10shared_ptrINS_6BufferEEEEPNS_10MemoryPoolEPKhlSC_lll"}
+!95 = !{!96, !98, !93}
+!96 = distinct !{!96, !97, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv: %agg.result"}
+!97 = distinct !{!97, !"_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEE15MoveValueUnsafeEv"}
+!98 = distinct !{!98, !99, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv: %agg.result"}
+!99 = distinct !{!99, !"_ZNO5arrow6ResultISt10shared_ptrINS_6BufferEEE11ValueUnsafeEv"}
+!100 = distinct !{!100, !5}
 !101 = distinct !{!101, !5}
 !102 = distinct !{!102, !5}
 !103 = distinct !{!103, !5}

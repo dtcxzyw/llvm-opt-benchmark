@@ -1162,7 +1162,7 @@ while.body:                                       ; preds = %iov_skip_offset.exi
   %sub6 = sub i64 %bytes.addr.014, %cond
   %incdec.ptr = getelementptr i8, ptr %iov.013, i64 16
   %tobool.not = icmp ne i64 %sub6, 0
-  %or.cond.not = select i1 %call3, i1 %tobool.not, i1 false
+  %or.cond.not = and i1 %tobool.not, %call3
   br i1 %or.cond.not, label %while.body, label %return, !llvm.loop !19
 
 return:                                           ; preds = %while.body, %iov_skip_offset.exit

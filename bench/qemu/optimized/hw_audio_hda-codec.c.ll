@@ -1371,7 +1371,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i64 %add28, ptr %rpos2, align 8
   %cmp29 = icmp eq i32 %conv19, %conv22
   %tobool = icmp ne i64 %sub25, 0
-  %or.cond = select i1 %cmp29, i1 %tobool, i1 false
+  %or.cond = and i1 %cmp29, %tobool
   br i1 %or.cond, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %while.cond
@@ -1557,7 +1557,7 @@ while.body:                                       ; preds = %while.body.preheade
   store i64 %add23, ptr %wpos1, align 8
   %cmp24 = icmp eq i32 %conv15, %conv17
   %tobool = icmp ne i64 %sub20, 0
-  %or.cond = select i1 %cmp24, i1 %tobool, i1 false
+  %or.cond = and i1 %cmp24, %tobool
   br i1 %or.cond, label %while.body, label %while.end, !llvm.loop !15
 
 while.end:                                        ; preds = %while.body, %entry

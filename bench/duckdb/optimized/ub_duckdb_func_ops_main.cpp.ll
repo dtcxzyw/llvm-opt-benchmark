@@ -9336,7 +9336,7 @@ for.cond.cleanup:                                 ; preds = %for.inc, %entry
   %cond.i = call noundef i8 @llvm.umax.i8(i8 %add, i8 %max_width.0.lcssa)
   %cmp52 = icmp ugt i8 %cond.i, 17
   %cmp54 = icmp ult i8 %max_width.0.lcssa, 19
-  %or.cond = select i1 %cmp52, i1 %cmp54, i1 false
+  %or.cond = and i1 %cmp54, %cmp52
   br i1 %or.cond, label %if.then55, label %if.end58
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -18402,7 +18402,7 @@ for.cond.cleanup:                                 ; preds = %for.inc, %entry
   %cond.i = call noundef i8 @llvm.umax.i8(i8 %add, i8 %max_width.0.lcssa)
   %cmp47 = icmp ugt i8 %cond.i, 17
   %cmp49 = icmp ult i8 %max_width.0.lcssa, 19
-  %or.cond = select i1 %cmp47, i1 %cmp49, i1 false
+  %or.cond = and i1 %cmp49, %cmp47
   br i1 %or.cond, label %if.then50, label %if.end54
 
 for.body:                                         ; preds = %entry, %for.inc
