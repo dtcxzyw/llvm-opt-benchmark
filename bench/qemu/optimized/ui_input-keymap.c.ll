@@ -144,7 +144,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %idxprom.i = and i64 %2, 4294967295
+  %idxprom.i = and i64 %2, 255
   %arrayidx.i = getelementptr [254 x i16], ptr @qemu_input_map_qnum_to_qcode, i64 0, i64 %idxprom.i
   %3 = load i16, ptr %arrayidx.i, align 2
   %conv.i = zext i16 %3 to i32

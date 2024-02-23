@@ -2277,7 +2277,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end6.i.i:                                      ; preds = %if.then2.i.i
   %retval.8.retval.8.retval.8.value_7.i.i.sroa_idx = getelementptr inbounds i8, ptr %retval, i64 8
   store ptr null, ptr %retval.8.retval.8.retval.8.value_7.i.i.sroa_idx, align 8
-  %conv.i.i = and i64 %call2.i, 4294967295
+  %conv.i.i = and i64 %call2.i, 15
   %retval.4.retval.4.retval.4.prefix_.i.i.sroa_idx = getelementptr inbounds i8, ptr %retval, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.4.retval.4.retval.4.prefix_.i.i.sroa_idx, ptr align 1 %call.i, i64 %conv.i.i, i1 false)
   br label %invoke.cont16

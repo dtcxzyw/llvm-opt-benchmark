@@ -4760,7 +4760,7 @@ for.body22.lr.ph:                                 ; preds = %for.cond21.preheade
   %blob_callback_ = getelementptr inbounds i8, ptr %this, i64 6448
   %_M_finish.i279 = getelementptr inbounds i8, ptr %jobs, i64 8
   %_M_end_of_storage.i280 = getelementptr inbounds i8, ptr %jobs, i64 16
-  %wide.trip.count = and i64 %add.i, 4294967295
+  %wide.trip.count = and i64 %add.i, 2147483647
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %_ZNSt6vectorImSaImEED2Ev.exit
@@ -26031,7 +26031,7 @@ entry:
   %vect_.i97 = getelementptr inbounds i8, ptr %flush_memtable_ids, i64 80
   %cmp79 = icmp eq i32 %conv, 1
   %bg_cv_ = getelementptr inbounds i8, ptr %this, i64 2792
-  %wide.trip.count = and i64 %add.i, 4294967295
+  %wide.trip.count = and i64 %add.i, 2147483647
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end87, %entry

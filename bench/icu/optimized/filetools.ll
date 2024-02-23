@@ -700,13 +700,13 @@ if.else11.i23:                                    ; preds = %land.lhs.true.i26, 
   br label %_ZL23whichFileModTimeIsLaterPKcS0_.exit37
 
 _ZL23whichFileModTimeIsLaterPKcS0_.exit37:        ; preds = %if.else.i34, %if.then.i29, %if.else11.i23
-  %or.cond2 = phi i8 [ 0, %if.else11.i23 ], [ 0, %if.then.i29 ], [ 1, %if.else.i34 ]
+  %not.or.cond2 = phi i8 [ 0, %if.else11.i23 ], [ 0, %if.then.i29 ], [ 1, %if.else.i34 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %stbuf1.i19)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %stbuf2.i20)
   br label %return
 
 return:                                           ; preds = %cleanup, %_ZL23whichFileModTimeIsLaterPKcS0_.exit37, %while.end, %if.else58, %entry, %if.else55
-  %retval.3 = phi i8 [ 0, %cleanup ], [ 0, %if.else55 ], [ 0, %entry ], [ %isLatest.4, %while.end ], [ %or.cond2, %_ZL23whichFileModTimeIsLaterPKcS0_.exit37 ], [ 0, %if.else58 ]
+  %retval.3 = phi i8 [ 0, %cleanup ], [ 0, %if.else55 ], [ 0, %entry ], [ %isLatest.4, %while.end ], [ %not.or.cond2, %_ZL23whichFileModTimeIsLaterPKcS0_.exit37 ], [ 0, %if.else58 ]
   ret i8 %retval.3
 }
 
@@ -739,7 +739,7 @@ entry:
   br i1 %cmp8, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %wide.trip.count = and i64 %call, 4294967295
+  %wide.trip.count = and i64 %call, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body

@@ -1123,7 +1123,7 @@ if.then2.i:                                       ; preds = %if.end.i
 if.end6.i:                                        ; preds = %if.then2.i
   %retval.i.sroa.2.4.value_7.i.sroa_idx = getelementptr inbounds i8, ptr %retval.i.sroa.2, i64 4
   store ptr null, ptr %retval.i.sroa.2.4.value_7.i.sroa_idx, align 4
-  %conv.i74 = and i64 %sub.ptr.sub.i.i.i, 4294967295
+  %conv.i74 = and i64 %sub.ptr.sub.i.i.i, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %retval.i.sroa.2, ptr align 1 %27, i64 %conv.i74, i1 false)
   %retval.i.sroa.2.0.retval.i.sroa.2.0.retval.i.sroa.2.0.retval.i.sroa.2.4..fca.0.load83.pre = load i32, ptr %retval.i.sroa.2, align 4
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18submatchERKN5boost13match_resultsIPKcSaINS3_9sub_matchIS6_EEEEEi.exit
@@ -1141,7 +1141,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_18submatchERKN5boost13match_resultsIPKc
   %retval.i.sroa.2.4.retval.i.sroa.2.4.retval.i.sroa.2.4.retval.i.sroa.2.8..fca.1.load = load ptr, ptr %retval.i.sroa.2.4..fca.1.gep.sroa_idx, align 4
   %ref.tmp28.sroa.0.sroa.2.0.insert.ext = zext i32 %retval.i.sroa.2.0.retval.i.sroa.2.0.retval.i.sroa.2.4..fca.0.load83 to i64
   %ref.tmp28.sroa.0.sroa.2.0.insert.shift = shl nuw i64 %ref.tmp28.sroa.0.sroa.2.0.insert.ext, 32
-  %ref.tmp28.sroa.0.sroa.0.0.insert.ext = and i64 %sub.ptr.sub.i.i.i, 4294967295
+  %ref.tmp28.sroa.0.sroa.0.0.insert.ext = and i64 %sub.ptr.sub.i.i.i, 2147483647
   %ref.tmp28.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %ref.tmp28.sroa.0.sroa.2.0.insert.shift, %ref.tmp28.sroa.0.sroa.0.0.insert.ext
   store i64 %ref.tmp28.sroa.0.sroa.0.0.insert.insert, ptr %agg.result, align 8
   %ref.tmp28.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8

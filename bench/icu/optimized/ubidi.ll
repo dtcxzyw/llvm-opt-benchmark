@@ -4757,7 +4757,7 @@ while.end:                                        ; preds = %land.rhs
   br i1 %cmp2577, label %while.body26.preheader, label %if.end76
 
 while.body26.preheader:                           ; preds = %while.end
-  %20 = and i64 %indvars.iv.next, 4294967295
+  %20 = and i64 %indvars.iv.next, 2147483647
   br label %while.body26
 
 while.body26:                                     ; preds = %while.body26.preheader, %if.end73

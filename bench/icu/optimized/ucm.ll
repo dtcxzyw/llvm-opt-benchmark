@@ -3249,7 +3249,7 @@ if.else62:                                        ; preds = %if.else57
 
 do.body:                                          ; preds = %if.else62
   %b = getelementptr inbounds i8, ptr %m, i64 4
-  %conv66 = and i64 %indvars.iv.i, 255
+  %conv66 = and i64 %indvars.iv.i, 7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %b, ptr align 1 %bytes, i64 %conv66, i1 false)
   br label %for.cond70.preheader
 

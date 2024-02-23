@@ -41091,7 +41091,7 @@ for.cond62.preheader.lr.ph.i.i.i:                 ; preds = %invoke.cont55.i.i.i
 
 for.cond62.preheader.us.preheader.i.i.i:          ; preds = %for.cond62.preheader.lr.ph.i.i.i
   %cmp97169.us.i.i.i = icmp sgt i32 %conv.i49.i.i.i, 0
-  %30 = and i64 %27, 4294967295
+  %30 = and i64 %27, 2147483647
   %mul115.us.i.i.i = shl i64 %27, 1
   %31 = and i64 %mul115.us.i.i.i, 4294967294
   %mul125.us.i.i.i = mul i64 %27, 3
@@ -41258,7 +41258,7 @@ invoke.cont192.us.i.us.us.i.i:                    ; preds = %for.inc241.us.i.loo
   %arrayidx218.us.i.us.us.i.i = getelementptr inbounds i8, ptr %gep.i.i, i64 12
   %arrayidx226.us.i.us.us.i.i = getelementptr inbounds i8, ptr %gep.i.i, i64 16
   %59 = mul i32 %indvars.iv206.i.us.us.i.i, %conv.i49.i.i.i
-  %60 = sext i32 %59 to i64
+  %60 = zext i32 %59 to i64
   %61 = add i32 %mul180.us.i.us.us.i.i, %x149.0189.us.i.us.i.i
   %62 = mul i32 %61, %conv.i49.i.i.i
   %63 = sext i32 %62 to i64
@@ -41295,7 +41295,7 @@ for.body202.us.i.us.us.i.i:                       ; preds = %for.body202.us.i.us
   %add.ptr.i122.us.i.us.us.i.i = getelementptr inbounds float, ptr %outBuf.sroa.0.0.i.i.i, i64 %indvars.iv208.i.us.us.i.i
   store float %.sroa.speculated.us.i.us.us.i.i, ptr %add.ptr.i122.us.i.us.us.i.i, align 4
   %inc237.us.i.us.us.i.i = add nuw nsw i32 %c197.0185.us.i.us.us.i.i, 1
-  %indvars.iv.next209.i.us.us.i.i = add nsw i64 %indvars.iv208.i.us.us.i.i, 1
+  %indvars.iv.next209.i.us.us.i.i = add nuw nsw i64 %indvars.iv208.i.us.us.i.i, 1
   %indvars.iv.next211.i.us.us.i.i = add nsw i64 %indvars.iv210.i.us.us.i.i, 1
   %exitcond3.not.i.i = icmp eq i32 %inc237.us.i.us.us.i.i, %conv.i49.i.i.i
   br i1 %exitcond3.not.i.i, label %for.inc241.us.i.loopexit.us.us.i.i, label %for.body202.us.i.us.us.i.i, !llvm.loop !285

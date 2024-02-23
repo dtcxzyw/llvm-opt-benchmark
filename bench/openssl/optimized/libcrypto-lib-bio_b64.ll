@@ -646,7 +646,7 @@ if.then156:                                       ; preds = %if.else153
   br i1 %cmp162200, label %for.body164.preheader, label %while.cond.backedge.sink.split
 
 for.body164.preheader:                            ; preds = %if.then156
-  %wide.trip.count241 = and i64 %sub.ptr.sub159, 4294967295
+  %wide.trip.count241 = and i64 %sub.ptr.sub159, 2147483647
   br label %for.body164
 
 for.body164:                                      ; preds = %for.body164.preheader, %for.body164

@@ -33,7 +33,7 @@ entry:
   br i1 %cmp39, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %wide.trip.count = and i64 %div36, 4294967295
+  %wide.trip.count = and i64 %div36, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body

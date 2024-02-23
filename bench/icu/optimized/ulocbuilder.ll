@@ -615,7 +615,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %or.cond, label %if.end12, label %do.body
 
 do.body:                                          ; preds = %if.end2
-  %conv11 = and i64 %call5, 4294967295
+  %conv11 = and i64 %call5, 2147483647
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer, ptr align 1 %2, i64 %conv11, i1 false)
   br label %if.end12
 

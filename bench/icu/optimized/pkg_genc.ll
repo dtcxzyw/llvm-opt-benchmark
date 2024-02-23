@@ -1615,7 +1615,7 @@ if.end37:                                         ; preds = %if.then28, %if.end2
   br i1 %cmp4360, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.end37
-  %wide.trip.count = and i64 %call41, 4294967295
+  %wide.trip.count = and i64 %call41, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc

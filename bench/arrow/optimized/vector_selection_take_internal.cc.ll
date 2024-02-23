@@ -35989,7 +35989,7 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont.i
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %chunk.i, i64 8
   %_M_refcount4.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 16
   %_M_refcount4.i.i.i.i59 = getelementptr inbounds i8, ptr %ref.tmp18.i, i64 8
-  %wide.trip.count.i = and i64 %sub.ptr.div.i.i.i, 4294967295
+  %wide.trip.count.i = and i64 %sub.ptr.div.i.i.i, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -40610,7 +40610,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %current_chunk, i64 8
   %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   %storage_.i.i19 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.cond:                                         ; preds = %cleanup39

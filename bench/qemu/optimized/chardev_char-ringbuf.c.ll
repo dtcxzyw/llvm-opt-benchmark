@@ -83,7 +83,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end12
   %prod.i = getelementptr inbounds i8, ptr %call.i.i, i64 160
   %size.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
   %cons.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
-  %wide.trip.count.i = and i64 %0, 4294967295
+  %wide.trip.count.i = and i64 %0, 2147483647
   %.pre.i = load i64, ptr %prod.i, align 8
   %.pre17.i = load i64, ptr %size.i, align 8
   br label %for.body.i
@@ -260,7 +260,7 @@ land.rhs.lr.ph.i:                                 ; preds = %if.end6
   %prod.i21 = getelementptr inbounds i8, ptr %call.i.i19, i64 160
   %cbuf.i = getelementptr inbounds i8, ptr %call.i.i19, i64 176
   %size.i = getelementptr inbounds i8, ptr %call.i.i19, i64 152
-  %wide.trip.count.i = and i64 %cond, 4294967295
+  %wide.trip.count.i = and i64 %cond, 2147483647
   %.pre = load i64, ptr %cons.i20, align 8
   %.pre23 = load i64, ptr %prod.i21, align 8
   br label %land.rhs.i

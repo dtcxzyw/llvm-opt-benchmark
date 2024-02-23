@@ -1680,7 +1680,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp371, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.then
-  %wide.trip.count = and i64 %., 4294967295
+  %wide.trip.count = and i64 %., 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -1845,7 +1845,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp371, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.then
-  %wide.trip.count = and i64 %., 4294967295
+  %wide.trip.count = and i64 %., 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body

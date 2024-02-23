@@ -158,7 +158,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end
-  %conv4 = and i64 %call, 4294967295
+  %conv4 = and i64 %call, 2147483647
   %num_read = getelementptr inbounds i8, ptr %bio, i64 96
   %1 = load i64, ptr %num_read, align 8
   %add = add i64 %1, %conv4
@@ -217,7 +217,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end
-  %conv4 = and i64 %call, 4294967295
+  %conv4 = and i64 %call, 2147483647
   %num_write = getelementptr inbounds i8, ptr %bio, i64 104
   %1 = load i64, ptr %num_write, align 8
   %add = add i64 %1, %conv4

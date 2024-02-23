@@ -3560,7 +3560,7 @@ if.then.i.i153:                                   ; preds = %invoke.cont12
   br i1 %cmp.i.i, label %invoke.cont14, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i153
-  %conv.i.i.i = and i64 %16, 4294967295
+  %conv.i.i.i = and i64 %16, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix.i.i, ptr align 1 %15, i64 %conv.i.i.i, i1 false)
   br label %invoke.cont14
 
@@ -3607,7 +3607,7 @@ if.then.i.i161:                                   ; preds = %invoke.cont30
   br i1 %cmp.i.i163, label %invoke.cont32, label %if.end.i.i164
 
 if.end.i.i164:                                    ; preds = %if.then.i.i161
-  %conv.i.i.i165 = and i64 %21, 4294967295
+  %conv.i.i.i165 = and i64 %21, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix.i.i159, ptr align 1 %20, i64 %conv.i.i.i165, i1 false)
   br label %invoke.cont32
 

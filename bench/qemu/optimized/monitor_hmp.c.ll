@@ -273,7 +273,7 @@ if.end13:                                         ; preds = %while.end.i
   br i1 %cmp.not63.i, label %for.cond2.preheader.preheader.i, label %for.cond.preheader.i
 
 for.cond2.preheader.preheader.i:                  ; preds = %if.end13
-  %wide.trip.count.i = and i64 %indvars.iv.i, 4294967295
+  %wide.trip.count.i = and i64 %indvars.iv.i, 2147483647
   br label %for.cond2.preheader.i
 
 for.cond2.preheader.i:                            ; preds = %if.then10.i, %for.cond2.preheader.preheader.i
@@ -430,7 +430,7 @@ for.cond.preheader.i38.i:                         ; preds = %if.end.i.i.i35.i, %
   br i1 %cmp7.i39.i, label %for.body.preheader.i44.i, label %for.end.i40.i
 
 for.body.preheader.i44.i:                         ; preds = %for.cond.preheader.i38.i
-  %wide.trip.count.i45.i = and i64 %indvars.iv.i14, 4294967295
+  %wide.trip.count.i45.i = and i64 %indvars.iv.i14, 2147483647
   br label %for.body.i46.i
 
 for.body.i46.i:                                   ; preds = %for.body.i46.i, %for.body.preheader.i44.i
@@ -1366,7 +1366,7 @@ if.then487.i:                                     ; preds = %if.end482.i
 
 if.end490.i:                                      ; preds = %if.end482.i
   call void @qdict_put_str(ptr noundef %call.i, ptr noundef %call4.i.i, ptr noundef nonnull %incdec.ptr47078.i) #19
-  %idx.ext.i = and i64 %call483.i, 4294967295
+  %idx.ext.i = and i64 %call483.i, 2147483647
   %add.ptr491.i = getelementptr i8, ptr %incdec.ptr47078.i, i64 %idx.ext.i
   store ptr %add.ptr491.i, ptr %p.i, align 8
   br label %sw.epilog495.i

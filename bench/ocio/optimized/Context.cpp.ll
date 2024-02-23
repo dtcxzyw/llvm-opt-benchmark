@@ -4404,7 +4404,7 @@ entry:
 for.body.lr.ph:                                   ; preds = %entry
   %sub = add nuw nsw i64 %sub.ptr.div.i.i, 4294967295
   %3 = and i64 %sub, 4294967295
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc

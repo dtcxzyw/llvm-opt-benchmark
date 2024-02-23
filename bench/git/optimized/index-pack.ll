@@ -6342,7 +6342,7 @@ if.else12:                                        ; preds = %if.end
   br i1 %cmp13, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.else12
-  %conv16 = and i64 %call, 4294967295
+  %conv16 = and i64 %call, 2147483647
   call void @write_or_die(i32 noundef %call3, ptr noundef %msg, i64 noundef %conv16) #24
   call void @write_or_die(i32 noundef %call3, ptr noundef nonnull @.str.113, i64 noundef 1) #24
   br label %if.end17

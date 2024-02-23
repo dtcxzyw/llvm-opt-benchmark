@@ -18460,7 +18460,7 @@ for.body.preheader.i.i.i:                         ; preds = %while.end.i.i.i
 
 _ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE7reserveEj.exit.i: ; preds = %for.body.preheader.i.i.i, %while.end.i.i.i, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread.i.i
   %39 = phi ptr [ %.pre, %for.body.preheader.i.i.i ], [ %.pre188, %while.end.i.i.i ], [ %30, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit.thread.i.i ]
-  %idxprom.i.i.i = and i64 %shr.i.i, 4294967295
+  %idxprom.i.i.i = and i64 %shr.i.i, 2147483647
   %arrayidx.i.i14.i = getelementptr inbounds ptr, ptr %39, i64 %idxprom.i.i.i
   %40 = load ptr, ptr %arrayidx.i.i14.i, align 8
   %tobool.not.i = icmp eq ptr %40, null

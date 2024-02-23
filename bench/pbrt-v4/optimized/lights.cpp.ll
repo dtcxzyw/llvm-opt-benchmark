@@ -16853,7 +16853,7 @@ for.cond6.preheader.lr.ph:                        ; preds = %entry
   br i1 %cmp746, label %for.cond6.preheader.us.preheader, label %for.end33
 
 for.cond6.preheader.us.preheader:                 ; preds = %for.cond6.preheader.lr.ph
-  %wide.trip.count = and i64 %retval.sroa.0.0.copyload.i, 4294967295
+  %wide.trip.count = and i64 %retval.sroa.0.0.copyload.i, 2147483647
   br label %for.cond6.preheader.us
 
 for.cond6.preheader.us:                           ; preds = %for.cond6.preheader.us.preheader, %for.cond6.for.inc31_crit_edge.us

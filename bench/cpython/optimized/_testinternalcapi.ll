@@ -3656,7 +3656,7 @@ cond.false12:                                     ; preds = %cond.end
   unreachable
 
 cond.end13:                                       ; preds = %cond.end
-  %conv14 = and i64 %5, 4294967295
+  %conv14 = and i64 %5, 2147483647
   %call15 = tail call ptr @PyTuple_New(i64 noundef %conv14) #9
   %cmp16 = icmp eq ptr %call15, null
   br i1 %cmp16, label %return, label %for.cond.preheader
@@ -3669,7 +3669,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %6 = getelementptr i8, ptr %call15, i64 8
   %ob_size.i.i = getelementptr inbounds i8, ptr %call15, i64 16
   %ob_item.i = getelementptr inbounds i8, ptr %call15, i64 24
-  %wide.trip.count = and i64 %5, 4294967295
+  %wide.trip.count = and i64 %5, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %PyTuple_SET_ITEM.exit

@@ -754,7 +754,7 @@ for.body.i13:                                     ; preds = %for.body.i13.prehea
   br i1 %7, label %switch.lookup, label %_ZN4cvc58internal8toStringENS0_8ResourceE.exit.i
 
 switch.lookup:                                    ; preds = %for.body.i13
-  %8 = and i64 %i.08.i15, 4294967295
+  %8 = and i64 %i.08.i15, 31
   %switch.gep = getelementptr inbounds [18 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_8ResourceEE9printSafeEi, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal8toStringENS0_8ResourceE.exit.i
@@ -4063,7 +4063,7 @@ invoke.cont:                                      ; preds = %if.then
   br i1 %7, label %switch.lookup, label %_ZN4cvc58internal8toStringENS0_8ResourceE.exit.i
 
 switch.lookup:                                    ; preds = %invoke.cont
-  %8 = and i64 %add, 4294967295
+  %8 = and i64 %add, 31
   %switch.gep = getelementptr inbounds [18 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_8ResourceEE9printSafeEi, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal8toStringENS0_8ResourceE.exit.i
@@ -4284,7 +4284,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %6, label %switch.lookup, label %_ZN4cvc58internal12toStringImplINS0_8ResourceEEEDTcl8toStringfp_EERKT_i.exit.i
 
 switch.lookup:                                    ; preds = %if.end
-  %7 = and i64 %add, 4294967295
+  %7 = and i64 %add, 31
   %switch.gep = getelementptr inbounds [18 x ptr], ptr @switch.table._ZNK4cvc58internal23StatisticHistogramValueINS0_8ResourceEE9printSafeEi, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal12toStringImplINS0_8ResourceEEEDTcl8toStringfp_EERKT_i.exit.i

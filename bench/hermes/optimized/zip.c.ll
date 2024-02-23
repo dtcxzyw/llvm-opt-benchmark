@@ -15598,7 +15598,7 @@ for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.
   br i1 %cmp8.not42.i.i, label %for.body.us.preheader.i.i, label %for.body.i.i
 
 for.body.us.preheader.i.i:                        ; preds = %for.body.lr.ph.i.i
-  %wide.trip.count58.i.i = and i64 %len, 4294967295
+  %wide.trip.count58.i.i = and i64 %len, 2147483647
   br label %for.body.us.i.i
 
 for.body.us.i.i:                                  ; preds = %if.end27.us.i.i, %for.body.us.preheader.i.i
@@ -18949,7 +18949,7 @@ if.then26.i:                                      ; preds = %for.body23.i69
   %arrayidx25.i70.le = getelementptr inbounds i32, ptr %num_codes, i64 %40
   %dec29.i = add nsw i32 %41, -1
   store i32 %dec29.i, ptr %arrayidx25.i70.le, align 4
-  %idxprom31.i = and i64 %indvars.iv42.i, 4294967295
+  %idxprom31.i = and i64 %indvars.iv42.i, 2147483647
   %arrayidx32.i = getelementptr inbounds i32, ptr %num_codes, i64 %idxprom31.i
   %42 = load i32, ptr %arrayidx32.i, align 4
   %add33.i = add nsw i32 %42, 2

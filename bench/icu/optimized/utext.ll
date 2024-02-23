@@ -5434,7 +5434,7 @@ if.end6:                                          ; preds = %lor.lhs.false
   br i1 %cmp8, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end6
-  %conv10 = and i64 %3, 4294967295
+  %conv10 = and i64 %3, 2147483647
   %spec.select = tail call i64 @llvm.umin.i64(i64 %conv10, i64 %limit)
   br label %if.end13
 
@@ -5844,7 +5844,7 @@ if.end6.thread.land.lhs.true11_crit_edge:         ; preds = %if.end6.thread
   br label %land.lhs.true11
 
 if.end6:                                          ; preds = %entry
-  %conv1 = and i64 %index, 4294967295
+  %conv1 = and i64 %index, 2147483647
   %a = getelementptr inbounds i8, ptr %ut, i64 112
   %1 = load i64, ptr %a, align 8
   %cmp2.not = icmp slt i64 %conv1, %1

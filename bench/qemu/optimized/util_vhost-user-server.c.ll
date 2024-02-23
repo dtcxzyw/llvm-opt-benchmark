@@ -781,7 +781,7 @@ if.end41:                                         ; preds = %if.end33, %if.end21
 
 if.end45:                                         ; preds = %if.end41
   %9 = load ptr, ptr %iov, align 8
-  %idx.ext47 = and i64 %call4, 4294967295
+  %idx.ext47 = and i64 %call4, 2147483647
   %add.ptr48 = getelementptr i8, ptr %9, i64 %idx.ext47
   store ptr %add.ptr48, ptr %iov, align 8
   %10 = load i64, ptr %iov_len, align 8

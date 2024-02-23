@@ -2497,7 +2497,7 @@ return.sink.split:                                ; preds = %switch.hole_check, 
 
 switch.hole_check:                                ; preds = %if.end44
   %28 = trunc i64 %result.0.copyload.i.i.i37 to i32
-  %switch.maskindex = and i32 %28, 255
+  %switch.maskindex = and i32 %28, 31
   %switch.shifted = lshr i32 4325511, %switch.maskindex
   %29 = and i32 %switch.shifted, 1
   %switch.lobit.not = icmp eq i32 %29, 0

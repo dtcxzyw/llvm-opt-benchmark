@@ -1503,7 +1503,7 @@ if.then23.thread:                                 ; preds = %for.cond7
   br i1 %tobool.not.i2181, label %_ZN6icu_756number4impl15DecimalQuantity14ensureCapacityEv.exit.i, label %for.end.i
 
 if.then.i22:                                      ; preds = %if.then23
-  %31 = and i64 %indvars.iv112, 4294967295
+  %31 = and i64 %indvars.iv112, 31
   br label %for.body.i27
 
 for.body.i27:                                     ; preds = %for.body.i27, %if.then.i22

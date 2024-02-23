@@ -829,7 +829,7 @@ for.cond.preheader.i:                             ; preds = %_ZNK6icu_759UVector
   br i1 %cmp26.i, label %for.body.lr.ph.i7, label %_ZN6icu_759UVector3215removeElementAtEi.exit
 
 for.body.lr.ph.i7:                                ; preds = %for.cond.preheader.i
-  %11 = and i64 %indvars.iv.i, 4294967295
+  %11 = and i64 %indvars.iv.i, 2147483647
   br label %for.body.i9
 
 for.body.i9:                                      ; preds = %for.body.i9, %for.body.lr.ph.i7

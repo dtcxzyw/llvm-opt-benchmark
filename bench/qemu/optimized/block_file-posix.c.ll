@@ -3050,7 +3050,7 @@ if.end51:                                         ; preds = %if.then46.us
 
 if.end55:                                         ; preds = %while.body.us, %while.body.lr.ph.split.us
   %.us-phi = phi i64 [ %call43.us83, %while.body.lr.ph.split.us ], [ %call43.us, %while.body.us ]
-  %conv56 = and i64 %.us-phi, 4294967295
+  %conv56 = and i64 %.us-phi, 2147483647
   %sub57 = sub nsw i64 %left.0.ph89, %conv56
   %cmp41 = icmp sgt i64 %sub57, 0
   br i1 %cmp41, label %while.body.lr.ph.split.us, label %if.then60, !llvm.loop !14

@@ -356,7 +356,7 @@ if.then6:                                         ; preds = %if.end
   br label %if.end19
 
 if.else:                                          ; preds = %if.end
-  %conv9 = and i64 %call1, 4294967295
+  %conv9 = and i64 %call1, 2147483647
   %cmp10 = icmp ugt i64 %conv9, 16
   br i1 %cmp10, label %if.then12, label %if.end19
 

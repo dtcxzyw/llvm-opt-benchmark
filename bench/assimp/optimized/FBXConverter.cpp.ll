@@ -23650,7 +23650,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   %tobool52.not = icmp eq ptr %mesh, null
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %add.ptr.i.i59 = getelementptr inbounds i8, ptr %this, i64 256
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont146
@@ -27851,7 +27851,7 @@ _ZNSt6vectorIP10aiNodeAnimSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__n
 
 if.end151:                                        ; preds = %_ZNSt6vectorIP10aiNodeAnimSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i197, %if.then.i171, %_ZN10aiNodeAnimD2Ev.exit
   %shl = shl i32 %bit.0368, 4
-  %or152 = or i32 %shl, %or
+  %or152 = or i32 %or, %shl
   br label %sw.epilog.sink.split
 
 if.then156:                                       ; preds = %invoke.cont125

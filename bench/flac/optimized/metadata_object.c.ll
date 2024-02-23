@@ -2416,7 +2416,7 @@ FLAC__metadata_object_vorbiscomment_set_comment.exit.thread: ; preds = %if.then1
 
 FLAC__metadata_object_vorbiscomment_set_comment.exit: ; preds = %if.then16
   %8 = load ptr, ptr %comments.i, align 8
-  %idxprom.i = and i64 %indvars.iv.i, 4294967295
+  %idxprom.i = and i64 %indvars.iv.i, 2147483647
   %arrayidx.i35 = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %8, i64 %idxprom.i
   %call4.i = call fastcc i32 @vorbiscomment_set_entry_(ptr noundef %object, ptr noundef %arrayidx.i35, ptr noundef nonnull %entry2.i, i32 noundef %copy), !range !9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %entry2.i)

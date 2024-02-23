@@ -8579,7 +8579,7 @@ for.cond.i:                                       ; preds = %for.body.i165, %whi
   br i1 %cmp.i164, label %for.body.i165, label %cond.end89.loopexit
 
 for.body.i165:                                    ; preds = %for.cond.i
-  %conv.i = and i64 %indvars.iv.next.i, 4294967295
+  %conv.i = and i64 %indvars.iv.next.i, 2147483647
   %add.ptr.i.i = getelementptr inbounds i32, ptr %18, i64 %conv.i
   %22 = load i32, ptr %add.ptr.i.i, align 4
   %add.i = add i32 %sub3.i, %indvars.i
@@ -10234,7 +10234,7 @@ for.cond:                                         ; preds = %for.body, %entry
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond
-  %conv = and i64 %indvars.iv.next, 4294967295
+  %conv = and i64 %indvars.iv.next, 2147483647
   %add.ptr.i = getelementptr inbounds i32, ptr %1, i64 %conv
   %5 = load i32, ptr %add.ptr.i, align 4
   %sub3 = sub i32 %indvars, %0

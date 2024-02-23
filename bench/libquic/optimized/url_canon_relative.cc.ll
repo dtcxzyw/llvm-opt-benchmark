@@ -936,7 +936,7 @@ for.end.i59.i.i:                                  ; preds = %for.body.i56.i.i, %
 
 for.cond10.preheader.i.i.i:                       ; preds = %for.end.i59.i.i
   %.sink.in.i.i.i.i = getelementptr inbounds i8, ptr %output, i64 8
-  %54 = and i64 %indvars.iv.i55.i.i, 4294967295
+  %54 = and i64 %indvars.iv.i55.i.i, 2147483647
   br label %for.body12.i.i.i
 
 for.body12.i.i.i:                                 ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit.i.i.i, %for.cond10.preheader.i.i.i
@@ -1698,7 +1698,7 @@ for.end.i59.i.i:                                  ; preds = %for.body.i56.i.i, %
 
 for.cond10.preheader.i.i.i:                       ; preds = %for.end.i59.i.i
   %.sink.in.i.i.i.i = getelementptr inbounds i8, ptr %output, i64 8
-  %54 = and i64 %indvars.iv.i55.i.i, 4294967295
+  %54 = and i64 %indvars.iv.i55.i.i, 2147483647
   br label %for.body12.i.i.i
 
 for.body12.i.i.i:                                 ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit.i.i.i, %for.cond10.preheader.i.i.i

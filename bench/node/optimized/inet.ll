@@ -735,8 +735,8 @@ for.cond.preheader.i:                             ; preds = %if.then88.i
   br i1 %cmp97.not97.i, label %if.end110.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
-  %23 = and i64 %sub.ptr.sub91.i, 4294967295
-  %24 = add i64 %sub.ptr.sub91.i, 1
+  %23 = and i64 %sub.ptr.sub91.i, 2147483647
+  %24 = add nuw nsw i64 %sub.ptr.sub91.i, 1
   %wide.trip.count.i = and i64 %24, 4294967295
   br label %for.body.i
 

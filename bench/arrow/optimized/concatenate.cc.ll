@@ -15577,7 +15577,7 @@ for.cond268.preheader:                            ; preds = %for.cond268.prehead
   br i1 %cmp270830, label %invoke.cont284.preheader, label %for.inc301
 
 invoke.cont284.preheader:                         ; preds = %for.cond268.preheader
-  %wide.trip.count = and i64 %sub.ptr.div.i.i611, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i611, 2147483647
   br label %invoke.cont284
 
 invoke.cont234:                                   ; preds = %_ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit, %_ZN5arrow6StatusD2Ev.exit605

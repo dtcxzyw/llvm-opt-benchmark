@@ -53693,7 +53693,7 @@ for.cond.preheader:                               ; preds = %entry
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %number_.i = getelementptr inbounds i8, ptr %innermost_field, i64 4
   %2 = load i32, ptr %number_.i, align 4
-  %wide.trip.count = and i64 %sub.ptr.div.i.i, 4294967295
+  %wide.trip.count = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.cond:                                         ; preds = %for.body

@@ -528,7 +528,7 @@ entry:
   br i1 %cmp10, label %land.lhs.true.preheader, label %while.end
 
 land.lhs.true.preheader:                          ; preds = %entry
-  %0 = and i64 %call, 4294967295
+  %0 = and i64 %call, 2147483647
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.lhs.true.preheader, %while.body

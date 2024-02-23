@@ -10778,7 +10778,7 @@ if.then.i.i:                                      ; preds = %invoke.cont16
   br i1 %cmp.i.i, label %invoke.cont19, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %conv.i.i.i = and i64 %5, 4294967295
+  %conv.i.i.i = and i64 %5, 15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %inlined.i.i, ptr align 1 %4, i64 %conv.i.i.i, i1 false)
   br label %invoke.cont19
 

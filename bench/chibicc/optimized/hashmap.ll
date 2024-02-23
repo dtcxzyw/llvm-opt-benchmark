@@ -32,7 +32,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp5.i.i.i, label %for.body.preheader.i.i.i, label %fnv_hash.exit.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %if.end.i.i
-  %wide.trip.count.i.i.i = and i64 %call, 4294967295
+  %wide.trip.count.i.i.i = and i64 %call, 2147483647
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i
@@ -436,7 +436,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp5.i.i.i, label %for.body.preheader.i.i.i, label %fnv_hash.exit.i.i
 
 for.body.preheader.i.i.i:                         ; preds = %if.end.i.i
-  %wide.trip.count.i.i.i = and i64 %call, 4294967295
+  %wide.trip.count.i.i.i = and i64 %call, 2147483647
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.preheader.i.i.i

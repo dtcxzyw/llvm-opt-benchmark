@@ -170,7 +170,7 @@ sw.default:                                       ; preds = %entry
 
 if.then:                                          ; preds = %sw.default
   %usbphy12 = getelementptr inbounds i8, ptr %opaque, i64 1088
-  %idxprom13 = and i64 %shr, 4294967295
+  %idxprom13 = and i64 %shr, 63
   %arrayidx14 = getelementptr [33 x i32], ptr %usbphy12, i64 0, i64 %idxprom13
   %3 = load i32, ptr %arrayidx14, align 4
   br label %sw.epilog

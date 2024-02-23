@@ -19826,7 +19826,7 @@ if.then17:                                        ; preds = %if.end14
   br label %if.end44
 
 if.else:                                          ; preds = %if.end14
-  %conv19 = and i64 %x.1.i, 4294967295
+  %conv19 = and i64 %x.0.lcssa.i, 2147483647
   %12 = load i64, ptr %input_len, align 8
   %sub22 = sub i64 %12, %9
   %cmp23.not = icmp sgt i64 %conv19, %sub22

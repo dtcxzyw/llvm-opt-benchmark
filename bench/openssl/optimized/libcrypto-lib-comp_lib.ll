@@ -126,7 +126,7 @@ if.then7:                                         ; preds = %if.end
   %2 = load i64, ptr %compress_in, align 8
   %add = add i64 %2, %conv3
   store i64 %add, ptr %compress_in, align 8
-  %conv9 = and i64 %call, 4294967295
+  %conv9 = and i64 %call, 2147483647
   %compress_out = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = load i64, ptr %compress_out, align 8
   %add10 = add i64 %3, %conv9
@@ -160,7 +160,7 @@ if.then7:                                         ; preds = %if.end
   %2 = load i64, ptr %expand_in, align 8
   %add = add i64 %2, %conv3
   store i64 %add, ptr %expand_in, align 8
-  %conv9 = and i64 %call, 4294967295
+  %conv9 = and i64 %call, 2147483647
   %expand_out = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load i64, ptr %expand_out, align 8
   %add10 = add i64 %3, %conv9

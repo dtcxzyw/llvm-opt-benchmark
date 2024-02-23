@@ -894,8 +894,8 @@ cond.true:                                        ; preds = %err_index
 
 cond.false:                                       ; preds = %err_index
   %cmp28 = icmp ult i32 %conv5, -13
-  %not = and i64 %shr, 4294967295
-  %7 = xor i64 %not, 4294967295
+  %not = and i64 %shr, 15
+  %7 = xor i64 %not, 15
   %cond = select i1 %cmp28, i64 13, i64 %7
   %arrayidx = getelementptr inbounds [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %cond
   %8 = load ptr, ptr %arrayidx, align 8

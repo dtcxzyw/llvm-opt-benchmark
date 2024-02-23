@@ -5521,7 +5521,8 @@ sw.epilog.i:                                      ; preds = %sw.bb.i177, %trace_
   br i1 %cmp.i172, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %sw.epilog.i
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.235, i32 noundef %conv3.mask.i) #16
+  %conv.i176 = and i32 %call2.i53, 31
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.235, i32 noundef %conv.i176) #16
   br label %loadvm_postcopy_ram_handle_discard.exit
 
 if.end6.i:                                        ; preds = %sw.epilog.i

@@ -5085,7 +5085,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   br i1 %cmp1391, label %for.body.preheader, label %for.cond.cleanup
 
 for.body.preheader:                               ; preds = %while.end
-  %wide.trip.count = and i64 %digits.coerce1, 4294967295
+  %wide.trip.count = and i64 %digits.coerce1, 2147483647
   %xtraiter = and i64 %digits.coerce1, 1
   %21 = icmp eq i64 %wide.trip.count, 1
   br i1 %21, label %for.cond.cleanup.loopexit.unr-lcssa, label %for.body.preheader.new

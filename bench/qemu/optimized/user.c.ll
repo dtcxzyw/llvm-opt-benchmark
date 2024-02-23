@@ -170,7 +170,7 @@ if.then:                                          ; preds = %while.body
   br i1 %cmp5.not, label %if.end8, label %while.end
 
 if.else:                                          ; preds = %while.body
-  %idx.ext = and i64 %call, 4294967295
+  %idx.ext = and i64 %call, 2147483647
   %add.ptr = getelementptr i8, ptr %buf.addr.08, i64 %idx.ext
   %sub = sub nsw i32 %len.addr.07, %conv1
   br label %if.end8
@@ -365,7 +365,7 @@ while.body:                                       ; preds = %if.end10, %while.co
   br i1 %cmp13, label %for.body.preheader, label %if.else
 
 for.body.preheader:                               ; preds = %while.body
-  %wide.trip.count = and i64 %call12, 4294967295
+  %wide.trip.count = and i64 %call12, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body

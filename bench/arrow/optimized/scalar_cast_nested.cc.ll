@@ -41625,7 +41625,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.
   br i1 %9, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %invoke.cont
-  %10 = and i64 %sub.ptr.div.i.i, 4294967295
+  %10 = and i64 %sub.ptr.div.i.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc

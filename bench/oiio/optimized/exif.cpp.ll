@@ -2491,7 +2491,7 @@ entry:
   br i1 %or.cond.i.i, label %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %conv1.mask = and i32 %type, 65535
+  %conv1.mask = and i32 %type, 15
   %idxprom.i.i = zext nneg i32 %conv1.mask to i64
   %arrayidx.i.i = getelementptr inbounds [14 x i64], ptr @_ZZN18OpenImageIO_v2_6_014tiff_data_sizeE12TIFFDataTypeE5sizes, i64 0, i64 %idxprom.i.i
   %0 = load i64, ptr %arrayidx.i.i, align 8

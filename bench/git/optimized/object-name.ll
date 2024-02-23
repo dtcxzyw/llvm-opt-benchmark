@@ -270,7 +270,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %hex_pfx.i = getelementptr inbounds i8, ptr %ds, i64 4
   %bin_pfx.i = getelementptr inbounds i8, ptr %ds, i64 72
-  %wide.trip.count.i = and i64 %call, 4294967295
+  %wide.trip.count.i = and i64 %call, 2147483647
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end44.i, %for.body.lr.ph.i
@@ -2278,7 +2278,7 @@ while.body.lr.ph:                                 ; preds = %if.end72
   br label %while.body
 
 while.cond:                                       ; preds = %if.end95
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = trunc i64 %indvars.iv.next to i32
   %cmp82 = icmp ugt i32 %10, %13
   br i1 %cmp82, label %while.body, label %while.end, !llvm.loop !23

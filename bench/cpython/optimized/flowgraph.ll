@@ -4997,7 +4997,7 @@ for.cond.preheader.i25.i:                         ; preds = %if.then15.i.i
   br i1 %cmp25113.i.i, label %for.body.preheader.i.i, label %for.end54.i.i
 
 for.body.preheader.i.i:                           ; preds = %for.cond.preheader.i25.i
-  %wide.trip.count.i.i = and i64 %.val26.i.i, 4294967295
+  %wide.trip.count.i.i = and i64 %.val26.i.i, 2147483647
   br label %for.body.i27.i
 
 if.then22.i.i:                                    ; preds = %if.then15.i.i

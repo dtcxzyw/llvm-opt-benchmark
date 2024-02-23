@@ -342,7 +342,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %24 = load ptr, ptr %add.ptr, align 8
   %util = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %25 = load ptr, ptr %util, align 8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %shr10.i82 = lshr i64 %indvars.iv.next, 24
   %conv11.i = trunc i64 %shr10.i82 to i8
   store i32 0, ptr %fake_oid, align 4
@@ -1206,7 +1206,7 @@ lor.lhs.false.i.i.i:                              ; preds = %for.body.i.i
   br i1 %cmp5.not.i.i.i, label %match_extension.exit.i.i, label %for.inc.i.i
 
 match_extension.exit.i.i:                         ; preds = %lor.lhs.false.i.i.i
-  %idx.ext.i.i.i = and i64 %sub.i.i.i, 4294967295
+  %idx.ext.i.i.i = and i64 %sub.i.i.i, 2147483647
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %name_hint, i64 %idx.ext.i.i.i
   %call7.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(1) %28) #20
   %tobool.not.i.not.i.i = icmp eq i32 %call7.i.i.i, 0
@@ -1600,7 +1600,7 @@ lor.lhs.false.i:                                  ; preds = %for.body
   br i1 %cmp5.not.i, label %match_extension.exit, label %for.inc
 
 match_extension.exit:                             ; preds = %lor.lhs.false.i
-  %idx.ext.i = and i64 %sub.i, 4294967295
+  %idx.ext.i = and i64 %sub.i, 2147483647
   %add.ptr.i = getelementptr inbounds i8, ptr %filename, i64 %idx.ext.i
   %call7.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %add.ptr.i, ptr noundef nonnull dereferenceable(1) %3) #20
   %tobool.not.i.not = icmp eq i32 %call7.i, 0

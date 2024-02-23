@@ -1579,7 +1579,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 if.end.i.i18:                                     ; preds = %for.body.i
   %20 = load ptr, ptr %values_.i.i, align 8
-  %idx.ext.i.i = and i64 %add.i, 4294967295
+  %idx.ext.i.i = and i64 %add.i, 2147483647
   %add.ptr.i.i = getelementptr inbounds i64, ptr %20, i64 %idx.ext.i.i
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
 
@@ -1911,7 +1911,7 @@ if.then.i.i:                                      ; preds = %for.body.i
 
 if.end.i.i22:                                     ; preds = %for.body.i
   %21 = load ptr, ptr %values_.i101, align 8
-  %idx.ext.i.i = and i64 %add.i, 4294967295
+  %idx.ext.i.i = and i64 %add.i, 2147483647
   %add.ptr.i.i = getelementptr inbounds i64, ptr %21, i64 %idx.ext.i.i
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit.i
 

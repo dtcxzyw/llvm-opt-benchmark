@@ -2259,7 +2259,7 @@ if.end3:                                          ; preds = %if.end
 land.lhs.true:                                    ; preds = %if.end3
   %reader = getelementptr inbounds i8, ptr %c, i64 160
   %3 = load ptr, ptr %reader, align 8
-  %conv7 = and i64 %call, 4294967295
+  %conv7 = and i64 %call, 2147483647
   %call8 = call i32 @redisReaderFeed(ptr noundef %3, ptr noundef nonnull %buf, i64 noundef %conv7) #13
   %cmp9.not = icmp eq i32 %call8, 0
   br i1 %cmp9.not, label %return, label %if.then11
@@ -2610,7 +2610,7 @@ if.end3.i:                                        ; preds = %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end3.i
   %14 = load ptr, ptr %reader.i.i, align 8
-  %conv7.i = and i64 %call.i, 4294967295
+  %conv7.i = and i64 %call.i, 2147483647
   %call8.i = call i32 @redisReaderFeed(ptr noundef %14, ptr noundef nonnull %buf.i, i64 noundef %conv7.i) #13
   %cmp9.not.i = icmp eq i32 %call8.i, 0
   br i1 %cmp9.not.i, label %if.end12, label %if.then11.i

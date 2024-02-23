@@ -364,7 +364,7 @@ _.exit:                                           ; preds = %if.then5, %if.end3.
   br label %return
 
 if.end8:                                          ; preds = %while.end
-  %idxprom9 = and i64 %indvars.iv.next, 4294967295
+  %idxprom9 = and i64 %indvars.iv.next, 63
   %arrayidx10 = getelementptr inbounds [33 x ptr], ptr %argv, i64 0, i64 %idxprom9
   store ptr null, ptr %arrayidx10, align 8
   %call12 = call i32 @execv_git_cmd(ptr noundef nonnull %argv)

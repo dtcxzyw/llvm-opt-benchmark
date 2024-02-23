@@ -189,7 +189,7 @@ testdev_eat_packet.exit:                          ; preds = %while.end44.i
   br i1 %cmp11, label %while.body13, label %while.end
 
 while.body13:                                     ; preds = %testdev_eat_packet.exit
-  %idx.ext18 = and i64 %sub.ptr.sub.i, 4294967295
+  %idx.ext18 = and i64 %sub.ptr.sub.i, 2147483647
   %add.ptr19 = getelementptr i8, ptr %in_buf, i64 %idx.ext18
   %sub21 = sub nsw i32 %2, %conv48.i
   %conv22 = sext i32 %sub21 to i64

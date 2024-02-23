@@ -186,7 +186,7 @@ while.cond:                                       ; preds = %if.end10, %while.bo
   br i1 %cmp19, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %conv21 = and i64 %call18, 4294967295
+  %conv21 = and i64 %call18, 2147483647
   %add22 = add i64 %conv21, %read_so_far.0
   %cmp24.not = icmp ult i64 %add22, %1
   br i1 %cmp24.not, label %while.cond, label %while.end.thread, !llvm.loop !5
@@ -1424,12 +1424,12 @@ if.end38:                                         ; preds = %for.end
 
 if.end46:                                         ; preds = %if.end38
   %shl47 = shl nuw nsw i32 %8, 8
-  %or48 = or i32 %shl47, %9
+  %or48 = or disjoint i32 %shl47, %9
   %conv = trunc i32 %or48 to i16
   %arrayidx = getelementptr inbounds i8, ptr %words, i64 12
   store i16 %conv, ptr %arrayidx, align 4
   %shl49 = shl nuw nsw i32 %10, 8
-  %or50 = or i32 %shl49, %11
+  %or50 = or disjoint i32 %shl49, %11
   %conv51 = trunc i32 %or50 to i16
   %arrayidx52 = getelementptr inbounds i8, ptr %words, i64 14
   store i16 %conv51, ptr %arrayidx52, align 2

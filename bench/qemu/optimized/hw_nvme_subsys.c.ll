@@ -110,11 +110,11 @@ if.end13:                                         ; preds = %for.body
   br i1 %6, label %for.body.lr.ph.i, label %nvme_subsys_reserve_cntlids.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end13
-  %add = add nuw i64 %indvars.iv, 1
+  %add = add nuw nsw i64 %indvars.iv, 1
   %7 = load ptr, ptr %subsys1, align 8
   %ctrls.i = getelementptr inbounds i8, ptr %7, i64 544
   %sec.i30 = getelementptr inbounds i8, ptr %n, i64 27800
-  %8 = and i64 %add, 4294967295
+  %8 = and i64 %add, 511
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i

@@ -30,12 +30,12 @@ if.then:                                          ; preds = %entry
   %shl = select i1 %sign, i64 32768, i64 0
   %tobool12.not = icmp eq i64 %sig, 0
   %2 = shl i64 %sub4, 10
-  %shl15 = select i1 %tobool12.not, i64 0, i64 %2
-  %add = add i64 %shl15, %shl
+  %shl15.masked = select i1 %tobool12.not, i64 0, i64 %2
   %sub18 = add nsw i32 %conv5, -4
   %sh_prom = zext nneg i32 %sub18 to i64
   %shl19 = shl i64 %sig, %sh_prom
-  %add20 = add i64 %add, %shl19
+  %conv16 = add i64 %shl19, %shl
+  %add20 = add i64 %conv16, %shl15.masked
   %conv21 = trunc i64 %add20 to i16
   br label %return
 

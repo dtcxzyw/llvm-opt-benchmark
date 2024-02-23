@@ -3424,7 +3424,7 @@ for.body.lr.ph:                                   ; preds = %if.end30
   %4 = load ptr, ptr %p, align 8
   %5 = load ptr, ptr %n, align 8
   %6 = load ptr, ptr %uv, align 8
-  %wide.trip.count114 = and i64 %0, 4294967295
+  %wide.trip.count114 = and i64 %0, 2147483647
   br i1 %cmp.i, label %for.body.lr.ph.split.us, label %for.body
 
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
@@ -3482,7 +3482,7 @@ for.cond76.preheader:                             ; preds = %for.inc, %for.body.
 
 for.body78.lr.ph:                                 ; preds = %for.cond76.preheader
   %15 = load ptr, ptr %faceIndices, align 8
-  %wide.trip.count126 = and i64 %div, 4294967295
+  %wide.trip.count126 = and i64 %div, 2147483647
   br i1 %cmp.i64, label %for.body78.us, label %for.body78
 
 for.body78.us:                                    ; preds = %for.body78.lr.ph, %for.body78.us
@@ -3555,7 +3555,7 @@ for.cond107.preheader:                            ; preds = %for.body78, %for.bo
 
 for.body109.lr.ph:                                ; preds = %for.cond107.preheader
   %28 = load ptr, ptr %faceIndices, align 8
-  %wide.trip.count131 = and i64 %div2257, 4294967295
+  %wide.trip.count131 = and i64 %div2257, 2147483647
   br label %for.body109
 
 for.body78:                                       ; preds = %for.body78.lr.ph, %for.body78

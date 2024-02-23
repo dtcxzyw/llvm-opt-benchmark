@@ -1978,7 +1978,7 @@ for.body165.lr.ph:                                ; preds = %for.cond163.prehead
   br i1 %or.cond, label %for.body165.us.us.preheader, label %nrvo.skipdtor
 
 for.body165.us.us.preheader:                      ; preds = %for.body165.lr.ph
-  %3 = and i64 %div, 4294967295
+  %3 = and i64 %div, 2147483647
   %wide.trip.count191 = zext nneg i32 %h1 to i64
   %wide.trip.count = zext nneg i32 %w1 to i64
   br label %for.body165.us.us

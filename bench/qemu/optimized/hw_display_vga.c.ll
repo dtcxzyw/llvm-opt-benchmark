@@ -5229,7 +5229,7 @@ for.body264.preheader:                            ; preds = %for.end249
   %add.ptr258 = getelementptr i32, ptr %chardata, i64 %idx.ext257
   %idx.ext259 = zext nneg i32 %div255131 to i64
   %add.ptr260 = getelementptr i32, ptr %add.ptr258, i64 %idx.ext259
-  %wide.trip.count = and i64 %call251, 4294967295
+  %wide.trip.count = and i64 %call251, 2147483647
   br label %for.body264
 
 for.body264:                                      ; preds = %for.body264.preheader, %for.body264

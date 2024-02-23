@@ -11062,7 +11062,7 @@ cond.false:                                       ; preds = %if.end
   unreachable
 
 for.body.preheader:                               ; preds = %luaM_realloc_.exit
-  %wide.trip.count = and i64 %shl, 4294967295
+  %wide.trip.count = and i64 %shl, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
@@ -35111,7 +35111,7 @@ lua_rawgeti.exit:                                 ; preds = %land.lhs.true.i.i28
   br i1 %cmp785, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %lua_rawgeti.exit
-  %20 = and i64 %cond.i, 4294967295
+  %20 = and i64 %cond.i, 2147483647
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %lua_rawgeti.exit72
@@ -39753,7 +39753,7 @@ if.end:                                           ; preds = %luaL_checklstring.e
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else3.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %27 = and i64 %sub.ptr.div.i, 4294967295
+  %27 = and i64 %sub.ptr.div.i, 2147483647
   %28 = getelementptr %struct.lua_TValue, ptr %L.val10, i64 %27
   %add.ptr.i.i.i = getelementptr i8, ptr %28, i64 -16
   %cmp1.not.i.i.i = icmp ult ptr %add.ptr.i.i.i, %L.val

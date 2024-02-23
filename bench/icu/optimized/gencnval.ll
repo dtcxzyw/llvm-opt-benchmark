@@ -1616,7 +1616,7 @@ if.then.i66.i:                                    ; preds = %while.body.i.i43
   br i1 %cmp8.i.i, label %if.then10.i.i, label %if.end12.i.i
 
 if.then10.i.i:                                    ; preds = %if.then.i66.i
-  %idx.ext.i.i46 = and i64 %call6.i.i45, 4294967295
+  %idx.ext.i.i46 = and i64 %call6.i.i45, 2147483647
   %add.ptr.i68.i = getelementptr inbounds i8, ptr %normalizedStrings.addr.021.i.i, i64 %idx.ext.i.i46
   %sub.i69.i = sub nsw i32 %add.i62.i, %conv7.i67.i
   %conv11.i70.i = sext i32 %sub.i69.i to i64
@@ -1667,7 +1667,7 @@ if.then.i90.i:                                    ; preds = %while.body.i75.i
   br i1 %cmp8.i94.i, label %if.then10.i95.i, label %if.end12.i82.i
 
 if.then10.i95.i:                                  ; preds = %if.then.i90.i
-  %idx.ext.i96.i = and i64 %call6.i92.i, 4294967295
+  %idx.ext.i96.i = and i64 %call6.i92.i, 2147483647
   %add.ptr.i97.i = getelementptr inbounds i8, ptr %normalizedStrings.addr.021.i77.i, i64 %idx.ext.i96.i
   %sub.i98.i = sub nsw i32 %add.i80.i, %conv7.i93.i
   %conv11.i99.i = sext i32 %sub.i98.i to i64

@@ -3662,7 +3662,7 @@ for.end:                                          ; preds = %land.lhs.true, %lan
   br i1 %cmp3060, label %for.body32.preheader, label %if.end49.thread
 
 for.body32.preheader:                             ; preds = %for.end
-  %27 = and i64 %indvars.iv, 4294967294
+  %27 = and i64 %indvars.iv, 2147483646
   br label %for.body32
 
 for.body32:                                       ; preds = %for.body32.preheader, %for.body32

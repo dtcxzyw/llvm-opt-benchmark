@@ -9225,7 +9225,7 @@ if.then.i.i85:                                    ; preds = %if.end
   br i1 %cmp.i.i, label %invoke.cont21, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i85
-  %conv.i.i.i = and i64 %22, 4294967295
+  %conv.i.i.i = and i64 %22, 15
   %agg.tmp19.sroa.0.4.inlined.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp19.sroa.0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %agg.tmp19.sroa.0.4.inlined.i.i.sroa_idx, ptr align 1 %21, i64 %conv.i.i.i, i1 false)
   %agg.tmp19.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %agg.tmp19.sroa.0, i64 8

@@ -336,7 +336,7 @@ if.then.i22.i:                                    ; preds = %if.then12.i
   br label %_ZL36tsi_fake_handshake_message_to_stringi.exit.i
 
 if.end.i.i:                                       ; preds = %if.then12.i
-  %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
+  %idxprom.i.i = and i64 %indvars.iv.i.i, 3
   %arrayidx.i20.i = getelementptr inbounds [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %idxprom.i.i
   %8 = load ptr, ptr %arrayidx.i20.i, align 8
   br label %_ZL36tsi_fake_handshake_message_to_stringi.exit.i
@@ -380,7 +380,7 @@ if.then.i35.i:                                    ; preds = %if.then17.i
   br label %_ZL36tsi_fake_handshake_message_to_stringi.exit36.i
 
 if.end.i31.i:                                     ; preds = %if.then17.i
-  %idxprom.i32.i = and i64 %indvars.iv.i.i, 4294967295
+  %idxprom.i32.i = and i64 %indvars.iv.i.i, 3
   %arrayidx.i33.i = getelementptr inbounds [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %idxprom.i32.i
   %13 = load ptr, ptr %arrayidx.i33.i, align 8
   br label %_ZL36tsi_fake_handshake_message_to_stringi.exit36.i

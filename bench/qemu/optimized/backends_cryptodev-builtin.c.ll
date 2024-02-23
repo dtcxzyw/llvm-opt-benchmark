@@ -400,7 +400,7 @@ if.end42.i:                                       ; preds = %sw.epilog.i
   %16 = load i8, ptr %op_type.i, align 8
   %type.i = getelementptr inbounds i8, ptr %call43.i, i64 9
   store i8 %16, ptr %type.i, align 1
-  %idxprom.i = and i64 %i.05.i.i, 4294967295
+  %idxprom.i = and i64 %i.05.i.i, 2147483647
   %arrayidx.i = getelementptr [256 x ptr], ptr %sessions.i.i, i64 0, i64 %idxprom.i
   store ptr %call43.i, ptr %arrayidx.i, align 8
   br label %sw.epilog
@@ -512,7 +512,7 @@ if.end15.i:                                       ; preds = %if.end12.i
   %call16.i = call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #8
   %akcipher17.i = getelementptr inbounds i8, ptr %call16.i, i64 16
   store ptr %call13.i, ptr %akcipher17.i, align 8
-  %idxprom.i24 = and i64 %i.05.i.i14, 4294967295
+  %idxprom.i24 = and i64 %i.05.i.i14, 2147483647
   %arrayidx.i25 = getelementptr [256 x ptr], ptr %sessions.i.i12, i64 0, i64 %idxprom.i24
   store ptr %call16.i, ptr %arrayidx.i25, align 8
   br label %cryptodev_builtin_create_akcipher_session.exit

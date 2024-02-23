@@ -4185,7 +4185,7 @@ do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.t
   br i1 %cmp.i.i, label %do.cond.i.i, label %land.rhs.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
-  %conv2.i.i = and i64 %call.i.i, 4294967295
+  %conv2.i.i = and i64 %call.i.i, 2147483647
   %add.i.i = add i64 %conv2.i.i, %bytesWrittenTotal.0.i.i
   %cmp3.i.i = icmp ugt i64 %add.i.i, 7
   br i1 %cmp3.i.i, label %if.then.i, label %land.rhs.i.i

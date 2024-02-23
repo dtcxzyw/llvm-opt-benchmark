@@ -1414,7 +1414,7 @@ if.end24.i:                                       ; preds = %if.then17.i
   br i1 %tobool26.not.i, label %if.end38.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.end24.i
-  %conv28.i = and i64 %25, 4294967295
+  %conv28.i = and i64 %25, 7
   %call29.i = tail call fastcc i32 @qcrypto_block_luks_load_key(ptr noundef nonnull %block, i64 noundef %conv28.i, ptr noundef %old_password.0.i21, ptr noundef %tmpkey.0.i, ptr noundef %readfunc, ptr noundef %opaque, ptr noundef %errp), !range !13
   switch i32 %call29.i, label %if.end38.i [
     i32 -1, label %qcrypto_block_luks_amend_erase_keyslots.exit
@@ -1430,7 +1430,7 @@ if.end38.i:                                       ; preds = %if.then27.i, %if.en
 
 qcrypto_block_luks_slot_active.exit.i24:          ; preds = %if.end38.i
   %key_slots.i.i25 = getelementptr inbounds i8, ptr %16, i64 208
-  %idxprom.i.i26 = and i64 %25, 4294967295
+  %idxprom.i.i26 = and i64 %25, 7
   %arrayidx.i.i27 = getelementptr [8 x %struct.QCryptoBlockLUKSKeySlot], ptr %key_slots.i.i25, i64 0, i64 %idxprom.i.i26
   %27 = load i32, ptr %arrayidx.i.i27, align 8
   %cmp1.i.i28 = icmp eq i32 %27, 11301363
