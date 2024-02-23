@@ -12261,7 +12261,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond, label %if.then, label %if.end45
 
 if.then:                                          ; preds = %land.lhs.true
-  %and7 = and i32 %3, 2563
+  %and7 = and i32 %3, 2561
   %cmp8 = icmp eq i32 %and7, 2048
   br i1 %cmp8, label %land.rhs.lr.ph, label %if.end
 

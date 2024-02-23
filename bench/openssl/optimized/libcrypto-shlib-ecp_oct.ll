@@ -397,7 +397,7 @@ land.lhs.true47:                                  ; preds = %if.end42, %if.end42
   %call48 = tail call i32 @BN_is_odd(ptr noundef nonnull %call34) #3
   %tobool49.not = icmp ne i32 %call48, 0
   %add51 = zext i1 %tobool49.not to i32
-  %spec.select = add nuw nsw i32 %add51, %form
+  %spec.select = or disjoint i32 %add51, %form
   br label %if.end56
 
 if.end56:                                         ; preds = %land.lhs.true47, %if.end42

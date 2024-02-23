@@ -1314,8 +1314,7 @@ entry:
   ]
 
 lor.lhs.false4:                                   ; preds = %entry, %entry
-  %sext = shl i64 %call, 32
-  %idxprom = ashr exact i64 %sext, 32
+  %idxprom = and i64 %call, 4294967295
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %cmp6.not = icmp eq i8 %0, 32

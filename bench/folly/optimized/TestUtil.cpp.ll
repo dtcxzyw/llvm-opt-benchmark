@@ -30731,7 +30731,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond, label %if.then, label %if.end45
 
 if.then:                                          ; preds = %land.lhs.true
-  %and7 = and i32 %3, 2563
+  %and7 = and i32 %3, 2561
   %cmp8 = icmp eq i32 %and7, 2048
   br i1 %cmp8, label %land.rhs.lr.ph, label %if.end
 
@@ -31023,7 +31023,7 @@ if.end27:                                         ; preds = %if.then24, %land.lh
   %45 = phi ptr [ %incdec.ptr26, %if.then24 ], [ %40, %land.lhs.true19 ]
   %greedy.0 = phi i8 [ 0, %if.then24 ], [ 1, %land.lhs.true19 ]
   %cmp30.not = icmp ne ptr %45, %1
-  %and33 = and i32 %3, 3
+  %and33 = and i32 %3, 1
   %cmp34 = icmp eq i32 %and33, 0
   %or.cond526 = and i1 %cmp34, %cmp30.not
   br i1 %or.cond526, label %land.lhs.true35, label %if.end45

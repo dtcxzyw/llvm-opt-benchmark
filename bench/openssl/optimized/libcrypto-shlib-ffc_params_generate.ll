@@ -1292,12 +1292,11 @@ if.end124:                                        ; preds = %if.end113
   %cmp291.i = icmp sgt i32 %conv.i, 0
   %sub45.i = add nsw i64 %shr, -1
   %arrayidx46.i = getelementptr inbounds [64 x i8], ptr %md.i, i64 0, i64 %sub45.i
-  %13 = and i64 %shr, 4294967295
   %div142 = udiv i64 %sub, 160
   %conv143 = trunc i64 %div142 to i32
   %div139.tr = trunc i64 %div139 to i32
-  %14 = shl i32 %div139.tr, 2
-  %conv146 = add i32 %14, -1
+  %13 = shl i32 %div139.tr, 2
+  %conv146 = add i32 %13, -1
   %pcounter149 = getelementptr inbounds i8, ptr %params, i64 48
   br label %for.cond
 
@@ -1307,12 +1306,12 @@ for.cond:                                         ; preds = %if.end162, %if.end1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf2.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %md.i)
   %call.i = call ptr @ossl_bn_get_libctx(ptr noundef nonnull %call58) #5
-  %15 = icmp eq i32 %use_random_seed.0, 0
+  %14 = icmp eq i32 %use_random_seed.0, 0
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end60.i, %for.cond
   %m.0.i = phi i32 [ %m.0, %for.cond ], [ %inc.i, %if.end60.i ]
-  %generate_seed.addr.0.i = phi i1 [ %15, %for.cond ], [ false, %if.end60.i ]
+  %generate_seed.addr.0.i = phi i1 [ %14, %for.cond ], [ false, %if.end60.i ]
   %inc.i = add nsw i32 %m.0.i, 1
   %call1.i = call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 0, i32 noundef %m.0.i) #5
   %tobool.not.i = icmp eq i32 %call1.i, 0
@@ -1332,16 +1331,16 @@ if.end5.i:                                        ; preds = %land.lhs.true.i, %i
   br label %for.cond6.i
 
 for.cond6.i:                                      ; preds = %for.body.i, %if.end5.i
-  %indvars.iv.i = phi i64 [ %17, %for.body.i ], [ %13, %if.end5.i ]
-  %16 = trunc i64 %indvars.iv.i to i32
-  %cmp7.i = icmp sgt i32 %16, 0
+  %indvars.iv.i = phi i64 [ %16, %for.body.i ], [ %shr, %if.end5.i ]
+  %15 = trunc i64 %indvars.iv.i to i32
+  %cmp7.i = icmp sgt i32 %15, 0
   br i1 %cmp7.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %for.cond6.i
-  %17 = add nsw i64 %indvars.iv.i, -1
-  %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 %17
-  %18 = load i8, ptr %arrayidx.i, align 1
-  %inc9.i = add i8 %18, 1
+  %16 = add nsw i64 %indvars.iv.i, -1
+  %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 %16
+  %17 = load i8, ptr %arrayidx.i, align 1
+  %inc9.i = add i8 %17, 1
   store i8 %inc9.i, ptr %arrayidx.i, align 1
   %cmp13.not.i = icmp eq i8 %inc9.i, 0
   br i1 %cmp13.not.i, label %for.cond6.i, label %for.end.i, !llvm.loop !11
@@ -1362,22 +1361,22 @@ for.cond27.preheader.i:                           ; preds = %if.end21.i
 for.body31.i:                                     ; preds = %for.cond27.preheader.i, %for.body31.i
   %indvars.iv5.i = phi i64 [ %indvars.iv.next6.i, %for.body31.i ], [ 0, %for.cond27.preheader.i ]
   %arrayidx33.i = getelementptr inbounds [64 x i8], ptr %buf2.i, i64 0, i64 %indvars.iv5.i
-  %19 = load i8, ptr %arrayidx33.i, align 1
+  %18 = load i8, ptr %arrayidx33.i, align 1
   %arrayidx36.i = getelementptr inbounds [64 x i8], ptr %md.i, i64 0, i64 %indvars.iv5.i
-  %20 = load i8, ptr %arrayidx36.i, align 1
-  %xor29.i = xor i8 %20, %19
+  %19 = load i8, ptr %arrayidx36.i, align 1
+  %xor29.i = xor i8 %19, %18
   store i8 %xor29.i, ptr %arrayidx36.i, align 1
   %indvars.iv.next6.i = add nuw nsw i64 %indvars.iv5.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next6.i, %13
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next6.i, %shr
   br i1 %exitcond.not.i, label %for.end41.i, label %for.body31.i, !llvm.loop !12
 
 for.end41.i:                                      ; preds = %for.body31.i, %for.cond27.preheader.i
-  %21 = load i8, ptr %md.i, align 16
-  %22 = or i8 %21, -128
-  store i8 %22, ptr %md.i, align 16
-  %23 = load i8, ptr %arrayidx46.i, align 1
-  %24 = or i8 %23, 1
-  store i8 %24, ptr %arrayidx46.i, align 1
+  %20 = load i8, ptr %md.i, align 16
+  %21 = or i8 %20, -128
+  store i8 %21, ptr %md.i, align 16
+  %22 = load i8, ptr %arrayidx46.i, align 1
+  %23 = or i8 %22, 1
+  store i8 %23, ptr %arrayidx46.i, align 1
   %call52.i = call ptr @BN_bin2bn(ptr noundef nonnull %md.i, i32 noundef %conv.i, ptr noundef %call65) #5
   %tobool53.not.i = icmp eq ptr %call52.i, null
   br i1 %tobool53.not.i, label %generate_q_fips186_2.exit.thread, label %if.end55.i
@@ -1412,8 +1411,8 @@ if.end140:                                        ; preds = %if.end136
   br i1 %cmp, label %if.then148, label %if.end155
 
 if.then148:                                       ; preds = %if.end140
-  %25 = load i32, ptr %pcounter149, align 8
-  %cmp150 = icmp sgt i32 %25, %conv146
+  %24 = load i32, ptr %pcounter149, align 8
+  %cmp150 = icmp sgt i32 %24, %conv146
   br i1 %cmp150, label %if.then152, label %if.end155
 
 if.then152:                                       ; preds = %if.then148
@@ -1421,7 +1420,7 @@ if.then152:                                       ; preds = %if.then148
   br label %if.then281
 
 if.end155:                                        ; preds = %if.then148, %if.end140
-  %counter.0 = phi i32 [ %conv146, %if.end140 ], [ %25, %if.then148 ]
+  %counter.0 = phi i32 [ %conv146, %if.end140 ], [ %24, %if.then148 ]
   %call158 = call fastcc i32 @generate_p(ptr noundef nonnull %call58, ptr noundef nonnull %call19, i32 noundef %counter.0, i32 noundef %conv143, ptr noundef nonnull %buf, i64 noundef %shr, ptr noundef %call65, ptr noundef %call66, i32 noundef %div139.tr, ptr noundef %cb, ptr noundef nonnull %pcounter, ptr noundef nonnull %res), !range !5
   %cmp159 = icmp sgt i32 %call158, 0
   br i1 %cmp159, label %for.end, label %if.end162
@@ -1439,8 +1438,8 @@ if.end170:                                        ; preds = %for.end
   br i1 %cmp, label %if.then172, label %if.end183
 
 if.then172:                                       ; preds = %if.end170
-  %26 = load i32, ptr %pcounter, align 4
-  %cmp173.not = icmp eq i32 %26, %counter.0
+  %25 = load i32, ptr %pcounter, align 4
+  %cmp173.not = icmp eq i32 %25, %counter.0
   br i1 %cmp173.not, label %if.end176, label %if.then175
 
 if.then175:                                       ; preds = %if.then172
@@ -1448,8 +1447,8 @@ if.then175:                                       ; preds = %if.then172
   br label %if.then281
 
 if.end176:                                        ; preds = %if.then172
-  %27 = load ptr, ptr %params, align 8
-  %call178 = call i32 @BN_cmp(ptr noundef %call66, ptr noundef %27) #5
+  %26 = load ptr, ptr %params, align 8
+  %call178 = call i32 @BN_cmp(ptr noundef %call66, ptr noundef %26) #5
   %cmp179.not = icmp eq i32 %call178, 0
   br i1 %cmp179.not, label %if.end183, label %if.then181
 
@@ -1500,8 +1499,8 @@ if.else213:                                       ; preds = %if.end197
 
 land.lhs.true217:                                 ; preds = %if.else213
   %g218 = getelementptr inbounds i8, ptr %params, i64 16
-  %28 = load ptr, ptr %g218, align 8
-  %call219 = call i32 @ossl_ffc_params_validate_unverifiable_g(ptr noundef nonnull %call58, ptr noundef nonnull %call189, ptr noundef %p.0, ptr noundef %q.0, ptr noundef %28, ptr noundef %call67, ptr noundef nonnull %res) #5
+  %27 = load ptr, ptr %g218, align 8
+  %call219 = call i32 @ossl_ffc_params_validate_unverifiable_g(ptr noundef nonnull %call58, ptr noundef nonnull %call189, ptr noundef %p.0, ptr noundef %q.0, ptr noundef %27, ptr noundef %call67, ptr noundef nonnull %res) #5
   %tobool220.not = icmp eq i32 %call219, 0
   br i1 %tobool220.not, label %if.then281, label %if.end223
 
@@ -1516,63 +1515,63 @@ if.end223.thread:                                 ; preds = %if.end208
   br i1 %tobool225.not147, label %if.then281, label %if.then229
 
 if.then229:                                       ; preds = %if.end223.thread
-  %29 = load ptr, ptr %params, align 8
-  %cmp231.not = icmp eq ptr %p.0, %29
+  %28 = load ptr, ptr %params, align 8
+  %cmp231.not = icmp eq ptr %p.0, %28
   br i1 %cmp231.not, label %if.end237, label %if.then233
 
 if.then233:                                       ; preds = %if.then229
-  call void @BN_free(ptr noundef %29) #5
+  call void @BN_free(ptr noundef %28) #5
   %call235 = call ptr @BN_dup(ptr noundef %p.0) #5
   store ptr %call235, ptr %params, align 8
   br label %if.end237
 
 if.end237:                                        ; preds = %if.then233, %if.then229
   %q238 = getelementptr inbounds i8, ptr %params, i64 8
-  %30 = load ptr, ptr %q238, align 8
-  %cmp239.not = icmp eq ptr %q.0, %30
+  %29 = load ptr, ptr %q238, align 8
+  %cmp239.not = icmp eq ptr %q.0, %29
   br i1 %cmp239.not, label %if.end245, label %if.then241
 
 if.then241:                                       ; preds = %if.end237
-  call void @BN_free(ptr noundef %30) #5
+  call void @BN_free(ptr noundef %29) #5
   %call243 = call ptr @BN_dup(ptr noundef %q.0) #5
   store ptr %call243, ptr %q238, align 8
   br label %if.end245
 
 if.end245:                                        ; preds = %if.then241, %if.end237
   %g246 = getelementptr inbounds i8, ptr %params, i64 16
-  %31 = load ptr, ptr %g246, align 8
-  %cmp247.not = icmp eq ptr %call64, %31
+  %30 = load ptr, ptr %g246, align 8
+  %cmp247.not = icmp eq ptr %call64, %30
   br i1 %cmp247.not, label %if.end253, label %if.then249
 
 if.then249:                                       ; preds = %if.end245
-  call void @BN_free(ptr noundef %31) #5
+  call void @BN_free(ptr noundef %30) #5
   %call251 = call ptr @BN_dup(ptr noundef %call64) #5
   store ptr %call251, ptr %g246, align 8
   br label %if.end253
 
 if.end253:                                        ; preds = %if.then249, %if.end245
-  %32 = phi ptr [ %call251, %if.then249 ], [ %call64, %if.end245 ]
-  %33 = load ptr, ptr %params, align 8
-  %cmp255 = icmp eq ptr %33, null
+  %31 = phi ptr [ %call251, %if.then249 ], [ %call64, %if.end245 ]
+  %32 = load ptr, ptr %params, align 8
+  %cmp255 = icmp eq ptr %32, null
   br i1 %cmp255, label %if.then281, label %lor.lhs.false257
 
 lor.lhs.false257:                                 ; preds = %if.end253
-  %34 = load ptr, ptr %q238, align 8
-  %cmp259 = icmp eq ptr %34, null
-  %cmp263 = icmp eq ptr %32, null
+  %33 = load ptr, ptr %q238, align 8
+  %cmp259 = icmp eq ptr %33, null
+  %cmp263 = icmp eq ptr %31, null
   %or.cond171 = select i1 %cmp259, i1 true, i1 %cmp263
   br i1 %or.cond171, label %if.then281, label %if.end266
 
 if.end266:                                        ; preds = %lor.lhs.false257
-  %35 = load i32, ptr %pcounter, align 4
-  %call268 = call i32 @ossl_ffc_params_set_validate_params(ptr noundef nonnull %params, ptr noundef nonnull %seed, i64 noundef %shr, i32 noundef %35) #5
+  %34 = load i32, ptr %pcounter, align 4
+  %call268 = call i32 @ossl_ffc_params_set_validate_params(ptr noundef nonnull %params, ptr noundef nonnull %seed, i64 noundef %shr, i32 noundef %34) #5
   %tobool269.not = icmp eq i32 %call268, 0
   br i1 %tobool269.not, label %if.then281, label %if.end271
 
 if.end271:                                        ; preds = %if.end266
-  %36 = load i32, ptr %hret, align 4
+  %35 = load i32, ptr %hret, align 4
   %h = getelementptr inbounds i8, ptr %params, i64 60
-  store i32 %36, ptr %h, align 4
+  store i32 %35, ptr %h, align 4
   br label %pass
 
 pass:                                             ; preds = %if.end223, %if.end271, %if.end183

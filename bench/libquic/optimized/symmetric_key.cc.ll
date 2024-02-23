@@ -110,7 +110,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end18:                                         ; preds = %if.end, %if.end
-  %div5 = lshr i64 %key_size_in_bits, 3
+  %div5 = lshr exact i64 %key_size_in_bits, 3
   %call20 = tail call noundef ptr @_ZN15tracked_objects17GetProgramCounterEv()
   call void @_ZN15tracked_objects8LocationC1EPKcS2_iPKv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19, ptr noundef nonnull @__func__._ZN6crypto12SymmetricKey17GenerateRandomKeyENS0_9AlgorithmEm, ptr noundef nonnull @.str, i32 noundef 43, ptr noundef %call20)
   call void @_ZN15tracked_objects8LocationC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %err_tracer, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19)
@@ -122,7 +122,7 @@ invoke.cont22:                                    ; preds = %if.end18
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6crypto12SymmetricKeyE, i64 0, inrange i32 0, i64 2), ptr %call23, align 8
   %key_.i = getelementptr inbounds i8, ptr %call23, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_.i) #8
-  %add = add nuw nsw i64 %div5, 1
+  %add = or disjoint i64 %div5, 1
   %call29 = invoke noundef ptr @_ZN4base9WriteIntoEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %key_.i, i64 noundef %add)
           to label %invoke.cont28 unwind label %_ZNSt10unique_ptrIN6crypto12SymmetricKeyESt14default_deleteIS1_EED2Ev.exit13
 

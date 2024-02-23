@@ -1612,7 +1612,7 @@ if.else.i:                                        ; preds = %for.end.i
   br i1 %or.cond19.i, label %if.then12.i, label %if.else13.i
 
 if.then12.i:                                      ; preds = %if.else.i
-  %and.i = and i32 %sub50, 2147483520
+  %and.i = and i32 %sub50, 130944
   store i32 %and.i, ptr %offset, align 4
   %shr.i = lshr i32 %sub50, 7
   br label %if.then81
@@ -2018,7 +2018,7 @@ if.then237:                                       ; preds = %if.then228
   %conv238 = zext i8 %dynamicWindow.0 to i32
   %add239 = shl nuw nsw i32 %conv238, 8
   %shl240 = add nuw nsw i32 %add239, 57344
-  %or241 = or i32 %shl240, %conv206
+  %or241 = or disjoint i32 %shl240, %conv206
   br label %outputBytes
 
 for.body.i361:                                    ; preds = %if.then228, %for.inc.i366
@@ -2276,7 +2276,7 @@ if.else.i464:                                     ; preds = %for.end.i462
   br i1 %or.cond19.i470, label %if.then12.i479, label %if.else13.i471
 
 if.then12.i479:                                   ; preds = %if.else.i464
-  %and.i480 = and i32 %sub296, 2147483520
+  %and.i480 = and i32 %sub296, 130944
   store i32 %and.i480, ptr %offset, align 4
   %shr.i481 = lshr i32 %sub296, 7
   br label %if.then333
@@ -2823,7 +2823,7 @@ if.else.i:                                        ; preds = %for.end.i
   br i1 %or.cond19.i, label %if.then12.i, label %if.else13.i
 
 if.then12.i:                                      ; preds = %if.else.i
-  %and.i = and i32 %sub65, 2147483520
+  %and.i = and i32 %sub65, 130944
   store i32 %and.i, ptr %offset, align 4
   %shr.i = lshr i32 %sub65, 7
   br label %if.then100
@@ -3247,7 +3247,7 @@ if.then266:                                       ; preds = %if.then257
   %conv267 = zext i8 %dynamicWindow.0 to i32
   %add268 = shl nuw nsw i32 %conv267, 8
   %shl269 = add nuw nsw i32 %add268, 57344
-  %or270 = or i32 %shl269, %conv229
+  %or270 = or disjoint i32 %shl269, %conv229
   br label %outputBytes
 
 for.body.i415:                                    ; preds = %if.then257, %for.inc.i420
@@ -3509,7 +3509,7 @@ if.else.i518:                                     ; preds = %for.end.i516
   br i1 %or.cond19.i524, label %if.then12.i533, label %if.else13.i525
 
 if.then12.i533:                                   ; preds = %if.else.i518
-  %and.i534 = and i32 %sub326, 2147483520
+  %and.i534 = and i32 %sub326, 130944
   store i32 %and.i534, ptr %offset, align 4
   %shr.i535 = lshr i32 %sub326, 7
   br label %if.then363
@@ -4008,7 +4008,7 @@ if.else:                                          ; preds = %for.end
   br i1 %or.cond19, label %if.then12, label %if.else13
 
 if.then12:                                        ; preds = %if.else
-  %and = and i32 %c, 2147483520
+  %and = and i32 %c, 130944
   store i32 %and, ptr %pOffset, align 4
   %shr = lshr i32 %c, 7
   br label %return

@@ -509,7 +509,7 @@ if.then341:                                       ; preds = %if.then338
   br i1 %tobool353.not, label %if.end356, label %return
 
 if.end356:                                        ; preds = %if.then341, %if.then338
-  %45 = and i32 %1, -2
+  %45 = and i32 %1, 10
   %or.cond5 = icmp eq i32 %45, 8
   br i1 %or.cond5, label %if.then360, label %if.end369
 
