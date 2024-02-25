@@ -676,10 +676,9 @@ if.end:                                           ; preds = %entry
 if.end7:                                          ; preds = %if.end, %if.end, %if.end
   %rounds = getelementptr inbounds i8, ptr %key, i64 272
   store i32 %div, ptr %rounds, align 4
-  %div8512.lhs.trunc = lshr i32 %bits, 6
-  %div8512513514 = and i32 %div8512.lhs.trunc, 3
-  %div8512.zext = xor i32 %div8512513514, 2
-  %idxprom = zext nneg i32 %div8512.zext to i64
+  %sub = add nsw i32 %bits, -128
+  %div8 = lshr exact i32 %sub, 6
+  %idxprom = zext nneg i32 %div8 to i64
   %arrayidx = getelementptr inbounds [5 x [4 x i32]], ptr @Key_RC, i64 0, i64 %idxprom
   %0 = load i8, ptr %userKey, align 1
   %conv = zext i8 %0 to i32

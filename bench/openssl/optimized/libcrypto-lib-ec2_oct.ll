@@ -326,9 +326,8 @@ while.end:                                        ; preds = %while.body.preheade
   br i1 %cmp78.not, label %if.end81, label %if.then118.sink.split
 
 if.end81:                                         ; preds = %while.end
-  %5 = and i32 %form, -3
-  %or.cond2 = icmp eq i32 %5, 4
-  br i1 %or.cond2, label %if.then86, label %if.end108
+  %or.cond2.not = icmp ult i32 %form, 4
+  br i1 %or.cond2.not, label %if.end108, label %if.then86
 
 if.then86:                                        ; preds = %if.end81
   %call87 = tail call i32 @BN_num_bits(ptr noundef %call34) #3
@@ -346,13 +345,13 @@ while.body99.preheader:                           ; preds = %while.cond96.prehea
   %sub91 = sext i32 %narrow66 to i64
   %scevgep83 = getelementptr i8, ptr %buf, i64 %add15
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep83, i8 0, i64 %sub91, i1 false)
-  %6 = sext i32 %div89.neg to i64
-  %7 = add nsw i64 %add15, %conv
-  %8 = add nsw i64 %7, %6
+  %5 = sext i32 %div89.neg to i64
+  %6 = add nsw i64 %add15, %conv
+  %7 = add nsw i64 %6, %5
   br label %while.end103
 
 while.end103:                                     ; preds = %while.body99.preheader, %while.cond96.preheader
-  %i.1.lcssa = phi i64 [ %add15, %while.cond96.preheader ], [ %8, %while.body99.preheader ]
+  %i.1.lcssa = phi i64 [ %add15, %while.cond96.preheader ], [ %7, %while.body99.preheader ]
   %add.ptr104 = getelementptr inbounds i8, ptr %buf, i64 %i.1.lcssa
   %call105 = tail call i32 @BN_bn2bin(ptr noundef %call34, ptr noundef nonnull %add.ptr104) #3
   %conv106 = sext i32 %call105 to i64

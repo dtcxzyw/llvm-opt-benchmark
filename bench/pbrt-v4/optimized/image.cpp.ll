@@ -1676,7 +1676,8 @@ if.then192:                                       ; preds = %if.end178
 
 for.inc:                                          ; preds = %if.end178, %if.then192
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %17
-  %cmp51 = icmp slt i64 %indvars.iv.next, %conv47
+  %32 = trunc i64 %indvars.iv.next to i32
+  %cmp51 = icmp sgt i32 %mul46, %32
   br i1 %cmp51, label %for.body, label %return, !llvm.loop !7
 
 return:                                           ; preds = %for.inc, %if.end50, %if.end38, %if.end, %lor.lhs.false20, %lor.lhs.false27, %lor.lhs.false33, %entry, %lor.lhs.false2
