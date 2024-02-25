@@ -282,8 +282,7 @@ entry:
   store i8 1, ptr %m_swapped.i.i32, align 8
   %m_customCollisionAlgorithmMaxElementSize = getelementptr inbounds i8, ptr %constructionInfo, i64 24
   %3 = load i32, ptr %m_customCollisionAlgorithmMaxElementSize, align 8
-  %.sroa.speculated86 = tail call i32 @llvm.smax.i32(i32 %3, i32 120)
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.sroa.speculated86, i32 184)
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %3, i32 184)
   %4 = load ptr, ptr %constructionInfo, align 8
   %tobool57.not = icmp eq ptr %4, null
   %m_ownsPersistentManifoldPool62 = getelementptr inbounds i8, ptr %this, i64 24
@@ -1120,9 +1119,6 @@ declare void @_ZN31btConvexPlaneCollisionAlgorithmC1EP20btPersistentManifoldRK36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -40761,7 +40761,7 @@ luaL_optinteger.exit40:                           ; preds = %cond.false.i32
   %12 = phi i64 [ 0, %luaL_optinteger.exit40.thread ], [ %spec.select61, %luaL_optinteger.exit40 ]
   %pos.addr.0.i44 = add nsw i64 %12, %cond.i2658
   %cond.i45 = call i64 @llvm.smax.i64(i64 %pos.addr.0.i44, i64 0)
-  %13 = call i64 @llvm.umax.i64(i64 %cond.i21, i64 1)
+  %13 = call i64 @llvm.smax.i64(i64 %pos.addr.0.i, i64 1)
   %spec.select = call i64 @llvm.umin.i64(i64 %cond.i45, i64 %11)
   %cmp8 = icmp ugt i64 %13, %spec.select
   br i1 %cmp8, label %return, label %if.end10
@@ -43083,7 +43083,6 @@ luaL_checkinteger.exit:                           ; preds = %luaL_checklstring.e
   %add.i = add nsw i64 %0, 1
   %add1.i = select i1 %cmp.i14, i64 %add.i, i64 0
   %pos.addr.0.i = add nsw i64 %add1.i, %call.i10
-  %cond.i = call i64 @llvm.smax.i64(i64 %pos.addr.0.i, i64 0)
   %base.i.i.i = getelementptr inbounds i8, ptr %L, i64 24
   %1 = load ptr, ptr %base.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %1, i64 32
@@ -43132,7 +43131,7 @@ luaL_optinteger.exit.thread:                      ; preds = %luaL_checkinteger.e
   %7 = phi i64 [ 0, %luaL_optinteger.exit.thread75 ], [ %spec.select80, %luaL_optinteger.exit ], [ %add.i, %lua_type.exit.i ], [ %add.i, %luaL_checkinteger.exit ]
   %pos.addr.0.i21 = add nsw i64 %7, %cond.i1572
   %cond.i22 = call i64 @llvm.smax.i64(i64 %pos.addr.0.i21, i64 0)
-  %8 = call i64 @llvm.umax.i64(i64 %cond.i, i64 1)
+  %8 = call i64 @llvm.smax.i64(i64 %pos.addr.0.i, i64 1)
   %spec.select = call i64 @llvm.smin.i64(i64 %cond.i22, i64 %6)
   %cmp8.not = icmp sgt i64 %8, %spec.select
   br i1 %cmp8.not, label %if.else, label %if.then9

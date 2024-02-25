@@ -365,7 +365,7 @@ if.end143:                                        ; preds = %for.inc.i110, %if.t
 for.body147.preheader:                            ; preds = %if.end143
   %scevgep156 = getelementptr inbounds i8, ptr %matchcap, i64 16
   %scevgep157 = getelementptr inbounds i8, ptr %cap, i64 16
-  %umax = tail call i32 @llvm.umax.i32(i32 %spec.store.select, i32 3)
+  %umax = tail call i32 @llvm.smax.i32(i32 %mul, i32 3)
   %22 = add nsw i32 %umax, -2
   %23 = zext nneg i32 %22 to i64
   %24 = shl nuw nsw i64 %23, 3
@@ -1822,9 +1822,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12
