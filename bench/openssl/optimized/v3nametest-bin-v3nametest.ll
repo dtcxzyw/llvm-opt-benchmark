@@ -156,8 +156,8 @@ entry:
 
 for.body:                                         ; preds = %entry, %if.end
   %1 = phi ptr [ @.str.13, %entry ], [ %21, %if.end ]
-  %pname.018 = phi ptr [ @names, %entry ], [ %incdec.ptr, %if.end ]
-  %failed.017 = phi i32 [ 0, %entry ], [ %failed.1, %if.end ]
+  %pname.017 = phi ptr [ @names, %entry ], [ %incdec.ptr, %if.end ]
+  %failed.016 = phi i32 [ 0, %entry ], [ %failed.1, %if.end ]
   %call.i = call ptr @X509_new() #7
   %call1.i = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 254, ptr noundef nonnull @.str.63, ptr noundef %call.i) #7
   %tobool.not.i = icmp eq i32 %call1.i, 0
@@ -182,72 +182,18 @@ make_cert.exit:                                   ; preds = %for.body, %if.end.i
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %make_cert.exit
-  switch i32 %i, label %default.switch.case.unreachable [
-    i32 0, label %call.0
-    i32 1, label %call.1
-    i32 2, label %call.2
-    i32 3, label %call.3
-    i32 4, label %call.4
-    i32 5, label %call.5
-    i32 6, label %call.6
-    i32 7, label %call.7
-    i32 8, label %call.8
-    i32 9, label %call.9
-  ]
-
-default.switch.case.unreachable:                  ; preds = %lor.lhs.false
-  unreachable
-
-call.0:                                           ; preds = %lor.lhs.false
-  %call.i19 = call i32 (ptr, ...) @set_cn(ptr noundef %retval.0.i, i32 noundef 13, ptr noundef nonnull %1, i32 noundef 0), !range !5
-  br label %lor.lhs.false.tail
-
-call.1:                                           ; preds = %lor.lhs.false
-  %call.i20 = call i32 (ptr, ...) @set_cn(ptr noundef %retval.0.i, i32 noundef 13, ptr noundef nonnull @.str.10, i32 noundef 13, ptr noundef nonnull %1, i32 noundef 0), !range !5
-  br label %lor.lhs.false.tail
-
-call.2:                                           ; preds = %lor.lhs.false
-  %call.i21 = call i32 (ptr, ...) @set_cn(ptr noundef %retval.0.i, i32 noundef 13, ptr noundef nonnull %1, i32 noundef 13, ptr noundef nonnull @.str.10, i32 noundef 0), !range !5
-  br label %lor.lhs.false.tail
-
-call.3:                                           ; preds = %lor.lhs.false
-  %call.i22 = call i32 (ptr, ...) @set_cn(ptr noundef %retval.0.i, i32 noundef 13, ptr noundef nonnull %1, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef 0), !range !5
-  br label %lor.lhs.false.tail
-
-call.4:                                           ; preds = %lor.lhs.false
-  %call.i23 = call i32 (ptr, ...) @set_cn(ptr noundef %retval.0.i, i32 noundef 48, ptr noundef nonnull %1, i32 noundef 0), !range !5
-  br label %lor.lhs.false.tail
-
-call.5:                                           ; preds = %lor.lhs.false
-  %call.i24 = call i32 (ptr, ...) @set_cn(ptr noundef %retval.0.i, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef 48, ptr noundef nonnull %1, i32 noundef 0), !range !5
-  br label %lor.lhs.false.tail
-
-call.6:                                           ; preds = %lor.lhs.false
-  %call.i25 = call i32 (ptr, ...) @set_cn(ptr noundef %retval.0.i, i32 noundef 48, ptr noundef nonnull %1, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef 0), !range !5
-  br label %lor.lhs.false.tail
-
-call.7:                                           ; preds = %lor.lhs.false
-  %call.i26 = call i32 (ptr, ...) @set_cn(ptr noundef %retval.0.i, i32 noundef 48, ptr noundef nonnull %1, i32 noundef 13, ptr noundef nonnull @.str.12, i32 noundef 0), !range !5
-  br label %lor.lhs.false.tail
-
-call.8:                                           ; preds = %lor.lhs.false
-  %call.i27 = call i32 (ptr, ...) @set_altname(ptr noundef %retval.0.i, i32 noundef 2, ptr noundef nonnull %1, i32 noundef 0), !range !5
-  br label %lor.lhs.false.tail
-
-call.9:                                           ; preds = %lor.lhs.false
-  %call.i28 = call i32 (ptr, ...) @set_altname(ptr noundef %retval.0.i, i32 noundef 1, ptr noundef nonnull %1, i32 noundef 0), !range !5
-  br label %lor.lhs.false.tail
-
-lor.lhs.false.tail:                               ; preds = %call.9, %call.8, %call.7, %call.6, %call.5, %call.4, %call.3, %call.2, %call.1, %call.0
-  %2 = phi i32 [ %call.i19, %call.0 ], [ %call.i20, %call.1 ], [ %call.i21, %call.2 ], [ %call.i22, %call.3 ], [ %call.i23, %call.4 ], [ %call.i24, %call.5 ], [ %call.i25, %call.6 ], [ %call.i26, %call.7 ], [ %call.i27, %call.8 ], [ %call.i28, %call.9 ]
-  %call4 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 352, ptr noundef nonnull @.str.5, i32 noundef %2) #7
+  %2 = load ptr, ptr %arrayidx, align 8
+  %call2 = call i32 %2(ptr noundef %retval.0.i, ptr noundef nonnull %1) #7
+  %cmp3 = icmp ne i32 %call2, 0
+  %conv = zext i1 %cmp3 to i32
+  %call4 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 352, ptr noundef nonnull @.str.5, i32 noundef %conv) #7
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.then, label %for.body.i
 
-for.body.i:                                       ; preds = %lor.lhs.false.tail, %check_message.exit92.i
-  %3 = phi ptr [ %20, %check_message.exit92.i ], [ @.str.13, %lor.lhs.false.tail ]
-  %pname.0128.i = phi ptr [ %incdec.ptr.i, %check_message.exit92.i ], [ @names, %lor.lhs.false.tail ]
-  %failed.0127.i = phi i32 [ %spec.select56.i, %check_message.exit92.i ], [ 0, %lor.lhs.false.tail ]
+for.body.i:                                       ; preds = %lor.lhs.false, %check_message.exit92.i
+  %3 = phi ptr [ %20, %check_message.exit92.i ], [ @.str.13, %lor.lhs.false ]
+  %pname.0128.i = phi ptr [ %incdec.ptr.i, %check_message.exit92.i ], [ @names, %lor.lhs.false ]
+  %failed.0127.i = phi i32 [ %spec.select56.i, %check_message.exit92.i ], [ 0, %lor.lhs.false ]
   %call.i8 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull %3) #7
   %cmp1.i = icmp eq i32 %call.i8, 0
   %call2.i9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
@@ -306,7 +252,7 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %p.03.i.i.i, i64 8
   %7 = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %7, null
-  br i1 %tobool.not.i.i.i, label %if.end6.i.i, label %for.body.i.i.i, !llvm.loop !6
+  br i1 %tobool.not.i.i.i, label %if.end6.i.i, label %for.body.i.i.i, !llvm.loop !5
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %if.end.i.thread.i
   %8 = phi ptr [ @.str.78, %if.end.i.thread.i ], [ %7, %for.cond.i.i.i ]
@@ -373,7 +319,7 @@ for.cond.i.i70.i:                                 ; preds = %for.body.i.i66.i
   %incdec.ptr.i.i71.i = getelementptr inbounds i8, ptr %p.03.i.i67.i, i64 8
   %12 = load ptr, ptr %incdec.ptr.i.i71.i, align 8
   %tobool.not.i.i72.i = icmp eq ptr %12, null
-  br i1 %tobool.not.i.i72.i, label %if.end6.i73.i, label %for.body.i.i66.i, !llvm.loop !6
+  br i1 %tobool.not.i.i72.i, label %if.end6.i73.i, label %for.body.i.i66.i, !llvm.loop !5
 
 for.body.i.i66.i:                                 ; preds = %for.cond.i.i70.i, %if.end.i61.thread.i
   %13 = phi ptr [ @.str.78, %if.end.i61.thread.i ], [ %12, %for.cond.i.i70.i ]
@@ -429,7 +375,7 @@ for.cond.i.i87.i:                                 ; preds = %for.body.i.i83.i
   %incdec.ptr.i.i88.i = getelementptr inbounds i8, ptr %p.03.i.i84.i, i64 8
   %17 = load ptr, ptr %incdec.ptr.i.i88.i, align 8
   %tobool.not.i.i89.i = icmp eq ptr %17, null
-  br i1 %tobool.not.i.i89.i, label %if.end6.i90.i, label %for.body.i.i83.i, !llvm.loop !6
+  br i1 %tobool.not.i.i89.i, label %if.end6.i90.i, label %for.body.i.i83.i, !llvm.loop !5
 
 for.body.i.i83.i:                                 ; preds = %for.cond.i.i87.i, %if.end.i78.thread.i
   %18 = phi ptr [ @.str.78, %if.end.i78.thread.i ], [ %17, %for.cond.i.i87.i ]
@@ -453,22 +399,22 @@ check_message.exit92.i:                           ; preds = %for.body.i.i83.i, %
   %incdec.ptr.i = getelementptr inbounds i8, ptr %pname.0128.i, i64 8
   %20 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %20, null
-  br i1 %cmp.not.i, label %run_cert.exit, label %for.body.i, !llvm.loop !8
+  br i1 %cmp.not.i, label %run_cert.exit, label %for.body.i, !llvm.loop !7
 
 run_cert.exit:                                    ; preds = %check_message.exit92.i
   %cmp100.i.not = icmp eq i32 %spec.select56.i, 0
   br i1 %cmp100.i.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %for.body.i, %run_cert.exit, %lor.lhs.false.tail, %make_cert.exit
+if.then:                                          ; preds = %for.body.i, %run_cert.exit, %lor.lhs.false, %make_cert.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %run_cert.exit
-  %failed.1 = phi i32 [ %failed.017, %run_cert.exit ], [ 1, %if.then ]
+  %failed.1 = phi i32 [ %failed.016, %run_cert.exit ], [ 1, %if.then ]
   call void @X509_free(ptr noundef %retval.0.i) #7
-  %incdec.ptr = getelementptr inbounds i8, ptr %pname.018, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %pname.017, i64 8
   %21 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %21, null
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end
   %cmp9 = icmp eq i32 %failed.1, 0
@@ -497,7 +443,7 @@ lor.lhs.false:                                    ; preds = %entry
 for.cond:                                         ; preds = %lor.lhs.false18
   %inc = add nuw nsw i64 %i.039, 1
   %exitcond.not = icmp eq i64 %inc, 27
-  br i1 %exitcond.not, label %for.cond27.preheader, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.cond27.preheader, label %for.body, !llvm.loop !9
 
 for.body:                                         ; preds = %lor.lhs.false, %for.cond
   %i.039 = phi i64 [ %inc, %for.cond ], [ 0, %lor.lhs.false ]
@@ -554,12 +500,12 @@ if.else:                                          ; preds = %for.body29
 for.inc47:                                        ; preds = %if.then31, %if.else
   %inc48 = add nuw nsw i64 %j.040, 1
   %exitcond53.not = icmp eq i64 %inc48, 27
-  br i1 %exitcond53.not, label %for.inc50, label %for.body29, !llvm.loop !11
+  br i1 %exitcond53.not, label %for.inc50, label %for.body29, !llvm.loop !10
 
 for.inc50:                                        ; preds = %for.inc47
   %inc51 = add nuw nsw i64 %i.141, 1
   %exitcond54.not = icmp eq i64 %inc51, 27
-  br i1 %exitcond54.not, label %for.body55.preheader, label %for.cond27.preheader, !llvm.loop !12
+  br i1 %exitcond54.not, label %for.body55.preheader, label %for.cond27.preheader, !llvm.loop !11
 
 end:                                              ; preds = %entry, %lor.lhs.false
   %cmp56.not = icmp eq ptr %call, null
@@ -576,7 +522,7 @@ for.body55.us:                                    ; preds = %end.split.us, %for.
   tail call void @GENERAL_NAME_free(ptr noundef %7) #7
   %inc65.us = add nuw nsw i64 %i.242.us, 1
   %exitcond57.not = icmp eq i64 %inc65.us, 27
-  br i1 %exitcond57.not, label %for.end66, label %for.body55.us, !llvm.loop !13
+  br i1 %exitcond57.not, label %for.end66, label %for.body55.us, !llvm.loop !12
 
 end.split:                                        ; preds = %end
   br i1 %cmp60.not, label %for.body55.us43, label %for.body55.preheader
@@ -592,7 +538,7 @@ for.body55.us43:                                  ; preds = %end.split, %for.bod
   tail call void @GENERAL_NAME_free(ptr noundef %8) #7
   %inc65.us46 = add nuw nsw i64 %i.242.us44, 1
   %exitcond56.not = icmp eq i64 %inc65.us46, 27
-  br i1 %exitcond56.not, label %for.end66, label %for.body55.us43, !llvm.loop !13
+  br i1 %exitcond56.not, label %for.end66, label %for.body55.us43, !llvm.loop !12
 
 for.body55:                                       ; preds = %for.body55.preheader, %for.body55
   %i.242 = phi i64 [ %inc65, %for.body55 ], [ 0, %for.body55.preheader ]
@@ -604,7 +550,7 @@ for.body55:                                       ; preds = %for.body55.preheade
   call void @GENERAL_NAME_free(ptr noundef %10) #7
   %inc65 = add nuw nsw i64 %i.242, 1
   %exitcond55.not = icmp eq i64 %inc65, 27
-  br i1 %exitcond55.not, label %for.end66, label %for.body55, !llvm.loop !13
+  br i1 %exitcond55.not, label %for.end66, label %for.body55, !llvm.loop !12
 
 for.end66:                                        ; preds = %for.body55, %for.body55.us43, %for.body55.us, %end.split.us
   %testresult.061 = phi i32 [ 0, %end.split.us ], [ 0, %for.body55.us ], [ 0, %for.body55.us43 ], [ %testresult.06264, %for.body55 ]
@@ -624,70 +570,70 @@ declare void @X509_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @set_cn1(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef %name, i32 noundef 0), !range !5
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef %name, i32 noundef 0), !range !13
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @set_cn2(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef nonnull @.str.10, i32 noundef 13, ptr noundef %name, i32 noundef 0), !range !5
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef nonnull @.str.10, i32 noundef 13, ptr noundef %name, i32 noundef 0), !range !13
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @set_cn3(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef %name, i32 noundef 13, ptr noundef nonnull @.str.10, i32 noundef 0), !range !5
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef %name, i32 noundef 13, ptr noundef nonnull @.str.10, i32 noundef 0), !range !13
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @set_cn_and_email(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef %name, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef 0), !range !5
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 13, ptr noundef %name, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef 0), !range !13
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @set_email1(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef %name, i32 noundef 0), !range !5
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef %name, i32 noundef 0), !range !13
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @set_email2(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef 48, ptr noundef %name, i32 noundef 0), !range !5
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef 48, ptr noundef %name, i32 noundef 0), !range !13
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @set_email3(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef %name, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef 0), !range !5
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef %name, i32 noundef 48, ptr noundef nonnull @.str.11, i32 noundef 0), !range !13
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @set_email_and_cn(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef %name, i32 noundef 13, ptr noundef nonnull @.str.12, i32 noundef 0), !range !5
+  %call = tail call i32 (ptr, ...) @set_cn(ptr noundef %crt, i32 noundef 48, ptr noundef %name, i32 noundef 13, ptr noundef nonnull @.str.12, i32 noundef 0), !range !13
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @set_altname_dns(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_altname(ptr noundef %crt, i32 noundef 2, ptr noundef %name, i32 noundef 0), !range !5
+  %call = tail call i32 (ptr, ...) @set_altname(ptr noundef %crt, i32 noundef 2, ptr noundef %name, i32 noundef 0), !range !13
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @set_altname_email(ptr noundef %crt, ptr noundef %name) #0 {
 entry:
-  %call = tail call i32 (ptr, ...) @set_altname(ptr noundef %crt, i32 noundef 1, ptr noundef %name, i32 noundef 0), !range !5
+  %call = tail call i32 (ptr, ...) @set_altname(ptr noundef %crt, i32 noundef 1, ptr noundef %name, i32 noundef 0), !range !13
   ret i32 %call
 }
 
@@ -975,12 +921,12 @@ attributes #9 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{i32 0, i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = !{i32 0, i32 2}
