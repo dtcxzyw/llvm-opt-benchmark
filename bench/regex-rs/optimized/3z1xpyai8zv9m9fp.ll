@@ -31,9 +31,8 @@ define void @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$17h07891
   %4 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h429d7a5d6bb4d1caE(i64 16, i64 8, i64 %2)
   %.fca.0.extract = extractvalue { i64, i64 } %4, 0
   %.fca.1.extract = extractvalue { i64, i64 } %4, 1
-  %5 = icmp ne i64 %.fca.0.extract, 0
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp ult i64 %.fca.0.extract, -9223372036854775807
+  %5 = add i64 %.fca.0.extract, -1
+  %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   tail call void @__rust_dealloc(ptr %1, i64 %.fca.1.extract, i64 %.fca.0.extract) #6
   ret void
@@ -44,9 +43,8 @@ define void @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$17h280c3
   %4 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h429d7a5d6bb4d1caE(i64 48, i64 8, i64 %2)
   %.fca.0.extract = extractvalue { i64, i64 } %4, 0
   %.fca.1.extract = extractvalue { i64, i64 } %4, 1
-  %5 = icmp ne i64 %.fca.0.extract, 0
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp ult i64 %.fca.0.extract, -9223372036854775807
+  %5 = add i64 %.fca.0.extract, -1
+  %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   tail call void @__rust_dealloc(ptr %1, i64 %.fca.1.extract, i64 %.fca.0.extract) #6
   ret void
@@ -57,10 +55,9 @@ define noalias ptr @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$1
   %3 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h429d7a5d6bb4d1caE(i64 16, i64 8, i64 %1)
   %.fca.0.extract = extractvalue { i64, i64 } %3, 0
   %.fca.1.extract = extractvalue { i64, i64 } %3, 1
-  %4 = icmp ne i64 %.fca.0.extract, 0
-  tail call void @llvm.assume(i1 %4)
-  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %6 = icmp ult i64 %.fca.0.extract, -9223372036854775807
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %5 = add i64 %.fca.0.extract, -1
+  %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   %7 = tail call ptr @__rust_alloc(i64 %.fca.1.extract, i64 %.fca.0.extract) #6
   ret ptr %7
@@ -71,10 +68,9 @@ define noalias ptr @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$1
   %3 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h429d7a5d6bb4d1caE(i64 16, i64 8, i64 %1)
   %.fca.0.extract = extractvalue { i64, i64 } %3, 0
   %.fca.1.extract = extractvalue { i64, i64 } %3, 1
-  %4 = icmp ne i64 %.fca.0.extract, 0
-  tail call void @llvm.assume(i1 %4)
-  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %6 = icmp ult i64 %.fca.0.extract, -9223372036854775807
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %5 = add i64 %.fca.0.extract, -1
+  %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   %7 = tail call ptr @__rust_alloc(i64 %.fca.1.extract, i64 %.fca.0.extract) #6
   ret ptr %7
@@ -85,10 +81,9 @@ define noalias ptr @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$1
   %3 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h429d7a5d6bb4d1caE(i64 16, i64 8, i64 %1)
   %.fca.0.extract = extractvalue { i64, i64 } %3, 0
   %.fca.1.extract = extractvalue { i64, i64 } %3, 1
-  %4 = icmp ne i64 %.fca.0.extract, 0
-  tail call void @llvm.assume(i1 %4)
-  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %6 = icmp ult i64 %.fca.0.extract, -9223372036854775807
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %5 = add i64 %.fca.0.extract, -1
+  %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   %7 = tail call ptr @__rust_alloc(i64 %.fca.1.extract, i64 %.fca.0.extract) #6
   ret ptr %7
@@ -99,10 +94,9 @@ define noalias ptr @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$1
   %3 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h429d7a5d6bb4d1caE(i64 8, i64 4, i64 %1)
   %.fca.0.extract = extractvalue { i64, i64 } %3, 0
   %.fca.1.extract = extractvalue { i64, i64 } %3, 1
-  %4 = icmp ne i64 %.fca.0.extract, 0
-  tail call void @llvm.assume(i1 %4)
-  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %6 = icmp ult i64 %.fca.0.extract, -9223372036854775807
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %5 = add i64 %.fca.0.extract, -1
+  %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   %7 = tail call ptr @__rust_alloc(i64 %.fca.1.extract, i64 %.fca.0.extract) #6
   ret ptr %7
@@ -113,9 +107,8 @@ define void @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$17hbbd9e
   %4 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h429d7a5d6bb4d1caE(i64 8, i64 4, i64 %2)
   %.fca.0.extract = extractvalue { i64, i64 } %4, 0
   %.fca.1.extract = extractvalue { i64, i64 } %4, 1
-  %5 = icmp ne i64 %.fca.0.extract, 0
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp ult i64 %.fca.0.extract, -9223372036854775807
+  %5 = add i64 %.fca.0.extract, -1
+  %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   tail call void @__rust_dealloc(ptr %1, i64 %.fca.1.extract, i64 %.fca.0.extract) #6
   ret void
@@ -126,10 +119,9 @@ define noalias ptr @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$1
   %3 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h429d7a5d6bb4d1caE(i64 2, i64 1, i64 %1)
   %.fca.0.extract = extractvalue { i64, i64 } %3, 0
   %.fca.1.extract = extractvalue { i64, i64 } %3, 1
-  %4 = icmp ne i64 %.fca.0.extract, 0
-  tail call void @llvm.assume(i1 %4)
-  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %6 = icmp ult i64 %.fca.0.extract, -9223372036854775807
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %5 = add i64 %.fca.0.extract, -1
+  %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   %7 = tail call ptr @__rust_alloc(i64 %.fca.1.extract, i64 %.fca.0.extract) #6
   ret ptr %7
@@ -140,9 +132,8 @@ define void @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$17hd0918
   %4 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h429d7a5d6bb4d1caE(i64 2, i64 1, i64 %2)
   %.fca.0.extract = extractvalue { i64, i64 } %4, 0
   %.fca.1.extract = extractvalue { i64, i64 } %4, 1
-  %5 = icmp ne i64 %.fca.0.extract, 0
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp ult i64 %.fca.0.extract, -9223372036854775807
+  %5 = add i64 %.fca.0.extract, -1
+  %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   tail call void @__rust_dealloc(ptr %1, i64 %.fca.1.extract, i64 %.fca.0.extract) #6
   ret void
@@ -153,9 +144,8 @@ define void @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$17he4dae
   %4 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h429d7a5d6bb4d1caE(i64 16, i64 8, i64 %2)
   %.fca.0.extract = extractvalue { i64, i64 } %4, 0
   %.fca.1.extract = extractvalue { i64, i64 } %4, 1
-  %5 = icmp ne i64 %.fca.0.extract, 0
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp ult i64 %.fca.0.extract, -9223372036854775807
+  %5 = add i64 %.fca.0.extract, -1
+  %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   tail call void @__rust_dealloc(ptr %1, i64 %.fca.1.extract, i64 %.fca.0.extract) #6
   ret void
@@ -166,10 +156,9 @@ define noalias ptr @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$1
   %3 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h429d7a5d6bb4d1caE(i64 48, i64 8, i64 %1)
   %.fca.0.extract = extractvalue { i64, i64 } %3, 0
   %.fca.1.extract = extractvalue { i64, i64 } %3, 1
-  %4 = icmp ne i64 %.fca.0.extract, 0
-  tail call void @llvm.assume(i1 %4)
-  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %6 = icmp ult i64 %.fca.0.extract, -9223372036854775807
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %5 = add i64 %.fca.0.extract, -1
+  %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   %7 = tail call ptr @__rust_alloc(i64 %.fca.1.extract, i64 %.fca.0.extract) #6
   ret ptr %7
@@ -180,9 +169,8 @@ define void @"_ZN5alloc5slice11stable_sort28_$u7b$$u7b$closure$u7d$$u7d$17hfd2fe
   %4 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h429d7a5d6bb4d1caE(i64 16, i64 8, i64 %2)
   %.fca.0.extract = extractvalue { i64, i64 } %4, 0
   %.fca.1.extract = extractvalue { i64, i64 } %4, 1
-  %5 = icmp ne i64 %.fca.0.extract, 0
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp ult i64 %.fca.0.extract, -9223372036854775807
+  %5 = add i64 %.fca.0.extract, -1
+  %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   tail call void @__rust_dealloc(ptr %1, i64 %.fca.1.extract, i64 %.fca.0.extract) #6
   ret void

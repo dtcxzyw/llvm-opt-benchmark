@@ -1362,8 +1362,6 @@ for.end.i:                                        ; preds = %for.body.i
   %shr.i.i.i40.i = lshr i128 %mul.i.i.i39.i, 64
   %xor1.i.i41.i = xor i128 %shr.i.i.i40.i, %mul.i.i.i39.i
   %xor.i.i42.i = trunc i128 %xor1.i.i41.i to i64
-  %cmp20.i = icmp ugt i32 %conv.i, 127
-  tail call void @llvm.assume(i1 %cmp20.i)
   %shr.i.i.i49 = lshr i64 %add.i46, 37
   %xor.i.i43.i = xor i64 %shr.i.i.i49, %add.i46
   %mul.i.i50 = mul i64 %xor.i.i43.i, 1609587791953885689

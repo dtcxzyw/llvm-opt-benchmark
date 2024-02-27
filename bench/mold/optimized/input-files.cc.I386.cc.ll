@@ -16888,8 +16888,6 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %shr.i.i.i37.i.i.i = lshr i128 %mul.i.i.i36.i.i.i, 64
   %xor1.i.i38.i.i.i = xor i128 %shr.i.i.i37.i.i.i, %mul.i.i.i36.i.i.i
   %xor.i.i39.i.i.i = trunc i128 %xor1.i.i38.i.i.i to i64
-  %cmp17.i.i.i = icmp ugt i32 %conv.i.i.i, 127
-  tail call void @llvm.assume(i1 %cmp17.i.i.i)
   %shr.i.i.i40.i.i = lshr i64 %add.i39.i.i, 37
   %xor.i.i40.i.i.i = xor i64 %shr.i.i.i40.i.i, %add.i39.i.i
   %mul.i.i41.i.i = mul i64 %xor.i.i40.i.i.i, 1609587791953885689
@@ -18409,7 +18407,7 @@ while.body.i.i:                                   ; preds = %if.end, %if.end4.i.
   %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div.i, %if.end ]
   %storemerge27.i.i.in = add nuw nsw i64 %storemerge27.i.i.in.in, 1
   %storemerge27.i.i = lshr i64 %storemerge27.i.i.in, 1
-  %mul.i.i = shl i64 %storemerge27.i.i, 4
+  %mul.i.i = shl nuw nsw i64 %storemerge27.i.i, 4
   %call.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #32
   %cmp2.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then.i

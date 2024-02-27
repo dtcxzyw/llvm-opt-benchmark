@@ -23998,8 +23998,6 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %shr.i.i.i37.i.i.i = lshr i128 %mul.i.i.i36.i.i.i, 64
   %xor1.i.i38.i.i.i = xor i128 %shr.i.i.i37.i.i.i, %mul.i.i.i36.i.i.i
   %xor.i.i39.i.i.i = trunc i128 %xor1.i.i38.i.i.i to i64
-  %cmp17.i.i.i = icmp ugt i32 %conv.i.i.i, 127
-  tail call void @llvm.assume(i1 %cmp17.i.i.i)
   %shr.i.i.i31.i.i = lshr i64 %add.i30.i.i, 37
   %xor.i.i40.i.i.i = xor i64 %shr.i.i.i31.i.i, %add.i30.i.i
   %mul.i.i32.i.i = mul i64 %xor.i.i40.i.i.i, 1609587791953885689
@@ -52535,7 +52533,7 @@ if.end8.sink.split.i.i.i.i80:                     ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i67, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i77, %if.end8.sink.split.i.i.i.i80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #31
-  %indvars.iv.next265 = add nuw i64 %indvars.iv264, 1
+  %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0260, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %0
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
@@ -52839,7 +52837,7 @@ if.end8.sink.split.i.i.i.i238:                    ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit247: ; preds = %_ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit215, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i225, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i235, %if.end8.sink.split.i.i.i.i238
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp42) #31
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %incdec.ptr.i248 = getelementptr inbounds i8, ptr %__begin230.sroa.0.0257, i64 16
   %cmp.i90.not = icmp eq ptr %incdec.ptr.i248, %0
   br i1 %cmp.i90.not, label %nrvo.skipdtor, label %for.body38

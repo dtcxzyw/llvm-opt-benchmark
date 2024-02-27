@@ -15072,7 +15072,7 @@ entry:
   %add.i.i92 = fadd float %16, %17
   %18 = tail call noundef float @llvm.fabs.f32(float %add.i.i)
   %cmp = fcmp olt float %18, 0x3F50624DE0000000
-  br i1 %cmp, label %if.then, label %if.end
+  br i1 %cmp, label %if.then, label %if.end3.i
 
 if.then:                                          ; preds = %entry
   %mul = fmul float %sub.i, %add
@@ -15109,20 +15109,7 @@ if.else:                                          ; preds = %if.then
   %29 = fdiv <2 x float> %26, %28
   br label %return
 
-if.end:                                           ; preds = %entry
-  %cmp.i = fcmp oeq float %add.i.i, 0.000000e+00
-  br i1 %cmp.i, label %if.then.i, label %if.end3.i
-
-if.then.i:                                        ; preds = %if.end
-  %cmp1.i = fcmp oeq float %add, 0.000000e+00
-  br i1 %cmp1.i, label %return, label %if.end.i
-
-if.end.i:                                         ; preds = %if.then.i
-  %fneg.i = fneg float %add.i.i92
-  %div.i = fdiv float %fneg.i, %add
-  br label %if.end78
-
-if.end3.i:                                        ; preds = %if.end
+if.end3.i:                                        ; preds = %entry
   %mul.i = fmul float %add.i.i, 4.000000e+00
   %mul.i.i94 = fmul float %add.i.i92, %mul.i
   %fneg.i.i95 = fneg float %mul.i.i94
@@ -15141,14 +15128,7 @@ if.end6.i:                                        ; preds = %if.end3.i
   %div10.i = fdiv float %mul9.i, %add.i.i
   %div11.i = fdiv float %add.i.i92, %mul9.i
   %cmp12.i = fcmp ogt float %div10.i, %div11.i
-  br i1 %cmp12.i, label %if.then13.i, label %if.end78
-
-if.then13.i:                                      ; preds = %if.end6.i
-  br label %if.end78
-
-if.end78:                                         ; preds = %if.end.i, %if.then13.i, %if.end6.i
-  %v0.0.ph = phi float [ %div10.i, %if.end6.i ], [ %div11.i, %if.then13.i ], [ %div.i, %if.end.i ]
-  %v1.0.ph = phi float [ %div11.i, %if.end6.i ], [ %div10.i, %if.then13.i ], [ %div.i, %if.end.i ]
+  %v0.0.ph = select i1 %cmp12.i, float %div11.i, float %div10.i
   %mul81 = fmul float %sub.i51, %v0.0.ph
   %sub82 = fsub float %sub.i75, %mul81
   %mul85 = fmul float %add.i, %v0.0.ph
@@ -15163,7 +15143,8 @@ if.end78:                                         ; preds = %if.end.i, %if.then1
   %or.cond2 = or i1 %cmp93, %or.cond1
   br i1 %or.cond2, label %if.then94, label %if.end104
 
-if.then94:                                        ; preds = %if.end78
+if.then94:                                        ; preds = %if.end6.i
+  %v1.0.ph = select i1 %cmp12.i, float %div10.i, float %div11.i
   %mul97 = fmul float %sub.i51, %v1.0.ph
   %sub98 = fsub float %sub.i75, %mul97
   %mul101 = fmul float %add.i, %v1.0.ph
@@ -15173,13 +15154,13 @@ if.then94:                                        ; preds = %if.end78
   %retval.sroa.0.4.vec.insert128 = insertelement <2 x float> %retval.sroa.0.0.vec.insert120, float %v1.0.ph, i64 1
   br label %return
 
-if.end104:                                        ; preds = %if.end78
+if.end104:                                        ; preds = %if.end6.i
   %retval.sroa.0.0.vec.insert122 = insertelement <2 x float> poison, float %div87, i64 0
   %retval.sroa.0.4.vec.insert130 = insertelement <2 x float> %retval.sroa.0.0.vec.insert122, float %v0.0.ph, i64 1
   br label %return
 
-return:                                           ; preds = %if.then.i, %if.end3.i, %if.end104, %if.then94, %if.else, %if.then52
-  %retval.sroa.0.0 = phi <2 x float> [ %24, %if.then52 ], [ %29, %if.else ], [ %retval.sroa.0.4.vec.insert128, %if.then94 ], [ %retval.sroa.0.4.vec.insert130, %if.end104 ], [ zeroinitializer, %if.end3.i ], [ zeroinitializer, %if.then.i ]
+return:                                           ; preds = %if.end3.i, %if.end104, %if.then94, %if.else, %if.then52
+  %retval.sroa.0.0 = phi <2 x float> [ %24, %if.then52 ], [ %29, %if.else ], [ %retval.sroa.0.4.vec.insert128, %if.then94 ], [ %retval.sroa.0.4.vec.insert130, %if.end104 ], [ zeroinitializer, %if.end3.i ]
   ret <2 x float> %retval.sroa.0.0
 }
 

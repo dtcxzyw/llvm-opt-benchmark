@@ -85,7 +85,7 @@ _ZN5alloc5alloc6Global10alloc_impl17h47964f117d82e2b7E.exit: ; preds = %7, %9
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$6shrink17h38b58f21cc232f98E"(ptr nocapture readnone align 1 %0, ptr %1, i64 %2, i64 %3, i64 %4, i64 %5) unnamed_addr #2 {
   %7 = icmp eq i64 %5, 0
-  br i1 %7, label %8, label %17
+  br i1 %7, label %8, label %16
 
 8:                                                ; preds = %6
   %9 = icmp eq i64 %3, 0
@@ -103,47 +103,45 @@ define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..all
   %14 = icmp sgt i64 %13, -1
   tail call void @llvm.assume(i1 %14)
   %15 = inttoptr i64 %4 to ptr
-  %16 = icmp ne i64 %4, 0
-  tail call void @llvm.assume(i1 %16)
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7746c340d82dff9cE.exit60"
 
-17:                                               ; preds = %6
-  %18 = add i64 %2, -1
-  %19 = icmp sgt i64 %18, -1
-  tail call void @llvm.assume(i1 %19)
-  %20 = add i64 %4, -1
-  %21 = icmp sgt i64 %20, -1
-  tail call void @llvm.assume(i1 %21)
-  %22 = icmp eq i64 %2, %4
-  br i1 %22, label %25, label %_ZN5alloc5alloc6Global10alloc_impl17h47964f117d82e2b7E.exit
+16:                                               ; preds = %6
+  %17 = add i64 %2, -1
+  %18 = icmp sgt i64 %17, -1
+  tail call void @llvm.assume(i1 %18)
+  %19 = add i64 %4, -1
+  %20 = icmp sgt i64 %19, -1
+  tail call void @llvm.assume(i1 %20)
+  %21 = icmp eq i64 %2, %4
+  br i1 %21, label %24, label %_ZN5alloc5alloc6Global10alloc_impl17h47964f117d82e2b7E.exit
 
-_ZN5alloc5alloc6Global10alloc_impl17h47964f117d82e2b7E.exit: ; preds = %17
-  %23 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %24 = tail call ptr @__rust_alloc(i64 %5, i64 %4) #10
-  %.not = icmp eq ptr %24, null
-  br i1 %.not, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7746c340d82dff9cE.exit60", label %28
+_ZN5alloc5alloc6Global10alloc_impl17h47964f117d82e2b7E.exit: ; preds = %16
+  %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %23 = tail call ptr @__rust_alloc(i64 %5, i64 %4) #10
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7746c340d82dff9cE.exit60", label %27
 
-25:                                               ; preds = %17
-  %26 = icmp ule i64 %5, %3
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call ptr @__rust_realloc(ptr %1, i64 %3, i64 %2, i64 %5) #10
+24:                                               ; preds = %16
+  %25 = icmp ule i64 %5, %3
+  tail call void @llvm.assume(i1 %25)
+  %26 = tail call ptr @__rust_realloc(ptr %1, i64 %3, i64 %2, i64 %5) #10
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7746c340d82dff9cE.exit60"
 
-28:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h47964f117d82e2b7E.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %1, i64 %5, i1 false)
-  %29 = icmp eq i64 %3, 0
-  br i1 %29, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7746c340d82dff9cE.exit60", label %30
+27:                                               ; preds = %_ZN5alloc5alloc6Global10alloc_impl17h47964f117d82e2b7E.exit
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %1, i64 %5, i1 false)
+  %28 = icmp eq i64 %3, 0
+  br i1 %28, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7746c340d82dff9cE.exit60", label %29
 
-30:                                               ; preds = %28
+29:                                               ; preds = %27
   tail call void @__rust_dealloc(ptr %1, i64 %3, i64 %2) #10
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7746c340d82dff9cE.exit60"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7746c340d82dff9cE.exit60": ; preds = %30, %28, %25, %_ZN5alloc5alloc6Global10alloc_impl17h47964f117d82e2b7E.exit, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7746c340d82dff9cE.exit"
-  %.sroa.6.0 = phi i64 [ 0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7746c340d82dff9cE.exit" ], [ undef, %_ZN5alloc5alloc6Global10alloc_impl17h47964f117d82e2b7E.exit ], [ %5, %25 ], [ %5, %28 ], [ %5, %30 ]
-  %.sroa.0.0 = phi ptr [ %15, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7746c340d82dff9cE.exit" ], [ null, %_ZN5alloc5alloc6Global10alloc_impl17h47964f117d82e2b7E.exit ], [ %27, %25 ], [ %24, %28 ], [ %24, %30 ]
-  %31 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %32 = insertvalue { ptr, i64 } %31, i64 %.sroa.6.0, 1
-  ret { ptr, i64 } %32
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7746c340d82dff9cE.exit60": ; preds = %29, %27, %24, %_ZN5alloc5alloc6Global10alloc_impl17h47964f117d82e2b7E.exit, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7746c340d82dff9cE.exit"
+  %.sroa.6.0 = phi i64 [ 0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7746c340d82dff9cE.exit" ], [ undef, %_ZN5alloc5alloc6Global10alloc_impl17h47964f117d82e2b7E.exit ], [ %5, %24 ], [ %5, %27 ], [ %5, %29 ]
+  %.sroa.0.0 = phi ptr [ %15, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7746c340d82dff9cE.exit" ], [ null, %_ZN5alloc5alloc6Global10alloc_impl17h47964f117d82e2b7E.exit ], [ %26, %24 ], [ %23, %27 ], [ %23, %29 ]
+  %30 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %31 = insertvalue { ptr, i64 } %30, i64 %.sroa.6.0, 1
+  ret { ptr, i64 } %31
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
