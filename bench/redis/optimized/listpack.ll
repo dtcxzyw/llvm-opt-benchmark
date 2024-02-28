@@ -4115,10 +4115,8 @@ if.end50.i.i:                                     ; preds = %if.end43.i.i
 if.end12.i:                                       ; preds = %if.end50.i.i, %if.end43.i.i, %if.end9.i
   %retval.0.i.ph.i = phi i64 [ 2, %if.end43.i.i ], [ 1, %if.end9.i ], [ 5, %if.end50.i.i ]
   %add.ptr13.i = getelementptr inbounds i8, ptr %add.ptr.i.i25, i64 %retval.0.i.ph.i
-  %cmp15.i = icmp ult ptr %add.ptr13.i, %add.ptr.i
   %cmp22.i = icmp ugt ptr %add.ptr13.i, %gep
-  %or.cond.i = or i1 %cmp15.i, %cmp22.i
-  br i1 %or.cond.i, label %cond.false.i.i32, label %if.end25.i
+  br i1 %cmp22.i, label %cond.false.i.i32, label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.end12.i
   br i1 %cmp.i.i41, label %lpEncodeBacklen.exit.i, label %if.end.i.i43
